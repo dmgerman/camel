@@ -428,6 +428,19 @@ name|newExchange
 parameter_list|)
 block|{
 comment|// put order together in old exchange by adding the order from new exchange
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// the first time we aggregate we only have the new exchange,
+comment|// so we just return it
+return|return
+name|newExchange
+return|;
+block|}
 comment|// copy from OUT as we use InOut pattern
 name|String
 name|orders

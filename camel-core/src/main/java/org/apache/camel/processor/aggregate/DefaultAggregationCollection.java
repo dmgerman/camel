@@ -60,6 +60,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -79,6 +93,20 @@ operator|.
 name|camel
 operator|.
 name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -174,6 +202,16 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|counter
+specifier|private
+specifier|final
+name|AtomicInteger
+name|counter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|method|DefaultAggregationCollection ()
 specifier|public
 name|DefaultAggregationCollection
@@ -247,13 +285,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Evaluated expression: "
 operator|+
@@ -280,6 +318,11 @@ name|newExchange
 init|=
 name|exchange
 decl_stmt|;
+name|Integer
+name|size
+init|=
+literal|1
+decl_stmt|;
 if|if
 condition|(
 name|oldExchange
@@ -287,9 +330,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Integer
-name|count
-init|=
+name|size
+operator|=
 name|oldExchange
 operator|.
 name|getProperty
@@ -302,22 +344,26 @@ name|Integer
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|count
-operator|==
-literal|null
-condition|)
-block|{
-name|count
-operator|=
-literal|1
 expr_stmt|;
-block|}
-name|count
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|size
+argument_list|,
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+operator|+
+literal|" on "
+operator|+
+name|oldExchange
+argument_list|)
+expr_stmt|;
+name|size
 operator|++
 expr_stmt|;
+block|}
 name|newExchange
 operator|=
 name|aggregationStrategy
@@ -337,10 +383,24 @@ name|Exchange
 operator|.
 name|AGGREGATED_SIZE
 argument_list|,
-name|count
+name|size
 argument_list|)
 expr_stmt|;
-block|}
+comment|// update the index counter
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_INDEX
+argument_list|,
+name|counter
+operator|.
+name|getAndIncrement
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// the strategy may just update the old exchange and return it
 if|if
 condition|(
@@ -357,13 +417,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Put exchange:"
 operator|+
@@ -372,30 +432,6 @@ operator|+
 literal|" with coorelation key:"
 operator|+
 name|correlationKey
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|oldExchange
-operator|==
-literal|null
-condition|)
-block|{
-name|newExchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
-argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
-literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -465,8 +501,15 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|counter
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
-DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
+DECL|method|onAggregation (Object correlationKey, Exchange exchange)
 specifier|public
 name|void
 name|onAggregation
@@ -475,7 +518,7 @@ name|Object
 name|correlationKey
 parameter_list|,
 name|Exchange
-name|newExchange
+name|exchange
 parameter_list|)
 block|{     }
 DECL|method|getCorrelationExpression ()

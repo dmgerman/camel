@@ -146,6 +146,17 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|newExchange
+return|;
+block|}
 name|SyndFeed
 name|oldFeed
 init|=

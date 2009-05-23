@@ -146,7 +146,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
+DECL|method|onAggregation (Object correlationKey, Exchange exchange)
 specifier|public
 name|void
 name|onAggregation
@@ -155,7 +155,7 @@ name|Object
 name|correlationKey
 parameter_list|,
 name|Exchange
-name|newExchange
+name|exchange
 parameter_list|)
 block|{
 if|if
@@ -164,7 +164,7 @@ name|aggregationCompletedPredicate
 operator|.
 name|matches
 argument_list|(
-name|newExchange
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -183,7 +183,7 @@ name|collection
 operator|.
 name|add
 argument_list|(
-name|newExchange
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}

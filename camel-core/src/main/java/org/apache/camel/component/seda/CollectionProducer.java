@@ -138,14 +138,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|queue
-operator|.
-name|add
-argument_list|(
+comment|// TODO: We should consider using newCopy(true) as the async() DSL
+name|Exchange
+name|copy
+init|=
 name|exchange
 operator|.
 name|copy
 argument_list|()
+decl_stmt|;
+name|queue
+operator|.
+name|add
+argument_list|(
+name|copy
 argument_list|)
 expr_stmt|;
 block|}

@@ -432,6 +432,18 @@ name|Boolean
 name|groupExchanges
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|batchConsumer
+specifier|private
+name|Boolean
+name|batchConsumer
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -921,6 +933,21 @@ name|groupExchanges
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|batchConsumer
+operator|!=
+literal|null
+condition|)
+block|{
+name|aggregator
+operator|.
+name|setBatchConsumer
+argument_list|(
+name|batchConsumer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|aggregator
 return|;
@@ -1262,8 +1289,50 @@ operator|=
 name|groupExchanges
 expr_stmt|;
 block|}
+DECL|method|getBatchConsumer ()
+specifier|public
+name|Boolean
+name|getBatchConsumer
+parameter_list|()
+block|{
+return|return
+name|batchConsumer
+return|;
+block|}
+DECL|method|setBatchConsumer (Boolean batchConsumer)
+specifier|public
+name|void
+name|setBatchConsumer
+parameter_list|(
+name|Boolean
+name|batchConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|batchConsumer
+operator|=
+name|batchConsumer
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Enables the batch completion mode where we aggregate from a {@link org.apache.camel.BatchConsumer}      * and aggregate the total number of exchanges the {@link org.apache.camel.BatchConsumer} has reported      * as total by setting the exchange property {@link org.apache.camel.Exchange#BATCH_SIZE}.      *      * @return builder      */
+DECL|method|batchConsumer ()
+specifier|public
+name|AggregateDefinition
+name|batchConsumer
+parameter_list|()
+block|{
+name|setBatchConsumer
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the in batch size for number of exchanges received      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|batchSize (int batchSize)
 specifier|public

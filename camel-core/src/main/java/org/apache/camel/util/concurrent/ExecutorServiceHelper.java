@@ -66,6 +66,20 @@ name|ThreadFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *  * @version $Revision$  */
 end_comment
@@ -80,8 +94,12 @@ block|{
 DECL|field|threadCounter
 specifier|private
 specifier|static
-name|int
+name|AtomicInteger
 name|threadCounter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|method|ExecutorServiceHelper ()
 specifier|private
@@ -90,7 +108,7 @@ parameter_list|()
 block|{     }
 comment|/**      * Creates a new thread name with the given prefix      */
 DECL|method|getThreadName (String name)
-specifier|protected
+specifier|public
 specifier|static
 name|String
 name|getThreadName
@@ -119,8 +137,10 @@ name|nextThreadCounter
 parameter_list|()
 block|{
 return|return
-operator|++
 name|threadCounter
+operator|.
+name|getAndIncrement
+argument_list|()
 return|;
 block|}
 DECL|method|newScheduledThreadPool (final int poolSize, final String name, final boolean daemon)

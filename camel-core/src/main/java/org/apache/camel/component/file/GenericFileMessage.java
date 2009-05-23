@@ -176,11 +176,33 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|Object
+name|body
+init|=
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|GenericFile
+condition|)
+block|{
 return|return
-literal|"GenericFileMessage: "
+literal|"GenericFileMessage with file: "
 operator|+
-name|file
+name|body
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|"GenericFileMessage with body: "
+operator|+
+name|body
+return|;
+block|}
 block|}
 block|}
 end_class

@@ -4,91 +4,54 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|spring
-operator|.
-name|processor
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|CamelContext
+name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|MulticastAnotherAggregatorTest
-import|;
-end_import
+begin_comment
+comment|/**  * A consumer of a batch of message exchanges from an {@link Endpoint}  *  * @version $Revision$  */
+end_comment
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
-import|;
-end_import
-
-begin_class
-DECL|class|SpringMulticastAggregatorTest
+begin_interface
+DECL|interface|BatchConsumer
 specifier|public
-class|class
-name|SpringMulticastAggregatorTest
+interface|interface
+name|BatchConsumer
 extends|extends
-name|MulticastAnotherAggregatorTest
+name|Consumer
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
+comment|/**      * Processes the list of {@link org.apache.camel.Exchange} in a batch.      *<p/>      * Each message exchange will be processed individually but the batch      * consumer will add properties with the current index and total in the batch.      *      * @param exchanges list of exchanges in this batch      * @throws Exception if an internal processing error has occurred.      */
+DECL|method|processBatch (List<Exchange> exchanges)
+name|void
+name|processBatch
+parameter_list|(
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+parameter_list|)
 throws|throws
 name|Exception
-block|{
-return|return
-name|createSpringCamelContext
-argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/processor/multicastAggregator.xml"
-argument_list|)
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

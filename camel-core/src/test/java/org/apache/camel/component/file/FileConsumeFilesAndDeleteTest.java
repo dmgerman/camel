@@ -87,10 +87,10 @@ comment|/**  * Unit test for consuming the same filename only.  */
 end_comment
 
 begin_class
-DECL|class|FileConsumeFilesAndDelete
+DECL|class|FileConsumeFilesAndDeleteTest
 specifier|public
 class|class
-name|FileConsumeFilesAndDelete
+name|FileConsumeFilesAndDeleteTest
 extends|extends
 name|ContextTestSupport
 block|{

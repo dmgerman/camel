@@ -87,10 +87,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FileAbsoluteAndRelativeConsumer
+DECL|class|FileAbsoluteAndRelativeConsumerTest
 specifier|public
 class|class
-name|FileAbsoluteAndRelativeConsumer
+name|FileAbsoluteAndRelativeConsumerTest
 extends|extends
 name|ContextTestSupport
 block|{

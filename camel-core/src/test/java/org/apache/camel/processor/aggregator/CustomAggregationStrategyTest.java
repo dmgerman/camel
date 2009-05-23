@@ -284,6 +284,18 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// the first time we only have the new exchange so it wins the first round
+return|return
+name|newExchange
+return|;
+block|}
 name|int
 name|oldPrice
 init|=

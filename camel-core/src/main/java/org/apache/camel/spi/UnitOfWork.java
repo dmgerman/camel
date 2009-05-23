@@ -56,6 +56,15 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
+comment|/**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *       * @param target  the target exchange      */
+DECL|method|handoverSynchronization (Exchange target)
+name|void
+name|handoverSynchronization
+parameter_list|(
+name|Exchange
+name|target
+parameter_list|)
+function_decl|;
 comment|/**      * Invoked when this unit of work has been completed, whether it has failed or completed      *      * @param exchange the current exchange      */
 DECL|method|done (Exchange exchange)
 name|void

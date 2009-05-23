@@ -128,11 +128,6 @@ name|Aggregator
 extends|extends
 name|BatchProcessor
 block|{
-DECL|field|aggregationCompletedPredicate
-specifier|private
-name|Predicate
-name|aggregationCompletedPredicate
-decl_stmt|;
 DECL|method|Aggregator (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Aggregator
@@ -192,12 +187,6 @@ argument_list|,
 name|aggregationCompletedPredicate
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|aggregationCompletedPredicate
-operator|=
-name|aggregationCompletedPredicate
 expr_stmt|;
 block|}
 DECL|method|Aggregator (Processor processor, AggregationCollection collection)

@@ -212,7 +212,8 @@ block|{
 comment|// no output then return
 return|return;
 block|}
-comment|// use a new copy of the exchange to route async
+comment|// use a new copy of the exchange to route async and handover the on completion to the new copy
+comment|// so its the new copy that performs the on completion callback when its done
 specifier|final
 name|Exchange
 name|copy
@@ -220,7 +221,9 @@ init|=
 name|exchange
 operator|.
 name|newCopy
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// let it execute async and return the Future
 name|Callable

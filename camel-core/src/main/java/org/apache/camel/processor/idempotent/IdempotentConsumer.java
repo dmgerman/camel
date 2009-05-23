@@ -334,6 +334,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// register our on completion callback
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+operator|new
+name|IdempotentOnCompletion
+argument_list|(
+name|idempotentRepository
+argument_list|,
+name|messageId
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// process it first
 name|processor
 operator|.
@@ -342,34 +356,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// then test wheter it was failed or not
-if|if
-condition|(
-operator|!
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
-condition|)
-block|{
-name|onCompletedMessage
-argument_list|(
-name|exchange
-argument_list|,
-name|messageId
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|onFailedMessage
-argument_list|(
-name|exchange
-argument_list|,
-name|messageId
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|next ()
@@ -528,90 +514,6 @@ operator|+
 literal|" for exchange: "
 operator|+
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|onCompletedMessage (Exchange exchange, String messageId)
-specifier|protected
-name|void
-name|onCompletedMessage
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|String
-name|messageId
-parameter_list|)
-block|{
-name|idempotentRepository
-operator|.
-name|add
-argument_list|(
-name|messageId
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Added to repository with id: "
-operator|+
-name|messageId
-operator|+
-literal|" for exchange: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-DECL|method|onFailedMessage (Exchange exchange, String messageId)
-specifier|protected
-name|void
-name|onFailedMessage
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|String
-name|messageId
-parameter_list|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Not added to repository as exchange failed: "
-operator|+
-name|exchange
-operator|+
-literal|" with id: "
-operator|+
-name|messageId
 argument_list|)
 expr_stmt|;
 block|}

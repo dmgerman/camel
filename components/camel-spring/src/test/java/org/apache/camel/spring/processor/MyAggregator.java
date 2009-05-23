@@ -128,6 +128,17 @@ name|newExchange
 parameter_list|)
 block|{
 comment|// lets append the old body to the new body
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|newExchange
+return|;
+block|}
 name|String
 name|body
 init|=

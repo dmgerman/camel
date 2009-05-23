@@ -777,6 +777,15 @@ name|ScheduledExecutorService
 name|createScheduledExecutorService
 parameter_list|()
 block|{
+name|String
+name|name
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 return|return
 name|ExecutorServiceHelper
 operator|.
@@ -784,10 +793,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|DEFAULT_THREADPOOL_SIZE
 argument_list|,
-name|this
-operator|.
-name|toString
-argument_list|()
+name|name
 argument_list|,
 literal|true
 argument_list|)

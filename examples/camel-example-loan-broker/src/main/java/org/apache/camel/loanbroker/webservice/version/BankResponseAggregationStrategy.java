@@ -101,6 +101,18 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+comment|// the first time we only have the new exchange
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|newExchange
+return|;
+block|}
 comment|// Get the bank quote instance from the exchange
 name|BankQuote
 name|oldQuote
