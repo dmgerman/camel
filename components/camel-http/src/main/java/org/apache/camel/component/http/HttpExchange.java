@@ -211,7 +211,6 @@ name|HttpServletRequest
 name|request
 parameter_list|)
 block|{
-comment|// TODO for now just default to InOut?
 return|return
 name|ExchangePattern
 operator|.
