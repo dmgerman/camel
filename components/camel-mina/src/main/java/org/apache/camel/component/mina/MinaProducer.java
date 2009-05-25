@@ -364,6 +364,20 @@ name|isSync
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+comment|// the producer should not be singleton otherwise cannot use concurrent producers and safely
+comment|// use request/reply with correct correlation
+return|return
+literal|false
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

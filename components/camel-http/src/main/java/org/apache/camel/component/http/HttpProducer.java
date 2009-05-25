@@ -1331,19 +1331,28 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|warn
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Missing the ContentType in the request entity for the URI "
+literal|"No Content-Type provided for URI: "
 operator|+
 name|uri
 operator|+
-literal|". The method is "
+literal|" with exchange: "
 operator|+
-name|method
+name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

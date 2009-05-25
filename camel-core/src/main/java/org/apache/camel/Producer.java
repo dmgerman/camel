@@ -27,6 +27,8 @@ extends|extends
 name|Processor
 extends|,
 name|Service
+extends|,
+name|IsSingleton
 block|{
 comment|/**      * Gets the endpoint this producer sends to.      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
