@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -750,6 +762,21 @@ parameter_list|()
 block|{
 return|return
 name|restletRealm
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExchangePattern ()
+specifier|public
+name|ExchangePattern
+name|getExchangePattern
+parameter_list|()
+block|{
+comment|// should always use in out for restlet
+return|return
+name|ExchangePattern
+operator|.
+name|InOut
 return|;
 block|}
 block|}

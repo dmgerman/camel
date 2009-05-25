@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -86,7 +76,7 @@ name|Response
 name|response
 parameter_list|)
 function_decl|;
-comment|/**      * Populate Camel message from Restlet request      *       * @param request message to be copied from      * @param exchange to be populated      * @throws Exception       */
+comment|/**      * Populate Camel message from Restlet request      *       * @param request message to be copied from      * @param exchange to be populated      * @throws Exception is thrown if error processing      */
 DECL|method|populateExchangeFromRestletRequest (Request request, Exchange exchange)
 name|void
 name|populateExchangeFromRestletRequest
@@ -112,7 +102,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Populate Camel message from Restlet response      *       * @param exchange to be populated      * @param response message to be copied from      * @throws IOException       */
+comment|/**      * Populate Camel message from Restlet response      *       * @param exchange to be populated      * @param response message to be copied from      * @throws Exception is thrown if error processing      */
 DECL|method|populateExchangeFromRestletResponse (Exchange exchange, Response response)
 name|void
 name|populateExchangeFromRestletResponse
@@ -124,7 +114,7 @@ name|Response
 name|response
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 function_decl|;
 block|}
 end_interface

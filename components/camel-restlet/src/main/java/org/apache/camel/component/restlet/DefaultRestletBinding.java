@@ -24,16 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|PrintWriter
 import|;
 end_import
@@ -311,7 +301,6 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
-comment|/**      * Populate Camel message from Restlet request      *       * @param request message to be copied from      * @param exchange to be populated      * @throws Exception       */
 DECL|method|populateExchangeFromRestletRequest (Request request, Exchange exchange)
 specifier|public
 name|void
@@ -436,9 +425,9 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-literal|null
-operator|!=
 name|query
+operator|!=
+literal|null
 condition|)
 block|{
 name|inMessage
@@ -464,7 +453,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// TODO: What is this form used for? Doesnt make sence in the code below as form is never used
 name|Form
 name|form
 init|=
@@ -477,13 +465,6 @@ name|getEntity
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|form
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|Map
@@ -618,8 +599,6 @@ block|}
 block|}
 block|}
 block|}
-block|}
-comment|/**      * Populate Restlet Request from Camel message      *       * @param request to be populated      * @param exchange message to be copied from      */
 DECL|method|populateRestletRequestFromExchange (Request request, Exchange exchange)
 specifier|public
 name|void
@@ -919,7 +898,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Populate Restlet request from Camel message      *        * @param exchange message to be copied from       * @param response to be populated      */
 DECL|method|populateRestletResponseFromExchange (Exchange exchange, Response response)
 specifier|public
 name|void
@@ -1313,7 +1291,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Populate Camel message from Restlet response      *       * @param exchange to be populated      * @param response message to be copied from      * @throws IOException       */
 DECL|method|populateExchangeFromRestletResponse (Exchange exchange, Response response)
 specifier|public
 name|void
@@ -1326,7 +1303,7 @@ name|Response
 name|response
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 for|for
 control|(
@@ -1478,6 +1455,13 @@ argument_list|(
 literal|"Exchange is incapable of receiving response: "
 operator|+
 name|exchange
+operator|+
+literal|" with pattern: "
+operator|+
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
 argument_list|)
 throw|;
 block|}
