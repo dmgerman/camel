@@ -121,8 +121,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: Bug CAMEL-1641 is fixed by CAMEL-1644
-comment|// doSendMessages(10, 5);
+name|doSendMessages
+argument_list|(
+literal|10
+argument_list|,
+literal|5
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doSendMessages (int files, int poolSize)
 specifier|private
