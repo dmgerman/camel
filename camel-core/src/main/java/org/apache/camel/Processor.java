@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/processor.html">processor</a> is  * used to implement the   *<a href="http://camel.apache.org/event-driven-consumer.html">  * Event Driven Consumer</a> and   *<a href="http://camel.apache.org/message-translator.html">  * Message Translator</a> patterns and to process message exchanges.  *   * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/processor.html">processor</a> is used to implement the  *<a href="http://camel.apache.org/event-driven-consumer.html"> Event Driven Consumer</a>  * and<a href="http://camel.apache.org/message-translator.html"> Message Translator</a>  * patterns and to process message exchanges.  *   * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|Processor
 block|{
-comment|/**      * Processes the message exchange      *       * @throws Exception if an internal processing error has occurred.      */
+comment|/**      * Processes the message exchange      *       * @param exchange the message exchange      * @throws Exception if an internal processing error has occurred.      */
 DECL|method|process (Exchange exchange)
 name|void
 name|process

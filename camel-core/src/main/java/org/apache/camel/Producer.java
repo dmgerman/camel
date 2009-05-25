@@ -28,6 +28,7 @@ name|Processor
 extends|,
 name|Service
 block|{
+comment|/**      * Gets the endpoint this producer sends to.      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint
 name|getEndpoint
@@ -39,7 +40,7 @@ name|Exchange
 name|createExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new exchange of the given pattern to send to this endpoint      *      * @return a newly created exchange      */
+comment|/**      * Creates a new exchange of the given pattern to send to this endpoint      *      * @param pattern the exchange pattern      * @return a newly created exchange      */
 DECL|method|createExchange (ExchangePattern pattern)
 name|Exchange
 name|createExchange
@@ -48,7 +49,7 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      */
+comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange the existing exchange      * @return the created exchange      */
 DECL|method|createExchange (Exchange exchange)
 name|Exchange
 name|createExchange
