@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -131,6 +143,8 @@ name|GenericFileProducer
 argument_list|<
 name|T
 argument_list|>
+implements|implements
+name|IsSingleton
 block|{
 DECL|field|loggedIn
 specifier|private
@@ -557,6 +571,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+comment|// this producer is stateful because the remote file operations is not thread safe
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class

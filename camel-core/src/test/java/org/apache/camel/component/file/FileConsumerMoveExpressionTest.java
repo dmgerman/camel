@@ -693,17 +693,6 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setOperations
-argument_list|(
-operator|new
-name|FileOperations
-argument_list|(
-name|endpoint
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|setAutoCreate
 argument_list|(
 literal|false

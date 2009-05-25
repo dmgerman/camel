@@ -152,7 +152,7 @@ parameter_list|()
 block|{
 comment|// no args constructor for spring bean endpoint configuration
 block|}
-DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent<T> component, RemoteFileOperations<T> operations, RemoteFileConfiguration configuration)
+DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent<T> component, RemoteFileConfiguration configuration)
 specifier|public
 name|RemoteFileEndpoint
 parameter_list|(
@@ -165,12 +165,6 @@ name|T
 argument_list|>
 name|component
 parameter_list|,
-name|RemoteFileOperations
-argument_list|<
-name|T
-argument_list|>
-name|operations
-parameter_list|,
 name|RemoteFileConfiguration
 name|configuration
 parameter_list|)
@@ -181,12 +175,6 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|operations
-operator|=
-name|operations
 expr_stmt|;
 name|this
 operator|.
@@ -273,24 +261,8 @@ name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
 return|return
-operator|new
-name|RemoteFileProducer
-argument_list|<
-name|T
-argument_list|>
-argument_list|(
-name|this
-argument_list|,
-operator|(
-name|RemoteFileOperations
-argument_list|<
-name|T
-argument_list|>
-operator|)
-name|this
-operator|.
-name|operations
-argument_list|)
+name|buildProducer
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -321,14 +293,6 @@ init|=
 name|buildConsumer
 argument_list|(
 name|processor
-argument_list|,
-operator|(
-name|RemoteFileOperations
-argument_list|<
-name|T
-argument_list|>
-operator|)
-name|operations
 argument_list|)
 decl_stmt|;
 comment|// we assume its a file if the name has a dot in it (eg foo.txt)
@@ -449,15 +413,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|operations
-argument_list|,
-literal|"operations"
-argument_list|)
-expr_stmt|;
 name|RemoteFileConfiguration
 name|config
 init|=
@@ -510,8 +465,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Remote File Endpoints, impl this method to create a custom consumer specific to their "protocol" etc.      *      * @param processor  the processor      * @param operations the operations      * @return the created consumer      */
-DECL|method|buildConsumer (Processor processor, RemoteFileOperations<T> operations)
+comment|/**      * Remote File Endpoints, impl this method to create a custom consumer specific to their "protocol" etc.      *      * @param processor  the processor      * @return the created consumer      */
+DECL|method|buildConsumer (Processor processor)
 specifier|protected
 specifier|abstract
 name|RemoteFileConsumer
@@ -522,13 +477,18 @@ name|buildConsumer
 parameter_list|(
 name|Processor
 name|processor
-parameter_list|,
-name|RemoteFileOperations
+parameter_list|)
+function_decl|;
+comment|/**      * Remote File Endpoints, impl this method to create a custom producer specific to their "protocol" etc.      *      * @return the created producer      */
+DECL|method|buildProducer ()
+specifier|protected
+specifier|abstract
+name|GenericFileProducer
 argument_list|<
 name|T
 argument_list|>
-name|operations
-parameter_list|)
+name|buildProducer
+parameter_list|()
 function_decl|;
 comment|/**      * Returns human readable server information for logging purpose      */
 DECL|method|remoteServerInformation ()

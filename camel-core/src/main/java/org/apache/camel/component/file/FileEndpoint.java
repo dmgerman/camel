@@ -388,32 +388,6 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|getOperations ()
-specifier|public
-name|FileOperations
-name|getOperations
-parameter_list|()
-block|{
-return|return
-name|operations
-return|;
-block|}
-DECL|method|setOperations (FileOperations operations)
-specifier|public
-name|void
-name|setOperations
-parameter_list|(
-name|FileOperations
-name|operations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|operations
-operator|=
-name|operations
-expr_stmt|;
-block|}
 DECL|method|getFile ()
 specifier|public
 name|File

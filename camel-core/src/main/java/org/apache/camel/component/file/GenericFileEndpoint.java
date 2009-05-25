@@ -337,14 +337,6 @@ name|T
 argument_list|>
 name|processStrategy
 decl_stmt|;
-DECL|field|operations
-specifier|protected
-name|GenericFileOperations
-argument_list|<
-name|T
-argument_list|>
-name|operations
-decl_stmt|;
 DECL|field|configuration
 specifier|protected
 name|GenericFileConfiguration
@@ -1587,38 +1579,6 @@ operator|.
 name|autoCreate
 operator|=
 name|autoCreate
-expr_stmt|;
-block|}
-DECL|method|getOperations ()
-specifier|public
-name|GenericFileOperations
-argument_list|<
-name|T
-argument_list|>
-name|getOperations
-parameter_list|()
-block|{
-return|return
-name|operations
-return|;
-block|}
-DECL|method|setOperations (GenericFileOperations<T> operations)
-specifier|public
-name|void
-name|setOperations
-parameter_list|(
-name|GenericFileOperations
-argument_list|<
-name|T
-argument_list|>
-name|operations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|operations
-operator|=
-name|operations
 expr_stmt|;
 block|}
 DECL|method|getProcessStrategy ()
