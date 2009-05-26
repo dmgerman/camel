@@ -29,6 +29,15 @@ specifier|final
 class|class
 name|IBatisConstants
 block|{
+DECL|field|IBATIS_RESULT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IBATIS_RESULT
+init|=
+literal|"CamelIBatisResult"
+decl_stmt|;
 DECL|field|IBATIS_STATEMENT_NAME
 specifier|public
 specifier|static
