@@ -26,16 +26,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -60,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
+name|ServicePoolAware
 import|;
 end_import
 
@@ -144,7 +134,7 @@ argument_list|<
 name|T
 argument_list|>
 implements|implements
-name|IsSingleton
+name|ServicePoolAware
 block|{
 DECL|field|loggedIn
 specifier|private

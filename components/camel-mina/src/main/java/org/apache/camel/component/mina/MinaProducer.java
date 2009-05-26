@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServicePoolAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -255,6 +267,8 @@ class|class
 name|MinaProducer
 extends|extends
 name|DefaultProducer
+implements|implements
+name|ServicePoolAware
 block|{
 DECL|field|LOG
 specifier|private

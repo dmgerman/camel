@@ -363,21 +363,6 @@ return|return
 name|destination
 return|;
 block|}
-DECL|method|getProducer ()
-specifier|protected
-name|Producer
-name|getProducer
-parameter_list|()
-block|{
-return|return
-name|producerCache
-operator|.
-name|getProducer
-argument_list|(
-name|destination
-argument_list|)
-return|;
-block|}
 DECL|method|configureExchange (Exchange exchange, ExchangePattern pattern)
 specifier|protected
 name|Exchange

@@ -2265,24 +2265,6 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getProducer (Endpoint endpoint)
-specifier|public
-name|Producer
-name|getProducer
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-return|return
-name|producerCache
-operator|.
-name|getProducer
-argument_list|(
-name|endpoint
-argument_list|)
-return|;
-block|}
 DECL|method|getContext ()
 specifier|public
 name|CamelContext

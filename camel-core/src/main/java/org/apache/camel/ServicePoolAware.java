@@ -4,50 +4,26 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TypeConverter
-import|;
-end_import
-
 begin_comment
-comment|/**  * An interface for an object which is interested in being injected with the root {@link TypeConverter}  * such as for implementing a fallback type converter  *  * @see org.apache.camel.impl.converter.DefaultTypeConverter#addFallbackTypeConverter(org.apache.camel.TypeConverter)  *         DefaultTypeConverter.addFallbackConverter  * @version $Revision$  */
+comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.ServicePool}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|TypeConverterAware
+DECL|interface|ServicePoolAware
 specifier|public
 interface|interface
-name|TypeConverterAware
-block|{
-comment|/**      * Injects the root type converter.      *      * @param parentTypeConverter the root type converter      */
-DECL|method|setTypeConverter (TypeConverter parentTypeConverter)
-name|void
-name|setTypeConverter
-parameter_list|(
-name|TypeConverter
-name|parentTypeConverter
-parameter_list|)
-function_decl|;
-block|}
+name|ServicePoolAware
+block|{ }
 end_interface
 
 end_unit
