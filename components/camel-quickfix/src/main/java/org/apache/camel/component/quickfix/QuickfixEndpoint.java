@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixEndpoint is the common class for quickfix endpoints  *<p/>  * Usage example:  *<p/>  * from("quickfix-server:acceptor.cfg[?params]").to("someBean", "someMethod").to("quickfix-client:initiator.cfg[?params]");  *<p/>  *  * @author Anton Arhipov  * @see org.apache.camel.quickfix.QuickfixInitiator  * @see org.apache.camel.quickfix.QuickfixAcceptor  */
+comment|/**  * QuickfixEndpoint is the common class for quickfix endpoints  *<p/>  * Usage example:  *<p/>  * from("quickfix-server:acceptor.cfg[?params]").to("someBean", "someMethod").to("quickfix-client:initiator.cfg[?params]");  *<p/>  *  * @see org.apache.camel.quickfix.QuickfixInitiator  * @see org.apache.camel.quickfix.QuickfixAcceptor  */
 end_comment
 
 begin_class
@@ -315,6 +315,11 @@ DECL|field|application
 specifier|private
 name|QuickfixApplication
 name|application
+decl_stmt|;
+DECL|field|settings
+specifier|private
+name|SessionSettings
+name|settings
 decl_stmt|;
 DECL|method|QuickfixEndpoint (String uri, CamelContext context, String configuration)
 specifier|public
@@ -562,6 +567,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|settings
+operator|==
+literal|null
+condition|)
+block|{
 name|Resource
 name|configResource
 init|=
@@ -587,15 +599,15 @@ operator|+
 name|configuration
 argument_list|)
 expr_stmt|;
-name|SessionSettings
 name|settings
-init|=
+operator|=
 operator|new
 name|SessionSettings
 argument_list|(
 name|inputStream
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|MessageStoreFactory
 name|storeFactory
 init|=
@@ -615,7 +627,6 @@ decl_stmt|;
 name|createApplication
 argument_list|()
 expr_stmt|;
-comment|/*          * ClassLoader ccl = Thread.currentThread().getContextClassLoader(); try          * {          * Thread.currentThread().setContextClassLoader(getClass().getClassLoader          * ());          */
 name|start
 argument_list|(
 name|application
@@ -627,7 +638,6 @@ argument_list|,
 name|logFactory
 argument_list|)
 expr_stmt|;
-comment|/*          * } finally { Thread.currentThread().setContextClassLoader(ccl); }          */
 block|}
 DECL|method|start (Application application, MessageStoreFactory storeFactory, SessionSettings settings, LogFactory logFactory)
 specifier|protected
@@ -836,6 +846,22 @@ operator|.
 name|strict
 operator|=
 name|strict
+expr_stmt|;
+block|}
+DECL|method|setSettings (SessionSettings settings)
+specifier|public
+name|void
+name|setSettings
+parameter_list|(
+name|SessionSettings
+name|settings
+parameter_list|)
+block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
 expr_stmt|;
 block|}
 DECL|method|getResource ()

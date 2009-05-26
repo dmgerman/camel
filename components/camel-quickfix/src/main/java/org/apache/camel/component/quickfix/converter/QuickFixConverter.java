@@ -92,22 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|quickfix
-operator|.
-name|QuickfixApplication
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -159,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Anton Arhipov  */
+comment|/**  * The<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  * for QuickFix related types' converting .  *  */
 end_comment
 
 begin_class
@@ -418,6 +402,30 @@ name|message
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toMessage (String message)
+specifier|public
+specifier|static
+name|Message
+name|toMessage
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|InvalidMessage
+block|{
+return|return
+operator|new
+name|Message
+argument_list|(
+name|message
+argument_list|)
 return|;
 block|}
 block|}
