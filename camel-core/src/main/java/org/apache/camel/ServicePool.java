@@ -37,10 +37,10 @@ name|camel
 operator|.
 name|Service
 block|{
-comment|/**      * Acquires the given service. If absent in pool the service      * is added to the pool.      *      * @param key the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      */
-DECL|method|acquireIfAbsent (Key key, Service service)
+comment|/**      * Adds the given service to the pool and acquires it.      *      * @param key the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      */
+DECL|method|addAndAcquire (Key key, Service service)
 name|Service
-name|acquireIfAbsent
+name|addAndAcquire
 parameter_list|(
 name|Key
 name|key
@@ -49,7 +49,7 @@ name|Service
 name|service
 parameter_list|)
 function_decl|;
-comment|/**      * Tries to acquire the servie with the given key      * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
+comment|/**      * Tries to acquire the servie with the given key      *       * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
 DECL|method|acquire (Key key)
 name|Service
 name|acquire

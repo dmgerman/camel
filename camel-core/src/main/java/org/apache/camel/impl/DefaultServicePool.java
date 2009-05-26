@@ -213,11 +213,11 @@ operator|=
 name|capacity
 expr_stmt|;
 block|}
-DECL|method|acquireIfAbsent (Key key, Service service)
+DECL|method|addAndAcquire (Key key, Service service)
 specifier|public
 specifier|synchronized
 name|Service
-name|acquireIfAbsent
+name|addAndAcquire
 parameter_list|(
 name|Key
 name|key
@@ -289,7 +289,25 @@ name|service
 argument_list|)
 expr_stmt|;
 block|}
-comment|// do not add the service as we acquire it
+comment|// test if queue will be full
+if|if
+condition|(
+name|entry
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|capacity
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Queue full"
+argument_list|)
+throw|;
+block|}
 return|return
 name|service
 return|;

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -85,18 +97,6 @@ operator|.
 name|camel
 operator|.
 name|ProducerCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 

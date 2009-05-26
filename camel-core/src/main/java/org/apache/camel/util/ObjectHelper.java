@@ -32,26 +32,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
 import|;
 end_import
@@ -63,6 +43,26 @@ operator|.
 name|io
 operator|.
 name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
 import|;
 end_import
 
@@ -120,9 +120,9 @@ name|java
 operator|.
 name|nio
 operator|.
-name|charset
+name|channels
 operator|.
-name|Charset
+name|ReadableByteChannel
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|java
 operator|.
 name|nio
 operator|.
-name|channels
+name|charset
 operator|.
-name|ReadableByteChannel
+name|Charset
 import|;
 end_import
 

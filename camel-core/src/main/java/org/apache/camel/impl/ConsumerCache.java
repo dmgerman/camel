@@ -80,7 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumer
+name|IsSingleton
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
+name|PollingConsumer
 import|;
 end_import
 
