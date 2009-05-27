@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -95,11 +107,11 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|JmsExchange (JmsEndpoint endpoint, ExchangePattern pattern, JmsBinding binding)
+DECL|method|JmsExchange (Endpoint endpoint, ExchangePattern pattern, JmsBinding binding)
 specifier|public
 name|JmsExchange
 parameter_list|(
-name|JmsEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -123,11 +135,11 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|JmsExchange (JmsEndpoint endpoint, ExchangePattern pattern, JmsBinding binding, Message message)
+DECL|method|JmsExchange (Endpoint endpoint, ExchangePattern pattern, JmsBinding binding, Message message)
 specifier|public
 name|JmsExchange
 parameter_list|(
-name|JmsEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|ExchangePattern
