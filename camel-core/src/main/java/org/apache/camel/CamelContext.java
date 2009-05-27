@@ -268,6 +268,20 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ServicePool
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
@@ -516,7 +530,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      */
+comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route definitions      * @throws Exception if the route definition could not be removed for whatever reason      */
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|removeRouteDefinitions
@@ -530,7 +544,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      */
+comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      */
 DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
@@ -541,7 +555,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      */
+comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
@@ -678,7 +692,7 @@ argument_list|>
 name|getDataFormats
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the properties that can be referenced in the camel context      */
+comment|/**      * Sets the properties that can be referenced in the camel context      *      * @param properties properties      */
 DECL|method|setProperties (Map<String, String> properties)
 name|void
 name|setProperties
@@ -692,7 +706,7 @@ argument_list|>
 name|properties
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the properties that can be referenced in the camel context      */
+comment|/**      * Gets the properties that can be referenced in the camel context      *      * @return the properties      */
 DECL|method|getProperties ()
 name|Map
 argument_list|<
@@ -718,7 +732,7 @@ name|FactoryFinderResolver
 name|resolver
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the FactoryFinder which will be used for the loading the factory class from META-INF in the given path      *      * @param path the META-INF path      * @return the factory finder      */
+comment|/**      * Gets the FactoryFinder which will be used for the loading the factory class from META-INF in the given path      *      * @param path the META-INF path      * @return the factory finder      * @throws NoFactoryAvailableException is thrown if a factory could not be found      */
 DECL|method|getFactoryFinder (String path)
 name|FactoryFinder
 name|getFactoryFinder
@@ -729,7 +743,7 @@ parameter_list|)
 throws|throws
 name|NoFactoryAvailableException
 function_decl|;
-comment|/**      * Returns the current status of the given route      */
+comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      */
 DECL|method|getRouteStatus (RouteDefinition route)
 name|ServiceStatus
 name|getRouteStatus
@@ -738,19 +752,19 @@ name|RouteDefinition
 name|route
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the class resolver to be used for loading/lookup of classes.      */
+comment|/**      * Returns the class resolver to be used for loading/lookup of classes.      *      * @return the resolver      */
 DECL|method|getClassResolver ()
 name|ClassResolver
 name|getClassResolver
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the package scanning class resolver      */
+comment|/**      * Returns the package scanning class resolver      *      * @return the resolver      */
 DECL|method|getPackageScanClassResolver ()
 name|PackageScanClassResolver
 name|getPackageScanClassResolver
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the class resolver to be use      */
+comment|/**      * Sets the class resolver to be use      *      * @param resolver the resolver      */
 DECL|method|setClassResolver (ClassResolver resolver)
 name|void
 name|setClassResolver
@@ -759,7 +773,7 @@ name|ClassResolver
 name|resolver
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the package scanning class resolver to use      */
+comment|/**      * Sets the package scanning class resolver to use      *      * @param resolver the resolver      */
 DECL|method|setPackageScanClassResolver (PackageScanClassResolver resolver)
 name|void
 name|setPackageScanClassResolver
@@ -767,6 +781,31 @@ parameter_list|(
 name|PackageScanClassResolver
 name|resolver
 parameter_list|)
+function_decl|;
+comment|/**      * Sets a pluggable service pool to use for {@link Producer} pooling.      *      * @param servicePool the pool      */
+DECL|method|setProducerServicePool (ServicePool<Endpoint, Producer> servicePool)
+name|void
+name|setProducerServicePool
+parameter_list|(
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|servicePool
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the service pool for {@link Producer} pooling.      *      * @return the service pool      */
+DECL|method|getProducerServicePool ()
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|getProducerServicePool
+parameter_list|()
 function_decl|;
 block|}
 end_interface

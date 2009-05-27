@@ -305,7 +305,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|producerCache
+name|getProducerCache
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|doInProducer
 argument_list|(

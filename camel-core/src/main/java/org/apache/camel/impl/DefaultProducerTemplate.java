@@ -296,10 +296,6 @@ specifier|private
 specifier|final
 name|ProducerCache
 name|producerCache
-init|=
-operator|new
-name|ProducerCache
-argument_list|()
 decl_stmt|;
 DECL|field|defaultEndpoint
 specifier|private
@@ -340,6 +336,19 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|producerCache
+operator|=
+operator|new
+name|ProducerCache
+argument_list|(
+name|context
+operator|.
+name|getProducerServicePool
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|DefaultProducerTemplate (CamelContext context, ExecutorService executor)
 specifier|public
@@ -363,6 +372,19 @@ operator|.
 name|executor
 operator|=
 name|executor
+expr_stmt|;
+name|this
+operator|.
+name|producerCache
+operator|=
+operator|new
+name|ProducerCache
+argument_list|(
+name|context
+operator|.
+name|getProducerServicePool
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|DefaultProducerTemplate (CamelContext context, Endpoint defaultEndpoint)

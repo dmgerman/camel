@@ -296,6 +296,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -663,6 +675,20 @@ operator|.
 name|spi
 operator|.
 name|TypeConverterRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ServicePool
 import|;
 end_import
 
@@ -1142,6 +1168,24 @@ DECL|field|packageScanClassResolver
 specifier|private
 name|PackageScanClassResolver
 name|packageScanClassResolver
+decl_stmt|;
+comment|// we use a capacity of 100 per endpoint, so for the same endpoint we have at most 100 producers in the pool
+comment|// so if we have 6 endpoints in the pool, we have 6 x 100 producers in total
+DECL|field|producerServicePool
+specifier|private
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|producerServicePool
+init|=
+operator|new
+name|DefaultProducerServicePool
+argument_list|(
+literal|100
+argument_list|)
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -4192,6 +4236,42 @@ operator|=
 name|errorHandlerBuilder
 expr_stmt|;
 block|}
+DECL|method|setProducerServicePool (ServicePool<Endpoint, Producer> producerServicePool)
+specifier|public
+name|void
+name|setProducerServicePool
+parameter_list|(
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|producerServicePool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerServicePool
+operator|=
+name|producerServicePool
+expr_stmt|;
+block|}
+DECL|method|getProducerServicePool ()
+specifier|public
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|getProducerServicePool
+parameter_list|()
+block|{
+return|return
+name|producerServicePool
+return|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
@@ -4230,6 +4310,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|producerServicePool
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -4274,6 +4359,11 @@ argument_list|()
 operator|+
 literal|") is starting"
 argument_list|)
+expr_stmt|;
+name|producerServicePool
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

@@ -4,18 +4,20 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 package|;
 end_package
 
 begin_comment
-comment|/**  * A service pool is like a connection pool.  *  * @version $Revision$  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

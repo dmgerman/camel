@@ -57,10 +57,10 @@ comment|/**  * A service pool for {@link Producer}.  *<p/>  * For instance camel
 end_comment
 
 begin_class
-DECL|class|ProducerServicePool
+DECL|class|DefaultProducerServicePool
 specifier|public
 class|class
-name|ProducerServicePool
+name|DefaultProducerServicePool
 extends|extends
 name|DefaultServicePool
 argument_list|<
@@ -69,9 +69,9 @@ argument_list|,
 name|Producer
 argument_list|>
 block|{
-DECL|method|ProducerServicePool (int capacity)
+DECL|method|DefaultProducerServicePool (int capacity)
 specifier|public
-name|ProducerServicePool
+name|DefaultProducerServicePool
 parameter_list|(
 name|int
 name|capacity
@@ -84,6 +84,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|size ()
+specifier|public
 specifier|synchronized
 name|int
 name|size

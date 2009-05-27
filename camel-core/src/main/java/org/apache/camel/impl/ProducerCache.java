@@ -128,6 +128,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
@@ -251,8 +253,6 @@ name|Producer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// we use a capacity of 10 per endpoint, so for the same endpoint we have at most 10 producers in the pool
-comment|// so if we have 6 endpoints in the pool, we can have 6 x 10 producers in total
 DECL|field|pool
 specifier|private
 specifier|final
@@ -263,16 +263,28 @@ argument_list|,
 name|Producer
 argument_list|>
 name|pool
-init|=
-operator|new
-name|ProducerServicePool
-argument_list|(
-literal|10
-argument_list|)
 decl_stmt|;
-comment|// TODO: Let CamelContext expose a global producer cache
 comment|// TODO: Have easy configuration of pooling in Camel
-comment|// TODO: Have a SPI interface for pluggable connection pools
+DECL|method|ProducerCache (ServicePool<Endpoint, Producer> producerServicePool)
+specifier|public
+name|ProducerCache
+parameter_list|(
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Producer
+argument_list|>
+name|producerServicePool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pool
+operator|=
+name|producerServicePool
+expr_stmt|;
+block|}
 DECL|method|getProducer (Endpoint endpoint)
 specifier|public
 name|Producer

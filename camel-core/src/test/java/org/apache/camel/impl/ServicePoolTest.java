@@ -164,7 +164,7 @@ name|cleanup
 decl_stmt|;
 DECL|field|pool
 specifier|private
-name|ProducerServicePool
+name|DefaultProducerServicePool
 name|pool
 decl_stmt|;
 DECL|class|MyProducer
@@ -299,7 +299,7 @@ expr_stmt|;
 name|pool
 operator|=
 operator|new
-name|ProducerServicePool
+name|DefaultProducerServicePool
 argument_list|(
 literal|5
 argument_list|)
@@ -1204,16 +1204,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|assertEquals
-argument_list|(
-literal|5
-argument_list|,
-name|pool
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testConcurrentStress ()
 specifier|public
@@ -1408,16 +1398,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|assertEquals
-argument_list|(
-literal|5
-argument_list|,
-name|pool
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

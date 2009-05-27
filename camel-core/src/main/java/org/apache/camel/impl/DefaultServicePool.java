@@ -80,6 +80,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
