@@ -264,7 +264,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|TypeConverterRegistry
+name|ServicePool
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ServicePool
+name|TypeConverterRegistry
 import|;
 end_import
 

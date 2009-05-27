@@ -128,9 +128,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ServicePool
+name|ServicePoolAware
 import|;
 end_import
 
@@ -142,7 +140,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServicePoolAware
+name|spi
+operator|.
+name|ServicePool
 import|;
 end_import
 

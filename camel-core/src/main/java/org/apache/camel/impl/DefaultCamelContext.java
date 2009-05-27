@@ -200,6 +200,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -285,18 +297,6 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -674,7 +674,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|TypeConverterRegistry
+name|ServicePool
 import|;
 end_import
 
@@ -688,7 +688,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ServicePool
+name|TypeConverterRegistry
 import|;
 end_import
 
