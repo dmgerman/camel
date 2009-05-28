@@ -509,7 +509,7 @@ comment|// we do not want to wait for tasks to be complete so we instruct Camel
 comment|// to not wait, and therefore Camel returns the Future<Exchange> handle we
 comment|// can use to get the result when we want
 operator|.
-name|async
+name|threads
 argument_list|()
 operator|.
 name|waitForTaskToComplete

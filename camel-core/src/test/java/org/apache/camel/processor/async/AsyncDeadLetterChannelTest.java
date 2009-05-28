@@ -185,7 +185,7 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|async
+name|threads
 argument_list|(
 literal|2
 argument_list|)
@@ -391,7 +391,7 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|async
+name|threads
 argument_list|(
 literal|2
 argument_list|)

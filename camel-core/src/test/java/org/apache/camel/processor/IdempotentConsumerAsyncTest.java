@@ -201,7 +201,7 @@ literal|200
 argument_list|)
 argument_list|)
 operator|.
-name|async
+name|threads
 argument_list|()
 operator|.
 name|to
@@ -343,7 +343,7 @@ literal|200
 argument_list|)
 argument_list|)
 operator|.
-name|async
+name|threads
 argument_list|()
 operator|.
 name|process

@@ -390,7 +390,7 @@ literal|"${file:onlyname.noext}"
 argument_list|)
 argument_list|)
 operator|.
-name|async
+name|threads
 argument_list|(
 literal|20
 argument_list|)

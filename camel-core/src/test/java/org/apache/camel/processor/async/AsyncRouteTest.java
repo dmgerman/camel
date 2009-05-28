@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -533,7 +521,7 @@ comment|// now turn the route into async from this point forward
 comment|// the caller will have a Future<Exchange> returned as response in OUT
 comment|// to be used to grap the async response when he fell like it
 operator|.
-name|async
+name|threads
 argument_list|()
 comment|// from this point forward this is the async route doing its work
 comment|// so we do a bit of delay to simulate heavy work that takes time

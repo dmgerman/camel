@@ -297,7 +297,7 @@ comment|// to be used to grape the async response when he fell like it
 comment|// we only want to wait for tasks to complete if we expect a reply
 comment|// otherwise not
 operator|.
-name|async
+name|threads
 argument_list|()
 operator|.
 name|waitForTaskToComplete

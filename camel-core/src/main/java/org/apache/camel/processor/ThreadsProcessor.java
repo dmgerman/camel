@@ -119,14 +119,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Async processor that turns the processing going forward into async mode.  *<p/>  * The original caller thread will receive a<tt>Future&lt;Exchange&gt;</tt> in the OUT message body.  * It can then later use this handle to obtain the async response.  *<p/>  * Camel also provides type converters so you can just ask to get the desired object type and Camel  * will automatic wait for the async task to complete to return the response.  *  * @version $Revision$  */
+comment|/**  * Threads processor that leverage a thread pool for processing exchanges.  *<p/>  * The original caller thread will receive a<tt>Future&lt;Exchange&gt;</tt> in the OUT message body.  * It can then later use this handle to obtain the async response.  *<p/>  * Camel also provides type converters so you can just ask to get the desired object type and Camel  * will automatic wait for the async task to complete to return the response.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncProcessor
+DECL|class|ThreadsProcessor
 specifier|public
 class|class
-name|AsyncProcessor
+name|ThreadsProcessor
 extends|extends
 name|DelegateProcessor
 implements|implements
@@ -151,9 +151,9 @@ specifier|private
 name|WaitForTaskToComplete
 name|waitTaskComplete
 decl_stmt|;
-DECL|method|AsyncProcessor (Processor output, ExecutorService executorService, WaitForTaskToComplete waitTaskComplete)
+DECL|method|ThreadsProcessor (Processor output, ExecutorService executorService, WaitForTaskToComplete waitTaskComplete)
 specifier|public
-name|AsyncProcessor
+name|ThreadsProcessor
 parameter_list|(
 name|Processor
 name|output

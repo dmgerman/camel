@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|AsyncProcessor
+name|ThreadsProcessor
 import|;
 end_import
 
@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;async/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;threads/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -190,7 +190,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"async"
+literal|"threads"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -199,10 +199,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|AsyncDefinition
+DECL|class|ThreadsDefinition
 specifier|public
 class|class
-name|AsyncDefinition
+name|ThreadsDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
@@ -337,7 +337,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|AsyncProcessor
+name|ThreadsProcessor
 argument_list|(
 name|uow
 argument_list|,
@@ -356,7 +356,7 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"async"
+literal|"threads"
 return|;
 block|}
 annotation|@
@@ -368,7 +368,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"async"
+literal|"threads"
 return|;
 block|}
 annotation|@
@@ -380,7 +380,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Async["
+literal|"Threads["
 operator|+
 name|getOutputs
 argument_list|()
@@ -391,7 +391,7 @@ block|}
 comment|/**      * Setting the executor service for executing the multicasting action.      *      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
-name|AsyncDefinition
+name|ThreadsDefinition
 name|executorService
 parameter_list|(
 name|ExecutorService
@@ -410,7 +410,7 @@ block|}
 comment|/**      * Setting the core pool size for the underlying {@link java.util.concurrent.ExecutorService}.      *      * @return the builder      */
 DECL|method|poolSize (int poolSize)
 specifier|public
-name|AsyncDefinition
+name|ThreadsDefinition
 name|poolSize
 parameter_list|(
 name|int
@@ -429,7 +429,7 @@ block|}
 comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>IfReplyExpected</tt>      *      * @param wait the wait option      * @return the builder      */
 DECL|method|waitForTaskToComplete (WaitForTaskToComplete wait)
 specifier|public
-name|AsyncDefinition
+name|ThreadsDefinition
 name|waitForTaskToComplete
 parameter_list|(
 name|WaitForTaskToComplete

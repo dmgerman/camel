@@ -150,18 +150,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Channel
 import|;
 end_import
@@ -2350,18 +2338,18 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Breaks the route into asynchronous. The caller thread will either wait for the async route      * to complete or imeddiately comntinue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default<tt>Always</tt> wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>Configuring the<tt>waitForTaskToComplete</tt> option</li>      *<li>Provide an IN header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT} with the      * value containing a type {@link org.apache.camel.WaitForTaskToComplete}. The header will take precedence, if provided.</li>      *</ul>      *      * @return the builder      */
-DECL|method|async ()
+comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * The caller thread will either wait for the async route      * to complete or imeddiately continue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default<tt>Always</tt> wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>Configuring the<tt>waitForTaskToComplete</tt> option</li>      *<li>Provide an IN header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT} with the      * value containing a type {@link org.apache.camel.WaitForTaskToComplete}. The header will take precedence, if provided.</li>      *</ul>      *      * @return the builder      */
+DECL|method|threads ()
 specifier|public
-name|AsyncDefinition
-name|async
+name|ThreadsDefinition
+name|threads
 parameter_list|()
 block|{
-name|AsyncDefinition
+name|ThreadsDefinition
 name|answer
 init|=
 operator|new
-name|AsyncDefinition
+name|ThreadsDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -2373,20 +2361,20 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Breaks the route into asynchronous. The caller thread will either wait for the async route      * to complete or imeddiately comntinue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>Configuring the<tt>waitForTaskToComplete</tt> option</li>      *<li>Provide an IN header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT} with the      * value containing a type {@link org.apache.camel.WaitForTaskToComplete}. The header will take precedence, if provided.</li>      *</ul>      *      * @param poolSize the core pool size      * @return the builder      */
-DECL|method|async (int poolSize)
+comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * See {@link #threads()} for more details.      *      * @param poolSize the core pool size      * @return the builder      */
+DECL|method|threads (int poolSize)
 specifier|public
-name|AsyncDefinition
-name|async
+name|ThreadsDefinition
+name|threads
 parameter_list|(
 name|int
 name|poolSize
 parameter_list|)
 block|{
-name|AsyncDefinition
+name|ThreadsDefinition
 name|answer
 init|=
-name|async
+name|threads
 argument_list|()
 decl_stmt|;
 name|answer

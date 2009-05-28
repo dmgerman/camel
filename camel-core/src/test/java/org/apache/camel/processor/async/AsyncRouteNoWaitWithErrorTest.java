@@ -413,7 +413,7 @@ comment|// now turn the route into async from this point forward
 comment|// the caller will have a Future<Exchange> returned as response in OUT
 comment|// to be used to grap the async response when he fell like it
 operator|.
-name|async
+name|threads
 argument_list|()
 operator|.
 name|waitForTaskToComplete

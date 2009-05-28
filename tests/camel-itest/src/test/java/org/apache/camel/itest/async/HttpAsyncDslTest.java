@@ -432,12 +432,13 @@ name|to
 argument_list|(
 literal|"mock:validate"
 argument_list|)
+comment|// use multi threading with a pool size of 20
 comment|// turn the route async as some others do not expect a reply
-comment|// and a few does then we can use the async DSL as a turning point
+comment|// and a few does then we can use the threads DSL as a turning point
 comment|// if the JMS ReplyTo was set then we expect a reply, otherwise not
 comment|// use a pool of 20 threads for the point forward
 operator|.
-name|async
+name|threads
 argument_list|(
 literal|20
 argument_list|)
