@@ -172,6 +172,7 @@ argument_list|)
 decl_stmt|;
 DECL|class|DataHolder
 specifier|private
+specifier|final
 class|class
 name|DataHolder
 block|{
@@ -185,6 +186,11 @@ specifier|private
 name|Object
 name|data
 decl_stmt|;
+DECL|method|DataHolder ()
+specifier|private
+name|DataHolder
+parameter_list|()
+block|{         }
 block|}
 comment|/**      * Statement to run after data has been processed in the route      */
 DECL|field|onConsume

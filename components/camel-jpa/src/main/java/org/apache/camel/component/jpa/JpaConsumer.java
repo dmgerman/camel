@@ -266,6 +266,7 @@ name|nativeQuery
 decl_stmt|;
 DECL|class|DataHolder
 specifier|private
+specifier|final
 class|class
 name|DataHolder
 block|{
@@ -284,6 +285,11 @@ specifier|private
 name|EntityManager
 name|manager
 decl_stmt|;
+DECL|method|DataHolder ()
+specifier|private
+name|DataHolder
+parameter_list|()
+block|{         }
 block|}
 DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor processor)
 specifier|public
