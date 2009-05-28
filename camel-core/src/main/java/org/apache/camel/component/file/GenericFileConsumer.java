@@ -44,7 +44,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
 import|;
 end_import
 
@@ -349,29 +369,18 @@ block|}
 comment|// sort using build in sorters that is expression based
 comment|// first we need to convert to RemoteFileExchange objects so we can sort
 comment|// using expressions
-name|List
+name|LinkedList
 argument_list|<
 name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
 argument_list|>
 name|exchanges
 init|=
 operator|new
-name|ArrayList
+name|LinkedList
 argument_list|<
 name|GenericFileExchange
-argument_list|<
-name|T
 argument_list|>
-argument_list|>
-argument_list|(
-name|files
-operator|.
-name|size
 argument_list|()
-argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -476,14 +485,7 @@ expr_stmt|;
 block|}
 name|processBatch
 argument_list|(
-operator|new
-name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|(
 name|exchanges
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -492,15 +494,12 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|processBatch (List<Exchange> exchanges)
+DECL|method|processBatch (Queue exchanges)
 specifier|public
 name|void
 name|processBatch
 parameter_list|(
-name|List
-argument_list|<
-name|Exchange
-argument_list|>
+name|Queue
 name|exchanges
 parameter_list|)
 block|{
@@ -531,6 +530,7 @@ operator|++
 control|)
 block|{
 comment|// only loop if we are started (allowed to run)
+comment|// use poll to remove the head so it does not consume memory even after we have processed it
 name|GenericFileExchange
 argument_list|<
 name|T
@@ -545,10 +545,8 @@ argument_list|>
 operator|)
 name|exchanges
 operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
+name|poll
+argument_list|()
 decl_stmt|;
 comment|// add current index and total as properties
 name|exchange

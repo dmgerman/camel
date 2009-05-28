@@ -20,7 +20,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Queue
 import|;
 end_import
 
@@ -37,14 +37,11 @@ extends|extends
 name|Consumer
 block|{
 comment|/**      * Processes the list of {@link org.apache.camel.Exchange} in a batch.      *<p/>      * Each message exchange will be processed individually but the batch      * consumer will add properties with the current index and total in the batch.      *      * @param exchanges list of exchanges in this batch      * @throws Exception if an internal processing error has occurred.      */
-DECL|method|processBatch (List<Exchange> exchanges)
+DECL|method|processBatch (Queue exchanges)
 name|void
 name|processBatch
 parameter_list|(
-name|List
-argument_list|<
-name|Exchange
-argument_list|>
+name|Queue
 name|exchanges
 parameter_list|)
 throws|throws

@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|LinkedList
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Queue
 import|;
 end_import
 
@@ -541,7 +541,7 @@ name|getMessages
 argument_list|()
 expr_stmt|;
 block|}
-name|List
+name|Queue
 argument_list|<
 name|Exchange
 argument_list|>
@@ -641,15 +641,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|processBatch (List<Exchange> exchanges)
+DECL|method|processBatch (Queue exchanges)
 specifier|public
 name|void
 name|processBatch
 parameter_list|(
-name|List
-argument_list|<
-name|Exchange
-argument_list|>
+name|Queue
 name|exchanges
 parameter_list|)
 throws|throws
@@ -690,10 +687,8 @@ name|MailExchange
 operator|)
 name|exchanges
 operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
+name|poll
+argument_list|()
 decl_stmt|;
 comment|// add current index and total as properties
 name|exchange
@@ -766,7 +761,7 @@ block|}
 block|}
 DECL|method|createExchanges (Message[] messages)
 specifier|protected
-name|List
+name|Queue
 argument_list|<
 name|Exchange
 argument_list|>
@@ -779,14 +774,14 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-name|List
+name|Queue
 argument_list|<
 name|Exchange
 argument_list|>
 name|answer
 init|=
 operator|new
-name|ArrayList
+name|LinkedList
 argument_list|<
 name|Exchange
 argument_list|>

@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|LinkedList
 import|;
 end_import
 
@@ -35,6 +35,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
 import|;
 end_import
 
@@ -302,14 +312,14 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// create a list of exchange objects with the data
-name|List
+name|Queue
 argument_list|<
 name|DataHolder
 argument_list|>
 name|answer
 init|=
 operator|new
-name|ArrayList
+name|LinkedList
 argument_list|<
 name|DataHolder
 argument_list|>
@@ -420,12 +430,12 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|processBatch (List exchanges)
+DECL|method|processBatch (Queue exchanges)
 specifier|public
 name|void
 name|processBatch
 parameter_list|(
-name|List
+name|Queue
 name|exchanges
 parameter_list|)
 throws|throws
@@ -438,19 +448,10 @@ init|=
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-specifier|final
-name|List
-argument_list|<
-name|DataHolder
-argument_list|>
-name|list
-init|=
-name|exchanges
-decl_stmt|;
 name|int
 name|total
 init|=
-name|list
+name|exchanges
 operator|.
 name|size
 argument_list|()
@@ -474,27 +475,28 @@ operator|++
 control|)
 block|{
 comment|// only loop if we are started (allowed to run)
+name|DataHolder
+name|holder
+init|=
+operator|(
+name|DataHolder
+operator|)
+name|exchanges
+operator|.
+name|poll
+argument_list|()
+decl_stmt|;
 name|Exchange
 name|exchange
 init|=
-name|list
-operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
+name|holder
 operator|.
 name|exchange
 decl_stmt|;
 name|Object
 name|data
 init|=
-name|list
-operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
+name|holder
 operator|.
 name|data
 decl_stmt|;
