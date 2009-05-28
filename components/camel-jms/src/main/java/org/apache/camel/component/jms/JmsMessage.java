@@ -779,13 +779,22 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
-literal|"The jmsMessage is not set yet, call the super's createMessageId"
+literal|"No javax.jms.Message set so generating a new message id"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|super
 operator|.
@@ -824,23 +833,15 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Failed to get message id from message "
-operator|+
-name|jmsMessage
+literal|"Failed to get JMSMessageID property"
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-return|return
-name|super
-operator|.
-name|createMessageId
-argument_list|()
-return|;
+throw|;
 block|}
 block|}
 DECL|method|getDestinationAsString (Destination destination)
