@@ -92,9 +92,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|helper
-operator|.
-name|GZIPHelper
+name|HttpConstants
 import|;
 end_import
 
@@ -204,14 +202,18 @@ condition|(
 name|usingGZip
 condition|)
 block|{
-name|GZIPHelper
-operator|.
-name|setGZIPMessageHeader
-argument_list|(
 name|exchange
 operator|.
 name|getIn
 argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|HttpConstants
+operator|.
+name|CONTENT_ENCODING
+argument_list|,
+literal|"gzip"
 argument_list|)
 expr_stmt|;
 block|}
@@ -239,23 +241,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|print
-argument_list|(
-literal|"The out message header is "
-operator|+
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// System.out.print("The out message header is " + exchange.getOut().getHeaders());
 name|assertEquals
 argument_list|(
 literal|"<order>OK</order>"

@@ -102,9 +102,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|helper
-operator|.
-name|GZIPHelper
+name|HttpConstants
 import|;
 end_import
 
@@ -168,14 +166,18 @@ condition|(
 name|usingGZip
 condition|)
 block|{
-name|GZIPHelper
-operator|.
-name|setGZIPMessageHeader
-argument_list|(
 name|exchange
 operator|.
 name|getIn
 argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|HttpConstants
+operator|.
+name|CONTENT_ENCODING
+argument_list|,
+literal|"gzip"
 argument_list|)
 expr_stmt|;
 block|}

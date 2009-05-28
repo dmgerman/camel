@@ -63,17 +63,17 @@ literal|1024
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|LoadingByteArrayOutputStream (int i)
+DECL|method|LoadingByteArrayOutputStream (int size)
 specifier|public
 name|LoadingByteArrayOutputStream
 parameter_list|(
 name|int
-name|i
+name|size
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|i
+name|size
 argument_list|)
 expr_stmt|;
 block|}

@@ -29,6 +29,15 @@ specifier|final
 class|class
 name|HttpConstants
 block|{
+DECL|field|CONTENT_ENCODING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONTENT_ENCODING
+init|=
+literal|"Content-Encoding"
+decl_stmt|;
 DECL|method|HttpConstants ()
 specifier|private
 name|HttpConstants
