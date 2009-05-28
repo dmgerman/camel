@@ -245,6 +245,8 @@ operator|(
 name|start
 operator|+
 name|i
+operator|+
+literal|1
 operator|)
 operator|+
 literal|"</id><name>James</name></person>"
@@ -258,16 +260,14 @@ expr_stmt|;
 block|}
 name|mock
 operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|mock
-operator|.
 name|assertNoDuplicates
 argument_list|(
 name|body
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
