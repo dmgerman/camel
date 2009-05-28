@@ -229,7 +229,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|setAlternateBodyHeader
+name|setAlternativeBodyHeader
 argument_list|(
 name|MailConstants
 operator|.

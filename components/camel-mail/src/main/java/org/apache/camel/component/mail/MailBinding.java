@@ -2420,7 +2420,7 @@ name|alternativeBodyHeader
 init|=
 name|configuration
 operator|.
-name|getAlternateBodyHeader
+name|getAlternativeBodyHeader
 argument_list|()
 decl_stmt|;
 return|return

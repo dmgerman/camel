@@ -276,10 +276,10 @@ name|contentType
 init|=
 literal|"text/plain"
 decl_stmt|;
-DECL|field|alternateBodyHeader
+DECL|field|alternativeBodyHeader
 specifier|private
 name|String
-name|alternateBodyHeader
+name|alternativeBodyHeader
 init|=
 name|MailConstants
 operator|.
@@ -1670,30 +1670,30 @@ operator|=
 name|contentType
 expr_stmt|;
 block|}
-DECL|method|getAlternateBodyHeader ()
+DECL|method|getAlternativeBodyHeader ()
 specifier|public
 name|String
-name|getAlternateBodyHeader
+name|getAlternativeBodyHeader
 parameter_list|()
 block|{
 return|return
-name|alternateBodyHeader
+name|alternativeBodyHeader
 return|;
 block|}
-DECL|method|setAlternateBodyHeader (String alternateBodyHeader)
+DECL|method|setAlternativeBodyHeader (String alternativeBodyHeader)
 specifier|public
 name|void
-name|setAlternateBodyHeader
+name|setAlternativeBodyHeader
 parameter_list|(
 name|String
-name|alternateBodyHeader
+name|alternativeBodyHeader
 parameter_list|)
 block|{
 name|this
 operator|.
-name|alternateBodyHeader
+name|alternativeBodyHeader
 operator|=
-name|alternateBodyHeader
+name|alternativeBodyHeader
 expr_stmt|;
 block|}
 DECL|method|isUseInlineAttachments ()
