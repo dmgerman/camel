@@ -1639,9 +1639,10 @@ comment|// The following properties are set by the MessageProducer:
 comment|// JMSDeliveryMode, JMSDestination, JMSExpiration, JMSPriorit
 comment|// The following are set on the underlying JMS provider:
 comment|// JMSMessageID, JMSTimestamp, JMSRedelivered
+comment|// log at trace level to not spam log
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Ignoring JMS header: "
 operator|+

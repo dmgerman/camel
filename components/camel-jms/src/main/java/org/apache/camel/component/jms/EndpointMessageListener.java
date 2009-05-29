@@ -317,6 +317,13 @@ name|Message
 name|message
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage START"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -378,6 +385,22 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// process the exchange
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage.process START"
+argument_list|)
+expr_stmt|;
+block|}
 name|processor
 operator|.
 name|process
@@ -385,6 +408,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage.process END"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// get the correct jms message to send as reply
 name|JmsMessage
 name|body
@@ -532,6 +571,13 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage.sendReply START"
+argument_list|)
+expr_stmt|;
 name|sendReply
 argument_list|(
 name|replyDestination
@@ -543,6 +589,13 @@ argument_list|,
 name|body
 argument_list|,
 name|cause
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage.sendReply END"
 argument_list|)
 expr_stmt|;
 block|}
@@ -576,10 +629,38 @@ argument_list|(
 name|rce
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage END throwing exception: "
+operator|+
+name|rce
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 name|rce
 throw|;
 block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage END"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createExchange (Message message, Destination replyDestination)
 specifier|public
