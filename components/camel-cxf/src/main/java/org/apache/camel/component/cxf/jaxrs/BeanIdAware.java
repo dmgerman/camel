@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.spring
+DECL|package|org.apache.camel.component.cxf.jaxrs
 package|package
 name|org
 operator|.
@@ -16,70 +16,35 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|spring
+name|jaxrs
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|xml
-operator|.
-name|NamespaceHandlerSupport
-import|;
-end_import
+begin_comment
+comment|/**  * We can get and set the BeanId through this interface  */
+end_comment
 
-begin_class
-DECL|class|NamespaceHandler
+begin_interface
+DECL|interface|BeanIdAware
 specifier|public
-class|class
-name|NamespaceHandler
-extends|extends
-name|NamespaceHandlerSupport
+interface|interface
+name|BeanIdAware
 block|{
-DECL|method|init ()
-specifier|public
-name|void
-name|init
+DECL|method|getBeanId ()
+name|String
+name|getBeanId
 parameter_list|()
-block|{
-name|registerBeanDefinitionParser
-argument_list|(
-literal|"cxfEndpoint"
-argument_list|,
-operator|new
-name|CxfEndpointBeanDefinitionParser
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|registerBeanDefinitionParser
-argument_list|(
-literal|"rsServer"
-argument_list|,
-operator|new
-name|CxfRsServerFactoryBeanDefinitionParser
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|registerBeanDefinitionParser
-argument_list|(
-literal|"rsClient"
-argument_list|,
-operator|new
-name|CxfRsClientFactoryBeanDefinitionParser
-argument_list|()
-argument_list|)
-expr_stmt|;
+function_decl|;
+DECL|method|setBeanId (String id)
+name|void
+name|setBeanId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

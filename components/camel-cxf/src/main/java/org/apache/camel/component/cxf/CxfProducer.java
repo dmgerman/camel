@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CxfProducer binds a Camel exchange to a CXF exchange, acts an a CXF   * client, and sends the request to a CXF to a server.  Any response will   * be bound to Camel exchange.   *  * @version $Revision$  */
+comment|/**  * CxfProducer binds a Camel exchange to a CXF exchange, acts as a CXF   * client, and sends the request to a CXF to a server.  Any response will   * be bound to Camel exchange.   *  * @version $Revision$  */
 end_comment
 
 begin_class

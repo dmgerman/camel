@@ -468,16 +468,6 @@ return|return
 name|bean
 return|;
 block|}
-DECL|method|getBeanId ()
-specifier|public
-name|String
-name|getBeanId
-parameter_list|()
-block|{
-return|return
-name|beanId
-return|;
-block|}
 comment|// Package private methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Create a CXF Client      */
@@ -669,7 +659,6 @@ name|SERVICE_CLASS
 argument_list|)
 expr_stmt|;
 comment|// create server factory bean
-comment|// create server factory bean
 comment|// Shouldn't use CxfEndpointUtils.getServerFactoryBean(cls) as it is for
 comment|// CxfSoapComponent
 name|ServerFactoryBean
@@ -854,6 +843,17 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getBeanId ()
+specifier|public
+name|String
+name|getBeanId
+parameter_list|()
+block|{
+return|return
+name|beanId
+return|;
+block|}
+comment|// this property will be set by spring
 DECL|method|setBeanId (String id)
 specifier|public
 name|void
