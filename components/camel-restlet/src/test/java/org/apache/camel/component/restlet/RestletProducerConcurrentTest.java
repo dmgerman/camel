@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resltet producer concurrent test  *  * @version $Revision$  */
+comment|/**  * Resltet producer concurrent test  *   * @version $Revision$  */
 end_comment
 
 begin_class

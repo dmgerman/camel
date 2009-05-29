@@ -156,11 +156,11 @@ name|CustomProducerServicePoolTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|COUNTER
+DECL|field|counter
 specifier|private
 specifier|static
 name|int
-name|COUNTER
+name|counter
 decl_stmt|;
 DECL|class|MyEndpoint
 specifier|private
@@ -257,7 +257,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|COUNTER
+name|counter
 operator|++
 expr_stmt|;
 block|}
@@ -698,7 +698,7 @@ name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|COUNTER
+name|counter
 argument_list|)
 expr_stmt|;
 name|assertEquals
