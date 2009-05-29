@@ -525,7 +525,7 @@ argument_list|,
 name|endpointPath
 argument_list|)
 decl_stmt|;
-comment|// skip trailing /
+comment|// skip leading /
 name|relativePath
 operator|=
 name|FileUtil

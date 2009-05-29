@@ -265,7 +265,7 @@ block|{
 name|String
 name|fileUrl
 init|=
-literal|"file:target/ftptest/?append=false&noop=true"
+literal|"file:target/ftptest/?fileExist=Override&noop=true"
 decl_stmt|;
 name|from
 argument_list|(

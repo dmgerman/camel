@@ -363,12 +363,14 @@ literal|128
 operator|*
 literal|1024
 decl_stmt|;
-DECL|field|append
+DECL|field|fileExist
 specifier|protected
-name|boolean
-name|append
+name|GenericFileExist
+name|fileExist
 init|=
-literal|true
+name|GenericFileExist
+operator|.
+name|Override
 decl_stmt|;
 DECL|field|noop
 specifier|protected
@@ -1529,30 +1531,30 @@ operator|=
 name|bufferSize
 expr_stmt|;
 block|}
-DECL|method|isAppend ()
+DECL|method|getFileExist ()
 specifier|public
-name|boolean
-name|isAppend
+name|GenericFileExist
+name|getFileExist
 parameter_list|()
 block|{
 return|return
-name|append
+name|fileExist
 return|;
 block|}
-DECL|method|setAppend (boolean append)
+DECL|method|setFileExist (GenericFileExist fileExist)
 specifier|public
 name|void
-name|setAppend
+name|setFileExist
 parameter_list|(
-name|boolean
-name|append
+name|GenericFileExist
+name|fileExist
 parameter_list|)
 block|{
 name|this
 operator|.
-name|append
+name|fileExist
 operator|=
-name|append
+name|fileExist
 expr_stmt|;
 block|}
 DECL|method|isAutoCreate ()

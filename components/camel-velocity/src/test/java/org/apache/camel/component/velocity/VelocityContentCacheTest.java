@@ -102,7 +102,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-classes/org/apache/camel/component/velocity?append=false"
+literal|"file://target/test-classes/org/apache/camel/component/velocity?fileExist=Override"
 argument_list|,
 literal|"Hello $headers.name"
 argument_list|,
@@ -160,7 +160,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-classes/org/apache/camel/component/velocity?append=false"
+literal|"file://target/test-classes/org/apache/camel/component/velocity?fileExist=Override"
 argument_list|,
 literal|"Bye $headers.name"
 argument_list|,
@@ -248,7 +248,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-classes/org/apache/camel/component/velocity?append=false"
+literal|"file://target/test-classes/org/apache/camel/component/velocity?fileExist=Override"
 argument_list|,
 literal|"Bye $headers.name"
 argument_list|,
@@ -337,7 +337,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-classes/org/apache/camel/component/velocity?append=false"
+literal|"file://target/test-classes/org/apache/camel/component/velocity?fileExist=Override"
 argument_list|,
 literal|"Bye $headers.name"
 argument_list|,

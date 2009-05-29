@@ -312,7 +312,7 @@ block|{
 name|String
 name|fileUrl
 init|=
-literal|"file:target/ftptest/?append=false&noop=true"
+literal|"file:target/ftptest/?fileExist=Override&noop=true"
 decl_stmt|;
 comment|// we do not set any filename in the header property so the filename should be the one
 comment|// from the FTP server we downloaded

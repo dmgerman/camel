@@ -120,7 +120,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp3/camel?password=admin&binary=false"
+literal|"/tmp3/camel?password=admin&binary=false&fileExist=Override"
 return|;
 block|}
 DECL|method|testFtpRoute ()
@@ -312,7 +312,7 @@ block|{
 name|String
 name|fileUrl
 init|=
-literal|"file:target/ftptest/?append=false&noop=true"
+literal|"file:target/ftptest/?fileExist=Override&noop=true"
 decl_stmt|;
 name|from
 argument_list|(

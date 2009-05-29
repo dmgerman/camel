@@ -693,10 +693,6 @@ argument_list|,
 literal|"endpoint"
 argument_list|)
 expr_stmt|;
-comment|// we can write the file by 3 different techniques
-comment|// 1. write file to file
-comment|// 2. rename a file from a local work path
-comment|// 3. write stream to file
 name|File
 name|file
 init|=
@@ -706,6 +702,82 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+comment|// if an existing file already exsists what should we do?
+if|if
+condition|(
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Ignore
+condition|)
+block|{
+comment|// ignore but indicate that the file was written
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"An existing file already exists: "
+operator|+
+name|file
+operator|+
+literal|". Ignore and do not override it."
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|true
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Fail
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"File already exist: "
+operator|+
+name|file
+operator|+
+literal|". Cannot write new file."
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// we can write the file by 3 different techniques
+comment|// 1. write file to file
+comment|// 2. rename a file from a local work path
+comment|// 3. write stream to file
 try|try
 block|{
 comment|// is the body file based
@@ -1272,8 +1344,12 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|isAppend
+name|getFileExist
 argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Append
 condition|)
 block|{
 name|out
@@ -1304,6 +1380,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// will override
 name|out
 operator|=
 operator|new
