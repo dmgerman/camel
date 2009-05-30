@@ -63,12 +63,31 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// noop
+name|onDone
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void
 name|onFailure
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|onDone
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onDone (Exchange exchange)
+specifier|public
+name|void
+name|onDone
 parameter_list|(
 name|Exchange
 name|exchange

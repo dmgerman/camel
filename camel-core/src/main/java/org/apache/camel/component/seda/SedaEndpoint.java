@@ -162,6 +162,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WaitForTaskToComplete
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -217,6 +229,15 @@ name|int
 name|concurrentConsumers
 init|=
 literal|1
+decl_stmt|;
+DECL|field|waitTaskComplete
+specifier|private
+name|WaitForTaskToComplete
+name|waitTaskComplete
+init|=
+name|WaitForTaskToComplete
+operator|.
+name|IfReplyExpected
 decl_stmt|;
 DECL|field|producers
 specifier|private
@@ -397,6 +418,9 @@ name|this
 argument_list|,
 name|getQueue
 argument_list|()
+argument_list|,
+name|getWaitTaskComplete
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -524,6 +548,32 @@ block|{
 return|return
 name|concurrentConsumers
 return|;
+block|}
+DECL|method|getWaitTaskComplete ()
+specifier|public
+name|WaitForTaskToComplete
+name|getWaitTaskComplete
+parameter_list|()
+block|{
+return|return
+name|waitTaskComplete
+return|;
+block|}
+DECL|method|setWaitTaskComplete (WaitForTaskToComplete waitTaskComplete)
+specifier|public
+name|void
+name|setWaitTaskComplete
+parameter_list|(
+name|WaitForTaskToComplete
+name|waitTaskComplete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitTaskComplete
+operator|=
+name|waitTaskComplete
+expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

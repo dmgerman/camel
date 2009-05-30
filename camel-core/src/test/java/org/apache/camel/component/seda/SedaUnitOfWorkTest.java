@@ -173,6 +173,14 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// give time for on completiom to run
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"onCompleteA"
@@ -182,7 +190,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"processor"
+literal|"onCompleteA"
 argument_list|,
 name|lastOne
 argument_list|)
@@ -244,12 +252,6 @@ name|from
 argument_list|(
 literal|"seda:foo"
 argument_list|)
-comment|// use a little delay to allow the first route to complete
-operator|.
-name|delay
-argument_list|(
-literal|200
-argument_list|)
 operator|.
 name|process
 argument_list|(
@@ -269,7 +271,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|"onCompleteA"
+literal|null
 argument_list|,
 name|sync
 argument_list|)
