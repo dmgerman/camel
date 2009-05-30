@@ -254,9 +254,21 @@ argument_list|)
 operator|)
 condition|)
 block|{
-comment|// check if there is a consumer otherwise we end up waiting forever
+comment|// only check for if there is a consumer if its the seda endpoint where we exepect a consumer in the same
+comment|// camel context. If you use the vm component the consumer could be in another camel context.
+comment|// for seda we want to check that a consumer exists otherwise we end up waiting forever for the response.
 if|if
 condition|(
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"seda"
+argument_list|)
+operator|&&
 name|endpoint
 operator|.
 name|getConsumers

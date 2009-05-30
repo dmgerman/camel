@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.seda
+DECL|package|org.apache.camel.component.vm
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|seda
+name|vm
 package|;
 end_package
 
@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
+name|CamelContext
 import|;
 end_import
 
@@ -56,15 +56,29 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SedaNoConsumerTest
+DECL|class|VmRequestReplyTest
 specifier|public
 class|class
-name|SedaNoConsumerTest
+name|VmRequestReplyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -95,8 +109,67 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// create another camel context so we can use the vm component
+comment|// to send messages between them
+name|CamelContext
+name|other
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|other
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|from
+argument_list|(
+literal|"vm:foo"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|other
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// should not fail even though its a request/reply but
+comment|// we use the vm component so the consumer could be
+comment|// in another camel context
 name|template
 operator|.
 name|requestBody
@@ -106,42 +179,14 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertIsInstanceOf
-argument_list|(
-name|IllegalStateException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
+name|assertMockEndpointsSatisfied
 argument_list|()
-argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
+name|other
 operator|.
-name|getCause
+name|stop
 argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Cannot send to endpoint: seda:foo as no consumers is registered."
-argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -174,7 +219,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"vm:foo"
+argument_list|,
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

@@ -196,7 +196,9 @@ argument_list|,
 name|parameters
 argument_list|)
 decl_stmt|;
-return|return
+name|SedaEndpoint
+name|answer
+init|=
 operator|new
 name|SedaEndpoint
 argument_list|(
@@ -206,6 +208,16 @@ name|this
 argument_list|,
 name|blockingQueue
 argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|configureProperties
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@

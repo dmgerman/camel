@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.seda
+DECL|package|org.apache.camel.component.vm
 package|package
 name|org
 operator|.
@@ -14,21 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|seda
+name|vm
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExecutionException
-import|;
-end_import
 
 begin_import
 import|import
@@ -61,32 +49,13 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SedaNoConsumerTest
+DECL|class|VmInOutTest
 specifier|public
 class|class
-name|SedaNoConsumerTest
+name|VmInOutTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testInOnly ()
-specifier|public
-name|void
-name|testInOnly
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// no problem for in only as we do not expect a reply
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testInOut ()
 specifier|public
 name|void
@@ -95,8 +64,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|String
+name|out
+init|=
 name|template
 operator|.
 name|requestBody
@@ -104,44 +84,22 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertIsInstanceOf
-argument_list|(
-name|IllegalStateException
+argument_list|,
+name|String
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
 argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
+name|out
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
+name|assertMockEndpointsSatisfied
 argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Cannot send to endpoint: seda:foo as no consumers is registered."
-argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -174,7 +132,25 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"vm:foo"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"vm:foo"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.seda
+DECL|package|org.apache.camel.component.vm
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|seda
+name|vm
 package|;
 end_package
 
@@ -61,40 +61,31 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SedaNoConsumerTest
+DECL|class|VmInOutWithErrorTest
 specifier|public
 class|class
-name|SedaNoConsumerTest
+name|VmInOutWithErrorTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testInOnly ()
+DECL|method|testInOutWithError ()
 specifier|public
 name|void
-name|testInOnly
+name|testInOutWithError
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no problem for in only as we do not expect a reply
-name|template
-operator|.
-name|sendBody
+name|getMockEndpoint
 argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|testInOut ()
-specifier|public
-name|void
-name|testInOut
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 try|try
 block|{
 name|template
@@ -104,6 +95,15 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -115,7 +115,7 @@ parameter_list|)
 block|{
 name|assertIsInstanceOf
 argument_list|(
-name|IllegalStateException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
@@ -125,8 +125,10 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|"Damn I cannot do this"
+argument_list|,
 name|e
 operator|.
 name|getCause
@@ -134,14 +136,12 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Cannot send to endpoint: seda:foo as no consumers is registered."
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -174,7 +174,34 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"vm:foo"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"vm:foo"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
+operator|.
+name|throwException
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Damn I cannot do this"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
