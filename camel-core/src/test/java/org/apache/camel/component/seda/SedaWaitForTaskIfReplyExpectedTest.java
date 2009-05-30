@@ -263,12 +263,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo?waitTaskComplete=IfReplyExpected"
+literal|"seda:foo?waitForTaskToComplete=IfReplyExpected"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo?waitTaskComplete=IfReplyExpected"
+literal|"seda:foo?waitForTaskToComplete=IfReplyExpected"
 argument_list|)
 operator|.
 name|transform

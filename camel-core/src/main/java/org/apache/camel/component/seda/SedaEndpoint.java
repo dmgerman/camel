@@ -230,10 +230,10 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-DECL|field|waitTaskComplete
+DECL|field|waitForTaskToComplete
 specifier|private
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 init|=
 name|WaitForTaskToComplete
 operator|.
@@ -419,7 +419,7 @@ argument_list|,
 name|getQueue
 argument_list|()
 argument_list|,
-name|getWaitTaskComplete
+name|getWaitForTaskToComplete
 argument_list|()
 argument_list|)
 return|;
@@ -549,30 +549,30 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-DECL|method|getWaitTaskComplete ()
+DECL|method|getWaitForTaskToComplete ()
 specifier|public
 name|WaitForTaskToComplete
-name|getWaitTaskComplete
+name|getWaitForTaskToComplete
 parameter_list|()
 block|{
 return|return
-name|waitTaskComplete
+name|waitForTaskToComplete
 return|;
 block|}
-DECL|method|setWaitTaskComplete (WaitForTaskToComplete waitTaskComplete)
+DECL|method|setWaitForTaskToComplete (WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|void
-name|setWaitTaskComplete
+name|setWaitForTaskToComplete
 parameter_list|(
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 parameter_list|)
 block|{
 name|this
 operator|.
-name|waitTaskComplete
+name|waitForTaskToComplete
 operator|=
-name|waitTaskComplete
+name|waitForTaskToComplete
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

@@ -146,12 +146,12 @@ specifier|protected
 name|ExecutorService
 name|executorService
 decl_stmt|;
-DECL|field|waitTaskComplete
+DECL|field|waitForTaskToComplete
 specifier|protected
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 decl_stmt|;
-DECL|method|ThreadsProcessor (Processor output, ExecutorService executorService, WaitForTaskToComplete waitTaskComplete)
+DECL|method|ThreadsProcessor (Processor output, ExecutorService executorService, WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|ThreadsProcessor
 parameter_list|(
@@ -162,7 +162,7 @@ name|ExecutorService
 name|executorService
 parameter_list|,
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 parameter_list|)
 block|{
 name|super
@@ -178,9 +178,9 @@ name|executorService
 expr_stmt|;
 name|this
 operator|.
-name|waitTaskComplete
+name|waitForTaskToComplete
 operator|=
-name|waitTaskComplete
+name|waitForTaskToComplete
 expr_stmt|;
 block|}
 DECL|method|process (final Exchange exchange)
@@ -258,7 +258,7 @@ comment|// compute if we should wait for task to complete or not
 name|WaitForTaskToComplete
 name|wait
 init|=
-name|waitTaskComplete
+name|waitForTaskToComplete
 decl_stmt|;
 if|if
 condition|(

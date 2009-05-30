@@ -264,12 +264,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo?waitTaskComplete=Newer"
+literal|"seda:foo?waitForTaskToComplete=Newer"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo?waitTaskComplete=Newer"
+literal|"seda:foo?waitForTaskToComplete=Newer"
 argument_list|)
 operator|.
 name|transform

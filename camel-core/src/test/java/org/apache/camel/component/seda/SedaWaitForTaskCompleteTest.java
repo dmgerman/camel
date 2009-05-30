@@ -251,12 +251,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo?waitTaskComplete=Always"
+literal|"seda:foo?waitForTaskToComplete=Always"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo?waitTaskComplete=Always"
+literal|"seda:foo?waitForTaskToComplete=Always"
 argument_list|)
 operator|.
 name|transform

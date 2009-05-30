@@ -112,13 +112,13 @@ specifier|final
 name|SedaEndpoint
 name|endpoint
 decl_stmt|;
-DECL|field|waitTaskComplete
+DECL|field|waitForTaskToComplete
 specifier|private
 specifier|final
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 decl_stmt|;
-DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitTaskComplete)
+DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|SedaProducer
 parameter_list|(
@@ -132,7 +132,7 @@ argument_list|>
 name|queue
 parameter_list|,
 name|WaitForTaskToComplete
-name|waitTaskComplete
+name|waitForTaskToComplete
 parameter_list|)
 block|{
 name|super
@@ -150,9 +150,9 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|waitTaskComplete
+name|waitForTaskToComplete
 operator|=
-name|waitTaskComplete
+name|waitForTaskToComplete
 expr_stmt|;
 block|}
 annotation|@
@@ -192,7 +192,7 @@ expr_stmt|;
 name|WaitForTaskToComplete
 name|wait
 init|=
-name|waitTaskComplete
+name|waitForTaskToComplete
 decl_stmt|;
 if|if
 condition|(
