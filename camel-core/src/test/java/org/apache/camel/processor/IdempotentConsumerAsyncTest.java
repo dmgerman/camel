@@ -220,7 +220,7 @@ argument_list|()
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"one"
 argument_list|,
@@ -393,7 +393,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Damm I cannot handle id 2"
+literal|"Damn I cannot handle id 2"
 argument_list|)
 throw|;
 block|}
@@ -428,7 +428,7 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"one"
 argument_list|,
