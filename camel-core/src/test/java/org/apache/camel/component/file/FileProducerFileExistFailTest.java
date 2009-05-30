@@ -72,6 +72,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -183,7 +197,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
 literal|"File already exist: target/file/hello.txt. Cannot write new file."
+argument_list|)
 argument_list|,
 name|e
 operator|.
