@@ -128,39 +128,7 @@ name|builder
 operator|.
 name|ExpressionBuilder
 operator|.
-name|bodyExpression
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|headerExpression
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|propertyExpression
+name|*
 import|;
 end_import
 
@@ -320,13 +288,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
-DECL|method|bodyAs (Class<T> type)
+DECL|method|body (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|PredicateValueBuilder
-name|bodyAs
+name|body
 parameter_list|(
 name|Class
 argument_list|<
@@ -361,7 +329,7 @@ block|{
 name|Expression
 name|expression
 init|=
-name|bodyExpression
+name|outBodyExpression
 argument_list|()
 decl_stmt|;
 return|return
@@ -391,7 +359,7 @@ block|{
 name|Expression
 name|expression
 init|=
-name|bodyExpression
+name|outBodyExpression
 argument_list|(
 name|type
 argument_list|)

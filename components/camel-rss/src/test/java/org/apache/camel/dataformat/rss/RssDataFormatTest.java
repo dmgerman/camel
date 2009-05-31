@@ -190,7 +190,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|bodyAs
+name|body
 argument_list|(
 name|String
 operator|.
@@ -255,7 +255,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|bodyAs
+name|body
 argument_list|(
 name|SyndFeed
 operator|.
