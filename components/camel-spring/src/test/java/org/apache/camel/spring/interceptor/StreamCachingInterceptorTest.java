@@ -107,20 +107,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|hamcrest
-operator|.
-name|Assertions
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -214,10 +200,12 @@ decl_stmt|;
 name|StreamCache
 name|streamCache
 init|=
-name|Assertions
-operator|.
-name|assertInstanceOf
+name|assertIsInstanceOf
 argument_list|(
+name|StreamCache
+operator|.
+name|class
+argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -225,10 +213,6 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
-argument_list|,
-name|StreamCache
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
