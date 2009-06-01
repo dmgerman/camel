@@ -408,7 +408,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loading from osgi buindle using classloader: "
+literal|"Loading from osgi bundle using classloader: "
 operator|+
 name|osgiClassLoader
 argument_list|)
