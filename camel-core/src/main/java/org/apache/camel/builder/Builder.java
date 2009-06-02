@@ -560,6 +560,35 @@ name|newExp
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns an expression processing the exchange to the given endpoint uri.      *      * @param uri   endpoint uri      * @return the builder      */
+DECL|method|to (String uri)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|to
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|toExpression
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

@@ -827,6 +827,34 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Prepends the string evaluation of this expression with the given value      *      * @param value the value or expression to prepend      * @return the current builder      */
+DECL|method|prepend (Object value)
+specifier|public
+name|ValueBuilder
+name|prepend
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|prepend
+argument_list|(
+name|expression
+argument_list|,
+name|asExpression
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Sorts the current value using the given comparator. The current value must be convertable      * to a {@link List} to allow sorting using the comparator.      *      * @param comparator  the comparator used by sorting      * @return the current builder      */
 DECL|method|sort (Comparator comparator)
 specifier|public

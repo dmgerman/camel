@@ -493,6 +493,25 @@ name|method
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns an expression processing the exchange to the given endpoint uri      *      * @param uri endpoint uri to send the exchange to      * @return the builder      */
+DECL|method|to (String uri)
+specifier|public
+name|ValueBuilder
+name|to
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|to
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns an expression value builder that replaces all occurrences of the       * regular expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, String replacement)
 specifier|public
