@@ -469,22 +469,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// working as the dispatch mode, the binding factory will not add interceptor
-name|ei
-operator|.
-name|getBinding
-argument_list|()
-operator|.
-name|setProperty
-argument_list|(
-name|AbstractBindingFactory
-operator|.
-name|DATABINDING_DISABLED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
+comment|//ei.getBinding().setProperty(AbstractBindingFactory.DATABINDING_DISABLED, Boolean.TRUE);
 block|}
 block|}
 block|}

@@ -369,7 +369,7 @@ operator|.
 name|getGetHeadersCount
 argument_list|()
 argument_list|,
-literal|0
+literal|4
 argument_list|)
 expr_stmt|;
 block|}
