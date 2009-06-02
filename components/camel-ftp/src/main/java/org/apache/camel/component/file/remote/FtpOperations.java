@@ -182,7 +182,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileOperationFailedException
+name|GenericFileExist
 import|;
 end_import
 
@@ -198,7 +198,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileExist
+name|GenericFileOperationFailedException
 import|;
 end_import
 
