@@ -268,36 +268,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|mapAttribute (BeanDefinitionBuilder bean, Element e, String name, String val)
-specifier|protected
-name|void
-name|mapAttribute
-parameter_list|(
-name|BeanDefinitionBuilder
-name|bean
-parameter_list|,
-name|Element
-name|e
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|String
-name|val
-parameter_list|)
-block|{
-name|mapToProperty
-argument_list|(
-name|bean
-argument_list|,
-name|name
-argument_list|,
-name|val
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|doParse (Element element, ParserContext ctx, BeanDefinitionBuilder bean)
 specifier|protected
 name|void
