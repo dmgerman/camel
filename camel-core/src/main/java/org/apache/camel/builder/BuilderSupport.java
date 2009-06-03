@@ -494,10 +494,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns an expression processing the exchange to the given endpoint uri      *      * @param uri endpoint uri to send the exchange to      * @return the builder      */
-DECL|method|to (String uri)
+DECL|method|sendTo (String uri)
 specifier|public
 name|ValueBuilder
-name|to
+name|sendTo
 parameter_list|(
 name|String
 name|uri
@@ -506,7 +506,7 @@ block|{
 return|return
 name|Builder
 operator|.
-name|to
+name|sendTo
 argument_list|(
 name|uri
 argument_list|)

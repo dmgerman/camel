@@ -561,11 +561,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns an expression processing the exchange to the given endpoint uri.      *      * @param uri   endpoint uri      * @return the builder      */
-DECL|method|to (String uri)
+DECL|method|sendTo (String uri)
 specifier|public
 specifier|static
 name|ValueBuilder
-name|to
+name|sendTo
 parameter_list|(
 name|String
 name|uri
