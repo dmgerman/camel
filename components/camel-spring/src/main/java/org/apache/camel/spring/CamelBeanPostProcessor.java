@@ -372,6 +372,13 @@ specifier|private
 name|CamelPostProcessorHelper
 name|postProcessor
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|camelId
+specifier|private
+name|String
+name|camelId
+decl_stmt|;
 DECL|method|CamelBeanPostProcessor ()
 specifier|public
 name|CamelBeanPostProcessor
@@ -391,6 +398,68 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Camel bean processing before initialization for bean: "
+operator|+
+name|beanName
+argument_list|)
+expr_stmt|;
+block|}
+comment|// some beans cannot be post processed at this given time, so we gotta check beforehand
+if|if
+condition|(
+operator|!
+name|canPostProcessBean
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+condition|)
+block|{
+return|return
+name|bean
+return|;
+block|}
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+operator|&&
+name|applicationContext
+operator|.
+name|containsBean
+argument_list|(
+name|camelId
+argument_list|)
+condition|)
+block|{
+name|setCamelContext
+argument_list|(
+operator|(
+name|CamelContext
+operator|)
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+name|camelId
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|injectFields
 argument_list|(
 name|bean
@@ -462,6 +531,40 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Camel bean processing after initialization for bean: "
+operator|+
+name|beanName
+argument_list|)
+expr_stmt|;
+block|}
+comment|// some beans cannot be post processed at this given time, so we gotta check beforehand
+if|if
+condition|(
+operator|!
+name|canPostProcessBean
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+condition|)
+block|{
+return|return
+name|bean
+return|;
+block|}
 if|if
 condition|(
 name|bean
@@ -585,8 +688,65 @@ block|}
 block|}
 expr_stmt|;
 block|}
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|camelId
+return|;
+block|}
+DECL|method|setCamelId (String camelId)
+specifier|public
+name|void
+name|setCamelId
+parameter_list|(
+name|String
+name|camelId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelId
+operator|=
+name|camelId
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+comment|/**      * Can we post process the given bean?      *      * @param bean the bean      * @param beanName the bean name      * @return true to process it      */
+DECL|method|canPostProcessBean (Object bean, String beanName)
+specifier|protected
+name|boolean
+name|canPostProcessBean
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|)
+block|{
+comment|// the JMXAgent is a bit strange and causes Spring issues if we let it being
+comment|// post processed by this one. It does not need it anyway so we are good to go.
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|CamelJMXAgentDefinition
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// all other beans can of course be processed
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * A strategy method to allow implementations to perform some custom JBI      * based injection of the POJO      *      * @param bean the bean to be injected      */
 DECL|method|injectFields (final Object bean)
 specifier|protected

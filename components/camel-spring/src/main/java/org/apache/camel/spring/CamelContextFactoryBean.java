@@ -3730,7 +3730,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Can't find any routes info with this RouteBuilderDefinition "
+literal|"Cannot find any routes with this RouteBuilder reference: "
 operator|+
 name|builderRef
 argument_list|)

@@ -974,6 +974,9 @@ argument_list|,
 name|parserContext
 argument_list|)
 decl_stmt|;
+comment|// only register to camel context id as a String. Then we can look it up later
+comment|// otherwise we get a circular reference in spring and it will not allow custom bean post processing
+comment|// see more at CAMEL-1663
 name|definition
 operator|.
 name|getPropertyValues
@@ -981,13 +984,9 @@ argument_list|()
 operator|.
 name|addPropertyValue
 argument_list|(
-literal|"camelContext"
+literal|"camelId"
 argument_list|,
-operator|new
-name|RuntimeBeanReference
-argument_list|(
 name|contextId
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|parentBuilder
