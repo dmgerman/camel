@@ -2747,6 +2747,24 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|context
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// let the spring camel context handle the events
+name|context
+operator|.
+name|onApplicationEvent
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -2800,6 +2818,7 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}

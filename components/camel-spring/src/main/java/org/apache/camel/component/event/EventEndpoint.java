@@ -308,8 +308,7 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|getApplicationContext
-argument_list|()
+name|applicationContext
 argument_list|,
 literal|"applicationContext"
 argument_list|)
@@ -339,8 +338,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|getApplicationContext
-argument_list|()
+name|applicationContext
 operator|.
 name|publishEvent
 argument_list|(
@@ -362,6 +360,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|applicationContext
+argument_list|,
+literal|"applicationContext"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|EventConsumer
