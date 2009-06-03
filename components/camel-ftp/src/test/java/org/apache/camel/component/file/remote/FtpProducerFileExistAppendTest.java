@@ -74,6 +74,25 @@ name|FtpProducerFileExistAppendTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|ON_WINDOWS
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ON_WINDOWS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"Windows"
+argument_list|)
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -149,11 +168,26 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+name|String
+name|expectBody
+init|=
+literal|"Hello World\nBye World"
+decl_stmt|;
+if|if
+condition|(
+name|ON_WINDOWS
+condition|)
+block|{
+name|expectBody
+operator|=
+literal|"Hello World\r\nBye World"
+expr_stmt|;
+block|}
 name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World\nBye World"
+name|expectBody
 argument_list|)
 expr_stmt|;
 name|mock
@@ -164,7 +198,7 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"exist/hello.txt"
 argument_list|,
-literal|"Hello World\nBye World"
+name|expectBody
 argument_list|)
 expr_stmt|;
 name|template
