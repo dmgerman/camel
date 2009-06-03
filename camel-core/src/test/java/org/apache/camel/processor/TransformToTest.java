@@ -236,7 +236,7 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|to
+name|sendTo
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -319,7 +319,7 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|to
+name|sendTo
 argument_list|(
 literal|"direct:foo"
 argument_list|)
