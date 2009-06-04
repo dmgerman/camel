@@ -54,20 +54,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -106,7 +92,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ExpressionClause
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -194,135 +180,35 @@ name|DelayDefinition
 extends|extends
 name|ExpressionNode
 block|{
-annotation|@
-name|XmlAttribute
-DECL|field|delayTime
-specifier|private
-name|Long
-name|delayTime
-init|=
-literal|0L
-decl_stmt|;
 DECL|method|DelayDefinition ()
 specifier|public
 name|DelayDefinition
 parameter_list|()
 block|{     }
-DECL|method|DelayDefinition (Expression processAtExpression)
+DECL|method|DelayDefinition (Expression delay)
 specifier|public
 name|DelayDefinition
 parameter_list|(
 name|Expression
-name|processAtExpression
+name|delay
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|processAtExpression
+name|delay
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DelayDefinition (ExpressionDefinition processAtExpression)
-specifier|public
-name|DelayDefinition
-parameter_list|(
-name|ExpressionDefinition
-name|processAtExpression
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|processAtExpression
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DelayDefinition (Expression processAtExpression, long delayTime)
-specifier|public
-name|DelayDefinition
-parameter_list|(
-name|Expression
-name|processAtExpression
-parameter_list|,
-name|long
-name|delayTime
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|processAtExpression
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|delayTime
-operator|=
-name|delayTime
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|toString ()
+DECL|method|getLabel ()
 specifier|public
 name|String
-name|toString
+name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"Delay[on: "
-operator|+
-name|getExpression
-argument_list|()
-operator|+
-literal|" delay: "
-operator|+
-name|delayTime
-operator|+
-literal|" -> "
-operator|+
-name|getOutputs
-argument_list|()
-operator|+
-literal|"]"
-return|;
-block|}
-comment|// Fluent API
-comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the delay time in millis to delay      * @param delay delay time in millis      * @return the builder      */
-DECL|method|delayTime (Long delay)
-specifier|public
-name|DelayDefinition
-name|delayTime
-parameter_list|(
-name|Long
-name|delay
-parameter_list|)
-block|{
-name|setDelayTime
-argument_list|(
-name|delay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Set the expression that the delayer will use      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|DelayDefinition
-argument_list|>
-name|expression
-parameter_list|()
-block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|this
-argument_list|)
+literal|"delay"
 return|;
 block|}
 annotation|@
@@ -337,31 +223,57 @@ return|return
 literal|"delay"
 return|;
 block|}
-DECL|method|getDelayTime ()
+annotation|@
+name|Override
+DECL|method|toString ()
 specifier|public
-name|Long
-name|getDelayTime
+name|String
+name|toString
 parameter_list|()
 block|{
 return|return
-name|delayTime
+literal|"Delay["
+operator|+
+name|getExpression
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
-DECL|method|setDelayTime (Long delayTime)
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the delay time in millis to delay      *      * @param delay delay time in millis      * @return the builder      */
+DECL|method|delayTime (Long delay)
 specifier|public
-name|void
-name|setDelayTime
+name|DelayDefinition
+name|delayTime
 parameter_list|(
 name|Long
-name|delayTime
+name|delay
 parameter_list|)
 block|{
-name|this
+name|setExpression
+argument_list|(
+operator|new
+name|ExpressionDefinition
+argument_list|(
+name|ExpressionBuilder
 operator|.
-name|delayTime
-operator|=
-name|delayTime
+name|constantExpression
+argument_list|(
+name|delay
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
@@ -387,7 +299,7 @@ name|this
 argument_list|)
 decl_stmt|;
 name|Expression
-name|processAtExpression
+name|delay
 init|=
 name|createAbsoluteTimeDelayExpression
 argument_list|(
@@ -400,9 +312,7 @@ name|Delayer
 argument_list|(
 name|childProcessor
 argument_list|,
-name|processAtExpression
-argument_list|,
-name|delayTime
+name|delay
 argument_list|)
 return|;
 block|}

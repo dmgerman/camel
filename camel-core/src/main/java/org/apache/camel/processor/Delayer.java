@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.<p/> For example if you  * wish to delay JMS messages by 25 seconds from their publish time you could  * create an instance of this class with the expression  *<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *   * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -64,18 +64,13 @@ name|Delayer
 extends|extends
 name|DelayProcessorSupport
 block|{
-DECL|field|timeExpression
+DECL|field|delay
 specifier|private
 specifier|final
 name|Expression
-name|timeExpression
-decl_stmt|;
-DECL|field|delay
-specifier|private
-name|long
 name|delay
 decl_stmt|;
-DECL|method|Delayer (Processor processor, Expression timeExpression, long delay)
+DECL|method|Delayer (Processor processor, Expression delay)
 specifier|public
 name|Delayer
 parameter_list|(
@@ -83,9 +78,6 @@ name|Processor
 name|processor
 parameter_list|,
 name|Expression
-name|timeExpression
-parameter_list|,
-name|long
 name|delay
 parameter_list|)
 block|{
@@ -93,12 +85,6 @@ name|super
 argument_list|(
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|timeExpression
-operator|=
-name|timeExpression
 expr_stmt|;
 name|this
 operator|.
@@ -118,20 +104,6 @@ block|{
 return|return
 literal|"Delayer["
 operator|+
-operator|(
-name|timeExpression
-operator|!=
-literal|null
-condition|?
-literal|"on: "
-operator|+
-name|timeExpression
-else|:
-literal|""
-operator|)
-operator|+
-literal|" delay: "
-operator|+
 name|delay
 operator|+
 literal|" to: "
@@ -141,35 +113,6 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-comment|// Properties
-comment|// -------------------------------------------------------------------------
-DECL|method|getDelay ()
-specifier|public
-name|long
-name|getDelay
-parameter_list|()
-block|{
-return|return
-name|delay
-return|;
-block|}
-comment|/**      * Sets the delay from the publish time; which is typically the time from      * the expression or the current system time if none is available      */
-DECL|method|setDelay (long delay)
-specifier|public
-name|void
-name|setDelay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delay
-operator|=
-name|delay
-expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
@@ -192,7 +135,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|timeExpression
+name|delay
 operator|!=
 literal|null
 condition|)
@@ -200,7 +143,7 @@ block|{
 name|Long
 name|longValue
 init|=
-name|timeExpression
+name|delay
 operator|.
 name|evaluate
 argument_list|(
@@ -231,17 +174,16 @@ operator|<=
 literal|0
 condition|)
 block|{
+comment|// no delay
+return|return;
+block|}
+comment|// now add the current time
 name|time
-operator|=
+operator|+=
 name|defaultProcessTime
 argument_list|(
 name|exchange
 argument_list|)
-expr_stmt|;
-block|}
-name|time
-operator|+=
-name|delay
 expr_stmt|;
 name|waitUntil
 argument_list|(

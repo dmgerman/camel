@@ -278,6 +278,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ExpressionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ExpressionClause
 import|;
 end_import
@@ -3332,35 +3346,13 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @return the builder      */
-DECL|method|delay (Expression processAtExpression)
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  an expression to calculate the delay time in millis      * @return the builder      */
+DECL|method|delay (Expression delay)
 specifier|public
 name|DelayDefinition
 name|delay
 parameter_list|(
 name|Expression
-name|processAtExpression
-parameter_list|)
-block|{
-return|return
-name|delay
-argument_list|(
-name|processAtExpression
-argument_list|,
-literal|0L
-argument_list|)
-return|;
-block|}
-comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @param delay                the delay in milliseconds which is added to the processAtExpression      * @return the builder      */
-DECL|method|delay (Expression processAtExpression, long delay)
-specifier|public
-name|DelayDefinition
-name|delay
-parameter_list|(
-name|Expression
-name|processAtExpression
-parameter_list|,
-name|long
 name|delay
 parameter_list|)
 block|{
@@ -3370,8 +3362,6 @@ init|=
 operator|new
 name|DelayDefinition
 argument_list|(
-name|processAtExpression
-argument_list|,
 name|delay
 argument_list|)
 decl_stmt|;
@@ -3415,7 +3405,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the default delay in millis      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the delay in millis      * @return the builder      */
 DECL|method|delay (long delay)
 specifier|public
 name|DelayDefinition
@@ -3428,9 +3418,12 @@ block|{
 return|return
 name|delay
 argument_list|(
-literal|null
-argument_list|,
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
 name|delay
+argument_list|)
 argument_list|)
 return|;
 block|}
