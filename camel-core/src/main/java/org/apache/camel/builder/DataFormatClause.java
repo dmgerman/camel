@@ -194,6 +194,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|JsonLibrary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|RssDataFormat
 import|;
 end_import
@@ -685,7 +701,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      */
+comment|/**      * Uses the JSON data format using the XStream json library      */
 DECL|method|json ()
 specifier|public
 name|T
@@ -698,6 +714,66 @@ argument_list|(
 operator|new
 name|JsonDataFormat
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON data format      *      * @param library the json library to use      */
+DECL|method|json (JsonLibrary library)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|JsonLibrary
+name|library
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|library
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
+DECL|method|json (JsonLibrary type, Class<?> unmarshalType)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|JsonLibrary
+name|type
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|)
+block|{
+name|JsonDataFormat
+name|json
+init|=
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|type
+argument_list|)
+decl_stmt|;
+name|json
+operator|.
+name|setUnmarshalType
+argument_list|(
+name|unmarshalType
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|json
 argument_list|)
 return|;
 block|}

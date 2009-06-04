@@ -586,6 +586,58 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+name|dataFormatName
+return|;
+block|}
+DECL|method|setDataFormatName (String dataFormatName)
+specifier|public
+name|void
+name|setDataFormatName
+parameter_list|(
+name|String
+name|dataFormatName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormatName
+operator|=
+name|dataFormatName
+expr_stmt|;
+block|}
+DECL|method|getDataFormat ()
+specifier|public
+name|DataFormat
+name|getDataFormat
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+return|;
+block|}
+DECL|method|setDataFormat (DataFormat dataFormat)
+specifier|public
+name|void
+name|setDataFormat
+parameter_list|(
+name|DataFormat
+name|dataFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormat
+operator|=
+name|dataFormat
+expr_stmt|;
+block|}
 block|}
 end_class
 
