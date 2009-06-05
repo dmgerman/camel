@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|sql
+name|apache
 operator|.
-name|DataSource
+name|camel
+operator|.
+name|Consume
 import|;
 end_import
 
@@ -36,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
+name|Produce
 import|;
 end_import
 
@@ -49,50 +51,6 @@ operator|.
 name|camel
 operator|.
 name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|annotation
-operator|.
-name|Autowired
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|core
-operator|.
-name|simple
-operator|.
-name|SimpleJdbcTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Service
 import|;
 end_import
 
@@ -111,50 +69,64 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for unit testing that we can use spring and camel annotations mixed together  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
 annotation|@
 name|Transactional
-annotation|@
-name|Service
-DECL|class|AnnotatedBookServiceImpl
+argument_list|(
+name|propagation
+operator|=
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|annotation
+operator|.
+name|Propagation
+operator|.
+name|NEVER
+argument_list|,
+name|readOnly
+operator|=
+literal|true
+argument_list|)
+DECL|class|AnnotatedConsumeImpl
 specifier|public
 class|class
-name|AnnotatedBookServiceImpl
+name|AnnotatedConsumeImpl
 implements|implements
-name|AnnotatedBookStore
+name|AnnotatedConsume
 block|{
 annotation|@
-name|Autowired
-DECL|field|dataSource
-specifier|private
-name|DataSource
-name|dataSource
+name|Produce
+argument_list|(
+name|uri
+operator|=
+literal|"mock:book"
+argument_list|)
+DECL|field|producer
+name|ProducerTemplate
+name|producer
 decl_stmt|;
 annotation|@
-name|EndpointInject
+name|Consume
 argument_list|(
 name|uri
 operator|=
 literal|"seda:book"
 argument_list|)
-DECL|field|template
-specifier|private
-name|ProducerTemplate
-name|template
-decl_stmt|;
-DECL|method|orderBook (String title)
+DECL|method|handleTitle (String title)
 specifier|public
 name|void
-name|orderBook
+name|handleTitle
 parameter_list|(
 name|String
 name|title
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Transactional
 name|tx
@@ -189,7 +161,7 @@ block|}
 if|if
 condition|(
 operator|!
-literal|"REQUIRED"
+literal|"NEVER"
 operator|.
 name|equals
 argument_list|(
@@ -207,17 +179,35 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Should be REQUIRED propagation"
+literal|"Should be NEVER propagation"
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
+operator|!
+name|tx
+operator|.
+name|readOnly
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Should be read only"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
 name|title
 operator|.
-name|startsWith
+name|contains
 argument_list|(
-literal|"Donkey"
+literal|"in Action"
 argument_list|)
 condition|)
 block|{
@@ -225,25 +215,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"We don't have Donkeys, only Camels"
+literal|"Not a book title we like"
 argument_list|)
 throw|;
 block|}
-comment|// create new local datasource to store in DB
-operator|new
-name|SimpleJdbcTemplate
-argument_list|(
-name|dataSource
-argument_list|)
-operator|.
-name|update
-argument_list|(
-literal|"insert into books (title) values (?)"
-argument_list|,
-name|title
-argument_list|)
-expr_stmt|;
-name|template
+name|producer
 operator|.
 name|sendBody
 argument_list|(
