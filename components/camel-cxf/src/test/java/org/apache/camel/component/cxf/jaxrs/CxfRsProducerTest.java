@@ -176,6 +176,7 @@ name|void
 name|testGetConstumer
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
 name|Exchange
 name|exchange
 init|=
@@ -216,6 +217,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// set the operation name
 name|inMessage
 operator|.
 name|setHeader
@@ -227,6 +229,8 @@ argument_list|,
 literal|"getCustomer"
 argument_list|)
 expr_stmt|;
+comment|// set the parameters , if you just have one parameter
+comment|// camel will put this object into an Object[] itself
 name|inMessage
 operator|.
 name|setBody
@@ -238,6 +242,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+comment|// get the response message
 name|Customer
 name|response
 init|=
@@ -288,6 +293,7 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 block|}
 block|}
 end_class

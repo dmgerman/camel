@@ -183,6 +183,7 @@ name|CXF_RS_ENDPOINT_URI
 init|=
 literal|"cxfrs://http://localhost:9000?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService"
 decl_stmt|;
+comment|// START SNIPPET: example
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -230,6 +231,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// Get the operation name from in message
 name|String
 name|operationName
 init|=
@@ -246,6 +248,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// The parameter of the invocation is stored in the body of in message
 name|String
 name|id
 init|=
@@ -301,6 +304,7 @@ argument_list|(
 literal|"Willem"
 argument_list|)
 expr_stmt|;
+comment|// We just put the response Object into the out message body
 name|exchange
 operator|.
 name|getOut
@@ -320,6 +324,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: example
 DECL|method|testGetCustomer ()
 specifier|public
 name|void
