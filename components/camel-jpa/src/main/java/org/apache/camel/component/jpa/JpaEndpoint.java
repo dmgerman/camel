@@ -333,6 +333,11 @@ name|flushOnSend
 init|=
 literal|true
 decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|private
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -487,6 +492,14 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+name|consumer
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|consumer
@@ -936,6 +949,32 @@ operator|.
 name|flushOnSend
 operator|=
 name|flushOnSend
+expr_stmt|;
+block|}
+DECL|method|getMaxMessagesPerPoll ()
+specifier|public
+name|int
+name|getMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerPoll
+return|;
+block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
 expr_stmt|;
 block|}
 comment|// Implementation methods

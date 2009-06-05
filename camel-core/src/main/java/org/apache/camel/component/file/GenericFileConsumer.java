@@ -233,6 +233,11 @@ specifier|protected
 name|String
 name|fileExpressionResult
 decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|protected
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
 name|GenericFileConsumer
@@ -489,6 +494,22 @@ name|exchanges
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
+expr_stmt|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -511,6 +532,38 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// limit if needed
+if|if
+condition|(
+name|maxMessagesPerPoll
+operator|>
+literal|0
+operator|&&
+name|total
+operator|>
+name|maxMessagesPerPoll
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Limiting to maximum messages to poll "
+operator|+
+name|maxMessagesPerPoll
+operator|+
+literal|" as there was "
+operator|+
+name|total
+operator|+
+literal|" messages in this poll."
+argument_list|)
+expr_stmt|;
+name|total
+operator|=
+name|maxMessagesPerPoll
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int

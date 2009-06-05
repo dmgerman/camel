@@ -194,6 +194,11 @@ specifier|private
 name|ContentTypeResolver
 name|contentTypeResolver
 decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|private
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
 name|MailEndpoint
@@ -408,6 +413,14 @@ operator|.
 name|DEFAULT_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|answer
@@ -599,6 +612,32 @@ operator|.
 name|contentTypeResolver
 operator|=
 name|contentTypeResolver
+expr_stmt|;
+block|}
+DECL|method|getMaxMessagesPerPoll ()
+specifier|public
+name|int
+name|getMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerPoll
+return|;
+block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
 expr_stmt|;
 block|}
 block|}

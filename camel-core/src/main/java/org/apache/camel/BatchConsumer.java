@@ -36,6 +36,15 @@ name|BatchConsumer
 extends|extends
 name|Consumer
 block|{
+comment|/**      * Sets a maximum number of messages as a limit to poll at each polling.      *<p/>      * Can be used to limit eg to 100 to avoid when starting and there are millions      * of messages for you in the first poll.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as unlimited.      *      * @param maxMessagesPerPoll  maximum messages to poll.      */
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+function_decl|;
 comment|/**      * Processes the list of {@link org.apache.camel.Exchange} in a batch.      *<p/>      * Each message exchange will be processed individually but the batch      * consumer will add properties with the current index and total in the batch.      *      * @param exchanges list of exchanges in this batch      * @throws Exception if an internal processing error has occurred.      */
 DECL|method|processBatch (Queue exchanges)
 name|void

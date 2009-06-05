@@ -392,6 +392,11 @@ specifier|protected
 name|boolean
 name|flatten
 decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|protected
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
 DECL|field|tempPrefix
 specifier|protected
 name|String
@@ -1639,6 +1644,32 @@ operator|.
 name|localWorkDirectory
 operator|=
 name|localWorkDirectory
+expr_stmt|;
+block|}
+DECL|method|getMaxMessagesPerPoll ()
+specifier|public
+name|int
+name|getMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerPoll
+return|;
+block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */

@@ -274,6 +274,11 @@ specifier|private
 name|String
 name|nativeQuery
 decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|private
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
 DECL|class|DataHolder
 specifier|private
 specifier|final
@@ -477,6 +482,22 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
+expr_stmt|;
+block|}
 DECL|method|processBatch (Queue exchanges)
 specifier|public
 name|void
@@ -506,6 +527,38 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// limit if needed
+if|if
+condition|(
+name|maxMessagesPerPoll
+operator|>
+literal|0
+operator|&&
+name|total
+operator|>
+name|maxMessagesPerPoll
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Limiting to maximum messages to poll "
+operator|+
+name|maxMessagesPerPoll
+operator|+
+literal|" as there was "
+operator|+
+name|total
+operator|+
+literal|" messages in this poll."
+argument_list|)
+expr_stmt|;
+name|total
+operator|=
+name|maxMessagesPerPoll
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int

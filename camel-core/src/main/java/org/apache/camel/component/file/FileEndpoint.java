@@ -291,6 +291,15 @@ name|DEFAULT_IDEMPOTENT_CACHE_SIZE
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set max messages per poll
+name|result
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|result
