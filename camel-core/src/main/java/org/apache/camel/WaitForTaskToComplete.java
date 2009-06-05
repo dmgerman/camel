@@ -61,10 +61,10 @@ specifier|public
 enum|enum
 name|WaitForTaskToComplete
 block|{
-DECL|enumConstant|Newer
+DECL|enumConstant|Never
 DECL|enumConstant|IfReplyExpected
 DECL|enumConstant|Always
-name|Newer
+name|Never
 block|,
 name|IfReplyExpected
 block|,

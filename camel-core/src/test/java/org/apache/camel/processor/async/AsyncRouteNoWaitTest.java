@@ -516,7 +516,7 @@ name|waitForTaskToComplete
 argument_list|(
 name|WaitForTaskToComplete
 operator|.
-name|Newer
+name|Never
 argument_list|)
 comment|// from this point forward this is the async route doing its work
 comment|// so we do a bit of delay to simulate heavy work that takes time
