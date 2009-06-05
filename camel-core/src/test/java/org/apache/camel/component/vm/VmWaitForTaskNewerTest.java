@@ -264,12 +264,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"vm:foo?waitForTaskToComplete=Newer"
+literal|"vm:foo?waitForTaskToComplete=Never"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"vm:foo?waitForTaskToComplete=Newer"
+literal|"vm:foo?waitForTaskToComplete=Never"
 argument_list|)
 operator|.
 name|transform

@@ -708,7 +708,7 @@ literal|"Hello World"
 argument_list|,
 literal|"enum"
 argument_list|,
-literal|"Newer"
+literal|"Never"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
