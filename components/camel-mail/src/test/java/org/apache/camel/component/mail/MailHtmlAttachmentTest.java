@@ -240,7 +240,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|2000
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -386,7 +386,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// content type should match
-comment|// TODO: content type does not work with geronomi mail jar (its a buggy jar, use SUN mail jar instead)
 name|assertEquals
 argument_list|(
 literal|"image/jpeg; name=logo.jpeg"

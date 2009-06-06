@@ -66,6 +66,30 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * A unit test to verify mbean registration of multi-instances of a processor  *  * @version $Revision$  */
 end_comment
@@ -99,6 +123,34 @@ block|{
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// simulate a little processing time
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 operator|.
 name|to
@@ -252,11 +304,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Could not find 2 processor: "
+literal|"Could not find 3 processor: "
 operator|+
 name|s
 argument_list|,
-literal|2
+literal|3
 argument_list|,
 name|s
 operator|.
