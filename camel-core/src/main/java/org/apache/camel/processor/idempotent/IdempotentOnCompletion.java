@@ -119,6 +119,9 @@ DECL|field|idempotentRepository
 specifier|private
 specifier|final
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|messageId
@@ -127,11 +130,14 @@ specifier|final
 name|String
 name|messageId
 decl_stmt|;
-DECL|method|IdempotentOnCompletion (IdempotentRepository idempotentRepository, String messageId)
+DECL|method|IdempotentOnCompletion (IdempotentRepository<String> idempotentRepository, String messageId)
 specifier|public
 name|IdempotentOnCompletion
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 parameter_list|,
 name|String
@@ -191,11 +197,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onCompletedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
@@ -208,35 +209,7 @@ name|String
 name|messageId
 parameter_list|)
 block|{
-name|idempotentRepository
-operator|.
-name|add
-argument_list|(
-name|messageId
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Added to repository with id: "
-operator|+
-name|messageId
-operator|+
-literal|" for exchange: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
+comment|// noop
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onFailedMessage (Exchange exchange, String messageId)
@@ -251,6 +224,13 @@ name|String
 name|messageId
 parameter_list|)
 block|{
+name|idempotentRepository
+operator|.
+name|remove
+argument_list|(
+name|messageId
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -263,7 +243,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not added to repository as exchange failed: "
+literal|"Removed from repository as exchange failed: "
 operator|+
 name|exchange
 operator|+

@@ -47,6 +47,15 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the key from the repository.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was removed      */
+DECL|method|remove (E key)
+name|boolean
+name|remove
+parameter_list|(
+name|E
+name|key
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

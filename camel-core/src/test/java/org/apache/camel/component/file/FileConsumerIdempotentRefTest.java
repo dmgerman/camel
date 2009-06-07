@@ -396,6 +396,19 @@ return|return
 name|invoked
 return|;
 block|}
+DECL|method|remove (String key)
+specifier|public
+name|boolean
+name|remove
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|}
 end_class

@@ -265,6 +265,32 @@ argument_list|)
 return|;
 block|}
 block|}
+DECL|method|remove (String key)
+specifier|public
+name|boolean
+name|remove
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|cache
+init|)
+block|{
+return|return
+name|cache
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
+block|}
 DECL|method|getCache ()
 specifier|public
 name|Map

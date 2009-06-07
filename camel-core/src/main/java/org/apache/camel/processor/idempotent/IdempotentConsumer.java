@@ -283,6 +283,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|messageId
 init|=
@@ -314,16 +315,24 @@ name|messageIdExpression
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
+comment|// add the key to the repository
+name|boolean
+name|newKey
+init|=
 name|idempotentRepository
 operator|.
-name|contains
+name|add
 argument_list|(
 name|messageId
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|newKey
 condition|)
 block|{
+comment|// we already have this key so its a duplicate message
 name|onDuplicateMessage
 argument_list|(
 name|exchange
@@ -348,7 +357,7 @@ name|messageId
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// process it first
+comment|// process the exchange
 name|processor
 operator|.
 name|process
