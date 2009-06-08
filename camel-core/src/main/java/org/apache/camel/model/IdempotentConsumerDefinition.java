@@ -202,6 +202,17 @@ name|String
 name|messageIdRepositoryRef
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|eager
+specifier|private
+name|Boolean
+name|eager
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|idempotentRepository
 specifier|private
@@ -329,6 +340,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to eagerly add the key to the idempotent repository or wait until the exchange      * is complete. Eager is default enabled.      *      * @param eager<tt>true</tt> to add the key before processing,<tt>false</tt> to wait until      * the exchange is complete.      * @return builder      */
+DECL|method|eager (boolean eager)
+specifier|public
+name|IdempotentConsumerDefinition
+name|eager
+parameter_list|(
+name|boolean
+name|eager
+parameter_list|)
+block|{
+name|setEager
+argument_list|(
+name|eager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getMessageIdRepositoryRef ()
 specifier|public
 name|String
@@ -381,6 +411,32 @@ operator|=
 name|idempotentRepository
 expr_stmt|;
 block|}
+DECL|method|isEager ()
+specifier|public
+name|Boolean
+name|isEager
+parameter_list|()
+block|{
+return|return
+name|eager
+return|;
+block|}
+DECL|method|setEager (Boolean eager)
+specifier|public
+name|void
+name|setEager
+parameter_list|(
+name|Boolean
+name|eager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eager
+operator|=
+name|eager
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -412,10 +468,9 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-return|return
-operator|new
-name|IdempotentConsumer
-argument_list|(
+name|Expression
+name|expression
+init|=
 name|getExpression
 argument_list|()
 operator|.
@@ -423,8 +478,16 @@ name|createExpression
 argument_list|(
 name|routeContext
 argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|IdempotentConsumer
+argument_list|(
+name|expression
 argument_list|,
 name|idempotentRepository
+argument_list|,
+name|eager
 argument_list|,
 name|childProcessor
 argument_list|)

@@ -589,6 +589,20 @@ literal|null
 return|;
 block|}
 block|}
+DECL|method|confirm (String key)
+specifier|public
+name|boolean
+name|confirm
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+comment|// noop
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getFileStore ()
 specifier|public
 name|File

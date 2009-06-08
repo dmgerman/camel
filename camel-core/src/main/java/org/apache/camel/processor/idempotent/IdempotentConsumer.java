@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent  * Consumer</a> pattern.  *   * @version $Revision$  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -210,7 +210,13 @@ specifier|final
 name|IdempotentRepository
 name|idempotentRepository
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, Processor processor)
+DECL|field|eager
+specifier|private
+specifier|final
+name|boolean
+name|eager
+decl_stmt|;
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, boolean eager, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -219,6 +225,9 @@ name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
 name|idempotentRepository
+parameter_list|,
+name|boolean
+name|eager
 parameter_list|,
 name|Processor
 name|processor
@@ -238,6 +247,12 @@ name|idempotentRepository
 expr_stmt|;
 name|this
 operator|.
+name|eager
+operator|=
+name|eager
+expr_stmt|;
+name|this
+operator|.
 name|processor
 operator|=
 name|processor
@@ -252,15 +267,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"IdempotentConsumer[expression="
+literal|"IdempotentConsumer["
 operator|+
 name|messageIdExpression
 operator|+
-literal|", repository="
-operator|+
-name|idempotentRepository
-operator|+
-literal|", processor="
+literal|" -> "
 operator|+
 name|processor
 operator|+
@@ -315,17 +326,39 @@ name|messageIdExpression
 argument_list|)
 throw|;
 block|}
-comment|// add the key to the repository
 name|boolean
 name|newKey
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|eager
+condition|)
+block|{
+comment|// add the key to the repository
+name|newKey
+operator|=
 name|idempotentRepository
 operator|.
 name|add
 argument_list|(
 name|messageId
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// check if we alrady have the key
+name|newKey
+operator|=
+operator|!
+name|idempotentRepository
+operator|.
+name|contains
+argument_list|(
+name|messageId
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -340,9 +373,8 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
 comment|// register our on completion callback
 name|exchange
 operator|.
@@ -354,6 +386,8 @@ argument_list|(
 name|idempotentRepository
 argument_list|,
 name|messageId
+argument_list|,
+name|eager
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -365,7 +399,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|next ()
 specifier|public

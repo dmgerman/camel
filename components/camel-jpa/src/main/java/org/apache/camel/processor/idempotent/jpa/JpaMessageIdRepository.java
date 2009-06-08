@@ -649,6 +649,20 @@ name|booleanValue
 argument_list|()
 return|;
 block|}
+DECL|method|confirm (String s)
+specifier|public
+name|boolean
+name|confirm
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+comment|// noop
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

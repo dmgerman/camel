@@ -955,7 +955,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Remote file did not match. Will skip this remote file: "
+literal|"File did not match. Will skip this file: "
 operator|+
 name|file
 argument_list|)
@@ -1000,7 +1000,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"RemoteFileConsumer is idempotent and the file has been consumed before. Will skip this remote file: "
+literal|"This consumer is idempotent and the file has been consumed before. Will skip this file: "
 operator|+
 name|file
 argument_list|)

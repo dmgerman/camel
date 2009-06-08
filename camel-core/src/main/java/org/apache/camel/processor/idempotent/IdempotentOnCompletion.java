@@ -119,9 +119,6 @@ DECL|field|idempotentRepository
 specifier|private
 specifier|final
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|messageId
@@ -130,18 +127,24 @@ specifier|final
 name|String
 name|messageId
 decl_stmt|;
-DECL|method|IdempotentOnCompletion (IdempotentRepository<String> idempotentRepository, String messageId)
+DECL|field|eager
+specifier|private
+specifier|final
+name|boolean
+name|eager
+decl_stmt|;
+DECL|method|IdempotentOnCompletion (IdempotentRepository idempotentRepository, String messageId, boolean eager)
 specifier|public
 name|IdempotentOnCompletion
 parameter_list|(
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 parameter_list|,
 name|String
 name|messageId
+parameter_list|,
+name|boolean
+name|eager
 parameter_list|)
 block|{
 name|this
@@ -156,12 +159,13 @@ name|messageId
 operator|=
 name|messageId
 expr_stmt|;
+name|this
+operator|.
+name|eager
+operator|=
+name|eager
+expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -197,6 +201,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|onCompletedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
@@ -209,9 +218,35 @@ name|String
 name|messageId
 parameter_list|)
 block|{
-comment|// noop
+if|if
+condition|(
+operator|!
+name|eager
+condition|)
+block|{
+comment|// if not eager we should add the key when its complete
+name|idempotentRepository
+operator|.
+name|add
+argument_list|(
+name|messageId
+argument_list|)
+expr_stmt|;
+block|}
+name|idempotentRepository
+operator|.
+name|confirm
+argument_list|(
+name|messageId
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|onFailedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
