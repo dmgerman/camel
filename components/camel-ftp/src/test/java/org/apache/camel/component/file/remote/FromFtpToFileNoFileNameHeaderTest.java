@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -151,63 +141,40 @@ throws|throws
 name|Exception
 block|{
 name|MockEndpoint
-name|resultEndpoint
+name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|resultEndpoint
+name|mock
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
+name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World from FTPServer"
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/ftptest/hello.txt"
+argument_list|,
+literal|"Hello World from FTPServer"
+argument_list|)
+expr_stmt|;
+name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// assert the file
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/ftptest/hello.txt"
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The file should exists"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File size wrong"
-argument_list|,
-name|file
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|10
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|prepareFtpServer ()
