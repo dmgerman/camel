@@ -282,14 +282,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 argument_list|<
 name|File
 argument_list|>
 name|strategy
 init|=
 operator|new
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 argument_list|<
 name|File
 argument_list|>
@@ -382,14 +382,14 @@ block|}
 else|else
 block|{
 comment|// default strategy will move files in a .camel/ subfolder where the file was consumed
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 argument_list|<
 name|File
 argument_list|>
 name|strategy
 init|=
 operator|new
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 argument_list|<
 name|File
 argument_list|>

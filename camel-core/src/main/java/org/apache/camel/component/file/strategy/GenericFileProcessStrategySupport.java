@@ -464,6 +464,14 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|boolean
+name|deleted
+init|=
+name|local
+operator|.
+name|delete
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|log
@@ -476,17 +484,16 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting lock work file: "
+literal|"Local work file: "
 operator|+
 name|local
+operator|+
+literal|" was deleted: "
+operator|+
+name|deleted
 argument_list|)
 expr_stmt|;
 block|}
-name|local
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

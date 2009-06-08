@@ -340,6 +340,38 @@ literal|false
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|isInProgress
+argument_list|(
+name|remote
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Skipping as file is already in progress: "
+operator|+
+name|remote
+operator|.
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 comment|// matched file so add
 name|fileList
 operator|.
@@ -348,6 +380,7 @@ argument_list|(
 name|remote
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

@@ -342,6 +342,19 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|confirm (String key)
+specifier|public
+name|boolean
+name|confirm
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|}
 end_class

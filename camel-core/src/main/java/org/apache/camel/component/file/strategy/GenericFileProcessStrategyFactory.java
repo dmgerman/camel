@@ -251,11 +251,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 name|strategy
 init|=
 operator|new
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 argument_list|()
 decl_stmt|;
 name|strategy

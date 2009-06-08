@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.stress
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|stress
+name|remote
 package|;
 end_package
 
@@ -27,18 +27,6 @@ operator|.
 name|util
 operator|.
 name|Random
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
 import|;
 end_import
 
@@ -101,20 +89,35 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FileAsyncStressTest
+DECL|class|FtpConsumerAsyncStressTest
 specifier|public
 class|class
-name|FileAsyncStressTest
+name|FtpConsumerAsyncStressTest
 extends|extends
-name|ContextTestSupport
+name|FtpServerTestSupport
 block|{
 DECL|field|files
 specifier|private
 name|int
 name|files
 init|=
-literal|150
+literal|100
 decl_stmt|;
+DECL|method|getFtpUrl ()
+specifier|private
+name|String
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/filestress/?password=admin&maxMessagesPerPoll=25"
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -125,15 +128,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+name|FTP_ROOT_DIR
+operator|+
+literal|"filestress"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/filestress"
-argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -154,7 +159,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filestress"
+literal|"file://"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"filestress"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -169,10 +178,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testAsyncStress ()
+DECL|method|testFTPConsumerAsyncStress ()
 specifier|public
 name|void
-name|testAsyncStress
+name|testFTPConsumerAsyncStress
 parameter_list|()
 throws|throws
 name|Exception
@@ -189,7 +198,7 @@ name|mock
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -220,12 +229,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// leverage the fact that we can limit to max 50 files per poll
+comment|// leverage the fact that we can limit to max 25 files per poll
 comment|// this will result in polling again and potentially picking up files
 comment|// that already are in progress
 name|from
 argument_list|(
-literal|"file:target/filestress?maxMessagesPerPoll=50"
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|threads

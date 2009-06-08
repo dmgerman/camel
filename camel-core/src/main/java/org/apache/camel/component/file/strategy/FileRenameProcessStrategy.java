@@ -111,10 +111,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GenericFileRenameProcessStrategy
+DECL|class|FileRenameProcessStrategy
 specifier|public
 class|class
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 parameter_list|<
 name|T
 parameter_list|>
@@ -140,9 +140,9 @@ name|T
 argument_list|>
 name|commitRenamer
 decl_stmt|;
-DECL|method|GenericFileRenameProcessStrategy ()
+DECL|method|FileRenameProcessStrategy ()
 specifier|public
-name|GenericFileRenameProcessStrategy
+name|FileRenameProcessStrategy
 parameter_list|()
 block|{     }
 annotation|@

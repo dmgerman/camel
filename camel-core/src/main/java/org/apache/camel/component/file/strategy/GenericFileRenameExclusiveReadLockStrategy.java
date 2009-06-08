@@ -364,7 +364,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> opeations, GenericFile<T> file, Exchange exchange)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
@@ -373,7 +373,7 @@ name|GenericFileOperations
 argument_list|<
 name|T
 argument_list|>
-name|opeations
+name|operations
 parameter_list|,
 name|GenericFile
 argument_list|<

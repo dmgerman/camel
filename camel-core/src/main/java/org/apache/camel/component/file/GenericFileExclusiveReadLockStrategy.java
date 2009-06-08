@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is realeased, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>GenericFileRenameExclusiveReadLockStrategy waiting until its possible to  * rename the file.</li>  *<li>NewFileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration  * of the processing.</li>  *<li>NewMarkerFileExclusiveReadLockStrategy using a marker file for acquiring  * read lock.</li>  *</ul>  */
+comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is realeased, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *</ul>  */
 end_comment
 
 begin_interface
