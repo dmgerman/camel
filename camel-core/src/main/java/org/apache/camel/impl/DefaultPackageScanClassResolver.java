@@ -350,6 +350,26 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"The thread context class loader: "
+operator|+
+name|ccl
+operator|+
+literal|"  is used to load the class"
+argument_list|)
+expr_stmt|;
+block|}
 name|classLoaders
 operator|.
 name|add
@@ -1835,7 +1855,9 @@ literal|" matches criteria ["
 operator|+
 name|test
 operator|+
-literal|"]"
+literal|"] using ClassLoader:"
+operator|+
+name|classLoader
 argument_list|)
 expr_stmt|;
 block|}
