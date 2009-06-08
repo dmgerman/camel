@@ -1875,6 +1875,28 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loaded the class: "
+operator|+
+name|type
+operator|+
+literal|" in classloader: "
+operator|+
+name|classLoader
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|test
 operator|.
 name|matches
@@ -1899,7 +1921,7 @@ literal|"Found class: "
 operator|+
 name|type
 operator|+
-literal|" in classloader: "
+literal|" which matches the filter in classloader: "
 operator|+
 name|classLoader
 argument_list|)
