@@ -731,90 +731,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// data types
-comment|// TODO: why do we have this for data types, and only these 4 out of the 10+ data types we have in total?
-name|addBeanDefinitionParser
-argument_list|(
-literal|"artixDS"
-argument_list|,
-name|ArtixDSDataFormat
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"jaxb"
-argument_list|,
-name|JaxbDataFormat
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"serialization"
-argument_list|,
-name|SerializationDataFormat
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"xmlBeans"
-argument_list|,
-name|XMLBeansDataFormat
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-comment|// load balancers
-name|addBeanDefinitionParser
-argument_list|(
-literal|"roundRobin"
-argument_list|,
-name|RoundRobinLoadBalancerDefinition
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"random"
-argument_list|,
-name|RandomLoadBalancerDefinition
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"sticky"
-argument_list|,
-name|StickyLoadBalancerDefinition
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"topic"
-argument_list|,
-name|TopicLoadBalancerDefinition
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addBeanDefinitionParser
-argument_list|(
-literal|"failover"
-argument_list|,
-name|FailoverLoadBalancerDefinition
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 comment|// jmx agent
 name|addBeanDefinitionParser
 argument_list|(
@@ -1457,7 +1373,7 @@ name|contextId
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now lets parse the routes
+comment|// now lets parse the routes with JAXB
 name|Object
 name|value
 init|=
@@ -1475,6 +1391,7 @@ operator|instanceof
 name|CamelContextFactoryBean
 condition|)
 block|{
+comment|// set the property value with the JAXB parsed value
 name|CamelContextFactoryBean
 name|factoryBean
 init|=
