@@ -125,7 +125,6 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#greetMe(java.lang.String)      */
 DECL|method|greetMe (String me)
 specifier|public
 name|String
@@ -142,20 +141,16 @@ argument_list|(
 literal|"Executing operation greetMe"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Executing operation greetMe"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Message received: "
 operator|+
@@ -170,7 +165,6 @@ operator|+
 name|me
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#greetMeOneWay(java.lang.String)      */
 DECL|method|greetMeOneWay (String me)
 specifier|public
 name|void
@@ -187,20 +181,16 @@ argument_list|(
 literal|"Executing operation greetMeOneWay"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Executing operation greetMeOneWay\n"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Hello there "
 operator|+
@@ -208,7 +198,6 @@ name|me
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#sayHi()      */
 DECL|method|sayHi ()
 specifier|public
 name|String
@@ -222,11 +211,9 @@ argument_list|(
 literal|"Executing operation sayHi"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Executing operation sayHi\n"
 argument_list|)
@@ -282,11 +269,9 @@ operator|+
 name|messageIn
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Executing operation pingMe, throwing PingMeFault exception\n"
 argument_list|)

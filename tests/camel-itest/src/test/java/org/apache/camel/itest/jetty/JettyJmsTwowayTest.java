@@ -220,6 +220,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|Thread
 operator|.
 name|sleep

@@ -252,6 +252,11 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|MockEndpoint
 operator|.
 name|assertIsSatisfied
