@@ -368,7 +368,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteDefinition
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -382,9 +382,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|dataformat
-operator|.
-name|DataFormatDefinition
+name|RouteDefinition
 import|;
 end_import
 

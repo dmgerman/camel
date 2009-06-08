@@ -60,6 +60,20 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|DataFormatDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a CSV (Comma Separated Values) {@link org.apache.camel.spi.DataFormat}  *  * @version $Revision$  */
 end_comment
