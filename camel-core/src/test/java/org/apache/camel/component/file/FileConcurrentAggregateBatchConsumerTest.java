@@ -184,7 +184,7 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchConsumer
+name|batchSizeFromConsumer
 argument_list|()
 operator|.
 name|batchTimeout
@@ -306,7 +306,7 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchConsumer
+name|batchSizeFromConsumer
 argument_list|()
 operator|.
 name|batchTimeout

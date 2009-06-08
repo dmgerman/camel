@@ -438,10 +438,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|batchConsumer
+DECL|field|batchSizeFromConsumer
 specifier|private
 name|Boolean
-name|batchConsumer
+name|batchSizeFromConsumer
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -935,7 +935,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|batchConsumer
+name|batchSizeFromConsumer
 operator|!=
 literal|null
 condition|)
@@ -944,7 +944,7 @@ name|aggregator
 operator|.
 name|setBatchConsumer
 argument_list|(
-name|batchConsumer
+name|batchSizeFromConsumer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1289,42 +1289,42 @@ operator|=
 name|groupExchanges
 expr_stmt|;
 block|}
-DECL|method|getBatchConsumer ()
+DECL|method|getBatchSizeFromConsumer ()
 specifier|public
 name|Boolean
-name|getBatchConsumer
+name|getBatchSizeFromConsumer
 parameter_list|()
 block|{
 return|return
-name|batchConsumer
+name|batchSizeFromConsumer
 return|;
 block|}
-DECL|method|setBatchConsumer (Boolean batchConsumer)
+DECL|method|setBatchSizeFromConsumer (Boolean batchSizeFromConsumer)
 specifier|public
 name|void
-name|setBatchConsumer
+name|setBatchSizeFromConsumer
 parameter_list|(
 name|Boolean
-name|batchConsumer
+name|batchSizeFromConsumer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|batchConsumer
+name|batchSizeFromConsumer
 operator|=
-name|batchConsumer
+name|batchSizeFromConsumer
 expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Enables the batch completion mode where we aggregate from a {@link org.apache.camel.BatchConsumer}      * and aggregate the total number of exchanges the {@link org.apache.camel.BatchConsumer} has reported      * as total by setting the exchange property {@link org.apache.camel.Exchange#BATCH_SIZE}.      *      * @return builder      */
-DECL|method|batchConsumer ()
+DECL|method|batchSizeFromConsumer ()
 specifier|public
 name|AggregateDefinition
-name|batchConsumer
+name|batchSizeFromConsumer
 parameter_list|()
 block|{
-name|setBatchConsumer
+name|setBatchSizeFromConsumer
 argument_list|(
 literal|true
 argument_list|)
