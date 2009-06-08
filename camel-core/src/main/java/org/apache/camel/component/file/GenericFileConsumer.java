@@ -646,6 +646,67 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove the file from the in progress list in case the batch was limited by max messages per poll
+for|for
+control|(
+name|int
+name|index
+init|=
+literal|0
+init|;
+name|index
+operator|<
+name|exchanges
+operator|.
+name|size
+argument_list|()
+operator|&&
+name|isRunAllowed
+argument_list|()
+condition|;
+name|index
+operator|++
+control|)
+block|{
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
+name|exchange
+init|=
+operator|(
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
+operator|)
+name|exchanges
+operator|.
+name|poll
+argument_list|()
+decl_stmt|;
+name|String
+name|key
+init|=
+name|exchange
+operator|.
+name|getGenericFile
+argument_list|()
+operator|.
+name|getFileName
+argument_list|()
+decl_stmt|;
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
 DECL|method|prePollCheck ()
@@ -1015,7 +1076,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if not      */
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if not      */
 DECL|method|isMatched (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
@@ -1213,6 +1274,40 @@ block|}
 block|}
 return|return
 literal|true
+return|;
+block|}
+comment|/**      * Is the given file already in progress.      *      * @param file the file      * @return<tt>true</tt> if the file is already in progress      */
+DECL|method|isInProgress (GenericFile<T> file)
+specifier|protected
+name|boolean
+name|isInProgress
+parameter_list|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|)
+block|{
+name|String
+name|key
+init|=
+name|file
+operator|.
+name|getFileName
+argument_list|()
+decl_stmt|;
+return|return
+operator|!
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|key
+argument_list|)
 return|;
 block|}
 DECL|method|evaluteFileExpression ()

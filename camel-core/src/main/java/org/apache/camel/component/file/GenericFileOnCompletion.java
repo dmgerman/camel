@@ -414,6 +414,20 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove file from the in progress list as its no longer in progress
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|file
+operator|.
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
