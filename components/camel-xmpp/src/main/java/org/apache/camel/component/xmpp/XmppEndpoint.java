@@ -428,7 +428,8 @@ else|else
 block|{
 if|if
 condition|(
-name|participant
+name|getParticipant
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -446,7 +447,8 @@ block|}
 return|return
 name|createPrivateChatProducer
 argument_list|(
-name|participant
+name|getParticipant
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -577,7 +579,8 @@ name|port
 operator|+
 literal|"/"
 operator|+
-name|participant
+name|getParticipant
+argument_list|()
 operator|+
 literal|"?serviceName="
 operator|+
@@ -1232,8 +1235,15 @@ name|String
 name|getParticipant
 parameter_list|()
 block|{
+comment|// participant is optional so use user if not provided
 return|return
 name|participant
+operator|!=
+literal|null
+condition|?
+name|participant
+else|:
+name|user
 return|;
 block|}
 DECL|method|setParticipant (String participant)
