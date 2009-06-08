@@ -175,7 +175,7 @@ name|resultEndpoint
 operator|.
 name|setMinimumResultWaitTime
 argument_list|(
-literal|1000
+literal|900
 argument_list|)
 expr_stmt|;
 name|template
