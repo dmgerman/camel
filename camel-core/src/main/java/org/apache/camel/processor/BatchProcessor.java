@@ -536,12 +536,40 @@ name|int
 name|batchSize
 parameter_list|)
 block|{
+comment|// setting batch size to 0 or negative is like disabling it, so we set it as the max value
+comment|// as the code logic is dependt on a batch size having 1..n value
+if|if
+condition|(
+name|batchSize
+operator|<=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Disabling batch size, will only be triggered by timeout"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|batchSize
+operator|=
+name|Integer
+operator|.
+name|MAX_VALUE
+expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|batchSize
 operator|=
 name|batchSize
 expr_stmt|;
+block|}
 block|}
 DECL|method|getOutBatchSize ()
 specifier|public
