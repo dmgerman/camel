@@ -248,6 +248,13 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No response"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|response
