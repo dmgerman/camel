@@ -58,6 +58,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Proxy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -611,27 +623,42 @@ literal|0
 condition|)
 block|{
 comment|// exclude all java.lang.Object methods as we dont want to invoke them
-for|for
-control|(
-name|Method
-name|method
-range|:
+name|EXCLUDED_METHODS
+operator|.
+name|addAll
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|Object
 operator|.
 name|class
 operator|.
 name|getMethods
 argument_list|()
-control|)
-block|{
-name|EXCLUDED_METHODS
-operator|.
-name|add
-argument_list|(
-name|method
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
+comment|// exclude all java.lang.reflect.Proxy methods as we dont want to invoke them
+name|EXCLUDED_METHODS
+operator|.
+name|addAll
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|Proxy
+operator|.
+name|class
+operator|.
+name|getMethods
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// TODO: AOP proxies have additional methods - well known methods should be added to EXCLUDE_METHODS
 block|}
 block|}
 name|introspect
@@ -957,7 +984,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Choosed method to invoke: "
+literal|"Chosen method to invoke: "
 operator|+
 name|methodInfo
 operator|+
@@ -2083,7 +2110,6 @@ range|:
 name|operationList
 control|)
 block|{
-comment|// TODO: AOP proxies have additional methods - well known methods should be added to EXCLUDE_METHODS
 comment|// test for MEP pattern matching
 name|boolean
 name|out
