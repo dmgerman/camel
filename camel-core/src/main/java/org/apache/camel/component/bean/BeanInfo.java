@@ -1512,6 +1512,41 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|int
+name|size
+init|=
+name|parameterTypes
+operator|.
+name|length
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating MethodInfo for class: "
+operator|+
+name|clazz
+operator|+
+literal|" method: "
+operator|+
+name|method
+operator|+
+literal|" having "
+operator|+
+name|size
+operator|+
+literal|" parameters"
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -1521,9 +1556,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|parameterTypes
-operator|.
-name|length
+name|size
 condition|;
 name|i
 operator|++
@@ -1595,8 +1628,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|hasCustomAnnotation
-operator||=
+name|boolean
+name|bodyAnnotation
+init|=
 name|ObjectHelper
 operator|.
 name|hasAnnotation
@@ -1607,6 +1641,32 @@ name|Body
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+operator|&&
+name|bodyAnnotation
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|" has @Body annotation"
+argument_list|)
+expr_stmt|;
+block|}
+name|hasCustomAnnotation
+operator||=
+name|bodyAnnotation
 expr_stmt|;
 if|if
 condition|(
@@ -1616,6 +1676,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// okay we have not yet set the body parameter and we have found
+comment|// the candidate now to use as body parameter
 if|if
 condition|(
 name|Exchange
@@ -1650,6 +1712,28 @@ name|parameterType
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|" is the body parameter using expression "
+operator|+
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 name|parameterInfo
 operator|.
 name|setExpression
@@ -1669,6 +1753,28 @@ else|else
 block|{
 comment|// will ignore the expression for parameter evaluation
 block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|" has parameter info: "
+operator|+
+name|parameterInfo
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// now lets add the method to the repository

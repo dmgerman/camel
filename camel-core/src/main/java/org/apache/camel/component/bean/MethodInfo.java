@@ -164,20 +164,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ExpressionAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|RecipientList
@@ -842,7 +828,6 @@ name|Expression
 name|createParametersExpression
 parameter_list|()
 block|{
-comment|// TODO: better check for size / parameters do not match up -> NPE
 specifier|final
 name|int
 name|size
@@ -852,6 +837,26 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating parameters expression for "
+operator|+
+name|size
+operator|+
+literal|" parameters"
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|Expression
 index|[]
@@ -898,6 +903,28 @@ index|]
 operator|=
 name|parameterExpression
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|" has expression: "
+operator|+
+name|parameterExpression
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 operator|new
@@ -1029,12 +1056,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|value
-operator|=
+name|Expression
+name|expression
+init|=
 name|expressions
 index|[
 name|i
 index|]
+decl_stmt|;
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+name|value
+operator|=
+name|expression
 operator|.
 name|evaluate
 argument_list|(
@@ -1051,6 +1090,38 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|" evaluated as: "
+operator|+
+name|value
+operator|+
+literal|" type: "
+operator|+
+name|ObjectHelper
+operator|.
+name|type
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|// now lets try to coerce the value to the required type
 name|answer
