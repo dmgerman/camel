@@ -68,6 +68,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The default implementation of {@link org.apache.camel.Message}  *  * @version $Revision$  */
 end_comment
@@ -109,10 +123,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Message: "
-operator|+
-name|getBody
-argument_list|()
+name|MessageHelper
+operator|.
+name|extractBodyForLogging
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 DECL|method|getHeader (String name)

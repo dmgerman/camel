@@ -230,6 +230,12 @@ name|INTERCEPTED_ENDPOINT
 init|=
 literal|"CamelInterceptedEndpoint"
 decl_stmt|;
+DECL|field|LOG_DEBUG_BODY_MAX_CHARS
+name|String
+name|LOG_DEBUG_BODY_MAX_CHARS
+init|=
+literal|"CamelLogDebugBodyMaxChars"
+decl_stmt|;
 DECL|field|LOOP_INDEX
 name|String
 name|LOOP_INDEX
