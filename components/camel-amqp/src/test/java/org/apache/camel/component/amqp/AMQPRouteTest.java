@@ -185,11 +185,10 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TODO fix this test, it looks like AMQP don't support Object message
-DECL|method|xtestJmsRouteWithObjectMessage ()
+DECL|method|testJmsRouteWithObjectMessage ()
 specifier|public
 name|void
-name|xtestJmsRouteWithObjectMessage
+name|testJmsRouteWithObjectMessage
 parameter_list|()
 throws|throws
 name|Exception
@@ -340,6 +339,8 @@ throws|throws
 name|Exception
 block|{
 comment|// lets create an in JVM broker
+try|try
+block|{
 name|TransportConnection
 operator|.
 name|createVMBroker
@@ -347,6 +348,22 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// fails the first time, so create it again
+name|TransportConnection
+operator|.
+name|createVMBroker
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|setUp
