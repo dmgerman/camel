@@ -156,6 +156,35 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|consumer
+operator|!=
+literal|null
+condition|)
+block|{
+name|consumer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|sendMessagesToQueue ()
 specifier|private
 name|void
@@ -245,7 +274,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 expr_stmt|;

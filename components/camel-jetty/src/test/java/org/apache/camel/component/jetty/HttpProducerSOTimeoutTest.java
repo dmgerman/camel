@@ -238,7 +238,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://0.0.0.0:9080/myservice"
+literal|"jetty://http://localhost:9080/myservice"
 argument_list|)
 comment|// but we wait for 2 sec before reply is sent back
 operator|.
