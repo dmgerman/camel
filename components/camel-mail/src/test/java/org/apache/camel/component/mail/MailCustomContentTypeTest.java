@@ -145,7 +145,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"text/html;charset=UTF-8"
+literal|"text/html; charset=UTF-8"
 argument_list|,
 name|msg
 operator|.
@@ -219,7 +219,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"text/html;charset=iso-8859-1"
+literal|"text/html; charset=iso-8859-1"
 argument_list|,
 name|msg
 operator|.
@@ -261,7 +261,7 @@ literal|"Hello World"
 argument_list|,
 literal|"contentType"
 argument_list|,
-literal|"text/plain;charset=iso-8859-1"
+literal|"text/plain; charset=iso-8859-1"
 argument_list|)
 expr_stmt|;
 name|Mailbox
@@ -330,6 +330,74 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
+literal|"text/plain; charset=iso-8859-1"
+argument_list|)
+expr_stmt|;
+name|Mailbox
+name|box
+init|=
+name|Mailbox
+operator|.
+name|get
+argument_list|(
+literal|"claus@localhost"
+argument_list|)
+decl_stmt|;
+name|Message
+name|msg
+init|=
+name|box
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"text/plain; charset=iso-8859-1"
+argument_list|,
+name|msg
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|msg
+operator|.
+name|getContent
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSendPlainMailContentTypeTinyTypeInHeader ()
+specifier|public
+name|void
+name|testSendPlainMailContentTypeTinyTypeInHeader
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
+comment|// Camel will fixup the Content-Type if you do not have a space after the semi colon
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:b"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"contentType"
+argument_list|,
 literal|"text/plain;charset=iso-8859-1"
 argument_list|)
 expr_stmt|;
@@ -353,6 +421,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// the content type should have a space after the semi colon
 name|assertEquals
 argument_list|(
 literal|"text/plain; charset=iso-8859-1"
