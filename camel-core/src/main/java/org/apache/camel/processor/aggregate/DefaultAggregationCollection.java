@@ -267,6 +267,54 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// do not add exchange if it was filtered
+name|Boolean
+name|filtered
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FILTERED
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|filtered
+operator|!=
+literal|null
+operator|&&
+name|filtered
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot aggregate exchange as its filtered: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 name|Object
 name|correlationKey
 init|=
@@ -297,12 +345,13 @@ literal|"Evaluated expression: "
 operator|+
 name|correlationExpression
 operator|+
-literal|" as CorrelationKey: "
+literal|" as correlation key: "
 operator|+
 name|correlationKey
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: correlationKey evalutated to null should be skipped by default
 name|Exchange
 name|oldExchange
 init|=
@@ -429,7 +478,7 @@ literal|"Put exchange:"
 operator|+
 name|newExchange
 operator|+
-literal|" with coorelation key:"
+literal|" with correlation key:"
 operator|+
 name|correlationKey
 argument_list|)

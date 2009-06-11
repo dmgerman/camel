@@ -188,6 +188,12 @@ name|FILE_PARENT
 init|=
 literal|"CamelFileParent"
 decl_stmt|;
+DECL|field|FILTERED
+name|String
+name|FILTERED
+init|=
+literal|"CamelFiltered"
+decl_stmt|;
 DECL|field|HTTP_CHARACTER_ENCODING
 name|String
 name|HTTP_CHARACTER_ENCODING
