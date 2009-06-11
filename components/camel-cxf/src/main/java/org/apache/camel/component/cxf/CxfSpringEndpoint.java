@@ -240,9 +240,7 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|support
-operator|.
-name|AbstractApplicationContext
+name|ConfigurableApplicationContext
 import|;
 end_import
 
@@ -795,14 +793,14 @@ operator|.
 name|getApplicationContext
 argument_list|()
 operator|instanceof
-name|AbstractApplicationContext
+name|ConfigurableApplicationContext
 condition|)
 block|{
-name|AbstractApplicationContext
+name|ConfigurableApplicationContext
 name|context
 init|=
 call|(
-name|AbstractApplicationContext
+name|ConfigurableApplicationContext
 call|)
 argument_list|(
 operator|(

@@ -109,13 +109,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|BusFactory
-operator|.
-name|setDefaultBus
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
