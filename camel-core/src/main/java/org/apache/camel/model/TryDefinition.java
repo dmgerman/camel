@@ -492,6 +492,37 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The finally block for a given handle      *      * @return  the try builder      */
+DECL|method|doFinally ()
+specifier|public
+name|TryDefinition
+name|doFinally
+parameter_list|()
+block|{
+name|popBlock
+argument_list|()
+expr_stmt|;
+name|FinallyDefinition
+name|answer
+init|=
+operator|new
+name|FinallyDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|pushBlock
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets an additional predicate that should be true before the onCatch is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (Predicate predicate)
 specifier|public
@@ -753,60 +784,6 @@ argument_list|(
 name|handled
 argument_list|)
 argument_list|)
-return|;
-block|}
-comment|/**      * The finally block for a given handle      *      * @return  the try builder      */
-DECL|method|doFinally ()
-specifier|public
-name|TryDefinition
-name|doFinally
-parameter_list|()
-block|{
-name|popBlock
-argument_list|()
-expr_stmt|;
-name|FinallyDefinition
-name|answer
-init|=
-operator|new
-name|FinallyDefinition
-argument_list|()
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-name|pushBlock
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|end ()
-specifier|public
-name|ProcessorDefinition
-argument_list|<
-name|?
-extends|extends
-name|ProcessorDefinition
-argument_list|>
-name|end
-parameter_list|()
-block|{
-name|popBlock
-argument_list|()
-expr_stmt|;
-return|return
-name|super
-operator|.
-name|end
-argument_list|()
 return|;
 block|}
 comment|// Properties

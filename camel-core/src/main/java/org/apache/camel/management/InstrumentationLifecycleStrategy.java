@@ -1296,6 +1296,15 @@ return|return
 name|wrapper
 return|;
 block|}
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Instrument"
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;

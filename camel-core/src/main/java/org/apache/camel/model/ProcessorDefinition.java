@@ -2403,6 +2403,20 @@ argument_list|>
 name|end
 parameter_list|()
 block|{
+comment|// when using doTry .. doCatch .. doFinally we should always
+comment|// end the try definition to avoid having to use 2 x end() in the route
+comment|// this is counter intuitive for end users
+if|if
+condition|(
+name|this
+operator|instanceof
+name|TryDefinition
+condition|)
+block|{
+name|popBlock
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|blocks
@@ -2418,13 +2432,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Root node with no active block"
-argument_list|)
-throw|;
+return|return
+name|this
+return|;
 block|}
 return|return
 name|parent
