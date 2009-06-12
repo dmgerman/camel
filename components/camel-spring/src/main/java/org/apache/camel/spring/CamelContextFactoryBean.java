@@ -1878,7 +1878,7 @@ literal|"Using custom intercept strategy with id: "
 operator|+
 name|id
 operator|+
-literal|" and implementation:"
+literal|" and implementation: "
 operator|+
 name|strategy
 argument_list|)
