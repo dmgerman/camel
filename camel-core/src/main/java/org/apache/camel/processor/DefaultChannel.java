@@ -546,6 +546,17 @@ range|:
 name|interceptors
 control|)
 block|{
+name|Processor
+name|next
+init|=
+name|target
+operator|==
+name|nextProcessor
+condition|?
+literal|null
+else|:
+name|nextProcessor
+decl_stmt|;
 name|target
 operator|=
 name|strategy
@@ -556,7 +567,7 @@ name|outputDefinition
 argument_list|,
 name|target
 argument_list|,
-name|nextProcessor
+name|next
 argument_list|)
 expr_stmt|;
 block|}
