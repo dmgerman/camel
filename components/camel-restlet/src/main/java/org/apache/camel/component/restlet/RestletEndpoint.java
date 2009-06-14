@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -238,6 +248,14 @@ name|Method
 operator|.
 name|GET
 decl_stmt|;
+comment|// Optional and for consumer only.  This allows a single route to service multiple
+comment|// methods.  If it is non-null, restletMethod is ignored.
+DECL|field|restletMethods
+specifier|private
+name|Method
+index|[]
+name|restletMethods
+decl_stmt|;
 DECL|field|protocol
 specifier|private
 name|String
@@ -263,6 +281,16 @@ DECL|field|uriPattern
 specifier|private
 name|String
 name|uriPattern
+decl_stmt|;
+comment|// Optional and for consumer only.  This allows a single route to service multiple
+comment|// uriPatterns.  The uriPattern defined in the endpoint will still be honored.
+DECL|field|uriPatterns
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|uriPatterns
 decl_stmt|;
 DECL|field|restletRealm
 specifier|private
@@ -777,6 +805,70 @@ return|return
 name|ExchangePattern
 operator|.
 name|InOut
+return|;
+block|}
+comment|/**      * @param restletMethods the restletMethods to set      */
+DECL|method|setRestletMethods (Method[] restletMethods)
+specifier|public
+name|void
+name|setRestletMethods
+parameter_list|(
+name|Method
+index|[]
+name|restletMethods
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restletMethods
+operator|=
+name|restletMethods
+expr_stmt|;
+block|}
+comment|/**      * @return the restletMethods      */
+DECL|method|getRestletMethods ()
+specifier|public
+name|Method
+index|[]
+name|getRestletMethods
+parameter_list|()
+block|{
+return|return
+name|restletMethods
+return|;
+block|}
+comment|/**      * @param uriPatterns the uriPatterns to set      */
+DECL|method|setUriPatterns (List<String> uriPatterns)
+specifier|public
+name|void
+name|setUriPatterns
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|uriPatterns
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriPatterns
+operator|=
+name|uriPatterns
+expr_stmt|;
+block|}
+comment|/**      * @return the uriPatterns      */
+DECL|method|getUriPatterns ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getUriPatterns
+parameter_list|()
+block|{
+return|return
+name|uriPatterns
 return|;
 block|}
 block|}

@@ -371,6 +371,15 @@ literal|true
 argument_list|)
 return|;
 block|}
+DECL|method|getUriPattern ()
+name|String
+name|getUriPattern
+parameter_list|()
+block|{
+return|return
+name|uriPattern
+return|;
+block|}
 block|}
 end_class
 
