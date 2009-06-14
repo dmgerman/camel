@@ -174,9 +174,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|RestletConstants
+name|Exchange
 operator|.
-name|RESTLET_RESPONSE_CODE
+name|HTTP_RESPONSE_CODE
 argument_list|,
 literal|"404"
 argument_list|)
@@ -188,9 +188,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|RestletConstants
+name|Exchange
 operator|.
-name|RESTLET_MEDIA_TYPE
+name|CONTENT_TYPE
 argument_list|,
 literal|"text/plain"
 argument_list|)

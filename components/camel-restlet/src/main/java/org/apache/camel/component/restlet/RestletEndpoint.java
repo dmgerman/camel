@@ -283,14 +283,14 @@ name|String
 name|uriPattern
 decl_stmt|;
 comment|// Optional and for consumer only.  This allows a single route to service multiple
-comment|// uriPatterns.  The uriPattern defined in the endpoint will still be honored.
-DECL|field|uriPatterns
+comment|// URI patterns.  The URI pattern defined in the endpoint will still be honored.
+DECL|field|restletUriPatterns
 specifier|private
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|uriPatterns
+name|restletUriPatterns
 decl_stmt|;
 DECL|field|restletRealm
 specifier|private
@@ -837,38 +837,38 @@ return|return
 name|restletMethods
 return|;
 block|}
-comment|/**      * @param uriPatterns the uriPatterns to set      */
-DECL|method|setUriPatterns (List<String> uriPatterns)
+comment|/**      * @param restletUriPatterns the restletUriPatterns to set      */
+DECL|method|setRestletUriPatterns (List<String> restletUriPatterns)
 specifier|public
 name|void
-name|setUriPatterns
+name|setRestletUriPatterns
 parameter_list|(
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|uriPatterns
+name|restletUriPatterns
 parameter_list|)
 block|{
 name|this
 operator|.
-name|uriPatterns
+name|restletUriPatterns
 operator|=
-name|uriPatterns
+name|restletUriPatterns
 expr_stmt|;
 block|}
-comment|/**      * @return the uriPatterns      */
-DECL|method|getUriPatterns ()
+comment|/**      * @return the restletUriPatterns      */
+DECL|method|getRestletUriPatterns ()
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getUriPatterns
+name|getRestletUriPatterns
 parameter_list|()
 block|{
 return|return
-name|uriPatterns
+name|restletUriPatterns
 return|;
 block|}
 block|}

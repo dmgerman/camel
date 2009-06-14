@@ -602,7 +602,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getUriPatterns
+name|getRestletUriPatterns
 argument_list|()
 operator|!=
 literal|null
@@ -615,7 +615,7 @@ name|uriPattern
 range|:
 name|endpoint
 operator|.
-name|getUriPatterns
+name|getRestletUriPatterns
 argument_list|()
 control|)
 block|{
@@ -707,7 +707,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getUriPatterns
+name|getRestletUriPatterns
 argument_list|()
 operator|!=
 literal|null
@@ -720,7 +720,7 @@ name|uriPattern
 range|:
 name|endpoint
 operator|.
-name|getUriPatterns
+name|getRestletUriPatterns
 argument_list|()
 control|)
 block|{

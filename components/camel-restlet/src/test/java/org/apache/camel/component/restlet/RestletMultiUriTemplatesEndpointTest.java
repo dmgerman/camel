@@ -420,7 +420,7 @@ block|{
 comment|// START SNIPPET: routeDefinition
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080?restletMethods=post,get&uriPatterns=#uriTemplates"
+literal|"restlet:http://localhost:9080?restletMethods=post,get&restletUriPatterns=#uriTemplates"
 argument_list|)
 operator|.
 name|process

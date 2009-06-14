@@ -199,9 +199,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|RestletConstants
+name|Exchange
 operator|.
-name|RESTLET_QUERY_STRING
+name|HTTP_QUERY
 argument_list|,
 name|String
 operator|.
