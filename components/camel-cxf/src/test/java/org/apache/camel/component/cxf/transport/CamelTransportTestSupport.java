@@ -219,11 +219,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelTestSupport
+DECL|class|CamelTransportTestSupport
 specifier|public
 specifier|abstract
 class|class
-name|CamelTestSupport
+name|CamelTransportTestSupport
 extends|extends
 name|ContextTestSupport
 block|{

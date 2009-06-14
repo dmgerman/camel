@@ -214,7 +214,7 @@ specifier|public
 class|class
 name|CamelConduitTest
 extends|extends
-name|CamelTestSupport
+name|CamelTransportTestSupport
 block|{
 DECL|method|createRouteBuilder ()
 specifier|protected

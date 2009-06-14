@@ -288,7 +288,7 @@ specifier|public
 class|class
 name|CamelDestinationTest
 extends|extends
-name|CamelTestSupport
+name|CamelTransportTestSupport
 block|{
 DECL|field|destMessage
 specifier|private
