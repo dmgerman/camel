@@ -122,6 +122,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -160,9 +190,9 @@ name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -174,11 +204,6 @@ operator|=
 name|createApplicationContext
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should have created a valid spring context"
@@ -188,9 +213,9 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -210,18 +235,6 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|BusFactory
-operator|.
-name|setDefaultBus
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -276,6 +289,8 @@ return|return
 literal|"cxf:bean:noServiceClassEndpoint"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetServiceClass ()
 specifier|public
 name|void
@@ -303,6 +318,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetDataFormat ()
 specifier|public
 name|void
@@ -337,6 +354,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetProperties ()
 specifier|public
 name|void
@@ -439,6 +458,8 @@ name|PORT_NAME
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetDataFormatFromCxfEndpontProperties ()
 specifier|public
 name|void

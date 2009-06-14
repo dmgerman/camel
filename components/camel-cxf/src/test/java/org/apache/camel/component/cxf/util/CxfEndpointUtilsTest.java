@@ -152,13 +152,33 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CxfEndpointUtilsTest
 specifier|public
 class|class
 name|CxfEndpointUtilsTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 comment|// set up the port name and service name
 DECL|field|SERVICE_NAME
@@ -288,6 +308,8 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetProperties ()
 specifier|public
 name|void
@@ -328,6 +350,8 @@ name|SERVICE_NAME
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetDataFormat ()
 specifier|public
 name|void
@@ -362,6 +386,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCheckServiceClassWithTheEndpoint ()
 specifier|public
 name|void
@@ -422,6 +448,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCheckServiceClassProcedure ()
 specifier|public
 name|void
@@ -462,6 +490,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCheckServiceClassConsumer ()
 specifier|public
 name|void

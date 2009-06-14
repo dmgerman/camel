@@ -208,6 +208,16 @@ name|MessageImpl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CamelConduitTest
 specifier|public
@@ -319,6 +329,8 @@ name|DefaultCamelContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelConduitConfiguration ()
 specifier|public
 name|void
@@ -538,6 +550,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPrepareSend ()
 specifier|public
 name|void
@@ -631,6 +645,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendOut ()
 specifier|public
 name|void
@@ -697,6 +713,8 @@ argument_list|()
 expr_stmt|;
 comment|// verify the endpoint get the response
 block|}
+annotation|@
+name|Test
 DECL|method|testSendOutRunTrip ()
 specifier|public
 name|void

@@ -134,9 +134,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -160,7 +172,7 @@ specifier|public
 class|class
 name|CxfNonWrapperTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -193,6 +205,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingServiceFromCXFClient ()
 specifier|public
 name|void

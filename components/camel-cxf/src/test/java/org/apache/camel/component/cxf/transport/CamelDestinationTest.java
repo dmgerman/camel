@@ -282,6 +282,16 @@ name|EasyMock
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CamelDestinationTest
 specifier|public
@@ -339,6 +349,8 @@ name|DefaultCamelContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelDestinationConfiguration ()
 specifier|public
 name|void
@@ -580,6 +592,8 @@ return|return
 name|camelDestination
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetTransportFactoryFromBus ()
 specifier|public
 name|void
@@ -616,6 +630,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOneWayDestination ()
 specifier|public
 name|void
@@ -811,6 +827,8 @@ name|reponse
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRoundTripDestination ()
 specifier|public
 name|void

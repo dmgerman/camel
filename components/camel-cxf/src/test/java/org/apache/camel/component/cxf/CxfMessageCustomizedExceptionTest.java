@@ -18,6 +18,16 @@ name|cxf
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test for throwing the CustomizedException from Camel CXF consumer with MESSAGE DataFormat  */
 end_comment
@@ -31,9 +41,11 @@ extends|extends
 name|CxfCustomizedExceptionTest
 block|{
 annotation|@
+name|Before
+annotation|@
 name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

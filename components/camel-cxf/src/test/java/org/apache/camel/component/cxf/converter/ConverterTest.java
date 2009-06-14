@@ -32,11 +32,21 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -46,8 +56,10 @@ specifier|public
 class|class
 name|ConverterTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testToClassesList ()
 specifier|public
 name|void

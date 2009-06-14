@@ -194,6 +194,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -230,9 +250,21 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -248,7 +280,7 @@ specifier|public
 class|class
 name|CxfBeanTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 DECL|field|PUT_REQUEST
 specifier|private
@@ -276,7 +308,7 @@ name|CamelContext
 name|context
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -335,6 +367,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetConsumer ()
 specifier|public
 name|void
@@ -402,6 +436,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: clientInvocation
 block|}
+annotation|@
+name|Test
 DECL|method|testPutConsumer ()
 specifier|public
 name|void
@@ -480,6 +516,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPostConsumer ()
 specifier|public
 name|void

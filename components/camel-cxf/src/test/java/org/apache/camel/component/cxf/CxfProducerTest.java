@@ -266,6 +266,36 @@ name|GreeterImpl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -276,7 +306,7 @@ specifier|public
 class|class
 name|CxfProducerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|ECHO_OPERATION
 specifier|protected
@@ -368,22 +398,13 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
-DECL|field|simpleServer
-specifier|private
-name|ServerImpl
-name|simpleServer
-decl_stmt|;
-DECL|field|jaxwsEndpoint
-specifier|private
-name|Endpoint
-name|jaxwsEndpoint
-decl_stmt|;
 annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
+name|BeforeClass
+DECL|method|startService ()
+specifier|public
+specifier|static
 name|void
-name|setUp
+name|startService
 parameter_list|()
 throws|throws
 name|Exception
@@ -431,19 +452,9 @@ name|getDefaultBus
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|simpleServer
-operator|=
-operator|(
-name|ServerImpl
-operator|)
 name|svrBean
 operator|.
 name|create
-argument_list|()
-expr_stmt|;
-name|simpleServer
-operator|.
-name|start
 argument_list|()
 expr_stmt|;
 name|GreeterImpl
@@ -453,8 +464,6 @@ operator|new
 name|GreeterImpl
 argument_list|()
 decl_stmt|;
-name|jaxwsEndpoint
-operator|=
 name|Endpoint
 operator|.
 name|publish
@@ -466,49 +475,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|simpleServer
-operator|!=
-literal|null
-condition|)
-block|{
-name|simpleServer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|jaxwsEndpoint
-operator|!=
-literal|null
-condition|)
-block|{
-name|jaxwsEndpoint
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-name|BusFactory
-operator|.
-name|setDefaultBus
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+name|Test
 DECL|method|testInvokingSimpleServerWithParams ()
 specifier|public
 name|void
@@ -624,6 +591,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingAWrongServer ()
 specifier|public
 name|void
@@ -655,6 +624,8 @@ block|{
 comment|// only catch the RuntimeCamelException
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingJaxWsServerWithParams ()
 specifier|public
 name|void

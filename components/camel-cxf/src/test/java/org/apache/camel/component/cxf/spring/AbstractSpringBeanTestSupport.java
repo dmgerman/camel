@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -39,6 +29,36 @@ operator|.
 name|cxf
 operator|.
 name|BusFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 
@@ -63,7 +83,7 @@ specifier|abstract
 class|class
 name|AbstractSpringBeanTestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|ctx
 specifier|protected
@@ -78,8 +98,10 @@ index|[]
 name|getApplicationContextFiles
 parameter_list|()
 function_decl|;
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -96,8 +118,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

@@ -96,16 +96,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -188,13 +178,33 @@ name|StaxUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CxfSoapBindingTest
 specifier|public
 class|class
 name|CxfSoapBindingTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|REQUEST_STRING
 specifier|private
@@ -215,6 +225,8 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// setup the default context for testing
+annotation|@
+name|Test
 DECL|method|testGetCxfInMessage ()
 specifier|public
 name|void

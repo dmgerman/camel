@@ -108,6 +108,16 @@ name|MessageHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CxfRawMessageRouterTest
 specifier|public
@@ -186,6 +196,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTheContentType ()
 specifier|public
 name|void
@@ -324,6 +336,8 @@ literal|"text/xml; charset=utf-8"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTheContentTypeOnTheWire ()
 specifier|public
 name|void

@@ -346,7 +346,7 @@ name|setPersonId
 argument_list|(
 name|e
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody

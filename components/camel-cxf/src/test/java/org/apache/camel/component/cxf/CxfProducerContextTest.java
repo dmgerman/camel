@@ -122,6 +122,16 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|// We use context to change the producer's endpoint address here
 end_comment
@@ -154,6 +164,8 @@ name|TEST_VALUE
 init|=
 literal|"exchange property value should get passed through request context"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testExchangePropertyPropagation ()
 specifier|public
 name|void
@@ -513,22 +525,6 @@ decl_stmt|;
 return|return
 name|exchange
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|testInvokingJaxWsServerWithParams ()
-specifier|public
-name|void
-name|testInvokingJaxWsServerWithParams
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|testInvokingJaxWsServerWithParams
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

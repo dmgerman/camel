@@ -142,6 +142,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -176,6 +186,8 @@ literal|"org/apache/camel/component/cxf/spring/CxfEndpointBeansRouter.xml"
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCxfEndpointBeanDefinitionParser ()
 specifier|public
 name|void
@@ -223,6 +235,8 @@ literal|"org.apache.camel.component.cxf.HelloService"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCxfBusConfiguration ()
 specifier|public
 name|void

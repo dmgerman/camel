@@ -48,7 +48,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -218,6 +222,26 @@ name|EasyMock
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_class
 DECL|class|CamelTransportTestSupport
 specifier|public
@@ -225,7 +249,7 @@ specifier|abstract
 class|class
 name|CamelTransportTestSupport
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|bus
 specifier|protected
@@ -252,6 +276,8 @@ specifier|protected
 name|Message
 name|inMessage
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -356,6 +382,8 @@ name|EndpointInfo
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void

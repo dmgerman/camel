@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -109,6 +97,22 @@ operator|.
 name|impl
 operator|.
 name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -224,13 +228,33 @@ name|MessageContentsList
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CxfProducerRouterTest
 specifier|public
 class|class
 name|CxfProducerRouterTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -291,26 +315,17 @@ name|TEST_MESSAGE
 init|=
 literal|"Hello World!"
 decl_stmt|;
-DECL|field|simpleServer
-specifier|private
-name|ServerImpl
-name|simpleServer
-decl_stmt|;
 annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
+name|BeforeClass
+DECL|method|startServer ()
+specifier|public
+specifier|static
 name|void
-name|setUp
+name|startServer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 comment|// start a simple front service
 name|ServerFactoryBean
 name|svrBean
@@ -354,45 +369,11 @@ name|getDefaultBus
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|simpleServer
-operator|=
-operator|(
-name|ServerImpl
-operator|)
 name|svrBean
 operator|.
 name|create
 argument_list|()
 expr_stmt|;
-name|simpleServer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|simpleServer
-operator|!=
-literal|null
-condition|)
-block|{
-name|simpleServer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -438,6 +419,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingSimpleServerWithParams ()
 specifier|public
 name|void
@@ -632,6 +615,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: sending
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingSimpleServerWithMessageDataFormat ()
 specifier|public
 name|void

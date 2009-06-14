@@ -114,11 +114,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|cxf
+name|camel
 operator|.
-name|jaxws
+name|test
 operator|.
-name|EndpointImpl
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -162,6 +164,46 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -192,7 +234,7 @@ specifier|public
 class|class
 name|CXFGreeterRouterTest
 extends|extends
-name|CxfRouterTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|applicationContext
 specifier|protected
@@ -242,9 +284,9 @@ operator|+
 literal|"</soap:Body></soap:Envelope>"
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -270,9 +312,9 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -299,9 +341,10 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|BeforeClass
 DECL|method|startService ()
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|startService
 parameter_list|()
@@ -318,12 +361,6 @@ name|address
 init|=
 literal|"http://localhost:9000/SoapContext/SoapPort"
 decl_stmt|;
-name|EndpointImpl
-name|endpoint
-init|=
-operator|(
-name|EndpointImpl
-operator|)
 name|Endpoint
 operator|.
 name|publish
@@ -332,15 +369,10 @@ name|address
 argument_list|,
 name|implementor
 argument_list|)
-decl_stmt|;
-name|server
-operator|=
-name|endpoint
-operator|.
-name|getServer
-argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokingServiceFromCXFClient ()
 specifier|public
 name|void
@@ -476,6 +508,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRoutingSOAPFault ()
 specifier|public
 name|void

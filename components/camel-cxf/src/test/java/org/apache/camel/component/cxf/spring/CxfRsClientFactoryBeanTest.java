@@ -60,6 +60,16 @@ name|SpringJAXRSClientFactoryBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|CxfRsClientFactoryBeanTest
 specifier|public
@@ -86,6 +96,8 @@ literal|"org/apache/camel/component/cxf/spring/CxfRsClientFactoryBeans.xml"
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCxfRsClientFactoryBean ()
 specifier|public
 name|void

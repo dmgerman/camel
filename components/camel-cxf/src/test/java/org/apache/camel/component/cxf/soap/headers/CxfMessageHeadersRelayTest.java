@@ -424,6 +424,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -460,9 +490,57 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -478,7 +556,7 @@ specifier|public
 class|class
 name|CxfMessageHeadersRelayTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -503,20 +581,15 @@ name|Endpoint
 name|noRelayEndpoint
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|template
 operator|=
 name|context
@@ -554,9 +627,9 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -597,11 +670,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|addOutOfBoundHeader (HeaderTester proxy, boolean invalid)
 specifier|protected
@@ -689,6 +757,8 @@ name|ex
 throw|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -771,6 +841,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -906,6 +978,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -1023,6 +1097,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOfBandHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -1115,6 +1191,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInoutOutOfBandHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -1212,6 +1290,8 @@ name|proxy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutOutOfBandHeaderCXFClientRelay ()
 specifier|public
 name|void
@@ -1302,6 +1382,8 @@ name|proxy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOfBandHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1394,6 +1476,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutOutOfBandHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1493,6 +1577,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInoutOutOfBandHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1592,6 +1678,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1693,6 +1781,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1841,6 +1931,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInoutHeaderCXFClientNoRelay ()
 specifier|public
 name|void
@@ -1968,6 +2060,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMessageHeadersRelaysSpringContext ()
 specifier|public
 name|void
@@ -2072,6 +2166,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOfBandHeaderCamelTemplateDirect ()
 specifier|public
 name|void
@@ -2086,6 +2182,8 @@ literal|"direct:directProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutOutOfBandHeaderCamelTemplateDirect ()
 specifier|public
 name|void
@@ -2100,6 +2198,8 @@ literal|"direct:directProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOutOfBandHeaderCamelTemplateDirect ()
 specifier|public
 name|void
@@ -2114,6 +2214,8 @@ literal|"direct:directProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOfBandHeaderCamelTemplateRelay ()
 specifier|public
 name|void
@@ -2128,6 +2230,8 @@ literal|"direct:relayProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutOutOfBandHeaderCamelTemplateRelay ()
 specifier|public
 name|void
@@ -2142,6 +2246,8 @@ literal|"direct:relayProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutOutOfBandHeaderCamelTemplateRelay ()
 specifier|public
 name|void

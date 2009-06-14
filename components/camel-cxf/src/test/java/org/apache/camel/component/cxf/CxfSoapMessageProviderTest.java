@@ -60,9 +60,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
 import|;
 end_import
 
@@ -108,6 +110,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -124,7 +136,7 @@ specifier|public
 class|class
 name|CxfSoapMessageProviderTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Override
@@ -142,6 +154,8 @@ literal|"org/apache/camel/component/cxf/SoapMessageProviderContext.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSOAPMessageModeDocLit ()
 specifier|public
 name|void
