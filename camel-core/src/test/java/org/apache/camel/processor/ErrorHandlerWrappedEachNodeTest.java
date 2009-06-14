@@ -203,7 +203,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)

@@ -295,6 +295,11 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|onRedelivery
 argument_list|(
 operator|new

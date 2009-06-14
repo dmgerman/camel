@@ -258,6 +258,15 @@ name|DeadLetterChannelBuilder
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
+DECL|field|HANDLED
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|HANDLED
+init|=
+literal|true
+decl_stmt|;
 DECL|field|logger
 specifier|private
 name|Logger
@@ -481,10 +490,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|delay (long delay)
+DECL|method|redeliverDelay (long delay)
 specifier|public
 name|DeadLetterChannelBuilder
-name|delay
+name|redeliverDelay
 parameter_list|(
 name|long
 name|delay
@@ -493,7 +502,7 @@ block|{
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -1209,6 +1218,17 @@ name|Predicate
 name|getHandledPolicy
 parameter_list|()
 block|{
+if|if
+condition|(
+name|handledPolicy
+operator|==
+literal|null
+condition|)
+block|{
+name|createHandledPolicy
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|handledPolicy
 return|;
@@ -1269,6 +1289,27 @@ operator|.
 name|useOriginalBody
 operator|=
 name|useOriginalBody
+expr_stmt|;
+block|}
+DECL|method|createHandledPolicy ()
+specifier|protected
+name|void
+name|createHandledPolicy
+parameter_list|()
+block|{
+name|handledPolicy
+operator|=
+name|PredicateBuilder
+operator|.
+name|toPredicate
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|HANDLED
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

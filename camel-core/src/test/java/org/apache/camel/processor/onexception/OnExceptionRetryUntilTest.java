@@ -118,20 +118,6 @@ name|JndiRegistry
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DeadLetterChannel
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for the retry until predicate  */
 end_comment
@@ -221,7 +207,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)

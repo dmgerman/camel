@@ -321,7 +321,7 @@ argument_list|(
 literal|"mock:dead"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|1000
 argument_list|)

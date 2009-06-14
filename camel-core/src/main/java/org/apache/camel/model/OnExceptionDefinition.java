@@ -1064,6 +1064,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the delay      *      * @param delay  the redeliver delay      * @return the builder      */
+DECL|method|redeliverDelay (long delay)
+specifier|public
+name|OnExceptionDefinition
+name|redeliverDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|redeliveryDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public

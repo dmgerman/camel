@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -175,6 +189,28 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ExchangeHelper
+operator|.
+name|isFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+comment|// the exchange did not process succesfully but was failure handled by the dead letter channel
+comment|// and thus moved to the dead letter queue. We should thus not consider it as complete.
+name|onFailedMessage
+argument_list|(
+name|exchange
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|onCompletedMessage
 argument_list|(
 name|exchange
@@ -182,6 +218,7 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|onFailure (Exchange exchange)
 specifier|public

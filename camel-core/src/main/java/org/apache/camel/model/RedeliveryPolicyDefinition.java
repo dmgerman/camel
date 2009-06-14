@@ -301,7 +301,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setDelay
+name|setRedeliverDelay
 argument_list|(
 name|redeliveryDelay
 argument_list|)

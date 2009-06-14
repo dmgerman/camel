@@ -169,12 +169,17 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
 operator|.
 name|logStackTrace
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|handled
 argument_list|(
 literal|false
 argument_list|)
@@ -375,7 +380,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)

@@ -251,6 +251,11 @@ name|logStackTrace
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

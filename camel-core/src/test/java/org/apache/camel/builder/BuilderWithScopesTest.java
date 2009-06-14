@@ -28,16 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -641,7 +631,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -731,7 +721,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -802,7 +792,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -1046,7 +1036,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -1139,7 +1129,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -1398,7 +1388,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)

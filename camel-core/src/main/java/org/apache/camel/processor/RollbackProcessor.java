@@ -128,6 +128,36 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Rollback["
+operator|+
+name|message
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"Rollback"
+return|;
+block|}
+block|}
 block|}
 end_class
 

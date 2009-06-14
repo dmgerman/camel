@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Random
@@ -109,7 +119,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.ERROR</li>  *<li>logStrackTrace = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using convnetional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>redeliverDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.ERROR</li>  *<li>logStrackTrace = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using convnetional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -117,8 +127,10 @@ DECL|class|RedeliveryPolicy
 specifier|public
 class|class
 name|RedeliveryPolicy
-extends|extends
-name|DelayPolicy
+implements|implements
+name|Cloneable
+implements|,
+name|Serializable
 block|{
 DECL|field|randomNumberGenerator
 specifier|protected
@@ -143,6 +155,13 @@ name|RedeliveryPolicy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|redeliverDelay
+specifier|protected
+name|long
+name|redeliverDelay
+init|=
+literal|1000L
 decl_stmt|;
 DECL|field|maximumRedeliveries
 specifier|protected
@@ -233,9 +252,9 @@ literal|"RedeliveryPolicy[maximumRedeliveries="
 operator|+
 name|maximumRedeliveries
 operator|+
-literal|", delay="
+literal|", redeliverDelay="
 operator|+
-name|delay
+name|redeliverDelay
 operator|+
 literal|", maximumRedeliveryDelay="
 operator|+
@@ -473,7 +492,7 @@ condition|)
 block|{
 name|redeliveryDelay
 operator|=
-name|delay
+name|redeliverDelay
 expr_stmt|;
 block|}
 elseif|else
@@ -660,6 +679,25 @@ return|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the delay in milliseconds      */
+DECL|method|redeliverDelay (long delay)
+specifier|public
+name|RedeliveryPolicy
+name|redeliverDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|setRedeliverDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the maximum number of times a message exchange will be redelivered      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
@@ -868,6 +906,33 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getRedeliverDelay ()
+specifier|public
+name|long
+name|getRedeliverDelay
+parameter_list|()
+block|{
+return|return
+name|redeliverDelay
+return|;
+block|}
+comment|/**      * Sets the delay in milliseconds      */
+DECL|method|setRedeliverDelay (long redeliverDelay)
+specifier|public
+name|void
+name|setRedeliverDelay
+parameter_list|(
+name|long
+name|redeliverDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliverDelay
+operator|=
+name|redeliverDelay
+expr_stmt|;
+block|}
 DECL|method|getBackOffMultiplier ()
 specifier|public
 name|double

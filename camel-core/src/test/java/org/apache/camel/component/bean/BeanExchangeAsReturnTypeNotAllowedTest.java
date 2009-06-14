@@ -131,21 +131,6 @@ throws|throws
 name|Exception
 block|{
 name|MockEndpoint
-name|dead
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-decl_stmt|;
-name|dead
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|MockEndpoint
 name|result
 init|=
 name|getMockEndpoint
@@ -195,11 +180,6 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|dead
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
 name|result
 operator|.
 name|assertIsSatisfied
@@ -256,18 +236,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no redelivery for faster unit test
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-operator|.
-name|disableRedelivery
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:in"

@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -213,8 +201,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -224,43 +210,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown a IllegalArgumentException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Forced exception by unit test"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -311,8 +260,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -322,43 +269,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown a IllegalArgumentException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Forced exception by unit test"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -401,6 +311,11 @@ name|maximumRedeliveries
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|redeliverDelay
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 operator|.
 name|process
@@ -428,6 +343,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
+argument_list|)
+operator|.
+name|redeliverDelay
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.

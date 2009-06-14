@@ -234,8 +234,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -245,15 +243,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|result
 operator|.
 name|assertIsSatisfied

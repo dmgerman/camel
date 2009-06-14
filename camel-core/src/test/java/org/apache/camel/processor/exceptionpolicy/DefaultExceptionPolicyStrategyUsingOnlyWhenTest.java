@@ -160,8 +160,16 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -171,20 +179,6 @@ argument_list|,
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an Exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -210,6 +204,16 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 try|try
@@ -276,6 +280,11 @@ name|maximumRedeliveries
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|redeliverDelay
+argument_list|(
+literal|100
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|onException
@@ -299,6 +308,16 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|1
+argument_list|)
+operator|.
+name|backOffMultiplier
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|redeliverDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|to

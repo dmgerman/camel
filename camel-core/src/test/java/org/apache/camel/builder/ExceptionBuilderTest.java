@@ -796,7 +796,7 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0
 argument_list|)

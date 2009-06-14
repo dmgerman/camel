@@ -205,7 +205,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|5000
 argument_list|)

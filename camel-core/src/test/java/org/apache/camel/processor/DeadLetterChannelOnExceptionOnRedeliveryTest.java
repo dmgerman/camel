@@ -279,7 +279,7 @@ argument_list|()
 argument_list|)
 comment|// setting delay to zero is just to make unit teting faster
 operator|.
-name|delay
+name|redeliverDelay
 argument_list|(
 literal|0L
 argument_list|)
