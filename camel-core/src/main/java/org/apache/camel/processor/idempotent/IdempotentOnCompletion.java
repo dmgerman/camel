@@ -199,7 +199,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-comment|// the exchange did not process succesfully but was failure handled by the dead letter channel
+comment|// the exchange did not process successfully but was failure handled by the dead letter channel
 comment|// and thus moved to the dead letter queue. We should thus not consider it as complete.
 name|onFailedMessage
 argument_list|(
@@ -237,7 +237,7 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -278,7 +278,7 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

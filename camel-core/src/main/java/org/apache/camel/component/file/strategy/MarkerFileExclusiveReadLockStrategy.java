@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires read lock to the given file using a marker file so other Camel consumers wont acquire the same file.  * This is the default behaviour in Camel 1.x.  */
+comment|/**  * Acquires read lock to the given file using a marker file so other Camel consumers wont acquire the same file.  * This is the default behavior in Camel 1.x.  */
 end_comment
 
 begin_class

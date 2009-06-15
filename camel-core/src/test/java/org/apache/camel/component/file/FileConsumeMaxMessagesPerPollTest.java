@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/poll/?consumer.delay=3000&sortBy=file:name&maxMessagesPerPoll=2"
+literal|"file://target/poll/?consumer.delay=2500&consumer.delay=2000&sortBy=file:name&maxMessagesPerPoll=2"
 decl_stmt|;
 annotation|@
 name|Override
@@ -186,7 +186,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|mock

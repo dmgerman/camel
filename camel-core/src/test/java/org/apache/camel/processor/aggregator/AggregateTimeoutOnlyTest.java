@@ -101,7 +101,7 @@ name|result
 operator|.
 name|setMinimumResultWaitTime
 argument_list|(
-literal|3000
+literal|2900
 argument_list|)
 expr_stmt|;
 for|for

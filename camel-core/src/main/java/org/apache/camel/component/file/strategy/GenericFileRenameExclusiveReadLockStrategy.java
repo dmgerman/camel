@@ -353,7 +353,7 @@ condition|(
 name|interrupted
 condition|)
 block|{
-comment|// we were interrputed while sleeping, we are likely being shutdown so return false
+comment|// we were interrupted while sleeping, we are likely being shutdown so return false
 return|return
 literal|false
 return|;
@@ -412,7 +412,7 @@ literal|1000
 argument_list|)
 expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
 block|}
 catch|catch
@@ -429,7 +429,7 @@ literal|"Sleep interrupted while waiting for exclusive read lock, so breaking ou
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}
