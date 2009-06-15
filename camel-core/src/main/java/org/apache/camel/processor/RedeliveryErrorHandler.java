@@ -161,10 +161,6 @@ name|Processor
 block|{
 comment|// TODO: support onException being able to use other onException to route they exceptions
 comment|// (hard one to get working, has not been supported before)
-comment|// TODO: the while loop method should be refactored a bit so its more higher level so the
-comment|// code is easier to read and understand
-comment|// TODO: add support for onRedeliver(SocketException.class) to allow running som custom
-comment|// route when this given exception is being redelivered (create ticket and add in 2.1)
 DECL|field|deadLetter
 specifier|protected
 specifier|final
@@ -237,11 +233,15 @@ name|currentRedeliveryPolicy
 init|=
 name|redeliveryPolicy
 decl_stmt|;
+DECL|field|deadLetterProcessor
+name|Processor
+name|deadLetterProcessor
+init|=
+name|deadLetter
+decl_stmt|;
 DECL|field|failureProcessor
 name|Processor
 name|failureProcessor
-init|=
-name|deadLetter
 decl_stmt|;
 DECL|field|onRedeliveryProcessor
 name|Processor
@@ -350,6 +350,14 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Whether this error handler supports dead letter queue or not      */
+DECL|method|supportDeadLetterQueue ()
+specifier|public
+specifier|abstract
+name|boolean
+name|supportDeadLetterQueue
+parameter_list|()
+function_decl|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -488,7 +496,7 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-comment|// did previous processing caused an exception?
+comment|// did previous processing cause an exception?
 if|if
 condition|(
 name|exchange
@@ -524,16 +532,36 @@ operator|!
 name|shouldRedeliver
 condition|)
 block|{
-comment|// TODO: divde into onException and deadLetterQueue
-comment|// no then move it to the dead letter queue
+comment|// no we should not redeliver to the same output so either try an onException (if any given)
+comment|// or the dead letter queue
+name|Processor
+name|target
+init|=
+name|data
+operator|.
+name|failureProcessor
+operator|!=
+literal|null
+condition|?
+name|data
+operator|.
+name|failureProcessor
+else|:
+name|data
+operator|.
+name|deadLetterProcessor
+decl_stmt|;
+comment|// deliver to the failure processor (either an on exception or dead letter queue
 name|deliverToFailureProcessor
 argument_list|(
+name|target
+argument_list|,
 name|exchange
 argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// prepare the exchange for failure
+comment|// prepare the exchange for failure before returning
 name|prepareExchangeAfterFailure
 argument_list|(
 name|exchange
@@ -541,12 +569,14 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// we could not process the exchange succesfully so break
+comment|// and then return
 return|return;
 block|}
 comment|// if we are redelivering then sleep before trying again
 if|if
 condition|(
+name|shouldRedeliver
+operator|&&
 name|data
 operator|.
 name|redeliveryCounter
@@ -615,7 +645,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|// process the exchange
+comment|// process the exchange (also redelivery)
 try|try
 block|{
 name|output
@@ -640,8 +670,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// only process if the exchange hasn't failed
-comment|// and it has not been handled by the error processor
+comment|// only done if the exchange hasn't failed
+comment|// and it has not been handled by the failure processor
 name|boolean
 name|done
 init|=
@@ -1036,11 +1066,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * All redelivery attempts failed so move the exchange to the dead letter queue      */
-DECL|method|deliverToFailureProcessor (final Exchange exchange, final RedeliveryData data)
+DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data)
 specifier|protected
 name|void
 name|deliverToFailureProcessor
 parameter_list|(
+specifier|final
+name|Processor
+name|processor
+parameter_list|,
 specifier|final
 name|Exchange
 name|exchange
@@ -1078,9 +1112,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|data
-operator|.
-name|failureProcessor
+name|processor
 operator|!=
 literal|null
 condition|)
@@ -1105,7 +1137,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using the original IN body in the DedLetterQueue instead of the current IN body"
+literal|"Using the original IN body instead of the current IN body"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1145,9 +1177,7 @@ name|trace
 argument_list|(
 literal|"Failure processor "
 operator|+
-name|data
-operator|.
-name|failureProcessor
+name|processor
 operator|+
 literal|" is processing Exchange: "
 operator|+
@@ -1157,9 +1187,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|data
-operator|.
-name|failureProcessor
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -1200,9 +1228,7 @@ argument_list|()
 operator|+
 literal|". Processed by failure processor: "
 operator|+
-name|data
-operator|.
-name|failureProcessor
+name|processor
 decl_stmt|;
 name|logFailedDelivery
 argument_list|(

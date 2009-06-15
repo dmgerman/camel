@@ -246,6 +246,7 @@ name|TransactionErrorHandler
 extends|extends
 name|ErrorHandlerSupport
 block|{
+comment|// TODO: extend RedeliverErrorHandler
 DECL|field|LOG
 specifier|private
 specifier|static
