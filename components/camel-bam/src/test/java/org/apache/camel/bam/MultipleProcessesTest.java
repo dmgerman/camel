@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|transaction
@@ -70,6 +80,8 @@ name|BamRouteTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testBam ()
 specifier|public
 name|void

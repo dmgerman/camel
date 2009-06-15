@@ -70,9 +70,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -162,7 +184,7 @@ specifier|public
 class|class
 name|BamRouteTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|field|overdueEndpoint
 specifier|protected
@@ -176,6 +198,8 @@ name|errorTimeout
 init|=
 literal|2
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBam ()
 specifier|public
 name|void
@@ -273,9 +297,9 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
