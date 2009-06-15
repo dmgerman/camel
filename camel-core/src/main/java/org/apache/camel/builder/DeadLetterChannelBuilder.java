@@ -280,8 +280,7 @@ name|isUseOriginalBody
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// must enable stream cache as DeadLetterChannel can do redeliveries and
-comment|// thus it needs to be able to read the stream again
+comment|// configure error handler before we can use it
 name|configure
 argument_list|(
 name|answer

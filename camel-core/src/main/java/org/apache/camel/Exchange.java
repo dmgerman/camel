@@ -140,11 +140,11 @@ name|EXCEPTION_CAUGHT
 init|=
 literal|"CamelExceptionCaught"
 decl_stmt|;
-DECL|field|EXCEPTION_HANDLED
+DECL|field|ERRORHANDLER_HANDLED
 name|String
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 init|=
-literal|"CamelExceptionHandled"
+literal|"CamelErrorHandlerHandled"
 decl_stmt|;
 DECL|field|FAILURE_HANDLED
 name|String

@@ -160,25 +160,6 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|transactionInterceptor ()
-specifier|public
-name|TransactionErrorHandler
-name|transactionInterceptor
-parameter_list|()
-block|{
-return|return
-operator|new
-name|TransactionErrorHandler
-argument_list|(
-name|lookup
-argument_list|(
-name|TransactionTemplate
-operator|.
-name|class
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Looks up the bean with the given name in the application context and      * returns it, or throws an exception if the bean is not present or is not      * of the given type      *      * @param beanName the name of the bean in the application context      * @param type the type of the bean      * @return the bean      */
 annotation|@
 name|SuppressWarnings
@@ -408,6 +389,19 @@ name|applicationContext
 operator|=
 name|applicationContext
 expr_stmt|;
+block|}
+comment|/**      * Creates a transaction error handler that will lookup in application context for      * an exiting transaction manager.      *      * @return the created error handler      */
+DECL|method|transactionErrorHandler ()
+specifier|public
+name|TransactionErrorHandlerBuilder
+name|transactionErrorHandler
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TransactionErrorHandlerBuilder
+argument_list|()
+return|;
 block|}
 comment|/**      * Creates a transaction error handler.      *      * @param policy   using this transaction policy (eg: required, supports, ...)      * @return the created error handler      */
 DECL|method|transactionErrorHandler (SpringTransactionPolicy policy)

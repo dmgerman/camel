@@ -138,16 +138,6 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|supportDeadLetterQueue ()
-specifier|public
-name|boolean
-name|supportDeadLetterQueue
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -176,6 +166,18 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|output
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if no output then dont do any description
+return|return
+literal|""
+return|;
+block|}
 return|return
 literal|"DeadLetterChannel["
 operator|+

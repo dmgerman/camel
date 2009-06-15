@@ -80,7 +80,7 @@ name|DefaultErrorHandler
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this default error handler      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      */
+comment|/**      * Creates the default error handler.      *      * @param output                    outer processor that should use this default error handler      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      */
 DECL|method|DefaultErrorHandler (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|DefaultErrorHandler
@@ -129,16 +129,6 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|supportDeadLetterQueue ()
-specifier|public
-name|boolean
-name|supportDeadLetterQueue
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -167,6 +157,18 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|output
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if no output then dont do any description
+return|return
+literal|""
+return|;
+block|}
 return|return
 literal|"DefaultErrorHandler["
 operator|+

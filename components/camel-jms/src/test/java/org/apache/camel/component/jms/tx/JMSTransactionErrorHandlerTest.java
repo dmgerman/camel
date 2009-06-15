@@ -93,10 +93,10 @@ comment|/**  * To demonstrate transacted with minimal configuration.  */
 end_comment
 
 begin_class
-DECL|class|TransactionMinimalConfigurationTest
+DECL|class|JMSTransactionErrorHandlerTest
 specifier|public
 class|class
-name|TransactionMinimalConfigurationTest
+name|JMSTransactionErrorHandlerTest
 extends|extends
 name|SpringTestSupport
 block|{
@@ -110,7 +110,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"/org/apache/camel/component/jms/tx/TransactionMinimalConfigurationTest.xml"
+literal|"/org/apache/camel/component/jms/tx/JMSTransactionErrorHandlerTest.xml"
 argument_list|)
 return|;
 block|}
@@ -172,25 +172,7 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// since its JMS that does the redeliver we should test for that
-name|mock
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|header
-argument_list|(
-literal|"JMSRedelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// and not Camel doing the redelivery
+comment|// and since it was Camel doing the redelivey we should have headers for this
 name|mock
 operator|.
 name|message
@@ -205,8 +187,10 @@ operator|.
 name|REDELIVERED
 argument_list|)
 operator|.
-name|isNull
-argument_list|()
+name|isEqualTo
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|mock
 operator|.
@@ -222,8 +206,28 @@ operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
 operator|.
-name|isNull
-argument_list|()
+name|isEqualTo
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// and not JMS doing the redelivery
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+literal|"JMSRedelivered"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|template
 operator|.

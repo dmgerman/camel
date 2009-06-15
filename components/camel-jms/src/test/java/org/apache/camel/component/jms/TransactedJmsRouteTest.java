@@ -342,6 +342,7 @@ name|TransactedJmsRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// TODO: This is not a nice unit test. Please do not do like this. Big, confusing and takes long time to run
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -1492,10 +1493,10 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSenarioE ()
+DECL|method|disabledtestSenarioE ()
 specifier|public
 name|void
-name|testSenarioE
+name|disabledtestSenarioE
 parameter_list|()
 throws|throws
 name|Exception

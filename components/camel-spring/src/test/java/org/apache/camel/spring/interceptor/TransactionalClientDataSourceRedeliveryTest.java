@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.spring.interceptor
 package|package
 name|org
 operator|.
@@ -14,21 +14,9 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|processor
+name|interceptor
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExecutionException
-import|;
-end_import
 
 begin_import
 import|import
@@ -62,9 +50,23 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
-name|SpringTestSupport
+name|SpringRouteBuilder
 import|;
 end_import
 
@@ -72,27 +74,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|support
+name|spring
 operator|.
-name|AbstractXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|spi
 operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
+name|TransactedRuntimeCamelException
 import|;
 end_import
 
@@ -101,90 +91,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SpringDefaultErrorHandlerNotHandledPolicyTest
+DECL|class|TransactionalClientDataSourceRedeliveryTest
 specifier|public
 class|class
-name|SpringDefaultErrorHandlerNotHandledPolicyTest
+name|TransactionalClientDataSourceRedeliveryTest
 extends|extends
-name|SpringTestSupport
+name|TransactionalClientDataSourceTest
 block|{
-DECL|method|createApplicationContext ()
-specifier|protected
-name|AbstractXmlApplicationContext
-name|createApplicationContext
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/spring/processor/SpringDefaultErrorHandlerNotHandledPolicyTest.xml"
-argument_list|)
-return|;
-block|}
-DECL|method|testNotHandled ()
+DECL|method|testTransactionRollbackWithExchange ()
 specifier|public
 name|void
-name|testNotHandled
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// as its NOT handled the exception should be thrown back to the client
-name|assertIsInstanceOf
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Forced"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-DECL|method|testNotHandledSendExchange ()
-specifier|public
-name|void
-name|testNotHandledSendExchange
+name|testTransactionRollbackWithExchange
 parameter_list|()
 throws|throws
 name|Exception
@@ -196,7 +113,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"direct:start"
+literal|"direct:fail"
 argument_list|,
 operator|new
 name|Processor
@@ -226,6 +143,30 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|1
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|Exception
 name|e
 init|=
@@ -234,27 +175,33 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|IllegalArgumentException
+name|TransactedRuntimeCamelException
 operator|.
 name|class
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Forced"
+literal|"We don't have Donkeys, only Camels"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
@@ -279,7 +226,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|4
 argument_list|,
 name|out
 operator|.
@@ -322,22 +269,120 @@ name|ERRORHANDLER_HANDLED
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertSame
+block|}
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|SpringRouteBuilder
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// configure transacted error handler to use up till 4 redeliveries
+comment|// we have not passed in any spring TX manager. Camel will automatic
+comment|// find it in the spring application context. You only need to help
+comment|// Camel in case you have multiple TX managers
+name|errorHandler
 argument_list|(
-literal|"Should be same exception"
-argument_list|,
-name|e
-argument_list|,
-name|out
+name|transactionErrorHandler
+argument_list|()
 operator|.
-name|getProperty
+name|maximumRedeliveries
 argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
+literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
+name|from
+argument_list|(
+literal|"direct:okay"
+argument_list|)
+comment|// marks this route as transacted, and we dont pass in any parameters so we
+comment|// will auto lookup and use the Policy defined in the spring XML file
+operator|.
+name|transacted
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Elephant in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
+comment|// marks this route as transacted that will use the single policy defined in the registry
+name|from
+argument_list|(
+literal|"direct:fail"
+argument_list|)
+comment|// marks this route as transacted, and we dont pass in any parameters so we
+comment|// will auto lookup and use the Policy defined in the spring XML file
+operator|.
+name|transacted
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Donkey in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e1
+block|}
+block|}
+return|;
 block|}
 block|}
 end_class

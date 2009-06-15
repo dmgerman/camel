@@ -353,7 +353,7 @@ comment|// check for error if so we should break out
 name|boolean
 name|exceptionHandled
 init|=
-name|hasExceptionBeenHandled
+name|hasExceptionBeenHandledByErrorHandler
 argument_list|(
 name|nextExchange
 argument_list|)
@@ -368,7 +368,7 @@ operator|||
 name|exceptionHandled
 condition|)
 block|{
-comment|// The Exchange.EXCEPTION_HANDLED property is only set if satisfactory handling was done
+comment|// The Exchange.ERRORHANDLED_HANDLED property is only set if satisfactory handling was done
 comment|// by the error handler. It's still an exception, the exchange still failed.
 if|if
 condition|(
@@ -378,44 +378,96 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|sb
 operator|.
-name|debug
+name|append
 argument_list|(
 literal|"Message exchange has failed so breaking out of pipeline: "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|nextExchange
-operator|+
-literal|" exception: "
-operator|+
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|nextExchange
 operator|.
 name|getException
 argument_list|()
-operator|+
-literal|" fault: "
-operator|+
-operator|(
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" exception: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|nextExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|nextExchange
 operator|.
 name|hasFault
 argument_list|()
-condition|?
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" fault: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|nextExchange
 operator|.
 name|getFault
 argument_list|()
-else|:
-literal|null
-operator|)
-operator|+
-operator|(
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|exceptionHandled
-condition|?
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|" handled by the error handler"
-else|:
-literal|""
-operator|)
+argument_list|)
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+name|sb
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -461,11 +513,11 @@ name|nextExchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|hasExceptionBeenHandled (Exchange nextExchange)
+DECL|method|hasExceptionBeenHandledByErrorHandler (Exchange nextExchange)
 specifier|private
 specifier|static
 name|boolean
-name|hasExceptionBeenHandled
+name|hasExceptionBeenHandledByErrorHandler
 parameter_list|(
 name|Exchange
 name|nextExchange
@@ -484,7 +536,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 argument_list|)
 argument_list|)
 return|;

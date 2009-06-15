@@ -350,14 +350,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Whether this error handler supports dead letter queue or not      */
-DECL|method|supportDeadLetterQueue ()
-specifier|public
-specifier|abstract
-name|boolean
-name|supportDeadLetterQueue
-parameter_list|()
-function_decl|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -369,6 +361,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|output
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no output then just return
+return|return;
+block|}
 name|processErrorHandler
 argument_list|(
 name|exchange
@@ -393,6 +395,8 @@ specifier|final
 name|RedeliveryData
 name|data
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 while|while
 condition|(
@@ -471,13 +475,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"This error handler does not support transacted exchanges."
 operator|+
@@ -497,14 +501,17 @@ block|}
 return|return;
 block|}
 comment|// did previous processing cause an exception?
+name|boolean
+name|handle
+init|=
+name|shouldHandleException
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
+name|handle
 condition|)
 block|{
 name|handleException
@@ -534,21 +541,6 @@ condition|)
 block|{
 comment|// no we should not redeliver to the same output so either try an onException (if any given)
 comment|// or the dead letter queue
-name|boolean
-name|isDeadLetter
-init|=
-name|data
-operator|.
-name|failureProcessor
-operator|==
-literal|null
-operator|&&
-name|data
-operator|.
-name|deadLetterProcessor
-operator|!=
-literal|null
-decl_stmt|;
 name|Processor
 name|target
 init|=
@@ -574,8 +566,6 @@ argument_list|,
 name|exchange
 argument_list|,
 name|data
-argument_list|,
-name|isDeadLetter
 argument_list|)
 expr_stmt|;
 comment|// prepare the exchange for failure before returning
@@ -665,9 +655,7 @@ block|}
 comment|// process the exchange (also redelivery)
 try|try
 block|{
-name|output
-operator|.
-name|process
+name|processExchange
 argument_list|(
 name|exchange
 argument_list|)
@@ -687,21 +675,10 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// only done if the exchange hasn't failed
-comment|// and it has not been handled by the failure processor
 name|boolean
 name|done
 init|=
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|ExchangeHelper
-operator|.
-name|isFailureHandled
+name|isDone
 argument_list|(
 name|exchange
 argument_list|)
@@ -715,6 +692,76 @@ return|return;
 block|}
 comment|// error occurred so loop back around.....
 block|}
+block|}
+comment|/**      * Strategy whether the exchange has an exception that we should try to handle.      *<p/>      * Standard implementations should just look for an exception.      */
+DECL|method|shouldHandleException (Exchange exchange)
+specifier|protected
+name|boolean
+name|shouldHandleException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+return|;
+block|}
+comment|/**      * Strategy to process the given exchange to the destinated output.      *<p/>      * This happens when the exchange is processed the first time and also for redeliveries      * to the same destination.      */
+DECL|method|processExchange (Exchange exchange)
+specifier|protected
+name|void
+name|processExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// process the exchange (also redelivery)
+name|output
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Strategy to determine if the exchange is done so we can continue      */
+DECL|method|isDone (Exchange exchange)
+specifier|protected
+name|boolean
+name|isDone
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// only done if the exchange hasn't failed
+comment|// and it has not been handled by the failure processor
+return|return
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|ExchangeHelper
+operator|.
+name|isFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
+return|;
 block|}
 comment|/**      * Returns the output processor      */
 DECL|method|getOutput ()
@@ -1083,7 +1130,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * All redelivery attempts failed so move the exchange to the dead letter queue      */
-DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data, boolean isDeadLetter)
+DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data)
 specifier|protected
 name|void
 name|deliverToFailureProcessor
@@ -1099,9 +1146,6 @@ parameter_list|,
 specifier|final
 name|RedeliveryData
 name|data
-parameter_list|,
-name|boolean
-name|isDeadLetter
 parameter_list|)
 block|{
 comment|// we did not success with the redelivery so now we let the failure processor handle it
@@ -1266,11 +1310,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|prepareExchangeAfterFailure (Exchange exchange, final RedeliveryData data)
+DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data)
 specifier|protected
 name|void
 name|prepareExchangeAfterFailure
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
@@ -1279,7 +1324,7 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
-comment|// we did not success with the redelivery so now we let the failure processor handle it
+comment|// we could not process the exchange so we let the failure processor handled it
 name|ExchangeHelper
 operator|.
 name|setFailureHandled
@@ -1287,13 +1332,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|Predicate
-name|handledPredicate
-init|=
-name|data
-operator|.
-name|handledPredicate
-decl_stmt|;
 comment|// honor if already set a handling
 name|boolean
 name|alreadySet
@@ -1304,7 +1342,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 argument_list|)
 operator|!=
 literal|null
@@ -1323,7 +1361,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 argument_list|,
 name|Boolean
 operator|.
@@ -1385,6 +1423,13 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+name|Predicate
+name|handledPredicate
+init|=
+name|data
+operator|.
+name|handledPredicate
+decl_stmt|;
 if|if
 condition|(
 name|handledPredicate
@@ -1425,7 +1470,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 argument_list|,
 name|Boolean
 operator|.
@@ -1477,7 +1522,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED
+name|ERRORHANDLER_HANDLED
 argument_list|,
 name|Boolean
 operator|.
@@ -1678,6 +1723,54 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// if marked as rollback only then do not redeliver
+name|Boolean
+name|rollback
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rollback
+operator|!=
+literal|null
+operator|&&
+name|rollback
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"This exchange is marked as rollback only, should not be redelivered: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|data
 operator|.
