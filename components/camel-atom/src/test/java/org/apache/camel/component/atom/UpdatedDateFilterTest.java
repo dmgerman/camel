@@ -126,6 +126,26 @@ name|EntryFilter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for UpdatedDateFilter  */
 end_comment
@@ -136,8 +156,10 @@ specifier|public
 class|class
 name|UpdatedDateFilterTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testFilter ()
 specifier|public
 name|void

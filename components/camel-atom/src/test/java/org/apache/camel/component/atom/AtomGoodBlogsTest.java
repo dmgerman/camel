@@ -74,18 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -130,11 +118,57 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jndi
 operator|.
 name|CamelInitialContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -148,7 +182,7 @@ specifier|public
 class|class
 name|AtomGoodBlogsTest
 extends|extends
-name|TestSupport
+name|CamelTestSupport
 block|{
 comment|// START SNIPPET: e1
 comment|// This is the CamelContext that is the heart of Camel
@@ -167,7 +201,7 @@ operator|new
 name|Hashtable
 argument_list|()
 decl_stmt|;
-comment|// We iniitalize Camel
+comment|// We initialize Camel
 DECL|method|setupCamel ()
 specifier|private
 name|void
@@ -299,6 +333,8 @@ block|}
 return|;
 block|}
 comment|/**      * This is the actual junit test method that does the assertion that our routes is working      * as expected      */
+annotation|@
+name|Test
 DECL|method|testFiltering ()
 specifier|public
 name|void
@@ -398,8 +434,10 @@ return|;
 block|}
 block|}
 comment|// END SNIPPET: e1
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -415,8 +453,10 @@ name|setupCamel
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
