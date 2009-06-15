@@ -67,7 +67,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Damm something did not work"
+literal|"Damn something did not work"
 argument_list|)
 throw|;
 block|}

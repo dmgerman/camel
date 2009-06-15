@@ -283,7 +283,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Damm something did not work"
+literal|"Damn something did not work"
 argument_list|,
 name|e
 operator|.
@@ -400,6 +400,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|errorHandler
+argument_list|(
+name|defaultErrorHandler
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|onException
 argument_list|(
 name|MyTechnicalException

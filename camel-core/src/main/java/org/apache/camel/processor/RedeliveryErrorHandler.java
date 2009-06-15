@@ -534,6 +534,21 @@ condition|)
 block|{
 comment|// no we should not redeliver to the same output so either try an onException (if any given)
 comment|// or the dead letter queue
+name|boolean
+name|isDeadLetter
+init|=
+name|data
+operator|.
+name|failureProcessor
+operator|==
+literal|null
+operator|&&
+name|data
+operator|.
+name|deadLetterProcessor
+operator|!=
+literal|null
+decl_stmt|;
 name|Processor
 name|target
 init|=
@@ -559,6 +574,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|isDeadLetter
 argument_list|)
 expr_stmt|;
 comment|// prepare the exchange for failure before returning
@@ -1066,7 +1083,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * All redelivery attempts failed so move the exchange to the dead letter queue      */
-DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data)
+DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data, boolean isDeadLetter)
 specifier|protected
 name|void
 name|deliverToFailureProcessor
@@ -1082,14 +1099,18 @@ parameter_list|,
 specifier|final
 name|RedeliveryData
 name|data
+parameter_list|,
+name|boolean
+name|isDeadLetter
 parameter_list|)
 block|{
 comment|// we did not success with the redelivery so now we let the failure processor handle it
-name|ExchangeHelper
-operator|.
-name|setFailureHandled
-argument_list|(
+comment|// clear exception as we let the failure processor handle it
 name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// must decrement the redelivery counter as we didn't process the redelivery but is
@@ -1258,6 +1279,14 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// we did not success with the redelivery so now we let the failure processor handle it
+name|ExchangeHelper
+operator|.
+name|setFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|Predicate
 name|handledPredicate
 init|=
@@ -1265,6 +1294,97 @@ name|data
 operator|.
 name|handledPredicate
 decl_stmt|;
+comment|// honor if already set a handling
+name|boolean
+name|alreadySet
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_HANDLED
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|alreadySet
+condition|)
+block|{
+name|boolean
+name|handled
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_HANDLED
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"This exchange has already been marked for handling: "
+operator|+
+name|handled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|handled
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// exception not handled, put exception back in the exchange
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Exception
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
 if|if
 condition|(
 name|handledPredicate
