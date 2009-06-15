@@ -78,6 +78,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 comment|// configure transacted error handler to use up till 4 redeliveries
 comment|// we have not passed in any spring TX manager. Camel will automatic
 comment|// find it in the spring application context. You only need to help
@@ -106,7 +107,6 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:okay"
