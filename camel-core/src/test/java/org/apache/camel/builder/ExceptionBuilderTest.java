@@ -844,7 +844,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|1000L
+literal|100L
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -891,7 +891,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|1000L
+literal|100L
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -923,7 +923,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|1000L
+literal|100L
 argument_list|)
 operator|.
 name|maximumRedeliveries

@@ -215,22 +215,12 @@ block|{
 comment|// use no delay for fast unit testing
 name|errorHandler
 argument_list|(
-name|deadLetterChannel
+name|defaultErrorHandler
 argument_list|()
 operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
-argument_list|)
-operator|.
-name|redeliverDelay
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

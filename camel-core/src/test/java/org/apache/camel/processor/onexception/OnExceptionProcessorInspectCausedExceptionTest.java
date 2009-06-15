@@ -190,6 +190,9 @@ operator|new
 name|MyFunctionFailureHandler
 argument_list|()
 argument_list|)
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 comment|// END SNIPPET: e1
 name|from

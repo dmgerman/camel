@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|DeadLetterChannelBuilder
+name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -259,7 +259,7 @@ throws|throws
 name|Exception
 block|{
 comment|// will use original
-name|DeadLetterChannelBuilder
+name|ErrorHandlerBuilder
 name|a
 init|=
 name|deadLetterChannel
@@ -291,7 +291,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// will NOT use original
-name|DeadLetterChannelBuilder
+name|ErrorHandlerBuilder
 name|b
 init|=
 name|deadLetterChannel

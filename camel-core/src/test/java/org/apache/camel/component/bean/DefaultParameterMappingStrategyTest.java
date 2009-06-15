@@ -338,7 +338,9 @@ block|{
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
-argument_list|()
+argument_list|(
+literal|"mock:error"
+argument_list|)
 operator|.
 name|logStackTrace
 argument_list|(

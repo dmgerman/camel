@@ -69,54 +69,33 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Unit test for using a processor to peek the caused exception  */
 end_comment
 
 begin_class
-DECL|class|ErrorOccuredInOnExceptionRoute
+DECL|class|OnExceptionProcessorInspectCausedExceptionWithDefaultErrorHandlerTest
 specifier|public
 class|class
-name|ErrorOccuredInOnExceptionRoute
+name|OnExceptionProcessorInspectCausedExceptionWithDefaultErrorHandlerTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testErrorInOnException ()
+DECL|method|testInspectExceptionByProcessor ()
 specifier|public
 name|void
-name|testErrorInOnException
+name|testInspectExceptionByProcessor
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-literal|"mock:onFunc"
+literal|"mock:myerror"
 argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:doneFunc"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// TODO: should be 1 when RedeliveryErrorHandler works with exception in onException
-name|getMockEndpoint
-argument_list|(
-literal|"mock:tech"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
 argument_list|)
 expr_stmt|;
 try|try
@@ -130,6 +109,11 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -137,8 +121,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: this exception should not be there
-comment|// ignore
+comment|// ok
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -168,44 +151,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|onException
+name|errorHandler
 argument_list|(
-name|MyTechnicalException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
+name|defaultErrorHandler
 argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// System.out.println("tech");
-block|}
-block|}
-argument_list|)
 operator|.
-name|to
+name|maximumRedeliveries
 argument_list|(
-literal|"mock:tech"
+literal|3
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
+comment|// here we register exception cause for MyFunctionException
+comment|// when this exception occur we want it to be processed by our proceesor
 name|onException
 argument_list|(
 name|MyFunctionalException
@@ -213,50 +172,14 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:onFunc"
-argument_list|)
-operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|MyFunctionFailureHandler
 argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// System.out.println("func");
-throw|throw
-operator|new
-name|MyTechnicalException
-argument_list|(
-literal|"Tech error"
-argument_list|)
-throw|;
-block|}
-block|}
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:doneFunc"
 argument_list|)
 expr_stmt|;
-comment|// in this regular route the processing failed
+comment|// END SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
@@ -282,7 +205,7 @@ throw|throw
 operator|new
 name|MyFunctionalException
 argument_list|(
-literal|"Func error"
+literal|"Sorry you cannot do this"
 argument_list|)
 throw|;
 block|}
@@ -293,6 +216,71 @@ block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e2
+DECL|class|MyFunctionFailureHandler
+specifier|public
+specifier|static
+class|class
+name|MyFunctionFailureHandler
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// the caused by exception is stored in a property on the exchange
+name|Throwable
+name|caused
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Throwable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|caused
+argument_list|)
+expr_stmt|;
+comment|// here you can do what you want, but Camel regard this exception as handled, and
+comment|// this processor as a failurehandler, so it wont do redeliveries. So this is the
+comment|// end of this route. But if we want to route it somewhere we can just get a
+comment|// producer template and send it.
+comment|// send it to our mock endpoint
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|createProducerTemplate
+argument_list|()
+operator|.
+name|send
+argument_list|(
+literal|"mock:myerror"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 

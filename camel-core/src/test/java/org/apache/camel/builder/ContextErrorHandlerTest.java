@@ -208,7 +208,9 @@ name|deadLetterChannelBuilder
 init|=
 operator|new
 name|DeadLetterChannelBuilder
-argument_list|()
+argument_list|(
+literal|"mock:error"
+argument_list|)
 decl_stmt|;
 name|deadLetterChannelBuilder
 operator|.

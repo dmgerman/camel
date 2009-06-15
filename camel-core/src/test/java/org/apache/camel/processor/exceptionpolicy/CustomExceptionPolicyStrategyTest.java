@@ -302,7 +302,9 @@ comment|// configure the error handler to use my policy instead of the default f
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
-argument_list|()
+argument_list|(
+literal|"mock:error"
+argument_list|)
 operator|.
 name|exceptionPolicyStrategy
 argument_list|(
