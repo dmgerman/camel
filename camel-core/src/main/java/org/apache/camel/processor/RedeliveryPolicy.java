@@ -226,8 +226,6 @@ DECL|field|logStackTrace
 specifier|protected
 name|boolean
 name|logStackTrace
-init|=
-literal|false
 decl_stmt|;
 DECL|field|delayPattern
 specifier|protected
