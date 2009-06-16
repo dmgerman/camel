@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|model
 package|;
 end_package
 
@@ -46,69 +46,12 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ChoiceDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|SendDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|WhenDefinition
-import|;
-end_import
-
 begin_comment
-comment|/**  * Helper class for ProcessorType and the other model classes.  */
+comment|/**  * Helper class for ProcessorDefinition and the other model classes.  */
 end_comment
 
 begin_class
 DECL|class|ProcessorDefinitionHelper
-specifier|public
 specifier|final
 class|class
 name|ProcessorDefinitionHelper
