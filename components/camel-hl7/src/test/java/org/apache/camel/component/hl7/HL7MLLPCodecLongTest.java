@@ -96,18 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -152,6 +140,32 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for the HL7MLLP Codec.  */
 end_comment
@@ -162,7 +176,7 @@ specifier|public
 class|class
 name|HL7MLLPCodecLongTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|createRegistry ()
 specifier|protected
@@ -344,6 +358,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendHL7Message ()
 specifier|public
 name|void

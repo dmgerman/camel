@@ -166,18 +166,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -228,6 +216,32 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for HL7 routing.  */
 end_comment
@@ -238,7 +252,7 @@ specifier|public
 class|class
 name|HL7RouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|createRegistry ()
 specifier|protected
@@ -299,6 +313,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendA19 ()
 specifier|public
 name|void
@@ -430,6 +446,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendA01 ()
 specifier|public
 name|void
@@ -561,6 +579,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendUnknown ()
 specifier|public
 name|void

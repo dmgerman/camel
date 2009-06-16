@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -98,6 +86,32 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to demonstrate the HL7MLLPCodec is message format agnostic (don't require the HAPI library).  * The message format can be java.lang.String.  */
 end_comment
@@ -108,7 +122,7 @@ specifier|public
 class|class
 name|HL7MLLPCodecPlainStringTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|createRegistry ()
 specifier|protected
@@ -153,6 +167,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPlainString ()
 specifier|public
 name|void

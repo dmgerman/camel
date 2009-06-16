@@ -112,18 +112,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -146,6 +134,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for HL7 DataFormat.  */
 end_comment
@@ -156,8 +170,10 @@ specifier|public
 class|class
 name|HL7DataFormatTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMarshal ()
 specifier|public
 name|void
@@ -256,6 +272,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnmarshal ()
 specifier|public
 name|void
