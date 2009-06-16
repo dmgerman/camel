@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -76,6 +64,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -98,6 +102,26 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -108,7 +132,7 @@ specifier|public
 class|class
 name|GroovyExpressionTest
 extends|extends
-name|TestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -132,6 +156,8 @@ specifier|protected
 name|Exchange
 name|exchange
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testExpressionReturnsTheCorrectValue ()
 specifier|public
 name|void
@@ -183,6 +209,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateEvaluation ()
 specifier|public
 name|void
@@ -234,6 +262,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProcessorMutatesTheExchange ()
 specifier|public
 name|void
@@ -264,6 +294,8 @@ literal|"ABC"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidExpressionFailsWithMeaningfulException ()
 specifier|public
 name|void
@@ -335,8 +367,10 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
