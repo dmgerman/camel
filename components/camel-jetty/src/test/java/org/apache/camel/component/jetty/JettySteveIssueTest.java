@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -60,6 +48,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test based on Steve request for CAMEL-877.  */
 end_comment
@@ -70,7 +84,7 @@ specifier|public
 class|class
 name|JettySteveIssueTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|serverUri
 specifier|private
@@ -79,6 +93,8 @@ name|serverUri
 init|=
 literal|"http://localhost:9080/myservice"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendX ()
 specifier|public
 name|void

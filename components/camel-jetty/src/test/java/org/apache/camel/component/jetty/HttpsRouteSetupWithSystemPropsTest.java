@@ -66,6 +66,16 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_class
 DECL|class|HttpsRouteSetupWithSystemPropsTest
 specifier|public
@@ -76,8 +86,10 @@ name|HttpsRouteTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

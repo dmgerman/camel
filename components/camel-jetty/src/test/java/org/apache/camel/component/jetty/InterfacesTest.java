@@ -86,7 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -98,9 +100,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -118,13 +122,23 @@ name|IOUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|InterfacesTest
 specifier|public
 class|class
 name|InterfacesTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|remoteInterfaceAddress
 specifier|private
@@ -237,6 +251,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLocalInterfaceHandled ()
 specifier|public
 name|void
@@ -372,6 +388,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAllInterfaces ()
 specifier|public
 name|void

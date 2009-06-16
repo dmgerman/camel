@@ -86,18 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -170,13 +158,39 @@ name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|HttpRoundtripHeaderTest
 specifier|public
 class|class
 name|HttpRoundtripHeaderTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|protected
@@ -221,6 +235,8 @@ operator|+
 name|outputText
 decl_stmt|;
 comment|// http://issues.apache.org/activemq/browse/CAMEL-324
+annotation|@
+name|Test
 DECL|method|testHttpRoundTripHeaders ()
 specifier|public
 name|void
@@ -298,6 +314,8 @@ name|lastLine
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHttpRoundTripHeadersWithNoIngoredHeaders ()
 specifier|public
 name|void
