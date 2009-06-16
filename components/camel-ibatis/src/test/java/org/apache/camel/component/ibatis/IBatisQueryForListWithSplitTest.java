@@ -48,6 +48,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -60,6 +70,8 @@ name|IBatisQueryForListWithSplitTest
 extends|extends
 name|IBatisTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testQueryForList ()
 specifier|public
 name|void

@@ -60,6 +60,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -72,6 +82,8 @@ name|IBatisBatchConsumerTest
 extends|extends
 name|IBatisTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBatchConsumer ()
 specifier|public
 name|void
