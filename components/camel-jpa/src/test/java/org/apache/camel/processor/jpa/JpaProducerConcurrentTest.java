@@ -118,18 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -175,6 +163,32 @@ operator|.
 name|spring
 operator|.
 name|SpringRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -294,7 +308,7 @@ specifier|public
 class|class
 name|JpaProducerConcurrentTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|SELECT_ALL_STRING
 specifier|protected
@@ -324,6 +338,8 @@ specifier|protected
 name|JpaTemplate
 name|jpaTemplate
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
 name|void
@@ -340,6 +356,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrentProducers ()
 specifier|public
 name|void
