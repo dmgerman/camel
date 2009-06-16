@@ -116,18 +116,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -145,6 +133,52 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -186,7 +220,7 @@ specifier|public
 class|class
 name|JdbcProducerConcurrenctTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|ds
 specifier|protected
@@ -221,6 +255,8 @@ name|password
 init|=
 literal|""
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
 name|void
@@ -237,6 +273,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrentProducers ()
 specifier|public
 name|void
@@ -538,8 +576,10 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -606,8 +646,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
