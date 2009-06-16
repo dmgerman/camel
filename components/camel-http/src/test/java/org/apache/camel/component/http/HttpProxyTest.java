@@ -26,7 +26,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -44,6 +48,16 @@ name|HttpClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -54,8 +68,10 @@ specifier|public
 class|class
 name|HttpProxyTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoHttpProxyConfigured ()
 specifier|public
 name|void
@@ -116,6 +132,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHttpProxyConfigured ()
 specifier|public
 name|void
@@ -211,6 +229,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHttpProxyEndpointConfigured ()
 specifier|public
 name|void

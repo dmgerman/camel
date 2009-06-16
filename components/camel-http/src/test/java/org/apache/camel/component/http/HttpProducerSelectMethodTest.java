@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Exchange
 import|;
 end_import
 
@@ -48,7 +48,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -63,6 +67,16 @@ operator|.
 name|httpclient
 operator|.
 name|HttpMethod
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -112,8 +126,10 @@ specifier|public
 class|class
 name|HttpProducerSelectMethodTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoDataDefaultIsGet ()
 specifier|public
 name|void
@@ -221,6 +237,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDataDefaultIsPost ()
 specifier|public
 name|void
@@ -328,6 +346,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithMethodPostInHeader ()
 specifier|public
 name|void
@@ -449,6 +469,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithMethodGetInHeader ()
 specifier|public
 name|void
@@ -570,6 +592,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithEndpointQuery ()
 specifier|public
 name|void
@@ -677,6 +701,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithQueryInHeader ()
 specifier|public
 name|void
@@ -798,6 +824,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithQueryInHeaderOverrideEndpoint ()
 specifier|public
 name|void
