@@ -84,6 +84,26 @@ name|Injectors
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -94,7 +114,7 @@ specifier|public
 class|class
 name|GuiceTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      *      * @param injector      */
 DECL|method|assertCamelContextRunningThenCloseInjector (Injector injector)
@@ -218,6 +238,8 @@ name|camelContext
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGuice ()
 specifier|public
 name|void

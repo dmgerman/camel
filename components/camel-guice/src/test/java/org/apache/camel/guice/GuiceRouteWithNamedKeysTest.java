@@ -150,6 +150,26 @@ name|Injectors
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Lets use a custom CamelModule to perform explicit binding of route builders  *  * @version $Revision$  */
 end_comment
@@ -160,7 +180,7 @@ specifier|public
 class|class
 name|GuiceRouteWithNamedKeysTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|class|MyModule
 specifier|public
@@ -194,6 +214,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGuice ()
 specifier|public
 name|void

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -50,6 +40,26 @@ name|Injector
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Lets use a custom CamelModule to perform explicit binding of route builders  *  * @version $Revision$  */
 end_comment
@@ -60,7 +70,7 @@ specifier|public
 class|class
 name|TraditionalGuiceRouteTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|class|MyModule
 specifier|public
@@ -88,6 +98,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGuice ()
 specifier|public
 name|void
