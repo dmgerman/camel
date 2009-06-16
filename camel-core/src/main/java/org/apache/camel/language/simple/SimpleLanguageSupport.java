@@ -259,7 +259,7 @@ specifier|final
 name|String
 name|GROUP_PATTERN
 init|=
-literal|"\\$\\{(\\S+)\\}\\s+(==|>|>=|<|<=|!=|contains|not contains|regex|not regex|in|not in|is|not is|range|not range)\\s+('.*'|\\S+)"
+literal|"\\$\\{(\\S+)\\}\\s+(==|>|>=|<|<=|!=|contains|not contains|regex|not regex|in|not in|is|not is|range|not range)\\s+('.*?'|\\S+)"
 decl_stmt|;
 comment|// this is the operator reg ex pattern used to match if a given expression is operator based or not
 DECL|field|PATTERN

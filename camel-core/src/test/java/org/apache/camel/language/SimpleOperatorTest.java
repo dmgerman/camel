@@ -176,6 +176,57 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testAndWithQuotation ()
+specifier|public
+name|void
+name|testAndWithQuotation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' and ${in.header.bar} == '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' and ${in.header.bar} == '444'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' and ${in.header.bar} == '123'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' and ${in.header.bar} == '444'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' and ${in.header.bar}> '100'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' and ${in.header.bar}< '200'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testOr ()
 specifier|public
 name|void
@@ -236,6 +287,71 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"${in.header.foo} == def or ${in.header.bar}< 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOrWithQuotation ()
+specifier|public
+name|void
+name|testOrWithQuotation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' or ${in.header.bar} == '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' or ${in.header.bar} == '444'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' or ${in.header.bar} == '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' or ${in.header.bar} == '444'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' or ${in.header.bar}< '100'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'abc' or ${in.header.bar}< '200'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' or ${in.header.bar}< '200'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'def' or ${in.header.bar}< '100'"
 argument_list|,
 literal|false
 argument_list|)

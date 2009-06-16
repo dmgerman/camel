@@ -272,7 +272,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No TransactionTemplate configured on TransactedErrorHandlerBuilder. Will try find it in the registry."
+literal|"No TransactionTemplate configured on TransactionErrorHandlerBuilder. Will try find it in the registry."
 argument_list|)
 expr_stmt|;
 if|if
@@ -474,7 +474,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"No TransactionTemplate found in registry."
 argument_list|)
@@ -495,7 +495,7 @@ argument_list|()
 operator|+
 literal|" TransactionTemplate in registry. "
 operator|+
-literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the TransactedErrorHandlerBuilder"
+literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|)
 expr_stmt|;
 block|}
@@ -580,7 +580,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"No PlatformTransactionManager found in registry."
 argument_list|)
@@ -601,7 +601,7 @@ argument_list|()
 operator|+
 literal|" PlatformTransactionManager in registry. "
 operator|+
-literal|"Cannot determine which one to use for TransactionTemplate. Please configure a TransactionTemplate on the TransactedErrorHandlerBuilder"
+literal|"Cannot determine which one to use for TransactionTemplate. Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|)
 expr_stmt|;
 block|}
@@ -632,6 +632,8 @@ argument_list|(
 name|transactionTemplate
 argument_list|,
 literal|"transactionTemplate"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|TransactionErrorHandler
