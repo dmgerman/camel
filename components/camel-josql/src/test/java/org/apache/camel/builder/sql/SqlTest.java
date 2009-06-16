@@ -84,18 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -113,6 +101,42 @@ operator|.
 name|impl
 operator|.
 name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -160,6 +184,8 @@ specifier|protected
 name|Exchange
 name|exchange
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testExpression ()
 specifier|public
 name|void
@@ -229,6 +255,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionWithHeaderVariable ()
 specifier|public
 name|void
@@ -316,6 +344,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicates ()
 specifier|public
 name|void
@@ -349,6 +379,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateWithHeaderVariable ()
 specifier|public
 name|void
@@ -370,8 +402,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
