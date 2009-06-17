@@ -273,6 +273,24 @@ name|BundleContext
 name|bundleContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using BundleContext: "
+operator|+
+name|bundleContext
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|bundleContext
@@ -313,10 +331,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The bundle context is not be null, let's setup the Osgi resolvers"
+literal|"Using OSGI resolvers"
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using OsgiFactoryFinderResolver"
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|setFactoryFinderResolver
@@ -324,6 +349,13 @@ argument_list|(
 operator|new
 name|OsgiFactoryFinderResolver
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using OsgiPackageScanClassResolver"
 argument_list|)
 expr_stmt|;
 name|context
@@ -337,6 +369,13 @@ name|bundleContext
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using OsgiComponentResolver"
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|setComponentResolver
@@ -344,6 +383,13 @@ argument_list|(
 operator|new
 name|OsgiComponentResolver
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using OsgiLanguageResolver"
 argument_list|)
 expr_stmt|;
 name|context
@@ -361,6 +407,17 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// TODO: should we not thrown an excpetion to not allow it to startup
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"BundleContext not set, cannot run in OSGI container"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|context
 return|;
@@ -374,6 +431,13 @@ name|SpringCamelContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using OsgiAnnotationTypeConverterLoader"
+argument_list|)
+expr_stmt|;
 name|DefaultTypeConverter
 name|typeConverter
 init|=
@@ -452,13 +516,6 @@ operator|.
 name|getPackageScanClassResolver
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"added the OsgiAnnotationTypeConverterLoader"
 argument_list|)
 expr_stmt|;
 block|}

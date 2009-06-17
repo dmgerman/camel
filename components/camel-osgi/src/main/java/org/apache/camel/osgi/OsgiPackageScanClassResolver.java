@@ -823,7 +823,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"added url "
+literal|"Added url: "
 operator|+
 name|urlString
 argument_list|)

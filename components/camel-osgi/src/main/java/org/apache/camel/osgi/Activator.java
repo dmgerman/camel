@@ -457,6 +457,24 @@ name|BundleEvent
 name|event
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Bundle changed: "
+operator|+
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|Bundle
@@ -567,7 +585,9 @@ name|LOG
 operator|.
 name|fatal
 argument_list|(
-literal|"Exception handing bundle changed event"
+literal|"Exception occured during bundleChanged for event: "
+operator|+
+name|event
 argument_list|,
 name|e
 argument_list|)
@@ -1083,6 +1103,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Camel activator starting"
+argument_list|)
+expr_stmt|;
 name|bundle
 operator|=
 name|context
@@ -1090,6 +1117,24 @@ operator|.
 name|getBundle
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using bundle: "
+operator|+
+name|bundle
+argument_list|)
+expr_stmt|;
+block|}
 name|context
 operator|.
 name|addBundleListener
@@ -1109,7 +1154,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"checking existing bundles"
+literal|"Checking existing bundles for Camel components, languages and type converters"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1175,22 +1220,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|info
 argument_list|(
-literal|"actived"
+literal|"Camel activator started"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|stop (BundleContext context)
 specifier|public
@@ -1203,6 +1239,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Camel activator stopping"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -1215,7 +1258,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"removing the components of existing bundles"
+literal|"Removing Camel bundles"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1281,22 +1324,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|info
 argument_list|(
-literal|"stopped"
+literal|"Camel activator stopped"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|getConverterPackages (URL resource)
 specifier|protected
@@ -1529,6 +1563,13 @@ index|[]
 name|findTypeConverterPackageNames
 parameter_list|()
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding TypeConverterPackageNames"
+argument_list|)
+expr_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -1563,6 +1604,24 @@ operator|.
 name|converterPackages
 control|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found TypeConverterPackage: "
+operator|+
+name|packageName
+argument_list|)
+expr_stmt|;
+block|}
 name|packages
 operator|.
 name|add
@@ -1601,6 +1660,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding Component: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
 return|return
 name|getClassFromEntries
 argument_list|(
@@ -1623,6 +1691,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding Language: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
 return|return
 name|getClassFromEntries
 argument_list|(
@@ -1645,6 +1722,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding LanguageResolver: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
 return|return
 name|getClassFromEntries
 argument_list|(
