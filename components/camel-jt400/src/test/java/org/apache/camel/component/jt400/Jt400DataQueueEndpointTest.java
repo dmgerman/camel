@@ -26,7 +26,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|component
+operator|.
+name|jt400
+operator|.
+name|Jt400DataQueueEndpoint
+operator|.
+name|Format
 import|;
 end_import
 
@@ -38,13 +44,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|test
 operator|.
-name|jt400
+name|junit4
 operator|.
-name|Jt400DataQueueEndpoint
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Format
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -58,7 +82,7 @@ specifier|public
 class|class
 name|Jt400DataQueueEndpointTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|endpoint
 specifier|private
@@ -67,8 +91,10 @@ name|endpoint
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -92,6 +118,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Check that the AS/400 connection is correctly configured for the URL      */
+annotation|@
+name|Test
 DECL|method|testSystemConfiguration ()
 specifier|public
 name|void

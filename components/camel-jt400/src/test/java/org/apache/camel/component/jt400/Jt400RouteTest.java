@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -60,6 +48,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test case for routes that contain<code>jt400:</code> endpoints This test  * case does nothing by default -- you can use it to test integration when there  * is a real AS/400 system available by filling in correct values for  * {@link #USER}, {@link #PASSWORD}, {@link #SYSTEM}, {@link #LIBRARY} and  * {@link #QUEUE}  */
 end_comment
@@ -70,7 +84,7 @@ specifier|public
 class|class
 name|Jt400RouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 comment|// fill in correct values for all constants to test with a real AS/400
 comment|// system
@@ -119,6 +133,8 @@ name|QUEUE
 init|=
 literal|"queue"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBasicTest ()
 specifier|public
 name|void
