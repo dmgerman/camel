@@ -19,6 +19,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|removeStartingCharacters
+import|;
+end_import
+
+begin_import
 import|import
 name|javax
 operator|.
@@ -423,22 +439,6 @@ operator|.
 name|util
 operator|.
 name|Assert
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
 import|;
 end_import
 
@@ -1874,6 +1874,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|timeToLive
+operator|<
+literal|0
+condition|)
+block|{
+comment|// If TTL not specified, then default to
 name|jmsTemplate
 operator|.
 name|setTimeToLive
@@ -1881,6 +1889,7 @@ argument_list|(
 name|requestTimeout
 argument_list|)
 expr_stmt|;
+block|}
 name|jmsTemplate
 operator|.
 name|setSessionTransacted
