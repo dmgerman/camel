@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.impl.scan
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|scan
 package|;
 end_package
 
@@ -25,16 +27,6 @@ operator|.
 name|annotation
 operator|.
 name|Annotation
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -67,73 +59,64 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Package scan filter for testing if a given class is annotated with any of the annotations.  */
+comment|/**  * Package scan filter for testing if a given class is annotated with a certain annotation.  */
 end_comment
 
 begin_class
-DECL|class|AnnotatedWithAnyPackageScanFilter
+DECL|class|AnnotatedWithPackageScanFilter
 specifier|public
 class|class
-name|AnnotatedWithAnyPackageScanFilter
+name|AnnotatedWithPackageScanFilter
 implements|implements
 name|PackageScanFilter
 block|{
-DECL|field|annotations
+DECL|field|annotation
 specifier|private
-name|Set
-argument_list|<
 name|Class
 argument_list|<
 name|?
 extends|extends
 name|Annotation
 argument_list|>
-argument_list|>
-name|annotations
+name|annotation
 decl_stmt|;
 DECL|field|checkMetaAnnotations
 specifier|private
 name|boolean
 name|checkMetaAnnotations
 decl_stmt|;
-DECL|method|AnnotatedWithAnyPackageScanFilter (Set<Class<? extends Annotation>> annotations)
+DECL|method|AnnotatedWithPackageScanFilter (Class<? extends Annotation> annotation)
 specifier|public
-name|AnnotatedWithAnyPackageScanFilter
+name|AnnotatedWithPackageScanFilter
 parameter_list|(
-name|Set
-argument_list|<
 name|Class
 argument_list|<
 name|?
 extends|extends
 name|Annotation
 argument_list|>
-argument_list|>
-name|annotations
+name|annotation
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|annotations
+name|annotation
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|AnnotatedWithAnyPackageScanFilter (Set<Class<? extends Annotation>> annotations, boolean checkMetaAnnotations)
+DECL|method|AnnotatedWithPackageScanFilter (Class<? extends Annotation> annotation, boolean checkMetaAnnotations)
 specifier|public
-name|AnnotatedWithAnyPackageScanFilter
+name|AnnotatedWithPackageScanFilter
 parameter_list|(
-name|Set
-argument_list|<
 name|Class
 argument_list|<
 name|?
 extends|extends
 name|Annotation
 argument_list|>
-argument_list|>
-name|annotations
+name|annotation
 parameter_list|,
 name|boolean
 name|checkMetaAnnotations
@@ -141,9 +124,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|annotations
+name|annotation
 operator|=
-name|annotations
+name|annotation
 expr_stmt|;
 name|this
 operator|.
@@ -161,32 +144,11 @@ name|Class
 name|type
 parameter_list|)
 block|{
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
 return|return
-literal|false
-return|;
-block|}
-for|for
-control|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Annotation
-argument_list|>
-name|annotation
-range|:
-name|annotations
-control|)
-block|{
-if|if
-condition|(
+name|type
+operator|!=
+literal|null
+operator|&&
 name|ObjectHelper
 operator|.
 name|hasAnnotation
@@ -197,15 +159,6 @@ name|annotation
 argument_list|,
 name|checkMetaAnnotations
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
-return|return
-literal|false
 return|;
 block|}
 annotation|@
@@ -217,11 +170,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"annotated with any @["
+literal|"annotated with @"
 operator|+
-name|annotations
-operator|+
-literal|"]"
+name|annotation
+operator|.
+name|getSimpleName
+argument_list|()
 return|;
 block|}
 block|}

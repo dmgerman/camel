@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.spring.config.scan.route
 package|package
 name|org
 operator|.
@@ -12,7 +12,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
+operator|.
+name|config
+operator|.
+name|scan
+operator|.
+name|route
 package|;
 end_package
 
@@ -24,83 +30,40 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|builder
 operator|.
-name|PackageScanFilter
+name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * Package scan filter for testing if a given class is assignable to another class.  */
-end_comment
-
 begin_class
-DECL|class|AssignableToPackageScanFilter
+DECL|class|MyExcludedRouteBuilder
 specifier|public
 class|class
-name|AssignableToPackageScanFilter
-implements|implements
-name|PackageScanFilter
+name|MyExcludedRouteBuilder
+extends|extends
+name|RouteBuilder
 block|{
-DECL|field|parent
-specifier|private
-specifier|final
-name|Class
-name|parent
-decl_stmt|;
-DECL|method|AssignableToPackageScanFilter (Class parentType)
-specifier|public
-name|AssignableToPackageScanFilter
-parameter_list|(
-name|Class
-name|parentType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parent
-operator|=
-name|parentType
-expr_stmt|;
-block|}
-DECL|method|matches (Class type)
-specifier|public
-name|boolean
-name|matches
-parameter_list|(
-name|Class
-name|type
-parameter_list|)
-block|{
-return|return
-name|type
-operator|!=
-literal|null
-operator|&&
-name|parent
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|type
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
-DECL|method|toString ()
+DECL|method|configure ()
 specifier|public
-name|String
-name|toString
+name|void
+name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-literal|"is assignable to "
-operator|+
-name|parent
+name|from
+argument_list|(
+literal|"direct:shouldNeverRecieveExchange"
+argument_list|)
 operator|.
-name|getSimpleName
-argument_list|()
-return|;
+name|to
+argument_list|(
+literal|"mock:definitelyShouldNeverReceiveExchange"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

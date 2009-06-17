@@ -155,6 +155,15 @@ modifier|...
 name|packageNames
 parameter_list|)
 function_decl|;
+comment|/**      * Add a filter that will be applied to all scan operations      *       * @param filter filter to filter desired classes in all scan operations      */
+DECL|method|addFilter (PackageScanFilter filter)
+name|void
+name|addFilter
+parameter_list|(
+name|PackageScanFilter
+name|filter
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
