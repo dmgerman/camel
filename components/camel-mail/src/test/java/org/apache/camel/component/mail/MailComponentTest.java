@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Endpoint
 import|;
 end_import
 
@@ -48,7 +48,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -62,8 +76,10 @@ specifier|public
 class|class
 name|MailComponentTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMailEndpointsAreConfiguredProperlyWhenUsingSmtp ()
 specifier|public
 name|void
@@ -170,6 +186,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMailEndpointsAreConfiguredProperlyWhenUsingImap ()
 specifier|public
 name|void
@@ -276,6 +294,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMailEndpointsAreConfiguredProperlyWhenUsingPop ()
 specifier|public
 name|void
@@ -382,6 +402,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultSMTPConfiguration ()
 specifier|public
 name|void
@@ -583,6 +605,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultPOP3Configuration ()
 specifier|public
 name|void
@@ -784,6 +808,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultIMAPConfiguration ()
 specifier|public
 name|void
@@ -985,6 +1011,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManyConfigurations ()
 specifier|public
 name|void
@@ -1188,6 +1216,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTo ()
 specifier|public
 name|void
@@ -1361,6 +1391,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoUserInfoButUsername ()
 specifier|public
 name|void
@@ -1534,6 +1566,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMailEndpointsWithFetchSize ()
 specifier|public
 name|void

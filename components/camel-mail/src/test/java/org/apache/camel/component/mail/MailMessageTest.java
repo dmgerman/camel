@@ -100,7 +100,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Endpoint
 import|;
 end_import
 
@@ -112,7 +112,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -130,6 +134,26 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -140,7 +164,7 @@ specifier|public
 class|class
 name|MailMessageTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|mailSession
 specifier|private
@@ -164,6 +188,8 @@ name|body
 init|=
 literal|"Hello World!"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMailMessageHandlesMultipleHeaders ()
 specifier|public
 name|void
@@ -310,6 +336,8 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMailMessageHandlesSingleHeader ()
 specifier|public
 name|void
@@ -404,8 +432,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
