@@ -121,7 +121,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"packages"
+literal|"package"
 argument_list|,
 name|required
 operator|=

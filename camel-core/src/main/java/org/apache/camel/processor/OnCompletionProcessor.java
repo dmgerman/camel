@@ -215,22 +215,22 @@ specifier|private
 name|Processor
 name|processor
 decl_stmt|;
-DECL|field|onComplete
+DECL|field|onCompleteOnly
 specifier|private
 name|boolean
-name|onComplete
+name|onCompleteOnly
 decl_stmt|;
-DECL|field|onFailure
+DECL|field|onFailureOnly
 specifier|private
 name|boolean
-name|onFailure
+name|onFailureOnly
 decl_stmt|;
 DECL|field|onWhen
 specifier|private
 name|Predicate
 name|onWhen
 decl_stmt|;
-DECL|method|OnCompletionProcessor (Processor processor, boolean onComplete, boolean onFailure, Predicate onWhen)
+DECL|method|OnCompletionProcessor (Processor processor, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen)
 specifier|public
 name|OnCompletionProcessor
 parameter_list|(
@@ -238,10 +238,10 @@ name|Processor
 name|processor
 parameter_list|,
 name|boolean
-name|onComplete
+name|onCompleteOnly
 parameter_list|,
 name|boolean
-name|onFailure
+name|onFailureOnly
 parameter_list|,
 name|Predicate
 name|onWhen
@@ -255,15 +255,15 @@ name|processor
 expr_stmt|;
 name|this
 operator|.
-name|onComplete
+name|onCompleteOnly
 operator|=
-name|onComplete
+name|onCompleteOnly
 expr_stmt|;
 name|this
 operator|.
-name|onFailure
+name|onFailureOnly
 operator|=
-name|onFailure
+name|onFailureOnly
 expr_stmt|;
 name|this
 operator|.
@@ -339,18 +339,6 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|onComplete
-operator|&&
-operator|!
-name|onFailure
-condition|)
-block|{
-comment|// no need to register callbacks not to be used
-return|return;
-block|}
 comment|// register callback
 name|exchange
 operator|.
@@ -375,8 +363,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|onComplete
+name|onFailureOnly
 condition|)
 block|{
 return|return;
@@ -471,8 +458,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|onFailure
+name|onCompleteOnly
 condition|)
 block|{
 return|return;
@@ -575,9 +561,11 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|onComplete
+operator|!
+name|onCompleteOnly
 operator|&&
-name|onFailure
+operator|!
+name|onFailureOnly
 condition|)
 block|{
 return|return
@@ -587,7 +575,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|onComplete
+name|onCompleteOnly
 condition|)
 block|{
 return|return

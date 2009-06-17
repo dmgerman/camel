@@ -239,7 +239,7 @@ name|onCompleteOnly
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -255,7 +255,7 @@ name|onFailureOnly
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -304,7 +304,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Synchronize["
+literal|"onCompletion["
 operator|+
 name|getOutputs
 argument_list|()
@@ -381,6 +381,23 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|onCompleteOnly
+operator|&&
+name|onFailureOnly
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Both onCompleteOnly and onFailureOnly cannot be true. Only one of them can be true. On node: "
+operator|+
+name|this
+argument_list|)
+throw|;
 block|}
 return|return
 operator|new
