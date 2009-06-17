@@ -554,15 +554,32 @@ name|Exception
 block|{
 if|if
 condition|(
+operator|!
 name|getShouldStartContext
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Starting the CamelContext now that the ApplicationContext has started"
+literal|"Not starting Apache Camel as property ShouldStartContext is false"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Apache Camel as property ShouldStartContext is true"
 argument_list|)
 expr_stmt|;
 name|start
@@ -571,11 +588,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// ignore as Camel is already started
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Not starting the CamelContext since shouldStartContext property was false."
+literal|"Ignoring maybeStart() as Apache Camel is already started"
 argument_list|)
 expr_stmt|;
 block|}
@@ -613,7 +631,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing spring-event: "
+literal|"onApplicationEvent: "
 operator|+
 name|event
 argument_list|)
@@ -647,24 +665,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|eventEndpoint
-operator|!=
-literal|null
-condition|)
-block|{
-name|eventEndpoint
-operator|.
-name|onApplicationEvent
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
 block|}
-block|}
-else|else
-block|{
 if|if
 condition|(
 name|eventEndpoint
@@ -686,12 +687,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No spring-event endpoint enabled for: "
+literal|"No spring-event endpoint enabled to handle event: "
 operator|+
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// Properties
@@ -870,9 +870,7 @@ name|EventEndpoint
 name|createEventEndpoint
 parameter_list|()
 block|{
-name|EventEndpoint
-name|endpoint
-init|=
+return|return
 name|getEndpoint
 argument_list|(
 literal|"spring-event:default"
@@ -881,9 +879,6 @@ name|EventEndpoint
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-return|return
-name|endpoint
 return|;
 block|}
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
@@ -991,6 +986,69 @@ parameter_list|()
 block|{
 return|return
 name|shouldStartContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"SpringCamelContext("
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|")"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|applicationContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" with spring id "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|applicationContext
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|sb
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}

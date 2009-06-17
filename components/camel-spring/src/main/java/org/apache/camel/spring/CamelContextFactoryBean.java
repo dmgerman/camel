@@ -4239,7 +4239,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Using a packages element to specify packages to search has been deprecated. Please use a package-scan element instead."
+literal|"Using a packages element to specify packages to search has been deprecated. Please use a packageScan element instead."
 argument_list|)
 expr_stmt|;
 if|if

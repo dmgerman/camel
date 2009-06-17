@@ -4283,6 +4283,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting routes"
+argument_list|)
+expr_stmt|;
 comment|// the context is now considered started (i.e. isStarted() == true))
 comment|// starting routes is done after, not during context startup
 synchronized|synchronized
@@ -4308,10 +4315,12 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|producerServicePool
+name|LOG
 operator|.
-name|stop
-argument_list|()
+name|debug
+argument_list|(
+literal|"Started routes"
+argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
@@ -4358,10 +4367,10 @@ operator|+
 literal|") is starting"
 argument_list|)
 expr_stmt|;
+name|startServices
+argument_list|(
 name|producerServicePool
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4663,6 +4672,98 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+DECL|method|doStop ()
+specifier|protected
+specifier|synchronized
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") is stopping"
+argument_list|)
+expr_stmt|;
+name|stopServices
+argument_list|(
+name|routeServices
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|stopServices
+argument_list|(
+name|servicesToClose
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|components
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|Component
+name|component
+range|:
+name|components
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|stopServices
+argument_list|(
+name|component
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|servicesToClose
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|stopServices
+argument_list|(
+name|producerServicePool
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") stopped"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
 name|void
@@ -4747,93 +4848,6 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-DECL|method|doStop ()
-specifier|protected
-specifier|synchronized
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Apache Camel "
-operator|+
-name|getVersion
-argument_list|()
-operator|+
-literal|" (CamelContext:"
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|") is stopping"
-argument_list|)
-expr_stmt|;
-name|stopServices
-argument_list|(
-name|routeServices
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|stopServices
-argument_list|(
-name|servicesToClose
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|components
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|Component
-name|component
-range|:
-name|components
-operator|.
-name|values
-argument_list|()
-control|)
-block|{
-name|stopServices
-argument_list|(
-name|component
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-name|servicesToClose
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Apache Camel "
-operator|+
-name|getVersion
-argument_list|()
-operator|+
-literal|" (CamelContext:"
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|") stopped"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */
 DECL|method|forceLazyInitialization ()
@@ -5508,6 +5522,23 @@ parameter_list|()
 block|{
 return|return
 name|routeServices
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DefaultCamelContext("
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|")"
 return|;
 block|}
 block|}
