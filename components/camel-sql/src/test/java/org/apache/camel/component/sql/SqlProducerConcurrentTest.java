@@ -116,7 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -128,9 +130,41 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -172,7 +206,7 @@ specifier|public
 class|class
 name|SqlProducerConcurrentTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|driverClass
 specifier|protected
@@ -212,6 +246,8 @@ specifier|private
 name|JdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
 name|void
@@ -228,6 +264,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrentProducers ()
 specifier|public
 name|void
@@ -484,8 +522,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -543,8 +583,10 @@ literal|"insert into projects values (2, 'Linux', 'GPL')"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

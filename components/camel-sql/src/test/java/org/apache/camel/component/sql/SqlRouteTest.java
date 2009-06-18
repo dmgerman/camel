@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -109,6 +97,52 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -174,7 +208,7 @@ specifier|public
 class|class
 name|SqlRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|driverClass
 specifier|protected
@@ -214,6 +248,8 @@ specifier|private
 name|JdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSimpleBody ()
 specifier|public
 name|void
@@ -307,6 +343,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testListBody ()
 specifier|public
 name|void
@@ -427,6 +465,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLowNumberOfParameter ()
 specifier|public
 name|void
@@ -471,6 +511,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHighNumberOfParameter ()
 specifier|public
 name|void
@@ -522,6 +564,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testListResult ()
 specifier|public
 name|void
@@ -685,6 +729,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testListLimitedResult ()
 specifier|public
 name|void
@@ -808,6 +854,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInsert ()
 specifier|public
 name|void
@@ -931,6 +979,8 @@ name|actualUpdateCount
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoBody ()
 specifier|public
 name|void
@@ -1024,8 +1074,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -1083,8 +1135,10 @@ literal|"insert into projects values (3, 'Linux', 'GPL')"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
