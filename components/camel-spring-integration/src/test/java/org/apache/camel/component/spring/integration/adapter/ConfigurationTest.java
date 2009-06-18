@@ -36,6 +36,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -66,13 +86,15 @@ specifier|public
 class|class
 name|ConfigurationTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|context
 specifier|private
 name|AbstractXmlApplicationContext
 name|context
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCamelSourceEndpoint ()
 specifier|public
 name|void
@@ -190,6 +212,8 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelTragetEndpoint ()
 specifier|public
 name|void

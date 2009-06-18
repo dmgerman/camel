@@ -40,9 +40,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -66,7 +78,7 @@ specifier|public
 class|class
 name|SpringIntegrationProducerTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -82,6 +94,8 @@ literal|"org/apache/camel/component/spring/integration/producer.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingTwoWayMessage ()
 specifier|public
 name|void
@@ -119,6 +133,8 @@ literal|"Hello Willem"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingOneWayMessage ()
 specifier|public
 name|void
