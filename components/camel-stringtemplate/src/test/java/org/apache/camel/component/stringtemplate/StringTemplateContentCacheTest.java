@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -72,6 +60,42 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test the cahce when reloading .tm files in the classpath  */
 end_comment
@@ -82,10 +106,12 @@ specifier|public
 class|class
 name|StringTemplateContentCacheTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -114,6 +140,8 @@ literal|"hello.tm"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotCached ()
 specifier|public
 name|void
@@ -202,6 +230,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCached ()
 specifier|public
 name|void
