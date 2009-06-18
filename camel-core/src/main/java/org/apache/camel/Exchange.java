@@ -62,6 +62,12 @@ specifier|public
 interface|interface
 name|Exchange
 block|{
+DECL|field|ACCEPT_CONTENT_TYPE
+name|String
+name|ACCEPT_CONTENT_TYPE
+init|=
+literal|"CamelAcceptContentType"
+decl_stmt|;
 DECL|field|AGGREGATED_INDEX
 name|String
 name|AGGREGATED_INDEX
@@ -217,6 +223,12 @@ name|String
 name|HTTP_QUERY
 init|=
 literal|"CamelHttpQuery"
+decl_stmt|;
+DECL|field|HTTP_RELATIVE_PATH
+name|String
+name|HTTP_RELATIVE_PATH
+init|=
+literal|"CamelHttpRelativePath"
 decl_stmt|;
 DECL|field|HTTP_RESPONSE_CODE
 name|String
