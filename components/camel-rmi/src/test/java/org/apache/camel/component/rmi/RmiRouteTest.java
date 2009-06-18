@@ -52,16 +52,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -144,6 +134,26 @@ name|JndiContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -154,7 +164,7 @@ specifier|public
 class|class
 name|RmiRouteTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|method|getPort ()
 specifier|protected
@@ -166,6 +176,8 @@ return|return
 literal|37541
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPojoRoutes ()
 specifier|public
 name|void
@@ -442,6 +454,11 @@ name|println
 argument_list|(
 literal|" TEST Skipped: "
 operator|+
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
 name|getName
 argument_list|()
 argument_list|)
