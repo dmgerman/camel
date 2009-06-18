@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Endpoint
 import|;
 end_import
 
@@ -38,7 +38,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -82,8 +96,10 @@ specifier|public
 class|class
 name|QuartzEndpointConfigureTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testConfigureGroupAndName ()
 specifier|public
 name|void
@@ -157,6 +173,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureName ()
 specifier|public
 name|void
@@ -206,6 +224,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureCronExpression ()
 specifier|public
 name|void
@@ -274,6 +294,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureAnotherCronExpression ()
 specifier|public
 name|void
