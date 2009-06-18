@@ -52,7 +52,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -64,9 +66,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|test
 operator|.
-name|DefaultCamelContext
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -80,7 +94,7 @@ specifier|public
 class|class
 name|UriConfigurationTest
 extends|extends
-name|TestSupport
+name|CamelTestSupport
 block|{
 DECL|field|context
 specifier|protected
@@ -91,6 +105,8 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testFtpConfigurationDefaults ()
 specifier|public
 name|void
@@ -192,6 +208,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSftpConfigurationDefaults ()
 specifier|public
 name|void
@@ -293,6 +311,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFtpExplicitConfiguration ()
 specifier|public
 name|void
@@ -398,6 +418,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSftpExplicitConfiguration ()
 specifier|public
 name|void
@@ -503,6 +525,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoteFileEndpointFiles ()
 specifier|public
 name|void
@@ -710,6 +734,8 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSftpKnownHostsFileConfiguration ()
 specifier|public
 name|void

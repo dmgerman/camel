@@ -50,6 +50,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify polling a server with no files to poll.  */
 end_comment
@@ -77,6 +87,8 @@ operator|+
 literal|"/slowfile?password=admin&binary=false&readLock=rename&consumer.delay=2000"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPoolIn3SecondsButNoFiles ()
 specifier|public
 name|void

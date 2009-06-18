@@ -134,6 +134,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify *NON* exclusive read.  */
 end_comment
@@ -191,6 +201,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPollFileWhileSlowFileIsBeingWrittenUsingNonExclusiveRead ()
 specifier|public
 name|void

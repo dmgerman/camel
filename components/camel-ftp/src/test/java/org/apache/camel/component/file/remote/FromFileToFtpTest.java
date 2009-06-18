@@ -50,6 +50,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -77,6 +87,8 @@ operator|+
 literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromFileToFtp ()
 specifier|public
 name|void

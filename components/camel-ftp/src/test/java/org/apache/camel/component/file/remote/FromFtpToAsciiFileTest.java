@@ -96,6 +96,26 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify that we can pool an ASCII file from the FTP Server and store it on a local file path  */
 end_comment
@@ -123,6 +143,8 @@ operator|+
 literal|"/tmp3/camel?password=admin&binary=false&fileExist=Override"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFtpRoute ()
 specifier|public
 name|void
@@ -193,8 +215,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

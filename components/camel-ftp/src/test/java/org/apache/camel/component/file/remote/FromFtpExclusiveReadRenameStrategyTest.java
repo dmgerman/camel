@@ -134,6 +134,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify exclusive read - that we do not poll files that is in progress of being written.  */
 end_comment
@@ -208,6 +218,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPollFileWhileSlowFileIsBeingWritten ()
 specifier|public
 name|void
@@ -331,6 +343,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPollFileWhileSlowFileIsBeingWrittenWithTimeout ()
 specifier|public
 name|void

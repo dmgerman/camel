@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -85,6 +73,22 @@ operator|.
 name|converter
 operator|.
 name|IOConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -186,6 +190,26 @@ name|PropertiesUserManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for unit testing using a FTPServer  */
 end_comment
@@ -197,7 +221,7 @@ specifier|abstract
 class|class
 name|FtpServerTestSupport
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|FTP_ROOT_DIR
 specifier|public
@@ -210,16 +234,19 @@ literal|"./res/home/"
 decl_stmt|;
 DECL|field|ftpServer
 specifier|protected
+specifier|static
 name|FtpServer
 name|ftpServer
 decl_stmt|;
 DECL|field|port
 specifier|private
+specifier|static
 name|int
 name|port
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
+specifier|static
 name|int
 name|getPort
 parameter_list|()
@@ -228,20 +255,18 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setUp ()
-specifier|protected
+annotation|@
+name|BeforeClass
+DECL|method|startServer ()
+specifier|public
+specifier|static
 name|void
-name|setUp
+name|startServer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|initPort
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
 argument_list|()
 expr_stmt|;
 name|initFtpServer
@@ -253,21 +278,19 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|tearDown ()
-specifier|protected
+annotation|@
+name|AfterClass
+DECL|method|shutdownServer ()
+specifier|public
+specifier|static
 name|void
-name|tearDown
+name|shutdownServer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 try|try
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|ftpServer
 operator|.
 name|stop
@@ -294,7 +317,8 @@ comment|// since we host the ftp server embedded in the same jvm for unit testin
 block|}
 block|}
 DECL|method|initFtpServer ()
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|initFtpServer
 parameter_list|()
@@ -417,7 +441,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|initPort ()
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|initPort
 parameter_list|()

@@ -84,6 +84,26 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for FTP using expression (file language)  */
 end_comment
@@ -125,8 +145,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -184,6 +206,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProduceBeanByExpression ()
 specifier|public
 name|void
@@ -212,6 +236,8 @@ literal|"filelanguage/123.bak"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProduceBeanByHeader ()
 specifier|public
 name|void
@@ -238,6 +264,8 @@ literal|"filelanguage/123.bak"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerDateByHeader ()
 specifier|public
 name|void
@@ -284,6 +312,8 @@ literal|".txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerDateByExpression ()
 specifier|public
 name|void
@@ -332,6 +362,8 @@ literal|".txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerComplexByExpression ()
 specifier|public
 name|void
@@ -387,6 +419,8 @@ literal|".txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerSimpleWithHeaderByExpression ()
 specifier|public
 name|void
@@ -419,6 +453,8 @@ literal|"filelanguage/myfile-abc.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerWithDateHeader ()
 specifier|public
 name|void

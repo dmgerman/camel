@@ -90,6 +90,16 @@ name|Tracer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * An unit test based on Paddy having trouble with SFTP.  */
 end_comment
@@ -117,6 +127,8 @@ operator|+
 literal|"/paddy/?password=admin&recursive=true"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeFile ()
 specifier|public
 name|void

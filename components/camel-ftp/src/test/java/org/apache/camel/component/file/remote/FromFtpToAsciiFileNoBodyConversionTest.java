@@ -86,6 +86,26 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit testing a FTP ASCII transfer that Camel provides the needed conversion to String from  * the input stream.  */
 end_comment
@@ -113,6 +133,8 @@ operator|+
 literal|"/tmp5/camel?password=admin&binary=false"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromFtpToAsciiFileNoBodyConversion ()
 specifier|public
 name|void
@@ -146,8 +168,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

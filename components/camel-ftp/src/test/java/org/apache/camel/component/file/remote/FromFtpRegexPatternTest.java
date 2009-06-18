@@ -62,6 +62,26 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify regexPattern option.  */
 end_comment
@@ -89,6 +109,8 @@ operator|+
 literal|"/regexp?password=admin&include=report.*"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFtpRegexPattern ()
 specifier|public
 name|void
@@ -129,8 +151,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

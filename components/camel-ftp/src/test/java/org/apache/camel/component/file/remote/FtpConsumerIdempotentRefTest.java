@@ -78,6 +78,16 @@ name|IdempotentRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for the idempotentRepository # option.  */
 end_comment
@@ -181,6 +191,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIdempotent ()
 specifier|public
 name|void

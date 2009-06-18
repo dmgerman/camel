@@ -50,6 +50,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -89,6 +99,8 @@ operator|+
 literal|"/tmp/camel?password=admin&recursive=true"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFtpRoute ()
 specifier|public
 name|void

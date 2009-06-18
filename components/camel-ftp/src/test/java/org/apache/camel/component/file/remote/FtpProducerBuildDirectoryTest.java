@@ -44,6 +44,16 @@ name|IOConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify that Camel can build remote directory on FTP server if missing (full or part of).  */
 end_comment
@@ -71,6 +81,8 @@ operator|+
 literal|"/upload/user/claus?binary=false&password=admin"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProduceAndBuildFullRemotFolderTest ()
 specifier|public
 name|void

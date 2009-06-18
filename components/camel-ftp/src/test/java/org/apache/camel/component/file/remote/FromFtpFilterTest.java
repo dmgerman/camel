@@ -96,6 +96,16 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to test filter option.  */
 end_comment
@@ -156,6 +166,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFilterFiles ()
 specifier|public
 name|void
@@ -202,6 +214,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFilterFilesWithARegularFile ()
 specifier|public
 name|void
