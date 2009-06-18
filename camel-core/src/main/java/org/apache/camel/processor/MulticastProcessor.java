@@ -1162,10 +1162,7 @@ parameter_list|)
 block|{
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
+name|setProperty
 argument_list|(
 name|Exchange
 operator|.

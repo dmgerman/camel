@@ -264,10 +264,7 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -281,10 +278,7 @@ name|wait
 operator|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.

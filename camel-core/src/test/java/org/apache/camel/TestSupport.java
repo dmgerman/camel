@@ -864,6 +864,51 @@ return|return
 name|value
 return|;
 block|}
+DECL|method|assertProperty (Exchange exchange, String name, Object expected)
+specifier|public
+specifier|static
+name|Object
+name|assertProperty
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Property: "
+operator|+
+name|name
+operator|+
+literal|" on Exchange: "
+operator|+
+name|exchange
+argument_list|,
+name|expected
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+name|value
+return|;
+block|}
 comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
 DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
 specifier|public
