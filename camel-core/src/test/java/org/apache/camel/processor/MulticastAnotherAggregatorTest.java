@@ -462,7 +462,7 @@ argument_list|)
 operator|.
 name|completionPredicate
 argument_list|(
-name|header
+name|property
 argument_list|(
 name|Exchange
 operator|.
