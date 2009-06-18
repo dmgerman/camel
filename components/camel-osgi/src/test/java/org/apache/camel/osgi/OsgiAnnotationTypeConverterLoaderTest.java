@@ -32,6 +32,16 @@ name|MockTypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|OsgiAnnotationTypeConverterLoaderTest
 specifier|public
@@ -40,6 +50,8 @@ name|OsgiAnnotationTypeConverterLoaderTest
 extends|extends
 name|CamelOsgiTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testLoad ()
 specifier|public
 name|void

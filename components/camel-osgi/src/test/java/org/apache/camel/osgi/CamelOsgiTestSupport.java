@@ -30,6 +30,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -72,7 +102,7 @@ specifier|public
 class|class
 name|CamelOsgiTestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|testActivator
 specifier|private
@@ -108,6 +138,8 @@ operator|new
 name|CamelMockBundle
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -137,6 +169,8 @@ name|bundleContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void

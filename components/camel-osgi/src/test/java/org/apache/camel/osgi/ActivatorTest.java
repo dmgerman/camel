@@ -30,6 +30,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|osgi
@@ -62,6 +72,8 @@ name|ActivatorTest
 extends|extends
 name|CamelOsgiTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testGetComponent ()
 specifier|public
 name|void
@@ -108,6 +120,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetLanaguge ()
 specifier|public
 name|void
@@ -174,6 +188,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindTypeConverterPackageNames ()
 specifier|public
 name|void

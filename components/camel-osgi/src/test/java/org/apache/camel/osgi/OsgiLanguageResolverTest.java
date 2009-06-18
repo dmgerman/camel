@@ -70,6 +70,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -86,6 +96,8 @@ name|OsgiLanguageResolverTest
 extends|extends
 name|CamelOsgiTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOsgiResolverFindLanguageTest ()
 specifier|public
 name|void
