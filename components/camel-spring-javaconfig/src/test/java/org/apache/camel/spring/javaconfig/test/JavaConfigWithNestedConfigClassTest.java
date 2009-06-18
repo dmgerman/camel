@@ -24,6 +24,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|config
@@ -122,9 +132,21 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -155,7 +177,7 @@ specifier|public
 class|class
 name|JavaConfigWithNestedConfigClassTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 implements|implements
 name|Cheese
 block|{
@@ -164,6 +186,8 @@ specifier|private
 name|boolean
 name|doCheeseCalled
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPostProcessorInjectsMe ()
 specifier|public
 name|void
