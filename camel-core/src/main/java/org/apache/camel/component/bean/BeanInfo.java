@@ -805,8 +805,6 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|RuntimeCamelException
 block|{
 name|MethodInfo
 name|methodInfo
@@ -852,9 +850,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|RuntimeCamelException
-throws|,
 name|AmbiguousMethodCallException
+throws|,
+name|MethodNotFoundException
 block|{
 name|MethodInfo
 name|methodInfo
@@ -934,6 +932,21 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+comment|// a specific method was given to invoke but not found
+throw|throw
+operator|new
+name|MethodNotFoundException
+argument_list|(
+name|exchange
+argument_list|,
+name|pojo
+argument_list|,
+name|name
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
