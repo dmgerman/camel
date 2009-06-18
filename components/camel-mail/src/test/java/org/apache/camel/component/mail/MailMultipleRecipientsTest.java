@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verift that we can have multiple recipients in To, CC and BCC  */
+comment|/**  * Unit test to verify that we can have multiple recipients in To, CC and BCC  */
 end_comment
 
 begin_class
