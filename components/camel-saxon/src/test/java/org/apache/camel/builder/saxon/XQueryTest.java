@@ -81,6 +81,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -124,8 +144,10 @@ specifier|public
 class|class
 name|XQueryTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testXQuery ()
 specifier|public
 name|void

@@ -42,9 +42,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -72,7 +94,7 @@ specifier|public
 class|class
 name|XQueryWithExplicitTypeTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|field|raleighEndpoint
 specifier|protected
@@ -84,6 +106,8 @@ specifier|protected
 name|MockEndpoint
 name|tampaEndpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testFunctions ()
 specifier|public
 name|void
@@ -121,8 +145,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
