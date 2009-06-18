@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -84,9 +72,35 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jruby
 operator|.
 name|Main
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -100,7 +114,7 @@ specifier|public
 class|class
 name|RubyTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|expected
 specifier|protected
@@ -116,6 +130,8 @@ name|scriptName
 init|=
 literal|"src/test/java/org/apache/camel/ruby/example.rb"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -156,6 +172,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNotMatchingMessage ()
 specifier|public
 name|void
