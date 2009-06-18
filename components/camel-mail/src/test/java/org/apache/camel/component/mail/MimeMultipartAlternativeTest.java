@@ -363,6 +363,24 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// this header should be removed
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+name|MailConstants
+operator|.
+name|MAIL_ALTERNATIVE_BODY
+argument_list|)
+operator|.
+name|isNull
+argument_list|()
+expr_stmt|;
 name|Exchange
 name|out
 init|=

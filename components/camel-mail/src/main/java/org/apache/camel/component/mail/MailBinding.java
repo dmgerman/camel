@@ -428,9 +428,6 @@ condition|(
 name|hasRecipientHeaders
 argument_list|(
 name|exchange
-operator|.
-name|getIn
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -439,11 +436,6 @@ argument_list|(
 name|mimeMessage
 argument_list|,
 name|exchange
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -482,12 +474,12 @@ name|appendHeadersFromCamelMessage
 argument_list|(
 name|mimeMessage
 argument_list|,
-name|exchange
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 argument_list|,
 name|exchange
-operator|.
-name|getIn
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -536,9 +528,6 @@ name|getConfiguration
 argument_list|()
 argument_list|,
 name|exchange
-operator|.
-name|getIn
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1007,7 +996,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Appends the Mail headers from the Camel {@link MailMessage}      */
-DECL|method|appendHeadersFromCamelMessage (MimeMessage mimeMessage, Exchange exchange, org.apache.camel.Message camelMessage)
+DECL|method|appendHeadersFromCamelMessage (MimeMessage mimeMessage, MailConfiguration configuration, Exchange exchange)
 specifier|protected
 name|void
 name|appendHeadersFromCamelMessage
@@ -1015,17 +1004,11 @@ parameter_list|(
 name|MimeMessage
 name|mimeMessage
 parameter_list|,
+name|MailConfiguration
+name|configuration
+parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -1042,7 +1025,10 @@ name|Object
 argument_list|>
 name|entry
 range|:
-name|camelMessage
+name|exchange
+operator|.
+name|getIn
+argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
@@ -1102,6 +1088,23 @@ argument_list|)
 condition|)
 block|{
 comment|// skip any recipients as they are handled specially
+continue|continue;
+block|}
+comment|// alternative body should also be skipped
+if|if
+condition|(
+name|headerName
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|configuration
+operator|.
+name|getAlternativeBodyHeader
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// skip alternative body
 continue|continue;
 block|}
 comment|// Mail messages can repeat the same header...
@@ -1178,7 +1181,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|setRecipientFromCamelMessage (MimeMessage mimeMessage, Exchange exchange, org.apache.camel.Message camelMessage)
+DECL|method|setRecipientFromCamelMessage (MimeMessage mimeMessage, Exchange exchange)
 specifier|private
 name|void
 name|setRecipientFromCamelMessage
@@ -1188,15 +1191,6 @@ name|mimeMessage
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -1213,7 +1207,10 @@ name|Object
 argument_list|>
 name|entry
 range|:
-name|camelMessage
+name|exchange
+operator|.
+name|getIn
+argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
@@ -1979,10 +1976,22 @@ argument_list|(
 name|configuration
 argument_list|,
 name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// remove the header with the alternative mail now that we got it
+comment|// otherwise it might end up twice in the mail reader
+name|exchange
 operator|.
 name|getIn
 argument_list|()
-argument_list|)
+operator|.
+name|removeHeader
+argument_list|(
+name|configuration
+operator|.
+name|getAlternativeBodyHeader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|multipartAlternative
@@ -2390,20 +2399,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Does the given camel message contain any To, CC or BCC header names?      */
-DECL|method|hasRecipientHeaders (org.apache.camel.Message camelMessage)
+DECL|method|hasRecipientHeaders (Exchange exchange)
 specifier|private
 specifier|static
 name|boolean
 name|hasRecipientHeaders
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 for|for
@@ -2411,7 +2414,10 @@ control|(
 name|String
 name|key
 range|:
-name|camelMessage
+name|exchange
+operator|.
+name|getIn
+argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
@@ -2437,7 +2443,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|hasAlternativeBody (MailConfiguration configuration, org.apache.camel.Message camelMessage)
+DECL|method|hasAlternativeBody (MailConfiguration configuration, Exchange exchange)
 specifier|protected
 specifier|static
 name|boolean
@@ -2446,14 +2452,8 @@ parameter_list|(
 name|MailConfiguration
 name|configuration
 parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
@@ -2461,13 +2461,13 @@ name|getAlternativeBody
 argument_list|(
 name|configuration
 argument_list|,
-name|camelMessage
+name|exchange
 argument_list|)
 operator|!=
 literal|null
 return|;
 block|}
-DECL|method|getAlternativeBody (MailConfiguration configuration, org.apache.camel.Message camelMessage)
+DECL|method|getAlternativeBody (MailConfiguration configuration, Exchange exchange)
 specifier|protected
 specifier|static
 name|String
@@ -2476,14 +2476,8 @@ parameter_list|(
 name|MailConfiguration
 name|configuration
 parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|String
@@ -2495,7 +2489,10 @@ name|getAlternativeBodyHeader
 argument_list|()
 decl_stmt|;
 return|return
-name|camelMessage
+name|exchange
+operator|.
+name|getIn
+argument_list|()
 operator|.
 name|getHeader
 argument_list|(

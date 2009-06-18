@@ -254,7 +254,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|4000
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
