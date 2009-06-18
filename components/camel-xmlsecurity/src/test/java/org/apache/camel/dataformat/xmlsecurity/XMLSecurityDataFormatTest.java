@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -140,6 +128,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|xml
 operator|.
 name|security
@@ -178,6 +182,16 @@ name|XMLSerializer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test of the encryptXML data format.  */
 end_comment
@@ -188,7 +202,7 @@ specifier|public
 class|class
 name|XMLSecurityDataFormatTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|XML_FRAGMENT
 specifier|private
@@ -311,6 +325,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * Encryption Tests      */
+annotation|@
+name|Test
 DECL|method|testFullPayloadXMLEncryption ()
 specifier|public
 name|void
@@ -372,6 +388,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLContentEncryption ()
 specifier|public
 name|void
@@ -437,6 +455,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadMultiNodeXMLContentEncryption ()
 specifier|public
 name|void
@@ -502,6 +522,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLElementEncryptionWithKey ()
 specifier|public
 name|void
@@ -569,6 +591,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLElementEncryptionWithKeyAndAlgorithm ()
 specifier|public
 name|void
@@ -738,6 +762,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*     * Decryption Tests     */
+annotation|@
+name|Test
 DECL|method|testFullPayloadXMLDecryption ()
 specifier|public
 name|void
@@ -805,6 +831,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLContentDecryption ()
 specifier|public
 name|void
@@ -880,6 +908,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadMultiNodeXMLContentDecryption ()
 specifier|public
 name|void
@@ -955,6 +985,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLElementDecryptionWithKey ()
 specifier|public
 name|void
@@ -1034,6 +1066,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPartialPayloadXMLContentDecryptionWithKeyAndAlgorithm ()
 specifier|public
 name|void
