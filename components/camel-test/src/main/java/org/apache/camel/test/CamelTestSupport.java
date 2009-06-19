@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ConsumerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -308,34 +320,6 @@ name|CamelContextHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version $Revision$  */
 end_comment
@@ -358,6 +342,11 @@ DECL|field|template
 specifier|protected
 name|ProducerTemplate
 name|template
+decl_stmt|;
+DECL|field|consumer
+specifier|protected
+name|ConsumerTemplate
+name|consumer
 decl_stmt|;
 DECL|field|useRouteBuilder
 specifier|private
@@ -451,6 +440,13 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 expr_stmt|;
+name|consumer
+operator|=
+name|context
+operator|.
+name|createConsumerTemplate
+argument_list|()
+expr_stmt|;
 name|postProcessTest
 argument_list|()
 expr_stmt|;
@@ -520,6 +516,18 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Routing Rules are: "
+operator|+
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -541,6 +549,19 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|consumer
+operator|!=
+literal|null
+condition|)
+block|{
+name|consumer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|template
@@ -804,7 +825,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Factory method which derived classes can use to create a {@link org.apache.camel.builder.RouteBuilder}      * to define the routes for testing      */
+comment|/**      * Factory method which derived classes can use to create a {@link RouteBuilder}      * to define the routes for testing      */
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
