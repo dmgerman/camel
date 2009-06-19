@@ -62,7 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -74,9 +76,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -90,7 +104,7 @@ specifier|public
 class|class
 name|XmppProducerConcurrentTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 DECL|method|xtestNoConcurrentProducers ()
@@ -127,6 +141,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// get around junit warning
+annotation|@
+name|Test
 DECL|method|testNothing ()
 specifier|public
 name|void

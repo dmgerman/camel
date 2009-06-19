@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -66,6 +56,26 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -76,7 +86,7 @@ specifier|public
 class|class
 name|UriConfigurationTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|context
 specifier|protected
@@ -87,6 +97,8 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPrivateChatConfiguration ()
 specifier|public
 name|void
@@ -185,6 +197,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGroupChatConfiguration ()
 specifier|public
 name|void
@@ -286,6 +300,8 @@ block|}
 comment|// Changes in default resource name may break
 comment|// clients program assuming the default "Camel" resource name
 comment|// so it is better to avoid changing it.
+annotation|@
+name|Test
 DECL|method|testDefaultResource ()
 specifier|public
 name|void
