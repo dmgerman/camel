@@ -479,10 +479,10 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|handleOrder (String body)
+DECL|method|handleOrderNotificationWithAck (String body)
 specifier|public
 name|String
-name|handleOrder
+name|handleOrderNotificationWithAck
 parameter_list|(
 name|String
 name|body

@@ -307,7 +307,7 @@ name|method
 argument_list|(
 literal|"blogService"
 argument_list|,
-literal|"goodBlog"
+literal|"isGoodBlog"
 argument_list|)
 operator|.
 name|to
