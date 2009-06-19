@@ -26,9 +26,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|log4j
 operator|.
-name|CamelContext
+name|Logger
 import|;
 end_import
 
@@ -38,27 +38,37 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
+name|xbean
 operator|.
-name|Logger
+name|spring
+operator|.
+name|context
+operator|.
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|spring
+name|springframework
 operator|.
-name|processor
+name|context
 operator|.
-name|SpringTestHelper
+name|support
 operator|.
-name|createSpringCamelContext
+name|AbstractXmlApplicationContext
 import|;
 end_import
 
@@ -87,23 +97,22 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|method|createCamelContext ()
+DECL|method|createApplicationContext ()
 specifier|protected
-name|CamelContext
-name|createCamelContext
+name|AbstractXmlApplicationContext
+name|createApplicationContext
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
-name|createSpringCamelContext
+operator|new
+name|ClassPathXmlApplicationContext
 argument_list|(
-name|this
-argument_list|,
 literal|"org/apache/camel/component/jms/tx/XMLQueueToQueueTransactionTest.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRollbackUsingXmlQueueToQueue ()
 specifier|public
 name|void

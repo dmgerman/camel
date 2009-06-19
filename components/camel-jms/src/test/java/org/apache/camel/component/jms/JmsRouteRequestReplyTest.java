@@ -108,18 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -175,6 +163,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -202,7 +204,7 @@ specifier|public
 class|class
 name|JmsRouteRequestReplyTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 comment|// TODO: Split into multiple files so it doesnt take 3 min to run
 DECL|field|REPLY_TO_DESTINATION_SELECTOR_NAME

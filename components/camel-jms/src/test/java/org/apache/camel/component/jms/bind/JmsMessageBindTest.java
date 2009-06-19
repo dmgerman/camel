@@ -54,9 +54,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -84,8 +96,10 @@ specifier|public
 class|class
 name|JmsMessageBindTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendAMessageToBean ()
 specifier|public
 name|void

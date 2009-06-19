@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -232,6 +220,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -251,6 +255,46 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -340,7 +384,7 @@ specifier|public
 class|class
 name|TransactedJmsRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 comment|// TODO: This is not a nice unit test. Please do not do like this. Big, confusing and takes long time to run
 DECL|field|LOG
@@ -1072,8 +1116,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -1137,8 +1183,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -1165,6 +1213,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test seems to be fail every other run.      */
+annotation|@
+name|Ignore
 DECL|method|disabledtestSenarioF ()
 specifier|public
 name|void
@@ -1176,8 +1226,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioF"
 operator|+
 literal|": "
 operator|+
@@ -1259,6 +1308,8 @@ name|mockEndpointD
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSenarioA ()
 specifier|public
 name|void
@@ -1270,8 +1321,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioA"
 operator|+
 literal|": "
 operator|+
@@ -1300,6 +1350,8 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSenarioB ()
 specifier|public
 name|void
@@ -1311,8 +1363,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioB"
 operator|+
 literal|": "
 operator|+
@@ -1357,6 +1408,8 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|disabledtestSenarioC ()
 specifier|public
 name|void
@@ -1368,8 +1421,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioD"
 operator|+
 literal|": "
 operator|+
@@ -1430,6 +1482,8 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|disabledtestSenarioD ()
 specifier|public
 name|void
@@ -1441,8 +1495,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioD"
 operator|+
 literal|": "
 operator|+
@@ -1493,6 +1546,8 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|disabledtestSenarioE ()
 specifier|public
 name|void
@@ -1504,8 +1559,7 @@ block|{
 name|String
 name|expected
 init|=
-name|getName
-argument_list|()
+literal|"testSenarioE"
 operator|+
 literal|": "
 operator|+

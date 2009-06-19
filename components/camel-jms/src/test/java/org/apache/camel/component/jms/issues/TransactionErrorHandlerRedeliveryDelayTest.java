@@ -88,6 +88,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -124,9 +134,21 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -142,7 +164,7 @@ specifier|public
 class|class
 name|TransactionErrorHandlerRedeliveryDelayTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 DECL|field|counter
 specifier|private
@@ -169,6 +191,8 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testTransactedRedeliveryDelay ()
 specifier|public
 name|void

@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -127,6 +115,32 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -154,7 +168,7 @@ specifier|public
 class|class
 name|JmsRouteWithDefaultKeyFormatStrategyTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|getUri ()
 specifier|protected
@@ -166,6 +180,8 @@ return|return
 literal|"activemq:queue:foo?jmsKeyFormatStrategy=default"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalOption ()
 specifier|public
 name|void
@@ -198,6 +214,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoHeader ()
 specifier|public
 name|void
@@ -234,6 +252,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithPlainHeader ()
 specifier|public
 name|void
@@ -283,6 +303,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithMixedHeader ()
 specifier|public
 name|void

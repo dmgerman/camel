@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|mock
@@ -75,20 +63,52 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|xbean
 operator|.
 name|spring
 operator|.
-name|processor
+name|context
 operator|.
-name|SpringTestHelper
+name|ClassPathXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|createSpringCamelContext
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|AbstractXmlApplicationContext
 import|;
 end_import
 
@@ -113,23 +133,32 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|method|createCamelContext ()
+DECL|method|getExpectedRouteCount ()
 specifier|protected
-name|CamelContext
-name|createCamelContext
+name|int
+name|getExpectedRouteCount
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
-name|createSpringCamelContext
+literal|0
+return|;
+block|}
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
 argument_list|(
-name|this
-argument_list|,
 literal|"org/apache/camel/component/jms/tx/ActiveMQWithoutTransactionManager.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|xtestRollbackUsingXmlQueueToQueue ()
 specifier|public
 name|void
@@ -229,6 +258,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoTransactionRollbackUsingXmlQueueToQueue ()
 specifier|public
 name|void

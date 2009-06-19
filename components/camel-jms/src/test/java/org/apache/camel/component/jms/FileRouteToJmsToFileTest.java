@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -117,6 +105,32 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -144,7 +158,7 @@ specifier|public
 class|class
 name|FileRouteToJmsToFileTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|componentName
 specifier|protected
@@ -153,6 +167,8 @@ name|componentName
 init|=
 literal|"activemq"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRouteFileToFile ()
 specifier|public
 name|void

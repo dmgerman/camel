@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -119,6 +107,32 @@ operator|.
 name|camel
 operator|.
 name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -220,7 +234,7 @@ specifier|public
 class|class
 name|JmsEndpointConfigurationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|dummyProcessor
 specifier|private
@@ -253,6 +267,8 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDurableSubscriberConfiguredWithDoubleSlash ()
 specifier|public
 name|void
@@ -278,6 +294,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDurableSubscriberConfiguredWithNoSlashes ()
 specifier|public
 name|void
@@ -303,6 +321,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetUsernameAndPassword ()
 specifier|public
 name|void
@@ -350,6 +370,8 @@ name|UserCredentialsConnectionFactoryAdapter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotSetUsernameOrPassword ()
 specifier|public
 name|void
@@ -411,6 +433,8 @@ block|{
 comment|// Expect the exception here
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSelector ()
 specifier|public
 name|void
@@ -501,6 +525,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureMessageListener ()
 specifier|public
 name|void
@@ -579,6 +605,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheConsumerEnabledForQueue ()
 specifier|public
 name|void
@@ -608,6 +636,8 @@ name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheConsumerEnabledForTopic ()
 specifier|public
 name|void
@@ -637,6 +667,8 @@ name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReplyToPesistentDelivery ()
 specifier|public
 name|void

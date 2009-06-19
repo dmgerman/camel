@@ -171,6 +171,32 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -198,7 +224,7 @@ specifier|public
 class|class
 name|JmsXMLRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|TEST_LONDON
 specifier|private
@@ -218,6 +244,8 @@ name|TEST_TAMPA
 init|=
 literal|"src/test/data/message2.xml"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testLondonWithFileStreamAsObject ()
 specifier|public
 name|void
@@ -291,6 +319,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLondonWithFileStreamAsBytes ()
 specifier|public
 name|void
@@ -364,6 +394,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLondonWithFileStreamAsDefault ()
 specifier|public
 name|void
@@ -437,6 +469,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTampaWithFileStreamAsObject ()
 specifier|public
 name|void
@@ -510,6 +544,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTampaWithFileStreamAsBytes ()
 specifier|public
 name|void
@@ -583,6 +619,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTampaWithFileStreamAsDefault ()
 specifier|public
 name|void
@@ -656,6 +694,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLondonWithStringSourceAsObject ()
 specifier|public
 name|void
@@ -733,6 +773,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLondonWithStringSourceAsBytes ()
 specifier|public
 name|void
@@ -810,6 +852,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLondonWithStringSourceAsDefault ()
 specifier|public
 name|void

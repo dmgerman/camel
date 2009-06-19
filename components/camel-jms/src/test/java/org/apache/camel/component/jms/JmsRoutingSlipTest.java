@@ -60,7 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -72,9 +74,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -106,7 +120,7 @@ specifier|public
 class|class
 name|JmsRoutingSlipTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|componentName
 specifier|protected
@@ -115,6 +129,8 @@ name|componentName
 init|=
 literal|"activemq"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testJmsRoutingSlip ()
 specifier|public
 name|void

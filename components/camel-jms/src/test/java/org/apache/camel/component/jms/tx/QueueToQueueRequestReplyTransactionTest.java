@@ -128,6 +128,16 @@ name|Logger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test case derived from:  * http://camel.apache.org/transactional-client.html and Martin  * Krasser's sample:  * http://www.nabble.com/JMS-Transactions---How-To-td15168958s22882.html#a15198803  *<p/>  * NOTE: had to split into separate test classes as I was unable to fully tear  * down and isolate the test cases, I'm not sure why, but as soon as we know the  * Transaction classes can be joined into one.  *  * @author Kevin Ross  */
 end_comment
@@ -153,6 +163,18 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|method|getExpectedRouteCount ()
+specifier|protected
+name|int
+name|getExpectedRouteCount
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Test
 DECL|method|testRollbackUsingXmlQueueToQueueRequestReplyUsingDynamicMessageSelector ()
 specifier|public
 name|void

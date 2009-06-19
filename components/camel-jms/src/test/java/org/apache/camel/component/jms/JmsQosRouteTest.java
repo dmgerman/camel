@@ -74,18 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -105,6 +93,52 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -136,7 +170,7 @@ specifier|public
 class|class
 name|JmsQosRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|componentName
 specifier|protected
@@ -150,6 +184,8 @@ specifier|protected
 name|BrokerService
 name|brokerService
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testJmsRoutePreserveQos ()
 specifier|public
 name|void
@@ -264,6 +300,8 @@ name|preserveEndpoint2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testJmsRouteNormalQos ()
 specifier|public
 name|void
@@ -380,8 +418,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -414,8 +454,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

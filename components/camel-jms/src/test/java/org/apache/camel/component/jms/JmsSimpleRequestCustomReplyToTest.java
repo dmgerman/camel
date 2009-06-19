@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -166,6 +154,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -188,6 +192,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple request/reply using custom reply to header.  */
 end_comment
@@ -198,7 +212,7 @@ specifier|public
 class|class
 name|JmsSimpleRequestCustomReplyToTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -240,6 +254,8 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRequetCustomReplyTo ()
 specifier|public
 name|void

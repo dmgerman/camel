@@ -62,7 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -74,9 +76,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -108,8 +132,10 @@ specifier|public
 class|class
 name|BruceHandlingBeanExceptionTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendOK ()
 specifier|public
 name|void
@@ -138,6 +164,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendFailure ()
 specifier|public
 name|void
@@ -166,6 +194,10 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+annotation|@
+name|Test
 DECL|method|xxxtestSendError ()
 specifier|public
 name|void

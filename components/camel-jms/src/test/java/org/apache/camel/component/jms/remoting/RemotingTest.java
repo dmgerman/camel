@@ -50,6 +50,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|test
@@ -70,9 +90,9 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
@@ -88,7 +108,7 @@ specifier|public
 class|class
 name|RemotingTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Resource
@@ -97,6 +117,8 @@ specifier|protected
 name|ISay
 name|sayProxy
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testInvokeRemoteClient ()
 specifier|public
 name|void
@@ -113,6 +135,8 @@ operator|.
 name|say
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"Hello"

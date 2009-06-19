@@ -20,11 +20,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -38,7 +48,7 @@ specifier|public
 class|class
 name|DefaultJmsHeaderKeyFormatStrategyTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|strategy
 specifier|private
@@ -49,6 +59,8 @@ operator|new
 name|DefaultJmsKeyFormatStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testEncodeValidKeys ()
 specifier|public
 name|void
@@ -128,6 +140,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDeccodeValidKeys ()
 specifier|public
 name|void

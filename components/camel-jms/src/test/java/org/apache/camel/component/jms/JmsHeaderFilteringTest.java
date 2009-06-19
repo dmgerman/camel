@@ -94,18 +94,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -179,6 +167,32 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -206,7 +220,7 @@ specifier|public
 class|class
 name|JmsHeaderFilteringTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|IN_FILTER_PATTERN
 specifier|private
@@ -264,6 +278,8 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testHeaderFilters ()
 specifier|public
 name|void

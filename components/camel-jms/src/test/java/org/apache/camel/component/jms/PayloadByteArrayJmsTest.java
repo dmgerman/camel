@@ -110,18 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -141,6 +129,32 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -172,7 +186,7 @@ specifier|public
 class|class
 name|PayloadByteArrayJmsTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|componentName
 specifier|protected
@@ -181,6 +195,8 @@ name|componentName
 init|=
 literal|"activemq"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testReaderShouldBeByteArray ()
 specifier|public
 name|void
@@ -263,6 +279,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInputStreamShouldBeByteArray ()
 specifier|public
 name|void
@@ -348,6 +366,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testByteBufferShouldBeByteArray ()
 specifier|public
 name|void

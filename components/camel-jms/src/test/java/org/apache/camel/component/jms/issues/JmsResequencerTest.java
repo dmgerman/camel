@@ -76,6 +76,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -112,9 +142,9 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
@@ -130,7 +160,7 @@ specifier|public
 class|class
 name|JmsResequencerTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -156,6 +186,8 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -170,6 +202,8 @@ name|createProducerTemplate
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -182,6 +216,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBatchResequencer ()
 specifier|public
 name|void
@@ -196,6 +232,8 @@ literal|"activemq:queue:in1"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamResequencer ()
 specifier|public
 name|void

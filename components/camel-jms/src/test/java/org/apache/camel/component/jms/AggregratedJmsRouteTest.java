@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -154,6 +142,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -173,6 +177,16 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -200,7 +214,7 @@ specifier|public
 class|class
 name|AggregratedJmsRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -234,6 +248,8 @@ init|=
 literal|"jms:queue:multicast"
 decl_stmt|;
 comment|/*      * negative receive wait timeout for jms is blocking so timeout during processing does not hang      */
+annotation|@
+name|Test
 DECL|method|testJmsBatchTimeoutExpiryWithAggregrationDelay ()
 specifier|public
 name|void
@@ -308,6 +324,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testJmsMulticastAndAggregration ()
 specifier|public
 name|void

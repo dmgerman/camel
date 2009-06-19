@@ -86,18 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -174,6 +162,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -196,6 +200,26 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple requesr / late reply test using InOptionalOut.  */
 end_comment
@@ -206,7 +230,7 @@ specifier|public
 class|class
 name|JmsSimpleRequestLateReplyTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -236,6 +260,12 @@ specifier|static
 name|String
 name|cid
 decl_stmt|;
+DECL|field|count
+specifier|private
+specifier|static
+name|int
+name|count
+decl_stmt|;
 DECL|field|expectedBody
 specifier|protected
 name|String
@@ -260,6 +290,27 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Before
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|count
+operator|++
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testRequestLateReplyUsingCustomDestinationHeaderForReply ()
 specifier|public
 name|void
@@ -276,6 +327,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestLateReplyUsingDestinationEndpointForReply ()
 specifier|public
 name|void
@@ -859,16 +912,16 @@ return|;
 block|}
 DECL|method|getQueueEndpointName ()
 specifier|protected
+specifier|static
 name|String
 name|getQueueEndpointName
 parameter_list|()
 block|{
 comment|// lets use a different queue name for each test
 return|return
-literal|"activemq:queue:hello."
+literal|"activemq:queue:hello.queue"
 operator|+
-name|getName
-argument_list|()
+name|count
 return|;
 block|}
 block|}

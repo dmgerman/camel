@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -145,6 +133,32 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -194,7 +208,7 @@ specifier|public
 class|class
 name|JmsMessageTypeTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -298,6 +312,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderTextType ()
 specifier|public
 name|void
@@ -360,6 +376,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertTextType ()
 specifier|public
 name|void
@@ -419,6 +437,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTextType ()
 specifier|public
 name|void
@@ -474,6 +494,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderBytesType ()
 specifier|public
 name|void
@@ -539,6 +561,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertBytesType ()
 specifier|public
 name|void
@@ -601,6 +625,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBytesType ()
 specifier|public
 name|void
@@ -662,6 +688,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderMapType ()
 specifier|public
 name|void
@@ -753,6 +781,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertMapType ()
 specifier|public
 name|void
@@ -840,6 +870,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMapType ()
 specifier|public
 name|void
@@ -939,6 +971,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderObjectType ()
 specifier|public
 name|void
@@ -1030,6 +1064,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testObjectType ()
 specifier|public
 name|void

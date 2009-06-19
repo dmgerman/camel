@@ -95,6 +95,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -126,6 +136,8 @@ name|JmsRouteTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testSendAndReceiveMessage ()
 specifier|public
 name|void

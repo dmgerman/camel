@@ -194,6 +194,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -213,6 +229,16 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -244,7 +270,7 @@ specifier|public
 class|class
 name|TemporaryQueueRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -286,6 +312,8 @@ operator|new
 name|MyBean
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessage ()
 specifier|public
 name|void
