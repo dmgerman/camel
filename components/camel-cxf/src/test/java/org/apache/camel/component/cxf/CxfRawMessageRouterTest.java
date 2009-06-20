@@ -404,11 +404,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Get wrong content type"
-argument_list|,
-literal|"text/xml; charset=utf-8"
 argument_list|,
 name|MessageHelper
 operator|.
@@ -418,6 +416,11 @@ name|exchange
 operator|.
 name|getOut
 argument_list|()
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"text/xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
