@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|aggregate
@@ -88,7 +76,7 @@ name|oldBody
 init|=
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -103,7 +91,7 @@ name|newBody
 init|=
 name|newExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody

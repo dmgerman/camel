@@ -441,13 +441,12 @@ return|return
 name|newExchange
 return|;
 block|}
-comment|// copy from OUT as we use InOut pattern
 name|String
 name|orders
 init|=
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -462,7 +461,7 @@ name|newLine
 init|=
 name|newExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -502,7 +501,7 @@ expr_stmt|;
 comment|// put combined order back on old to preserve it
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody

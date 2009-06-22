@@ -116,6 +116,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -413,6 +427,16 @@ name|size
 operator|++
 expr_stmt|;
 block|}
+comment|// prepare the exchanges for aggregation
+name|ExchangeHelper
+operator|.
+name|prepareAggregation
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
 name|newExchange
 operator|=
 name|aggregationStrategy

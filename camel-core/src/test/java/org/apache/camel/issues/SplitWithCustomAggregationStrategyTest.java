@@ -229,9 +229,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|//
-comment|// Need an inOut splitter that aggregates all results together.
-comment|//
 name|from
 argument_list|(
 literal|"direct:splitInOut"
@@ -285,7 +282,7 @@ name|oldBody
 init|=
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -300,7 +297,7 @@ name|newBody
 init|=
 name|newExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -312,7 +309,7 @@ argument_list|)
 decl_stmt|;
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody

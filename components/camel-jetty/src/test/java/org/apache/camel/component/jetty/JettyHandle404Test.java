@@ -252,7 +252,7 @@ name|code
 init|=
 name|resource
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getHeader

@@ -1102,6 +1102,24 @@ name|filtered
 operator|)
 condition|)
 block|{
+comment|// prepare the exchanges for aggregation
+name|Exchange
+name|oldExchange
+init|=
+name|result
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|ExchangeHelper
+operator|.
+name|prepareAggregation
+argument_list|(
+name|oldExchange
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|result
 operator|.
 name|set
@@ -1110,10 +1128,7 @@ name|aggregationStrategy
 operator|.
 name|aggregate
 argument_list|(
-name|result
-operator|.
-name|get
-argument_list|()
+name|oldExchange
 argument_list|,
 name|exchange
 argument_list|)
