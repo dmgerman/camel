@@ -156,7 +156,7 @@ name|hasMoreElements
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
