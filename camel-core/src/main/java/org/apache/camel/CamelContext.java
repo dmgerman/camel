@@ -805,7 +805,7 @@ argument_list|>
 name|getProducerServicePool
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether stream caching is enable or not (default is disabled).      *      * @param cache whether stream cachin is enabled or not      */
+comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *      * @param cache whether stream caching is enabled or not      */
 DECL|method|setStreamCaching (Boolean cache)
 name|void
 name|setStreamCaching
