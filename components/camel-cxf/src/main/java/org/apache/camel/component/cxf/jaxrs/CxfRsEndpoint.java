@@ -445,6 +445,14 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getResourceClasses
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|cfb
 operator|.
 name|setResourceClass
@@ -458,6 +466,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|createJAXRSServerFactoryBean ()
 specifier|public

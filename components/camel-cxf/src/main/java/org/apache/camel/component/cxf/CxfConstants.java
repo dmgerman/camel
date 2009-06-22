@@ -143,6 +143,24 @@ name|CAMEL_EXCHANGE
 init|=
 literal|"org.apache.camel.exchange"
 decl_stmt|;
+DECL|field|CAMEL_CXF_RS_USING_HTTP_API
+name|String
+name|CAMEL_CXF_RS_USING_HTTP_API
+init|=
+literal|"CamelCxfRsUsingHttpAPI"
+decl_stmt|;
+DECL|field|CAMEL_CXF_RS_VAR_VALUES
+name|String
+name|CAMEL_CXF_RS_VAR_VALUES
+init|=
+literal|"CamelCxfRsVarValues"
+decl_stmt|;
+DECL|field|CAMEL_CXF_RS_RESPONSE_CLASS
+name|String
+name|CAMEL_CXF_RS_RESPONSE_CLASS
+init|=
+literal|"CamelCxfRsResponseClass"
+decl_stmt|;
 block|}
 end_interface
 
