@@ -713,7 +713,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"OnCompletionProcessor"
+literal|"OnCompletionProcessor["
+operator|+
+name|processor
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

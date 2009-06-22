@@ -336,6 +336,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// enable stream caching
+name|context
+operator|.
+name|setStreamCaching
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// 0 delay for faster unit test
 name|errorHandler
 argument_list|(

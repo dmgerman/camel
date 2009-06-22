@@ -256,7 +256,7 @@ name|processor
 operator|.
 name|interceptor
 operator|.
-name|StreamCachingInterceptor
+name|StreamCaching
 import|;
 end_import
 
@@ -360,15 +360,20 @@ name|ProcessorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|group
 specifier|private
 name|String
 name|group
 decl_stmt|;
-DECL|field|camelContext
+DECL|field|streamCache
 specifier|private
-name|CamelContext
-name|camelContext
+name|Boolean
+name|streamCache
 decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
@@ -824,6 +829,83 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Disable stream caching for this Route.      */
+DECL|method|noStreamCaching ()
+specifier|public
+name|RouteDefinition
+name|noStreamCaching
+parameter_list|()
+block|{
+name|setStreamCache
+argument_list|(
+name|Boolean
+operator|.
+name|FALSE
+argument_list|)
+expr_stmt|;
+name|StreamCaching
+operator|.
+name|noStreamCaching
+argument_list|(
+name|getInterceptStrategies
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enable stream caching for this Route.      */
+DECL|method|streamCaching ()
+specifier|public
+name|RouteDefinition
+name|streamCaching
+parameter_list|()
+block|{
+name|setStreamCache
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+name|StreamCaching
+name|cache
+init|=
+name|StreamCaching
+operator|.
+name|getStreamCaching
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cache
+operator|==
+literal|null
+condition|)
+block|{
+name|cache
+operator|=
+operator|new
+name|StreamCaching
+argument_list|()
+expr_stmt|;
+block|}
+name|getInterceptStrategies
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|cache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -893,7 +975,6 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
-comment|// TODO I don't think this is called when using JAXB!
 if|if
 condition|(
 name|outputs
@@ -974,6 +1055,34 @@ operator|=
 name|group
 expr_stmt|;
 block|}
+DECL|method|isStreamCache ()
+specifier|public
+name|Boolean
+name|isStreamCache
+parameter_list|()
+block|{
+return|return
+name|streamCache
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setStreamCache (Boolean streamCache)
+specifier|public
+name|void
+name|setStreamCache
+parameter_list|(
+name|Boolean
+name|streamCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCache
+operator|=
+name|streamCache
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
@@ -1006,12 +1115,23 @@ argument_list|,
 name|routes
 argument_list|)
 decl_stmt|;
+comment|// should inherit the intercept strategies we have defined
+name|routeContext
+operator|.
+name|setInterceptStrategies
+argument_list|(
+name|this
+operator|.
+name|getInterceptStrategies
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// force endpoint resolution
 name|routeContext
 operator|.
 name|getEndpoint
 argument_list|()
 expr_stmt|;
-comment|// force endpoint resolution
 if|if
 condition|(
 name|camelContext
@@ -1071,25 +1191,6 @@ expr_stmt|;
 return|return
 name|routeContext
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|configureChild (ProcessorDefinition output)
-specifier|protected
-name|void
-name|configureChild
-parameter_list|(
-name|ProcessorDefinition
-name|output
-parameter_list|)
-block|{
-name|super
-operator|.
-name|configureChild
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

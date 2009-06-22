@@ -498,6 +498,14 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// enable strem cache
+name|context
+operator|.
+name|setStreamCaching
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"jetty:http://localhost:9080/test"

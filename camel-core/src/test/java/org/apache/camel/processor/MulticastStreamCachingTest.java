@@ -351,6 +351,14 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// enable stream caching
+name|context
+operator|.
+name|setStreamCaching
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|errorHandler
 argument_list|(
 name|deadLetterChannel

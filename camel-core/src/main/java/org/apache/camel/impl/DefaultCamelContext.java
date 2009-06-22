@@ -1044,7 +1044,7 @@ name|streamCache
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 decl_stmt|;
 DECL|field|handleFault
 specifier|private
@@ -3958,20 +3958,20 @@ return|return
 name|streamCache
 return|;
 block|}
-DECL|method|setStreamCaching (Boolean trace)
+DECL|method|setStreamCaching (Boolean cache)
 specifier|public
 name|void
 name|setStreamCaching
 parameter_list|(
 name|Boolean
-name|trace
+name|cache
 parameter_list|)
 block|{
 name|this
 operator|.
 name|streamCache
 operator|=
-name|trace
+name|cache
 expr_stmt|;
 block|}
 comment|/**      * Returns true if handle fault has been enabled      */

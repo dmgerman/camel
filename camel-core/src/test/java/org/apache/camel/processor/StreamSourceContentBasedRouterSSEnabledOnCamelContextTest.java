@@ -35,10 +35,10 @@ comment|/**  * Test for handling a StreamSource in a content-based router with X
 end_comment
 
 begin_class
-DECL|class|StreamSourceContentBasedRouterNoErrorHandlerTest
+DECL|class|StreamSourceContentBasedRouterSSEnabledOnCamelContextTest
 specifier|public
 class|class
-name|StreamSourceContentBasedRouterNoErrorHandlerTest
+name|StreamSourceContentBasedRouterSSEnabledOnCamelContextTest
 extends|extends
 name|StreamSourceContentBasedRouterTest
 block|{
@@ -58,22 +58,18 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|errorHandler
+comment|// enable stream cache globally on camel context
+name|context
+operator|.
+name|setStreamCaching
 argument_list|(
-name|noErrorHandler
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
-comment|// should work with no error handler as the stream cache
-comment|// is enabled and make sure the predicates can be evaluated
-comment|// multiple times
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-operator|.
-name|streamCaching
-argument_list|()
 operator|.
 name|choice
 argument_list|()

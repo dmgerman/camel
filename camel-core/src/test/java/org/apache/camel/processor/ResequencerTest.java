@@ -393,9 +393,9 @@ name|getErrorHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should have stream caching"
+literal|"Should not have stream caching"
 argument_list|,
 name|channel
 operator|.

@@ -1097,6 +1097,14 @@ else|else
 block|{
 comment|// regular definition so add the error handler
 name|Processor
+name|output
+init|=
+name|channel
+operator|.
+name|getOutput
+argument_list|()
+decl_stmt|;
+name|Processor
 name|errorHandler
 init|=
 name|getErrorHandlerBuilder
@@ -1106,10 +1114,7 @@ name|createErrorHandler
 argument_list|(
 name|routeContext
 argument_list|,
-name|channel
-operator|.
-name|getOutput
-argument_list|()
+name|output
 argument_list|)
 decl_stmt|;
 name|channel

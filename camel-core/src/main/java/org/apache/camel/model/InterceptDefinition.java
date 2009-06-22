@@ -291,9 +291,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// prefer next target over taget as next target is the real target
+name|Processor
+name|processor
+init|=
+name|nextTarget
+operator|!=
+literal|null
+condition|?
+name|nextTarget
+else|:
+name|target
+decl_stmt|;
 if|if
 condition|(
-name|nextTarget
+name|processor
 operator|!=
 literal|null
 condition|)
@@ -325,7 +337,7 @@ name|list
 operator|.
 name|add
 argument_list|(
-name|nextTarget
+name|processor
 argument_list|)
 expr_stmt|;
 return|return

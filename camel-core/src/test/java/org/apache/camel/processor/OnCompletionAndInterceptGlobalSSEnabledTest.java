@@ -31,82 +31,90 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for handling a StreamSource in a content-based router with XPath predicates  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|StreamSourceContentBasedRouterNoErrorHandlerTest
+DECL|class|OnCompletionAndInterceptGlobalSSEnabledTest
 specifier|public
 class|class
-name|StreamSourceContentBasedRouterNoErrorHandlerTest
+name|OnCompletionAndInterceptGlobalSSEnabledTest
 extends|extends
-name|StreamSourceContentBasedRouterTest
+name|OnCompletionAndInterceptGlobalTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|errorHandler
+comment|// enabled stream cache
+name|context
+operator|.
+name|setStreamCaching
 argument_list|(
-name|noErrorHandler
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
-comment|// should work with no error handler as the stream cache
-comment|// is enabled and make sure the predicates can be evaluated
-comment|// multiple times
+name|intercept
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:intercept"
+argument_list|)
+expr_stmt|;
+comment|// define a global on completion that is invoked when the exchage is complete
+name|onCompletion
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"log:global"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:sync"
+argument_list|)
+expr_stmt|;
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|streamCaching
-argument_list|()
-operator|.
-name|choice
-argument_list|()
-operator|.
-name|when
-argument_list|()
-operator|.
-name|xpath
+name|process
 argument_list|(
-literal|"/message/text() = 'xx'"
+operator|new
+name|MyProcessor
+argument_list|()
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:x"
+literal|"mock:result"
 argument_list|)
-operator|.
-name|when
-argument_list|()
-operator|.
-name|xpath
-argument_list|(
-literal|"/message/text() = 'yy'"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:y"
-argument_list|)
-operator|.
-name|end
-argument_list|()
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

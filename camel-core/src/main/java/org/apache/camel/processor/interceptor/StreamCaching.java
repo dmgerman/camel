@@ -172,6 +172,45 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Remove the {@link StreamCachingInterceptor} from the given list of interceptors      *      * @param interceptors the list of interceptors      */
+DECL|method|noStreamCaching (List<InterceptStrategy> interceptors)
+specifier|public
+specifier|static
+name|void
+name|noStreamCaching
+parameter_list|(
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|interceptors
+parameter_list|)
+block|{
+for|for
+control|(
+name|InterceptStrategy
+name|strategy
+range|:
+name|interceptors
+control|)
+block|{
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|StreamCachingInterceptor
+condition|)
+block|{
+name|interceptors
+operator|.
+name|remove
+argument_list|(
+name|strategy
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
