@@ -273,12 +273,9 @@ name|Exchange
 name|receiveNoWait
 parameter_list|()
 block|{
-name|HttpExchange
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|HttpExchange
-operator|)
 name|endpoint
 operator|.
 name|createExchange

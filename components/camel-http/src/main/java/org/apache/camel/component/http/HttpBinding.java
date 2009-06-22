@@ -124,11 +124,11 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Writes the exchange to the servlet response.      *<p/>      * Default implementation will delegate to the following methods depending on the status of the exchange      *<ul>      *<li>doWriteResponse - processing returns a OUT message</li>      *<li>doWriteFaultResponse - processing returns a fault message</li>      *<li>doWriteResponse - processing returns an exception and status code 500</li>      *</ul>      *      * @param exchange the exchange      * @param response the http response      * @throws java.io.IOException can be thrown from http response      */
-DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
+DECL|method|writeResponse (Exchange exchange, HttpServletResponse response)
 name|void
 name|writeResponse
 parameter_list|(
-name|HttpExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|HttpServletResponse

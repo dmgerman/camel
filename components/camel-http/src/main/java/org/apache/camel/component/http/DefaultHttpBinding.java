@@ -560,12 +560,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
+DECL|method|writeResponse (Exchange exchange, HttpServletResponse response)
 specifier|public
 name|void
 name|writeResponse
 parameter_list|(
-name|HttpExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|HttpServletResponse

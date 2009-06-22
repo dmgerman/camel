@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|http
@@ -106,7 +118,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpExchange
+name|HttpMessage
 import|;
 end_import
 
@@ -243,7 +255,10 @@ argument_list|()
 condition|)
 block|{
 comment|// Have the camel process the HTTP exchange.
-comment|// final HttpExchange exchange = new HttpExchange(consumer.getEndpoint(), request, response);
+comment|// final DefaultExchange exchange = new DefaultExchange(consumer.getEndpoint(), ExchangePattern.InOut);
+comment|// exchange.setProperty(HttpConstants.SERVLET_REQUEST, request);
+comment|// exchange.setProperty(HttpConstants.SERVLET_RESPONSE, response);
+comment|// exchange.setIn(new HttpMessage(exchange, request));
 comment|// boolean sync = consumer.getAsyncProcessor().process(exchange, new AsyncCallback() {
 comment|//     public void done(boolean sync) {
 comment|//        if (sync) {
@@ -274,11 +289,11 @@ name|isResumed
 argument_list|()
 condition|)
 block|{
-name|HttpExchange
+name|Exchange
 name|exchange
 init|=
 operator|(
-name|HttpExchange
+name|Exchange
 operator|)
 name|continuation
 operator|.

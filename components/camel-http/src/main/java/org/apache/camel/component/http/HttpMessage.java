@@ -30,26 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Enumeration
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|servlet
@@ -57,6 +37,18 @@ operator|.
 name|http
 operator|.
 name|HttpServletRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -103,11 +95,11 @@ specifier|private
 name|HttpServletRequest
 name|request
 decl_stmt|;
-DECL|method|HttpMessage (HttpExchange exchange, HttpServletRequest request)
+DECL|method|HttpMessage (Exchange exchange, HttpServletRequest request)
 specifier|public
 name|HttpMessage
 parameter_list|(
-name|HttpExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|HttpServletRequest
@@ -127,9 +119,6 @@ name|request
 expr_stmt|;
 comment|// use binding to read the request allowing end users to use their
 comment|// implementation of the binding
-name|getExchange
-argument_list|()
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.
@@ -143,24 +132,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getExchange ()
-specifier|public
-name|HttpExchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-operator|(
-name|HttpExchange
-operator|)
-name|super
-operator|.
-name|getExchange
-argument_list|()
-return|;
 block|}
 DECL|method|getRequest ()
 specifier|public
@@ -183,9 +154,6 @@ block|{
 try|try
 block|{
 return|return
-name|getExchange
-argument_list|()
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.
@@ -212,6 +180,23 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getEndpoint ()
+specifier|private
+name|HttpEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|HttpEndpoint
+operator|)
+name|getExchange
+argument_list|()
+operator|.
+name|getFromEndpoint
+argument_list|()
+return|;
 block|}
 block|}
 end_class
