@@ -318,10 +318,6 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
-init|=
-operator|new
-name|CxfHeaderFilterStrategy
-argument_list|()
 decl_stmt|;
 static|static
 block|{
@@ -343,6 +339,31 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|method|CamelTransportFactory ()
+specifier|public
+name|CamelTransportFactory
+parameter_list|()
+block|{
+name|CxfHeaderFilterStrategy
+name|defaultHeaderFilterStrategy
+init|=
+operator|new
+name|CxfHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
+comment|// Doesn't filter the camel relates headers by default
+name|defaultHeaderFilterStrategy
+operator|.
+name|setOutFilterPattern
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|headerFilterStrategy
+operator|=
+name|defaultHeaderFilterStrategy
+expr_stmt|;
+block|}
 annotation|@
 name|Resource
 argument_list|(
