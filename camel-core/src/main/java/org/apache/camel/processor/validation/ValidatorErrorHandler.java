@@ -26,9 +26,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|dom
+name|sax
 operator|.
-name|DOMResult
+name|SAXResult
 import|;
 end_import
 
@@ -41,18 +41,6 @@ operator|.
 name|validation
 operator|.
 name|Schema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|ErrorHandler
 import|;
 end_import
 
@@ -80,6 +68,18 @@ name|ValidationException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * Validator error handler.  *  * @version $Revision$  */
 end_comment
@@ -99,7 +99,7 @@ name|reset
 parameter_list|()
 function_decl|;
 comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      * @throws ValidationException is thrown in case of validatation errors      */
-DECL|method|handleErrors (Exchange exchange, Schema schema, DOMResult result)
+DECL|method|handleErrors (Exchange exchange, Schema schema, SAXResult result)
 name|void
 name|handleErrors
 parameter_list|(
@@ -109,7 +109,7 @@ parameter_list|,
 name|Schema
 name|schema
 parameter_list|,
-name|DOMResult
+name|SAXResult
 name|result
 parameter_list|)
 throws|throws

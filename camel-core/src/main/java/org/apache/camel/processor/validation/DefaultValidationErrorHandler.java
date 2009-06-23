@@ -46,9 +46,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|dom
+name|sax
 operator|.
-name|DOMResult
+name|SAXResult
 import|;
 end_import
 
@@ -61,30 +61,6 @@ operator|.
 name|validation
 operator|.
 name|Schema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXParseException
 import|;
 end_import
 
@@ -137,6 +113,30 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXParseException
 import|;
 end_import
 
@@ -371,7 +371,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|handleErrors (Exchange exchange, Schema schema, DOMResult result)
+DECL|method|handleErrors (Exchange exchange, Schema schema, SAXResult result)
 specifier|public
 name|void
 name|handleErrors
@@ -382,7 +382,7 @@ parameter_list|,
 name|Schema
 name|schema
 parameter_list|,
-name|DOMResult
+name|SAXResult
 name|result
 parameter_list|)
 throws|throws

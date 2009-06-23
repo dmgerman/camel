@@ -78,9 +78,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|dom
+name|sax
 operator|.
-name|DOMResult
+name|SAXResult
 import|;
 end_import
 
@@ -92,9 +92,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|dom
+name|sax
 operator|.
-name|DOMSource
+name|SAXSource
 import|;
 end_import
 
@@ -138,18 +138,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -167,6 +155,18 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXException
 import|;
 end_import
 
@@ -261,7 +261,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|DOMSource
+name|SAXSource
 operator|.
 name|class
 argument_list|)
@@ -301,11 +301,11 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
-name|DOMResult
+name|SAXResult
 name|result
 init|=
 operator|new
-name|DOMResult
+name|SAXResult
 argument_list|()
 decl_stmt|;
 name|validator
