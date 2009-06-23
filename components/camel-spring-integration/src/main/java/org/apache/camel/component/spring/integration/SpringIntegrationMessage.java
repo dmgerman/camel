@@ -270,24 +270,6 @@ argument_list|()
 return|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|getExchange ()
-specifier|public
-name|SpringIntegrationExchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-operator|(
-name|SpringIntegrationExchange
-operator|)
-name|super
-operator|.
-name|getExchange
-argument_list|()
-return|;
-block|}
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

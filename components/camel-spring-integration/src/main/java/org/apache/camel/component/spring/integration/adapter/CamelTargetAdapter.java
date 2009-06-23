@@ -96,13 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|spring
-operator|.
-name|integration
-operator|.
-name|SpringIntegrationExchange
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -116,7 +112,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|DefaultExchange
 import|;
 end_import
 
@@ -391,9 +387,10 @@ name|Exchange
 name|inExchange
 init|=
 operator|new
-name|SpringIntegrationExchange
+name|DefaultExchange
 argument_list|(
-name|this
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|pattern
 argument_list|)
