@@ -223,6 +223,26 @@ name|Object
 name|body
 parameter_list|)
 block|{
+comment|// same instance type
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|body
+argument_list|)
+return|;
+block|}
 name|Exchange
 name|e
 init|=
@@ -277,7 +297,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|// fallback to the message itself
+comment|// fallback to the message itself (e.g. used in camel-http)
 name|answer
 operator|=
 name|converter
