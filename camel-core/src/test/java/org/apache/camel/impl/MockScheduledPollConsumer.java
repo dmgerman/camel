@@ -123,6 +123,22 @@ name|exceptionToThrowOnPoll
 throw|;
 block|}
 block|}
+DECL|method|setExceptionToThrowOnPoll (Exception exceptionToThrowOnPoll)
+specifier|public
+name|void
+name|setExceptionToThrowOnPoll
+parameter_list|(
+name|Exception
+name|exceptionToThrowOnPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionToThrowOnPoll
+operator|=
+name|exceptionToThrowOnPoll
+expr_stmt|;
+block|}
 block|}
 end_class
 
