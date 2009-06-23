@@ -2293,18 +2293,31 @@ block|{
 comment|// lets try instantiate the default implementation
 comment|// use the class loading this class from camel-jms to work in OSGi environments as the camel-jms
 comment|// should import the spring-jms jars.
+if|if
+condition|(
+name|JmsHelper
+operator|.
+name|isSpring20x
+argument_list|()
+condition|)
+block|{
+comment|// not possible with spring 2.0.x
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
+comment|// lets try instantiate the default implementation
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|type
 init|=
-name|context
+name|ObjectHelper
 operator|.
-name|getClassResolver
-argument_list|()
-operator|.
-name|resolveClass
+name|loadClass
 argument_list|(
 name|DEFAULT_QUEUE_BROWSE_STRATEGY
 argument_list|,
@@ -2319,26 +2332,9 @@ decl_stmt|;
 if|if
 condition|(
 name|type
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not load class: "
-operator|+
-name|DEFAULT_QUEUE_BROWSE_STRATEGY
-operator|+
-literal|" maybe you are on Spring 2.0.x?"
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-else|else
 block|{
 return|return
 name|ObjectHelper
@@ -2352,6 +2348,13 @@ operator|.
 name|class
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 block|}
