@@ -678,7 +678,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|)
@@ -693,7 +693,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|,
@@ -706,7 +706,7 @@ name|response
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|,

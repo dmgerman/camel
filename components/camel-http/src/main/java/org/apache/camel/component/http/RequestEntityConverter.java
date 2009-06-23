@@ -324,7 +324,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|,
@@ -375,7 +375,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|,

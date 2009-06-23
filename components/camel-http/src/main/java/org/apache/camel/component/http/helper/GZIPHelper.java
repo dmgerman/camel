@@ -108,7 +108,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpConstants
+name|HttpMessage
 import|;
 end_import
 
@@ -372,7 +372,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|HttpMessage
 operator|.
 name|CONTENT_ENCODING
 argument_list|,
