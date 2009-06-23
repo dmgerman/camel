@@ -18,18 +18,30 @@ name|irc
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_class
 DECL|class|IrcBinding
 specifier|public
 class|class
 name|IrcBinding
 block|{
-DECL|method|extractBodyFromIrc (IrcExchange exchange, IrcMessage message)
+DECL|method|extractBodyFromIrc (Exchange exchange, IrcMessage message)
 specifier|public
 name|Object
 name|extractBodyFromIrc
 parameter_list|(
-name|IrcExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|IrcMessage

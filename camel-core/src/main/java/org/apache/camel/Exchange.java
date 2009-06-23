@@ -344,6 +344,12 @@ name|ROLLBACK_ONLY
 init|=
 literal|"CamelRollbackOnly"
 decl_stmt|;
+DECL|field|BINDING
+name|String
+name|BINDING
+init|=
+literal|"CamelBinding"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

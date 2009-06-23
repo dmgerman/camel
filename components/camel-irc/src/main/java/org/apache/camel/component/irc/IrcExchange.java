@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -64,11 +64,6 @@ name|IrcExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|field|binding
-specifier|private
-name|IrcBinding
-name|binding
-decl_stmt|;
 DECL|method|IrcExchange (IrcEndpoint endpoint, ExchangePattern pattern, IrcBinding binding)
 specifier|public
 name|IrcExchange
@@ -90,11 +85,14 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-name|this
+name|setProperty
+argument_list|(
+name|Exchange
 operator|.
+name|BINDING
+argument_list|,
 name|binding
-operator|=
-name|binding
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IrcExchange (IrcEndpoint endpoint, ExchangePattern pattern, IrcBinding binding, IrcMessage inMessage)
@@ -123,6 +121,15 @@ argument_list|,
 name|binding
 argument_list|)
 expr_stmt|;
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BINDING
+argument_list|,
+name|binding
+argument_list|)
+expr_stmt|;
 name|setIn
 argument_list|(
 name|inMessage
@@ -145,11 +152,14 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
-name|this
+name|setProperty
+argument_list|(
+name|Exchange
 operator|.
+name|BINDING
+argument_list|,
 name|binding
-operator|=
-name|binding
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getBinding ()
@@ -159,7 +169,15 @@ name|getBinding
 parameter_list|()
 block|{
 return|return
-name|binding
+operator|(
+name|IrcBinding
+operator|)
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BINDING
+argument_list|)
 return|;
 block|}
 DECL|method|setBinding (IrcBinding binding)
@@ -171,11 +189,14 @@ name|IrcBinding
 name|binding
 parameter_list|)
 block|{
-name|this
+name|setProperty
+argument_list|(
+name|Exchange
 operator|.
+name|BINDING
+argument_list|,
 name|binding
-operator|=
-name|binding
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
