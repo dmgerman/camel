@@ -46,9 +46,7 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|sax
-operator|.
-name|SAXResult
+name|Result
 import|;
 end_import
 
@@ -371,7 +369,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|handleErrors (Exchange exchange, Schema schema, SAXResult result)
+DECL|method|handleErrors (Exchange exchange, Schema schema, Result result)
 specifier|public
 name|void
 name|handleErrors
@@ -382,7 +380,7 @@ parameter_list|,
 name|Schema
 name|schema
 parameter_list|,
-name|SAXResult
+name|Result
 name|result
 parameter_list|)
 throws|throws

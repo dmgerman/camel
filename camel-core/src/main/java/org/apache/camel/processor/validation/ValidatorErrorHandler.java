@@ -26,9 +26,7 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|sax
-operator|.
-name|SAXResult
+name|Result
 import|;
 end_import
 
@@ -99,7 +97,7 @@ name|reset
 parameter_list|()
 function_decl|;
 comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      * @throws ValidationException is thrown in case of validatation errors      */
-DECL|method|handleErrors (Exchange exchange, Schema schema, SAXResult result)
+DECL|method|handleErrors (Exchange exchange, Schema schema, Result result)
 name|void
 name|handleErrors
 parameter_list|(
@@ -109,7 +107,7 @@ parameter_list|,
 name|Schema
 name|schema
 parameter_list|,
-name|SAXResult
+name|Result
 name|result
 parameter_list|)
 throws|throws

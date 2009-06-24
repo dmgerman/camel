@@ -196,6 +196,14 @@ name|getSchemaFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// must use Dom for Msv to work
+name|validator
+operator|.
+name|setUseDom
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|configureValidator
