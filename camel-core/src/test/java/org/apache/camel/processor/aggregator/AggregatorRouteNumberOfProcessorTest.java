@@ -112,12 +112,12 @@ name|AggregatorRouteNumberOfProcessorTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|failed
+DECL|field|hasOut
 specifier|private
 specifier|static
 specifier|volatile
 name|boolean
-name|failed
+name|hasOut
 decl_stmt|;
 annotation|@
 name|Override
@@ -139,7 +139,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|failed
+name|hasOut
 operator|=
 literal|false
 expr_stmt|;
@@ -219,8 +219,7 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// should not have an out
-name|failed
+name|hasOut
 operator|=
 name|newExchange
 operator|.
@@ -239,6 +238,11 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
+name|batchTimeout
+argument_list|(
+literal|2000
+argument_list|)
+operator|.
 name|process
 argument_list|(
 operator|new
@@ -255,13 +259,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|assertFalse
-argument_list|(
-literal|"Should not have out"
-argument_list|,
-name|failed
-argument_list|)
-expr_stmt|;
 name|String
 name|s
 init|=
@@ -376,6 +373,13 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not have out"
+argument_list|,
+name|hasOut
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testThreeProcesssors ()
 specifier|public
@@ -385,7 +389,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|failed
+name|hasOut
 operator|=
 literal|false
 expr_stmt|;
@@ -465,8 +469,7 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// should not have an out
-name|failed
+name|hasOut
 operator|=
 name|newExchange
 operator|.
@@ -483,6 +486,11 @@ operator|.
 name|batchSize
 argument_list|(
 literal|2
+argument_list|)
+operator|.
+name|batchTimeout
+argument_list|(
+literal|2000
 argument_list|)
 operator|.
 name|to
@@ -506,13 +514,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|assertFalse
-argument_list|(
-literal|"Should not have out"
-argument_list|,
-name|failed
-argument_list|)
-expr_stmt|;
 name|String
 name|s
 init|=
@@ -646,7 +647,7 @@ name|assertFalse
 argument_list|(
 literal|"Should not have out"
 argument_list|,
-name|failed
+name|hasOut
 argument_list|)
 expr_stmt|;
 block|}
