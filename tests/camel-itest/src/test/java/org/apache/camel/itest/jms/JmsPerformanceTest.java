@@ -60,7 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -72,9 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -126,6 +130,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -146,7 +180,7 @@ specifier|public
 class|class
 name|JmsPerformanceTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -219,6 +253,8 @@ specifier|private
 name|int
 name|consumedMessageCount
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendingAndReceivingMessages ()
 specifier|public
 name|void
@@ -365,8 +401,7 @@ name|getQueueName
 parameter_list|()
 block|{
 return|return
-name|getName
-argument_list|()
+literal|"testSendingAndReceivingMessages"
 return|;
 block|}
 DECL|method|assertExpectedMessagesReceived ()
@@ -401,8 +436,10 @@ comment|// TODO assert that messages are received in order
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -436,8 +473,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

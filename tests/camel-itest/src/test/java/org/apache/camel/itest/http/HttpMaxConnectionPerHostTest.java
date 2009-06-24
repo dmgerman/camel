@@ -74,6 +74,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -116,6 +126,22 @@ name|AbstractJUnit38SpringContextTests
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|junit4
+operator|.
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ContextConfiguration
@@ -124,7 +150,7 @@ specifier|public
 class|class
 name|HttpMaxConnectionPerHostTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -157,6 +183,8 @@ specifier|protected
 name|MockEndpoint
 name|mock
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMocksIsValid ()
 specifier|public
 name|void

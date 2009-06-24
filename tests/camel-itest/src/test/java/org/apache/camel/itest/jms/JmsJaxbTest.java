@@ -52,18 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -124,11 +112,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jndi
 operator|.
 name|JndiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -142,8 +156,10 @@ specifier|public
 class|class
 name|JmsJaxbTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOk ()
 specifier|public
 name|void
@@ -208,6 +224,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnmarshalError ()
 specifier|public
 name|void
@@ -264,6 +282,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotWine ()
 specifier|public
 name|void

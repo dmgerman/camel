@@ -62,6 +62,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jvnet
 operator|.
 name|mock_javamail
@@ -110,9 +120,9 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
@@ -128,7 +138,7 @@ specifier|public
 class|class
 name|SpringMailEndpointTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -149,6 +159,8 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMailEndpointAsSpringBean ()
 specifier|public
 name|void

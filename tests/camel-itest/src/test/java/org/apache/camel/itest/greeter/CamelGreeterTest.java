@@ -152,6 +152,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -188,9 +218,45 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -202,7 +268,7 @@ specifier|public
 class|class
 name|CamelGreeterTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 DECL|field|LOG
 specifier|private
@@ -220,6 +286,12 @@ name|CamelGreeterTest
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|endpoint
+specifier|private
+specifier|static
+name|Endpoint
+name|endpoint
 decl_stmt|;
 annotation|@
 name|Autowired
@@ -240,15 +312,13 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|Endpoint
-name|endpoint
-decl_stmt|;
-DECL|method|setUp ()
-specifier|protected
+annotation|@
+name|BeforeClass
+DECL|method|startServer ()
+specifier|public
+specifier|static
 name|void
-name|setUp
+name|startServer
 parameter_list|()
 throws|throws
 name|Exception
@@ -285,10 +355,13 @@ literal|"The WS endpoint is published! "
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|tearDown ()
-specifier|protected
+annotation|@
+name|AfterClass
+DECL|method|stopServer ()
+specifier|public
+specifier|static
 name|void
-name|tearDown
+name|stopServer
 parameter_list|()
 throws|throws
 name|Exception
@@ -306,8 +379,14 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|endpoint
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMocksAreValid ()
 specifier|public
 name|void

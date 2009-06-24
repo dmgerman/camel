@@ -62,6 +62,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|test
@@ -82,9 +92,21 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -100,7 +122,7 @@ specifier|public
 class|class
 name|JmsToHttpTXTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 comment|// use uri to refer to our mock
 annotation|@
@@ -137,6 +159,8 @@ name|ok
 init|=
 literal|"<?xml version=\"1.0\"?><reply><status>ok</status></reply>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendToTXJms ()
 specifier|public
 name|void

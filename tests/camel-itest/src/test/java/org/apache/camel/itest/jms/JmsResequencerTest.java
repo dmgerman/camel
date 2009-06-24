@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -190,6 +178,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jndi
@@ -226,13 +230,33 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|JmsResequencerTest
 specifier|public
 class|class
 name|JmsResequencerTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -352,16 +376,7 @@ argument_list|,
 name|headerValue
 argument_list|)
 expr_stmt|;
-name|in
-operator|.
-name|setHeader
-argument_list|(
-literal|"testCase"
-argument_list|,
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//in.setHeader("testCase", getName());
 name|in
 operator|.
 name|setHeader
@@ -378,6 +393,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessagesInWrongOrderButReceiveThemInCorrectOrder ()
 specifier|public
 name|void
@@ -392,6 +409,8 @@ literal|"activemq:queue:batch"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToStream ()
 specifier|public
 name|void
@@ -537,8 +556,10 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

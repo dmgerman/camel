@@ -98,6 +98,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -134,9 +144,45 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -152,7 +198,7 @@ specifier|public
 class|class
 name|JmsToHttpTXWithOnExceptionTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -207,6 +253,8 @@ name|noAccess
 init|=
 literal|"<?xml version=\"1.0\"?><reply><status>Access denied</status></reply>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|test404 ()
 specifier|public
 name|void
@@ -242,6 +290,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRollback ()
 specifier|public
 name|void
@@ -306,6 +356,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOK ()
 specifier|public
 name|void
