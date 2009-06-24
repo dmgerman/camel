@@ -14,49 +14,24 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * Routes defined in the camel context.  */
+comment|/**  * A routes builder is capable of building routes using the builder and model classes.  *<p/>  * Eventually the routes is added to a {@link org.apache.camel.CamelContext} where they  * run inside.  */
 end_comment
 
 begin_interface
-DECL|interface|Routes
+DECL|interface|RoutesBuilder
 specifier|public
 interface|interface
-name|Routes
+name|RoutesBuilder
 block|{
-comment|/**      * Gets the Camel context used.      */
-DECL|method|getContext ()
-name|CamelContext
-name|getContext
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the Camel context to use.      */
-DECL|method|setContext (CamelContext context)
+comment|/**      * Adds the routes from this Route Builder to the CamelContext.      *      * @param context the Camel context      */
+DECL|method|addRoutesToCamelContext (CamelContext context)
 name|void
-name|setContext
+name|addRoutesToCamelContext
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
-function_decl|;
-comment|/**      * Gets the list of routes currently in the camel context.      */
-DECL|method|getRouteList ()
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|getRouteList
-parameter_list|()
 throws|throws
 name|Exception
 function_decl|;

@@ -504,11 +504,11 @@ name|getRoutes
 parameter_list|()
 function_decl|;
 comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
-DECL|method|addRoutes (Routes builder)
+DECL|method|addRoutes (RoutesBuilder builder)
 name|void
 name|addRoutes
 parameter_list|(
-name|Routes
+name|RoutesBuilder
 name|builder
 parameter_list|)
 throws|throws

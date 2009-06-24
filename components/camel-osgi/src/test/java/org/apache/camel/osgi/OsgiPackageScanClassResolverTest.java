@@ -56,7 +56,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -252,7 +252,7 @@ name|resolver
 operator|.
 name|findImplementations
 argument_list|(
-name|Routes
+name|RoutesBuilder
 operator|.
 name|class
 argument_list|,

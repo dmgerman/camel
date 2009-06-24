@@ -120,7 +120,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -399,14 +399,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Inject
-DECL|method|setRouteBuilders (Set<Routes> routeBuilders)
+DECL|method|setRouteBuilders (Set<RoutesBuilder> routeBuilders)
 specifier|public
 name|void
 name|setRouteBuilders
 parameter_list|(
 name|Set
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|routeBuilders
 parameter_list|)
@@ -415,15 +415,15 @@ name|Exception
 block|{
 for|for
 control|(
-name|Routes
-name|routeBuilder
+name|RoutesBuilder
+name|builder
 range|:
 name|routeBuilders
 control|)
 block|{
 name|addRoutes
 argument_list|(
-name|routeBuilder
+name|builder
 argument_list|)
 expr_stmt|;
 block|}

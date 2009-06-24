@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -46,19 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -118,7 +96,7 @@ specifier|static
 class|class
 name|MyRoutes
 implements|implements
-name|Routes
+name|RoutesBuilder
 block|{
 DECL|field|myRouteBuilder
 specifier|private
@@ -159,51 +137,22 @@ block|}
 block|}
 expr_stmt|;
 block|}
-DECL|method|getContext ()
+DECL|method|addRoutesToCamelContext (CamelContext camelContext)
 specifier|public
+name|void
+name|addRoutesToCamelContext
+parameter_list|(
 name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|myRouteBuilder
-operator|.
-name|getContext
-argument_list|()
-return|;
-block|}
-DECL|method|getRouteList ()
-specifier|public
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|getRouteList
-parameter_list|()
+name|camelContext
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
-name|myRouteBuilder
+name|camelContext
 operator|.
-name|getRouteList
-argument_list|()
-return|;
-block|}
-DECL|method|setContext (CamelContext context)
-specifier|public
-name|void
-name|setContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|myRouteBuilder
-operator|.
-name|setContext
+name|addRoutes
 argument_list|(
-name|context
+name|myRouteBuilder
 argument_list|)
 expr_stmt|;
 block|}

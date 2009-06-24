@@ -164,7 +164,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -1388,14 +1388,14 @@ DECL|field|additionalBuilders
 specifier|private
 name|List
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|additionalBuilders
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1486,7 +1486,7 @@ DECL|method|getAdditionalBuilders ()
 specifier|public
 name|List
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|getAdditionalBuilders
 parameter_list|()
@@ -3984,7 +3984,7 @@ block|}
 else|else
 block|{
 comment|// support to get the route here
-name|Routes
+name|RoutesBuilder
 name|routes
 init|=
 name|builderRef
@@ -4029,7 +4029,7 @@ block|}
 comment|// install already configured routes
 for|for
 control|(
-name|Routes
+name|RoutesBuilder
 name|routeBuilder
 range|:
 name|additionalBuilders

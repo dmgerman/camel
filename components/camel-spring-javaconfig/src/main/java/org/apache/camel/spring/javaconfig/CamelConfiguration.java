@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -230,7 +230,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Routes
+name|RoutesBuilder
 name|route
 range|:
 name|routes
@@ -259,7 +259,7 @@ name|camelContext
 parameter_list|)
 throws|throws
 name|Exception
-block|{              }
+block|{     }
 comment|/**      * Returns the list of routes to use in this configuration      */
 DECL|method|routes ()
 specifier|public

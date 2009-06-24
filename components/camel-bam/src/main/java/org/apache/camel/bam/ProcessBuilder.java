@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|bam
 operator|.
 name|model
@@ -690,17 +678,11 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|populateRoutes (List<Route> routes)
+DECL|method|populateRoutes ()
 specifier|protected
 name|void
 name|populateRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -786,9 +768,7 @@ block|}
 name|super
 operator|.
 name|populateRoutes
-argument_list|(
-name|routes
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|// Implementation methods

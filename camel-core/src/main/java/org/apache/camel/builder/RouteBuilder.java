@@ -94,7 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -223,7 +223,7 @@ name|RouteBuilder
 extends|extends
 name|BuilderSupport
 implements|implements
-name|Routes
+name|RoutesBuilder
 block|{
 DECL|field|initialized
 specifier|private
@@ -778,24 +778,25 @@ return|return
 name|context
 return|;
 block|}
-comment|/**      * Uses {@link org.apache.camel.CamelContext#getRoutes()} to return the routes in the context.      */
-DECL|method|getRouteList ()
+DECL|method|addRoutesToCamelContext (CamelContext context)
 specifier|public
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|getRouteList
-parameter_list|()
+name|void
+name|addRoutesToCamelContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|setContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|checkInitialized
 argument_list|()
 expr_stmt|;
-return|return
-name|routes
-return|;
 block|}
 annotation|@
 name|Override
@@ -876,23 +877,15 @@ name|configure
 argument_list|()
 expr_stmt|;
 name|populateRoutes
-argument_list|(
-name|routes
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|populateRoutes (List<Route> routes)
+DECL|method|populateRoutes ()
 specifier|protected
 name|void
 name|populateRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -998,12 +991,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds a collection of routes to this context      *      * @throws Exception if the routes could not be created for whatever reason      */
-DECL|method|addRoutes (Routes routes)
+DECL|method|addRoutes (RoutesBuilder routes)
 specifier|protected
 name|void
 name|addRoutes
 parameter_list|(
-name|Routes
+name|RoutesBuilder
 name|routes
 parameter_list|)
 throws|throws

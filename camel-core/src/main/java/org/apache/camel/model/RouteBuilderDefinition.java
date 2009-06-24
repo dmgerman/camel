@@ -92,7 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -287,7 +287,7 @@ return|;
 block|}
 DECL|method|createRoutes (CamelContext camelContext)
 specifier|public
-name|Routes
+name|RoutesBuilder
 name|createRoutes
 parameter_list|(
 name|CamelContext
@@ -325,7 +325,7 @@ name|camelContext
 argument_list|,
 name|ref
 argument_list|,
-name|Routes
+name|RoutesBuilder
 operator|.
 name|class
 argument_list|)

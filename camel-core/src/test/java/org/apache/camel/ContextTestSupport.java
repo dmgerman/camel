@@ -356,19 +356,6 @@ block|}
 name|startCamelContext
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Using route builder from the created context: "
-operator|+
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 name|log
 operator|.
 name|debug
@@ -381,6 +368,17 @@ name|getRoutes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"isUseRouteBuilder() is false"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

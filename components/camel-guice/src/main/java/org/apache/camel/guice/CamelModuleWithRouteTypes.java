@@ -82,12 +82,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Guice Module which injects the CamelContext with the specified {@link Routes} types - which are then injected by Guice.  *<p>  * If you wish to bind all of the bound {@link Routes} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Or if you would like to specify exactly which {@link Routes} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *   *  * @version $Revision$  */
+comment|/**  * A Guice Module which injects the CamelContext with the specified {@link org.apache.camel.RoutesBuilder} types - which are then injected by Guice.  *<p>  * If you wish to bind all of the bound {@link org.apache.camel.RoutesBuilder} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Or if you would like to specify exactly which {@link org.apache.camel.RoutesBuilder} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *   *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -106,12 +106,12 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 argument_list|>
 name|routes
 decl_stmt|;
-DECL|method|CamelModuleWithRouteTypes (Class<? extends Routes>.... routeTypes)
+DECL|method|CamelModuleWithRouteTypes (Class<? extends RoutesBuilder>.... routeTypes)
 specifier|public
 name|CamelModuleWithRouteTypes
 parameter_list|(
@@ -119,7 +119,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 modifier|...
 name|routeTypes
@@ -136,7 +136,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 argument_list|>
 argument_list|()
@@ -147,7 +147,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|route
 range|:
@@ -163,7 +163,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|CamelModuleWithRouteTypes (Set<Class<? extends Routes>> routes)
+DECL|method|CamelModuleWithRouteTypes (Set<Class<? extends RoutesBuilder>> routes)
 specifier|public
 name|CamelModuleWithRouteTypes
 parameter_list|(
@@ -173,7 +173,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 argument_list|>
 name|routes
@@ -191,7 +191,7 @@ name|Provides
 DECL|method|routes (Injector injector)
 name|Set
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|routes
 parameter_list|(
@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 name|Set
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|answer
 init|=
@@ -216,14 +216,14 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|type
 range|:
 name|routes
 control|)
 block|{
-name|Routes
+name|RoutesBuilder
 name|route
 init|=
 name|injector

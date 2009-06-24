@@ -72,18 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|guice
 operator|.
 name|impl
@@ -137,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base Guice module for creating a {@link CamelContext} leaving it up to the users module  * to bind a Set<Routes> for the routing rules.  *<p>  * To bind the routes you should create a provider method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  * If you wish to bind all of the bound {@link Routes} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Otherwise if you wish to list all of the classes of the {@link Routes} implementations then use the  * {@link org.apache.camel.guice.CamelModuleWithRouteTypes} module instead.  *  * @version $Revision$  */
+comment|/**  * A base Guice module for creating a {@link CamelContext} leaving it up to the users module  * to bind a Set<Routes> for the routing rules.  *<p>  * To bind the routes you should create a provider method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  * If you wish to bind all of the bound {@link org.apache.camel.RoutesBuilder} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Otherwise if you wish to list all of the classes of the {@link org.apache.camel.RoutesBuilder} implementations then use the  * {@link org.apache.camel.guice.CamelModuleWithRouteTypes} module instead.  *  * @version $Revision$  */
 end_comment
 
 begin_class

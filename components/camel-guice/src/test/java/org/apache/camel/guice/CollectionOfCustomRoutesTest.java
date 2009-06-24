@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -142,7 +132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -199,7 +189,7 @@ name|Collection
 argument_list|<
 name|?
 extends|extends
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|myRoutes
 parameter_list|()
@@ -237,7 +227,7 @@ name|testDummy
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
+block|{     }
 DECL|method|xtestGuice ()
 specifier|public
 name|void

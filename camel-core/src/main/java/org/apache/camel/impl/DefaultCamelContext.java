@@ -248,7 +248,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -2919,39 +2919,19 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
-comment|/*             TODO we should have notified the lifecycle strategy via the RouteService              lifecycleStrategy.onRoutesAdd(routes);             if (shouldStartRoutes()) {                 startRoutes(routes);             } */
 block|}
 block|}
-DECL|method|addRoutes (Routes builder)
+DECL|method|addRoutes (RoutesBuilder builder)
 specifier|public
 name|void
 name|addRoutes
 parameter_list|(
-name|Routes
+name|RoutesBuilder
 name|builder
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// lets now add the routes from the builder
-name|builder
-operator|.
-name|setContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routeList
-init|=
-name|builder
-operator|.
-name|getRouteList
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -2964,17 +2944,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding routes from: "
+literal|"Adding routes from builder: "
 operator|+
 name|builder
-operator|+
-literal|" routes: "
-operator|+
-name|routeList
 argument_list|)
 expr_stmt|;
 block|}
-comment|//addRouteCollection(routeList);
+comment|// lets now add the routes from the builder
+name|builder
+operator|.
+name|addRoutesToCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public

@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|RoutesBuilder
 import|;
 end_import
 
@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Guice Module which injects the CamelContext with all available implementations  * of {@link Routes} which are bound to Guice with an optional {@link Matcher} to filter out the classes required.  *<p>  * Or if you would like to specify exactly which {@link Routes} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *  * @version $Revision$  */
+comment|/**  * A Guice Module which injects the CamelContext with all available implementations  * of {@link org.apache.camel.RoutesBuilder} which are bound to Guice with an optional {@link Matcher} to filter out the classes required.  *<p>  * Or if you would like to specify exactly which {@link org.apache.camel.RoutesBuilder} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -132,7 +132,7 @@ name|Matchers
 operator|.
 name|subclassesOf
 argument_list|(
-name|Routes
+name|RoutesBuilder
 operator|.
 name|class
 argument_list|)
@@ -162,7 +162,7 @@ name|Provides
 DECL|method|routes (Injector injector)
 name|Set
 argument_list|<
-name|Routes
+name|RoutesBuilder
 argument_list|>
 name|routes
 parameter_list|(
