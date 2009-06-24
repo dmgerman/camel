@@ -412,6 +412,10 @@ decl_stmt|;
 name|IrcBinding
 name|binding
 init|=
+name|exchange
+operator|!=
+literal|null
+condition|?
 operator|(
 name|IrcBinding
 operator|)
@@ -423,8 +427,14 @@ name|Exchange
 operator|.
 name|BINDING
 argument_list|)
+else|:
+literal|null
 decl_stmt|;
 return|return
+name|binding
+operator|!=
+literal|null
+condition|?
 name|binding
 operator|.
 name|extractBodyFromIrc
@@ -433,6 +443,8 @@ name|exchange
 argument_list|,
 name|this
 argument_list|)
+else|:
+literal|null
 return|;
 block|}
 annotation|@
