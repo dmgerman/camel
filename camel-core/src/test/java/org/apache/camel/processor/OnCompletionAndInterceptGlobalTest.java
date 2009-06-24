@@ -119,7 +119,7 @@ argument_list|(
 literal|"mock:intercept"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|4
 argument_list|)
@@ -189,7 +189,7 @@ argument_list|(
 literal|"mock:intercept"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|4
 argument_list|)

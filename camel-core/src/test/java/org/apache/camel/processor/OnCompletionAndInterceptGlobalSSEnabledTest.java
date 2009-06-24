@@ -24,9 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|CamelContext
 import|;
 end_import
 
@@ -44,29 +42,23 @@ name|OnCompletionAndInterceptGlobalTest
 block|{
 annotation|@
 name|Override
-DECL|method|createRouteBuilder ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 comment|// enabled stream cache
+name|CamelContext
+name|context
+init|=
+name|super
+operator|.
+name|createCamelContext
+argument_list|()
+decl_stmt|;
 name|context
 operator|.
 name|setStreamCaching
@@ -74,49 +66,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|intercept
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"mock:intercept"
-argument_list|)
-expr_stmt|;
-comment|// define a global on completion that is invoked when the exchage is complete
-name|onCompletion
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"log:global"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:sync"
-argument_list|)
-expr_stmt|;
-comment|// START SNIPPET: e1
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|MyProcessor
-argument_list|()
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-block|}
-block|}
+return|return
+name|context
 return|;
 block|}
 block|}
