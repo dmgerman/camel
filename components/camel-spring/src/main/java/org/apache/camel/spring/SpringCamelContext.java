@@ -573,8 +573,13 @@ condition|(
 operator|!
 name|isStarted
 argument_list|()
+operator|&&
+operator|!
+name|isStarting
+argument_list|()
 condition|)
 block|{
+comment|// Make sure we will not get into the endless loop of calling star
 name|LOG
 operator|.
 name|info
