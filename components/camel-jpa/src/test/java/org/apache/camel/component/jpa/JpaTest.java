@@ -600,6 +600,33 @@ name|receivedExchange
 operator|=
 name|e
 expr_stmt|;
+comment|// should have a JpaTemplate
+name|JpaTemplate
+name|template
+init|=
+name|e
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|JpaConstants
+operator|.
+name|JPA_TEMPLATE
+argument_list|,
+name|JpaTemplate
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have a JpaTemplate as header"
+argument_list|,
+name|template
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown

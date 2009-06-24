@@ -46,6 +46,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -115,38 +127,38 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|template
-specifier|private
-name|JpaTemplate
-name|template
-decl_stmt|;
-DECL|method|CustomerTransformer (JpaTemplate template)
-specifier|public
-name|CustomerTransformer
-parameter_list|(
-name|JpaTemplate
-name|template
-parameter_list|)
-block|{
-name|this
-operator|.
-name|template
-operator|=
-name|template
-expr_stmt|;
-block|}
 comment|/**      * A transformation method to convert a person document into a customer      * entity      */
 annotation|@
 name|Converter
-DECL|method|toCustomer (PersonDocument doc)
+DECL|method|toCustomer (PersonDocument doc, Exchange exchange)
 specifier|public
 name|CustomerEntity
 name|toCustomer
 parameter_list|(
 name|PersonDocument
 name|doc
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
+name|JpaTemplate
+name|template
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"CamelJpaTemplate"
+argument_list|,
+name|JpaTemplate
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|String
 name|user
 init|=
@@ -160,6 +172,8 @@ name|customer
 init|=
 name|findCustomerByName
 argument_list|(
+name|template
+argument_list|,
 name|user
 argument_list|)
 decl_stmt|;
@@ -208,11 +222,14 @@ name|customer
 return|;
 block|}
 comment|/**      * Finds a customer for the given username, or creates and inserts a new one      */
-DECL|method|findCustomerByName (String user)
+DECL|method|findCustomerByName (JpaTemplate template, String user)
 specifier|protected
 name|CustomerEntity
 name|findCustomerByName
 parameter_list|(
+name|JpaTemplate
+name|template
+parameter_list|,
 name|String
 name|user
 parameter_list|)
