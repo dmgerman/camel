@@ -2335,15 +2335,15 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isWarnEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Could not determine specific JmsMessage type to use from body."
+literal|"Cannot determine specific JmsMessage type to use from body class."
 operator|+
 literal|" Will use generic JmsMessage."
 operator|+
@@ -2364,8 +2364,12 @@ name|getCanonicalName
 argument_list|()
 operator|)
 else|:
-literal|""
+literal|" Body is null"
 operator|)
+operator|+
+literal|". If you want to send a POJO then your class might need to implement java.io.Serializable"
+operator|+
+literal|", or you can force a specific type by setting the jmsMessageType option on the JMS endpoint."
 argument_list|)
 expr_stmt|;
 block|}
