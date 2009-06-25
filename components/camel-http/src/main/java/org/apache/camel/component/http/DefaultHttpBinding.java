@@ -292,6 +292,12 @@ name|HttpMessage
 name|message
 parameter_list|)
 block|{
+comment|// lets parser the parameterMap first to avoid consuming the POST parameters as InputStream
+name|request
+operator|.
+name|getParameterMap
+argument_list|()
+expr_stmt|;
 comment|// lets force a parse of the body and headers
 name|message
 operator|.
