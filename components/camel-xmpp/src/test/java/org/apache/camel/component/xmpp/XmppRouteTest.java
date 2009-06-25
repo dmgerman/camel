@@ -275,7 +275,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|receivedExchange
 specifier|protected
-name|XmppExchange
+name|Exchange
 name|receivedExchange
 decl_stmt|;
 DECL|field|container
@@ -526,6 +526,9 @@ expr_stmt|;
 name|XmppMessage
 name|receivedMessage
 init|=
+operator|(
+name|XmppMessage
+operator|)
 name|receivedExchange
 operator|.
 name|getIn
@@ -726,9 +729,6 @@ argument_list|)
 expr_stmt|;
 name|receivedExchange
 operator|=
-operator|(
-name|XmppExchange
-operator|)
 name|e
 expr_stmt|;
 name|latch

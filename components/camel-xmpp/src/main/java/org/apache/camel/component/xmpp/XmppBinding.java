@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@link XmppExchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -389,12 +389,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Extracts the body from the XMPP message      */
-DECL|method|extractBodyFromXmpp (XmppExchange exchange, Message message)
+DECL|method|extractBodyFromXmpp (Exchange exchange, Message message)
 specifier|public
 name|Object
 name|extractBodyFromXmpp
 parameter_list|(
-name|XmppExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|Message

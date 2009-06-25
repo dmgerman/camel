@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -682,7 +694,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|XmppExchange
+name|Exchange
 name|exchange
 init|=
 name|endpoint
