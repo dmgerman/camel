@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -142,6 +152,42 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
+name|Section
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|util
+operator|.
+name|Converter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|PackageScanClassResolver
@@ -191,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BindyCsvFactory is the class who allows to :  * Generate a model associated to a CSV record, bind data from a record  * to the POJOs, export data of POJOs to a CSV record and format data  * into String, Date, Double, ... according to the format/pattern defined  */
+comment|/**  * The BindyCsvFactory is the class who allows to : Generate a model associated  * to a CSV record, bind data from a record to the POJOs, export data of POJOs  * to a CSV record and format data into String, Date, Double, ... according to  * the format/pattern defined  */
 end_comment
 
 begin_class
@@ -259,6 +305,25 @@ name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|sections
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|sections
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|separator
 specifier|private
 name|String
@@ -269,7 +334,12 @@ specifier|private
 name|boolean
 name|skipFirstLine
 decl_stmt|;
-DECL|method|BindyCsvFactory (PackageScanClassResolver resolver, String packageName)
+DECL|field|messageOrdered
+specifier|private
+name|boolean
+name|messageOrdered
+decl_stmt|;
+DECL|method|BindyCsvFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyCsvFactory
 parameter_list|(
@@ -277,7 +347,8 @@ name|PackageScanClassResolver
 name|resolver
 parameter_list|,
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 throws|throws
 name|Exception
@@ -286,7 +357,7 @@ name|super
 argument_list|(
 name|resolver
 argument_list|,
-name|packageName
+name|packageNames
 argument_list|)
 expr_stmt|;
 comment|// initialize specific parameters of the csv model
@@ -294,7 +365,7 @@ name|initCsvModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the classes and fields annoted and retrieve the      * separator of the CSV record      *       * @throws Exception      */
+comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data This process will scan for classes according to the package 	 * name provided, check the classes and fields annoted and retrieve the 	 * separator of the CSV record 	 *  	 * @throws Exception 	 */
 DECL|method|initCsvModel ()
 specifier|public
 name|void
@@ -330,6 +401,27 @@ range|:
 name|models
 control|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Class retrieved : "
+operator|+
+name|cl
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Field
@@ -737,6 +829,26 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+comment|// Map containing the OUT position of the field
+comment|// The key is double and is created using the position of the field and
+comment|// location of the class in the message (using section)
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
+name|positions
+init|=
+operator|new
+name|TreeMap
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// Check if separator exists
 name|ObjectHelper
 operator|.
@@ -749,6 +861,49 @@ argument_list|,
 literal|"The separator has not been instantiated or property not defined in the @CsvRecord annotation"
 argument_list|)
 expr_stmt|;
+name|char
+name|separator
+init|=
+name|Converter
+operator|.
+name|getCharDelimitor
+argument_list|(
+name|this
+operator|.
+name|getSeparator
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Separator converted : '0x"
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|separator
+argument_list|)
+operator|+
+literal|"', from : "
+operator|+
+name|this
+operator|.
+name|getSeparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|it
@@ -816,6 +971,7 @@ name|precision
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Get object to be formatted
 name|Object
 name|obj
 init|=
@@ -832,6 +988,134 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|obj
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|isMessageOrdered
+argument_list|()
+condition|)
+block|{
+comment|// Generate a key using the number of the section
+comment|// and the position of the field
+name|Integer
+name|key1
+init|=
+name|sections
+operator|.
+name|get
+argument_list|(
+name|obj
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Integer
+name|key2
+init|=
+name|dataField
+operator|.
+name|position
+argument_list|()
+decl_stmt|;
+name|Integer
+name|keyGenerated
+init|=
+name|generateKey
+argument_list|(
+name|key1
+argument_list|,
+name|key2
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Key generated : "
+operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|keyGenerated
+argument_list|)
+operator|+
+literal|", for section : "
+operator|+
+name|key1
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Add the content to the TreeMap according to the position
+comment|// defined
+name|String
+name|value
+init|=
+name|format
+operator|.
+name|format
+argument_list|(
+name|field
+operator|.
+name|get
+argument_list|(
+name|obj
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|positions
+operator|.
+name|put
+argument_list|(
+name|keyGenerated
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Positions size : "
+operator|+
+name|positions
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 comment|// Convert the content to a String and append it to the builder
 name|builder
 operator|.
@@ -862,12 +1146,105 @@ name|builder
 operator|.
 name|append
 argument_list|(
-name|this
-operator|.
-name|getSeparator
-argument_list|()
+name|separator
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+comment|// Iterate through the list to generate
+comment|// the message according to the order/position
+if|if
+condition|(
+name|this
+operator|.
+name|isMessageOrdered
+argument_list|()
+condition|)
+block|{
+name|Iterator
+argument_list|<
+name|Integer
+argument_list|>
+name|posit
+init|=
+name|positions
+operator|.
+name|keySet
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|posit
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|String
+name|value
+init|=
+name|positions
+operator|.
+name|get
+argument_list|(
+name|posit
+operator|.
+name|next
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Value added at the position ("
+operator|+
+name|posit
+operator|+
+literal|") : "
+operator|+
+name|value
+operator|+
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|append
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|append
+argument_list|(
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -877,7 +1254,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
+comment|/** 	 * Find the separator used to delimit the CSV fields 	 */
 DECL|method|getSeparator ()
 specifier|public
 name|String
@@ -888,7 +1265,7 @@ return|return
 name|separator
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
+comment|/** 	 * Find the separator used to delimit the CSV fields 	 */
 DECL|method|getSkipFirstLine ()
 specifier|public
 name|boolean
@@ -899,7 +1276,18 @@ return|return
 name|skipFirstLine
 return|;
 block|}
-comment|/**      * Get paramaters defined in @Csvrecord annotation      */
+comment|/** 	 * Flag indicating if the message must be ordered 	 *  	 * @return boolean 	 */
+DECL|method|isMessageOrdered ()
+specifier|public
+name|boolean
+name|isMessageOrdered
+parameter_list|()
+block|{
+return|return
+name|messageOrdered
+return|;
+block|}
+comment|/** 	 *  	 * Get paramaters defined in @Csvrecord annotation 	 *  	 */
 DECL|method|initCsvRecordParameters ()
 specifier|private
 name|void
@@ -937,6 +1325,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Get annotation @Section from the class
+name|Section
+name|section
+init|=
+name|cl
+operator|.
+name|getAnnotation
+argument_list|(
+name|Section
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|record
@@ -944,6 +1345,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Csv record : "
+operator|+
+name|record
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Get skipFirstLine parameter
 name|skipFirstLine
 operator|=
@@ -1034,6 +1456,43 @@ name|crlf
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|section
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Test if section number is not null
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|section
+operator|.
+name|nber
+argument_list|()
+argument_list|,
+literal|"No number has been defined for the section !"
+argument_list|)
+expr_stmt|;
+comment|// Get section number and add it to the sections
+name|sections
+operator|.
+name|put
+argument_list|(
+name|cl
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|section
+operator|.
+name|nber
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

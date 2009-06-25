@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -146,6 +156,24 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
+name|annotation
+operator|.
+name|Section
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
 name|util
 operator|.
 name|Converter
@@ -209,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BindyKeyValuePairFactory is the class who allows to bind data of type  * key value pair. Such format exist in financial messages FIX.  * This class allows to generate a model associated to message, bind data from a message  * to the POJOs, export data of POJOs to a message and format data  * into String, Date, Double, ... according to the format/pattern defined  */
+comment|/**  * The BindyKeyValuePairFactory is the class who allows to bind data of type key  * value pair. Such format exist in financial messages FIX. This class allows to  * generate a model associated to message, bind data from a message to the  * POJOs, export data of POJOs to a message and format data into String, Date,  * Double, ... according to the format/pattern defined  */
 end_comment
 
 begin_class
@@ -277,6 +305,25 @@ name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|sections
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|sections
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|keyValuePairSeparator
 specifier|private
 name|String
@@ -287,7 +334,12 @@ specifier|private
 name|String
 name|pairSeparator
 decl_stmt|;
-DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, String packageName)
+DECL|field|messageOrdered
+specifier|private
+name|boolean
+name|messageOrdered
+decl_stmt|;
+DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyKeyValuePairFactory
 parameter_list|(
@@ -295,7 +347,8 @@ name|PackageScanClassResolver
 name|resolver
 parameter_list|,
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 throws|throws
 name|Exception
@@ -304,7 +357,7 @@ name|super
 argument_list|(
 name|resolver
 argument_list|,
-name|packageName
+name|packageNames
 argument_list|)
 expr_stmt|;
 comment|// Initialize what is specific to Key Value Pair model
@@ -312,7 +365,7 @@ name|initKeyValuePairModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the classes and fields annoted. Next, we retrieve the      * parameters required like : Pair Separator& key value pair separator      *       * @throws Exception      */
+comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data This process will scan for classes according to the package 	 * name provided, check the classes and fields annoted. Next, we retrieve 	 * the parameters required like : Pair Separator& key value pair separator 	 *  	 * @throws Exception 	 */
 DECL|method|initKeyValuePairModel ()
 specifier|public
 name|void
@@ -833,6 +886,26 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+comment|// Map containing the OUT position of the field
+comment|// The key is double and is created using the position of the field and
+comment|// location of the class in the message (using section)
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
+name|positions
+init|=
+operator|new
+name|TreeMap
+argument_list|<
+name|Integer
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// Check if separator exists
 name|ObjectHelper
 operator|.
@@ -1009,6 +1082,7 @@ name|precision
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Get object to be formatted
 name|Object
 name|obj
 init|=
@@ -1027,6 +1101,57 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|obj
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|isMessageOrdered
+argument_list|()
+condition|)
+block|{
+comment|// Generate a key using the number of the section
+comment|// and the position of the field
+name|Integer
+name|key1
+init|=
+name|sections
+operator|.
+name|get
+argument_list|(
+name|obj
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Integer
+name|key2
+init|=
+name|keyValuePairField
+operator|.
+name|position
+argument_list|()
+decl_stmt|;
+name|Integer
+name|keyGenerated
+init|=
+name|generateKey
+argument_list|(
+name|key1
+argument_list|,
+name|key2
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -1037,22 +1162,133 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Model object : "
+literal|"Key generated : "
 operator|+
-name|obj
+name|String
 operator|.
-name|toString
+name|valueOf
+argument_list|(
+name|keyGenerated
+argument_list|)
+operator|+
+literal|", for section : "
+operator|+
+name|key1
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Add the content to the TreeMap according to the position
+comment|// defined
+name|String
+name|value
+init|=
+name|keyValuePairField
+operator|.
+name|tag
+argument_list|()
+operator|+
+name|this
+operator|.
+name|getKeyValuePairSeparator
+argument_list|()
+operator|+
+name|format
+operator|.
+name|format
+argument_list|(
+name|field
+operator|.
+name|get
+argument_list|(
+name|obj
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|positions
+operator|.
+name|put
+argument_list|(
+name|keyGenerated
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Positions size : "
+operator|+
+name|positions
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Convert the content to a String and append it to the builder
+block|}
+else|else
+block|{
+comment|// Convert the content to a String and append it to the
+comment|// builder
 comment|// Add the tag followed by its key value pair separator
 comment|// the data and finish by the pair separator
+name|String
+name|value
+init|=
+name|keyValuePairField
+operator|.
+name|tag
+argument_list|()
+operator|+
+name|this
+operator|.
+name|getKeyValuePairSeparator
+argument_list|()
+operator|+
+name|format
+operator|.
+name|format
+argument_list|(
+name|field
+operator|.
+name|get
+argument_list|(
+name|obj
+argument_list|)
+argument_list|)
+operator|+
+name|separator
+decl_stmt|;
 name|builder
 operator|.
 name|append
 argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Value added : "
+operator|+
 name|keyValuePairField
 operator|.
 name|tag
@@ -1079,6 +1315,89 @@ name|separator
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+block|}
+comment|// Iterate through the list to generate
+comment|// the message according to the order/position
+if|if
+condition|(
+name|this
+operator|.
+name|isMessageOrdered
+argument_list|()
+condition|)
+block|{
+name|Iterator
+argument_list|<
+name|Integer
+argument_list|>
+name|posit
+init|=
+name|positions
+operator|.
+name|keySet
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|posit
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|String
+name|value
+init|=
+name|positions
+operator|.
+name|get
+argument_list|(
+name|posit
+operator|.
+name|next
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Value added at the position ("
+operator|+
+name|posit
+operator|+
+literal|") : "
+operator|+
+name|value
+operator|+
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|append
+argument_list|(
+name|value
+operator|+
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|builder
 operator|.
@@ -1086,7 +1405,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Find the pair separator used to delimit the key value pair fields      */
+comment|/** 	 * Find the pair separator used to delimit the key value pair fields 	 */
 DECL|method|getPairSeparator ()
 specifier|public
 name|String
@@ -1097,7 +1416,7 @@ return|return
 name|pairSeparator
 return|;
 block|}
-comment|/**      * Find the key value pair separator used to link the key with its value      */
+comment|/** 	 * Find the key value pair separator used to link the key with its value 	 */
 DECL|method|getKeyValuePairSeparator ()
 specifier|public
 name|String
@@ -1108,7 +1427,18 @@ return|return
 name|keyValuePairSeparator
 return|;
 block|}
-comment|/**      * Get parameters defined in @Message annotation      */
+comment|/** 	 * Flag indicating if the message must be ordered 	 *  	 * @return boolean 	 */
+DECL|method|isMessageOrdered ()
+specifier|public
+name|boolean
+name|isMessageOrdered
+parameter_list|()
+block|{
+return|return
+name|messageOrdered
+return|;
+block|}
+comment|/** 	 * Get parameters defined in @Message annotation 	 */
 DECL|method|initMessageParameters ()
 specifier|private
 name|void
@@ -1150,6 +1480,19 @@ operator|.
 name|getAnnotation
 argument_list|(
 name|Message
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// Get annotation @Section from the class
+name|Section
+name|section
+init|=
+name|cl
+operator|.
+name|getAnnotation
+argument_list|(
+name|Section
 operator|.
 name|class
 argument_list|)
@@ -1263,6 +1606,69 @@ name|crlf
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Get isOrderer parameter
+name|messageOrdered
+operator|=
+name|message
+operator|.
+name|isOrdered
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Is the message ordered in output : "
+operator|+
+name|messageOrdered
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|section
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Test if section number is not null
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|section
+operator|.
+name|nber
+argument_list|()
+argument_list|,
+literal|"No number has been defined for the section !"
+argument_list|)
+expr_stmt|;
+comment|// Get section number and add it to the sections
+name|sections
+operator|.
+name|put
+argument_list|(
+name|cl
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|section
+operator|.
+name|nber
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

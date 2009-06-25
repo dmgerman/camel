@@ -34,6 +34,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|text
+operator|.
+name|NumberFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -155,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BindyAbstractFactory implements what its common to all the   * formats supported by camel bindy  */
+comment|/**  * The BindyAbstractFactory implements what its common to all the formats  * supported by camel bindy  */
 end_comment
 
 begin_class
@@ -221,12 +231,13 @@ specifier|private
 name|AnnotationModelLoader
 name|modelsLoader
 decl_stmt|;
-DECL|field|packageName
+DECL|field|packageNames
 specifier|private
 name|String
-name|packageName
+index|[]
+name|packageNames
 decl_stmt|;
-DECL|method|BindyAbstractFactory (PackageScanClassResolver resolver, String packageName)
+DECL|method|BindyAbstractFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyAbstractFactory
 parameter_list|(
@@ -234,7 +245,8 @@ name|PackageScanClassResolver
 name|resolver
 parameter_list|,
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 throws|throws
 name|Exception
@@ -251,15 +263,36 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|packageName
+name|packageNames
 operator|=
-name|packageName
+name|packageNames
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Package(s) name : "
+operator|+
+name|packageNames
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|initModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the package      * name provided, check the classes and fields annoted.      *       * @throws Exception      */
+comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data. This process will scan for classes according to the 	 * package name provided, check the classes and fields annoted. 	 *  	 * @throws Exception 	 */
 DECL|method|initModel ()
 specifier|public
 name|void
@@ -271,18 +304,21 @@ block|{
 comment|// Find classes defined as Model
 name|initModelClasses
 argument_list|(
-name|packageName
+name|this
+operator|.
+name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find all the classes defined as model      */
-DECL|method|initModelClasses (String packageName)
+comment|/** 	 * Find all the classes defined as model 	 */
+DECL|method|initModelClasses (String... packageNames)
 specifier|private
 name|void
 name|initModelClasses
 parameter_list|(
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 throws|throws
 name|Exception
@@ -293,11 +329,11 @@ name|modelsLoader
 operator|.
 name|loadModels
 argument_list|(
-name|packageName
+name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find fields annoted in each class of the model      */
+comment|/** 	 * Find fields annoted in each class of the model 	 */
 DECL|method|initAnnotedFields ()
 specifier|public
 specifier|abstract
@@ -347,7 +383,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Link objects together (Only 1to1 relation is allowed)      */
+comment|/** 	 * Link objects together (Only 1to1 relation is allowed) 	 */
 DECL|method|link (Map<String, Object> model)
 specifier|public
 name|void
@@ -445,7 +481,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from records, messages      * @throws Exception can be thrown      */
+comment|/** 	 * Factory method generating new instances of the model and adding them to a 	 * HashMap 	 *  	 * @return Map is a collection of the objects used to bind data from 	 *         records, messages 	 * @throws Exception 	 *             can be thrown 	 */
 DECL|method|factory ()
 specifier|public
 name|Map
@@ -518,7 +554,92 @@ return|return
 name|mapModel
 return|;
 block|}
-comment|/**      * Find the carriage return set      */
+comment|/** 	 * Generate a unique key 	 *  	 * @param key1 	 *            The key of the section number 	 * @param key2 	 *            The key of the position of the field 	 * @return the key generated 	 */
+DECL|method|generateKey (Integer key1, Integer key2)
+specifier|protected
+specifier|static
+name|Integer
+name|generateKey
+parameter_list|(
+name|Integer
+name|key1
+parameter_list|,
+name|Integer
+name|key2
+parameter_list|)
+block|{
+name|String
+name|key2Formated
+init|=
+name|getNumberFormat
+argument_list|()
+operator|.
+name|format
+argument_list|(
+operator|(
+name|long
+operator|)
+name|key2
+argument_list|)
+decl_stmt|;
+name|String
+name|keyGenerated
+init|=
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|key1
+argument_list|)
+operator|+
+name|key2Formated
+decl_stmt|;
+return|return
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+name|keyGenerated
+argument_list|)
+return|;
+block|}
+comment|/** 	 *  	 * @return NumberFormat 	 */
+DECL|method|getNumberFormat ()
+specifier|private
+specifier|static
+name|NumberFormat
+name|getNumberFormat
+parameter_list|()
+block|{
+comment|// Get instance of NumberFormat
+name|NumberFormat
+name|nf
+init|=
+name|NumberFormat
+operator|.
+name|getInstance
+argument_list|()
+decl_stmt|;
+comment|// set max number of digits to 3 (thousands)
+name|nf
+operator|.
+name|setMaximumIntegerDigits
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+name|nf
+operator|.
+name|setMinimumIntegerDigits
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+return|return
+name|nf
+return|;
+block|}
+comment|/** 	 * Find the carriage return set 	 */
 DECL|method|getCarriageReturn ()
 specifier|public
 name|String

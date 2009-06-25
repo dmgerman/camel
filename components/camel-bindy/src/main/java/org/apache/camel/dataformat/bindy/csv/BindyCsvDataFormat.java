@@ -311,6 +311,15 @@ name|getPackageScanClassResolver
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|factory
+argument_list|,
+literal|"not instantiated"
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|Map
@@ -444,6 +453,15 @@ name|getPackageScanClassResolver
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|factory
+argument_list|,
+literal|"not instantiated"
+argument_list|)
+expr_stmt|;
 comment|// List of Pojos
 name|List
 argument_list|<
@@ -511,7 +529,7 @@ name|notEmpty
 argument_list|(
 name|separator
 argument_list|,
-literal|"The separator has not been defined in the annotation @Record or not instantiated during initModel."
+literal|"The separator has not been defined in the annotation @CsvRecord or not instantiated during initModel."
 argument_list|)
 expr_stmt|;
 name|int

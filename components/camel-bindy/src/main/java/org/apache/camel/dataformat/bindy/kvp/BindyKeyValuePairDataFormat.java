@@ -261,10 +261,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|packageName
+DECL|field|packageNames
 specifier|private
 name|String
-name|packageName
+index|[]
+name|packageNames
 decl_stmt|;
 DECL|field|modelFactory
 specifier|private
@@ -276,19 +277,20 @@ specifier|public
 name|BindyKeyValuePairDataFormat
 parameter_list|()
 block|{     }
-DECL|method|BindyKeyValuePairDataFormat (String packageName)
+DECL|method|BindyKeyValuePairDataFormat (String... packageNames)
 specifier|public
 name|BindyKeyValuePairDataFormat
 parameter_list|(
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 block|{
 name|this
 operator|.
-name|packageName
+name|packageNames
 operator|=
-name|packageName
+name|packageNames
 expr_stmt|;
 block|}
 annotation|@
@@ -721,7 +723,7 @@ name|resolver
 argument_list|,
 name|this
 operator|.
-name|packageName
+name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
@@ -745,30 +747,32 @@ operator|=
 name|modelFactory
 expr_stmt|;
 block|}
-DECL|method|getPackageName ()
+DECL|method|getPackageNames ()
 specifier|public
 name|String
-name|getPackageName
+index|[]
+name|getPackageNames
 parameter_list|()
 block|{
 return|return
-name|packageName
+name|packageNames
 return|;
 block|}
-DECL|method|setPackageName (String packageName)
+DECL|method|setPackageNames (String... packageNames)
 specifier|public
 name|void
-name|setPackageName
+name|setPackageNames
 parameter_list|(
 name|String
-name|packageName
+modifier|...
+name|packageNames
 parameter_list|)
 block|{
 name|this
 operator|.
-name|packageName
+name|packageNames
 operator|=
-name|packageName
+name|packageNames
 expr_stmt|;
 block|}
 block|}
