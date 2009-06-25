@@ -944,12 +944,12 @@ name|contentType
 return|;
 block|}
 comment|/**      * Extracts the body from the Mail message      */
-DECL|method|extractBodyFromMail (MailExchange exchange, Message message)
+DECL|method|extractBodyFromMail (Exchange exchange, Message message)
 specifier|public
 name|Object
 name|extractBodyFromMail
 parameter_list|(
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|Message

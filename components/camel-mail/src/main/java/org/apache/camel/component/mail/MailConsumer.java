@@ -732,11 +732,11 @@ operator|++
 control|)
 block|{
 comment|// only loop if we are started (allowed to run)
-name|MailExchange
+name|Exchange
 name|exchange
 init|=
 operator|(
-name|MailExchange
+name|Exchange
 operator|)
 name|exchanges
 operator|.
@@ -941,7 +941,7 @@ name|DELETED
 argument_list|)
 condition|)
 block|{
-name|MailExchange
+name|Exchange
 name|exchange
 init|=
 name|endpoint
@@ -991,12 +991,12 @@ name|answer
 return|;
 block|}
 comment|/**      * Strategy to process the mail message.      */
-DECL|method|processExchange (MailExchange exchange)
+DECL|method|processExchange (Exchange exchange)
 specifier|protected
 name|void
 name|processExchange
 parameter_list|(
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1010,6 +1010,17 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+name|MailMessage
+name|msg
+init|=
+operator|(
+name|MailMessage
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -1020,10 +1031,7 @@ name|MailUtils
 operator|.
 name|dumpMessage
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|msg
 operator|.
 name|getMessage
 argument_list|()
@@ -1041,24 +1049,32 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Strategy to flag the message after being processed.      */
-DECL|method|processCommit (MailExchange exchange)
+DECL|method|processCommit (Exchange exchange)
 specifier|protected
 name|void
 name|processCommit
 parameter_list|(
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-name|Message
-name|message
+name|MailMessage
+name|msg
 init|=
+operator|(
+name|MailMessage
+operator|)
 name|exchange
 operator|.
 name|getIn
 argument_list|()
+decl_stmt|;
+name|Message
+name|message
+init|=
+name|msg
 operator|.
 name|getMessage
 argument_list|()
@@ -1120,12 +1136,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when processing the exchange failed.      */
-DECL|method|processRollback (MailExchange exchange)
+DECL|method|processRollback (Exchange exchange)
 specifier|protected
 name|void
 name|processRollback
 parameter_list|(
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws

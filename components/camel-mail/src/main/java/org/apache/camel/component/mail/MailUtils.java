@@ -368,6 +368,17 @@ name|Message
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|message
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"null"
+return|;
+block|}
 try|try
 block|{
 name|StringBuilder
