@@ -1822,6 +1822,8 @@ return|return
 operator|new
 name|MethodInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|clazz
 argument_list|,
 name|method
