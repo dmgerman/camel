@@ -310,6 +310,48 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Extracts the Exchange.BINDING of the given type or null if not present      *      * @param exchange the message exchange      * @param type the expected binding type      * @return the binding object of the given type or null if it could not be found or converted      */
+DECL|method|getBinding (Exchange exchange, Class<T> type)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getBinding
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|!=
+literal|null
+condition|?
+operator|(
+name|T
+operator|)
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BINDING
+argument_list|,
+name|type
+argument_list|)
+else|:
+literal|null
+return|;
+block|}
 comment|/**      * Attempts to resolve the endpoint for the given value      *      * @param exchange the message exchange being processed      * @param value the value which can be an {@link Endpoint} or an object      *                which provides a String representation of an endpoint via      *                {@link #toString()}      *      * @return the endpoint      * @throws NoSuchEndpointException if the endpoint cannot be resolved      */
 DECL|method|resolveEndpoint (Exchange exchange, Object value)
 specifier|public
