@@ -96,8 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
 name|RouteNode
 import|;
 end_import

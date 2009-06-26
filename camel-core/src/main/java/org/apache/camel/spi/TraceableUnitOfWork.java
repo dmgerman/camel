@@ -34,9 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|InterceptDefinition
+name|RouteNode
 import|;
 end_import
 
@@ -50,7 +48,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteNode
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -97,11 +95,11 @@ name|getNodes
 parameter_list|()
 function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping how far this      * exchange have been intercepted by the general intercept().      *<p/>      * We need this special book keeping to keep correct order when dealing      * with concurrent exchanges being routed in the same route path.      *      * @param node the intercept node      * @return the current count      */
-DECL|method|getAndIncrement (InterceptDefinition node)
+DECL|method|getAndIncrement (ProcessorDefinition node)
 name|int
 name|getAndIncrement
 parameter_list|(
-name|InterceptDefinition
+name|ProcessorDefinition
 name|node
 parameter_list|)
 function_decl|;

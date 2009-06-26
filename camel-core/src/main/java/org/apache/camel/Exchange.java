@@ -134,6 +134,12 @@ name|CONTENT_TYPE
 init|=
 literal|"CamelContentType"
 decl_stmt|;
+DECL|field|CORRELATION_ID
+name|String
+name|CORRELATION_ID
+init|=
+literal|"CamelCorrelationId"
+decl_stmt|;
 DECL|field|DATASET_INDEX
 name|String
 name|DATASET_INDEX

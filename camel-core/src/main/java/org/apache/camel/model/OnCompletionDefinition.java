@@ -190,6 +190,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|UnitOfWorkProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -357,6 +371,15 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+comment|// wrap the on completion route in a unit of work processor
+name|childProcessor
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|childProcessor
+argument_list|)
+expr_stmt|;
 name|Predicate
 name|when
 init|=

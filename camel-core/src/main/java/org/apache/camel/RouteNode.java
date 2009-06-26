@@ -4,15 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|model
 package|;
 end_package
 
@@ -24,7 +22,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|model
+operator|.
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -48,6 +48,21 @@ comment|/**      * Gets the model definition that represents this node      *   
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
 name|getProcessorDefinition
+parameter_list|()
+function_decl|;
+comment|/**      * Gets a label about this node to be used for tracing or tooling etc.      *      * @param exchange the current exchange      * @return  a label for this node      */
+DECL|method|getLabel (Exchange exchange)
+name|String
+name|getLabel
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Whether this node is abstract (no real processor under the cover).      *<p/>      * Some nodes is abstract that represents intermediate steps for instance with      * onException, onCompletion or intercept      *      * @return whether this node is abstract or not      */
+DECL|method|isAbstract ()
+name|boolean
+name|isAbstract
 parameter_list|()
 function_decl|;
 block|}

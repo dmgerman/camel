@@ -278,6 +278,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// define a global on completion that is invoked when the exchage is complete
 name|onCompletion

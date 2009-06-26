@@ -498,6 +498,21 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set a correlation id so we can track back the original exchange
+name|copy
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CORRELATION_ID
+argument_list|,
+name|this
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|copy
 return|;

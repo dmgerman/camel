@@ -187,6 +187,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
@@ -718,6 +720,16 @@ operator|+
 name|processor
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"OnCompletion"
 return|;
 block|}
 block|}

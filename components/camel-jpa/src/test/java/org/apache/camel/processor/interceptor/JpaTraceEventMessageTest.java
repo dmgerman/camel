@@ -488,7 +488,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"to(mock:result)"
+literal|"mock:result"
 argument_list|,
 name|db
 operator|.
