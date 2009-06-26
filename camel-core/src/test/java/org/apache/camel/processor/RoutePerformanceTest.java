@@ -355,9 +355,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:a"
+literal|"log:a?level=OFF"
 argument_list|,
-literal|"direct:b"
+literal|"log:b?level=OFF"
 argument_list|,
 literal|"direct:c"
 argument_list|)

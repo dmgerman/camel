@@ -180,7 +180,7 @@ name|Processor
 name|getNextProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the defintion of the next processor      */
+comment|/**      * Gets the defintion of the next processor      *      * @return the processor definition      */
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
 name|getProcessorDefinition

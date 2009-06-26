@@ -814,6 +814,15 @@ name|Boolean
 name|cache
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *<p/>      * Will use the default trace formatter.      *<p/>      * Use {@link this#addInterceptStrategy(org.apache.camel.spi.InterceptStrategy)} if you      * want to add a custom {@link org.apache.camel.processor.interceptor.Tracer} where you      * can custome the tracing options and formatting as you like.      *      * @param tracing whether tracing is enabled or not.      */
+DECL|method|setTracing (Boolean tracing)
+name|void
+name|setTracing
+parameter_list|(
+name|Boolean
+name|tracing
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -44,22 +44,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -144,11 +128,9 @@ block|{
 name|getContext
 argument_list|()
 operator|.
-name|addInterceptStrategy
+name|setTracing
 argument_list|(
-operator|new
-name|Tracer
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 name|from

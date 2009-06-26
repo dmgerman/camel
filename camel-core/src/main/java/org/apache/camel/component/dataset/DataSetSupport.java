@@ -341,6 +341,20 @@ operator|/
 literal|5
 expr_stmt|;
 block|}
+comment|// report cannot be 0 then default to the size
+if|if
+condition|(
+name|reportCount
+operator|==
+literal|0
+condition|)
+block|{
+name|reportCount
+operator|=
+name|getSize
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|reportCount
 return|;

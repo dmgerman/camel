@@ -282,7 +282,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello,World"
+literal|"Hello,World,Moon"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -292,7 +292,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"last hi Hello@hi World"
+literal|"last hi Hello@hi World@hi Moon"
 argument_list|)
 expr_stmt|;
 name|template
@@ -301,7 +301,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello,World"
+literal|"Hello,World,Moon"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -332,6 +332,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|MySplitBean
 name|bean
 init|=
@@ -446,6 +453,11 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:split"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:foo"
 argument_list|)
 operator|.
 name|end

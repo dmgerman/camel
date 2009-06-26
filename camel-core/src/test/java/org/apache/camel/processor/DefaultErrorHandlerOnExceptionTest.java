@@ -190,6 +190,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -200,6 +207,11 @@ operator|.
 name|handled
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:boom"
 argument_list|)
 operator|.
 name|to
