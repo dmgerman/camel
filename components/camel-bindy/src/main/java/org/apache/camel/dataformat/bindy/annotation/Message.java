@@ -75,7 +75,7 @@ specifier|public
 annotation_defn|@interface
 name|Message
 block|{
-comment|/** 	 * Name describing the message (optional) 	 *  	 * @return String 	 */
+comment|/**      * Name describing the message (optional)      *       * @return String      */
 DECL|method|name ()
 name|String
 name|name
@@ -83,19 +83,19 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/** 	 * Pair separator used to split the key value pairs in tokens (mandatory) 	 *  	 * @return String 	 */
+comment|/**      * Pair separator used to split the key value pairs in tokens (mandatory)      *       * @return String      */
 DECL|method|pairSeparator ()
 name|String
 name|pairSeparator
 parameter_list|()
 function_decl|;
-comment|/** 	 * Key value pair separator is used to split the values from their keys 	 * (mandatory) 	 *  	 * @return String 	 */
+comment|/**      * Key value pair separator is used to split the values from their keys      * (mandatory)      *       * @return String      */
 DECL|method|keyValuePairSeparator ()
 name|String
 name|keyValuePairSeparator
 parameter_list|()
 function_decl|;
-comment|/** 	 * type is used to define the type of the message (e.g. FIX, EMX, ...) 	 * (optional) 	 */
+comment|/**      * type is used to define the type of the message (e.g. FIX, EMX, ...)      * (optional)      */
 DECL|method|type ()
 name|String
 name|type
@@ -103,7 +103,7 @@ parameter_list|()
 default|default
 literal|"FIX"
 function_decl|;
-comment|/** 	 * version defines the version of the message (e.g. 4.1, ...) (optional) 	 */
+comment|/**      * version defines the version of the message (e.g. 4.1, ...) (optional)      */
 DECL|method|version ()
 name|String
 name|version
@@ -111,7 +111,7 @@ parameter_list|()
 default|default
 literal|"4.1"
 function_decl|;
-comment|/** 	 * Character to be used to add a carriage return after each record 	 * (optional) Three values can be used : WINDOWS, UNIX or MAC 	 *  	 * @return String 	 */
+comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC      *       * @return String      */
 DECL|method|crlf ()
 name|String
 name|crlf
@@ -119,7 +119,7 @@ parameter_list|()
 default|default
 literal|"WINDOWS"
 function_decl|;
-comment|/** 	 *  	 * Indicates if the message must be ordered in output 	 *  	 * @return boolean 	 */
+comment|/**      *       * Indicates if the message must be ordered in output      *       * @return boolean      */
 DECL|method|isOrdered ()
 DECL|field|false
 name|boolean

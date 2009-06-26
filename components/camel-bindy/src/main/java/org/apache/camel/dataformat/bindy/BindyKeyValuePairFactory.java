@@ -365,7 +365,7 @@ name|initKeyValuePairModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data This process will scan for classes according to the package 	 * name provided, check the classes and fields annoted. Next, we retrieve 	 * the parameters required like : Pair Separator& key value pair separator 	 *  	 * @throws Exception 	 */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the annotated classes and fields. Next, we retrieve      * the parameters required like : Pair Separator& key value pair separator      *       * @throws Exception      */
 DECL|method|initKeyValuePairModel ()
 specifier|public
 name|void
@@ -537,7 +537,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|mapAnnotedLinkField
+name|mapAnnotatedLinkField
 operator|.
 name|put
 argument_list|(
@@ -1177,8 +1177,7 @@ name|key1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Add the content to the TreeMap according to the position
-comment|// defined
+comment|// Add the content to the TreeMap according to the position defined
 name|String
 name|value
 init|=
@@ -1405,7 +1404,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Find the pair separator used to delimit the key value pair fields 	 */
+comment|/**      * Find the pair separator used to delimit the key value pair fields      */
 DECL|method|getPairSeparator ()
 specifier|public
 name|String
@@ -1416,7 +1415,7 @@ return|return
 name|pairSeparator
 return|;
 block|}
-comment|/** 	 * Find the key value pair separator used to link the key with its value 	 */
+comment|/**      * Find the key value pair separator used to link the key with its value      */
 DECL|method|getKeyValuePairSeparator ()
 specifier|public
 name|String
@@ -1427,7 +1426,7 @@ return|return
 name|keyValuePairSeparator
 return|;
 block|}
-comment|/** 	 * Flag indicating if the message must be ordered 	 *  	 * @return boolean 	 */
+comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
 DECL|method|isMessageOrdered ()
 specifier|public
 name|boolean
@@ -1438,7 +1437,7 @@ return|return
 name|messageOrdered
 return|;
 block|}
-comment|/** 	 * Get parameters defined in @Message annotation 	 */
+comment|/**      * Get parameters defined in @Message annotation      */
 DECL|method|initMessageParameters ()
 specifier|private
 name|void
@@ -1647,7 +1646,7 @@ name|notNull
 argument_list|(
 name|section
 operator|.
-name|nber
+name|number
 argument_list|()
 argument_list|,
 literal|"No number has been defined for the section !"
@@ -1665,7 +1664,7 @@ argument_list|()
 argument_list|,
 name|section
 operator|.
-name|nber
+name|number
 argument_list|()
 argument_list|)
 expr_stmt|;

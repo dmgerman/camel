@@ -104,7 +104,7 @@ name|Link
 annotation|@
 name|Section
 argument_list|(
-name|nber
+name|number
 operator|=
 literal|1
 argument_list|)

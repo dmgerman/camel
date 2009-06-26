@@ -150,7 +150,7 @@ begin_class
 annotation|@
 name|Section
 argument_list|(
-name|nber
+name|number
 operator|=
 literal|2
 argument_list|)

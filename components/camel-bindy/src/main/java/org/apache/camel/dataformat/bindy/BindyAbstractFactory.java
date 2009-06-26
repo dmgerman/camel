@@ -202,7 +202,7 @@ name|Class
 argument_list|>
 name|models
 decl_stmt|;
-DECL|field|mapAnnotedLinkField
+DECL|field|mapAnnotatedLinkField
 specifier|protected
 name|Map
 argument_list|<
@@ -210,7 +210,7 @@ name|String
 argument_list|,
 name|Field
 argument_list|>
-name|mapAnnotedLinkField
+name|mapAnnotatedLinkField
 init|=
 operator|new
 name|LinkedHashMap
@@ -292,7 +292,7 @@ name|initModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data. This process will scan for classes according to the 	 * package name provided, check the classes and fields annoted. 	 *  	 * @throws Exception 	 */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *       * @throws Exception      */
 DECL|method|initModel ()
 specifier|public
 name|void
@@ -310,7 +310,7 @@ name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Find all the classes defined as model 	 */
+comment|/**      * Find all the classes defined as model      */
 DECL|method|initModelClasses (String... packageNames)
 specifier|private
 name|void
@@ -333,7 +333,7 @@ name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Find fields annoted in each class of the model 	 */
+comment|/**      * Find fields annoted in each class of the model      */
 DECL|method|initAnnotedFields ()
 specifier|public
 specifier|abstract
@@ -383,7 +383,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/** 	 * Link objects together (Only 1to1 relation is allowed) 	 */
+comment|/**      * Link objects together (Only 1to1 relation is allowed)      */
 DECL|method|link (Map<String, Object> model)
 specifier|public
 name|void
@@ -405,7 +405,7 @@ control|(
 name|String
 name|link
 range|:
-name|mapAnnotedLinkField
+name|mapAnnotatedLinkField
 operator|.
 name|keySet
 argument_list|()
@@ -414,7 +414,7 @@ block|{
 name|Field
 name|field
 init|=
-name|mapAnnotedLinkField
+name|mapAnnotatedLinkField
 operator|.
 name|get
 argument_list|(
@@ -481,7 +481,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Factory method generating new instances of the model and adding them to a 	 * HashMap 	 *  	 * @return Map is a collection of the objects used to bind data from 	 *         records, messages 	 * @throws Exception 	 *             can be thrown 	 */
+comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from      *         records, messages      * @throws Exception      *         can be thrown      */
 DECL|method|factory ()
 specifier|public
 name|Map
@@ -554,7 +554,7 @@ return|return
 name|mapModel
 return|;
 block|}
-comment|/** 	 * Generate a unique key 	 *  	 * @param key1 	 *            The key of the section number 	 * @param key2 	 *            The key of the position of the field 	 * @return the key generated 	 */
+comment|/**      * Generate a unique key      *       * @param key1      *            The key of the section number      * @param key2      *            The key of the position of the field      * @return the key generated      */
 DECL|method|generateKey (Integer key1, Integer key2)
 specifier|protected
 specifier|static
@@ -603,7 +603,7 @@ name|keyGenerated
 argument_list|)
 return|;
 block|}
-comment|/** 	 *  	 * @return NumberFormat 	 */
+comment|/**      *       * @return NumberFormat      */
 DECL|method|getNumberFormat ()
 specifier|private
 specifier|static
@@ -639,7 +639,7 @@ return|return
 name|nf
 return|;
 block|}
-comment|/** 	 * Find the carriage return set 	 */
+comment|/**      * Find the carriage return set      */
 DECL|method|getCarriageReturn ()
 specifier|public
 name|String

@@ -365,7 +365,7 @@ name|initCsvModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data This process will scan for classes according to the package 	 * name provided, check the classes and fields annoted and retrieve the 	 * separator of the CSV record 	 *  	 * @throws Exception 	 */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the package      * name provided, check the annotated classes and fields and retrieve the      * separator of the CSV record      *       * @throws Exception      */
 DECL|method|initCsvModel ()
 specifier|public
 name|void
@@ -559,7 +559,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|mapAnnotedLinkField
+name|mapAnnotatedLinkField
 operator|.
 name|put
 argument_list|(
@@ -1066,8 +1066,7 @@ name|key1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Add the content to the TreeMap according to the position
-comment|// defined
+comment|// Add the content to the TreeMap according to the position defined
 name|String
 name|value
 init|=
@@ -1254,7 +1253,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Find the separator used to delimit the CSV fields 	 */
+comment|/**      * Find the separator used to delimit the CSV fields      */
 DECL|method|getSeparator ()
 specifier|public
 name|String
@@ -1265,7 +1264,7 @@ return|return
 name|separator
 return|;
 block|}
-comment|/** 	 * Find the separator used to delimit the CSV fields 	 */
+comment|/**      * Find the separator used to delimit the CSV fields      */
 DECL|method|getSkipFirstLine ()
 specifier|public
 name|boolean
@@ -1276,7 +1275,7 @@ return|return
 name|skipFirstLine
 return|;
 block|}
-comment|/** 	 * Flag indicating if the message must be ordered 	 *  	 * @return boolean 	 */
+comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
 DECL|method|isMessageOrdered ()
 specifier|public
 name|boolean
@@ -1287,7 +1286,7 @@ return|return
 name|messageOrdered
 return|;
 block|}
-comment|/** 	 *  	 * Get paramaters defined in @Csvrecord annotation 	 *  	 */
+comment|/**      *       * Get paramaters defined in @Csvrecord annotation      *       */
 DECL|method|initCsvRecordParameters ()
 specifier|private
 name|void
@@ -1471,7 +1470,7 @@ name|notNull
 argument_list|(
 name|section
 operator|.
-name|nber
+name|number
 argument_list|()
 argument_list|,
 literal|"No number has been defined for the section !"
@@ -1489,7 +1488,7 @@ argument_list|()
 argument_list|,
 name|section
 operator|.
-name|nber
+name|number
 argument_list|()
 argument_list|)
 expr_stmt|;
