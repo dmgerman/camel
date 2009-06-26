@@ -254,6 +254,7 @@ literal|"<return xmlns=\"http://cxf.component.camel.apache.org/\">true</return>"
 operator|+
 literal|"</ns1:echoBooleanResponse>"
 decl_stmt|;
+comment|// START SNIPPET: payload
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -432,6 +433,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: payload
 block|}
 end_class
 
