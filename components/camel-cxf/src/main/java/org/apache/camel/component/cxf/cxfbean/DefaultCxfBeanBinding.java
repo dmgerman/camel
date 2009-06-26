@@ -453,9 +453,9 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-name|CxfBeanHeaderNames
+name|Exchange
 operator|.
-name|PATH
+name|HTTP_PATH
 argument_list|,
 name|String
 operator|.
@@ -538,9 +538,9 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-name|CxfBeanHeaderNames
+name|Exchange
 operator|.
-name|VERB
+name|HTTP_METHOD
 argument_list|,
 name|String
 operator|.
@@ -573,9 +573,9 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-name|CxfBeanHeaderNames
+name|Exchange
 operator|.
-name|CHARACTER_ENCODING
+name|HTTP_CHARACTER_ENCODING
 argument_list|,
 name|String
 operator|.
@@ -631,7 +631,7 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-name|CxfBeanHeaderNames
+name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
