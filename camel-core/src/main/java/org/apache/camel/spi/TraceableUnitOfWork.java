@@ -34,7 +34,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|model
+operator|.
+name|InterceptDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteNode
 import|;
 end_import
 
@@ -50,35 +66,44 @@ name|TraceableUnitOfWork
 extends|extends
 name|UnitOfWork
 block|{
-comment|/**      * Adds the given processor that was intercepted      *      * @param processor the processor      */
-DECL|method|addInterceptedProcessor (Processor processor)
+comment|/**      * Adds the entry that was intercepted      *      * @param entry the entry      */
+DECL|method|addTraced (RouteNode entry)
 name|void
-name|addInterceptedProcessor
+name|addTraced
 parameter_list|(
-name|Processor
-name|processor
+name|RouteNode
+name|entry
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the last intercepted processor, is<tt>null</tt> if no last exists.      */
-DECL|method|getLastInterceptedProcessor ()
-name|Processor
-name|getLastInterceptedProcessor
+comment|/**      * Gets the last node, is<tt>null</tt> if no last exists.      */
+DECL|method|getLastNode ()
+name|RouteNode
+name|getLastNode
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the 2nd last intercepted processor, is<tt>null</tt> if no last exists.      */
-DECL|method|getSecondLastInterceptedProcessor ()
-name|Processor
-name|getSecondLastInterceptedProcessor
+comment|/**      * Gets the 2nd last node, is<tt>null</tt> if no last exists.      */
+DECL|method|getSecondLastNode ()
+name|RouteNode
+name|getSecondLastNode
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the current list of intercepted processors, representing the route path the      * current {@link org.apache.camel.Exchange} has taken.      */
-DECL|method|getInterceptedProcessors ()
+comment|/**      * Gets the current list of nodes, representing the route path the      * current {@link org.apache.camel.Exchange} has currently taken.      */
+DECL|method|getNodes ()
 name|List
 argument_list|<
-name|Processor
+name|RouteNode
 argument_list|>
-name|getInterceptedProcessors
+name|getNodes
 parameter_list|()
+function_decl|;
+comment|/**      * A private counter that increments, is used to as book keeping how far this      * exchange have been intercepted by the general intercept().      *<p/>      * We need this special book keeping to keep correct order when dealing      * with concurrent exchanges being routed in the same route path.      *      * @param node the intercept node      * @return the current count      */
+DECL|method|getAndIncrement (InterceptDefinition node)
+name|int
+name|getAndIncrement
+parameter_list|(
+name|InterceptDefinition
+name|node
+parameter_list|)
 function_decl|;
 block|}
 end_interface

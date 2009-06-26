@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -12,24 +12,42 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
-comment|/**  * Traceable processors allowing easeir tracing using constructed labels to help identify the processor  * and where its defined in the route model.  *  * @version $Revision$  */
+comment|/**  * Represents a model of a node in the runtime route path.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|Traceable
+DECL|interface|RouteNode
 specifier|public
 interface|interface
-name|Traceable
+name|RouteNode
 block|{
-comment|/**      * Gets the trace label used for logging when tracing is enabled.      *<p/>      * The lable should be short and precise.      *      * @return  the label      */
-DECL|method|getTraceLabel ()
-name|String
-name|getTraceLabel
+comment|/**      * Gets the actual processor this node represents.      *      * @return the processor, can be<tt>null</tt> in special cases such as an intercepted node      */
+DECL|method|getProcessor ()
+name|Processor
+name|getProcessor
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the model definition that represents this node      *      * @return the definition, is newer<tt>null</tt>      */
+DECL|method|getProcessorDefinition ()
+name|ProcessorDefinition
+name|getProcessorDefinition
 parameter_list|()
 function_decl|;
 block|}

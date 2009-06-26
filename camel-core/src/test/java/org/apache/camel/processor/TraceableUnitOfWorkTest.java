@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|RouteNode
 import|;
 end_import
 
@@ -326,16 +326,16 @@ decl_stmt|;
 comment|// get the list of intercepted nodes
 name|List
 argument_list|<
-name|Processor
+name|RouteNode
 argument_list|>
 name|list
 init|=
 name|tuow
 operator|.
-name|getInterceptedProcessors
+name|getNodes
 argument_list|()
 decl_stmt|;
-comment|// get the 2nd last as the last is me (MyErrorProcessor)
+comment|// get the 3rd last as its the bean
 name|Processor
 name|last
 init|=
@@ -348,8 +348,11 @@ operator|.
 name|size
 argument_list|()
 operator|-
-literal|2
+literal|3
 argument_list|)
+operator|.
+name|getProcessor
+argument_list|()
 decl_stmt|;
 comment|// set error message
 name|exchange

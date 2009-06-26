@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.issues
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|issues
+name|impl
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Processor
 import|;
 end_import
 
@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|model
 operator|.
-name|RouteBuilder
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -50,116 +50,92 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|model
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteNode
 import|;
 end_import
 
 begin_comment
-comment|/**  * Testing routes having multiple from in the same route.  */
+comment|/**  * A default implementation of the {@link org.apache.camel.model.RouteNode}  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MultipleFromTest
+DECL|class|DefaultRouteNode
 specifier|public
 class|class
-name|MultipleFromTest
-extends|extends
-name|ContextTestSupport
+name|DefaultRouteNode
+implements|implements
+name|RouteNode
 block|{
-DECL|method|testMultipleFrom ()
-specifier|public
-name|void
-name|testMultipleFrom
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
+DECL|field|processor
+specifier|private
+name|Processor
+name|processor
 decl_stmt|;
-name|mock
+DECL|field|processorDefinition
+specifier|private
+name|ProcessorDefinition
+name|processorDefinition
+decl_stmt|;
+DECL|method|DefaultRouteNode (Processor processor, ProcessorDefinition processorDefinition)
+specifier|public
+name|DefaultRouteNode
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|processorDefinition
+parameter_list|)
+block|{
+name|this
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
-argument_list|)
+name|processor
+operator|=
+name|processor
 expr_stmt|;
-name|mock
+name|this
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|,
-literal|"Bye World"
-argument_list|)
+name|processorDefinition
+operator|=
+name|processorDefinition
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:in"
-argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
+block|}
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+name|processor
+return|;
+block|}
+DECL|method|getProcessorDefinition ()
+specifier|public
+name|ProcessorDefinition
+name|getProcessorDefinition
+parameter_list|()
+block|{
+return|return
+name|processorDefinition
+return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"seda:in"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+literal|"RouteNode["
+operator|+
+name|processorDefinition
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

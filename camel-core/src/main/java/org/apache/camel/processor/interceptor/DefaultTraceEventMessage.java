@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 operator|.
-name|Traceable
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -98,7 +98,21 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|RouteNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|Traceable
 import|;
 end_import
 
@@ -473,15 +487,23 @@ expr_stmt|;
 block|}
 comment|// Implementation
 comment|//---------------------------------------------------------------
-DECL|method|extractTraceLabel (Processor processor)
+DECL|method|extractTraceLabel (RouteNode entry)
 specifier|private
 name|String
 name|extractTraceLabel
 parameter_list|(
-name|Processor
-name|processor
+name|RouteNode
+name|entry
 parameter_list|)
 block|{
+name|Processor
+name|processor
+init|=
+name|entry
+operator|.
+name|getProcessor
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|processor
@@ -572,12 +594,12 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 decl_stmt|;
-name|Processor
+name|RouteNode
 name|last
 init|=
 name|tuow
 operator|.
-name|getSecondLastInterceptedProcessor
+name|getSecondLastNode
 argument_list|()
 decl_stmt|;
 return|return
@@ -627,12 +649,12 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 decl_stmt|;
-name|Processor
+name|RouteNode
 name|last
 init|=
 name|tuow
 operator|.
-name|getLastInterceptedProcessor
+name|getLastNode
 argument_list|()
 decl_stmt|;
 return|return
