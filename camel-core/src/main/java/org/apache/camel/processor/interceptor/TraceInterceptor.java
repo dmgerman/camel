@@ -1053,6 +1053,14 @@ name|isTraceExceptions
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|tracer
+operator|.
+name|isLogStackTrace
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|process
@@ -1062,6 +1070,24 @@ argument_list|,
 name|throwable
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+literal|", Exception: "
+operator|+
+name|throwable
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Returns true if the given exchange should be logged in the trace list      */

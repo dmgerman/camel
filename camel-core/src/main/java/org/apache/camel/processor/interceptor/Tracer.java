@@ -171,6 +171,11 @@ name|traceExceptions
 init|=
 literal|true
 decl_stmt|;
+DECL|field|logStackTrace
+specifier|private
+name|boolean
+name|logStackTrace
+decl_stmt|;
 DECL|field|traceOutExchanges
 specifier|private
 name|boolean
@@ -461,6 +466,33 @@ operator|.
 name|traceExceptions
 operator|=
 name|traceExceptions
+expr_stmt|;
+block|}
+DECL|method|isLogStackTrace ()
+specifier|public
+name|boolean
+name|isLogStackTrace
+parameter_list|()
+block|{
+return|return
+name|logStackTrace
+return|;
+block|}
+comment|/**      * Sets whether thrown exception stacktrace should be traced, if disabled then only the exception message is logged      */
+DECL|method|setLogStackTrace (boolean logStackTrace)
+specifier|public
+name|void
+name|setLogStackTrace
+parameter_list|(
+name|boolean
+name|logStackTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logStackTrace
+operator|=
+name|logStackTrace
 expr_stmt|;
 block|}
 DECL|method|getLogName ()
