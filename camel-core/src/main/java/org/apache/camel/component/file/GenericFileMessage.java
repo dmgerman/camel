@@ -117,8 +117,17 @@ parameter_list|()
 block|{
 return|return
 name|file
+operator|!=
+literal|null
+condition|?
+name|file
 operator|.
 name|getBody
+argument_list|()
+else|:
+name|super
+operator|.
+name|createBody
 argument_list|()
 return|;
 block|}
@@ -159,12 +168,18 @@ name|Override
 DECL|method|newInstance ()
 specifier|public
 name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
 name|newInstance
 parameter_list|()
 block|{
 return|return
 operator|new
 name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 return|;
 block|}
