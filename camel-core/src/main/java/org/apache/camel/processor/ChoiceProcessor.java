@@ -130,6 +130,8 @@ name|Navigate
 argument_list|<
 name|Processor
 argument_list|>
+implements|,
+name|Traceable
 block|{
 DECL|field|filters
 specifier|private
@@ -364,6 +366,16 @@ name|builder
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Choice"
 return|;
 block|}
 DECL|method|getFilters ()

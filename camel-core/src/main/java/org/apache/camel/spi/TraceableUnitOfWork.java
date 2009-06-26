@@ -34,9 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -52,28 +50,34 @@ name|TraceableUnitOfWork
 extends|extends
 name|UnitOfWork
 block|{
-comment|/**      * Adds the given node that was intercepted      *      * @param node the node      */
-DECL|method|addInterceptedNode (ProcessorDefinition node)
+comment|/**      * Adds the given processor that was intercepted      *      * @param processor the processor      */
+DECL|method|addInterceptedProcessor (Processor processor)
 name|void
-name|addInterceptedNode
+name|addInterceptedProcessor
 parameter_list|(
-name|ProcessorDefinition
-name|node
+name|Processor
+name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the last intercepted node, is<tt>null</tt> if no last exists.      */
-DECL|method|getLastInterceptedNode ()
-name|ProcessorDefinition
-name|getLastInterceptedNode
+comment|/**      * Gets the last intercepted processor, is<tt>null</tt> if no last exists.      */
+DECL|method|getLastInterceptedProcessor ()
+name|Processor
+name|getLastInterceptedProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the current list of intercepted nodes, representing the route path the      * current {@link org.apache.camel.Exchange} has taken.      */
-DECL|method|getInterceptedNodes ()
+comment|/**      * Gets the 2nd last intercepted processor, is<tt>null</tt> if no last exists.      */
+DECL|method|getSecondLastInterceptedProcessor ()
+name|Processor
+name|getSecondLastInterceptedProcessor
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the current list of intercepted processors, representing the route path the      * current {@link org.apache.camel.Exchange} has taken.      */
+DECL|method|getInterceptedProcessors ()
 name|List
 argument_list|<
-name|ProcessorDefinition
+name|Processor
 argument_list|>
-name|getInterceptedNodes
+name|getInterceptedProcessors
 parameter_list|()
 function_decl|;
 block|}

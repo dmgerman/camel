@@ -171,6 +171,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|protected
@@ -277,6 +279,19 @@ literal|""
 operator|)
 operator|+
 literal|")"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+name|destination
+operator|.
+name|getEndpointUri
+argument_list|()
 return|;
 block|}
 DECL|method|process (final Exchange exchange)

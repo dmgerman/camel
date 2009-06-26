@@ -488,6 +488,16 @@ return|return
 name|hashCode
 return|;
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"StickyLoadBalancer"
+return|;
+block|}
 block|}
 end_class
 

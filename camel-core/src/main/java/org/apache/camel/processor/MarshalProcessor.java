@@ -211,6 +211,22 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Marshal["
+operator|+
+name|dataFormat
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

@@ -63,6 +63,8 @@ class|class
 name|Delayer
 extends|extends
 name|DelayProcessorSupport
+implements|implements
+name|Traceable
 block|{
 DECL|field|delay
 specifier|private
@@ -110,6 +112,20 @@ literal|" to: "
 operator|+
 name|getProcessor
 argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Delayer["
+operator|+
+name|delay
 operator|+
 literal|"]"
 return|;

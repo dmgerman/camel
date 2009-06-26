@@ -91,6 +91,8 @@ class|class
 name|FilterProcessor
 extends|extends
 name|DelegateProcessor
+implements|implements
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
@@ -219,6 +221,20 @@ literal|" do: "
 operator|+
 name|getProcessor
 argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Filter[if: "
+operator|+
+name|predicate
 operator|+
 literal|"]"
 return|;

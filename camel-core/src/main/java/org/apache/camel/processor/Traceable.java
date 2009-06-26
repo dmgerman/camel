@@ -16,82 +16,25 @@ name|processor
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
 begin_comment
-comment|/**  * Stops continue processing the route and marks it as complete.  *  * @version $Revision$  */
+comment|/**  * Traceable processors allowing easeir tracing using constructed labels to help identify the processor  * and where its defined in the route model.  *  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|StopProcessor
+begin_interface
+DECL|interface|Traceable
 specifier|public
-class|class
-name|StopProcessor
-implements|implements
-name|Processor
+interface|interface
+name|Traceable
 block|{
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// mark the exchange to stop continue routing
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ROUTE_STOP
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+comment|/**      * Gets the trace label used for logging when tracing is enabled.      *<p/>      * The lable should be short and precise.      *      * @return  the label      */
+DECL|method|getTraceLabel ()
 specifier|public
 name|String
-name|toString
+name|getTraceLabel
 parameter_list|()
-block|{
-return|return
-literal|"Stop"
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

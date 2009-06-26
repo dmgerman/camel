@@ -127,7 +127,14 @@ class|class
 name|Aggregator
 extends|extends
 name|BatchProcessor
+implements|implements
+name|Traceable
 block|{
+DECL|field|correlationExpression
+specifier|private
+name|Expression
+name|correlationExpression
+decl_stmt|;
 DECL|method|Aggregator (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Aggregator
@@ -154,6 +161,12 @@ argument_list|,
 name|aggregationStrategy
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|correlationExpression
+operator|=
+name|correlationExpression
 expr_stmt|;
 block|}
 DECL|method|Aggregator (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, Predicate aggregationCompletedPredicate)
@@ -188,6 +201,12 @@ name|aggregationCompletedPredicate
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|correlationExpression
+operator|=
+name|correlationExpression
+expr_stmt|;
 block|}
 DECL|method|Aggregator (Processor processor, AggregationCollection collection)
 specifier|public
@@ -221,6 +240,20 @@ literal|"Aggregator[to: "
 operator|+
 name|getProcessor
 argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Aggregate["
+operator|+
+name|correlationExpression
 operator|+
 literal|"]"
 return|;

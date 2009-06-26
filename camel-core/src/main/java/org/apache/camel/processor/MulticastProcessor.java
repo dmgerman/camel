@@ -331,6 +331,8 @@ implements|implements
 name|Processor
 implements|,
 name|Navigate
+implements|,
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
@@ -602,6 +604,16 @@ name|getProcessors
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Multicast"
 return|;
 block|}
 DECL|method|process (Exchange exchange)

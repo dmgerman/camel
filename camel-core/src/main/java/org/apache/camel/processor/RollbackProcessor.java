@@ -63,6 +63,8 @@ class|class
 name|RollbackProcessor
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|message
 specifier|private
@@ -157,6 +159,16 @@ return|return
 literal|"Rollback"
 return|;
 block|}
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Rollback"
+return|;
 block|}
 block|}
 end_class

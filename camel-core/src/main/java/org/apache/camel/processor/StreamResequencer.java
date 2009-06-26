@@ -253,6 +253,8 @@ name|Navigate
 argument_list|<
 name|Processor
 argument_list|>
+implements|,
+name|Traceable
 block|{
 DECL|field|DELIVERY_ATTEMPT_INTERVAL
 specifier|private
@@ -443,6 +445,16 @@ operator|+
 name|processor
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"StreamResequence"
 return|;
 block|}
 annotation|@

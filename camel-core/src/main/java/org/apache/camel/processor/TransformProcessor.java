@@ -63,6 +63,8 @@ class|class
 name|TransformProcessor
 extends|extends
 name|DelegateProcessor
+implements|implements
+name|Traceable
 block|{
 DECL|field|expression
 specifier|private
@@ -213,6 +215,20 @@ literal|""
 operator|)
 operator|+
 literal|")"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Transform["
+operator|+
+name|expression
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

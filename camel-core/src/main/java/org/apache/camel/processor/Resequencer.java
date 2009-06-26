@@ -131,6 +131,8 @@ class|class
 name|Resequencer
 extends|extends
 name|BatchProcessor
+implements|implements
+name|Traceable
 block|{
 DECL|method|Resequencer (Processor processor, Expression expression)
 specifier|public
@@ -216,6 +218,16 @@ name|getProcessor
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Resequence"
 return|;
 block|}
 comment|// Implementation methods

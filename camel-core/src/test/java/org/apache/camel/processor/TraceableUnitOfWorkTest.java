@@ -152,7 +152,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Failed at: bean:bar"
+literal|"Failed at: sendTo(Endpoint[bean:bar])"
 argument_list|,
 name|out
 argument_list|)
@@ -326,17 +326,17 @@ decl_stmt|;
 comment|// get the list of intercepted nodes
 name|List
 argument_list|<
-name|ProcessorDefinition
+name|Processor
 argument_list|>
 name|list
 init|=
 name|tuow
 operator|.
-name|getInterceptedNodes
+name|getInterceptedProcessors
 argument_list|()
 decl_stmt|;
 comment|// get the 2nd last as the last is me (MyErrorProcessor)
-name|ProcessorDefinition
+name|Processor
 name|last
 init|=
 name|list
@@ -363,10 +363,20 @@ literal|"Failed at: "
 operator|+
 name|last
 operator|.
-name|getLabel
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"MyErrorProcessor"
+return|;
 block|}
 block|}
 comment|// END SNIPPET: e2

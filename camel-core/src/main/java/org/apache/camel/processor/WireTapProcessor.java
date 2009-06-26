@@ -284,14 +284,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"wireTap("
+literal|"WireTap["
 operator|+
 name|destination
 operator|.
 name|getEndpointUri
 argument_list|()
 operator|+
-literal|")"
+literal|"]"
 return|;
 block|}
 DECL|method|process (Exchange exchange)

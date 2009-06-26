@@ -160,6 +160,8 @@ name|Navigate
 argument_list|<
 name|Processor
 argument_list|>
+implements|,
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
@@ -268,6 +270,16 @@ operator|+
 name|catchClauses
 operator|+
 name|finallyText
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Try"
 return|;
 block|}
 DECL|method|process (Exchange exchange)

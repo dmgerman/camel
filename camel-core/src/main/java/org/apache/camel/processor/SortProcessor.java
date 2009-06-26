@@ -234,6 +234,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Sort["
+operator|+
+name|expression
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

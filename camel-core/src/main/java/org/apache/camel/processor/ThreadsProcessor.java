@@ -486,6 +486,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Threads"
+return|;
+block|}
 block|}
 end_class
 

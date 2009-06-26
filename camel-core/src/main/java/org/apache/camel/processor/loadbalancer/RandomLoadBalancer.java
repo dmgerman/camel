@@ -129,6 +129,16 @@ return|;
 block|}
 block|}
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RandomLoadBalancer"
+return|;
+block|}
 block|}
 end_class
 

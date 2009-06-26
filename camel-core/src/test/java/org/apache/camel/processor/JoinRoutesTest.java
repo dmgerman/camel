@@ -284,6 +284,13 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:a"

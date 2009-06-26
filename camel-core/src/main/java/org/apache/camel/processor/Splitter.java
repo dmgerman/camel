@@ -199,6 +199,8 @@ extends|extends
 name|MulticastProcessor
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|expression
 specifier|private
@@ -326,6 +328,22 @@ literal|" aggregate: "
 operator|+
 name|getAggregationStrategy
 argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Split["
+operator|+
+name|expression
 operator|+
 literal|"]"
 return|;

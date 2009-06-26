@@ -97,6 +97,8 @@ class|class
 name|CatchProcessor
 extends|extends
 name|DelegateProcessor
+implements|implements
+name|Traceable
 block|{
 DECL|field|exceptions
 specifier|private
@@ -182,6 +184,16 @@ name|getProcessor
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Catch"
 return|;
 block|}
 comment|/**      * Whether this catch processor catch the given thrown exception      *      * @param exchange  the current exchange      * @param exception the thrown exception      * @return<tt>true</tt> if this processor catches it,<tt>false</tt> otherwise.      */

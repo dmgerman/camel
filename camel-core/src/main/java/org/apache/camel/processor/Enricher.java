@@ -511,6 +511,28 @@ name|CopyAggregationStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Enrich["
+operator|+
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void

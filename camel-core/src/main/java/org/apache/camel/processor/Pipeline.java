@@ -125,6 +125,8 @@ extends|extends
 name|MulticastProcessor
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
@@ -710,6 +712,18 @@ literal|"Pipeline"
 operator|+
 name|getProcessors
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Pipeline"
 return|;
 block|}
 block|}

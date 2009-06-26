@@ -51,6 +51,8 @@ class|class
 name|Throttler
 extends|extends
 name|DelayProcessorSupport
+implements|implements
+name|Traceable
 block|{
 DECL|field|maximumRequestsPerPeriod
 specifier|private
@@ -141,6 +143,24 @@ literal|" (ms) to: "
 operator|+
 name|getProcessor
 argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"Throttle["
+operator|+
+name|maximumRequestsPerPeriod
+operator|+
+literal|" per: "
+operator|+
+name|timePeriodMillis
 operator|+
 literal|"]"
 return|;
@@ -287,7 +307,7 @@ return|return
 name|slot
 return|;
 block|}
-comment|/*      * A time slot is capable of handling a number of exchanges within a certain period of time.      */
+comment|/*     * A time slot is capable of handling a number of exchanges within a certain period of time.     */
 DECL|class|TimeSlot
 specifier|protected
 class|class

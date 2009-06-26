@@ -93,6 +93,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// we intercept by endpoint, that means that whenever an exchange is about to be sent to
 comment|// this endpoint, its intercepted and routed with this detour route beforehand
@@ -380,6 +387,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: e3
 comment|// since we use the skipSendToOriginalEndpoint() we instruct Camel to skip
 comment|// sending the exchange to the original intended destination after the intercept
