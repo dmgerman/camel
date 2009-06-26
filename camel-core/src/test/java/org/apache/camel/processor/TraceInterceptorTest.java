@@ -66,22 +66,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -150,16 +134,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add tracer as an interceptor so it will log the exchange executions at runtime
-comment|// this can aid us to understand/see how the exchanges is routed etc.
+comment|// enable tracing
 name|getContext
 argument_list|()
 operator|.
-name|addInterceptStrategy
+name|setTracing
 argument_list|(
-operator|new
-name|Tracer
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 name|from
