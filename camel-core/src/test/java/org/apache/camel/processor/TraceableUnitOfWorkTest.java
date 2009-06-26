@@ -112,22 +112,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|TraceableUnitOfWork
@@ -260,11 +244,9 @@ expr_stmt|;
 comment|// must enable tracer to trace the route path taken during runtime
 name|context
 operator|.
-name|addInterceptStrategy
+name|setTracing
 argument_list|(
-operator|new
-name|Tracer
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// let our my error processor handle all exceptions
