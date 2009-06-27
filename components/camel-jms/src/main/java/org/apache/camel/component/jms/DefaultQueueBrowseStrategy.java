@@ -231,7 +231,7 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-name|JmsExchange
+name|Exchange
 name|exchange
 init|=
 name|endpoint

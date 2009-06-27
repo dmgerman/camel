@@ -1827,7 +1827,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Neither destination nor destinationName is specified on this endpoint: "
+literal|"Neither destination nor "
+operator|+
+literal|"destinationName are specified on this endpoint: "
 operator|+
 name|endpoint
 argument_list|)
@@ -1851,33 +1853,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-operator|(
 name|exchange
-operator|instanceof
-name|JmsExchange
-operator|)
-condition|)
-block|{
-return|return;
-block|}
-try|try
-block|{
-name|JmsExchange
-name|jmsExchange
-init|=
-name|JmsExchange
-operator|.
-name|class
-operator|.
-name|cast
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|jmsExchange
 operator|.
 name|hasOut
 argument_list|()
@@ -1886,11 +1862,23 @@ block|{
 name|JmsMessage
 name|out
 init|=
-name|jmsExchange
+operator|(
+name|JmsMessage
+operator|)
+name|exchange
 operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|out
+operator|!=
+literal|null
+condition|)
+block|{
 name|out
 operator|.
 name|setMessageId
@@ -1916,11 +1904,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve JMSMessageID from outgoing JMS Message and set it into Camel's MessageId"
+literal|"Unable to retrieve JMSMessageID from outgoing "
+operator|+
+literal|"JMS Message and set it into Camel's MessageId"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getInOnlyTemplate ()

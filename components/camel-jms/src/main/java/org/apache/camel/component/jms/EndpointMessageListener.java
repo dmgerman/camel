@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -101,6 +113,20 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
@@ -360,7 +386,7 @@ name|message
 argument_list|)
 decl_stmt|;
 specifier|final
-name|JmsExchange
+name|Exchange
 name|exchange
 init|=
 name|createExchange
@@ -517,6 +543,9 @@ block|{
 comment|// a fault occurred while processing
 name|body
 operator|=
+operator|(
+name|JmsMessage
+operator|)
 name|exchange
 operator|.
 name|getFault
@@ -540,6 +569,9 @@ block|{
 comment|// process OK so get the reply
 name|body
 operator|=
+operator|(
+name|JmsMessage
+operator|)
 name|exchange
 operator|.
 name|getOut
@@ -664,7 +696,7 @@ expr_stmt|;
 block|}
 DECL|method|createExchange (Message message, Destination replyDestination)
 specifier|public
-name|JmsExchange
+name|Exchange
 name|createExchange
 parameter_list|(
 name|Message
@@ -674,11 +706,11 @@ name|Destination
 name|replyDestination
 parameter_list|)
 block|{
-name|JmsExchange
+name|Exchange
 name|exchange
 init|=
 operator|new
-name|JmsExchange
+name|DefaultExchange
 argument_list|(
 name|endpoint
 argument_list|,
@@ -686,13 +718,31 @@ name|endpoint
 operator|.
 name|getExchangePattern
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BINDING
 argument_list|,
 name|getBinding
 argument_list|()
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setIn
+argument_list|(
+operator|new
+name|JmsMessage
+argument_list|(
 name|message
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 comment|// lets set to an InOut if we have some kind of reply-to destination
 if|if
 condition|(
@@ -955,7 +1005,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|sendReply (Destination replyDestination, final Message message, final JmsExchange exchange, final JmsMessage out, final Exception cause)
+DECL|method|sendReply (Destination replyDestination, final Message message, final Exchange exchange, final JmsMessage out, final Exception cause)
 specifier|protected
 name|void
 name|sendReply
@@ -968,7 +1018,7 @@ name|Message
 name|message
 parameter_list|,
 specifier|final
-name|JmsExchange
+name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
