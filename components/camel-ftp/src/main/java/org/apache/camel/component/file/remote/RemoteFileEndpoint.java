@@ -188,12 +188,18 @@ name|Override
 DECL|method|createExchange ()
 specifier|public
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|createExchange
 parameter_list|()
 block|{
 return|return
 operator|new
-name|RemoteFileExchange
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -221,11 +227,14 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
-name|RemoteFileExchange
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|answer
 init|=
 operator|new
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|<
 name|T
 argument_list|>

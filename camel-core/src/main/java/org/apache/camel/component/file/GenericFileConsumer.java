@@ -372,7 +372,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort using build in sorters that is expression based
-comment|// first we need to convert to RemoteFileExchange objects so we can sort
+comment|// first we need to convert to GenericFileExchange objects so we can sort
 comment|// using expressions
 name|LinkedList
 argument_list|<

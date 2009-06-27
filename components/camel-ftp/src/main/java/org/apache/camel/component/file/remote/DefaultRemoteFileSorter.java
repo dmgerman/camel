@@ -50,6 +50,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|language
 operator|.
 name|simple
@@ -390,7 +406,7 @@ specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -422,7 +438,7 @@ specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -453,12 +469,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a new sory by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @param nested     nested comparator for sub group sorting, can be null      * @return the comparator      */
-DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<RemoteFileExchange> nested)
+DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<GenericFileExchange> nested)
 specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -477,7 +493,7 @@ parameter_list|,
 specifier|final
 name|Comparator
 argument_list|<
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|>
 name|nested
 parameter_list|)
@@ -486,7 +502,7 @@ return|return
 operator|new
 name|Comparator
 argument_list|<
-name|RemoteFileExchange
+name|GenericFileExchange
 argument_list|>
 argument_list|()
 block|{
@@ -494,10 +510,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|RemoteFileExchange
+name|GenericFileExchange
 name|o1
 parameter_list|,
-name|RemoteFileExchange
+name|GenericFileExchange
 name|o2
 parameter_list|)
 block|{
