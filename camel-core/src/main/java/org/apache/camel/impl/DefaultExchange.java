@@ -935,7 +935,8 @@ condition|)
 block|{
 name|in
 operator|=
-name|createInMessage
+operator|new
+name|DefaultMessage
 argument_list|()
 expr_stmt|;
 name|configureMessage
@@ -1034,7 +1035,8 @@ operator|.
 name|newInstance
 argument_list|()
 else|:
-name|createOutMessage
+operator|new
+name|DefaultMessage
 argument_list|()
 expr_stmt|;
 name|configureMessage
@@ -1291,7 +1293,8 @@ operator|.
 name|newInstance
 argument_list|()
 else|:
-name|createFaultMessage
+operator|new
+name|DefaultMessage
 argument_list|()
 expr_stmt|;
 name|configureMessage
@@ -1606,45 +1609,6 @@ name|onCompletion
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Factory method used to lazily create the IN message      */
-DECL|method|createInMessage ()
-specifier|protected
-name|Message
-name|createInMessage
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultMessage
-argument_list|()
-return|;
-block|}
-comment|/**      * Factory method to lazily create the OUT message      */
-DECL|method|createOutMessage ()
-specifier|protected
-name|Message
-name|createOutMessage
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultMessage
-argument_list|()
-return|;
-block|}
-comment|/**      * Factory method to lazily create the FAULT message      */
-DECL|method|createFaultMessage ()
-specifier|protected
-name|Message
-name|createFaultMessage
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultMessage
-argument_list|()
-return|;
 block|}
 comment|/**      * Configures the message after it has been set on the exchange      */
 DECL|method|configureMessage (Message message)
