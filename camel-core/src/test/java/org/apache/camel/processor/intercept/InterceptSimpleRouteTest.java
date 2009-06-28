@@ -141,13 +141,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|context
-operator|.
-name|setTracing
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|intercept
 argument_list|()
 operator|.

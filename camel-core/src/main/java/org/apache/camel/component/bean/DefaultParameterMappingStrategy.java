@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -96,7 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|builder
+operator|.
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -111,20 +125,6 @@ operator|.
 name|spi
 operator|.
 name|Registry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
 import|;
 end_import
 

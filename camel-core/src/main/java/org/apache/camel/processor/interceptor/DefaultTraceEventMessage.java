@@ -70,9 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|RouteNode
 import|;
 end_import
 
@@ -84,7 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RouteNode
+name|model
+operator|.
+name|ProcessorDefinition
 import|;
 end_import
 

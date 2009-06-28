@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RouteNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -87,18 +99,6 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RouteNode
 import|;
 end_import
 
