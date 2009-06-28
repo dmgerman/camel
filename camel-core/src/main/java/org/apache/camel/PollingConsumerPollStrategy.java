@@ -26,7 +26,6 @@ name|PollingConsumerPollStrategy
 block|{
 comment|/**      * Called when poll is about to begin      *      * @param consumer the consumer      * @param endpoint the endpoint being consumed      */
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
-specifier|public
 name|void
 name|begin
 parameter_list|(
@@ -39,7 +38,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Called when poll is completed sucesfully      *      * @param consumer the consumer      * @param endpoint the endpoint being consumed      */
 DECL|method|commit (Consumer consumer, Endpoint endpoint)
-specifier|public
 name|void
 name|commit
 parameter_list|(
@@ -52,7 +50,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Called when poll failed      *      * @param consumer the consumer      * @param endpoint the endpoint being consumed      * @param cause the caused exception      * @throws Exception can be used to rethrow the caused exception      */
 DECL|method|rollback (Consumer consumer, Endpoint endpoint, Exception cause)
-specifier|public
 name|void
 name|rollback
 parameter_list|(

@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
 import|;
 end_import
@@ -953,13 +963,10 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// yes its first time then do some special to log and trace the start of onException
+class|class
+name|OnExceptionExpression
+implements|implements
 name|Expression
-name|exp
-init|=
-operator|new
-name|Expression
-argument_list|()
 block|{
 annotation|@
 name|SuppressWarnings
@@ -1040,6 +1047,14 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// yes its first time then do some special to log and trace the
+comment|// start of onException
+name|Expression
+name|exp
+init|=
+operator|new
+name|OnExceptionExpression
+argument_list|()
 decl_stmt|;
 comment|// add our pesudo node
 name|tuow
@@ -1055,7 +1070,7 @@ name|exp
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// log and trace the processor that was onException so we can see it imeddiately
+comment|// log and trace the processor that was onException so we can see immediately
 name|logExchange
 argument_list|(
 name|exchange
@@ -1155,13 +1170,10 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// yes its first time then do some special to log and trace the start of onCompletion
+class|class
+name|OnCompletionExpression
+implements|implements
 name|Expression
-name|exp
-init|=
-operator|new
-name|Expression
-argument_list|()
 block|{
 annotation|@
 name|SuppressWarnings
@@ -1213,6 +1225,13 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// yes its first time then do some special to log and trace the start of onCompletion
+name|Expression
+name|exp
+init|=
+operator|new
+name|OnCompletionExpression
+argument_list|()
 decl_stmt|;
 comment|// add the onCompletion and then the processor that is invoked nest
 name|tuow
