@@ -517,7 +517,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// important: do not close the stream as it will close the standard system.in etc.
+comment|// important: do not close the stream as it will close the standard
+comment|// system.in etc.
 name|ObjectHelper
 operator|.
 name|notNull
