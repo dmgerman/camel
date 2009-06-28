@@ -53,6 +53,16 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+comment|/**      * GenericFile property on Camel Exchanges.      */
+DECL|field|FILE_EXCHANGE_FILE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FILE_EXCHANGE_FILE
+init|=
+literal|"CamelFileExchangeFile"
+decl_stmt|;
 comment|/**      * Default camel lock filename postfix      */
 DECL|field|DEFAULT_LOCK_FILE_POSTFIX
 specifier|public
