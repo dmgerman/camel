@@ -865,25 +865,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setGenericFileProcessStrategy (GenericFileProcessStrategy<T> genericFileProcessStrategy)
-specifier|public
-name|void
-name|setGenericFileProcessStrategy
-parameter_list|(
-name|GenericFileProcessStrategy
-argument_list|<
-name|T
-argument_list|>
-name|genericFileProcessStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|processStrategy
-operator|=
-name|genericFileProcessStrategy
-expr_stmt|;
-block|}
 DECL|method|isNoop ()
 specifier|public
 name|boolean

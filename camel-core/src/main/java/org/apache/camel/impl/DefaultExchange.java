@@ -781,6 +781,27 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// eager same instance type test to avoid the overhead of invoking the type converter
+comment|// if already same type
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 return|return
 name|ExchangeHelper
 operator|.

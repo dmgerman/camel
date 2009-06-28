@@ -817,7 +817,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 name|endpoint
 operator|+

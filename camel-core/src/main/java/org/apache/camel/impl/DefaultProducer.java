@@ -64,6 +64,34 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of @{link Producer} for implementation inheritence  *  * @version $Revision$  */
 end_comment
@@ -79,6 +107,21 @@ name|ServiceSupport
 implements|implements
 name|Producer
 block|{
+DECL|field|log
+specifier|private
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -195,7 +238,26 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Starting producer: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -203,7 +265,26 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping producer: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

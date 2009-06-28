@@ -139,6 +139,18 @@ operator|=
 name|exceptionToThrowOnPoll
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"MockScheduled"
+return|;
+block|}
 block|}
 end_class
 

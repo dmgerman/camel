@@ -223,7 +223,8 @@ name|Object
 name|body
 parameter_list|)
 block|{
-comment|// same instance type
+comment|// eager same instance type test to avoid the overhead of invoking the type converter
+comment|// if already same type
 if|if
 condition|(
 name|type
@@ -346,6 +347,27 @@ parameter_list|)
 throws|throws
 name|InvalidPayloadException
 block|{
+comment|// eager same instance type test to avoid the overhead of invoking the type converter
+comment|// if already same type
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|body
+argument_list|)
+return|;
+block|}
 name|Exchange
 name|e
 init|=

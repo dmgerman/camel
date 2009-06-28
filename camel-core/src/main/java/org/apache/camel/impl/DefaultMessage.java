@@ -176,12 +176,40 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// eager same instance type test to avoid the overhead of invoking the type converter
+comment|// if already same type
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 name|Exchange
 name|e
 init|=
 name|getExchange
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|e
 operator|.
@@ -200,6 +228,16 @@ argument_list|,
 name|value
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|value
+return|;
+block|}
 block|}
 DECL|method|setHeader (String name, Object value)
 specifier|public

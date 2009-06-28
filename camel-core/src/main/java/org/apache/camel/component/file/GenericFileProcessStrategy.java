@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a strategy for marking that a remote file is processed.  */
+comment|/**  * Represents a pluggable strategy when processing files.  */
 end_comment
 
 begin_interface
