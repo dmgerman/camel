@@ -122,24 +122,32 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for poll strategy  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerPollStrategyTest
+DECL|class|FileConsumerPollStrategyRollbackThrowExceptionTest
 specifier|public
 class|class
-name|FileConsumerPollStrategyTest
+name|FileConsumerPollStrategyRollbackThrowExceptionTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|counter
-specifier|private
-specifier|static
-name|int
-name|counter
-decl_stmt|;
 DECL|field|event
 specifier|private
 specifier|static
@@ -153,7 +161,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll"
+literal|"file://target/pollstrategy/?pollStrategy=#myPoll"
 decl_stmt|;
 annotation|@
 name|Override
@@ -224,10 +232,10 @@ literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFirstPollRollbackThenCommit ()
+DECL|method|testRollbackThrowException ()
 specifier|public
 name|void
-name|testFirstPollRollbackThenCommit
+name|testRollbackThrowException
 parameter_list|()
 throws|throws
 name|Exception
@@ -244,23 +252,24 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// let it run for a little while since we rethrow the excpetion the consumer
+comment|// will stop scheduling and not poll anymore
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give poll strategy a bit time to signal commit
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|50
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"rollbackcommit"
+literal|"rollback"
 argument_list|,
 name|event
 argument_list|)
@@ -319,14 +328,30 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|counter
-operator|++
-operator|==
-literal|0
-condition|)
+comment|// start consumer as we simualte the fail in begin
+comment|// and thus before camel lazy start it itself
+try|try
 block|{
+name|consumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// simulate an error on first poll
 throw|throw
 operator|new
@@ -335,7 +360,6 @@ argument_list|(
 literal|"Damn I cannot do this"
 argument_list|)
 throw|;
-block|}
 block|}
 DECL|method|commit (Consumer consumer, Endpoint endpoint)
 specifier|public
@@ -374,27 +398,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"Damn I cannot do this"
-argument_list|)
-condition|)
-block|{
 name|event
 operator|+=
 literal|"rollback"
 expr_stmt|;
-block|}
-return|return
-literal|false
-return|;
+throw|throw
+name|cause
+throw|;
 block|}
 block|}
 block|}

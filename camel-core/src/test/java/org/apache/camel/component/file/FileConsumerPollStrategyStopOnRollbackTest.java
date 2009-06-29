@@ -392,9 +392,9 @@ operator|+=
 literal|"commit"
 expr_stmt|;
 block|}
-DECL|method|rollback (Consumer consumer, Endpoint endpoint, Exception cause)
+DECL|method|rollback (Consumer consumer, Endpoint endpoint, int retryCounter, Exception cause)
 specifier|public
-name|void
+name|boolean
 name|rollback
 parameter_list|(
 name|Consumer
@@ -402,6 +402,9 @@ name|consumer
 parameter_list|,
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|int
+name|retryCounter
 parameter_list|,
 name|Exception
 name|cause
@@ -433,6 +436,9 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+literal|false
+return|;
 block|}
 block|}
 block|}

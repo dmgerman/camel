@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Date
 import|;
 end_import
@@ -642,6 +632,13 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// whether we should trace it or not, some nodes should be skipped as they are abstract
+comment|// intermedidate steps for instance related to on completion
+name|boolean
+name|trace
+init|=
+literal|true
+decl_stmt|;
 comment|// okay this is a regular exchange being routed we might need to log and trace
 try|try
 block|{
@@ -651,14 +648,7 @@ condition|(
 name|shouldLog
 condition|)
 block|{
-comment|// whether we should trace it or not, some nodes should be skipped as they are abstract
-comment|// intermedidate steps for instance related to on completion
-name|boolean
-name|trace
-init|=
-literal|true
-decl_stmt|;
-comment|// if traceable then register this as the previous node, now it has been logged
+comment|// register route path taken if TraceableUnitOfWork unit of work
 if|if
 condition|(
 name|exchange
@@ -748,6 +738,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|// log and trace the processor
 if|if
 condition|(
@@ -808,7 +799,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// process the exchange
