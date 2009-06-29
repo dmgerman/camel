@@ -358,7 +358,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|requestBodyAndHeader
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -371,7 +371,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|requestBodyAndHeader
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -632,10 +632,6 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|,
 literal|"Claus"
 argument_list|,
 literal|"id"
@@ -648,10 +644,6 @@ operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOnly
 argument_list|,
 literal|"Willem"
 argument_list|,
