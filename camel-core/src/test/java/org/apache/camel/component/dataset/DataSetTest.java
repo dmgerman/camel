@@ -54,22 +54,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -93,35 +77,16 @@ argument_list|(
 literal|20
 argument_list|)
 decl_stmt|;
-DECL|method|test ()
+DECL|method|testDataSet ()
 specifier|public
 name|void
-name|test
+name|testDataSet
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|endpoint
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:results"
-argument_list|)
-decl_stmt|;
-name|endpoint
-operator|.
-name|expectedMessageCount
-argument_list|(
-operator|(
-name|int
-operator|)
-name|dataSet
-operator|.
-name|getSize
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// data set will itself set its assertions so we should just
+comment|// assert that all mocks is ok
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -182,14 +147,6 @@ block|{
 name|from
 argument_list|(
 literal|"dataset:foo"
-argument_list|)
-operator|.
-name|multicast
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"mock:results"
 argument_list|)
 operator|.
 name|to
