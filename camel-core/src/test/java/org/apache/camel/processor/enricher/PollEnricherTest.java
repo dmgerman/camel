@@ -173,7 +173,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo1"
+literal|"direct:foo1"
 argument_list|,
 literal|"blah"
 argument_list|)
@@ -241,7 +241,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo2"
+literal|"direct:foo2"
 argument_list|,
 literal|"blah"
 argument_list|)
@@ -307,7 +307,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo3"
+literal|"direct:foo3"
 argument_list|,
 literal|"blah"
 argument_list|)
@@ -388,7 +388,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo4"
+literal|"direct:foo4"
 argument_list|,
 literal|"blah"
 argument_list|)
@@ -432,7 +432,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo4"
+literal|"direct:foo4"
 argument_list|,
 literal|"blah"
 argument_list|)
@@ -555,7 +555,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"seda:foo1"
+literal|"direct:foo1"
 argument_list|,
 name|aggregationStrategy
 argument_list|)
@@ -572,7 +572,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"seda:foo2"
+literal|"direct:foo2"
 argument_list|,
 literal|1000
 argument_list|,
@@ -591,7 +591,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"seda:foo3"
+literal|"direct:foo3"
 argument_list|,
 operator|-
 literal|1
@@ -614,7 +614,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"seda:foo4"
+literal|"direct:foo4"
 argument_list|,
 name|aggregationStrategy
 argument_list|)
