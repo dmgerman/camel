@@ -123,7 +123,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"seda:in?size=10000&concurrentConsumers=10"
+literal|"seda:in?size=2000&concurrentConsumers=10"
 decl_stmt|;
 DECL|method|testConcurrentPipeline ()
 specifier|public
@@ -136,7 +136,7 @@ block|{
 name|int
 name|total
 init|=
-literal|10000
+literal|2000
 decl_stmt|;
 specifier|final
 name|int
