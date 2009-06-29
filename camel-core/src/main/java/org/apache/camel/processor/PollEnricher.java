@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|PollingConsumer
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|Processor
 import|;
 end_import
 
@@ -167,14 +167,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.Producer} to obatin the additional data as opposed to {@link PollEnricher}  * that uses a {@link org.apache.camel.PollingConsumer}.  *  * @see PollEnricher  */
+comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link org.apache.camel.processor.aggregate.AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.PollingConsumer} to obatin the additional data as opposed to {@link Enricher}  * that uses a {@link org.apache.camel.Producer}.  *  * @see Enricher  */
 end_comment
 
 begin_class
-DECL|class|Enricher
+DECL|class|PollEnricher
 specifier|public
 class|class
-name|Enricher
+name|PollEnricher
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -192,7 +192,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|Enricher
+name|PollEnricher
 operator|.
 name|class
 argument_list|)
@@ -202,18 +202,23 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-DECL|field|producer
+DECL|field|consumer
 specifier|private
-name|Producer
-name|producer
+name|PollingConsumer
+name|consumer
 decl_stmt|;
-comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer producer to resource endpoint.      */
-DECL|method|Enricher (Producer producer)
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
+decl_stmt|;
+comment|/**      * Creates a new {@link PollEnricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *      * @param consumer consumer to resource endpoint.      */
+DECL|method|PollEnricher (PollingConsumer consumer)
 specifier|public
-name|Enricher
+name|PollEnricher
 parameter_list|(
-name|Producer
-name|producer
+name|PollingConsumer
+name|consumer
 parameter_list|)
 block|{
 name|this
@@ -221,20 +226,25 @@ argument_list|(
 name|defaultAggregationStrategy
 argument_list|()
 argument_list|,
-name|producer
+name|consumer
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param producer producer to resource endpoint.      */
-DECL|method|Enricher (AggregationStrategy aggregationStrategy, Producer producer)
+comment|/**      * Creates a new {@link PollEnricher}.      *      * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param consumer consumer to resource endpoint.      */
+DECL|method|PollEnricher (AggregationStrategy aggregationStrategy, PollingConsumer consumer, long timeout)
 specifier|public
-name|Enricher
+name|PollEnricher
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|,
-name|Producer
-name|producer
+name|PollingConsumer
+name|consumer
+parameter_list|,
+name|long
+name|timeout
 parameter_list|)
 block|{
 name|this
@@ -245,12 +255,18 @@ name|aggregationStrategy
 expr_stmt|;
 name|this
 operator|.
-name|producer
+name|consumer
 operator|=
-name|producer
+name|consumer
+expr_stmt|;
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
-comment|/**      * Sets the aggregation strategy for this enricher.      *      * @param aggregationStrategy the aggregationStrategy to set      */
+comment|/**      * Sets the aggregation strategy for this poll enricher.      *      * @param aggregationStrategy the aggregationStrategy to set      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -267,7 +283,7 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
-comment|/**      * Sets the default aggregation strategy for this enricher.      */
+comment|/**      * Sets the default aggregation strategy for this poll enricher.      */
 DECL|method|setDefaultAggregationStrategy ()
 specifier|public
 name|void
@@ -282,7 +298,24 @@ name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *       * @param exchange input data.      */
+comment|/**      * Sets the timeout to use when polling.      *<p/>      * Use 0 or negative to not use timeout and block until data is available.      *      * @param timeout timeout in millis.      */
+DECL|method|setTimeout (long timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link org.apache.camel.processor.aggregate.AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *      * @param exchange input data.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -296,25 +329,114 @@ name|Exception
 block|{
 name|Exchange
 name|resourceExchange
-init|=
-name|createResourceExchange
-argument_list|(
-name|exchange
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOut
-argument_list|)
 decl_stmt|;
-name|producer
-operator|.
-name|process
-argument_list|(
-name|resourceExchange
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
+name|timeout
+operator|<
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer receive: "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+name|resourceExchange
+operator|=
+name|consumer
+operator|.
+name|receive
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|timeout
+operator|==
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer receiveNoWait: "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+name|resourceExchange
+operator|=
+name|consumer
+operator|.
+name|receiveNoWait
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer receive with timeout: "
+operator|+
+name|timeout
+operator|+
+literal|" ms. "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+name|resourceExchange
+operator|=
+name|consumer
+operator|.
+name|receive
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|resourceExchange
+operator|!=
+literal|null
+operator|&&
 name|resourceExchange
 operator|.
 name|isFailed
@@ -342,6 +464,17 @@ comment|// but do not aggregate if the resource exchange was filtered
 name|Boolean
 name|filtered
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|resourceExchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|filtered
+operator|=
 name|resourceExchange
 operator|.
 name|getProperty
@@ -354,7 +487,8 @@ name|Boolean
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|filtered
@@ -419,7 +553,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Creates a new {@link DefaultExchange} instance from the given      *<code>exchange</code>. The resulting exchange's pattern is defined by      *<code>pattern</code>.      *      * @param source  exchange to copy from.      * @param pattern exchange pattern to set.      * @return created exchange.      */
+comment|/**      * Creates a new {@link org.apache.camel.impl.DefaultExchange} instance from the given      *<code>exchange</code>. The resulting exchange's pattern is defined by      *<code>pattern</code>.      *      * @param source  exchange to copy from.      * @param pattern exchange pattern to set.      * @return created exchange.      */
 DECL|method|createResourceExchange (Exchange source, ExchangePattern pattern)
 specifier|protected
 name|Exchange
@@ -520,15 +654,9 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Enrich["
+literal|"PollEnrich["
 operator|+
-name|producer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getEndpointUri
-argument_list|()
+name|consumer
 operator|+
 literal|"]"
 return|;
@@ -541,7 +669,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|consumer
 operator|.
 name|start
 argument_list|()
@@ -555,7 +683,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|consumer
 operator|.
 name|stop
 argument_list|()
