@@ -442,13 +442,9 @@ name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:enricher-test-4"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOut
 argument_list|,
 operator|new
 name|Processor
