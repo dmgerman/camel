@@ -1631,12 +1631,12 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 comment|// The following properties are set by the MessageProducer:
-comment|// JMSDeliveryMode, JMSDestination, JMSExpiration, JMSPriorit
+comment|// JMSDeliveryMode, JMSDestination, JMSExpiration, JMSPriority
 comment|// The following are set on the underlying JMS provider:
 comment|// JMSMessageID, JMSTimestamp, JMSRedelivered
 comment|// log at trace level to not spam log
