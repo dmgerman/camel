@@ -1788,11 +1788,13 @@ literal|"Disabling JMSReplyTo as this Exchange is not OUT capable with JMSReplyT
 operator|+
 name|replyTo
 operator|+
-literal|" to destination: "
+literal|" for destination: "
 operator|+
 name|to
 operator|+
-literal|" for Exchange: "
+literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo."
+operator|+
+literal|" Exchange: "
 operator|+
 name|exchange
 argument_list|)
