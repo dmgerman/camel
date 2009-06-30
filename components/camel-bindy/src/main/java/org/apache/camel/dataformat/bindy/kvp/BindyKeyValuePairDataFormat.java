@@ -517,14 +517,14 @@ decl_stmt|;
 comment|// Retrieve the pair separator defined to split the record
 name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 argument_list|(
 name|factory
 operator|.
 name|getPairSeparator
 argument_list|()
 argument_list|,
-literal|"The separator has not been defined in the annotation @Message."
+literal|"The pair separator property of the annotation @Message"
 argument_list|)
 expr_stmt|;
 name|String
@@ -598,7 +598,7 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Create POJO where CSV data will be stored
+comment|// Create POJO
 name|model
 operator|=
 name|factory
