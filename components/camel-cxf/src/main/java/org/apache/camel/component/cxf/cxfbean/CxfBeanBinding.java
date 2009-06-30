@@ -82,6 +82,21 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Given a CXF out/response Message, this method propagates response headers to a       * Camel exchange.      *       * @param cxfMessage      * @param camelExchange      * @param headerFilterStrategy      */
+DECL|method|propagateResponseHeadersToCamel (Message cxfMessage, Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
+name|void
+name|propagateResponseHeadersToCamel
+parameter_list|(
+name|Message
+name|cxfMessage
+parameter_list|,
+name|Exchange
+name|camelExchange
+parameter_list|,
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
