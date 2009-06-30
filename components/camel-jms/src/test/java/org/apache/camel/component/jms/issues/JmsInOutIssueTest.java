@@ -452,7 +452,10 @@ literal|"There should be a reply destination"
 argument_list|,
 name|exchange
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|JmsConstants
 operator|.
