@@ -153,7 +153,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll"
+literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true"
 decl_stmt|;
 annotation|@
 name|Override
@@ -250,19 +250,22 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give poll strategy a bit time to signal commit
+comment|// give file consumer a bit time
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|50
+literal|1000
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
+argument_list|(
+name|event
+operator|.
+name|startsWith
 argument_list|(
 literal|"rollbackcommit"
-argument_list|,
-name|event
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
