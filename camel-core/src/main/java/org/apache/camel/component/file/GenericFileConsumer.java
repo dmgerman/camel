@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -584,17 +594,11 @@ control|)
 block|{
 comment|// only loop if we are started (allowed to run)
 comment|// use poll to remove the head so it does not consume memory even after we have processed it
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 init|=
 operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 operator|)
 name|exchanges
 operator|.
@@ -668,34 +672,45 @@ name|index
 operator|++
 control|)
 block|{
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 init|=
 operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 operator|)
 name|exchanges
 operator|.
 name|poll
 argument_list|()
 decl_stmt|;
-name|String
-name|key
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
 init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+operator|)
 name|exchange
 operator|.
-name|getGenericFile
-argument_list|()
+name|getProperty
+argument_list|(
+name|FileComponent
 operator|.
-name|getFileName
-argument_list|()
+name|FILE_EXCHANGE_FILE
+argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|file
+operator|!=
+literal|null
+condition|)
+block|{
 name|endpoint
 operator|.
 name|getInProgressRepository
@@ -703,9 +718,13 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|key
+name|file
+operator|.
+name|getFileName
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
@@ -742,19 +761,38 @@ name|fileList
 parameter_list|)
 function_decl|;
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
-DECL|method|processExchange (final GenericFileExchange<T> exchange)
+DECL|method|processExchange (final Exchange exchange)
 specifier|protected
 name|void
 name|processExchange
 parameter_list|(
 specifier|final
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
+specifier|final
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|target
+init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+operator|)
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|log
@@ -769,10 +807,7 @@ name|trace
 argument_list|(
 literal|"Processing remote file: "
 operator|+
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -803,10 +838,7 @@ name|endpoint
 argument_list|,
 name|exchange
 argument_list|,
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
+name|target
 argument_list|)
 decl_stmt|;
 if|if
@@ -823,10 +855,7 @@ name|endpoint
 operator|+
 literal|" cannot begin processing file: "
 operator|+
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
+name|target
 argument_list|)
 expr_stmt|;
 comment|// remove file from the in progress list as its no longer in progress
@@ -837,10 +866,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
+name|target
 operator|.
 name|getFileName
 argument_list|()
@@ -850,18 +876,6 @@ return|return;
 block|}
 comment|// must use file from exchange as it can be updated due the
 comment|// preMoveNamePrefix/preMoveNamePostfix options
-specifier|final
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|target
-init|=
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
-decl_stmt|;
 comment|// must use full name when downloading so we have the correct path
 specifier|final
 name|String

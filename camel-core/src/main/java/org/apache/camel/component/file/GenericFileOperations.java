@@ -28,6 +28,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_interface
 DECL|interface|GenericFileOperations
 specifier|public
@@ -86,34 +98,28 @@ throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * Retrieves the file      *      * @param name     name of the file      * @param exchange stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|retrieveFile (String name, GenericFileExchange<T> exchange)
+DECL|method|retrieveFile (String name, Exchange exchange)
 name|boolean
 name|retrieveFile
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|storeFile (String name, GenericFileExchange<T> exchange)
+DECL|method|storeFile (String name, Exchange exchange)
 name|boolean
 name|storeFile
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
