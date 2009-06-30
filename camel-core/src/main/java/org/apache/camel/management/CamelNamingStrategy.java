@@ -272,7 +272,7 @@ specifier|protected
 name|String
 name|hostName
 init|=
-literal|"locahost"
+literal|"localhost"
 decl_stmt|;
 DECL|method|CamelNamingStrategy ()
 specifier|public
@@ -1075,12 +1075,30 @@ name|Endpoint
 name|ep
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ep
+operator|.
+name|isSingleton
+argument_list|()
+condition|)
+block|{
+return|return
+name|ep
+operator|.
+name|getEndpointKey
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+comment|// non singleton then add hashcoded id
 name|String
 name|uri
 init|=
 name|ep
 operator|.
-name|getEndpointUri
+name|getEndpointKey
 argument_list|()
 decl_stmt|;
 name|int
@@ -1131,6 +1149,7 @@ expr_stmt|;
 return|return
 name|id
 return|;
+block|}
 block|}
 comment|/**      * Factory method to create an ObjectName escaping any required characters      */
 DECL|method|createObjectName (StringBuffer buffer)

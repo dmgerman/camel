@@ -524,7 +524,6 @@ argument_list|,
 literal|"processors"
 argument_list|)
 expr_stmt|;
-comment|// TODO: end() does not work correctly with Splitter
 name|this
 operator|.
 name|processors

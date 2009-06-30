@@ -369,7 +369,7 @@ literal|"Consumer for endpoint: "
 operator|+
 name|key
 operator|+
-literal|" is not singleton and thus not added to producer cache"
+literal|" is not singleton and thus not added to consumer cache"
 argument_list|)
 expr_stmt|;
 block|}
@@ -542,6 +542,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
+comment|/**      * Returns the current size of the consumer cache      *      * @return the current size      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|consumers
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

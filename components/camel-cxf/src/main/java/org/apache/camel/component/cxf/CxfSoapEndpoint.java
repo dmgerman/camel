@@ -383,6 +383,19 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+DECL|method|getEndpointKey ()
+specifier|public
+name|String
+name|getEndpointKey
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
+block|}
 DECL|method|createExchange ()
 specifier|public
 name|Exchange

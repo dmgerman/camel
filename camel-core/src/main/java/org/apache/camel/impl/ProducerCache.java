@@ -973,6 +973,19 @@ name|pool
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the current size of the producer cache      *      * @return the current size      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|producers
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
