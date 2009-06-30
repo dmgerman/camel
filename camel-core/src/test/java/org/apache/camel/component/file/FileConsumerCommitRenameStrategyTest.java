@@ -292,7 +292,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// content of file should be Hello London
