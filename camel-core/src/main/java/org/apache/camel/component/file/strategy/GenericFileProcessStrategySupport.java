@@ -86,22 +86,6 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
 name|GenericFileExclusiveReadLockStrategy
 import|;
 end_import
@@ -204,7 +188,7 @@ name|T
 argument_list|>
 name|exclusiveReadLockStrategy
 decl_stmt|;
-DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
 name|boolean
 name|begin
@@ -221,10 +205,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -274,7 +255,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
 name|void
 name|commit
@@ -291,10 +272,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -331,7 +309,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
 name|void
 name|rollback
@@ -348,10 +326,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -420,15 +395,12 @@ operator|=
 name|exclusiveReadLockStrategy
 expr_stmt|;
 block|}
-DECL|method|deleteLocalWorkFile (GenericFileExchange<T> exchange)
+DECL|method|deleteLocalWorkFile (Exchange exchange)
 specifier|private
 name|void
 name|deleteLocalWorkFile
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

@@ -18,6 +18,18 @@ name|file
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a pluggable strategy when processing files.  */
 end_comment
@@ -32,7 +44,7 @@ name|T
 parameter_list|>
 block|{
 comment|/**      * Called when work is about to begin on this file. This method may attempt      * to acquire some file lock before returning true; returning false if the      * file lock could not be obtained so that the file should be ignored.      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @return true if the file can be processed (such as if a file lock could      *         be obtained)      * @throws Exception can be thrown in case of errors      */
-DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|boolean
 name|begin
 parameter_list|(
@@ -48,10 +60,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -64,7 +73,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Releases any file locks and possibly deletes or moves the file after      * successful processing      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @throws Exception can be thrown in case of errors      */
-DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|void
 name|commit
 parameter_list|(
@@ -80,10 +89,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -96,7 +102,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Releases any file locks and possibly deletes or moves the file after      * unsuccessful processing      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @throws Exception can be thrown in case of errors      */
-DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|void
 name|rollback
 parameter_list|(
@@ -112,10 +118,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile

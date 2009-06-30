@@ -28,11 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFile
+name|Exchange
 import|;
 end_import
 
@@ -48,7 +44,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileExchange
+name|GenericFile
 import|;
 end_import
 
@@ -66,17 +62,14 @@ name|T
 parameter_list|>
 block|{
 comment|/**      * Renames the given file      *      * @param exchange  the exchange      * @param file      the original file.      * @return the renamed file name.      */
-DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|renameFile (Exchange exchange, GenericFile<T> file)
 name|GenericFile
 argument_list|<
 name|T
 argument_list|>
 name|renameFile
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile

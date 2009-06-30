@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -45,22 +57,6 @@ operator|.
 name|file
 operator|.
 name|GenericFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileExchange
 import|;
 end_import
 
@@ -117,7 +113,7 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|renameFile (Exchange exchange, GenericFile<T> file)
 specifier|public
 name|GenericFile
 argument_list|<
@@ -125,10 +121,7 @@ name|T
 argument_list|>
 name|renameFile
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile

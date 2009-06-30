@@ -401,6 +401,55 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * Bind this GenericFile to an Exchange      */
+DECL|method|bindToExchange (Exchange exchange)
+specifier|public
+name|void
+name|bindToExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
+name|in
+init|=
+operator|new
+name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|setIn
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+name|populateHeaders
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Populates the {@link GenericFileMessage} relevant headers      *      * @param message the message to populate with headers      */
 DECL|method|populateHeaders (GenericFileMessage<T> message)
 specifier|public

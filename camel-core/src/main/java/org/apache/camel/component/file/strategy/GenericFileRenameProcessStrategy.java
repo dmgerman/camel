@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -59,22 +71,6 @@ operator|.
 name|file
 operator|.
 name|GenericFileEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileExchange
 import|;
 end_import
 
@@ -147,7 +143,7 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
 name|boolean
 name|begin
@@ -164,10 +160,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -243,13 +236,21 @@ argument_list|,
 name|newName
 argument_list|)
 decl_stmt|;
-name|exchange
-operator|.
-name|setGenericFile
-argument_list|(
+if|if
+condition|(
 name|to
+operator|!=
+literal|null
+condition|)
+block|{
+name|to
+operator|.
+name|bindToExchange
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|true
@@ -257,7 +258,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
 name|void
 name|commit
@@ -274,10 +275,7 @@ name|T
 argument_list|>
 name|endpoint
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
