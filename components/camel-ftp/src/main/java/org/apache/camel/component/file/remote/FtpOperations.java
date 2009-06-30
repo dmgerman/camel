@@ -134,6 +134,22 @@ name|component
 operator|.
 name|file
 operator|.
+name|FileComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
 name|GenericFile
 import|;
 end_import
@@ -1105,7 +1121,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFile (String name, GenericFileExchange<FTPFile> exchange)
+DECL|method|retrieveFile (String name, Exchange exchange)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -1113,10 +1129,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|FTPFile
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1158,7 +1171,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|retrieveFileToStreamInBody (String name, GenericFileExchange<FTPFile> exchange)
+DECL|method|retrieveFileToStreamInBody (String name, Exchange exchange)
 specifier|private
 name|boolean
 name|retrieveFileToStreamInBody
@@ -1166,10 +1179,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|FTPFile
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1194,11 +1204,36 @@ name|FTPFile
 argument_list|>
 name|target
 init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
+operator|)
 name|exchange
 operator|.
-name|getGenericFile
-argument_list|()
+name|getProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|target
+argument_list|,
+literal|"Exchange should have the "
+operator|+
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+operator|+
+literal|" set"
+argument_list|)
+expr_stmt|;
 name|target
 operator|.
 name|setBody
@@ -1263,7 +1298,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, GenericFileExchange<FTPFile> exchange)
+DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
 specifier|private
 name|boolean
 name|retrieveFileToFileInLocalWorkDirectory
@@ -1271,10 +1306,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|FTPFile
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1306,13 +1338,46 @@ decl_stmt|;
 try|try
 block|{
 comment|// use relative filename in local work directory
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
+name|target
+init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
+operator|)
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|)
+decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|target
+argument_list|,
+literal|"Exchange should have the "
+operator|+
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+operator|+
+literal|" set"
+argument_list|)
+expr_stmt|;
 name|String
 name|relativeName
 init|=
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
+name|target
 operator|.
 name|getRelativeFilePath
 argument_list|()
@@ -1477,10 +1542,20 @@ name|FTPFile
 argument_list|>
 name|target
 init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
+operator|)
 name|exchange
 operator|.
-name|getGenericFile
-argument_list|()
+name|getProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|)
 decl_stmt|;
 comment|// store the java.io.File handle as the body
 name|target
@@ -1578,7 +1653,7 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|storeFile (String name, GenericFileExchange<FTPFile> exchange)
+DECL|method|storeFile (String name, Exchange exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -1586,10 +1661,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|FTPFile
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
