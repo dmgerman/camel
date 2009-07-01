@@ -128,15 +128,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsConstants
+name|Test
 import|;
 end_import
 
@@ -152,6 +146,8 @@ name|JmsInOutIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testInOutWithRequestBody ()
 specifier|public
 name|void
@@ -184,6 +180,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutWithAsyncRequestBody ()
 specifier|public
 name|void
@@ -222,6 +220,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutWithSendExchange ()
 specifier|public
 name|void
@@ -285,6 +285,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutWithAsyncSendExchange ()
 specifier|public
 name|void
@@ -432,37 +434,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|assertEquals
-argument_list|(
-literal|"Should be InOut"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOut
-argument_list|,
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"There should be a reply destination"
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|JmsConstants
-operator|.
-name|JMS_REPLY_DESTINATION
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|getOut

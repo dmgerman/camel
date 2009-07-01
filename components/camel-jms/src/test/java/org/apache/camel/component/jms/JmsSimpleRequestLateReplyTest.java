@@ -510,7 +510,7 @@ argument_list|(
 literal|"Sending late reply"
 argument_list|)
 expr_stmt|;
-comment|// use some dummt queue as we override this with the property: JmsConstants.JMS_DESTINATION
+comment|// use some dummy queue as we override this with the property: JmsConstants.JMS_DESTINATION
 name|template
 operator|.
 name|send

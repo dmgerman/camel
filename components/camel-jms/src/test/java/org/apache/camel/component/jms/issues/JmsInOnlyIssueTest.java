@@ -21,30 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -146,9 +122,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|mock
 operator|.
-name|JmsConstants
+name|MockEndpoint
 import|;
 end_import
 
@@ -156,15 +132,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|Test
 import|;
 end_import
 
@@ -180,6 +150,8 @@ name|JmsInOnlyIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testInOnlyWithSendBody ()
 specifier|public
 name|void
@@ -216,6 +188,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOnlyWithAsyncSendBody ()
 specifier|public
 name|void
@@ -260,6 +234,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOnlyWithSendExchange ()
 specifier|public
 name|void
@@ -338,6 +314,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOnlyWithAsyncSendExchange ()
 specifier|public
 name|void
@@ -489,37 +467,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|assertEquals
-argument_list|(
-literal|"Should be InOnly"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|,
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-literal|"There should NOT be a reply destination"
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|JmsConstants
-operator|.
-name|JMS_REPLY_DESTINATION
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|getIn
