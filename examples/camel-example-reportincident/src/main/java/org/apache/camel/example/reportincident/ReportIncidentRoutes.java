@@ -202,7 +202,7 @@ argument_list|,
 literal|"generateFilename"
 argument_list|)
 argument_list|)
-comment|// and create the mail body using velocity templating
+comment|// and create the mail body using velocity template
 operator|.
 name|to
 argument_list|(

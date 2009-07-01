@@ -67,15 +67,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ClassPathXmlApplicationContext
 name|applicationContext
-init|=
+operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"/META-INF/spring/camel-context.xml"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|camel
 operator|=
 name|SpringCamelContext
