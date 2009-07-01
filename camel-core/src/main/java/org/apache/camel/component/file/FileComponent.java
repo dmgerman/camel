@@ -93,6 +93,34 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// the starting directory must be a static (not containing dynamic expressions)
+if|if
+condition|(
+name|remaining
+operator|.
+name|indexOf
+argument_list|(
+literal|"${"
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid directory: "
+operator|+
+name|remaining
+operator|+
+literal|". Dynamic expressions with ${ } placeholders is not allowed."
+operator|+
+literal|" Use the fileName option to set the dynamic expression."
+argument_list|)
+throw|;
+block|}
 name|File
 name|file
 init|=
