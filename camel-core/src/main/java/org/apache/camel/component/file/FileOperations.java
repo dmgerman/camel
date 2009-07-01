@@ -645,7 +645,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, GenericFileExchange<File> exchange)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -653,7 +653,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|File
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -664,7 +667,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|storeFile (String fileName, Exchange exchange)
+DECL|method|storeFile (String fileName, GenericFileExchange<File> exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -672,7 +675,10 @@ parameter_list|(
 name|String
 name|fileName
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|File
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
