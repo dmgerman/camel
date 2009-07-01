@@ -46,6 +46,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -202,21 +212,42 @@ name|Class
 argument_list|>
 name|models
 decl_stmt|;
-DECL|field|mapAnnotatedLinkField
+DECL|field|annotedLinkFields
 specifier|protected
 name|Map
 argument_list|<
 name|String
 argument_list|,
+name|List
+argument_list|<
 name|Field
 argument_list|>
-name|mapAnnotatedLinkField
+argument_list|>
+name|annotedLinkFields
 init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
+name|List
+argument_list|<
+name|Field
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|linkFields
+specifier|protected
+name|List
+argument_list|<
+name|Field
+argument_list|>
+name|linkFields
+init|=
+operator|new
+name|ArrayList
+argument_list|<
 name|Field
 argument_list|>
 argument_list|()
@@ -383,7 +414,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Link objects together (Only 1to1 relation is allowed)      */
+comment|/**      * Link objects together      */
 DECL|method|link (Map<String, Object> model)
 specifier|public
 name|void
@@ -400,27 +431,41 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Iterate class by class
 for|for
 control|(
 name|String
 name|link
 range|:
-name|mapAnnotatedLinkField
+name|annotedLinkFields
 operator|.
 name|keySet
 argument_list|()
 control|)
 block|{
+name|List
+argument_list|<
 name|Field
-name|field
+argument_list|>
+name|linkFields
 init|=
-name|mapAnnotatedLinkField
+name|annotedLinkFields
 operator|.
 name|get
 argument_list|(
 name|link
 argument_list|)
 decl_stmt|;
+comment|// Iterate through Link fields list
+for|for
+control|(
+name|Field
+name|field
+range|:
+name|linkFields
+control|)
+block|{
+comment|// Change protection for private field
 name|field
 operator|.
 name|setAccessible
@@ -479,6 +524,7 @@ argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from      *         records, messages      * @throws Exception      *         can be thrown      */

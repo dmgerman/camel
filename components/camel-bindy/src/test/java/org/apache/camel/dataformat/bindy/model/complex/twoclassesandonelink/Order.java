@@ -131,16 +131,23 @@ name|Client
 name|client
 decl_stmt|;
 annotation|@
+name|Link
+DECL|field|security
+specifier|private
+name|Security
+name|security
+decl_stmt|;
+annotation|@
 name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|4
+literal|6
 argument_list|)
-DECL|field|isinCode
+DECL|field|orderType
 specifier|private
 name|String
-name|isinCode
+name|orderType
 decl_stmt|;
 annotation|@
 name|DataField
@@ -151,19 +158,19 @@ literal|"Name"
 argument_list|,
 name|pos
 operator|=
-literal|5
+literal|7
 argument_list|)
-DECL|field|instrumentName
+DECL|field|instrumentType
 specifier|private
 name|String
-name|instrumentName
+name|instrumentType
 decl_stmt|;
 annotation|@
 name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|6
+literal|8
 argument_list|,
 name|precision
 operator|=
@@ -179,7 +186,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|7
+literal|9
 argument_list|)
 DECL|field|currency
 specifier|private
@@ -191,7 +198,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|8
+literal|10
 argument_list|,
 name|pattern
 operator|=
@@ -252,56 +259,6 @@ operator|.
 name|client
 operator|=
 name|client
-expr_stmt|;
-block|}
-DECL|method|getIsinCode ()
-specifier|public
-name|String
-name|getIsinCode
-parameter_list|()
-block|{
-return|return
-name|isinCode
-return|;
-block|}
-DECL|method|setIsinCode (String code)
-specifier|public
-name|void
-name|setIsinCode
-parameter_list|(
-name|String
-name|code
-parameter_list|)
-block|{
-name|isinCode
-operator|=
-name|code
-expr_stmt|;
-block|}
-DECL|method|getInstrumentName ()
-specifier|public
-name|String
-name|getInstrumentName
-parameter_list|()
-block|{
-return|return
-name|instrumentName
-return|;
-block|}
-DECL|method|setInstrumentName (String instrumentName)
-specifier|public
-name|void
-name|setInstrumentName
-parameter_list|(
-name|String
-name|instrumentName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|instrumentName
-operator|=
-name|instrumentName
 expr_stmt|;
 block|}
 DECL|method|getAmount ()
@@ -382,6 +339,84 @@ operator|=
 name|orderDate
 expr_stmt|;
 block|}
+DECL|method|getSecurity ()
+specifier|public
+name|Security
+name|getSecurity
+parameter_list|()
+block|{
+return|return
+name|security
+return|;
+block|}
+DECL|method|setSecurity (Security security)
+specifier|public
+name|void
+name|setSecurity
+parameter_list|(
+name|Security
+name|security
+parameter_list|)
+block|{
+name|this
+operator|.
+name|security
+operator|=
+name|security
+expr_stmt|;
+block|}
+DECL|method|getOrderType ()
+specifier|public
+name|String
+name|getOrderType
+parameter_list|()
+block|{
+return|return
+name|orderType
+return|;
+block|}
+DECL|method|setOrderType (String orderType)
+specifier|public
+name|void
+name|setOrderType
+parameter_list|(
+name|String
+name|orderType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderType
+operator|=
+name|orderType
+expr_stmt|;
+block|}
+DECL|method|getInstrumentType ()
+specifier|public
+name|String
+name|getInstrumentType
+parameter_list|()
+block|{
+return|return
+name|instrumentType
+return|;
+block|}
+DECL|method|setInstrumentType (String instrumentType)
+specifier|public
+name|void
+name|setInstrumentType
+parameter_list|(
+name|String
+name|instrumentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instrumentType
+operator|=
+name|instrumentType
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -408,8 +443,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getOrderNr
-argument_list|()
+name|orderNr
 argument_list|)
 operator|+
 literal|", "
@@ -420,8 +454,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getAmount
-argument_list|()
+name|amount
 argument_list|)
 operator|+
 literal|", "
@@ -432,8 +465,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getIsinCode
-argument_list|()
+name|instrumentType
 argument_list|)
 operator|+
 literal|", "
@@ -444,8 +476,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getInstrumentName
-argument_list|()
+name|orderType
 argument_list|)
 operator|+
 literal|", "
@@ -456,8 +487,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getCurrency
-argument_list|()
+name|currency
 argument_list|)
 operator|+
 literal|", "
@@ -468,8 +498,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getClient
-argument_list|()
+name|client
 argument_list|)
 operator|+
 literal|","
@@ -480,8 +509,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getOrderDate
-argument_list|()
+name|orderDate
 argument_list|)
 return|;
 block|}

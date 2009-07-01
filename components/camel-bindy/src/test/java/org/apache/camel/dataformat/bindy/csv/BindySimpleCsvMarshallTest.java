@@ -333,7 +333,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"1,B2,Keira,Knightley,XX23456789,France OOO,450.45,EUR,14-01-2009\r\n"
+literal|"1,B2,Keira,Knightley,ISIN,XX23456789,BUY,Share,450.45,EUR,14-01-2009\r\n"
 decl_stmt|;
 annotation|@
 name|Produce
@@ -437,6 +437,13 @@ argument_list|)
 expr_stmt|;
 name|order
 operator|.
+name|setOrderType
+argument_list|(
+literal|"BUY"
+argument_list|)
+expr_stmt|;
+name|order
+operator|.
 name|setClientNr
 argument_list|(
 literal|"B2"
@@ -474,16 +481,23 @@ argument_list|)
 expr_stmt|;
 name|order
 operator|.
-name|setIsinCode
+name|setInstrumentCode
+argument_list|(
+literal|"ISIN"
+argument_list|)
+expr_stmt|;
+name|order
+operator|.
+name|setInstrumentNumber
 argument_list|(
 literal|"XX23456789"
 argument_list|)
 expr_stmt|;
 name|order
 operator|.
-name|setInstrumentName
+name|setInstrumentType
 argument_list|(
-literal|"France OOO"
+literal|"Share"
 argument_list|)
 expr_stmt|;
 name|order

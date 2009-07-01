@@ -208,8 +208,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getClientNr
-argument_list|()
+name|clientNr
 argument_list|)
 operator|+
 literal|", "
@@ -220,8 +219,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getFirstName
-argument_list|()
+name|firstName
 argument_list|)
 operator|+
 literal|", "
@@ -232,8 +230,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getLastName
-argument_list|()
+name|lastName
 argument_list|)
 return|;
 block|}

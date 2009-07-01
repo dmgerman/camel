@@ -148,10 +148,34 @@ name|pos
 operator|=
 literal|4
 argument_list|)
-DECL|field|isinCode
+DECL|field|instrumentCode
 specifier|private
 name|String
-name|isinCode
+name|instrumentCode
+decl_stmt|;
+annotation|@
+name|DataField
+argument_list|(
+name|pos
+operator|=
+literal|5
+argument_list|)
+DECL|field|instrumentNumber
+specifier|private
+name|String
+name|instrumentNumber
+decl_stmt|;
+annotation|@
+name|DataField
+argument_list|(
+name|pos
+operator|=
+literal|6
+argument_list|)
+DECL|field|orderType
+specifier|private
+name|String
+name|orderType
 decl_stmt|;
 annotation|@
 name|DataField
@@ -162,19 +186,19 @@ literal|"Name"
 argument_list|,
 name|pos
 operator|=
-literal|5
+literal|7
 argument_list|)
-DECL|field|instrumentName
+DECL|field|instrumentType
 specifier|private
 name|String
-name|instrumentName
+name|instrumentType
 decl_stmt|;
 annotation|@
 name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|6
+literal|8
 argument_list|,
 name|precision
 operator|=
@@ -190,7 +214,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|7
+literal|9
 argument_list|)
 DECL|field|currency
 specifier|private
@@ -202,7 +226,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|8
+literal|10
 argument_list|,
 name|pattern
 operator|=
@@ -213,6 +237,32 @@ specifier|private
 name|Date
 name|orderDate
 decl_stmt|;
+DECL|method|getOrderNr ()
+specifier|public
+name|int
+name|getOrderNr
+parameter_list|()
+block|{
+return|return
+name|orderNr
+return|;
+block|}
+DECL|method|setOrderNr (int orderNr)
+specifier|public
+name|void
+name|setOrderNr
+parameter_list|(
+name|int
+name|orderNr
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderNr
+operator|=
+name|orderNr
+expr_stmt|;
+block|}
 DECL|method|getClientNr ()
 specifier|public
 name|String
@@ -291,80 +341,108 @@ operator|=
 name|lastName
 expr_stmt|;
 block|}
-DECL|method|getOrderNr ()
+DECL|method|getInstrumentCode ()
 specifier|public
-name|int
-name|getOrderNr
+name|String
+name|getInstrumentCode
 parameter_list|()
 block|{
 return|return
-name|orderNr
+name|instrumentCode
 return|;
 block|}
-DECL|method|setOrderNr (int orderNr)
+DECL|method|setInstrumentCode (String instrumentCode)
 specifier|public
 name|void
-name|setOrderNr
+name|setInstrumentCode
 parameter_list|(
-name|int
-name|orderNr
+name|String
+name|instrumentCode
 parameter_list|)
 block|{
 name|this
 operator|.
-name|orderNr
+name|instrumentCode
 operator|=
-name|orderNr
+name|instrumentCode
 expr_stmt|;
 block|}
-DECL|method|getIsinCode ()
+DECL|method|getInstrumentNumber ()
 specifier|public
 name|String
-name|getIsinCode
+name|getInstrumentNumber
 parameter_list|()
 block|{
 return|return
-name|isinCode
+name|instrumentNumber
 return|;
 block|}
-DECL|method|setIsinCode (String code)
+DECL|method|setInstrumentNumber (String instrumentNumber)
 specifier|public
 name|void
-name|setIsinCode
+name|setInstrumentNumber
 parameter_list|(
 name|String
-name|code
-parameter_list|)
-block|{
-name|isinCode
-operator|=
-name|code
-expr_stmt|;
-block|}
-DECL|method|getInstrumentName ()
-specifier|public
-name|String
-name|getInstrumentName
-parameter_list|()
-block|{
-return|return
-name|instrumentName
-return|;
-block|}
-DECL|method|setInstrumentName (String instrumentName)
-specifier|public
-name|void
-name|setInstrumentName
-parameter_list|(
-name|String
-name|instrumentName
+name|instrumentNumber
 parameter_list|)
 block|{
 name|this
 operator|.
-name|instrumentName
+name|instrumentNumber
 operator|=
-name|instrumentName
+name|instrumentNumber
+expr_stmt|;
+block|}
+DECL|method|getOrderType ()
+specifier|public
+name|String
+name|getOrderType
+parameter_list|()
+block|{
+return|return
+name|orderType
+return|;
+block|}
+DECL|method|setOrderType (String orderType)
+specifier|public
+name|void
+name|setOrderType
+parameter_list|(
+name|String
+name|orderType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderType
+operator|=
+name|orderType
+expr_stmt|;
+block|}
+DECL|method|getInstrumentType ()
+specifier|public
+name|String
+name|getInstrumentType
+parameter_list|()
+block|{
+return|return
+name|instrumentType
+return|;
+block|}
+DECL|method|setInstrumentType (String instrumentType)
+specifier|public
+name|void
+name|setInstrumentType
+parameter_list|(
+name|String
+name|instrumentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instrumentType
+operator|=
+name|instrumentType
 expr_stmt|;
 block|}
 DECL|method|getAmount ()
@@ -465,15 +543,15 @@ argument_list|()
 operator|+
 literal|" : "
 operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|this
 operator|.
-name|getOrderNr
-argument_list|()
-argument_list|)
+name|orderNr
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|orderType
 operator|+
 literal|", "
 operator|+
@@ -483,9 +561,50 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getAmount
-argument_list|()
+name|amount
 argument_list|)
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|instrumentCode
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|instrumentNumber
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|instrumentType
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|currency
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|clientNr
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|firstName
+operator|+
+literal|", "
+operator|+
+name|this
+operator|.
+name|lastName
 operator|+
 literal|", "
 operator|+
@@ -495,80 +614,7 @@ name|valueOf
 argument_list|(
 name|this
 operator|.
-name|getIsinCode
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getInstrumentName
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getCurrency
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getClientNr
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getFirstName
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getLastName
-argument_list|()
-argument_list|)
-operator|+
-literal|", "
-operator|+
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|this
-operator|.
-name|getOrderDate
-argument_list|()
+name|orderDate
 argument_list|)
 return|;
 block|}
