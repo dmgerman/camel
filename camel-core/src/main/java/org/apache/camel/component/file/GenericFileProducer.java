@@ -289,18 +289,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|fileExchange
 init|=
-operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -324,15 +315,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Perform the work to process the fileExchange      *      * @param exchange fileExchange      * @throws Exception is thrown if some error      */
-DECL|method|processExchange (GenericFileExchange<T> exchange)
+DECL|method|processExchange (Exchange exchange)
 specifier|protected
 name|void
 name|processExchange
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -515,15 +503,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * If we fail writing out a file, we will call this method. This hook is      * provided to disconnect from servers or clean up files we created (if needed).      */
-DECL|method|handleFailedWrite (GenericFileExchange<T> exchange, Exception exception)
+DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
 specifier|protected
 name|void
 name|handleFailedWrite
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|Exception
@@ -545,15 +530,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
-DECL|method|writeFile (GenericFileExchange<T> exchange, String fileName)
+DECL|method|writeFile (Exchange exchange, String fileName)
 specifier|protected
 name|void
 name|writeFile
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|String

@@ -198,12 +198,6 @@ parameter_list|)
 block|{
 name|onCompletion
 argument_list|(
-operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -224,12 +218,6 @@ parameter_list|)
 block|{
 name|onCompletion
 argument_list|(
-operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -277,15 +265,12 @@ operator|=
 name|exceptionHandler
 expr_stmt|;
 block|}
-DECL|method|onCompletion (GenericFileExchange<T> exchange)
+DECL|method|onCompletion (Exchange exchange)
 specifier|protected
 name|void
 name|onCompletion
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -308,10 +293,20 @@ name|T
 argument_list|>
 name|file
 init|=
+operator|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+operator|)
 name|exchange
 operator|.
-name|getGenericFile
-argument_list|()
+name|getProperty
+argument_list|(
+name|FileComponent
+operator|.
+name|FILE_EXCHANGE_FILE
+argument_list|)
 decl_stmt|;
 name|boolean
 name|failed
@@ -436,7 +431,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, Exchange exchange, GenericFile<T> file)
 specifier|protected
 name|void
 name|processStrategyCommit
@@ -447,10 +442,7 @@ name|T
 argument_list|>
 name|processStrategy
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -536,7 +528,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was not processed and a rollback should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
-DECL|method|processStrategyRollback (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file)
+DECL|method|processStrategyRollback (GenericFileProcessStrategy<T> processStrategy, Exchange exchange, GenericFile<T> file)
 specifier|protected
 name|void
 name|processStrategyRollback
@@ -547,10 +539,7 @@ name|T
 argument_list|>
 name|processStrategy
 parameter_list|,
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|GenericFile
