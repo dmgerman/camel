@@ -80,35 +80,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getExchange ()
-specifier|public
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
-name|getExchange
-parameter_list|()
-block|{
-return|return
-operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
-operator|)
-name|super
-operator|.
-name|getExchange
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createBody ()
 specifier|protected
 name|Object

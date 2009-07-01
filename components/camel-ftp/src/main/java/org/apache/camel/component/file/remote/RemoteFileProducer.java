@@ -209,12 +209,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|GenericFileExchange
+name|Exchange
 name|remoteExchange
 init|=
-operator|(
-name|GenericFileExchange
-operator|)
 name|getEndpoint
 argument_list|()
 operator|.
@@ -225,6 +222,12 @@ argument_list|)
 decl_stmt|;
 name|processExchange
 argument_list|(
+operator|(
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
+operator|)
 name|remoteExchange
 argument_list|)
 expr_stmt|;
@@ -239,15 +242,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The file could not be written. We need to disconnect from the remote server.      */
-DECL|method|handleFailedWrite (GenericFileExchange<T> exchange, Exception exception)
+DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
 specifier|protected
 name|void
 name|handleFailedWrite
 parameter_list|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 parameter_list|,
 name|Exception

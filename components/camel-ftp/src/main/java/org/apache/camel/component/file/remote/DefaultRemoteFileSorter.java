@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|Exchange
 import|;
 end_import
 
@@ -50,11 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileExchange
+name|Expression
 import|;
 end_import
 
@@ -406,7 +402,7 @@ specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -433,12 +429,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a new sory by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @return the comparator      */
-DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final boolean ignoreCase)
+DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase)
 specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -469,12 +465,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a new sory by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @param nested     nested comparator for sub group sorting, can be null      * @return the comparator      */
-DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<GenericFileExchange> nested)
+DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<Exchange> nested)
 specifier|public
 specifier|static
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
@@ -493,7 +489,7 @@ parameter_list|,
 specifier|final
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|nested
 parameter_list|)
@@ -502,7 +498,7 @@ return|return
 operator|new
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 argument_list|()
 block|{
@@ -510,10 +506,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|GenericFileExchange
+name|Exchange
 name|o1
 parameter_list|,
-name|GenericFileExchange
+name|Exchange
 name|o2
 parameter_list|)
 block|{
