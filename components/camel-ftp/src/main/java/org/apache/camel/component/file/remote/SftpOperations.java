@@ -266,6 +266,22 @@ name|component
 operator|.
 name|file
 operator|.
+name|GenericFileExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
 name|GenericFileExist
 import|;
 end_import
@@ -1509,7 +1525,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, GenericFileExchange<ChannelSftp.LsEntry> exchange)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -1517,7 +1533,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1559,7 +1580,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|retrieveFileToStreamInBody (String name, Exchange exchange)
+DECL|method|retrieveFileToStreamInBody (String name, GenericFileExchange<ChannelSftp.LsEntry> exchange)
 specifier|private
 name|boolean
 name|retrieveFileToStreamInBody
@@ -1567,7 +1588,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1661,7 +1687,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
+DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, GenericFileExchange<ChannelSftp.LsEntry> exchange)
 specifier|private
 name|boolean
 name|retrieveFileToFileInLocalWorkDirectory
@@ -1669,7 +1695,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1977,7 +2008,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|storeFile (String name, Exchange exchange)
+DECL|method|storeFile (String name, GenericFileExchange<ChannelSftp.LsEntry> exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -1985,7 +2016,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws

@@ -1121,7 +1121,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, GenericFileExchange<FTPFile> exchange)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -1129,7 +1129,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1171,7 +1174,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|retrieveFileToStreamInBody (String name, Exchange exchange)
+DECL|method|retrieveFileToStreamInBody (String name, GenericFileExchange<FTPFile> exchange)
 specifier|private
 name|boolean
 name|retrieveFileToStreamInBody
@@ -1179,7 +1182,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1298,7 +1304,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
+DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, GenericFileExchange<FTPFile> exchange)
 specifier|private
 name|boolean
 name|retrieveFileToFileInLocalWorkDirectory
@@ -1306,7 +1312,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -1653,7 +1662,7 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|storeFile (String name, Exchange exchange)
+DECL|method|storeFile (String name, GenericFileExchange<FTPFile> exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -1661,7 +1670,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
