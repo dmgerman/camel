@@ -182,15 +182,24 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|warn
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Cannot poll as directory does not exists or its not a directory: "
 operator|+
 name|directory
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 if|if
