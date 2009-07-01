@@ -56,6 +56,15 @@ name|JMS_MESSAGE_TYPE
 init|=
 literal|"CamelJmsMessageType"
 decl_stmt|;
+DECL|field|JMS_DELIVERY_MODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DELIVERY_MODE
+init|=
+literal|"CamelJMSDeliveryMode"
+decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private
 name|JmsConstants
