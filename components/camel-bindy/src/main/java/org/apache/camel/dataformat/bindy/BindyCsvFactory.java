@@ -688,9 +688,7 @@ name|notNull
 argument_list|(
 name|dataField
 argument_list|,
-literal|"No position defined for the field positoned : "
-operator|+
-name|pos
+literal|"No position defined for the field"
 argument_list|)
 expr_stmt|;
 name|Field
@@ -750,6 +748,7 @@ name|?
 argument_list|>
 name|format
 decl_stmt|;
+comment|// Get pattern defined for the field
 name|String
 name|pattern
 init|=
@@ -758,6 +757,7 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
+comment|// Create format object to format the field
 name|format
 operator|=
 name|FormatFactory
@@ -777,10 +777,10 @@ name|precision
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|field
-operator|.
-name|set
-argument_list|(
+comment|// field object to be set
+name|Object
+name|modelField
+init|=
 name|model
 operator|.
 name|get
@@ -793,7 +793,11 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-argument_list|,
+decl_stmt|;
+comment|// format the data received
+name|Object
+name|value
+init|=
 name|format
 operator|.
 name|parse
@@ -805,6 +809,14 @@ argument_list|(
 name|pos
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|field
+operator|.
+name|set
+argument_list|(
+name|modelField
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -987,7 +999,32 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Retrieve the format associated to the type
+comment|// Retrieve the format, pattern and precision associated to the type
+name|Class
+name|type
+init|=
+name|field
+operator|.
+name|getType
+argument_list|()
+decl_stmt|;
+name|String
+name|pattern
+init|=
+name|dataField
+operator|.
+name|pattern
+argument_list|()
+decl_stmt|;
+name|int
+name|precision
+init|=
+name|dataField
+operator|.
+name|precision
+argument_list|()
+decl_stmt|;
+comment|// Create format
 name|Format
 name|format
 init|=
@@ -995,25 +1032,16 @@ name|FormatFactory
 operator|.
 name|getFormat
 argument_list|(
-name|field
-operator|.
-name|getType
-argument_list|()
+name|type
 argument_list|,
-name|dataField
-operator|.
 name|pattern
-argument_list|()
 argument_list|,
-name|dataField
-operator|.
 name|precision
-argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Get object to be formatted
+comment|// Get field from model
 name|Object
-name|obj
+name|modelField
 init|=
 name|model
 operator|.
@@ -1030,7 +1058,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|obj
+name|modelField
 operator|!=
 literal|null
 condition|)
@@ -1052,7 +1080,7 @@ name|sections
 operator|.
 name|get
 argument_list|(
-name|obj
+name|modelField
 operator|.
 name|getClass
 argument_list|()
@@ -1106,29 +1134,44 @@ name|key1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Add the content to the TreeMap according to the position defined
-name|String
+comment|// Get field value
+name|Object
 name|value
+init|=
+name|field
+operator|.
+name|get
+argument_list|(
+name|modelField
+argument_list|)
+decl_stmt|;
+comment|// Add value to the list if not null
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Format field value
+name|String
+name|valueFormated
 init|=
 name|format
 operator|.
 name|format
 argument_list|(
-name|field
-operator|.
-name|get
-argument_list|(
-name|obj
-argument_list|)
+name|value
 argument_list|)
 decl_stmt|;
+comment|// Add the content to the TreeMap according to the position defined
 name|positions
 operator|.
 name|put
 argument_list|(
 name|keyGenerated
 argument_list|,
-name|value
+name|valueFormated
 argument_list|)
 expr_stmt|;
 if|if
@@ -1153,26 +1196,47 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 else|else
 block|{
-comment|// Convert the content to a String and append it to the builder
-name|builder
-operator|.
-name|append
-argument_list|(
-name|format
-operator|.
-name|format
-argument_list|(
+comment|// Get field value
+name|Object
+name|value
+init|=
 name|field
 operator|.
 name|get
 argument_list|(
-name|obj
+name|modelField
 argument_list|)
+decl_stmt|;
+comment|// Add value to the list if not null
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Format field value
+name|String
+name|valueFormated
+init|=
+name|format
+operator|.
+name|format
+argument_list|(
+name|value
 argument_list|)
+decl_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+name|valueFormated
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|it

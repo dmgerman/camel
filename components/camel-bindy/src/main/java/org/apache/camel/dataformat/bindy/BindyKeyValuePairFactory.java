@@ -710,7 +710,7 @@ index|]
 argument_list|)
 decl_stmt|;
 name|String
-name|value
+name|keyValue
 init|=
 name|keyValuePair
 index|[
@@ -735,7 +735,7 @@ name|tag
 operator|+
 literal|", value : "
 operator|+
-name|value
+name|keyValue
 argument_list|)
 expr_stmt|;
 block|}
@@ -795,7 +795,7 @@ name|tag
 operator|+
 literal|", Data : "
 operator|+
-name|value
+name|keyValue
 operator|+
 literal|", Field type : "
 operator|+
@@ -812,6 +812,7 @@ name|?
 argument_list|>
 name|format
 decl_stmt|;
+comment|// Get pattern defined for the field
 name|String
 name|pattern
 init|=
@@ -820,6 +821,7 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
+comment|// Create format object to format the field
 name|format
 operator|=
 name|FormatFactory
@@ -839,10 +841,10 @@ name|precision
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|field
-operator|.
-name|set
-argument_list|(
+comment|// field object to be set
+name|Object
+name|modelField
+init|=
 name|model
 operator|.
 name|get
@@ -855,13 +857,25 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-argument_list|,
+decl_stmt|;
+comment|// format the value of the key received
+name|Object
+name|value
+init|=
 name|format
 operator|.
 name|parse
 argument_list|(
-name|value
+name|keyValue
 argument_list|)
+decl_stmt|;
+name|field
+operator|.
+name|set
+argument_list|(
+name|modelField
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -1091,9 +1105,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Retrieve the format associated to the type
-name|Format
-name|format
+comment|// Retrieve the format, pattern and precision associated to the type
+name|Class
+name|type
+init|=
+name|field
+operator|.
+name|getType
+argument_list|()
 decl_stmt|;
 name|String
 name|pattern
@@ -1103,25 +1122,29 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
-name|format
-operator|=
-name|FormatFactory
-operator|.
-name|getFormat
-argument_list|(
-name|field
-operator|.
-name|getType
-argument_list|()
-argument_list|,
-name|pattern
-argument_list|,
+name|int
+name|precision
+init|=
 name|keyValuePairField
 operator|.
 name|precision
 argument_list|()
+decl_stmt|;
+comment|// Create format
+name|Format
+name|format
+init|=
+name|FormatFactory
+operator|.
+name|getFormat
+argument_list|(
+name|type
+argument_list|,
+name|pattern
+argument_list|,
+name|precision
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Get object to be formatted
 name|Object
 name|obj
@@ -1146,6 +1169,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Get field value
+name|Object
+name|keyValue
+init|=
+name|field
+operator|.
+name|get
+argument_list|(
+name|obj
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|this
@@ -1217,7 +1251,26 @@ name|key1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Add the content to the TreeMap according to the position defined
+comment|// Add value to the list if not null
+if|if
+condition|(
+name|keyValue
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Format field value
+name|String
+name|valueFormated
+init|=
+name|format
+operator|.
+name|format
+argument_list|(
+name|keyValue
+argument_list|)
+decl_stmt|;
+comment|// Create the key value string
 name|String
 name|value
 init|=
@@ -1231,18 +1284,10 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 operator|+
-name|format
-operator|.
-name|format
-argument_list|(
-name|field
-operator|.
-name|get
-argument_list|(
-name|obj
-argument_list|)
-argument_list|)
+name|valueFormated
 decl_stmt|;
+comment|// Add the content to the TreeMap according to the
+comment|// position defined
 name|positions
 operator|.
 name|put
@@ -1274,12 +1319,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 else|else
 block|{
-comment|// Convert the content to a String and append it to the
-comment|// builder
-comment|// Add the tag followed by its key value pair separator
-comment|// the data and finish by the pair separator
+comment|// Add value to the list if not null
+if|if
+condition|(
+name|keyValue
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Format field value
+name|String
+name|valueFormated
+init|=
+name|format
+operator|.
+name|format
+argument_list|(
+name|keyValue
+argument_list|)
+decl_stmt|;
+comment|// Create the key value string
 name|String
 name|value
 init|=
@@ -1293,20 +1355,11 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 operator|+
-name|format
-operator|.
-name|format
-argument_list|(
-name|field
-operator|.
-name|get
-argument_list|(
-name|obj
-argument_list|)
-argument_list|)
+name|valueFormated
 operator|+
 name|separator
 decl_stmt|;
+comment|// Add content to the stringBuilder
 name|builder
 operator|.
 name|append
@@ -1338,21 +1391,12 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 operator|+
-name|format
-operator|.
-name|format
-argument_list|(
-name|field
-operator|.
-name|get
-argument_list|(
-name|obj
-argument_list|)
-argument_list|)
+name|valueFormated
 operator|+
 name|separator
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
