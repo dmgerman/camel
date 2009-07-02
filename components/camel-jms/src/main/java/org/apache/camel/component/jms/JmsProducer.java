@@ -1443,7 +1443,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reply recieved. Setting reply as Exception: "
+literal|"Reply recieved. Setting reply an Exception: "
 operator|+
 name|body
 argument_list|)
@@ -1904,7 +1904,17 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using JMS API "
+literal|"Using "
+operator|+
+operator|(
+name|inOut
+condition|?
+literal|"inOut"
+else|:
+literal|"inOnly"
+operator|)
+operator|+
+literal|" jms template to send with API "
 operator|+
 operator|(
 name|endpoint

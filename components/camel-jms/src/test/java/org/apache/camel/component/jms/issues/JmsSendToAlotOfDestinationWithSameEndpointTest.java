@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jms
@@ -47,6 +59,34 @@ operator|.
 name|spring
 operator|.
 name|SpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -102,13 +142,30 @@ name|JmsSendToAlotOfDestinationWithSameEndpointTest
 extends|extends
 name|SpringTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|JmsSendToAlotOfDestinationWithSameEndpointTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|URI
 specifier|private
 specifier|static
 name|String
 name|URI
 init|=
-literal|"activemq:queue:foo"
+literal|"activemq:queue:foo?autoStartup=false"
 decl_stmt|;
 DECL|method|getExpectedRouteCount ()
 specifier|public
@@ -133,8 +190,19 @@ block|{
 name|int
 name|size
 init|=
-literal|100
+literal|1000
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"About to send "
+operator|+
+name|size
+operator|+
+literal|" messages"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -153,11 +221,47 @@ block|{
 comment|// use the same endpoint but provide a header with the dynamic queue we send to
 comment|// this allows us to reuse endpoints and not create a new endpoint for each and every jms queue
 comment|// we send to
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|>
+literal|0
+operator|&&
+name|i
+operator|%
+literal|50
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Send "
+operator|+
+name|i
+operator|+
+literal|" messages so far"
+argument_list|)
+expr_stmt|;
+block|}
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
 name|URI
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOnly
 argument_list|,
 literal|"Hello "
 operator|+
@@ -173,9 +277,15 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Send complete use jconsole to view"
+argument_list|)
+expr_stmt|;
 comment|// now we should be able to poll a message from each queue
-comment|//        System.out.println(size + " messages sent, use jconsole to look");
-comment|//        Thread.sleep(99999999);
+comment|// Thread.sleep(99999999);
 block|}
 DECL|method|createApplicationContext ()
 specifier|protected
