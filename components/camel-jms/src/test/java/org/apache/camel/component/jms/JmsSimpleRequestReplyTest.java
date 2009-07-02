@@ -394,16 +394,16 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// the reply destination is set as a property on the exchange while we process it
 name|assertNotNull
 argument_list|(
 name|exchange
 operator|.
-name|getProperty
-argument_list|(
-name|JmsConstants
+name|getIn
+argument_list|()
 operator|.
-name|JMS_REPLY_DESTINATION
+name|getHeader
+argument_list|(
+literal|"JMSReplyTo"
 argument_list|)
 argument_list|)
 expr_stmt|;

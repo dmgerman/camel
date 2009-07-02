@@ -29,15 +29,6 @@ specifier|final
 class|class
 name|JmsConstants
 block|{
-DECL|field|JMS_REPLY_DESTINATION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_REPLY_DESTINATION
-init|=
-literal|"JMSReplyTo"
-decl_stmt|;
 DECL|field|JMS_DESTINATION
 specifier|public
 specifier|static
@@ -45,7 +36,16 @@ specifier|final
 name|String
 name|JMS_DESTINATION
 init|=
-literal|"JMSDestination"
+literal|"CamelJmsDestination"
+decl_stmt|;
+DECL|field|JMS_DESTINATION_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DESTINATION_NAME
+init|=
+literal|"CamelJmsDestinationName"
 decl_stmt|;
 DECL|field|JMS_MESSAGE_TYPE
 specifier|public
@@ -63,7 +63,7 @@ specifier|final
 name|String
 name|JMS_DELIVERY_MODE
 init|=
-literal|"CamelJMSDeliveryMode"
+literal|"CamelJmsDeliveryMode"
 decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private

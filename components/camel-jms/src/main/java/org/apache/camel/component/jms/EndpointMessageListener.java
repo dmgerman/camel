@@ -754,17 +754,6 @@ operator|!
 name|disableReplyTo
 condition|)
 block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|JmsConstants
-operator|.
-name|JMS_REPLY_DESTINATION
-argument_list|,
-name|replyDestination
-argument_list|)
-expr_stmt|;
 comment|// only change pattern if not already out capable
 if|if
 condition|(

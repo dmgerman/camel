@@ -128,22 +128,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
-operator|.
-name|JmsConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -403,7 +387,7 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|// use our custom JMSReplyTo to decide where the reply should be sent
+comment|// set the JMSReplyTo to force sending the reply here
 name|exchange
 operator|.
 name|getOut
@@ -411,9 +395,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|JmsConstants
-operator|.
-name|JMS_REPLY_DESTINATION
+literal|"JMSReplyTo"
 argument_list|,
 literal|"myReplyQueue"
 argument_list|)
