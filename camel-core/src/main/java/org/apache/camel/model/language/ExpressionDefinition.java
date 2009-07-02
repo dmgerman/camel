@@ -1089,6 +1089,16 @@ operator|=
 name|expressionValue
 expr_stmt|;
 block|}
+DECL|method|getExpressionType ()
+specifier|public
+name|ExpressionDefinition
+name|getExpressionType
+parameter_list|()
+block|{
+return|return
+name|expressionType
+return|;
+block|}
 comment|/**      * Returns some descriptive text to describe this node      */
 DECL|method|getLabel ()
 specifier|public
