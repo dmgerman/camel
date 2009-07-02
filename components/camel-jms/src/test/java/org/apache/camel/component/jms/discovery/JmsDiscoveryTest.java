@@ -199,7 +199,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
 literal|3
 argument_list|)
@@ -381,8 +381,11 @@ block|{
 comment|// lets setup the heartbeats
 name|from
 argument_list|(
-literal|"bean:service1?method=status?initialDelay=100&exchangePattern=InOnly"
+literal|"bean:service1?method=status"
 argument_list|)
+operator|.
+name|inOnly
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -391,8 +394,11 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"bean:service2?method=status?initialDelay=125&exchangePattern=InOnly"
+literal|"bean:service2?method=status"
 argument_list|)
+operator|.
+name|inOnly
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -401,8 +407,11 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"bean:service3?method=status?initialDelay=150&exchangePattern=InOnly"
+literal|"bean:service3?method=status"
 argument_list|)
+operator|.
+name|inOnly
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -411,7 +420,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:topic:registry.heartbeats?cacheLevelName=CACHE_CONSUMER"
+literal|"activemq:topic:registry.heartbeats"
 argument_list|)
 operator|.
 name|to

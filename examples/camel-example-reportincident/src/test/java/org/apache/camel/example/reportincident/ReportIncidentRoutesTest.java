@@ -356,33 +356,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|" We should get the email address from the mail "
-argument_list|,
-operator|(
-operator|(
-name|String
-operator|)
-name|inbox
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getContent
-argument_list|()
-operator|)
-operator|.
-name|indexOf
-argument_list|(
-literal|"- email: davsclaus@apache.org"
-argument_list|)
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
 comment|// stop camel
 name|stopCamel
 argument_list|()
