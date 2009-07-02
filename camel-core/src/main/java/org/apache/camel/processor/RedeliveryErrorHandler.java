@@ -159,8 +159,6 @@ name|ErrorHandlerSupport
 implements|implements
 name|Processor
 block|{
-comment|// TODO: support onException being able to use other onException to route they exceptions
-comment|// (hard one to get working, has not been supported before)
 DECL|field|deadLetter
 specifier|protected
 specifier|final

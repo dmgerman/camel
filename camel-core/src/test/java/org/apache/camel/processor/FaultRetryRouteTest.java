@@ -219,12 +219,47 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: See CAMEL-1551
-comment|//        a.expectedBodiesReceived("in");
-comment|//        b.expectedBodiesReceived("in");
-comment|//        error.expectedMessageCount(0);
-comment|//        template.sendBody("direct:start", "in");
-comment|//        MockEndpoint.assertIsSatisfied(a, b, error);
+name|a
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"in"
+argument_list|)
+expr_stmt|;
+name|b
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"in"
+argument_list|)
+expr_stmt|;
+name|error
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"in"
+argument_list|)
+expr_stmt|;
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|a
+argument_list|,
+name|b
+argument_list|,
+name|error
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
