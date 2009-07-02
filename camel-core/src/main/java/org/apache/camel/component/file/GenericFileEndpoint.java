@@ -488,7 +488,7 @@ DECL|field|sortBy
 specifier|protected
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|sortBy
 decl_stmt|;
@@ -573,10 +573,7 @@ function_decl|;
 DECL|method|createExchange (GenericFile<T> file)
 specifier|public
 specifier|abstract
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|createExchange
 parameter_list|(
 name|GenericFile
@@ -1301,7 +1298,7 @@ DECL|method|getSortBy ()
 specifier|public
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|getSortBy
 parameter_list|()
@@ -1310,14 +1307,14 @@ return|return
 name|sortBy
 return|;
 block|}
-DECL|method|setSortBy (Comparator<GenericFileExchange> sortBy)
+DECL|method|setSortBy (Comparator<Exchange> sortBy)
 specifier|public
 name|void
 name|setSortBy
 parameter_list|(
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|sortBy
 parameter_list|)

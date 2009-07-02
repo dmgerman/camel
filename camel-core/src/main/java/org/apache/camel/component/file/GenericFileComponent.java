@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -297,7 +309,7 @@ argument_list|)
 decl_stmt|;
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|comparator
 init|=
@@ -378,12 +390,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Helper to create a sort comparator      *      * @param it iterator      * @return Comparator<GenericFileExchange>      */
+comment|/**      * Helper to create a sort comparator      *      * @param it iterator      * @return Comparator<Exchange>      */
 DECL|method|createSortByComparator (Iterator<String> it)
 specifier|private
 name|Comparator
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|createSortByComparator
 parameter_list|(

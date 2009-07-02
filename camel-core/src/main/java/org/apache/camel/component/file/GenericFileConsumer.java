@@ -371,19 +371,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// sort using build in sorters that is expression based
-comment|// first we need to convert to GenericFileExchange objects so we can sort
-comment|// using expressions
+comment|// sort using build in sorters so we can use expressions
 name|LinkedList
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 name|exchanges
 init|=
 operator|new
 name|LinkedList
 argument_list|<
-name|GenericFileExchange
+name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -398,10 +396,7 @@ range|:
 name|files
 control|)
 block|{
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 init|=
 name|endpoint
@@ -584,17 +579,11 @@ control|)
 block|{
 comment|// only loop if we are started (allowed to run)
 comment|// use poll to remove the head so it does not consume memory even after we have processed it
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|exchange
 init|=
 operator|(
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 operator|)
 name|exchanges
 operator|.

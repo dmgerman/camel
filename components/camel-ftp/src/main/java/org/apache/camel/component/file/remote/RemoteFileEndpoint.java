@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -76,7 +88,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileExchange
+name|GenericFileProducer
 import|;
 end_import
 
@@ -88,11 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|file
-operator|.
-name|GenericFileProducer
+name|DefaultExchange
 import|;
 end_import
 
@@ -187,19 +197,13 @@ annotation|@
 name|Override
 DECL|method|createExchange ()
 specifier|public
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|createExchange
 parameter_list|()
 block|{
 return|return
 operator|new
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|DefaultExchange
 argument_list|(
 name|this
 argument_list|)
@@ -214,10 +218,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|createExchange (GenericFile<T> file)
 specifier|public
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|createExchange
 parameter_list|(
 name|GenericFile
@@ -227,17 +228,11 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|Exchange
 name|answer
 init|=
 operator|new
-name|GenericFileExchange
-argument_list|<
-name|T
-argument_list|>
+name|DefaultExchange
 argument_list|(
 name|this
 argument_list|)
