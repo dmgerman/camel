@@ -242,7 +242,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"irc://camel-con@irc.codehaus.org:6667/#camel-test?nickname=camel-con"
+name|fromUri
+argument_list|()
 argument_list|)
 operator|.
 name|choice
@@ -320,6 +321,26 @@ block|}
 block|}
 return|;
 block|}
+DECL|method|sendUri ()
+specifier|protected
+name|String
+name|sendUri
+parameter_list|()
+block|{
+return|return
+literal|"irc://camel-prd@irc.codehaus.org:6667/#camel-test?nickname=camel-prd"
+return|;
+block|}
+DECL|method|fromUri ()
+specifier|protected
+name|String
+name|fromUri
+parameter_list|()
+block|{
+return|return
+literal|"irc://camel-con@irc.codehaus.org:6667/#camel-test?nickname=camel-con"
+return|;
+block|}
 comment|/**      * Lets send messages once the consumer has joined      */
 DECL|method|sendMessages ()
 specifier|protected
@@ -338,16 +359,12 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// now the consumer has joined, lets send some messages
-name|String
-name|sendUri
-init|=
-literal|"irc://camel-prd@irc.codehaus.org:6667/#camel-test?nickname=camel-prd"
-decl_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
 name|sendUri
+argument_list|()
 argument_list|,
 name|body1
 argument_list|)
@@ -357,6 +374,7 @@ operator|.
 name|sendBody
 argument_list|(
 name|sendUri
+argument_list|()
 argument_list|,
 name|body2
 argument_list|)
