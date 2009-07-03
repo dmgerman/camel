@@ -160,6 +160,24 @@ operator|.
 name|getAbsoluteFile
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+comment|// sleep a while for the slower box
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 literal|"The dump folder should exists"
