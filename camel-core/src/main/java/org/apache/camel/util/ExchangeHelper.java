@@ -1392,6 +1392,29 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the MIME content encoding on the input message or null if one is not defined      */
+DECL|method|getContentEncoding (Exchange exchange)
+specifier|public
+specifier|static
+name|String
+name|getContentEncoding
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|MessageHelper
+operator|.
+name|getContentEncoding
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Performs a lookup in the registry of the mandatory bean name and throws an exception if it could not be found      */
 DECL|method|lookupMandatoryBean (Exchange exchange, String name)
 specifier|public

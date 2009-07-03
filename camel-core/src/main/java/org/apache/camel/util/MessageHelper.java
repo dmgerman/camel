@@ -279,7 +279,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the MIME content type on the message or null if one is not defined      */
+comment|/**      * Returns the MIME content type on the message or<tt>null</tt> if none defined      */
 DECL|method|getContentType (Message message)
 specifier|public
 specifier|static
@@ -290,9 +290,7 @@ name|Message
 name|message
 parameter_list|)
 block|{
-name|String
-name|contentType
-init|=
+return|return
 name|message
 operator|.
 name|getHeader
@@ -305,31 +303,32 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|contentType
-operator|==
-literal|null
-condition|)
+return|;
+block|}
+comment|/**      * Returns the MIME content encoding on the message or<tt>null</tt> if none defined      */
+DECL|method|getContentEncoding (Message message)
+specifier|public
+specifier|static
+name|String
+name|getContentEncoding
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
 block|{
-comment|// fallback with the Content-Type
-name|contentType
-operator|=
+return|return
 name|message
 operator|.
 name|getHeader
 argument_list|(
-literal|"Content-Type"
+name|Exchange
+operator|.
+name|CONTENT_ENCODING
 argument_list|,
 name|String
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|contentType
 return|;
 block|}
 comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @return the logging message      */

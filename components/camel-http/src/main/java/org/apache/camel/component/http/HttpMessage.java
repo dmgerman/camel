@@ -90,15 +90,6 @@ name|HttpMessage
 extends|extends
 name|DefaultMessage
 block|{
-DECL|field|CONTENT_ENCODING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CONTENT_ENCODING
-init|=
-literal|"Content-Encoding"
-decl_stmt|;
 DECL|field|request
 specifier|private
 name|HttpServletRequest

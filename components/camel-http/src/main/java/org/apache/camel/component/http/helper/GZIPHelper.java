@@ -92,7 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Exchange
 import|;
 end_import
 
@@ -104,11 +104,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMessage
+name|Message
 import|;
 end_import
 
@@ -372,7 +368,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HttpMessage
+name|Exchange
 operator|.
 name|CONTENT_ENCODING
 argument_list|,

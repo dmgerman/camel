@@ -50,18 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|GZIPInputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -970,7 +958,7 @@ name|method
 operator|.
 name|getRequestHeader
 argument_list|(
-name|HttpMessage
+name|Exchange
 operator|.
 name|CONTENT_ENCODING
 argument_list|)

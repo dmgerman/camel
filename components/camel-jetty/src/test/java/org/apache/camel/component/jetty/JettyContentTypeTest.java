@@ -76,22 +76,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -223,9 +207,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpMessage
-operator|.
-name|CONTENT_ENCODING
+literal|"Content-Encoding"
 argument_list|,
 literal|"gzip"
 argument_list|)
@@ -299,10 +281,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testContentTypeWithGZip ()
+DECL|method|testContentTypeWithGZipEncoding ()
 specifier|public
 name|void
-name|testContentTypeWithGZip
+name|testContentTypeWithGZipEncoding
 parameter_list|()
 throws|throws
 name|Exception

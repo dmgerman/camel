@@ -49,6 +49,24 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|expectsMessageCount
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -81,24 +99,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|expectsMessageCount
 import|;
 end_import
 
@@ -268,25 +268,14 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
-argument_list|)
-operator|.
-name|redeliverDelay
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Need a convertBodyTo processor here or we may get an error
-comment|// that we are at the end of the stream
 name|from
 argument_list|(
 literal|"jetty:http://localhost:9080/myworld"
 argument_list|)
+comment|// use stream caching
+operator|.
+name|streamCaching
+argument_list|()
 operator|.
 name|choice
 argument_list|()
@@ -324,6 +313,9 @@ name|to
 argument_list|(
 literal|"mock:z"
 argument_list|)
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -122,17 +122,29 @@ name|BEAN_MULTI_PARAMETER_ARRAY
 init|=
 literal|"CamelBeanMultiParameterArray"
 decl_stmt|;
+DECL|field|BINDING
+name|String
+name|BINDING
+init|=
+literal|"CamelBinding"
+decl_stmt|;
 DECL|field|CHARSET_NAME
 name|String
 name|CHARSET_NAME
 init|=
 literal|"CamelCharsetName"
 decl_stmt|;
+DECL|field|CONTENT_ENCODING
+name|String
+name|CONTENT_ENCODING
+init|=
+literal|"Content-Encoding"
+decl_stmt|;
 DECL|field|CONTENT_TYPE
 name|String
 name|CONTENT_TYPE
 init|=
-literal|"CamelContentType"
+literal|"Content-Type"
 decl_stmt|;
 DECL|field|CORRELATION_ID
 name|String
@@ -349,12 +361,6 @@ name|String
 name|ROLLBACK_ONLY
 init|=
 literal|"CamelRollbackOnly"
-decl_stmt|;
-DECL|field|BINDING
-name|String
-name|BINDING
-init|=
-literal|"CamelBinding"
 decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()

@@ -24,16 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -75,18 +65,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|GZIPOutputStream
 import|;
 end_import
 
@@ -684,7 +662,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|HttpMessage
+name|Exchange
 operator|.
 name|CONTENT_ENCODING
 argument_list|)
@@ -699,7 +677,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|HttpMessage
+name|Exchange
 operator|.
 name|CONTENT_ENCODING
 argument_list|,
@@ -712,7 +690,7 @@ name|response
 operator|.
 name|setHeader
 argument_list|(
-name|HttpMessage
+name|Exchange
 operator|.
 name|CONTENT_ENCODING
 argument_list|,
