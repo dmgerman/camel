@@ -1164,7 +1164,8 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-comment|// Add the content to the TreeMap according to the position defined
+comment|// Add the content to the TreeMap according to the
+comment|// position defined
 name|positions
 operator|.
 name|put
