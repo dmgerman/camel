@@ -669,6 +669,7 @@ specifier|private
 name|int
 name|maxMessagesPerTask
 init|=
+operator|-
 literal|1
 decl_stmt|;
 DECL|field|cacheLevel
