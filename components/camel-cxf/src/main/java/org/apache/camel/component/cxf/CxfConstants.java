@@ -161,6 +161,18 @@ name|CAMEL_CXF_RS_RESPONSE_CLASS
 init|=
 literal|"CamelCxfRsResponseClass"
 decl_stmt|;
+DECL|field|CAMEL_CXF_RS_METHOD
+name|String
+name|CAMEL_CXF_RS_METHOD
+init|=
+literal|"CamelCxfRsMethod"
+decl_stmt|;
+DECL|field|CAMEL_CXF_RS_OPERATION_RESOURCE_INFO_STACK
+name|String
+name|CAMEL_CXF_RS_OPERATION_RESOURCE_INFO_STACK
+init|=
+literal|"CamelCxfRsOperationResourceInfoStack"
+decl_stmt|;
 block|}
 end_interface
 

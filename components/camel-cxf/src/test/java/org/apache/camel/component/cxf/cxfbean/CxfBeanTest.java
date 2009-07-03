@@ -636,7 +636,7 @@ try|try
 block|{
 name|assertEquals
 argument_list|(
-literal|301
+literal|201
 argument_list|,
 name|httpclient
 operator|.
