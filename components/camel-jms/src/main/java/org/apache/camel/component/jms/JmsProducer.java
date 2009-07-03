@@ -182,7 +182,7 @@ name|jms
 operator|.
 name|JmsConfiguration
 operator|.
-name|CamelJmsTemplate102
+name|CamelJmsTemplate
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|jms
 operator|.
 name|JmsConfiguration
 operator|.
-name|CamelJmsTemplate
+name|CamelJmsTemplate102
 import|;
 end_import
 

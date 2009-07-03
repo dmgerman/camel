@@ -162,6 +162,7 @@ decl_stmt|;
 DECL|field|URI
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|URI
 init|=
