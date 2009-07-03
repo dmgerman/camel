@@ -405,7 +405,7 @@ name|setHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_RELATIVE_PATH
+name|HTTP_PATH
 argument_list|,
 literal|"/customerservice/customers/123"
 argument_list|)
