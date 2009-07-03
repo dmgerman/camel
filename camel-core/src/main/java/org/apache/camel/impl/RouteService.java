@@ -349,40 +349,10 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// there is no lifecycyle for routesRemove
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|List
-argument_list|<
-name|Service
-argument_list|>
-name|services
-init|=
-name|route
-operator|.
-name|getServicesForRoute
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|Service
-name|service
-range|:
-name|services
-control|)
-block|{
-name|stopChildService
-argument_list|(
-name|service
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// do not stop child services as in doStart
+comment|// as route.getServicesForRoute() will restart
+comment|// already stopped services, so we end up starting
+comment|// stuff when we stop.
 block|}
 DECL|method|getLifecycleStrategy ()
 specifier|protected
