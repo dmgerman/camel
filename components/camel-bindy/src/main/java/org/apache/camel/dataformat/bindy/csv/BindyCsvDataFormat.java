@@ -248,6 +248,7 @@ decl_stmt|;
 DECL|field|packageName
 specifier|private
 name|String
+index|[]
 name|packageName
 decl_stmt|;
 DECL|field|modelFactory
@@ -260,11 +261,12 @@ specifier|public
 name|BindyCsvDataFormat
 parameter_list|()
 block|{     }
-DECL|method|BindyCsvDataFormat (String packageName)
+DECL|method|BindyCsvDataFormat (String... packageName)
 specifier|public
 name|BindyCsvDataFormat
 parameter_list|(
 name|String
+modifier|...
 name|packageName
 parameter_list|)
 block|{
@@ -760,6 +762,7 @@ block|}
 DECL|method|getPackageName ()
 specifier|public
 name|String
+index|[]
 name|getPackageName
 parameter_list|()
 block|{
@@ -767,12 +770,13 @@ return|return
 name|packageName
 return|;
 block|}
-DECL|method|setPackageName (String packageName)
+DECL|method|setPackageName (String[] packageName)
 specifier|public
 name|void
 name|setPackageName
 parameter_list|(
 name|String
+index|[]
 name|packageName
 parameter_list|)
 block|{
