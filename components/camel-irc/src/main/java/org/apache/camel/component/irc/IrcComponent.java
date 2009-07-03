@@ -276,11 +276,7 @@ name|config
 operator|.
 name|configure
 argument_list|(
-operator|new
-name|URI
-argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|IrcEndpoint
