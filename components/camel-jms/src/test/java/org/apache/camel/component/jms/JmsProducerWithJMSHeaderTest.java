@@ -518,14 +518,17 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
+comment|// use timeout in case running on slow box
 name|Exchange
 name|bar
 init|=
 name|consumer
 operator|.
-name|receiveNoWait
+name|receive
 argument_list|(
 literal|"activemq:queue:bar"
+argument_list|,
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -601,7 +604,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -970,7 +973,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|Exchange

@@ -166,11 +166,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|io
+name|util
 operator|.
-name|IOUtils
+name|IOHelper
 import|;
 end_import
 
@@ -709,7 +709,7 @@ argument_list|(
 literal|"SimpleSoapRequest.xml"
 argument_list|)
 decl_stmt|;
-name|IOUtils
+name|IOHelper
 operator|.
 name|copy
 argument_list|(

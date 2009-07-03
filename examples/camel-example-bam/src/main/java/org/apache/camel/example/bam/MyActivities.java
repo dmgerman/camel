@@ -136,6 +136,11 @@ name|MyActivities
 extends|extends
 name|ProcessBuilder
 block|{
+DECL|method|MyActivities ()
+specifier|public
+name|MyActivities
+parameter_list|()
+block|{     }
 DECL|method|MyActivities (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
 specifier|public
 name|MyActivities

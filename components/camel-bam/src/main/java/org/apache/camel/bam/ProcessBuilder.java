@@ -200,6 +200,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|orm
@@ -292,13 +306,11 @@ name|jpaTemplate
 decl_stmt|;
 DECL|field|transactionTemplate
 specifier|private
-specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
 DECL|field|processName
 specifier|private
-specifier|final
 name|String
 name|processName
 decl_stmt|;
@@ -345,6 +357,11 @@ specifier|private
 name|ActivityMonitorEngine
 name|engine
 decl_stmt|;
+DECL|method|ProcessBuilder ()
+specifier|protected
+name|ProcessBuilder
+parameter_list|()
+block|{     }
 DECL|method|ProcessBuilder (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
 specifier|protected
 name|ProcessBuilder
@@ -617,6 +634,22 @@ return|return
 name|transactionTemplate
 return|;
 block|}
+DECL|method|setTransactionTemplate (TransactionTemplate transactionTemplate)
+specifier|public
+name|void
+name|setTransactionTemplate
+parameter_list|(
+name|TransactionTemplate
+name|transactionTemplate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionTemplate
+operator|=
+name|transactionTemplate
+expr_stmt|;
+block|}
 DECL|method|getProcessRules ()
 specifier|public
 name|ProcessRules
@@ -686,6 +719,30 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getJpaTemplate
+argument_list|()
+argument_list|,
+literal|"jpaTemplate"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getTransactionTemplate
+argument_list|()
+argument_list|,
+literal|"transactionTemplate"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 comment|// lets add the monitoring service - should there be an easier way??
 if|if
 condition|(
