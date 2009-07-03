@@ -124,22 +124,6 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
-name|BindyCsvFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
 name|BindyKeyValuePairFactory
 import|;
 end_import
@@ -261,11 +245,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|packageNames
+DECL|field|packages
 specifier|private
 name|String
 index|[]
-name|packageNames
+name|packages
 decl_stmt|;
 DECL|field|modelFactory
 specifier|private
@@ -277,20 +261,20 @@ specifier|public
 name|BindyKeyValuePairDataFormat
 parameter_list|()
 block|{     }
-DECL|method|BindyKeyValuePairDataFormat (String... packageNames)
+DECL|method|BindyKeyValuePairDataFormat (String... packages)
 specifier|public
 name|BindyKeyValuePairDataFormat
 parameter_list|(
 name|String
 modifier|...
-name|packageNames
+name|packages
 parameter_list|)
 block|{
 name|this
 operator|.
-name|packageNames
+name|packages
 operator|=
-name|packageNames
+name|packages
 expr_stmt|;
 block|}
 annotation|@
@@ -723,7 +707,7 @@ name|resolver
 argument_list|,
 name|this
 operator|.
-name|packageNames
+name|packages
 argument_list|)
 expr_stmt|;
 block|}
@@ -747,32 +731,32 @@ operator|=
 name|modelFactory
 expr_stmt|;
 block|}
-DECL|method|getPackageNames ()
+DECL|method|getPackages ()
 specifier|public
 name|String
 index|[]
-name|getPackageNames
+name|getPackages
 parameter_list|()
 block|{
 return|return
-name|packageNames
+name|packages
 return|;
 block|}
-DECL|method|setPackageNames (String... packageNames)
+DECL|method|setPackages (String... packages)
 specifier|public
 name|void
-name|setPackageNames
+name|setPackages
 parameter_list|(
 name|String
 modifier|...
-name|packageNames
+name|packages
 parameter_list|)
 block|{
 name|this
 operator|.
-name|packageNames
+name|packages
 operator|=
-name|packageNames
+name|packages
 expr_stmt|;
 block|}
 block|}
