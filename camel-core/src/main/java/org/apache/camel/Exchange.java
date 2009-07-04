@@ -218,6 +218,12 @@ name|FILTERED
 init|=
 literal|"CamelFiltered"
 decl_stmt|;
+DECL|field|GROUPED_EXCHANGE
+name|String
+name|GROUPED_EXCHANGE
+init|=
+literal|"CamelGroupedExchange"
+decl_stmt|;
 DECL|field|HTTP_CHARACTER_ENCODING
 name|String
 name|HTTP_CHARACTER_ENCODING

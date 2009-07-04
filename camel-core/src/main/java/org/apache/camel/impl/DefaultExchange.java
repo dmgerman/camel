@@ -205,6 +205,7 @@ end_comment
 begin_class
 DECL|class|DefaultExchange
 specifier|public
+specifier|final
 class|class
 name|DefaultExchange
 implements|implements
