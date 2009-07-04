@@ -314,6 +314,12 @@ name|REDELIVERY_COUNTER
 init|=
 literal|"CamelRedeliveryCounter"
 decl_stmt|;
+DECL|field|ROLLBACK_ONLY
+name|String
+name|ROLLBACK_ONLY
+init|=
+literal|"CamelRollbackOnly"
+decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
 name|SPLIT_INDEX
@@ -356,11 +362,29 @@ name|TRANSACTED
 init|=
 literal|"CamelTransacted"
 decl_stmt|;
-DECL|field|ROLLBACK_ONLY
+DECL|field|TRACE_EVENT
 name|String
-name|ROLLBACK_ONLY
+name|TRACE_EVENT
 init|=
-literal|"CamelRollbackOnly"
+literal|"CamelTraceEvent"
+decl_stmt|;
+DECL|field|TRACE_EVENT_NODE_ID
+name|String
+name|TRACE_EVENT_NODE_ID
+init|=
+literal|"CamelTraceEventNodeId"
+decl_stmt|;
+DECL|field|TRACE_EVENT_TIMESTAMP
+name|String
+name|TRACE_EVENT_TIMESTAMP
+init|=
+literal|"CamelTraceEventTimestamp"
+decl_stmt|;
+DECL|field|TRACE_EVENT_EXCHANGE
+name|String
+name|TRACE_EVENT_EXCHANGE
+init|=
+literal|"CamelTraceEventExchange"
 decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()

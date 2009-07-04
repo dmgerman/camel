@@ -130,6 +130,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|InterceptDefinition
@@ -358,15 +372,6 @@ name|JPA_TRACE_EVENT_MESSAGE
 init|=
 literal|"org.apache.camel.processor.interceptor.JpaTraceEventMessage"
 decl_stmt|;
-DECL|field|TRACE_EVENT
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|TRACE_EVENT
-init|=
-literal|"CamelTraceEvent"
-decl_stmt|;
 DECL|field|logger
 specifier|private
 name|Logger
@@ -592,13 +597,11 @@ comment|// logging TraceEvents to avoid infinite looping
 if|if
 condition|(
 name|exchange
-operator|instanceof
-name|TraceEventExchange
-operator|||
-name|exchange
 operator|.
 name|getProperty
 argument_list|(
+name|Exchange
+operator|.
 name|TRACE_EVENT
 argument_list|,
 name|Boolean
@@ -1424,16 +1427,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// create event and add it as a property on the original exchange
-name|TraceEventExchange
-name|event
-init|=
-operator|new
-name|TraceEventExchange
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
+comment|// create event exchange and add event information
 name|Date
 name|timestamp
 init|=
@@ -1441,10 +1435,23 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
+name|Exchange
+name|event
+init|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|event
 operator|.
-name|setNodeId
+name|setProperty
 argument_list|(
+name|Exchange
+operator|.
+name|TRACE_EVENT_NODE_ID
+argument_list|,
 name|node
 operator|.
 name|getId
@@ -1453,19 +1460,29 @@ argument_list|)
 expr_stmt|;
 name|event
 operator|.
-name|setTimestamp
+name|setProperty
 argument_list|(
+name|Exchange
+operator|.
+name|TRACE_EVENT_TIMESTAMP
+argument_list|,
 name|timestamp
 argument_list|)
 expr_stmt|;
+comment|// keep a reference to the original exchange in case its needed
 name|event
 operator|.
-name|setTracedExchange
+name|setProperty
 argument_list|(
+name|Exchange
+operator|.
+name|TRACE_EVENT_EXCHANGE
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// create event message to send in body
+comment|// create event message to sent as in body containing event information such as
+comment|// from node, to node, etc.
 name|TraceEventMessage
 name|msg
 init|=
@@ -1632,6 +1649,8 @@ name|event
 operator|.
 name|setProperty
 argument_list|(
+name|Exchange
+operator|.
 name|TRACE_EVENT
 argument_list|,
 name|Boolean
@@ -1664,7 +1683,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error processing TraceEventExchange (original Exchange will be continued): "
+literal|"Error processing trace event (original Exchange will continue): "
 operator|+
 name|event
 argument_list|,
