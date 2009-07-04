@@ -300,9 +300,25 @@ name|sender
 init|=
 name|configuration
 operator|.
-name|createJavaMailSender
+name|getJavaMailSender
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|sender
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use default mail sender
+name|sender
+operator|=
+name|configuration
+operator|.
+name|createJavaMailSender
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|createProducer
 argument_list|(
@@ -371,6 +387,7 @@ literal|" cannot be used for a MailConsumer. Please use another protocol such as
 argument_list|)
 throw|;
 block|}
+comment|// must use java mail sender impl as we need to get hold of a mail session
 name|JavaMailSenderImpl
 name|sender
 init|=

@@ -120,6 +120,20 @@ name|mail
 operator|.
 name|javamail
 operator|.
+name|JavaMailSender
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|mail
+operator|.
+name|javamail
+operator|.
 name|JavaMailSenderImpl
 import|;
 end_import
@@ -136,6 +150,11 @@ name|MailConfiguration
 implements|implements
 name|Cloneable
 block|{
+DECL|field|javaMailSender
+specifier|private
+name|JavaMailSender
+name|javaMailSender
+decl_stmt|;
 DECL|field|javaMailProperties
 specifier|private
 name|Properties
@@ -1027,6 +1046,32 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getJavaMailSender ()
+specifier|public
+name|JavaMailSender
+name|getJavaMailSender
+parameter_list|()
+block|{
+return|return
+name|javaMailSender
+return|;
+block|}
+DECL|method|setJavaMailSender (JavaMailSender javaMailSender)
+specifier|public
+name|void
+name|setJavaMailSender
+parameter_list|(
+name|JavaMailSender
+name|javaMailSender
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaMailSender
+operator|=
+name|javaMailSender
+expr_stmt|;
+block|}
 DECL|method|getDefaultEncoding ()
 specifier|public
 name|String

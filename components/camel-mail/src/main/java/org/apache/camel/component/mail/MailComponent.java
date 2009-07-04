@@ -342,6 +342,11 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|configureAdditionalJavaMailProperties (MailConfiguration config, Map parameters)
 specifier|private
 name|void
