@@ -1922,6 +1922,22 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
+comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
+if|if
+condition|(
+operator|!
+name|getContext
+argument_list|()
+operator|.
+name|getInterceptStrategies
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|strategy
+argument_list|)
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -1943,6 +1959,7 @@ argument_list|(
 name|strategy
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Set the application context and camelContext for the beanPostProcessor

@@ -40,9 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|intercept
-operator|.
-name|InterceptSimpleRouteTest
+name|OnCompletionGlobalTraceTest
 import|;
 end_import
 
@@ -65,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringInterceptSimpleRouteTest
+DECL|class|SpringOnCompletionGlobalTraceTest
 specifier|public
 class|class
-name|SpringInterceptSimpleRouteTest
+name|SpringOnCompletionGlobalTraceTest
 extends|extends
-name|InterceptSimpleRouteTest
+name|OnCompletionGlobalTraceTest
 block|{
 annotation|@
 name|Override
@@ -97,7 +95,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/SpringInterceptSimpleRouteTest.xml"
+literal|"org/apache/camel/spring/processor/SpringOnCompletionGlobalTraceTest.xml"
 argument_list|)
 return|;
 block|}

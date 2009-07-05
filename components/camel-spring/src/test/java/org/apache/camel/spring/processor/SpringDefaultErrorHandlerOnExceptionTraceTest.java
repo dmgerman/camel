@@ -40,9 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|intercept
-operator|.
-name|InterceptSimpleRouteTest
+name|DefaultErrorHandlerOnExceptionTraceTest
 import|;
 end_import
 
@@ -65,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringInterceptSimpleRouteTest
+DECL|class|SpringDefaultErrorHandlerOnExceptionTraceTest
 specifier|public
 class|class
-name|SpringInterceptSimpleRouteTest
+name|SpringDefaultErrorHandlerOnExceptionTraceTest
 extends|extends
-name|InterceptSimpleRouteTest
+name|DefaultErrorHandlerOnExceptionTraceTest
 block|{
 annotation|@
 name|Override
@@ -97,7 +95,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/SpringInterceptSimpleRouteTest.xml"
+literal|"org/apache/camel/spring/processor/SpringDefaultErrorHandlerOnExceptionTraceTest.xml"
 argument_list|)
 return|;
 block|}

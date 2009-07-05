@@ -774,7 +774,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"CamelTraceEventNodeId"
+name|Exchange
+operator|.
+name|TRACE_EVENT_NODE_ID
 argument_list|,
 name|String
 operator|.
@@ -788,7 +790,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"CamelTraceEventTimestamp"
+name|Exchange
+operator|.
+name|TRACE_EVENT_TIMESTAMP
 argument_list|,
 name|Date
 operator|.

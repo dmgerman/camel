@@ -4416,6 +4416,14 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -4423,6 +4431,7 @@ argument_list|(
 literal|"Starting routes"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// the context is now considered started (i.e. isStarted() == true))
 comment|// starting routes is done after, not during context startup
 synchronized|synchronized
@@ -4448,6 +4457,53 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|getRoutes
+argument_list|()
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Route "
+operator|+
+name|i
+operator|+
+literal|": "
+operator|+
+name|getRoutes
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|debug
@@ -4455,6 +4511,7 @@ argument_list|(
 literal|"Started routes"
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|info
