@@ -187,6 +187,7 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+comment|// no traces of redelivery headers as DLC handles the exception when moving to DLQ
 name|dead
 operator|.
 name|message
@@ -201,12 +202,8 @@ operator|.
 name|REDELIVERED
 argument_list|)
 operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
+name|isNull
+argument_list|()
 expr_stmt|;
 name|dead
 operator|.
@@ -222,10 +219,8 @@ operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
 operator|.
-name|isEqualTo
-argument_list|(
-literal|3
-argument_list|)
+name|isNull
+argument_list|()
 expr_stmt|;
 name|result
 operator|.

@@ -1155,6 +1155,52 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|handledPredicate
+operator|!=
+literal|null
+operator|&&
+name|data
+operator|.
+name|handledPredicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+comment|// its handled then remove traces of redelivery attempted
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// must decrement the redelivery counter as we didn't process the redelivery but is
 comment|// handling by the failure handler. So we must -1 to not let the counter be out-of-sync
 name|decrementRedeliveryCounter
@@ -1162,6 +1208,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 comment|// reset cached streams so they can be read again
 name|MessageHelper
 operator|.

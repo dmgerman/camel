@@ -474,6 +474,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// no traces of redelivery as the dead letter channel will handle the exception when moving the DLQ
 name|mock
 operator|.
 name|message
@@ -488,12 +489,8 @@ operator|.
 name|REDELIVERED
 argument_list|)
 operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
+name|isNull
+argument_list|()
 expr_stmt|;
 name|mock
 operator|.
@@ -509,10 +506,8 @@ operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
 operator|.
-name|isEqualTo
-argument_list|(
-literal|2
-argument_list|)
+name|isNull
+argument_list|()
 expr_stmt|;
 name|template
 operator|.
