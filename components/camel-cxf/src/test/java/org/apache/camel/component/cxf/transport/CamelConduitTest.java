@@ -450,6 +450,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"direct://EndpointA"
+argument_list|,
 name|context
 operator|.
 name|getRoutes
@@ -465,8 +467,6 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
-argument_list|,
-literal|"direct:EndpointA"
 argument_list|)
 expr_stmt|;
 name|endpointInfo
@@ -523,6 +523,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"direct://EndpointC"
+argument_list|,
 name|context
 operator|.
 name|getRoutes
@@ -538,8 +540,6 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
-argument_list|,
-literal|"direct:EndpointC"
 argument_list|)
 expr_stmt|;
 name|bus

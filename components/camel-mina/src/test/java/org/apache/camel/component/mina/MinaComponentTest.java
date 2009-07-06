@@ -97,7 +97,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Unrecognised MINA protocol: xxx for uri: mina:xxx://localhost:8080"
+literal|"Unrecognised MINA protocol: xxx for uri: mina://xxx://localhost:8080"
 argument_list|,
 name|e
 operator|.
@@ -154,7 +154,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Unrecognised MINA protocol: null for uri: mina:tcp//localhost:8080"
+literal|"Unrecognised MINA protocol: null for uri: mina://tcp//localhost:8080"
 argument_list|,
 name|e
 operator|.

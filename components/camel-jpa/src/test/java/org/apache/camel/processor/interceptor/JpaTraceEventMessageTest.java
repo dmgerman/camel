@@ -478,7 +478,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|db
 operator|.
@@ -488,7 +488,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:result"
+literal|"mock://result"
 argument_list|,
 name|db
 operator|.

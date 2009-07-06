@@ -298,7 +298,7 @@ name|assertEquals
 argument_list|(
 literal|"bean.endpoint.uri"
 argument_list|,
-literal|"mock:foo"
+literal|"mock://foo"
 argument_list|,
 name|bean
 operator|.
