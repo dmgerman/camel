@@ -77,10 +77,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FtoReconnectAttemptServerStoppedTest
+DECL|class|FtpReconnectAttemptServerStoppedTest
 specifier|public
 class|class
-name|FtoReconnectAttemptServerStoppedTest
+name|FtpReconnectAttemptServerStoppedTest
 extends|extends
 name|FtpServerTestSupport
 block|{
