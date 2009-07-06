@@ -154,7 +154,7 @@ name|assertEquals
 argument_list|(
 literal|"endpoint URI"
 argument_list|,
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|endpoint
 operator|.
@@ -188,7 +188,7 @@ name|assertEquals
 argument_list|(
 literal|"endpoint URI"
 argument_list|,
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|dummyBean
 operator|.

@@ -2046,42 +2046,11 @@ name|String
 name|query
 parameter_list|)
 block|{
-comment|// http scheme should have //
-if|if
-condition|(
-name|scheme
-operator|.
-name|startsWith
-argument_list|(
-literal|"http"
-argument_list|)
-condition|)
-block|{
+comment|// must include :// to do a correct URI all components can work with
 return|return
 name|scheme
 operator|+
 literal|"://"
-operator|+
-name|path
-operator|+
-operator|(
-name|query
-operator|!=
-literal|null
-condition|?
-literal|"?"
-operator|+
-name|query
-else|:
-literal|""
-operator|)
-return|;
-block|}
-comment|// the order should not as we really dont use them for other types of components
-return|return
-name|scheme
-operator|+
-literal|":"
 operator|+
 name|path
 operator|+

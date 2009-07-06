@@ -296,7 +296,7 @@ expr_stmt|;
 comment|// should have different from endpoint
 name|assertEquals
 argument_list|(
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|e1
 operator|.
@@ -309,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:foo"
+literal|"direct://foo"
 argument_list|,
 name|e2
 operator|.
@@ -468,7 +468,7 @@ expr_stmt|;
 comment|// should have different from endpoint
 name|assertEquals
 argument_list|(
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|e1
 operator|.
@@ -481,7 +481,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:foo"
+literal|"direct://foo"
 argument_list|,
 name|e2
 operator|.

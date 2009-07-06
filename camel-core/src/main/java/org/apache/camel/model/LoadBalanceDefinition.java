@@ -1054,7 +1054,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"LoadBalanceType[ref: "
+literal|"LoadBalanceType[ref:"
 operator|+
 name|ref
 operator|+

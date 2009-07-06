@@ -675,7 +675,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"Marshal[ref: "
+literal|"Marshal[ref:"
 operator|+
 name|ref
 operator|+

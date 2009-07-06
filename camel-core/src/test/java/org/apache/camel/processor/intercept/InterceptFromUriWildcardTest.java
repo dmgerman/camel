@@ -138,7 +138,7 @@ name|Exchange
 operator|.
 name|INTERCEPTED_ENDPOINT
 argument_list|,
-literal|"seda:foo"
+literal|"seda://foo"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

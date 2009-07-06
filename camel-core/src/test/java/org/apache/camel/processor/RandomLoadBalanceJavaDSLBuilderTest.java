@@ -243,7 +243,7 @@ expr_stmt|;
 comment|// output the Java DSL
 name|assertEquals
 argument_list|(
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+literal|"from(\"direct://start\").loadBalance().random().to(\"mock://x\").to(\"mock://y\").to(\"mock://z\")"
 argument_list|,
 name|sb
 operator|.
@@ -318,7 +318,7 @@ expr_stmt|;
 comment|// output the Java DSL
 name|assertEquals
 argument_list|(
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+literal|"from(\"direct://start\").loadBalance().random().to(\"mock://x\").to(\"mock://y\").to(\"mock://z\")"
 argument_list|,
 name|sb
 operator|.

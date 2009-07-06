@@ -316,7 +316,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|msg1
 operator|.
@@ -326,7 +326,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg1
 operator|.
@@ -336,7 +336,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg2
 operator|.
@@ -346,7 +346,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:foo"
+literal|"mock://foo"
 argument_list|,
 name|msg2
 operator|.
@@ -356,7 +356,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:foo"
+literal|"mock://foo"
 argument_list|,
 name|msg3
 operator|.
@@ -366,7 +366,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg3
 operator|.
@@ -376,7 +376,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg4
 operator|.
@@ -386,7 +386,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:bar"
+literal|"mock://bar"
 argument_list|,
 name|msg4
 operator|.
@@ -396,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:bar"
+literal|"mock://bar"
 argument_list|,
 name|msg5
 operator|.
@@ -406,7 +406,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg5
 operator|.
@@ -416,7 +416,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:intercepted"
+literal|"mock://intercepted"
 argument_list|,
 name|msg6
 operator|.
@@ -426,7 +426,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:result"
+literal|"mock://result"
 argument_list|,
 name|msg6
 operator|.

@@ -271,6 +271,11 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|5
+argument_list|)
+operator|.
 name|onRedelivery
 argument_list|(
 operator|new

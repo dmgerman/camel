@@ -253,7 +253,7 @@ operator|.
 name|getCanonicalName
 argument_list|()
 else|:
-literal|"ref: "
+literal|"ref:"
 operator|+
 name|ref
 operator|)

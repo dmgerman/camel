@@ -137,7 +137,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Cannot send to endpoint: seda:foo as no consumers is registered."
+literal|"Cannot send to endpoint: seda://foo as no consumers is registered."
 argument_list|)
 argument_list|)
 expr_stmt|;

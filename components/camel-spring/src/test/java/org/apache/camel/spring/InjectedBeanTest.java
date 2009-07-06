@@ -148,7 +148,7 @@ operator|.
 name|getFieldInjectedEndpoint
 argument_list|()
 argument_list|,
-literal|"direct:fieldInjectedEndpoint"
+literal|"direct://fieldInjectedEndpoint"
 argument_list|)
 expr_stmt|;
 name|assertEndpointUri
@@ -158,7 +158,7 @@ operator|.
 name|getPropertyInjectedEndpoint
 argument_list|()
 argument_list|,
-literal|"direct:namedEndpoint1"
+literal|"direct://namedEndpoint1"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

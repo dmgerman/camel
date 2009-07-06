@@ -192,7 +192,7 @@ name|assertEquals
 argument_list|(
 literal|"fromEndpoint URI"
 argument_list|,
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|fromEndpoint
 operator|.

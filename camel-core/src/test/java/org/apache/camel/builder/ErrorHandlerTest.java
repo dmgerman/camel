@@ -272,7 +272,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -513,7 +513,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -657,7 +657,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -841,7 +841,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.

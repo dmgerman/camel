@@ -224,7 +224,7 @@ operator|!=
 literal|null
 operator|)
 condition|?
-literal|"ref: "
+literal|"ref:"
 operator|+
 name|ref
 else|:

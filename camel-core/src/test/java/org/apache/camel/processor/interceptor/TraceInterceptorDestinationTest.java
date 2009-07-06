@@ -223,7 +223,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:start;.*;.*;Hello London"
+literal|"^direct://start;.*;.*;Hello London"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -238,7 +238,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:start;.*;.*;Hello World"
+literal|"^direct://start;.*;.*;Hello World"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -253,7 +253,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:start;.*;.*;Goodday World"
+literal|"^direct://start;.*;.*;Goodday World"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -268,7 +268,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:start;.*;.*;Bye World"
+literal|"^direct://start;.*;.*;Bye World"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -283,7 +283,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:foo;.*;.*;Hello Copenhagen"
+literal|"^direct://foo;.*;.*;Hello Copenhagen"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -298,7 +298,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:foo;.*;.*;Foo World"
+literal|"^direct://foo;.*;.*;Foo World"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -313,7 +313,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:foo;.*;.*;Hello Beijing"
+literal|"^direct://foo;.*;.*;Hello Beijing"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -328,7 +328,7 @@ argument_list|()
 operator|.
 name|regex
 argument_list|(
-literal|"^direct:foo;.*;.*;Foo World"
+literal|"^direct://foo;.*;.*;Foo World"
 argument_list|)
 expr_stmt|;
 name|template

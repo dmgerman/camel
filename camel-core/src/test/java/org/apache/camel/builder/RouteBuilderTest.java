@@ -479,7 +479,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -529,7 +529,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda:b"
+literal|"seda://b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -666,7 +666,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -734,7 +734,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda:b"
+literal|"seda://b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -900,7 +900,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -992,7 +992,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda:b"
+literal|"seda://b"
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
@@ -1018,7 +1018,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda:c"
+literal|"seda://c"
 argument_list|)
 expr_stmt|;
 name|assertSendTo
@@ -1034,7 +1034,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda:d"
+literal|"seda://d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1167,7 +1167,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -1336,7 +1336,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -1518,7 +1518,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -1609,7 +1609,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda:tap"
+literal|"seda://tap"
 argument_list|)
 expr_stmt|;
 name|assertSendToProcessor
@@ -1627,7 +1627,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda:b"
+literal|"seda://b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1766,7 +1766,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -1863,7 +1863,7 @@ name|assertSendTo
 argument_list|(
 name|sendTo
 argument_list|,
-literal|"seda:d"
+literal|"seda://d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1999,7 +1999,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -2183,7 +2183,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -2354,7 +2354,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -2525,7 +2525,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda:a"
+literal|"seda://a"
 argument_list|,
 name|key
 operator|.
@@ -2623,7 +2623,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda:b"
+literal|"seda://b"
 argument_list|,
 name|sendProcessor
 operator|.

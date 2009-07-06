@@ -223,7 +223,7 @@ name|child
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:result"
+literal|"mock://result"
 argument_list|,
 name|send
 operator|.

@@ -371,7 +371,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"ref: "
+literal|"ref:"
 operator|+
 name|ref
 return|;
@@ -539,7 +539,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"ref: "
+literal|"ref:"
 operator|+
 name|ref
 return|;

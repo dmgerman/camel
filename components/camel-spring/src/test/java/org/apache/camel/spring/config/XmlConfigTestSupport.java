@@ -244,7 +244,7 @@ name|assertEquals
 argument_list|(
 literal|"from URI"
 argument_list|,
-literal|"seda:test.a"
+literal|"seda://test.a"
 argument_list|,
 name|fromType
 operator|.

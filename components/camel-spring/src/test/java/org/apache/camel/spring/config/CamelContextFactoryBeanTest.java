@@ -439,7 +439,7 @@ name|assertEndpointUri
 argument_list|(
 name|key
 argument_list|,
-literal|"seda:test.c"
+literal|"seda://test.c"
 argument_list|)
 expr_stmt|;
 block|}

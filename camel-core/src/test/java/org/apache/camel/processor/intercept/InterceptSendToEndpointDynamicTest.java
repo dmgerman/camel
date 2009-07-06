@@ -310,7 +310,7 @@ name|Exchange
 operator|.
 name|INTERCEPTED_ENDPOINT
 argument_list|,
-literal|"file:foo"
+literal|"file://foo"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

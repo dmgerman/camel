@@ -199,7 +199,7 @@ name|assertEquals
 argument_list|(
 literal|"fromEndpoint URI"
 argument_list|,
-literal|"direct:foo"
+literal|"direct://foo"
 argument_list|,
 name|fromEndpoint
 operator|.
@@ -227,7 +227,7 @@ name|assertEquals
 argument_list|(
 literal|"fromEndpoint URI"
 argument_list|,
-literal|"seda:bar"
+literal|"seda://bar"
 argument_list|,
 name|fromEndpoint
 operator|.

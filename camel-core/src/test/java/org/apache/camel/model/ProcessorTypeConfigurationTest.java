@@ -107,7 +107,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"registry entry called hello must be specified on: process[ref: hello]"
+literal|"registry entry called hello must be specified on: process[ref:hello]"
 argument_list|,
 name|e
 operator|.

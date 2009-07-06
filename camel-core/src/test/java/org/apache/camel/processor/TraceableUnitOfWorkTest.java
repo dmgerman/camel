@@ -150,7 +150,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Failed at: sendTo(Endpoint[bean:bar])"
+literal|"Failed at: sendTo(Endpoint[bean://bar])"
 argument_list|,
 name|out
 argument_list|)

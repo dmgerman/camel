@@ -639,7 +639,7 @@ name|method
 expr_stmt|;
 block|}
 return|return
-literal|"ref: "
+literal|"ref:"
 operator|+
 name|ref
 operator|+
