@@ -271,11 +271,14 @@ name|message
 parameter_list|)
 block|{
 comment|// lets parser the parameterMap first to avoid consuming the POST parameters as InputStream
+name|Map
+name|parameterMap
+init|=
 name|request
 operator|.
 name|getParameterMap
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// lets force a parse of the body and headers
 name|message
 operator|.
@@ -388,18 +391,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//if the request method is Get, we also populate the http request parameters
+comment|//we populate the http request parameters for GET and POST etc method
 if|if
 condition|(
-name|request
+name|parameterMap
 operator|.
-name|getMethod
+name|size
 argument_list|()
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"GET"
-argument_list|)
+operator|>
+literal|0
 condition|)
 block|{
 name|names
