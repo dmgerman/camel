@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultRouteNode
+name|DefaultExchange
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
+name|DefaultRouteNode
 import|;
 end_import
 

@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SendDefinition
+name|RouteDefinition
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteDefinition
+name|SendDefinition
 import|;
 end_import
 

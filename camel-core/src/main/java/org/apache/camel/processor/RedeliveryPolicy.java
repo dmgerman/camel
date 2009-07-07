@@ -167,8 +167,6 @@ DECL|field|maximumRedeliveries
 specifier|protected
 name|int
 name|maximumRedeliveries
-init|=
-literal|0
 decl_stmt|;
 DECL|field|maximumRedeliveryDelay
 specifier|protected
