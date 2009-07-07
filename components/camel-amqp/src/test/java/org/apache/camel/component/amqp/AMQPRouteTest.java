@@ -277,6 +277,37 @@ name|expectedBody
 init|=
 literal|"Hello there!"
 decl_stmt|;
+name|boolean
+name|windows
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"Windows"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|windows
+condition|)
+block|{
+comment|// it could sometimes send it twice so we expect at least 1 msg
+name|resultEndpoint
+operator|.
+name|expectedMinimumMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
@@ -284,6 +315,7 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
+block|}
 name|resultEndpoint
 operator|.
 name|message
@@ -308,17 +340,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"os.name"
-argument_list|)
-operator|.
-name|startsWith
-argument_list|(
-literal|"Windows"
-argument_list|)
+name|windows
 condition|)
 block|{
 comment|// send the message twice to walk around the AMQP's drop first message issue on Windows box
