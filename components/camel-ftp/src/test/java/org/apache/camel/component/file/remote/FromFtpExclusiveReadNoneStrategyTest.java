@@ -167,7 +167,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|FromFtpExclusiveReadRenameStrategyTest
+name|FromFtpExclusiveReadNoneStrategyTest
 operator|.
 name|class
 argument_list|)
