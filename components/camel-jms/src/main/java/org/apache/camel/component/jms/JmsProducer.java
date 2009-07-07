@@ -1293,6 +1293,27 @@ try|try
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Message sent, now waiting for reply at: "
+operator|+
+name|replyTo
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|requestTimeout
 operator|<
 literal|0
