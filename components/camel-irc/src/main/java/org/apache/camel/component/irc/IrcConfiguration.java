@@ -86,7 +86,7 @@ name|lib
 operator|.
 name|ssl
 operator|.
-name|SSLTrustManager
+name|SSLDefaultTrustManager
 import|;
 end_import
 
@@ -102,7 +102,7 @@ name|lib
 operator|.
 name|ssl
 operator|.
-name|SSLDefaultTrustManager
+name|SSLTrustManager
 import|;
 end_import
 
@@ -157,8 +157,6 @@ DECL|field|usingSSL
 specifier|private
 name|boolean
 name|usingSSL
-init|=
-literal|false
 decl_stmt|;
 DECL|field|persistent
 specifier|private
