@@ -488,6 +488,19 @@ init|=
 name|getSEIClass
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|getDataFormat
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|DataFormat
+operator|.
+name|POJO
+argument_list|)
+condition|)
+block|{
 name|ObjectHelper
 operator|.
 name|notNull
@@ -499,6 +512,7 @@ operator|.
 name|SERVICE_CLASS
 argument_list|)
 expr_stmt|;
+block|}
 comment|// create client factory bean
 name|ClientProxyFactoryBean
 name|factoryBean
@@ -605,6 +619,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|cls
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|(
+name|Client
+operator|)
+name|factoryBean
+operator|.
+name|create
+argument_list|()
+return|;
+block|}
 return|return
 operator|(
 operator|(
@@ -645,6 +676,48 @@ init|=
 name|getSEIClass
 argument_list|()
 decl_stmt|;
+comment|// create server factory bean
+comment|// Shouldn't use CxfEndpointUtils.getServerFactoryBean(cls) as it is for
+comment|// CxfSoapComponent
+name|ServerFactoryBean
+name|answer
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|cls
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|getDataFormat
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|DataFormat
+operator|.
+name|POJO
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+operator|new
+name|ServerFactoryBean
+argument_list|(
+operator|new
+name|WSDLServiceFactoryBean
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ObjectHelper
 operator|.
 name|notNull
@@ -656,14 +729,9 @@ operator|.
 name|SERVICE_CLASS
 argument_list|)
 expr_stmt|;
-comment|// create server factory bean
-comment|// Shouldn't use CxfEndpointUtils.getServerFactoryBean(cls) as it is for
-comment|// CxfSoapComponent
-name|ServerFactoryBean
-name|answer
-init|=
-literal|null
-decl_stmt|;
+block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|CxfEndpointUtils
