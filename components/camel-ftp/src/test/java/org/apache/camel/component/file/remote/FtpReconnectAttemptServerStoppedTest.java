@@ -130,6 +130,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// suspect serve so we cannot connect
+name|ftpServer
+operator|.
+name|suspend
+argument_list|()
+expr_stmt|;
 comment|// put a file in the folder (do not use ftp as we then will connect)
 name|template
 operator|.
@@ -145,12 +151,6 @@ name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
-expr_stmt|;
-comment|// suspect serve so we cannot connect
-name|ftpServer
-operator|.
-name|suspend
-argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|mock
