@@ -357,6 +357,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|component
 operator|.
 name|stop

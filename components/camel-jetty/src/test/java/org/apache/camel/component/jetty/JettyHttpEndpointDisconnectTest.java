@@ -113,7 +113,7 @@ literal|0
 argument_list|,
 name|component
 operator|.
-name|connectors
+name|CONNECTORS
 operator|.
 name|size
 argument_list|()
