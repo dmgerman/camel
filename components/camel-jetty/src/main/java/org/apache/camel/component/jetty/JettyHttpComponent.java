@@ -1545,36 +1545,6 @@ return|return
 name|server
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Connector's size "
-operator|+
-name|CONNECTORS
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 

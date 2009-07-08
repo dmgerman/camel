@@ -178,18 +178,19 @@ name|JmsAnotherCustomJMSReplyToTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|amq
-specifier|private
-name|ActiveMQComponent
-name|amq
-decl_stmt|;
 DECL|field|MQURI
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|MQURI
 init|=
 literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
+decl_stmt|;
+DECL|field|amq
+specifier|private
+name|ActiveMQComponent
+name|amq
 decl_stmt|;
 DECL|method|testCustomJMSReplyToInOnly ()
 specifier|public
