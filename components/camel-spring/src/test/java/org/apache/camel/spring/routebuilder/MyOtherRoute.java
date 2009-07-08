@@ -83,16 +83,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:b"
