@@ -423,7 +423,7 @@ return|return
 name|routeExcludingContext
 return|;
 block|}
-comment|/**      * Template method used to exclude {@link org.apache.camel.Routes} from the test time context      * route scanning      *      * @return Class[] the classes to be excluded from test time context route scanning      */
+comment|/**      * Template method used to exclude {@link org.apache.camel.Route} from the test time context      * route scanning      *      * @return Class[] the classes to be excluded from test time context route scanning      */
 DECL|method|excludeRoutes ()
 specifier|protected
 name|Class
@@ -456,7 +456,7 @@ literal|0
 index|]
 return|;
 block|}
-comment|/**      * Template method used to exclude a {@link org.apache.camel.Routes} from the test camel context      */
+comment|/**      * Template method used to exclude a {@link org.apache.camel.Route} from the test camel context      */
 DECL|method|excludeRoute ()
 specifier|protected
 name|Class
