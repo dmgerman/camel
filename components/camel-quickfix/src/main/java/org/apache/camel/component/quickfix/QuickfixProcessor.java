@@ -82,10 +82,6 @@ name|Logger
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author Anton Arhipov  */
-end_comment
-
 begin_class
 DECL|class|QuickfixProcessor
 specifier|public

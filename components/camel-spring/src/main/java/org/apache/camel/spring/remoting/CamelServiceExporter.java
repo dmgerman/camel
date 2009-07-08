@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FactoryBean} to create a proxy to a service exposing a given {@link #getServiceInterface()}  *  * @author chirino  */
+comment|/**  * A {@link FactoryBean} to create a proxy to a service exposing a given {@link #getServiceInterface()}  */
 end_comment
 
 begin_class

@@ -958,7 +958,7 @@ name|getSession
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Handles response from session writes      *      * @author<a href="mailto:karajdaar@gmail.com">nsandhu</a>      */
+comment|/**      * Handles response from session writes      */
 DECL|class|ResponseHandler
 specifier|private
 specifier|final

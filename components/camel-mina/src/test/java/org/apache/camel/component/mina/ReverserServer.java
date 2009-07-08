@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * (<b>Entry point</b>) Reverser server which reverses all text lines from  * clients.  *  * @author The Apache Directory Project (mina-dev@directory.apache.org)  * @version $Rev$, $Date$,  */
+comment|/**  * (<b>Entry point</b>) Reverser server which reverses all text lines from  * clients.  *  * @version $Rev$, $Date$,  */
 end_comment
 
 begin_class

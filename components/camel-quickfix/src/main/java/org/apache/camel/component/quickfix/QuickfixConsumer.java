@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixConsumer is intended to consume the FIX messages  *  * @author Anton Arhipov  */
+comment|/**  * QuickfixConsumer is intended to consume the FIX messages  */
 end_comment
 
 begin_class

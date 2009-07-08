@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Albert Moraal  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class

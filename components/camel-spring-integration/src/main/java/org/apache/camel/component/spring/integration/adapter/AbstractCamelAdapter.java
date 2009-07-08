@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Abstract class for the Spring Integration Camel Adapter  *  * @author Willem Jiang  *  * @version $Revision$  */
+comment|/**  * The Abstract class for the Spring Integration Camel Adapter  *  * @version $Revision$  */
 end_comment
 
 begin_class

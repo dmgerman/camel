@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test case derived from:  * http://camel.apache.org/transactional-client.html and Martin  * Krasser's sample:  * http://www.nabble.com/JMS-Transactions---How-To-td15168958s22882.html#a15198803  *  * @author Kevin Ross  */
+comment|/**  * Test case derived from:  * http://camel.apache.org/transactional-client.html and Martin  * Krasser's sample:  * http://www.nabble.com/JMS-Transactions---How-To-td15168958s22882.html#a15198803  */
 end_comment
 
 begin_class

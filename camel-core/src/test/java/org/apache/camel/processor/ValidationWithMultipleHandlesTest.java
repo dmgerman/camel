@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The handle catch clause has a pipeline processing the exception.  *  * @author<a href="mailto:nsandhu">nsandhu</a>  *  */
+comment|/**  * The handle catch clause has a pipeline processing the exception.  */
 end_comment
 
 begin_class

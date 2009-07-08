@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The name space handler Spring Integration Camel Adapter  *  * @author Willem Jiang  *  * @version $Revision$  */
+comment|/**  * The name space handler Spring Integration Camel Adapter  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A container for objects to be resequenced. This container can be scheduled  * for timing out. Non-scheduled objects or already timed-out objects are ready  * for being released by the {@link ResequencerEngine}.  *   * @author Martin Krasser  */
+comment|/**  * A container for objects to be resequenced. This container can be scheduled  * for timing out. Non-scheduled objects or already timed-out objects are ready  * for being released by the {@link ResequencerEngine}.  */
 end_comment
 
 begin_class

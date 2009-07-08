@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixAcceptor is the endpoint for QuickFIX/J's server instance, e.g. FIX  * client. The class is referenced in  * META-INF/services/org/apache/camel/quickfix-server  *   * @author Anton Arhipov  */
+comment|/**  * QuickfixAcceptor is the endpoint for QuickFIX/J's server instance, e.g. FIX  * client. The class is referenced in  * META-INF/services/org/apache/camel/quickfix-server  */
 end_comment
 
 begin_class

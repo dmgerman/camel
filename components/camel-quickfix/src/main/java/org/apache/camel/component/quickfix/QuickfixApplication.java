@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixApplication is the root for application logic.  *  * @author Anton Arhipov  * @see quickfix.Application  */
+comment|/**  * QuickfixApplication is the root for application logic.  *  * @see quickfix.Application  */
 end_comment
 
 begin_class

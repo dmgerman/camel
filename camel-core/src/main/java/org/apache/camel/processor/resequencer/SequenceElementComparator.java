@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for comparing elements of a sequence.  *   * @author Martin Krasser  *   * @version $Revision$  */
+comment|/**  * A strategy for comparing elements of a sequence.  *   * @version $Revision$  */
 end_comment
 
 begin_interface

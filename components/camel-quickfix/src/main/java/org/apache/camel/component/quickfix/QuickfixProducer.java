@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixProducer is intended to be used as an initiator instance.  *<p/>  * The initiator will send the FIX messages to the configured acceptors via session object.  *  * @author Anton Arhipov  */
+comment|/**  * QuickfixProducer is intended to be used as an initiator instance.  *<p/>  * The initiator will send the FIX messages to the configured acceptors via session object.  */
 end_comment
 
 begin_class

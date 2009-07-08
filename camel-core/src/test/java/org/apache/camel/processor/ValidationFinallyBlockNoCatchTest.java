@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * No catch blocks but handle all should work  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  */
+comment|/**  * No catch blocks but handle all should work  */
 end_comment
 
 begin_class

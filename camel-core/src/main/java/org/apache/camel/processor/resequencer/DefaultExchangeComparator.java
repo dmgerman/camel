@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comaprator's  *<code>expression</code>. The expression is set during route definition  * e.g.  *   *<pre>  *    ...resequencer(header(&quot;seqnum&quot;)).stream()...  *</pre>  *   * @author Martin Krasser  *   * @version $Revision$  */
+comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comaprator's  *<code>expression</code>. The expression is set during route definition  * e.g.  *   *<pre>  *    ...resequencer(header(&quot;seqnum&quot;)).stream()...  *</pre>  *   * @version $Revision$  */
 end_comment
 
 begin_class

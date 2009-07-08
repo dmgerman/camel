@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QuickfixInitiator is the endpoint for QuickFIX/J's initiator instance, e.g.  * FIX client. The class is referenced in  * META-INF/services/org/apache/camel/quickfix-client  *   * @author Anton Arhipov  */
+comment|/**  * QuickfixInitiator is the endpoint for QuickFIX/J's initiator instance, e.g.  * FIX client. The class is referenced in  * META-INF/services/org/apache/camel/quickfix-client  */
 end_comment
 
 begin_class

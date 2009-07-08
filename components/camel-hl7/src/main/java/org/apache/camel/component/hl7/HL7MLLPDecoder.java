@@ -749,7 +749,7 @@ name|DECODER_STATE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Holds the state of the decoding process      *       * @author Christian Ohr      */
+comment|/**      * Holds the state of the decoding process      */
 DECL|class|DecoderState
 specifier|private
 specifier|static

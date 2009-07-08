@@ -76,10 +76,6 @@ name|createSpringCamelContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author Martin Krasser  */
-end_comment
-
 begin_class
 DECL|class|SpringEnricherTest
 specifier|public

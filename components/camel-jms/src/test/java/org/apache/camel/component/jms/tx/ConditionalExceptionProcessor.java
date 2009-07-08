@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Conditionally throws exception causing a rollback  *  * @author Kevin Ross  */
+comment|/**  * Conditionally throws exception causing a rollback  */
 end_comment
 
 begin_class

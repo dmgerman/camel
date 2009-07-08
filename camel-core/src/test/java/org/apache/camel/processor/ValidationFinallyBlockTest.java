@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test finallyBlock  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  */
+comment|/**  * Test finallyBlock  */
 end_comment
 
 begin_class
