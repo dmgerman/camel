@@ -96,7 +96,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/reconnect?password=admin&maximumReconnectAttempts=2&reconnectDelay=500"
+literal|"/reconnect?password=admin&maximumReconnectAttempts=2&reconnectDelay=500&delete=true"
 return|;
 block|}
 annotation|@
@@ -178,12 +178,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// resume the server so we can connect
-name|ftpServer
-operator|.
-name|resume
-argument_list|()
-expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -195,6 +189,12 @@ name|expectedMessageCount
 argument_list|(
 literal|1
 argument_list|)
+expr_stmt|;
+comment|// resume the server so we can connect
+name|ftpServer
+operator|.
+name|resume
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
