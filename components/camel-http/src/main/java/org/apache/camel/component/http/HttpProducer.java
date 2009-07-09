@@ -642,7 +642,16 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
-comment|//answer.setHeaders(in.getHeaders());
+name|answer
+operator|.
+name|setHeaders
+argument_list|(
+name|in
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setHeader

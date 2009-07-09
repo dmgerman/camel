@@ -245,18 +245,9 @@ operator|+
 name|headers
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|checkHeaders
 argument_list|(
-literal|"Should be more than one header but was: "
-operator|+
 name|headers
-argument_list|,
-name|headers
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
 argument_list|)
 expr_stmt|;
 name|String
@@ -299,6 +290,35 @@ name|contains
 argument_list|(
 name|expectedText
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|checkHeaders (Map<String, Object> headers)
+specifier|protected
+name|void
+name|checkHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Should be more than one header but was: "
+operator|+
+name|headers
+argument_list|,
+name|headers
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
