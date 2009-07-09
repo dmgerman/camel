@@ -218,8 +218,10 @@ block|{
 comment|// remove fault as we are converting it to an exception
 name|exchange
 operator|.
-name|removeFault
-argument_list|()
+name|setFault
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

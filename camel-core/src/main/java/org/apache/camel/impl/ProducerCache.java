@@ -934,16 +934,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|stopServices
-argument_list|(
-name|producers
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// the producers will be stopped from where they are acquired
 name|producers
 operator|.
 name|clear

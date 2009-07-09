@@ -470,20 +470,6 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
 DECL|method|getFile ()
 specifier|public
 name|File
