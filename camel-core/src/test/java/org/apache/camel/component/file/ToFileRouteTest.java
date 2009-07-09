@@ -145,7 +145,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:reports"
+literal|"direct:reports"
 argument_list|,
 literal|"This is a great report"
 argument_list|)
@@ -210,7 +210,7 @@ comment|// the reports from the seda queue is processed by our processor
 comment|// before they are written to files in the target/reports directory
 name|from
 argument_list|(
-literal|"seda:reports"
+literal|"direct:reports"
 argument_list|)
 operator|.
 name|processRef

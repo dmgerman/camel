@@ -546,12 +546,6 @@ specifier|private
 name|List
 name|pluginDependencies
 decl_stmt|;
-comment|/**      * Whether to enable the debugger or not      *      * @parameter expression="${camel.debug}"      *            default-value="false"      * @required      */
-DECL|field|debug
-specifier|private
-name|boolean
-name|debug
-decl_stmt|;
 comment|/**      * Whether to enable the tracer or not      *      * @parameter expression="${camel.trace}"      *            default-value="false"      * @required      */
 DECL|field|trace
 specifier|private
@@ -729,19 +723,6 @@ operator|.
 name|add
 argument_list|(
 name|dotDir
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|debug
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-x"
 argument_list|)
 expr_stmt|;
 block|}

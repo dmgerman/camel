@@ -319,14 +319,14 @@ block|{
 return|return
 name|o1
 operator|.
-name|getFileName
+name|getFileNameOnly
 argument_list|()
 operator|.
-name|compareTo
+name|compareToIgnoreCase
 argument_list|(
 name|o2
 operator|.
-name|getFileName
+name|getFileNameOnly
 argument_list|()
 argument_list|)
 return|;

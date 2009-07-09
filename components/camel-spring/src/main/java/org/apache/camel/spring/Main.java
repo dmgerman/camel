@@ -501,44 +501,6 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|enableDebug ()
-specifier|public
-name|void
-name|enableDebug
-parameter_list|()
-block|{
-name|super
-operator|.
-name|enableDebug
-argument_list|()
-expr_stmt|;
-name|setParentApplicationContextUri
-argument_list|(
-literal|"/META-INF/services/org/apache/camel/spring/debug.xml"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|enableTrace ()
-specifier|public
-name|void
-name|enableTrace
-parameter_list|()
-block|{
-name|super
-operator|.
-name|enableTrace
-argument_list|()
-expr_stmt|;
-name|setParentApplicationContextUri
-argument_list|(
-literal|"/META-INF/services/org/apache/camel/spring/trace.xml"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getApplicationContext ()
@@ -843,22 +805,15 @@ name|class
 argument_list|)
 return|;
 block|}
-for|for
-control|(
-name|CamelContext
-name|camelContext
-range|:
+if|if
+condition|(
 name|getCamelContexts
 argument_list|()
-control|)
-block|{
-return|return
-name|camelContext
 operator|.
-name|createProducerTemplate
+name|isEmpty
 argument_list|()
-return|;
-block|}
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -866,6 +821,19 @@ argument_list|(
 literal|"No CamelContexts are available so cannot create a ProducerTemplate!"
 argument_list|)
 throw|;
+block|}
+return|return
+name|getCamelContexts
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
+return|;
 block|}
 DECL|method|createDefaultApplicationContext ()
 specifier|protected

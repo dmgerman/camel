@@ -292,17 +292,6 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should take longer than: "
-operator|+
-name|delta
-argument_list|,
-name|delta
-operator|>
-literal|250
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Hello World"
@@ -314,6 +303,17 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should take longer than: "
+operator|+
+name|delta
+argument_list|,
+name|delta
+operator|>
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -418,17 +418,6 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should take longer than: "
-operator|+
-name|delta
-argument_list|,
-name|delta
-operator|>
-literal|250
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Hello World"
@@ -440,6 +429,17 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should take longer than: "
+operator|+
+name|delta
+argument_list|,
+name|delta
+operator|>
+literal|250
 argument_list|)
 expr_stmt|;
 block|}
@@ -523,6 +523,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -532,13 +539,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -620,6 +620,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -629,13 +636,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -750,6 +750,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -759,13 +766,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -878,6 +878,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -887,13 +894,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,6 +1050,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -1059,13 +1066,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -1220,6 +1220,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -1229,13 +1236,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -1627,6 +1627,13 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should take longer than: "
@@ -1636,13 +1643,6 @@ argument_list|,
 name|delta
 operator|>
 literal|250
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -1677,7 +1677,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|250
+literal|400
 argument_list|)
 operator|.
 name|transform
@@ -1703,7 +1703,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|250
+literal|400
 argument_list|)
 operator|.
 name|process
