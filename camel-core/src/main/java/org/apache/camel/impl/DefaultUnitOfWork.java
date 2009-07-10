@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RouteNode
 import|;
 end_import
@@ -282,10 +294,10 @@ name|AtomicInteger
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|originalInBody
+DECL|field|originalInMessage
 specifier|private
-name|Object
-name|originalInBody
+name|Message
+name|originalInMessage
 decl_stmt|;
 DECL|method|DefaultUnitOfWork (Exchange exchange)
 specifier|public
@@ -295,10 +307,40 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// special for JmsMessage as it can cause it to loose headers later. Yeah JMS suchs
+if|if
+condition|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"JmsMessage"
+argument_list|)
+condition|)
+block|{
 name|this
 operator|.
-name|originalInBody
+name|originalInMessage
 operator|=
+operator|new
+name|DefaultMessage
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|originalInMessage
+operator|.
+name|setBody
+argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -306,7 +348,25 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
 expr_stmt|;
+comment|// cannot copy headers with a JmsMessage as the underlying javax.jms.Message object goes nuts
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|originalInMessage
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|copy
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|start ()
 specifier|public
@@ -361,7 +421,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|originalInBody
+name|originalInMessage
 operator|=
 literal|null
 expr_stmt|;
@@ -715,14 +775,14 @@ name|routeNodes
 argument_list|)
 return|;
 block|}
-DECL|method|getOriginalInBody ()
+DECL|method|getOriginalInMessage ()
 specifier|public
-name|Object
-name|getOriginalInBody
+name|Message
+name|getOriginalInMessage
 parameter_list|()
 block|{
 return|return
-name|originalInBody
+name|originalInMessage
 return|;
 block|}
 DECL|method|getAndIncrement (ProcessorDefinition node)

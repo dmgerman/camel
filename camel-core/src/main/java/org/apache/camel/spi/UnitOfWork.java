@@ -28,6 +28,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
 comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  *  * @version $Revision$  */
 end_comment
@@ -80,10 +92,10 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the original IN body this Unit of Work was started with.      *      * @return the original IN body      */
-DECL|method|getOriginalInBody ()
-name|Object
-name|getOriginalInBody
+comment|/**      * Gets the original IN {@link Message} this Unit of Work was started with.      *      * @return the original IN {@link Message}      */
+DECL|method|getOriginalInMessage ()
+name|Message
+name|getOriginalInMessage
 parameter_list|()
 function_decl|;
 block|}

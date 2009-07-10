@@ -300,7 +300,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|useOriginalBody
+name|useOriginalMessage
 argument_list|()
 operator|.
 name|handled

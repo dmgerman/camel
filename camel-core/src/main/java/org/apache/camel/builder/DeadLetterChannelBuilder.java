@@ -276,7 +276,7 @@ argument_list|,
 name|getDeadLetterUri
 argument_list|()
 argument_list|,
-name|isUseOriginalBody
+name|isUseOriginalMessage
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -466,16 +466,16 @@ name|XmlAttribute
 argument_list|(
 name|name
 operator|=
-literal|"useOriginalBody"
+literal|"useOriginalMessage"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|useOriginalBodyPolicy
+DECL|field|useOriginalMessagePolicy
 specifier|private
 name|Boolean
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 init|=
 name|Boolean
 operator|.
@@ -1303,7 +1303,7 @@ name|OnExceptionDefinition
 name|useOriginalBody
 parameter_list|()
 block|{
-name|setUseOriginalBodyPolicy
+name|setUseOriginalMessagePolicy
 argument_list|(
 name|Boolean
 operator|.
@@ -1662,30 +1662,30 @@ operator|=
 name|onRedeliveryRef
 expr_stmt|;
 block|}
-DECL|method|getUseOriginalBodyPolicy ()
+DECL|method|getUseOriginalMessagePolicy ()
 specifier|public
 name|Boolean
-name|getUseOriginalBodyPolicy
+name|getUseOriginalMessagePolicy
 parameter_list|()
 block|{
 return|return
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 return|;
 block|}
-DECL|method|setUseOriginalBodyPolicy (Boolean useOriginalBodyPolicy)
+DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
 specifier|public
 name|void
-name|setUseOriginalBodyPolicy
+name|setUseOriginalMessagePolicy
 parameter_list|(
 name|Boolean
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 operator|=
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 expr_stmt|;
 block|}
 comment|// Implementation methods

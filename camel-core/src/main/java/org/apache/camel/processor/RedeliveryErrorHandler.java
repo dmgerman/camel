@@ -201,11 +201,11 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-DECL|field|useOriginalBodyPolicy
+DECL|field|useOriginalMessagePolicy
 specifier|protected
 specifier|final
 name|boolean
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 decl_stmt|;
 DECL|class|RedeliveryData
 specifier|protected
@@ -253,14 +253,14 @@ name|handledPredicate
 init|=
 name|handledPolicy
 decl_stmt|;
-DECL|field|useOriginalInBody
+DECL|field|useOriginalInMessage
 name|boolean
-name|useOriginalInBody
+name|useOriginalInMessage
 init|=
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 decl_stmt|;
 block|}
-DECL|method|RedeliveryErrorHandler (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy)
+DECL|method|RedeliveryErrorHandler (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -286,7 +286,7 @@ name|String
 name|deadLetterUri
 parameter_list|,
 name|boolean
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 parameter_list|)
 block|{
 name|this
@@ -333,9 +333,9 @@ name|handledPolicy
 expr_stmt|;
 name|this
 operator|.
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 operator|=
-name|useOriginalBodyPolicy
+name|useOriginalMessagePolicy
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
@@ -943,11 +943,11 @@ argument_list|()
 expr_stmt|;
 name|data
 operator|.
-name|useOriginalInBody
+name|useOriginalInMessage
 operator|=
 name|exceptionPolicy
 operator|.
-name|getUseOriginalBodyPolicy
+name|getUseOriginalMessagePolicy
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?
@@ -1232,7 +1232,7 @@ if|if
 condition|(
 name|data
 operator|.
-name|useOriginalInBody
+name|useOriginalInMessage
 condition|)
 block|{
 if|if
@@ -1247,11 +1247,11 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using the original IN body instead of the current IN body"
+literal|"Using the original IN message instead of current"
 argument_list|)
 expr_stmt|;
 block|}
-name|Object
+name|Message
 name|original
 init|=
 name|exchange
@@ -1259,15 +1259,12 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 operator|.
-name|getOriginalInBody
+name|getOriginalInMessage
 argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
+name|setIn
 argument_list|(
 name|original
 argument_list|)
