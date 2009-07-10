@@ -522,7 +522,6 @@ name|refCount
 return|;
 block|}
 block|}
-comment|/*static {         // create the Server static object;             }*/
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
