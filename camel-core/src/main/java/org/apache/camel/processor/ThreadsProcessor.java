@@ -220,7 +220,7 @@ name|copy
 init|=
 name|exchange
 operator|.
-name|newCopy
+name|copy
 argument_list|(
 literal|true
 argument_list|)

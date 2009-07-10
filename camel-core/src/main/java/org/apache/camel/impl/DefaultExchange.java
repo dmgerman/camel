@@ -458,10 +458,10 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|newCopy (boolean handoverOnCompletion)
+DECL|method|copy (boolean handoverOnCompletion)
 specifier|public
 name|Exchange
-name|newCopy
+name|copy
 parameter_list|(
 name|boolean
 name|handoverOnCompletion

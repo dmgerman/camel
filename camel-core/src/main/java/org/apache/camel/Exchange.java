@@ -608,9 +608,9 @@ name|copy
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new instance and copies from the current message exchange so that it can be      * forwarded to another destination as a new instance. Unlike regular copy this operation      * will not share the same {@link org.apache.camel.spi.UnitOfWork} so its should be used      * for async messaging, where the original and copied exchange are independent.      *      * @param handoverOnCompletion whether the on completion callbacks should be handed over to the new copy.      */
-DECL|method|newCopy (boolean handoverOnCompletion)
+DECL|method|copy (boolean handoverOnCompletion)
 name|Exchange
-name|newCopy
+name|copy
 parameter_list|(
 name|boolean
 name|handoverOnCompletion

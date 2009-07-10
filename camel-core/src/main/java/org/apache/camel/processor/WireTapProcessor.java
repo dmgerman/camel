@@ -495,7 +495,7 @@ name|copy
 init|=
 name|exchange
 operator|.
-name|newCopy
+name|copy
 argument_list|(
 literal|false
 argument_list|)
