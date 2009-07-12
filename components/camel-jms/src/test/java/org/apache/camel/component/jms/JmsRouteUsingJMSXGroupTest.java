@@ -112,9 +112,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|jencks
 operator|.
-name|Test
+name|amqpool
+operator|.
+name|PooledConnectionFactory
 import|;
 end_import
 
@@ -122,11 +124,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jencks
+name|junit
 operator|.
-name|amqpool
-operator|.
-name|PooledConnectionFactory
+name|Test
 import|;
 end_import
 
