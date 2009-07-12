@@ -215,7 +215,7 @@ name|connector
 operator|.
 name|setHost
 argument_list|(
-literal|"127.0.0.1"
+literal|"localhost"
 argument_list|)
 expr_stmt|;
 name|server
