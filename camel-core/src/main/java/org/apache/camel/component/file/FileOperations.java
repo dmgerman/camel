@@ -339,6 +339,33 @@ name|target
 argument_list|)
 return|;
 block|}
+DECL|method|existsFile (String name)
+specifier|public
+name|boolean
+name|existsFile
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+name|file
+operator|.
+name|exists
+argument_list|()
+return|;
+block|}
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean

@@ -307,6 +307,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// TODO: optimize to only copy original message if enabled to do so in the route
 comment|// special for JmsMessage as it can cause it to loose headers later. Yeah JMS suchs
 if|if
 condition|(

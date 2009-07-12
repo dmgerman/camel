@@ -69,6 +69,17 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
+comment|/**      * Determines whether the files exists or not      *      * @param name name of the file      * @return true if exists, false if not      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|existsFile (String name)
+name|boolean
+name|existsFile
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
 comment|/**      * Renames the file      *      * @param from original name      * @param to   the new name      * @return true if renamed, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|renameFile (String from, String to)
 name|boolean
