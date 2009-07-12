@@ -2142,7 +2142,7 @@ block|{
 name|boolean
 name|existFile
 init|=
-name|existFile
+name|existsFile
 argument_list|(
 name|name
 argument_list|)
@@ -2310,14 +2310,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|existFile (String name)
-specifier|private
+DECL|method|existsFile (String name)
+specifier|public
 name|boolean
-name|existFile
+name|existsFile
 parameter_list|(
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
 block|{
 comment|// check whether a file already exists
 name|String
