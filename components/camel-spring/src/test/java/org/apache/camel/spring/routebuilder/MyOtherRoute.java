@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|SpringRouteBuilder
+name|CamelContext
 import|;
 end_import
 
@@ -52,7 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|spring
+operator|.
+name|SpringRouteBuilder
 import|;
 end_import
 

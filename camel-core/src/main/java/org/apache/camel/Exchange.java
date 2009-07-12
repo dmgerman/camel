@@ -248,12 +248,6 @@ name|HTTP_QUERY
 init|=
 literal|"CamelHttpQuery"
 decl_stmt|;
-DECL|field|HTTP_RELATIVE_PATH
-name|String
-name|HTTP_RELATIVE_PATH
-init|=
-literal|"CamelHttpRelativePath"
-decl_stmt|;
 DECL|field|HTTP_RESPONSE_CODE
 name|String
 name|HTTP_RESPONSE_CODE
@@ -265,6 +259,12 @@ name|String
 name|HTTP_URI
 init|=
 literal|"CamelHttpUri"
+decl_stmt|;
+DECL|field|HTTP_URL
+name|String
+name|HTTP_URL
+init|=
+literal|"CamelHttpUrl"
 decl_stmt|;
 DECL|field|INTERCEPTED_ENDPOINT
 name|String
