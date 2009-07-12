@@ -762,6 +762,7 @@ comment|// We need to mark this information in the exception as we need to propa
 comment|// the exception back by rehtrowing it. We cannot mark it on the exchange as Camel
 comment|// uses copies of exchanges in its pipeline and the data isnt copied back in case
 comment|// when an exception occured
+comment|// TODO: revist if/when we avoid doing the copying in the pipeline
 return|return
 operator|new
 name|TransactedRuntimeCamelException

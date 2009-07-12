@@ -134,6 +134,14 @@ argument_list|(
 name|size
 argument_list|)
 decl_stmt|;
+comment|// do not collect exchanges to go as fast as we can
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+init|=
+literal|"mock:results?collectMaximumExchanges=0"
+decl_stmt|;
 DECL|method|testPerformance ()
 specifier|public
 name|void
@@ -164,7 +172,7 @@ name|endpoint
 init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:results"
+name|uri
 argument_list|)
 decl_stmt|;
 name|endpoint
@@ -380,7 +388,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:results"
+name|uri
 argument_list|,
 literal|"dataset:foo"
 argument_list|)
@@ -390,7 +398,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"mock:results"
+name|uri
 argument_list|,
 literal|"dataset:foo"
 argument_list|)

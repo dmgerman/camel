@@ -355,6 +355,11 @@ operator|.
 name|isFailed
 argument_list|()
 operator|||
+name|nextExchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+operator|||
 name|exceptionHandled
 condition|)
 block|{
@@ -391,6 +396,22 @@ if|if
 condition|(
 name|nextExchange
 operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" Marked as rollback only."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|nextExchange
+operator|.
 name|getException
 argument_list|()
 operator|!=
@@ -401,7 +422,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" exception: "
+literal|" Exception: "
 argument_list|)
 operator|.
 name|append
@@ -425,7 +446,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" fault: "
+literal|" Fault: "
 argument_list|)
 operator|.
 name|append
@@ -446,7 +467,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" handled by the error handler"
+literal|" Handled by the error handler."
 argument_list|)
 expr_stmt|;
 block|}
