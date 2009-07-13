@@ -61,12 +61,12 @@ name|getSize
 parameter_list|()
 function_decl|;
 comment|/**      * Asserts that the expected message has been received for the given index      */
-DECL|method|assertMessageExpected (DataSetEndpoint dataSetEndpoint, Exchange expected, Exchange actual, long index)
+DECL|method|assertMessageExpected (DataSetEndpoint endpoint, Exchange expected, Exchange actual, long messageIndex)
 name|void
 name|assertMessageExpected
 parameter_list|(
 name|DataSetEndpoint
-name|dataSetEndpoint
+name|endpoint
 parameter_list|,
 name|Exchange
 name|expected
@@ -75,7 +75,7 @@ name|Exchange
 name|actual
 parameter_list|,
 name|long
-name|index
+name|messageIndex
 parameter_list|)
 throws|throws
 name|Exception
