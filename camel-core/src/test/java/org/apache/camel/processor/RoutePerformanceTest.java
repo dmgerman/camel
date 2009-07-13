@@ -134,13 +134,12 @@ argument_list|(
 name|size
 argument_list|)
 decl_stmt|;
-comment|// do not collect exchanges to go as fast as we can
 DECL|field|uri
 specifier|private
 name|String
 name|uri
 init|=
-literal|"mock:results?collectMaximumExchanges=0"
+literal|"mock:results"
 decl_stmt|;
 DECL|method|testPerformance ()
 specifier|public

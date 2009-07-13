@@ -3017,7 +3017,10 @@ name|getReceivedCounter
 parameter_list|()
 block|{
 return|return
-name|counter
+name|receivedExchanges
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 DECL|method|getReceivedExchanges ()
@@ -3535,6 +3538,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+operator|++
+name|counter
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -3545,7 +3559,6 @@ operator|+
 literal|">>>> "
 operator|+
 operator|(
-operator|++
 name|counter
 operator|)
 operator|+
@@ -3558,19 +3571,7 @@ operator|+
 name|actualBody
 argument_list|)
 expr_stmt|;
-comment|// only collect if needed
-if|if
-condition|(
-name|collectMaximumExchanges
-operator|==
-operator|-
-literal|1
-operator|||
-name|counter
-operator|<
-name|collectMaximumExchanges
-condition|)
-block|{
+block|}
 name|receivedExchanges
 operator|.
 name|add
@@ -3578,7 +3579,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|Processor
 name|processor
 init|=
