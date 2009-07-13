@@ -2182,6 +2182,13 @@ condition|(
 name|out
 operator|!=
 literal|null
+operator|&&
+name|out
+operator|.
+name|getJmsMessage
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|out
