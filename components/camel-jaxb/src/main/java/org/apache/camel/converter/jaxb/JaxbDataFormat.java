@@ -241,6 +241,26 @@ operator|.
 name|createMarshaller
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|isPrettyPrint
+argument_list|()
+condition|)
+block|{
+name|marshaller
+operator|.
+name|setProperty
+argument_list|(
+name|Marshaller
+operator|.
+name|JAXB_FORMATTED_OUTPUT
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
 comment|// exchange take precedense over encoding option
 name|String
 name|charset
