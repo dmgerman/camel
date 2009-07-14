@@ -1508,6 +1508,14 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// only append if value is not null
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
 name|rc
 operator|.
 name|append
@@ -1529,6 +1537,7 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|rc

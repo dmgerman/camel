@@ -433,6 +433,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalizeUriWhereParamererIsFaulty ()
+specifier|public
+name|void
+name|testNormalizeUriWhereParamererIsFaulty
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"stream:uri?file:///d:/temp/data/log/quickfix.log&scanStream=true"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
