@@ -2126,11 +2126,19 @@ name|boolean
 name|hasNext
 parameter_list|()
 block|{
+comment|// empty string should not be regarded as having next
 return|return
 operator|++
 name|idx
 operator|==
 literal|0
+operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|s
+argument_list|)
 return|;
 block|}
 specifier|public
