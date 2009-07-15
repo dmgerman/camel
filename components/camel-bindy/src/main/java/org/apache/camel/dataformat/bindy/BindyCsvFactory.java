@@ -102,6 +102,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|jar
+operator|.
+name|JarException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -334,6 +346,27 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|numberOptionalFields
+specifier|private
+name|int
+name|numberOptionalFields
+init|=
+literal|0
+decl_stmt|;
+DECL|field|numberMandatoryFields
+specifier|private
+name|int
+name|numberMandatoryFields
+init|=
+literal|0
+decl_stmt|;
+DECL|field|totalFields
+specifier|private
+name|int
+name|totalFields
+init|=
+literal|0
+decl_stmt|;
 DECL|field|separator
 specifier|private
 name|String
@@ -510,6 +543,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|dataField
+operator|.
+name|required
+argument_list|()
+condition|)
+block|{
+operator|++
+name|numberMandatoryFields
+expr_stmt|;
+block|}
+else|else
+block|{
+operator|++
+name|numberOptionalFields
+expr_stmt|;
+block|}
 name|dataFields
 operator|.
 name|put
@@ -613,9 +664,51 @@ name|linkFields
 argument_list|)
 expr_stmt|;
 block|}
+name|totalFields
+operator|=
+name|numberMandatoryFields
+operator|+
+name|numberOptionalFields
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Number of optional fields : "
+operator|+
+name|numberOptionalFields
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Number of mandatory fields : "
+operator|+
+name|numberMandatoryFields
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Total : "
+operator|+
+name|totalFields
+argument_list|)
+expr_stmt|;
 block|}
 block|}
-DECL|method|bind (List<String> data, Map<String, Object> model)
+block|}
+DECL|method|bind (List<String> tokens, Map<String, Object> model)
 specifier|public
 name|void
 name|bind
@@ -624,7 +717,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|data
+name|tokens
 parameter_list|,
 name|Map
 argument_list|<
@@ -642,36 +735,20 @@ name|pos
 init|=
 literal|0
 decl_stmt|;
-while|while
-condition|(
-name|pos
-operator|<
+name|int
+name|counterMandatoryFields
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|String
 name|data
-operator|.
-name|size
-argument_list|()
-condition|)
+range|:
+name|tokens
+control|)
 block|{
-comment|// Set the field with the data received
-comment|// Only when no empty line is provided
-comment|// Data is transformed according to the pattern defined or by
-comment|// default the type of the field (int, double, String, ...)
-if|if
-condition|(
-operator|!
-name|data
-operator|.
-name|get
-argument_list|(
-name|pos
-argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|""
-argument_list|)
-condition|)
-block|{
+comment|// Get DataField from model
 name|DataField
 name|dataField
 init|=
@@ -688,9 +765,53 @@ name|notNull
 argument_list|(
 name|dataField
 argument_list|,
-literal|"No position defined for the field"
+literal|"No position "
+operator|+
+name|pos
+operator|+
+literal|" defined for the field : "
+operator|+
+name|data
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dataField
+operator|.
+name|required
+argument_list|()
+condition|)
+block|{
+comment|// Increment counter of mandatory fields
+operator|++
+name|counterMandatoryFields
+expr_stmt|;
+comment|// Check if content of the field is empty
+comment|// This is not possible for mandatory fields
+if|if
+condition|(
+name|data
+operator|.
+name|equals
+argument_list|(
+literal|""
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The mandatory field defined at the position "
+operator|+
+name|pos
+operator|+
+literal|" is empty !"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// Get Field to be setted
 name|Field
 name|field
 init|=
@@ -727,11 +848,6 @@ operator|+
 literal|", Data : "
 operator|+
 name|data
-operator|.
-name|get
-argument_list|(
-name|pos
-argument_list|)
 operator|+
 literal|", Field type : "
 operator|+
@@ -798,18 +914,42 @@ comment|// format the data received
 name|Object
 name|value
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|data
+operator|.
+name|equals
+argument_list|(
+literal|""
+argument_list|)
+condition|)
+block|{
+name|value
+operator|=
 name|format
 operator|.
 name|parse
 argument_list|(
 name|data
-operator|.
-name|get
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|value
+operator|=
+name|getDefaultValueforPrimitive
 argument_list|(
-name|pos
+name|field
+operator|.
+name|getType
+argument_list|()
 argument_list|)
-argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|field
 operator|.
 name|set
@@ -819,10 +959,58 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
-name|pos
 operator|++
+name|pos
 expr_stmt|;
+block|}
+comment|/*        while (pos< data.size()) {              // Set the field with the data received             // Only when no empty line is provided             // Data is transformed according to the pattern defined or by             // default the type of the field (int, double, String, ...)              if (!data.get(pos).equals("")) {                  DataField dataField = dataFields.get(pos);                 ObjectHelper.notNull(dataField, "No position defined for the field");                                  if ( dataField.required()) {                 	++counterMandatoryFields;                 }                                  Field field = annotedFields.get(pos);                 field.setAccessible(true);                                  if (LOG.isDebugEnabled()) {                     LOG.debug("Pos : " + pos + ", Data : " + data.get(pos) + ", Field type : " + field.getType());                 }                  Format<?> format;                                  // Get pattern defined for the field                 String pattern = dataField.pattern();                                  // Create format object to format the field                  format = FormatFactory.getFormat(field.getType(), pattern, dataField.precision());                                  // field object to be set                 Object modelField = model.get(field.getDeclaringClass().getName());                                  // format the data received                 Object value = format.parse(data.get(pos));                                  field.set(modelField, value);             }              ++pos;         }*/
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Counter mandatory fields : "
+operator|+
+name|counterMandatoryFields
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pos
+operator|<
+name|totalFields
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Some fields are missing (optional or mandatory) !!"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|counterMandatoryFields
+operator|<
+name|numberMandatoryFields
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Some mandatory fields are missing !!"
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|unbind (Map<String, Object> model)
