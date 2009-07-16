@@ -253,7 +253,7 @@ specifier|final
 name|String
 name|MTOM_ENDPOINT_ADDRESS
 init|=
-literal|"http://localhost:9090/jaxws-mtom/hello"
+literal|"http://localhost:9091/jaxws-mtom/hello"
 decl_stmt|;
 DECL|field|MTOM_ENDPOINT_URI
 specifier|protected

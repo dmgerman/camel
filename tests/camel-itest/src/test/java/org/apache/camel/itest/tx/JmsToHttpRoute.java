@@ -193,7 +193,7 @@ comment|// send a request to http and get the response
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:9090/sender"
+literal|"http://localhost:9091/sender"
 argument_list|)
 comment|// convert the response to String so we can work with it and avoid streams only be readable once
 comment|// as the http component will return data as a stream
@@ -264,7 +264,7 @@ comment|// this is our http route that will fail the first 2 attempts
 comment|// before it sends an ok response
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9090/sender"
+literal|"jetty:http://localhost:9091/sender"
 argument_list|)
 operator|.
 name|process
