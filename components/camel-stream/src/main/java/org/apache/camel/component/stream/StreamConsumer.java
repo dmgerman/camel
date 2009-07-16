@@ -54,16 +54,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -519,15 +509,13 @@ name|Exception
 block|{
 comment|// important: do not close the stream as it will close the standard
 comment|// system.in etc.
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|executor
-argument_list|,
-literal|"Executor"
-argument_list|)
-expr_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
 name|executor
 operator|.
 name|shutdownNow
@@ -537,6 +525,7 @@ name|executor
 operator|=
 literal|null
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
