@@ -211,6 +211,18 @@ name|BindyComplexCsvUnmarshallTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
+annotation|@
+name|Produce
+argument_list|(
+name|uri
+operator|=
+literal|"direct:start"
+argument_list|)
+DECL|field|template
+specifier|protected
+name|ProducerTemplate
+name|template
+decl_stmt|;
 DECL|field|record
 specifier|private
 name|String
@@ -253,18 +265,6 @@ DECL|field|resultEndpoint
 specifier|private
 name|MockEndpoint
 name|resultEndpoint
-decl_stmt|;
-annotation|@
-name|Produce
-argument_list|(
-name|uri
-operator|=
-literal|"direct:start"
-argument_list|)
-DECL|field|template
-specifier|protected
-name|ProducerTemplate
-name|template
 decl_stmt|;
 annotation|@
 name|Test
@@ -338,7 +338,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|//from("file://src/test/data?noop=true")
+comment|// from("file://src/test/data?noop=true")
 name|from
 argument_list|(
 literal|"direct:start"

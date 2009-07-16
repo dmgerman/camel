@@ -350,22 +350,16 @@ DECL|field|numberOptionalFields
 specifier|private
 name|int
 name|numberOptionalFields
-init|=
-literal|0
 decl_stmt|;
 DECL|field|numberMandatoryFields
 specifier|private
 name|int
 name|numberMandatoryFields
-init|=
-literal|0
 decl_stmt|;
 DECL|field|totalFields
 specifier|private
 name|int
 name|totalFields
-init|=
-literal|0
 decl_stmt|;
 DECL|field|separator
 specifier|private
@@ -963,7 +957,7 @@ operator|++
 name|pos
 expr_stmt|;
 block|}
-comment|/*        while (pos< data.size()) {              // Set the field with the data received             // Only when no empty line is provided             // Data is transformed according to the pattern defined or by             // default the type of the field (int, double, String, ...)              if (!data.get(pos).equals("")) {                  DataField dataField = dataFields.get(pos);                 ObjectHelper.notNull(dataField, "No position defined for the field");                                  if ( dataField.required()) {                 	++counterMandatoryFields;                 }                                  Field field = annotedFields.get(pos);                 field.setAccessible(true);                                  if (LOG.isDebugEnabled()) {                     LOG.debug("Pos : " + pos + ", Data : " + data.get(pos) + ", Field type : " + field.getType());                 }                  Format<?> format;                                  // Get pattern defined for the field                 String pattern = dataField.pattern();                                  // Create format object to format the field                  format = FormatFactory.getFormat(field.getType(), pattern, dataField.precision());                                  // field object to be set                 Object modelField = model.get(field.getDeclaringClass().getName());                                  // format the data received                 Object value = format.parse(data.get(pos));                                  field.set(modelField, value);             }              ++pos;         }*/
+comment|/*        while (pos< data.size()) {              // Set the field with the data received             // Only when no empty line is provided             // Data is transformed according to the pattern defined or by             // default the type of the field (int, double, String, ...)              if (!data.get(pos).equals("")) {                  DataField dataField = dataFields.get(pos);                 ObjectHelper.notNull(dataField, "No position defined for the field");                                  if ( dataField.required()) {                     ++counterMandatoryFields;                 }                                  Field field = annotedFields.get(pos);                 field.setAccessible(true);                                  if (LOG.isDebugEnabled()) {                     LOG.debug("Pos : " + pos + ", Data : " + data.get(pos) + ", Field type : " + field.getType());                 }                  Format<?> format;                                  // Get pattern defined for the field                 String pattern = dataField.pattern();                                  // Create format object to format the field                  format = FormatFactory.getFormat(field.getType(), pattern, dataField.precision());                                  // field object to be set                 Object modelField = model.get(field.getDeclaringClass().getName());                                  // format the data received                 Object value = format.parse(data.get(pos));                                  field.set(modelField, value);             }              ++pos;         }*/
 if|if
 condition|(
 name|LOG

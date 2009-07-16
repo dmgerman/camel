@@ -266,6 +266,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Produce
+argument_list|(
+name|uri
+operator|=
+literal|"direct:start"
+argument_list|)
+DECL|field|template
+specifier|protected
+name|ProducerTemplate
+name|template
+decl_stmt|;
 DECL|field|record
 specifier|private
 name|String
@@ -310,18 +322,6 @@ name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
 annotation|@
-name|Produce
-argument_list|(
-name|uri
-operator|=
-literal|"direct:start"
-argument_list|)
-DECL|field|template
-specifier|protected
-name|ProducerTemplate
-name|template
-decl_stmt|;
-annotation|@
 name|Test
 DECL|method|testUnMarshallMessage ()
 specifier|public
@@ -350,7 +350,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|/*    	List<Exchange> exchanges = resultEndpoint.getExchanges();      	     	for(Exchange exchange : exchanges) {     		Object body = exchange.getOut().getBody();     		LOG.debug("Body received : " + body.toString());     	}*/
+comment|/*          * List<Exchange> exchanges = resultEndpoint.getExchanges();          * for(Exchange exchange : exchanges) { Object body =          * exchange.getOut().getBody(); LOG.debug("Body received : " +          * body.toString()); }          */
 block|}
 annotation|@
 name|Configuration
@@ -394,7 +394,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|//from("file://src/test/data?move=./target/done").unmarshal(camelDataFormat).to("mock:result");
+comment|// from("file://src/test/data?move=./target/done").unmarshal(camelDataFormat).to("mock:result");
 name|from
 argument_list|(
 literal|"direct:start"

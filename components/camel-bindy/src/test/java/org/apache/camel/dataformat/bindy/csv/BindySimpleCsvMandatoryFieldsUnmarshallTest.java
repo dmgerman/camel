@@ -21,18 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -268,6 +256,18 @@ name|Assert
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ContextConfiguration
@@ -305,42 +305,6 @@ name|BindySimpleCsvMandatoryFieldsUnmarshallTest
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|header
-name|String
-name|header
-init|=
-literal|"order nr,client ref,first name, last name,instrument code,instrument name,order type, instrument type, quantity,currency,date\r\n"
-decl_stmt|;
-DECL|field|record1
-name|String
-name|record1
-init|=
-literal|""
-decl_stmt|;
-DECL|field|record2
-name|String
-name|record2
-init|=
-literal|",,blabla,,,,,,,,"
-decl_stmt|;
-DECL|field|record3
-name|String
-name|record3
-init|=
-literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
-decl_stmt|;
-DECL|field|record4
-name|String
-name|record4
-init|=
-literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
-decl_stmt|;
-DECL|field|record5
-name|String
-name|record5
-init|=
-literal|",,,,,,,,,,"
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -390,6 +354,42 @@ specifier|protected
 name|ProducerTemplate
 name|template2
 decl_stmt|;
+DECL|field|header
+name|String
+name|header
+init|=
+literal|"order nr,client ref,first name, last name,instrument code,instrument name,order type, instrument type, quantity,currency,date\r\n"
+decl_stmt|;
+DECL|field|record1
+name|String
+name|record1
+init|=
+literal|""
+decl_stmt|;
+DECL|field|record2
+name|String
+name|record2
+init|=
+literal|",,blabla,,,,,,,,"
+decl_stmt|;
+DECL|field|record3
+name|String
+name|record3
+init|=
+literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
+decl_stmt|;
+DECL|field|record4
+name|String
+name|record4
+init|=
+literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
+decl_stmt|;
+DECL|field|record5
+name|String
+name|record5
+init|=
+literal|",,,,,,,,,,"
+decl_stmt|;
 annotation|@
 name|DirtiesContext
 annotation|@
@@ -430,7 +430,8 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-comment|// Assert.isInstanceOf(java.lang.IllegalArgumentException.class, e.getCause());
+comment|// Assert.isInstanceOf(java.lang.IllegalArgumentException.class,
+comment|// e.getCause());
 name|Assert
 operator|.
 name|isInstanceOf
@@ -625,7 +626,7 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-comment|//LOG.info(">> Error : " + e);
+comment|// LOG.info(">> Error : " + e);
 block|}
 block|}
 annotation|@
