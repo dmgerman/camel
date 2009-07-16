@@ -232,6 +232,26 @@ specifier|protected
 name|Endpoint
 name|endpoint
 decl_stmt|;
+DECL|method|SendDefinition ()
+specifier|public
+name|SendDefinition
+parameter_list|()
+block|{     }
+DECL|method|SendDefinition (String uri)
+specifier|public
+name|SendDefinition
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)

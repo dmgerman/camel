@@ -181,13 +181,13 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|tryProcessor
-specifier|private
+specifier|protected
 specifier|final
 name|Processor
 name|tryProcessor
 decl_stmt|;
 DECL|field|catchClauses
-specifier|private
+specifier|protected
 specifier|final
 name|List
 argument_list|<
@@ -196,7 +196,7 @@ argument_list|>
 name|catchClauses
 decl_stmt|;
 DECL|field|finallyProcessor
-specifier|private
+specifier|protected
 specifier|final
 name|Processor
 name|finallyProcessor
@@ -267,7 +267,15 @@ name|tryProcessor
 operator|+
 literal|"} "
 operator|+
+operator|(
 name|catchClauses
+operator|!=
+literal|null
+condition|?
+name|catchClauses
+else|:
+literal|""
+operator|)
 operator|+
 name|finallyText
 return|;
@@ -436,6 +444,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|catchClauses
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|CatchProcessor

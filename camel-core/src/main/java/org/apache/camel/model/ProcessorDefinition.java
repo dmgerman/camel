@@ -2391,6 +2391,29 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Wraps the sub route using AOP allowing you to do before and after work (AOP around).      *      * @return the builder      */
+DECL|method|aop ()
+specifier|public
+name|AOPDefinition
+name|aop
+parameter_list|()
+block|{
+name|AOPDefinition
+name|answer
+init|=
+operator|new
+name|AOPDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Ends the current block      *      * @return the builder      */
 annotation|@
 name|SuppressWarnings
