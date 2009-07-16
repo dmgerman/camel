@@ -3558,9 +3558,7 @@ argument_list|()
 operator|+
 literal|">>>> "
 operator|+
-operator|(
 name|counter
-operator|)
 operator|+
 literal|" : "
 operator|+
