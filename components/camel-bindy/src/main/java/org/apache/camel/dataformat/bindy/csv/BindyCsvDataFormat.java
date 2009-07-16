@@ -771,7 +771,7 @@ name|java
 operator|.
 name|lang
 operator|.
-name|Exception
+name|IllegalArgumentException
 argument_list|(
 literal|"No records have been defined in the CSV !"
 argument_list|)

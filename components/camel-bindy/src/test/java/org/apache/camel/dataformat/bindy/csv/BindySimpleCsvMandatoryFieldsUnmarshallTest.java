@@ -366,30 +366,42 @@ name|record1
 init|=
 literal|""
 decl_stmt|;
+comment|// empty records
 DECL|field|record2
 name|String
 name|record2
 init|=
 literal|",,blabla,,,,,,,,"
 decl_stmt|;
+comment|// optional fields
 DECL|field|record3
 name|String
 name|record3
 init|=
 literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
 decl_stmt|;
+comment|// mandatory fields present (A1, Charles, Moulliard)
 DECL|field|record4
 name|String
 name|record4
 init|=
 literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
 decl_stmt|;
+comment|// mandatory field missing
 DECL|field|record5
 name|String
 name|record5
 init|=
 literal|",,,,,,,,,,"
 decl_stmt|;
+comment|// record with no data
+DECL|field|record6
+name|String
+name|record6
+init|=
+literal|",,,,,,,,,,,,,,"
+decl_stmt|;
+comment|// too much data in the record (only 11 are accepted by the model
 annotation|@
 name|DirtiesContext
 annotation|@
@@ -430,8 +442,6 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-comment|// Assert.isInstanceOf(java.lang.IllegalArgumentException.class,
-comment|// e.getCause());
 name|Assert
 operator|.
 name|isInstanceOf
@@ -522,10 +532,10 @@ annotation|@
 name|DirtiesContext
 annotation|@
 name|Test
-DECL|method|testSeveralOptionalField ()
+DECL|method|testSeveralOptionalFields ()
 specifier|public
 name|void
-name|testSeveralOptionalField
+name|testSeveralOptionalFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -544,6 +554,68 @@ argument_list|(
 name|record3
 argument_list|)
 expr_stmt|;
+name|resultEndpoint1
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|DirtiesContext
+annotation|@
+name|Test
+DECL|method|testTooMuchFields ()
+specifier|public
+name|void
+name|testTooMuchFields
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|resultEndpoint1
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|template1
+operator|.
+name|sendBody
+argument_list|(
+name|record6
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+name|Assert
+operator|.
+name|isInstanceOf
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|resultEndpoint1
 operator|.
 name|assertIsSatisfied
@@ -681,8 +753,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-try|try
-block|{
 name|from
 argument_list|(
 literal|"direct:start1"
@@ -713,15 +783,6 @@ argument_list|(
 literal|"mock:result2"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|//
-block|}
 block|}
 block|}
 return|;
