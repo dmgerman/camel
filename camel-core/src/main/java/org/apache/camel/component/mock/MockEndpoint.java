@@ -574,14 +574,6 @@ specifier|private
 name|Processor
 name|reporter
 decl_stmt|;
-DECL|field|collectMaximumExchanges
-specifier|private
-name|int
-name|collectMaximumExchanges
-init|=
-operator|-
-literal|1
-decl_stmt|;
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -3224,32 +3216,6 @@ operator|=
 name|reporter
 expr_stmt|;
 block|}
-DECL|method|getCollectMaximumExchanges ()
-specifier|public
-name|int
-name|getCollectMaximumExchanges
-parameter_list|()
-block|{
-return|return
-name|collectMaximumExchanges
-return|;
-block|}
-DECL|method|setCollectMaximumExchanges (int collectMaximumExchanges)
-specifier|public
-name|void
-name|setCollectMaximumExchanges
-parameter_list|(
-name|int
-name|collectMaximumExchanges
-parameter_list|)
-block|{
-name|this
-operator|.
-name|collectMaximumExchanges
-operator|=
-name|collectMaximumExchanges
-expr_stmt|;
-block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|init ()
@@ -3335,11 +3301,6 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|()
-expr_stmt|;
-name|collectMaximumExchanges
-operator|=
-operator|-
-literal|1
 expr_stmt|;
 block|}
 DECL|method|onExchange (Exchange exchange)

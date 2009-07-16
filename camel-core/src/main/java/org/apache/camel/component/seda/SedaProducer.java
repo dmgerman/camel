@@ -44,6 +44,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -51,6 +63,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangeTimedOutException
 import|;
 end_import
 
@@ -118,7 +142,13 @@ specifier|final
 name|WaitForTaskToComplete
 name|waitForTaskToComplete
 decl_stmt|;
-DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete)
+DECL|field|timeout
+specifier|private
+specifier|final
+name|long
+name|timeout
+decl_stmt|;
+DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete, long timeout)
 specifier|public
 name|SedaProducer
 parameter_list|(
@@ -133,6 +163,9 @@ name|queue
 parameter_list|,
 name|WaitForTaskToComplete
 name|waitForTaskToComplete
+parameter_list|,
+name|long
+name|timeout
 parameter_list|)
 block|{
 name|super
@@ -153,6 +186,12 @@ operator|.
 name|waitForTaskToComplete
 operator|=
 name|waitForTaskToComplete
+expr_stmt|;
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
 annotation|@
@@ -248,49 +287,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-comment|// only check for if there is a consumer if its the seda endpoint where we exepect a consumer in the same
-comment|// camel context. If you use the vm component the consumer could be in another camel context.
-comment|// for seda we want to check that a consumer exists otherwise we end up waiting forever for the response.
-if|if
-condition|(
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"seda"
-argument_list|)
-operator|&&
-name|endpoint
-operator|.
-name|getConsumers
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Cannot send to endpoint: "
-operator|+
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|+
-literal|" as no consumers is registered."
-operator|+
-literal|" With no consumers we end up waiting forever for the reply, as there are no consumers to process our exchange: "
-operator|+
-name|exchange
-argument_list|)
-throw|;
-block|}
 comment|// latch that waits until we are complete
 specifier|final
 name|CountDownLatch
@@ -353,11 +349,41 @@ argument_list|(
 name|copy
 argument_list|)
 expr_stmt|;
+comment|// lets see if we can get the task done before the timeout
+name|boolean
+name|done
+init|=
 name|latch
 operator|.
 name|await
-argument_list|()
+argument_list|(
+name|timeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|done
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|ExchangeTimedOutException
+argument_list|(
+name|exchange
+argument_list|,
+name|timeout
+argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

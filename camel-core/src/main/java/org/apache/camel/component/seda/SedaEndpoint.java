@@ -239,6 +239,13 @@ name|WaitForTaskToComplete
 operator|.
 name|IfReplyExpected
 decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
+init|=
+literal|30000
+decl_stmt|;
 DECL|field|producers
 specifier|private
 name|Set
@@ -421,6 +428,9 @@ argument_list|()
 argument_list|,
 name|getWaitForTaskToComplete
 argument_list|()
+argument_list|,
+name|getTimeout
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -573,6 +583,32 @@ operator|.
 name|waitForTaskToComplete
 operator|=
 name|waitForTaskToComplete
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|setTimeout (long timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
