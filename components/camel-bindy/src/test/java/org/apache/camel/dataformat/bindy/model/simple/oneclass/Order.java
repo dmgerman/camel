@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.model.simple.oneclass
+DECL|package|org.apache.camel.dataformat.bindy.model.simple.oneclassmandatory
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|model
 operator|.
 name|simple
 operator|.
-name|oneclass
+name|oneclassmandatory
 package|;
 end_package
 
@@ -87,6 +87,10 @@ argument_list|(
 name|separator
 operator|=
 literal|","
+argument_list|,
+name|skipFirstLine
+operator|=
+literal|true
 argument_list|)
 DECL|class|Order
 specifier|public
@@ -111,6 +115,10 @@ argument_list|(
 name|pos
 operator|=
 literal|1
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 DECL|field|clientNr
 specifier|private
@@ -123,6 +131,10 @@ argument_list|(
 name|pos
 operator|=
 literal|2
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 DECL|field|firstName
 specifier|private
@@ -135,6 +147,10 @@ argument_list|(
 name|pos
 operator|=
 literal|3
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 DECL|field|lastName
 specifier|private
