@@ -22,6 +22,10 @@ name|support
 package|;
 end_package
 
+begin_comment
+comment|// START SNIPPET: activator
+end_comment
+
 begin_import
 import|import
 name|java
@@ -247,7 +251,7 @@ name|httpService
 operator|.
 name|registerServlet
 argument_list|(
-literal|"/camel"
+literal|"/camel/services"
 argument_list|,
 comment|// alias
 operator|(
@@ -302,6 +306,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: activator
+end_comment
 
 end_unit
 

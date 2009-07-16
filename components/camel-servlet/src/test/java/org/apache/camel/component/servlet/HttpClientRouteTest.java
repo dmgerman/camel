@@ -362,6 +362,7 @@ name|noErrorHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: route
 name|from
 argument_list|(
 literal|"servlet:///hello"
@@ -500,6 +501,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: route
 block|}
 block|}
 return|;

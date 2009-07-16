@@ -428,7 +428,7 @@ block|{
 name|String
 name|endpointURI
 init|=
-literal|"http://localhost:9080/camel/services"
+literal|"http://localhost:9080/camel/services/hello"
 decl_stmt|;
 name|String
 name|response
