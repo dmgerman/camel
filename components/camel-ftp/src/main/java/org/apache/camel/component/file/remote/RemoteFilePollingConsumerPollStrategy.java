@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -12,7 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
+operator|.
+name|file
+operator|.
+name|remote
 package|;
 end_package
 
@@ -48,93 +52,26 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumerPollStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|impl
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|DefaultPollingConsumerPollStrategy
 import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *  * @version $Revision$  */
+comment|/**  * Remote file consumer polling strategy that attempts to help recovering from lost connections.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DefaultPollingConsumerPollStrategy
+DECL|class|RemoteFilePollingConsumerPollStrategy
 specifier|public
 class|class
+name|RemoteFilePollingConsumerPollStrategy
+extends|extends
 name|DefaultPollingConsumerPollStrategy
-implements|implements
-name|PollingConsumerPollStrategy
 block|{
-DECL|field|log
-specifier|protected
-specifier|final
-specifier|transient
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
-DECL|method|begin (Consumer consumer, Endpoint endpoint)
-specifier|public
-name|void
-name|begin
-parameter_list|(
-name|Consumer
-name|consumer
-parameter_list|,
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|commit (Consumer consumer, Endpoint endpoint)
-specifier|public
-name|void
-name|commit
-parameter_list|(
-name|Consumer
-name|consumer
-parameter_list|,
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// noop
-block|}
+annotation|@
+name|Override
 DECL|method|rollback (Consumer consumer, Endpoint endpoint, int retryCounter, Exception e)
 specifier|public
 name|boolean
@@ -155,34 +92,45 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// disconnect from the server to force it to re login at next poll to recover
+name|RemoteFileConsumer
+name|rfc
+init|=
+operator|(
+name|RemoteFileConsumer
+operator|)
+name|consumer
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Consumer "
+literal|"Trying to recover by disconnecting from remote server forcing a re-connect at next poll: "
 operator|+
+name|rfc
+operator|.
+name|remoteServer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|rfc
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|rollback
+argument_list|(
 name|consumer
-operator|+
-literal|" could not poll endpoint: "
-operator|+
+argument_list|,
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|+
-literal|" caused by: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
+argument_list|,
+name|retryCounter
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-comment|// we do not want to retry
-return|return
-literal|false
 return|;
 block|}
 block|}

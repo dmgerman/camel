@@ -127,6 +127,15 @@ argument_list|,
 name|operations
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|setPollStrategy
+argument_list|(
+operator|new
+name|RemoteFilePollingConsumerPollStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|prePollCheck ()
 specifier|protected
@@ -185,6 +194,16 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|disconnect ()
+specifier|protected
+name|void
+name|disconnect
+parameter_list|()
+block|{
 comment|// disconnect when stopping
 try|try
 block|{
@@ -205,6 +224,14 @@ name|loggedIn
 operator|=
 literal|false
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -215,6 +242,7 @@ name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 operator|(
 operator|(
 name|RemoteFileOperations
