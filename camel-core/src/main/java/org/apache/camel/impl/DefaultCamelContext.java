@@ -833,8 +833,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|CamelContext
-implements|,
-name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -1191,6 +1189,10 @@ DECL|field|classResolver
 specifier|private
 name|ClassResolver
 name|classResolver
+init|=
+operator|new
+name|DefaultClassResolver
+argument_list|()
 decl_stmt|;
 DECL|field|packageScanClassResolver
 specifier|private
@@ -1220,6 +1222,9 @@ specifier|public
 name|DefaultCamelContext
 parameter_list|()
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|name
 operator|=
 name|NAME_PREFIX
@@ -1340,27 +1345,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|classResolver
-operator|==
-literal|null
-condition|)
-block|{
-name|classResolver
-operator|=
-operator|new
-name|DefaultClassResolver
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|packageScanClassResolver
-operator|==
-literal|null
-condition|)
-block|{
 comment|// use WebSphere specific resolver if running on WebSphere
 if|if
 condition|(
@@ -1402,7 +1386,6 @@ operator|new
 name|DefaultPackageScanClassResolver
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      */

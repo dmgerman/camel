@@ -324,7 +324,7 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-literal|"?"
+literal|'?'
 argument_list|)
 argument_list|)
 expr_stmt|;

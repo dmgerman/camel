@@ -127,6 +127,15 @@ specifier|final
 class|class
 name|URISupport
 block|{
+DECL|field|CHARSET
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CHARSET
+init|=
+literal|"UTF-8"
+decl_stmt|;
 DECL|method|URISupport ()
 specifier|private
 name|URISupport
@@ -519,7 +528,7 @@ argument_list|,
 name|p
 argument_list|)
 argument_list|,
-literal|"UTF-8"
+name|CHARSET
 argument_list|)
 decl_stmt|;
 name|String
@@ -538,7 +547,7 @@ operator|+
 literal|1
 argument_list|)
 argument_list|,
-literal|"UTF-8"
+name|CHARSET
 argument_list|)
 decl_stmt|;
 name|rc
@@ -894,7 +903,7 @@ name|ssp
 operator|.
 name|indexOf
 argument_list|(
-literal|"("
+literal|'('
 argument_list|)
 decl_stmt|;
 if|if
@@ -970,7 +979,7 @@ name|ssp
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|")"
+literal|')'
 argument_list|)
 expr_stmt|;
 name|componentString
@@ -1076,7 +1085,7 @@ name|params
 operator|.
 name|indexOf
 argument_list|(
-literal|"?"
+literal|'?'
 argument_list|)
 expr_stmt|;
 if|if
@@ -1504,7 +1513,7 @@ name|encode
 argument_list|(
 name|key
 argument_list|,
-literal|"UTF-8"
+name|CHARSET
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1533,7 +1542,7 @@ name|encode
 argument_list|(
 name|value
 argument_list|,
-literal|"UTF-8"
+name|CHARSET
 argument_list|)
 argument_list|)
 expr_stmt|;

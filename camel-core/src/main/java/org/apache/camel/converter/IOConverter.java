@@ -278,16 +278,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|CharBuffer
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -349,20 +339,6 @@ operator|.
 name|jaxp
 operator|.
 name|XmlConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CollectionStringBuffer
 import|;
 end_import
 
@@ -811,9 +787,7 @@ init|=
 name|createXmlConverter
 argument_list|()
 decl_stmt|;
-name|ByteArrayInputStream
-name|bais
-init|=
+return|return
 operator|new
 name|ByteArrayInputStream
 argument_list|(
@@ -827,14 +801,12 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|)
-decl_stmt|;
-return|return
-name|bais
 return|;
 block|}
 DECL|method|createXmlConverter ()
 specifier|private
 specifier|static
+specifier|synchronized
 name|XmlConverter
 name|createXmlConverter
 parameter_list|()

@@ -190,9 +190,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DelayInterceptor
-name|delayer
-init|=
+return|return
 operator|new
 name|DelayInterceptor
 argument_list|(
@@ -202,9 +200,6 @@ name|target
 argument_list|,
 name|this
 argument_list|)
-decl_stmt|;
-return|return
-name|delayer
 return|;
 block|}
 DECL|method|isEnabled ()

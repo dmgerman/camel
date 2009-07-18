@@ -273,18 +273,13 @@ name|unit
 parameter_list|)
 block|{
 comment|// if the answer is 0 then this task is ready to be taken
-name|long
-name|answer
-init|=
+return|return
 name|id
 operator|-
 name|index
 operator|.
 name|get
 argument_list|()
-decl_stmt|;
-return|return
-name|answer
 return|;
 block|}
 annotation|@
@@ -309,9 +304,7 @@ name|SubmitOrderFutureTask
 operator|)
 name|o
 decl_stmt|;
-name|int
-name|answer
-init|=
+return|return
 call|(
 name|int
 call|)
@@ -324,9 +317,6 @@ name|other
 operator|.
 name|id
 argument_list|)
-decl_stmt|;
-return|return
-name|answer
 return|;
 block|}
 annotation|@

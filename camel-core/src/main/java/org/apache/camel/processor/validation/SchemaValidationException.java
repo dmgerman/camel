@@ -267,10 +267,15 @@ operator|new
 name|StringBuffer
 argument_list|(
 literal|"Validation failed for: "
-operator|+
-name|schema
 argument_list|)
 decl_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+name|schema
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!

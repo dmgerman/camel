@@ -1759,7 +1759,7 @@ name|expression
 operator|.
 name|indexOf
 argument_list|(
-literal|"}"
+literal|'}'
 argument_list|,
 name|pivot
 argument_list|)

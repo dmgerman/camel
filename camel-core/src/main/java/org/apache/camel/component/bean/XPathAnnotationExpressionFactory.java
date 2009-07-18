@@ -118,20 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|XPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -295,6 +281,8 @@ operator|+
 name|annotation
 operator|+
 literal|" as it does not have an namespaces() method"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
