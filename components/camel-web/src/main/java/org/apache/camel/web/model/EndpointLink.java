@@ -303,11 +303,33 @@ name|String
 name|uri
 parameter_list|)
 block|{
-comment|// TODO how to encode as a href?
+comment|// must not include :// in endpoint link
+comment|// TODO: might need to use org.apache.camel.util.UnsafeUriCharactersEncoder to safely encode URI for the web
+name|String
+name|href
+init|=
+name|uri
+operator|.
+name|contains
+argument_list|(
+literal|"://"
+argument_list|)
+condition|?
+name|uri
+operator|.
+name|replace
+argument_list|(
+literal|"://"
+argument_list|,
+literal|":"
+argument_list|)
+else|:
+name|uri
+decl_stmt|;
 return|return
 literal|"/endpoints/"
 operator|+
-name|uri
+name|href
 return|;
 block|}
 block|}
