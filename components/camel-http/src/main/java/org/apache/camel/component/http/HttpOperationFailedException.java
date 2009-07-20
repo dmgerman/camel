@@ -90,6 +90,16 @@ name|HttpOperationFailedException
 extends|extends
 name|CamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|8721487434390572633L
+decl_stmt|;
 DECL|field|redirectLocation
 specifier|private
 specifier|final
