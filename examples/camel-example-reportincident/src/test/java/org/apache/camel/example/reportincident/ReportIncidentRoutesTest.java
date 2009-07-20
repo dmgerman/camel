@@ -72,11 +72,33 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jvnet
 operator|.
 name|mock_javamail
 operator|.
 name|Mailbox
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -89,8 +111,6 @@ DECL|class|ReportIncidentRoutesTest
 specifier|public
 class|class
 name|ReportIncidentRoutesTest
-extends|extends
-name|TestCase
 block|{
 comment|// should be the same address as we have in our route
 DECL|field|URL
@@ -203,6 +223,8 @@ name|create
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRendportIncident ()
 specifier|public
 name|void
@@ -215,6 +237,22 @@ comment|// start camel
 name|startCamel
 argument_list|()
 expr_stmt|;
+name|runTest
+argument_list|()
+expr_stmt|;
+comment|// stop camel
+name|stopCamel
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|runTest ()
+specifier|protected
+name|void
+name|runTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 comment|// assert mailbox is empty before starting
 name|Mailbox
 name|inbox
@@ -355,10 +393,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// stop camel
-name|stopCamel
-argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -168,7 +168,7 @@ name|cxfEndpointAddress
 operator|+
 literal|"?serviceClass=org.apache.camel.example.reportincident.ReportIncidentEndpoint"
 operator|+
-literal|"&wsdlURL=report_incident.wsdl"
+literal|"&wsdlURL=etc/report_incident.wsdl"
 decl_stmt|;
 comment|// first part from the webservice -> file backup
 name|from
@@ -206,7 +206,7 @@ comment|// and create the mail body using velocity template
 operator|.
 name|to
 argument_list|(
-literal|"velocity:MailBody.vm"
+literal|"velocity:etc/MailBody.vm"
 argument_list|)
 comment|// and store the file
 operator|.
