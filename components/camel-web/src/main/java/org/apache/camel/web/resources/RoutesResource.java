@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The active routes in Camel which are used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  *  * @version $Revision$  */
+comment|/**  * The active routes in Camel which are used to implement one or more<a  * href="http://camel.apache.org/enterprise-integration-patterns.html"  *>Enterprise Integration Paterns</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -249,7 +249,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns the Graphviz DOT<a href="http://camel.apache.org/visualisation.html">Visualisation</a>      * of the current Camel routes      */
+comment|/**      * Returns the Graphviz DOT<a      * href="http://camel.apache.org/visualisation.html">Visualisation</a> of      * the current Camel routes      */
 annotation|@
 name|GET
 annotation|@
@@ -351,8 +351,63 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Looks up an individual route with specified language      */
+annotation|@
+name|Path
+argument_list|(
+literal|"{id}/{language}"
+argument_list|)
+DECL|method|getRoute (@athParamR) String id, @PathParam(R) String language)
+specifier|public
+name|RouteResource
+name|getRoute
+parameter_list|(
+annotation|@
+name|PathParam
+argument_list|(
+literal|"id"
+argument_list|)
+name|String
+name|id
+parameter_list|,
+annotation|@
+name|PathParam
+argument_list|(
+literal|"language"
+argument_list|)
+name|String
+name|language
+parameter_list|)
+block|{
+name|RouteResource
+name|routeResource
+init|=
+name|getRoute
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|routeResource
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeResource
+operator|.
+name|setLanguage
+argument_list|(
+name|language
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|routeResource
+return|;
+block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getRoutes ()
 specifier|public
 name|List
