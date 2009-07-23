@@ -365,7 +365,7 @@ name|correlationKey
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: correlationKey evalutated to null should be skipped by default
+comment|// TODO: correlationKey evaluated to null should be skipped by default
 name|Exchange
 name|oldExchange
 init|=

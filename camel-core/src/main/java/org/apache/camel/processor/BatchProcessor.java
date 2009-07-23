@@ -537,7 +537,7 @@ name|batchSize
 parameter_list|)
 block|{
 comment|// setting batch size to 0 or negative is like disabling it, so we set it as the max value
-comment|// as the code logic is dependt on a batch size having 1..n value
+comment|// as the code logic is dependent on a batch size having 1..n value
 if|if
 condition|(
 name|batchSize
