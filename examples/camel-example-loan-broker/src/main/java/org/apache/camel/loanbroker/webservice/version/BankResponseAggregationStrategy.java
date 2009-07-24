@@ -140,7 +140,7 @@ name|oldQuote
 operator|=
 name|oldExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -157,7 +157,7 @@ name|newQuote
 init|=
 name|newExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
