@@ -405,21 +405,6 @@ return|return
 name|map
 return|;
 block|}
-comment|/**      * A strategy method populate the initial set of headers on an inbound      * message from an underlying binding      *      * @param map is the empty header map to populate      */
-DECL|method|populateInitialHeaders (Map<String, Object> map)
-specifier|protected
-name|void
-name|populateInitialHeaders
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|map
-parameter_list|)
-block|{     }
 comment|/**      * A factory method to lazily create the attachments to make it easy to      * create efficient Message implementations which only construct and      * populate the Map on demand      *      * @return return a newly constructed Map      */
 DECL|method|createAttachments ()
 specifier|protected
@@ -458,6 +443,23 @@ return|return
 name|map
 return|;
 block|}
+comment|/**      * A strategy method populate the initial set of headers on an inbound      * message from an underlying binding      *      * @param map is the empty header map to populate      */
+DECL|method|populateInitialHeaders (Map<String, Object> map)
+specifier|protected
+name|void
+name|populateInitialHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
+block|{
+comment|// do nothing by default
+block|}
 comment|/**      * A strategy method populate the initial set of attachments on an inbound      * message from an underlying binding      *      * @param map is the empty attachment map to populate      */
 DECL|method|populateInitialAttachments (Map<String, DataHandler> map)
 specifier|protected
@@ -472,7 +474,9 @@ name|DataHandler
 argument_list|>
 name|map
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing by default
+block|}
 DECL|method|addAttachment (String id, DataHandler content)
 specifier|public
 name|void

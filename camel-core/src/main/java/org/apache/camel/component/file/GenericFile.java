@@ -129,8 +129,6 @@ parameter_list|<
 name|T
 parameter_list|>
 implements|implements
-name|Cloneable
-implements|,
 name|Serializable
 block|{
 DECL|field|LOG
@@ -214,25 +212,7 @@ operator|.
 name|separatorChar
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|clone ()
-specifier|public
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|clone
-parameter_list|()
-block|{
-return|return
-name|copyFrom
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a clone based on the source      *      * @param source the source      * @return a clone of the source      */
+comment|/**      * Creates a copy based on the source      *      * @param source the source      * @return a copy of the source      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

@@ -416,10 +416,10 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-DECL|method|getAllowNullValues ()
+DECL|method|isAllowNullValues ()
 specifier|public
 name|boolean
-name|getAllowNullValues
+name|isAllowNullValues
 parameter_list|()
 block|{
 return|return

@@ -958,14 +958,11 @@ expr_stmt|;
 block|}
 DECL|method|getCollisionAvoidancePercent ()
 specifier|public
-name|short
+name|long
 name|getCollisionAvoidancePercent
 parameter_list|()
 block|{
 return|return
-operator|(
-name|short
-operator|)
 name|Math
 operator|.
 name|round

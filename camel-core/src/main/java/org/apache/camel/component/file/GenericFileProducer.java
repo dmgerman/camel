@@ -529,7 +529,9 @@ name|preWriteCheck
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// nothing needed to check
+block|}
 DECL|method|writeFile (Exchange exchange, String fileName)
 specifier|protected
 name|void

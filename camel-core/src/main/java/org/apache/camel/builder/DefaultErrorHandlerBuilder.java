@@ -354,12 +354,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
+DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|DefaultErrorHandlerBuilder
 name|collisionAvoidancePercent
 parameter_list|(
-name|short
+name|double
 name|collisionAvoidancePercent
 parameter_list|)
 block|{

@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -100,8 +90,6 @@ name|GenericFileBinding
 argument_list|<
 name|File
 argument_list|>
-implements|,
-name|Serializable
 block|{
 DECL|field|body
 specifier|private

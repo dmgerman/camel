@@ -201,7 +201,7 @@ argument_list|()
 operator|+
 literal|".camelExclusiveReadLock"
 decl_stmt|;
-comment|// clone and change the name
+comment|// make a copy as result and change its file name
 name|GenericFile
 argument_list|<
 name|T
@@ -210,8 +210,10 @@ name|newFile
 init|=
 name|file
 operator|.
-name|clone
-argument_list|()
+name|copyFrom
+argument_list|(
+name|file
+argument_list|)
 decl_stmt|;
 name|newFile
 operator|.

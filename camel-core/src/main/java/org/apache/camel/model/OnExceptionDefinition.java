@@ -1131,12 +1131,12 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
-DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
+DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|OnExceptionDefinition
 name|collisionAvoidancePercent
 parameter_list|(
-name|short
+name|double
 name|collisionAvoidancePercent
 parameter_list|)
 block|{

@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -52,6 +62,8 @@ name|GenericFileBinding
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|Serializable
 block|{
 comment|/**      * Gets the body of the file      *      * @param file the file      * @return the body      */
 DECL|method|getBody (GenericFile<T> file)

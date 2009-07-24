@@ -312,7 +312,11 @@ DECL|method|DefaultEndpoint ()
 specifier|protected
 name|DefaultEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|hashCode ()
 specifier|public
 name|int
@@ -952,7 +956,9 @@ parameter_list|(
 name|Map
 name|options
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing by default
+block|}
 comment|/**      * A factory method to lazily create the endpointUri if none is specified       */
 DECL|method|createEndpointUri ()
 specifier|protected

@@ -362,7 +362,7 @@ name|dataFormat
 argument_list|,
 literal|"secureTagContents"
 argument_list|,
-name|getSecureTagContents
+name|isSecureTagContents
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -513,16 +513,6 @@ DECL|method|isSecureTagContents ()
 specifier|public
 name|boolean
 name|isSecureTagContents
-parameter_list|()
-block|{
-return|return
-name|secureTagContents
-return|;
-block|}
-DECL|method|getSecureTagContents ()
-specifier|public
-name|boolean
-name|getSecureTagContents
 parameter_list|()
 block|{
 return|return

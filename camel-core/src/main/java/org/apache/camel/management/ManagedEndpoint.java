@@ -119,8 +119,6 @@ specifier|public
 name|String
 name|getUri
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|endpoint
@@ -136,13 +134,11 @@ name|description
 operator|=
 literal|"Singleton"
 argument_list|)
-DECL|method|getSingleton ()
+DECL|method|isSingleton ()
 specifier|public
 name|boolean
-name|getSingleton
+name|isSingleton
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|endpoint
