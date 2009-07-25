@@ -170,6 +170,27 @@ return|;
 block|}
 comment|// Predicate builders
 comment|// -------------------------------------------------------------------------
+DECL|method|matches (Expression expression)
+specifier|public
+name|Predicate
+name|matches
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+return|return
+name|onNewPredicate
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|toPredicate
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|method|isNotEqualTo (Object value)
 specifier|public
 name|Predicate
