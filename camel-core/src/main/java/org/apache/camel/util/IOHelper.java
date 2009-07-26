@@ -101,7 +101,7 @@ name|Charset
 operator|.
 name|forName
 argument_list|(
-literal|"utf-8"
+literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 DECL|method|IOHelper ()
@@ -358,17 +358,13 @@ decl_stmt|;
 name|int
 name|n
 init|=
-literal|0
-decl_stmt|;
-name|n
-operator|=
 name|input
 operator|.
 name|read
 argument_list|(
 name|buffer
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|int
 name|total
 init|=
@@ -470,6 +466,11 @@ name|output
 argument_list|,
 name|bufferSize
 argument_list|)
+expr_stmt|;
+name|input
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
