@@ -198,6 +198,48 @@ name|camel
 operator|.
 name|model
 operator|.
+name|InterceptDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OnCompletionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OnExceptionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -1199,10 +1241,17 @@ operator|.
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-comment|// only needed to register on the first output as all rotues will pass through this one
+comment|// register route on the first suitable output
 name|ProcessorDefinition
 name|out
 init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|ProcessorDefinition
+name|processor
+range|:
 name|routeContext
 operator|.
 name|getRoute
@@ -1210,13 +1259,34 @@ argument_list|()
 operator|.
 name|getOutputs
 argument_list|()
-operator|.
-name|get
+control|)
+block|{
+comment|// skip processors that should not be registered
+if|if
+condition|(
+operator|!
+name|registerProcessor
 argument_list|(
-literal|0
+name|processor
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
+continue|continue;
+block|}
+name|out
+operator|=
+name|processor
+expr_stmt|;
+break|break;
+block|}
 comment|// add an intercept strategy that counts when the route sends to any of its outputs
+if|if
+condition|(
+name|out
+operator|!=
+literal|null
+condition|)
+block|{
 name|out
 operator|.
 name|addInterceptStrategy
@@ -1309,6 +1379,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|/**      * Should the given processor be registered.      */
 DECL|method|registerProcessor (ProcessorDefinition processor)
 specifier|protected
@@ -1357,6 +1428,42 @@ name|hasCustomIdAssigned
 argument_list|()
 return|;
 block|}
+block|}
+comment|// skip on exception
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|OnExceptionDefinition
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// skip on completion
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|OnCompletionDefinition
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// skip intercept
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|InterceptDefinition
+condition|)
+block|{
+return|return
+literal|false
+return|;
 block|}
 comment|// fallback to always register it
 return|return
