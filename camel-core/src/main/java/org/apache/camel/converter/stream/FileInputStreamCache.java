@@ -141,11 +141,6 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-DECL|method|FileInputStreamCache ()
-specifier|public
-name|FileInputStreamCache
-parameter_list|()
-block|{     }
 DECL|method|FileInputStreamCache (File file, CachedOutputStream cos)
 specifier|public
 name|FileInputStreamCache

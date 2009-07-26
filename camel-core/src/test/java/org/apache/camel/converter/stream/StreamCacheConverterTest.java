@@ -427,6 +427,16 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|done
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"except the exception here"
