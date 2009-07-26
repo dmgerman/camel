@@ -600,6 +600,10 @@ name|len
 expr_stmt|;
 if|if
 condition|(
+name|threshold
+operator|>
+literal|0
+operator|&&
 name|inMemory
 operator|&&
 name|totalLength
@@ -626,9 +630,6 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|write (byte[] b)
 specifier|public
@@ -652,6 +653,10 @@ name|length
 expr_stmt|;
 if|if
 condition|(
+name|threshold
+operator|>
+literal|0
+operator|&&
 name|inMemory
 operator|&&
 name|totalLength
@@ -673,9 +678,6 @@ name|write
 argument_list|(
 name|b
 argument_list|)
-expr_stmt|;
-name|flush
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|write (int b)
@@ -696,6 +698,10 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
+name|threshold
+operator|>
+literal|0
+operator|&&
 name|inMemory
 operator|&&
 name|totalLength
@@ -718,9 +724,6 @@ argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getInputStream ()
 specifier|public
@@ -730,6 +733,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|flush
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|inMemory
@@ -822,6 +828,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|flush
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|inMemory
@@ -914,6 +923,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|flush
+argument_list|()
+expr_stmt|;
 name|ByteArrayOutputStream
 name|bout
 init|=

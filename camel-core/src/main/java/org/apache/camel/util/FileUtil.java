@@ -1108,7 +1108,7 @@ literal|" to an existing directory"
 argument_list|)
 throw|;
 block|}
-comment|// why do we create another tmp folder
+comment|// create a sub folder with a random number
 name|Random
 name|ran
 init|=
