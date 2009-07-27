@@ -720,6 +720,12 @@ name|getExchangePattern
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|JmsBinding
+name|binding
+init|=
+name|getBinding
+argument_list|()
+decl_stmt|;
 name|exchange
 operator|.
 name|setProperty
@@ -728,8 +734,7 @@ name|Exchange
 operator|.
 name|BINDING
 argument_list|,
-name|getBinding
-argument_list|()
+name|binding
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -740,6 +745,8 @@ operator|new
 name|JmsMessage
 argument_list|(
 name|message
+argument_list|,
+name|binding
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -552,9 +552,7 @@ name|this
 argument_list|(
 name|endpointUri
 argument_list|,
-operator|new
-name|JmsBinding
-argument_list|()
+literal|null
 argument_list|,
 operator|new
 name|JmsConfiguration
@@ -563,6 +561,16 @@ argument_list|,
 name|destinationName
 argument_list|,
 name|pubSubDomain
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|binding
+operator|=
+operator|new
+name|JmsBinding
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,6 +1053,9 @@ operator|new
 name|JmsMessage
 argument_list|(
 name|message
+argument_list|,
+name|getBinding
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

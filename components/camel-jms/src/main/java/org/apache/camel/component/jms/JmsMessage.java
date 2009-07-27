@@ -96,7 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|RuntimeExchangeException
 import|;
 end_import
 
@@ -195,25 +195,6 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|JmsMessage ()
-specifier|public
-name|JmsMessage
-parameter_list|()
-block|{     }
-DECL|method|JmsMessage (Message jmsMessage)
-specifier|public
-name|JmsMessage
-parameter_list|(
-name|Message
-name|jmsMessage
-parameter_list|)
-block|{
-name|setJmsMessage
-argument_list|(
-name|jmsMessage
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|JmsMessage (Message jmsMessage, JmsBinding binding)
 specifier|public
 name|JmsMessage
@@ -225,7 +206,7 @@ name|JmsBinding
 name|binding
 parameter_list|)
 block|{
-name|this
+name|setJmsMessage
 argument_list|(
 name|jmsMessage
 argument_list|)
@@ -397,9 +378,8 @@ operator|==
 literal|null
 condition|)
 block|{
-name|JmsBinding
-name|b
-init|=
+name|binding
+operator|=
 name|ExchangeHelper
 operator|.
 name|getBinding
@@ -411,18 +391,7 @@ name|JmsBinding
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-return|return
-name|b
-operator|!=
-literal|null
-condition|?
-name|b
-else|:
-operator|new
-name|JmsBinding
-argument_list|()
-return|;
+expr_stmt|;
 block|}
 return|return
 name|binding
@@ -453,6 +422,13 @@ name|Message
 name|jmsMessage
 parameter_list|)
 block|{
+if|if
+condition|(
+name|jmsMessage
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|setMessageId
@@ -479,6 +455,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|this
 operator|.
@@ -538,9 +515,14 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
+literal|"Unable to retrieve header from JMS Message: "
+operator|+
 name|name
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -638,9 +620,14 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
+literal|"Unable to remove header from JMS Message: "
+operator|+
 name|name
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -662,7 +649,11 @@ block|{
 return|return
 operator|new
 name|JmsMessage
-argument_list|()
+argument_list|(
+literal|null
+argument_list|,
+name|binding
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns true if a new JMS message instance should be created to send to the next component      */
@@ -827,9 +818,12 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
-literal|"Failed to get JMSMessageID property"
+literal|"Unable to retrieve JMSMessageID from JMS Message"
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -987,9 +981,12 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
-literal|"Failed to get JMSMessageID property"
+literal|"Unable to retrieve JMSMessageID from JMS Message"
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
