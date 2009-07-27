@@ -210,7 +210,7 @@ specifier|final
 name|int
 name|DEFAULT_THREADPOOL_SIZE
 init|=
-literal|5
+literal|10
 decl_stmt|;
 DECL|field|endpointUri
 specifier|private

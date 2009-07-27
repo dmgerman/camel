@@ -309,7 +309,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|poolSize
 argument_list|,
-literal|"AsyncProcessor"
+literal|"Threads"
 argument_list|,
 literal|true
 argument_list|)

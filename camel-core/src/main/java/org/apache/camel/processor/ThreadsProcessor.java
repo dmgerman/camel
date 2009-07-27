@@ -139,7 +139,7 @@ specifier|final
 name|int
 name|DEFAULT_THREADPOOL_SIZE
 init|=
-literal|5
+literal|10
 decl_stmt|;
 DECL|field|executorService
 specifier|protected
@@ -453,7 +453,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|DEFAULT_THREADPOOL_SIZE
 argument_list|,
-literal|"AsyncProcessor"
+literal|"Threads"
 argument_list|,
 literal|true
 argument_list|)

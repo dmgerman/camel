@@ -334,6 +334,15 @@ name|Navigate
 implements|,
 name|Traceable
 block|{
+DECL|field|DEFAULT_THREADPOOL_SIZE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_THREADPOOL_SIZE
+init|=
+literal|10
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -578,7 +587,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newScheduledThreadPool
 argument_list|(
-literal|5
+name|DEFAULT_THREADPOOL_SIZE
 argument_list|,
 literal|"Multicast"
 argument_list|,
