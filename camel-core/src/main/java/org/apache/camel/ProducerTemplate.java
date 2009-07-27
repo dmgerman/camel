@@ -1044,6 +1044,196 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpoint    the endpoint to send the exchange to      * @param exchange    the exchange to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSend (Endpoint endpoint, Exchange exchange)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncSend
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpoint    the endpoint to send the exchange to      * @param processor   the transformer used to populate the new exchange      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSend (Endpoint endpoint, Processor processor)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncSend
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOnly} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSendBody (Endpoint endpoint, Object body)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncSendBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBody (Endpoint endpoint, Object body)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the endpoint to send the exchange to      * @param body        the body to send      * @param header      the header name      * @param headerValue the header value      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBodyAndHeader
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @param headers     headers      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBody (Endpoint endpoint, Object body, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBodyAndHeader
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the endpoint to send the exchange to      * @param body        the body to send      * @param headers     headers      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the response body from the future handle, will wait until the response is ready.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param future      the handle to get the response      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|extractFutureBody (Future future, Class<T> type)
 parameter_list|<

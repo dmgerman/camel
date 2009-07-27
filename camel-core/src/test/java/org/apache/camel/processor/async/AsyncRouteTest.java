@@ -519,7 +519,7 @@ argument_list|)
 argument_list|)
 comment|// now turn the route into async from this point forward
 comment|// the caller will have a Future<Exchange> returned as response in OUT
-comment|// to be used to grap the async response when he fell like it
+comment|// to be used to grape the async response when he fell like it
 operator|.
 name|threads
 argument_list|()
