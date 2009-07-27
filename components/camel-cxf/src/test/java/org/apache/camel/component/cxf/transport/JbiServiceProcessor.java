@@ -70,6 +70,34 @@ name|IOConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_class
 DECL|class|JbiServiceProcessor
 specifier|public
@@ -78,6 +106,23 @@ name|JbiServiceProcessor
 implements|implements
 name|Processor
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|JbiServiceProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|ECHO_RESPONSE
 specifier|private
 specifier|static
@@ -93,7 +138,6 @@ literal|"<ns1:return xmlns:ns1=\"http://cxf.component.camel.apache.org\">echo He
 operator|+
 literal|"</jbi:part></jbi:message>"
 decl_stmt|;
-comment|/*private static final String ECHO_BOOLEAN_RESPONSE = "<ns1:echoBooleanResponse xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"         + "<return xmlns=\"http://cxf.component.camel.apache.org/\">true</return>"         + "</ns1:echoBooleanResponse>";*/
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -113,13 +157,11 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"print out the request "
+literal|"Get the request "
 operator|+
 name|in
 operator|.
@@ -129,20 +171,6 @@ name|String
 operator|.
 name|class
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The message exchange pattern is "
-operator|+
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|exchange
