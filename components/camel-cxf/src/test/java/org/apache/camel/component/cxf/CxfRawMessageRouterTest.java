@@ -279,7 +279,7 @@ argument_list|(
 literal|"org.apache.cxf.message.Message.PROTOCOL_HEADERS"
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Should get the content type"
 argument_list|,
@@ -292,8 +292,11 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
-argument_list|,
-literal|"[text/xml; charset=utf-8]"
+operator|.
+name|startsWith
+argument_list|(
+literal|"[text/xml; charset="
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
