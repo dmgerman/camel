@@ -3618,6 +3618,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|processor
 operator|.
 name|process
@@ -3625,6 +3627,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// set exceptions on exchange so we can throw exceptions to simulate errors
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|waitForCompleteLatch ()
