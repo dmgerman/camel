@@ -760,6 +760,13 @@ specifier|private
 name|MessageConverter
 name|messageConverter
 decl_stmt|;
+DECL|field|mapJmsMessage
+specifier|private
+name|boolean
+name|mapJmsMessage
+init|=
+literal|true
+decl_stmt|;
 DECL|field|messageIdEnabled
 specifier|private
 name|boolean
@@ -3578,6 +3585,32 @@ operator|.
 name|messageConverter
 operator|=
 name|messageConverter
+expr_stmt|;
+block|}
+DECL|method|isMapJmsMessage ()
+specifier|public
+name|boolean
+name|isMapJmsMessage
+parameter_list|()
+block|{
+return|return
+name|mapJmsMessage
+return|;
+block|}
+DECL|method|setMapJmsMessage (boolean mapJmsMessage)
+specifier|public
+name|void
+name|setMapJmsMessage
+parameter_list|(
+name|boolean
+name|mapJmsMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapJmsMessage
+operator|=
+name|mapJmsMessage
 expr_stmt|;
 block|}
 DECL|method|isMessageIdEnabled ()
