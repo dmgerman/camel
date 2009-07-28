@@ -159,7 +159,7 @@ specifier|final
 name|String
 name|ACTIVEMQ_BROKER_URI
 init|=
-literal|"failover:tcp://localhost:61616"
+literal|"failover:vm://localhost"
 decl_stmt|;
 DECL|field|REQUEST_QUEUE
 specifier|public
