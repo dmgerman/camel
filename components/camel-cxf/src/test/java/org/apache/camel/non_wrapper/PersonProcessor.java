@@ -315,7 +315,7 @@ name|personFault
 argument_list|)
 decl_stmt|;
 comment|// Since camel has its own exception handler framework, we can't throw the exception to trigger it
-comment|// We just set the fault message in the exchange for camel-cxf component handling
+comment|// We just set the fault message in the exchange for camel-cxf component handling and return
 name|exchange
 operator|.
 name|getFault
@@ -326,6 +326,7 @@ argument_list|(
 name|fault
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|response
 operator|.

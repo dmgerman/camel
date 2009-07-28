@@ -512,12 +512,16 @@ name|out
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the fault message      *      * @return the fault      */
+annotation|@
+name|Deprecated
 DECL|method|getFault ()
 name|Message
 name|getFault
 parameter_list|()
 function_decl|;
 comment|/**      * Returns whether a FAULT message has been set or not.      *      * @return<tt>true</tt> if a FAULT message exists,<tt>false</tt> otherwise.      */
+annotation|@
+name|Deprecated
 DECL|method|hasFault ()
 name|boolean
 name|hasFault

@@ -501,23 +501,6 @@ literal|"copy-counter"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Check the out Message.. It should have only been processed once.
-comment|// since the fault should stop it from going to the next process.
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"copy-counter"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testOnlyProperties ()
 specifier|public

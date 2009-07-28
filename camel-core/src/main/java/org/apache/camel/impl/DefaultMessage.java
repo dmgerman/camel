@@ -94,6 +94,13 @@ name|DefaultMessage
 extends|extends
 name|MessageSupport
 block|{
+DECL|field|fault
+specifier|private
+name|boolean
+name|fault
+init|=
+literal|false
+decl_stmt|;
 DECL|field|headers
 specifier|private
 name|Map
@@ -130,6 +137,33 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
+DECL|method|isFault ()
+specifier|public
+name|boolean
+name|isFault
+parameter_list|()
+block|{
+return|return
+name|fault
+return|;
+block|}
+comment|/**      * Sets the fault flag on this message      */
+DECL|method|setFault (boolean fault)
+specifier|public
+name|void
+name|setFault
+parameter_list|(
+name|boolean
+name|fault
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fault
+operator|=
+name|fault
+expr_stmt|;
 block|}
 DECL|method|getHeader (String name)
 specifier|public

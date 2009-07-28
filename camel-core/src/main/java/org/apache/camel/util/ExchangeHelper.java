@@ -1006,6 +1006,15 @@ name|source
 operator|.
 name|hasOut
 argument_list|()
+operator|&&
+operator|!
+name|source
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
+argument_list|()
 condition|)
 block|{
 comment|// exchange pattern sensitive
