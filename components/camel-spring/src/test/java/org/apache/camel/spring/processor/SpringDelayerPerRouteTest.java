@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|spring
+operator|.
+name|processor
 package|;
 end_package
 
@@ -24,40 +26,73 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|DelayerPerRouteTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * This converter is capable of converting from an exchange to another type  *  * @version $Revision$  * @deprecated  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|ExchangeConverter
+begin_class
+DECL|class|SpringDelayerPerRouteTest
 specifier|public
-interface|interface
-name|ExchangeConverter
+class|class
+name|SpringDelayerPerRouteTest
+extends|extends
+name|DelayerPerRouteTest
 block|{
-comment|/**      * Converts the given exchange to the new type      *      * @param type  the new class type      * @param exchange the exchange to converter      * @param<T> the new type      * @return  the converted exchange      */
-DECL|method|convertTo (Class<T> type, Exchange exchange)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|convertTo
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/delayerperroute.xml"
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

@@ -291,6 +291,8 @@ interface|interface
 name|CamelContext
 extends|extends
 name|Service
+extends|,
+name|RuntimeConfiguration
 block|{
 comment|/**      * Gets the name of the this context.      *      * @return the name      */
 DECL|method|getName ()
@@ -566,7 +568,7 @@ name|Exception
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-comment|/**      * Returns the converter of exchanges from one type to another      *      * @return the converter      */
+comment|/**      * Returns the converter of exchanges from one type to another      *      * @return the converter      * @deprecated      */
 DECL|method|getExchangeConverter ()
 name|ExchangeConverter
 name|getExchangeConverter
@@ -803,30 +805,6 @@ argument_list|,
 name|Producer
 argument_list|>
 name|getProducerServicePool
-parameter_list|()
-function_decl|;
-comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *      * @param cache whether stream caching is enabled or not      */
-DECL|method|setStreamCaching (Boolean cache)
-name|void
-name|setStreamCaching
-parameter_list|(
-name|Boolean
-name|cache
-parameter_list|)
-function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *<p/>      * Will use the default trace formatter.      *<p/>      * Use {@link this#addInterceptStrategy(org.apache.camel.spi.InterceptStrategy)} if you      * want to add a custom {@link org.apache.camel.processor.interceptor.Tracer} where you      * can custome the tracing options and formatting as you like.      *      * @param tracing whether tracing is enabled or not.      */
-DECL|method|setTracing (Boolean tracing)
-name|void
-name|setTracing
-parameter_list|(
-name|Boolean
-name|tracing
-parameter_list|)
-function_decl|;
-comment|/**      * Returns whether tracing enabled for this route.      *      * @return true if tracing is enabled      */
-DECL|method|isTracing ()
-name|boolean
-name|isTracing
 parameter_list|()
 function_decl|;
 block|}

@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Intercept
+name|Processor
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|RuntimeConfiguration
 import|;
 end_import
 
@@ -149,6 +149,8 @@ DECL|interface|RouteContext
 specifier|public
 interface|interface
 name|RouteContext
+extends|extends
+name|RuntimeConfiguration
 block|{
 comment|/**      * Gets the endpoint      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
@@ -312,21 +314,6 @@ parameter_list|(
 name|String
 name|ref
 parameter_list|)
-function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *      * @param tracing whether tracing is enabled or not.      */
-DECL|method|setTracing (Boolean tracing)
-name|void
-name|setTracing
-parameter_list|(
-name|Boolean
-name|tracing
-parameter_list|)
-function_decl|;
-comment|/**      * Returns whether tracing enabled for this route.      *      * @return true if tracing is enabled      */
-DECL|method|isTracing ()
-name|boolean
-name|isTracing
-parameter_list|()
 function_decl|;
 block|}
 end_interface

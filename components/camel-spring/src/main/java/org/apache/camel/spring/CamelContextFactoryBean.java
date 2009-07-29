@@ -911,10 +911,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|delay
+DECL|field|delayer
 specifier|private
 name|Long
-name|delay
+name|delayer
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -3470,30 +3470,30 @@ operator|=
 name|streamCache
 expr_stmt|;
 block|}
-DECL|method|getDelay ()
+DECL|method|getDelayer ()
 specifier|public
 name|Long
-name|getDelay
+name|getDelayer
 parameter_list|()
 block|{
 return|return
-name|delay
+name|delayer
 return|;
 block|}
-DECL|method|setDelay (Long delay)
+DECL|method|setDelayer (Long delayer)
 specifier|public
 name|void
-name|setDelay
+name|setDelayer
 parameter_list|(
 name|Long
-name|delay
+name|delayer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|delay
+name|delayer
 operator|=
-name|delay
+name|delayer
 expr_stmt|;
 block|}
 DECL|method|getHandleFault ()
@@ -3766,16 +3766,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|delay
+name|delayer
 operator|!=
 literal|null
 condition|)
 block|{
 name|ctx
 operator|.
-name|setDelay
+name|setDelayer
 argument_list|(
-name|delay
+name|delayer
 argument_list|)
 expr_stmt|;
 block|}

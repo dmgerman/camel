@@ -252,19 +252,27 @@ name|tracer
 return|;
 block|}
 comment|/**      * A helper method to return the Tracer instance if one is enabled      *      * @return the tracer or null if none can be found      */
-DECL|method|getTracer (List<InterceptStrategy> list)
+DECL|method|getTracer (CamelContext context)
 specifier|public
 specifier|static
 name|Tracer
 name|getTracer
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
 name|List
 argument_list|<
 name|InterceptStrategy
 argument_list|>
 name|list
-parameter_list|)
-block|{
+init|=
+name|context
+operator|.
+name|getInterceptStrategies
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|InterceptStrategy
