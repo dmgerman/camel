@@ -136,20 +136,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExchangeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -568,12 +554,6 @@ name|Exception
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-comment|/**      * Returns the converter of exchanges from one type to another      *      * @return the converter      * @deprecated      */
-DECL|method|getExchangeConverter ()
-name|ExchangeConverter
-name|getExchangeConverter
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the type converter used to coerce types from one type to another      *      * @return the converter      */
 DECL|method|getTypeConverter ()
 name|TypeConverter

@@ -502,20 +502,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExchangeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -937,11 +923,6 @@ DECL|field|typeConverterRegistry
 specifier|private
 name|TypeConverterRegistry
 name|typeConverterRegistry
-decl_stmt|;
-DECL|field|exchangeConverter
-specifier|private
-name|ExchangeConverter
-name|exchangeConverter
 decl_stmt|;
 DECL|field|injector
 specifier|private
@@ -3510,45 +3491,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getExchangeConverter ()
-specifier|public
-name|ExchangeConverter
-name|getExchangeConverter
-parameter_list|()
-block|{
-if|if
-condition|(
-name|exchangeConverter
-operator|==
-literal|null
-condition|)
-block|{
-name|exchangeConverter
-operator|=
-name|createExchangeConverter
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|exchangeConverter
-return|;
-block|}
-DECL|method|setExchangeConverter (ExchangeConverter exchangeConverter)
-specifier|public
-name|void
-name|setExchangeConverter
-parameter_list|(
-name|ExchangeConverter
-name|exchangeConverter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchangeConverter
-operator|=
-name|exchangeConverter
-expr_stmt|;
-block|}
 DECL|method|getTypeConverter ()
 specifier|public
 name|TypeConverter
@@ -4806,9 +4748,6 @@ name|void
 name|forceLazyInitialization
 parameter_list|()
 block|{
-name|getExchangeConverter
-argument_list|()
-expr_stmt|;
 name|getInjector
 argument_list|()
 expr_stmt|;
@@ -4818,19 +4757,6 @@ expr_stmt|;
 name|getTypeConverter
 argument_list|()
 expr_stmt|;
-block|}
-comment|/**      * Lazily create a default implementation      */
-DECL|method|createExchangeConverter ()
-specifier|protected
-name|ExchangeConverter
-name|createExchangeConverter
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchangeConverter
-argument_list|()
-return|;
 block|}
 comment|/**      * Lazily create a default implementation      */
 DECL|method|createTypeConverter ()
