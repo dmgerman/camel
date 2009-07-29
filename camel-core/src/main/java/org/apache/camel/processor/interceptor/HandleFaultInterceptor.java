@@ -218,7 +218,7 @@ block|{
 comment|// remove fault as we are converting it to an exception
 name|exchange
 operator|.
-name|setFault
+name|setOut
 argument_list|(
 literal|null
 argument_list|)
