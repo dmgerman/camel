@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|model
+operator|.
+name|DataTypeException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -110,22 +124,107 @@ name|HL7ValidateTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|// TODO: Need HL7 that can fail HL7 validator
-comment|//    @Test
-comment|//    public void testUnmarshalFailed() throws Exception {
-comment|//        MockEndpoint mock = getMockEndpoint("mock:unmarshal");
-comment|//        mock.expectedMessageCount(0);
-comment|//
-comment|//        String body = createHL7AsString();
-comment|//        try {
-comment|//            template.sendBody("direct:unmarshalFailed", body);
-comment|//            fail("Should have thrown exception");
-comment|//        } catch (CamelExecutionException e) {
-comment|//            assertIsInstanceOf(HL7Exception.class, e.getCause());
-comment|//        }
-comment|//
-comment|//        assertMockEndpointsSatisfied();
-comment|//    }
+annotation|@
+name|Test
+DECL|method|testUnmarshalFailed ()
+specifier|public
+name|void
+name|testUnmarshalFailed
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:unmarshal"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|body
+init|=
+name|createHL7AsString
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:unmarshalFailed"
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|HL7Exception
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|DataTypeException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be a validation error message"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Failed validation rule"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testUnmarshalOk ()
@@ -238,12 +337,42 @@ block|{
 name|String
 name|line1
 init|=
-literal|"MSH|^~\\&|MYSENDER|MYSENDERAPP|MYCLIENT|MYCLIENTAPP|200612211200||QRY^A19|1234|P|2.4"
+literal|"MSH|^~\\&|REQUESTING|ICE|INHOUSE|RTH00|20080808093202||ORM^O01|0808080932027444985|P|2.4|||AL|NE|||"
 decl_stmt|;
 name|String
 name|line2
 init|=
-literal|"QRD|200612211200|R|I|GetPatient|||1^RD|0101701234|DEM||"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
+decl_stmt|;
+name|String
+name|line3
+init|=
+literal|"NTE|1||Free text for entering clinical details|"
+decl_stmt|;
+name|String
+name|line4
+init|=
+literal|"PV1|1||^^^^^^^^Admin Location|||||||||||||||NHS|"
+decl_stmt|;
+name|String
+name|line5
+init|=
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
+decl_stmt|;
+name|String
+name|line6
+init|=
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+decl_stmt|;
+name|String
+name|line7
+init|=
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+decl_stmt|;
+name|String
+name|line8
+init|=
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 decl_stmt|;
 name|StringBuffer
 name|body
@@ -271,6 +400,90 @@ operator|.
 name|append
 argument_list|(
 name|line2
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line3
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line4
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line5
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line6
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line7
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|body
+operator|.
+name|append
+argument_list|(
+name|line8
 argument_list|)
 expr_stmt|;
 return|return
