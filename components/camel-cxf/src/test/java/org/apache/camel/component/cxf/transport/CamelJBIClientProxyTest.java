@@ -28,6 +28,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -169,10 +193,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|echoMethodTest ()
+DECL|method|testCallFromProxy ()
 specifier|public
 name|void
-name|echoMethodTest
+name|testCallFromProxy
 parameter_list|()
 block|{
 name|String
@@ -183,6 +207,62 @@ operator|.
 name|echo
 argument_list|(
 literal|"Hello World!"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response "
+argument_list|,
+literal|"echo Hello World!"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testCallFromCamel ()
+specifier|public
+name|void
+name|testCallFromCamel
+parameter_list|()
+block|{
+comment|// get camel context
+name|CamelContext
+name|context
+init|=
+operator|(
+name|CamelContext
+operator|)
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+literal|"conduit_context"
+argument_list|)
+decl_stmt|;
+name|ProducerTemplate
+name|producer
+init|=
+name|context
+operator|.
+name|createProducerTemplate
+argument_list|()
+decl_stmt|;
+name|String
+name|response
+init|=
+name|producer
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct://jbiStart"
+argument_list|,
+literal|"Hello"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
