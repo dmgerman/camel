@@ -583,6 +583,37 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the HL7 data format      */
+DECL|method|hl7 (boolean validate)
+specifier|public
+name|T
+name|hl7
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|HL7DataFormat
+name|hl7
+init|=
+operator|new
+name|HL7DataFormat
+argument_list|()
+decl_stmt|;
+name|hl7
+operator|.
+name|setValidate
+argument_list|(
+name|validate
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|hl7
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the JAXB data format      */
 DECL|method|jaxb ()
 specifier|public

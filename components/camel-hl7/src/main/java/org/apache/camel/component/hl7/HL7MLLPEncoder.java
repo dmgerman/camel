@@ -46,34 +46,6 @@ end_import
 
 begin_import
 import|import
-name|ca
-operator|.
-name|uhn
-operator|.
-name|hl7v2
-operator|.
-name|parser
-operator|.
-name|Parser
-import|;
-end_import
-
-begin_import
-import|import
-name|ca
-operator|.
-name|uhn
-operator|.
-name|hl7v2
-operator|.
-name|parser
-operator|.
-name|PipeParser
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -159,6 +131,10 @@ operator|.
 name|ProtocolEncoderOutput
 import|;
 end_import
+
+begin_comment
+comment|/**  * HL7 MLLP encoder  */
+end_comment
 
 begin_class
 DECL|class|HL7MLLPEncoder
@@ -340,16 +316,9 @@ operator|instanceof
 name|Message
 condition|)
 block|{
-name|Parser
-name|parser
-init|=
-operator|new
-name|PipeParser
-argument_list|()
-decl_stmt|;
 name|body
 operator|=
-name|parser
+name|HL7Converter
 operator|.
 name|encode
 argument_list|(
@@ -357,6 +326,11 @@ operator|(
 name|Message
 operator|)
 name|message
+argument_list|,
+name|config
+operator|.
+name|isValidate
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

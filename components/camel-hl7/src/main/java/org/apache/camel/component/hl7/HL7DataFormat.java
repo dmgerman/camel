@@ -118,6 +118,13 @@ name|HL7DataFormat
 implements|implements
 name|DataFormat
 block|{
+DECL|field|validate
+specifier|private
+name|boolean
+name|validate
+init|=
+literal|true
+decl_stmt|;
 DECL|method|marshal (Exchange exchange, Object body, OutputStream outputStream)
 specifier|public
 name|void
@@ -156,9 +163,11 @@ name|encoded
 init|=
 name|HL7Converter
 operator|.
-name|toString
+name|encode
 argument_list|(
 name|message
+argument_list|,
+name|validate
 argument_list|)
 decl_stmt|;
 name|outputStream
@@ -207,9 +216,11 @@ name|message
 init|=
 name|HL7Converter
 operator|.
-name|toMessage
+name|parse
 argument_list|(
 name|body
+argument_list|,
+name|validate
 argument_list|)
 decl_stmt|;
 comment|// add MSH fields as message out headers
@@ -434,6 +445,32 @@ expr_stmt|;
 return|return
 name|message
 return|;
+block|}
+DECL|method|isValidate ()
+specifier|public
+name|boolean
+name|isValidate
+parameter_list|()
+block|{
+return|return
+name|validate
+return|;
+block|}
+DECL|method|setValidate (boolean validate)
+specifier|public
+name|void
+name|setValidate
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validate
+operator|=
+name|validate
+expr_stmt|;
 block|}
 block|}
 end_class

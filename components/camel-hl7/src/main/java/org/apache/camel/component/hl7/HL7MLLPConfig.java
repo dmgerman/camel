@@ -77,6 +77,13 @@ init|=
 literal|0x0d
 decl_stmt|;
 comment|// 13 decimal
+DECL|field|validate
+specifier|private
+name|boolean
+name|validate
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getCharset ()
 specifier|public
 name|Charset
@@ -205,6 +212,32 @@ operator|.
 name|endByte2
 operator|=
 name|endByte2
+expr_stmt|;
+block|}
+DECL|method|isValidate ()
+specifier|public
+name|boolean
+name|isValidate
+parameter_list|()
+block|{
+return|return
+name|validate
+return|;
+block|}
+DECL|method|setValidate (boolean validate)
+specifier|public
+name|void
+name|setValidate
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validate
+operator|=
+name|validate
 expr_stmt|;
 block|}
 block|}

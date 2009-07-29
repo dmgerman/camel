@@ -270,7 +270,6 @@ return|return
 name|foundEnd
 return|;
 block|}
-comment|/**      * @param session      * @param in      * @param out      * @param state      * @return      * @throws RuntimeException      */
 DECL|method|writeString (IoSession session, ByteBuffer in, ProtocolDecoderOutput out)
 specifier|private
 name|void
@@ -398,7 +397,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @param session      * @return the charset decoder for this IoSession      */
 DECL|method|charsetDecoder (IoSession session)
 specifier|private
 name|CharsetDecoder
@@ -453,7 +451,7 @@ return|return
 name|decoder
 return|;
 block|}
-comment|/**      * Scans the buffer for start and end bytes and stores its position in the      * session state object.      *       * @param session      * @param in      * @return<code>true</code> if the end bytes were found,<code>false</code>      *         otherwise      */
+comment|/**      * Scans the buffer for start and end bytes and stores its position in the      * session state object.      *       * @return<code>true</code> if the end bytes were found,<code>false</code>      *         otherwise      */
 DECL|method|scan (IoSession session, ByteBuffer in)
 specifier|private
 name|boolean
@@ -558,6 +556,14 @@ operator|.
 name|position
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -569,6 +575,7 @@ operator|.
 name|posStart
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Check end bytes
@@ -613,6 +620,14 @@ literal|2
 expr_stmt|;
 comment|// use -2 to skip these
 comment|// last 2 end markers
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -624,6 +639,7 @@ operator|.
 name|posEnd
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 block|}
 else|else
@@ -671,7 +687,6 @@ operator|>
 literal|0
 return|;
 block|}
-comment|/**      * @param session      * @return the state of the current decoding process      */
 DECL|method|decoderState (IoSession session)
 specifier|private
 name|DecoderState
