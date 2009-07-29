@@ -301,7 +301,7 @@ literal|"Fault should be removed"
 argument_list|,
 name|response
 operator|.
-name|hasFault
+name|hasOut
 argument_list|()
 argument_list|)
 expr_stmt|;

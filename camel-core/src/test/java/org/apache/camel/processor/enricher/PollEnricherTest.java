@@ -516,7 +516,15 @@ name|assertFalse
 argument_list|(
 name|exchange
 operator|.
-name|hasFault
+name|hasOut
+argument_list|()
+operator|&&
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
 argument_list|()
 argument_list|)
 expr_stmt|;
