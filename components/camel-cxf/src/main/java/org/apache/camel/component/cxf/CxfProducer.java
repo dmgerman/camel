@@ -854,7 +854,11 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|CxfPayload
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
