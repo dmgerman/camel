@@ -268,6 +268,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|Tracer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -374,6 +390,11 @@ DECL|field|streamCache
 specifier|private
 name|Boolean
 name|streamCache
+decl_stmt|;
+DECL|field|trace
+specifier|private
+name|Boolean
+name|trace
 decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
@@ -829,7 +850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable stream caching for this Route.      */
+comment|/**      * Disable stream caching for this route.      */
 DECL|method|noStreamCaching ()
 specifier|public
 name|RouteDefinition
@@ -855,7 +876,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable stream caching for this Route.      */
+comment|/**      * Enable stream caching for this route.      */
 DECL|method|streamCaching ()
 specifier|public
 name|RouteDefinition
@@ -900,6 +921,38 @@ operator|.
 name|add
 argument_list|(
 name|cache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Disable tracing for this route.      */
+DECL|method|noTracing ()
+specifier|public
+name|RouteDefinition
+name|noTracing
+parameter_list|()
+block|{
+name|setTrace
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enable tracing for this route.      */
+DECL|method|tracing ()
+specifier|public
+name|RouteDefinition
+name|tracing
+parameter_list|()
+block|{
+name|setTrace
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1083,6 +1136,34 @@ operator|=
 name|streamCache
 expr_stmt|;
 block|}
+DECL|method|isTrace ()
+specifier|public
+name|Boolean
+name|isTrace
+parameter_list|()
+block|{
+return|return
+name|trace
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setTrace (Boolean trace)
+specifier|public
+name|void
+name|setTrace
+parameter_list|(
+name|Boolean
+name|trace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trace
+operator|=
+name|trace
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
@@ -1115,6 +1196,62 @@ argument_list|,
 name|routes
 argument_list|)
 decl_stmt|;
+comment|// configure tracing
+if|if
+condition|(
+name|trace
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeContext
+operator|.
+name|setTracing
+argument_list|(
+name|isTrace
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isTrace
+argument_list|()
+condition|)
+block|{
+comment|// only add a new tracer if not already a global configured on camel context
+if|if
+condition|(
+name|Tracer
+operator|.
+name|getTracer
+argument_list|(
+name|camelContext
+operator|.
+name|getInterceptStrategies
+argument_list|()
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|Tracer
+name|tracer
+init|=
+name|Tracer
+operator|.
+name|createTracer
+argument_list|(
+name|camelContext
+argument_list|)
+decl_stmt|;
+name|addInterceptStrategy
+argument_list|(
+name|tracer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|// should inherit the intercept strategies we have defined
 name|routeContext
 operator|.

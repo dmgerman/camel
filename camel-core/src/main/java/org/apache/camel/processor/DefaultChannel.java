@@ -312,7 +312,7 @@ parameter_list|()
 block|{
 comment|// the errorHandler is already decorated with interceptors
 comment|// so it cointain the entire chain of processors, so we can safely use it directly as output
-comment|// if no error handler provided we can use the output direcly
+comment|// if no error handler provided we use the output
 return|return
 name|errorHandler
 operator|!=

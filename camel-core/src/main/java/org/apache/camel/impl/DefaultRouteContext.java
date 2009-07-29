@@ -306,6 +306,11 @@ specifier|private
 name|boolean
 name|routeAdded
 decl_stmt|;
+DECL|field|trace
+specifier|private
+name|Boolean
+name|trace
+decl_stmt|;
 DECL|method|DefaultRouteContext (RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
 name|DefaultRouteContext
@@ -881,6 +886,51 @@ name|routeAdded
 operator|=
 name|routeAdded
 expr_stmt|;
+block|}
+DECL|method|setTracing (Boolean tracing)
+specifier|public
+name|void
+name|setTracing
+parameter_list|(
+name|Boolean
+name|tracing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trace
+operator|=
+name|tracing
+expr_stmt|;
+block|}
+DECL|method|isTracing ()
+specifier|public
+name|boolean
+name|isTracing
+parameter_list|()
+block|{
+if|if
+condition|(
+name|trace
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|trace
+return|;
+block|}
+else|else
+block|{
+comment|// fallback to let the camel context decide whether tracing is enabled
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|isTracing
+argument_list|()
+return|;
+block|}
 block|}
 DECL|method|getDataFormat (String ref)
 specifier|public

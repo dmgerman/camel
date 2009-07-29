@@ -3758,7 +3758,7 @@ condition|)
 block|{
 name|ctx
 operator|.
-name|setTrace
+name|setTracing
 argument_list|(
 name|trace
 argument_list|)

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.timer
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|timer
+name|processor
 package|;
 end_package
 
@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|CamelContext
 import|;
 end_import
 
@@ -42,9 +40,25 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|interceptor
+name|TracePerRouteTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
 operator|.
-name|Tracer
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
 
@@ -53,55 +67,28 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|TimerRouteWithTracerTest
+DECL|class|SpringTracePerRouteTest
 specifier|public
 class|class
-name|TimerRouteWithTracerTest
+name|SpringTracePerRouteTest
 extends|extends
-name|TimerRouteTest
+name|TracePerRouteTest
 block|{
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-name|getContext
-argument_list|()
-operator|.
-name|setTracing
+name|createSpringCamelContext
 argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=500"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"bean:myBean"
+name|this
 argument_list|,
-literal|"mock:result"
+literal|"org/apache/camel/spring/processor/traceperroute.xml"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 return|;
 block|}
 block|}

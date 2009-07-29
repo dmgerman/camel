@@ -823,6 +823,12 @@ name|Boolean
 name|tracing
 parameter_list|)
 function_decl|;
+comment|/**      * Returns whether tracing enabled for this route.      *      * @return true if tracing is enabled      */
+DECL|method|isTracing ()
+name|boolean
+name|isTracing
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
