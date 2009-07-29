@@ -148,7 +148,6 @@ return|return
 name|fault
 return|;
 block|}
-comment|/**      * Sets the fault flag on this message      */
 DECL|method|setFault (boolean fault)
 specifier|public
 name|void
