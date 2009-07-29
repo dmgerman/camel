@@ -1225,31 +1225,6 @@ operator|=
 name|fromEndpoint
 expr_stmt|;
 block|}
-DECL|method|hasFault ()
-specifier|public
-name|boolean
-name|hasFault
-parameter_list|()
-block|{
-name|Message
-name|out
-init|=
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-return|return
-name|out
-operator|!=
-literal|null
-operator|&&
-name|out
-operator|.
-name|isFault
-argument_list|()
-return|;
-block|}
 DECL|method|getFault ()
 specifier|public
 name|Message

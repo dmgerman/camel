@@ -444,7 +444,15 @@ init|=
 operator|(
 name|camelExchange
 operator|.
-name|hasFault
+name|hasOut
+argument_list|()
+operator|&&
+name|camelExchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
 argument_list|()
 operator|)
 condition|?
@@ -453,7 +461,7 @@ name|Throwable
 operator|)
 name|camelExchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody

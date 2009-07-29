@@ -438,7 +438,15 @@ if|if
 condition|(
 name|nextExchange
 operator|.
-name|hasFault
+name|hasOut
+argument_list|()
+operator|&&
+name|nextExchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
 argument_list|()
 condition|)
 block|{
@@ -453,7 +461,7 @@ name|append
 argument_list|(
 name|nextExchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;

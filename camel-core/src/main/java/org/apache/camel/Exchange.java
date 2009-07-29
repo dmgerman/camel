@@ -519,14 +519,6 @@ name|Message
 name|getFault
 parameter_list|()
 function_decl|;
-comment|/**      * Returns whether a FAULT message has been set or not.      *      * @return<tt>true</tt> if a FAULT message exists,<tt>false</tt> otherwise.      */
-annotation|@
-name|Deprecated
-DECL|method|hasFault ()
-name|boolean
-name|hasFault
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the exception associated with this exchange      *      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Exception

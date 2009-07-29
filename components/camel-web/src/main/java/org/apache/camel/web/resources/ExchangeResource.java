@@ -231,32 +231,6 @@ name|getException
 argument_list|()
 return|;
 block|}
-DECL|method|getFault ()
-specifier|public
-name|Message
-name|getFault
-parameter_list|()
-block|{
-return|return
-name|exchange
-operator|.
-name|getFault
-argument_list|()
-return|;
-block|}
-DECL|method|hasFault ()
-specifier|public
-name|boolean
-name|hasFault
-parameter_list|()
-block|{
-return|return
-name|exchange
-operator|.
-name|hasFault
-argument_list|()
-return|;
-block|}
 DECL|method|getFromEndpoint ()
 specifier|public
 name|Endpoint

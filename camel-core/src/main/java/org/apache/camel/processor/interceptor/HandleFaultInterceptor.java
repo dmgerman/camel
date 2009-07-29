@@ -185,7 +185,15 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|hasFault
+name|hasOut
+argument_list|()
+operator|&&
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
 argument_list|()
 condition|)
 block|{
@@ -195,7 +203,7 @@ name|faultBody
 init|=
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody
