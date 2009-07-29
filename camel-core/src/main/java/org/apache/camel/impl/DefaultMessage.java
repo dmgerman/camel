@@ -98,8 +98,6 @@ DECL|field|fault
 specifier|private
 name|boolean
 name|fault
-init|=
-literal|false
 decl_stmt|;
 DECL|field|headers
 specifier|private

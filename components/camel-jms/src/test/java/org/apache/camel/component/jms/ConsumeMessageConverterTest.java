@@ -24,6 +24,16 @@ name|javax
 operator|.
 name|jms
 operator|.
+name|BytesMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
 name|ConnectionFactory
 import|;
 end_import
@@ -65,16 +75,6 @@ operator|.
 name|jms
 operator|.
 name|TextMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|BytesMessage
 import|;
 end_import
 
