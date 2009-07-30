@@ -348,6 +348,16 @@ name|length
 init|=
 literal|1000
 decl_stmt|;
+if|if
+condition|(
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|property
 init|=
@@ -398,6 +408,7 @@ argument_list|,
 name|property
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|Object
 name|obj
