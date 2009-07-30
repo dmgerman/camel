@@ -180,6 +180,18 @@ name|XmlJavaTypeAdapter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Allows an element to have an optional ID specified  *  * @version $Revision$  */
 end_comment
@@ -190,7 +202,7 @@ name|XmlType
 argument_list|(
 name|name
 operator|=
-literal|"optionalIdentifiedType"
+literal|"optionalIdentifiedDefinition"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -199,15 +211,15 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|OptionalIdentifiedType
+DECL|class|OptionalIdentifiedDefinition
 specifier|public
 specifier|abstract
 class|class
-name|OptionalIdentifiedType
+name|OptionalIdentifiedDefinition
 parameter_list|<
 name|T
 extends|extends
-name|OptionalIdentifiedType
+name|OptionalIdentifiedDefinition
 parameter_list|>
 block|{
 annotation|@

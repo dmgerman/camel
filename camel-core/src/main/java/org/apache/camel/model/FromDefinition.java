@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|FromDefinition
 extends|extends
-name|OptionalIdentifiedType
+name|OptionalIdentifiedDefinition
 argument_list|<
 name|FromDefinition
 argument_list|>

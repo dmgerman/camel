@@ -673,7 +673,7 @@ extends|extends
 name|ProcessorDefinition
 parameter_list|>
 extends|extends
-name|OptionalIdentifiedType
+name|OptionalIdentifiedDefinition
 argument_list|<
 name|Type
 argument_list|>

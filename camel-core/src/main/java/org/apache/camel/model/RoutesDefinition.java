@@ -182,7 +182,7 @@ specifier|public
 class|class
 name|RoutesDefinition
 extends|extends
-name|OptionalIdentifiedType
+name|OptionalIdentifiedDefinition
 argument_list|<
 name|RoutesDefinition
 argument_list|>
