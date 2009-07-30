@@ -335,9 +335,6 @@ name|exchange
 operator|!=
 literal|null
 condition|?
-operator|(
-name|T
-operator|)
 name|exchange
 operator|.
 name|getProperty

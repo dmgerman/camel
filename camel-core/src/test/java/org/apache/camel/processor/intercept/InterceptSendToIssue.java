@@ -115,7 +115,7 @@ name|Exchange
 operator|.
 name|INTERCEPTED_ENDPOINT
 argument_list|,
-literal|"direct:foo"
+literal|"direct://foo"
 argument_list|)
 expr_stmt|;
 name|template
@@ -145,7 +145,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:start"
+literal|"direct://start"
 argument_list|,
 name|exchange
 operator|.

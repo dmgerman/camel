@@ -740,7 +740,7 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// configure intercepts
+comment|// configure intercept
 for|for
 control|(
 name|InterceptDefinition

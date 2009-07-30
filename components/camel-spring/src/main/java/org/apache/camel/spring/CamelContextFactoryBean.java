@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -2454,14 +2464,20 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
 name|out
 operator|instanceof
 name|InterceptDefinition
-operator|)
+operator|||
+name|out
+operator|instanceof
+name|InterceptSendToEndpointDefinition
 condition|)
 block|{
+continue|continue;
+block|}
+else|else
+block|{
+comment|// we found the spot
 break|break;
 block|}
 block|}
@@ -2501,7 +2517,7 @@ operator|.
 name|getOutputs
 argument_list|()
 decl_stmt|;
-comment|// we need to types as transacted cannot extend policy due JAXB limitations
+comment|// we need two types as transacted cannot extend policy due JAXB limitations
 name|PolicyDefinition
 name|policy
 init|=
@@ -2512,6 +2528,7 @@ name|transacted
 init|=
 literal|null
 decl_stmt|;
+comment|// add to correct type
 for|for
 control|(
 name|ProcessorDefinition
@@ -3233,22 +3250,18 @@ index|[]
 name|builders
 parameter_list|)
 block|{
-for|for
-control|(
-name|RouteBuilder
-name|builder
-range|:
-name|builders
-control|)
-block|{
 name|additionalBuilders
 operator|.
-name|add
+name|addAll
 argument_list|(
-name|builder
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|builders
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|getApplicationContext ()
 specifier|public
@@ -4094,6 +4107,7 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// use package scan filter
 name|PatternBasedPackageScanFilter
 name|filter
 init|=
