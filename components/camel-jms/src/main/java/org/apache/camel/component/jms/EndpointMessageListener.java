@@ -531,7 +531,7 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -548,7 +548,7 @@ name|JmsMessage
 operator|)
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 expr_stmt|;
 name|sendReply

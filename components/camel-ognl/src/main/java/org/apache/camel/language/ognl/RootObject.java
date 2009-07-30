@@ -144,19 +144,6 @@ name|getExchangeId
 argument_list|()
 return|;
 block|}
-DECL|method|getFault ()
-specifier|public
-name|Message
-name|getFault
-parameter_list|()
-block|{
-return|return
-name|exchange
-operator|.
-name|getFault
-argument_list|()
-return|;
-block|}
 DECL|method|getRequest ()
 specifier|public
 name|Message

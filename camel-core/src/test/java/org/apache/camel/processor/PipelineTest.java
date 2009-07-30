@@ -473,13 +473,31 @@ block|}
 argument_list|)
 decl_stmt|;
 comment|// Check the fault..
+name|assertTrue
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Fault Message"
 argument_list|,
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -492,7 +510,7 @@ literal|2
 argument_list|,
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getHeader

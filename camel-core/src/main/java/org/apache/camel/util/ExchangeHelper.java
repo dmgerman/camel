@@ -1831,7 +1831,7 @@ block|{
 return|return
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody
