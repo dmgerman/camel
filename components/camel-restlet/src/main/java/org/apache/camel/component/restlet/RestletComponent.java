@@ -1022,7 +1022,6 @@ name|getPort
 argument_list|()
 return|;
 block|}
-comment|/**      * @param uriPattern      * @param endpoint       * @param target       */
 DECL|method|attachUriPatternToRestlet (String uriPattern, RestletEndpoint endpoint, Restlet target)
 specifier|private
 name|void

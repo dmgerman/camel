@@ -389,10 +389,6 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-literal|""
-expr_stmt|;
-name|response
-operator|=
 operator|(
 name|String
 operator|)
