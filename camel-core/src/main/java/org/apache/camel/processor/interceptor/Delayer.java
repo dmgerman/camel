@@ -173,13 +173,16 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target
@@ -194,7 +197,7 @@ return|return
 operator|new
 name|DelayInterceptor
 argument_list|(
-name|processorDefinition
+name|definition
 argument_list|,
 name|target
 argument_list|,

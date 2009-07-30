@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -108,13 +120,16 @@ operator|=
 name|registeredCounters
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target
@@ -145,7 +160,7 @@ name|registeredCounters
 operator|.
 name|get
 argument_list|(
-name|processorDefinition
+name|definition
 argument_list|)
 decl_stmt|;
 if|if
@@ -175,7 +190,7 @@ name|wrapper
 operator|.
 name|setType
 argument_list|(
-name|processorDefinition
+name|definition
 operator|.
 name|getShortName
 argument_list|()
@@ -186,7 +201,7 @@ name|registeredCounters
 operator|.
 name|remove
 argument_list|(
-name|processorDefinition
+name|definition
 argument_list|)
 expr_stmt|;
 return|return

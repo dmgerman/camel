@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -137,14 +149,18 @@ specifier|static
 name|int
 name|count
 decl_stmt|;
-DECL|method|wrapProcessorInInterceptors (final ProcessorDefinition processorDefinition, final Processor target, final Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition definition, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 specifier|final
+name|CamelContext
+name|context
+parameter_list|,
+specifier|final
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 specifier|final
 name|Processor

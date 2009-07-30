@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -73,18 +85,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
 import|;
 end_import
 
@@ -300,13 +300,16 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target
@@ -319,19 +322,21 @@ name|Exception
 block|{
 comment|// Force the creation of an id, otherwise the id is not available when the trace formatter is
 comment|// outputting trace information
-name|String
-name|id
-init|=
-name|processorDefinition
+name|definition
 operator|.
 name|idOrCreate
+argument_list|(
+name|context
+operator|.
+name|getNodeIdFactory
 argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|TraceInterceptor
 argument_list|(
-name|processorDefinition
+name|definition
 argument_list|,
 name|target
 argument_list|,

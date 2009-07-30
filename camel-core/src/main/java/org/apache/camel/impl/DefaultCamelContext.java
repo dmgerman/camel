@@ -600,6 +600,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|NodeIdFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|PackageScanClassResolver
 import|;
 end_import
@@ -1171,6 +1185,15 @@ name|DefaultProducerServicePool
 argument_list|(
 literal|100
 argument_list|)
+decl_stmt|;
+DECL|field|nodeIdFactory
+specifier|private
+name|NodeIdFactory
+name|nodeIdFactory
+init|=
+operator|new
+name|DefaultNodeIdFactory
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -3078,7 +3101,9 @@ condition|(
 name|route
 operator|.
 name|idOrCreate
-argument_list|()
+argument_list|(
+name|nodeIdFactory
+argument_list|)
 operator|.
 name|equals
 argument_list|(
@@ -3156,7 +3181,9 @@ init|=
 name|routeDefinition
 operator|.
 name|idOrCreate
-argument_list|()
+argument_list|(
+name|nodeIdFactory
+argument_list|)
 decl_stmt|;
 name|stopRoute
 argument_list|(
@@ -3184,7 +3211,9 @@ argument_list|(
 name|route
 operator|.
 name|idOrCreate
-argument_list|()
+argument_list|(
+name|nodeIdFactory
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -3302,7 +3331,9 @@ argument_list|(
 name|route
 operator|.
 name|idOrCreate
-argument_list|()
+argument_list|(
+name|nodeIdFactory
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5308,6 +5339,32 @@ return|return
 name|answer
 return|;
 block|}
+block|}
+DECL|method|getNodeIdFactory ()
+specifier|public
+name|NodeIdFactory
+name|getNodeIdFactory
+parameter_list|()
+block|{
+return|return
+name|nodeIdFactory
+return|;
+block|}
+DECL|method|setNodeIdFactory (NodeIdFactory idFactory)
+specifier|public
+name|void
+name|setNodeIdFactory
+parameter_list|(
+name|NodeIdFactory
+name|idFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeIdFactory
+operator|=
+name|idFactory
+expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected

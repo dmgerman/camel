@@ -884,7 +884,15 @@ init|=
 name|processor
 operator|.
 name|idOrCreate
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
 argument_list|()
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|StringBuffer
 name|buffer

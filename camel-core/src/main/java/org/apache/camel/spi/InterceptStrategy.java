@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -52,13 +64,16 @@ specifier|public
 interface|interface
 name|InterceptStrategy
 block|{
-comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorDefinition the object that invokes this method      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
+comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target

@@ -1299,8 +1299,11 @@ specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target
@@ -1339,7 +1342,7 @@ name|wrapper
 operator|.
 name|setType
 argument_list|(
-name|processorDefinition
+name|definition
 operator|.
 name|getShortName
 argument_list|()

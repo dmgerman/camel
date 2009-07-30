@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -197,13 +209,16 @@ name|MyTracer
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ProcessorDefinition
-name|processorDefinition
+name|definition
 parameter_list|,
 name|Processor
 name|target

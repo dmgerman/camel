@@ -122,6 +122,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|NodeIdFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -785,6 +799,21 @@ argument_list|,
 name|Producer
 argument_list|>
 name|getProducerServicePool
+parameter_list|()
+function_decl|;
+comment|/**      * Uses a custom node id factory when generating auto assigned ids to the nodes in the route definitions      *      * @param factory  custom factory to use      */
+DECL|method|setNodeIdFactory (NodeIdFactory factory)
+name|void
+name|setNodeIdFactory
+parameter_list|(
+name|NodeIdFactory
+name|factory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the node id factory      *      * @return  the node id factory      */
+DECL|method|getNodeIdFactory ()
+name|NodeIdFactory
+name|getNodeIdFactory
 parameter_list|()
 function_decl|;
 block|}

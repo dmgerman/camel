@@ -216,7 +216,12 @@ operator|=
 name|routeDefinition
 operator|.
 name|idOrCreate
+argument_list|(
+name|camelContext
+operator|.
+name|getNodeIdFactory
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getId ()

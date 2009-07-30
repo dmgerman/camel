@@ -563,6 +563,11 @@ name|strategy
 operator|.
 name|wrapProcessorInInterceptors
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|outputDefinition
 argument_list|,
 name|target

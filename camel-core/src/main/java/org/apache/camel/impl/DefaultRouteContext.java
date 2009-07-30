@@ -747,7 +747,13 @@ argument_list|,
 name|route
 operator|.
 name|idOrCreate
+argument_list|(
+name|getCamelContext
 argument_list|()
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|edcr
