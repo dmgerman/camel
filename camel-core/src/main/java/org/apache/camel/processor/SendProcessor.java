@@ -345,11 +345,11 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getEndpoint
+name|hasEndpoint
 argument_list|(
 name|destination
 operator|.
-name|getEndpointUri
+name|getEndpointKey
 argument_list|()
 argument_list|)
 decl_stmt|;

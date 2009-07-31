@@ -427,6 +427,15 @@ argument_list|>
 name|getEndpointMap
 parameter_list|()
 function_decl|;
+comment|/**      * Is the given endpoint already registered?      *      * @param uri  the URI of the endpoint      * @return the registered endpoint or<tt>null</tt> if not registered      */
+DECL|method|hasEndpoint (String uri)
+name|Endpoint
+name|hasEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      */
 DECL|method|getEndpoints (String uri)
 name|Collection
