@@ -573,7 +573,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|copyFrom
@@ -586,7 +586,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|setBody
@@ -599,6 +599,16 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setFault
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

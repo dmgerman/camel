@@ -206,7 +206,17 @@ name|Exception
 block|{
 name|exchange
 operator|.
-name|getFault
+name|getOut
+argument_list|()
+operator|.
+name|setFault
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
 argument_list|()
 operator|.
 name|setBody
@@ -251,7 +261,7 @@ expr_stmt|;
 block|}
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|setHeader
