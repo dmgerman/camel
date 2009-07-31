@@ -973,41 +973,12 @@ name|Message
 name|getOut
 parameter_list|()
 block|{
-return|return
-name|getOut
-argument_list|(
-literal|true
-argument_list|)
-return|;
-block|}
-DECL|method|hasOut ()
-specifier|public
-name|boolean
-name|hasOut
-parameter_list|()
-block|{
-return|return
-name|out
-operator|!=
-literal|null
-return|;
-block|}
-DECL|method|getOut (boolean lazyCreate)
-specifier|public
-name|Message
-name|getOut
-parameter_list|(
-name|boolean
-name|lazyCreate
-parameter_list|)
-block|{
+comment|// lazy create
 if|if
 condition|(
 name|out
 operator|==
 literal|null
-operator|&&
-name|lazyCreate
 condition|)
 block|{
 name|out
@@ -1044,6 +1015,18 @@ expr_stmt|;
 block|}
 return|return
 name|out
+return|;
+block|}
+DECL|method|hasOut ()
+specifier|public
+name|boolean
+name|hasOut
+parameter_list|()
+block|{
+return|return
+name|out
+operator|!=
+literal|null
 return|;
 block|}
 DECL|method|setOut (Message out)

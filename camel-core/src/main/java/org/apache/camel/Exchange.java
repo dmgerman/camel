@@ -493,15 +493,6 @@ name|boolean
 name|hasOut
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the out message      * @return the response      * @deprecated use {@link #hasOut()} or {@link #getOut()}. Will be remove in Camel 2.0 GA.      */
-DECL|method|getOut (boolean lazyCreate)
-name|Message
-name|getOut
-parameter_list|(
-name|boolean
-name|lazyCreate
-parameter_list|)
-function_decl|;
 comment|/**      * Sets the outbound message      *      * @param out the outbound message      */
 DECL|method|setOut (Message out)
 name|void
