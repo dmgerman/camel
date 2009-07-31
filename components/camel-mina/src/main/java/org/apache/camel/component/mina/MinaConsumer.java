@@ -661,11 +661,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// failed and no exception, must be a fault
 name|body
 operator|=
 name|exchange
 operator|.
-name|getFault
+name|getOut
 argument_list|()
 operator|.
 name|getBody
