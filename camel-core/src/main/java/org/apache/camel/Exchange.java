@@ -511,14 +511,6 @@ name|Message
 name|out
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the fault message      *      * @return the fault      */
-annotation|@
-name|Deprecated
-DECL|method|getFault ()
-name|Message
-name|getFault
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the exception associated with this exchange      *      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Exception
