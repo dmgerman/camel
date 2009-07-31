@@ -123,7 +123,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"uri://localhost:37542/bye"
+literal|"rmi://localhost:37542/bye"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -169,7 +169,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"uri://localhost:37542/bye"
+literal|"rmi://localhost:37542/bye"
 argument_list|)
 argument_list|)
 expr_stmt|;
