@@ -78,6 +78,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -573,10 +587,11 @@ block|{
 name|Exchange
 name|answer
 init|=
+operator|new
+name|DefaultExchange
+argument_list|(
 name|previousExchange
-operator|.
-name|newInstance
-argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// we must use the same id as this is a snapshot strategy where Camel copies a snapshot
 comment|// before processing the next step in the pipeline, so we have a snapshot of the exchange

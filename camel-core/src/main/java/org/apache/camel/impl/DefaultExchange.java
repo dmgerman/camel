@@ -439,8 +439,11 @@ block|{
 name|Exchange
 name|exchange
 init|=
-name|newInstance
-argument_list|()
+operator|new
+name|DefaultExchange
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 name|exchange
 operator|.
@@ -675,20 +678,6 @@ name|Object
 argument_list|>
 argument_list|(
 name|properties
-argument_list|)
-return|;
-block|}
-DECL|method|newInstance ()
-specifier|public
-name|Exchange
-name|newInstance
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
 argument_list|)
 return|;
 block|}
