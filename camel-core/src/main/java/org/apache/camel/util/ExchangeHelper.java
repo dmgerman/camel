@@ -240,6 +240,20 @@ name|TypeConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
 begin_comment
 comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version $Revision$  */
 end_comment
@@ -779,6 +793,81 @@ return|;
 block|}
 return|return
 literal|null
+return|;
+block|}
+comment|/**      * Creates a new instance and copies from the current message exchange so that it can be      * forwarded to another destination as a new instance. Unlike regular copy this operation      * will not share the same {@link org.apache.camel.spi.UnitOfWork} so its should be used      * for async messaging, where the original and copied exchange are independent.      *      * @param exchange original copy of the exchange      * @param handover whether the on completion callbacks should be handed over to the new copy.      */
+DECL|method|createCorrelatedCopy (Exchange exchange, boolean handover)
+specifier|public
+specifier|static
+name|Exchange
+name|createCorrelatedCopy
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|handover
+parameter_list|)
+block|{
+name|Exchange
+name|copy
+init|=
+name|exchange
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
+comment|// do not share the unit of work
+name|copy
+operator|.
+name|setUnitOfWork
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// hand over on completion to the copy if we got any
+name|UnitOfWork
+name|uow
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|handover
+operator|&&
+name|uow
+operator|!=
+literal|null
+condition|)
+block|{
+name|uow
+operator|.
+name|handoverSynchronization
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set a correlation id so we can track back the original exchange
+name|copy
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CORRELATION_ID
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|copy
 return|;
 block|}
 comment|/**      * Copies the results of a message exchange from the source exchange to the result exchange      * which will copy the out and fault message contents and the exception      *      * @param result the result exchange which will have the output and error state added      * @param source the source exchange which is not modified      */

@@ -492,66 +492,6 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|copy (boolean handoverOnCompletion)
-specifier|public
-name|Exchange
-name|copy
-parameter_list|(
-name|boolean
-name|handoverOnCompletion
-parameter_list|)
-block|{
-name|Exchange
-name|copy
-init|=
-name|copy
-argument_list|()
-decl_stmt|;
-comment|// do not share the unit of work
-name|copy
-operator|.
-name|setUnitOfWork
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-comment|// hand over on completion to the copy if we got any
-if|if
-condition|(
-name|handoverOnCompletion
-operator|&&
-name|unitOfWork
-operator|!=
-literal|null
-condition|)
-block|{
-name|unitOfWork
-operator|.
-name|handoverSynchronization
-argument_list|(
-name|copy
-argument_list|)
-expr_stmt|;
-block|}
-comment|// set a correlation id so we can track back the original exchange
-name|copy
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|CORRELATION_ID
-argument_list|,
-name|this
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|copy
-return|;
-block|}
 DECL|method|safeCopy (Message message, Message that)
 specifier|private
 specifier|static

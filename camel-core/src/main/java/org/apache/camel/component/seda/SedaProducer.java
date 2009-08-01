@@ -213,10 +213,12 @@ comment|// so its the new copy that performs the on completion callback when its
 name|Exchange
 name|copy
 init|=
-name|exchange
+name|ExchangeHelper
 operator|.
-name|copy
+name|createCorrelatedCopy
 argument_list|(
+name|exchange
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
