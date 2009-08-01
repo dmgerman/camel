@@ -327,39 +327,6 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-name|createExchange
-argument_list|(
-name|getExchangePattern
-argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|createExchange (ExchangePattern pattern)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|,
-name|pattern
-argument_list|)
-return|;
-block|}
 DECL|method|setInputChannel (String input)
 specifier|public
 name|void

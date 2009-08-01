@@ -209,22 +209,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
