@@ -162,7 +162,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"consumer"
+literal|"consumerTemplate"
 argument_list|)
 annotation|@
 name|XmlAccessorType
