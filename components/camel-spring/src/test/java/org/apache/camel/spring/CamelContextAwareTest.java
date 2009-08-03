@@ -60,6 +60,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultConsumerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|DefaultProducerTemplate
 import|;
 end_import
@@ -109,10 +123,10 @@ specifier|protected
 name|CamelContextAwareBean
 name|bean1
 decl_stmt|;
-DECL|method|xtestInjectionPoints ()
+DECL|method|testInjectionPoints ()
 specifier|public
 name|void
-name|xtestInjectionPoints
+name|testInjectionPoints
 parameter_list|()
 throws|throws
 name|Exception
@@ -231,6 +245,33 @@ argument_list|,
 name|producer2
 operator|.
 name|getContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|"camel2"
+argument_list|)
+expr_stmt|;
+name|DefaultConsumerTemplate
+name|consumer
+init|=
+name|getMandatoryBean
+argument_list|(
+name|DefaultConsumerTemplate
+operator|.
+name|class
+argument_list|,
+literal|"consumer"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Inject a wrong camel context"
+argument_list|,
+name|consumer
+operator|.
+name|getCamelContext
 argument_list|()
 operator|.
 name|getName

@@ -1810,7 +1810,7 @@ name|localName
 operator|.
 name|equals
 argument_list|(
-literal|"consumerTemplat"
+literal|"consumerTemplate"
 argument_list|)
 operator|||
 name|localName
