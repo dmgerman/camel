@@ -48,7 +48,7 @@ name|replace
 argument_list|(
 literal|"."
 argument_list|,
-literal|"_"
+literal|"_DOT_"
 argument_list|)
 decl_stmt|;
 name|answer
@@ -93,7 +93,7 @@ name|answer
 operator|.
 name|replace
 argument_list|(
-literal|"_"
+literal|"_DOT_"
 argument_list|,
 literal|"."
 argument_list|)
