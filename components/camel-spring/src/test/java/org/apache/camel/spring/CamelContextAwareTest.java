@@ -20,6 +20,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -92,15 +104,15 @@ name|CamelContextAwareTest
 extends|extends
 name|SpringTestSupport
 block|{
-DECL|field|bean
+DECL|field|bean1
 specifier|protected
 name|CamelContextAwareBean
-name|bean
+name|bean1
 decl_stmt|;
-DECL|method|testInjectionPoints ()
+DECL|method|xtestInjectionPoints ()
 specifier|public
 name|void
-name|testInjectionPoints
+name|xtestInjectionPoints
 parameter_list|()
 throws|throws
 name|Exception
@@ -109,7 +121,7 @@ name|assertNotNull
 argument_list|(
 literal|"No CamelContext injected!"
 argument_list|,
-name|bean
+name|bean1
 operator|.
 name|getCamelContext
 argument_list|()
@@ -123,7 +135,7 @@ name|String
 argument_list|>
 name|properties
 init|=
-name|bean
+name|bean1
 operator|.
 name|getCamelContext
 argument_list|()
@@ -161,7 +173,7 @@ argument_list|(
 literal|"org.apache.camel.test"
 argument_list|)
 argument_list|,
-literal|"this is a test second"
+literal|"this is a test first"
 argument_list|)
 expr_stmt|;
 block|}
@@ -185,12 +197,38 @@ argument_list|,
 literal|"producer1"
 argument_list|)
 decl_stmt|;
-comment|// The producer is injected with a wrong camel context
 name|assertEquals
 argument_list|(
 literal|"Inject a wrong camel context"
 argument_list|,
 name|producer1
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|"camel1"
+argument_list|)
+expr_stmt|;
+name|DefaultProducerTemplate
+name|producer2
+init|=
+name|getMandatoryBean
+argument_list|(
+name|DefaultProducerTemplate
+operator|.
+name|class
+argument_list|,
+literal|"producer2"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Inject a wrong camel context"
+argument_list|,
+name|producer2
 operator|.
 name|getContext
 argument_list|()
@@ -217,7 +255,7 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|bean
+name|bean1
 operator|=
 name|getMandatoryBean
 argument_list|(
@@ -225,7 +263,7 @@ name|CamelContextAwareBean
 operator|.
 name|class
 argument_list|,
-literal|"bean"
+literal|"bean1"
 argument_list|)
 expr_stmt|;
 block|}

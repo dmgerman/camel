@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -35,6 +45,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -594,7 +614,7 @@ name|void
 name|init
 parameter_list|()
 block|{
-comment|// remoting
+comment|// These elements parser should be used inside the camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"proxy"
@@ -602,6 +622,8 @@ argument_list|,
 name|CamelProxyFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -611,6 +633,8 @@ argument_list|,
 name|CamelProducerTemplateFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -620,6 +644,8 @@ argument_list|,
 name|CamelConsumerTemplateFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -629,9 +655,11 @@ argument_list|,
 name|CamelServiceExporter
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
-comment|// jmx agent
+comment|// jmx agent cannot be used outside of the camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"jmxAgent"
@@ -639,9 +667,12 @@ argument_list|,
 name|CamelJMXAgentDefinition
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// endpoint
+comment|// This element cannot be used out side of camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"endpoint"
@@ -649,6 +680,8 @@ argument_list|,
 name|CamelEndpointFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// camel context
@@ -773,6 +806,34 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|addBeanDefinitionParser
+argument_list|(
+name|elementName
+argument_list|,
+name|type
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addBeanDefinitionParser (String elementName, Class<?> type, boolean register)
+specifier|private
+name|void
+name|addBeanDefinitionParser
+parameter_list|(
+name|String
+name|elementName
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|boolean
+name|register
+parameter_list|)
+block|{
 name|BeanDefinitionParser
 name|parser
 init|=
@@ -782,6 +843,11 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|register
+condition|)
+block|{
 name|registerParser
 argument_list|(
 name|elementName
@@ -789,6 +855,7 @@ argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 name|parserMap
 operator|.
 name|put
@@ -1535,6 +1602,13 @@ operator|.
 name|getChildNodes
 argument_list|()
 decl_stmt|;
+name|List
+name|beans
+init|=
+operator|new
+name|ArrayList
+argument_list|()
+decl_stmt|;
 name|int
 name|size
 init|=
@@ -1719,6 +1793,56 @@ argument_list|(
 literal|"camelJMXAgent"
 argument_list|,
 name|id
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set the templates with the camel context
+if|if
+condition|(
+name|localName
+operator|.
+name|equals
+argument_list|(
+literal|"template"
+argument_list|)
+operator|||
+name|localName
+operator|.
+name|equals
+argument_list|(
+literal|"consumerTemplat"
+argument_list|)
+operator|||
+name|localName
+operator|.
+name|equals
+argument_list|(
+literal|"proxy"
+argument_list|)
+operator|||
+name|localName
+operator|.
+name|equals
+argument_list|(
+literal|"export"
+argument_list|)
+condition|)
+block|{
+comment|// set the camel context
+name|definition
+operator|.
+name|getPropertyValues
+argument_list|()
+operator|.
+name|addPropertyValue
+argument_list|(
+literal|"camelContext"
+argument_list|,
+operator|new
+name|RuntimeBeanReference
+argument_list|(
+name|contextId
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
