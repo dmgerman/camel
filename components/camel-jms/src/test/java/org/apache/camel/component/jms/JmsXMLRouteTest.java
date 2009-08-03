@@ -732,6 +732,8 @@ init|=
 operator|new
 name|StringSource
 argument_list|(
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
 literal|"<person user=\"james\">\n"
 operator|+
 literal|"<firstName>James</firstName>\n"
@@ -811,6 +813,8 @@ init|=
 operator|new
 name|StringSource
 argument_list|(
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
 literal|"<person user=\"james\">\n"
 operator|+
 literal|"<firstName>James</firstName>\n"
@@ -890,6 +894,8 @@ init|=
 operator|new
 name|StringSource
 argument_list|(
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
 literal|"<person user=\"james\">\n"
 operator|+
 literal|"<firstName>James</firstName>\n"
