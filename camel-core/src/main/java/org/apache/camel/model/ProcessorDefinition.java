@@ -237,22 +237,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-operator|.
-name|body
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -647,6 +631,22 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+operator|.
+name|body
 import|;
 end_import
 
@@ -1291,7 +1291,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
 name|routeContext
 operator|.
 name|getDelayer
@@ -1305,7 +1304,6 @@ name|getDelayer
 argument_list|()
 operator|<=
 literal|0
-operator|)
 condition|)
 block|{
 comment|// delayer is disabled so we should not add it

@@ -717,38 +717,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|startServices
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|stopServices
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -787,6 +755,38 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|startServices
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|stopServices
 import|;
 end_import
 
