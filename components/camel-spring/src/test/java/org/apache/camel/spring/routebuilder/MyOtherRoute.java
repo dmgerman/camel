@@ -132,6 +132,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|ctx
+return|;
+block|}
 block|}
 end_class
 

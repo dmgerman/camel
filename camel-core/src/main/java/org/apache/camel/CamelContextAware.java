@@ -33,6 +33,12 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 function_decl|;
+comment|/**      * Get the {@link CamelContext}      *      * @return camelContext the Camel context      */
+DECL|method|getCamelContext ()
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
