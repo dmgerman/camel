@@ -72,6 +72,20 @@ name|TimeoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
 begin_comment
 comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if processing of  * the {@link Exchange} failed and an Exception occured. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the send<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
 end_comment
@@ -1277,6 +1291,152 @@ name|type
 parameter_list|)
 throws|throws
 name|TimeoutException
+function_decl|;
+comment|// Asynchronous methods with callback
+comment|// -----------------------------------------------------------------------
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param exchange      the exchange to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallback (String endpointUri, Exchange exchange, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncCallback
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpoint      the endpoint to send the exchange to      * @param exchange      the exchange to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallback (Endpoint endpoint, Exchange exchange, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncCallback
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint using a supplied processor.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param processor     the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallback (String endpointUri, Processor processor, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncCallback
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint using a supplied processor.      *      * @param endpoint      the endpoint to send the exchange to      * @param processor     the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallback (Endpoint endpoint, Processor processor, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncCallback
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOnly} message exchange pattern.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the body to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallbackSendBody (String endpointUri, Object body, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncCallbackSendBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOnly} message exchange pattern.      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the body to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallbackSendBody (Endpoint endpoint, Object body, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncCallbackSendBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the body to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallbackRequestBody (String endpointUri, Object body, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncCallbackRequestBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the body to send      * @param onCompletion  callback invoked when exchange has been completed      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncCallbackRequestBody (Endpoint endpoint, Object body, Synchronization onCompletion)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncCallbackRequestBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Synchronization
+name|onCompletion
+parameter_list|)
 function_decl|;
 block|}
 end_interface
