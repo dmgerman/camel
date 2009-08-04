@@ -271,7 +271,7 @@ argument_list|)
 expr_stmt|;
 comment|// send the query to direct that will route it to the sql where we will execute the query
 comment|// and bind the parameters with the data from the body. The body only contains one value
-comment|// in this case (GPL) but if we should use multi values then the body will be iterated
+comment|// in this case (XXX) but if we should use multi values then the body will be iterated
 comment|// so we could supply a List<String> instead containing each binding value.
 name|template
 operator|.
@@ -279,7 +279,7 @@ name|sendBody
 argument_list|(
 literal|"direct:simple"
 argument_list|,
-literal|"GPL"
+literal|"XXX"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -407,7 +407,7 @@ name|jdbcTemplate
 operator|.
 name|execute
 argument_list|(
-literal|"insert into projects values (3, 'Linux', 'GPL')"
+literal|"insert into projects values (3, 'Linux', 'XXX')"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e2

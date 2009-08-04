@@ -286,7 +286,7 @@ name|jdbcTemplate
 operator|.
 name|execute
 argument_list|(
-literal|"insert into projects values (3, 'Linux', 'GPL')"
+literal|"insert into projects values (3, 'Linux', 'XXX')"
 argument_list|)
 expr_stmt|;
 block|}
