@@ -198,7 +198,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"direct:start"
+literal|"direct://proxy"
 argument_list|,
 operator|new
 name|Processor
@@ -339,7 +339,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"direct:start"
+literal|"direct://http"
 argument_list|,
 operator|new
 name|Processor
