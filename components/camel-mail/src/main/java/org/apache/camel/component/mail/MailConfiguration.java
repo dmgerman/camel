@@ -309,6 +309,11 @@ specifier|private
 name|boolean
 name|useInlineAttachments
 decl_stmt|;
+DECL|field|ignoreUnsupportedCharset
+specifier|private
+name|boolean
+name|ignoreUnsupportedCharset
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -1765,6 +1770,32 @@ operator|.
 name|useInlineAttachments
 operator|=
 name|useInlineAttachments
+expr_stmt|;
+block|}
+DECL|method|isIgnoreUnsupportedCharset ()
+specifier|public
+name|boolean
+name|isIgnoreUnsupportedCharset
+parameter_list|()
+block|{
+return|return
+name|ignoreUnsupportedCharset
+return|;
+block|}
+DECL|method|setIgnoreUnsupportedCharset (boolean ignoreUnsupportedCharset)
+specifier|public
+name|void
+name|setIgnoreUnsupportedCharset
+parameter_list|(
+name|boolean
+name|ignoreUnsupportedCharset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreUnsupportedCharset
+operator|=
+name|ignoreUnsupportedCharset
 expr_stmt|;
 block|}
 block|}
