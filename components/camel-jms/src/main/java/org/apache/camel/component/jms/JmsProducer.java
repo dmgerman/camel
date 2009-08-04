@@ -1615,6 +1615,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|destinationName
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// remove the header so it wont be propagated
 name|in
 operator|.
@@ -1625,6 +1632,7 @@ operator|.
 name|JMS_DESTINATION_NAME
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|destinationName
@@ -1656,6 +1664,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|destination
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// remove the header so it wont be propagated
 name|in
 operator|.
@@ -1666,6 +1681,7 @@ operator|.
 name|JMS_DESTINATION
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|destination
