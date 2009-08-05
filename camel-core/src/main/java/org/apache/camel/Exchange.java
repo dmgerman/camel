@@ -224,6 +224,12 @@ name|GROUPED_EXCHANGE
 init|=
 literal|"CamelGroupedExchange"
 decl_stmt|;
+DECL|field|HTTP_BASE_URI
+name|String
+name|HTTP_BASE_URI
+init|=
+literal|"CamelHttpBaseUri"
+decl_stmt|;
 DECL|field|HTTP_CHARACTER_ENCODING
 name|String
 name|HTTP_CHARACTER_ENCODING
