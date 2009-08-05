@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/fileonly"
+literal|"target/files"
 argument_list|)
 expr_stmt|;
 name|super
