@@ -999,14 +999,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|result
+if|if
+condition|(
+name|source
 operator|.
-name|getProperties
+name|hasProperties
 argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+condition|)
+block|{
 name|result
 operator|.
 name|getProperties
@@ -1020,6 +1020,7 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.        *       * @param source source exchange.      * @param result target exchange.      */
@@ -1117,14 +1118,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// copy properties
-name|result
+if|if
+condition|(
+name|source
 operator|.
-name|getProperties
+name|hasProperties
 argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+condition|)
+block|{
 name|result
 operator|.
 name|getProperties
@@ -1138,6 +1139,7 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *       * @param exchange      *            message exchange.      * @return result message.      */
 DECL|method|getResultMessage (Exchange exchange)
