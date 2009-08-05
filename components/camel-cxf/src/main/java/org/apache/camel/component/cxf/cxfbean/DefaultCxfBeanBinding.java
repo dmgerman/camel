@@ -783,9 +783,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|CxfBeanHeaderNames
+name|Exchange
 operator|.
-name|BASE_PATH
+name|HTTP_BASE_URI
 argument_list|,
 name|String
 operator|.
