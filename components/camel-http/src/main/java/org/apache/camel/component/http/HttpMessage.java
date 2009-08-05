@@ -42,6 +42,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -95,7 +107,12 @@ specifier|private
 name|HttpServletRequest
 name|request
 decl_stmt|;
-DECL|method|HttpMessage (Exchange exchange, HttpServletRequest request)
+DECL|field|response
+specifier|private
+name|HttpServletResponse
+name|response
+decl_stmt|;
+DECL|method|HttpMessage (Exchange exchange, HttpServletRequest request, HttpServletResponse response)
 specifier|public
 name|HttpMessage
 parameter_list|(
@@ -104,6 +121,9 @@ name|exchange
 parameter_list|,
 name|HttpServletRequest
 name|request
+parameter_list|,
+name|HttpServletResponse
+name|response
 parameter_list|)
 block|{
 name|setExchange
@@ -116,6 +136,12 @@ operator|.
 name|request
 operator|=
 name|request
+expr_stmt|;
+name|this
+operator|.
+name|response
+operator|=
+name|response
 expr_stmt|;
 comment|// use binding to read the request allowing end users to use their
 comment|// implementation of the binding
@@ -141,6 +167,16 @@ parameter_list|()
 block|{
 return|return
 name|request
+return|;
+block|}
+DECL|method|getResponse ()
+specifier|public
+name|HttpServletResponse
+name|getResponse
+parameter_list|()
+block|{
+return|return
+name|response
 return|;
 block|}
 annotation|@
