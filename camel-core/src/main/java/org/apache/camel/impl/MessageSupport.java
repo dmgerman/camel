@@ -575,6 +575,14 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|that
+operator|.
+name|hasHeaders
+argument_list|()
+condition|)
+block|{
 name|getHeaders
 argument_list|()
 operator|.
@@ -586,6 +594,15 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|that
+operator|.
+name|hasAttachments
+argument_list|()
+condition|)
+block|{
 name|getAttachments
 argument_list|()
 operator|.
@@ -597,6 +614,7 @@ name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getExchange ()
 specifier|public

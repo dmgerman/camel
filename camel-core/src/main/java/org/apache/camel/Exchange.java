@@ -466,6 +466,12 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
+comment|/**      * Returns whether any properties has been set      *      * @return<tt>true</tt> if any properties has been set      */
+DECL|method|hasProperties ()
+name|boolean
+name|hasProperties
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the inbound request message      *      * @return the message      */
 DECL|method|getIn ()
 name|Message

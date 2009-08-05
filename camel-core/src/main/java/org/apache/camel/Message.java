@@ -163,6 +163,12 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
+comment|/**      * Returns whether has any headers has been set.      *      * @return<tt>true</tt> if any headers has been set      */
+DECL|method|hasHeaders ()
+name|boolean
+name|hasHeaders
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the body of the message as a POJO      *<p/>      * The body can be<tt>null</tt> if no body is set      *      * @return the body, can be<tt>null</tt>      */
 DECL|method|getBody ()
 name|Object

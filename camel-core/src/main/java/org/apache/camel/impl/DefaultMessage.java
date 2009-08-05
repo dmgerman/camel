@@ -424,6 +424,24 @@ operator|=
 name|headers
 expr_stmt|;
 block|}
+DECL|method|hasHeaders ()
+specifier|public
+name|boolean
+name|hasHeaders
+parameter_list|()
+block|{
+return|return
+name|headers
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|headers
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 DECL|method|newInstance ()
 specifier|public
 name|DefaultMessage
