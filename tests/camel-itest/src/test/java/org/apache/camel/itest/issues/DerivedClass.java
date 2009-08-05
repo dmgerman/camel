@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean.issues
+DECL|package|org.apache.camel.itest.issues
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
+name|itest
 operator|.
 name|issues
 package|;
@@ -53,23 +51,14 @@ operator|=
 name|body
 expr_stmt|;
 block|}
-DECL|method|getAndClearBody ()
+DECL|method|getBody ()
 specifier|public
 name|String
-name|getAndClearBody
+name|getBody
 parameter_list|()
 block|{
-name|String
-name|answer
-init|=
-name|body
-decl_stmt|;
-name|body
-operator|=
-literal|null
-expr_stmt|;
 return|return
-name|answer
+name|body
 return|;
 block|}
 block|}

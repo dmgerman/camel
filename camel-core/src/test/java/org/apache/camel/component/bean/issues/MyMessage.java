@@ -25,51 +25,51 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DerivedClass
+DECL|class|MyMessage
 specifier|public
 class|class
-name|DerivedClass
-extends|extends
-name|BaseClass
+name|MyMessage
 block|{
-DECL|field|body
+DECL|field|message
 specifier|private
 name|String
-name|body
+name|message
 decl_stmt|;
-DECL|method|process (String body)
+DECL|method|MyMessage (String message)
 specifier|public
-name|void
-name|process
+name|MyMessage
 parameter_list|(
 name|String
-name|body
+name|message
 parameter_list|)
 block|{
 name|this
 operator|.
-name|body
+name|message
 operator|=
-name|body
+name|message
 expr_stmt|;
 block|}
-DECL|method|getAndClearBody ()
+DECL|method|getMessage ()
 specifier|public
 name|String
-name|getAndClearBody
+name|getMessage
 parameter_list|()
 block|{
-name|String
-name|answer
-init|=
-name|body
-decl_stmt|;
-name|body
-operator|=
-literal|null
-expr_stmt|;
 return|return
-name|answer
+name|message
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|message
 return|;
 block|}
 block|}

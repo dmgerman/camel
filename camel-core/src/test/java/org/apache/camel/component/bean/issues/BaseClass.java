@@ -29,13 +29,15 @@ DECL|class|BaseClass
 specifier|public
 class|class
 name|BaseClass
+implements|implements
+name|MyMessageListener
 block|{
-DECL|method|onMessage (String message)
+DECL|method|onMessage (MyMessage message)
 specifier|public
 name|void
 name|onMessage
 parameter_list|(
-name|String
+name|MyMessage
 name|message
 parameter_list|)
 block|{

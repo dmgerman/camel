@@ -350,6 +350,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// do we have am explict method name we always should invoke
+name|boolean
+name|isExplicitMethod
+init|=
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|method
+argument_list|)
+decl_stmt|;
 name|Object
 name|bean
 init|=
@@ -369,12 +380,6 @@ argument_list|,
 name|beanHolder
 argument_list|)
 expr_stmt|;
-name|Processor
-name|processor
-init|=
-name|getProcessor
-argument_list|()
-decl_stmt|;
 name|BeanInfo
 name|beanInfo
 init|=
@@ -384,13 +389,41 @@ name|getBeanInfo
 argument_list|()
 decl_stmt|;
 comment|// do we have a custom adapter for this POJO to a Processor
+comment|// should not be invoced if an explict method has been set
+name|Processor
+name|processor
+init|=
+name|getProcessor
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|isExplicitMethod
+operator|&&
 name|processor
 operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using a custom adapter as bean invocation: "
+operator|+
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 name|processor
 operator|.
 name|process
@@ -465,11 +498,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|boolean
-name|isExplicitMethod
-init|=
-literal|false
-decl_stmt|;
 name|String
 name|prevMethod
 init|=
@@ -504,12 +532,7 @@ block|{
 comment|// we just override the bean's invocation method name here
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|method
-argument_list|)
+name|isExplicitMethod
 condition|)
 block|{
 name|prevMethod
@@ -537,10 +560,6 @@ name|BEAN_METHOD_NAME
 argument_list|,
 name|method
 argument_list|)
-expr_stmt|;
-name|isExplicitMethod
-operator|=
-literal|true
 expr_stmt|;
 block|}
 name|invocation

@@ -24,56 +24,22 @@ begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|DerivedClass
+begin_interface
+DECL|interface|MyMessageListener
 specifier|public
-class|class
-name|DerivedClass
-extends|extends
-name|BaseClass
+interface|interface
+name|MyMessageListener
 block|{
-DECL|field|body
-specifier|private
-name|String
-name|body
-decl_stmt|;
-DECL|method|process (String body)
-specifier|public
+DECL|method|onMessage (MyMessage message)
 name|void
-name|process
+name|onMessage
 parameter_list|(
-name|String
-name|body
+name|MyMessage
+name|message
 parameter_list|)
-block|{
-name|this
-operator|.
-name|body
-operator|=
-name|body
-expr_stmt|;
+function_decl|;
 block|}
-DECL|method|getAndClearBody ()
-specifier|public
-name|String
-name|getAndClearBody
-parameter_list|()
-block|{
-name|String
-name|answer
-init|=
-name|body
-decl_stmt|;
-name|body
-operator|=
-literal|null
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
