@@ -44,6 +44,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|core
+operator|.
+name|MultivaluedMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,6 +69,10 @@ operator|.
 name|Exchange
 import|;
 end_import
+
+begin_comment
+comment|/**  * Interface to bind between Camel and CXF exchange for RESTful resources.  *  * @version $Revision$  */
+end_comment
 
 begin_interface
 DECL|interface|CxfRsBinding
@@ -103,6 +121,107 @@ name|camelExchange
 parameter_list|,
 name|Exchange
 name|cxfExchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Bind the camel in message body to a request body that gets passed      * to CXF RS {@link org.apache.cxf.jaxrs.client.WebClient} APIs.      *       * @param camelMessage the source message      * @param camelExchange the Camel exchange      * @return the request object to be passed to invoke a WebClient      * @throws Exception      */
+DECL|method|bindCamelMessageBodyToRequestBody (org.apache.camel.Message camelMessage, org.apache.camel.Exchange camelExchange)
+name|Object
+name|bindCamelMessageBodyToRequestBody
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+name|camelMessage
+parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+name|camelExchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Bind the camel headers to request headers that gets passed to CXF RS      * {@link org.apache.cxf.jaxrs.client.WebClient} APIs.      *       * @param camelHeaders the source headers      * @param camelExchange the Camel exchange      * @param headers to be passed to WebClient      * @throws Exception      */
+DECL|method|bindCamelHeadersToRequestHeaders (Map<String, Object> camelHeaders, org.apache.camel.Exchange camelExchange)
+name|MultivaluedMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|bindCamelHeadersToRequestHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|camelHeaders
+parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+name|camelExchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Bind the HTTP response body to camel out body      * @param response      * @param exchange      * @return the object to be set in the Camel out message body      */
+DECL|method|bindResponseToCamelBody (Object response, org.apache.camel.Exchange camelExchange)
+name|Object
+name|bindResponseToCamelBody
+parameter_list|(
+name|Object
+name|response
+parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+name|camelExchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Bind the response headers to camel out headers.      *       * @param response      * @param exchange      * @return headers to be set in the Camel out message      * @throws Exception      */
+DECL|method|bindResponseHeadersToCamelHeaders (Object response, org.apache.camel.Exchange exchange)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|bindResponseHeadersToCamelHeaders
+parameter_list|(
+name|Object
+name|response
+parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|Exception

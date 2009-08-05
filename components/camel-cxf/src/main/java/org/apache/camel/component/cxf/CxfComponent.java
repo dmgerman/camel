@@ -239,11 +239,6 @@ argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-name|setEndpointHeaderFilterStrategy
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
 comment|// Apply Spring bean properties (including # notation referenced bean).  Note that the
 comment|// Spring bean properties values can be overridden by property defined in URI query.
 comment|// The super class (DefaultComponent) will invoke "setProperties" after this method
@@ -308,6 +303,11 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+name|setEndpointHeaderFilterStrategy
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
