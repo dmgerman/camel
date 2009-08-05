@@ -302,10 +302,10 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|onDone (Exchange exchange)
+DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
-name|onDone
+name|onComplete
 parameter_list|(
 name|Exchange
 name|exchange
