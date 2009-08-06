@@ -24,7 +24,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|MessageListener
+name|Message
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|Message
+name|MessageListener
 import|;
 end_import
 

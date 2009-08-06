@@ -1495,7 +1495,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// configure stream caching
+comment|// configure handle fault
 if|if
 condition|(
 name|handleFault

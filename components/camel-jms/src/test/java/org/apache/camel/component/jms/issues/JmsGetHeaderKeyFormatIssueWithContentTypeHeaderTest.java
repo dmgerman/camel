@@ -80,9 +80,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|jms
 operator|.
-name|MockEndpoint
+name|JmsMessage
 import|;
 end_import
 
@@ -96,9 +96,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|mock
 operator|.
-name|JmsMessage
+name|MockEndpoint
 import|;
 end_import
 

@@ -74,11 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|http
-operator|.
-name|HttpMessage
+name|RouteBuilder
 import|;
 end_import
 
@@ -90,9 +88,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|http
+operator|.
+name|HttpMessage
 import|;
 end_import
 
