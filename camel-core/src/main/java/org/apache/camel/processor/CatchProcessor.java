@@ -196,10 +196,10 @@ return|return
 literal|"Catch"
 return|;
 block|}
-comment|/**      * Whether this catch processor catch the given thrown exception      *      * @param exchange  the current exchange      * @param exception the thrown exception      * @return<tt>true</tt> if this processor catches it,<tt>false</tt> otherwise.      */
+comment|/**      * Returns with the exception that is caught by this processor.      *       * This method traverses exception causes, so sometimes the exception      * returned from this method might be one of causes of the parameter      * passed.      *      * @param exchange  the current exchange      * @param exception the thrown exception      * @return Throwable that this processor catches.<tt>null</tt> if nothing matches.      */
 DECL|method|catches (Exchange exchange, Throwable exception)
 specifier|public
-name|boolean
+name|Throwable
 name|catches
 parameter_list|(
 name|Exchange
@@ -243,6 +243,9 @@ comment|// see if we catch this type
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|exceptions
@@ -264,14 +267,14 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|e
 return|;
 block|}
 block|}
 block|}
 comment|// not found
 return|return
-literal|false
+literal|null
 return|;
 block|}
 comment|/**      * Whether this catch processor handles the exception it have caught      *      * @param exchange  the current exchange      * @return<tt>true</tt> if this processor handles it,<tt>false</tt> otherwise.      */

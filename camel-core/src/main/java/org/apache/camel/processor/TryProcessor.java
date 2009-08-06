@@ -461,8 +461,9 @@ range|:
 name|catchClauses
 control|)
 block|{
-if|if
-condition|(
+name|Throwable
+name|caught
+init|=
 name|catchClause
 operator|.
 name|catches
@@ -471,6 +472,12 @@ name|exchange
 argument_list|,
 name|e
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|caught
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -487,7 +494,7 @@ name|trace
 argument_list|(
 literal|"This TryProcessor catches the exception: "
 operator|+
-name|e
+name|caught
 operator|.
 name|getClass
 argument_list|()
@@ -521,7 +528,7 @@ name|Exchange
 operator|.
 name|EXCEPTION_CAUGHT
 argument_list|,
-name|e
+name|caught
 argument_list|)
 expr_stmt|;
 comment|// give the rest of the pipeline another chance
@@ -578,7 +585,7 @@ argument_list|()
 operator|+
 literal|" caused by: "
 operator|+
-name|e
+name|caught
 operator|.
 name|getMessage
 argument_list|()
