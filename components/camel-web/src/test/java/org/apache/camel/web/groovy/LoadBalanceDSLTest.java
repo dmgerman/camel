@@ -30,10 +30,10 @@ name|LoadBalanceDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testFromTo ()
+DECL|method|testLoadBalanceRandom ()
 specifier|public
 name|void
-name|testFromTo
+name|testLoadBalanceRandom
 parameter_list|()
 throws|throws
 name|Exception
@@ -47,6 +47,35 @@ name|String
 name|expectedDSL
 init|=
 literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLoadBalanceFailover ()
+specifier|public
+name|void
+name|testLoadBalanceFailover
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\", \"direct:y\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\").to(\"direct:y\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

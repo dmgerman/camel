@@ -30,6 +30,35 @@ name|RoutingSlipDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+DECL|method|testRoutingSlip ()
+specifier|public
+name|void
+name|testRoutingSlip
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:a\").routingSlip(\"myHeader\").to(\"mock:end\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"from(\"direct:a\").routingSlip(\"myHeader\", \",\").to(\"mock:end\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testRoutingSlip1 ()
 specifier|public
 name|void
@@ -41,12 +70,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").routingSlip(\"headerName\")"
+literal|"from(\"direct:b\").routingSlip(\"aRoutingSlipHeader\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").routingSlip(\"headerName\", \",\")"
+literal|"from(\"direct:b\").routingSlip(\"aRoutingSlipHeader\", \",\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -70,7 +99,7 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").routingSlip(\"aRoutingSlipHeader\", \"#\")"
+literal|"from(\"direct:c\").routingSlip(\"aRoutingSlipHeader\", \"#\")"
 decl_stmt|;
 name|String
 name|expectedDSL

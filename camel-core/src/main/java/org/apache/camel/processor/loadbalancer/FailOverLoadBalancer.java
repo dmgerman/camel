@@ -151,6 +151,19 @@ throw|;
 block|}
 block|}
 block|}
+DECL|method|getExceptions ()
+specifier|public
+name|List
+argument_list|<
+name|Class
+argument_list|>
+name|getExceptions
+parameter_list|()
+block|{
+return|return
+name|exceptions
+return|;
+block|}
 comment|/**      * Should the given failed Exchange failover?      *      * @param exchange the exchange that failed      * @return<tt>true</tt> to failover      */
 DECL|method|shouldFailOver (Exchange exchange)
 specifier|protected

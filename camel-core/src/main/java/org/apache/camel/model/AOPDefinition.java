@@ -219,6 +219,36 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|getBeforeUri ()
+specifier|public
+name|String
+name|getBeforeUri
+parameter_list|()
+block|{
+return|return
+name|beforeUri
+return|;
+block|}
+DECL|method|getAfterUri ()
+specifier|public
+name|String
+name|getAfterUri
+parameter_list|()
+block|{
+return|return
+name|afterUri
+return|;
+block|}
+DECL|method|getAfterFinallyUri ()
+specifier|public
+name|String
+name|getAfterFinallyUri
+parameter_list|()
+block|{
+return|return
+name|afterFinallyUri
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()

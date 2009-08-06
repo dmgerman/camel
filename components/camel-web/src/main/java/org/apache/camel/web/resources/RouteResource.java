@@ -746,9 +746,7 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
-operator|new
 name|GroovyRenderer
-argument_list|()
 operator|.
 name|renderRoute
 argument_list|(

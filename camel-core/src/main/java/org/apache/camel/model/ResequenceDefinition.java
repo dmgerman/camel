@@ -655,6 +655,19 @@ return|return
 name|expressions
 return|;
 block|}
+DECL|method|getExpressionList ()
+specifier|public
+name|List
+argument_list|<
+name|Expression
+argument_list|>
+name|getExpressionList
+parameter_list|()
+block|{
+return|return
+name|expressionList
+return|;
+block|}
 DECL|method|getOutputs ()
 specifier|public
 name|List

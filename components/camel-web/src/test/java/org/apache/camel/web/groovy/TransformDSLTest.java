@@ -30,10 +30,10 @@ name|TransformDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testTransformToConstant ()
+DECL|method|testTransformToConstant1 ()
 specifier|public
 name|void
-name|testTransformToConstant
+name|testTransformToConstant1
 parameter_list|()
 throws|throws
 name|Exception
@@ -42,6 +42,35 @@ name|String
 name|DSL
 init|=
 literal|"from(\"direct:start\").transform().constant(\"London\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"from(\"direct:start\").transform(constant(\"London\")).to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testTransformToConstant2 ()
+specifier|public
+name|void
+name|testTransformToConstant2
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").transform(constant(\"London\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
