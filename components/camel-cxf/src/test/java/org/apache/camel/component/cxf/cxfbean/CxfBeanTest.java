@@ -261,7 +261,7 @@ specifier|final
 name|String
 name|PUT_REQUEST
 init|=
-literal|"<Customer><name>Mary</name><id>123</id></Customer>"
+literal|"<Customer><name>Mary</name><id>113</id></Customer>"
 decl_stmt|;
 DECL|field|POST_REQUEST
 specifier|private
