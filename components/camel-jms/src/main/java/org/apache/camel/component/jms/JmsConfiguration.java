@@ -1446,11 +1446,15 @@ decl_stmt|;
 if|if
 condition|(
 name|priority
-operator|<=
+argument_list|<
 literal|0
+operator|||
+name|priority
+argument_list|>
+literal|9
 condition|)
 block|{
-comment|// use prioriry from endpoint if not provided on message
+comment|// use prioriry from endpoint if not provided on message with a valid range
 name|priority
 operator|=
 name|this
