@@ -187,7 +187,7 @@ expr_stmt|;
 block|}
 DECL|method|invoke ()
 specifier|public
-name|void
+name|String
 name|invoke
 parameter_list|()
 throws|throws
@@ -424,15 +424,9 @@ operator|.
 name|getTextContent
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
+return|return
 name|responseMessageText
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|main (String[] args)
 specifier|public

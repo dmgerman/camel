@@ -105,7 +105,7 @@ name|cfb
 operator|.
 name|setAddress
 argument_list|(
-literal|"http://localhost:9000/soap"
+literal|"http://localhost:9006/soap"
 argument_list|)
 expr_stmt|;
 name|bookStore

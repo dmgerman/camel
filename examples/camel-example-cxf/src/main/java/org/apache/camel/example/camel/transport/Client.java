@@ -24,29 +24,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
 import|;
 end_import
 
@@ -59,18 +39,6 @@ operator|.
 name|namespace
 operator|.
 name|QName
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|ws
-operator|.
-name|ProtocolException
 import|;
 end_import
 
@@ -107,18 +75,6 @@ operator|.
 name|hello_world_soap_http
 operator|.
 name|PingMeFault
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|hello_world_soap_http
-operator|.
-name|SOAPService
 import|;
 end_import
 
@@ -178,6 +134,11 @@ specifier|private
 name|Service
 name|service
 decl_stmt|;
+DECL|field|port
+specifier|private
+name|Greeter
+name|port
+decl_stmt|;
 DECL|method|Client (String address)
 specifier|public
 name|Client
@@ -219,15 +180,6 @@ argument_list|,
 name|address
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|invoke ()
-specifier|public
-name|void
-name|invoke
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|System
 operator|.
 name|out
@@ -237,9 +189,8 @@ argument_list|(
 literal|"Acquiring router port ..."
 argument_list|)
 expr_stmt|;
-name|Greeter
 name|port
-init|=
+operator|=
 name|service
 operator|.
 name|getPort
@@ -250,7 +201,26 @@ name|Greeter
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+DECL|method|getProxy ()
+specifier|public
+name|Greeter
+name|getProxy
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|invoke ()
+specifier|public
+name|void
+name|invoke
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|String
 name|resp
 decl_stmt|;

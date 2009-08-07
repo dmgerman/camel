@@ -235,6 +235,42 @@ specifier|private
 name|CamelCxfExample
 parameter_list|()
 block|{     }
+DECL|class|MyRouteBuilder
+specifier|static
+class|class
+name|MyRouteBuilder
+extends|extends
+name|RouteBuilder
+block|{
+annotation|@
+name|Override
+DECL|method|configure ()
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// Here we just pass the exception back , don't need to use errorHandler
+name|errorHandler
+argument_list|(
+name|noErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+name|ROUTER_ENDPOINT_URI
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|SERVICE_ENDPOINT_URI
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|main (String args[])
 specifier|public
 specifier|static

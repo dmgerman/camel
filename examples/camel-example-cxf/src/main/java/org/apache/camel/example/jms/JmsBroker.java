@@ -73,7 +73,7 @@ DECL|field|jmsBrokerUrl
 name|String
 name|jmsBrokerUrl
 init|=
-literal|"tcp://localhost:61616"
+literal|"vm://localhost"
 decl_stmt|;
 DECL|field|activeMQStorageDir
 name|String
