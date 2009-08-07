@@ -30,26 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -691,9 +671,11 @@ name|connection
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|connection
 return|;
+block|}
 if|if
 condition|(
 name|port
@@ -1076,11 +1058,13 @@ name|connection
 operator|!=
 literal|null
 condition|)
+block|{
 name|connection
 operator|.
 name|disconnect
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
