@@ -430,6 +430,18 @@ name|boolean
 name|hasHeaders
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|hasPopulatedHeaders
+argument_list|()
+condition|)
+block|{
+comment|// force creating headers
+name|getHeaders
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|headers
 operator|!=
