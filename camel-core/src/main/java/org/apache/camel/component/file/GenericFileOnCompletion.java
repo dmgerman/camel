@@ -549,6 +549,17 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
+comment|// only WARN in case we do not handle it ourself by moving failed files
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getMoveFailed
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|log
@@ -570,6 +581,7 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 try|try
 block|{
