@@ -221,6 +221,11 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+DECL|field|minRate
+specifier|private
+name|int
+name|minRate
+decl_stmt|;
 DECL|field|produceDelay
 specifier|private
 name|long
@@ -470,40 +475,91 @@ return|return
 name|exchange
 return|;
 block|}
+DECL|method|getMinRate ()
+specifier|public
+name|int
+name|getMinRate
+parameter_list|()
+block|{
+return|return
+name|minRate
+return|;
+block|}
+DECL|method|setMinRate (int minRate)
+specifier|public
+name|void
+name|setMinRate
+parameter_list|(
+name|int
+name|minRate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minRate
+operator|=
+name|minRate
+expr_stmt|;
+block|}
 annotation|@
 name|Override
-DECL|method|waitForCompleteLatch ()
+DECL|method|waitForCompleteLatch (long timeout)
 specifier|protected
 name|void
 name|waitForCompleteLatch
-parameter_list|()
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-comment|// TODO lets do a much better version of this!
-name|long
-name|size
-init|=
-name|getDataSet
-argument_list|()
-operator|.
-name|getSize
-argument_list|()
-decl_stmt|;
-name|size
-operator|*=
-literal|4000
-expr_stmt|;
-name|setResultWaitTime
-argument_list|(
-name|size
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|waitForCompleteLatch
-argument_list|()
+argument_list|(
+name|timeout
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|minRate
+operator|>
+literal|0
+condition|)
+block|{
+name|int
+name|count
+init|=
+name|getReceivedCounter
+argument_list|()
+decl_stmt|;
+do|do
+block|{
+comment|// wait as long as we get a decent message rate
+name|super
+operator|.
+name|waitForCompleteLatch
+argument_list|(
+literal|1000L
+argument_list|)
+expr_stmt|;
+name|count
+operator|=
+name|getReceivedCounter
+argument_list|()
+operator|-
+name|count
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|count
+operator|>=
+name|minRate
+condition|)
+do|;
+block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
@@ -543,7 +599,7 @@ return|return
 name|preloadSize
 return|;
 block|}
-comment|/**      * Sets how many messages should be preloaded (sent) before the route completes its initialisation      */
+comment|/**      * Sets how many messages should be preloaded (sent) before the route completes its initialization      */
 DECL|method|setPreloadSize (long preloadSize)
 specifier|public
 name|void
@@ -676,6 +732,25 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+name|Integer
+name|dsi
+init|=
+name|actual
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|DATASET_INDEX
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -684,7 +759,11 @@ literal|"Received message: "
 operator|+
 name|index
 operator|+
-literal|" = "
+literal|" (DataSet index="
+operator|+
+name|dsi
+operator|+
+literal|") = "
 operator|+
 name|actual
 argument_list|)
@@ -714,20 +793,15 @@ name|consumeDelay
 argument_list|)
 expr_stmt|;
 block|}
-name|long
-name|group
-init|=
+if|if
+condition|(
+name|receivedCount
+operator|%
 name|getDataSet
 argument_list|()
 operator|.
 name|getReportCount
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|receivedCount
-operator|%
-name|group
 operator|==
 literal|0
 condition|)
@@ -780,7 +854,15 @@ literal|"Received: "
 operator|+
 name|receivedCount
 operator|+
-literal|" messages so far. Last group took: "
+literal|" messages so far. Last group of "
+operator|+
+name|getDataSet
+argument_list|()
+operator|.
+name|getReportCount
+argument_list|()
+operator|+
+literal|" took: "
 operator|+
 name|elapsed
 operator|+
@@ -878,6 +960,21 @@ operator|)
 name|size
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Start: "
+operator|+
+name|this
+operator|+
+literal|" expecting "
+operator|+
+name|size
+operator|+
+literal|" messages"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|public
@@ -886,7 +983,17 @@ name|stop
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stop: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -3331,7 +3331,7 @@ literal|0
 expr_stmt|;
 name|resultWaitTime
 operator|=
-literal|20000L
+literal|0
 expr_stmt|;
 name|resultMinimumWaitTime
 operator|=
@@ -3666,18 +3666,6 @@ literal|"Should have a latch!"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now lets wait for the results
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Waiting on the latch for: "
-operator|+
-name|resultWaitTime
-operator|+
-literal|" millis"
-argument_list|)
-expr_stmt|;
 name|long
 name|start
 init|=
@@ -3686,15 +3674,9 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|latch
-operator|.
-name|await
+name|waitForCompleteLatch
 argument_list|(
 name|resultWaitTime
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 name|long
@@ -3743,6 +3725,53 @@ literal|" millis."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|waitForCompleteLatch (long timeout)
+specifier|protected
+name|void
+name|waitForCompleteLatch
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+comment|// Wait for a default 10 seconds if resultWaitTime is not set
+name|long
+name|waitTime
+init|=
+name|timeout
+operator|==
+literal|0
+condition|?
+literal|10000L
+else|:
+name|timeout
+decl_stmt|;
+comment|// now lets wait for the results
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Waiting on the latch for: "
+operator|+
+name|timeout
+operator|+
+literal|" millis"
+argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|await
+argument_list|(
+name|waitTime
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertEquals (String message, Object expectedValue, Object actualValue)
 specifier|protected
