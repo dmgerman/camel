@@ -222,6 +222,16 @@ argument_list|,
 name|ssn
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"CreditAgency processed the request."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
