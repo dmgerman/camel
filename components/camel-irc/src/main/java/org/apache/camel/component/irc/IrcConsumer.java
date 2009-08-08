@@ -937,6 +937,16 @@ operator|.
 name|getTarget
 argument_list|()
 argument_list|)
+operator|||
+name|target
+operator|.
+name|equals
+argument_list|(
+name|configuration
+operator|.
+name|getNickname
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|Exchange
