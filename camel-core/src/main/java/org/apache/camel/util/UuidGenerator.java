@@ -38,6 +38,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -117,8 +131,12 @@ name|seed
 decl_stmt|;
 DECL|field|sequence
 specifier|private
-name|long
+name|AtomicLong
 name|sequence
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 static|static
 block|{
@@ -328,7 +346,6 @@ block|}
 comment|/**      * Generate a unqiue id      */
 DECL|method|generateId ()
 specifier|public
-specifier|synchronized
 name|String
 name|generateId
 parameter_list|()
@@ -338,12 +355,10 @@ name|this
 operator|.
 name|seed
 operator|+
-operator|(
-name|this
-operator|.
 name|sequence
-operator|++
-operator|)
+operator|.
+name|getAndIncrement
+argument_list|()
 return|;
 block|}
 comment|/**      * Generate a unique ID - that is friendly for a URL or file system      *       * @return a unique id      */
