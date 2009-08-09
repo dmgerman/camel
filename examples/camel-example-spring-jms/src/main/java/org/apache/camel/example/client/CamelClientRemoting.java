@@ -110,7 +110,7 @@ literal|"camel-client-remoting.xml"
 argument_list|)
 decl_stmt|;
 comment|// just get the proxy to the service and we as the client can use the "proxy" as it was
-comment|// a local object we are invocing. Camel will under the covers do the remote communication
+comment|// a local object we are invoking. Camel will under the covers do the remote communication
 comment|// to the remote ActiveMQ server and fetch the response.
 name|Multiplier
 name|multiplier
