@@ -90,16 +90,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -195,18 +185,15 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-annotation|@
 name|Test
-DECL|method|xxxtestSendError ()
+DECL|method|testSendError ()
 specifier|public
 name|void
-name|xxxtestSendError
+name|testSendError
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: See CAMEL-585
 name|Object
 name|out
 init|=
@@ -219,11 +206,26 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|IllegalArgumentException
+name|e
+init|=
+name|assertIsInstanceOf
 argument_list|(
-literal|"Damm"
+name|IllegalArgumentException
+operator|.
+name|class
 argument_list|,
 name|out
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Forced exception by unit test"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -318,7 +320,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:queue:error"
+literal|"activemq:queue:error?transferException=true"
 argument_list|)
 operator|.
 name|bean
