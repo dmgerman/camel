@@ -152,7 +152,15 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
-DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations)
+DECL|field|file
+specifier|private
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+decl_stmt|;
+DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file)
 specifier|public
 name|GenericFileOnCompletion
 parameter_list|(
@@ -167,6 +175,12 @@ argument_list|<
 name|T
 argument_list|>
 name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
 parameter_list|)
 block|{
 name|this
@@ -180,6 +194,12 @@ operator|.
 name|operations
 operator|=
 name|operations
+expr_stmt|;
+name|this
+operator|.
+name|file
+operator|=
+name|file
 expr_stmt|;
 block|}
 annotation|@
@@ -285,37 +305,6 @@ operator|.
 name|getGenericFileProcessStrategy
 argument_list|()
 decl_stmt|;
-comment|// after processing
-specifier|final
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|file
-init|=
-operator|(
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-operator|)
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|FileComponent
-operator|.
-name|FILE_EXCHANGE_FILE
-argument_list|)
-decl_stmt|;
-name|boolean
-name|failed
-init|=
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|log
@@ -346,6 +335,14 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|boolean
+name|failed
+init|=
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -490,7 +487,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Committing remote file strategy: "
+literal|"Commit file strategy: "
 operator|+
 name|processStrategy
 operator|+
@@ -549,17 +546,6 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
-comment|// only WARN in case we do not handle it ourself by moving failed files
-if|if
-condition|(
-name|endpoint
-operator|.
-name|getMoveFailed
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|log
@@ -572,7 +558,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Rolling back remote file strategy: "
+literal|"Rollback file strategy: "
 operator|+
 name|processStrategy
 operator|+
@@ -581,7 +567,6 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 try|try
 block|{
