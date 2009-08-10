@@ -334,8 +334,14 @@ name|get
 argument_list|(
 literal|"content-type"
 argument_list|)
-argument_list|,
-literal|"text/xml; charset=utf-8"
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"[text/xml; charset="
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
