@@ -2478,7 +2478,6 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-comment|// toLowerCase() for doing case insensitive search
 if|if
 condition|(
 name|value
@@ -2497,9 +2496,6 @@ argument_list|,
 name|header
 operator|.
 name|getName
-argument_list|()
-operator|.
-name|toLowerCase
 argument_list|()
 argument_list|,
 name|value
@@ -2520,9 +2516,6 @@ argument_list|,
 name|header
 operator|.
 name|getName
-argument_list|()
-operator|.
-name|toLowerCase
 argument_list|()
 argument_list|,
 name|value

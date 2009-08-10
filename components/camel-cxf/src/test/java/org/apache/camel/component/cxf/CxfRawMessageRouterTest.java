@@ -427,9 +427,9 @@ literal|"text/xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
-literal|"We should not get the content-type here"
+literal|"We should get the content-type here"
 argument_list|,
 name|exchange
 operator|.

@@ -626,7 +626,12 @@ expr_stmt|;
 comment|// make sure response code has been set in out header
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 literal|200
+argument_list|)
 argument_list|,
 name|outMessage
 operator|.
@@ -635,6 +640,10 @@ argument_list|(
 name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
