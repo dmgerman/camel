@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for lifecycle notifications.  */
+comment|/**  * Strategy for lifecycle notifications.  *<p/>  *<b>Node:</b> Subject to change in Camel 2.1  */
 end_comment
 
 begin_interface
