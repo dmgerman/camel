@@ -313,7 +313,7 @@ argument_list|,
 literal|200
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Should get the content type"
 argument_list|,
@@ -340,7 +340,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"[text/xml; charset="
+literal|"text/xml; charset="
 argument_list|)
 argument_list|)
 expr_stmt|;
