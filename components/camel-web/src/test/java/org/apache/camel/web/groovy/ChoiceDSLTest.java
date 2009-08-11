@@ -119,11 +119,10 @@ literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInven
 operator|+
 literal|".otherwise().to(\"bean:gadgetInventory\", \"seda:aggregate\")"
 decl_stmt|;
-comment|//TODO check this result
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").split(body()).choice()"
+literal|"from(\"direct:start\").split().body().choice()"
 operator|+
 literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\").to(\"seda:aggregate\")"
 operator|+

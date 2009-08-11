@@ -30,10 +30,10 @@ name|SortDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testRecipientList ()
 specifier|public
 name|void
-name|testSort
+name|testRecipientList
 parameter_list|()
 throws|throws
 name|Exception

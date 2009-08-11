@@ -88,35 +88,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceSticky ()
-specifier|public
-name|void
-name|testLoadBalanceSticky
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|DSL
-init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\", \"mock:y\", \"mock:z\")"
-decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|expectedDSL
-argument_list|,
-name|render
-argument_list|(
-name|DSL
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
