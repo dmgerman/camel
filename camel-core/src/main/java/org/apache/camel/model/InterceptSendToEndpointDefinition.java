@@ -300,7 +300,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"interceptEndpoint"
+literal|"interceptSendToEndpoint"
 return|;
 block|}
 annotation|@

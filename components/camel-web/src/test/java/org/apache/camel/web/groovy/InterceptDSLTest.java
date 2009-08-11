@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for pipeline DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|PipelineDSLTest
+DECL|class|InterceptDSLTest
 specifier|public
 class|class
-name|PipelineDSLTest
+name|InterceptDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testPipeline1 ()
+DECL|method|testIntercept ()
 specifier|public
 name|void
-name|testPipeline1
+name|testIntercept
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").pipeline(\"mock:x\", \"mock:y\", \"mock:z\", \"mock:result\")"
+literal|"intercept().to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").to(\"mock:x\").to(\"mock:y\").to(\"mock:z\").to(\"mock:result\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testPipeline2 ()
+DECL|method|testInterceptStop ()
 specifier|public
 name|void
-name|testPipeline2
+name|testInterceptStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,12 +70,70 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").pipeline(\"bean:foo?method=hi\", \"bean:foo?method=kabom\").to(\"mock:result\")"
+literal|"intercept().to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").to(\"bean:foo?method=hi\").to(\"bean:foo?method=kabom\").to(\"mock:result\")"
+name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterceptWhen ()
+specifier|public
+name|void
+name|testInterceptWhen
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"intercept().choice().when(body().contains(\"Hello\")).to(\"mock:intercepted\").end();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterceptWhenStop ()
+specifier|public
+name|void
+name|testInterceptWhenStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"intercept().choice().when(body().contains(\"Hello\")).to(\"mock:intercepted\").stop().end();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

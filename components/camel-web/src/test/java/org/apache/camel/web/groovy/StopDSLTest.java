@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|StopDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|StopDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testStop ()
 specifier|public
 name|void
-name|testSort
+name|testStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,7 +41,9 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:start\").choice().when(body().contains(\"Hello\")).to(\"mock:hello\").when(body().contains(\"Bye\")).to(\"mock:bye\").stop()"
+operator|+
+literal|".otherwise().to(\"mock:other\").end().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL

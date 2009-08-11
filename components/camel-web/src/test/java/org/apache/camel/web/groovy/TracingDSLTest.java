@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|TracingDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|TracingDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testTracePerRotueManual ()
 specifier|public
 name|void
-name|testSort
+name|testTracePerRotueManual
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,7 +41,7 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:a\").tracing().streamCaching().to(\"mock:a\");from(\"direct:b\").noTracing().to(\"mock:b\");from(\"direct:c\").tracing().to(\"mock:c\")"
 decl_stmt|;
 name|String
 name|expectedDSL
@@ -52,7 +52,7 @@ name|assertEquals
 argument_list|(
 name|expectedDSL
 argument_list|,
-name|render
+name|renderRoutes
 argument_list|(
 name|DSL
 argument_list|)

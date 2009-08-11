@@ -157,10 +157,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|_testRoutes ()
+DECL|method|testRoutes ()
 specifier|public
 name|void
-name|_testRoutes
+name|testRoutes
 parameter_list|()
 throws|throws
 name|Exception
@@ -171,7 +171,7 @@ init|=
 operator|new
 name|FileReader
 argument_list|(
-literal|"src/test/resources/testedRoutes.txt"
+literal|"src/test/resources/routes.txt"
 argument_list|)
 decl_stmt|;
 name|BufferedReader
@@ -202,18 +202,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|dsl
-operator|.
-name|startsWith
-argument_list|(
-literal|"#"
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
 name|System
 operator|.
 name|out
@@ -233,7 +221,7 @@ name|println
 argument_list|(
 literal|"after rendered: \n"
 operator|+
-name|render
+name|renderRoutes
 argument_list|(
 name|dsl
 argument_list|)

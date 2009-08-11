@@ -23,17 +23,17 @@ comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|ResequenceDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|ResequenceDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testResequence ()
 specifier|public
 name|void
-name|testSort
+name|testResequence
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,41 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:start\").resequence(body()).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
 name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testResequencer ()
+specifier|public
+name|void
+name|testResequencer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").resequencer(header(\"seqnum\")).stream().to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"from(\"direct:start\").resequence(header(\"seqnum\")).stream().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

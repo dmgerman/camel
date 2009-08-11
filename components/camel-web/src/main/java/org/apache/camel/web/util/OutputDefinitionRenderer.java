@@ -126,6 +126,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|InterceptFromDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|InterceptSendToEndpointDefinition
 import|;
 end_import
@@ -383,7 +397,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -628,7 +642,9 @@ name|out
 operator|instanceof
 name|BeanDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -694,7 +710,7 @@ name|out
 operator|instanceof
 name|FinallyDefinition
 condition|)
-block|{                      }
+block|{          }
 elseif|else
 if|if
 condition|(
@@ -703,6 +719,54 @@ operator|instanceof
 name|InterceptDefinition
 condition|)
 block|{
+if|if
+condition|(
+name|out
+operator|instanceof
+name|InterceptFromDefinition
+condition|)
+block|{
+name|InterceptFromDefinition
+name|interceptFrom
+init|=
+operator|(
+name|InterceptFromDefinition
+operator|)
+name|out
+decl_stmt|;
+if|if
+condition|(
+name|interceptFrom
+operator|.
+name|getUri
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"(\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|interceptFrom
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\")"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
 name|buffer
 operator|.
 name|append
@@ -718,7 +782,52 @@ name|out
 operator|instanceof
 name|InterceptSendToEndpointDefinition
 condition|)
-block|{          }
+block|{
+name|InterceptSendToEndpointDefinition
+name|interceptSend
+init|=
+operator|(
+name|InterceptSendToEndpointDefinition
+operator|)
+name|out
+decl_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"(\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|interceptSend
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\")"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|interceptSend
+operator|.
+name|getSkipSendToOriginalEndpoint
+argument_list|()
+condition|)
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|".skipSendToOriginalEndpoint()"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -778,7 +887,15 @@ name|out
 operator|instanceof
 name|MulticastDefinition
 condition|)
-block|{          }
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"()"
+argument_list|)
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -802,7 +919,9 @@ name|out
 operator|instanceof
 name|PipelineDefinition
 condition|)
-block|{          }
+block|{
+comment|// transformed into simple ToDefinition
+block|}
 elseif|else
 if|if
 condition|(
@@ -810,7 +929,9 @@ name|out
 operator|instanceof
 name|PolicyDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -818,7 +939,9 @@ name|out
 operator|instanceof
 name|PollEnrichDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -826,7 +949,9 @@ name|out
 operator|instanceof
 name|ProcessDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -908,7 +1033,9 @@ name|out
 operator|instanceof
 name|SetExchangePatternDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -962,7 +1089,15 @@ name|out
 operator|instanceof
 name|StopDefinition
 condition|)
-block|{          }
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"()"
+argument_list|)
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -970,7 +1105,9 @@ name|out
 operator|instanceof
 name|ThreadsDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -978,7 +1115,9 @@ name|out
 operator|instanceof
 name|TransactedDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -986,7 +1125,9 @@ name|out
 operator|instanceof
 name|TryDefinition
 condition|)
-block|{          }
+block|{
+comment|// TODO improve it
+block|}
 elseif|else
 if|if
 condition|(
@@ -1006,14 +1147,6 @@ name|out
 operator|)
 operator|.
 name|getDataFormatType
-argument_list|()
-decl_stmt|;
-name|Class
-name|clazz
-init|=
-name|dataFormat
-operator|.
-name|getClass
 argument_list|()
 decl_stmt|;
 name|buffer

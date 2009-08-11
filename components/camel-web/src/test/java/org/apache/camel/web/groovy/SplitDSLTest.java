@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for pipeline DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|PipelineDSLTest
+DECL|class|SplitDSLTest
 specifier|public
 class|class
-name|PipelineDSLTest
+name|SplitDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testPipeline1 ()
+DECL|method|testSplitStream ()
 specifier|public
 name|void
-name|testPipeline1
+name|testSplitStream
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").pipeline(\"mock:x\", \"mock:y\", \"mock:z\", \"mock:result\")"
+literal|"from(\"direct:start\").split(body().tokenize(\",\")).streaming().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").to(\"mock:x\").to(\"mock:y\").to(\"mock:z\").to(\"mock:result\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testPipeline2 ()
+DECL|method|testSplitTokenize ()
 specifier|public
 name|void
-name|testPipeline2
+name|testSplitTokenize
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,12 +70,70 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").pipeline(\"bean:foo?method=hi\", \"bean:foo?method=kabom\").to(\"mock:result\")"
+literal|"from(\"direct:start\").split(body(String.class).tokenize(\",\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").to(\"bean:foo?method=hi\").to(\"bean:foo?method=kabom\").to(\"mock:result\")"
+name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSplitMethod ()
+specifier|public
+name|void
+name|testSplitMethod
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").split().method(\"mySplitterBean\", \"splitBody\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|_testSplitXPath ()
+specifier|public
+name|void
+name|_testSplitXPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").split(xpath(\"//foo/bar\")).convertBodyTo(String.class).to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(

@@ -78,7 +78,7 @@ name|DSL
 init|=
 literal|"from(\"direct:start\").choice()"
 operator|+
-literal|".when(header(\"username\").isNotNull()).to(\"mock:god\")"
+literal|".when(header(\"username\").isNull()).to(\"mock:god\")"
 operator|+
 literal|".when(header(\"admin\").isEqualTo(\"true\")).to(\"mock:admin\")"
 operator|+
@@ -119,10 +119,11 @@ literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInven
 operator|+
 literal|".otherwise().to(\"bean:gadgetInventory\", \"seda:aggregate\")"
 decl_stmt|;
+comment|//TODO check this result
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").split().body().choice()"
+literal|"from(\"direct:start\").split(body()).choice()"
 operator|+
 literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\").to(\"seda:aggregate\")"
 operator|+

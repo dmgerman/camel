@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|RollbackDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|RollbackDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testRollback ()
 specifier|public
 name|void
-name|testSort
+name|testRollback
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,7 +41,7 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:start\").choice().when(body().isNotEqualTo(\"ok\")).to(\"mock:rollback\").rollback(\"That do not work\").otherwise().to(\"mock:result\").end()"
 decl_stmt|;
 name|String
 name|expectedDSL

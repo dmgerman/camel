@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.web.groovy
+DECL|package|org.apache.camel.web.util
 package|package
 name|org
 operator|.
@@ -14,48 +14,96 @@ name|camel
 operator|.
 name|web
 operator|.
-name|groovy
+name|util
 package|;
 end_package
 
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|UriCharachersEncoderTest
 specifier|public
 class|class
-name|SortDSLTest
+name|UriCharachersEncoderTest
 extends|extends
-name|GroovyRendererTestSupport
+name|TestCase
 block|{
-DECL|method|testSort ()
+DECL|method|testEncoder ()
 specifier|public
 name|void
-name|testSort
+name|testEncoder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|String
-name|DSL
+name|afterEncoding
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"direct:%2F%2Fstart"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|beforeEncoding
 init|=
-name|DSL
+literal|"direct://start"
+decl_stmt|;
+name|String
+name|result
+init|=
+name|UriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|beforeEncoding
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+literal|"Get the wrong encoding result"
 argument_list|,
-name|render
-argument_list|(
-name|DSL
+name|afterEncoding
+argument_list|,
+name|result
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNoEncoding ()
+specifier|public
+name|void
+name|testNoEncoding
+parameter_list|()
+block|{
+name|String
+name|noEncoding
+init|=
+literal|"direct:start"
+decl_stmt|;
+name|String
+name|result
+init|=
+name|UriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|noEncoding
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get the wrong encoding result"
+argument_list|,
+name|noEncoding
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}

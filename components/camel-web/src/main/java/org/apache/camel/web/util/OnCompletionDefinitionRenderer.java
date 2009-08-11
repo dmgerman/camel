@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -181,9 +181,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"("
+argument_list|)
+expr_stmt|;
 name|PredicateRenderer
 operator|.
-name|renderPredicate
+name|render
 argument_list|(
 name|buffer
 argument_list|,
@@ -194,6 +201,13 @@ argument_list|()
 operator|.
 name|getPredicate
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}

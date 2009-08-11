@@ -193,6 +193,16 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+DECL|method|getMessage ()
+specifier|public
+name|String
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()

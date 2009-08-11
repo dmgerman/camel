@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|MulticastDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|MulticastDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|testMulticast ()
 specifier|public
 name|void
-name|testSort
+name|testMulticast
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:a\").multicast().to(\"mock:x\", \"mock:y\", \"mock:z\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+literal|"from(\"direct:a\").multicast().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
