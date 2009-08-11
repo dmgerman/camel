@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -45,16 +35,6 @@ operator|.
 name|util
 operator|.
 name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -591,6 +571,25 @@ name|BeanDefinitionParser
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|autoRegisterMap
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|BeanDefinition
+argument_list|>
+name|autoRegisterMap
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|BeanDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|createModelFileGenerator ()
 specifier|public
 name|ModelFileGenerator
@@ -788,31 +787,6 @@ name|CamelContextBeanDefinitionParser
 argument_list|(
 name|cl
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|addBeanDefinitionParser (String elementName, Class<?> type)
-specifier|private
-name|void
-name|addBeanDefinitionParser
-parameter_list|(
-name|String
-name|elementName
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|)
-block|{
-name|addBeanDefinitionParser
-argument_list|(
-name|elementName
-argument_list|,
-name|type
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1602,13 +1576,6 @@ operator|.
 name|getChildNodes
 argument_list|()
 decl_stmt|;
-name|List
-name|beans
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
 name|int
 name|size
 init|=
@@ -2341,37 +2308,18 @@ argument_list|,
 name|parserContext
 argument_list|)
 decl_stmt|;
-name|parserContext
-operator|.
-name|registerComponent
+comment|// auto register it
+name|autoRegisterBeanDefinition
 argument_list|(
-operator|new
-name|BeanComponentDefinition
-argument_list|(
+name|id
+argument_list|,
 name|definition
 argument_list|,
-name|id
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Registered a default ProducerTemplate with id: "
-operator|+
-name|id
+name|parserContext
+argument_list|,
+name|contextId
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -2429,6 +2377,70 @@ argument_list|,
 name|parserContext
 argument_list|)
 decl_stmt|;
+comment|// auto register it
+name|autoRegisterBeanDefinition
+argument_list|(
+name|id
+argument_list|,
+name|definition
+argument_list|,
+name|parserContext
+argument_list|,
+name|contextId
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|autoRegisterBeanDefinition (String id, BeanDefinition definition, ParserContext parserContext, String contextId)
+specifier|private
+name|void
+name|autoRegisterBeanDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|BeanDefinition
+name|definition
+parameter_list|,
+name|ParserContext
+name|parserContext
+parameter_list|,
+name|String
+name|contextId
+parameter_list|)
+block|{
+comment|// it is a bit cumbersome to work with the spring bean definition parser
+comment|// as we kinda need to eagerly register the bean definition on the parser context
+comment|// and then later we might find out that we should not have done that in case we have multiple camel contexts
+comment|// that would have a id clash by auto regsitering the same bean definition with the same id such as a producer template
+comment|// see if we have already auto registered this id
+name|BeanDefinition
+name|existing
+init|=
+name|autoRegisterMap
+operator|.
+name|get
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|existing
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no then add it to the map and register it
+name|autoRegisterMap
+operator|.
+name|put
+argument_list|(
+name|id
+argument_list|,
+name|definition
+argument_list|)
+expr_stmt|;
 name|parserContext
 operator|.
 name|registerComponent
@@ -2454,12 +2466,68 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registered a default ConsumerTemplate with id: "
+literal|"Registered default: "
+operator|+
+name|definition
+operator|.
+name|getBeanClassName
+argument_list|()
+operator|+
+literal|" with id: "
 operator|+
 name|id
+operator|+
+literal|" on camel context: "
+operator|+
+name|contextId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+comment|// ups we have already registered it before with same id, but on another camel context
+comment|// this is not good so we need to remove all traces of this auto registering.
+comment|// end user must manually add the needed XML elements and provide unique ids access all camel context himself.
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unregistered default: "
+operator|+
+name|definition
+operator|.
+name|getBeanClassName
+argument_list|()
+operator|+
+literal|" with id: "
+operator|+
+name|id
+operator|+
+literal|" as we have multiple camel contexts and they must use unique ids."
+operator|+
+literal|" You must define the defintion in the XML file manually to avoid id clashes when using multiple camel contexts"
+argument_list|)
+expr_stmt|;
+block|}
+name|parserContext
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|removeBeanDefinition
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|registerEndpoint (Element childElement, ParserContext parserContext, String contextId)
