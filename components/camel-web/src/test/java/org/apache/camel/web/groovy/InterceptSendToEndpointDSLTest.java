@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for loadBalance DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|LoadBalanceDSLTest
+DECL|class|InterceptSendToEndpointDSLTest
 specifier|public
 class|class
-name|LoadBalanceDSLTest
+name|InterceptSendToEndpointDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testLoadBalanceRandom ()
+DECL|method|testInterceptSendToEndpoint ()
 specifier|public
 name|void
-name|testLoadBalanceRandom
+name|testInterceptSendToEndpoint
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"interceptSendToEndpoint(\"mock:foo\").to(\"mock:detour\").transform(constant(\"Bye World\"));from(\"direct:first\").to(\"mock:bar\").to(\"mock:foo\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceFailover ()
+DECL|method|testInterceptSendToEndpointDynamic ()
 specifier|public
 name|void
-name|testLoadBalanceFailover
+name|testInterceptSendToEndpointDynamic
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,12 +70,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\", \"direct:y\")"
+literal|"interceptSendToEndpoint(\"file:*\").skipSendToOriginalEndpoint().to(\"mock:detour\");from(\"direct:first\").to(\"file://foo\").to(\"file://bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\").to(\"direct:y\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -88,10 +88,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceSticky ()
+DECL|method|testInterceptSendToEndpointInOnException ()
 specifier|public
 name|void
-name|testLoadBalanceSticky
+name|testInterceptSendToEndpointInOnException
 parameter_list|()
 throws|throws
 name|Exception
@@ -99,12 +99,41 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"onException(IOException.class).handled(true).to(\"mock:io\");interceptSendToEndpoint(\"mock:io\").skipSendToOriginalEndpoint().to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|_testInterceptSendToIssue ()
+specifier|public
+name|void
+name|_testInterceptSendToIssue
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"interceptSendToEndpoint(\"direct:foo\").to(\"mock:foo\");from(\"direct:start\").setHeader(Exchange.FILE_NAME, constant(\"hello.txt\")).to(\"direct:foo\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(

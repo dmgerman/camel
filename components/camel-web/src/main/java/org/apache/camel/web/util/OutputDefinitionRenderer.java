@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -57,6 +67,20 @@ operator|.
 name|model
 operator|.
 name|BeanDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -113,6 +137,20 @@ operator|.
 name|model
 operator|.
 name|InterceptDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|InterceptFromDefinition
 import|;
 end_import
 
@@ -379,6 +417,20 @@ operator|.
 name|model
 operator|.
 name|UnmarshalDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|WhenDefinition
 import|;
 end_import
 
@@ -694,7 +746,7 @@ name|out
 operator|instanceof
 name|FinallyDefinition
 condition|)
-block|{                      }
+block|{          }
 elseif|else
 if|if
 condition|(
@@ -710,6 +762,15 @@ argument_list|(
 literal|"()"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+operator|instanceof
+name|InterceptFromDefinition
+condition|)
+block|{              }
+else|else
+block|{              }
 block|}
 elseif|else
 if|if
@@ -718,7 +779,52 @@ name|out
 operator|instanceof
 name|InterceptSendToEndpointDefinition
 condition|)
-block|{          }
+block|{
+name|InterceptSendToEndpointDefinition
+name|interceptSend
+init|=
+operator|(
+name|InterceptSendToEndpointDefinition
+operator|)
+name|out
+decl_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"(\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|interceptSend
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\")"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|interceptSend
+operator|.
+name|getSkipSendToOriginalEndpoint
+argument_list|()
+condition|)
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|".skipSendToOriginalEndpoint()"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -962,7 +1068,15 @@ name|out
 operator|instanceof
 name|StopDefinition
 condition|)
-block|{          }
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"()"
+argument_list|)
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1006,14 +1120,6 @@ name|out
 operator|)
 operator|.
 name|getDataFormatType
-argument_list|()
-decl_stmt|;
-name|Class
-name|clazz
-init|=
-name|dataFormat
-operator|.
-name|getClass
 argument_list|()
 decl_stmt|;
 name|buffer

@@ -207,6 +207,16 @@ operator|=
 name|loadBalancer
 expr_stmt|;
 block|}
+DECL|method|getCorrelationExpression ()
+specifier|public
+name|Expression
+name|getCorrelationExpression
+parameter_list|()
+block|{
+return|return
+name|correlationExpression
+return|;
+block|}
 DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
 specifier|synchronized

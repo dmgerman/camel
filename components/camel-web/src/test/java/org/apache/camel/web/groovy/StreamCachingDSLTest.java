@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SortDSLTest
+DECL|class|StreamCachingDSLTest
 specifier|public
 class|class
-name|SortDSLTest
+name|StreamCachingDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSort ()
+DECL|method|test ()
 specifier|public
 name|void
-name|testSort
+name|test
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,7 +41,7 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").sort(body().tokenize(\",\")).to(\"bean:MyServiceBean.processLine\")"
+literal|"from(\"direct:start\").streamCaching().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL

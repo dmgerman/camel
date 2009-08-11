@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for loadBalance DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|LoadBalanceDSLTest
+DECL|class|SplitDSLTest
 specifier|public
 class|class
-name|LoadBalanceDSLTest
+name|SplitDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testLoadBalanceRandom ()
+DECL|method|testSplitStream ()
 specifier|public
 name|void
-name|testLoadBalanceRandom
+name|testSplitStream
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"from(\"direct:start\").split(body().tokenize(\",\")).streaming().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceFailover ()
+DECL|method|testSplitTokenize ()
 specifier|public
 name|void
-name|testLoadBalanceFailover
+name|testSplitTokenize
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,12 +70,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\", \"direct:y\")"
+literal|"from(\"direct:start\").split(body(String.class).tokenize(\",\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\").to(\"direct:y\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -88,10 +88,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceSticky ()
+DECL|method|testSplitMethod ()
 specifier|public
 name|void
-name|testLoadBalanceSticky
+name|testSplitMethod
 parameter_list|()
 throws|throws
 name|Exception
@@ -99,12 +99,41 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"from(\"direct:start\").split().method(\"mySplitterBean\", \"splitBody\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+name|DSL
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|_testSplitXPath ()
+specifier|public
+name|void
+name|_testSplitXPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"from(\"direct:start\").split(xpath(\"//foo/bar\")).convertBodyTo(String.class).to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(

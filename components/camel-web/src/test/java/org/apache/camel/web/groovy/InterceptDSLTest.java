@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for loadBalance DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|LoadBalanceDSLTest
+DECL|class|InterceptDSLTest
 specifier|public
 class|class
-name|LoadBalanceDSLTest
+name|InterceptDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testLoadBalanceRandom ()
+DECL|method|testIntercept ()
 specifier|public
 name|void
-name|testLoadBalanceRandom
+name|testIntercept
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"intercept().to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().random().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceFailover ()
+DECL|method|testInterceptStop ()
 specifier|public
 name|void
-name|testLoadBalanceFailover
+name|testInterceptStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,12 +70,12 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\", \"direct:y\")"
+literal|"intercept().to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().failover(IOException.class).to(\"direct:x\").to(\"direct:y\")"
+name|DSL
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -88,10 +88,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLoadBalanceSticky ()
+DECL|method|testInterceptWhen ()
 specifier|public
 name|void
-name|testLoadBalanceSticky
+name|testInterceptWhen
 parameter_list|()
 throws|throws
 name|Exception
@@ -99,12 +99,41 @@ block|{
 name|String
 name|DSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\", \"mock:y\", \"mock:z\")"
+literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").loadBalance().sticky(header(\"foo\")).to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
+literal|"intercept().choice().when(body().contains(\"Hello\")).to(\"mock:intercepted\").end();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedDSL
+argument_list|,
+name|render
+argument_list|(
+name|DSL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterceptWhenStop ()
+specifier|public
+name|void
+name|testInterceptWhenStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|DSL
+init|=
+literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expectedDSL
+init|=
+literal|"intercept().choice().when(body().contains(\"Hello\")).to(\"mock:intercepted\").stop().end();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
