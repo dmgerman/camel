@@ -1244,6 +1244,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Get field value
+name|Object
+name|value
+init|=
+name|field
+operator|.
+name|get
+argument_list|(
+name|modelField
+argument_list|)
+decl_stmt|;
+name|String
+name|strValue
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|this
@@ -1316,17 +1332,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Get field value
-name|Object
-name|value
-init|=
-name|field
-operator|.
-name|get
-argument_list|(
-name|modelField
-argument_list|)
-decl_stmt|;
-comment|// Add value to the list if not null
+comment|//Object value = field.get(modelField);
 if|if
 condition|(
 name|value
@@ -1335,16 +1341,16 @@ literal|null
 condition|)
 block|{
 comment|// Format field value
-name|String
-name|valueFormated
-init|=
+name|strValue
+operator|=
 name|format
 operator|.
 name|format
 argument_list|(
 name|value
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// Add the content to the TreeMap according to the
 comment|// position defined
 name|positions
@@ -1353,7 +1359,7 @@ name|put
 argument_list|(
 name|keyGenerated
 argument_list|,
-name|valueFormated
+name|strValue
 argument_list|)
 expr_stmt|;
 if|if
@@ -1378,20 +1384,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 else|else
 block|{
 comment|// Get field value
-name|Object
-name|value
-init|=
-name|field
-operator|.
-name|get
-argument_list|(
-name|modelField
-argument_list|)
-decl_stmt|;
+comment|//Object value = field.get(modelField);
+comment|//String strValue = null;
 comment|// Add value to the list if not null
 if|if
 condition|(
@@ -1401,24 +1398,23 @@ literal|null
 condition|)
 block|{
 comment|// Format field value
-name|String
-name|valueFormated
-init|=
+name|strValue
+operator|=
 name|format
 operator|.
 name|format
 argument_list|(
 name|value
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|append
 argument_list|(
-name|valueFormated
+name|strValue
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|it
