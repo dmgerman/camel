@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *  * @version $Revision$  */
+comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers is represented in Camel using a  * {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -54,7 +54,7 @@ specifier|public
 interface|interface
 name|Message
 block|{
-comment|/**      * Returns the id of the message      */
+comment|/**      * Returns the id of the message      *      * @return the message id      */
 DECL|method|getMessageId ()
 name|String
 name|getMessageId
@@ -69,19 +69,19 @@ name|String
 name|messageId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exchange this message is related to      */
+comment|/**      * Returns the exchange this message is related to      *      * @return the exchange      */
 DECL|method|getExchange ()
 name|Exchange
 name|getExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true if this message represents a fault      */
+comment|/**      * Returns true if this message represents a fault      *      * @return<tt>true</tt> if this is a fault message,<tt>false</tt> for regular messages.      */
 DECL|method|isFault ()
 name|boolean
 name|isFault
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the fault flag on this message      */
+comment|/**      * Sets the fault flag on this message      *      * @param fault the fault flag      */
 DECL|method|setFault (boolean fault)
 name|void
 name|setFault
@@ -321,13 +321,13 @@ argument_list|>
 name|attachments
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<tt>true</tt> if this message has any attachments.      */
+comment|/**      * Returns whether this message has attachments.      *      * @return<tt>true</tt> if this message has any attachments.      */
 DECL|method|hasAttachments ()
 name|boolean
 name|hasAttachments
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the unique ID for a message exchange if this message is capable of creating one or null if not      */
+comment|/**      * Returns the unique ID for a message exchange if this message is capable of creating one or null if not      *      * @return the created exchange id, or<tt>null</tt> if not capable of creating      */
 DECL|method|createExchangeId ()
 name|String
 name|createExchangeId
