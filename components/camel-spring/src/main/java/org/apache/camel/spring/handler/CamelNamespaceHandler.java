@@ -2252,10 +2252,38 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// either we have not used templat before or we have auto registered it already and therefore we
+comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
+comment|// since we have multiple camel contexts
+name|boolean
+name|canDoTemplate
+init|=
+name|autoRegisterMap
+operator|.
+name|get
+argument_list|(
+literal|"template"
+argument_list|)
+operator|!=
+literal|null
+operator|||
+operator|!
+name|parserContext
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|isBeanNameInUse
+argument_list|(
+literal|"template"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
 name|template
+operator|&&
+name|canDoTemplate
 condition|)
 block|{
 name|String
@@ -2321,10 +2349,38 @@ name|contextId
 argument_list|)
 expr_stmt|;
 block|}
+comment|// either we have not used templat before or we have auto registered it already and therefore we
+comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
+comment|// since we have multiple camel contexts
+name|boolean
+name|canDoConsumerTemplate
+init|=
+name|autoRegisterMap
+operator|.
+name|get
+argument_list|(
+literal|"consumerTemplate"
+argument_list|)
+operator|!=
+literal|null
+operator|||
+operator|!
+name|parserContext
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|isBeanNameInUse
+argument_list|(
+literal|"consumerTemplate"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
 name|consumerTemplate
+operator|&&
+name|canDoConsumerTemplate
 condition|)
 block|{
 name|String
