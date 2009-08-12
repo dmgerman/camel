@@ -285,7 +285,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":name=context,*"
+literal|":type=context,*"
 argument_list|)
 argument_list|,
 literal|null
