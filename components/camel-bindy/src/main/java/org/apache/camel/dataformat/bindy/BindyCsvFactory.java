@@ -1408,6 +1408,28 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Data : "
+operator|+
+name|value
+operator|+
+literal|", value : "
+operator|+
+name|strValue
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|append
