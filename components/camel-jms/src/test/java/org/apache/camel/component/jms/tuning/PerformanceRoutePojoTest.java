@@ -86,6 +86,13 @@ name|PerformanceRoutePojoTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|size
+specifier|private
+name|int
+name|size
+init|=
+literal|200
+decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -100,13 +107,6 @@ literal|"org/apache/camel/component/jms/tuning/PerformanceRoutePojoTest-context.
 argument_list|)
 return|;
 block|}
-DECL|field|size
-specifier|private
-name|int
-name|size
-init|=
-literal|200
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testPojoPerformance ()
