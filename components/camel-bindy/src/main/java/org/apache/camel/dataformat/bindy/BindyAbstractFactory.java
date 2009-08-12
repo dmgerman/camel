@@ -659,7 +659,7 @@ name|initModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *       * @throws Exception      */
+comment|/** 	 * method uses to initialize the model representing the classes who will 	 * bind the data. This process will scan for classes according to the 	 * package name provided, check the annotated classes and fields. 	 *  	 * @throws Exception 	 */
 DECL|method|initModel ()
 specifier|public
 name|void
@@ -677,7 +677,7 @@ name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find all the classes defined as model      */
+comment|/** 	 * Find all the classes defined as model 	 */
 DECL|method|initModelClasses (String... packageNames)
 specifier|private
 name|void
@@ -700,7 +700,7 @@ name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find fields annoted in each class of the model      */
+comment|/** 	 * Find fields annoted in each class of the model 	 */
 DECL|method|initAnnotedFields ()
 specifier|public
 specifier|abstract
@@ -750,7 +750,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Link objects together      */
+comment|/** 	 * Link objects together 	 */
 DECL|method|link (Map<String, Object> model)
 specifier|public
 name|void
@@ -863,7 +863,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from      *         records, messages      * @throws Exception      *         can be thrown      */
+comment|/** 	 * Factory method generating new instances of the model and adding them to a 	 * HashMap 	 *  	 * @return Map is a collection of the objects used to bind data from 	 *         records, messages 	 * @throws Exception 	 *             can be thrown 	 */
 DECL|method|factory ()
 specifier|public
 name|Map
@@ -936,7 +936,7 @@ return|return
 name|mapModel
 return|;
 block|}
-comment|/**      * Generate a unique key      *       * @param key1      *            The key of the section number      * @param key2      *            The key of the position of the field      * @return the key generated      */
+comment|/** 	 * Generate a unique key 	 *  	 * @param key1 	 *            The key of the section number 	 * @param key2 	 *            The key of the position of the field 	 * @return the key generated 	 */
 DECL|method|generateKey (Integer key1, Integer key2)
 specifier|protected
 specifier|static
@@ -985,7 +985,7 @@ name|keyGenerated
 argument_list|)
 return|;
 block|}
-comment|/**      *       * @return NumberFormat      */
+comment|/** 	 *  	 * @return NumberFormat 	 */
 DECL|method|getNumberFormat ()
 specifier|private
 specifier|static
@@ -1021,6 +1021,7 @@ return|return
 name|nf
 return|;
 block|}
+comment|/** 	 * Return Default value for primitive type 	 *  	 * @param clazz 	 * @return 	 * @throws Exception 	 */
 DECL|method|getDefaultValueforPrimitive (Class<?> clazz)
 specifier|public
 specifier|static
@@ -1044,11 +1045,13 @@ name|byte
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Byte
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1058,11 +1061,13 @@ name|short
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Short
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1072,11 +1077,13 @@ name|int
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Integer
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1086,11 +1093,13 @@ name|long
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Long
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1100,11 +1109,13 @@ name|float
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Float
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1114,11 +1125,13 @@ name|double
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Double
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1128,11 +1141,13 @@ name|char
 operator|.
 name|class
 condition|)
+block|{
 return|return
 name|Character
 operator|.
 name|MIN_VALUE
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -1142,15 +1157,19 @@ name|boolean
 operator|.
 name|class
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 else|else
+block|{
 return|return
 literal|null
 return|;
 block|}
-comment|/**      * Find the carriage return set      */
+block|}
+comment|/** 	 * Find the carriage return set 	 */
 DECL|method|getCarriageReturn ()
 specifier|public
 name|String
