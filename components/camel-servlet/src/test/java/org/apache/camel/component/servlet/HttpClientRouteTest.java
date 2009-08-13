@@ -338,23 +338,23 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createRouteBuilder ()
-specifier|protected
+DECL|class|MyServletRoute
+specifier|public
+specifier|static
+class|class
+name|MyServletRoute
+extends|extends
 name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
 block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
+annotation|@
+name|Override
+DECL|method|configure ()
 specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|errorHandler
 argument_list|(
@@ -504,6 +504,18 @@ expr_stmt|;
 comment|// END SNIPPET: route
 block|}
 block|}
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|MyServletRoute
+argument_list|()
 return|;
 block|}
 block|}
