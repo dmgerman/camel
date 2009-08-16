@@ -43,14 +43,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").aop().after(\"mock:after\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -79,14 +74,9 @@ literal|".otherwise().transform(constant(\"Kabom the World\")).throwException(ne
 operator|+
 literal|".end().to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -108,14 +98,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").aop().around(\"mock:before\", \"mock:after\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -144,14 +129,9 @@ literal|".otherwise().transform(constant(\"Kabom the World\")).throwException(ne
 operator|+
 literal|".end()to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -173,14 +153,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").aop().before(\"mock:before\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -205,7 +180,7 @@ operator|+
 literal|".transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().append(\" World\")).end().transform(body().prepend(\"Bye \")).to(\"mock:result\")"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:start\").to(\"mock:start\").aop().around(\"mock:before\", \"mock:after\")"
 operator|+
@@ -213,7 +188,7 @@ literal|".transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().appe
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(

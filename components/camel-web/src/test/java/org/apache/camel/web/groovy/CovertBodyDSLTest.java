@@ -44,13 +44,13 @@ init|=
 literal|"from(\"direct:start\").convertBodyTo(Integer.class).to(\"mock:result\")"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:start\").convertBodyTo(java.lang.Integer.class).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(
@@ -72,14 +72,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").convertBodyTo(byte[].class, \"iso-8859-1\").to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(

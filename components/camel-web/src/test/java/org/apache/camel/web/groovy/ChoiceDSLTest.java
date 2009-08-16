@@ -49,14 +49,9 @@ literal|".end()"
 operator|+
 literal|".to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -86,14 +81,9 @@ literal|".otherwise().to(\"mock:guest\")"
 operator|+
 literal|".end()"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -119,9 +109,8 @@ literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInven
 operator|+
 literal|".otherwise().to(\"bean:gadgetInventory\", \"seda:aggregate\")"
 decl_stmt|;
-comment|//TODO check this result
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:start\").split(body()).choice()"
 operator|+
@@ -133,7 +122,7 @@ literal|".end()"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(

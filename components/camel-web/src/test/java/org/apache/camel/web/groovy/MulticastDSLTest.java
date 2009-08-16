@@ -44,13 +44,13 @@ init|=
 literal|"from(\"direct:a\").multicast().to(\"mock:x\", \"mock:y\", \"mock:z\")"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:a\").multicast().to(\"mock:x\").to(\"mock:y\").to(\"mock:z\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(

@@ -43,14 +43,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").filter(header(\"foo\").isEqualTo(\"bar\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -72,14 +67,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").filter(body().contains(\"World\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -101,14 +91,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").filter().method(\"myBean\", \"matches\").to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(

@@ -30,10 +30,10 @@ name|AggregateDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testAggragate ()
+DECL|method|testAggregate ()
 specifier|public
 name|void
-name|testAggragate
+name|testAggregate
 parameter_list|()
 throws|throws
 name|Exception
@@ -43,14 +43,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate().header(\"cheese\").to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -59,10 +54,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testAggragateCommon ()
+DECL|method|testAggregateCommon ()
 specifier|public
 name|void
-name|testAggragateCommon
+name|testAggregateCommon
 parameter_list|()
 throws|throws
 name|Exception
@@ -73,13 +68,13 @@ init|=
 literal|"from(\"direct:start\").aggregate(header(\"cheese\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:start\").aggregate().header(\"cheese\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(
@@ -101,14 +96,9 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate().simple(\"id\").batchTimeout(500L).groupExchanges().to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -131,13 +121,13 @@ init|=
 literal|"from(\"direct:start\").aggregate(header(\"id\")).batchTimeout(3000).batchSize(0).to(\"mock:result\")"
 decl_stmt|;
 name|String
-name|expectedDSL
+name|expected
 init|=
 literal|"from(\"direct:start\").aggregate().header(\"id\").batchTimeout(3000).batchSize(0).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|expected
 argument_list|,
 name|render
 argument_list|(
@@ -147,10 +137,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * a route involving a external class: CamelException      *       * @throws Exception      * TODO: fix this test!      */
-DECL|method|fimeTestAggregateAndOnException ()
+DECL|method|fixmeTestAggregateAndOnException ()
 specifier|public
 name|void
-name|fimeTestAggregateAndOnException
+name|fixmeTestAggregateAndOnException
 parameter_list|()
 throws|throws
 name|Exception
@@ -160,14 +150,9 @@ name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock:error\"));onException(CamelException.class).maximumRedeliveries(2);from(\"direct:start\").aggregate(header(\"id\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -192,14 +177,9 @@ literal|"from(\"timer://kickoff?period=9999910000\").setHeader(\"id\").constant(
 operator|+
 literal|"from(\"seda:splitted\").aggregate(header(\"id\")).to(\"mock:result\")"
 decl_stmt|;
-name|String
-name|expectedDSL
-init|=
-name|dsl
-decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expectedDSL
+name|dsl
 argument_list|,
 name|render
 argument_list|(
