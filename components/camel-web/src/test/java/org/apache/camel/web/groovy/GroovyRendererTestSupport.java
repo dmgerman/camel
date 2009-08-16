@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|GroovyClassLoader
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -136,16 +146,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|GroovyClassLoader
-import|;
-end_import
-
 begin_comment
 comment|/**  * An abstract class that provides basic support for GroovyRenderer test  */
 end_comment
@@ -159,22 +159,6 @@ name|GroovyRendererTestSupport
 extends|extends
 name|TestCase
 block|{
-DECL|field|LOG
-specifier|private
-specifier|final
-specifier|static
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|GroovyRendererTestSupport
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|header
 specifier|private
 specifier|final

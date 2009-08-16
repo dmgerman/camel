@@ -39,7 +39,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:a\").multicast().to(\"mock:x\", \"mock:y\", \"mock:z\")"
 decl_stmt|;
@@ -54,7 +54,7 @@ name|expected
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

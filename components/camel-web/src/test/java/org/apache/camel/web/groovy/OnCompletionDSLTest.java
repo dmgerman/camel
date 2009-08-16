@@ -41,7 +41,9 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"intercept().to(\"mock:intercept\");from(\"direct:start\").onCompletion().to(\"log:sync\").to(\"mock:sync\").end().to(\"mock:result\")"
+literal|"intercept().to(\"mock:intercept\");"
+operator|+
+literal|"from(\"direct:start\").onCompletion().to(\"log:sync\").to(\"mock:sync\").end().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -65,13 +67,25 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"intercept().to(\"mock:intercept\");onCompletion().to(\"log:global\").to(\"mock:sync\");onException(Exception.class).to(\"mock:exception\");from(\"direct:start\").to(\"mock:result\")"
+literal|"intercept().to(\"mock:intercept\");"
+operator|+
+literal|"onCompletion().to(\"log:global\").to(\"mock:sync\");"
+operator|+
+literal|"onException(Exception.class).to(\"mock:exception\");"
+operator|+
+literal|"from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 comment|// the order is changed
 name|String
 name|expected
 init|=
-literal|"onException(Exception.class).to(\"mock:exception\");intercept().to(\"mock:intercept\");onCompletion().to(\"log:global\").to(\"mock:sync\");from(\"direct:start\").to(\"mock:result\")"
+literal|"onException(Exception.class).to(\"mock:exception\");"
+operator|+
+literal|"intercept().to(\"mock:intercept\");"
+operator|+
+literal|"onCompletion().to(\"log:global\").to(\"mock:sync\");"
+operator|+
+literal|"from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -143,7 +157,15 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"onCompletion().to(\"log:global\").to(\"mock:sync\");onCompletion().to(\"log:global\").to(\"mock:two\");onCompletion().onCompleteOnly().to(\"log:global\").to(\"mock:complete\");onCompletion().onFailureOnly().to(\"log:global\").to(\"mock:failure\");from(\"direct:start\").to(\"mock:result\")"
+literal|"onCompletion().to(\"log:global\").to(\"mock:sync\");"
+operator|+
+literal|"onCompletion().to(\"log:global\").to(\"mock:two\");"
+operator|+
+literal|"onCompletion().onCompleteOnly().to(\"log:global\").to(\"mock:complete\");"
+operator|+
+literal|"onCompletion().onFailureOnly().to(\"log:global\").to(\"mock:failure\");"
+operator|+
+literal|"from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -191,7 +213,9 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"onCompletion().to(\"log:global\").to(\"mock:global\");from(\"direct:start\").onCompletion().to(\"log:route\").to(\"mock:sync\").end().to(\"mock:result\")"
+literal|"onCompletion().to(\"log:global\").to(\"mock:global\");"
+operator|+
+literal|"from(\"direct:start\").onCompletion().to(\"log:route\").to(\"mock:sync\").end().to(\"mock:result\")"
 decl_stmt|;
 comment|// the global onCompletion is removed
 name|String

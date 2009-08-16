@@ -19,38 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-operator|.
-name|constant
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|PredicateBuilder
-operator|.
-name|in
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -77,18 +45,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|web
+name|builder
 operator|.
-name|util
+name|PredicateBuilder
 operator|.
-name|PredicateRenderer
+name|in
 import|;
 end_import
 
@@ -721,10 +689,11 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|_testIsInstanceOf ()
+comment|// TODO: fix this test!
+DECL|method|fixmeTestIsInstanceOf ()
 specifier|public
 name|void
-name|_testIsInstanceOf
+name|fixmeTestIsInstanceOf
 parameter_list|()
 throws|throws
 name|Exception

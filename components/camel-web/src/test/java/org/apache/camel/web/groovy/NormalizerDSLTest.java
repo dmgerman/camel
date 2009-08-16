@@ -41,7 +41,13 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").choice().when().xpath(\"/employee\").to(\"bean:normalizer?method=employeeToPerson\").when().xpath(\"/customer\").to(\"bean:normalizer?method=customerToPerson\").end().to(\"mock:result\")"
+literal|"from(\"direct:start\").choice()"
+operator|+
+literal|".when().xpath(\"/employee\").to(\"bean:normalizer?method=employeeToPerson\")"
+operator|+
+literal|".when().xpath(\"/customer\").to(\"bean:normalizer?method=customerToPerson\")"
+operator|+
+literal|".end().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

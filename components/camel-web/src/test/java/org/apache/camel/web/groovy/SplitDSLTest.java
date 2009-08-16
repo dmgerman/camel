@@ -102,10 +102,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|_testSplitXPath ()
+comment|// TODO: fix this test!
+DECL|method|fixmeTestSplitXPath ()
 specifier|public
 name|void
-name|_testSplitXPath
+name|fixmeTestSplitXPath
 parameter_list|()
 throws|throws
 name|Exception
