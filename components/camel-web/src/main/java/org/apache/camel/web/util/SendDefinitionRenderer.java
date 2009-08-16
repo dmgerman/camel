@@ -67,10 +67,18 @@ end_comment
 begin_class
 DECL|class|SendDefinitionRenderer
 specifier|public
+specifier|final
 class|class
 name|SendDefinitionRenderer
 block|{
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|SendDefinitionRenderer ()
+specifier|private
+name|SendDefinitionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -80,6 +88,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -91,10 +102,16 @@ literal|"."
 argument_list|)
 expr_stmt|;
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send
 init|=
 operator|(
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|processor
 decl_stmt|;

@@ -87,9 +87,17 @@ end_comment
 begin_class
 DECL|class|ExpressionRenderer
 specifier|public
+specifier|final
 class|class
 name|ExpressionRenderer
 block|{
+DECL|method|ExpressionRenderer ()
+specifier|private
+name|ExpressionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
 comment|/**      * a common render method to process the expressionDefinition      *       * @param buffer      * @param expression      */
 DECL|method|render (StringBuilder buffer, ExpressionDefinition expression)
 specifier|public

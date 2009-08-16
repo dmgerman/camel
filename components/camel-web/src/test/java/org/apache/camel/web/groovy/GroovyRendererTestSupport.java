@@ -196,7 +196,7 @@ name|header
 init|=
 name|GroovyRenderer
 operator|.
-name|header
+name|HEADER
 decl_stmt|;
 DECL|field|footer
 specifier|private

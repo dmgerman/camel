@@ -758,7 +758,7 @@ expr_stmt|;
 return|return
 name|GroovyRenderer
 operator|.
-name|header
+name|HEADER
 operator|+
 name|buffer
 operator|.
@@ -945,6 +945,7 @@ name|i
 operator|==
 literal|0
 condition|)
+block|{
 name|routeDefinition
 operator|.
 name|setId
@@ -952,6 +953,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 comment|// add or update the route
 name|getCamelContext
 argument_list|()

@@ -403,10 +403,18 @@ end_comment
 begin_class
 DECL|class|OutputDefinitionRenderer
 specifier|public
+specifier|final
 class|class
 name|OutputDefinitionRenderer
 block|{
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|OutputDefinitionRenderer ()
+specifier|private
+name|OutputDefinitionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -416,14 +424,23 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 operator|(
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|processor
 decl_stmt|;

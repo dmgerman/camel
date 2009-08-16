@@ -42,20 +42,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExpressionNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -67,10 +53,18 @@ end_comment
 begin_class
 DECL|class|AggregateDefinitionRenderer
 specifier|public
+specifier|final
 class|class
 name|AggregateDefinitionRenderer
 block|{
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|AggregateDefinitionRenderer ()
+specifier|private
+name|AggregateDefinitionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -80,6 +74,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{

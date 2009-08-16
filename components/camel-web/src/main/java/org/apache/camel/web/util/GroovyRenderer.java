@@ -119,15 +119,16 @@ end_comment
 begin_class
 DECL|class|GroovyRenderer
 specifier|public
+specifier|final
 class|class
 name|GroovyRenderer
 block|{
-DECL|field|header
+DECL|field|HEADER
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|header
+name|HEADER
 init|=
 literal|"import org.apache.camel.language.groovy.GroovyRouteBuilder;\nclass GroovyRoute extends GroovyRouteBuilder {\nvoid configure() {\n"
 decl_stmt|;
@@ -140,6 +141,13 @@ name|footer
 init|=
 literal|"\n}\n}"
 decl_stmt|;
+DECL|method|GroovyRenderer ()
+specifier|private
+name|GroovyRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
 comment|/**      * render a RouteDefinition      */
 DECL|method|renderRoute (StringBuilder buffer, RouteDefinition route)
 specifier|public

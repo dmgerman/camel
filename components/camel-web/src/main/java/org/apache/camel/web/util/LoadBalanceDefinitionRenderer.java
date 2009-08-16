@@ -38,20 +38,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|LoadBalanceDefinition
 import|;
 end_import
@@ -66,35 +52,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|OtherwiseDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|WhenDefinition
 import|;
 end_import
 
@@ -201,10 +159,18 @@ end_comment
 begin_class
 DECL|class|LoadBalanceDefinitionRenderer
 specifier|public
+specifier|final
 class|class
 name|LoadBalanceDefinitionRenderer
 block|{
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|LoadBalanceDefinitionRenderer ()
+specifier|private
+name|LoadBalanceDefinitionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -214,6 +180,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{

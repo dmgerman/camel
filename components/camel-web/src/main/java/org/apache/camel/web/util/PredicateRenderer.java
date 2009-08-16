@@ -37,9 +37,17 @@ end_comment
 begin_class
 DECL|class|PredicateRenderer
 specifier|public
+specifier|final
 class|class
 name|PredicateRenderer
 block|{
+DECL|method|PredicateRenderer ()
+specifier|private
+name|PredicateRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
 DECL|method|render (StringBuilder buffer, Predicate predicate)
 specifier|public
 specifier|static

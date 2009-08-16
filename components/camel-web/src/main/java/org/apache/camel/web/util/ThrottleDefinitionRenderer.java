@@ -53,10 +53,18 @@ end_comment
 begin_class
 DECL|class|ThrottleDefinitionRenderer
 specifier|public
+specifier|final
 class|class
 name|ThrottleDefinitionRenderer
 block|{
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|ThrottleDefinitionRenderer ()
+specifier|private
+name|ThrottleDefinitionRenderer
+parameter_list|()
+block|{
+comment|// Utility class, no public or protected default constructor
+block|}
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -66,6 +74,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
