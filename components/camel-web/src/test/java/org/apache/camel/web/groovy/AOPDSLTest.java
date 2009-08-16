@@ -39,14 +39,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aop().after(\"mock:after\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -54,28 +54,35 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|_testAOPAfterFinally ()
+comment|// TODO: fix this test!
+DECL|method|fixmeTestAOPAfterFinally ()
 specifier|public
 name|void
-name|_testAOPAfterFinally
+name|fixmeTestAOPAfterFinally
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"from(\"direct:start\").aop().afterFinally(\"mock:after\").choice().when(body().isEqualTo(\"Hello World\")).transform(constant(\"Bye World\")).otherwise().transform(constant(\"Kabom the World\")).throwException(new IllegalArgumentException(\"Damn\")).end().to(\"mock:result\")"
+literal|"from(\"direct:start\").aop().afterFinally(\"mock:after\").choice()"
+operator|+
+literal|".when(body().isEqualTo(\"Hello World\")).transform(constant(\"Bye World\"))"
+operator|+
+literal|".otherwise().transform(constant(\"Kabom the World\")).throwException(new IllegalArgumentException(\"Damn\"))"
+operator|+
+literal|".end().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -83,7 +90,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,14 +104,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aop().around(\"mock:before\", \"mock:after\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -112,28 +119,35 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|_testAOPAroundFinally ()
+comment|// TODO: fix this test!
+DECL|method|fixmeTestAOPAroundFinally ()
 specifier|public
 name|void
-name|_testAOPAroundFinally
+name|fixmeTestAOPAroundFinally
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"from(\"direct:start\").aop().aroundFinally(\"mock:before\", \"mock:after\").choice().when(body().isEqualTo(\"Hello World\")).transform(constant(\"Bye World\")).otherwise().transform(constant(\"Kabom the World\")).throwException(new IllegalArgumentException(\"Damn\")).end()to(\"mock:result\")"
+literal|"from(\"direct:start\").aop().aroundFinally(\"mock:before\", \"mock:after\").choice()"
+operator|+
+literal|".when(body().isEqualTo(\"Hello World\")).transform(constant(\"Bye World\"))"
+operator|+
+literal|".otherwise().transform(constant(\"Kabom the World\")).throwException(new IllegalArgumentException(\"Damn\"))"
+operator|+
+literal|".end()to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -141,7 +155,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -155,14 +169,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aop().before(\"mock:before\").transform(constant(\"Bye World\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -170,7 +184,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -184,14 +198,18 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"from(\"direct:start\").to(\"mock:start\").aop().around(\"mock:before\", \"mock:after\").transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().append(\" World\")).end().transform(body().prepend(\"Bye \")).to(\"mock:result\")"
+literal|"from(\"direct:start\").to(\"mock:start\").aop().around(\"mock:before\", \"mock:after\")"
+operator|+
+literal|".transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().append(\" World\")).end().transform(body().prepend(\"Bye \")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-literal|"from(\"direct:start\").to(\"mock:start\").aop().around(\"mock:before\", \"mock:after\").transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().append(\" World\")).transform(body().prepend(\"Bye \")).to(\"mock:result\")"
+literal|"from(\"direct:start\").to(\"mock:start\").aop().around(\"mock:before\", \"mock:after\")"
+operator|+
+literal|".transform(constant(\"Bye\")).to(\"mock:middle\").transform(body().append(\" World\")).transform(body().prepend(\"Bye \")).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -199,7 +217,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

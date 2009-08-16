@@ -767,7 +767,7 @@ argument_list|()
 operator|+
 name|GroovyRenderer
 operator|.
-name|footer
+name|FOOTER
 return|;
 block|}
 else|else

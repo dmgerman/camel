@@ -18,18 +18,6 @@ name|groovy
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * a test case for aggregate DSL  */
 end_comment
@@ -51,14 +39,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate().header(\"cheese\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -66,7 +54,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -80,7 +68,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate(header(\"cheese\")).to(\"mock:result\")"
 decl_stmt|;
@@ -95,7 +83,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -109,14 +97,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate().simple(\"id\").batchTimeout(500L).groupExchanges().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -124,7 +112,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -138,7 +126,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").aggregate(header(\"id\")).batchTimeout(3000).batchSize(0).to(\"mock:result\")"
 decl_stmt|;
@@ -153,29 +141,29 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * a route involving a external class: CamelException      *       * @throws Exception      */
-DECL|method|_testAggregateAndOnException ()
+comment|/**      * a route involving a external class: CamelException      *       * @throws Exception      * TODO: fix this test!      */
+DECL|method|fimeTestAggregateAndOnException ()
 specifier|public
 name|void
-name|_testAggregateAndOnException
+name|fimeTestAggregateAndOnException
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock:error\"));onException(CamelException.class).maximumRedeliveries(2);from(\"direct:start\").aggregate(header(\"id\")).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -183,22 +171,22 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * a set of routes that uses aggregate DSL      *       * @throws Exception      */
-DECL|method|_testAggregateTimerAndTracer ()
+comment|/**      * a set of routes that uses aggregate DSL      *       * @throws Exception      * TODO: fix this test!      */
+DECL|method|fixmeTestAggregateTimerAndTracer ()
 specifier|public
 name|void
-name|_testAggregateTimerAndTracer
+name|fixmeTestAggregateTimerAndTracer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"timer://kickoff?period=9999910000\").setHeader(\"id\").constant(\"foo\").setBody().constant(\"a b c\").split(body().tokenize(\" \")).to(\"seda:splitted\");"
 operator|+
@@ -207,7 +195,7 @@ decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -215,7 +203,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -39,14 +39,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"intercept().to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -54,7 +54,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -68,14 +68,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"intercept().to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -83,7 +83,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,7 +97,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
@@ -112,7 +112,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -126,7 +126,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"intercept().when(body().contains(\"Hello\")).to(\"mock:intercepted\").stop();from(\"direct:start\").to(\"mock:foo\").to(\"mock:bar\").to(\"mock:result\")"
 decl_stmt|;
@@ -141,7 +141,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

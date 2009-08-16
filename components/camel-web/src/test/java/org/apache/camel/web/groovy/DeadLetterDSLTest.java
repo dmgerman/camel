@@ -39,7 +39,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock:failed\").maximumRedeliveries(0).handled(false));from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
@@ -54,7 +54,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -68,7 +68,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock:failed\").maximumRedeliveries(3).redeliverDelay(5000));from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
@@ -83,7 +83,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,7 +97,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock:failed\").maximumRedeliveries(3).redeliverDelay(5000).handled(false));from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
@@ -112,7 +112,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

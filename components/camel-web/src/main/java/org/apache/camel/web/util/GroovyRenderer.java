@@ -132,12 +132,12 @@ name|HEADER
 init|=
 literal|"import org.apache.camel.language.groovy.GroovyRouteBuilder;\nclass GroovyRoute extends GroovyRouteBuilder {\nvoid configure() {\n"
 decl_stmt|;
-DECL|field|footer
+DECL|field|FOOTER
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|footer
+name|FOOTER
 init|=
 literal|"\n}\n}"
 decl_stmt|;

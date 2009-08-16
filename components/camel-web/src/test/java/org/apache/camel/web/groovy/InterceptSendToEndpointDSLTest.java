@@ -39,14 +39,16 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"interceptSendToEndpoint(\"mock:foo\").to(\"mock:detour\").transform(constant(\"Bye World\"));from(\"direct:first\").to(\"mock:bar\").to(\"mock:foo\").to(\"mock:result\")"
+literal|"interceptSendToEndpoint(\"mock:foo\").to(\"mock:detour\").transform(constant(\"Bye World\"));"
+operator|+
+literal|"from(\"direct:first\").to(\"mock:bar\").to(\"mock:foo\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -54,7 +56,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -68,14 +70,16 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"interceptSendToEndpoint(\"file:*\").skipSendToOriginalEndpoint().to(\"mock:detour\");from(\"direct:first\").to(\"file://foo\").to(\"file://bar\").to(\"mock:result\")"
+literal|"interceptSendToEndpoint(\"file:*\").skipSendToOriginalEndpoint().to(\"mock:detour\");"
+operator|+
+literal|"from(\"direct:first\").to(\"file://foo\").to(\"file://bar\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -83,7 +87,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,14 +101,18 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"onException(IOException.class).handled(true).to(\"mock:io\");interceptSendToEndpoint(\"mock:io\").skipSendToOriginalEndpoint().to(\"mock:intercepted\");from(\"direct:start\").to(\"mock:foo\").to(\"mock:result\")"
+literal|"onException(IOException.class).handled(true).to(\"mock:io\");"
+operator|+
+literal|"interceptSendToEndpoint(\"mock:io\").skipSendToOriginalEndpoint().to(\"mock:intercepted\");"
+operator|+
+literal|"from(\"direct:start\").to(\"mock:foo\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -112,28 +120,31 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|_testInterceptSendToIssue ()
+comment|// TODO: fix this test!
+DECL|method|fixmeTestInterceptSendToIssue ()
 specifier|public
 name|void
-name|_testInterceptSendToIssue
+name|fixmeTestInterceptSendToIssue
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
-literal|"interceptSendToEndpoint(\"direct:foo\").to(\"mock:foo\");from(\"direct:start\").setHeader(Exchange.FILE_NAME, constant(\"hello.txt\")).to(\"direct:foo\")"
+literal|"interceptSendToEndpoint(\"direct:foo\").to(\"mock:foo\");"
+operator|+
+literal|"from(\"direct:start\").setHeader(Exchange.FILE_NAME, constant(\"hello.txt\")).to(\"direct:foo\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -141,7 +152,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

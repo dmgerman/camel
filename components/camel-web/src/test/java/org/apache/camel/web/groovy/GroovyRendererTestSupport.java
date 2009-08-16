@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|GroovyClassLoader
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -110,20 +100,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RoutesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|web
 operator|.
 name|util
@@ -160,6 +136,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|GroovyClassLoader
+import|;
+end_import
+
 begin_comment
 comment|/**  * An abstract class that provides basic support for GroovyRenderer test  */
 end_comment
@@ -174,8 +160,9 @@ extends|extends
 name|TestCase
 block|{
 DECL|field|LOG
-specifier|public
+specifier|private
 specifier|final
+specifier|static
 name|Log
 name|LOG
 init|=
@@ -206,7 +193,7 @@ name|footer
 init|=
 name|GroovyRenderer
 operator|.
-name|footer
+name|FOOTER
 decl_stmt|;
 DECL|field|context
 specifier|private

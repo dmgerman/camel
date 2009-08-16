@@ -39,7 +39,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").convertBodyTo(Integer.class).to(\"mock:result\")"
 decl_stmt|;
@@ -54,7 +54,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -68,14 +68,14 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|DSL
+name|dsl
 init|=
 literal|"from(\"direct:start\").convertBodyTo(byte[].class, \"iso-8859-1\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expectedDSL
 init|=
-name|DSL
+name|dsl
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -83,7 +83,7 @@ name|expectedDSL
 argument_list|,
 name|render
 argument_list|(
-name|DSL
+name|dsl
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -38,34 +38,6 @@ name|FileReader
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|AggregationStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test for GroovyRenderer  */
 end_comment
