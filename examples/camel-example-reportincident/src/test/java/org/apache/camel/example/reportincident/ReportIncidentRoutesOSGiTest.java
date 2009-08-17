@@ -570,15 +570,6 @@ name|options
 init|=
 name|options
 argument_list|(
-comment|// install log service using pax runners profile abstraction (there are more profiles, like DS)
-name|logProfile
-argument_list|()
-operator|.
-name|version
-argument_list|(
-literal|"1.3.0"
-argument_list|)
-argument_list|,
 comment|// install the spring dm profile
 name|profile
 argument_list|(
@@ -686,8 +677,6 @@ argument_list|,
 literal|"camel-velocity"
 argument_list|,
 literal|"camel-cxf"
-argument_list|,
-literal|"camel-mail"
 argument_list|)
 argument_list|,
 comment|// Added the mock_java_mail bundle for testing
@@ -702,6 +691,22 @@ operator|.
 name|artifactId
 argument_list|(
 literal|"org.apache.camel.tests.mock-javamail_1.7"
+argument_list|)
+operator|.
+name|versionAsInProject
+argument_list|()
+argument_list|,
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
+literal|"camel-mail"
 argument_list|)
 operator|.
 name|versionAsInProject

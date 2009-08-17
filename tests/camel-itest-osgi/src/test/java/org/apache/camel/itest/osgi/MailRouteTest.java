@@ -705,10 +705,10 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 expr_stmt|;
-comment|// must use fixed to option to send the mail to the given reciever, as we have polled
+comment|// must use fixed to option to send the mail to the given receiver, as we have polled
 comment|// a mail from a mailbox where it already has the 'old' To as header value
-comment|// here we send the mail to 2 recievers. notice we can use a plain string with semi colon
-comment|// to seperate the mail addresses
+comment|// here we send the mail to 2 receivers. notice we can use a plain string with semi colon
+comment|// to separate the mail addresses
 name|from
 argument_list|(
 literal|"direct:a"
@@ -767,14 +767,7 @@ init|=
 name|options
 argument_list|(
 comment|// install log service using pax runners profile abstraction (there are more profiles, like DS)
-name|logProfile
-argument_list|()
-operator|.
-name|version
-argument_list|(
-literal|"1.3.0"
-argument_list|)
-argument_list|,
+comment|//logProfile().version("1.3.0"),
 comment|// install the spring dm profile
 name|profile
 argument_list|(
@@ -838,9 +831,42 @@ argument_list|,
 literal|"camel-spring"
 argument_list|,
 literal|"camel-test"
+argument_list|)
 argument_list|,
+comment|// using the java mail API bundle
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.servicemix.specs"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
+literal|"org.apache.servicemix.specs.javamail-api-1.4"
+argument_list|)
+operator|.
+name|version
+argument_list|(
+literal|"1.3.0"
+argument_list|)
+argument_list|,
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
 literal|"camel-mail"
 argument_list|)
+operator|.
+name|versionAsInProject
+argument_list|()
 argument_list|,
 comment|// Added the mock_java_mail bundle for testing
 name|mavenBundle
