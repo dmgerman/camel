@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * a test case for choice DSL  */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ChoiceDSLTest
+DECL|class|ThreadsDSLTest
 specifier|public
 class|class
-name|ChoiceDSLTest
+name|ThreadsDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testChoiceWithMethod ()
+DECL|method|testThreadsAsyncDeadLetterChannel ()
 specifier|public
 name|void
-name|testChoiceWithMethod
+name|testThreadsAsyncDeadLetterChannel
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,84 +41,16 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").choice()"
+literal|"errorHandler(deadLetterChannel(\"mock://dead\").maximumRedeliveries(2).redeliverDelay(0).logStackTrace(false).handled(false));"
 operator|+
-literal|".when().method(\"controlBean\", \"isDetour\").to(\"mock:detour\")"
-operator|+
-literal|".end()"
-operator|+
-literal|".to(\"mock:result\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|dsl
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testChoiceWithPredication ()
-specifier|public
-name|void
-name|testChoiceWithPredication
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when(header(\"username\").isNull()).to(\"mock:god\")"
-operator|+
-literal|".when(header(\"admin\").isEqualTo(\"true\")).to(\"mock:admin\")"
-operator|+
-literal|".otherwise().to(\"mock:guest\")"
-operator|+
-literal|".end()"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|dsl
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testChoiceWithoutEnd ()
-specifier|public
-name|void
-name|testChoiceWithoutEnd
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").split().body().choice()"
-operator|+
-literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\", \"seda:aggregate\")"
-operator|+
-literal|".otherwise().to(\"bean:gadgetInventory\", \"seda:aggregate\")"
+literal|"from(\"direct:start\").threads(3).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").split(body()).choice()"
+literal|"errorHandler(deadLetterChannel(\"mock://dead\").maximumRedeliveries(2).redeliverDelay(0).handled(false));"
 operator|+
-literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\").to(\"seda:aggregate\")"
-operator|+
-literal|".otherwise().to(\"bean:gadgetInventory\").to(\"seda:aggregate\")"
-operator|+
-literal|".end()"
+literal|"from(\"direct:start\").threads(3).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -131,10 +63,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testChoiceWithXPath ()
+DECL|method|testThreadsAsyncRoute ()
 specifier|public
 name|void
-name|testChoiceWithXPath
+name|testThreadsAsyncRoute
 parameter_list|()
 throws|throws
 name|Exception
@@ -142,28 +74,60 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when().xpath(\"\\$foo = 'bar'\").to(\"mock:x\")"
-operator|+
-literal|".when().xpath(\"\\$foo = 'cheese'\").to(\"mock:y\")"
-operator|+
-literal|".otherwise().to(\"mock:z\").end()"
-operator|+
-literal|".to(\"mock:end\")"
+literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testThreadsAsyncRouteNoWait ()
+specifier|public
+name|void
+name|testThreadsAsyncRouteNoWait
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().waitForTaskToComplete(WaitForTaskToComplete.Never).to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testThreadsAsyncRouteWaitIfReplyExpected ()
+specifier|public
+name|void
+name|testThreadsAsyncRouteWaitIfReplyExpected
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().waitForTaskToComplete(WaitForTaskToComplete.IfReplyExpected).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when().xpath(\"$foo = 'bar'\").to(\"mock:x\")"
-operator|+
-literal|".when().xpath(\"$foo = 'cheese'\").to(\"mock:y\")"
-operator|+
-literal|".otherwise().to(\"mock:z\").end()"
-operator|+
-literal|".to(\"mock:end\")"
+literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

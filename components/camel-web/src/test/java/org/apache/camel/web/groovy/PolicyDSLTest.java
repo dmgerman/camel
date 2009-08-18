@@ -23,17 +23,17 @@ comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|SetBodyDSLTest
+DECL|class|PolicyDSLTest
 specifier|public
 class|class
-name|SetBodyDSLTest
+name|PolicyDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSetBody ()
+DECL|method|testPolicy ()
 specifier|public
 name|void
-name|testSetBody
+name|testPolicy
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,36 +41,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\", \"mock:tap\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\").to(\"mock:tap\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|expected
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testSetBodyEnricher ()
-specifier|public
-name|void
-name|testSetBodyEnricher
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").setBody(body().append(\" World!\")).to(\"mock:result\")"
+literal|"from(\"direct:start\").policy(\"myPolicy\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

@@ -78,6 +78,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|fixmeTestThrottleWithTimePeriodMillisInterval ()
+specifier|public
+name|void
+name|fixmeTestThrottleWithTimePeriodMillisInterval
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").throttle(1).timePeriodMillis(INTERVAL).to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

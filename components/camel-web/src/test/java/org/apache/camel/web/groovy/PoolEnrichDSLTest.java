@@ -18,22 +18,43 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|SetBodyDSLTest
+DECL|class|PoolEnrichDSLTest
 specifier|public
 class|class
-name|SetBodyDSLTest
+name|PoolEnrichDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSetBody ()
+comment|/**      * a route involving a external class: aggregationStrategy      *       * @throws Exception      * TODO: fix this test!      */
+DECL|method|fixmeTestPollEnrich ()
 specifier|public
 name|void
-name|testSetBody
+name|fixmeTestPollEnrich
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,28 +62,64 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\", \"mock:tap\")"
+literal|"from(\"direct:start\").pollEnrich(\"direct:foo\", 1000, aggregationStrategy).to(\"mock:result\")"
 decl_stmt|;
 name|String
-name|expected
+index|[]
+name|importClasses
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\").to(\"mock:tap\")"
+operator|new
+name|String
+index|[]
+block|{
+literal|"import org.apache.camel.processor.enricher.*"
+block|}
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|newObjects
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|newObjects
+operator|.
+name|put
+argument_list|(
+literal|"aggregationStrategy"
+argument_list|,
+literal|"SampleAggregator"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|dsl
 argument_list|,
 name|render
 argument_list|(
 name|dsl
+argument_list|,
+name|importClasses
+argument_list|,
+name|newObjects
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetBodyEnricher ()
+DECL|method|testPollEnrichWithoutAggregationStrategy ()
 specifier|public
 name|void
-name|testSetBodyEnricher
+name|testPollEnrichWithoutAggregationStrategy
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,7 +127,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").setBody(body().append(\" World!\")).to(\"mock:result\")"
+literal|"from(\"direct:start\").pollEnrich(\"direct:foo\", 1000).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

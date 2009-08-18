@@ -278,6 +278,46 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+DECL|method|getResourceUri ()
+specifier|public
+name|String
+name|getResourceUri
+parameter_list|()
+block|{
+return|return
+name|resourceUri
+return|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|Long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|getAggregationStrategyRef ()
+specifier|public
+name|String
+name|getAggregationStrategyRef
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategyRef
+return|;
+block|}
+DECL|method|getAggregationStrategy ()
+specifier|public
+name|AggregationStrategy
+name|getAggregationStrategy
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategy
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

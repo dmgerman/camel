@@ -18,22 +18,38 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MemoryIdempotentRepository
+import|;
+end_import
+
 begin_comment
-comment|/**  * a test case for choice DSL  */
+comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|ChoiceDSLTest
+DECL|class|IdempotentConsumerDSLTest
 specifier|public
 class|class
-name|ChoiceDSLTest
+name|IdempotentConsumerDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testChoiceWithMethod ()
+DECL|method|testIdempotentConsumerAsync ()
 specifier|public
 name|void
-name|testChoiceWithMethod
+name|testIdempotentConsumerAsync
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,13 +57,18 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when().method(\"controlBean\", \"isDetour\").to(\"mock:detour\")"
-operator|+
-literal|".end()"
-operator|+
-literal|".to(\"mock:result\")"
+literal|"from(\"direct:start\").idempotentConsumer(header(\"messageId\"), MemoryIdempotentRepository.memoryIdempotentRepository()).threads().to(\"mock:result\")"
+decl_stmt|;
+name|String
+index|[]
+name|importClasses
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"import org.apache.camel.processor.idempotent.*"
+block|}
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -56,46 +77,59 @@ argument_list|,
 name|render
 argument_list|(
 name|dsl
+argument_list|,
+name|importClasses
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testChoiceWithPredication ()
+DECL|method|testIdempotentConsumerAsyncWithCacheSize ()
 specifier|public
 name|void
-name|testChoiceWithPredication
+name|testIdempotentConsumerAsyncWithCacheSize
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// drop the cache size
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when(header(\"username\").isNull()).to(\"mock:god\")"
-operator|+
-literal|".when(header(\"admin\").isEqualTo(\"true\")).to(\"mock:admin\")"
-operator|+
-literal|".otherwise().to(\"mock:guest\")"
-operator|+
-literal|".end()"
+literal|"from(\"direct:start\").idempotentConsumer(header(\"messageId\"), MemoryIdempotentRepository.memoryIdempotentRepository(200)).threads().to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"from(\"direct:start\").idempotentConsumer(header(\"messageId\"), MemoryIdempotentRepository.memoryIdempotentRepository()).threads().to(\"mock:result\")"
+decl_stmt|;
+name|String
+index|[]
+name|importClasses
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"import org.apache.camel.processor.idempotent.*"
+block|}
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
 name|render
 argument_list|(
 name|dsl
+argument_list|,
+name|importClasses
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testChoiceWithoutEnd ()
+DECL|method|testIdempotentConsumerEager ()
 specifier|public
 name|void
-name|testChoiceWithoutEnd
+name|testIdempotentConsumerEager
 parameter_list|()
 throws|throws
 name|Exception
@@ -103,67 +137,23 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").split().body().choice()"
-operator|+
-literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\", \"seda:aggregate\")"
-operator|+
-literal|".otherwise().to(\"bean:gadgetInventory\", \"seda:aggregate\")"
+literal|"from(\"direct:start\").idempotentConsumer(header(\"messageId\"), MemoryIdempotentRepository.memoryIdempotentRepository(200)).eager(false).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").split(body()).choice()"
-operator|+
-literal|".when().method(\"orderItemHelper\", \"isWidget\").to(\"bean:widgetInventory\").to(\"seda:aggregate\")"
-operator|+
-literal|".otherwise().to(\"bean:gadgetInventory\").to(\"seda:aggregate\")"
-operator|+
-literal|".end()"
+literal|"from(\"direct:start\").idempotentConsumer(header(\"messageId\"), MemoryIdempotentRepository.memoryIdempotentRepository()).eager(false).to(\"mock:result\")"
 decl_stmt|;
-name|assertEquals
-argument_list|(
-name|expected
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
+name|String
+index|[]
+name|importClasses
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"import org.apache.camel.processor.idempotent.*"
 block|}
-DECL|method|testChoiceWithXPath ()
-specifier|public
-name|void
-name|testChoiceWithXPath
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when().xpath(\"\\$foo = 'bar'\").to(\"mock:x\")"
-operator|+
-literal|".when().xpath(\"\\$foo = 'cheese'\").to(\"mock:y\")"
-operator|+
-literal|".otherwise().to(\"mock:z\").end()"
-operator|+
-literal|".to(\"mock:end\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"from(\"direct:start\").choice()"
-operator|+
-literal|".when().xpath(\"$foo = 'bar'\").to(\"mock:x\")"
-operator|+
-literal|".when().xpath(\"$foo = 'cheese'\").to(\"mock:y\")"
-operator|+
-literal|".otherwise().to(\"mock:z\").end()"
-operator|+
-literal|".to(\"mock:end\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -172,6 +162,8 @@ argument_list|,
 name|render
 argument_list|(
 name|dsl
+argument_list|,
+name|importClasses
 argument_list|)
 argument_list|)
 expr_stmt|;

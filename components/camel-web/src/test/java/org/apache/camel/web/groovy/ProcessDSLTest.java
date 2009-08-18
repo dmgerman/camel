@@ -18,22 +18,43 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|SetBodyDSLTest
+DECL|class|ProcessDSLTest
 specifier|public
 class|class
-name|SetBodyDSLTest
+name|ProcessDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSetBody ()
+comment|/**      * a route involving a external class: validator      *       * @throws Exception TODO: fix this test!      */
+DECL|method|fixmeTestProcess ()
 specifier|public
 name|void
-name|testSetBody
+name|fixmeTestProcess
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,28 +62,64 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\", \"mock:tap\")"
+literal|"from(\"direct:start\").doTry().process(validator).to(\"mock:valid\").doCatch(ValidationException.class).to(\"mock:invalid\")"
 decl_stmt|;
 name|String
-name|expected
+index|[]
+name|importClasses
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\").to(\"mock:tap\")"
+operator|new
+name|String
+index|[]
+block|{
+literal|"import org.apache.camel.processor.*;"
+block|}
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|newObjects
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|newObjects
+operator|.
+name|put
+argument_list|(
+literal|"validator"
+argument_list|,
+literal|"MyValidator"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|dsl
 argument_list|,
 name|render
 argument_list|(
 name|dsl
+argument_list|,
+name|importClasses
+argument_list|,
+name|newObjects
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetBodyEnricher ()
+DECL|method|testProcessRef ()
 specifier|public
 name|void
-name|testSetBodyEnricher
+name|testProcessRef
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,7 +127,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").setBody(body().append(\" World!\")).to(\"mock:result\")"
+literal|"from(\"direct:start\").processRef(\"myProcessor\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

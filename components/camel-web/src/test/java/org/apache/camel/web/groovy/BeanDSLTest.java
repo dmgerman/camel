@@ -19,21 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SetBodyDSLTest
+DECL|class|BeanDSLTest
 specifier|public
 class|class
-name|SetBodyDSLTest
+name|BeanDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSetBody ()
+DECL|method|testBeanMethodHeartbeat ()
 specifier|public
 name|void
-name|testSetBody
+name|testBeanMethodHeartbeat
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,16 +41,11 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\", \"mock:tap\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\").to(\"mock:tap\")"
+literal|"from(\"bean:beanService?method=status\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|dsl
 argument_list|,
 name|render
 argument_list|(
@@ -59,10 +54,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetBodyEnricher ()
+DECL|method|testBeanRef ()
 specifier|public
 name|void
-name|testSetBodyEnricher
+name|testBeanRef
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,7 +65,55 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").setBody(body().append(\" World!\")).to(\"mock:result\")"
+literal|"from(\"direct:start\").beanRef(\"myBean\").to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBeanRecipient ()
+specifier|public
+name|void
+name|testBeanRecipient
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").beanRef(\"beanRecipient\", \"recipientList\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBeanWithException ()
+specifier|public
+name|void
+name|testBeanWithException
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"errorHandler(deadLetterChannel(\"mock://error\"));onException(Exception.class).to(\"mock:invalid\");from(\"direct:start\").beanRef(\"myBean\").to(\"mock:valid\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

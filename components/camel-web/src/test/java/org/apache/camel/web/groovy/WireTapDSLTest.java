@@ -78,6 +78,31 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * a wireTap with two parameters      *       * @throws Exception      * TODO: fix this test!      */
+DECL|method|fixmeTestWireTap3 ()
+specifier|public
+name|void
+name|fixmeTestWireTap3
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").wireTap(\"direct:foo\", constant(\"Bye World\")).to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

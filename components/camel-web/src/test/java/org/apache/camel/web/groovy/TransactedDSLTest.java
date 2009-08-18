@@ -23,17 +23,17 @@ comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|SetBodyDSLTest
+DECL|class|TransactedDSLTest
 specifier|public
 class|class
-name|SetBodyDSLTest
+name|TransactedDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-DECL|method|testSetBody ()
+DECL|method|testTransacted ()
 specifier|public
 name|void
-name|testSetBody
+name|testTransacted
 parameter_list|()
 throws|throws
 name|Exception
@@ -41,12 +41,12 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\", \"mock:tap\")"
+literal|"from(\"direct:start\").transacted(\"myTransacted\").to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").delay(1000).setBody().constant(\"Tapped\").to(\"mock:result\").to(\"mock:tap\")"
+literal|"from(\"direct:start\").policy(\"myTransacted\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -59,10 +59,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetBodyEnricher ()
+DECL|method|testTransactedWithPolicy ()
 specifier|public
 name|void
-name|testSetBodyEnricher
+name|testTransactedWithPolicy
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,11 +70,16 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").setBody(body().append(\" World!\")).to(\"mock:result\")"
+literal|"from(\"direct:start\").transacted().policy(\"myPolicy\").to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"from(\"direct:start\").policy().policy(\"myPolicy\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
 name|render
 argument_list|(
