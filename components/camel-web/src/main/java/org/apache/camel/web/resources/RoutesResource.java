@@ -406,6 +406,40 @@ return|return
 name|routeResource
 return|;
 block|}
+annotation|@
+name|Path
+argument_list|(
+literal|"{id}/status"
+argument_list|)
+DECL|method|getRouteStatus (@athParamR) String id)
+specifier|public
+name|RouteStatusResource
+name|getRouteStatus
+parameter_list|(
+annotation|@
+name|PathParam
+argument_list|(
+literal|"id"
+argument_list|)
+name|String
+name|id
+parameter_list|)
+block|{
+name|RouteResource
+name|routeResource
+init|=
+name|getRoute
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+return|return
+name|routeResource
+operator|.
+name|getRouteStatus
+argument_list|()
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getRoutes ()
