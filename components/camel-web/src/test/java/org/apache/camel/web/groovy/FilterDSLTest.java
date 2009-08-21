@@ -102,6 +102,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFilterXPath ()
+specifier|public
+name|void
+name|testFilterXPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|dsl
+init|=
+literal|"from(\"direct:start\").filter().xpath(\"/person[@Name='James']\").to(\"mock:result\")"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|dsl
+argument_list|,
+name|render
+argument_list|(
+name|dsl
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
