@@ -420,15 +420,6 @@ name|options
 init|=
 name|options
 argument_list|(
-comment|// install log service using pax runners profile abstraction (there are more profiles, like DS)
-name|logProfile
-argument_list|()
-operator|.
-name|version
-argument_list|(
-literal|"1.3.0"
-argument_list|)
-argument_list|,
 comment|// install the spring dm profile
 name|profile
 argument_list|(

@@ -679,22 +679,24 @@ argument_list|,
 literal|"camel-cxf"
 argument_list|)
 argument_list|,
-comment|// Added the mock_java_mail bundle for testing
+comment|// using the java mail API bundle
 name|mavenBundle
 argument_list|()
 operator|.
 name|groupId
 argument_list|(
-literal|"org.apache.camel.tests"
+literal|"org.apache.servicemix.specs"
 argument_list|)
 operator|.
 name|artifactId
 argument_list|(
-literal|"org.apache.camel.tests.mock-javamail_1.7"
+literal|"org.apache.servicemix.specs.javamail-api-1.4"
 argument_list|)
 operator|.
-name|versionAsInProject
-argument_list|()
+name|version
+argument_list|(
+literal|"1.3.0"
+argument_list|)
 argument_list|,
 name|mavenBundle
 argument_list|()
@@ -707,6 +709,23 @@ operator|.
 name|artifactId
 argument_list|(
 literal|"camel-mail"
+argument_list|)
+operator|.
+name|versionAsInProject
+argument_list|()
+argument_list|,
+comment|// Added the mock_java_mail bundle for testing
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.camel.tests"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
+literal|"org.apache.camel.tests.mock-javamail_1.7"
 argument_list|)
 operator|.
 name|versionAsInProject
