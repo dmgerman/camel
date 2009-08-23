@@ -1249,6 +1249,19 @@ name|urlPath
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|isLocalFileSystem
+init|=
+literal|"file"
+operator|.
+name|equals
+argument_list|(
+name|url
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// If it's a file in a directory, trim the stupid file: spec
 if|if
 condition|(
@@ -1268,6 +1281,10 @@ name|substring
 argument_list|(
 literal|5
 argument_list|)
+expr_stmt|;
+name|isLocalFileSystem
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|// osgi bundles should be skipped
@@ -1406,15 +1423,11 @@ name|stream
 decl_stmt|;
 if|if
 condition|(
-name|urlPath
-operator|.
-name|startsWith
-argument_list|(
-literal|"http:"
-argument_list|)
+operator|!
+name|isLocalFileSystem
 condition|)
 block|{
-comment|// load resources using http such as java webstart
+comment|// load resources using http (and other protocols) such as java webstart
 name|log
 operator|.
 name|debug
@@ -1557,6 +1570,26 @@ literal|" with classloader: "
 operator|+
 name|loader
 argument_list|)
+expr_stmt|;
+block|}
+comment|// If the URL is a jar, the URLClassloader.getResources() seems to require a trailing slash.  The
+comment|// trailing slash is harmless for other URLs
+if|if
+condition|(
+operator|!
+name|packageName
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|packageName
+operator|=
+name|packageName
+operator|+
+literal|"/"
 expr_stmt|;
 block|}
 return|return

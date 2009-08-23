@@ -798,11 +798,10 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Disable until CAMEL-1917 is fixed
-DECL|method|disabledtestFindByFilterPackageInJarUrl ()
+DECL|method|testFindByFilterPackageInJarUrl ()
 specifier|public
 name|void
-name|disabledtestFindByFilterPackageInJarUrl
+name|testFindByFilterPackageInJarUrl
 parameter_list|()
 throws|throws
 name|Exception
