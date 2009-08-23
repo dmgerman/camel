@@ -2647,9 +2647,10 @@ return|return
 literal|false
 return|;
 block|}
-comment|// return type must not be an Exchange
+comment|// return type must not be an Exchange and it should not be a bridge method
 if|if
 condition|(
+operator|(
 name|method
 operator|.
 name|getReturnType
@@ -2668,6 +2669,12 @@ operator|.
 name|getReturnType
 argument_list|()
 argument_list|)
+operator|)
+operator|||
+name|method
+operator|.
+name|isBridge
+argument_list|()
 condition|)
 block|{
 return|return
