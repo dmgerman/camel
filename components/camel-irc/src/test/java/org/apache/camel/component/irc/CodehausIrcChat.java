@@ -30,6 +30,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|schwering
@@ -471,6 +491,26 @@ throws|throws
 name|InterruptedException
 block|{
 comment|//final IrcConfiguration config = new IrcConfiguration("irc.codehaus.org", "camel-irc", "Camel IRC Component", "#camel-test");
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|channels
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|channels
+operator|.
+name|add
+argument_list|(
+literal|"#camel-test"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|IrcConfiguration
 name|config
@@ -484,7 +524,7 @@ literal|"camel-rc"
 argument_list|,
 literal|"Camel IRC Component"
 argument_list|,
-literal|"#camel-test"
+name|channels
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -591,16 +631,25 @@ argument_list|)
 expr_stmt|;
 comment|// conn.send("/JOIN #camel-test");
 comment|// System.out.println("Joining Channel: " + config.getTarget());
+for|for
+control|(
+name|String
+name|channel
+range|:
+name|config
+operator|.
+name|getChannels
+argument_list|()
+control|)
+block|{
 name|conn
 operator|.
 name|doJoin
 argument_list|(
-name|config
-operator|.
-name|getTarget
-argument_list|()
+name|channel
 argument_list|)
 expr_stmt|;
+block|}
 name|conn
 operator|.
 name|doPrivmsg

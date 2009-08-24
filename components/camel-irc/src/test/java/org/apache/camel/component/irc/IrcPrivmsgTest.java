@@ -139,20 +139,11 @@ name|expectedBody2
 init|=
 literal|"Message Two"
 decl_stmt|;
-DECL|field|command
-specifier|protected
-name|String
-name|command
-init|=
-literal|"PRIVMSG camel-con :"
-decl_stmt|;
 DECL|field|body1
 specifier|protected
 name|String
 name|body1
 init|=
-name|command
-operator|+
 name|expectedBody1
 decl_stmt|;
 DECL|field|body2
@@ -160,8 +151,6 @@ specifier|protected
 name|String
 name|body2
 init|=
-name|command
-operator|+
 name|expectedBody2
 decl_stmt|;
 DECL|field|sentMessages
@@ -386,22 +375,30 @@ expr_stmt|;
 comment|// now the consumer has joined, lets send some messages
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 name|sendUri
 argument_list|()
 argument_list|,
 name|body1
+argument_list|,
+literal|"irc.target"
+argument_list|,
+literal|"camel-con"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 name|sendUri
 argument_list|()
 argument_list|,
 name|body2
+argument_list|,
+literal|"irc.target"
+argument_list|,
+literal|"camel-con"
 argument_list|)
 expr_stmt|;
 block|}

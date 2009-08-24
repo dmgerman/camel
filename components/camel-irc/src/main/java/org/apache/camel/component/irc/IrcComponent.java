@@ -352,11 +352,11 @@ operator|.
 name|getHostname
 argument_list|()
 operator|+
-literal|" "
+literal|":"
 operator|+
 name|configuration
 operator|.
-name|getTarget
+name|getNickname
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -441,11 +441,11 @@ operator|.
 name|getHostname
 argument_list|()
 operator|+
-literal|" destination: "
+literal|" destination(s): "
 operator|+
 name|configuration
 operator|.
-name|getTarget
+name|getListOfChannels
 argument_list|()
 operator|+
 literal|" nick: "
@@ -537,11 +537,11 @@ operator|.
 name|getHostname
 argument_list|()
 operator|+
-literal|" destination: "
+literal|" destination(s): "
 operator|+
 name|configuration
 operator|.
-name|getTarget
+name|getListOfChannels
 argument_list|()
 operator|+
 literal|" nick: "
