@@ -64,7 +64,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|addRoutes
+name|includeRoutes
 argument_list|(
 operator|new
 name|MyExtraRoute

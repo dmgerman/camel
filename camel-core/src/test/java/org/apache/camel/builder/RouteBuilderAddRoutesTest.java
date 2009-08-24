@@ -74,7 +74,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-name|addRoutes
+name|includeRoutes
 argument_list|(
 operator|new
 name|MyExtraRoute
