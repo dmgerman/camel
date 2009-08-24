@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/test-consumer-produer-inbox"
+literal|"target/file-test"
 argument_list|)
 expr_stmt|;
 name|super
@@ -108,7 +108,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-consumer-produer-inbox"
+literal|"file://target/file-test/a"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -123,7 +123,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-consumer-produer-inbox"
+literal|"file://target/file-test/a"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -188,17 +188,17 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"file:src/main/data?noop=true"
+literal|"file:target/file-test/a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/test-consumer-produer-inbox"
+literal|"file:target/file-test/b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/test-consumer-produer-inbox"
+literal|"file:target/file-test/b"
 argument_list|)
 operator|.
 name|to
