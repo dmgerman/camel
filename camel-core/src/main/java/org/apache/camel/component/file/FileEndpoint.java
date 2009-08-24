@@ -332,7 +332,7 @@ name|isNoop
 argument_list|()
 operator|&&
 operator|!
-name|isIdempotent
+name|isIdempotentSet
 argument_list|()
 condition|)
 block|{
@@ -352,6 +352,9 @@ block|}
 comment|// if idempotent and no repository set then create a default one
 if|if
 condition|(
+name|isIdempotentSet
+argument_list|()
+operator|&&
 name|isIdempotent
 argument_list|()
 operator|&&

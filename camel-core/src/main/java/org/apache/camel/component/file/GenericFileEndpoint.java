@@ -462,7 +462,7 @@ name|preMove
 decl_stmt|;
 DECL|field|idempotent
 specifier|protected
-name|boolean
+name|Boolean
 name|idempotent
 decl_stmt|;
 DECL|field|idempotentRepository
@@ -1233,20 +1233,37 @@ expr_stmt|;
 block|}
 DECL|method|isIdempotent ()
 specifier|public
-name|boolean
+name|Boolean
 name|isIdempotent
 parameter_list|()
 block|{
 return|return
 name|idempotent
+operator|!=
+literal|null
+condition|?
+name|idempotent
+else|:
+literal|false
 return|;
 block|}
-DECL|method|setIdempotent (boolean idempotent)
+DECL|method|isIdempotentSet ()
+name|boolean
+name|isIdempotentSet
+parameter_list|()
+block|{
+return|return
+name|idempotent
+operator|!=
+literal|null
+return|;
+block|}
+DECL|method|setIdempotent (Boolean idempotent)
 specifier|public
 name|void
 name|setIdempotent
 parameter_list|(
-name|boolean
+name|Boolean
 name|idempotent
 parameter_list|)
 block|{
