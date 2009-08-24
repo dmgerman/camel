@@ -594,20 +594,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|handled
 condition|)
-block|{
-name|localExchange
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 comment|// put exception back as it was not handled
 if|if
