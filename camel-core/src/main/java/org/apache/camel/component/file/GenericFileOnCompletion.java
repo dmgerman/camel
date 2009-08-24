@@ -160,7 +160,12 @@ name|T
 argument_list|>
 name|file
 decl_stmt|;
-DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file)
+DECL|field|originalFileName
+specifier|private
+name|String
+name|originalFileName
+decl_stmt|;
+DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file, String originalFileName)
 specifier|public
 name|GenericFileOnCompletion
 parameter_list|(
@@ -181,6 +186,9 @@ argument_list|<
 name|T
 argument_list|>
 name|file
+parameter_list|,
+name|String
+name|originalFileName
 parameter_list|)
 block|{
 name|this
@@ -200,6 +208,12 @@ operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+name|this
+operator|.
+name|originalFileName
+operator|=
+name|originalFileName
 expr_stmt|;
 block|}
 annotation|@
@@ -407,6 +421,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// remove file from the in progress list as its no longer in progress
+comment|// use the original file name that was used to add it to the repository
+comment|// as the name can be different when using preMove option
 name|endpoint
 operator|.
 name|getInProgressRepository
@@ -414,10 +430,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|file
-operator|.
-name|getFileName
-argument_list|()
+name|originalFileName
 argument_list|)
 expr_stmt|;
 block|}

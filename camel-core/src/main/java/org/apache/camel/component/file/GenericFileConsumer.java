@@ -956,6 +956,14 @@ expr_stmt|;
 block|}
 comment|// register on completion callback that does the completiom stategies
 comment|// (for instance to move the file after we have processed it)
+name|String
+name|originalFileName
+init|=
+name|file
+operator|.
+name|getFileName
+argument_list|()
+decl_stmt|;
 name|exchange
 operator|.
 name|addOnCompletion
@@ -971,6 +979,8 @@ argument_list|,
 name|operations
 argument_list|,
 name|target
+argument_list|,
+name|originalFileName
 argument_list|)
 argument_list|)
 expr_stmt|;
