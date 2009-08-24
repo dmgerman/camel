@@ -118,6 +118,20 @@ name|GenericFileOperations
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test about retrying deleting processed file, that can be a bit more tricky  * on some OS as java.io.delete can return wrong answer  *  * @version $Revision$  */
 end_comment
@@ -190,9 +204,15 @@ block|{
 name|existsCounter
 operator|++
 expr_stmt|;
+comment|// The file name should be normalized
 if|if
 condition|(
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
 literal|"target/foo/boom.txt"
+argument_list|)
 operator|.
 name|equals
 argument_list|(

@@ -418,6 +418,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// close the stream first and than delete the file
+name|close
+argument_list|()
+expr_stmt|;
 name|boolean
 name|deleted
 init|=
