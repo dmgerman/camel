@@ -459,6 +459,8 @@ name|assertEquals
 argument_list|(
 literal|"Should have one RouteService"
 argument_list|,
+literal|1
+argument_list|,
 name|ctx
 operator|.
 name|getRouteServices
@@ -466,8 +468,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|String
@@ -488,7 +488,9 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The RouteService should be removed "
+literal|"The RouteService should NOT be removed even when we stop"
+argument_list|,
+literal|1
 argument_list|,
 name|ctx
 operator|.
@@ -497,8 +499,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -510,6 +510,8 @@ name|assertEquals
 argument_list|(
 literal|"Should have one RouteService"
 argument_list|,
+literal|1
+argument_list|,
 name|ctx
 operator|.
 name|getRouteServices
@@ -517,11 +519,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("The routes is " + ctx.getRoutes());
 name|assertEquals
 argument_list|(
 literal|"The Routes should be same"
@@ -544,7 +543,9 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The RouteService should be removed "
+literal|"The RouteService should NOT be removed even when we stop"
+argument_list|,
+literal|1
 argument_list|,
 name|ctx
 operator|.
@@ -553,8 +554,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
