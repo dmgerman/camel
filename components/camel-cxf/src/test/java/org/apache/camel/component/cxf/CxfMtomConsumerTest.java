@@ -549,6 +549,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|Boolean
@@ -556,6 +563,18 @@ operator|.
 name|getBoolean
 argument_list|(
 literal|"java.awt.headless"
+argument_list|)
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"Mac OS"
 argument_list|)
 condition|)
 block|{
