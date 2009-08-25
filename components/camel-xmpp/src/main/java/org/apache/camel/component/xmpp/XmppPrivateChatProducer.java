@@ -479,7 +479,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending XMPP message: "
+literal|"Sending XMPP message to "
+operator|+
+name|endpoint
+operator|.
+name|getParticipant
+argument_list|()
+operator|+
+literal|" from "
+operator|+
+name|endpoint
+operator|.
+name|getUser
+argument_list|()
+operator|+
+literal|" : "
 operator|+
 name|message
 operator|.
@@ -506,7 +520,21 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-literal|"Cannot send XMPP message: "
+literal|"Cannot send XMPP message: to "
+operator|+
+name|endpoint
+operator|.
+name|getParticipant
+argument_list|()
+operator|+
+literal|" from "
+operator|+
+name|endpoint
+operator|.
+name|getUser
+argument_list|()
+operator|+
+literal|" : "
 operator|+
 name|message
 operator|+
@@ -535,7 +563,21 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-literal|"Cannot send XMPP message: "
+literal|"Cannot send XMPP message to "
+operator|+
+name|endpoint
+operator|.
+name|getParticipant
+argument_list|()
+operator|+
+literal|" from "
+operator|+
+name|endpoint
+operator|.
+name|getUser
+argument_list|()
+operator|+
+literal|" : "
 operator|+
 name|message
 operator|+

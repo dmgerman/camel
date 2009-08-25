@@ -300,6 +300,11 @@ specifier|private
 name|MultiUserChat
 name|muc
 decl_stmt|;
+DECL|field|privateChat
+specifier|private
+name|Chat
+name|privateChat
+decl_stmt|;
 DECL|field|connection
 specifier|private
 name|XMPPConnection
@@ -359,9 +364,8 @@ condition|)
 block|{
 comment|// if an existing chat session has been opened (for example by a producer) let's
 comment|// just add a listener to that chat
-name|Chat
 name|privateChat
-init|=
+operator|=
 name|connection
 operator|.
 name|getChatManager
@@ -374,7 +378,7 @@ operator|.
 name|getParticipant
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|privateChat
@@ -689,7 +693,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Recieved XMPP message: "
+literal|"Received XMPP message for "
+operator|+
+name|endpoint
+operator|.
+name|getUser
+argument_list|()
+operator|+
+literal|" from "
+operator|+
+name|endpoint
+operator|.
+name|getParticipant
+argument_list|()
+operator|+
+literal|" : "
 operator|+
 name|message
 operator|.
