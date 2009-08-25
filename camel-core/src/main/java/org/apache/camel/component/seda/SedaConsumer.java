@@ -98,6 +98,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -237,6 +249,16 @@ name|getEndpointUri
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|run ()
