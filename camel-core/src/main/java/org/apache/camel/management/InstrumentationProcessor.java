@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX enabled processor that uses the {@link Counter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
+comment|/**  * JMX enabled processor that uses the {@link ManagedCounter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -101,7 +101,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|counter
 specifier|private
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 name|counter
 decl_stmt|;
 DECL|field|type
@@ -114,11 +114,11 @@ specifier|public
 name|InstrumentationProcessor
 parameter_list|()
 block|{     }
-DECL|method|InstrumentationProcessor (PerformanceCounter counter)
+DECL|method|InstrumentationProcessor (ManagedPerformanceCounter counter)
 specifier|public
 name|InstrumentationProcessor
 parameter_list|(
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 name|counter
 parameter_list|)
 block|{
@@ -159,12 +159,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|setCounter (PerformanceCounter counter)
+DECL|method|setCounter (ManagedPerformanceCounter counter)
 specifier|public
 name|void
 name|setCounter
 parameter_list|(
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 name|counter
 parameter_list|)
 block|{

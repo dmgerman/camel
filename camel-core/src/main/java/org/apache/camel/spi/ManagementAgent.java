@@ -63,10 +63,10 @@ comment|/**  * Camel JMX service agent  */
 end_comment
 
 begin_interface
-DECL|interface|InstrumentationAgent
+DECL|interface|ManagementAgent
 specifier|public
 interface|interface
-name|InstrumentationAgent
+name|ManagementAgent
 extends|extends
 name|Service
 block|{

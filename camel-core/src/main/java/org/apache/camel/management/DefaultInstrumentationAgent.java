@@ -278,7 +278,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|InstrumentationAgent
+name|ManagementAgent
 import|;
 end_import
 
@@ -370,7 +370,7 @@ name|DefaultInstrumentationAgent
 extends|extends
 name|ServiceSupport
 implements|implements
-name|InstrumentationAgent
+name|ManagementAgent
 block|{
 DECL|field|DEFAULT_DOMAIN
 specifier|public

@@ -42,7 +42,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|InstrumentationAgent
+name|ManagementAgent
 import|;
 end_import
 
@@ -104,7 +104,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|InstrumentationAgent
+name|ManagementAgent
 name|agent
 init|=
 name|getMandatoryBean

@@ -282,7 +282,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|InstrumentationAgent
+name|ManagementAgent
 import|;
 end_import
 
@@ -410,12 +410,12 @@ literal|"org.springframework.jmx.export.annotation.ManagedResource"
 decl_stmt|;
 DECL|field|agent
 specifier|private
-name|InstrumentationAgent
+name|ManagementAgent
 name|agent
 decl_stmt|;
 DECL|field|namingStrategy
 specifier|private
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 name|namingStrategy
 decl_stmt|;
 DECL|field|initialized
@@ -456,11 +456,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent)
+DECL|method|InstrumentationLifecycleStrategy (ManagementAgent agent)
 specifier|public
 name|InstrumentationLifecycleStrategy
 parameter_list|(
-name|InstrumentationAgent
+name|ManagementAgent
 name|agent
 parameter_list|)
 block|{
@@ -472,11 +472,11 @@ name|agent
 expr_stmt|;
 block|}
 comment|/**      * Constructor for camel context that has been started.      *      * @param agent    the agent      * @param context  the camel context      */
-DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent, CamelContext context)
+DECL|method|InstrumentationLifecycleStrategy (ManagementAgent agent, CamelContext context)
 specifier|public
 name|InstrumentationLifecycleStrategy
 parameter_list|(
-name|InstrumentationAgent
+name|ManagementAgent
 name|agent
 parameter_list|,
 name|CamelContext
@@ -537,7 +537,7 @@ expr_stmt|;
 name|namingStrategy
 operator|=
 operator|new
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 argument_list|(
 name|agent
 operator|.
@@ -1080,7 +1080,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 argument_list|>
 name|registeredCounters
 init|=
@@ -1089,7 +1089,7 @@ name|HashMap
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1155,11 +1155,11 @@ name|processor
 argument_list|)
 expr_stmt|;
 comment|// register mbean wrapped in the performance counter mbean
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 name|pc
 init|=
 operator|new
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 argument_list|()
 decl_stmt|;
 name|agent
@@ -1475,7 +1475,7 @@ return|;
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 name|getNamingStrategy
 parameter_list|()
 block|{
@@ -1483,12 +1483,12 @@ return|return
 name|namingStrategy
 return|;
 block|}
-DECL|method|setNamingStrategy (CamelNamingStrategy strategy)
+DECL|method|setNamingStrategy (DefaultManagementNamingStrategy strategy)
 specifier|public
 name|void
 name|setNamingStrategy
 parameter_list|(
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 name|strategy
 parameter_list|)
 block|{
@@ -1499,12 +1499,12 @@ operator|=
 name|strategy
 expr_stmt|;
 block|}
-DECL|method|setAgent (InstrumentationAgent agent)
+DECL|method|setAgent (ManagementAgent agent)
 specifier|public
 name|void
 name|setAgent
 parameter_list|(
-name|InstrumentationAgent
+name|ManagementAgent
 name|agent
 parameter_list|)
 block|{

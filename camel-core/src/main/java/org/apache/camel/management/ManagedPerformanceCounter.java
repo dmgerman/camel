@@ -100,12 +100,12 @@ name|currencyTimeLimit
 operator|=
 literal|15
 argument_list|)
-DECL|class|PerformanceCounter
+DECL|class|ManagedPerformanceCounter
 specifier|public
 class|class
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 extends|extends
-name|Counter
+name|ManagedCounter
 block|{
 DECL|field|numCompleted
 specifier|private

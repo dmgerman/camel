@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This strategy class wraps targeted processors with a  * {@link InstrumentationProcessor}. Each InstrumentationProcessor has an  * embedded {@link PerformanceCounter} for monitoring performance metrics.  *<p/>  * This class looks up a map to determine which PerformanceCounter should go into the  * InstrumentationProcessor for any particular target processor.  *  * @version $Revision$  */
+comment|/**  * This strategy class wraps targeted processors with a  * {@link InstrumentationProcessor}. Each InstrumentationProcessor has an  * embedded {@link ManagedPerformanceCounter} for monitoring performance metrics.  *<p/>  * This class looks up a map to determine which PerformanceCounter should go into the  * InstrumentationProcessor for any particular target processor.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -96,11 +96,11 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 argument_list|>
 name|registeredCounters
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> registeredCounters)
+DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, ManagedPerformanceCounter> registeredCounters)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
@@ -108,7 +108,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 argument_list|>
 name|registeredCounters
 parameter_list|)
@@ -153,7 +153,7 @@ name|target
 return|;
 block|}
 comment|// only wrap a performance counter if we have it registered in JMX by the jmx agent
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 name|counter
 init|=
 name|registeredCounters

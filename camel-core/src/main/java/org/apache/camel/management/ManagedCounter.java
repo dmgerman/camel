@@ -90,10 +90,10 @@ name|currencyTimeLimit
 operator|=
 literal|15
 argument_list|)
-DECL|class|Counter
+DECL|class|ManagedCounter
 specifier|public
 class|class
-name|Counter
+name|ManagedCounter
 block|{
 DECL|field|numExchanges
 specifier|protected

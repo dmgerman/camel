@@ -115,7 +115,7 @@ specifier|public
 class|class
 name|ManagedRoute
 extends|extends
-name|PerformanceCounter
+name|ManagedPerformanceCounter
 block|{
 DECL|field|VALUE_UNKNOWN
 specifier|public

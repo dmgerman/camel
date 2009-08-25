@@ -149,10 +149,10 @@ comment|/**  * Naming strategy used when registering MBeans.  */
 end_comment
 
 begin_class
-DECL|class|CamelNamingStrategy
+DECL|class|DefaultManagementNamingStrategy
 specifier|public
 class|class
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 block|{
 DECL|field|VALUE_UNKNOWN
 specifier|public
@@ -274,9 +274,9 @@ name|hostName
 init|=
 literal|"localhost"
 decl_stmt|;
-DECL|method|CamelNamingStrategy ()
+DECL|method|DefaultManagementNamingStrategy ()
 specifier|public
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 parameter_list|()
 block|{
 name|this
@@ -285,9 +285,9 @@ literal|"org.apache.camel"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CamelNamingStrategy (String domainName)
+DECL|method|DefaultManagementNamingStrategy (String domainName)
 specifier|public
-name|CamelNamingStrategy
+name|DefaultManagementNamingStrategy
 parameter_list|(
 name|String
 name|domainName
