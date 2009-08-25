@@ -225,6 +225,16 @@ argument_list|(
 name|proc
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"jetty:https://localhost:9090/test"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:b"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
