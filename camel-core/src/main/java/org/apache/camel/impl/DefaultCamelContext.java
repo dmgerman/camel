@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -340,7 +350,35 @@ name|camel
 operator|.
 name|management
 operator|.
-name|InstrumentationLifecycleStrategy
+name|DefaultInstrumentationAgent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|DefaultManagedLifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|DefaultManagementStrategy
 import|;
 end_import
 
@@ -355,6 +393,20 @@ operator|.
 name|management
 operator|.
 name|JmxSystemPropertyKeys
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|ManagedManagementStrategy
 import|;
 end_import
 
@@ -600,6 +652,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|NodeIdFactory
 import|;
 end_import
@@ -684,6 +750,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|EventHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUCache
 import|;
 end_import
@@ -726,6 +806,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -755,38 +849,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|startServices
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|stopServices
 import|;
 end_import
 
@@ -993,6 +1055,11 @@ DECL|field|lifecycleStrategy
 specifier|private
 name|LifecycleStrategy
 name|lifecycleStrategy
+decl_stmt|;
+DECL|field|managementStrategy
+specifier|private
+name|ManagementStrategy
+name|managementStrategy
 decl_stmt|;
 DECL|field|routeDefinitions
 specifier|private
@@ -1226,13 +1293,19 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JMX is disabled. Using DefaultLifecycleStrategy."
+literal|"JMX is disabled. Using SimpleLifecycleStrategy."
 argument_list|)
 expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
-name|DefaultLifecycleStrategy
+name|SimpleLifecycleStrategy
+argument_list|()
+expr_stmt|;
+name|managementStrategy
+operator|=
+operator|new
+name|DefaultManagementStrategy
 argument_list|()
 expr_stmt|;
 block|}
@@ -1244,14 +1317,26 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JMX enabled. Using InstrumentationLifecycleStrategy."
+literal|"JMX enabled. Using DefaultManagedLifecycleStrategy."
+argument_list|)
+expr_stmt|;
+name|managementStrategy
+operator|=
+operator|new
+name|ManagedManagementStrategy
+argument_list|(
+operator|new
+name|DefaultInstrumentationAgent
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
-name|InstrumentationLifecycleStrategy
-argument_list|()
+name|DefaultManagedLifecycleStrategy
+argument_list|(
+name|managementStrategy
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1312,13 +1397,19 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot use JMX lifecycle strategy. Using DefaultLifecycleStrategy instead."
+literal|"Cannot use JMX lifecycle strategy. Using SimpleLifecycleStrategy instead."
 argument_list|)
+expr_stmt|;
+name|managementStrategy
+operator|=
+operator|new
+name|DefaultManagementStrategy
+argument_list|()
 expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
-name|DefaultLifecycleStrategy
+name|SimpleLifecycleStrategy
 argument_list|()
 expr_stmt|;
 block|}
@@ -1493,6 +1584,15 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onComponentAdd
+argument_list|(
+name|componentName
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|getComponent (String name)
@@ -1567,8 +1667,7 @@ name|isStarting
 argument_list|()
 condition|)
 block|{
-comment|// If the component is looked up after the context is started,
-comment|// lets start it up.
+comment|// If the component is looked up after the context is started, lets start it up.
 name|startServices
 argument_list|(
 name|component
@@ -1665,6 +1764,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -1679,13 +1780,35 @@ init|(
 name|components
 init|)
 block|{
-return|return
+name|Component
+name|answer
+init|=
 name|components
 operator|.
 name|remove
 argument_list|(
 name|componentName
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|lifecycleStrategy
+operator|.
+name|onComponentRemove
+argument_list|(
+name|componentName
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 block|}
@@ -1768,6 +1891,15 @@ operator|.
 name|setCamelContext
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onComponentAdd
+argument_list|(
+name|componentName
+argument_list|,
+name|component
 argument_list|)
 expr_stmt|;
 block|}
@@ -2126,6 +2258,13 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onEndpointAdd
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|addEndpointToRegistry
 argument_list|(
 name|uri
@@ -2151,6 +2290,8 @@ return|return
 name|oldEndpoint
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|removeEndpoints (String uri)
 specifier|public
 name|Collection
@@ -2208,6 +2349,13 @@ name|oldEndpoint
 argument_list|)
 expr_stmt|;
 name|stopServices
+argument_list|(
+name|oldEndpoint
+argument_list|)
+expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onEndpointRemove
 argument_list|(
 name|oldEndpoint
 argument_list|)
@@ -2279,6 +2427,13 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onEndpointRemove
+argument_list|(
+name|oldEndpoint
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -2310,6 +2465,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|removeSingletonEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -2569,16 +2726,6 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-name|Endpoint
-name|newAnswer
-init|=
-name|addEndpointToRegistry
-argument_list|(
-name|uri
-argument_list|,
-name|answer
-argument_list|)
-decl_stmt|;
 name|lifecycleStrategy
 operator|.
 name|onEndpointAdd
@@ -2588,7 +2735,12 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|=
-name|newAnswer
+name|addEndpointToRegistry
+argument_list|(
+name|uri
+argument_list|,
+name|answer
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3427,7 +3579,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds a service, starting it so that it will be stopped with this context      */
 DECL|method|addService (Object object)
 specifier|public
 name|void
@@ -3464,11 +3615,6 @@ argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-name|service
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|servicesToClose
 operator|.
 name|add
@@ -3477,6 +3623,11 @@ name|service
 argument_list|)
 expr_stmt|;
 block|}
+name|startServices
+argument_list|(
+name|object
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
@@ -4339,11 +4490,19 @@ operator|+
 literal|") started"
 argument_list|)
 expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextStarted
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|doStart ()
 specifier|protected
+specifier|synchronized
 name|void
 name|doStart
 parameter_list|()
@@ -4365,6 +4524,13 @@ name|getName
 argument_list|()
 operator|+
 literal|") is starting"
+argument_list|)
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextStarting
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 name|startServices
@@ -4574,9 +4740,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|lifecycleStrategy
 operator|instanceof
-name|InstrumentationLifecycleStrategy
+name|SimpleLifecycleStrategy
+operator|)
 condition|)
 block|{
 comment|// fallback to non JMX lifecycle to allow Camel to startup
@@ -4584,13 +4753,13 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Will fallback to use default (non JMX) lifecycle strategy"
+literal|"Will fallback to use SimpleLifecycleStrategy (non JMX) lifecycle strategy"
 argument_list|)
 expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
-name|DefaultLifecycleStrategy
+name|SimpleLifecycleStrategy
 argument_list|()
 expr_stmt|;
 name|lifecycleStrategy
@@ -4605,31 +4774,14 @@ block|}
 name|forceLazyInitialization
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|components
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|Component
-name|component
-range|:
+name|startServices
+argument_list|(
 name|components
 operator|.
 name|values
 argument_list|()
-control|)
-block|{
-name|startServices
-argument_list|(
-name|component
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 comment|// To avoid initiating the routeDefinitions after stopping the camel context
 if|if
 condition|(
@@ -4647,6 +4799,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|// starting will continue in the start method
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -4674,6 +4827,27 @@ operator|+
 literal|") is stopping"
 argument_list|)
 expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextStopping
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+comment|// the stop order is important
+name|stopServices
+argument_list|(
+name|endpoints
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|endpoints
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|stopServices
 argument_list|(
 name|routeServices
@@ -4682,46 +4856,68 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not clear route services as we can start Camel again and get the route back as before
 name|stopServices
 argument_list|(
-name|servicesToClose
+name|producerServicePool
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|components
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|Component
-name|component
-range|:
+name|stopServices
+argument_list|(
 name|components
 operator|.
 name|values
 argument_list|()
-control|)
-block|{
-name|stopServices
-argument_list|(
-name|component
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-name|servicesToClose
+name|components
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
 name|stopServices
 argument_list|(
-name|producerServicePool
+name|servicesToClose
 argument_list|)
 expr_stmt|;
+name|servicesToClose
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+name|lifecycleStrategy
+operator|.
+name|onContextStop
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot stop lifecycleStrategy: "
+operator|+
+name|lifecycleStrategy
+operator|+
+literal|". Cause: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|info
@@ -4737,6 +4933,100 @@ name|getName
 argument_list|()
 operator|+
 literal|") stopped"
+argument_list|)
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextStopped
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|stopServices (Object service)
+specifier|private
+name|void
+name|stopServices
+parameter_list|(
+name|Object
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// allow us to do custom work before delegating to service helper
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|stopServices (Collection services)
+specifier|private
+name|void
+name|stopServices
+parameter_list|(
+name|Collection
+name|services
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// close them in reverse order as they where added
+name|List
+name|reverse
+init|=
+operator|new
+name|ArrayList
+argument_list|(
+name|services
+argument_list|)
+decl_stmt|;
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|reverse
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|Object
+name|service
+range|:
+name|reverse
+control|)
+block|{
+name|stopServices
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|startServices (Object service)
+specifier|private
+name|void
+name|startServices
+parameter_list|(
+name|Object
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|service
 argument_list|)
 expr_stmt|;
 block|}
@@ -5417,6 +5707,32 @@ operator|.
 name|nodeIdFactory
 operator|=
 name|idFactory
+expr_stmt|;
+block|}
+DECL|method|getManagementStrategy ()
+specifier|public
+name|ManagementStrategy
+name|getManagementStrategy
+parameter_list|()
+block|{
+return|return
+name|managementStrategy
+return|;
+block|}
+DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
+specifier|public
+name|void
+name|setManagementStrategy
+parameter_list|(
+name|ManagementStrategy
+name|managementStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|managementStrategy
+operator|=
+name|managementStrategy
 expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)

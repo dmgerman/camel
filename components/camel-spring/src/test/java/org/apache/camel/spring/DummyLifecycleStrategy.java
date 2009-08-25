@@ -18,99 +18,15 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|impl
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|LifecycleStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
+name|SimpleLifecycleStrategy
 import|;
 end_import
 
@@ -123,82 +39,9 @@ DECL|class|DummyLifecycleStrategy
 specifier|public
 class|class
 name|DummyLifecycleStrategy
-implements|implements
-name|LifecycleStrategy
-block|{
-DECL|method|onContextCreate (CamelContext context)
-specifier|public
-name|void
-name|onContextCreate
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-DECL|method|onEndpointAdd (Endpoint endpoint)
-specifier|public
-name|void
-name|onEndpointAdd
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-DECL|method|onRouteContextCreate (RouteContext routeContext)
-specifier|public
-name|void
-name|onRouteContextCreate
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-DECL|method|onRoutesAdd (Collection<Route> routes)
-specifier|public
-name|void
-name|onRoutesAdd
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-DECL|method|onServiceAdd (CamelContext context, Service service)
-specifier|public
-name|void
-name|onServiceAdd
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|Service
-name|service
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-DECL|method|onContextStart (CamelContext arg0)
-specifier|public
-name|void
-name|onContextStart
-parameter_list|(
-name|CamelContext
-name|arg0
-parameter_list|)
-block|{
-comment|// Do nothing
-block|}
-block|}
+extends|extends
+name|SimpleLifecycleStrategy
+block|{ }
 end_class
 
 end_unit

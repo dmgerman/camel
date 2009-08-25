@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -13,16 +13,20 @@ operator|.
 name|camel
 operator|.
 name|management
+operator|.
+name|mbean
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -34,35 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|spi
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedAttribute
+name|BrowsableEndpoint
 import|;
 end_import
 
@@ -97,6 +75,10 @@ operator|.
 name|ManagedResource
 import|;
 end_import
+
+begin_comment
+comment|/**  * @version $Revision$  */
+end_comment
 
 begin_class
 annotation|@
@@ -104,167 +86,100 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed Route"
-argument_list|,
-name|currencyTimeLimit
-operator|=
-literal|15
+literal|"Managed BrowsableEndpoint"
 argument_list|)
-DECL|class|ManagedRoute
+DECL|class|ManagedBrowsableEndpoint
 specifier|public
 class|class
-name|ManagedRoute
+name|ManagedBrowsableEndpoint
 extends|extends
-name|ManagedPerformanceCounter
+name|ManagedEndpoint
 block|{
-DECL|field|VALUE_UNKNOWN
+DECL|field|endpoint
+specifier|private
+name|BrowsableEndpoint
+name|endpoint
+decl_stmt|;
+DECL|method|ManagedBrowsableEndpoint (BrowsableEndpoint endpoint)
 specifier|public
-specifier|static
-specifier|final
-name|String
-name|VALUE_UNKNOWN
-init|=
-literal|"Unknown"
-decl_stmt|;
-DECL|field|route
-specifier|private
-name|Route
-name|route
-decl_stmt|;
-DECL|field|description
-specifier|private
-name|String
-name|description
-decl_stmt|;
-DECL|method|ManagedRoute (Route route)
-name|ManagedRoute
+name|ManagedBrowsableEndpoint
 parameter_list|(
-name|Route
-name|route
+name|BrowsableEndpoint
+name|endpoint
 parameter_list|)
 block|{
-name|this
-operator|.
-name|route
-operator|=
-name|route
-expr_stmt|;
-name|this
-operator|.
-name|description
-operator|=
-name|route
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getRoute ()
-specifier|public
-name|Route
-name|getRoute
-parameter_list|()
-block|{
-return|return
-name|route
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
+name|super
 argument_list|(
-name|description
-operator|=
-literal|"Route Endpoint Uri"
+name|endpoint
 argument_list|)
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-name|Endpoint
-name|ep
-init|=
-name|route
+expr_stmt|;
+name|this
 operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|BrowsableEndpoint
 name|getEndpoint
-argument_list|()
-decl_stmt|;
+parameter_list|()
+block|{
 return|return
-name|ep
-operator|!=
-literal|null
-condition|?
-name|ep
+name|endpoint
+return|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Current number of Exchanges in Queue"
+argument_list|)
+DECL|method|qeueSize ()
+specifier|public
+name|long
+name|qeueSize
+parameter_list|()
+block|{
+return|return
+name|endpoint
 operator|.
-name|getEndpointUri
+name|getExchanges
 argument_list|()
-else|:
-name|VALUE_UNKNOWN
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 annotation|@
-name|ManagedAttribute
+name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Route description"
+literal|"Get Exchange from queue by index"
 argument_list|)
-DECL|method|getDescription ()
+DECL|method|browseExchange (Integer index)
 specifier|public
-name|String
-name|getDescription
-parameter_list|()
+name|Exchange
+name|browseExchange
+parameter_list|(
+name|Integer
+name|index
+parameter_list|)
 block|{
 return|return
-name|description
+name|endpoint
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|index
+argument_list|)
 return|;
-block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Start Route"
-argument_list|)
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Not supported"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop Route"
-argument_list|)
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Not supported"
-argument_list|)
-throw|;
 block|}
 block|}
 end_class

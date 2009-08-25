@@ -83,14 +83,6 @@ argument_list|<
 name|Processor
 argument_list|>
 block|{
-DECL|method|next ()
-name|List
-argument_list|<
-name|Processor
-argument_list|>
-name|next
-parameter_list|()
-function_decl|;
 comment|/**      * Sets the processor that the channel should route the {@link Exchange} to.      *      * @param next  the next processor      */
 DECL|method|setNextProcessor (Processor next)
 name|void

@@ -112,6 +112,15 @@ parameter_list|)
 throws|throws
 name|JMException
 function_decl|;
+comment|/**      * Is the given object registered      *      * @param name the name      * @return<tt>true</tt> if registered      */
+DECL|method|isRegistered (ObjectName name)
+name|boolean
+name|isRegistered
+parameter_list|(
+name|ObjectName
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Get the MBeanServer which hosts managed objects.      *<p/>      *<b>Notice:</b> If the JMXEnabled configuration is not set to<tt>true</tt>,      * this method will return<tt>null</tt>.      *       * @return the MBeanServer      */
 DECL|method|getMBeanServer ()
 name|MBeanServer

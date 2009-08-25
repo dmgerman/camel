@@ -124,6 +124,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|InstrumentationProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -720,6 +734,29 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+comment|// and wrap it by a instrumentation processor that is to be used for performance stats
+comment|// for this particular route
+name|InstrumentationProcessor
+name|wrapper
+init|=
+operator|new
+name|InstrumentationProcessor
+argument_list|()
+decl_stmt|;
+name|wrapper
+operator|.
+name|setType
+argument_list|(
+literal|"route"
+argument_list|)
+expr_stmt|;
+name|wrapper
+operator|.
+name|setProcessor
+argument_list|(
+name|unitOfWorkProcessor
+argument_list|)
+expr_stmt|;
 comment|// and create the route that wraps the UoW
 name|Route
 name|edcr
@@ -730,7 +767,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 argument_list|,
-name|unitOfWorkProcessor
+name|wrapper
 argument_list|)
 decl_stmt|;
 name|edcr

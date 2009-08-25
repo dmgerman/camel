@@ -220,6 +220,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|NodeIdFactory
 import|;
 end_import
@@ -302,6 +316,17 @@ parameter_list|()
 function_decl|;
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Adds a service, starting it so that it will be stopped with this context      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object)
+name|void
+name|addService
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Adds a component to the context.      *      * @param componentName  the name the component is registered as      * @param component      the component      */
 DECL|method|addComponent (String componentName, Component component)
 name|void
@@ -824,6 +849,21 @@ DECL|method|getNodeIdFactory ()
 name|NodeIdFactory
 name|getNodeIdFactory
 parameter_list|()
+function_decl|;
+comment|/**      * Gets the management strategy      *      * @return the management strategy      */
+DECL|method|getManagementStrategy ()
+name|ManagementStrategy
+name|getManagementStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the management strategy to use      *      * @param strategy the management strategy      */
+DECL|method|setManagementStrategy (ManagementStrategy strategy)
+name|void
+name|setManagementStrategy
+parameter_list|(
+name|ManagementStrategy
+name|strategy
+parameter_list|)
 function_decl|;
 block|}
 end_interface

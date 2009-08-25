@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,22 +12,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|management
+operator|.
+name|mbean
 package|;
 end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -46,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Consumer
 import|;
 end_import
 
@@ -54,11 +46,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|jmx
 operator|.
-name|Route
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
 import|;
 end_import
 
@@ -66,114 +62,99 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|jmx
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|export
 operator|.
-name|apache
+name|annotation
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|LifecycleStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
+name|ManagedResource
 import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the lifecycle strategy.  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DefaultLifecycleStrategy
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed Consumer"
+argument_list|)
+DECL|class|ManagedConsumer
 specifier|public
 class|class
-name|DefaultLifecycleStrategy
-implements|implements
-name|LifecycleStrategy
+name|ManagedConsumer
+extends|extends
+name|ManagedService
 block|{
-DECL|method|onContextStart (CamelContext context)
+DECL|field|consumer
+specifier|private
+name|Consumer
+name|consumer
+decl_stmt|;
+DECL|method|ManagedConsumer (CamelContext context, Consumer consumer)
 specifier|public
-name|void
-name|onContextStart
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// do nothing
-block|}
-DECL|method|onEndpointAdd (Endpoint endpoint)
-specifier|public
-name|void
-name|onEndpointAdd
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// do nothing
-block|}
-DECL|method|onServiceAdd (CamelContext context, Service service)
-specifier|public
-name|void
-name|onServiceAdd
+name|ManagedConsumer
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Service
-name|service
+name|Consumer
+name|consumer
 parameter_list|)
 block|{
-comment|// do nothing
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|consumer
+operator|=
+name|consumer
+expr_stmt|;
 block|}
-DECL|method|onRoutesAdd (Collection<Route> routes)
+DECL|method|getConsumer ()
 specifier|public
-name|void
-name|onRoutesAdd
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
+name|Consumer
+name|getConsumer
+parameter_list|()
 block|{
-comment|// do nothing
+return|return
+name|consumer
+return|;
 block|}
-DECL|method|onRouteContextCreate (RouteContext routeContext)
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint Uri"
+argument_list|)
+DECL|method|getUri ()
 specifier|public
-name|void
-name|onRouteContextCreate
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
+name|String
+name|getUri
+parameter_list|()
 block|{
-comment|// do nothing
+return|return
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
 block|}
 block|}
 end_class

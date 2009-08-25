@@ -68,7 +68,6 @@ name|Traceable
 block|{
 DECL|field|delay
 specifier|private
-specifier|final
 name|Expression
 name|delay
 decl_stmt|;
@@ -129,6 +128,32 @@ name|delay
 operator|+
 literal|"]"
 return|;
+block|}
+DECL|method|getDelay ()
+specifier|public
+name|Expression
+name|getDelay
+parameter_list|()
+block|{
+return|return
+name|delay
+return|;
+block|}
+DECL|method|setDelay (Expression delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|Expression
+name|delay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

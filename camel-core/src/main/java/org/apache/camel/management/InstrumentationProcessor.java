@@ -36,6 +36,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedPerformanceCounter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -71,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX enabled processor that uses the {@link ManagedCounter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
+comment|/**  * JMX enabled processor that uses the {@link org.apache.camel.management.mbean.ManagedCounter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -175,6 +191,16 @@ operator|=
 name|counter
 expr_stmt|;
 block|}
+DECL|method|getCounter ()
+specifier|public
+name|ManagedPerformanceCounter
+name|getCounter
+parameter_list|()
+block|{
+return|return
+name|counter
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -209,7 +235,7 @@ name|startTime
 operator|=
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
@@ -244,27 +270,22 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// convert nanoseconds to milliseconds
 name|recordTime
 argument_list|(
 name|exchange
 argument_list|,
-operator|(
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 operator|-
 name|startTime
-operator|)
-operator|/
-literal|1000000.0
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|recordTime (Exchange exchange, double duration)
+DECL|method|recordTime (Exchange exchange, long duration)
 specifier|protected
 name|void
 name|recordTime
@@ -272,7 +293,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|double
+name|long
 name|duration
 parameter_list|)
 block|{
@@ -288,6 +309,18 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
+operator|(
+name|type
+operator|!=
+literal|null
+condition|?
+name|type
+operator|+
+literal|": "
+else|:
+literal|""
+operator|)
+operator|+
 literal|"Recording duration: "
 operator|+
 name|duration

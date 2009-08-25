@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|management
+operator|.
+name|mbean
 package|;
 end_package
 
@@ -24,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Component
 import|;
 end_import
 
@@ -59,6 +61,10 @@ operator|.
 name|ManagedResource
 import|;
 end_import
+
+begin_comment
+comment|/**  * @version $Revision$  */
+end_comment
 
 begin_class
 annotation|@
@@ -66,85 +72,72 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed Endpoint"
-argument_list|,
-name|currencyTimeLimit
-operator|=
-literal|15
+literal|"Managed Component"
 argument_list|)
-DECL|class|ManagedEndpoint
+DECL|class|ManagedComponent
 specifier|public
 class|class
-name|ManagedEndpoint
+name|ManagedComponent
 block|{
-DECL|field|endpoint
+DECL|field|component
 specifier|private
-name|Endpoint
-name|endpoint
+name|Component
+name|component
 decl_stmt|;
-DECL|method|ManagedEndpoint (Endpoint endpoint)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+DECL|method|ManagedComponent (String name, Component component)
 specifier|public
-name|ManagedEndpoint
+name|ManagedComponent
 parameter_list|(
-name|Endpoint
-name|endpoint
+name|String
+name|name
+parameter_list|,
+name|Component
+name|component
 parameter_list|)
 block|{
 name|this
 operator|.
-name|endpoint
+name|name
 operator|=
-name|endpoint
+name|name
+expr_stmt|;
+name|this
+operator|.
+name|component
+operator|=
+name|component
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
-specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|endpoint
-return|;
-block|}
 annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Endpoint Uri"
+literal|"Component Name"
 argument_list|)
-DECL|method|getUri ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getUri
+name|getName
 parameter_list|()
 block|{
 return|return
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
+name|name
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Singleton"
-argument_list|)
-DECL|method|isSingleton ()
+DECL|method|getComponent ()
 specifier|public
-name|boolean
-name|isSingleton
+name|Component
+name|getComponent
 parameter_list|()
 block|{
 return|return
-name|endpoint
-operator|.
-name|isSingleton
-argument_list|()
+name|component
 return|;
 block|}
 block|}

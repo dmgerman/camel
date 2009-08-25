@@ -180,6 +180,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|EventHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|UuidGenerator
 import|;
 end_import
@@ -308,7 +322,7 @@ name|exchange
 parameter_list|)
 block|{
 comment|// TODO: optimize to only copy original message if enabled to do so in the route
-comment|// special for JmsMessage as it can cause it to loose headers later. Yeah JMS suchs
+comment|// special for JmsMessage as it can cause it to loose headers later.
 if|if
 condition|(
 name|exchange
@@ -368,6 +382,19 @@ name|copy
 argument_list|()
 expr_stmt|;
 block|}
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyExchangeCreated
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|start ()
 specifier|public
@@ -545,6 +572,48 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|boolean
+name|failed
+init|=
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+decl_stmt|;
+comment|// fire event to signal the exchange is done
+if|if
+condition|(
+name|failed
+condition|)
+block|{
+name|EventHelper
+operator|.
+name|notifyExchangeFailed
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|EventHelper
+operator|.
+name|notifyExchangeDone
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|synchronizations
@@ -558,14 +627,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|boolean
-name|failed
-init|=
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
-decl_stmt|;
+comment|// invoke synchronization callbacks
 for|for
 control|(
 name|Synchronization
@@ -611,7 +673,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Exception occured during onCompletion. This exception will be ignored: "
+literal|"Exception occurred during onCompletion. This exception will be ignored: "
 argument_list|,
 name|e
 argument_list|)

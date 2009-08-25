@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -93,6 +105,39 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Notification on stopping a {@link CamelContext}.      *      * @param context the camel context      */
+DECL|method|onContextStop (CamelContext context)
+name|void
+name|onContextStop
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Notification on adding an {@link org.apache.camel.Component}.      *      * @param name the unique name of this component      * @param component the added component      */
+DECL|method|onComponentAdd (String name, Component component)
+name|void
+name|onComponentAdd
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+function_decl|;
+comment|/**      * Notification on removing an {@link org.apache.camel.Component}.      *      * @param name the unique name of this component      * @param component the removed component      */
+DECL|method|onComponentRemove (String name, Component component)
+name|void
+name|onComponentRemove
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+function_decl|;
 comment|/**      * Notification on adding an {@link Endpoint}.      *      * @param endpoint the added endpoint      */
 DECL|method|onEndpointAdd (Endpoint endpoint)
 name|void
@@ -102,10 +147,31 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
+comment|/**      * Notification on removing an {@link Endpoint}.      *      * @param endpoint the removed endpoint      */
+DECL|method|onEndpointRemove (Endpoint endpoint)
+name|void
+name|onEndpointRemove
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+function_decl|;
 comment|/**      * Notification on adding a {@link Service}.      *      * @param context the camel context      * @param service the added service      */
 DECL|method|onServiceAdd (CamelContext context, Service service)
 name|void
 name|onServiceAdd
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Service
+name|service
+parameter_list|)
+function_decl|;
+comment|/**      * Notification on removing a {@link Service}.      *      * @param context the camel context      * @param service the removed service      */
+DECL|method|onServiceRemove (CamelContext context, Service service)
+name|void
+name|onServiceRemove
 parameter_list|(
 name|CamelContext
 name|context
@@ -126,6 +192,18 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
+comment|/**      * Notification on removing {@link Route}(s).      *      * @param routes the removed routes      */
+DECL|method|onRoutesRemove (Collection<Route> routes)
+name|void
+name|onRoutesRemove
+parameter_list|(
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+parameter_list|)
+function_decl|;
 comment|/**      * Notification on adding {@link RouteContext}(s).      *      * @param routeContext the added route context      */
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 name|void
@@ -135,6 +213,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 function_decl|;
+comment|// TODO: Add more stop methods and also consider always having CamelContext as parameter
 block|}
 end_interface
 

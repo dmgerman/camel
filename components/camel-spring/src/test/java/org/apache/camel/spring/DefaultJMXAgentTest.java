@@ -237,8 +237,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: Routes are temporary disabled until the code in InstrumentationLifecycleStrategy is fixed
-comment|// assertEquals(1, mbsc.queryNames(new ObjectName("org.apache.camel" + ":type=routes,*"), null).size());
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|mbsc
+operator|.
+name|queryNames
+argument_list|(
+operator|new
+name|ObjectName
+argument_list|(
+literal|"org.apache.camel"
+operator|+
+literal|":type=routes,*"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1

@@ -86,6 +86,20 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|InstrumentationProcessor
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link DefaultRoute} which starts with an  *<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision$  */
 end_comment
@@ -245,9 +259,36 @@ argument_list|>
 name|navigate
 parameter_list|()
 block|{
+name|Processor
+name|answer
+init|=
+name|getProcessor
+argument_list|()
+decl_stmt|;
+comment|// skip the instrumentation processor if this route was wrapped by one
 if|if
 condition|(
-name|processor
+name|answer
+operator|instanceof
+name|InstrumentationProcessor
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+operator|(
+name|InstrumentationProcessor
+operator|)
+name|answer
+operator|)
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|answer
 operator|instanceof
 name|Navigate
 condition|)
@@ -256,7 +297,7 @@ return|return
 operator|(
 name|Navigate
 operator|)
-name|processor
+name|answer
 return|;
 block|}
 return|return

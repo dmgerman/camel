@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|Service
 block|{
-comment|/**      * Starts the service      *       * @throws Exception      */
+comment|/**      * Starts the service      *       * @throws Exception is thrown if starting failed      */
 DECL|method|start ()
 name|void
 name|start
@@ -32,7 +32,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the service      *       * @throws Exception      */
+comment|/**      * Stops the service      *       * @throws Exception is thrown if stopping failed      */
 DECL|method|stop ()
 name|void
 name|stop
