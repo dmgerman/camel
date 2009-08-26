@@ -1346,7 +1346,7 @@ argument_list|(
 operator|new
 name|DefaultManagedLifecycleStrategy
 argument_list|(
-name|managementStrategy
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;

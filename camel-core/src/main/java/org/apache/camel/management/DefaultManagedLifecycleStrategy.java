@@ -681,42 +681,30 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|strategy
+DECL|field|context
 specifier|private
 specifier|final
-name|ManagementStrategy
-name|strategy
+name|CamelContext
+name|context
 decl_stmt|;
 DECL|field|initialized
 specifier|private
 name|boolean
 name|initialized
 decl_stmt|;
-DECL|method|DefaultManagedLifecycleStrategy ()
-specifier|public
-name|DefaultManagedLifecycleStrategy
-parameter_list|()
-block|{
-name|strategy
-operator|=
-operator|new
-name|ManagedManagementStrategy
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|DefaultManagedLifecycleStrategy (ManagementStrategy strategy)
+DECL|method|DefaultManagedLifecycleStrategy (CamelContext context)
 specifier|public
 name|DefaultManagedLifecycleStrategy
 parameter_list|(
-name|ManagementStrategy
-name|strategy
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 name|this
 operator|.
-name|strategy
+name|context
 operator|=
-name|strategy
+name|context
 expr_stmt|;
 block|}
 DECL|method|onContextStart (CamelContext context)
@@ -739,7 +727,8 @@ name|context
 operator|.
 name|addService
 argument_list|(
-name|strategy
+name|getStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ManagedCamelContext
@@ -751,7 +740,8 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageObject
 argument_list|(
@@ -809,7 +799,8 @@ decl_stmt|;
 comment|// the context could have been removed already
 if|if
 condition|(
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|isManaged
 argument_list|(
@@ -819,7 +810,8 @@ name|mc
 argument_list|)
 condition|)
 block|{
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|unmanageObject
 argument_list|(
@@ -879,7 +871,8 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageObject
 argument_list|(
@@ -938,7 +931,8 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|unmanageObject
 argument_list|(
@@ -1104,7 +1098,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|unmanageObject
 argument_list|(
@@ -1218,7 +1213,8 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageNamedObject
 argument_list|(
@@ -1303,7 +1299,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageObject
 argument_list|(
@@ -1395,7 +1392,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageObject
 argument_list|(
@@ -1490,7 +1488,8 @@ condition|)
 block|{
 try|try
 block|{
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|unmanageObject
 argument_list|(
@@ -1794,7 +1793,8 @@ init|=
 operator|new
 name|ManagedRoute
 argument_list|(
-name|strategy
+name|getStrategy
+argument_list|()
 argument_list|,
 name|route
 argument_list|)
@@ -1850,7 +1850,8 @@ block|}
 block|}
 try|try
 block|{
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageObject
 argument_list|(
@@ -1927,14 +1928,16 @@ init|=
 operator|new
 name|ManagedRoute
 argument_list|(
-name|strategy
+name|getStrategy
+argument_list|()
 argument_list|,
 name|route
 argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|unmanageObject
 argument_list|(
@@ -2123,7 +2126,8 @@ init|=
 operator|new
 name|ManagedPerformanceCounter
 argument_list|(
-name|strategy
+name|getStrategy
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// and add it as a a registered counter that will be used lazy when Camel
@@ -2200,7 +2204,8 @@ block|}
 comment|// only if custom id assigned
 if|if
 condition|(
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|isOnlyManageProcessorWithCustomId
 argument_list|()
@@ -2215,12 +2220,26 @@ return|;
 block|}
 comment|// use customer filter
 return|return
-name|strategy
+name|getStrategy
+argument_list|()
 operator|.
 name|manageProcessor
 argument_list|(
 name|processor
 argument_list|)
+return|;
+block|}
+DECL|method|getStrategy ()
+specifier|private
+name|ManagementStrategy
+name|getStrategy
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
 return|;
 block|}
 DECL|method|start ()
@@ -2230,13 +2249,7 @@ name|start
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|strategy
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|stop ()
 specifier|public
 name|void
@@ -2244,13 +2257,7 @@ name|stop
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|strategy
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 
