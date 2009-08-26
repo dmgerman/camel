@@ -248,7 +248,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"Uri"
+literal|"EndpointUri"
 argument_list|)
 decl_stmt|;
 name|assertEquals

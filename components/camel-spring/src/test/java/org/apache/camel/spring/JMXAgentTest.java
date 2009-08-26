@@ -105,8 +105,6 @@ comment|/**  * Test that verifies JMX properties can be configured via Spring.  
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JMXAgentTest
 specifier|public
 class|class
@@ -114,7 +112,6 @@ name|JMXAgentTest
 extends|extends
 name|DefaultJMXAgentTest
 block|{
-comment|// TODO: Fix me later
 DECL|field|JMXSERVICEURL
 specifier|protected
 specifier|static

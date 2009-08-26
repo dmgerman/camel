@@ -1532,7 +1532,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Strategy to get the resources by the given classloader.      *<p/>      * Notice that in WebSphere platforms there is a {@link WebSpherePacakageScanClassResolver}      * to take care of WebSphere's odditiy of resource loading.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws IOException is thrown by the classloader      */
+comment|/**      * Strategy to get the resources by the given classloader.      *<p/>      * Notice that in WebSphere platforms there is a {@link WebSpherePackageScanClassResolver}      * to take care of WebSphere's odditiy of resource loading.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws IOException is thrown by the classloader      */
 DECL|method|getResources (ClassLoader loader, String packageName)
 specifier|protected
 name|Enumeration

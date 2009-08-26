@@ -626,11 +626,23 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the lifecycle strategy used to handle lifecycle notification      *      * @return the lifecycle strategy      */
-DECL|method|getLifecycleStrategy ()
+comment|/**      * Returns the lifecycle strategies used to handle lifecycle notifications      *      * @return the lifecycle strategies      */
+DECL|method|getLifecycleStrategies ()
+name|List
+argument_list|<
 name|LifecycleStrategy
-name|getLifecycleStrategy
+argument_list|>
+name|getLifecycleStrategies
 parameter_list|()
+function_decl|;
+comment|/**      * Adds the given lifecycle strategy to be used.      *      * @param lifecycleStrategy  the strategy      */
+DECL|method|addLifecycleStrategy (LifecycleStrategy lifecycleStrategy)
+name|void
+name|addLifecycleStrategy
+parameter_list|(
+name|LifecycleStrategy
+name|lifecycleStrategy
+parameter_list|)
 function_decl|;
 comment|/**      * Resolves a language for creating expressions      *      * @param language  name of the language      * @return the resolved language      */
 DECL|method|resolveLanguage (String language)

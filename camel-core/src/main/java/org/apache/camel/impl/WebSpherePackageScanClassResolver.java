@@ -51,10 +51,10 @@ comment|/**  * WebSphere specific resolver to handle loading annotated resources
 end_comment
 
 begin_class
-DECL|class|WebSpherePacakageScanClassResolver
+DECL|class|WebSpherePackageScanClassResolver
 specifier|public
 class|class
-name|WebSpherePacakageScanClassResolver
+name|WebSpherePackageScanClassResolver
 extends|extends
 name|DefaultPackageScanClassResolver
 block|{
@@ -65,9 +65,9 @@ name|String
 name|resourcePath
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param resourcePath  the fixed resource path to use for fetching camel jars in WebSphere.      */
-DECL|method|WebSpherePacakageScanClassResolver (String resourcePath)
+DECL|method|WebSpherePackageScanClassResolver (String resourcePath)
 specifier|public
-name|WebSpherePacakageScanClassResolver
+name|WebSpherePackageScanClassResolver
 parameter_list|(
 name|String
 name|resourcePath

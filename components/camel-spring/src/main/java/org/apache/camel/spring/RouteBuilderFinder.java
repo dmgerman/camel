@@ -445,7 +445,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// TODO apply some filter?
 return|return
 literal|true
 return|;

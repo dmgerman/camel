@@ -18,15 +18,99 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|SimpleLifecycleStrategy
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|LifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
 import|;
 end_import
 
@@ -39,9 +123,127 @@ DECL|class|DummyLifecycleStrategy
 specifier|public
 class|class
 name|DummyLifecycleStrategy
-extends|extends
-name|SimpleLifecycleStrategy
-block|{ }
+implements|implements
+name|LifecycleStrategy
+block|{
+DECL|method|onContextStart (CamelContext camelContext)
+specifier|public
+name|void
+name|onContextStart
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{     }
+DECL|method|onContextStop (CamelContext camelContext)
+specifier|public
+name|void
+name|onContextStop
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{     }
+DECL|method|onComponentAdd (String s, Component component)
+specifier|public
+name|void
+name|onComponentAdd
+parameter_list|(
+name|String
+name|s
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{     }
+DECL|method|onComponentRemove (String s, Component component)
+specifier|public
+name|void
+name|onComponentRemove
+parameter_list|(
+name|String
+name|s
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{     }
+DECL|method|onEndpointAdd (Endpoint endpoint)
+specifier|public
+name|void
+name|onEndpointAdd
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{     }
+DECL|method|onEndpointRemove (Endpoint endpoint)
+specifier|public
+name|void
+name|onEndpointRemove
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{     }
+DECL|method|onServiceAdd (CamelContext camelContext, Service service)
+specifier|public
+name|void
+name|onServiceAdd
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Service
+name|service
+parameter_list|)
+block|{     }
+DECL|method|onServiceRemove (CamelContext camelContext, Service service)
+specifier|public
+name|void
+name|onServiceRemove
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Service
+name|service
+parameter_list|)
+block|{     }
+DECL|method|onRouteContextCreate (RouteContext routeContext)
+specifier|public
+name|void
+name|onRouteContextCreate
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{     }
+DECL|method|onRoutesRemove (Collection<Route> routes)
+specifier|public
+name|void
+name|onRoutesRemove
+parameter_list|(
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+parameter_list|)
+block|{     }
+DECL|method|onRoutesAdd (Collection<Route> routes)
+specifier|public
+name|void
+name|onRoutesAdd
+parameter_list|(
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+parameter_list|)
+block|{     }
+block|}
 end_class
 
 end_unit

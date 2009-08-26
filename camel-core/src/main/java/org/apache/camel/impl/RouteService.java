@@ -345,14 +345,25 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
-name|getLifecycleStrategy
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|camelContext
+operator|.
+name|getLifecycleStrategies
 argument_list|()
+control|)
+block|{
+name|strategy
 operator|.
 name|onRoutesAdd
 argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|Route
@@ -522,14 +533,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getLifecycleStrategy
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|camelContext
+operator|.
+name|getLifecycleStrategies
 argument_list|()
+control|)
+block|{
+name|strategy
 operator|.
 name|onRoutesRemove
 argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 comment|// do not stop child services as in doStart
 comment|// as route.getServicesForRoute() will restart
 comment|// already stopped services, so we end up starting
@@ -561,19 +583,6 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getLifecycleStrategy ()
-specifier|protected
-name|LifecycleStrategy
-name|getLifecycleStrategy
-parameter_list|()
-block|{
-return|return
-name|camelContext
-operator|.
-name|getLifecycleStrategy
-argument_list|()
-return|;
-block|}
 DECL|method|startChildService (List<Service> services)
 specifier|protected
 name|void
@@ -596,8 +605,18 @@ range|:
 name|services
 control|)
 block|{
-name|getLifecycleStrategy
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|camelContext
+operator|.
+name|getLifecycleStrategies
 argument_list|()
+control|)
+block|{
+name|strategy
 operator|.
 name|onServiceAdd
 argument_list|(
@@ -606,6 +625,7 @@ argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|startService

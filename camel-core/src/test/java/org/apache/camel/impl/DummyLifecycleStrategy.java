@@ -22,7 +22,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -115,17 +135,32 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple implementation of the {@link LifecycleStrategy} that does nothing.  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SimpleLifecycleStrategy
+DECL|class|DummyLifecycleStrategy
 specifier|public
 class|class
-name|SimpleLifecycleStrategy
+name|DummyLifecycleStrategy
 implements|implements
 name|LifecycleStrategy
 block|{
+DECL|field|events
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|events
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
@@ -135,7 +170,13 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onContextStart"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onContextStop (CamelContext context)
 specifier|public
@@ -146,7 +187,13 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onContextStop"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onComponentAdd (String name, Component component)
 specifier|public
@@ -160,7 +207,13 @@ name|Component
 name|component
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onComponentAdd"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onComponentRemove (String name, Component component)
 specifier|public
@@ -174,7 +227,13 @@ name|Component
 name|component
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onComponentRemove"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
@@ -185,7 +244,13 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onEndpointAdd"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onEndpointRemove (Endpoint endpoint)
 specifier|public
@@ -196,7 +261,13 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onEndpointRemove"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onServiceAdd (CamelContext context, Service service)
 specifier|public
@@ -210,7 +281,13 @@ name|Service
 name|service
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onServiceAdd"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onServiceRemove (CamelContext context, Service service)
 specifier|public
@@ -224,7 +301,13 @@ name|Service
 name|service
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onServiceRemove"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
@@ -238,7 +321,13 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onRoutesAdd"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
@@ -252,7 +341,13 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onRoutesRemove"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
@@ -263,7 +358,26 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-comment|// do nothing
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onRouteContextCreate"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEvents ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getEvents
+parameter_list|()
+block|{
+return|return
+name|events
+return|;
 block|}
 block|}
 end_class

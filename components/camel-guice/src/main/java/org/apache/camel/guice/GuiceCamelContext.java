@@ -663,20 +663,23 @@ name|optional
 operator|=
 literal|true
 argument_list|)
-DECL|method|setLifecycleStrategy (LifecycleStrategy lifecycleStrategy)
+DECL|method|setLifecycleStrategies (List<LifecycleStrategy> lifecycleStrategies)
 specifier|public
 name|void
-name|setLifecycleStrategy
+name|setLifecycleStrategies
 parameter_list|(
+name|List
+argument_list|<
 name|LifecycleStrategy
-name|lifecycleStrategy
+argument_list|>
+name|lifecycleStrategies
 parameter_list|)
 block|{
 name|super
 operator|.
-name|setLifecycleStrategy
+name|setLifecycleStrategies
 argument_list|(
-name|lifecycleStrategy
+name|lifecycleStrategies
 argument_list|)
 expr_stmt|;
 block|}

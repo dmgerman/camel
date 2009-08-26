@@ -20,18 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -57,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for LifecycleStrategy injection.  *  * @version $Revision$  *  */
+comment|/**  * Test for LifecycleStrategy injection.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -76,11 +64,6 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
-name|setUseRouteBuilder
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
@@ -97,20 +80,34 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|context
-init|=
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|2
+argument_list|,
 name|context
 operator|.
-name|getLifecycleStrategy
+name|getLifecycleStrategies
 argument_list|()
-operator|instanceof
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertIsInstanceOf
+argument_list|(
 name|DummyLifecycleStrategy
+operator|.
+name|class
+argument_list|,
+name|context
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
