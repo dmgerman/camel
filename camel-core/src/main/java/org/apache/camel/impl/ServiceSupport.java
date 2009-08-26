@@ -457,10 +457,11 @@ operator|.
 name|Stopped
 return|;
 block|}
+comment|// use stopped as fallback
 return|return
 name|ServiceStatus
 operator|.
-name|Created
+name|Stopped
 return|;
 block|}
 comment|/**      * @return true if this service has been started      */

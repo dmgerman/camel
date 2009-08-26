@@ -783,7 +783,16 @@ parameter_list|)
 throws|throws
 name|NoFactoryAvailableException
 function_decl|;
-comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      */
+comment|/**      * Returns the current status of the given route      *      * @param routeId the route id      * @return the status for the route      */
+DECL|method|getRouteStatus (String routeId)
+name|ServiceStatus
+name|getRouteStatus
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      * @deprecated will be removed in Camel 2.2      */
 DECL|method|getRouteStatus (RouteDefinition route)
 name|ServiceStatus
 name|getRouteStatus

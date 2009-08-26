@@ -58,6 +58,12 @@ name|GROUP_PROPERTY
 init|=
 literal|"group"
 decl_stmt|;
+comment|/**      * Gets the route id      *      * @return the route id      */
+DECL|method|getId ()
+name|String
+name|getId
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the inbound endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint

@@ -1796,6 +1796,8 @@ argument_list|(
 name|getStrategy
 argument_list|()
 argument_list|,
+name|context
+argument_list|,
 name|route
 argument_list|)
 decl_stmt|;
@@ -1914,54 +1916,8 @@ condition|)
 block|{
 return|return;
 block|}
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|ManagedRoute
-name|mr
-init|=
-operator|new
-name|ManagedRoute
-argument_list|(
-name|getStrategy
-argument_list|()
-argument_list|,
-name|route
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|getStrategy
-argument_list|()
-operator|.
-name|unmanageObject
-argument_list|(
-name|mr
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not unregister Route MBean"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// keep the route in the mbean so its still there, it will still be unregistered
+comment|// when camel itself is shutting down
 block|}
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public

@@ -3493,7 +3493,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the status of the service of the given ID or null if there is no service created yet      */
 DECL|method|getRouteStatus (String key)
 specifier|public
 name|ServiceStatus

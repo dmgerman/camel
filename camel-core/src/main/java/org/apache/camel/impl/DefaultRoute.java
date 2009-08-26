@@ -231,6 +231,26 @@ return|return
 literal|"Route"
 return|;
 block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+operator|(
+name|String
+operator|)
+name|properties
+operator|.
+name|get
+argument_list|(
+name|Route
+operator|.
+name|ID_PROPERTY
+argument_list|)
+return|;
+block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint

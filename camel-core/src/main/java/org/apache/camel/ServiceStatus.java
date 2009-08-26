@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Reresents the status of a {@link Service} instance  *  * @version $Revision$  */
 end_comment
@@ -23,14 +33,13 @@ DECL|enum|ServiceStatus
 specifier|public
 enum|enum
 name|ServiceStatus
+implements|implements
+name|Serializable
 block|{
-DECL|enumConstant|Created
 DECL|enumConstant|Starting
 DECL|enumConstant|Started
 DECL|enumConstant|Stopping
 DECL|enumConstant|Stopped
-name|Created
-block|,
 name|Starting
 block|,
 name|Started
@@ -46,10 +55,6 @@ name|isStartable
 parameter_list|()
 block|{
 return|return
-name|this
-operator|==
-name|Created
-operator|||
 name|this
 operator|==
 name|Stopped
@@ -69,6 +74,30 @@ operator|||
 name|this
 operator|==
 name|Started
+return|;
+block|}
+DECL|method|isStarted ()
+specifier|public
+name|boolean
+name|isStarted
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Started
+return|;
+block|}
+DECL|method|isStopped ()
+specifier|public
+name|boolean
+name|isStopped
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Stopped
 return|;
 block|}
 block|}
