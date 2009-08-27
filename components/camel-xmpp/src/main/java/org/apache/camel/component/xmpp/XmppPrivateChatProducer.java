@@ -364,6 +364,18 @@ operator|.
 name|getChatManager
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Looking for existing chat instance with thread ID "
+operator|+
+name|endpoint
+operator|.
+name|getChatId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Chat
 name|chat
 init|=
@@ -371,7 +383,9 @@ name|chatManager
 operator|.
 name|getThreadChat
 argument_list|(
-name|getParticipant
+name|endpoint
+operator|.
+name|getChatId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -382,6 +396,18 @@ operator|==
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating new chat instance with thread ID "
+operator|+
+name|endpoint
+operator|.
+name|getChatId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|chat
 operator|=
 name|chatManager
@@ -391,7 +417,9 @@ argument_list|(
 name|getParticipant
 argument_list|()
 argument_list|,
-name|getParticipant
+name|endpoint
+operator|.
+name|getChatId
 argument_list|()
 argument_list|,
 operator|new
@@ -410,6 +438,23 @@ name|message
 parameter_list|)
 block|{
 comment|// not here to do conversation
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Received and discarding message from "
+operator|+
+name|getParticipant
+argument_list|()
+operator|+
+literal|" : "
+operator|+
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -440,7 +485,9 @@ name|message
 operator|.
 name|setThread
 argument_list|(
-name|getParticipant
+name|endpoint
+operator|.
+name|getChatId
 argument_list|()
 argument_list|)
 expr_stmt|;
