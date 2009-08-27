@@ -333,7 +333,7 @@ name|getAttribute
 argument_list|(
 name|dynamicallyGeneratedObjName
 argument_list|,
-literal|"Uri"
+literal|"EndpointUri"
 argument_list|)
 argument_list|)
 expr_stmt|;

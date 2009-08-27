@@ -710,7 +710,7 @@ name|quote
 argument_list|(
 name|mbean
 operator|.
-name|getName
+name|getComponentName
 argument_list|()
 argument_list|)
 argument_list|)

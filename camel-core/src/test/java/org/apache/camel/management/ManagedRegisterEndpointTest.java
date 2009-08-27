@@ -180,7 +180,7 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"Uri"
+literal|"EndpointUri"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -210,7 +210,7 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"Uri"
+literal|"EndpointUri"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -240,7 +240,7 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"Uri"
+literal|"EndpointUri"
 argument_list|)
 expr_stmt|;
 name|assertEquals

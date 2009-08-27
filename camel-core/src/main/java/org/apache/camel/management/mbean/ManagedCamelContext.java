@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -39,6 +49,18 @@ operator|.
 name|camel
 operator|.
 name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ServiceStatus
 import|;
 end_import
 
@@ -126,11 +148,6 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|template
-specifier|private
-name|ProducerTemplate
-name|template
-decl_stmt|;
 DECL|method|ManagedCamelContext (CamelContext context)
 specifier|public
 name|ManagedCamelContext
@@ -161,12 +178,12 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Name"
+literal|"Camel id"
 argument_list|)
-DECL|method|getName ()
+DECL|method|getCamelId ()
 specifier|public
 name|String
-name|getName
+name|getCamelId
 parameter_list|()
 block|{
 return|return
@@ -181,15 +198,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel running state"
+literal|"Camel State"
 argument_list|)
-DECL|method|isStarted ()
+DECL|method|getState ()
 specifier|public
-name|boolean
-name|isStarted
+name|String
+name|getState
 parameter_list|()
 block|{
-return|return
+comment|// must use String type to be sure remote JMX can read the attribute without requiring Camel classes.
+name|ServiceStatus
+name|status
+init|=
 operator|(
 operator|(
 name|ServiceSupport
@@ -197,7 +217,68 @@ operator|)
 name|context
 operator|)
 operator|.
-name|isStarted
+name|getStatus
+argument_list|()
+decl_stmt|;
+comment|// if no status exists then its stopped
+if|if
+condition|(
+name|status
+operator|==
+literal|null
+condition|)
+block|{
+name|status
+operator|=
+name|ServiceStatus
+operator|.
+name|Stopped
+expr_stmt|;
+block|}
+return|return
+name|status
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel Properties"
+argument_list|)
+DECL|method|getProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getProperties
+parameter_list|()
+block|{
+if|if
+condition|(
+name|context
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+return|return
+name|context
+operator|.
+name|getProperties
 argument_list|()
 return|;
 block|}

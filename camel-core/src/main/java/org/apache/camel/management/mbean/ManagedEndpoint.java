@@ -110,12 +110,35 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Endpoint Uri"
+literal|"Camel id"
 argument_list|)
-DECL|method|getUri ()
+DECL|method|getCamelId ()
 specifier|public
 name|String
-name|getUri
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint Uri"
+argument_list|)
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
 parameter_list|()
 block|{
 return|return

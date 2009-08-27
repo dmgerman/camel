@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServiceStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -176,14 +188,15 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Service running state"
+literal|"Service State"
 argument_list|)
-DECL|method|isStarted ()
+DECL|method|getState ()
 specifier|public
-name|boolean
-name|isStarted
+name|String
+name|getState
 parameter_list|()
 block|{
+comment|// must use String type to be sure remote JMX can read the attribute without requiring Camel classes.
 if|if
 condition|(
 name|service
@@ -191,7 +204,9 @@ operator|instanceof
 name|ServiceSupport
 condition|)
 block|{
-return|return
+name|ServiceStatus
+name|status
+init|=
 operator|(
 operator|(
 name|ServiceSupport
@@ -199,25 +214,60 @@ operator|)
 name|service
 operator|)
 operator|.
-name|isStarted
+name|getStatus
+argument_list|()
+decl_stmt|;
+comment|// if no status exists then its stopped
+if|if
+condition|(
+name|status
+operator|==
+literal|null
+condition|)
+block|{
+name|status
+operator|=
+name|ServiceStatus
+operator|.
+name|Stopped
+expr_stmt|;
+block|}
+return|return
+name|status
+operator|.
+name|name
 argument_list|()
 return|;
 block|}
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The managed service does not support running state, is type: "
-operator|+
-name|service
+comment|// assume started if not a ServiceSupport instance
+return|return
+name|ServiceStatus
 operator|.
-name|getClass
+name|Started
+operator|.
+name|name
 argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel id"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|context
 operator|.
 name|getName
 argument_list|()
-argument_list|)
-throw|;
+return|;
 block|}
 annotation|@
 name|ManagedOperation

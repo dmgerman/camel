@@ -203,7 +203,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"Id"
+literal|"RouteId"
 argument_list|)
 decl_stmt|;
 name|assertEquals

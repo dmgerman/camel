@@ -235,10 +235,10 @@ name|description
 operator|=
 literal|"Route id"
 argument_list|)
-DECL|method|getId ()
+DECL|method|getRouteId ()
 specifier|public
 name|String
-name|getId
+name|getRouteId
 parameter_list|()
 block|{
 name|String
@@ -362,6 +362,26 @@ return|return
 name|status
 operator|.
 name|name
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel id"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getName
 argument_list|()
 return|;
 block|}
