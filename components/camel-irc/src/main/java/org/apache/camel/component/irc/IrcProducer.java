@@ -86,20 +86,6 @@ name|IRCConnection
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|schwering
-operator|.
-name|irc
-operator|.
-name|lib
-operator|.
-name|IRCEventListener
-import|;
-end_import
-
 begin_class
 DECL|class|IrcProducer
 specifier|public
@@ -185,11 +171,6 @@ DECL|field|endpoint
 specifier|private
 name|IrcEndpoint
 name|endpoint
-decl_stmt|;
-DECL|field|ircErrorLogger
-specifier|private
-name|IRCEventListener
-name|ircErrorLogger
 decl_stmt|;
 DECL|method|IrcProducer (IrcEndpoint endpoint, IRCConnection connection)
 specifier|public
@@ -406,18 +387,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|ircErrorLogger
-operator|=
-name|createIrcErrorLogger
-argument_list|()
-expr_stmt|;
-name|connection
-operator|.
-name|addIRCEventListener
-argument_list|(
-name|ircErrorLogger
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|String
@@ -516,13 +485,6 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
-name|connection
-operator|.
-name|removeIRCEventListener
-argument_list|(
-name|ircErrorLogger
-argument_list|)
-expr_stmt|;
 block|}
 name|super
 operator|.
@@ -564,20 +526,6 @@ block|}
 block|}
 return|return
 literal|false
-return|;
-block|}
-DECL|method|createIrcErrorLogger ()
-specifier|protected
-name|IRCEventListener
-name|createIrcErrorLogger
-parameter_list|()
-block|{
-return|return
-operator|new
-name|IrcErrorLogger
-argument_list|(
-name|LOG
-argument_list|)
 return|;
 block|}
 block|}
