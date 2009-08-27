@@ -249,11 +249,11 @@ name|assertEquals
 argument_list|(
 literal|"There should be no files"
 argument_list|,
+literal|0
+argument_list|,
 name|files
 operator|.
 name|length
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -362,11 +362,11 @@ name|assertEquals
 argument_list|(
 literal|"There should be no files"
 argument_list|,
+literal|0
+argument_list|,
 name|files
 operator|.
 name|length
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
