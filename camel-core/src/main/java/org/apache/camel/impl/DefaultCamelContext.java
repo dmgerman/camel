@@ -5236,11 +5236,42 @@ operator|.
 name|getId
 argument_list|()
 decl_stmt|;
-name|stopRoute
+name|ServiceStatus
+name|status
+init|=
+name|getRouteStatus
 argument_list|(
 name|key
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+literal|null
+operator|&&
+name|status
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+comment|// already started, then stop it
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Route "
+operator|+
+name|key
+operator|+
+literal|" is already started"
+argument_list|)
 expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
 name|routeServices
 operator|.
 name|put
@@ -5261,6 +5292,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */

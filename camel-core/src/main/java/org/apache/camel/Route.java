@@ -70,15 +70,6 @@ name|Endpoint
 name|getEndpoint
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the inbound endpoint      *      * @param endpoint the endpoint      */
-DECL|method|setEndpoint (Endpoint endpoint)
-name|void
-name|setEndpoint
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-function_decl|;
 comment|/**      * This property map is used to associate information about the route.      *      * @return properties      */
 DECL|method|getProperties ()
 name|Map
@@ -123,18 +114,6 @@ name|Service
 argument_list|>
 name|getServices
 parameter_list|()
-function_decl|;
-comment|/**      * Sets the sources for this route      *      * @param services the services      */
-DECL|method|setServices (List<Service> services)
-name|void
-name|setServices
-parameter_list|(
-name|List
-argument_list|<
-name|Service
-argument_list|>
-name|services
-parameter_list|)
 function_decl|;
 comment|/**      * Adds a service to this route      *      * @param service the service      */
 DECL|method|addService (Service service)

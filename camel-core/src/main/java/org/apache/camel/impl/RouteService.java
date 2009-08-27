@@ -488,6 +488,14 @@ argument_list|(
 name|list
 argument_list|)
 expr_stmt|;
+comment|// start the route itself
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 comment|// fire event
 name|EventHelper
 operator|.
@@ -598,6 +606,14 @@ block|}
 name|stopChildService
 argument_list|(
 name|list
+argument_list|)
+expr_stmt|;
+comment|// stop the route itself
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|route
 argument_list|)
 expr_stmt|;
 comment|// fire event

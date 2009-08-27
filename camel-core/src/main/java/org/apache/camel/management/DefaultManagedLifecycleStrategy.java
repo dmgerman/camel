@@ -1390,6 +1390,40 @@ name|service
 argument_list|)
 expr_stmt|;
 block|}
+comment|// skip already managed services, for example if a route has been restarted
+if|if
+condition|(
+name|getStrategy
+argument_list|()
+operator|.
+name|isManaged
+argument_list|(
+name|managedObject
+argument_list|,
+literal|null
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"The service is already managed: "
+operator|+
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
 try|try
 block|{
 name|getStrategy
@@ -1801,6 +1835,40 @@ argument_list|,
 name|route
 argument_list|)
 decl_stmt|;
+comment|// skip already managed routes, for example if the route has been restarted
+if|if
+condition|(
+name|getStrategy
+argument_list|()
+operator|.
+name|isManaged
+argument_list|(
+name|mr
+argument_list|,
+literal|null
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"The route is already managed: "
+operator|+
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+continue|continue;
+block|}
 comment|// get the wrapped instrumentation processor from this route
 comment|// and set me as the counter
 if|if
@@ -1907,16 +1975,7 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
-if|if
-condition|(
-operator|!
-name|initialized
-condition|)
-block|{
-return|return;
-block|}
-comment|// keep the route in the mbean so its still there, it will still be unregistered
+comment|// noop - keep the route in the mbean so its still there, it will still be unregistered
 comment|// when camel itself is shutting down
 block|}
 DECL|method|onRouteContextCreate (RouteContext routeContext)

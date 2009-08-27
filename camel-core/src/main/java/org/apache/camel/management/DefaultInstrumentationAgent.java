@@ -1101,6 +1101,24 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unregistered MBean with objectname: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|isRegistered (ObjectName name)
 specifier|public

@@ -64,18 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -114,9 +102,17 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultRoute
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Route
 block|{
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|Endpoint
+name|endpoint
+decl_stmt|;
 DECL|field|properties
 specifier|private
 specifier|final
@@ -137,13 +133,9 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|Endpoint
-name|endpoint
-decl_stmt|;
 DECL|field|services
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Service
@@ -154,21 +146,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Service
-argument_list|>
-argument_list|()
-decl_stmt|;
-DECL|field|channels
-specifier|private
-name|List
-argument_list|<
-name|Channel
-argument_list|>
-name|channels
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Channel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -228,7 +205,10 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Route"
+literal|"Route "
+operator|+
+name|getId
+argument_list|()
 return|;
 block|}
 DECL|method|getId ()
@@ -260,54 +240,6 @@ block|{
 return|return
 name|endpoint
 return|;
-block|}
-DECL|method|setEndpoint (Endpoint endpoint)
-specifier|public
-name|void
-name|setEndpoint
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
-DECL|method|getChannels ()
-specifier|public
-name|List
-argument_list|<
-name|Channel
-argument_list|>
-name|getChannels
-parameter_list|()
-block|{
-return|return
-name|channels
-return|;
-block|}
-DECL|method|setChannels (List<Channel> channels)
-specifier|public
-name|void
-name|setChannels
-parameter_list|(
-name|List
-argument_list|<
-name|Channel
-argument_list|>
-name|channels
-parameter_list|)
-block|{
-name|this
-operator|.
-name|channels
-operator|=
-name|channels
-expr_stmt|;
 block|}
 DECL|method|getProperties ()
 specifier|public
@@ -393,25 +325,6 @@ return|return
 name|services
 return|;
 block|}
-DECL|method|setServices (List<Service> services)
-specifier|public
-name|void
-name|setServices
-parameter_list|(
-name|List
-argument_list|<
-name|Service
-argument_list|>
-name|services
-parameter_list|)
-block|{
-name|this
-operator|.
-name|services
-operator|=
-name|services
-expr_stmt|;
-block|}
 DECL|method|addService (Service service)
 specifier|public
 name|void
@@ -445,6 +358,29 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear services when stopping
+name|services
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 
