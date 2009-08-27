@@ -360,6 +360,26 @@ return|return
 name|servicesForRoute
 return|;
 block|}
+DECL|method|onStartingServices (List<Service> services)
+specifier|public
+name|void
+name|onStartingServices
+parameter_list|(
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|addServices
+argument_list|(
+name|services
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getServices ()
 specifier|public
 name|List

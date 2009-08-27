@@ -90,7 +90,7 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * This property map is used to associate information about      * the route. Gets all tbe services for this routes      *      * @return the services      * @throws Exception is thrown in case of error      */
+comment|/**      * This property map is used to associate information about      * the route. Gets all the services for this routes      *</p>      * This implementation is used for initiali      *      * @return the services      * @throws Exception is thrown in case of error      * @deprecated will be removed in Camel 2.2      */
 DECL|method|getServicesForRoute ()
 name|List
 argument_list|<
@@ -101,7 +101,21 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the additional services required for this particular route      */
+comment|/**      * A strategy callback allowing special initialization when services is starting.      *      * @param services the service      * @throws Exception is thrown in case of error      */
+DECL|method|onStartingServices (List<Service> services)
+name|void
+name|onStartingServices
+parameter_list|(
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Returns the services for this particular route      */
 DECL|method|getServices ()
 name|List
 argument_list|<

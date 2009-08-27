@@ -321,7 +321,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route state"
+literal|"Route State"
 argument_list|)
 DECL|method|getState ()
 specifier|public
@@ -400,13 +400,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|context
+operator|.
+name|startRoute
 argument_list|(
-literal|"Start not supported"
+name|getRouteId
+argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 annotation|@
 name|ManagedOperation
@@ -423,13 +424,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|context
+operator|.
+name|stopRoute
 argument_list|(
-literal|"Stop not supported"
+name|getRouteId
+argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 end_class

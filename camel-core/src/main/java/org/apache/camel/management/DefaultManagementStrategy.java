@@ -324,36 +324,36 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|manageObject (Object o)
+DECL|method|manageObject (Object managedObject)
 specifier|public
 name|void
 name|manageObject
 parameter_list|(
 name|Object
-name|o
+name|managedObject
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|manageNamedObject (Object o, Object o1)
+DECL|method|manageNamedObject (Object managedObject, Object preferedName)
 specifier|public
 name|void
 name|manageNamedObject
 parameter_list|(
 name|Object
-name|o
+name|managedObject
 parameter_list|,
 name|Object
-name|o1
+name|preferedName
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|getManagedObjectName (Object o, String s, Class<T> tClass)
+DECL|method|getManagedObjectName (Object managedObject, String customName, Class<T> nameType)
 specifier|public
 parameter_list|<
 name|T
@@ -362,16 +362,16 @@ name|T
 name|getManagedObjectName
 parameter_list|(
 name|Object
-name|o
+name|managedObject
 parameter_list|,
 name|String
-name|s
+name|customName
 parameter_list|,
 name|Class
 argument_list|<
 name|T
 argument_list|>
-name|tClass
+name|nameType
 parameter_list|)
 throws|throws
 name|Exception
@@ -381,42 +381,42 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|unmanageObject (Object o)
+DECL|method|unmanageObject (Object managedObject)
 specifier|public
 name|void
 name|unmanageObject
 parameter_list|(
 name|Object
-name|o
+name|managedObject
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|unmanageNamedObject (Object o)
+DECL|method|unmanageNamedObject (Object name)
 specifier|public
 name|void
 name|unmanageNamedObject
 parameter_list|(
 name|Object
-name|o
+name|name
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|isManaged (Object o, Object o1)
+DECL|method|isManaged (Object managedObject, Object name)
 specifier|public
 name|boolean
 name|isManaged
 parameter_list|(
 name|Object
-name|o
+name|managedObject
 parameter_list|,
 name|Object
-name|o1
+name|name
 parameter_list|)
 block|{
 comment|// noop
