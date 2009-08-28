@@ -3541,7 +3541,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Collection
+name|List
 argument_list|<
 name|Route
 argument_list|>

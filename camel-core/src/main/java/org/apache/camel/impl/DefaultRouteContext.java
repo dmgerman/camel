@@ -764,6 +764,8 @@ init|=
 operator|new
 name|EventDrivenConsumerRoute
 argument_list|(
+name|this
+argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|,

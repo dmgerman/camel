@@ -300,6 +300,29 @@ operator|+
 literal|")"
 return|;
 block|}
+DECL|method|setDestination (Endpoint destination)
+specifier|public
+specifier|synchronized
+name|void
+name|setDestination
+parameter_list|(
+name|Endpoint
+name|destination
+parameter_list|)
+block|{
+name|this
+operator|.
+name|destination
+operator|=
+name|destination
+expr_stmt|;
+name|this
+operator|.
+name|init
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -505,6 +528,16 @@ parameter_list|()
 block|{
 return|return
 name|destination
+return|;
+block|}
+DECL|method|getPattern ()
+specifier|public
+name|ExchangePattern
+name|getPattern
+parameter_list|()
+block|{
+return|return
+name|pattern
 return|;
 block|}
 DECL|method|configureExchange (Exchange exchange, ExchangePattern pattern)

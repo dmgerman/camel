@@ -244,7 +244,7 @@ decl_stmt|;
 DECL|field|routes
 specifier|private
 specifier|final
-name|Collection
+name|List
 argument_list|<
 name|Route
 argument_list|>
@@ -256,7 +256,7 @@ specifier|final
 name|String
 name|id
 decl_stmt|;
-DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, Collection<Route> routes)
+DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, List<Route> routes)
 specifier|public
 name|RouteService
 parameter_list|(
@@ -272,7 +272,7 @@ name|RouteContext
 argument_list|>
 name|routeContexts
 parameter_list|,
-name|Collection
+name|List
 argument_list|<
 name|Route
 argument_list|>

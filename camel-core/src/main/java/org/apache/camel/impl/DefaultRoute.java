@@ -92,6 +92,20 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link org.apache.camel.Endpoint} within a {@link org.apache.camel.CamelContext}  *  * @version $Revision$  */
 end_comment
@@ -149,14 +163,29 @@ name|Service
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|DefaultRoute (Endpoint endpoint)
+DECL|field|routeContext
+specifier|private
+specifier|final
+name|RouteContext
+name|routeContext
+decl_stmt|;
+DECL|method|DefaultRoute (RouteContext routeContext, Endpoint endpoint)
 specifier|public
 name|DefaultRoute
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
+expr_stmt|;
 name|this
 operator|.
 name|endpoint
@@ -164,10 +193,13 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|DefaultRoute (Endpoint endpoint, Service... services)
+DECL|method|DefaultRoute (RouteContext routeContext, Endpoint endpoint, Service... services)
 specifier|public
 name|DefaultRoute
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -178,6 +210,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|routeContext
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -239,6 +273,16 @@ parameter_list|()
 block|{
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|getRouteContext ()
+specifier|public
+name|RouteContext
+name|getRouteContext
+parameter_list|()
+block|{
+return|return
+name|routeContext
 return|;
 block|}
 DECL|method|getProperties ()

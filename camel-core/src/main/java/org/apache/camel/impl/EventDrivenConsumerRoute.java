@@ -94,6 +94,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|InstrumentationProcessor
@@ -118,10 +132,13 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
-DECL|method|EventDrivenConsumerRoute (Endpoint endpoint, Processor processor)
+DECL|method|EventDrivenConsumerRoute (RouteContext routeContext, Endpoint endpoint, Processor processor)
 specifier|public
 name|EventDrivenConsumerRoute
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -131,6 +148,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|routeContext
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

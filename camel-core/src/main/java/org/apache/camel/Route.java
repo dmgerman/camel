@@ -34,6 +34,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_interface
 DECL|interface|Route
 specifier|public
@@ -79,6 +93,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|getProperties
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the route context      *      * @return the route context      */
+DECL|method|getRouteContext ()
+name|RouteContext
+name|getRouteContext
 parameter_list|()
 function_decl|;
 comment|/**      * This property map is used to associate information about      * the route. Gets all the services for this routes      *</p>      * This implementation is used for initiali      *      * @return the services      * @throws Exception is thrown in case of error      * @deprecated will be removed in Camel 2.2      */
