@@ -575,6 +575,12 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getHeaders
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|that
@@ -595,6 +601,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|getAttachments
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|that
