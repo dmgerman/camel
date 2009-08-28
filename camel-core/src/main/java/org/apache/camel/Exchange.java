@@ -484,6 +484,21 @@ name|Message
 name|getIn
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the inbound request message as the given type      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      */
+DECL|method|getIn (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getIn
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Sets the inbound message instance      *      * @param in the inbound message      */
 DECL|method|setIn (Message in)
 name|void
@@ -498,6 +513,21 @@ DECL|method|getOut ()
 name|Message
 name|getOut
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the outbound request message as the given type      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      */
+DECL|method|getOut (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getOut
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
 function_decl|;
 comment|/**      * Returns whether an OUT message has been set or not.      *      * @return<tt>true</tt> if an OUT message exists,<tt>false</tt> otherwise.      */
 DECL|method|hasOut ()
@@ -544,7 +574,7 @@ name|Exception
 name|e
 parameter_list|)
 function_decl|;
-comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      * @see Exchange#getFault()      */
+comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      * @see Message#setFault(boolean)      * @see Message#isFault()      */
 DECL|method|isFailed ()
 name|boolean
 name|isFailed
