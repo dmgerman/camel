@@ -186,7 +186,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|RouteStartEvent
+name|RouteStartedEvent
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|RouteStopEvent
+name|RouteStoppedEvent
 import|;
 end_import
 
@@ -300,10 +300,10 @@ name|context
 argument_list|)
 return|;
 block|}
-DECL|method|createRouteStartEvent (Route route)
+DECL|method|createRouteStartedEvent (Route route)
 specifier|public
 name|EventObject
-name|createRouteStartEvent
+name|createRouteStartedEvent
 parameter_list|(
 name|Route
 name|route
@@ -311,16 +311,16 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RouteStartEvent
+name|RouteStartedEvent
 argument_list|(
 name|route
 argument_list|)
 return|;
 block|}
-DECL|method|createRouteStopEvent (Route route)
+DECL|method|createRouteStoppedEvent (Route route)
 specifier|public
 name|EventObject
-name|createRouteStopEvent
+name|createRouteStoppedEvent
 parameter_list|(
 name|Route
 name|route
@@ -328,7 +328,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RouteStopEvent
+name|RouteStoppedEvent
 argument_list|(
 name|route
 argument_list|)

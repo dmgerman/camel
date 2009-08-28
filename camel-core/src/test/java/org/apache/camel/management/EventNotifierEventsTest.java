@@ -222,7 +222,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|RouteStartEvent
+name|RouteStartedEvent
 import|;
 end_import
 
@@ -238,7 +238,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|RouteStopEvent
+name|RouteStoppedEvent
 import|;
 end_import
 
@@ -429,7 +429,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStartEvent
+name|RouteStartedEvent
 operator|.
 name|class
 argument_list|,
@@ -443,7 +443,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStartEvent
+name|RouteStartedEvent
 operator|.
 name|class
 argument_list|,
@@ -528,7 +528,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStopEvent
+name|RouteStoppedEvent
 operator|.
 name|class
 argument_list|,
@@ -542,7 +542,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStopEvent
+name|RouteStoppedEvent
 operator|.
 name|class
 argument_list|,
@@ -640,7 +640,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStartEvent
+name|RouteStartedEvent
 operator|.
 name|class
 argument_list|,
@@ -654,7 +654,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStartEvent
+name|RouteStartedEvent
 operator|.
 name|class
 argument_list|,
@@ -739,7 +739,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStopEvent
+name|RouteStoppedEvent
 operator|.
 name|class
 argument_list|,
@@ -753,7 +753,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|RouteStopEvent
+name|RouteStoppedEvent
 operator|.
 name|class
 argument_list|,

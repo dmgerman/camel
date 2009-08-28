@@ -104,17 +104,17 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-DECL|method|createRouteStartEvent (Route route)
+DECL|method|createRouteStartedEvent (Route route)
 name|EventObject
-name|createRouteStartEvent
+name|createRouteStartedEvent
 parameter_list|(
 name|Route
 name|route
 parameter_list|)
 function_decl|;
-DECL|method|createRouteStopEvent (Route route)
+DECL|method|createRouteStoppedEvent (Route route)
 name|EventObject
-name|createRouteStopEvent
+name|createRouteStoppedEvent
 parameter_list|(
 name|Route
 name|route

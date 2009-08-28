@@ -516,7 +516,7 @@ name|event
 init|=
 name|factory
 operator|.
-name|createRouteStartEvent
+name|createRouteStartedEvent
 argument_list|(
 name|route
 argument_list|)
@@ -596,7 +596,7 @@ name|event
 init|=
 name|factory
 operator|.
-name|createRouteStopEvent
+name|createRouteStoppedEvent
 argument_list|(
 name|route
 argument_list|)

@@ -45,10 +45,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|RouteStopEvent
+DECL|class|RouteStoppedEvent
 specifier|public
 class|class
-name|RouteStopEvent
+name|RouteStoppedEvent
 extends|extends
 name|EventObject
 block|{
@@ -57,9 +57,9 @@ specifier|private
 name|Route
 name|route
 decl_stmt|;
-DECL|method|RouteStopEvent (Route source)
+DECL|method|RouteStoppedEvent (Route source)
 specifier|public
-name|RouteStopEvent
+name|RouteStoppedEvent
 parameter_list|(
 name|Route
 name|source
