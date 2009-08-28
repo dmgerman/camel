@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -127,6 +139,8 @@ class|class
 name|Tracer
 implements|implements
 name|InterceptStrategy
+implements|,
+name|Service
 block|{
 DECL|field|formatter
 specifier|private
@@ -702,6 +716,22 @@ return|return
 literal|"Tracer"
 return|;
 block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

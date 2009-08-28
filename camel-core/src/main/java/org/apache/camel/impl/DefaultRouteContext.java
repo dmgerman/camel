@@ -315,6 +315,11 @@ name|InterceptStrategy
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|managedInterceptStrategy
+specifier|private
+name|InterceptStrategy
+name|managedInterceptStrategy
+decl_stmt|;
 DECL|field|routeAdded
 specifier|private
 name|boolean
@@ -920,6 +925,32 @@ argument_list|(
 name|interceptStrategy
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setManagedInterceptStrategy (InterceptStrategy interceptStrategy)
+specifier|public
+name|void
+name|setManagedInterceptStrategy
+parameter_list|(
+name|InterceptStrategy
+name|interceptStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|managedInterceptStrategy
+operator|=
+name|interceptStrategy
+expr_stmt|;
+block|}
+DECL|method|getManagedInterceptStrategy ()
+specifier|public
+name|InterceptStrategy
+name|getManagedInterceptStrategy
+parameter_list|()
+block|{
+return|return
+name|managedInterceptStrategy
+return|;
 block|}
 DECL|method|isRouteAdded ()
 specifier|public

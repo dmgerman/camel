@@ -1272,6 +1272,11 @@ operator|new
 name|DefaultNodeIdFactory
 argument_list|()
 decl_stmt|;
+DECL|field|defaultTracer
+specifier|private
+name|Tracer
+name|defaultTracer
+decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
 name|DefaultCamelContext
@@ -4718,29 +4723,7 @@ name|isTracing
 argument_list|()
 condition|)
 block|{
-comment|// only add a new tracer if not already configured
-if|if
-condition|(
-name|Tracer
-operator|.
-name|getTracer
-argument_list|(
-name|this
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|Tracer
-name|tracer
-init|=
-name|Tracer
-operator|.
-name|createTracer
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
+comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 name|LOG
 operator|.
 name|debug
@@ -4748,12 +4731,6 @@ argument_list|(
 literal|"Tracing is enabled"
 argument_list|)
 expr_stmt|;
-name|addInterceptStrategy
-argument_list|(
-name|tracer
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -5914,6 +5891,30 @@ name|managementStrategy
 operator|=
 name|managementStrategy
 expr_stmt|;
+block|}
+DECL|method|getDefaultTracer ()
+specifier|public
+name|InterceptStrategy
+name|getDefaultTracer
+parameter_list|()
+block|{
+if|if
+condition|(
+name|defaultTracer
+operator|==
+literal|null
+condition|)
+block|{
+name|defaultTracer
+operator|=
+operator|new
+name|Tracer
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|defaultTracer
+return|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected

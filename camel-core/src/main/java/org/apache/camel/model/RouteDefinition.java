@@ -1418,35 +1418,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|// only add a new tracer if not already a global configured on camel context
-if|if
-condition|(
-name|Tracer
-operator|.
-name|getTracer
-argument_list|(
-name|camelContext
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|Tracer
-name|tracer
-init|=
-name|Tracer
-operator|.
-name|createTracer
-argument_list|(
-name|camelContext
-argument_list|)
-decl_stmt|;
-name|addInterceptStrategy
-argument_list|(
-name|tracer
-argument_list|)
-expr_stmt|;
-block|}
+comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 block|}
 block|}
 comment|// configure stream caching

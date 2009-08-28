@@ -258,6 +258,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TraceableUnitOfWork
 import|;
 end_import
@@ -403,6 +417,11 @@ DECL|field|jpaTraceEventMessageClass
 specifier|private
 name|Class
 name|jpaTraceEventMessageClass
+decl_stmt|;
+DECL|field|routeContext
+specifier|private
+name|RouteContext
+name|routeContext
 decl_stmt|;
 DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
@@ -580,6 +599,22 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|setRouteContext (RouteContext routeContext)
+specifier|public
+name|void
+name|setRouteContext
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
+expr_stmt|;
+block|}
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
@@ -592,6 +627,37 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// do not trace if tracing is disabled
+if|if
+condition|(
+operator|!
+name|tracer
+operator|.
+name|isEnabled
+argument_list|()
+operator|||
+operator|(
+name|routeContext
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|routeContext
+operator|.
+name|isTracing
+argument_list|()
+operator|)
+condition|)
+block|{
+name|super
+operator|.
+name|proceed
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// interceptor will also trace routes supposed only for TraceEvents so we need to skip
 comment|// logging TraceEvents to avoid infinite looping
 if|if
@@ -917,6 +983,16 @@ parameter_list|()
 block|{
 return|return
 name|formatter
+return|;
+block|}
+DECL|method|getTracer ()
+specifier|public
+name|Tracer
+name|getTracer
+parameter_list|()
+block|{
+return|return
+name|tracer
 return|;
 block|}
 comment|// Implementation methods

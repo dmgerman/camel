@@ -398,6 +398,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedTracer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|AOPDefinition
@@ -513,6 +529,22 @@ operator|.
 name|processor
 operator|.
 name|Throttler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|Tracer
 import|;
 end_import
 
@@ -1390,6 +1422,29 @@ if|if
 condition|(
 name|service
 operator|instanceof
+name|Tracer
+condition|)
+block|{
+comment|// special for tracer
+name|managedObject
+operator|=
+operator|new
+name|ManagedTracer
+argument_list|(
+name|context
+argument_list|,
+operator|(
+name|Tracer
+operator|)
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|service
+operator|instanceof
 name|Processor
 condition|)
 block|{
@@ -1514,9 +1569,33 @@ if|if
 condition|(
 name|service
 operator|instanceof
+name|Tracer
+condition|)
+block|{
+comment|// special for tracer
+name|managedObject
+operator|=
+operator|new
+name|ManagedTracer
+argument_list|(
+name|context
+argument_list|,
+operator|(
+name|Tracer
+operator|)
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|service
+operator|instanceof
 name|Processor
 condition|)
 block|{
+comment|// special for processors
 name|managedObject
 operator|=
 name|getManagedObjectForProcessor
@@ -2102,11 +2181,11 @@ name|registeredCounters
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add intercept strategy that executes the JMX instrumentation for performance metrics
+comment|// set this managed intercept strategy that executes the JMX instrumentation for performance metrics
 comment|// so our registered counters can be used for fine grained performance instrumentation
 name|routeContext
 operator|.
-name|addInterceptStrategy
+name|setManagedInterceptStrategy
 argument_list|(
 operator|new
 name|InstrumentationInterceptStrategy

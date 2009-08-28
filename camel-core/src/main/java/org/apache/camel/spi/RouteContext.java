@@ -291,6 +291,21 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Sets a special intercept strategy for management.      *<p/>      * Is by default used to correlate managed performance counters with processors      * when the runtime route is being constructed      *      * @param interceptStrategy the managed intercept strategy      */
+DECL|method|setManagedInterceptStrategy (InterceptStrategy interceptStrategy)
+name|void
+name|setManagedInterceptStrategy
+parameter_list|(
+name|InterceptStrategy
+name|interceptStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the special managed intercept strategy if any      *      * @return the managed intercept strategy, or<tt>null</tt> if not managed      */
+DECL|method|getManagedInterceptStrategy ()
+name|InterceptStrategy
+name|getManagedInterceptStrategy
+parameter_list|()
+function_decl|;
 comment|/**      * If this flag is true, {@link ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void

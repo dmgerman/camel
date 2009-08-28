@@ -588,7 +588,7 @@ operator|.
 name|OFF
 argument_list|)
 expr_stmt|;
-comment|// and we must remeber to add the tracer to Camel
+comment|// and we must remember to add the tracer to Camel
 name|getContext
 argument_list|()
 operator|.

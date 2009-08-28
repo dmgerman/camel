@@ -908,6 +908,12 @@ name|ManagementStrategy
 name|strategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the default tracer      *      * @return the default tracer      */
+DECL|method|getDefaultTracer ()
+name|InterceptStrategy
+name|getDefaultTracer
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
