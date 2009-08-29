@@ -316,10 +316,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHttpRoundTripHeadersWithNoIngoredHeaders ()
+DECL|method|testHttpRoundTripHeadersWithNoIgnoredHeaders ()
 specifier|public
 name|void
-name|testHttpRoundTripHeadersWithNoIngoredHeaders
+name|testHttpRoundTripHeadersWithNoIgnoredHeaders
 parameter_list|()
 throws|throws
 name|Exception
@@ -477,7 +477,7 @@ comment|// append some text to invalidate Context-Length
 comment|// for the http reply
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody
@@ -596,6 +596,7 @@ name|assertTrue
 argument_list|(
 literal|"no headers are propagated"
 argument_list|,
+operator|!
 name|headers
 operator|.
 name|isEmpty

@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Processor
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Route
 import|;
 end_import
 

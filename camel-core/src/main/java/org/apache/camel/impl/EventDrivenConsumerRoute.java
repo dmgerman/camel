@@ -94,9 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|management
 operator|.
-name|RouteContext
+name|InstrumentationProcessor
 import|;
 end_import
 
@@ -108,9 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|InstrumentationProcessor
+name|RouteContext
 import|;
 end_import
 

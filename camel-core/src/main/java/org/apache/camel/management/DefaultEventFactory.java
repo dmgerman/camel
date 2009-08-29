@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Processor
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Route
 import|;
 end_import
 
@@ -198,6 +198,22 @@ name|management
 operator|.
 name|event
 operator|.
+name|ExchangeFailureHandledEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|event
+operator|.
 name|RouteStartedEvent
 import|;
 end_import
@@ -215,22 +231,6 @@ operator|.
 name|event
 operator|.
 name|RouteStoppedEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|event
-operator|.
-name|ExchangeFailureHandledEvent
 import|;
 end_import
 

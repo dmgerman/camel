@@ -1712,7 +1712,7 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-comment|// copy body/header from OUT to IN
+comment|// move body/header from OUT to IN
 if|if
 condition|(
 name|oldExchange
@@ -1730,10 +1730,7 @@ condition|)
 block|{
 name|oldExchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
+name|setIn
 argument_list|(
 name|oldExchange
 operator|.
@@ -1767,10 +1764,7 @@ condition|)
 block|{
 name|newExchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
+name|setIn
 argument_list|(
 name|newExchange
 operator|.
