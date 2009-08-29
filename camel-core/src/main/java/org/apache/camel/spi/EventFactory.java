@@ -62,6 +62,18 @@ name|Route
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory to create {@link java.util.EventObject} events} that are emitted when such an event occur.  *<p/>  * For example when an {@link Exchange} is being created and then later when its done.  *  * @version $Revision$  */
 end_comment
@@ -142,6 +154,20 @@ name|createExchangeFailedEvent
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|)
+function_decl|;
+DECL|method|createExchangeFailureHandled (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
+name|EventObject
+name|createExchangeFailureHandled
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|failureHandler
+parameter_list|,
+name|boolean
+name|deadLetterChannel
 parameter_list|)
 function_decl|;
 block|}

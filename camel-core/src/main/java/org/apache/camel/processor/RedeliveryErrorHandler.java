@@ -144,6 +144,20 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|EventHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  *  * @version $Revision$  */
 end_comment
@@ -574,6 +588,46 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
+comment|// fire event if we had a failure processor to handle it
+if|if
+condition|(
+name|target
+operator|!=
+literal|null
+condition|)
+block|{
+name|boolean
+name|deadLetterChannel
+init|=
+name|target
+operator|==
+name|data
+operator|.
+name|deadLetterProcessor
+operator|&&
+name|data
+operator|.
+name|deadLetterProcessor
+operator|!=
+literal|null
+decl_stmt|;
+name|EventHelper
+operator|.
+name|notifyExchangeFailureHandled
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|target
+argument_list|,
+name|deadLetterChannel
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and then return
 return|return;
 block|}

@@ -54,6 +54,7 @@ name|EventObject
 block|{
 DECL|field|exchange
 specifier|private
+specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
@@ -84,6 +85,20 @@ name|getExchange
 parameter_list|()
 block|{
 return|return
+name|exchange
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Exchange created: "
+operator|+
 name|exchange
 return|;
 block|}

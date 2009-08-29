@@ -54,6 +54,7 @@ name|EventObject
 block|{
 DECL|field|context
 specifier|private
+specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
