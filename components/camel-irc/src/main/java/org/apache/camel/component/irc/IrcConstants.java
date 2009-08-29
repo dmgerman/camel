@@ -92,6 +92,24 @@ name|IRC_USER_USERNAME
 init|=
 literal|"irc.user.username"
 decl_stmt|;
+DECL|field|IRC_NUM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IRC_NUM
+init|=
+literal|"irc.num"
+decl_stmt|;
+DECL|field|IRC_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IRC_VALUE
+init|=
+literal|"irc.value"
+decl_stmt|;
 DECL|method|IrcConstants ()
 specifier|private
 name|IrcConstants

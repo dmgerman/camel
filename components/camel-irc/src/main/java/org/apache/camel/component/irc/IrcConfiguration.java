@@ -249,6 +249,13 @@ name|onPart
 init|=
 literal|true
 decl_stmt|;
+DECL|field|onReply
+specifier|private
+name|boolean
+name|onReply
+init|=
+literal|false
+decl_stmt|;
 DECL|field|onTopic
 specifier|private
 name|boolean
@@ -1184,6 +1191,32 @@ operator|.
 name|onPart
 operator|=
 name|onPart
+expr_stmt|;
+block|}
+DECL|method|isOnReply ()
+specifier|public
+name|boolean
+name|isOnReply
+parameter_list|()
+block|{
+return|return
+name|onReply
+return|;
+block|}
+DECL|method|setOnReply (boolean onReply)
+specifier|public
+name|void
+name|setOnReply
+parameter_list|(
+name|boolean
+name|onReply
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onReply
+operator|=
+name|onReply
 expr_stmt|;
 block|}
 DECL|method|isOnTopic ()
