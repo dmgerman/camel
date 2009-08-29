@@ -116,8 +116,7 @@ name|String
 name|data
 parameter_list|)
 block|{
-operator|new
-name|StringSource
+name|super
 argument_list|(
 name|data
 argument_list|)
