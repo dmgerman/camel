@@ -645,11 +645,15 @@ argument_list|(
 literal|"Adding IRC event logging listener"
 argument_list|)
 expr_stmt|;
-block|}
 name|ircLogger
 operator|=
 name|createIrcLogger
+argument_list|(
+name|configuration
+operator|.
+name|getHostname
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|conn
 operator|.
@@ -658,6 +662,7 @@ argument_list|(
 name|ircLogger
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|conn
@@ -800,17 +805,22 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|createIrcLogger ()
+DECL|method|createIrcLogger (String hostname)
 specifier|protected
 name|IRCEventListener
 name|createIrcLogger
-parameter_list|()
+parameter_list|(
+name|String
+name|hostname
+parameter_list|)
 block|{
 return|return
 operator|new
 name|IrcLogger
 argument_list|(
 name|LOG
+argument_list|,
+name|hostname
 argument_list|)
 return|;
 block|}

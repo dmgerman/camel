@@ -91,12 +91,20 @@ specifier|private
 name|Log
 name|log
 decl_stmt|;
-DECL|method|IrcLogger (Log log)
+DECL|field|server
+specifier|private
+name|String
+name|server
+decl_stmt|;
+DECL|method|IrcLogger (Log log, String server)
 specifier|public
 name|IrcLogger
 parameter_list|(
 name|Log
 name|log
+parameter_list|,
+name|String
+name|server
 parameter_list|)
 block|{
 name|this
@@ -104,6 +112,12 @@ operator|.
 name|log
 operator|=
 name|log
+expr_stmt|;
+name|this
+operator|.
+name|server
+operator|=
+name|server
 expr_stmt|;
 block|}
 annotation|@
@@ -118,7 +132,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"onDisconnected"
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onDisconnected"
 argument_list|)
 expr_stmt|;
 block|}
@@ -140,7 +158,11 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"onError - num="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onError num="
 operator|+
 name|num
 operator|+
@@ -167,7 +189,11 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"onError - msg=\""
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onError msg=\""
 operator|+
 name|msg
 operator|+
@@ -196,7 +222,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onInvite - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onInvite chan="
 operator|+
 name|chan
 operator|+
@@ -228,7 +258,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onJoin - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onJoin chan="
 operator|+
 name|chan
 operator|+
@@ -262,7 +296,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onKick - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onKick chan="
 operator|+
 name|chan
 operator|+
@@ -303,7 +341,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"onMode - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onMode chan="
 operator|+
 name|chan
 operator|+
@@ -338,7 +380,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"onMode - user="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onMode user="
 operator|+
 name|user
 operator|+
@@ -370,7 +416,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onNick - user="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onNick user="
 operator|+
 name|user
 operator|+
@@ -401,7 +451,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onNotice - target="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onNotice target="
 operator|+
 name|target
 operator|+
@@ -438,7 +492,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onPart - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onPart chan="
 operator|+
 name|chan
 operator|+
@@ -469,7 +527,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"onPing - ping="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onPing ping="
 operator|+
 name|ping
 argument_list|)
@@ -496,7 +558,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onPrivmsg - target="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onPrivmsg target="
 operator|+
 name|target
 operator|+
@@ -530,7 +596,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onQuit - user="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onQuit user="
 operator|+
 name|user
 operator|+
@@ -554,7 +624,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"onRegistered"
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onRegistered"
 argument_list|)
 expr_stmt|;
 block|}
@@ -579,7 +653,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onReply - num="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onReply num="
 operator|+
 name|num
 operator|+
@@ -616,7 +694,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"onTopic - chan="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - onTopic chan="
 operator|+
 name|chan
 operator|+
@@ -654,7 +736,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"unknown - prefix="
+literal|"Server: "
+operator|+
+name|server
+operator|+
+literal|" - unknown prefix="
 operator|+
 name|prefix
 operator|+
