@@ -206,6 +206,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ScheduledPollConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|mbean
@@ -355,6 +369,22 @@ operator|.
 name|mbean
 operator|.
 name|ManagedRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedScheduledPollConsumer
 import|;
 end_import
 
@@ -679,10 +709,10 @@ comment|/**  * Default JMX managed lifecycle strategy that registered objects us
 end_comment
 
 begin_class
-DECL|class|DefaultManagedLifecycleStrategy
+DECL|class|DefaultManagementLifecycleStrategy
 specifier|public
 class|class
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 implements|implements
 name|LifecycleStrategy
 implements|,
@@ -699,7 +729,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 operator|.
 name|class
 argument_list|)
@@ -754,9 +784,9 @@ specifier|private
 name|boolean
 name|initialized
 decl_stmt|;
-DECL|method|DefaultManagedLifecycleStrategy (CamelContext context)
+DECL|method|DefaultManagementLifecycleStrategy (CamelContext context)
 specifier|public
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 parameter_list|(
 name|CamelContext
 name|context
@@ -1877,6 +1907,27 @@ name|Service
 name|service
 parameter_list|)
 block|{
+if|if
+condition|(
+name|service
+operator|instanceof
+name|ScheduledPollConsumer
+condition|)
+block|{
+return|return
+operator|new
+name|ManagedScheduledPollConsumer
+argument_list|(
+name|context
+argument_list|,
+operator|(
+name|ScheduledPollConsumer
+operator|)
+name|service
+argument_list|)
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|service

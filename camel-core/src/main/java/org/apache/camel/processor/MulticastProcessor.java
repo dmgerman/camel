@@ -1302,6 +1302,10 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.

@@ -350,7 +350,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// do we have am explict method name we always should invoke
+comment|// do we have an explicit method name we always should invoke
 name|boolean
 name|isExplicitMethod
 init|=
@@ -389,7 +389,7 @@ name|getBeanInfo
 argument_list|()
 decl_stmt|;
 comment|// do we have a custom adapter for this POJO to a Processor
-comment|// should not be invoced if an explict method has been set
+comment|// should not be invoced if an explicit method has been set
 name|Processor
 name|processor
 init|=
@@ -585,7 +585,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"No method invocation could be created, no maching method could be found on: "
+literal|"No method invocation could be created, no matching method could be found on: "
 operator|+
 name|bean
 argument_list|)

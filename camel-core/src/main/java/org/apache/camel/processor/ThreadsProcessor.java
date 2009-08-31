@@ -486,6 +486,11 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+comment|// must null it so we can restart
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 DECL|method|toString ()

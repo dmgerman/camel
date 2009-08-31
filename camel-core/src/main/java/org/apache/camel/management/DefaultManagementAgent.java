@@ -363,10 +363,10 @@ comment|/**  * Default implementation of the Camel JMX service agent  */
 end_comment
 
 begin_class
-DECL|class|DefaultInstrumentationAgent
+DECL|class|DefaultManagementAgent
 specifier|public
 class|class
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -430,7 +430,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 operator|.
 name|class
 argument_list|)

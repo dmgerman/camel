@@ -157,7 +157,7 @@ specifier|protected
 name|String
 name|domainName
 init|=
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 operator|.
 name|DEFAULT_DOMAIN
 decl_stmt|;

@@ -260,7 +260,7 @@ block|{
 name|this
 argument_list|(
 operator|new
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 argument_list|()
 argument_list|)
 expr_stmt|;

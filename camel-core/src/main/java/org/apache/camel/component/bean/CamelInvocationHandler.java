@@ -305,12 +305,7 @@ block|{
 comment|// if the inner cause is a runtime exception we can throw it directly
 if|if
 condition|(
-operator|(
-operator|(
-name|RuntimeCamelException
-operator|)
 name|fault
-operator|)
 operator|.
 name|getCause
 argument_list|()

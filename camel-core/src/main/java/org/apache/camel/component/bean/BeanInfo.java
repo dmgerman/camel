@@ -280,18 +280,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|ExpressionBuilder
@@ -2365,7 +2353,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No poosible methods trying to convert body to parameter types"
+literal|"No possible methods trying to convert body to parameter types"
 argument_list|)
 expr_stmt|;
 block|}

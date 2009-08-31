@@ -291,6 +291,11 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+comment|// must null it so we can restart
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|super
 operator|.
@@ -657,6 +662,11 @@ condition|(
 name|executorService
 operator|==
 literal|null
+operator|||
+name|executorService
+operator|.
+name|isShutdown
+argument_list|()
 condition|)
 block|{
 name|executorService

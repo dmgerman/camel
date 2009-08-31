@@ -842,6 +842,11 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+comment|// must null it so we can restart
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 comment|/**      * A factory method allowing derived components to create a new endpoint      * from the given URI, remaining path and optional parameters      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      */

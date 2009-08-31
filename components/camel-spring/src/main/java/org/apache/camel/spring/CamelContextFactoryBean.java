@@ -232,7 +232,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 import|;
 end_import
 
@@ -246,7 +246,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 import|;
 end_import
 
@@ -2835,11 +2835,11 @@ operator|+
 name|camelJMXAgent
 argument_list|)
 expr_stmt|;
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 name|agent
 init|=
 operator|new
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 argument_list|()
 decl_stmt|;
 name|agent
@@ -2955,7 +2955,7 @@ operator|.
 name|addLifecycleStrategy
 argument_list|(
 operator|new
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 argument_list|(
 name|getContext
 argument_list|()

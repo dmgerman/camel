@@ -350,7 +350,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 import|;
 end_import
 
@@ -364,7 +364,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 import|;
 end_import
 
@@ -1340,7 +1340,7 @@ operator|new
 name|ManagedManagementStrategy
 argument_list|(
 operator|new
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1349,7 +1349,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|DefaultManagedLifecycleStrategy
+name|DefaultManagementLifecycleStrategy
 argument_list|(
 name|this
 argument_list|)

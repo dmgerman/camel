@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 import|;
 end_import
 
@@ -109,7 +109,7 @@ name|agent
 init|=
 name|getMandatoryBean
 argument_list|(
-name|DefaultInstrumentationAgent
+name|DefaultManagementAgent
 operator|.
 name|class
 argument_list|,
