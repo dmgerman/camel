@@ -161,8 +161,8 @@ name|Exchange
 name|receiveNoWait
 parameter_list|()
 block|{
-comment|// spring have changed the sematic of the receive timeout mode
-comment|// so we need to deterime if running spring 2.0.x or 2.5.x or newer
+comment|// spring have changed the semantic of the receive timeout mode
+comment|// so we need to determine if running spring 2.0.x or 2.5.x or newer
 if|if
 condition|(
 name|spring20x
@@ -179,11 +179,11 @@ block|}
 else|else
 block|{
 comment|// spring 2.5.x
+comment|// no wait using -1L does not work properly so wait at most 1 millis to simulate no wait
 return|return
 name|receive
 argument_list|(
-operator|-
-literal|1L
+literal|1
 argument_list|)
 return|;
 block|}
@@ -194,8 +194,8 @@ name|Exchange
 name|receive
 parameter_list|()
 block|{
-comment|// spring have changed the sematic of the receive timeout mode
-comment|// so we need to deterime if running spring 2.0.x or 2.5.x or newer
+comment|// spring have changed the semantic of the receive timeout mode
+comment|// so we need to determine if running spring 2.0.x or 2.5.x or newer
 if|if
 condition|(
 name|spring20x

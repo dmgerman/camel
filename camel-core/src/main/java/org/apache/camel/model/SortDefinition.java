@@ -468,6 +468,22 @@ operator|.
 name|getExpression
 argument_list|()
 decl_stmt|;
+comment|// fallback to the type when its been initialized from JAXB using camel-spring
+if|if
+condition|(
+name|exp
+operator|==
+literal|null
+condition|)
+block|{
+name|exp
+operator|=
+name|expression
+operator|.
+name|getExpressionType
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|SortProcessor

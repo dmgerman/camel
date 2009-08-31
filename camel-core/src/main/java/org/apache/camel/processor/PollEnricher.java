@@ -123,6 +123,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|copyResultsPreservePattern
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -147,22 +163,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|copyResultsPreservePattern
 import|;
 end_import
 
@@ -438,6 +438,42 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|resourceExchange
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer received no exchange"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer received: "
+operator|+
+name|resourceExchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
 name|resourceExchange
 operator|!=
 literal|null
@@ -526,6 +562,13 @@ argument_list|,
 name|resourceExchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|aggregatedExchange
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// copy aggregation result onto original exchange (preserving pattern)
 name|copyResultsPreservePattern
 argument_list|(
@@ -534,6 +577,7 @@ argument_list|,
 name|aggregatedExchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
