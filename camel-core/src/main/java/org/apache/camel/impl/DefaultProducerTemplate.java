@@ -326,6 +326,21 @@ name|getProducerServicePool
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|ExecutorServiceHelper
+operator|.
+name|newScheduledThreadPool
+argument_list|(
+name|DEFAULT_THREADPOOL_SIZE
+argument_list|,
+literal|"ProducerTemplate"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|DefaultProducerTemplate (CamelContext context, ExecutorService executor)
 specifier|public
@@ -4230,6 +4245,11 @@ condition|(
 name|executor
 operator|==
 literal|null
+operator|||
+name|executor
+operator|.
+name|isShutdown
+argument_list|()
 condition|)
 block|{
 name|executor
@@ -4273,11 +4293,6 @@ name|executor
 operator|.
 name|shutdown
 argument_list|()
-expr_stmt|;
-comment|// must null it so we can restart
-name|executor
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}
