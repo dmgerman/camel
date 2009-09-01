@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Strategy for computing {@link ObjectName} names for the various beans that Camel register for management.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
