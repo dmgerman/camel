@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|jmx
@@ -88,9 +102,9 @@ begin_class
 annotation|@
 name|ManagedResource
 argument_list|(
-name|objectName
+name|description
 operator|=
-literal|"testdomain:name=customEndpoint"
+literal|"Our custom managed endpoint"
 argument_list|)
 DECL|class|CustomEndpoint
 specifier|public
@@ -98,6 +112,11 @@ class|class
 name|CustomEndpoint
 extends|extends
 name|MockEndpoint
+implements|implements
+name|ManagementAware
+argument_list|<
+name|CustomEndpoint
+argument_list|>
 block|{
 DECL|method|CustomEndpoint (final String endpointUri, final Component component)
 specifier|public
@@ -119,6 +138,19 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getManagedObject (CustomEndpoint object)
+specifier|public
+name|Object
+name|getManagedObject
+parameter_list|(
+name|CustomEndpoint
+name|object
+parameter_list|)
+block|{
+return|return
+name|this
+return|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
@@ -150,6 +182,21 @@ parameter_list|()
 block|{
 return|return
 literal|"bar"
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getEndpointUri
+argument_list|()
 return|;
 block|}
 block|}

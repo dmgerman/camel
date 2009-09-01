@@ -56,11 +56,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedComponent
+name|Component
 import|;
 end_import
 
@@ -72,11 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedConsumer
+name|Consumer
 import|;
 end_import
 
@@ -88,11 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedEndpoint
+name|Endpoint
 import|;
 end_import
 
@@ -104,11 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedProcessor
+name|Processor
 import|;
 end_import
 
@@ -120,43 +104,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedRoute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedTracer
+name|Route
 import|;
 end_import
 
@@ -184,9 +132,9 @@ specifier|public
 interface|interface
 name|ManagementNamingStrategy
 block|{
-DECL|method|getObjectName (CamelContext context)
+DECL|method|getObjectNameForCamelContext (CamelContext context)
 name|ObjectName
-name|getObjectName
+name|getObjectNameForCamelContext
 parameter_list|(
 name|CamelContext
 name|context
@@ -194,87 +142,77 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectName (ManagedComponent mbean)
+DECL|method|getObjectNameForComponent (Component component, String name)
 name|ObjectName
-name|getObjectName
+name|getObjectNameForComponent
 parameter_list|(
-name|ManagedComponent
-name|mbean
+name|Component
+name|component
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectName (ManagedEndpoint mbean)
+DECL|method|getObjectNameForEndpoint (Endpoint endpoint)
 name|ObjectName
-name|getObjectName
+name|getObjectNameForEndpoint
 parameter_list|(
-name|ManagedEndpoint
-name|mbean
+name|Endpoint
+name|endpoint
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectName (ManagedProcessor mbean)
+DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition definition)
 name|ObjectName
-name|getObjectName
+name|getObjectNameForProcessor
 parameter_list|(
-name|ManagedProcessor
-name|mbean
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
-DECL|method|getObjectName (ManagedRoute mbean)
-name|ObjectName
-name|getObjectName
-parameter_list|(
-name|ManagedRoute
-name|mbean
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
-DECL|method|getObjectName (ManagedConsumer mbean)
-name|ObjectName
-name|getObjectName
-parameter_list|(
-name|ManagedConsumer
-name|mbean
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
-DECL|method|getObjectName (ManagedTracer mbean)
-name|ObjectName
-name|getObjectName
-parameter_list|(
-name|ManagedTracer
-name|mbean
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
-comment|/**      * @deprecated      */
-DECL|method|getObjectName (ManagedService mbean)
-name|ObjectName
-name|getObjectName
-parameter_list|(
-name|ManagedService
-name|mbean
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
-comment|/**      * @deprecated      */
-DECL|method|getObjectName (RouteContext routeContext, ProcessorDefinition processor)
-name|ObjectName
-name|getObjectName
-parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|context
+parameter_list|,
+name|Processor
+name|processor
 parameter_list|,
 name|ProcessorDefinition
-name|processor
+name|definition
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
+DECL|method|getObjectNameForRoute (Route route)
+name|ObjectName
+name|getObjectNameForRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
+DECL|method|getObjectNameForConsumer (CamelContext context, Consumer consumer)
+name|ObjectName
+name|getObjectNameForConsumer
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Consumer
+name|consumer
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
+DECL|method|getObjectNameForTracer (CamelContext context, InterceptStrategy tracer)
+name|ObjectName
+name|getObjectNameForTracer
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|InterceptStrategy
+name|tracer
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException

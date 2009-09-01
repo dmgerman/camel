@@ -100,17 +100,75 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed Timer Endpoint"
+argument_list|)
 DECL|class|TimerEndpoint
 specifier|public
 class|class
 name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|ManagementAware
+argument_list|<
+name|TimerEndpoint
+argument_list|>
 block|{
 DECL|field|timerName
 specifier|private
@@ -272,6 +330,26 @@ name|processor
 argument_list|)
 return|;
 block|}
+DECL|method|getManagedObject (TimerEndpoint object)
+specifier|public
+name|Object
+name|getManagedObject
+parameter_list|(
+name|TimerEndpoint
+name|object
+parameter_list|)
+block|{
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Name"
+argument_list|)
 DECL|method|getTimerName ()
 specifier|public
 name|String
@@ -295,6 +373,13 @@ return|return
 name|timerName
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Name"
+argument_list|)
 DECL|method|setTimerName (String timerName)
 specifier|public
 name|void
@@ -311,6 +396,13 @@ operator|=
 name|timerName
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Daemon"
+argument_list|)
 DECL|method|isDaemon ()
 specifier|public
 name|boolean
@@ -321,6 +413,13 @@ return|return
 name|daemon
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Daemon"
+argument_list|)
 DECL|method|setDaemon (boolean daemon)
 specifier|public
 name|void
@@ -337,6 +436,13 @@ operator|=
 name|daemon
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Delay"
+argument_list|)
 DECL|method|getDelay ()
 specifier|public
 name|long
@@ -347,6 +453,13 @@ return|return
 name|delay
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Delay"
+argument_list|)
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -363,6 +476,13 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer FixedRate"
+argument_list|)
 DECL|method|isFixedRate ()
 specifier|public
 name|boolean
@@ -373,6 +493,13 @@ return|return
 name|fixedRate
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer FixedRate"
+argument_list|)
 DECL|method|setFixedRate (boolean fixedRate)
 specifier|public
 name|void
@@ -389,6 +516,13 @@ operator|=
 name|fixedRate
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Period"
+argument_list|)
 DECL|method|getPeriod ()
 specifier|public
 name|long
@@ -399,6 +533,13 @@ return|return
 name|period
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timer Period"
+argument_list|)
 DECL|method|setPeriod (long period)
 specifier|public
 name|void
@@ -441,6 +582,13 @@ operator|=
 name|time
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Singleton"
+argument_list|)
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -490,6 +638,49 @@ name|timer
 operator|=
 name|timer
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel id"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint Uri"
+argument_list|)
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
 block|}
 block|}
 end_class
