@@ -699,7 +699,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Camel durrently does not support pollEnrich from a file/ftp endpoint"
+literal|"Camel currently does not support pollEnrich from a file/ftp endpoint"
 operator|+
 literal|" when the route also started from a file/ftp endpoint."
 operator|+
@@ -872,6 +872,13 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|newExchange
+operator|!=
+literal|null
+condition|)
+block|{
 name|copyResultsPreservePattern
 argument_list|(
 name|oldExchange
@@ -879,6 +886,7 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|oldExchange
 return|;

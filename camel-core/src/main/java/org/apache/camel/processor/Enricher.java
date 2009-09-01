@@ -387,6 +387,13 @@ argument_list|,
 name|resourceExchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|aggregatedExchange
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// copy aggregation result onto original exchange (preserving pattern)
 name|copyResultsPreservePattern
 argument_list|(
@@ -395,6 +402,7 @@ argument_list|,
 name|aggregatedExchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -570,6 +578,13 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|newExchange
+operator|!=
+literal|null
+condition|)
+block|{
 name|copyResultsPreservePattern
 argument_list|(
 name|oldExchange
@@ -577,6 +592,7 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|oldExchange
 return|;
