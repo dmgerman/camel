@@ -259,10 +259,6 @@ name|average
 operator|/=
 name|totalLoops
 expr_stmt|;
-name|average
-operator|/=
-literal|1000
-expr_stmt|;
 return|return
 name|id
 operator|+
@@ -270,21 +266,21 @@ literal|" count: "
 operator|+
 name|loopCount
 operator|+
-literal|" elapsed: "
+literal|", elapsed (ms): "
 operator|+
 name|groupElapsed
 operator|+
-literal|" min: "
+literal|", min (ms): "
 operator|+
 name|minTime
 operator|+
-literal|" max: "
+literal|", max (ms): "
 operator|+
 name|maxTime
 operator|+
-literal|" average: "
+literal|", average (ms): "
 operator|+
-name|formatSeconds
+name|formatNumber
 argument_list|(
 name|average
 argument_list|)
@@ -366,10 +362,10 @@ return|return
 name|groupElapsed
 return|;
 block|}
-DECL|method|formatSeconds (double time)
+DECL|method|formatNumber (double time)
 specifier|protected
 name|String
-name|formatSeconds
+name|formatNumber
 parameter_list|(
 name|double
 name|time

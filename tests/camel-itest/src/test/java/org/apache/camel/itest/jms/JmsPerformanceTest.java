@@ -416,7 +416,7 @@ name|receivedCountDown
 operator|.
 name|await
 argument_list|(
-literal|50000
+literal|50
 argument_list|,
 name|TimeUnit
 operator|.
