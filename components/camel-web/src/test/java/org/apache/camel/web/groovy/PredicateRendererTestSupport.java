@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -98,6 +88,16 @@ name|PredicateRenderer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|PredicateRendererTestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|method|assertMatch (String expectedPredicate, Predicate predicate)
 specifier|protected

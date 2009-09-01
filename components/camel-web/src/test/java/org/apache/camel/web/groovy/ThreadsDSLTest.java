@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -30,6 +40,8 @@ name|ThreadsDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testThreadsAsyncDeadLetterChannel ()
 specifier|public
 name|void
@@ -63,6 +75,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsAsyncRoute ()
 specifier|public
 name|void
@@ -87,6 +101,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsAsyncRouteNoWait ()
 specifier|public
 name|void
@@ -111,6 +127,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsAsyncRouteWaitIfReplyExpected ()
 specifier|public
 name|void

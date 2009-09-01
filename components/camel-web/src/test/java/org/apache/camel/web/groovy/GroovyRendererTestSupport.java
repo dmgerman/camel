@@ -52,16 +52,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|groovy
 operator|.
 name|lang
@@ -140,6 +130,16 @@ name|GroovyRenderer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
 begin_comment
 comment|/**  * An abstract class that provides basic support for GroovyRenderer test  */
 end_comment
@@ -151,7 +151,7 @@ specifier|abstract
 class|class
 name|GroovyRendererTestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|header
 specifier|private

@@ -18,6 +18,26 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * a test case for throttle DSL  */
 end_comment
@@ -30,6 +50,8 @@ name|ThrottleDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testThrottle ()
 specifier|public
 name|void
@@ -54,6 +76,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThrottleWithTimePeriodMillis ()
 specifier|public
 name|void
@@ -78,6 +102,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 DECL|method|fixmeTestThrottleWithTimePeriodMillisInterval ()
 specifier|public
 name|void

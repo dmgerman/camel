@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -30,6 +40,8 @@ name|OnCompletionDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOnCompletionAndIntercept ()
 specifier|public
 name|void
@@ -56,6 +68,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionAndInterceptAndOnException ()
 specifier|public
 name|void
@@ -98,6 +112,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionDSL ()
 specifier|public
 name|void
@@ -122,6 +138,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionGlobal ()
 specifier|public
 name|void
@@ -146,6 +164,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionMoreGlobal ()
 specifier|public
 name|void
@@ -178,6 +198,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionOnly ()
 specifier|public
 name|void
@@ -202,6 +224,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionRouteScopeOverrideGlobalScope ()
 specifier|public
 name|void
@@ -234,6 +258,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnCompletionWhen ()
 specifier|public
 name|void
@@ -258,6 +284,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnFailureOnly ()
 specifier|public
 name|void

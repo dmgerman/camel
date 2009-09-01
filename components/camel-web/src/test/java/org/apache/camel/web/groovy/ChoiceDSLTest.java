@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * a test case for choice DSL  */
 end_comment
@@ -30,6 +40,8 @@ name|ChoiceDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testChoiceWithMethod ()
 specifier|public
 name|void
@@ -60,6 +72,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceWithPredication ()
 specifier|public
 name|void
@@ -92,6 +106,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceWithoutEnd ()
 specifier|public
 name|void
@@ -131,6 +147,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceWithXPath ()
 specifier|public
 name|void

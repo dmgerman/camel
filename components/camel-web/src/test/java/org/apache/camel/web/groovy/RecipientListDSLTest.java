@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * a test case for some basic DSL: from().to()  */
 end_comment
@@ -30,6 +40,8 @@ name|RecipientListDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSimpleRecipientList ()
 specifier|public
 name|void
@@ -54,6 +66,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRecipientList ()
 specifier|public
 name|void

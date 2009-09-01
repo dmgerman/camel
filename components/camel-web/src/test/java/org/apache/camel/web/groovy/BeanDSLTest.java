@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -30,6 +40,8 @@ name|BeanDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBeanMethodHeartbeat ()
 specifier|public
 name|void
@@ -54,6 +66,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanRef ()
 specifier|public
 name|void
@@ -78,6 +92,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanRecipient ()
 specifier|public
 name|void
@@ -102,6 +118,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanWithException ()
 specifier|public
 name|void

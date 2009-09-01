@@ -45,6 +45,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -72,6 +92,8 @@ name|PredicateRendererTest
 extends|extends
 name|PredicateRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNot ()
 specifier|public
 name|void
@@ -112,6 +134,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnd ()
 specifier|public
 name|void
@@ -177,6 +201,8 @@ name|and
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOr ()
 specifier|public
 name|void
@@ -242,6 +268,8 @@ name|or
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateIn ()
 specifier|public
 name|void
@@ -289,6 +317,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValueIn ()
 specifier|public
 name|void
@@ -329,6 +359,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsEqualToString ()
 specifier|public
 name|void
@@ -366,6 +398,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsEqualToConstant ()
 specifier|public
 name|void
@@ -403,6 +437,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNotEqualTo ()
 specifier|public
 name|void
@@ -440,6 +476,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsLessThan ()
 specifier|public
 name|void
@@ -477,6 +515,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsLessThanOrEqualTo ()
 specifier|public
 name|void
@@ -514,6 +554,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsGreaterThan ()
 specifier|public
 name|void
@@ -551,6 +593,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsGreaterThanOrEqualTo ()
 specifier|public
 name|void
@@ -588,6 +632,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContains ()
 specifier|public
 name|void
@@ -625,6 +671,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNull ()
 specifier|public
 name|void
@@ -657,6 +705,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNotNull ()
 specifier|public
 name|void
@@ -689,6 +739,13 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 comment|// TODO: fix this test!
 DECL|method|fixmeTestIsInstanceOf ()
 specifier|public
@@ -722,6 +779,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStartsWith ()
 specifier|public
 name|void
@@ -756,6 +815,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndsWith ()
 specifier|public
 name|void
@@ -790,6 +851,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRegex ()
 specifier|public
 name|void

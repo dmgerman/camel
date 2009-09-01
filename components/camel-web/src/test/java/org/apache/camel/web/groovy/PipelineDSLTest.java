@@ -18,6 +18,16 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * a test case for pipeline DSL  */
 end_comment
@@ -30,6 +40,8 @@ name|PipelineDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testPipeline1 ()
 specifier|public
 name|void
@@ -59,6 +71,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPipeline2 ()
 specifier|public
 name|void

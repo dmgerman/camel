@@ -38,6 +38,26 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -51,6 +71,13 @@ extends|extends
 name|GroovyRendererTestSupport
 block|{
 comment|/**      * a route involving a external class: validator      *       * @throws Exception TODO: fix this test!      */
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 DECL|method|fixmeTestProcess ()
 specifier|public
 name|void
@@ -116,6 +143,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProcessRef ()
 specifier|public
 name|void

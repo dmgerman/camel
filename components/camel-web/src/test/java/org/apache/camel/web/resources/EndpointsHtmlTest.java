@@ -18,6 +18,16 @@ name|resources
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -30,6 +40,8 @@ name|EndpointsHtmlTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testCamelAsHtml ()
 specifier|public
 name|void
@@ -73,6 +85,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointsAsHtml ()
 specifier|public
 name|void

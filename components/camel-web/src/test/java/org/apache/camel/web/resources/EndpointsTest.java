@@ -76,6 +76,16 @@ name|Endpoints
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -88,6 +98,8 @@ name|EndpointsTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testCamelAsXml ()
 specifier|public
 name|void
@@ -141,6 +153,8 @@ name|camel
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointsAsXml ()
 specifier|public
 name|void

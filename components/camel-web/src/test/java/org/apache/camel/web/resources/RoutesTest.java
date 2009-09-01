@@ -56,6 +56,16 @@ name|RoutesDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -68,6 +78,8 @@ name|RoutesTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testRoutes ()
 specifier|public
 name|void

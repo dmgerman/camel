@@ -18,6 +18,26 @@ name|groovy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -30,6 +50,8 @@ name|AOPDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testAOPAfter ()
 specifier|public
 name|void
@@ -54,6 +76,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 comment|// TODO: fix this test!
 DECL|method|fixmeTestAOPAfterFinally ()
 specifier|public
@@ -85,6 +114,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAOPAround ()
 specifier|public
 name|void
@@ -109,6 +140,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 comment|// TODO: fix this test!
 DECL|method|fixmeTestAOPAroundFinally ()
 specifier|public
@@ -140,6 +178,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAOPBefore ()
 specifier|public
 name|void
@@ -164,6 +204,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAOPNestedRoute ()
 specifier|public
 name|void

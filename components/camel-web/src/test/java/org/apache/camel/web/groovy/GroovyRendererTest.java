@@ -38,6 +38,16 @@ name|FileReader
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test for GroovyRenderer  */
 end_comment
@@ -50,6 +60,8 @@ name|GroovyRendererTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testRoute ()
 specifier|public
 name|void
@@ -129,6 +141,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRoutes ()
 specifier|public
 name|void

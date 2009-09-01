@@ -34,6 +34,16 @@ name|MemoryIdempotentRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -46,6 +56,8 @@ name|IdempotentConsumerDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testIdempotentConsumerAsync ()
 specifier|public
 name|void
@@ -83,6 +95,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIdempotentConsumerAsyncWithCacheSize ()
 specifier|public
 name|void
@@ -126,6 +140,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIdempotentConsumerEager ()
 specifier|public
 name|void

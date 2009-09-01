@@ -30,6 +30,26 @@ name|ExchangePattern
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -42,6 +62,8 @@ name|SetExchangePatternDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testInOnly ()
 specifier|public
 name|void
@@ -66,6 +88,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOut ()
 specifier|public
 name|void
@@ -91,6 +115,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: fix this test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 DECL|method|fixmeTestToExchangePattern ()
 specifier|public
 name|void
@@ -116,6 +147,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: fix this test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need to fix this test"
+argument_list|)
+annotation|@
+name|Test
 DECL|method|fixmeTestSetExchangepattern ()
 specifier|public
 name|void

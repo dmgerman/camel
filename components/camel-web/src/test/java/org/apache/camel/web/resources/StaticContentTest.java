@@ -18,6 +18,16 @@ name|resources
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -30,6 +40,8 @@ name|StaticContentTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testCssFile ()
 specifier|public
 name|void
