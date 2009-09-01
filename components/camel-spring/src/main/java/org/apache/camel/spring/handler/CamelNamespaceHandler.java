@@ -1401,7 +1401,7 @@ throw|throw
 operator|new
 name|BeanDefinitionStoreException
 argument_list|(
-literal|"Failed to parse JAXB element: "
+literal|"Failed to create the JAXB binder : "
 operator|+
 name|e
 argument_list|,
