@@ -539,14 +539,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|binder
-specifier|protected
-name|Binder
-argument_list|<
-name|Node
-argument_list|>
-name|binder
-decl_stmt|;
 DECL|field|jaxbContext
 specifier|private
 name|JAXBContext
@@ -985,7 +977,7 @@ return|return
 name|parserElementNames
 return|;
 block|}
-DECL|method|parseUsingJaxb (Element element, ParserContext parserContext)
+DECL|method|parseUsingJaxb (Element element, ParserContext parserContext, Binder<Node> binder)
 specifier|protected
 name|Object
 name|parseUsingJaxb
@@ -995,18 +987,16 @@ name|element
 parameter_list|,
 name|ParserContext
 name|parserContext
+parameter_list|,
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
 parameter_list|)
 block|{
 try|try
 block|{
-name|binder
-operator|=
-name|getJaxbContext
-argument_list|()
-operator|.
-name|createBinder
-argument_list|()
-expr_stmt|;
 return|return
 name|binder
 operator|.
@@ -1382,6 +1372,43 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now lets parse the routes with JAXB
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|binder
+operator|=
+name|getJaxbContext
+argument_list|()
+operator|.
+name|createBinder
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JAXBException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|BeanDefinitionStoreException
+argument_list|(
+literal|"Failed to parse JAXB element: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|Object
 name|value
 init|=
@@ -1390,6 +1417,8 @@ argument_list|(
 name|element
 argument_list|,
 name|parserContext
+argument_list|,
+name|binder
 argument_list|)
 decl_stmt|;
 if|if
@@ -1826,6 +1855,8 @@ argument_list|,
 name|parserContext
 argument_list|,
 name|contextId
+argument_list|,
+name|binder
 argument_list|)
 expr_stmt|;
 comment|// register templates if not already defined
@@ -1842,6 +1873,8 @@ comment|// lets inject the namespaces into any namespace aware POJOs
 name|injectNamespaces
 argument_list|(
 name|element
+argument_list|,
+name|binder
 argument_list|)
 expr_stmt|;
 if|if
@@ -1885,13 +1918,19 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|injectNamespaces (Element element)
+DECL|method|injectNamespaces (Element element, Binder<Node> binder)
 specifier|protected
 name|void
 name|injectNamespaces
 parameter_list|(
 name|Element
 name|element
+parameter_list|,
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
 parameter_list|)
 block|{
 name|NodeList
@@ -2007,13 +2046,15 @@ block|}
 name|injectNamespaces
 argument_list|(
 name|childElement
+argument_list|,
+name|binder
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 comment|/**      * Used for auto registering endpoints from the<tt>from</tt> or<tt>to</tt> DSL if they have an id attribute set      */
-DECL|method|registerEndpointsWithIdsDefinedInFromOrToTypes (Element element, ParserContext parserContext, String contextId)
+DECL|method|registerEndpointsWithIdsDefinedInFromOrToTypes (Element element, ParserContext parserContext, String contextId, Binder<Node> binder)
 specifier|protected
 name|void
 name|registerEndpointsWithIdsDefinedInFromOrToTypes
@@ -2026,6 +2067,12 @@ name|parserContext
 parameter_list|,
 name|String
 name|contextId
+parameter_list|,
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
 parameter_list|)
 block|{
 name|NodeList
@@ -2124,6 +2171,8 @@ argument_list|,
 name|parserContext
 argument_list|,
 name|contextId
+argument_list|,
+name|binder
 argument_list|)
 expr_stmt|;
 block|}
