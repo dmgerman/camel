@@ -156,9 +156,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-DECL|method|createExchangeFailureHandled (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
+DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
 name|EventObject
-name|createExchangeFailureHandled
+name|createExchangeFailureHandledEvent
 parameter_list|(
 name|Exchange
 name|exchange

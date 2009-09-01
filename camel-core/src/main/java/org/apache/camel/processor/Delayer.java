@@ -71,6 +71,11 @@ specifier|private
 name|Expression
 name|delay
 decl_stmt|;
+DECL|field|delayValue
+specifier|private
+name|long
+name|delayValue
+decl_stmt|;
 DECL|method|Delayer (Processor processor, Expression delay)
 specifier|public
 name|Delayer
@@ -139,6 +144,16 @@ return|return
 name|delay
 return|;
 block|}
+DECL|method|getDelayValue ()
+specifier|public
+name|long
+name|getDelayValue
+parameter_list|()
+block|{
+return|return
+name|delayValue
+return|;
+block|}
 DECL|method|setDelay (Expression delay)
 specifier|public
 name|void
@@ -202,9 +217,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|delayValue
+operator|=
+name|longValue
+expr_stmt|;
 name|time
 operator|=
 name|longValue
+expr_stmt|;
+block|}
+else|else
+block|{
+name|delayValue
+operator|=
+literal|0
 expr_stmt|;
 block|}
 block|}

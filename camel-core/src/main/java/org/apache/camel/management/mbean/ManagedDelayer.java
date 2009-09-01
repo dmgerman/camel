@@ -205,7 +205,7 @@ literal|"Delay"
 argument_list|)
 DECL|method|getDelay ()
 specifier|public
-name|Expression
+name|Long
 name|getDelay
 parameter_list|()
 block|{
@@ -213,7 +213,7 @@ return|return
 name|getDelayer
 argument_list|()
 operator|.
-name|getDelay
+name|getDelayValue
 argument_list|()
 return|;
 block|}

@@ -413,10 +413,10 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createExchangeFailureHandled (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
+DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
 specifier|public
 name|EventObject
-name|createExchangeFailureHandled
+name|createExchangeFailureHandledEvent
 parameter_list|(
 name|Exchange
 name|exchange

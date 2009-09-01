@@ -68,18 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -331,11 +319,11 @@ argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|Expression
+name|Long
 name|delay
 init|=
 operator|(
-name|Expression
+name|Long
 operator|)
 name|mbeanServer
 operator|.

@@ -934,7 +934,7 @@ name|event
 init|=
 name|factory
 operator|.
-name|createExchangeFailureHandled
+name|createExchangeFailureHandledEvent
 argument_list|(
 name|exchange
 argument_list|,
