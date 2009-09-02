@@ -196,6 +196,14 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+comment|// give 30 seconds for slow servers
+name|endpoint
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
