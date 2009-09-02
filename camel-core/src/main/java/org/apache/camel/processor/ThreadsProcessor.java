@@ -241,7 +241,7 @@ argument_list|,
 name|copy
 argument_list|)
 decl_stmt|;
-comment|// sumbit the task
+comment|// submit the task
 name|Future
 argument_list|<
 name|Exchange
