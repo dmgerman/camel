@@ -162,14 +162,16 @@ literal|"Get Exchange from queue by index"
 argument_list|)
 DECL|method|browseExchange (Integer index)
 specifier|public
-name|Exchange
+name|String
 name|browseExchange
 parameter_list|(
 name|Integer
 name|index
 parameter_list|)
 block|{
-return|return
+name|Exchange
+name|exchange
+init|=
 name|endpoint
 operator|.
 name|getExchanges
@@ -179,6 +181,24 @@ name|get
 argument_list|(
 name|index
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|// must use java type with JMX such as java.lang.String
+return|return
+name|exchange
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}

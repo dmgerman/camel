@@ -1654,6 +1654,8 @@ block|}
 block|}
 comment|// Delegated properties from the configuration
 comment|//-------------------------------------------------------------------------
+annotation|@
+name|ManagedAttribute
 DECL|method|getAcknowledgementMode ()
 specifier|public
 name|int
@@ -1668,6 +1670,8 @@ name|getAcknowledgementMode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getAcknowledgementModeName ()
 specifier|public
 name|String
@@ -1682,6 +1686,8 @@ name|getAcknowledgementModeName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getCacheLevel ()
 specifier|public
 name|int
@@ -1696,6 +1702,8 @@ name|getCacheLevel
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getCacheLevelName ()
 specifier|public
 name|String
@@ -1710,6 +1718,8 @@ name|getCacheLevelName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getClientId ()
 specifier|public
 name|String
@@ -1782,6 +1792,8 @@ name|getDestinationResolver
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getDurableSubscriptionName ()
 specifier|public
 name|String
@@ -1810,6 +1822,8 @@ name|getExceptionListener
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getIdleTaskExecutionLimit ()
 specifier|public
 name|int
@@ -1852,6 +1866,8 @@ name|getListenerConnectionFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getMaxConcurrentConsumers ()
 specifier|public
 name|int
@@ -1866,6 +1882,8 @@ name|getMaxConcurrentConsumers
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getMaxMessagesPerTask ()
 specifier|public
 name|int
@@ -1913,6 +1931,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getPriority ()
 specifier|public
 name|int
@@ -1927,6 +1947,8 @@ name|getPriority
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReceiveTimeout ()
 specifier|public
 name|long
@@ -1941,6 +1963,8 @@ name|getReceiveTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getRecoveryInterval ()
 specifier|public
 name|long
@@ -1955,6 +1979,8 @@ name|getRecoveryInterval
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReplyTo ()
 specifier|public
 name|String
@@ -1969,6 +1995,8 @@ name|getReplyTo
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReplyToDestinationSelectorName ()
 specifier|public
 name|String
@@ -2011,6 +2039,8 @@ name|getRequestMapPurgePollTimeMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getRequestTimeout ()
 specifier|public
 name|long
@@ -2053,6 +2083,8 @@ name|getTemplateConnectionFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getTimeToLive ()
 specifier|public
 name|long
@@ -2081,6 +2113,8 @@ name|getTransactionManager
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getTransactionName ()
 specifier|public
 name|String
@@ -2095,6 +2129,8 @@ name|getTransactionName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getTransactionTimeout ()
 specifier|public
 name|int
@@ -2109,6 +2145,8 @@ name|getTransactionTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isAcceptMessagesWhileStopping ()
 specifier|public
 name|boolean
@@ -2123,6 +2161,8 @@ name|isAcceptMessagesWhileStopping
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isAlwaysCopyMessage ()
 specifier|public
 name|boolean
@@ -2137,6 +2177,8 @@ name|isAlwaysCopyMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isAutoStartup ()
 specifier|public
 name|boolean
@@ -2151,6 +2193,8 @@ name|isAutoStartup
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isDeliveryPersistent ()
 specifier|public
 name|boolean
@@ -2165,6 +2209,8 @@ name|isDeliveryPersistent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isDisableReplyTo ()
 specifier|public
 name|boolean
@@ -2179,6 +2225,8 @@ name|isDisableReplyTo
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isEagerLoadingOfProperties ()
 specifier|public
 name|boolean
@@ -2193,6 +2241,8 @@ name|isEagerLoadingOfProperties
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isExplicitQosEnabled ()
 specifier|public
 name|boolean
@@ -2207,6 +2257,8 @@ name|isExplicitQosEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isExposeListenerSession ()
 specifier|public
 name|boolean
@@ -2221,6 +2273,8 @@ name|isExposeListenerSession
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isMessageIdEnabled ()
 specifier|public
 name|boolean
@@ -2235,6 +2289,8 @@ name|isMessageIdEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isMessageTimestampEnabled ()
 specifier|public
 name|boolean
@@ -2249,6 +2305,8 @@ name|isMessageTimestampEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isPreserveMessageQos ()
 specifier|public
 name|boolean
@@ -2263,6 +2321,8 @@ name|isPreserveMessageQos
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isPubSubNoLocal ()
 specifier|public
 name|boolean
@@ -2277,6 +2337,8 @@ name|isPubSubNoLocal
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isReplyToDeliveryPersistent ()
 specifier|public
 name|boolean
@@ -2291,6 +2353,8 @@ name|isReplyToDeliveryPersistent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isSubscriptionDurable ()
 specifier|public
 name|boolean
@@ -2305,6 +2369,8 @@ name|isSubscriptionDurable
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -2319,6 +2385,8 @@ name|isTransacted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransactedInOut ()
 specifier|public
 name|boolean
@@ -2333,6 +2401,8 @@ name|isTransactedInOut
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isUseMessageIDAsCorrelationID ()
 specifier|public
 name|boolean
@@ -2361,6 +2431,8 @@ name|isUseVersion102
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setAcceptMessagesWhileStopping (boolean acceptMessagesWhileStopping)
 specifier|public
 name|void
@@ -2379,6 +2451,8 @@ name|acceptMessagesWhileStopping
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
 specifier|public
 name|void
@@ -2397,6 +2471,8 @@ name|consumerAcknowledgementMode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setAcknowledgementModeName (String consumerAcknowledgementMode)
 specifier|public
 name|void
@@ -2415,6 +2491,8 @@ name|consumerAcknowledgementMode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setAlwaysCopyMessage (boolean alwaysCopyMessage)
 specifier|public
 name|void
@@ -2433,6 +2511,8 @@ name|alwaysCopyMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setAutoStartup (boolean autoStartup)
 specifier|public
 name|void
@@ -2451,6 +2531,8 @@ name|autoStartup
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setCacheLevel (int cacheLevel)
 specifier|public
 name|void
@@ -2469,6 +2551,8 @@ name|cacheLevel
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setCacheLevelName (String cacheName)
 specifier|public
 name|void
@@ -2487,6 +2571,8 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setClientId (String consumerClientId)
 specifier|public
 name|void
@@ -2561,6 +2647,8 @@ name|consumerType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setDeliveryPersistent (boolean deliveryPersistent)
 specifier|public
 name|void
@@ -2597,6 +2685,8 @@ name|destinationResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setDisableReplyTo (boolean disableReplyTo)
 specifier|public
 name|void
@@ -2615,6 +2705,8 @@ name|disableReplyTo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setDurableSubscriptionName (String durableSubscriptionName)
 specifier|public
 name|void
@@ -2633,6 +2725,8 @@ name|durableSubscriptionName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void
@@ -2669,6 +2763,8 @@ name|exceptionListener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setExplicitQosEnabled (boolean explicitQosEnabled)
 specifier|public
 name|void
@@ -2687,6 +2783,8 @@ name|explicitQosEnabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setExposeListenerSession (boolean exposeListenerSession)
 specifier|public
 name|void
@@ -2705,6 +2803,8 @@ name|exposeListenerSession
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setIdleTaskExecutionLimit (int idleTaskExecutionLimit)
 specifier|public
 name|void
@@ -2759,6 +2859,8 @@ name|listenerConnectionFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
 specifier|public
 name|void
@@ -2777,6 +2879,8 @@ name|maxConcurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setMaxMessagesPerTask (int maxMessagesPerTask)
 specifier|public
 name|void
@@ -2813,6 +2917,8 @@ name|messageConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setMessageIdEnabled (boolean messageIdEnabled)
 specifier|public
 name|void
@@ -2831,6 +2937,8 @@ name|messageIdEnabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setMessageTimestampEnabled (boolean messageTimestampEnabled)
 specifier|public
 name|void
@@ -2867,6 +2975,8 @@ name|metadataJmsOperations
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
 name|void
@@ -2885,6 +2995,8 @@ name|preserveMessageQos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setPriority (int priority)
 specifier|public
 name|void
@@ -2921,6 +3033,8 @@ name|providerMetadata
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setPubSubNoLocal (boolean pubSubNoLocal)
 specifier|public
 name|void
@@ -2939,6 +3053,8 @@ name|pubSubNoLocal
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setReceiveTimeout (long receiveTimeout)
 specifier|public
 name|void
@@ -2957,6 +3073,8 @@ name|receiveTimeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setRecoveryInterval (long recoveryInterval)
 specifier|public
 name|void
@@ -2975,6 +3093,8 @@ name|recoveryInterval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setReplyTo (String replyToDestination)
 specifier|public
 name|void
@@ -2993,6 +3113,8 @@ name|replyToDestination
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setReplyToDeliveryPersistent (boolean replyToDeliveryPersistent)
 specifier|public
 name|void
@@ -3011,6 +3133,8 @@ name|replyToDeliveryPersistent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setReplyToDestinationSelectorName (String replyToDestinationSelectorName)
 specifier|public
 name|void
@@ -3065,6 +3189,8 @@ name|requestMapPurgePollTimeMillis
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
@@ -3083,6 +3209,8 @@ name|requestTimeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
 specifier|public
 name|void
@@ -3137,6 +3265,8 @@ name|templateConnectionFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTimeToLive (long timeToLive)
 specifier|public
 name|void
@@ -3155,6 +3285,8 @@ name|timeToLive
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransacted (boolean consumerTransacted)
 specifier|public
 name|void
@@ -3173,6 +3305,8 @@ name|consumerTransacted
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransactedInOut (boolean transactedInOut)
 specifier|public
 name|void
@@ -3209,6 +3343,8 @@ name|transactionManager
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransactionName (String transactionName)
 specifier|public
 name|void
@@ -3227,6 +3363,8 @@ name|transactionName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransactionTimeout (int transactionTimeout)
 specifier|public
 name|void
@@ -3245,6 +3383,8 @@ name|transactionTimeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setUseMessageIDAsCorrelationID (boolean useMessageIDAsCorrelationID)
 specifier|public
 name|void
@@ -3345,6 +3485,8 @@ name|jmsHeaderStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransferExchange ()
 specifier|public
 name|boolean
@@ -3359,6 +3501,8 @@ name|isTransferExchange
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void
@@ -3377,6 +3521,8 @@ name|transferExchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransferException ()
 specifier|public
 name|boolean
@@ -3391,6 +3537,8 @@ name|isTransferException
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
