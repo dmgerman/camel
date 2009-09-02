@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -168,8 +156,8 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding a {@link Service}.      *      * @param context the camel context      * @param service the added service      */
-DECL|method|onServiceAdd (CamelContext context, Service service)
+comment|/**      * Notification on adding a {@link Service}.      *      * @param context the camel context      * @param service the added service      * @param route   the route the service belongs to if any possible to determine      */
+DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 name|void
 name|onServiceAdd
 parameter_list|(
@@ -178,33 +166,13 @@ name|context
 parameter_list|,
 name|Service
 name|service
-parameter_list|)
-function_decl|;
-comment|/**      * Notification on adding a {@link Consumer} as input to a given {@link Route}      *      * @param route      * @param consumer      the consumer      */
-DECL|method|onRouteConsumerAdd (Route route, Consumer consumer)
-name|void
-name|onRouteConsumerAdd
-parameter_list|(
+parameter_list|,
 name|Route
 name|route
-parameter_list|,
-name|Consumer
-name|consumer
 parameter_list|)
 function_decl|;
-DECL|method|onRouteConsumerRemove (Route route, Consumer consumer)
-name|void
-name|onRouteConsumerRemove
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Consumer
-name|consumer
-parameter_list|)
-function_decl|;
-comment|/**      * Notification on removing a {@link Service}.      *      * @param context the camel context      * @param service the removed service      */
-DECL|method|onServiceRemove (CamelContext context, Service service)
+comment|/**      * Notification on removing a {@link Service}.      *      * @param context the camel context      * @param service the removed service      * @param route   the route the service belongs to if any possible to determine      */
+DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 name|void
 name|onServiceRemove
 parameter_list|(
@@ -213,6 +181,9 @@ name|context
 parameter_list|,
 name|Service
 name|service
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 function_decl|;
 comment|/**      * Notification on adding {@link Route}(s).      *      * @param routes the added routes      */
@@ -248,7 +219,6 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 function_decl|;
-comment|// TODO: Add more stop methods and also consider always having CamelContext as parameter
 block|}
 end_interface
 

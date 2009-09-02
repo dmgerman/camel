@@ -281,7 +281,7 @@ literal|"onEndpointRemove"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onServiceAdd (CamelContext context, Service service)
+DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 specifier|public
 name|void
 name|onServiceAdd
@@ -291,6 +291,9 @@ name|context
 parameter_list|,
 name|Service
 name|service
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 block|{
 name|events
@@ -301,7 +304,7 @@ literal|"onServiceAdd"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onServiceRemove (CamelContext context, Service service)
+DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 specifier|public
 name|void
 name|onServiceRemove
@@ -311,6 +314,9 @@ name|context
 parameter_list|,
 name|Service
 name|service
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 block|{
 name|events
@@ -318,46 +324,6 @@ operator|.
 name|add
 argument_list|(
 literal|"onServiceRemove"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|onRouteConsumerAdd (Route route, Consumer consumer)
-specifier|public
-name|void
-name|onRouteConsumerAdd
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Consumer
-name|consumer
-parameter_list|)
-block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onRouteConsumerAdd"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|onRouteConsumerRemove (Route route, Consumer consumer)
-specifier|public
-name|void
-name|onRouteConsumerRemove
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Consumer
-name|consumer
-parameter_list|)
-block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onRouteConsumerRemove"
 argument_list|)
 expr_stmt|;
 block|}

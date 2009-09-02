@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Dummy LifecycleStrategy for LifecycleStrategy injection test.  *  * @version $Revision$  *  */
+comment|/**  * Dummy LifecycleStrategy for LifecycleStrategy injection test.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -186,7 +186,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{     }
-DECL|method|onServiceAdd (CamelContext camelContext, Service service)
+DECL|method|onServiceAdd (CamelContext camelContext, Service service, Route route)
 specifier|public
 name|void
 name|onServiceAdd
@@ -196,9 +196,12 @@ name|camelContext
 parameter_list|,
 name|Service
 name|service
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 block|{     }
-DECL|method|onServiceRemove (CamelContext camelContext, Service service)
+DECL|method|onServiceRemove (CamelContext camelContext, Service service, Route route)
 specifier|public
 name|void
 name|onServiceRemove
@@ -208,6 +211,9 @@ name|camelContext
 parameter_list|,
 name|Service
 name|service
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 block|{     }
 DECL|method|onRouteContextCreate (RouteContext routeContext)

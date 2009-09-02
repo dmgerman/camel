@@ -233,6 +233,29 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mysend\""
 argument_list|)
 decl_stmt|;
+comment|// should be on route1
+name|String
+name|routeId
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"RouteId"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"route1"
+argument_list|,
+name|routeId
+argument_list|)
+expr_stmt|;
 comment|// send it somewhere else
 name|mbeanServer
 operator|.
