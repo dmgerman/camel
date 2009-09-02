@@ -571,19 +571,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// must wait for task to complete to know if there was an exception
-comment|// as its in-only based
 operator|.
 name|threads
 argument_list|(
 literal|2
-argument_list|)
-operator|.
-name|waitForTaskToComplete
-argument_list|(
-name|WaitForTaskToComplete
-operator|.
-name|Always
 argument_list|)
 operator|.
 name|to
