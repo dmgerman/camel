@@ -126,11 +126,66 @@ name|JmsOperations
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
 begin_comment
 comment|/**  * An endpoint for a JMS Queue which is also browsable  *  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed JMS Queue Endpoint"
+argument_list|)
 DECL|class|JmsQueueEndpoint
 specifier|public
 class|class
@@ -362,6 +417,8 @@ name|createQueueBrowseStrategy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getMaximumBrowseSize ()
 specifier|public
 name|int
@@ -373,6 +430,8 @@ name|maximumBrowseSize
 return|;
 block|}
 comment|/**      * If a number is set> 0 then this limits the number of messages that are      * returned when browsing the queue      */
+annotation|@
+name|ManagedAttribute
 DECL|method|setMaximumBrowseSize (int maximumBrowseSize)
 specifier|public
 name|void
@@ -442,6 +501,53 @@ argument_list|,
 name|queue
 argument_list|,
 name|this
+argument_list|)
+return|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Current number of Exchanges in Queue"
+argument_list|)
+DECL|method|qeueSize ()
+specifier|public
+name|long
+name|qeueSize
+parameter_list|()
+block|{
+return|return
+name|getExchanges
+argument_list|()
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Get Exchange from queue by index"
+argument_list|)
+DECL|method|browseExchange (Integer index)
+specifier|public
+name|Exchange
+name|browseExchange
+parameter_list|(
+name|Integer
+name|index
+parameter_list|)
+block|{
+return|return
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|index
 argument_list|)
 return|;
 block|}

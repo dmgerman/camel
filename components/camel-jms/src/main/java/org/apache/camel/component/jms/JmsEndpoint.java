@@ -246,6 +246,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|core
@@ -336,6 +350,38 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|transaction
 operator|.
 name|PlatformTransactionManager
@@ -347,6 +393,13 @@ comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed JMS Endpoint"
+argument_list|)
 DECL|class|JmsEndpoint
 specifier|public
 class|class
@@ -355,6 +408,11 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
+implements|,
+name|ManagementAware
+argument_list|<
+name|JmsEndpoint
+argument_list|>
 block|{
 DECL|field|headerFilterStrategy
 specifier|private
@@ -864,20 +922,29 @@ name|listenerContainer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor         the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
-DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
+DECL|method|createMessageListenerContainer ()
 specifier|public
-name|JmsConsumer
-name|createConsumer
+name|AbstractMessageListenerContainer
+name|createMessageListenerContainer
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|createMessageListenerContainer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+DECL|method|configureListenerContainer (AbstractMessageListenerContainer listenerContainer)
+specifier|public
+name|void
+name|configureListenerContainer
 parameter_list|(
-name|Processor
-name|processor
-parameter_list|,
 name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -949,6 +1016,27 @@ operator|.
 name|setPubSubDomain
 argument_list|(
 name|pubSubDomain
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor         the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
+DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
+specifier|public
+name|JmsConsumer
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|AbstractMessageListenerContainer
+name|listenerContainer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|configureListenerContainer
+argument_list|(
+name|listenerContainer
 argument_list|)
 expr_stmt|;
 return|return
@@ -1106,6 +1194,19 @@ operator|.
 name|getRequestTimeout
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|getManagedObject (JmsEndpoint endpoint)
+specifier|public
+name|Object
+name|getManagedObject
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+return|return
+name|this
 return|;
 block|}
 comment|// Properties
@@ -1623,6 +1724,8 @@ name|getClientId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -2402,6 +2505,8 @@ name|consumerClientId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -3303,6 +3408,49 @@ argument_list|(
 name|transferException
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel id"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint Uri"
+argument_list|)
+annotation|@
+name|Override
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
