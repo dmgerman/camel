@@ -147,6 +147,13 @@ argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=

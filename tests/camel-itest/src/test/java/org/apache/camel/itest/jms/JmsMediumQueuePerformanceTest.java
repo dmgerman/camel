@@ -107,7 +107,6 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
-comment|// TODO now start the route!
 name|System
 operator|.
 name|out
