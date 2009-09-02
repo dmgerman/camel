@@ -612,6 +612,10 @@ comment|// based on message type
 if|if
 condition|(
 name|endpoint
+operator|!=
+literal|null
+operator|&&
+name|endpoint
 operator|.
 name|getMessageConverter
 argument_list|()
@@ -659,6 +663,10 @@ block|}
 comment|// if we are configured to not map the jms message then return it as body
 if|if
 condition|(
+name|endpoint
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|endpoint
 operator|.
@@ -2324,6 +2332,10 @@ block|}
 comment|// use a custom message converter
 if|if
 condition|(
+name|endpoint
+operator|!=
+literal|null
+operator|&&
 name|endpoint
 operator|.
 name|getMessageConverter
