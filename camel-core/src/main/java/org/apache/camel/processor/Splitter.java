@@ -235,10 +235,12 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming)
+DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -259,6 +261,9 @@ name|executorService
 parameter_list|,
 name|boolean
 name|streaming
+parameter_list|,
+name|boolean
+name|stopOnException
 parameter_list|)
 block|{
 name|super
@@ -277,6 +282,8 @@ argument_list|,
 name|executorService
 argument_list|,
 name|streaming
+argument_list|,
+name|stopOnException
 argument_list|)
 expr_stmt|;
 name|this

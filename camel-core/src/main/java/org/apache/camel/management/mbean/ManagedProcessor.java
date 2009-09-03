@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServiceStatus
+name|Route
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|ServiceStatus
 import|;
 end_import
 
@@ -91,20 +91,6 @@ operator|.
 name|model
 operator|.
 name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
 import|;
 end_import
 

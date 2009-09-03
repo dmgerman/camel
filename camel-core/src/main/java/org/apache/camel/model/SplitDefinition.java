@@ -314,6 +314,18 @@ name|streaming
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|stopOnException
+specifier|private
+name|Boolean
+name|stopOnException
+decl_stmt|;
 DECL|method|SplitDefinition ()
 specifier|public
 name|SplitDefinition
@@ -439,7 +451,11 @@ argument_list|()
 argument_list|,
 name|executorService
 argument_list|,
-name|streaming
+name|isStreaming
+argument_list|()
+argument_list|,
+name|isStopOnException
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -610,7 +626,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the splitting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @return the builder      */
+comment|/**      * Set the splitting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @deprecated use #parallelProcessing instead      * @return the builder      */
+annotation|@
+name|Deprecated
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|SplitDefinition
@@ -637,6 +655,22 @@ name|streaming
 parameter_list|()
 block|{
 name|setStreaming
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will now stop further processing if an exception occurred during processing of an      * {@link org.apache.camel.Exchange} and the caused exception will be thrown.      *<p/>      * The default behavior is to<b>not</b> stop but continue processing till the end      *      * @return the builder      */
+DECL|method|stopOnException ()
+specifier|public
+name|SplitDefinition
+name|stopOnException
+parameter_list|()
+block|{
+name|setStopOnException
 argument_list|(
 literal|true
 argument_list|)
@@ -753,6 +787,38 @@ operator|.
 name|streaming
 operator|=
 name|streaming
+expr_stmt|;
+block|}
+DECL|method|isStopOnException ()
+specifier|public
+name|Boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
+operator|!=
+literal|null
+condition|?
+name|stopOnException
+else|:
+literal|false
+return|;
+block|}
+DECL|method|setStopOnException (Boolean stopOnException)
+specifier|public
+name|void
+name|setStopOnException
+parameter_list|(
+name|Boolean
+name|stopOnException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stopOnException
+operator|=
+name|stopOnException
 expr_stmt|;
 block|}
 DECL|method|getExecutorService ()

@@ -265,6 +265,18 @@ name|Boolean
 name|streaming
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|stopOnException
+specifier|private
+name|Boolean
+name|stopOnException
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|aggregationStrategy
 specifier|private
@@ -365,6 +377,22 @@ name|streaming
 parameter_list|()
 block|{
 name|setStreaming
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will now stop further processing if an exception occurred during processing of an      * {@link org.apache.camel.Exchange} and the caused exception will be thrown.      *<p/>      * The default behavior is to<b>not</b> stop but continue processing till the end      *      * @return the builder      */
+DECL|method|stopOnException ()
+specifier|public
+name|MulticastDefinition
+name|stopOnException
+parameter_list|()
+block|{
+name|setStopOnException
 argument_list|(
 literal|true
 argument_list|)
@@ -479,6 +507,9 @@ name|executorService
 argument_list|,
 name|isStreaming
 argument_list|()
+argument_list|,
+name|isStopOnException
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -573,6 +604,38 @@ operator|.
 name|streaming
 operator|=
 name|streaming
+expr_stmt|;
+block|}
+DECL|method|isStopOnException ()
+specifier|public
+name|Boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
+operator|!=
+literal|null
+condition|?
+name|stopOnException
+else|:
+literal|false
+return|;
+block|}
+DECL|method|setStopOnException (Boolean stopOnException)
+specifier|public
+name|void
+name|setStopOnException
+parameter_list|(
+name|Boolean
+name|stopOnException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stopOnException
+operator|=
+name|stopOnException
 expr_stmt|;
 block|}
 DECL|method|getExecutorService ()

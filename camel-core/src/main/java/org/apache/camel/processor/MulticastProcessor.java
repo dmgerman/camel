@@ -132,6 +132,46 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -360,7 +400,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: Add option to stop if an exception was thrown during processing to break asap (future task cancel)
 comment|/**      * Class that represent each step in the multicast route to do      */
 DECL|class|ProcessorExchangePair
 specifier|static
@@ -451,6 +490,12 @@ specifier|final
 name|boolean
 name|streaming
 decl_stmt|;
+DECL|field|stopOnException
+specifier|private
+specifier|final
+name|boolean
+name|stopOnException
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
@@ -500,10 +545,12 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming)
+DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
@@ -524,6 +571,9 @@ name|executorService
 parameter_list|,
 name|boolean
 name|streaming
+parameter_list|,
+name|boolean
+name|stopOnException
 parameter_list|)
 block|{
 name|notNull
@@ -562,6 +612,12 @@ operator|.
 name|streaming
 operator|=
 name|streaming
+expr_stmt|;
+name|this
+operator|.
+name|stopOnException
+operator|=
+name|stopOnException
 expr_stmt|;
 if|if
 condition|(
@@ -674,7 +730,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|doProcessSequntiel
+name|doProcessSequntial
 argument_list|(
 name|result
 argument_list|,
@@ -729,11 +785,22 @@ name|InterruptedException
 throws|,
 name|ExecutionException
 block|{
+specifier|final
 name|CompletionService
 argument_list|<
 name|Exchange
 argument_list|>
 name|completion
+decl_stmt|;
+specifier|final
+name|AtomicBoolean
+name|running
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -768,10 +835,15 @@ name|executorService
 argument_list|)
 expr_stmt|;
 block|}
-name|int
+specifier|final
+name|AtomicInteger
 name|total
 init|=
+operator|new
+name|AtomicInteger
+argument_list|(
 literal|0
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -804,6 +876,9 @@ argument_list|(
 name|subExchange
 argument_list|,
 name|total
+operator|.
+name|intValue
+argument_list|()
 argument_list|,
 name|pairs
 argument_list|)
@@ -826,6 +901,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|running
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+comment|// do not start processing the task if we are not running
+return|return
+name|subExchange
+return|;
+block|}
 try|try
 block|{
 name|producer
@@ -849,6 +938,47 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+comment|// should we stop in case of an exception occurred during processing?
+if|if
+condition|(
+name|stopOnException
+operator|&&
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// signal to stop running
+name|running
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Parallel processing failed for number "
+operator|+
+name|total
+operator|.
+name|intValue
+argument_list|()
+argument_list|,
+name|subExchange
+argument_list|,
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -876,7 +1006,9 @@ block|}
 argument_list|)
 expr_stmt|;
 name|total
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 for|for
@@ -889,6 +1021,9 @@ init|;
 name|i
 operator|<
 name|total
+operator|.
+name|intValue
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -950,10 +1085,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doProcessSequntiel (AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
+DECL|method|doProcessSequntial (AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
 specifier|protected
 name|void
-name|doProcessSequntiel
+name|doProcessSequntial
 parameter_list|(
 name|AtomicExchange
 name|result
@@ -1006,6 +1141,8 @@ name|pairs
 argument_list|)
 expr_stmt|;
 comment|// process it sequentially
+try|try
+block|{
 name|producer
 operator|.
 name|process
@@ -1013,6 +1150,51 @@ argument_list|(
 name|subExchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// should we stop in case of an exception occured during processing?
+if|if
+condition|(
+name|stopOnException
+operator|&&
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Sequiental processing failed for number "
+operator|+
+name|total
+argument_list|,
+name|subExchange
+argument_list|,
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -1025,7 +1207,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sequientel processing complete for number "
+literal|"Sequiental processing complete for number "
 operator|+
 name|total
 operator|+
@@ -1066,7 +1248,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Done sequientel processing "
+literal|"Done sequiental processing "
 operator|+
 name|total
 operator|+
@@ -1340,6 +1522,17 @@ parameter_list|()
 block|{
 return|return
 name|streaming
+return|;
+block|}
+comment|/**      * Should the multicast processor stop processing further exchanges in case of an exception occurred?      */
+DECL|method|isStopOnException ()
+specifier|public
+name|boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
 return|;
 block|}
 comment|/**      * Returns the producers to multicast to      */
