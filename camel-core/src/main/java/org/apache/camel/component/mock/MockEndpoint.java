@@ -1350,7 +1350,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given header name& value are received by this endpoint      */
+comment|/**      * Sets an expectation that the given header name& value are received by this endpoint      */
 DECL|method|expectedHeaderReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -1538,7 +1538,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an expectation that the given property name& value are received by this endpoint      */
+comment|/**      * Sets an expectation that the given property name& value are received by this endpoint      */
 DECL|method|expectedPropertyReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -1758,7 +1758,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this endpoint      */
+comment|/**      * Sets an expectation that the given body values are received by this endpoint      */
 DECL|method|expectedBodiesReceived (Object... bodies)
 specifier|public
 name|void
