@@ -5835,6 +5835,17 @@ return|return
 name|defaultTracer
 return|;
 block|}
+DECL|method|disableJMX ()
+specifier|public
+name|void
+name|disableJMX
+parameter_list|()
+block|{
+name|disableJMX
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected
 specifier|synchronized
@@ -6072,31 +6083,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
-DECL|method|disableJMX ()
-specifier|public
-name|void
-name|disableJMX
-parameter_list|()
-block|{
-name|disableJMX
-operator|=
-literal|true
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"JMX is disabled. Using DefaultManagementStrategy."
-argument_list|)
-expr_stmt|;
-name|setManagementStrategy
-argument_list|(
-operator|new
-name|DefaultManagementStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

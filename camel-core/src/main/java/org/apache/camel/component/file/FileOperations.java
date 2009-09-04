@@ -322,6 +322,32 @@ operator|<
 literal|3
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|count
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Retrying attempt "
+operator|+
+name|count
+operator|+
+literal|" to delete file: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 name|deleted
 operator|=
 name|file
@@ -331,6 +357,9 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|deleted
+operator|&&
 name|count
 operator|>
 literal|0
@@ -357,6 +386,36 @@ block|}
 block|}
 name|count
 operator|++
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|count
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried "
+operator|+
+name|count
+operator|+
+literal|" to delete file: "
+operator|+
+name|name
+operator|+
+literal|" with result: "
+operator|+
+name|deleted
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -431,6 +490,36 @@ operator|<
 literal|3
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|count
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Retrying attempt "
+operator|+
+name|count
+operator|+
+literal|" to rename file from: "
+operator|+
+name|from
+operator|+
+literal|" to: "
+operator|+
+name|to
+argument_list|)
+expr_stmt|;
+block|}
 name|renamed
 operator|=
 name|file
@@ -442,6 +531,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|renamed
+operator|&&
 name|count
 operator|>
 literal|0
@@ -468,6 +560,40 @@ block|}
 block|}
 name|count
 operator|++
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|count
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried "
+operator|+
+name|count
+operator|+
+literal|" to rename file: "
+operator|+
+name|from
+operator|+
+literal|" to: "
+operator|+
+name|to
+operator|+
+literal|" with result: "
+operator|+
+name|renamed
+argument_list|)
 expr_stmt|;
 block|}
 return|return
