@@ -252,6 +252,20 @@ name|ThrottleDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ThrowExceptionDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -567,6 +581,24 @@ name|ThrottleDefinition
 condition|)
 block|{
 name|ThrottleDefinitionRenderer
+operator|.
+name|render
+argument_list|(
+name|buffer
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|ThrowExceptionDefinition
+condition|)
+block|{
+name|ThrowExceptionDefinitionRenderer
 operator|.
 name|render
 argument_list|(

@@ -164,18 +164,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * a route involving a external class: CamelException      *       * @throws Exception      * TODO: fix this test!      */
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
+comment|/**      * a route involving a external exception class: CamelException      */
 annotation|@
 name|Test
-DECL|method|fixmeTestAggregateAndOnException ()
+DECL|method|testAggregateAndOnException ()
 specifier|public
 name|void
-name|fixmeTestAggregateAndOnException
+name|testAggregateAndOnException
 parameter_list|()
 throws|throws
 name|Exception
@@ -183,11 +178,24 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"errorHandler(deadLetterChannel(\"mock:error\"));onException(CamelException.class).maximumRedeliveries(2);from(\"direct:start\").aggregate(header(\"id\")).to(\"mock:result\")"
+literal|"errorHandler(deadLetterChannel(\"mock:error\"));"
+operator|+
+literal|"onException(CamelException.class).maximumRedeliveries(2);"
+operator|+
+literal|"from(\"direct:start\").aggregate(header(\"id\")).to(\"mock:result\")"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"errorHandler(deadLetterChannel(\"mock://error\"));"
+operator|+
+literal|"onException(CamelException.class).maximumRedeliveries(2);"
+operator|+
+literal|"from(\"direct:start\").aggregate().header(\"id\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
 name|render
 argument_list|(
@@ -196,12 +204,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * a set of routes that uses aggregate DSL      *       * @throws Exception      * TODO: fix this test!      */
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
+comment|/**      * a set of routes that use split and aggregate DSL      */
 annotation|@
 name|Test
 DECL|method|fixmeTestAggregateTimerAndTracer ()
@@ -219,11 +222,18 @@ literal|"from(\"timer://kickoff?period=9999910000\").setHeader(\"id\").constant(
 operator|+
 literal|"from(\"seda:splitted\").aggregate(header(\"id\")).to(\"mock:result\")"
 decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"from(\"timer://kickoff?period=9999910000\").setHeader(\"id\").constant(\"foo\").setBody().constant(\"a b c\").split(body().tokenize(\" \")).to(\"seda:splitted\");\n"
+operator|+
+literal|"from(\"seda:splitted\").aggregate().header(\"id\").to(\"mock:result\")"
+decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
-name|render
+name|renderRoutes
 argument_list|(
 name|dsl
 argument_list|)

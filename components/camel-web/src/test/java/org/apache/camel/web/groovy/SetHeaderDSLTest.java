@@ -53,16 +53,11 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").setHeader(\"foo\", constant(\"ABC\")).to(\"mock:result\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
 literal|"from(\"direct:start\").setHeader(\"foo\").constant(\"ABC\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|dsl
 argument_list|,
 name|render
 argument_list|(

@@ -53,9 +53,9 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:a\").tracing().streamCaching().to(\"mock:a\");"
+literal|"from(\"direct:a\").tracing().streamCaching().to(\"mock:a\");\n"
 operator|+
-literal|"from(\"direct:b\").noTracing().to(\"mock:b\");"
+literal|"from(\"direct:b\").noTracing().to(\"mock:b\");\n"
 operator|+
 literal|"from(\"direct:c\").tracing().to(\"mock:c\")"
 decl_stmt|;

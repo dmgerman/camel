@@ -114,18 +114,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: fix this test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
+comment|/**      * to(ExchangePattern.PATTERN, dest) -> PATTERN(dest)       * since we can't distinguish them at CamelContext      */
 annotation|@
 name|Test
-DECL|method|fixmeTestToExchangePattern ()
+DECL|method|testToWithExchangePattern ()
 specifier|public
 name|void
-name|fixmeTestToExchangePattern
+name|testToWithExchangePattern
 parameter_list|()
 throws|throws
 name|Exception
@@ -135,9 +130,14 @@ name|dsl
 init|=
 literal|"from(\"direct:start\").to(ExchangePattern.InOnly, \"mock:result\")"
 decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"from(\"direct:start\").inOnly(\"mock:result\")"
+decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
 name|render
 argument_list|(
@@ -146,18 +146,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: fix this test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
 annotation|@
 name|Test
-DECL|method|fixmeTestSetExchangepattern ()
+DECL|method|testSetExchangepattern ()
 specifier|public
 name|void
-name|fixmeTestSetExchangepattern
+name|testSetExchangepattern
 parameter_list|()
 throws|throws
 name|Exception

@@ -77,17 +77,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
-annotation|@
 name|Test
-comment|// TODO: fix this test!
-DECL|method|fixmeTestAOPAfterFinally ()
+DECL|method|testAOPAfterFinally ()
 specifier|public
 name|void
-name|fixmeTestAOPAfterFinally
+name|testAOPAfterFinally
 parameter_list|()
 throws|throws
 name|Exception
@@ -141,13 +135,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
-annotation|@
 name|Test
-comment|// TODO: fix this test!
 DECL|method|fixmeTestAOPAroundFinally ()
 specifier|public
 name|void
@@ -165,7 +153,7 @@ literal|".when(body().isEqualTo(\"Hello World\")).transform(constant(\"Bye World
 operator|+
 literal|".otherwise().transform(constant(\"Kabom the World\")).throwException(new IllegalArgumentException(\"Damn\"))"
 operator|+
-literal|".end()to(\"mock:result\")"
+literal|".end().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

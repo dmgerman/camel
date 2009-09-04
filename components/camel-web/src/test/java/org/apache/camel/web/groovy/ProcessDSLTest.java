@@ -70,7 +70,7 @@ name|ProcessDSLTest
 extends|extends
 name|GroovyRendererTestSupport
 block|{
-comment|/**      * a route involving a external class: validator      *       * @throws Exception TODO: fix this test!      */
+comment|/**      * a route involving a external class: validator      *       * TODO: fix this test!      */
 annotation|@
 name|Ignore
 argument_list|(

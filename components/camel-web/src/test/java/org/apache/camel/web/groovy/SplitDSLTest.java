@@ -128,12 +128,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: fix this test!
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|fixmeTestSplitXPath ()
@@ -147,7 +141,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").split(xpath(\"//foo/bar\")).convertBodyTo(String.class).to(\"mock:result\")"
+literal|"from(\"direct:start\").split().xpath(\"//foo/bar\", String.class).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

@@ -740,17 +740,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
-annotation|@
 name|Test
-comment|// TODO: fix this test!
-DECL|method|fixmeTestIsInstanceOf ()
+DECL|method|testIsInstanceOf ()
 specifier|public
 name|void
-name|fixmeTestIsInstanceOf
+name|testIsInstanceOf
 parameter_list|()
 throws|throws
 name|Exception
@@ -758,7 +752,7 @@ block|{
 name|String
 name|expectedPredicate
 init|=
-literal|"header(\"name\").isNull()"
+literal|"header(\"name\").isInstanceOf(String.class)"
 decl_stmt|;
 name|Predicate
 name|predicate
@@ -768,8 +762,12 @@ argument_list|(
 literal|"name"
 argument_list|)
 operator|.
-name|isNull
-argument_list|()
+name|isInstanceOf
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertMatch
 argument_list|(

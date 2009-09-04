@@ -119,7 +119,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"onException(IOException.class).handled(true).to(\"mock:io\");"
+literal|"onException(IOException.class).to(\"mock:io\");"
 operator|+
 literal|"interceptSendToEndpoint(\"mock:io\").skipSendToOriginalEndpoint().to(\"mock:intercepted\");"
 operator|+
@@ -137,17 +137,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
-annotation|@
 name|Test
-comment|// TODO: fix this test!
-DECL|method|fixmeTestInterceptSendToIssue ()
+DECL|method|testInterceptSendToIssue ()
 specifier|public
 name|void
-name|fixmeTestInterceptSendToIssue
+name|testInterceptSendToIssue
 parameter_list|()
 throws|throws
 name|Exception
@@ -159,9 +153,16 @@ literal|"interceptSendToEndpoint(\"direct:foo\").to(\"mock:foo\");"
 operator|+
 literal|"from(\"direct:start\").setHeader(Exchange.FILE_NAME, constant(\"hello.txt\")).to(\"direct:foo\")"
 decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"interceptSendToEndpoint(\"direct:foo\").to(\"mock:foo\");"
+operator|+
+literal|"from(\"direct:start\").setHeader(\"CamelFileName\").constant(\"hello.txt\").to(\"direct:foo\")"
+decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expected
 argument_list|,
 name|render
 argument_list|(

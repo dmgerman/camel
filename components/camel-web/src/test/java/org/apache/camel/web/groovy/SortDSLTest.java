@@ -51,11 +51,6 @@ extends|extends
 name|GroovyRendererTestSupport
 block|{
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testSort ()
 specifier|public

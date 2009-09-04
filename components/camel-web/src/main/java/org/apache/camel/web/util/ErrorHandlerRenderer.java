@@ -126,13 +126,19 @@ argument_list|(
 literal|"\")"
 argument_list|)
 expr_stmt|;
-name|int
-name|maxRediliveries
+comment|// render the redelivery policy
+name|RedeliveryPolicy
+name|redelivery
 init|=
 name|deadLetter
 operator|.
 name|getRedeliveryPolicy
 argument_list|()
+decl_stmt|;
+name|int
+name|maxRediliveries
+init|=
+name|redelivery
 operator|.
 name|getMaximumRedeliveries
 argument_list|()
@@ -162,14 +168,6 @@ literal|")"
 argument_list|)
 expr_stmt|;
 block|}
-name|RedeliveryPolicy
-name|redelivery
-init|=
-name|deadLetter
-operator|.
-name|getRedeliveryPolicy
-argument_list|()
-decl_stmt|;
 name|long
 name|redeliverDelay
 init|=
@@ -219,6 +217,7 @@ literal|".logStackTrace(true)"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// render the handled policy
 if|if
 condition|(
 name|deadLetter

@@ -102,12 +102,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * a wireTap with two parameters      *       * @throws Exception      * TODO: fix this test!      */
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to fix this test"
-argument_list|)
+comment|/**      * a wireTap with two parameters      */
 annotation|@
 name|Test
 DECL|method|fixmeTestWireTap3 ()
