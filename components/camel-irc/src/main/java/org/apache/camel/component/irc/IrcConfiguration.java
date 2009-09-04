@@ -253,8 +253,6 @@ DECL|field|onReply
 specifier|private
 name|boolean
 name|onReply
-init|=
-literal|false
 decl_stmt|;
 DECL|field|onTopic
 specifier|private
