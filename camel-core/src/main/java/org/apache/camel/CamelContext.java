@@ -914,6 +914,12 @@ name|InterceptStrategy
 name|getDefaultTracer
 parameter_list|()
 function_decl|;
+comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      */
+DECL|method|disableJMX ()
+name|void
+name|disableJMX
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
