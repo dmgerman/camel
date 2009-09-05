@@ -501,6 +501,14 @@ argument_list|(
 name|bundleContext
 argument_list|)
 decl_stmt|;
+comment|// Need to clean up the OSGi service when camel context is closed.
+name|context
+operator|.
+name|addLifecycleStrategy
+argument_list|(
+name|osgiServiceRegistry
+argument_list|)
+expr_stmt|;
 name|CompositeRegistry
 name|compositeRegistry
 init|=

@@ -71,6 +71,8 @@ specifier|public
 name|void
 name|osigServiceRegistryTest
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|CamelContextFactory
 name|factory
@@ -95,6 +97,11 @@ operator|.
 name|createContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|MyService
 name|myService
 init|=
@@ -123,6 +130,11 @@ literal|"MyService should not be null"
 argument_list|,
 name|myService
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
