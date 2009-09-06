@@ -242,12 +242,12 @@ block|{
 annotation|@
 name|Resource
 DECL|field|context
-specifier|private
+specifier|protected
 name|WebServiceContext
 name|context
 decl_stmt|;
 DECL|field|relayHeaders
-specifier|private
+specifier|protected
 name|boolean
 name|relayHeaders
 init|=
@@ -938,7 +938,7 @@ block|}
 block|}
 block|}
 DECL|method|validateOutOfBandHander ()
-specifier|private
+specifier|protected
 name|boolean
 name|validateOutOfBandHander
 parameter_list|()
