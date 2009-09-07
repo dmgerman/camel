@@ -569,7 +569,21 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+if|if
+condition|(
+name|producerCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|producerCache
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -589,10 +603,6 @@ name|producerCache
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|producerCache
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}
