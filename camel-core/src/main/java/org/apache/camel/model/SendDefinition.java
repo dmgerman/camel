@@ -174,10 +174,6 @@ begin_comment
 comment|/**  * Base class for sending to an endpoint with an optional {@link ExchangePattern}  *  * @version $Revision$  */
 end_comment
 
-begin_comment
-comment|//@XmlType(name = "sendType")
-end_comment
-
 begin_class
 annotation|@
 name|XmlAccessorType
@@ -188,6 +184,7 @@ name|FIELD
 argument_list|)
 DECL|class|SendDefinition
 specifier|public
+specifier|abstract
 class|class
 name|SendDefinition
 parameter_list|<

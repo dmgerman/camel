@@ -46,18 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|jmx
@@ -152,10 +140,10 @@ name|description
 operator|=
 literal|"Endpoint Uri"
 argument_list|)
-DECL|method|getUri ()
+DECL|method|getEndpointUri ()
 specifier|public
 name|String
-name|getUri
+name|getEndpointUri
 parameter_list|()
 block|{
 return|return

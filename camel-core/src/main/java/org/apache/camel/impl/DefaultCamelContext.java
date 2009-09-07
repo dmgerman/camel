@@ -5810,6 +5810,14 @@ name|managementStrategy
 operator|=
 name|managementStrategy
 expr_stmt|;
+comment|// should be considered initialized as we use a custom strategy
+name|managementStrategyInitialized
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getDefaultTracer ()
 specifier|public

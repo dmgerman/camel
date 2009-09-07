@@ -79,9 +79,6 @@ operator|new
 name|ProducerCache
 argument_list|(
 name|context
-operator|.
-name|getProducerServicePool
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|cache

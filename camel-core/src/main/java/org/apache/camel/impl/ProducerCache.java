@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -144,14 +156,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|Synchronization
+name|LRUCache
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -160,7 +172,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -203,22 +217,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -273,11 +271,39 @@ name|Producer
 argument_list|>
 name|pool
 decl_stmt|;
+DECL|field|context
+specifier|private
+specifier|final
+name|CamelContext
+name|context
+decl_stmt|;
 comment|// TODO: Have easy configuration of pooling in Camel
-DECL|method|ProducerCache (ServicePool<Endpoint, Producer> producerServicePool)
+DECL|method|ProducerCache (CamelContext context)
 specifier|public
 name|ProducerCache
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|context
+argument_list|,
+name|context
+operator|.
+name|getProducerServicePool
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ProducerCache (CamelContext context, ServicePool<Endpoint, Producer> producerServicePool)
+specifier|public
+name|ProducerCache
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ServicePool
 argument_list|<
 name|Endpoint
@@ -288,15 +314,11 @@ name|producerServicePool
 parameter_list|)
 block|{
 name|this
-operator|.
-name|pool
-operator|=
+argument_list|(
+name|context
+argument_list|,
 name|producerServicePool
-expr_stmt|;
-name|this
-operator|.
-name|producers
-operator|=
+argument_list|,
 operator|new
 name|LRUCache
 argument_list|<
@@ -307,12 +329,16 @@ argument_list|>
 argument_list|(
 literal|1000
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProducerCache (ServicePool<Endpoint, Producer> producerServicePool, Map<String, Producer> cache)
+DECL|method|ProducerCache (CamelContext context, ServicePool<Endpoint, Producer> producerServicePool, Map<String, Producer> cache)
 specifier|public
 name|ProducerCache
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|ServicePool
 argument_list|<
 name|Endpoint
@@ -330,6 +356,12 @@ argument_list|>
 name|cache
 parameter_list|)
 block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
 name|this
 operator|.
 name|pool
@@ -828,10 +860,13 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-name|answer
+comment|// add it as service to camel context so it can be managed as well
+name|context
 operator|.
-name|start
-argument_list|()
+name|addService
+argument_list|(
+name|answer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

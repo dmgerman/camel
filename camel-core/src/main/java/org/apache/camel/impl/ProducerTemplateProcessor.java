@@ -67,10 +67,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple processor which just sends the message exchange to the default endpoint of the {@link ProducerTemplate}  *  * @version $Revision$  */
+comment|/**  * A simple processor which just sends the message exchange to the default endpoint of the {@link ProducerTemplate}  *  * @version $Revision$  * @deprecated not used will be removed in Camel 2.2  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ProducerTemplateProcessor
 specifier|public
 class|class

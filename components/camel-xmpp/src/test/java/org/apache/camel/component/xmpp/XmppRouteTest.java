@@ -311,6 +311,8 @@ init|=
 operator|new
 name|ProducerCache
 argument_list|(
+name|container
+argument_list|,
 operator|new
 name|DefaultProducerServicePool
 argument_list|(

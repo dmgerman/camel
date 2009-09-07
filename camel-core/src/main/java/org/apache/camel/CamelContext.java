@@ -386,7 +386,9 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 name|Component
 name|getOrCreateComponent
@@ -579,6 +581,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
@@ -601,6 +605,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
@@ -632,6 +638,8 @@ name|routeId
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|getRouteStatus (RouteDefinition route)
 name|ServiceStatus
 name|getRouteStatus

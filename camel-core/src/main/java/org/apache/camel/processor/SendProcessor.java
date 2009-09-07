@@ -490,8 +490,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|this
-operator|.
 name|producerCache
 operator|=
 operator|new
@@ -501,13 +499,8 @@ name|exchange
 operator|.
 name|getContext
 argument_list|()
-operator|.
-name|getProducerServicePool
-argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|producerCache
 operator|.
 name|start
@@ -515,8 +508,6 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|this
-operator|.
 name|producerCache
 return|;
 block|}
@@ -578,21 +569,7 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-if|if
-condition|(
-name|producerCache
-operator|!=
-literal|null
-condition|)
-block|{
-name|producerCache
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-block|}
+block|{     }
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -612,6 +589,10 @@ name|producerCache
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+name|producerCache
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
