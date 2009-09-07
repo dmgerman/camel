@@ -502,7 +502,7 @@ argument_list|)
 argument_list|)
 comment|// now turn the route into async from this point forward
 comment|// the caller will have a Future<Exchange> returned as response in OUT
-comment|// to be used to grap the async response when he fell like it
+comment|// to be used to grab the async response when he fell like it
 comment|// we do not want to wait for tasks to be complete so we instruct Camel
 comment|// to not wait, and therefore Camel returns the Future<Exchange> handle we
 comment|// can use to get the result when we want
