@@ -169,6 +169,13 @@ specifier|private
 name|Statistic
 name|lastExchangeFailureTime
 decl_stmt|;
+DECL|field|statisticsEnabled
+specifier|private
+name|boolean
+name|statisticsEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|method|ManagedPerformanceCounter (ManagementStrategy strategy)
 specifier|public
 name|ManagedPerformanceCounter
@@ -754,6 +761,46 @@ argument_list|)
 else|:
 literal|null
 return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Statistics enabled"
+argument_list|)
+DECL|method|isStatisticsEnabled ()
+specifier|public
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|statisticsEnabled
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Statistics enabled"
+argument_list|)
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+specifier|public
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statisticsEnabled
+operator|=
+name|statisticsEnabled
+expr_stmt|;
 block|}
 comment|/**      * This method is called when an exchange has been processed successfully.      *       * @param time in milliseconds it spent on processing the exchange      */
 DECL|method|completedExchange (long time)
