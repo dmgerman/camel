@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -146,6 +158,21 @@ comment|/**      * Checks whether only to manage processors if they have been co
 DECL|method|isOnlyManageProcessorWithCustomId ()
 name|boolean
 name|isOnlyManageProcessorWithCustomId
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#All}      *      * @param level the new level      */
+DECL|method|setSatisticsLevel (ManagementStatisticsLevel level)
+name|void
+name|setSatisticsLevel
+parameter_list|(
+name|ManagementStatisticsLevel
+name|level
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the statistics level      *      * @return the level      */
+DECL|method|getStatisticsLevel ()
+name|ManagementStatisticsLevel
+name|getStatisticsLevel
 parameter_list|()
 function_decl|;
 block|}

@@ -2962,6 +2962,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// set additional configuration from camelJMXAgent
 name|getContext
 argument_list|()
 operator|.
@@ -2973,6 +2974,20 @@ argument_list|(
 name|camelJMXAgent
 operator|.
 name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getContext
+argument_list|()
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|setSatisticsLevel
+argument_list|(
+name|camelJMXAgent
+operator|.
+name|getStatisticsLevel
 argument_list|()
 argument_list|)
 expr_stmt|;

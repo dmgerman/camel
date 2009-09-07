@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ManagementStrategy
@@ -168,6 +180,15 @@ DECL|field|managementAgent
 specifier|private
 name|ManagementAgent
 name|managementAgent
+decl_stmt|;
+DECL|field|statisticsLevel
+specifier|private
+name|ManagementStatisticsLevel
+name|statisticsLevel
+init|=
+name|ManagementStatisticsLevel
+operator|.
+name|All
 decl_stmt|;
 DECL|method|getEventNotifier ()
 specifier|public
@@ -478,6 +499,32 @@ block|{
 comment|// noop
 return|return
 literal|null
+return|;
+block|}
+DECL|method|setSatisticsLevel (ManagementStatisticsLevel level)
+specifier|public
+name|void
+name|setSatisticsLevel
+parameter_list|(
+name|ManagementStatisticsLevel
+name|level
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statisticsLevel
+operator|=
+name|level
+expr_stmt|;
+block|}
+DECL|method|getStatisticsLevel ()
+specifier|public
+name|ManagementStatisticsLevel
+name|getStatisticsLevel
+parameter_list|()
+block|{
+return|return
+name|statisticsLevel
 return|;
 block|}
 DECL|method|start ()

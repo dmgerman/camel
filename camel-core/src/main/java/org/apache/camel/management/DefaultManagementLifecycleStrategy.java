@@ -622,6 +622,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ManagementStrategy
@@ -2236,6 +2248,29 @@ name|getStrategy
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// set statistics enabled depending on the option
+name|boolean
+name|enabled
+init|=
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getStatisticsLevel
+argument_list|()
+operator|==
+name|ManagementStatisticsLevel
+operator|.
+name|All
+decl_stmt|;
+name|pc
+operator|.
+name|setStatisticsEnabled
+argument_list|(
+name|enabled
+argument_list|)
+expr_stmt|;
 comment|// and add it as a a registered counter that will be used lazy when Camel
 comment|// does the instrumentation of the route and adds the InstrumentationProcessor
 comment|// that does the actual performance metrics gatherings at runtime

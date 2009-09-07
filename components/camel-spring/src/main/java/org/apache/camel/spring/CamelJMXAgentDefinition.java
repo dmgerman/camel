@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|IdentifiedType
@@ -244,6 +256,23 @@ init|=
 name|Boolean
 operator|.
 name|TRUE
+decl_stmt|;
+comment|/**      * Level of granularity for performance statistics enabled      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|statisticsLevel
+specifier|private
+name|ManagementStatisticsLevel
+name|statisticsLevel
+init|=
+name|ManagementStatisticsLevel
+operator|.
+name|All
 decl_stmt|;
 DECL|method|getConnectorPort ()
 specifier|public
@@ -487,6 +516,32 @@ operator|.
 name|FALSE
 expr_stmt|;
 block|}
+DECL|method|getStatisticsLevel ()
+specifier|public
+name|ManagementStatisticsLevel
+name|getStatisticsLevel
+parameter_list|()
+block|{
+return|return
+name|statisticsLevel
+return|;
+block|}
+DECL|method|setStatisticsLevel (ManagementStatisticsLevel statisticsLevel)
+specifier|public
+name|void
+name|setStatisticsLevel
+parameter_list|(
+name|ManagementStatisticsLevel
+name|statisticsLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statisticsLevel
+operator|=
+name|statisticsLevel
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -638,6 +693,26 @@ operator|.
 name|append
 argument_list|(
 name|mbeanObjectDomainName
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|statisticsLevel
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", statisticsLevel="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|statisticsLevel
 argument_list|)
 expr_stmt|;
 block|}
