@@ -4257,6 +4257,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// START SNIPPET: InsertResponseOutHeaderProcessor
 DECL|class|InsertResponseOutHeaderProcessor
 specifier|public
 specifier|static
@@ -4360,6 +4361,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// END SNIPPET: InsertResponseOutHeaderProcessor
 block|}
 end_class
 
