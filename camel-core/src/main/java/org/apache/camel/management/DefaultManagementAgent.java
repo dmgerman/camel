@@ -1233,8 +1233,17 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// Using the array to hold the busMBeans to avoid the
-comment|// CurrentModificationException
+if|if
+condition|(
+name|mbeansRegistered
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+comment|// Using the array to hold the busMBeans to avoid the CurrentModificationException
 name|ObjectName
 index|[]
 name|mBeans
