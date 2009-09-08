@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -127,6 +139,20 @@ operator|.
 name|camel
 operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -193,20 +219,6 @@ operator|.
 name|framework
 operator|.
 name|ServiceReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|osgi
-operator|.
-name|context
-operator|.
-name|BundleContextAware
 import|;
 end_import
 
@@ -604,6 +616,23 @@ name|service
 parameter_list|,
 name|Route
 name|route
+parameter_list|)
+block|{
+comment|// Do nothing here
+block|}
+DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|void
+name|onErrorHandlerAdd
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
 parameter_list|)
 block|{
 comment|// Do nothing here
