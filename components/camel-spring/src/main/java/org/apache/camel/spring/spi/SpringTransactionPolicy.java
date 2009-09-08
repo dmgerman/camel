@@ -298,7 +298,7 @@ if|if
 condition|(
 name|ErrorHandlerBuilderRef
 operator|.
-name|isErrorHandlerBuilderConfigued
+name|isErrorHandlerBuilderConfigured
 argument_list|(
 name|ref
 argument_list|)

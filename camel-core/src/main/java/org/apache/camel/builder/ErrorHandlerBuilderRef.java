@@ -375,6 +375,27 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
+DECL|method|isErrorHandlerBuilderConfigured (String ref)
+specifier|public
+specifier|static
+name|boolean
+name|isErrorHandlerBuilderConfigured
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+return|return
+operator|!
+name|DEFAULT_ERROR_HANDLER_BUILDER
+operator|.
+name|equals
+argument_list|(
+name|ref
+argument_list|)
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -462,27 +483,6 @@ expr_stmt|;
 block|}
 return|return
 name|handler
-return|;
-block|}
-comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
-DECL|method|isErrorHandlerBuilderConfigured (String ref)
-specifier|private
-specifier|static
-name|boolean
-name|isErrorHandlerBuilderConfigured
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-return|return
-operator|!
-name|DEFAULT_ERROR_HANDLER_BUILDER
-operator|.
-name|equals
-argument_list|(
-name|ref
-argument_list|)
 return|;
 block|}
 annotation|@
