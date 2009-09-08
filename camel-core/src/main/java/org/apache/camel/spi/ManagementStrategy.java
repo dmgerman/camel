@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|ManagementStatisticsLevel
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ManagementStatisticsLevel
+name|Service
 import|;
 end_import
 

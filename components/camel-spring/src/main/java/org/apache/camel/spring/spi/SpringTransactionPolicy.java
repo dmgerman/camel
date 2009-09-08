@@ -66,20 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilderSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -290,22 +276,32 @@ condition|)
 block|{
 comment|// its a reference to a error handler so lookup the reference
 name|ErrorHandlerBuilderRef
-name|ref
+name|builderRef
 init|=
 operator|(
 name|ErrorHandlerBuilderRef
 operator|)
 name|builder
 decl_stmt|;
+name|String
+name|ref
+init|=
+name|builderRef
+operator|.
+name|getRef
+argument_list|()
+decl_stmt|;
 comment|// only lookup if there was explicit an error handler builder configured
 comment|// otherwise its just the "default" that has not explicit been configured
 comment|// and if so then we can safely replace that with our transacted error handler
 if|if
 condition|(
-name|ref
+name|ErrorHandlerBuilderRef
 operator|.
 name|isErrorHandlerBuilderConfigued
-argument_list|()
+argument_list|(
+name|ref
+argument_list|)
 condition|)
 block|{
 if|if
@@ -323,19 +319,18 @@ argument_list|(
 literal|"Looking up ErrorHandlerBuilder with ref: "
 operator|+
 name|ref
-operator|.
-name|getRef
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 name|builder
 operator|=
-name|ref
+name|ErrorHandlerBuilderRef
 operator|.
 name|lookupErrorHandlerBuilder
 argument_list|(
 name|routeContext
+argument_list|,
+name|ref
 argument_list|)
 expr_stmt|;
 block|}

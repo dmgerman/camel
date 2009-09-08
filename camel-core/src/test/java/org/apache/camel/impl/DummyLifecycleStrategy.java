@@ -78,7 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Endpoint
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Processor
 import|;
 end_import
 
@@ -115,6 +115,20 @@ operator|.
 name|camel
 operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -381,6 +395,29 @@ operator|.
 name|add
 argument_list|(
 literal|"onRouteContextCreate"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|void
+name|onErrorHandlerAdd
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|errorHandler
+parameter_list|,
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onErrorHandlerAdd"
 argument_list|)
 expr_stmt|;
 block|}

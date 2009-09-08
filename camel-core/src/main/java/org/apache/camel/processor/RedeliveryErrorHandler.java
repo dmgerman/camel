@@ -1420,6 +1420,7 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// TODO: setting failure handled should only be if we used a failure processor
 comment|// we could not process the exchange so we let the failure processor handled it
 name|ExchangeHelper
 operator|.

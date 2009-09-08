@@ -500,22 +500,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|loadbalancer
 operator|.
 name|LoadBalancer
@@ -561,6 +545,20 @@ operator|.
 name|spi
 operator|.
 name|InterceptStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|LifecycleStrategy
 import|;
 end_import
 
@@ -1084,7 +1082,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// put a channel inbetween this and each output to control the route flow logic
+comment|// put a channel in between this and each output to control the route flow logic
 name|Channel
 name|channel
 init|=
@@ -1203,11 +1201,17 @@ operator|.
 name|getOutput
 argument_list|()
 decl_stmt|;
-name|Processor
-name|errorHandler
+comment|// create error handler
+name|ErrorHandlerBuilder
+name|builder
 init|=
 name|getErrorHandlerBuilder
 argument_list|()
+decl_stmt|;
+name|Processor
+name|errorHandler
+init|=
+name|builder
 operator|.
 name|createErrorHandler
 argument_list|(
@@ -1216,6 +1220,7 @@ argument_list|,
 name|output
 argument_list|)
 decl_stmt|;
+comment|// set error handler on channel
 name|channel
 operator|.
 name|setErrorHandler
@@ -1223,6 +1228,33 @@ argument_list|(
 name|errorHandler
 argument_list|)
 expr_stmt|;
+comment|// invoke lifecycles so we can manage this error handler builder
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+control|)
+block|{
+name|strategy
+operator|.
+name|onErrorHandlerAdd
+argument_list|(
+name|routeContext
+argument_list|,
+name|errorHandler
+argument_list|,
+name|builder
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|channel
 return|;
@@ -6107,6 +6139,8 @@ name|errorHandlerRef
 operator|=
 name|errorHandlerRef
 expr_stmt|;
+comment|// we use an specific error handler ref (from Spring DSL) then wrap that
+comment|// with a error handler build ref so Camel knows its not just the default one
 name|setErrorHandlerBuilder
 argument_list|(
 operator|new

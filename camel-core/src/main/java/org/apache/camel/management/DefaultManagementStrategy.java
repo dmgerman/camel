@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -93,18 +105,6 @@ operator|.
 name|spi
 operator|.
 name|ManagementNamingStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ManagementStatisticsLevel
 import|;
 end_import
 

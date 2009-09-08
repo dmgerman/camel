@@ -189,7 +189,7 @@ condition|)
 block|{
 name|handler
 operator|=
-name|lookupErrorHandlerBuilder
+name|createErrorHandler
 argument_list|(
 name|routeContext
 argument_list|)
@@ -206,24 +206,6 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
-DECL|method|isErrorHandlerBuilderConfigued ()
-specifier|public
-name|boolean
-name|isErrorHandlerBuilderConfigued
-parameter_list|()
-block|{
-return|return
-operator|!
-name|DEFAULT_ERROR_HANDLER_BUILDER
-operator|.
-name|equals
-argument_list|(
-name|getRef
-argument_list|()
-argument_list|)
-return|;
-block|}
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -234,34 +216,37 @@ return|return
 name|supportTransacted
 return|;
 block|}
-DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext)
+comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref          reference id for the error handler      * @return the error handler      */
+DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext, String ref)
 specifier|public
+specifier|static
 name|ErrorHandlerBuilder
 name|lookupErrorHandlerBuilder
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|String
+name|ref
 parameter_list|)
 block|{
-if|if
-condition|(
-name|handler
-operator|==
-literal|null
-condition|)
-block|{
-comment|// if the ref is the default then the we do not have any explicit error handler configured
+name|ErrorHandlerBuilder
+name|answer
+decl_stmt|;
+comment|// if the ref is the default then we do not have any explicit error handler configured
 comment|// if that is the case then use error handlers configured on the route, as for instance
 comment|// the transacted error handler could have been configured on the route so we should use that one
 if|if
 condition|(
 operator|!
-name|isErrorHandlerBuilderConfigued
-argument_list|()
+name|isErrorHandlerBuilderConfigured
+argument_list|(
+name|ref
+argument_list|)
 condition|)
 block|{
 comment|// see if there has been configured a route builder on the route
-name|handler
+name|answer
 operator|=
 name|routeContext
 operator|.
@@ -273,12 +258,12 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|handler
+name|answer
 operator|==
 literal|null
 condition|)
 block|{
-name|handler
+name|answer
 operator|=
 name|routeContext
 operator|.
@@ -300,13 +285,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|handler
+name|answer
 operator|==
 literal|null
 condition|)
 block|{
 comment|// fallback to the default error handler if none configured on the route
-name|handler
+name|answer
 operator|=
 operator|new
 name|DefaultErrorHandlerBuilder
@@ -316,7 +301,7 @@ block|}
 comment|// check if its also a ref with no error handler configuration like me
 if|if
 condition|(
-name|handler
+name|answer
 operator|instanceof
 name|ErrorHandlerBuilderRef
 condition|)
@@ -327,20 +312,28 @@ init|=
 operator|(
 name|ErrorHandlerBuilderRef
 operator|)
-name|handler
+name|answer
+decl_stmt|;
+name|String
+name|otherRef
+init|=
+name|other
+operator|.
+name|getRef
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|other
-operator|.
-name|isErrorHandlerBuilderConfigued
-argument_list|()
+name|isErrorHandlerBuilderConfigured
+argument_list|(
+name|otherRef
+argument_list|)
 condition|)
 block|{
-comment|// the other has also no explict error handler configured then fallback to the default error handler
+comment|// the other has also no explicit error handler configured then fallback to the default error handler
 comment|// otherwise we could recursive loop forever (triggered by createErrorHandler method)
-name|handler
+name|answer
 operator|=
 operator|new
 name|DefaultErrorHandlerBuilder
@@ -348,7 +341,7 @@ argument_list|()
 expr_stmt|;
 comment|// inherit the error handlers from the other as they are to be shared
 comment|// this is needed by camel-spring when none error handler has been explicit configured
-name|handler
+name|answer
 operator|.
 name|setErrorHandlers
 argument_list|(
@@ -364,7 +357,7 @@ block|}
 else|else
 block|{
 comment|// use specific configured error handler
-name|handler
+name|answer
 operator|=
 name|routeContext
 operator|.
@@ -378,6 +371,49 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|getHandler ()
+specifier|public
+name|ErrorHandlerBuilder
+name|getHandler
+parameter_list|()
+block|{
+return|return
+name|handler
+return|;
+block|}
+DECL|method|createErrorHandler (RouteContext routeContext)
+specifier|private
+name|ErrorHandlerBuilder
+name|createErrorHandler
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+name|handler
+operator|=
+name|lookupErrorHandlerBuilder
+argument_list|(
+name|routeContext
+argument_list|,
+name|getRef
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -424,19 +460,29 @@ name|exceptionType
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
 name|handler
 return|;
 block|}
-DECL|method|getRef ()
-specifier|public
+comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
+DECL|method|isErrorHandlerBuilderConfigured (String ref)
+specifier|private
+specifier|static
+name|boolean
+name|isErrorHandlerBuilderConfigured
+parameter_list|(
 name|String
-name|getRef
-parameter_list|()
+name|ref
+parameter_list|)
 block|{
 return|return
+operator|!
+name|DEFAULT_ERROR_HANDLER_BUILDER
+operator|.
+name|equals
+argument_list|(
 name|ref
+argument_list|)
 return|;
 block|}
 annotation|@

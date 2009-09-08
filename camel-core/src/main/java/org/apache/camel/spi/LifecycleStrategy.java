@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -83,6 +95,20 @@ operator|.
 name|camel
 operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -217,6 +243,21 @@ name|onRouteContextCreate
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|)
+function_decl|;
+comment|/**      * Notification on adding error handler.      *      * @param routeContext        the added route context      * @param errorHandler        the error handler      * @param errorHandlerBuilder the error handler builder      */
+DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerBuilder errorHandlerBuilder)
+name|void
+name|onErrorHandlerAdd
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|errorHandler
+parameter_list|,
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
 block|}
