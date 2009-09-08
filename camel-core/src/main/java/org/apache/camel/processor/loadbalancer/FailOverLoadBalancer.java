@@ -143,7 +143,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Class is not an instance of Trowable: "
+literal|"Class is not an instance of Throwable: "
 operator|+
 name|type
 argument_list|)

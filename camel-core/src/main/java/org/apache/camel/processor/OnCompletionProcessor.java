@@ -521,7 +521,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// must remove exception otherwise onFaulure routing will fail as well
+comment|// must remove exception otherwise onFailure routing will fail as well
 comment|// the caused exception is stored as a property (Exchange.EXCEPTION_CAUGHT) on the exchange
 name|copy
 operator|.

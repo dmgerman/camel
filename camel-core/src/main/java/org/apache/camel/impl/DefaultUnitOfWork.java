@@ -671,7 +671,7 @@ block|{
 comment|// must catch exceptions to ensure all synchronizations have a chance to run
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Exception occurred during onCompletion. This exception will be ignored: "
 argument_list|,

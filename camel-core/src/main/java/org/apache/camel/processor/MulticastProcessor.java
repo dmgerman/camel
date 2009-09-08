@@ -730,7 +730,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|doProcessSequntial
+name|doProcessSequential
 argument_list|(
 name|result
 argument_list|,
@@ -1085,10 +1085,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doProcessSequntial (AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
+DECL|method|doProcessSequential (AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
 specifier|protected
 name|void
-name|doProcessSequntial
+name|doProcessSequential
 parameter_list|(
 name|AtomicExchange
 name|result
@@ -1182,7 +1182,7 @@ throw|throw
 operator|new
 name|CamelExchangeException
 argument_list|(
-literal|"Sequiental processing failed for number "
+literal|"Sequential processing failed for number "
 operator|+
 name|total
 argument_list|,
@@ -1207,7 +1207,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sequiental processing complete for number "
+literal|"Sequential processing complete for number "
 operator|+
 name|total
 operator|+
@@ -1248,7 +1248,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Done sequiental processing "
+literal|"Done sequential processing "
 operator|+
 name|total
 operator|+

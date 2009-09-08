@@ -649,7 +649,7 @@ name|warn
 argument_list|(
 name|type
 operator|+
-literal|" containig object: "
+literal|" containing object: "
 operator|+
 name|object
 operator|+
@@ -663,7 +663,7 @@ operator|.
 name|getCanonicalName
 argument_list|()
 operator|+
-literal|" cannot be serialized, it will be excluded by the holder"
+literal|" cannot be serialized, it will be excluded by the holder."
 argument_list|)
 expr_stmt|;
 return|return
@@ -810,7 +810,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" cannot be serialized, it will be excluded by the holder"
+literal|" cannot be serialized, it will be excluded by the holder."
 argument_list|)
 expr_stmt|;
 block|}

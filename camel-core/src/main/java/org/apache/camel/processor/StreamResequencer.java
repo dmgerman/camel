@@ -230,6 +230,22 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A resequencer that re-orders a (continuous) stream of {@link Exchange}s. The  * algorithm implemented by {@link ResequencerEngine} is based on the detection  * of gaps in a message stream rather than on a fixed batch size. Gap detection  * in combination with timeouts removes the constraint of having to know the  * number of messages of a sequence (i.e. the batch size) in advance.  *<p>  * Messages must contain a unique sequence number for which a predecessor and a  * successor is known. For example a message with the sequence number 3 has a  * predecessor message with the sequence number 2 and a successor message with  * the sequence number 4. The message sequence 2,3,5 has a gap because the  * sucessor of 3 is missing. The resequencer therefore has to retain message 5  * until message 4 arrives (or a timeout occurs).  *<p>  * Instances of this class poll for {@link Exchange}s from a given  *<code>endpoint</code>. Resequencing work and the delivery of messages to  * the next<code>processor</code> is done within the single polling thread.  *   * @version $Revision$  *   * @see ResequencerEngine  */
 end_comment
@@ -670,7 +686,12 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"Resequencer Delivery Thread"
+name|ExecutorServiceHelper
+operator|.
+name|getThreadName
+argument_list|(
+literal|"Resequencer Delivery"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

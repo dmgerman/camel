@@ -365,7 +365,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Sequiental processing failed for number 2 on the exchange: Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 2 on the exchange: Exchange[Message: Kaboom]"
 argument_list|,
 name|ee
 operator|.
@@ -498,7 +498,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Sequiental processing failed for number 3 on the exchange: Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 3 on the exchange: Exchange[Message: Kaboom]"
 argument_list|,
 name|ee
 operator|.
