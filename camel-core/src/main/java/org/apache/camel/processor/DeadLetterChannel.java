@@ -149,7 +149,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// just to let the stacktrace reveal that this is a dead letter channel
+comment|// just to let the stack trace reveal that this is a dead letter channel
 name|super
 operator|.
 name|process
@@ -173,7 +173,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if no output then dont do any description
+comment|// if no output then don't do any description
 return|return
 literal|""
 return|;

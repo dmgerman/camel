@@ -837,6 +837,26 @@ return|return
 name|deadLetter
 return|;
 block|}
+DECL|method|getDeadLetterUri ()
+specifier|public
+name|String
+name|getDeadLetterUri
+parameter_list|()
+block|{
+return|return
+name|deadLetterUri
+return|;
+block|}
+DECL|method|isUseOriginalMessagePolicy ()
+specifier|public
+name|boolean
+name|isUseOriginalMessagePolicy
+parameter_list|()
+block|{
+return|return
+name|useOriginalMessagePolicy
+return|;
+block|}
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
