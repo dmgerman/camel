@@ -997,7 +997,7 @@ argument_list|()
 expr_stmt|;
 name|builder
 operator|=
-name|builderRef
+name|ErrorHandlerBuilderRef
 operator|.
 name|lookupErrorHandlerBuilder
 argument_list|(
@@ -1045,7 +1045,7 @@ condition|)
 block|{
 name|builder
 operator|=
-name|builderRef
+name|ErrorHandlerBuilderRef
 operator|.
 name|lookupErrorHandlerBuilder
 argument_list|(
