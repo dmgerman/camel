@@ -694,9 +694,14 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|errorHandlerBuilder
-specifier|private
+specifier|protected
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
+decl_stmt|;
+DECL|field|errorHandlerRef
+specifier|protected
+name|String
+name|errorHandlerRef
 decl_stmt|;
 DECL|field|nodeFactory
 specifier|private
@@ -723,11 +728,6 @@ DECL|field|parent
 specifier|private
 name|ProcessorDefinition
 name|parent
-decl_stmt|;
-DECL|field|errorHandlerRef
-specifier|private
-name|String
-name|errorHandlerRef
 decl_stmt|;
 DECL|field|interceptStrategies
 specifier|private
@@ -4342,33 +4342,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
-specifier|public
-name|Type
-name|errorHandler
-parameter_list|(
-name|ErrorHandlerBuilder
-name|errorHandlerBuilder
-parameter_list|)
-block|{
-name|setErrorHandlerBuilder
-argument_list|(
-name|errorHandlerBuilder
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
@@ -6078,77 +6051,6 @@ operator|.
 name|errorHandlerBuilder
 operator|=
 name|errorHandlerBuilder
-expr_stmt|;
-block|}
-comment|/**      * Sets the error handler if one is not already set      */
-DECL|method|setErrorHandlerBuilderIfNull (ErrorHandlerBuilder errorHandlerBuilder)
-specifier|protected
-name|void
-name|setErrorHandlerBuilderIfNull
-parameter_list|(
-name|ErrorHandlerBuilder
-name|errorHandlerBuilder
-parameter_list|)
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|errorHandlerBuilder
-operator|==
-literal|null
-condition|)
-block|{
-name|setErrorHandlerBuilder
-argument_list|(
-name|errorHandlerBuilder
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-DECL|method|getErrorHandlerRef ()
-specifier|public
-name|String
-name|getErrorHandlerRef
-parameter_list|()
-block|{
-return|return
-name|errorHandlerRef
-return|;
-block|}
-comment|/**      * Sets the bean ref name of the error handler builder to use on this route      */
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
-DECL|method|setErrorHandlerRef (String errorHandlerRef)
-specifier|public
-name|void
-name|setErrorHandlerRef
-parameter_list|(
-name|String
-name|errorHandlerRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|errorHandlerRef
-operator|=
-name|errorHandlerRef
-expr_stmt|;
-comment|// we use an specific error handler ref (from Spring DSL) then wrap that
-comment|// with a error handler build ref so Camel knows its not just the default one
-name|setErrorHandlerBuilder
-argument_list|(
-operator|new
-name|ErrorHandlerBuilderRef
-argument_list|(
-name|errorHandlerRef
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
