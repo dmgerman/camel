@@ -921,6 +921,8 @@ literal|""
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|value
 operator|=
 name|format
@@ -930,6 +932,25 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parsing error detected for field defined at the position : "
+operator|+
+name|pos
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -1331,8 +1352,6 @@ name|key1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Get field value
-comment|//Object value = field.get(modelField);
 if|if
 condition|(
 name|value
@@ -1341,6 +1360,8 @@ literal|null
 condition|)
 block|{
 comment|// Format field value
+try|try
+block|{
 name|strValue
 operator|=
 name|format
@@ -1350,6 +1371,25 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Formating error detected for the value : "
+operator|+
+name|value
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// Add the content to the TreeMap according to the
 comment|// position defined
@@ -1398,6 +1438,8 @@ literal|null
 condition|)
 block|{
 comment|// Format field value
+try|try
+block|{
 name|strValue
 operator|=
 name|format
@@ -1407,6 +1449,25 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Formating error detected for the value : "
+operator|+
+name|value
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(

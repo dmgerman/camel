@@ -333,7 +333,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"1,B2,Keira,Knightley,ISIN,XX23456789,BUY,Share,450.45,EUR,14-01-2009\r\n"
+literal|"1,B2,Keira,Knightley,ISIN,XX23456789,BUY,Share,400.25,EUR,14-01-2009\r\n"
 decl_stmt|;
 annotation|@
 name|Produce
@@ -470,12 +470,7 @@ argument_list|(
 operator|new
 name|BigDecimal
 argument_list|(
-literal|"450.45"
-argument_list|)
-operator|.
-name|setScale
-argument_list|(
-literal|2
+literal|"400.25"
 argument_list|)
 argument_list|)
 expr_stmt|;
