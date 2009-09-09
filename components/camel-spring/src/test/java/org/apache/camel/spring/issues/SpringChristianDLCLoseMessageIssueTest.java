@@ -192,6 +192,14 @@ argument_list|,
 literal|"Kaboom"
 argument_list|)
 expr_stmt|;
+comment|// give seda a bit time to route the messages
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -269,6 +277,14 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Bye World"
+argument_list|)
+expr_stmt|;
+comment|// give seda a bit time to route the messages
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
