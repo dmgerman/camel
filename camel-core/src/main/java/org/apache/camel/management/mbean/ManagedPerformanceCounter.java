@@ -368,7 +368,7 @@ name|strategy
 operator|.
 name|createStatistic
 argument_list|(
-literal|"org.apache.camel.lasttExchangeFailureTime"
+literal|"org.apache.camel.lastExchangeFailureTime"
 argument_list|,
 name|this
 argument_list|,
