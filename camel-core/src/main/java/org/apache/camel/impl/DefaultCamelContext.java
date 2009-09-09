@@ -4578,6 +4578,42 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|doStartCamel
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// fire event that we failed to start
+name|EventHelper
+operator|.
+name|notifyCamelContextStartingFailedEvent
+argument_list|(
+name|this
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+comment|// rethrown cause
+throw|throw
+name|e
+throw|;
+block|}
+block|}
+DECL|method|doStartCamel ()
+specifier|private
+name|void
+name|doStartCamel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|startServices
 argument_list|(
 name|producerServicePool

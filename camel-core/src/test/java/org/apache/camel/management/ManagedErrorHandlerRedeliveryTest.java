@@ -32,6 +32,16 @@ name|javax
 operator|.
 name|management
 operator|.
+name|Attribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
 name|MBeanServer
 import|;
 end_import
@@ -48,11 +58,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|management
+name|apache
 operator|.
-name|Attribute
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -64,7 +76,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|CamelExecutionException
 import|;
 end_import
 
@@ -101,18 +113,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExecutionException
 import|;
 end_import
 

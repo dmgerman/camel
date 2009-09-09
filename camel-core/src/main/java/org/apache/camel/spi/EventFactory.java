@@ -84,6 +84,7 @@ specifier|public
 interface|interface
 name|EventFactory
 block|{
+comment|/**      * Creates an {@link EventObject} for Camel is starting.      *      * @param context camel context      * @return the created event      */
 DECL|method|createCamelContextStartingEvent (CamelContext context)
 name|EventObject
 name|createCamelContextStartingEvent
@@ -92,6 +93,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel has been started successfully.      *      * @param context camel context      * @return the created event      */
 DECL|method|createCamelContextStartedEvent (CamelContext context)
 name|EventObject
 name|createCamelContextStartedEvent
@@ -100,6 +102,19 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel failing to start      *      * @param context camel context      * @param cause the cause exception that prevents Camel from starting      * @return the created event      */
+DECL|method|createCamelContextStartingFailedEvent (CamelContext context, Exception cause)
+name|EventObject
+name|createCamelContextStartingFailedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Exception
+name|cause
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel is stopping.      *      * @param context camel context      * @return the created event      */
 DECL|method|createCamelContextStoppingEvent (CamelContext context)
 name|EventObject
 name|createCamelContextStoppingEvent
@@ -108,6 +123,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel has been stopped successfully.      *      * @param context camel context      * @return the created event      */
 DECL|method|createCamelContextStoppedEvent (CamelContext context)
 name|EventObject
 name|createCamelContextStoppedEvent
@@ -116,6 +132,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for {@link Route} has been started successfully.      *      * @param route the route      * @return the created event      */
 DECL|method|createRouteStartedEvent (Route route)
 name|EventObject
 name|createRouteStartedEvent
@@ -124,6 +141,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for {@link Route} has been stopped successfully.      *      * @param route the route      * @return the created event      */
 DECL|method|createRouteStoppedEvent (Route route)
 name|EventObject
 name|createRouteStoppedEvent
@@ -132,6 +150,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has been created      *      * @param exchange the exchange      * @return the created event      */
 DECL|method|createExchangeCreatedEvent (Exchange exchange)
 name|EventObject
 name|createExchangeCreatedEvent
@@ -140,6 +159,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has been completed successfully      *      * @param exchange the exchange      * @return the created event      */
 DECL|method|createExchangeCompletedEvent (Exchange exchange)
 name|EventObject
 name|createExchangeCompletedEvent
@@ -148,6 +168,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      *      * @param exchange the exchange      * @return the created event      */
 DECL|method|createExchangeFailedEvent (Exchange exchange)
 name|EventObject
 name|createExchangeFailedEvent
@@ -156,6 +177,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      * but was handled by the Camel error handlers such as an dead letter channel.      *      * @param exchange the exchange      * @param failureHandler the failure handler such as moving the message to a dead letter queue      * @param deadLetterChannel whether it was a dead letter channel or not handling the failure      * @return the created event      */
 DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
 name|EventObject
 name|createExchangeFailureHandledEvent

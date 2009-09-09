@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|RoutesBuilder
 block|{
-comment|/**      * Adds the routes from this Route Builder to the CamelContext.      *      * @param context the Camel context      */
+comment|/**      * Adds the routes from this Route Builder to the CamelContext.      *      * @param context the Camel context      * @throws Exception is thrown if initialization of routes failed      */
 DECL|method|addRoutesToCamelContext (CamelContext context)
 name|void
 name|addRoutesToCamelContext
