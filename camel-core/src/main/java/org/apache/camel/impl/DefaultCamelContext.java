@@ -4617,7 +4617,7 @@ block|{
 comment|// fire event that we failed to start
 name|EventHelper
 operator|.
-name|notifyCamelContextStartingFailed
+name|notifyCamelContextStartupFailed
 argument_list|(
 name|this
 argument_list|,

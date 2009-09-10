@@ -45,10 +45,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CamelContextStartingFailedEvent
+DECL|class|CamelContextStartupFailedEvent
 specifier|public
 class|class
-name|CamelContextStartingFailedEvent
+name|CamelContextStartupFailedEvent
 extends|extends
 name|EventObject
 block|{
@@ -62,9 +62,9 @@ specifier|private
 name|Exception
 name|cause
 decl_stmt|;
-DECL|method|CamelContextStartingFailedEvent (CamelContext context, Exception cause)
+DECL|method|CamelContextStartupFailedEvent (CamelContext context, Exception cause)
 specifier|public
-name|CamelContextStartingFailedEvent
+name|CamelContextStartupFailedEvent
 parameter_list|(
 name|CamelContext
 name|context

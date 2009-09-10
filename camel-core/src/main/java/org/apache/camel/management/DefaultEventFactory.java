@@ -118,7 +118,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|CamelContextStartingFailedEvent
+name|CamelContextStartupFailedEvent
 import|;
 end_import
 
@@ -360,10 +360,10 @@ name|context
 argument_list|)
 return|;
 block|}
-DECL|method|createCamelContextStartingFailedEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStartupFailedEvent (CamelContext context, Exception cause)
 specifier|public
 name|EventObject
-name|createCamelContextStartingFailedEvent
+name|createCamelContextStartupFailedEvent
 parameter_list|(
 name|CamelContext
 name|context
@@ -374,7 +374,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CamelContextStartingFailedEvent
+name|CamelContextStartupFailedEvent
 argument_list|(
 name|context
 argument_list|,

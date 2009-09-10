@@ -316,11 +316,11 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|notifyCamelContextStartingFailed (CamelContext context, Exception cause)
+DECL|method|notifyCamelContextStartupFailed (CamelContext context, Exception cause)
 specifier|public
 specifier|static
 name|void
-name|notifyCamelContextStartingFailed
+name|notifyCamelContextStartupFailed
 parameter_list|(
 name|CamelContext
 name|context
@@ -374,7 +374,7 @@ name|event
 init|=
 name|factory
 operator|.
-name|createCamelContextStartingFailedEvent
+name|createCamelContextStartupFailedEvent
 argument_list|(
 name|context
 argument_list|,

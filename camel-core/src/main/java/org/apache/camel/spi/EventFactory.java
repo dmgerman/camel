@@ -103,9 +103,9 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} for Camel failing to start      *      * @param context camel context      * @param cause the cause exception that prevents Camel from starting      * @return the created event      */
-DECL|method|createCamelContextStartingFailedEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStartupFailedEvent (CamelContext context, Exception cause)
 name|EventObject
-name|createCamelContextStartingFailedEvent
+name|createCamelContextStartupFailedEvent
 parameter_list|(
 name|CamelContext
 name|context
