@@ -5085,7 +5085,7 @@ expr_stmt|;
 comment|// fire event
 name|EventHelper
 operator|.
-name|notifyServiceStoppingFailed
+name|notifyServiceStopFailure
 argument_list|(
 name|this
 argument_list|,

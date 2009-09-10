@@ -45,10 +45,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ExchangeFailedEvent
+DECL|class|ExchangeFailureEvent
 specifier|public
 class|class
-name|ExchangeFailedEvent
+name|ExchangeFailureEvent
 extends|extends
 name|EventObject
 block|{
@@ -58,9 +58,9 @@ specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|method|ExchangeFailedEvent (Exchange source)
+DECL|method|ExchangeFailureEvent (Exchange source)
 specifier|public
-name|ExchangeFailedEvent
+name|ExchangeFailureEvent
 parameter_list|(
 name|Exchange
 name|source
@@ -97,7 +97,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Exchange failed: "
+literal|"Exchange failure: "
 operator|+
 name|exchange
 return|;

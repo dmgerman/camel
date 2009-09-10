@@ -118,7 +118,23 @@ name|management
 operator|.
 name|event
 operator|.
-name|CamelContextStartupFailedEvent
+name|CamelContextStartupFailureEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|event
+operator|.
+name|CamelContextStopFailureEvent
 import|;
 end_import
 
@@ -198,7 +214,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailedEvent
+name|ExchangeFailureEvent
 import|;
 end_import
 
@@ -262,7 +278,23 @@ name|management
 operator|.
 name|event
 operator|.
-name|ServiceStoppingFailedEvent
+name|ServiceStartupFailureEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|event
+operator|.
+name|ServiceStopFailureEvent
 import|;
 end_import
 
@@ -360,10 +392,10 @@ name|context
 argument_list|)
 return|;
 block|}
-DECL|method|createCamelContextStartupFailedEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Exception cause)
 specifier|public
 name|EventObject
-name|createCamelContextStartupFailedEvent
+name|createCamelContextStartupFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
@@ -374,7 +406,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CamelContextStartupFailedEvent
+name|CamelContextStartupFailureEvent
 argument_list|(
 name|context
 argument_list|,
@@ -382,10 +414,32 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|createServiceStoppingFailedEvent (CamelContext context, Object service, Exception cause)
+DECL|method|createCamelContextStopFailureEvent (CamelContext context, Exception cause)
 specifier|public
 name|EventObject
-name|createServiceStoppingFailedEvent
+name|createCamelContextStopFailureEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Exception
+name|cause
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CamelContextStopFailureEvent
+argument_list|(
+name|context
+argument_list|,
+name|cause
+argument_list|)
+return|;
+block|}
+DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Exception cause)
+specifier|public
+name|EventObject
+name|createServiceStartupFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
@@ -399,7 +453,34 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ServiceStoppingFailedEvent
+name|ServiceStartupFailureEvent
+argument_list|(
+name|context
+argument_list|,
+name|service
+argument_list|,
+name|cause
+argument_list|)
+return|;
+block|}
+DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Exception cause)
+specifier|public
+name|EventObject
+name|createServiceStopFailureEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Object
+name|service
+parameter_list|,
+name|Exception
+name|cause
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ServiceStopFailureEvent
 argument_list|(
 name|context
 argument_list|,
@@ -488,7 +569,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ExchangeFailedEvent
+name|ExchangeFailureEvent
 argument_list|(
 name|exchange
 argument_list|)

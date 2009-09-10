@@ -45,10 +45,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CamelContextStartupFailedEvent
+DECL|class|CamelContextStopFailureEvent
 specifier|public
 class|class
-name|CamelContextStartupFailedEvent
+name|CamelContextStopFailureEvent
 extends|extends
 name|EventObject
 block|{
@@ -62,9 +62,9 @@ specifier|private
 name|Exception
 name|cause
 decl_stmt|;
-DECL|method|CamelContextStartupFailedEvent (CamelContext context, Exception cause)
+DECL|method|CamelContextStopFailureEvent (CamelContext context, Exception cause)
 specifier|public
-name|CamelContextStartupFailedEvent
+name|CamelContextStopFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
@@ -120,14 +120,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Starting CamelContext: "
+literal|"Failed to stop Camel: "
 operator|+
 name|context
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" failed due to "
+literal|" due to "
 operator|+
 name|cause
 operator|.

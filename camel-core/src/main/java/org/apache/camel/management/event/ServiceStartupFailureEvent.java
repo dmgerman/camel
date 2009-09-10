@@ -45,10 +45,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ServiceStoppingFailedEvent
+DECL|class|ServiceStartupFailureEvent
 specifier|public
 class|class
-name|ServiceStoppingFailedEvent
+name|ServiceStartupFailureEvent
 extends|extends
 name|EventObject
 block|{
@@ -67,9 +67,9 @@ specifier|private
 name|Exception
 name|cause
 decl_stmt|;
-DECL|method|ServiceStoppingFailedEvent (CamelContext context, Object service, Exception cause)
+DECL|method|ServiceStartupFailureEvent (CamelContext context, Object service, Exception cause)
 specifier|public
-name|ServiceStoppingFailedEvent
+name|ServiceStartupFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
@@ -144,11 +144,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Stopping service: "
+literal|"Failure to start service: "
 operator|+
 name|service
 operator|+
-literal|" failed due to "
+literal|" due to "
 operator|+
 name|cause
 operator|.

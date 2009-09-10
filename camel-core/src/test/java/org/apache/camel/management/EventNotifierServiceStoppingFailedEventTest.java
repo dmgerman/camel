@@ -158,7 +158,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ServiceStoppingFailedEvent
+name|ServiceStopFailureEvent
 import|;
 end_import
 
@@ -412,12 +412,12 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ServiceStoppingFailedEvent
+name|ServiceStopFailureEvent
 name|event
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|ServiceStoppingFailedEvent
+name|ServiceStopFailureEvent
 operator|.
 name|class
 argument_list|,
@@ -458,7 +458,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Stopping service: B failed due to Fail B"
+literal|"Failure to stop service: B due to Fail B"
 argument_list|,
 name|event
 operator|.
