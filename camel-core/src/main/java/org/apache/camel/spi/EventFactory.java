@@ -132,6 +132,21 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for a Service failed to stop with success      *      * @param context camel context      * @param service the service      * @param cause the cause exception that prevents Camel from starting      * @return the created event      */
+DECL|method|createServiceStoppingFailedEvent (CamelContext context, Object service, Exception cause)
+name|EventObject
+name|createServiceStoppingFailedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Object
+name|service
+parameter_list|,
+name|Exception
+name|cause
+parameter_list|)
+function_decl|;
 comment|/**      * Creates an {@link EventObject} for {@link Route} has been started successfully.      *      * @param route the route      * @return the created event      */
 DECL|method|createRouteStartedEvent (Route route)
 name|EventObject

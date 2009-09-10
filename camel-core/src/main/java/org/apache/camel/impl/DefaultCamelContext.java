@@ -4617,7 +4617,7 @@ block|{
 comment|// fire event that we failed to start
 name|EventHelper
 operator|.
-name|notifyCamelContextStartingFailedEvent
+name|notifyCamelContextStartingFailed
 argument_list|(
 name|this
 argument_list|,
@@ -4782,6 +4782,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// start management strategy before lifecycles are started
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Iterator
 argument_list|<
 name|LifecycleStrategy
@@ -5004,6 +5011,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// stop management as the last one
+name|stopServices
+argument_list|(
+name|getManagementStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextStopped
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -5021,13 +5042,6 @@ operator|+
 literal|") stopped"
 argument_list|)
 expr_stmt|;
-name|EventHelper
-operator|.
-name|notifyCamelContextStopped
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|stopServices (Object service)
 specifier|private
@@ -5041,6 +5055,8 @@ throws|throws
 name|Exception
 block|{
 comment|// allow us to do custom work before delegating to service helper
+try|try
+block|{
 name|ServiceHelper
 operator|.
 name|stopService
@@ -5048,6 +5064,37 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred while stopping service: "
+operator|+
+name|service
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyServiceStoppingFailed
+argument_list|(
+name|this
+argument_list|,
+name|service
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|SuppressWarnings

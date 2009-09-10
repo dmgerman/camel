@@ -869,15 +869,6 @@ name|initialized
 operator|=
 literal|true
 expr_stmt|;
-comment|// call addService so that context will handle lifecycle on the strategy
-name|context
-operator|.
-name|addService
-argument_list|(
-name|getStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ManagedCamelContext
 name|mc
 init|=
@@ -887,7 +878,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -946,7 +937,7 @@ decl_stmt|;
 comment|// the context could have been removed already
 if|if
 condition|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|isManaged
@@ -957,7 +948,7 @@ name|mc
 argument_list|)
 condition|)
 block|{
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|unmanageObject
@@ -1017,7 +1008,7 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -1076,7 +1067,7 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|unmanageObject
@@ -1187,7 +1178,7 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -1246,7 +1237,7 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|unmanageObject
@@ -1393,7 +1384,7 @@ block|}
 comment|// skip already managed services, for example if a route has been restarted
 if|if
 condition|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|isManaged
@@ -1426,7 +1417,7 @@ return|return;
 block|}
 try|try
 block|{
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -1501,7 +1492,7 @@ condition|)
 block|{
 try|try
 block|{
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|unmanageObject
@@ -2000,7 +1991,7 @@ init|=
 operator|new
 name|ManagedRoute
 argument_list|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 argument_list|,
 name|context
@@ -2011,7 +2002,7 @@ decl_stmt|;
 comment|// skip already managed routes, for example if the route has been restarted
 if|if
 condition|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|isManaged
@@ -2093,7 +2084,7 @@ block|}
 block|}
 try|try
 block|{
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -2191,7 +2182,7 @@ decl_stmt|;
 comment|// skip already managed services, for example if a route has been restarted
 if|if
 condition|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|isManaged
@@ -2224,7 +2215,7 @@ return|return;
 block|}
 try|try
 block|{
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageObject
@@ -2417,7 +2408,7 @@ init|=
 operator|new
 name|ManagedPerformanceCounter
 argument_list|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2530,7 +2521,7 @@ block|}
 comment|// only if custom id assigned
 if|if
 condition|(
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|isOnlyManageProcessorWithCustomId
@@ -2546,7 +2537,7 @@ return|;
 block|}
 comment|// use customer filter
 return|return
-name|getStrategy
+name|getManagementStrategy
 argument_list|()
 operator|.
 name|manageProcessor
@@ -2555,10 +2546,10 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|getStrategy ()
+DECL|method|getManagementStrategy ()
 specifier|private
 name|ManagementStrategy
-name|getStrategy
+name|getManagementStrategy
 parameter_list|()
 block|{
 return|return
