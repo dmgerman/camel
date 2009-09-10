@@ -230,6 +230,8 @@ name|String
 modifier|...
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Main
 name|main

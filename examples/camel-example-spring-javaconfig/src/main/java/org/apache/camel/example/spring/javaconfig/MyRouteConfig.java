@@ -156,7 +156,7 @@ name|MyRouteConfig
 extends|extends
 name|SingleRouteCamelConfiguration
 block|{
-comment|/**      * Allow this route to be run as an application      *      * @param args      */
+comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception       */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -167,6 +167,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 operator|new
 name|Main
