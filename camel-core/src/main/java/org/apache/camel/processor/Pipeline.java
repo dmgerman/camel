@@ -522,7 +522,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing compelete for exchangeId: "
+literal|"Processing complete for exchangeId: "
 operator|+
 name|exchange
 operator|.

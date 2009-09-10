@@ -693,6 +693,8 @@ specifier|public
 name|void
 name|run
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -703,11 +705,13 @@ name|get
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
+comment|// if we have an issue starting the propagate exception to caller
 name|start
 argument_list|()
 expr_stmt|;
+try|try
+block|{
+comment|// while running then just log errors
 name|waitUntilCompleted
 argument_list|()
 expr_stmt|;
@@ -1248,6 +1252,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|parseArguments
 argument_list|(

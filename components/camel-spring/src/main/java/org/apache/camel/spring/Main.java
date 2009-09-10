@@ -400,7 +400,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recieved hang up - stopping the main instance."
+literal|"Received hang up - stopping the main instance."
 argument_list|)
 expr_stmt|;
 try|try
@@ -437,6 +437,8 @@ name|String
 modifier|...
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Main
 name|main

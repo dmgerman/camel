@@ -550,7 +550,7 @@ return|;
 block|}
 comment|/**      * Helper methods so the service knows if it should keep running.      * Returns false if the service is being stopped or is stopped.      *      * @return true if the service should continue to run.      */
 DECL|method|isRunAllowed ()
-specifier|protected
+specifier|public
 name|boolean
 name|isRunAllowed
 parameter_list|()

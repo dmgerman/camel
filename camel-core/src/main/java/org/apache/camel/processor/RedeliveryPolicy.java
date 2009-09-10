@@ -380,7 +380,7 @@ name|getMaximumRedeliveries
 argument_list|()
 return|;
 block|}
-comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      *      * @param redeliveryDelay  previous redelivery delay      * @param redeliveryCounter  number of previous redelivery attempts      * @return the calculate delay      * @throws InterruptedException is thrown if the sleep is interruped likely because of shutdown      */
+comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      *      * @param redeliveryDelay  previous redelivery delay      * @param redeliveryCounter  number of previous redelivery attempts      * @return the calculate delay      * @throws InterruptedException is thrown if the sleep is interrupted likely because of shutdown      */
 DECL|method|sleep (long redeliveryDelay, int redeliveryCounter)
 specifier|public
 name|long
