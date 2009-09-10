@@ -259,7 +259,8 @@ argument_list|,
 literal|"pattern"
 argument_list|)
 expr_stmt|;
-comment|// Force the parser to be strict in the syntax of the date to be converted
+comment|// Force the parser to be strict in the syntax of the date to be
+comment|// converted
 name|df
 operator|.
 name|setLenient

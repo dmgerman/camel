@@ -1427,8 +1427,8 @@ block|}
 else|else
 block|{
 comment|// Get field value
-comment|//Object value = field.get(modelField);
-comment|//String strValue = null;
+comment|// Object value = field.get(modelField);
+comment|// String strValue = null;
 comment|// Add value to the list if not null
 if|if
 condition|(
