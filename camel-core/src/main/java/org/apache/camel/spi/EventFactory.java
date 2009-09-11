@@ -211,9 +211,9 @@ name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      *      * @param exchange the exchange      * @return the created event      */
-DECL|method|createExchangeFailedEvent (Exchange exchange)
+DECL|method|createExchangeFailureEvent (Exchange exchange)
 name|EventObject
-name|createExchangeFailedEvent
+name|createExchangeFailureEvent
 parameter_list|(
 name|Exchange
 name|exchange

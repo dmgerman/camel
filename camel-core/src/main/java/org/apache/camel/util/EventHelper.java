@@ -1186,7 +1186,7 @@ name|event
 init|=
 name|factory
 operator|.
-name|createExchangeFailedEvent
+name|createExchangeFailureEvent
 argument_list|(
 name|exchange
 argument_list|)

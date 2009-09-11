@@ -558,10 +558,10 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createExchangeFailedEvent (Exchange exchange)
+DECL|method|createExchangeFailureEvent (Exchange exchange)
 specifier|public
 name|EventObject
-name|createExchangeFailedEvent
+name|createExchangeFailureEvent
 parameter_list|(
 name|Exchange
 name|exchange

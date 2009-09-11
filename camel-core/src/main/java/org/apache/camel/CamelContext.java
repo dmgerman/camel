@@ -942,11 +942,13 @@ name|void
 name|disableJMX
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the inflight repository      *      * @return the repository      */
 DECL|method|getInflightRepository ()
 name|InflightRepository
 name|getInflightRepository
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a custom inflight repository to use      *      * @param repository the repository      */
 DECL|method|setInflightRepository (InflightRepository repository)
 name|void
 name|setInflightRepository
