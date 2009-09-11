@@ -550,11 +550,21 @@ name|getSkipFirstLine
 argument_list|()
 condition|)
 block|{
+comment|// Check if scanner is empty
+if|if
+condition|(
+name|scanner
+operator|.
+name|hasNextLine
+argument_list|()
+condition|)
+block|{
 name|scanner
 operator|.
 name|nextLine
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 while|while
 condition|(
