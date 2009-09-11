@@ -837,7 +837,7 @@ name|getAttribute
 argument_list|(
 name|pcob
 argument_list|,
-literal|"FirstExchangeCompletedTime"
+literal|"FirstExchangeCompletedTimestamp"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -851,7 +851,7 @@ name|getAttribute
 argument_list|(
 name|pcob
 argument_list|,
-literal|"LastExchangeCompletedTime"
+literal|"LastExchangeCompletedTimestamp"
 argument_list|)
 argument_list|)
 expr_stmt|;
