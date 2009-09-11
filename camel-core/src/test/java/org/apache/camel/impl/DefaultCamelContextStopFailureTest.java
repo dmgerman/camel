@@ -158,6 +158,7 @@ expr_stmt|;
 block|}
 DECL|class|MyService
 specifier|private
+specifier|final
 class|class
 name|MyService
 implements|implements
