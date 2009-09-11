@@ -102,18 +102,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|jar
-operator|.
-name|JarException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -181,6 +169,24 @@ operator|.
 name|annotation
 operator|.
 name|Section
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|format
+operator|.
+name|FormatException
 import|;
 end_import
 
@@ -702,7 +708,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|bind (List<String> tokens, Map<String, Object> model)
+DECL|method|bind (List<String> tokens, Map<String, Object> model, int line)
 specifier|public
 name|void
 name|bind
@@ -720,6 +726,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 throws|throws
 name|Exception
@@ -766,6 +775,10 @@ operator|+
 literal|" defined for the field : "
 operator|+
 name|data
+operator|+
+literal|", line nber : "
+operator|+
+name|line
 argument_list|)
 expr_stmt|;
 if|if
@@ -800,7 +813,9 @@ literal|"The mandatory field defined at the position "
 operator|+
 name|pos
 operator|+
-literal|" is empty !"
+literal|" is empty for the line nber : "
+operator|+
+name|line
 argument_list|)
 throw|;
 block|}
@@ -935,6 +950,33 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|FormatException
+name|ie
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|ie
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|", position : "
+operator|+
+name|pos
+operator|+
+literal|", line nber : "
+operator|+
+name|line
+argument_list|,
+name|ie
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|e
 parameter_list|)
@@ -946,6 +988,10 @@ argument_list|(
 literal|"Parsing error detected for field defined at the position : "
 operator|+
 name|pos
+operator|+
+literal|", line nber : "
+operator|+
+name|line
 argument_list|,
 name|e
 argument_list|)
@@ -1007,7 +1053,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some fields are missing (optional or mandatory) !!"
+literal|"Some fields are missing (optional or mandatory), line nber : "
+operator|+
+name|line
 argument_list|)
 throw|;
 block|}
@@ -1022,7 +1070,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some mandatory fields are missing !!"
+literal|"Some mandatory fields are missing, line nber : "
+operator|+
+name|line
 argument_list|)
 throw|;
 block|}

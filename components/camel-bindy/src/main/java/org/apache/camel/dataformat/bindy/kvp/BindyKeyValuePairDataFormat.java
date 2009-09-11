@@ -559,29 +559,10 @@ block|{
 comment|// skip if line is empty
 continue|continue;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Counter "
-operator|+
+comment|// Increment counter
 name|count
 operator|++
-operator|+
-literal|" : content : "
-operator|+
-name|line
-argument_list|)
 expr_stmt|;
-block|}
 comment|// Create POJO
 name|model
 operator|=
@@ -610,6 +591,43 @@ name|separator
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|result
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+operator|||
+name|result
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|java
+operator|.
+name|lang
+operator|.
+name|IllegalArgumentException
+argument_list|(
+literal|"No records have been defined in the KVP !"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|result
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 comment|// Bind data from message with model classes
 name|factory
 operator|.
@@ -618,6 +636,8 @@ argument_list|(
 name|result
 argument_list|,
 name|model
+argument_list|,
+name|count
 argument_list|)
 expr_stmt|;
 comment|// Link objects together
@@ -655,9 +675,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// Test if models list is empty or not
+comment|// If this is the case (correspond to an empty stream, ...)
+if|if
+condition|(
+name|models
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|java
+operator|.
+name|lang
+operator|.
+name|IllegalArgumentException
+argument_list|(
+literal|"No records have been defined in the KVP !"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 return|return
 name|models
 return|;
+block|}
 block|}
 finally|finally
 block|{

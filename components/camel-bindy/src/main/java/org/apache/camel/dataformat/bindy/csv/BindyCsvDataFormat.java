@@ -589,29 +589,10 @@ block|{
 comment|// skip if line is empty
 continue|continue;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Counter "
-operator|+
+comment|// Increment counter
 name|count
 operator|++
-operator|+
-literal|" : content : "
-operator|+
-name|line
-argument_list|)
 expr_stmt|;
-block|}
 comment|// Create POJO where CSV data will be stored
 name|model
 operator|=
@@ -715,6 +696,8 @@ argument_list|(
 name|result
 argument_list|,
 name|model
+argument_list|,
+name|count
 argument_list|)
 expr_stmt|;
 comment|// Link objects together

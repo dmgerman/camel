@@ -593,7 +593,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|bind (List<String> data, Map<String, Object> model)
+DECL|method|bind (List<String> data, Map<String, Object> model, int line)
 specifier|public
 name|void
 name|bind
@@ -611,6 +611,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 throws|throws
 name|Exception
@@ -758,6 +761,10 @@ argument_list|,
 literal|"No tag defined for the field : "
 operator|+
 name|tag
+operator|+
+literal|", line nber : "
+operator|+
+name|line
 argument_list|)
 expr_stmt|;
 name|Field
@@ -887,6 +894,10 @@ argument_list|(
 literal|"Parsing error detected for field defined at the tag : "
 operator|+
 name|tag
+operator|+
+literal|", line nber : "
+operator|+
+name|line
 argument_list|,
 name|e
 argument_list|)

@@ -237,17 +237,6 @@ operator|.
 name|getDateFormat
 argument_list|()
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Pattern : "
-operator|+
-name|this
-operator|.
-name|pattern
-argument_list|)
-expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -259,6 +248,24 @@ argument_list|,
 literal|"pattern"
 argument_list|)
 expr_stmt|;
+comment|// Check length of the string with date pattern
+comment|// To avoid to parse a string date : 20090901-10:32:30 when
+comment|// the pattern is yyyyMMdd
+if|if
+condition|(
+name|string
+operator|.
+name|length
+argument_list|()
+operator|<=
+name|this
+operator|.
+name|pattern
+operator|.
+name|length
+argument_list|()
+condition|)
+block|{
 comment|// Force the parser to be strict in the syntax of the date to be
 comment|// converted
 name|df
@@ -280,6 +287,17 @@ expr_stmt|;
 return|return
 name|date
 return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|FormatException
+argument_list|(
+literal|"Date provided does not fit the pattern defined"
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getDateFormat ()
 specifier|protected

@@ -710,7 +710,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|bind (List<String> data, Map<String, Object> model)
+DECL|method|bind (List<String> data, Map<String, Object> model, int line)
 specifier|public
 specifier|abstract
 name|void
@@ -729,6 +729,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 throws|throws
 name|Exception

@@ -56,8 +56,8 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * The bind allow to read the content of a record (expressed as a      * List<String>) and map it to the model classes.      *       * @param data List<String> represents the csv, ... data to transform      * @param model Map<String, object> is a collection of objects used to bind      *            data. String is the the key name of the class link to POJO      *            objects      * @throws Exception can be thrown      */
-DECL|method|bind (List<String> data, Map<String, Object> model)
+comment|/**      * The bind allow to read the content of a record (expressed as a      * List<String>) and map it to the model classes.      *       * @param data List<String> represents the csv, ... data to transform      * @param model Map<String, object> is a collection of objects used to bind      *            data. String is the the key name of the class link to POJO      *            objects      * @param line is the position of the record into the file                 * @throws Exception can be thrown      */
+DECL|method|bind (List<String> data, Map<String, Object> model, int line)
 name|void
 name|bind
 parameter_list|(
@@ -74,6 +74,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 throws|throws
 name|Exception
