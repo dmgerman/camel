@@ -802,6 +802,16 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|camelContext
+operator|.
+name|getRegistry
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// lookup in registry
 name|Map
 argument_list|<
@@ -847,7 +857,13 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+block|}
+if|if
+condition|(
+name|tracer
+operator|==
+literal|null
+condition|)
 block|{
 comment|// fallback to use the default tracer
 name|tracer
