@@ -395,6 +395,31 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// register to inflight registry
+if|if
+condition|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|start ()
 specifier|public
@@ -680,6 +705,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// unregister from inflight registry
+if|if
+condition|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|getId ()

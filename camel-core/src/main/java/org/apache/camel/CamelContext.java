@@ -164,6 +164,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|InflightRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Injector
 import|;
 end_import
@@ -927,6 +941,19 @@ DECL|method|disableJMX ()
 name|void
 name|disableJMX
 parameter_list|()
+function_decl|;
+DECL|method|getInflightRepository ()
+name|InflightRepository
+name|getInflightRepository
+parameter_list|()
+function_decl|;
+DECL|method|setInflightRepository (InflightRepository repository)
+name|void
+name|setInflightRepository
+parameter_list|(
+name|InflightRepository
+name|repository
+parameter_list|)
 function_decl|;
 block|}
 end_interface

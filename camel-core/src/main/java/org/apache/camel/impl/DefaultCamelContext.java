@@ -610,6 +610,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|InflightRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Injector
 import|;
 end_import
@@ -1334,6 +1348,15 @@ DECL|field|defaultTracer
 specifier|private
 name|Tracer
 name|defaultTracer
+decl_stmt|;
+DECL|field|inflightRepository
+specifier|private
+name|InflightRepository
+name|inflightRepository
+init|=
+operator|new
+name|DefaultInflightRepository
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -5959,6 +5982,32 @@ block|{
 name|disableJMX
 operator|=
 literal|true
+expr_stmt|;
+block|}
+DECL|method|getInflightRepository ()
+specifier|public
+name|InflightRepository
+name|getInflightRepository
+parameter_list|()
+block|{
+return|return
+name|inflightRepository
+return|;
+block|}
+DECL|method|setInflightRepository (InflightRepository repository)
+specifier|public
+name|void
+name|setInflightRepository
+parameter_list|(
+name|InflightRepository
+name|repository
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inflightRepository
+operator|=
+name|repository
 expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)

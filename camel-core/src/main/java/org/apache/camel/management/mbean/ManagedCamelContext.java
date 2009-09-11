@@ -327,6 +327,29 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current number of inflight Exchanges"
+argument_list|)
+DECL|method|getInflightExchanges ()
+specifier|public
+name|Integer
+name|getInflightExchanges
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
