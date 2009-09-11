@@ -329,6 +329,16 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
+DECL|field|bridgeEndpoint
+specifier|private
+name|boolean
+name|bridgeEndpoint
+decl_stmt|;
+DECL|field|matchOnUriPrefix
+specifier|private
+name|boolean
+name|matchOnUriPrefix
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1012,6 +1022,58 @@ operator|.
 name|throwExceptionOnFailure
 operator|=
 name|throwExceptionOnFailure
+expr_stmt|;
+block|}
+DECL|method|isBridgeEndpoint ()
+specifier|public
+name|boolean
+name|isBridgeEndpoint
+parameter_list|()
+block|{
+return|return
+name|bridgeEndpoint
+return|;
+block|}
+DECL|method|setBridgeEndpoint (boolean bridge)
+specifier|public
+name|void
+name|setBridgeEndpoint
+parameter_list|(
+name|boolean
+name|bridge
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeEndpoint
+operator|=
+name|bridge
+expr_stmt|;
+block|}
+DECL|method|isMatchOnUriPrefix ()
+specifier|public
+name|boolean
+name|isMatchOnUriPrefix
+parameter_list|()
+block|{
+return|return
+name|matchOnUriPrefix
+return|;
+block|}
+DECL|method|setMatchOnUriPrefix (boolean match)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|match
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|match
 expr_stmt|;
 block|}
 block|}

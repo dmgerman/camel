@@ -172,20 +172,6 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
-DECL|method|CamelContinuationServlet (boolean matchOnUriPrefix)
-specifier|public
-name|CamelContinuationServlet
-parameter_list|(
-name|boolean
-name|matchOnUriPrefix
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|matchOnUriPrefix
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|service (HttpServletRequest request, HttpServletResponse response)

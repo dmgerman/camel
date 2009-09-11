@@ -365,7 +365,7 @@ expr_stmt|;
 comment|// START SNIPPET: route
 name|from
 argument_list|(
-literal|"servlet:///hello"
+literal|"servlet:///hello?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|process

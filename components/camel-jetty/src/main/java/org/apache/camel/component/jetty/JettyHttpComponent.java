@@ -1482,10 +1482,7 @@ name|camelServlet
 init|=
 operator|new
 name|CamelServlet
-argument_list|(
-name|isMatchOnUriPrefix
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Context
 name|context

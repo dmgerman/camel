@@ -198,17 +198,6 @@ specifier|private
 name|AbstractApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|CamelHttpTransportServlet ()
-specifier|public
-name|CamelHttpTransportServlet
-parameter_list|()
-block|{
-name|super
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|init (ServletConfig config)
 specifier|public
 name|void
@@ -233,28 +222,6 @@ name|config
 operator|.
 name|getServletName
 argument_list|()
-expr_stmt|;
-name|String
-name|matchOnUriPrefix
-init|=
-name|config
-operator|.
-name|getInitParameter
-argument_list|(
-literal|"matchOnUriPrefix"
-argument_list|)
-decl_stmt|;
-name|this
-operator|.
-name|setMatchOnUriPrefix
-argument_list|(
-name|Boolean
-operator|.
-name|valueOf
-argument_list|(
-name|matchOnUriPrefix
-argument_list|)
-argument_list|)
 expr_stmt|;
 comment|// parser the servlet init parameters
 name|CAMEL_SERVLET_MAP

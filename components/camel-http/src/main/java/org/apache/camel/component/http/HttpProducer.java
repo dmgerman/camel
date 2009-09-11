@@ -1121,7 +1121,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// is a query string provided in the endpoint URI or in a header (header overrules endpoint)
+comment|// is a query string provided in the endpoint URI or in a header (header
+comment|// overrules endpoint)
 name|String
 name|queryString
 init|=
@@ -1246,6 +1247,25 @@ block|}
 name|String
 name|uri
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+operator|(
+name|HttpEndpoint
+operator|)
+name|getEndpoint
+argument_list|()
+operator|)
+operator|.
+name|isBridgeEndpoint
+argument_list|()
+condition|)
+block|{
+name|uri
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1261,7 +1281,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|uri
@@ -1287,6 +1308,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// append HTTP_PATH to HTTP_URI if it is provided in the header
+comment|// when the endpoint is not working as a bridge
 name|String
 name|path
 init|=
@@ -1313,7 +1335,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// make sure that there is exactly one "/" between HTTP_URI and HTTP_PATH
+comment|// make sure that there is exactly one "/" between HTTP_URI and
+comment|// HTTP_PATH
 if|if
 condition|(
 operator|!
