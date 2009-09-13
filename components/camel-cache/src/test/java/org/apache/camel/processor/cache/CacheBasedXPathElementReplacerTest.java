@@ -243,9 +243,9 @@ specifier|protected
 name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
-DECL|field|XML_FRAGMENT
+DECL|field|xmlFragment
 name|String
-name|XML_FRAGMENT
+name|xmlFragment
 init|=
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
 operator|+
@@ -454,7 +454,7 @@ name|in
 operator|.
 name|setBody
 argument_list|(
-name|XML_FRAGMENT
+name|xmlFragment
 argument_list|)
 expr_stmt|;
 block|}
@@ -642,7 +642,7 @@ name|info
 argument_list|(
 literal|"Before Value = "
 operator|+
-name|XML_FRAGMENT
+name|xmlFragment
 argument_list|)
 expr_stmt|;
 name|LOG
