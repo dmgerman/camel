@@ -159,9 +159,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// filter headers begin with "Camel" or "org.apache.camel"
+comment|// must ignore case for Http based transports
 name|setOutFilterPattern
 argument_list|(
-literal|"(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
+literal|"(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
 argument_list|)
 expr_stmt|;
 block|}
