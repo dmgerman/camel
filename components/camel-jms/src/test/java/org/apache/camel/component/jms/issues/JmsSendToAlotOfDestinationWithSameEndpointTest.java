@@ -222,13 +222,6 @@ block|{
 comment|// use the same endpoint but provide a header with the dynamic queue we send to
 comment|// this allows us to reuse endpoints and not create a new endpoint for each and every jms queue
 comment|// we send to
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|50
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|i

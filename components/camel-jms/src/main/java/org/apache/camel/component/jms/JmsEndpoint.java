@@ -1400,6 +1400,8 @@ operator|=
 name|selector
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -1407,7 +1409,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getRequestor ()
