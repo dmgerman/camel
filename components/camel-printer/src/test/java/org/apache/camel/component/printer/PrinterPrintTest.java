@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -110,13 +98,39 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|PrinterPrintTest
 specifier|public
 class|class
 name|PrinterPrintTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -129,6 +143,43 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+comment|// Check if there is an awt library
+DECL|method|isAwtHeadless ()
+specifier|private
+name|boolean
+name|isAwtHeadless
+parameter_list|()
+block|{
+if|if
+condition|(
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"java.awt.headless"
+argument_list|)
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Running headless. Skipping test as Images may not work."
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|method|sendFile ()
 specifier|private
@@ -517,6 +568,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingFileToPrinter ()
 specifier|public
 name|void
@@ -525,6 +578,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isAwtHeadless
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes
@@ -561,6 +622,8 @@ name|sendFile
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingGIFToPrinter ()
 specifier|public
 name|void
@@ -569,6 +632,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isAwtHeadless
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes
@@ -605,6 +676,8 @@ name|sendGIF
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingJPEGToPrinter ()
 specifier|public
 name|void
@@ -613,6 +686,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isAwtHeadless
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes
