@@ -251,7 +251,7 @@ name|void
 name|testGetConstumerWithClientProxyAPI
 parameter_list|()
 block|{
-comment|// START SNIPPET: example
+comment|// START SNIPPET: ProxyExample
 name|Exchange
 name|exchange
 init|=
@@ -382,7 +382,7 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: example
+comment|// END SNIPPET: ProxyExample
 block|}
 annotation|@
 name|Test
@@ -392,7 +392,7 @@ name|void
 name|testGetConstumerWithHttpCentralClientAPI
 parameter_list|()
 block|{
-comment|// START SNIPPET: example-http
+comment|// START SNIPPET: HttpExample
 name|Exchange
 name|exchange
 init|=
@@ -548,7 +548,7 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: example-http
+comment|// END SNIPPET: HttpExample
 block|}
 annotation|@
 name|Test
@@ -708,6 +708,7 @@ name|void
 name|testProducerWithQueryParameters
 parameter_list|()
 block|{
+comment|// START SNIPPET: QueryExample
 name|Exchange
 name|exchange
 init|=
@@ -716,6 +717,7 @@ operator|.
 name|send
 argument_list|(
 literal|"cxfrs://http://localhost:9003/testQuery?httpClientAPI=true&q1=12&q2=13"
+comment|// END SNIPPET: QueryExample
 argument_list|,
 operator|new
 name|Processor
