@@ -84,6 +84,21 @@ name|Long
 name|getDelayer
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether it should automatic start when Camel starts.      *<p/>      * Currently only routes can be disabled, as {@link CamelContext} itself are always started}      *<br/>      * Default is true to always startup.      *      * @param autoStartup  whether to auto startup.      */
+DECL|method|setAutoStartup (Boolean autoStartup)
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether it should automatic start when Camel starts.      *      * @return true if should auto start      */
+DECL|method|isAutoStartup ()
+name|boolean
+name|isAutoStartup
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

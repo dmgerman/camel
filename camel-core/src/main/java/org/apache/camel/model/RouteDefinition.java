@@ -450,6 +450,15 @@ specifier|private
 name|Long
 name|delayer
 decl_stmt|;
+DECL|field|autoStartup
+specifier|private
+name|Boolean
+name|autoStartup
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -1102,6 +1111,24 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Disables this route from being auto started when Camel starts.      */
+DECL|method|noAutoStartup ()
+specifier|public
+name|RouteDefinition
+name|noAutoStartup
+parameter_list|()
+block|{
+name|setAutoStartup
+argument_list|(
+name|Boolean
+operator|.
+name|FALSE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -1363,14 +1390,37 @@ operator|=
 name|delayer
 expr_stmt|;
 block|}
+DECL|method|isAutoStartup ()
+specifier|public
+name|Boolean
+name|isAutoStartup
+parameter_list|()
+block|{
+return|return
+name|autoStartup
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setAutoStartup (Boolean autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
+expr_stmt|;
+block|}
 comment|/**      * Sets the bean ref name of the error handler builder to use on this route      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|method|setErrorHandlerRef (String errorHandlerRef)
 specifier|public
 name|void
@@ -1726,6 +1776,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+comment|// configure auto startup
+if|if
+condition|(
+name|autoStartup
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeContext
+operator|.
+name|setAutoStartup
+argument_list|(
+name|isAutoStartup
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// should inherit the intercept strategies we have defined
 name|routeContext

@@ -345,6 +345,15 @@ specifier|private
 name|Long
 name|delay
 decl_stmt|;
+DECL|field|autoStartup
+specifier|private
+name|Boolean
+name|autoStartup
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|method|DefaultRouteContext (RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
 name|DefaultRouteContext
@@ -1157,6 +1166,44 @@ name|getDelayer
 argument_list|()
 return|;
 block|}
+block|}
+DECL|method|setAutoStartup (Boolean autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
+expr_stmt|;
+block|}
+DECL|method|isAutoStartup ()
+specifier|public
+name|boolean
+name|isAutoStartup
+parameter_list|()
+block|{
+if|if
+condition|(
+name|autoStartup
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|autoStartup
+return|;
+block|}
+comment|// default to true
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getDataFormat (String ref)
 specifier|public

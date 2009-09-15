@@ -4503,11 +4503,50 @@ name|values
 argument_list|()
 control|)
 block|{
+name|Boolean
+name|autoStart
+init|=
+name|routeService
+operator|.
+name|getRouteDefinition
+argument_list|()
+operator|.
+name|isAutoStartup
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|autoStart
+operator|==
+literal|null
+operator|||
+name|autoStart
+condition|)
+block|{
 name|routeService
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// should not start on startup
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot start route "
+operator|+
+name|routeService
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" as it is configured with auto startup disabled."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -5264,7 +5303,6 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// already started, then stop it
 name|LOG
 operator|.
 name|debug
@@ -5276,7 +5314,6 @@ operator|+
 literal|" is already started"
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 else|else
 block|{
@@ -6009,6 +6046,28 @@ name|inflightRepository
 operator|=
 name|repository
 expr_stmt|;
+block|}
+DECL|method|setAutoStartup (Boolean autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+block|{
+comment|// noop as Camel always starts up
+block|}
+DECL|method|isAutoStartup ()
+specifier|public
+name|boolean
+name|isAutoStartup
+parameter_list|()
+block|{
+comment|// Camel always starts up
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected
