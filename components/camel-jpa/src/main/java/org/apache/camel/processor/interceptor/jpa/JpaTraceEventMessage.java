@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.processor.interceptor.jpa
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|processor
 operator|.
 name|interceptor
+operator|.
+name|jpa
 package|;
 end_package
 
@@ -65,6 +67,22 @@ operator|.
 name|persistence
 operator|.
 name|Table
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|TraceEventMessage
 import|;
 end_import
 

@@ -384,7 +384,7 @@ specifier|final
 name|String
 name|JPA_TRACE_EVENT_MESSAGE
 init|=
-literal|"org.apache.camel.processor.interceptor.JpaTraceEventMessage"
+literal|"org.apache.camel.processor.interceptor.jpa.JpaTraceEventMessage"
 decl_stmt|;
 DECL|field|logger
 specifier|private
