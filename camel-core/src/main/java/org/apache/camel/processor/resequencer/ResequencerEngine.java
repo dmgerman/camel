@@ -410,7 +410,7 @@ block|{
 comment|// do nothing here
 block|}
 block|}
-comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via      * {@link SequenceSender#sendElement(Object)}.      *      * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *      * @throws Exception thrown by {@link SequenceSender#sendElement(Object)}.      *      */
+comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are delivered via      * {@link SequenceSender#sendElement(Object)}.      *      * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *      * @throws Exception thrown by {@link SequenceSender#sendElement(Object)}.      *      */
 DECL|method|deliverNext ()
 specifier|public
 name|boolean

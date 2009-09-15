@@ -705,7 +705,8 @@ parameter_list|()
 block|{
 while|while
 condition|(
-literal|true
+name|isRunAllowed
+argument_list|()
 condition|)
 block|{
 try|try
