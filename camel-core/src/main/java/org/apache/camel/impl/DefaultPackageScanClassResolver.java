@@ -1296,6 +1296,8 @@ block|{
 comment|// file path can be temporary folder which uses characters that the URLDecoder decodes wrong
 comment|// for example + being decoded to something else (+ can be used in temp folders on Mac OS)
 comment|// to remedy this then create new path without using the URLDecoder
+try|try
+block|{
 name|urlPath
 operator|=
 operator|new
@@ -1310,6 +1312,16 @@ operator|.
 name|getPath
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// fallback to use as it was given from the URLDecoder
+comment|// this allows us to work on Windows if users have spaces in paths
+block|}
 if|if
 condition|(
 name|urlPath
@@ -1438,13 +1450,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Loading from directory: "
 operator|+
@@ -1531,13 +1543,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Loading from jar: "
 operator|+
@@ -1566,27 +1578,10 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// use debug logging to avoid being to noisy in logs
 name|log
 operator|.
-name|warn
-argument_list|(
-literal|"Could not read entries in url: "
-operator|+
-name|url
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|URISyntaxException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Could not read entries in url: "
 operator|+
@@ -1979,7 +1974,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Could not search jar file '"
 operator|+
@@ -2107,7 +2102,7 @@ literal|" matches criteria ["
 operator|+
 name|test
 operator|+
-literal|"] using ClassLoader:"
+literal|"] using classloader:"
 operator|+
 name|classLoader
 argument_list|)
@@ -2229,7 +2224,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find the class defintion '"
+literal|"Could not find the class definition '"
 operator|+
 name|fqn
 operator|+
@@ -2252,9 +2247,10 @@ operator|!
 name|found
 condition|)
 block|{
+comment|// use debug to avoid being noisy in logs
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Could not find class '"
 operator|+
