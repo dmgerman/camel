@@ -112,22 +112,6 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|compare
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
 name|notNull
 import|;
 end_import
