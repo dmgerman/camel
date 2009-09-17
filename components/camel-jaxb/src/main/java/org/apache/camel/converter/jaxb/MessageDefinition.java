@@ -120,20 +120,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElementRef
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlMixed
 import|;
 end_import
@@ -204,7 +190,7 @@ specifier|public
 class|class
 name|MessageDefinition
 block|{
-comment|// TODO: XmlElementRef to the abstrac class HeaderType does not work (CAMEL-583)
+comment|// TODO: XmlElementRef to the abstract class HeaderType does not work (CAMEL-583)
 comment|//@XmlElementRef(type = HeaderType.class)
 annotation|@
 name|XmlAnyElement

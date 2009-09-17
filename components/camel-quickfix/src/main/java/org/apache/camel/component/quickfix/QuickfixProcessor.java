@@ -70,18 +70,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
 begin_class
 DECL|class|QuickfixProcessor
 specifier|public

@@ -36,30 +36,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
 begin_class
 DECL|class|CamelNamespaceHandler
 specifier|public
@@ -103,7 +79,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: This does not look correct with the code below, why are the so few jaxb packages?
+comment|// It just add the package of the class for initiate the JAXB context
 DECL|method|getJaxbPackages ()
 specifier|protected
 name|Set

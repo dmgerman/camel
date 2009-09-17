@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -51,20 +41,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|core
-operator|.
-name|MessageHeaders
 import|;
 end_import
 

@@ -74,18 +74,6 @@ name|XmlType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} header  *  * @version $Revision$  */
 end_comment
