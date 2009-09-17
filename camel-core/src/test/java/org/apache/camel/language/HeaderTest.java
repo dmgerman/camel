@@ -29,28 +29,26 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConstantTest
+DECL|class|HeaderTest
 specifier|public
 class|class
-name|ConstantTest
+name|HeaderTest
 extends|extends
 name|LanguageTestSupport
 block|{
-DECL|method|testConstantExpressions ()
+DECL|method|testHeaderExpressions ()
 specifier|public
 name|void
-name|testConstantExpressions
+name|testHeaderExpressions
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We can put anything in here, the expression will
-comment|// always evaluate to itself
 name|assertExpression
 argument_list|(
-literal|"a value"
+literal|"foo"
 argument_list|,
-literal|"a value"
+literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
@@ -64,7 +62,7 @@ name|Exception
 block|{
 name|assertPredicate
 argument_list|(
-literal|"another value"
+literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
@@ -75,7 +73,7 @@ name|getLanguageName
 parameter_list|()
 block|{
 return|return
-literal|"constant"
+literal|"header"
 return|;
 block|}
 block|}

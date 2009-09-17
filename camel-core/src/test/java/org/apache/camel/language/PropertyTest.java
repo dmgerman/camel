@@ -28,29 +28,39 @@ name|LanguageTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_class
-DECL|class|ConstantTest
+DECL|class|PropertyTest
 specifier|public
 class|class
-name|ConstantTest
+name|PropertyTest
 extends|extends
 name|LanguageTestSupport
 block|{
-DECL|method|testConstantExpressions ()
+DECL|method|testProertyExpressions ()
 specifier|public
 name|void
-name|testConstantExpressions
+name|testProertyExpressions
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We can put anything in here, the expression will
-comment|// always evaluate to itself
 name|assertExpression
 argument_list|(
-literal|"a value"
+literal|"quote"
 argument_list|,
-literal|"a value"
+literal|"Camel rocks"
 argument_list|)
 expr_stmt|;
 block|}
@@ -64,7 +74,7 @@ name|Exception
 block|{
 name|assertPredicate
 argument_list|(
-literal|"another value"
+literal|"quote"
 argument_list|)
 expr_stmt|;
 block|}
@@ -75,8 +85,36 @@ name|getLanguageName
 parameter_list|()
 block|{
 return|return
-literal|"constant"
+literal|"property"
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|populateExchange (Exchange exchange)
+specifier|protected
+name|void
+name|populateExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|super
+operator|.
+name|populateExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"quote"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

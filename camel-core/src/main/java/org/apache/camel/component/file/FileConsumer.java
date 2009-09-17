@@ -256,7 +256,7 @@ range|:
 name|files
 control|)
 block|{
-comment|// createa a generic file
+comment|// creates a generic file
 name|GenericFile
 argument_list|<
 name|File
