@@ -405,12 +405,6 @@ name|entry
 init|=
 literal|null
 decl_stmt|;
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
 name|Bundle
 index|[]
 name|bundles
@@ -440,12 +434,6 @@ comment|// (See OSGi 4.1 spec, section 4.3.17)
 name|bundles
 operator|=
 operator|new
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
 name|Bundle
 index|[]
 block|{
