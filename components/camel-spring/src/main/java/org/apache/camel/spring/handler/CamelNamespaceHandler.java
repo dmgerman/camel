@@ -2619,7 +2619,7 @@ name|id
 operator|+
 literal|" as we have multiple camel contexts and they must use unique ids."
 operator|+
-literal|" You must define the defintion in the XML file manually to avoid id clashes when using multiple camel contexts"
+literal|" You must define the definition in the XML file manually to avoid id clashes when using multiple camel contexts"
 argument_list|)
 expr_stmt|;
 block|}

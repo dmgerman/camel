@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which will find all {@link RouteBuilder} instances on the classpath  *  * @version $Revision$  */
+comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances on the classpath  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -284,7 +284,7 @@ return|return
 name|applicationContext
 return|;
 block|}
-comment|/**      * Appends all the {@link RouteBuilder} instances that can be found on the classpath      */
+comment|/**      * Appends all the {@link org.apache.camel.builder.RouteBuilder} instances that can be found on the classpath      */
 DECL|method|appendBuilders (List<RoutesBuilder> list)
 specifier|public
 name|void
