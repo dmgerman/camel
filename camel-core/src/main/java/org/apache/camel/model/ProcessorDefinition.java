@@ -1155,18 +1155,26 @@ argument_list|,
 name|routeContext
 argument_list|)
 expr_stmt|;
+name|ProcessorDefinition
+name|defn
+init|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|this
+decl_stmt|;
 comment|// set the error handler, must be done after init as we can set the error handler as first in the chain
 if|if
 condition|(
-name|this
+name|defn
 operator|instanceof
 name|TryDefinition
 operator|||
-name|this
+name|defn
 operator|instanceof
 name|CatchDefinition
 operator|||
-name|this
+name|defn
 operator|instanceof
 name|FinallyDefinition
 condition|)
@@ -2705,9 +2713,17 @@ block|{
 comment|// when using doTry .. doCatch .. doFinally we should always
 comment|// end the try definition to avoid having to use 2 x end() in the route
 comment|// this is counter intuitive for end users
+name|ProcessorDefinition
+name|defn
+init|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|this
+decl_stmt|;
 if|if
 condition|(
-name|this
+name|defn
 operator|instanceof
 name|TryDefinition
 condition|)
