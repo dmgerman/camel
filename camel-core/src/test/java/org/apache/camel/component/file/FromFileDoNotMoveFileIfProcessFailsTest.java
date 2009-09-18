@@ -167,7 +167,26 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|isEqualTo
 argument_list|(
 name|body
 argument_list|)
@@ -182,7 +201,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// assert the file is not moved
