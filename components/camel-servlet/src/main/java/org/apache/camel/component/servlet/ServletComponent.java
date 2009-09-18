@@ -208,8 +208,6 @@ parameter_list|)
 block|{
 name|CamelServlet
 name|answer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -246,9 +244,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't find the deployied servlet, please set the ServletComponent with it"
+literal|"Cannot find the deployed servlet, please configure the ServletComponent"
 operator|+
-literal|" or delopy a CamelHttpTransportServlet int the web container"
+literal|" or configure a org.apache.camel.component.servlet.CamelHttpTransportServlet servlet in web.xml "
 argument_list|)
 throw|;
 block|}
