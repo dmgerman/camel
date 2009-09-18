@@ -436,7 +436,7 @@ parameter_list|()
 block|{
 comment|// Utility class, no public or protected default constructor
 block|}
-DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
+DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
 specifier|public
 specifier|static
 name|void
@@ -446,9 +446,6 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -1371,7 +1368,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderBean (StringBuilder buffer, ProcessorDefinition<?> processor)
+DECL|method|renderBean (StringBuilder buffer, ProcessorDefinition processor)
 specifier|private
 specifier|static
 name|void
@@ -1381,9 +1378,6 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|processor
 parameter_list|)
 block|{
