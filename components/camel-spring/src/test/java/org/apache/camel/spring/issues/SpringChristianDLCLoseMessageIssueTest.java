@@ -135,7 +135,7 @@ argument_list|)
 decl_stmt|;
 name|error
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|2
 argument_list|)
@@ -227,7 +227,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// should get 1 message when seda:bye is full
+comment|// should get at least 1 message when seda:bye is full
 name|MockEndpoint
 name|error
 init|=
@@ -238,7 +238,7 @@ argument_list|)
 decl_stmt|;
 name|error
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
