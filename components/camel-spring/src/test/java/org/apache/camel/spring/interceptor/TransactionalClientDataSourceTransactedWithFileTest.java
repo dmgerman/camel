@@ -119,7 +119,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|int
@@ -170,7 +170,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 comment|// should not be able to process the file so we still got 1 book as we did from the start
