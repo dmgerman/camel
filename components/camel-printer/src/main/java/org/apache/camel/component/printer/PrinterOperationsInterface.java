@@ -44,6 +44,7 @@ specifier|public
 interface|interface
 name|PrinterOperationsInterface
 block|{
+comment|/**      * Prints the document.      *      * @param doc document to print      * @throws PrintException is thrown if printing failed      */
 DECL|method|print (Doc doc)
 name|void
 name|print

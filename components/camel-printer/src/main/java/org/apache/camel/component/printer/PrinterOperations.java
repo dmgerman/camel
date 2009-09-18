@@ -24,16 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
 import|;
 end_import
@@ -44,27 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -268,22 +238,27 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|printService
+specifier|private
 name|PrintService
 name|printService
 decl_stmt|;
 DECL|field|job
+specifier|private
 name|DocPrintJob
 name|job
 decl_stmt|;
 DECL|field|flavor
+specifier|private
 name|DocFlavor
 name|flavor
 decl_stmt|;
 DECL|field|printRequestAttributeSet
+specifier|private
 name|PrintRequestAttributeSet
 name|printRequestAttributeSet
 decl_stmt|;
 DECL|field|doc
+specifier|private
 name|Doc
 name|doc
 decl_stmt|;
@@ -308,13 +283,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"PrintServiceLookup failed. No Default printer set up for this host: "
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|PrintException
@@ -549,14 +517,14 @@ name|file
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"In printerOperations.print()"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"Print Service = "
 operator|+
@@ -570,7 +538,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"About to print "
 operator|+
@@ -602,7 +570,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"\tPrint Flag is set to false. This job(s) will not be printed until this setting remains in effect. Please set the flag to true or remove the setting"
 argument_list|)
@@ -730,7 +698,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"\tWriting Print Job to File: "
 operator|+
@@ -857,7 +825,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"\tIssuing Job "
 operator|+
@@ -990,7 +958,7 @@ return|return
 name|printRequestAttributeSet
 return|;
 block|}
-DECL|method|setPrintRequestAttributeSet ( PrintRequestAttributeSet printRequestAttributeSet)
+DECL|method|setPrintRequestAttributeSet (PrintRequestAttributeSet printRequestAttributeSet)
 specifier|public
 name|void
 name|setPrintRequestAttributeSet

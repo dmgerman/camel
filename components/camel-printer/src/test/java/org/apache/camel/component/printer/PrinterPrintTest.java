@@ -120,6 +120,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -570,6 +580,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testSendingFileToPrinter ()
 specifier|public
 name|void
@@ -624,6 +636,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testSendingGIFToPrinter ()
 specifier|public
 name|void
@@ -678,6 +692,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testSendingJPEGToPrinter ()
 specifier|public
 name|void

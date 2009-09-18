@@ -35,6 +35,7 @@ class|class
 name|DocFlavorAssigner
 block|{
 DECL|field|d
+specifier|private
 name|DocFlavor
 name|d
 init|=

@@ -221,8 +221,6 @@ name|Reader
 name|getReaderForText
 parameter_list|()
 throws|throws
-name|UnsupportedEncodingException
-throws|,
 name|IOException
 block|{
 synchronized|synchronized
