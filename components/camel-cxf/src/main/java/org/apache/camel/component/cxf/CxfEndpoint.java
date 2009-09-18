@@ -1482,6 +1482,19 @@ throws|throws
 name|Exception
 block|{
 comment|// get service class
+if|if
+condition|(
+name|getDataFormat
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|DataFormat
+operator|.
+name|POJO
+argument_list|)
+condition|)
+block|{
 name|ObjectHelper
 operator|.
 name|notEmpty
@@ -1494,12 +1507,25 @@ operator|.
 name|SERVICE_CLASS
 argument_list|)
 expr_stmt|;
+block|}
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|cls
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|getServiceClass
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|cls
+operator|=
 name|ClassLoaderUtils
 operator|.
 name|loadClass
@@ -1510,7 +1536,8 @@ argument_list|,
 name|getClass
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// create client factory bean
 name|ClientProxyFactoryBean
 name|factoryBean
@@ -1528,6 +1555,25 @@ argument_list|,
 name|cls
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cls
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|(
+name|Client
+operator|)
+name|factoryBean
+operator|.
+name|create
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 return|return
 operator|(
 operator|(
@@ -1548,6 +1594,7 @@ name|getClient
 argument_list|()
 return|;
 block|}
+block|}
 comment|/**      * Create a CXF server factory bean      */
 DECL|method|createServerFactoryBean ()
 name|ServerFactoryBean
@@ -1555,6 +1602,29 @@ name|createServerFactoryBean
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|cls
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|getDataFormat
+argument_list|()
+operator|==
+name|DataFormat
+operator|.
+name|POJO
+operator|||
+name|getServiceClass
+argument_list|()
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// get service class
 name|ObjectHelper
@@ -1569,12 +1639,8 @@ operator|.
 name|SERVICE_CLASS
 argument_list|)
 expr_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
 name|cls
-init|=
+operator|=
 name|ClassLoaderUtils
 operator|.
 name|loadClass
@@ -1585,7 +1651,8 @@ argument_list|,
 name|getClass
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// create server factory bean
 comment|// Shouldn't use CxfEndpointUtils.getServerFactoryBean(cls) as it is for
 comment|// CxfSoapComponent
