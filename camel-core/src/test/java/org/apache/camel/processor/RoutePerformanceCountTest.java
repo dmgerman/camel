@@ -106,7 +106,7 @@ specifier|private
 name|int
 name|size
 init|=
-literal|50000
+literal|500
 decl_stmt|;
 DECL|field|url
 specifier|private
