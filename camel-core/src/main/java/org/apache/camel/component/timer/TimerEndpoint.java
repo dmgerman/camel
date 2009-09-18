@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.  *  * @version $Revision$  */
+comment|/**  * Represents a timer endpoint that can generate periodic inbound exchanges triggered by a timer.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -233,17 +233,6 @@ argument_list|(
 name|fullURI
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|timer
-operator|=
-name|component
-operator|.
-name|getTimer
-argument_list|(
-name|this
 argument_list|)
 expr_stmt|;
 name|this
@@ -612,11 +601,23 @@ operator|==
 literal|null
 condition|)
 block|{
+name|TimerComponent
+name|tc
+init|=
+operator|(
+name|TimerComponent
+operator|)
+name|getComponent
+argument_list|()
+decl_stmt|;
 name|timer
 operator|=
-operator|new
-name|Timer
-argument_list|()
+name|tc
+operator|.
+name|getTimer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 return|return
