@@ -47,6 +47,15 @@ name|VELOCITY_RESOURCE_URI
 init|=
 literal|"CamelVelocityResourceUri"
 decl_stmt|;
+DECL|field|VELOCITY_TEMPLATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VELOCITY_TEMPLATE
+init|=
+literal|"CamelVelocityTemplate"
+decl_stmt|;
 DECL|method|VelocityConstants ()
 specifier|private
 name|VelocityConstants

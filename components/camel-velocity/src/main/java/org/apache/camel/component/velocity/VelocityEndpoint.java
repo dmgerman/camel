@@ -44,6 +44,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|StringWriter
 import|;
 end_import
@@ -648,9 +658,93 @@ block|}
 name|Resource
 name|resource
 init|=
+literal|null
+decl_stmt|;
+name|Reader
+name|reader
+decl_stmt|;
+name|String
+name|content
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|VelocityConstants
+operator|.
+name|VELOCITY_TEMPLATE
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|content
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use content from header
+name|reader
+operator|=
+operator|new
+name|StringReader
+argument_list|(
+name|content
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Velocity content read from header "
+operator|+
+name|VelocityConstants
+operator|.
+name|VELOCITY_TEMPLATE
+operator|+
+literal|" for endpoint "
+operator|+
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// remove the header to avoid it being propagated in the routing
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|VelocityConstants
+operator|.
+name|VELOCITY_TEMPLATE
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use resource from endpoint configuration
+name|resource
+operator|=
 name|getResource
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -672,7 +766,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using resource: "
+literal|"Velocity content read from resource "
 operator|+
 name|resource
 operator|+
@@ -687,10 +781,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// getResourceAsInputStream also considers the content cache
-name|Reader
 name|reader
-init|=
+operator|=
 name|encoding
 operator|!=
 literal|null
@@ -710,7 +802,9 @@ argument_list|(
 name|getResourceAsInputStream
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+comment|// getResourceAsInputStream also considers the content cache
 name|StringWriter
 name|buffer
 init|=
@@ -803,6 +897,13 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|resource
+operator|!=
+literal|null
+condition|)
+block|{
 name|out
 operator|.
 name|setHeader
@@ -825,6 +926,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
