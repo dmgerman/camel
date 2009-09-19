@@ -688,7 +688,8 @@ argument_list|)
 expr_stmt|;
 name|distinationEndpoint
 operator|=
-name|camelContext
+name|getCamelContext
+argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
