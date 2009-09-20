@@ -1509,6 +1509,9 @@ init|=
 operator|new
 name|DefaultRouteContext
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|this
 argument_list|,
 name|fromType

@@ -1480,6 +1480,24 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+DECL|method|hasComponent (String componentName)
+specifier|public
+name|Component
+name|hasComponent
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+block|{
+return|return
+name|components
+operator|.
+name|get
+argument_list|(
+name|componentName
+argument_list|)
+return|;
+block|}
 DECL|method|addComponent (String componentName, final Component component)
 specifier|public
 name|void

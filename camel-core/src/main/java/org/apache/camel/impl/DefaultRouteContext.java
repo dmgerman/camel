@@ -354,10 +354,13 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
-DECL|method|DefaultRouteContext (RouteDefinition route, FromDefinition from, Collection<Route> routes)
+DECL|method|DefaultRouteContext (CamelContext camelContext, RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
 name|DefaultRouteContext
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|RouteDefinition
 name|route
 parameter_list|,
@@ -371,6 +374,12 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|route
@@ -405,6 +414,8 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+name|this
+operator|.
 name|routes
 operator|=
 operator|new
@@ -414,6 +425,8 @@ name|Route
 argument_list|>
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|route
 operator|=
 operator|new

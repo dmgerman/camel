@@ -353,6 +353,15 @@ name|Component
 name|component
 parameter_list|)
 function_decl|;
+comment|/**      * Is the given component already registered?      *      * @param componentName the name of the component      * @return the registered Component or<tt>null</tt> if not registered      */
+DECL|method|hasComponent (String componentName)
+name|Component
+name|hasComponent
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+function_decl|;
 comment|/**      * Gets a component from the context by name.      *      * @param componentName the name of the component      * @return the component      */
 DECL|method|getComponent (String componentName)
 name|Component

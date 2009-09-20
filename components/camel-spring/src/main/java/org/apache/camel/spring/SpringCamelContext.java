@@ -735,6 +735,17 @@ operator|instanceof
 name|ConfigurableApplicationContext
 condition|)
 block|{
+comment|// only add if not already added
+if|if
+condition|(
+name|hasComponent
+argument_list|(
+literal|"spring-event"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|addComponent
 argument_list|(
 literal|"spring-event"
@@ -746,6 +757,7 @@ name|applicationContext
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getEventEndpoint ()

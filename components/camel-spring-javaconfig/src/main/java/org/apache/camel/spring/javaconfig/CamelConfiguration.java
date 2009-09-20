@@ -212,7 +212,10 @@ name|camelContext
 init|=
 operator|new
 name|SpringCamelContext
+argument_list|(
+name|getApplicationContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|setupCamelContext
 argument_list|(
