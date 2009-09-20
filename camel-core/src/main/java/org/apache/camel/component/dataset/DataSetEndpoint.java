@@ -234,6 +234,8 @@ DECL|field|produceDelay
 specifier|private
 name|long
 name|produceDelay
+init|=
+literal|3
 decl_stmt|;
 DECL|field|consumeDelay
 specifier|private
