@@ -224,6 +224,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+return|return
 name|binding
 operator|.
 name|extractBodyFromXmpp
@@ -233,7 +234,7 @@ argument_list|()
 argument_list|,
 name|xmppMessage
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 return|return
