@@ -603,9 +603,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
+comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      */
 DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
@@ -627,9 +625,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
+comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute

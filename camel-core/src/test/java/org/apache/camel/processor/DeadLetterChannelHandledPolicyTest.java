@@ -90,6 +90,18 @@ name|DeadLetterChannelHandledPolicyTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testHandled ()
 specifier|public
 name|void

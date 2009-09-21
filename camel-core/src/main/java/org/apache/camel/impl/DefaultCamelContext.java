@@ -178,6 +178,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ConsumerTemplate
 import|;
 end_import
@@ -4487,22 +4499,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting routes"
+literal|"Starting routes..."
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the context is now considered started (i.e. isStarted() == true))
 comment|// starting routes is done after, not during context startup
 synchronized|synchronized
@@ -4510,6 +4513,24 @@ init|(
 name|this
 init|)
 block|{
+comment|// list of inputs to start when all the routes have been preparated for start
+name|Map
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+name|inputs
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|RouteService
@@ -4541,11 +4562,47 @@ operator|||
 name|autoStart
 condition|)
 block|{
+comment|// defer starting inputs till later as we want to prepare the routes by starting
+comment|// all their processors and child services etc.
+comment|// then later we open the floods to Camel by starting the inputs
+comment|// what this does is to ensure Camel is more robust on starting routes as all routes
+comment|// will then be prepared in time before we start inputs which will consume messages to be routed
+name|routeService
+operator|.
+name|startInputs
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 name|routeService
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// add the inputs from this route service to the list to start afterwards
+name|inputs
+operator|.
+name|putAll
+argument_list|(
+name|routeService
+operator|.
+name|getInputs
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|routeService
+operator|.
+name|startInputs
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -4565,6 +4622,91 @@ literal|" as it is configured with auto startup disabled."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// now start the inputs for all the route services as we have prepared Camel
+comment|// yeah open the floods so messages can start flow into Came;
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+name|entry
+range|:
+name|inputs
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|Route
+name|route
+init|=
+name|entry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
+name|Consumer
+name|consumer
+init|=
+name|entry
+operator|.
+name|getValue
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Starting consumer on route: "
+operator|+
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|lifecycleStrategies
+control|)
+block|{
+name|strategy
+operator|.
+name|onServiceAdd
+argument_list|(
+name|this
+argument_list|,
+name|consumer
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -4618,7 +4760,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Started routes"
+literal|"... Routes started"
 argument_list|)
 expr_stmt|;
 block|}
