@@ -328,6 +328,12 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the version of the this context.      *      * @return the version      */
+DECL|method|getVersion ()
+name|String
+name|getVersion
+parameter_list|()
+function_decl|;
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a service, starting it so that it will be stopped with this context      *      * @param object the service      * @throws Exception can be thrown when starting the service      */

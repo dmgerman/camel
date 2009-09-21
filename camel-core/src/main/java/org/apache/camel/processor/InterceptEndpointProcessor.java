@@ -46,21 +46,6 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
-DECL|method|InterceptEndpointProcessor (String uri)
-specifier|public
-name|InterceptEndpointProcessor
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uri
-operator|=
-name|uri
-expr_stmt|;
-block|}
 DECL|method|InterceptEndpointProcessor (String uri, Processor processor)
 specifier|public
 name|InterceptEndpointProcessor

@@ -198,6 +198,26 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel Version"
+argument_list|)
+DECL|method|getCamelVersion ()
+specifier|public
+name|String
+name|getCamelVersion
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getVersion
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Camel State"
 argument_list|)
 DECL|method|getState ()
