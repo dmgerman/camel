@@ -3886,7 +3886,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received["
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" failed and received["
 operator|+
 operator|(
 operator|++
