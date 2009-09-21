@@ -140,6 +140,40 @@ name|Exchange
 name|cxfExchange
 parameter_list|)
 function_decl|;
+comment|/**      *<p>      * Extract the message headers which key are start from javax.xml.ws* from the      * CXF exchange's inMessage, and put these headers into the context      *</p>      *       *       * @param cxfExchange CXF exchange to be populated      * @param context The map which used to store the message headers      */
+DECL|method|extractJaxWsContext (Exchange cxfExchange, Map<String, Object> context)
+name|void
+name|extractJaxWsContext
+parameter_list|(
+name|Exchange
+name|cxfExchange
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      *<p>      * Copy the javax.xml.ws* headers into cxfExchange's outMessage,       * if the cxfExchange has no outMessage, skip this copy      *</p>      *       * @param cxfExchange CXF exchange to be populated      * @param context The map which used to store the message headers      */
+DECL|method|copyJaxWsContext (Exchange cxfExchange, Map<String, Object> context)
+name|void
+name|copyJaxWsContext
+parameter_list|(
+name|Exchange
+name|cxfExchange
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|context
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
