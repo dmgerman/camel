@@ -247,6 +247,13 @@ specifier|private
 name|long
 name|preloadSize
 decl_stmt|;
+DECL|field|initialDelay
+specifier|private
+name|long
+name|initialDelay
+init|=
+literal|1000
+decl_stmt|;
 DECL|field|reporter
 specifier|private
 name|Processor
@@ -727,6 +734,32 @@ operator|.
 name|reporter
 operator|=
 name|reporter
+expr_stmt|;
+block|}
+DECL|method|getInitialDelay ()
+specifier|public
+name|long
+name|getInitialDelay
+parameter_list|()
+block|{
+return|return
+name|initialDelay
+return|;
+block|}
+DECL|method|setInitialDelay (long initialDelay)
+specifier|public
+name|void
+name|setInitialDelay
+parameter_list|(
+name|long
+name|initialDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialDelay
+operator|=
+name|initialDelay
 expr_stmt|;
 block|}
 comment|// Implementation methods
