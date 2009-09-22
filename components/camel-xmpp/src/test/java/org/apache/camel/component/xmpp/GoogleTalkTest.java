@@ -70,6 +70,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -82,15 +92,19 @@ name|GoogleTalkTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
-DECL|method|xtestSendToGTalk ()
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testSendToGTalk ()
 specifier|public
 name|void
-name|xtestSendToGTalk
+name|testSendToGTalk
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|MockEndpoint
 name|result
 init|=
@@ -114,14 +128,19 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|xtestSendToGTalkWithSubject ()
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testSendToGTalkWithSubject ()
 specifier|public
 name|void
-name|xtestSendToGTalkWithSubject
+name|testSendToGTalkWithSubject
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|MockEndpoint
 name|result
 init|=
@@ -149,17 +168,6 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|// get around junit warning
-annotation|@
-name|Test
-DECL|method|testNothing ()
-specifier|public
-name|void
-name|testNothing
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -26,30 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -120,13 +96,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jivesoftware
+name|junit
 operator|.
-name|smack
-operator|.
-name|packet
-operator|.
-name|Message
+name|Ignore
 import|;
 end_import
 
@@ -179,6 +151,8 @@ specifier|protected
 name|MockEndpoint
 name|badEndpoint
 decl_stmt|;
+annotation|@
+name|Ignore
 annotation|@
 name|Test
 DECL|method|testProducerGetsEverything ()

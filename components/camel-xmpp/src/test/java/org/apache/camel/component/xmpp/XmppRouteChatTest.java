@@ -26,30 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -120,13 +96,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|jivesoftware
+name|junit
 operator|.
-name|smack
-operator|.
-name|packet
-operator|.
-name|Message
+name|Ignore
 import|;
 end_import
 
@@ -194,6 +166,8 @@ init|=
 literal|"the second message"
 decl_stmt|;
 annotation|@
+name|Ignore
+annotation|@
 name|Test
 DECL|method|testXmppChat ()
 specifier|public
@@ -203,6 +177,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: requires online against jabber. Test this manually
 name|consumerEndpoint
 operator|=
 operator|(

@@ -90,6 +90,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -106,15 +116,19 @@ name|XmppProducerConcurrentTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
-DECL|method|xtestNoConcurrentProducers ()
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testNoConcurrentProducers ()
 specifier|public
 name|void
-name|xtestNoConcurrentProducers
+name|testNoConcurrentProducers
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|doSendMessages
 argument_list|(
 literal|1
@@ -123,15 +137,19 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
-DECL|method|xtestConcurrentProducers ()
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testConcurrentProducers ()
 specifier|public
 name|void
-name|xtestConcurrentProducers
+name|testConcurrentProducers
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|doSendMessages
 argument_list|(
 literal|10
@@ -140,17 +158,6 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
-comment|// get around junit warning
-annotation|@
-name|Test
-DECL|method|testNothing ()
-specifier|public
-name|void
-name|testNothing
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 DECL|method|doSendMessages (int files, int poolSize)
 specifier|private
 name|void
