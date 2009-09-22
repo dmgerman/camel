@@ -210,7 +210,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 expr_stmt|;
 block|}
@@ -234,7 +234,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|200
 condition|;
 name|i
 operator|++
@@ -486,7 +486,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 expr_stmt|;
 block|}
@@ -510,7 +510,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|200
 condition|;
 name|i
 operator|++
