@@ -492,7 +492,9 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      */
+comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated makes no sense, is removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|getEndpoints (String uri)
 name|Collection
 argument_list|<
@@ -527,7 +529,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      */
+comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated makes no sense, is removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|removeEndpoints (String uri)
 name|Collection
 argument_list|<
