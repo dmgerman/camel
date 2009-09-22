@@ -255,7 +255,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Beginning Test ---> testReceivingFileFromCache()"
 argument_list|)
@@ -384,7 +384,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Completed Test ---> testReceivingFileFromCache()"
 argument_list|)
@@ -494,23 +494,31 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"------- Cache Event Notification ---------"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Received notification for the following activity in cache TestCache1:"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Operation = "
 operator|+
@@ -519,7 +527,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"key = "
 operator|+
@@ -528,7 +536,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"value = "
 operator|+
@@ -537,11 +545,12 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"------ End Cache Event Notification ------"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

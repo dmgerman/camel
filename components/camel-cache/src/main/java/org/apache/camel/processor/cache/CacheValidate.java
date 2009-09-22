@@ -110,7 +110,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cache Name: "
 operator|+
@@ -128,9 +128,17 @@ name|cacheName
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"No existing Cache found with name: "
 operator|+
@@ -141,7 +149,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Replacement will not be performed since the cache "
 operator|+
@@ -150,13 +158,14 @@ operator|+
 literal|"does not presently exist"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Found an existing cache: "
 operator|+
@@ -165,7 +174,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cache "
 operator|+
@@ -207,9 +216,17 @@ name|key
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"No Key with name: "
 operator|+
@@ -220,11 +237,12 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Replacement will not be performed until an appropriate key/value pair is added to (or) found in the cache."
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;

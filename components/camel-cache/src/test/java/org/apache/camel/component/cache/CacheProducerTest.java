@@ -447,7 +447,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"------------Beginning CacheProducer Add Test---------------"
 argument_list|)
@@ -520,7 +520,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"------------Beginning CacheProducer Update Test---------------"
 argument_list|)
@@ -593,7 +593,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"------------Beginning CacheProducer Delete Test---------------"
 argument_list|)
@@ -716,7 +716,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"------------Beginning CacheProducer Delete All Elements Test---------------"
 argument_list|)

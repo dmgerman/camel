@@ -297,9 +297,17 @@ argument_list|(
 name|cacheName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Replacing Token "
 operator|+
@@ -314,6 +322,7 @@ operator|+
 name|cacheName
 argument_list|)
 expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|getIn

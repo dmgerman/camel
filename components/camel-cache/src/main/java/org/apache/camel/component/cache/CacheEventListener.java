@@ -170,9 +170,17 @@ name|Element
 name|element
 parameter_list|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Element"
 operator|+
@@ -190,6 +198,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|notifyElementExpired (Ehcache cache, Element element)
 specifier|public
 name|void
@@ -202,9 +211,17 @@ name|Element
 name|element
 parameter_list|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Element"
 operator|+
@@ -222,6 +239,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|notifyElementPut (Ehcache cache, Element element)
 specifier|public
 name|void
@@ -236,9 +254,17 @@ parameter_list|)
 throws|throws
 name|CacheException
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Element"
 operator|+
@@ -255,6 +281,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|dispatchExchange
 argument_list|(
 name|cache
@@ -279,9 +306,17 @@ parameter_list|)
 throws|throws
 name|CacheException
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Element"
 operator|+
@@ -298,6 +333,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|dispatchExchange
 argument_list|(
 name|cache
@@ -322,9 +358,17 @@ parameter_list|)
 throws|throws
 name|CacheException
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Element"
 operator|+
@@ -341,6 +385,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|dispatchExchange
 argument_list|(
 name|cache
@@ -360,9 +405,17 @@ name|Ehcache
 name|cache
 parameter_list|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Cache "
 operator|+
@@ -374,6 +427,7 @@ operator|+
 literal|" is being emptied and all elements removed"
 argument_list|)
 expr_stmt|;
+block|}
 name|dispatchExchange
 argument_list|(
 name|cache
@@ -402,9 +456,17 @@ block|{
 name|Exchange
 name|exchange
 decl_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Consumer Dispatching the Exchange containing the Element "
 operator|+
@@ -421,6 +483,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|element

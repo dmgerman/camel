@@ -254,13 +254,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"In CacheProducer.start()"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|doStart
@@ -277,13 +270,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"In CacheProducer.stop()"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|doStop
@@ -301,13 +287,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"In CacheProducer.process()"
-argument_list|)
-expr_stmt|;
 name|Object
 name|body
 init|=
@@ -402,7 +381,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cache Name: "
 operator|+
@@ -425,9 +404,17 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Found an existing cache: "
 operator|+
@@ -439,7 +426,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cache "
 operator|+
@@ -466,6 +453,7 @@ operator|+
 literal|" elements"
 argument_list|)
 expr_stmt|;
+block|}
 name|cache
 operator|=
 name|cacheManager
@@ -548,7 +536,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Added a new cache: "
 operator|+
@@ -673,7 +661,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Deleting All elements from the Cache"
 argument_list|)
@@ -697,7 +685,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Adding an element with key "
 operator|+
@@ -735,7 +723,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating an element with key "
 operator|+
@@ -773,7 +761,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Deleting an element with key "
 operator|+
