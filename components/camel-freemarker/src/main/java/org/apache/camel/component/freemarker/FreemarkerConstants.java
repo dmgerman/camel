@@ -47,6 +47,15 @@ name|FREEMARKER_RESOURCE_URI
 init|=
 literal|"CamelFreemarkerResourceUri"
 decl_stmt|;
+DECL|field|FREEMARKER_TEMPLATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FREEMARKER_TEMPLATE
+init|=
+literal|"CamelFreemarkerTemplate"
+decl_stmt|;
 DECL|method|FreemarkerConstants ()
 specifier|private
 name|FreemarkerConstants

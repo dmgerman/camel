@@ -100,10 +100,10 @@ name|FreemarkerComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|configuraiton
+DECL|field|configuration
 specifier|private
 name|Configuration
-name|configuraiton
+name|configuration
 decl_stmt|;
 DECL|field|noCacheConfiguration
 specifier|private
@@ -201,19 +201,19 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|configuraiton
+name|configuration
 operator|==
 literal|null
 condition|)
 block|{
-name|configuraiton
+name|configuration
 operator|=
 operator|new
 name|Configuration
 argument_list|()
 expr_stmt|;
 comment|// use class template loader using Spring Resource class and / as root in classpath
-name|configuraiton
+name|configuration
 operator|.
 name|setTemplateLoader
 argument_list|(
@@ -233,26 +233,26 @@ return|return
 operator|(
 name|Configuration
 operator|)
-name|configuraiton
+name|configuration
 operator|.
 name|clone
 argument_list|()
 return|;
 block|}
-DECL|method|setConfiguraiton (Configuration configuraiton)
+DECL|method|setConfiguraiton (Configuration configuration)
 specifier|public
 name|void
 name|setConfiguraiton
 parameter_list|(
 name|Configuration
-name|configuraiton
+name|configuration
 parameter_list|)
 block|{
 name|this
 operator|.
-name|configuraiton
+name|configuration
 operator|=
-name|configuraiton
+name|configuration
 expr_stmt|;
 block|}
 DECL|method|getNoCacheConfiguration ()
