@@ -199,6 +199,7 @@ name|void
 name|testCallFromProxy
 parameter_list|()
 block|{
+comment|// The echo parameter will be ignore, since the service has the fix response
 name|String
 name|response
 init|=
@@ -249,6 +250,7 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
+comment|// The echo parameter will be ignore, since the service has the fix response
 name|String
 name|response
 init|=
@@ -258,7 +260,7 @@ name|requestBody
 argument_list|(
 literal|"direct://jbiStart"
 argument_list|,
-literal|"Hello"
+literal|"Hello World!"
 argument_list|,
 name|String
 operator|.

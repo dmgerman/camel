@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -138,6 +150,15 @@ literal|"<ns1:return xmlns:ns1=\"http://cxf.component.camel.apache.org\">echo He
 operator|+
 literal|"</jbi:part></jbi:message>"
 decl_stmt|;
+DECL|field|JBI_WRAPPER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|JBI_WRAPPER
+init|=
+literal|"<jbi:message xmlns:jbi=\"http://java.sun.com/xml/ns/jbi/wsdl-11-wrapper"
+decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -157,12 +178,9 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Get the request "
-operator|+
+name|String
+name|request
+init|=
 name|in
 operator|.
 name|getBody
@@ -171,8 +189,35 @@ name|String
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Get the request "
+operator|+
+name|request
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|request
+operator|.
+name|startsWith
+argument_list|(
+name|JBI_WRAPPER
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelException
+argument_list|(
+literal|"Get a wrong request"
+argument_list|)
+throw|;
+block|}
 name|exchange
 operator|.
 name|getOut
