@@ -38,6 +38,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -71,6 +95,8 @@ class|class
 name|AntPathMatcherGenericFileFilter
 implements|implements
 name|GenericFileFilter
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|ANTPATHMATCHER_CLASSNAME
 specifier|private
@@ -80,6 +106,11 @@ name|String
 name|ANTPATHMATCHER_CLASSNAME
 init|=
 literal|"org.apache.camel.spring.util.SpringAntPathMatcherFileFilter"
+decl_stmt|;
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
 decl_stmt|;
 DECL|field|excludes
 specifier|private
@@ -227,13 +258,17 @@ throws|throws
 name|NoSuchMethodException
 block|{
 comment|// we must use reflection to invoke the AntPathMatcherFileFilter that reside in camel-spring.jar
-comment|// and we don't want camel-cone to have runtime dependency on camel-spring.jar
+comment|// and we don't want camel-core to have runtime dependency on camel-spring.jar
+comment|// use class resolver from CamelContext to ensure it works with OSGi as well
 name|Class
 name|clazz
 init|=
-name|ObjectHelper
+name|context
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|ANTPATHMATCHER_CLASSNAME
 argument_list|)
@@ -404,6 +439,32 @@ literal|","
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
 block|}
 block|}
 end_class

@@ -324,7 +324,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Can not copy properties to target: "
+literal|"Cannot copy properties to target: "
 operator|+
 name|target
 argument_list|,

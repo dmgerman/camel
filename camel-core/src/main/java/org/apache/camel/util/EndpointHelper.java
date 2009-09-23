@@ -721,7 +721,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configued property: "
+literal|"Configured property: "
 operator|+
 name|name
 operator|+
