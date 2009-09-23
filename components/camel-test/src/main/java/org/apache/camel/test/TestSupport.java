@@ -668,7 +668,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Endoint uri for: "
+literal|"Endpoint uri for: "
 operator|+
 name|endpoint
 argument_list|,

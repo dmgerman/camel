@@ -638,23 +638,6 @@ return|return
 name|purgePollTime
 return|;
 block|}
-comment|/**      * Sets the next purge poll time in milliseconds      */
-DECL|method|setPurgePollTime (long purgePollTime)
-specifier|public
-name|void
-name|setPurgePollTime
-parameter_list|(
-name|long
-name|purgePollTime
-parameter_list|)
-block|{
-name|this
-operator|.
-name|purgePollTime
-operator|=
-name|purgePollTime
-expr_stmt|;
-block|}
 DECL|method|getExecutor ()
 specifier|public
 name|ScheduledExecutorService
@@ -664,23 +647,6 @@ block|{
 return|return
 name|executor
 return|;
-block|}
-comment|/**      * Sets the executor used to schedule purge events of inactive requests      */
-DECL|method|setExecutor (ScheduledExecutorService executor)
-specifier|public
-name|void
-name|setExecutor
-parameter_list|(
-name|ScheduledExecutorService
-name|executor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executor
-operator|=
-name|executor
-expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

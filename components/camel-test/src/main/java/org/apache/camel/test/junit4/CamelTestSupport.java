@@ -1343,35 +1343,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getSingletonEndpoints (Class<T> type)
-specifier|protected
-parameter_list|<
-name|T
-parameter_list|>
-name|List
-argument_list|<
-name|T
-argument_list|>
-name|getSingletonEndpoints
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-return|return
-name|CamelContextHelper
-operator|.
-name|getSingletonEndpoints
-argument_list|(
-name|context
-argument_list|,
-name|type
-argument_list|)
-return|;
-block|}
 DECL|method|getMandatoryEndpoint (String uri, Class<T> type)
 specifier|protected
 parameter_list|<
