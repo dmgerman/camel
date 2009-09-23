@@ -884,18 +884,18 @@ operator|=
 name|onlyRegisterProcessorWithCustomId
 expr_stmt|;
 block|}
-DECL|method|setServer (MBeanServer value)
+DECL|method|setMBeanServer (MBeanServer mbeanServer)
 specifier|public
 name|void
-name|setServer
+name|setMBeanServer
 parameter_list|(
 name|MBeanServer
-name|value
+name|mbeanServer
 parameter_list|)
 block|{
 name|server
 operator|=
-name|value
+name|mbeanServer
 expr_stmt|;
 block|}
 DECL|method|getMBeanServer ()

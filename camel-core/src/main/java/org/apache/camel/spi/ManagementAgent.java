@@ -127,6 +127,15 @@ name|MBeanServer
 name|getMBeanServer
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a custom mbean server to use      *      * @param mbeanServer the custom mbean server      */
+DECL|method|setMBeanServer (MBeanServer mbeanServer)
+name|void
+name|setMBeanServer
+parameter_list|(
+name|MBeanServer
+name|mbeanServer
+parameter_list|)
+function_decl|;
 comment|/**      * Get domain name for Camel MBeans.      *<p/>      *<b>Notice:</b> That this can be different that the default domain name of the MBean Server.      *       * @return domain name      */
 DECL|method|getMBeanObjectDomainName ()
 name|String
