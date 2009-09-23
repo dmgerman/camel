@@ -670,6 +670,26 @@ return|return
 name|path
 return|;
 block|}
+comment|// only normalize if contains a path separator
+if|if
+condition|(
+name|path
+operator|.
+name|indexOf
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+name|path
+return|;
+block|}
 name|Stack
 argument_list|<
 name|String
