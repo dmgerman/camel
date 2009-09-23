@@ -151,11 +151,6 @@ specifier|private
 name|Class
 name|type
 decl_stmt|;
-DECL|method|BeanDefinitionParser ()
-specifier|protected
-name|BeanDefinitionParser
-parameter_list|()
-block|{     }
 DECL|method|BeanDefinitionParser (Class type)
 specifier|public
 name|BeanDefinitionParser
@@ -180,36 +175,9 @@ name|Element
 name|element
 parameter_list|)
 block|{
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
-name|type
-operator|=
-name|loadType
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|type
 return|;
-block|}
-DECL|method|loadType ()
-specifier|protected
-name|Class
-name|loadType
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"No type specified!"
-argument_list|)
-throw|;
 block|}
 DECL|method|isEligibleAttribute (String attributeName)
 specifier|protected

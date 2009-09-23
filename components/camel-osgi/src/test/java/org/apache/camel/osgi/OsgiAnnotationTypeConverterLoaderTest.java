@@ -101,7 +101,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"There should have at lest one coverter"
+literal|"There should have at lest one converter"
 argument_list|,
 name|registry
 operator|.

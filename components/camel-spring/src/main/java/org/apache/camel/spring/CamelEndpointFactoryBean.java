@@ -229,13 +229,6 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|singleton
-specifier|private
-name|boolean
-name|singleton
-decl_stmt|;
 DECL|method|getObject ()
 specifier|public
 name|Object
@@ -279,8 +272,26 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|createEndpoint
+argument_list|()
+expr_stmt|;
+block|}
 return|return
-name|singleton
+name|endpoint
+operator|.
+name|isSingleton
+argument_list|()
 return|;
 block|}
 DECL|method|getCamelContext ()
@@ -308,48 +319,6 @@ operator|.
 name|context
 operator|=
 name|context
-expr_stmt|;
-block|}
-DECL|method|getEndpoint ()
-specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|endpoint
-return|;
-block|}
-DECL|method|setEndpoint (Endpoint endpoint)
-specifier|public
-name|void
-name|setEndpoint
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
-DECL|method|setSingleton (boolean singleton)
-specifier|public
-name|void
-name|setSingleton
-parameter_list|(
-name|boolean
-name|singleton
-parameter_list|)
-block|{
-name|this
-operator|.
-name|singleton
-operator|=
-name|singleton
 expr_stmt|;
 block|}
 DECL|method|getUri ()

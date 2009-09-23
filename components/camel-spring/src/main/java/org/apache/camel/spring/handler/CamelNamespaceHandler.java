@@ -903,30 +903,6 @@ name|beanPostProcessorId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|registerScriptParser (String elementName, String engineName)
-specifier|protected
-name|void
-name|registerScriptParser
-parameter_list|(
-name|String
-name|elementName
-parameter_list|,
-name|String
-name|engineName
-parameter_list|)
-block|{
-name|registerParser
-argument_list|(
-name|elementName
-argument_list|,
-operator|new
-name|ScriptDefinitionParser
-argument_list|(
-name|engineName
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|registerParser (String name, org.springframework.beans.factory.xml.BeanDefinitionParser parser)
 specifier|protected
 name|void
@@ -963,19 +939,6 @@ argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getParserElementNames ()
-specifier|public
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|getParserElementNames
-parameter_list|()
-block|{
-return|return
-name|parserElementNames
-return|;
 block|}
 DECL|method|parseUsingJaxb (Element element, ParserContext parserContext, Binder<Node> binder)
 specifier|protected

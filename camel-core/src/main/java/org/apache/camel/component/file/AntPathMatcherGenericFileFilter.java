@@ -227,7 +227,7 @@ throws|throws
 name|NoSuchMethodException
 block|{
 comment|// we must use reflection to invoke the AntPathMatcherFileFilter that reside in camel-spring.jar
-comment|// and we don't want camel-ftp to have runtime dependency on camel-spring.jar
+comment|// and we don't want camel-cone to have runtime dependency on camel-spring.jar
 name|Class
 name|clazz
 init|=

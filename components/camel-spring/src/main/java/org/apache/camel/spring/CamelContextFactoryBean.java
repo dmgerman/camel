@@ -1441,20 +1441,13 @@ name|context
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|routeBuilder
-specifier|private
-name|RouteBuilder
-name|routeBuilder
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|additionalBuilders
+DECL|field|builders
 specifier|private
 name|List
 argument_list|<
 name|RoutesBuilder
 argument_list|>
-name|additionalBuilders
+name|builders
 init|=
 operator|new
 name|ArrayList
@@ -1544,19 +1537,6 @@ parameter_list|()
 block|{
 return|return
 name|contextClassLoaderOnStart
-return|;
-block|}
-DECL|method|getAdditionalBuilders ()
-specifier|public
-name|List
-argument_list|<
-name|RoutesBuilder
-argument_list|>
-name|getAdditionalBuilders
-parameter_list|()
-block|{
-return|return
-name|additionalBuilders
 return|;
 block|}
 DECL|method|afterPropertiesSet ()
@@ -3556,57 +3536,6 @@ operator|=
 name|interceptSendToEndpoints
 expr_stmt|;
 block|}
-DECL|method|getRouteBuilder ()
-specifier|public
-name|RouteBuilder
-name|getRouteBuilder
-parameter_list|()
-block|{
-return|return
-name|routeBuilder
-return|;
-block|}
-comment|/**      * Set a single {@link RouteBuilder} to be used to create the default routes      * on startup      */
-DECL|method|setRouteBuilder (RouteBuilder routeBuilder)
-specifier|public
-name|void
-name|setRouteBuilder
-parameter_list|(
-name|RouteBuilder
-name|routeBuilder
-parameter_list|)
-block|{
-name|this
-operator|.
-name|routeBuilder
-operator|=
-name|routeBuilder
-expr_stmt|;
-block|}
-comment|/**      * Set a collection of {@link RouteBuilder} instances to be used to create      * the default routes on startup      */
-DECL|method|setRouteBuilders (RouteBuilder[] builders)
-specifier|public
-name|void
-name|setRouteBuilders
-parameter_list|(
-name|RouteBuilder
-index|[]
-name|builders
-parameter_list|)
-block|{
-name|additionalBuilders
-operator|.
-name|addAll
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|builders
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getApplicationContext ()
 specifier|public
 name|ApplicationContext
@@ -4216,21 +4145,6 @@ name|RouteBuilder
 argument_list|>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|routeBuilder
-operator|!=
-literal|null
-condition|)
-block|{
-name|builders
-operator|.
-name|add
-argument_list|(
-name|routeBuilder
-argument_list|)
-expr_stmt|;
-block|}
 comment|// lets add route builders added from references
 if|if
 condition|(
@@ -4294,7 +4208,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|additionalBuilders
+name|this
+operator|.
+name|builders
 operator|.
 name|add
 argument_list|(
@@ -4324,7 +4240,9 @@ control|(
 name|RoutesBuilder
 name|routeBuilder
 range|:
-name|additionalBuilders
+name|this
+operator|.
+name|builders
 control|)
 block|{
 name|getContext
@@ -4495,8 +4413,7 @@ name|finder
 operator|.
 name|appendBuilders
 argument_list|(
-name|getAdditionalBuilders
-argument_list|()
+name|builders
 argument_list|)
 expr_stmt|;
 block|}

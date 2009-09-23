@@ -372,17 +372,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-DECL|method|getDefaultEndpoint ()
-specifier|public
-name|String
-name|getDefaultEndpoint
-parameter_list|()
-block|{
-return|return
-name|defaultEndpoint
-return|;
-block|}
-comment|/**      * Sets the default endpoint URI used by default for sending message      * exchanges      */
+comment|/**      * Sets the default endpoint URI used by default for sending message exchanges      */
 DECL|method|setDefaultEndpoint (String defaultEndpoint)
 specifier|public
 name|void

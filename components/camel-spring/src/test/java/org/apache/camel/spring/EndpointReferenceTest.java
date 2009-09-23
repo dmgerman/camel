@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -35,18 +25,6 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
 import|;
 end_import
 
@@ -130,6 +108,23 @@ name|body
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
+DECL|method|testContextToString ()
+specifier|public
+name|void
+name|testContextToString
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertNotNull
+argument_list|(
+name|context
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEndpointConfiguration ()
 specifier|public
 name|void
@@ -294,46 +289,6 @@ expr_stmt|;
 block|}
 name|testEndpointConfiguration
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|assertValidContext (SpringCamelContext context)
-specifier|protected
-name|void
-name|assertValidContext
-parameter_list|(
-name|SpringCamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-operator|.
-name|assertValidContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-init|=
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Number of routes defined"
-argument_list|,
-literal|1
-argument_list|,
-name|routes
-operator|.
-name|size
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
