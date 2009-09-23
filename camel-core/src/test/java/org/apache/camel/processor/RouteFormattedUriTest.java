@@ -98,6 +98,27 @@ name|result
 init|=
 literal|"result"
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/toformat"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testFormattedUri ()
 specifier|public
 name|void
