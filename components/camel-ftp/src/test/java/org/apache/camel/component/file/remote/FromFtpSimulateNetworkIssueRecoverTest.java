@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simulate network issues by using a custom poll startegy to force exceptions  * occuring during poll.  *  * @version $Revision$  */
+comment|/**  * Simulate network issues by using a custom poll strategy to force exceptions  * occurring during poll.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -232,11 +232,22 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertEquals
+name|Thread
+operator|.
+name|sleep
 argument_list|(
-literal|3
+literal|2000
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should have tried at least 3 times was "
+operator|+
+name|counter
 argument_list|,
 name|counter
+operator|>=
+literal|3
 argument_list|)
 expr_stmt|;
 name|assertEquals
