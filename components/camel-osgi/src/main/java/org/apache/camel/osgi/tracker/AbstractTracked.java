@@ -1,5 +1,9 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
+begin_comment
 comment|/*  * Copyright (c) OSGi Alliance (2007, 2008). All Rights Reserved.  *   * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
@@ -87,40 +91,40 @@ name|DEBUG
 init|=
 literal|false
 decl_stmt|;
-comment|/** 	 * Map of tracked items to customized objects. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * true if the tracked object is closed. This field is volatile because it      * is set by one thread and read by another.      */
+DECL|field|closed
+specifier|volatile
+name|boolean
+name|closed
+decl_stmt|;
+comment|/**      * Map of tracked items to customized objects.      *       * @GuardedBy this      */
 DECL|field|tracked
 specifier|private
 specifier|final
 name|Map
 name|tracked
 decl_stmt|;
-comment|/** 	 * Modification count. This field is initialized to zero and incremented by 	 * modified. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * Modification count. This field is initialized to zero and incremented by      * modified.      *       * @GuardedBy this      */
 DECL|field|trackingCount
 specifier|private
 name|int
 name|trackingCount
 decl_stmt|;
-comment|/** 	 * List of items in the process of being added. This is used to deal with 	 * nesting of events. Since events may be synchronously delivered, events 	 * can be nested. For example, when processing the adding of a service and 	 * the customizer causes the service to be unregistered, notification to the 	 * nested call to untrack that the service was unregistered can be made to 	 * the track method. 	 *  	 * Since the ArrayList implementation is not synchronized, all access to 	 * this list must be protected by the same synchronized object for 	 * thread-safety. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * List of items in the process of being added. This is used to deal with      * nesting of events. Since events may be synchronously delivered, events      * can be nested. For example, when processing the adding of a service and      * the customizer causes the service to be unregistered, notification to the      * nested call to untrack that the service was unregistered can be made to      * the track method. Since the ArrayList implementation is not synchronized,      * all access to this list must be protected by the same synchronized object      * for thread-safety.      *       * @GuardedBy this      */
 DECL|field|adding
 specifier|private
 specifier|final
 name|List
 name|adding
 decl_stmt|;
-comment|/** 	 * true if the tracked object is closed. 	 *  	 * This field is volatile because it is set by one thread and read by 	 * another. 	 */
-DECL|field|closed
-specifier|volatile
-name|boolean
-name|closed
-decl_stmt|;
-comment|/** 	 * Initial list of items for the tracker. This is used to correctly process 	 * the initial items which could be modified before they are tracked. This 	 * is necessary since the initial set of tracked items are not "announced" 	 * by events and therefore the event which makes the item untracked could be 	 * delivered before we track the item. 	 *  	 * An item must not be in both the initial and adding lists at the same 	 * time. An item must be moved from the initial list to the adding list 	 * "atomically" before we begin tracking it. 	 *  	 * Since the LinkedList implementation is not synchronized, all access to 	 * this list must be protected by the same synchronized object for 	 * thread-safety. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * Initial list of items for the tracker. This is used to correctly process      * the initial items which could be modified before they are tracked. This      * is necessary since the initial set of tracked items are not "announced"      * by events and therefore the event which makes the item untracked could be      * delivered before we track the item. An item must not be in both the      * initial and adding lists at the same time. An item must be moved from the      * initial list to the adding list "atomically" before we begin tracking it.      * Since the LinkedList implementation is not synchronized, all access to      * this list must be protected by the same synchronized object for      * thread-safety.      *       * @GuardedBy this      */
 DECL|field|initial
 specifier|private
 specifier|final
 name|LinkedList
 name|initial
 decl_stmt|;
-comment|/** 	 * AbstractTracked constructor. 	 */
+comment|/**      * AbstractTracked constructor.      */
 DECL|method|AbstractTracked ()
 name|AbstractTracked
 parameter_list|()
@@ -154,7 +158,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** 	 * Set initial list of items into tracker before events begin to be 	 * received. 	 *  	 * This method must be called from Tracker's open method while synchronized 	 * on this object in the same synchronized block as the add listener call. 	 *  	 * @param list The initial list of items to be tracked.<code>null</code> 	 *        entries in the list are ignored. 	 * @GuardedBy this 	 */
+comment|/**      * Set initial list of items into tracker before events begin to be      * received. This method must be called from Tracker's open method while      * synchronized on this object in the same synchronized block as the add      * listener call.      *       * @param list The initial list of items to be tracked.<code>null</code>      *            entries in the list are ignored.      * @GuardedBy this      */
 DECL|method|setInitial (Object[] list)
 name|void
 name|setInitial
@@ -239,7 +243,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Track the initial list of items. This is called after events can begin to 	 * be received. 	 *  	 * This method must be called from Tracker's open method while not 	 * synchronized on this object after the add listener call. 	 *  	 */
+comment|/**      * Track the initial list of items. This is called after events can begin to      * be received. This method must be called from Tracker's open method while      * not synchronized on this object after the add listener call.      */
 DECL|method|trackInitial ()
 name|void
 name|trackInitial
@@ -272,11 +276,11 @@ literal|0
 operator|)
 condition|)
 block|{
-comment|/* 					 * if there are no more initial items 					 */
+comment|/*                      * if there are no more initial items                      */
 return|return;
 comment|/* we are done */
 block|}
-comment|/* 				 * move the first item from the initial list to the adding list 				 * within this synchronized block. 				 */
+comment|/*                  * move the first item from the initial list to the adding list                  * within this synchronized block.                  */
 name|item
 operator|=
 name|initial
@@ -328,7 +332,7 @@ name|item
 argument_list|)
 condition|)
 block|{
-comment|/* 					 * if this item is already in the process of being added. 					 */
+comment|/*                      * if this item is already in the process of being added.                      */
 if|if
 condition|(
 name|DEBUG
@@ -383,10 +387,10 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|/* 									 * Begin tracking it. We call trackAdding 									 * since we have already put the item in the 									 * adding list. 									 */
+comment|/*                                       * Begin tracking it. We call trackAdding                                       * since we have already put the item in                                       * the adding list.                                       */
 block|}
 block|}
-comment|/** 	 * Called by the owning Tracker object when it is closed. 	 */
+comment|/**      * Called by the owning Tracker object when it is closed.      */
 DECL|method|close ()
 name|void
 name|close
@@ -397,7 +401,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/** 	 * Begin to track an item. 	 *  	 * @param item Item to be tracked. 	 * @param related Action related object. 	 */
+comment|/**      * Begin to track an item.      *       * @param item Item to be tracked.      * @param related Action related object.      */
 DECL|method|track (final Object item, final Object related)
 name|void
 name|track
@@ -539,10 +543,10 @@ argument_list|,
 name|object
 argument_list|)
 expr_stmt|;
-comment|/* 			 * If the customizer throws an unchecked exception, it is safe to 			 * let it propagate 			 */
+comment|/*              * If the customizer throws an unchecked exception, it is safe to              * let it propagate              */
 block|}
 block|}
-comment|/** 	 * Common logic to add an item to the tracker used by track and 	 * trackInitial. The specified item must have been placed in the adding list 	 * before calling this method. 	 *  	 * @param item Item to be tracked. 	 * @param related Action related object. 	 */
+comment|/**      * Common logic to add an item to the tracker used by track and      * trackInitial. The specified item must have been placed in the adding list      * before calling this method.      *       * @param item Item to be tracked.      * @param related Action related object.      */
 DECL|method|trackAdding (final Object item, final Object related)
 specifier|private
 name|void
@@ -597,7 +601,7 @@ argument_list|,
 name|related
 argument_list|)
 expr_stmt|;
-comment|/* 			 * If the customizer throws an unchecked exception, it will 			 * propagate after the finally 			 */
+comment|/*              * If the customizer throws an unchecked exception, it will              * propagate after the finally              */
 block|}
 finally|finally
 block|{
@@ -619,7 +623,7 @@ operator|!
 name|closed
 condition|)
 block|{
-comment|/* 					 * if the item was not untracked during the customizer 					 * callback 					 */
+comment|/*                      * if the item was not untracked during the customizer                      * callback                      */
 if|if
 condition|(
 name|object
@@ -655,7 +659,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 		 * The item became untracked during the customizer callback. 		 */
+comment|/*          * The item became untracked during the customizer callback.          */
 if|if
 condition|(
 name|becameUntracked
@@ -695,10 +699,10 @@ argument_list|,
 name|object
 argument_list|)
 expr_stmt|;
-comment|/* 			 * If the customizer throws an unchecked exception, it is safe to 			 * let it propagate 			 */
+comment|/*              * If the customizer throws an unchecked exception, it is safe to              * let it propagate              */
 block|}
 block|}
-comment|/** 	 * Discontinue tracking the item. 	 *  	 * @param item Item to be untracked. 	 * @param related Action related object. 	 */
+comment|/**      * Discontinue tracking the item.      *       * @param item Item to be untracked.      * @param related Action related object.      */
 DECL|method|untrack (final Object item, final Object related)
 name|void
 name|untrack
@@ -731,7 +735,7 @@ name|item
 argument_list|)
 condition|)
 block|{
-comment|/* 										 * if this item is already in the list 										 * of initial references to process 										 */
+comment|/*                                          * if this item is already in the list                                          * of initial references to process                                          */
 if|if
 condition|(
 name|DEBUG
@@ -751,7 +755,7 @@ expr_stmt|;
 comment|//$NON-NLS-1$
 block|}
 return|return;
-comment|/* 						 * we have removed it from the list and it will not be 						 * processed 						 */
+comment|/*                          * we have removed it from the list and it will not be                          * processed                          */
 block|}
 if|if
 condition|(
@@ -763,7 +767,7 @@ name|item
 argument_list|)
 condition|)
 block|{
-comment|/* 										 * if the item is in the process of 										 * being added 										 */
+comment|/*                                         * if the item is in the process of being                                         * added                                         */
 if|if
 condition|(
 name|DEBUG
@@ -783,7 +787,7 @@ expr_stmt|;
 comment|//$NON-NLS-1$
 block|}
 return|return;
-comment|/* 						 * in case the item is untracked while in the process of 						 * adding 						 */
+comment|/*                          * in case the item is untracked while in the process of                          * adding                          */
 block|}
 name|object
 operator|=
@@ -794,7 +798,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
-comment|/* 											 * must remove from tracker before 											 * calling customizer callback 											 */
+comment|/*                                             * must remove from tracker before                                             * calling customizer callback                                             */
 if|if
 condition|(
 name|object
@@ -838,9 +842,9 @@ argument_list|,
 name|object
 argument_list|)
 expr_stmt|;
-comment|/* 		 * If the customizer throws an unchecked exception, it is safe to let it 		 * propagate 		 */
+comment|/*          * If the customizer throws an unchecked exception, it is safe to let it          * propagate          */
 block|}
-comment|/** 	 * Returns the number of tracked items. 	 *  	 * @return The number of tracked items. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * Returns the number of tracked items.      *       * @return The number of tracked items.      * @GuardedBy this      */
 DECL|method|size ()
 name|int
 name|size
@@ -853,7 +857,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Return the customized object for the specified item 	 *  	 * @param item The item to lookup in the map 	 * @return The customized object for the specified item. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * Return the customized object for the specified item      *       * @param item The item to lookup in the map      * @return The customized object for the specified item.      * @GuardedBy this      */
 DECL|method|getCustomizedObject (final Object item)
 name|Object
 name|getCustomizedObject
@@ -872,7 +876,7 @@ name|item
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Return the list of tracked items. 	 *  	 * @param list An array to contain the tracked items. 	 * @return The specified list if it is large enough to hold the tracked 	 *         items or a new array large enough to hold the tracked items. 	 * @GuardedBy this 	 */
+comment|/**      * Return the list of tracked items.      *       * @param list An array to contain the tracked items.      * @return The specified list if it is large enough to hold the tracked      *         items or a new array large enough to hold the tracked items.      * @GuardedBy this      */
 DECL|method|getTracked (final Object[] list)
 name|Object
 index|[]
@@ -896,7 +900,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Increment the modification count. If this method is overridden, the 	 * overriding method MUST call this method to increment the tracking count. 	 *  	 * @GuardedBy this 	 */
+comment|/**      * Increment the modification count. If this method is overridden, the      * overriding method MUST call this method to increment the tracking count.      *       * @GuardedBy this      */
 DECL|method|modified ()
 name|void
 name|modified
@@ -906,7 +910,7 @@ name|trackingCount
 operator|++
 expr_stmt|;
 block|}
-comment|/** 	 * Returns the tracking count for this<code>ServiceTracker</code> object. 	 *  	 * The tracking count is initialized to 0 when this object is opened. Every 	 * time an item is added, modified or removed from this object the tracking 	 * count is incremented. 	 *  	 * @GuardedBy this 	 * @return The tracking count for this object. 	 */
+comment|/**      * Returns the tracking count for this<code>ServiceTracker</code> object.      * The tracking count is initialized to 0 when this object is opened. Every      * time an item is added, modified or removed from this object the tracking      * count is incremented.      *       * @GuardedBy this      * @return The tracking count for this object.      */
 DECL|method|getTrackingCount ()
 name|int
 name|getTrackingCount
@@ -916,7 +920,7 @@ return|return
 name|trackingCount
 return|;
 block|}
-comment|/** 	 * Call the specific customizer adding method. This method must not be 	 * called while synchronized on this object. 	 *  	 * @param item Item to be tracked. 	 * @param related Action related object. 	 * @return Customized object for the tracked item or<code>null</code> if 	 *         the item is not to be tracked. 	 */
+comment|/**      * Call the specific customizer adding method. This method must not be      * called while synchronized on this object.      *       * @param item Item to be tracked.      * @param related Action related object.      * @return Customized object for the tracked item or<code>null</code> if      *         the item is not to be tracked.      */
 DECL|method|customizerAdding (final Object item, final Object related)
 specifier|abstract
 name|Object
@@ -931,7 +935,7 @@ name|Object
 name|related
 parameter_list|)
 function_decl|;
-comment|/** 	 * Call the specific customizer modified method. This method must not be 	 * called while synchronized on this object. 	 *  	 * @param item Tracked item. 	 * @param related Action related object. 	 * @param object Customized object for the tracked item. 	 */
+comment|/**      * Call the specific customizer modified method. This method must not be      * called while synchronized on this object.      *       * @param item Tracked item.      * @param related Action related object.      * @param object Customized object for the tracked item.      */
 DECL|method|customizerModified (final Object item, final Object related, final Object object)
 specifier|abstract
 name|void
@@ -950,7 +954,7 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
-comment|/** 	 * Call the specific customizer removed method. This method must not be 	 * called while synchronized on this object. 	 *  	 * @param item Tracked item. 	 * @param related Action related object. 	 * @param object Customized object for the tracked item. 	 */
+comment|/**      * Call the specific customizer removed method. This method must not be      * called while synchronized on this object.      *       * @param item Tracked item.      * @param related Action related object.      * @param object Customized object for the tracked item.      */
 DECL|method|customizerRemoved (final Object item, final Object related, final Object object)
 specifier|abstract
 name|void

@@ -1,5 +1,9 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
+begin_comment
 comment|/*  * Copyright (c) OSGi Alliance (2007, 2008). All Rights Reserved.  *   * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
@@ -52,9 +56,8 @@ specifier|public
 interface|interface
 name|BundleTrackerCustomizer
 block|{
-comment|/** 	 * A bundle is being added to the<code>BundleTracker</code>. 	 *  	 *<p> 	 * This method is called before a bundle which matched the search parameters 	 * of the<code>BundleTracker</code> is added to the 	 *<code>BundleTracker</code>. This method should return the object to be 	 * tracked for the specified<code>Bundle</code>. The returned object is 	 * stored in the<code>BundleTracker</code> and is available from the 	 * {@link BundleTracker#getObject(Bundle) getObject} method. 	 *  	 * @param bundle The<code>Bundle</code> being added to the 	 *<code>BundleTracker</code>. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @return The object to be tracked for the specified<code>Bundle</code> 	 *         object or<code>null</code> if the specified<code>Bundle</code> 	 *         object should not be tracked. 	 */
+comment|/**      * A bundle is being added to the<code>BundleTracker</code>.      *<p>      * This method is called before a bundle which matched the search parameters      * of the<code>BundleTracker</code> is added to the      *<code>BundleTracker</code>. This method should return the object to be      * tracked for the specified<code>Bundle</code>. The returned object is      * stored in the<code>BundleTracker</code> and is available from the      * {@link BundleTracker#getObject(Bundle) getObject} method.      *       * @param bundle The<code>Bundle</code> being added to the      *<code>BundleTracker</code>.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @return The object to be tracked for the specified<code>Bundle</code>      *         object or<code>null</code> if the specified<code>Bundle</code>      *         object should not be tracked.      */
 DECL|method|addingBundle (Bundle bundle, BundleEvent event)
-specifier|public
 name|Object
 name|addingBundle
 parameter_list|(
@@ -65,9 +68,8 @@ name|BundleEvent
 name|event
 parameter_list|)
 function_decl|;
-comment|/** 	 * A bundle tracked by the<code>BundleTracker</code> has been modified. 	 *  	 *<p> 	 * This method is called when a bundle being tracked by the 	 *<code>BundleTracker</code> has had its state modified. 	 *  	 * @param bundle The<code>Bundle</code> whose state has been modified. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @param object The tracked object for the specified bundle. 	 */
+comment|/**      * A bundle tracked by the<code>BundleTracker</code> has been modified.      *<p>      * This method is called when a bundle being tracked by the      *<code>BundleTracker</code> has had its state modified.      *       * @param bundle The<code>Bundle</code> whose state has been modified.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @param object The tracked object for the specified bundle.      */
 DECL|method|modifiedBundle (Bundle bundle, BundleEvent event, Object object)
-specifier|public
 name|void
 name|modifiedBundle
 parameter_list|(
@@ -81,9 +83,8 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
-comment|/** 	 * A bundle tracked by the<code>BundleTracker</code> has been removed. 	 *  	 *<p> 	 * This method is called after a bundle is no longer being tracked by the 	 *<code>BundleTracker</code>. 	 *  	 * @param bundle The<code>Bundle</code> that has been removed. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @param object The tracked object for the specified bundle. 	 */
+comment|/**      * A bundle tracked by the<code>BundleTracker</code> has been removed.      *<p>      * This method is called after a bundle is no longer being tracked by the      *<code>BundleTracker</code>.      *       * @param bundle The<code>Bundle</code> that has been removed.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @param object The tracked object for the specified bundle.      */
 DECL|method|removedBundle (Bundle bundle, BundleEvent event, Object object)
-specifier|public
 name|void
 name|removedBundle
 parameter_list|(

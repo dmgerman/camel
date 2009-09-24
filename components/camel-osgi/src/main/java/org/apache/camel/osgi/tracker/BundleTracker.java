@@ -1,5 +1,9 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
+begin_comment
 comment|/*  * Copyright (c) OSGi Alliance (2007, 2008). All Rights Reserved.  *   * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
@@ -87,44 +91,33 @@ name|DEBUG
 init|=
 literal|false
 decl_stmt|;
-comment|/** 	 * The Bundle Context used by this<code>BundleTracker</code>. 	 */
+comment|/**      * The Bundle Context used by this<code>BundleTracker</code>.      */
 DECL|field|context
 specifier|protected
 specifier|final
 name|BundleContext
 name|context
 decl_stmt|;
-comment|/** 	 * The<code>BundleTrackerCustomizer</code> object for this tracker. 	 */
+comment|/**      * State mask for bundles being tracked. This field contains the ORed values      * of the bundle states being tracked.      */
+DECL|field|mask
+specifier|final
+name|int
+name|mask
+decl_stmt|;
+comment|/**      * The<code>BundleTrackerCustomizer</code> object for this tracker.      */
 DECL|field|customizer
 specifier|final
 name|BundleTrackerCustomizer
 name|customizer
 decl_stmt|;
-comment|/** 	 * Tracked bundles:<code>Bundle</code> object -> customized Object and 	 *<code>BundleListener</code> object 	 */
+comment|/**      * Tracked bundles:<code>Bundle</code> object -> customized Object and      *<code>BundleListener</code> object      */
 DECL|field|tracked
 specifier|private
 specifier|volatile
 name|Tracked
 name|tracked
 decl_stmt|;
-comment|/** 	 * Accessor method for the current Tracked object. This method is only 	 * intended to be used by the unsynchronized methods which do not modify the 	 * tracked field. 	 *  	 * @return The current Tracked object. 	 */
-DECL|method|tracked ()
-specifier|private
-name|Tracked
-name|tracked
-parameter_list|()
-block|{
-return|return
-name|tracked
-return|;
-block|}
-comment|/** 	 * State mask for bundles being tracked. This field contains the ORed values 	 * of the bundle states being tracked. 	 */
-DECL|field|mask
-specifier|final
-name|int
-name|mask
-decl_stmt|;
-comment|/** 	 * Create a<code>BundleTracker</code> for bundles whose state is present in 	 * the specified state mask. 	 *  	 *<p> 	 * Bundles whose state is present on the specified state mask will be 	 * tracked by this<code>BundleTracker</code>. 	 *  	 * @param context The<code>BundleContext</code> against which the tracking 	 *        is done. 	 * @param stateMask The bit mask of the<code>OR</code>ing of the bundle 	 *        states to be tracked. 	 * @param customizer The customizer object to call when bundles are added, 	 *        modified, or removed in this<code>BundleTracker</code>. If 	 *        customizer is<code>null</code>, then this 	 *<code>BundleTracker</code> will be used as the 	 *<code>BundleTrackerCustomizer</code> and this 	 *<code>BundleTracker</code> will call the 	 *<code>BundleTrackerCustomizer</code> methods on itself. 	 * @see Bundle#getState() 	 */
+comment|/**      * Create a<code>BundleTracker</code> for bundles whose state is present in      * the specified state mask.      *<p>      * Bundles whose state is present on the specified state mask will be      * tracked by this<code>BundleTracker</code>.      *       * @param context The<code>BundleContext</code> against which the tracking      *            is done.      * @param stateMask The bit mask of the<code>OR</code>ing of the bundle      *            states to be tracked.      * @param customizer The customizer object to call when bundles are added,      *            modified, or removed in this<code>BundleTracker</code>. If      *            customizer is<code>null</code>, then this      *<code>BundleTracker</code> will be used as the      *<code>BundleTrackerCustomizer</code> and this      *<code>BundleTracker</code> will call the      *<code>BundleTrackerCustomizer</code> methods on itself.      * @see Bundle#getState()      */
 DECL|method|BundleTracker (BundleContext context, int stateMask, BundleTrackerCustomizer customizer)
 specifier|public
 name|BundleTracker
@@ -166,7 +159,18 @@ else|:
 name|customizer
 expr_stmt|;
 block|}
-comment|/** 	 * Open this<code>BundleTracker</code> and begin tracking bundles. 	 *  	 *<p> 	 * Bundle which match the state criteria specified when this 	 *<code>BundleTracker</code> was created are now tracked by this 	 *<code>BundleTracker</code>. 	 *  	 * @throws java.lang.IllegalStateException If the<code>BundleContext</code> 	 *         with which this<code>BundleTracker</code> was created is no 	 *         longer valid. 	 * @throws java.lang.SecurityException If the caller and this class do not 	 *         have the appropriate 	 *<code>AdminPermission[context bundle,LISTENER]</code>, and the 	 *         Java Runtime Environment supports permissions. 	 */
+comment|/**      * Accessor method for the current Tracked object. This method is only      * intended to be used by the unsynchronized methods which do not modify the      * tracked field.      *       * @return The current Tracked object.      */
+DECL|method|tracked ()
+specifier|private
+name|Tracked
+name|tracked
+parameter_list|()
+block|{
+return|return
+name|tracked
+return|;
+block|}
+comment|/**      * Open this<code>BundleTracker</code> and begin tracking bundles.      *<p>      * Bundle which match the state criteria specified when this      *<code>BundleTracker</code> was created are now tracked by this      *<code>BundleTracker</code>.      *       * @throws java.lang.IllegalStateException If the<code>BundleContext</code>      *             with which this<code>BundleTracker</code> was created is no      *             longer valid.      * @throws java.lang.SecurityException If the caller and this class do not      *             have the appropriate      *<code>AdminPermission[context bundle,LISTENER]</code>, and      *             the Java Runtime Environment supports permissions.      */
 DECL|method|open ()
 specifier|public
 name|void
@@ -318,7 +322,7 @@ argument_list|()
 expr_stmt|;
 comment|/* process the initial references */
 block|}
-comment|/** 	 * Close this<code>BundleTracker</code>. 	 *  	 *<p> 	 * This method should be called when this<code>BundleTracker</code> should 	 * end the tracking of bundles. 	 *  	 *<p> 	 * This implementation calls {@link #getBundles()} to get the list of 	 * tracked bundles to remove. 	 */
+comment|/**      * Close this<code>BundleTracker</code>.      *<p>      * This method should be called when this<code>BundleTracker</code> should      * end the tracking of bundles.      *<p>      * This implementation calls {@link #getBundles()} to get the list of      * tracked bundles to remove.      */
 DECL|method|close ()
 specifier|public
 name|void
@@ -440,7 +444,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Default implementation of the 	 *<code>BundleTrackerCustomizer.addingBundle</code> method. 	 *  	 *<p> 	 * This method is only called when this<code>BundleTracker</code> has been 	 * constructed with a<code>null BundleTrackerCustomizer</code> argument. 	 *  	 *<p> 	 * This implementation simply returns the specified<code>Bundle</code>. 	 *  	 *<p> 	 * This method can be overridden in a subclass to customize the object to be 	 * tracked for the bundle being added. 	 *  	 * @param bundle The<code>Bundle</code> being added to this 	 *<code>BundleTracker</code> object. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @return The specified bundle. 	 * @see BundleTrackerCustomizer#addingBundle(Bundle, BundleEvent) 	 */
+comment|/**      * Default implementation of the      *<code>BundleTrackerCustomizer.addingBundle</code> method.      *<p>      * This method is only called when this<code>BundleTracker</code> has been      * constructed with a<code>null BundleTrackerCustomizer</code> argument.      *<p>      * This implementation simply returns the specified<code>Bundle</code>.      *<p>      * This method can be overridden in a subclass to customize the object to be      * tracked for the bundle being added.      *       * @param bundle The<code>Bundle</code> being added to this      *<code>BundleTracker</code> object.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @return The specified bundle.      * @see BundleTrackerCustomizer#addingBundle(Bundle, BundleEvent)      */
 DECL|method|addingBundle (Bundle bundle, BundleEvent event)
 specifier|public
 name|Object
@@ -457,7 +461,7 @@ return|return
 name|bundle
 return|;
 block|}
-comment|/** 	 * Default implementation of the 	 *<code>BundleTrackerCustomizer.modifiedBundle</code> method. 	 *  	 *<p> 	 * This method is only called when this<code>BundleTracker</code> has been 	 * constructed with a<code>null BundleTrackerCustomizer</code> argument. 	 *  	 *<p> 	 * This implementation does nothing. 	 *  	 * @param bundle The<code>Bundle</code> whose state has been modified. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @param object The customized object for the specified Bundle. 	 * @see BundleTrackerCustomizer#modifiedBundle(Bundle, BundleEvent, Object) 	 */
+comment|/**      * Default implementation of the      *<code>BundleTrackerCustomizer.modifiedBundle</code> method.      *<p>      * This method is only called when this<code>BundleTracker</code> has been      * constructed with a<code>null BundleTrackerCustomizer</code> argument.      *<p>      * This implementation does nothing.      *       * @param bundle The<code>Bundle</code> whose state has been modified.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @param object The customized object for the specified Bundle.      * @see BundleTrackerCustomizer#modifiedBundle(Bundle, BundleEvent, Object)      */
 DECL|method|modifiedBundle (Bundle bundle, BundleEvent event, Object object)
 specifier|public
 name|void
@@ -475,7 +479,7 @@ parameter_list|)
 block|{
 comment|/* do nothing */
 block|}
-comment|/** 	 * Default implementation of the 	 *<code>BundleTrackerCustomizer.removedBundle</code> method. 	 *  	 *<p> 	 * This method is only called when this<code>BundleTracker</code> has been 	 * constructed with a<code>null BundleTrackerCustomizer</code> argument. 	 *  	 *<p> 	 * This implementation does nothing. 	 *  	 * @param bundle The<code>Bundle</code> being removed. 	 * @param event The bundle event which caused this customizer method to be 	 *        called or<code>null</code> if there is no bundle event associated 	 *        with the call to this method. 	 * @param object The customized object for the specified bundle. 	 * @see BundleTrackerCustomizer#removedBundle(Bundle, BundleEvent, Object) 	 */
+comment|/**      * Default implementation of the      *<code>BundleTrackerCustomizer.removedBundle</code> method.      *<p>      * This method is only called when this<code>BundleTracker</code> has been      * constructed with a<code>null BundleTrackerCustomizer</code> argument.      *<p>      * This implementation does nothing.      *       * @param bundle The<code>Bundle</code> being removed.      * @param event The bundle event which caused this customizer method to be      *            called or<code>null</code> if there is no bundle event      *            associated with the call to this method.      * @param object The customized object for the specified bundle.      * @see BundleTrackerCustomizer#removedBundle(Bundle, BundleEvent, Object)      */
 DECL|method|removedBundle (Bundle bundle, BundleEvent event, Object object)
 specifier|public
 name|void
@@ -493,7 +497,7 @@ parameter_list|)
 block|{
 comment|/* do nothing */
 block|}
-comment|/** 	 * Return an array of<code>Bundle</code>s for all bundles being tracked by 	 * this<code>BundleTracker</code>. 	 *  	 * @return An array of<code>Bundle</code>s or<code>null</code> if no 	 *         bundles are being tracked. 	 */
+comment|/**      * Return an array of<code>Bundle</code>s for all bundles being tracked by      * this<code>BundleTracker</code>.      *       * @return An array of<code>Bundle</code>s or<code>null</code> if no      *         bundles are being tracked.      */
 DECL|method|getBundles ()
 specifier|public
 name|Bundle
@@ -562,7 +566,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** 	 * Returns the customized object for the specified<code>Bundle</code> if 	 * the specified bundle is being tracked by this<code>BundleTracker</code>. 	 *  	 * @param bundle The<code>Bundle</code> being tracked. 	 * @return The customized object for the specified<code>Bundle</code> or 	 *<code>null</code> if the specified<code>Bundle</code> is not 	 *         being tracked. 	 */
+comment|/**      * Returns the customized object for the specified<code>Bundle</code> if      * the specified bundle is being tracked by this<code>BundleTracker</code>.      *       * @param bundle The<code>Bundle</code> being tracked.      * @return The customized object for the specified<code>Bundle</code> or      *<code>null</code> if the specified<code>Bundle</code> is not      *         being tracked.      */
 DECL|method|getObject (Bundle bundle)
 specifier|public
 name|Object
@@ -606,7 +610,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** 	 * Remove a bundle from this<code>BundleTracker</code>. 	 *  	 * The specified bundle will be removed from this<code>BundleTracker</code> 	 * . If the specified bundle was being tracked then the 	 *<code>BundleTrackerCustomizer.removedBundle</code> method will be called 	 * for that bundle. 	 *  	 * @param bundle The<code>Bundle</code> to be removed. 	 */
+comment|/**      * Remove a bundle from this<code>BundleTracker</code>. The specified      * bundle will be removed from this<code>BundleTracker</code> . If the      * specified bundle was being tracked then the      *<code>BundleTrackerCustomizer.removedBundle</code> method will be called      * for that bundle.      *       * @param bundle The<code>Bundle</code> to be removed.      */
 DECL|method|remove (Bundle bundle)
 specifier|public
 name|void
@@ -643,7 +647,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Return the number of bundles being tracked by this 	 *<code>BundleTracker</code>. 	 *  	 * @return The number of bundles being tracked. 	 */
+comment|/**      * Return the number of bundles being tracked by this      *<code>BundleTracker</code>.      *       * @return The number of bundles being tracked.      */
 DECL|method|size ()
 specifier|public
 name|int
@@ -682,7 +686,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** 	 * Returns the tracking count for this<code>BundleTracker</code>. 	 *  	 * The tracking count is initialized to 0 when this 	 *<code>BundleTracker</code> is opened. Every time a bundle is added, 	 * modified or removed from this<code>BundleTracker</code> the tracking 	 * count is incremented. 	 *  	 *<p> 	 * The tracking count can be used to determine if this 	 *<code>BundleTracker</code> has added, modified or removed a bundle by 	 * comparing a tracking count value previously collected with the current 	 * tracking count value. If the value has not changed, then no bundle has 	 * been added, modified or removed from this<code>BundleTracker</code> 	 * since the previous tracking count was collected. 	 *  	 * @return The tracking count for this<code>BundleTracker</code> or -1 if 	 *         this<code>BundleTracker</code> is not open. 	 */
+comment|/**      * Returns the tracking count for this<code>BundleTracker</code>. The      * tracking count is initialized to 0 when this<code>BundleTracker</code>      * is opened. Every time a bundle is added, modified or removed from this      *<code>BundleTracker</code> the tracking count is incremented.      *<p>      * The tracking count can be used to determine if this      *<code>BundleTracker</code> has added, modified or removed a bundle by      * comparing a tracking count value previously collected with the current      * tracking count value. If the value has not changed, then no bundle has      * been added, modified or removed from this<code>BundleTracker</code>      * since the previous tracking count was collected.      *       * @return The tracking count for this<code>BundleTracker</code> or -1 if      *         this<code>BundleTracker</code> is not open.      */
 DECL|method|getTrackingCount ()
 specifier|public
 name|int
@@ -722,7 +726,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** 	 * Inner class which subclasses AbstractTracked. This class is the 	 *<code>SynchronousBundleListener</code> object for the tracker. 	 *  	 * @ThreadSafe 	 * @since 1.4 	 */
+comment|/**      * Inner class which subclasses AbstractTracked. This class is the      *<code>SynchronousBundleListener</code> object for the tracker.      *       * @ThreadSafe      * @since 1.4      */
 DECL|class|Tracked
 class|class
 name|Tracked
@@ -731,7 +735,7 @@ name|AbstractTracked
 implements|implements
 name|SynchronousBundleListener
 block|{
-comment|/** 		 * Tracked constructor. 		 */
+comment|/**          * Tracked constructor.          */
 DECL|method|Tracked ()
 name|Tracked
 parameter_list|()
@@ -740,7 +744,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 		 *<code>BundleListener</code> method for the<code>BundleTracker</code> 		 * class. This method must NOT be synchronized to avoid deadlock 		 * potential. 		 *  		 * @param event<code>BundleEvent</code> object from the framework. 		 */
+comment|/**          *<code>BundleListener</code> method for the<code>BundleTracker</code>          * class. This method must NOT be synchronized to avoid deadlock          * potential.          *           * @param event<code>BundleEvent</code> object from the framework.          */
 DECL|method|bundleChanged (final BundleEvent event)
 specifier|public
 name|void
@@ -751,7 +755,7 @@ name|BundleEvent
 name|event
 parameter_list|)
 block|{
-comment|/* 			 * Check if we had a delayed call (which could happen when we 			 * close). 			 */
+comment|/*              * Check if we had a delayed call (which could happen when we              * close).              */
 if|if
 condition|(
 name|closed
@@ -817,7 +821,7 @@ argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-comment|/* 				 * If the customizer throws an unchecked exception, it is safe 				 * to let it propagate 				 */
+comment|/*                  * If the customizer throws an unchecked exception, it is safe                  * to let it propagate                  */
 block|}
 else|else
 block|{
@@ -828,10 +832,10 @@ argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-comment|/* 				 * If the customizer throws an unchecked exception, it is safe 				 * to let it propagate 				 */
+comment|/*                  * If the customizer throws an unchecked exception, it is safe                  * to let it propagate                  */
 block|}
 block|}
-comment|/** 		 * Call the specific customizer adding method. This method must not be 		 * called while synchronized on this object. 		 *  		 * @param item Item to be tracked. 		 * @param related Action related object. 		 * @return Customized object for the tracked item or<code>null</code> 		 *         if the item is not to be tracked. 		 */
+comment|/**          * Call the specific customizer adding method. This method must not be          * called while synchronized on this object.          *           * @param item Item to be tracked.          * @param related Action related object.          * @return Customized object for the tracked item or<code>null</code>          *         if the item is not to be tracked.          */
 DECL|method|customizerAdding (final Object item, final Object related)
 name|Object
 name|customizerAdding
@@ -862,7 +866,7 @@ name|related
 argument_list|)
 return|;
 block|}
-comment|/** 		 * Call the specific customizer modified method. This method must not be 		 * called while synchronized on this object. 		 *  		 * @param item Tracked item. 		 * @param related Action related object. 		 * @param object Customized object for the tracked item. 		 */
+comment|/**          * Call the specific customizer modified method. This method must not be          * called while synchronized on this object.          *           * @param item Tracked item.          * @param related Action related object.          * @param object Customized object for the tracked item.          */
 DECL|method|customizerModified (final Object item, final Object related, final Object object)
 name|void
 name|customizerModified
@@ -898,7 +902,7 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 		 * Call the specific customizer removed method. This method must not be 		 * called while synchronized on this object. 		 *  		 * @param item Tracked item. 		 * @param related Action related object. 		 * @param object Customized object for the tracked item. 		 */
+comment|/**          * Call the specific customizer removed method. This method must not be          * called while synchronized on this object.          *           * @param item Tracked item.          * @param related Action related object.          * @param object Customized object for the tracked item.          */
 DECL|method|customizerRemoved (final Object item, final Object related, final Object object)
 name|void
 name|customizerRemoved
