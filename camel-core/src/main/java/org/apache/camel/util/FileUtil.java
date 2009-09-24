@@ -720,7 +720,7 @@ condition|)
 block|{
 name|separatorRegex
 operator|=
-literal|"////"
+literal|"\\\\"
 expr_stmt|;
 block|}
 name|String
