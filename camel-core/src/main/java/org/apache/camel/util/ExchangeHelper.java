@@ -271,59 +271,6 @@ specifier|private
 name|ExchangeHelper
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the exchange property of the given name and type; if it is not present then the      * default value will be used      *      * @param exchange the message exchange      * @param propertyName the name of the property on the exchange      * @param type the expected type of the property      * @param defaultValue the default value to be used if the property name does not exist or could not be      * converted to the given type      * @return the property value as the given type or the defaultValue if it could not be found or converted      */
-DECL|method|getExchangeProperty (Exchange exchange, String propertyName, Class<T> type, T defaultValue)
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|getExchangeProperty
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|,
-name|T
-name|defaultValue
-parameter_list|)
-block|{
-name|T
-name|answer
-init|=
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|propertyName
-argument_list|,
-name|type
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|defaultValue
-return|;
-block|}
-return|return
-name|answer
-return|;
-block|}
 comment|/**      * Extracts the Exchange.BINDING of the given type or null if not present      *      * @param exchange the message exchange      * @param type the expected binding type      * @return the binding object of the given type or null if it could not be found or converted      */
 DECL|method|getBinding (Exchange exchange, Class<T> type)
 specifier|public
@@ -1141,7 +1088,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *       * @param exchange      *            message exchange.      * @return result message.      */
+comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *       * @param exchange message exchange.      * @return result message.      */
 DECL|method|getResultMessage (Exchange exchange)
 specifier|public
 specifier|static
@@ -1180,37 +1127,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns true if the given exchange pattern (if defined) can support IN messagea      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * IN messages      */
-DECL|method|isInCapable (Exchange exchange)
-specifier|public
-specifier|static
-name|boolean
-name|isInCapable
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|ExchangePattern
-name|pattern
-init|=
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-decl_stmt|;
-return|return
-name|pattern
-operator|!=
-literal|null
-operator|&&
-name|pattern
-operator|.
-name|isInCapable
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns true if the given exchange pattern (if defined) can support OUT messagea      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * OUT messages      */
+comment|/**      * Returns true if the given exchange pattern (if defined) can support OUT messages      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * OUT messages      */
 DECL|method|isOutCapable (Exchange exchange)
 specifier|public
 specifier|static
@@ -1275,7 +1192,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Map of the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @return a Map populated with the require dvariables      */
+comment|/**      * Creates a Map of the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @return a Map populated with the require variables      */
 DECL|method|createVariableMap (Exchange exchange)
 specifier|public
 specifier|static

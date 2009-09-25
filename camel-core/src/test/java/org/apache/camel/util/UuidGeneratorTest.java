@@ -82,6 +82,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testHostName ()
+specifier|public
+name|void
+name|testHostName
+parameter_list|()
+block|{
+name|assertNotNull
+argument_list|(
+name|UuidGenerator
+operator|.
+name|getHostName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSimpleSanitizedId ()
 specifier|public
 name|void
@@ -144,6 +159,51 @@ name|generateSanitizedId
 argument_list|(
 literal|"c:\\helloworld"
 argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should not contain : "
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|':'
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should not contain . "
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSanitizedId ()
+specifier|public
+name|void
+name|testSanitizedId
+parameter_list|()
+block|{
+name|String
+name|out
+init|=
+name|generator
+operator|.
+name|generateSanitizedId
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
