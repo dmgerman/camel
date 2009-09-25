@@ -26,6 +26,16 @@ name|InputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class resolver for loading classes in a loosly coupled manner to cater for different platforms such  * as standalone, web container, j2ee container and OSGi platforms.  */
 end_comment
@@ -66,7 +76,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      */
+comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      */
 DECL|method|resolveClass (String name, ClassLoader loader)
 name|Class
 name|resolveClass
@@ -78,7 +88,7 @@ name|ClassLoader
 name|loader
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @param type the expected type of the class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      */
+comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param type   the expected type of the class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      */
 DECL|method|resolveClass (String name, Class<T> type, ClassLoader loader)
 parameter_list|<
 name|T
@@ -136,7 +146,7 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 function_decl|;
-comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @return the class if resolved,<tt>null</tt> if not found.      * @param loader use the provided class loader      * @throws ClassNotFoundException is thrown if class not found      */
+comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      * @throws ClassNotFoundException is thrown if class not found      */
 DECL|method|resolveMandatoryClass (String name, ClassLoader loader)
 name|Class
 name|resolveMandatoryClass
@@ -150,7 +160,7 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 function_decl|;
-comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @param type the expected type of the class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      * @throws ClassNotFoundException is thrown if class not found      */
+comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param type   the expected type of the class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      * @throws ClassNotFoundException is thrown if class not found      */
 DECL|method|resolveMandatoryClass (String name, Class<T> type, ClassLoader loader)
 parameter_list|<
 name|T
@@ -176,10 +186,19 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 function_decl|;
-comment|/**      * Loads the given resource as a stream      * @param uri the uri of the resource      * @return as a stream      */
+comment|/**      * Loads the given resource as a stream      *      * @param uri the uri of the resource      * @return as a stream      */
 DECL|method|loadResourceAsStream (String uri)
 name|InputStream
 name|loadResourceAsStream
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Loads the given resource as a URL      *      * @param uri the uri of the resource      * @return as a URL      */
+DECL|method|loadResourceAsURL (String uri)
+name|URL
+name|loadResourceAsURL
 parameter_list|(
 name|String
 name|uri

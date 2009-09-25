@@ -144,6 +144,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|CastorDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|CsvDataFormat
 import|;
 end_import
@@ -567,6 +583,115 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the Castor data format      */
+DECL|method|castor ()
+specifier|public
+name|T
+name|castor
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|CastorDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Castor data format      *      * @param mappingFile name of mapping file to locate in classpath      */
+DECL|method|castor (String mappingFile)
+specifier|public
+name|T
+name|castor
+parameter_list|(
+name|String
+name|mappingFile
+parameter_list|)
+block|{
+name|CastorDataFormat
+name|castor
+init|=
+operator|new
+name|CastorDataFormat
+argument_list|()
+decl_stmt|;
+name|castor
+operator|.
+name|setMappingFile
+argument_list|(
+name|mappingFile
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|castor
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Castor data format      *      * @param mappingFile name of mapping file to locate in classpath      * @param validation whether validation is enabled or not      */
+DECL|method|castor (String mappingFile, boolean validation)
+specifier|public
+name|T
+name|castor
+parameter_list|(
+name|String
+name|mappingFile
+parameter_list|,
+name|boolean
+name|validation
+parameter_list|)
+block|{
+name|CastorDataFormat
+name|castor
+init|=
+operator|new
+name|CastorDataFormat
+argument_list|()
+decl_stmt|;
+name|castor
+operator|.
+name|setMappingFile
+argument_list|(
+name|mappingFile
+argument_list|)
+expr_stmt|;
+name|castor
+operator|.
+name|setValidation
+argument_list|(
+name|validation
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|castor
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the GZIP deflater data format      */
+DECL|method|gzip ()
+specifier|public
+name|T
+name|gzip
+parameter_list|()
+block|{
+name|GzipDataFormat
+name|gzdf
+init|=
+operator|new
+name|GzipDataFormat
+argument_list|()
+decl_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|gzdf
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the HL7 data format      */
 DECL|method|hl7 ()
 specifier|public
@@ -651,6 +776,82 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the JSON data format using the XStream json library      */
+DECL|method|json ()
+specifier|public
+name|T
+name|json
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JsonDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON data format      *      * @param library the json library to use      */
+DECL|method|json (JsonLibrary library)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|JsonLibrary
+name|library
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|library
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
+DECL|method|json (JsonLibrary type, Class<?> unmarshalType)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|JsonLibrary
+name|type
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|)
+block|{
+name|JsonDataFormat
+name|json
+init|=
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|type
+argument_list|)
+decl_stmt|;
+name|json
+operator|.
+name|setUnmarshalType
+argument_list|(
+name|unmarshalType
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|json
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the RSS data format      */
 DECL|method|rss ()
 specifier|public
@@ -728,22 +929,6 @@ name|sdf
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JAXB data format      */
-DECL|method|xmlBeans ()
-specifier|public
-name|T
-name|xmlBeans
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|XMLBeansDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Return WellFormed HTML (an XML Document) either       * {@link java.lang.String} or {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup (Class<?> dataObjectType)
 specifier|public
@@ -801,82 +986,6 @@ argument_list|(
 operator|new
 name|XStreamDataFormat
 argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JSON data format using the XStream json library      */
-DECL|method|json ()
-specifier|public
-name|T
-name|json
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|JsonDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JSON data format      *      * @param library the json library to use      */
-DECL|method|json (JsonLibrary library)
-specifier|public
-name|T
-name|json
-parameter_list|(
-name|JsonLibrary
-name|library
-parameter_list|)
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|JsonDataFormat
-argument_list|(
-name|library
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
-DECL|method|json (JsonLibrary type, Class<?> unmarshalType)
-specifier|public
-name|T
-name|json
-parameter_list|(
-name|JsonLibrary
-name|type
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|unmarshalType
-parameter_list|)
-block|{
-name|JsonDataFormat
-name|json
-init|=
-operator|new
-name|JsonDataFormat
-argument_list|(
-name|type
-argument_list|)
-decl_stmt|;
-name|json
-operator|.
-name|setUnmarshalType
-argument_list|(
-name|unmarshalType
-argument_list|)
-expr_stmt|;
-return|return
-name|dataFormat
-argument_list|(
-name|json
 argument_list|)
 return|;
 block|}
@@ -1009,6 +1118,22 @@ name|xsdf
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the xmlBeans data format      */
+DECL|method|xmlBeans ()
+specifier|public
+name|T
+name|xmlBeans
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|XMLBeansDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the ZIP deflater data format      */
 DECL|method|zip ()
 specifier|public
@@ -1057,27 +1182,6 @@ return|return
 name|dataFormat
 argument_list|(
 name|zdf
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the GZIP deflater data format      */
-DECL|method|gzip ()
-specifier|public
-name|T
-name|gzip
-parameter_list|()
-block|{
-name|GzipDataFormat
-name|gzdf
-init|=
-operator|new
-name|GzipDataFormat
-argument_list|()
-decl_stmt|;
-return|return
-name|dataFormat
-argument_list|(
-name|gzdf
 argument_list|)
 return|;
 block|}
