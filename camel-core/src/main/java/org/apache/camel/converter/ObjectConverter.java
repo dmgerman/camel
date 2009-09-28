@@ -158,7 +158,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|// TODO we should handle primitive array types?
 return|return
 name|value
 operator|instanceof
@@ -228,36 +227,6 @@ name|toBoolean
 argument_list|(
 name|value
 argument_list|)
-return|;
-block|}
-comment|/**      * Returns the boolean value, or null if the value is null      */
-annotation|@
-name|Converter
-DECL|method|toBoolean (Boolean value)
-specifier|public
-specifier|static
-name|Boolean
-name|toBoolean
-parameter_list|(
-name|Boolean
-name|value
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|value
-return|;
-block|}
-return|return
-name|Boolean
-operator|.
-name|FALSE
 return|;
 block|}
 comment|/**      * Creates an iterator over the value      */
