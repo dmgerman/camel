@@ -353,6 +353,30 @@ expr_stmt|;
 comment|// TODO: populating route id on producers is not implemented yet
 comment|//        String routeId = (String) mbeanServer.getAttribute(on, "RouteId");
 comment|//        assertEquals("route1", routeId);
+name|Boolean
+name|singleton
+init|=
+operator|(
+name|Boolean
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"Singleton"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|,
+name|singleton
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop

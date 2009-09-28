@@ -685,7 +685,7 @@ operator|.
 name|getDefaultTraceFormatter
 argument_list|()
 operator|.
-name|isShowOutBodyType
+name|isShowBodyType
 argument_list|()
 return|;
 block|}
