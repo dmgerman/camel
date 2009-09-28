@@ -3507,8 +3507,23 @@ name|Byte
 operator|.
 name|class
 expr_stmt|;
-comment|// TODO: Why is boolean disabled
-comment|/*                  * } else if (type == boolean.class) { rc = Boolean.class;                  */
+block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+name|boolean
+operator|.
+name|class
+condition|)
+block|{
+name|rc
+operator|=
+name|Boolean
+operator|.
+name|class
+expr_stmt|;
 block|}
 block|}
 return|return
