@@ -181,15 +181,18 @@ name|statisticsEnabled
 init|=
 literal|true
 decl_stmt|;
-DECL|method|ManagedPerformanceCounter (ManagementStrategy strategy)
+DECL|method|init (ManagementStrategy strategy)
 specifier|public
-name|ManagedPerformanceCounter
+name|void
+name|init
 parameter_list|(
 name|ManagementStrategy
 name|strategy
 parameter_list|)
 block|{
 name|super
+operator|.
+name|init
 argument_list|(
 name|strategy
 argument_list|)

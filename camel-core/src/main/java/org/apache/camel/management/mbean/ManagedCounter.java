@@ -112,9 +112,10 @@ specifier|protected
 name|Statistic
 name|exchangesTotal
 decl_stmt|;
-DECL|method|ManagedCounter (ManagementStrategy strategy)
+DECL|method|init (ManagementStrategy strategy)
 specifier|public
-name|ManagedCounter
+name|void
+name|init
 parameter_list|(
 name|ManagementStrategy
 name|strategy

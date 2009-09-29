@@ -94,6 +94,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -194,6 +208,17 @@ name|errorHandlerBuilder
 operator|=
 name|builder
 expr_stmt|;
+block|}
+DECL|method|init (ManagementStrategy strategy)
+specifier|public
+name|void
+name|init
+parameter_list|(
+name|ManagementStrategy
+name|strategy
+parameter_list|)
+block|{
+comment|// do nothing
 block|}
 DECL|method|getRouteContext ()
 specifier|public

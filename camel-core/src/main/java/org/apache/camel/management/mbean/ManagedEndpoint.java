@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|jmx
@@ -94,6 +108,17 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+block|}
+DECL|method|init (ManagementStrategy strategy)
+specifier|public
+name|void
+name|init
+parameter_list|(
+name|ManagementStrategy
+name|strategy
+parameter_list|)
+block|{
+comment|// do nothing
 block|}
 DECL|method|getEndpoint ()
 specifier|public

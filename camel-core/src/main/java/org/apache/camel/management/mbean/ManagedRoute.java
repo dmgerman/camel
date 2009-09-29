@@ -179,13 +179,10 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|ManagedRoute (ManagementStrategy strategy, CamelContext context, Route route)
+DECL|method|ManagedRoute (CamelContext context, Route route)
 specifier|public
 name|ManagedRoute
 parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|,
 name|CamelContext
 name|context
 parameter_list|,
@@ -193,11 +190,6 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|strategy
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|route
