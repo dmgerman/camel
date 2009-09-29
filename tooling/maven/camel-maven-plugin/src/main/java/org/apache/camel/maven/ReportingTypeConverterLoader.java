@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.maven
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|maven
 package|;
 end_package
 
@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Type converter loader that is capable of reporting the loaded type converters.  *<p/>  * Used by the camel-maven-plugin.  */
+comment|/**  * Type converter loader that is capable of reporting the loaded type converters.  *<p/>  * Used by the camel-maven-plugin.  *  * @version $Revision$  */
 end_comment
 
 begin_class
