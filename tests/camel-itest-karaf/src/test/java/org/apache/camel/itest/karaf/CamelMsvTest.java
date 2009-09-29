@@ -127,7 +127,7 @@ name|Exception
 block|{
 name|testComponent
 argument_list|(
-name|COMPONENT
+literal|"msv"
 argument_list|)
 expr_stmt|;
 block|}

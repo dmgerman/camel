@@ -38,9 +38,51 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultRouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|DataFormatDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|osgi
 operator|.
 name|CamelContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
 import|;
 end_import
 
@@ -144,21 +186,9 @@ name|assertNotNull
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|equinox
-import|;
-end_import
+begin_comment
+comment|//import static org.ops4j.pax.exam.CoreOptions.equinox;
+end_comment
 
 begin_import
 import|import static
@@ -207,6 +237,10 @@ operator|.
 name|options
 import|;
 end_import
+
+begin_comment
+comment|//import static org.ops4j.pax.exam.container.def.PaxRunnerOptions.cleanCaches;
+end_comment
 
 begin_import
 import|import static
@@ -382,21 +416,99 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: how to test data formats ?
-comment|//        long max = System.currentTimeMillis() + 10000;
-comment|//        while (true) {
-comment|//            try {
-comment|//                assertNotNull(createCamelContext().getDataFormats().get(format));
-comment|//                return;
-comment|//            } catch (Exception t) {
-comment|//                if (System.currentTimeMillis()< max) {
-comment|//                    Thread.sleep(1000);
-comment|//                    continue;
-comment|//                } else {
-comment|//                    throw t;
-comment|//                }
-comment|//            }
-comment|//        }
+name|long
+name|max
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|+
+literal|10000
+decl_stmt|;
+while|while
+condition|(
+literal|true
+condition|)
+block|{
+try|try
+block|{
+name|DataFormatDefinition
+name|dataFormatDefinition
+init|=
+name|createDataformatDefinition
+argument_list|(
+name|format
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|dataFormatDefinition
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|dataFormatDefinition
+operator|.
+name|getDataFormat
+argument_list|(
+operator|new
+name|DefaultRouteContext
+argument_list|(
+name|createCamelContext
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|t
+parameter_list|)
+block|{
+if|if
+condition|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|<
+name|max
+condition|)
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+else|else
+block|{
+throw|throw
+name|t
+throw|;
+block|}
+block|}
+block|}
+block|}
+DECL|method|createDataformatDefinition (String format)
+specifier|protected
+name|DataFormatDefinition
+name|createDataformatDefinition
+parameter_list|(
+name|String
+name|format
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 DECL|method|testLanguage (String lang)
 specifier|protected
@@ -739,11 +851,9 @@ argument_list|,
 comment|//cleanCaches(),
 name|felix
 argument_list|()
-argument_list|,
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//equinox());
 return|return
 name|options
 return|;

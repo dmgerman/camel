@@ -130,6 +130,11 @@ argument_list|(
 name|COMPONENT
 argument_list|)
 expr_stmt|;
+name|testComponent
+argument_list|(
+literal|"sftp"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Configuration
