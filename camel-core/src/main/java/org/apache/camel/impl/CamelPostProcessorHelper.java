@@ -572,8 +572,9 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * Stats the given service      */
 DECL|method|startService (Service service)
-specifier|public
+specifier|protected
 name|void
 name|startService
 parameter_list|(
