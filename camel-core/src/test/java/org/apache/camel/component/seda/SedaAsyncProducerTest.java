@@ -62,18 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -86,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|WaitForTaskToComplete
+name|Processor
 import|;
 end_import
 
@@ -98,9 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
+name|WaitForTaskToComplete
 import|;
 end_import
 
@@ -131,6 +117,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
