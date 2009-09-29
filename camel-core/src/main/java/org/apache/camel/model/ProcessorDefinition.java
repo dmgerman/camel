@@ -2564,6 +2564,29 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @return the builder      */
+DECL|method|pipeline ()
+specifier|public
+name|PipelineDefinition
+name|pipeline
+parameter_list|()
+block|{
+name|PipelineDefinition
+name|answer
+init|=
+operator|new
+name|PipelineDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param uris  list of endpoints      * @return the builder      */
 DECL|method|pipeline (String... uris)
 specifier|public
