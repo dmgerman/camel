@@ -210,6 +210,11 @@ operator|=
 name|converter
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|private
 parameter_list|<
@@ -284,8 +289,14 @@ name|isCancelled
 argument_list|()
 condition|)
 block|{
+comment|// return void to indicate its not possible to convert at this time
 return|return
-literal|null
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
 return|;
 block|}
 comment|// do some trace logging as the get is blocking until the response is ready
@@ -374,8 +385,14 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// return void to indicate its not possible to convert at this time
 return|return
-literal|null
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
 return|;
 block|}
 comment|// maybe from is already the type we want

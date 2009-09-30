@@ -289,9 +289,9 @@ name|instance
 argument_list|,
 name|type
 argument_list|,
-name|value
-argument_list|,
 name|exchange
+argument_list|,
+name|value
 argument_list|,
 name|registry
 argument_list|)

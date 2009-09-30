@@ -982,6 +982,25 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Void
+operator|.
+name|TYPE
+operator|.
+name|equals
+argument_list|(
+name|rc
+argument_list|)
+condition|)
+block|{
+comment|// it cannot be converted so give up
+return|return
+name|Void
+operator|.
+name|TYPE
+return|;
+block|}
+if|if
+condition|(
 name|rc
 operator|!=
 literal|null
