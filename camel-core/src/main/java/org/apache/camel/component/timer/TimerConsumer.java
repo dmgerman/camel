@@ -331,7 +331,7 @@ name|endpoint
 operator|.
 name|getPeriod
 argument_list|()
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
@@ -377,7 +377,7 @@ name|endpoint
 operator|.
 name|getPeriod
 argument_list|()
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
