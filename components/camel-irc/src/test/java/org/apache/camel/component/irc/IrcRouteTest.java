@@ -156,6 +156,9 @@ name|sentMessages
 decl_stmt|;
 annotation|@
 name|Ignore
+argument_list|(
+literal|"test manual"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testIrcMessages ()
