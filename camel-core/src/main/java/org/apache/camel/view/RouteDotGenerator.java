@@ -412,33 +412,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|escapeNodeId (String text)
-specifier|protected
-name|String
-name|escapeNodeId
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|text
-operator|.
-name|replace
-argument_list|(
-literal|'.'
-argument_list|,
-literal|'_'
-argument_list|)
-operator|.
-name|replace
-argument_list|(
-literal|"$"
-argument_list|,
-literal|"_"
-argument_list|)
-return|;
-block|}
 DECL|method|printRoute (PrintWriter writer, final RouteDefinition route, FromDefinition input)
 specifier|protected
 name|void
@@ -470,7 +443,6 @@ argument_list|,
 name|nodeData
 argument_list|)
 expr_stmt|;
-comment|// TODO we should add a transactional client / event driven consumer / polling client
 name|NodeData
 name|from
 init|=
