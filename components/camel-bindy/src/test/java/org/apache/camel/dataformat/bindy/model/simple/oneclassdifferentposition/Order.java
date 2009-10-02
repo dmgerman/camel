@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.model.simple.oneclassmandatory
+DECL|package|org.apache.camel.dataformat.bindy.model.simple.oneclassdifferentposition
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|model
 operator|.
 name|simple
 operator|.
-name|oneclassmandatory
+name|oneclassdifferentposition
 package|;
 end_package
 
@@ -87,16 +87,13 @@ argument_list|(
 name|separator
 operator|=
 literal|","
-argument_list|,
-name|skipFirstLine
-operator|=
-literal|true
 argument_list|)
 DECL|class|Order
 specifier|public
 class|class
 name|Order
 block|{
+comment|// Positions of the fields start from 1 and not from 0
 annotation|@
 name|DataField
 argument_list|(
@@ -115,10 +112,6 @@ argument_list|(
 name|pos
 operator|=
 literal|2
-argument_list|,
-name|required
-operator|=
-literal|true
 argument_list|)
 DECL|field|clientNr
 specifier|private
@@ -131,10 +124,6 @@ argument_list|(
 name|pos
 operator|=
 literal|3
-argument_list|,
-name|required
-operator|=
-literal|true
 argument_list|)
 DECL|field|firstName
 specifier|private
@@ -147,10 +136,6 @@ argument_list|(
 name|pos
 operator|=
 literal|4
-argument_list|,
-name|required
-operator|=
-literal|true
 argument_list|)
 DECL|field|lastName
 specifier|private

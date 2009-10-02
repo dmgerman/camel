@@ -762,7 +762,7 @@ literal|"No tag defined for the field : "
 operator|+
 name|tag
 operator|+
-literal|", line nber : "
+literal|", line : "
 operator|+
 name|line
 argument_list|)
@@ -895,7 +895,7 @@ literal|"Parsing error detected for field defined at the tag : "
 operator|+
 name|tag
 operator|+
-literal|", line nber : "
+literal|", line : "
 operator|+
 name|line
 argument_list|,
@@ -1346,6 +1346,35 @@ argument_list|()
 operator|+
 name|valueFormated
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Value to be formatted : "
+operator|+
+name|keyValue
+operator|+
+literal|", for the tag : "
+operator|+
+name|keyValuePairField
+operator|.
+name|tag
+argument_list|()
+operator|+
+literal|", and its formated value : "
+operator|+
+name|valueFormated
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Add the content to the TreeMap according to the
 comment|// position defined
 name|positions

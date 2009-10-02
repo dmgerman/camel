@@ -73,7 +73,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|5
+literal|6
 argument_list|)
 DECL|field|instrumentNumber
 specifier|private
@@ -85,7 +85,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|4
+literal|5
 argument_list|)
 DECL|field|instrumentCode
 specifier|private

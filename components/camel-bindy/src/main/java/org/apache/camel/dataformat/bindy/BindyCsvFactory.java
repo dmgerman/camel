@@ -736,7 +736,7 @@ block|{
 name|int
 name|pos
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|int
 name|counterMandatoryFields
@@ -776,7 +776,7 @@ literal|" defined for the field : "
 operator|+
 name|data
 operator|+
-literal|", line nber : "
+literal|", line : "
 operator|+
 name|line
 argument_list|)
@@ -813,7 +813,7 @@ literal|"The mandatory field defined at the position "
 operator|+
 name|pos
 operator|+
-literal|" is empty for the line nber : "
+literal|" is empty for the line : "
 operator|+
 name|line
 argument_list|)
@@ -967,7 +967,7 @@ literal|", position : "
 operator|+
 name|pos
 operator|+
-literal|", line nber : "
+literal|", line : "
 operator|+
 name|line
 argument_list|,
@@ -989,7 +989,7 @@ literal|"Parsing error detected for field defined at the position : "
 operator|+
 name|pos
 operator|+
-literal|", line nber : "
+literal|", line : "
 operator|+
 name|line
 argument_list|,
@@ -1053,7 +1053,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some fields are missing (optional or mandatory), line nber : "
+literal|"Some fields are missing (optional or mandatory), line : "
 operator|+
 name|line
 argument_list|)
@@ -1070,7 +1070,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some mandatory fields are missing, line nber : "
+literal|"Some mandatory fields are missing, line : "
 operator|+
 name|line
 argument_list|)
@@ -1329,7 +1329,7 @@ decl_stmt|;
 name|String
 name|strValue
 init|=
-literal|null
+literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -1531,11 +1531,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Data : "
+literal|"Value to be formatted : "
 operator|+
 name|value
 operator|+
-literal|", value : "
+literal|", position : "
+operator|+
+name|dataField
+operator|.
+name|pos
+argument_list|()
+operator|+
+literal|", and its formated value : "
 operator|+
 name|strValue
 argument_list|)

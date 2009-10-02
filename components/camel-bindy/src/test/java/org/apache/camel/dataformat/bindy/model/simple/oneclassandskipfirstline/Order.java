@@ -102,7 +102,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|0
+literal|1
 argument_list|)
 DECL|field|orderNr
 specifier|private
@@ -114,7 +114,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|1
+literal|2
 argument_list|)
 DECL|field|clientNr
 specifier|private
@@ -126,7 +126,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|2
+literal|3
 argument_list|)
 DECL|field|firstName
 specifier|private
@@ -138,7 +138,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|3
+literal|4
 argument_list|)
 DECL|field|lastName
 specifier|private
@@ -150,7 +150,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|4
+literal|5
 argument_list|)
 DECL|field|instrumentCode
 specifier|private
@@ -162,7 +162,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|5
+literal|6
 argument_list|)
 DECL|field|instrumentNumber
 specifier|private
@@ -174,7 +174,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|6
+literal|7
 argument_list|)
 DECL|field|orderType
 specifier|private
@@ -190,7 +190,7 @@ literal|"Name"
 argument_list|,
 name|pos
 operator|=
-literal|7
+literal|8
 argument_list|)
 DECL|field|instrumentType
 specifier|private
@@ -202,7 +202,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|8
+literal|9
 argument_list|,
 name|precision
 operator|=
@@ -218,7 +218,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|9
+literal|10
 argument_list|)
 DECL|field|currency
 specifier|private
@@ -230,7 +230,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|10
+literal|11
 argument_list|,
 name|pattern
 operator|=

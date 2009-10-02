@@ -73,7 +73,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|1
+literal|2
 argument_list|)
 DECL|field|clientNr
 specifier|private
@@ -85,7 +85,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|2
+literal|3
 argument_list|)
 DECL|field|firstName
 specifier|private
@@ -97,7 +97,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|3
+literal|4
 argument_list|)
 DECL|field|lastName
 specifier|private

@@ -230,9 +230,9 @@ name|record
 init|=
 literal|"order nr,client ref,first name, last name,instrument code,instrument name,order type, instrument type, quantity,currency,date\r\n"
 operator|+
-literal|"01,,Albert,Cartier,ISIN,BE12345678,SELL,,1500,EUR,08-01-2009\r\n"
+literal|"1,,Albert,Cartier,ISIN,BE12345678,SELL,,1500,EUR,08-01-2009\r\n"
 operator|+
-literal|"02,A1,,Preud'Homme,ISIN,XD12345678,BUY,,2500,USD,08-01-2009\r\n"
+literal|"2,A1,,Preud'Homme,ISIN,XD12345678,BUY,,2500,USD,08-01-2009\r\n"
 operator|+
 literal|"03,A2,Jacques,,,BE12345678,SELL,,1500,EUR,08-01-2009\r\n"
 operator|+
