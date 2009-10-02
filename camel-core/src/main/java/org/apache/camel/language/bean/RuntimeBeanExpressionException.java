@@ -60,11 +60,11 @@ specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|field|bean
+DECL|field|beanName
 specifier|private
 specifier|final
 name|String
-name|bean
+name|beanName
 decl_stmt|;
 DECL|field|method
 specifier|private
@@ -72,7 +72,7 @@ specifier|final
 name|String
 name|method
 decl_stmt|;
-DECL|method|RuntimeBeanExpressionException (Exchange exchange, String bean, String method, Throwable e)
+DECL|method|RuntimeBeanExpressionException (Exchange exchange, String beanName, String method, Throwable e)
 specifier|public
 name|RuntimeBeanExpressionException
 parameter_list|(
@@ -80,7 +80,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|String
-name|bean
+name|beanName
 parameter_list|,
 name|String
 name|method
@@ -97,7 +97,7 @@ name|method
 operator|+
 literal|" on "
 operator|+
-name|bean
+name|beanName
 operator|+
 literal|" due to: "
 operator|+
@@ -114,9 +114,9 @@ name|exchange
 expr_stmt|;
 name|this
 operator|.
-name|bean
+name|beanName
 operator|=
-name|bean
+name|beanName
 expr_stmt|;
 name|this
 operator|.
@@ -125,14 +125,14 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-DECL|method|getBean ()
+DECL|method|getBeanName ()
 specifier|public
 name|String
-name|getBean
+name|getBeanName
 parameter_list|()
 block|{
 return|return
-name|bean
+name|beanName
 return|;
 block|}
 DECL|method|getExchange ()

@@ -249,25 +249,6 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|assertionFailureMessage (Exchange exchange)
-specifier|protected
-name|String
-name|assertionFailureMessage
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-literal|"bean: "
-operator|+
-name|beanName
-operator|+
-literal|" method: "
-operator|+
-name|method
-return|;
-block|}
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
@@ -483,20 +464,6 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, Exchange exchange)
-specifier|public
-name|void
-name|assertMatches
-parameter_list|(
-name|String
-name|text
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|AssertionError
-block|{     }
 block|}
 end_class
 
