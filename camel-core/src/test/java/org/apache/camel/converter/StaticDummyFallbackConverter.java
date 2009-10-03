@@ -85,9 +85,15 @@ annotation|@
 name|Converter
 DECL|class|StaticDummyFallbackConverter
 specifier|public
+specifier|final
 class|class
 name|StaticDummyFallbackConverter
 block|{
+DECL|method|StaticDummyFallbackConverter ()
+specifier|private
+name|StaticDummyFallbackConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|FallbackConverter
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)

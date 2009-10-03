@@ -50,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|processor
 operator|.
-name|ManagementStrategy
+name|interceptor
+operator|.
+name|Tracer
 import|;
 end_import
 
@@ -64,11 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|interceptor
-operator|.
-name|Tracer
+name|ManagementStrategy
 import|;
 end_import
 

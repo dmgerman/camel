@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 operator|.
-name|ManagementStrategy
+name|ServiceSupport
 import|;
 end_import
 
@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ServiceSupport
+name|ManagementStrategy
 import|;
 end_import
 
