@@ -818,6 +818,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|KeyValueHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUCache
 import|;
 end_import
@@ -1369,6 +1383,29 @@ init|=
 operator|new
 name|DefaultInflightRepository
 argument_list|()
+decl_stmt|;
+DECL|field|routeStartupOrder
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|Consumer
+argument_list|>
+name|routeStartupOrder
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Consumer
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|defaultRouteStartupOrder
+specifier|private
+name|int
+name|defaultRouteStartupOrder
+init|=
+literal|1000
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -3038,6 +3075,20 @@ return|;
 block|}
 comment|// Route Management Methods
 comment|// -----------------------------------------------------------------------
+comment|/**      * Returns the order in which the route inputs was started.      *      * @return a list ordered by the starting order of the route inputs      */
+DECL|method|getRouteStartupOrder ()
+specifier|public
+name|List
+argument_list|<
+name|Consumer
+argument_list|>
+name|getRouteStartupOrder
+parameter_list|()
+block|{
+return|return
+name|routeStartupOrder
+return|;
+block|}
 DECL|method|getRoutes ()
 specifier|public
 specifier|synchronized
@@ -4486,21 +4537,32 @@ init|(
 name|this
 init|)
 block|{
-comment|// list of inputs to start when all the routes have been preparated for start
+comment|// list of inputs to start when all the routes have been prepared for starting
+comment|// we use a tree map so the routes will be ordered according to startup order defined on the route
 name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|KeyValueHolder
 argument_list|<
 name|Route
 argument_list|,
 name|Consumer
 argument_list|>
+argument_list|>
 name|inputs
 init|=
 operator|new
-name|HashMap
+name|TreeMap
+argument_list|<
+name|Integer
+argument_list|,
+name|KeyValueHolder
 argument_list|<
 name|Route
 argument_list|,
 name|Consumer
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4555,16 +4617,137 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// add the inputs from this route service to the list to start afterwards
-name|inputs
+comment|// should be ordered according to the startup number
+name|Integer
+name|startupOrder
+init|=
+name|routeService
 operator|.
-name|putAll
-argument_list|(
+name|getRouteDefinition
+argument_list|()
+operator|.
+name|getStartupOrder
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|startupOrder
+operator|==
+literal|null
+condition|)
+block|{
+comment|// auto assign a default startup order
+name|startupOrder
+operator|=
+name|defaultRouteStartupOrder
+operator|++
+expr_stmt|;
+block|}
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+name|entry
+range|:
 name|routeService
 operator|.
 name|getInputs
 argument_list|()
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|KeyValueHolder
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+name|holder
+init|=
+operator|new
+name|KeyValueHolder
+argument_list|<
+name|Route
+argument_list|,
+name|Consumer
+argument_list|>
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// check for startup order clash
+if|if
+condition|(
+name|inputs
+operator|.
+name|containsKey
+argument_list|(
+name|startupOrder
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isWarnEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Another route has already startupOrder "
+operator|+
+name|startupOrder
+operator|+
+literal|" which this route also want to use "
+operator|+
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|". Please correct startupOrder to be unique among your routes."
 argument_list|)
 expr_stmt|;
+block|}
+name|startupOrder
+operator|=
+name|defaultRouteStartupOrder
+operator|++
+expr_stmt|;
+block|}
+name|inputs
+operator|.
+name|put
+argument_list|(
+name|startupOrder
+argument_list|,
+name|holder
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -4597,16 +4780,21 @@ expr_stmt|;
 block|}
 block|}
 comment|// now start the inputs for all the route services as we have prepared Camel
-comment|// yeah open the floods so messages can start flow into Came;
+comment|// yeah open the floods so messages can start flow into Camel
 for|for
 control|(
 name|Map
 operator|.
 name|Entry
 argument_list|<
+name|Integer
+argument_list|,
+name|KeyValueHolder
+argument_list|<
 name|Route
 argument_list|,
 name|Consumer
+argument_list|>
 argument_list|>
 name|entry
 range|:
@@ -4616,10 +4804,21 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+name|Integer
+name|order
+init|=
+name|entry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
 name|Route
 name|route
 init|=
 name|entry
+operator|.
+name|getValue
+argument_list|()
 operator|.
 name|getKey
 argument_list|()
@@ -4628,6 +4827,9 @@ name|Consumer
 name|consumer
 init|=
 name|entry
+operator|.
+name|getValue
+argument_list|()
 operator|.
 name|getValue
 argument_list|()
@@ -4644,7 +4846,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Starting consumer on route: "
+literal|"Starting consumer (order: "
+operator|+
+name|order
+operator|+
+literal|") on route: "
 operator|+
 name|route
 operator|.
@@ -4676,6 +4882,14 @@ block|}
 name|ServiceHelper
 operator|.
 name|startService
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+comment|// add to the order which they was started, so we know how to stop them in reverse order
+name|routeStartupOrder
+operator|.
+name|add
 argument_list|(
 name|consumer
 argument_list|)
@@ -5117,6 +5331,21 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// stop route inputs in the same order as they was started so we stop the very first inputs first
+name|stopServices
+argument_list|(
+name|getRouteStartupOrder
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|getRouteStartupOrder
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// the stop order is important
 name|stopServices
 argument_list|(
@@ -5291,11 +5520,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|stopServices (Collection services)
 specifier|private
 name|void
@@ -5307,9 +5531,46 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// close them in reverse order as they where added
-name|List
+comment|// reverse stopping by default
+name|stopServices
+argument_list|(
+name|services
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|stopServices (Collection services, boolean reverse)
+specifier|private
+name|void
+name|stopServices
+parameter_list|(
+name|Collection
+name|services
+parameter_list|,
+name|boolean
 name|reverse
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Collection
+name|list
+init|=
+name|services
+decl_stmt|;
+if|if
+condition|(
+name|reverse
+condition|)
+block|{
+name|ArrayList
+name|reverseList
 init|=
 operator|new
 name|ArrayList
@@ -5321,15 +5582,20 @@ name|Collections
 operator|.
 name|reverse
 argument_list|(
-name|reverse
+name|reverseList
 argument_list|)
 expr_stmt|;
+name|list
+operator|=
+name|reverseList
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Object
 name|service
 range|:
-name|reverse
+name|list
 control|)
 block|{
 name|stopServices

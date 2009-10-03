@@ -459,6 +459,11 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|startupOrder
+specifier|private
+name|Integer
+name|startupOrder
+decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -1129,6 +1134,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return this builder      */
+DECL|method|starupOrder (int order)
+specifier|public
+name|RouteDefinition
+name|starupOrder
+parameter_list|(
+name|int
+name|order
+parameter_list|)
+block|{
+name|setStartupOrder
+argument_list|(
+name|order
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -1416,6 +1440,34 @@ operator|.
 name|autoStartup
 operator|=
 name|autoStartup
+expr_stmt|;
+block|}
+DECL|method|getStartupOrder ()
+specifier|public
+name|Integer
+name|getStartupOrder
+parameter_list|()
+block|{
+return|return
+name|startupOrder
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setStartupOrder (Integer startupOrder)
+specifier|public
+name|void
+name|setStartupOrder
+parameter_list|(
+name|Integer
+name|startupOrder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startupOrder
+operator|=
+name|startupOrder
 expr_stmt|;
 block|}
 comment|/**      * Sets the bean ref name of the error handler builder to use on this route      */
