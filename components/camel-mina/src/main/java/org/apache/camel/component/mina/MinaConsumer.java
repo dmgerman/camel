@@ -398,7 +398,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Handles comsuming messages and replying if the exchange is out capable.      */
+comment|/**      * Handles consuming messages and replying if the exchange is out capable.      */
 DECL|class|ReceiveHandler
 specifier|private
 specifier|final

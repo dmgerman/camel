@@ -389,7 +389,7 @@ name|getBeanInfo
 argument_list|()
 decl_stmt|;
 comment|// do we have a custom adapter for this POJO to a Processor
-comment|// should not be invoced if an explicit method has been set
+comment|// should not be invoked if an explicit method has been set
 name|Processor
 name|processor
 init|=

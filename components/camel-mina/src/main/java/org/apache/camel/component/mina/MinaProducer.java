@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Producer} implementation for MINA  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Producer} implementation for MINA  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -674,7 +674,7 @@ condition|(
 operator|!
 name|handler
 operator|.
-name|isMessageRecieved
+name|isMessageReceived
 argument_list|()
 condition|)
 block|{
@@ -970,10 +970,10 @@ specifier|private
 name|Throwable
 name|cause
 decl_stmt|;
-DECL|field|messageRecieved
+DECL|field|messageReceived
 specifier|private
 name|boolean
-name|messageRecieved
+name|messageReceived
 decl_stmt|;
 DECL|method|ResponseHandler (MinaEndpoint endpoint)
 specifier|private
@@ -1010,7 +1010,7 @@ literal|null
 expr_stmt|;
 name|this
 operator|.
-name|messageRecieved
+name|messageReceived
 operator|=
 literal|false
 expr_stmt|;
@@ -1055,7 +1055,7 @@ name|message
 operator|=
 name|message
 expr_stmt|;
-name|messageRecieved
+name|messageReceived
 operator|=
 literal|true
 expr_stmt|;
@@ -1192,7 +1192,7 @@ literal|null
 expr_stmt|;
 name|this
 operator|.
-name|messageRecieved
+name|messageReceived
 operator|=
 literal|false
 expr_stmt|;
@@ -1240,14 +1240,14 @@ operator|.
 name|message
 return|;
 block|}
-DECL|method|isMessageRecieved ()
+DECL|method|isMessageReceived ()
 specifier|public
 name|boolean
-name|isMessageRecieved
+name|isMessageReceived
 parameter_list|()
 block|{
 return|return
-name|messageRecieved
+name|messageReceived
 return|;
 block|}
 block|}
