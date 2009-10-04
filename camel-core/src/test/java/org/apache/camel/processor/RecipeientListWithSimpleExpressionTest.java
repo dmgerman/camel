@@ -210,7 +210,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -222,7 +222,7 @@ name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
-literal|20
+literal|10
 argument_list|)
 decl_stmt|;
 for|for
@@ -234,7 +234,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|100
 condition|;
 name|i
 operator|++
@@ -283,6 +283,24 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 block|}
@@ -486,7 +504,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,7 +516,7 @@ name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
-literal|20
+literal|10
 argument_list|)
 decl_stmt|;
 for|for
@@ -510,7 +528,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|100
 condition|;
 name|i
 operator|++
@@ -561,6 +579,24 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 block|}

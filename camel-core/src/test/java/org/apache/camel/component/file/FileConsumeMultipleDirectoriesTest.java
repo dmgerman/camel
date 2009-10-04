@@ -99,7 +99,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/multidir/?recursive=true&delete=true&consumer.delay=5000&sortBy=file:path"
+literal|"file://target/multidir/?recursive=true&delete=true&initialDelay=2000&delay=5000&sortBy=file:path"
 decl_stmt|;
 annotation|@
 name|Override
@@ -167,6 +167,11 @@ literal|"sub/sub2/godday.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testMultiDir ()
 specifier|public
 name|void

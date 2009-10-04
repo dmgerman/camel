@@ -102,7 +102,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)

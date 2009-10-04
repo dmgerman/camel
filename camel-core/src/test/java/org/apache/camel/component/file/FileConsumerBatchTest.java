@@ -159,7 +159,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file-batch?consumer.delay=1000"
+literal|"file://target/file-batch?initialDelay=2000"
 argument_list|)
 operator|.
 name|to

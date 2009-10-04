@@ -118,7 +118,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/idempotent/"
+literal|"file://target/idempotent"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -190,13 +190,6 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -204,7 +197,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// reset mock and set new expectations

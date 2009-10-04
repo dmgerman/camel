@@ -113,7 +113,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/?sorter=#mySorter&initialDelay=1000"
+literal|"file://target/filesorter/?sorter=#mySorter&initialDelay=2000"
 decl_stmt|;
 annotation|@
 name|Override
@@ -308,7 +308,7 @@ operator|.
 name|getFileName
 argument_list|()
 operator|.
-name|compareTo
+name|compareToIgnoreCase
 argument_list|(
 name|o2
 operator|.
