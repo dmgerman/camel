@@ -119,6 +119,21 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/file?fileExist=Override"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testOverride ()
 specifier|public
@@ -150,21 +165,6 @@ argument_list|(
 literal|"target/file/hello.txt"
 argument_list|,
 literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file?fileExist=Override"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
