@@ -292,7 +292,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|starupOrder
+name|startupOrder
 argument_list|(
 literal|2
 argument_list|)
@@ -307,7 +307,7 @@ argument_list|(
 literal|"seda:foo"
 argument_list|)
 operator|.
-name|starupOrder
+name|startupOrder
 argument_list|(
 literal|1
 argument_list|)
@@ -322,7 +322,7 @@ argument_list|(
 literal|"direct:bar"
 argument_list|)
 operator|.
-name|starupOrder
+name|startupOrder
 argument_list|(
 literal|9
 argument_list|)
@@ -337,7 +337,7 @@ argument_list|(
 literal|"seda:bar"
 argument_list|)
 operator|.
-name|starupOrder
+name|startupOrder
 argument_list|(
 literal|5
 argument_list|)

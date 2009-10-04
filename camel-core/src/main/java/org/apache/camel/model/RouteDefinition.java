@@ -1135,10 +1135,10 @@ name|this
 return|;
 block|}
 comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return this builder      */
-DECL|method|starupOrder (int order)
+DECL|method|startupOrder (int order)
 specifier|public
 name|RouteDefinition
-name|starupOrder
+name|startupOrder
 parameter_list|(
 name|int
 name|order
