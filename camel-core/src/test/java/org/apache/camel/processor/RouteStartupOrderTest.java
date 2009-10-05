@@ -126,7 +126,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
