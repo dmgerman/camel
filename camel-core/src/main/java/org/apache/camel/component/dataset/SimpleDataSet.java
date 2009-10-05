@@ -18,18 +18,6 @@ name|dataset
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
 begin_comment
 comment|/**  * A simple DataSet that allows a static payload to be used to create each message exchange  * along with using a pluggable transformer to randomize the message.  *  * @version $Revision$  */
 end_comment
@@ -48,11 +36,6 @@ name|Object
 name|defaultBody
 init|=
 literal|"<hello>world!</hello>"
-decl_stmt|;
-DECL|field|inputTransformer
-specifier|private
-name|Processor
-name|inputTransformer
 decl_stmt|;
 DECL|method|SimpleDataSet ()
 specifier|public
@@ -99,32 +82,6 @@ operator|.
 name|defaultBody
 operator|=
 name|defaultBody
-expr_stmt|;
-block|}
-DECL|method|getInputTransformer ()
-specifier|public
-name|Processor
-name|getInputTransformer
-parameter_list|()
-block|{
-return|return
-name|inputTransformer
-return|;
-block|}
-DECL|method|setInputTransformer (Processor inputTransformer)
-specifier|public
-name|void
-name|setInputTransformer
-parameter_list|(
-name|Processor
-name|inputTransformer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|inputTransformer
-operator|=
-name|inputTransformer
 expr_stmt|;
 block|}
 comment|// Implementation methods
