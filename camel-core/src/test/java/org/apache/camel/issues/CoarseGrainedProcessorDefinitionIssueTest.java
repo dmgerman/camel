@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.issues
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
+name|issues
 package|;
 end_package
 
@@ -38,19 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
+name|Route
 import|;
 end_import
 
@@ -85,91 +71,71 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 784513 $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FromFileMoveFileIfProcessFailsTest
+DECL|class|CoarseGrainedProcessorDefinitionIssueTest
 specifier|public
 class|class
-name|FromFileMoveFileIfProcessFailsTest
+name|CoarseGrainedProcessorDefinitionIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deleteDirectory
-argument_list|(
-literal|"./target/movefile"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testPollFileAndShouldNotBeMoved ()
+DECL|method|testCoarseGrainedProcessorDefinition ()
 specifier|public
 name|void
-name|testPollFileAndShouldNotBeMoved
+name|testCoarseGrainedProcessorDefinition
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/movefile"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:foo"
+literal|"mock:result"
 argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World"
+literal|1
 argument_list|)
 expr_stmt|;
-name|mock
+name|template
 operator|.
-name|expectedFileExists
+name|sendBody
 argument_list|(
-literal|"target/movefile/error/hello.txt"
+literal|"direct:start"
 argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|Route
+name|route
+init|=
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+comment|// TODO: drill down the route and check that Channel have
+comment|// the fine grained processor definition assigned
+comment|// this also helps the tracer as it now can better pin point it exact location
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -183,6 +149,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -192,39 +160,22 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/movefile?moveFailed=error"
+literal|"direct:start"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|500
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
-name|process
+name|to
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Forced by unittest"
-argument_list|)
-throw|;
-block|}
-block|}
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
