@@ -1951,18 +1951,23 @@ argument_list|)
 condition|)
 block|{
 comment|// add a Content-ID header to the attachment
+comment|// must use angle brackets according to RFC: http://www.ietf.org/rfc/rfc2392.txt
 name|messageBodyPart
 operator|.
 name|addHeader
 argument_list|(
 literal|"Content-ID"
 argument_list|,
+literal|"<"
+operator|+
 name|attachmentFilename
 operator|.
 name|substring
 argument_list|(
 literal|4
 argument_list|)
+operator|+
+literal|">"
 argument_list|)
 expr_stmt|;
 block|}
