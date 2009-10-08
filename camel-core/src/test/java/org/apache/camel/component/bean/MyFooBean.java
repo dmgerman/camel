@@ -18,39 +18,33 @@ name|bean
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expression
-import|;
-end_import
-
 begin_comment
-comment|/**  * A strategy for creating a default parameter expression for a given type  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|ParameterMappingStrategy
+begin_class
+DECL|class|MyFooBean
 specifier|public
-interface|interface
-name|ParameterMappingStrategy
+class|class
+name|MyFooBean
 block|{
-comment|/**      * Gets an expression used for evaluation with the current Exchange and its result      * is used as parameter value for the given type      *      * @param parameterType the parameter type      * @return the expression to evaluate as value      */
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
-name|Expression
-name|getDefaultParameterTypeExpression
+DECL|method|hello (String s)
+specifier|public
+name|String
+name|hello
 parameter_list|(
-name|Class
-name|parameterType
+name|String
+name|s
 parameter_list|)
-function_decl|;
+block|{
+return|return
+literal|"Hello "
+operator|+
+name|s
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

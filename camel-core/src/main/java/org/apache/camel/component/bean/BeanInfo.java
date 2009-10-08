@@ -1642,6 +1642,28 @@ argument_list|,
 name|expression
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parameter #"
+operator|+
+name|i
+operator|+
+literal|": "
+operator|+
+name|parameterInfo
+argument_list|)
+expr_stmt|;
+block|}
 name|parameters
 operator|.
 name|add
