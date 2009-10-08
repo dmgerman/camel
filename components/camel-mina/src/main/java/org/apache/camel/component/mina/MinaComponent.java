@@ -1309,6 +1309,16 @@ operator|new
 name|SocketAcceptorConfig
 argument_list|()
 decl_stmt|;
+comment|// must use manual thread model according to Mina documentation
+name|acceptorConfig
+operator|.
+name|setThreadModel
+argument_list|(
+name|ThreadModel
+operator|.
+name|MANUAL
+argument_list|)
+expr_stmt|;
 name|configureCodecFactory
 argument_list|(
 literal|"MinaConsumer"
@@ -1805,6 +1815,16 @@ operator|new
 name|DatagramConnectorConfig
 argument_list|()
 decl_stmt|;
+comment|// must use manual thread model according to Mina documentation
+name|connectorConfig
+operator|.
+name|setThreadModel
+argument_list|(
+name|ThreadModel
+operator|.
+name|MANUAL
+argument_list|)
+expr_stmt|;
 name|configureDataGramCodecFactory
 argument_list|(
 literal|"MinaProducer"
@@ -1889,6 +1909,16 @@ operator|new
 name|DatagramAcceptorConfig
 argument_list|()
 decl_stmt|;
+comment|// must use manual thread model according to Mina documentation
+name|acceptorConfig
+operator|.
+name|setThreadModel
+argument_list|(
+name|ThreadModel
+operator|.
+name|MANUAL
+argument_list|)
+expr_stmt|;
 name|configureDataGramCodecFactory
 argument_list|(
 literal|"MinaConsumer"
@@ -1906,6 +1936,29 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// reuse address is default true for datagram
+name|acceptorConfig
+operator|.
+name|getFilterChain
+argument_list|()
+operator|.
+name|addLast
+argument_list|(
+literal|"threadPool"
+argument_list|,
+operator|new
+name|ExecutorFilter
+argument_list|(
+name|ExecutorServiceHelper
+operator|.
+name|newCachedThreadPool
+argument_list|(
+literal|"MinaThreadPool"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|minaLogger
