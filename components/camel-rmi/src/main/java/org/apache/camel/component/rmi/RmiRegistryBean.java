@@ -196,8 +196,6 @@ argument_list|(
 name|context
 argument_list|,
 name|name
-argument_list|,
-name|parameterMappingStrategy
 argument_list|)
 expr_stmt|;
 name|this
@@ -205,6 +203,11 @@ operator|.
 name|registry
 operator|=
 name|registry
+expr_stmt|;
+name|setParameterMappingStrategy
+argument_list|(
+name|parameterMappingStrategy
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
