@@ -401,6 +401,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// create dummy file so the build can continue
+name|storeDummyFile
+argument_list|()
+expr_stmt|;
 return|return;
 block|}
 comment|// Store
@@ -760,6 +764,73 @@ block|{
 return|return
 name|pdf
 return|;
+block|}
+DECL|method|storeDummyFile ()
+specifier|private
+name|void
+name|storeDummyFile
+parameter_list|()
+throws|throws
+name|FileNotFoundException
+block|{
+name|PrintWriter
+name|out
+init|=
+operator|new
+name|PrintWriter
+argument_list|(
+operator|new
+name|BufferedOutputStream
+argument_list|(
+operator|new
+name|FileOutputStream
+argument_list|(
+name|getHTMLFileName
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"<html>"
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"<body>Download of "
+operator|+
+name|page
+operator|+
+literal|" failed</body>"
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Stored dummy file: "
+operator|+
+name|getHTMLFileName
+argument_list|()
+operator|+
+literal|" since download of "
+operator|+
+name|page
+operator|+
+literal|" failed."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|storeHTMLFile (String content)
 specifier|private
