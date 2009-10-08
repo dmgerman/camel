@@ -179,34 +179,6 @@ name|getRegistry
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|RegistryBean (CamelContext context, String name, ParameterMappingStrategy parameterMappingStrategy)
-specifier|public
-name|RegistryBean
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|ParameterMappingStrategy
-name|parameterMappingStrategy
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|context
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|parameterMappingStrategy
-operator|=
-name|parameterMappingStrategy
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
