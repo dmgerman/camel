@@ -895,6 +895,32 @@ operator|=
 name|handledPolicy
 expr_stmt|;
 block|}
+DECL|method|getHandled ()
+specifier|public
+name|ExpressionSubElementDefinition
+name|getHandled
+parameter_list|()
+block|{
+return|return
+name|handled
+return|;
+block|}
+DECL|method|setHandled (ExpressionSubElementDefinition handled)
+specifier|public
+name|void
+name|setHandled
+parameter_list|(
+name|ExpressionSubElementDefinition
+name|handled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handled
+operator|=
+name|handled
+expr_stmt|;
+block|}
 DECL|method|createExceptionClasses ()
 specifier|protected
 name|List
