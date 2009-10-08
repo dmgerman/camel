@@ -266,7 +266,7 @@ name|that
 parameter_list|)
 block|{
 comment|// must initialize headers before we set the JmsMessage to avoid Camel
-comment|// populateing it before we do the copy
+comment|// populating it before we do the copy
 name|getHeaders
 argument_list|()
 operator|.

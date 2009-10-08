@@ -147,6 +147,13 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|assertEndpointUri
+argument_list|(
+name|jms
+argument_list|,
+literal|"jms:queue:hello"
+argument_list|)
+expr_stmt|;
 name|result
 operator|.
 name|assertIsSatisfied
