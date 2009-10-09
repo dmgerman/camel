@@ -117,7 +117,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|counter
 specifier|private
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 name|counter
 decl_stmt|;
 DECL|field|type
@@ -130,11 +130,11 @@ specifier|public
 name|InstrumentationProcessor
 parameter_list|()
 block|{     }
-DECL|method|InstrumentationProcessor (ManagedPerformanceCounter counter)
+DECL|method|InstrumentationProcessor (PerformanceCounter counter)
 specifier|public
 name|InstrumentationProcessor
 parameter_list|(
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 name|counter
 parameter_list|)
 block|{
@@ -184,6 +184,32 @@ name|ManagedPerformanceCounter
 name|counter
 parameter_list|)
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|counter
+operator|instanceof
+name|DelegatePerformanceCounter
+condition|)
+block|{
+operator|(
+operator|(
+name|DelegatePerformanceCounter
+operator|)
+name|this
+operator|.
+name|counter
+operator|)
+operator|.
+name|setCounter
+argument_list|(
+name|counter
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|counter
@@ -191,15 +217,6 @@ operator|=
 name|counter
 expr_stmt|;
 block|}
-DECL|method|getCounter ()
-specifier|public
-name|ManagedPerformanceCounter
-name|getCounter
-parameter_list|()
-block|{
-return|return
-name|counter
-return|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public

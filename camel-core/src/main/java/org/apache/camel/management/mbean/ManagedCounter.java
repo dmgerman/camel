@@ -104,6 +104,7 @@ literal|"Managed Counter"
 argument_list|)
 DECL|class|ManagedCounter
 specifier|public
+specifier|abstract
 class|class
 name|ManagedCounter
 block|{

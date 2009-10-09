@@ -126,7 +126,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 argument_list|>
 name|registeredCounters
 decl_stmt|;
@@ -146,7 +146,7 @@ argument_list|>
 argument_list|>
 name|wrappedProcessors
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, ManagedPerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<ProcessorDefinition, InstrumentationProcessor>> wrappedProcessors)
+DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<ProcessorDefinition, InstrumentationProcessor>> wrappedProcessors)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
@@ -154,7 +154,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 argument_list|>
 name|registeredCounters
 parameter_list|,
@@ -205,7 +205,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// dont double wrap it
+comment|// do not double wrap it
 if|if
 condition|(
 name|target
@@ -218,7 +218,7 @@ name|target
 return|;
 block|}
 comment|// only wrap a performance counter if we have it registered in JMX by the jmx agent
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 name|counter
 init|=
 name|registeredCounters

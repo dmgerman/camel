@@ -1886,7 +1886,7 @@ if|if
 condition|(
 name|managedObject
 operator|instanceof
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 condition|)
 block|{
 name|InstrumentationProcessor
@@ -2394,7 +2394,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 argument_list|>
 name|registeredCounters
 init|=
@@ -2403,15 +2403,13 @@ name|HashMap
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Each processor in a route will have its own performance counter
-comment|// The performance counter are MBeans that we register with MBeanServer.
-comment|// These performance counter will be embedded
-comment|// to InstrumentationProcessor and wrap the appropriate processor
-comment|// by InstrumentationInterceptStrategy.
+comment|// Each processor in a route will have its own performance counter.
+comment|// These performance counter will be embedded to InstrumentationProcessor
+comment|// and wrap the appropriate processor by InstrumentationInterceptStrategy.
 name|RouteDefinition
 name|route
 init|=
@@ -2463,7 +2461,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|registerPerformanceCounters (RouteContext routeContext, ProcessorDefinition processor, Map<ProcessorDefinition, ManagedPerformanceCounter> registeredCounters)
+DECL|method|registerPerformanceCounters (RouteContext routeContext, ProcessorDefinition processor, Map<ProcessorDefinition, PerformanceCounter> registeredCounters)
 specifier|private
 name|void
 name|registerPerformanceCounters
@@ -2478,7 +2476,7 @@ name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
-name|ManagedPerformanceCounter
+name|PerformanceCounter
 argument_list|>
 name|registeredCounters
 parameter_list|)
@@ -2526,22 +2524,15 @@ block|{
 return|return;
 block|}
 comment|// okay this is a processor we would like to manage so create the
-comment|// performance counter that is the base for processors
-name|ManagedPerformanceCounter
+comment|// a delegate performance counter that acts as the placeholder in the interceptor
+comment|// that then delegates to the real mbean which we register later in the onServiceAdd method
+name|DelegatePerformanceCounter
 name|pc
 init|=
 operator|new
-name|ManagedPerformanceCounter
+name|DelegatePerformanceCounter
 argument_list|()
 decl_stmt|;
-name|pc
-operator|.
-name|init
-argument_list|(
-name|getManagementStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// set statistics enabled depending on the option
 name|boolean
 name|enabled
