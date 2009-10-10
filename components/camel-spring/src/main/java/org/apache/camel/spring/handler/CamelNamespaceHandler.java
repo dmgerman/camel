@@ -494,6 +494,15 @@ name|CamelNamespaceHandler
 extends|extends
 name|NamespaceHandlerSupport
 block|{
+DECL|field|SPRING_NS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SPRING_NS
+init|=
+literal|"http://camel.apache.org/schema/spring"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -593,15 +602,6 @@ argument_list|,
 name|BeanDefinition
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|SPRING_NS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SPRING_NS
-init|=
-literal|"http://camel.apache.org/schema/spring"
 decl_stmt|;
 DECL|method|renameNamespaceRecursive (Node node)
 specifier|public
