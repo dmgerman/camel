@@ -112,15 +112,11 @@ name|Serializable
 block|{
 DECL|field|data
 specifier|private
+specifier|final
 name|byte
 index|[]
 name|data
 decl_stmt|;
-DECL|method|BytesSource ()
-specifier|public
-name|BytesSource
-parameter_list|()
-block|{     }
 DECL|method|BytesSource (byte[] data)
 specifier|public
 name|BytesSource
