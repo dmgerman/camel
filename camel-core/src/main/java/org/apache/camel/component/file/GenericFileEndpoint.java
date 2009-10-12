@@ -508,6 +508,8 @@ DECL|field|readLockTimeout
 specifier|protected
 name|long
 name|readLockTimeout
+init|=
+literal|10000
 decl_stmt|;
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
