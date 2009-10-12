@@ -495,32 +495,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, Tracer tracer)
-specifier|public
-name|TraceInterceptor
-parameter_list|(
-name|ProcessorDefinition
-name|node
-parameter_list|,
-name|Processor
-name|target
-parameter_list|,
-name|Tracer
-name|tracer
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|node
-argument_list|,
-name|target
-argument_list|,
-literal|null
-argument_list|,
-name|tracer
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -749,6 +723,8 @@ block|}
 comment|// log and trace the processor
 if|if
 condition|(
+name|shouldLog
+operator|&&
 name|trace
 condition|)
 block|{

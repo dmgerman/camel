@@ -101,14 +101,10 @@ literal|true
 decl_stmt|;
 DECL|field|delay
 specifier|private
+specifier|final
 name|long
 name|delay
 decl_stmt|;
-DECL|method|Delayer ()
-specifier|public
-name|Delayer
-parameter_list|()
-block|{     }
 DECL|method|Delayer (long delay)
 specifier|public
 name|Delayer
@@ -240,22 +236,6 @@ block|{
 return|return
 name|delay
 return|;
-block|}
-DECL|method|setDelay (long delay)
-specifier|public
-name|void
-name|setDelay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delay
-operator|=
-name|delay
-expr_stmt|;
 block|}
 annotation|@
 name|Override
