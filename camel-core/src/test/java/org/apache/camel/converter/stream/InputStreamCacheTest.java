@@ -4,13 +4,17 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.converter.stream
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|converter
+operator|.
+name|stream
 package|;
 end_package
 
@@ -20,49 +24,95 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|ByteArrayOutputStream
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|OutputStream
+name|camel
+operator|.
+name|ContextTestSupport
 import|;
 end_import
 
 begin_comment
-comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoid message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.processor.interceptor.StreamCachingInterceptor}  * for determining if/how to wrap a stream-based message.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|StreamCache
+begin_class
+DECL|class|InputStreamCacheTest
 specifier|public
-interface|interface
-name|StreamCache
+class|class
+name|InputStreamCacheTest
+extends|extends
+name|ContextTestSupport
 block|{
-comment|/**      * Resets the StreamCache for a new stream consumption.      */
-DECL|method|reset ()
+DECL|method|testInputStreamCache ()
+specifier|public
 name|void
-name|reset
+name|testInputStreamCache
 parameter_list|()
-function_decl|;
-comment|/**      * Writes the stream to the given output      *      * @param os the destination to write to      * @throws java.io.IOException is thrown if write fails      */
-DECL|method|writeTo (OutputStream os)
-name|void
-name|writeTo
-parameter_list|(
-name|OutputStream
-name|os
-parameter_list|)
 throws|throws
-name|IOException
-function_decl|;
+name|Exception
+block|{
+name|InputStreamCache
+name|cache
+init|=
+operator|new
+name|InputStreamCache
+argument_list|(
+literal|"<foo>bar</foo>"
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|ByteArrayOutputStream
+name|bos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|cache
+operator|.
+name|writeTo
+argument_list|(
+name|bos
+argument_list|)
+expr_stmt|;
+name|String
+name|s
+init|=
+name|context
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|bos
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"<foo>bar</foo>"
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
