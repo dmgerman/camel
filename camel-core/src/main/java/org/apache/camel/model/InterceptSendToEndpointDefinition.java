@@ -363,10 +363,21 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// only proxy if the uri is matched
-name|boolean
-name|match
-init|=
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|InterceptSendToEndpoint
+condition|)
+block|{
+comment|// endpoint already decorated
+return|return
+name|endpoint
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|getUri
 argument_list|()
 operator|==
@@ -381,13 +392,9 @@ argument_list|,
 name|getUri
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|match
 condition|)
 block|{
-comment|// decorate endpoint with our proxy
+comment|// only proxy if the uri is matched decorate endpoint with our proxy
 name|boolean
 name|skip
 init|=
