@@ -377,6 +377,11 @@ specifier|private
 name|boolean
 name|skipFirstLine
 decl_stmt|;
+DECL|field|generateHeaderColumnNames
+specifier|private
+name|boolean
+name|generateHeaderColumnNames
+decl_stmt|;
 DECL|field|messageOrdered
 specifier|private
 name|boolean
@@ -1476,9 +1481,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// Get field value
-comment|// Object value = field.get(modelField);
-comment|// String strValue = null;
 comment|// Add value to the list if not null
 if|if
 condition|(
@@ -1675,37 +1677,156 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
-DECL|method|getSeparator ()
+DECL|method|generateHeader ()
 specifier|public
 name|String
-name|getSeparator
+name|generateHeader
 parameter_list|()
 block|{
-return|return
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|DataField
+argument_list|>
+name|dataFieldsSorted
+init|=
+operator|new
+name|TreeMap
+argument_list|<
+name|Integer
+argument_list|,
+name|DataField
+argument_list|>
+argument_list|(
+name|dataFields
+argument_list|)
+decl_stmt|;
+name|Iterator
+argument_list|<
+name|Integer
+argument_list|>
+name|it
+init|=
+name|dataFieldsSorted
+operator|.
+name|keySet
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+name|StringBuilder
+name|builderHeader
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|DataField
+name|dataField
+init|=
+name|dataFieldsSorted
+operator|.
+name|get
+argument_list|(
+name|it
+operator|.
+name|next
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// Retrieve the field
+name|Field
+name|field
+init|=
+name|annotedFields
+operator|.
+name|get
+argument_list|(
+name|dataField
+operator|.
+name|pos
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// Change accessibility to allow to read protected/private fields
+name|field
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// Get dataField
+if|if
+condition|(
+operator|!
+name|dataField
+operator|.
+name|columnName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|""
+argument_list|)
+condition|)
+block|{
+name|builderHeader
+operator|.
+name|append
+argument_list|(
+name|dataField
+operator|.
+name|columnName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|builderHeader
+operator|.
+name|append
+argument_list|(
+name|field
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|builderHeader
+operator|.
+name|append
+argument_list|(
 name|separator
-return|;
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
-DECL|method|getSkipFirstLine ()
-specifier|public
-name|boolean
-name|getSkipFirstLine
-parameter_list|()
-block|{
-return|return
-name|skipFirstLine
-return|;
 block|}
-comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
-DECL|method|isMessageOrdered ()
-specifier|public
-name|boolean
-name|isMessageOrdered
-parameter_list|()
-block|{
 return|return
-name|messageOrdered
+name|builderHeader
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 comment|/**      *       * Get paramaters defined in @Csvrecord annotation      *       */
@@ -1813,6 +1934,32 @@ name|skipFirstLine
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Get generateHeaderColumnNames parameter
+name|generateHeaderColumnNames
+operator|=
+name|record
+operator|.
+name|generateHeaderColumns
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Generate header column names parameter of the CSV : "
+operator|+
+name|generateHeaderColumnNames
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Get Separator parameter
 name|ObjectHelper
 operator|.
@@ -1917,6 +2064,50 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+comment|/**      * Find the separator used to delimit the CSV fields      */
+DECL|method|getSeparator ()
+specifier|public
+name|String
+name|getSeparator
+parameter_list|()
+block|{
+return|return
+name|separator
+return|;
+block|}
+comment|/**      * Flag indicating if the first line of the CSV must be skipped      */
+DECL|method|getGenerateHeaderColumnNames ()
+specifier|public
+name|boolean
+name|getGenerateHeaderColumnNames
+parameter_list|()
+block|{
+return|return
+name|generateHeaderColumnNames
+return|;
+block|}
+comment|/**      * Find the separator used to delimit the CSV fields      */
+DECL|method|getSkipFirstLine ()
+specifier|public
+name|boolean
+name|getSkipFirstLine
+parameter_list|()
+block|{
+return|return
+name|skipFirstLine
+return|;
+block|}
+comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
+DECL|method|isMessageOrdered ()
+specifier|public
+name|boolean
+name|isMessageOrdered
+parameter_list|()
+block|{
+return|return
+name|messageOrdered
+return|;
 block|}
 block|}
 end_class

@@ -70,6 +70,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_class
 DECL|class|NumberPatternFormat
 specifier|public
@@ -89,6 +117,11 @@ DECL|field|pattern
 specifier|private
 name|String
 name|pattern
+decl_stmt|;
+DECL|field|df
+specifier|private
+name|DecimalFormat
+name|df
 decl_stmt|;
 DECL|method|NumberPatternFormat ()
 specifier|public
