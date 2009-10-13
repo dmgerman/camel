@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test cases for dealing with stream types in an exception handler  *   * @version $Revision: 791456 $  */
+comment|/**  * Test cases for dealing with stream types in an exception handler  *   * @version $Revision$  */
 end_comment
 
 begin_class
