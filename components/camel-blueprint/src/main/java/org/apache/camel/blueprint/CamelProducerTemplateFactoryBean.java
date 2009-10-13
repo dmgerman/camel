@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory for creating a new {@link org.apache.camel.ProducerTemplate}  * instance with a minimum of XML  *  * @version $Revision: 800340 $  */
+comment|/**  * A factory for creating a new {@link org.apache.camel.ProducerTemplate}  * instance with a minimum of XML  *  * @version $Revision$  */
 end_comment
 
 begin_class

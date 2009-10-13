@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The JAXB type class for the configuration of jmxAgent  *  * @version $Revision: 812099 $  */
+comment|/**  * The JAXB type class for the configuration of jmxAgent  *  * @version $Revision$  */
 end_comment
 
 begin_class

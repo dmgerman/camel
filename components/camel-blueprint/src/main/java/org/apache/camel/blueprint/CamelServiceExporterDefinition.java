@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;export&gt; tag element.  *  * @version $Revision: 750806 $ */
+comment|/**  * The&lt;export&gt; tag element.  *  * @version $Revision$ */
 end_comment
 
 begin_class

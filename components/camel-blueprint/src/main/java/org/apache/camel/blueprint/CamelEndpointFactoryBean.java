@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which instantiates {@link Endpoint} objects  *  * @version $Revision: 759657 $  */
+comment|/**  * A factory which instantiates {@link Endpoint} objects  *  * @version $Revision$  */
 end_comment
 
 begin_class
