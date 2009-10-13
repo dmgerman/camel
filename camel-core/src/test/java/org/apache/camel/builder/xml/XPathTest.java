@@ -62,6 +62,18 @@ name|xml
 operator|.
 name|xpath
 operator|.
+name|XPathExpressionException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|xpath
+operator|.
 name|XPathFunctionResolver
 import|;
 end_import
@@ -334,6 +346,61 @@ literal|"Hiram"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testInvalidXPath ()
+specifier|public
+name|void
+name|testInvalidXPath
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|assertPredicate
+argument_list|(
+literal|"/foo/"
+argument_list|,
+literal|"<foo><bar xyz='cheese'/></foo>"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidXPathExpression
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"/foo/"
+argument_list|,
+name|e
+operator|.
+name|getXpath
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|XPathExpressionException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testXPathBooleanResult ()
 specifier|public
 name|void
@@ -466,7 +533,7 @@ name|result
 init|=
 name|xpath
 argument_list|(
-literal|"/foo/bar"
+literal|"/foo"
 argument_list|)
 operator|.
 name|nodeSetResult
@@ -476,7 +543,7 @@ name|evaluate
 argument_list|(
 name|createExchange
 argument_list|(
-literal|"<foo><bar xyz='cheese'/><bar xyz='cake'/></foo>"
+literal|"<foo>bar</foo>"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -516,7 +583,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<bar xyz=\"cheese\"/><bar xyz=\"cake\"/>"
+literal|"bar"
 argument_list|,
 name|s
 argument_list|)
@@ -785,7 +852,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<foo>bar</foo>"
+literal|"bar"
 argument_list|,
 name|s
 argument_list|)
@@ -870,7 +937,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<foo>bar</foo>"
+literal|"bar"
 argument_list|,
 name|s
 argument_list|)
@@ -964,7 +1031,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<foo>bar</foo>"
+literal|"bar"
 argument_list|,
 name|s
 argument_list|)
