@@ -328,23 +328,7 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|felix
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|knopflerfish
+name|equinox
 import|;
 end_import
 
@@ -601,7 +585,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org/apache/camel/itest/osgi/jpa/springJpaRouteTest.xml"
+literal|"org/apache/camel/itest/osgi/jpa/springJpaRouteContext.xml"
 block|}
 argument_list|)
 expr_stmt|;
@@ -907,7 +891,7 @@ argument_list|,
 literal|"camel-jpa"
 argument_list|)
 argument_list|,
-comment|/* This the camel-jpa needed bundles             mavenBundle().groupId("org.apache.servicemix.specs").artifactId("org.apache.servicemix.specs.java-persistence-api-1.1.1").version("1.4-SNAPSHOT"),             mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.openjpa").version("1.2.1_1-SNAPSHOT"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jta_1.1_spec").version("1.1.1"),             mavenBundle().groupId("org.apache.camel").artifactId("camel-jpa").version("2.1-SNAPSHOT"),             mavenBundle().groupId("org.springframework").artifactId("spring-jdbc").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-tx").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-orm").version("2.5.6"),             mavenBundle().groupId("commons-lang").artifactId("commons-lang").version("2.4"),                 mavenBundle().groupId("commons-collections").artifactId("commons-collections").version("3.2.1"),                 mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.ant").version("1.7.0_1"),                 mavenBundle().groupId("commons-pool").artifactId("commons-pool").version("1.4"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jms_1.1_spec").version("1.1.1"),*/
+comment|/* This the camel-jpa needed bundles              mavenBundle().groupId("org.apache.servicemix.specs").artifactId("org.apache.servicemix.specs.java-persistence-api-1.1.1").version("1.4-SNAPSHOT"),             mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.openjpa").version("1.2.1_1-SNAPSHOT"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jta_1.1_spec").version("1.1.1"),             mavenBundle().groupId("org.apache.camel").artifactId("camel-jpa").version("2.1-SNAPSHOT"),             mavenBundle().groupId("org.springframework").artifactId("spring-jdbc").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-tx").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-orm").version("2.5.6"),             mavenBundle().groupId("commons-lang").artifactId("commons-lang").version("2.4"),                 mavenBundle().groupId("commons-collections").artifactId("commons-collections").version("3.2.1"),                 mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.ant").version("1.7.0_1"),                 mavenBundle().groupId("commons-pool").artifactId("commons-pool").version("1.4"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jms_1.1_spec").version("1.1.1"),*/
 name|mavenBundle
 argument_list|()
 operator|.
@@ -926,7 +910,7 @@ argument_list|(
 literal|"10.4.2.0"
 argument_list|)
 argument_list|,
-name|knopflerfish
+name|equinox
 argument_list|()
 argument_list|)
 decl_stmt|;
