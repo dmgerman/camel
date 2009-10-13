@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A variable resolver for XPath expressions which support properties on the  * messge, exchange as well as making system properties and environment  * properties available.  *  * @version $Revision$  */
+comment|/**  * A variable resolver for XPath expressions which support properties on the  * message, exchange as well as making system properties and environment  * properties available.  *<p/>  * Implementations of this resolver must be thread safe  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -233,11 +233,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|exchange
-specifier|private
-name|Exchange
-name|exchange
-decl_stmt|;
 DECL|field|variables
 specifier|private
 name|Map
@@ -257,22 +252,23 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|getExchange ()
-specifier|public
+DECL|field|exchange
+specifier|private
+specifier|final
+name|ThreadLocal
+argument_list|<
 name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
+argument_list|>
 name|exchange
-return|;
-block|}
-DECL|method|setExchange (Exchange exchange)
+decl_stmt|;
+DECL|method|MessageVariableResolver (ThreadLocal<Exchange> exchange)
 specifier|public
-name|void
-name|setExchange
+name|MessageVariableResolver
 parameter_list|(
+name|ThreadLocal
+argument_list|<
 name|Exchange
+argument_list|>
 name|exchange
 parameter_list|)
 block|{
@@ -317,6 +313,9 @@ name|Message
 name|in
 init|=
 name|exchange
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getIn
 argument_list|()
@@ -383,6 +382,9 @@ block|{
 name|answer
 operator|=
 name|exchange
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getProperty
 argument_list|(
@@ -477,6 +479,9 @@ name|answer
 operator|=
 name|exchange
 operator|.
+name|get
+argument_list|()
+operator|.
 name|getProperty
 argument_list|(
 name|localPart
@@ -541,6 +546,9 @@ if|if
 condition|(
 name|exchange
 operator|.
+name|get
+argument_list|()
+operator|.
 name|hasOut
 argument_list|()
 condition|)
@@ -549,6 +557,9 @@ name|Message
 name|out
 init|=
 name|exchange
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getOut
 argument_list|()
