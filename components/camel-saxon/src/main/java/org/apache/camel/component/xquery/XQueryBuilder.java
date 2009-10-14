@@ -1529,7 +1529,7 @@ name|String
 name|characterSet
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 return|return
 name|xquery
@@ -1584,7 +1584,7 @@ name|File
 name|file
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 return|return
 name|xquery
