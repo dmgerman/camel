@@ -1215,10 +1215,12 @@ block|}
 comment|/**      * This test seems to be fail every other run.      */
 annotation|@
 name|Ignore
-DECL|method|disabledtestSenarioF ()
+annotation|@
+name|Test
+DECL|method|testSenarioF ()
 specifier|public
 name|void
-name|disabledtestSenarioF
+name|testSenarioF
 parameter_list|()
 throws|throws
 name|Exception
@@ -1410,10 +1412,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Ignore
-DECL|method|disabledtestSenarioC ()
+annotation|@
+name|Test
+DECL|method|testSenarioC ()
 specifier|public
 name|void
-name|disabledtestSenarioC
+name|testSenarioC
 parameter_list|()
 throws|throws
 name|Exception
@@ -1484,10 +1488,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Ignore
-DECL|method|disabledtestSenarioD ()
+annotation|@
+name|Test
+DECL|method|testSenarioD ()
 specifier|public
 name|void
-name|disabledtestSenarioD
+name|testSenarioD
 parameter_list|()
 throws|throws
 name|Exception
@@ -1548,10 +1554,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Ignore
-DECL|method|disabledtestSenarioE ()
+annotation|@
+name|Test
+DECL|method|testSenarioE ()
 specifier|public
 name|void
-name|disabledtestSenarioE
+name|testSenarioE
 parameter_list|()
 throws|throws
 name|Exception
