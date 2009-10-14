@@ -2609,6 +2609,25 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|toInputSource (InputStream is)
+specifier|public
+name|InputSource
+name|toInputSource
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+block|{
+return|return
+operator|new
+name|InputSource
+argument_list|(
+name|is
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getDocumentBuilderFactory ()
