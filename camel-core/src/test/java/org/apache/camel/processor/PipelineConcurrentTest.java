@@ -136,7 +136,7 @@ block|{
 name|int
 name|total
 init|=
-literal|2000
+literal|200
 decl_stmt|;
 specifier|final
 name|int

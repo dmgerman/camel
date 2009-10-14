@@ -154,7 +154,7 @@ name|Exception
 block|{
 name|doSendMessages
 argument_list|(
-literal|999
+literal|333
 argument_list|)
 expr_stmt|;
 block|}
@@ -210,6 +210,27 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+comment|// give more time on slow servers
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:other"
+argument_list|)
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
