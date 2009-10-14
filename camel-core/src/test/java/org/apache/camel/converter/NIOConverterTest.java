@@ -132,6 +132,8 @@ specifier|public
 name|void
 name|testToString
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|ByteBuffer
 name|bb
@@ -542,6 +544,8 @@ operator|.
 name|toString
 argument_list|(
 name|is
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

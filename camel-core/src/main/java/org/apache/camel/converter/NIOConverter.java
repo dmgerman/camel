@@ -222,6 +222,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|IOConverter

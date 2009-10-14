@@ -788,6 +788,8 @@ operator|(
 name|InputStream
 operator|)
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -911,6 +913,8 @@ operator|(
 name|InputStream
 operator|)
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals

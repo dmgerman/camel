@@ -456,6 +456,8 @@ operator|.
 name|toString
 argument_list|(
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -466,6 +468,8 @@ operator|.
 name|toString
 argument_list|(
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -545,6 +549,8 @@ operator|.
 name|toString
 argument_list|(
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

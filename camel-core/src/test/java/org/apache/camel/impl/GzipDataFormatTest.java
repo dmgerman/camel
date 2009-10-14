@@ -235,6 +235,8 @@ operator|.
 name|toString
 argument_list|(
 name|stream
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
