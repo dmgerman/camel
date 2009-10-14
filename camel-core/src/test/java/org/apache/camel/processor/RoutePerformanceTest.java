@@ -121,7 +121,7 @@ specifier|private
 name|int
 name|size
 init|=
-literal|500
+literal|250
 decl_stmt|;
 DECL|field|dataSet
 specifier|private
