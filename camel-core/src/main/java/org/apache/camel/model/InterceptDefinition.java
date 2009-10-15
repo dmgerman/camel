@@ -328,7 +328,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// prefer next target over taget as next target is the real target
+comment|// prefer next target over target as next target is the real target
 name|interceptedTarget
 operator|=
 name|nextTarget
