@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -105,10 +117,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|XPathFunctionTest
+DECL|class|XPathOutFunctionTest
 specifier|public
 class|class
-name|XPathFunctionTest
+name|XPathOutFunctionTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -152,8 +164,6 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// The SpringChoiceTest.java can't setup the header by Spring configure file
-comment|// x.expectedHeaderReceived("name", "a");
 name|expectsMessageCount
 argument_list|(
 literal|0
@@ -310,15 +320,49 @@ name|Exception
 block|{
 name|template
 operator|.
-name|sendBodyAndHeader
+name|send
 argument_list|(
 literal|"direct:start"
 argument_list|,
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// use OUT to test the OUT namespaces
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
 name|body
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
 literal|"foo"
 argument_list|,
 name|headerValue
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -396,7 +440,12 @@ argument_list|()
 operator|.
 name|xpath
 argument_list|(
-literal|"in:header('foo') = 'bar'"
+literal|"out:header('foo') = 'bar'"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:foo"
 argument_list|)
 operator|.
 name|to
@@ -409,7 +458,12 @@ argument_list|()
 operator|.
 name|xpath
 argument_list|(
-literal|"in:body() = '<two/>'"
+literal|"out:body() = '<two/>'"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:foo"
 argument_list|)
 operator|.
 name|to
@@ -419,6 +473,11 @@ argument_list|)
 operator|.
 name|otherwise
 argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:foo"
+argument_list|)
 operator|.
 name|to
 argument_list|(
