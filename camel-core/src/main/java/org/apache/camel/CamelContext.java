@@ -972,6 +972,21 @@ name|InflightRepository
 name|repository
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the the application context class loader which may be helpful for running camel in other container           * @return the application context class loader      */
+DECL|method|getApplicationContextClassLoader ()
+name|ClassLoader
+name|getApplicationContextClassLoader
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the application context class loader      * @param classLoader      */
+DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
+name|void
+name|setApplicationContextClassLoader
+parameter_list|(
+name|ClassLoader
+name|classLoader
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

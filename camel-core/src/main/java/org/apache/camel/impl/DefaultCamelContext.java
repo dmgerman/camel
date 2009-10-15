@@ -998,6 +998,11 @@ specifier|static
 name|int
 name|nameSuffix
 decl_stmt|;
+DECL|field|applicationContextClassLoader
+specifier|private
+name|ClassLoader
+name|applicationContextClassLoader
+decl_stmt|;
 DECL|field|routeDefinitionInitiated
 specifier|private
 name|boolean
@@ -6763,6 +6768,30 @@ argument_list|()
 operator|+
 literal|")"
 return|;
+block|}
+DECL|method|getApplicationContextClassLoader ()
+specifier|public
+name|ClassLoader
+name|getApplicationContextClassLoader
+parameter_list|()
+block|{
+return|return
+name|applicationContextClassLoader
+return|;
+block|}
+DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
+specifier|public
+name|void
+name|setApplicationContextClassLoader
+parameter_list|(
+name|ClassLoader
+name|classLoader
+parameter_list|)
+block|{
+name|applicationContextClassLoader
+operator|=
+name|classLoader
+expr_stmt|;
 block|}
 block|}
 end_class
