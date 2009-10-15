@@ -66,6 +66,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ProcessorEndpoint
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://activemq.apache.org/bean.html">Bean Component</a>  * will look up the URI in the Spring ApplicationContext and use that to handle message dispatching.  *  * @version $Revision$  */
 end_comment
@@ -83,6 +97,66 @@ specifier|public
 name|BeanComponent
 parameter_list|()
 block|{     }
+comment|/**      * A helper method to create a new endpoint from a bean with a generated URI      */
+DECL|method|createEndpoint (Object bean)
+specifier|public
+name|ProcessorEndpoint
+name|createEndpoint
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|String
+name|uri
+init|=
+literal|"bean:generated:"
+operator|+
+name|bean
+decl_stmt|;
+return|return
+name|createEndpoint
+argument_list|(
+name|bean
+argument_list|,
+name|uri
+argument_list|)
+return|;
+block|}
+comment|/**      * A helper method to create a new endpoint from a bean with a given URI      */
+DECL|method|createEndpoint (Object bean, String uri)
+specifier|public
+name|ProcessorEndpoint
+name|createEndpoint
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+name|BeanProcessor
+name|processor
+init|=
+operator|new
+name|BeanProcessor
+argument_list|(
+name|bean
+argument_list|,
+name|getCamelContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|createEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
@@ -162,6 +236,30 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|createEndpoint (String uri, BeanProcessor processor)
+specifier|protected
+name|BeanEndpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|BeanProcessor
+name|processor
+parameter_list|)
+block|{
+return|return
+operator|new
+name|BeanEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|processor
+argument_list|)
 return|;
 block|}
 block|}
