@@ -120,6 +120,23 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/xmldata"
+argument_list|,
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+operator|+
+literal|"<sample>\n<test>Helloooo</test>\n</sample>"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.xml"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testWireTapXpathExpression ()
 specifier|public
@@ -157,23 +174,6 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/xmldata/in"
-argument_list|,
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-operator|+
-literal|"<sample>\n<test>Helloooo</test>\n</sample>"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.xml"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

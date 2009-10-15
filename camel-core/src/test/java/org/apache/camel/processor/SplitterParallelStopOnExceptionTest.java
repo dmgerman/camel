@@ -221,19 +221,6 @@ argument_list|(
 literal|"Kaboom"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|allMessages
-argument_list|()
-operator|.
-name|body
-argument_list|()
-operator|.
-name|isNotEqualTo
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|template
