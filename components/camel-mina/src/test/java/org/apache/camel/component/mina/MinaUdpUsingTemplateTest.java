@@ -323,7 +323,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina:udp://127.0.0.1:4445?sync=false"
+literal|"mina:udp://127.0.0.1:4445?sync=false&minaLogger=true"
 argument_list|)
 operator|.
 name|to

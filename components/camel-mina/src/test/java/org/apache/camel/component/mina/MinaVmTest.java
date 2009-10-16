@@ -77,7 +77,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:vm://localhost:8080?sync=false"
+literal|"mina:vm://localhost:8080?sync=false&minaLogger=true"
 decl_stmt|;
 DECL|method|testMinaRoute ()
 specifier|public
