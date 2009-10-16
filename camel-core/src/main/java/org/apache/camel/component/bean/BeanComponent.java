@@ -107,6 +107,7 @@ name|Object
 name|bean
 parameter_list|)
 block|{
+comment|// used by servicemix-camel
 name|String
 name|uri
 init|=
@@ -136,6 +137,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
+comment|// used by servicemix-camel
 name|BeanProcessor
 name|processor
 init|=
