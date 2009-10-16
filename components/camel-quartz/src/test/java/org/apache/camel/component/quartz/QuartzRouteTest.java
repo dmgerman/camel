@@ -232,6 +232,27 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// should be quartz message
+name|QuartzMessage
+name|qm
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|(
+name|QuartzMessage
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|qm
+operator|.
+name|getJobExecutionContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

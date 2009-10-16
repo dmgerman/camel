@@ -251,16 +251,6 @@ specifier|private
 name|Scheduler
 name|scheduler
 decl_stmt|;
-DECL|field|triggers
-specifier|private
-name|Map
-argument_list|<
-name|Trigger
-argument_list|,
-name|JobDetail
-argument_list|>
-name|triggers
-decl_stmt|;
 DECL|method|QuartzComponent ()
 specifier|public
 name|QuartzComponent
@@ -733,43 +723,6 @@ operator|.
 name|scheduler
 operator|=
 name|scheduler
-expr_stmt|;
-block|}
-DECL|method|getTriggers ()
-specifier|public
-name|Map
-argument_list|<
-name|Trigger
-argument_list|,
-name|JobDetail
-argument_list|>
-name|getTriggers
-parameter_list|()
-block|{
-return|return
-name|triggers
-return|;
-block|}
-DECL|method|setTriggers (final Map<Trigger, JobDetail> triggers)
-specifier|public
-name|void
-name|setTriggers
-parameter_list|(
-specifier|final
-name|Map
-argument_list|<
-name|Trigger
-argument_list|,
-name|JobDetail
-argument_list|>
-name|triggers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|triggers
-operator|=
-name|triggers
 expr_stmt|;
 block|}
 comment|// Implementation methods
