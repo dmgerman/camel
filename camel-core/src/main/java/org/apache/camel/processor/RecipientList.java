@@ -218,11 +218,25 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
+DECL|field|delimiter
+specifier|private
+specifier|final
+name|String
+name|delimiter
+decl_stmt|;
 DECL|method|RecipientList ()
 specifier|public
 name|RecipientList
 parameter_list|()
-block|{     }
+block|{
+comment|// use comma by default as delimiter
+name|this
+operator|.
+name|delimiter
+operator|=
+literal|","
+expr_stmt|;
+block|}
 DECL|method|RecipientList (Expression expression)
 specifier|public
 name|RecipientList
@@ -231,6 +245,28 @@ name|Expression
 name|expression
 parameter_list|)
 block|{
+comment|// use comma by default as delimiter
+name|this
+argument_list|(
+name|expression
+argument_list|,
+literal|","
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RecipientList (Expression expression, String delimiter)
+specifier|public
+name|RecipientList
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|,
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|expression
@@ -238,11 +274,26 @@ argument_list|,
 literal|"expression"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|delimiter
+argument_list|,
+literal|"delimiter"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+name|this
+operator|.
+name|delimiter
+operator|=
+name|delimiter
 expr_stmt|;
 block|}
 annotation|@
@@ -325,6 +376,8 @@ operator|.
 name|createIterator
 argument_list|(
 name|receipientList
+argument_list|,
+name|delimiter
 argument_list|)
 decl_stmt|;
 name|List

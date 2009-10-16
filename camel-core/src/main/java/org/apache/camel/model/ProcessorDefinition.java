@@ -3094,7 +3094,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients.      *<p/>      * Will use comma as default delimiter.      *      * @param recipients expression to decide the destinations      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3118,6 +3118,52 @@ argument_list|(
 name|recipients
 argument_list|)
 decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @param delimiter  a custom delimiter to use      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|recipientList (Expression recipients, String delimiter)
+specifier|public
+name|Type
+name|recipientList
+parameter_list|(
+name|Expression
+name|recipients
+parameter_list|,
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|RecipientListDefinition
+name|answer
+init|=
+operator|new
+name|RecipientListDefinition
+argument_list|(
+name|recipients
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setDelimiter
+argument_list|(
+name|delimiter
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer

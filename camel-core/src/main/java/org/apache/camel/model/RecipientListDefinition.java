@@ -292,7 +292,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-comment|// add a tokenizer if we have a delimiter
 if|if
 condition|(
 name|delimiter
@@ -300,18 +299,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|expression
-operator|=
-name|ExpressionBuilder
-operator|.
-name|tokenizeExpression
+return|return
+operator|new
+name|RecipientList
 argument_list|(
 name|expression
 argument_list|,
 name|delimiter
 argument_list|)
-expr_stmt|;
+return|;
 block|}
+else|else
+block|{
 return|return
 operator|new
 name|RecipientList
@@ -320,26 +319,6 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that RecipientListType will use      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|RecipientListDefinition
-argument_list|>
-name|expression
-parameter_list|()
-block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|this
-argument_list|)
-return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
