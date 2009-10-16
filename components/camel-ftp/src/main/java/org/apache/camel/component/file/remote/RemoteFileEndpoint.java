@@ -465,24 +465,6 @@ argument_list|,
 literal|"protocol"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|config
-operator|.
-name|getPort
-argument_list|()
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"port is not assigned to a positive value"
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Remote File Endpoints, impl this method to create a custom consumer specific to their "protocol" etc.      *      * @param processor  the processor      * @return the created consumer      */
 DECL|method|buildConsumer (Processor processor)

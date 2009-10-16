@@ -377,9 +377,31 @@ name|getBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|copyFromPopulateAdditional
+argument_list|(
+name|source
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
+block|}
+comment|/**      * Copies additional information from the source to the result.      *<p/>      * Inherited classes can override this method and copy their specific data.      *      * @param source  the source      * @param result  the result      */
+DECL|method|copyFromPopulateAdditional (GenericFile source, GenericFile result)
+specifier|public
+name|void
+name|copyFromPopulateAdditional
+parameter_list|(
+name|GenericFile
+name|source
+parameter_list|,
+name|GenericFile
+name|result
+parameter_list|)
+block|{
+comment|// noop
 block|}
 comment|/**      * Bind this GenericFile to an Exchange      */
 DECL|method|bindToExchange (Exchange exchange)
