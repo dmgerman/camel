@@ -169,10 +169,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MimeMultipartAlternativeTest
+DECL|class|MimeMultipartAlternativeWithLongerFilenameTest
 specifier|public
 class|class
-name|MimeMultipartAlternativeTest
+name|MimeMultipartAlternativeWithLongerFilenameTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -188,7 +188,7 @@ specifier|private
 name|String
 name|htmlBody
 init|=
-literal|"<html><body><h1>Hello</h1>World<img src=\"cid:0001\"></body></html>"
+literal|"<html><body><h1>Hello</h1>World<img src=\"cid:myCoolLogo.jpeg\"></body></html>"
 decl_stmt|;
 DECL|method|sendMultipartEmail (boolean useInlineattachments)
 specifier|private
@@ -275,7 +275,7 @@ name|in
 operator|.
 name|addAttachment
 argument_list|(
-literal|"cid:0001"
+literal|"cid:myCoolLogo.jpeg"
 argument_list|,
 operator|new
 name|DataHandler
@@ -551,7 +551,7 @@ argument_list|)
 expr_stmt|;
 name|verifyTheRecivedEmail
 argument_list|(
-literal|"Content-Disposition: inline; filename=0001"
+literal|"Content-Disposition: inline; filename=myCoolLogo.jpeg"
 argument_list|)
 expr_stmt|;
 block|}
@@ -572,7 +572,7 @@ argument_list|)
 expr_stmt|;
 name|verifyTheRecivedEmail
 argument_list|(
-literal|"Content-Disposition: attachment; filename=0001"
+literal|"Content-Disposition: attachment; filename=myCoolLogo.jpeg"
 argument_list|)
 expr_stmt|;
 block|}

@@ -1970,7 +1970,22 @@ operator|+
 literal|">"
 argument_list|)
 expr_stmt|;
+comment|// Set the filename without the cid
+name|messageBodyPart
+operator|.
+name|setFileName
+argument_list|(
+name|attachmentFilename
+operator|.
+name|substring
+argument_list|(
+literal|4
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 comment|// Set the filename
 name|messageBodyPart
 operator|.
@@ -1979,6 +1994,7 @@ argument_list|(
 name|attachmentFilename
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
