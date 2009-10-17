@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -57,16 +67,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
@@ -165,7 +165,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Error creating bean with name 'camel': Invocation of init method failed; nested exception is org.apache.camel.CamelException: Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
+literal|"Error creating bean with name 'camel': Invocation of init method failed;"
+operator|+
+literal|" nested exception is org.apache.camel.CamelException: "
+operator|+
+literal|"Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
 argument_list|,
 name|e
 operator|.

@@ -163,6 +163,11 @@ specifier|protected
 name|String
 name|startEndpointUri
 decl_stmt|;
+DECL|field|applicationContext
+specifier|private
+name|ClassPathXmlApplicationContext
+name|applicationContext
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testSendAndReceiveMessage ()
@@ -283,11 +288,6 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|applicationContext
-specifier|private
-name|ClassPathXmlApplicationContext
-name|applicationContext
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
