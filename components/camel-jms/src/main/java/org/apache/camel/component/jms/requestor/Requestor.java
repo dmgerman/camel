@@ -1384,8 +1384,9 @@ condition|)
 block|{
 name|uuidGenerator
 operator|=
-operator|new
 name|UuidGenerator
+operator|.
+name|get
 argument_list|()
 expr_stmt|;
 block|}

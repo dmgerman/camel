@@ -27,33 +27,79 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for UuidGenerator  */
+comment|/**  * Unit test for StringHelper  */
 end_comment
 
 begin_class
-DECL|class|UuidGeneratorTest
+DECL|class|StringHelperTest
 specifier|public
 class|class
-name|UuidGeneratorTest
+name|StringHelperTest
 extends|extends
 name|TestCase
 block|{
-DECL|method|testSanitized ()
+DECL|method|testSimpleSanitized ()
 specifier|public
 name|void
-name|testSanitized
+name|testSimpleSanitized
 parameter_list|()
 block|{
 name|String
 name|out
 init|=
-name|UuidGenerator
+name|StringHelper
 operator|.
-name|get
-argument_list|()
+name|sanitize
+argument_list|(
+literal|"hello"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should not contain : "
+argument_list|,
+name|out
 operator|.
-name|generateUuid
-argument_list|()
+name|indexOf
+argument_list|(
+literal|':'
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should not contain . "
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNotFileFriendlySimpleSanitized ()
+specifier|public
+name|void
+name|testNotFileFriendlySimpleSanitized
+parameter_list|()
+block|{
+name|String
+name|out
+init|=
+name|StringHelper
+operator|.
+name|sanitize
+argument_list|(
+literal|"c:\\helloworld"
+argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(

@@ -231,7 +231,7 @@ name|transitionalID
 operator|=
 name|uuidGenerator
 operator|.
-name|generateId
+name|generateUuid
 argument_list|()
 expr_stmt|;
 name|this

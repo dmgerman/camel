@@ -1131,7 +1131,7 @@ condition|(
 name|showShortExchangeId
 condition|)
 block|{
-comment|// skip hostname for short exchange id
+comment|// only output last part of id
 name|id
 operator|=
 name|id
@@ -1140,9 +1140,9 @@ name|substring
 argument_list|(
 name|id
 operator|.
-name|indexOf
+name|lastIndexOf
 argument_list|(
-literal|'/'
+literal|'-'
 argument_list|)
 operator|+
 literal|1

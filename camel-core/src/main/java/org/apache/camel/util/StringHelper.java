@@ -16,67 +16,71 @@ name|util
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|UUID
-import|;
-end_import
-
 begin_comment
-comment|/**  * Generator for Globally unique Strings.  */
+comment|/**  * Helper methods for working with Strings.   */
 end_comment
 
 begin_class
-DECL|class|UuidGenerator
+DECL|class|StringHelper
 specifier|public
+specifier|final
 class|class
-name|UuidGenerator
+name|StringHelper
 block|{
-DECL|field|instance
+comment|/**      * Constructor of utility class should be private.      */
+DECL|method|StringHelper ()
 specifier|private
-specifier|static
-name|UuidGenerator
-name|instance
-init|=
-operator|new
-name|UuidGenerator
-argument_list|()
-decl_stmt|;
-DECL|method|UuidGenerator ()
-name|UuidGenerator
+name|StringHelper
 parameter_list|()
 block|{     }
-comment|/**      * Returns a UUID generator. The instance returned by this method makes use      * of {@link java.util.UUID#randomUUID()} for generating UUIDs. Other      * generation strategies are currently not supported (but maybe added in      * future versions).      *       * @return a UUID generator singleton.      */
-DECL|method|get ()
+comment|/**      * Ensures that<code>s</code> is friendly for a URL or file system.      *       * @param s      *            String to be sanitized.      * @return sanitized version of<code>s</code>.      * @throws NullPointerException      *             if<code>s</code> is<code>null</code>.      */
+DECL|method|sanitize (String s)
 specifier|public
 specifier|static
-name|UuidGenerator
-name|get
-parameter_list|()
-block|{
-return|return
-name|instance
-return|;
-block|}
-comment|/**      * Generates a UUID string representation.        *       * @return a UUID string.      */
-DECL|method|generateUuid ()
-specifier|public
 name|String
-name|generateUuid
-parameter_list|()
+name|sanitize
+parameter_list|(
+name|String
+name|s
+parameter_list|)
 block|{
 return|return
-name|UUID
+name|s
 operator|.
-name|randomUUID
-argument_list|()
+name|replace
+argument_list|(
+literal|':'
+argument_list|,
+literal|'-'
+argument_list|)
 operator|.
-name|toString
-argument_list|()
+name|replace
+argument_list|(
+literal|'_'
+argument_list|,
+literal|'-'
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|'.'
+argument_list|,
+literal|'-'
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|'/'
+argument_list|,
+literal|'-'
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'-'
+argument_list|)
 return|;
 block|}
 block|}
