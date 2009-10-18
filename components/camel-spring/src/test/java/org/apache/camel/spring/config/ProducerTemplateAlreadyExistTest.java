@@ -46,16 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|beans
@@ -126,8 +116,6 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testHasExistingTemplate ()
 specifier|public
 name|void

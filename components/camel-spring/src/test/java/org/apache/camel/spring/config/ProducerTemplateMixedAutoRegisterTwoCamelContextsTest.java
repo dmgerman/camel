@@ -60,31 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -156,8 +134,6 @@ specifier|private
 name|CamelContext
 name|context2
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testHasTemplateCamel1 ()
 specifier|public
 name|void
@@ -202,8 +178,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasTemplateCamel2 ()
 specifier|public
 name|void
@@ -248,8 +222,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasNoConsumerTemplateCamel1 ()
 specifier|public
 name|void
@@ -281,8 +253,6 @@ name|lookup
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasNoConsumerTemplateCamel2 ()
 specifier|public
 name|void

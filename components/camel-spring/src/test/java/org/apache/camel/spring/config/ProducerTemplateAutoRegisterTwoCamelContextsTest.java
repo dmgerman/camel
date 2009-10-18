@@ -68,16 +68,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|test
@@ -142,8 +132,6 @@ specifier|private
 name|CamelContext
 name|context2
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testHasNoTemplateCamel1 ()
 specifier|public
 name|void
@@ -175,8 +163,6 @@ name|lookup
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasNoTemplateCamel2 ()
 specifier|public
 name|void
@@ -208,8 +194,6 @@ name|lookup
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasNoConsumerTemplateCamel1 ()
 specifier|public
 name|void
@@ -241,8 +225,6 @@ name|lookup
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasNoConsumerTemplateCamel2 ()
 specifier|public
 name|void
