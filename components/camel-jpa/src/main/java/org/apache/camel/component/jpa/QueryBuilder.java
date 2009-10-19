@@ -141,8 +141,6 @@ literal|"Query: "
 operator|+
 name|query
 operator|+
-literal|" params: "
-operator|+
 name|getParameterDescription
 argument_list|()
 return|;

@@ -128,6 +128,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -217,7 +231,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
+comment|// if we use exclusive read then acquire the exclusive read (waiting until we got it)
 if|if
 condition|(
 name|exclusiveReadLockStrategy
@@ -245,7 +259,7 @@ operator|!
 name|lock
 condition|)
 block|{
-comment|// do not begin sice we could not get the exclusive read lcok
+comment|// do not begin since we could not get the exclusive read lock
 return|return
 literal|false
 return|;
@@ -439,10 +453,12 @@ block|{
 name|boolean
 name|deleted
 init|=
-name|local
+name|FileUtil
 operator|.
-name|delete
-argument_list|()
+name|deleteFile
+argument_list|(
+name|local
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
