@@ -241,8 +241,24 @@ name|argNumber
 init|=
 literal|1
 decl_stmt|;
+comment|// number of parameters must match
+name|int
+name|expected
+init|=
+name|ps
+operator|.
+name|getParameterMetaData
+argument_list|()
+operator|.
+name|getParameterCount
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+name|expected
+operator|>
+literal|0
+operator|&&
 name|exchange
 operator|.
 name|getIn
@@ -299,18 +315,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// number of parameters must match
-name|int
-name|expected
-init|=
-name|ps
-operator|.
-name|getParameterMetaData
-argument_list|()
-operator|.
-name|getParameterCount
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|argNumber
