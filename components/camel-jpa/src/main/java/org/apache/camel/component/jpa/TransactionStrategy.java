@@ -22,18 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|orm
@@ -53,9 +41,8 @@ DECL|interface|TransactionStrategy
 specifier|public
 interface|interface
 name|TransactionStrategy
-extends|extends
-name|Service
 block|{
+comment|/**      * Executes in a transaction.      *      * @param callback the callback      * @return the result      */
 DECL|method|execute (JpaCallback callback)
 name|Object
 name|execute

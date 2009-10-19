@@ -1113,8 +1113,7 @@ argument_list|>
 name|createDeleteHandler
 parameter_list|()
 block|{
-comment|// TODO auto-discover an annotation in the entity bean to indicate the
-comment|// process completed method call?
+comment|// look for @Consumed to allow custom callback when the Entity has been consumed
 name|Class
 argument_list|<
 name|?

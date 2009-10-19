@@ -165,8 +165,6 @@ DECL|class|JpaTemplateTransactionStrategy
 specifier|public
 class|class
 name|JpaTemplateTransactionStrategy
-extends|extends
-name|ServiceSupport
 implements|implements
 name|TransactionStrategy
 block|{
@@ -388,22 +386,6 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 block|}
 end_class
 
