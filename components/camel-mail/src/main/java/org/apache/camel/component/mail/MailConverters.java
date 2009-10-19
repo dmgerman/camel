@@ -301,7 +301,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Converts the given JavaMail message to an InputStream.      * Can return null.      */
+comment|/**      * Converts the given JavaMail message to an InputStream.      */
 annotation|@
 name|Converter
 DECL|method|toInputStream (Message message)
@@ -318,34 +318,11 @@ name|IOException
 throws|,
 name|MessagingException
 block|{
-name|String
-name|s
-init|=
-name|toString
-argument_list|(
+return|return
 name|message
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-return|return
-name|IOConverter
 operator|.
-name|toInputStream
-argument_list|(
-name|s
-argument_list|,
-literal|null
-argument_list|)
+name|getInputStream
+argument_list|()
 return|;
 block|}
 comment|/**      * Converts the given JavaMail multipart to a InputStream body, where the contenttype of the multipart      * must be text based (ie start with text). Can return null.      */

@@ -320,24 +320,6 @@ argument_list|,
 literal|"protocol"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|config
-operator|.
-name|getPort
-argument_list|()
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"port mut be specified"
-argument_list|)
-throw|;
-block|}
 return|return
 name|endpoint
 return|;
@@ -460,20 +442,6 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
-block|}
-comment|/**      * A strategy method allowing the URI destination to be translated into the actual Mail destination name      * (say by looking up in JNDI or something)      */
-DECL|method|convertPathToActualDestination (String path)
-specifier|protected
-name|String
-name|convertPathToActualDestination
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-return|return
-name|path
-return|;
 block|}
 DECL|method|getContentTypeResolver ()
 specifier|public

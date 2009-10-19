@@ -1020,7 +1020,7 @@ condition|)
 block|{
 name|ssl
 operator|=
-literal|"(SSL enabled"
+literal|" (SSL enabled"
 operator|+
 operator|(
 name|dummyTrustManager
@@ -1034,7 +1034,7 @@ block|}
 return|return
 name|protocol
 operator|+
-literal|"//"
+literal|"://"
 operator|+
 name|host
 operator|+
