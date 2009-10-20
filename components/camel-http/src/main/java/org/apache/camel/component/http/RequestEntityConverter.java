@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|ByteBuffer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -148,34 +138,6 @@ specifier|public
 class|class
 name|RequestEntityConverter
 block|{
-annotation|@
-name|Converter
-DECL|method|toRequestEntity (ByteBuffer buffer, Exchange exchange)
-specifier|public
-name|RequestEntity
-name|toRequestEntity
-parameter_list|(
-name|ByteBuffer
-name|buffer
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|asRequestEntity
-argument_list|(
-name|buffer
-operator|.
-name|array
-argument_list|()
-argument_list|,
-name|exchange
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toRequestEntity (byte[] data, Exchange exchange)
