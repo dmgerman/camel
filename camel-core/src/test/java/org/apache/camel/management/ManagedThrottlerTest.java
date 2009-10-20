@@ -319,13 +319,13 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take at most 2.0 sec: was "
+literal|"Should take at most 2.5 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|<
-literal|2000
+literal|2500
 argument_list|)
 expr_stmt|;
 comment|// change the throttler using JMX

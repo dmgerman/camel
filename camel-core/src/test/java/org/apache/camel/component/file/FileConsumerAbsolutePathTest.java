@@ -114,7 +114,7 @@ argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
-comment|// use current dir as base as aboslute path
+comment|// use current dir as base as absolute path
 name|base
 operator|=
 operator|new

@@ -92,22 +92,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -140,7 +124,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -273,8 +257,6 @@ argument_list|(
 literal|"direct:foo"
 argument_list|,
 literal|"seda:bar"
-argument_list|,
-literal|"timer://baz?delay=500&period=1000"
 argument_list|)
 operator|.
 name|to
