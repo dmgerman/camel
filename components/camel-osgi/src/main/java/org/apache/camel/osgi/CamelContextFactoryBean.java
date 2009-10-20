@@ -442,7 +442,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: should we not thrown an excpetion to not allow it to startup
+comment|// TODO: should we not thrown an exception to not allow it to startup
 name|LOG
 operator|.
 name|warn

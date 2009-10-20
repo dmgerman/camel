@@ -104,20 +104,6 @@ operator|.
 name|OBJECTCLASS
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The class name is "
-operator|+
-name|classNames
-index|[
-literal|0
-index|]
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|classNames
