@@ -222,6 +222,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1896,6 +1908,27 @@ name|String
 name|delimiter
 parameter_list|)
 block|{
+comment|// if its a message than we want to iterate its body
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Message
+condition|)
+block|{
+name|value
+operator|=
+operator|(
+operator|(
+name|Message
+operator|)
+name|value
+operator|)
+operator|.
+name|getBody
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|value
@@ -2090,7 +2123,7 @@ name|delimiter
 argument_list|)
 condition|)
 block|{
-comment|// use a scanner if it contains the delimtor
+comment|// use a scanner if it contains the delimiter
 name|Scanner
 name|scanner
 init|=

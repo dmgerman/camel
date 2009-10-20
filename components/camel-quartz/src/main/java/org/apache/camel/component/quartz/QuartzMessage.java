@@ -114,22 +114,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|jobExecutionContext
-operator|!=
-literal|null
-condition|)
-block|{
-name|setBody
-argument_list|(
-name|jobExecutionContext
-operator|.
-name|getJobDetail
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// do not set body as it should be null
 block|}
 DECL|method|getJobExecutionContext ()
 specifier|public
