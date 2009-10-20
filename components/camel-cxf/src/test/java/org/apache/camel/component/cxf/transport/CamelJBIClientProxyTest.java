@@ -198,6 +198,8 @@ specifier|public
 name|void
 name|testCallFromProxy
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// The echo parameter will be ignore, since the service has the fix response
 name|String

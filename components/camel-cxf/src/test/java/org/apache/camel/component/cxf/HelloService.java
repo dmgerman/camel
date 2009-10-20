@@ -46,6 +46,8 @@ parameter_list|(
 name|String
 name|text
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|echoBoolean (Boolean bool)
 name|Boolean
