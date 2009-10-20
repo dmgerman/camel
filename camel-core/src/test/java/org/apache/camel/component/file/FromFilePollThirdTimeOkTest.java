@@ -176,7 +176,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals

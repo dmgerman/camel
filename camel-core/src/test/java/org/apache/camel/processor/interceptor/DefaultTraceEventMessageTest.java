@@ -348,7 +348,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{foo=123}"
+literal|"{foo=123, CamelToEndpoint=direct://start}"
 argument_list|,
 name|em
 operator|.
