@@ -4271,7 +4271,7 @@ return|return
 operator|new
 name|CamelExecutionException
 argument_list|(
-literal|"Exception occured during execution"
+literal|"Exception occurred during execution"
 argument_list|,
 name|exchange
 argument_list|,

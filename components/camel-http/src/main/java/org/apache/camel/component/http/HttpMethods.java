@@ -360,40 +360,7 @@ end_catch
 
 begin_function
 unit|}      public
-DECL|method|createMethod ()
-name|HttpMethod
-name|createMethod
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-name|clazz
-operator|.
-name|newInstance
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-end_function
-
-begin_function
 DECL|method|isEntityEnclosing ()
-specifier|public
 specifier|final
 name|boolean
 name|isEntityEnclosing
