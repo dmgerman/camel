@@ -214,6 +214,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -807,7 +819,7 @@ condition|(
 name|streaming
 condition|)
 block|{
-comment|// execute tasks in paralle+streaming and aggregate in the order they are finished (out of order sequence)
+comment|// execute tasks in parallel+streaming and aggregate in the order they are finished (out of order sequence)
 name|completion
 operator|=
 operator|new
@@ -917,6 +929,14 @@ return|;
 block|}
 try|try
 block|{
+comment|// set property which endpoint we send to
+name|setToEndpoint
+argument_list|(
+name|subExchange
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
 name|producer
 operator|.
 name|process
@@ -1143,6 +1163,14 @@ expr_stmt|;
 comment|// process it sequentially
 try|try
 block|{
+comment|// set property which endpoint we send to
+name|setToEndpoint
+argument_list|(
+name|subExchange
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
 name|producer
 operator|.
 name|process
@@ -1165,7 +1193,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should we stop in case of an exception occured during processing?
+comment|// should we stop in case of an exception occurred during processing?
 if|if
 condition|(
 name|stopOnException
@@ -1512,6 +1540,53 @@ argument_list|(
 name|processors
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setToEndpoint (Exchange exchange, Processor processor)
+specifier|private
+specifier|static
+name|void
+name|setToEndpoint
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|Producer
+condition|)
+block|{
+name|Producer
+name|producer
+init|=
+operator|(
+name|Producer
+operator|)
+name|processor
+decl_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|,
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()

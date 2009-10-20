@@ -1190,7 +1190,7 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-comment|// route specific on redelivey?
+comment|// route specific on redelivery?
 name|processor
 operator|=
 name|exceptionPolicy
@@ -1511,6 +1511,25 @@ expr_stmt|;
 block|}
 try|try
 block|{
+comment|// store the last to endpoint as the failure endpoint
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|processor
 operator|.
 name|process
@@ -1680,6 +1699,25 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// and put failure endpoint back as well
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 return|return;
 block|}
@@ -1752,6 +1790,25 @@ argument_list|,
 name|Exception
 operator|.
 name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// and put failure endpoint back as well
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
 argument_list|)
 argument_list|)
 expr_stmt|;

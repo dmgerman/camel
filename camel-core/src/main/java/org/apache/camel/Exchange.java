@@ -176,6 +176,12 @@ name|FAILURE_HANDLED
 init|=
 literal|"CamelFailureHandled"
 decl_stmt|;
+DECL|field|FAILURE_ENDPOINT
+name|String
+name|FAILURE_ENDPOINT
+init|=
+literal|"CamelFaulureEndpoint"
+decl_stmt|;
 DECL|field|FILE_LOCAL_WORK_PATH
 name|String
 name|FILE_LOCAL_WORK_PATH
@@ -277,6 +283,12 @@ name|String
 name|INTERCEPTED_ENDPOINT
 init|=
 literal|"CamelInterceptedEndpoint"
+decl_stmt|;
+DECL|field|TO_ENDPOINT
+name|String
+name|TO_ENDPOINT
+init|=
+literal|"CamelToEndpoint"
 decl_stmt|;
 DECL|field|LOG_DEBUG_BODY_MAX_CHARS
 name|String

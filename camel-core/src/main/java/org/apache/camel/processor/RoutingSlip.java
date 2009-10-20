@@ -417,6 +417,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// set property which endpoint we send to
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|,
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|producer
 operator|.
 name|process

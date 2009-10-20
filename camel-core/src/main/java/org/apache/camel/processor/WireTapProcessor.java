@@ -478,6 +478,9 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 block|{
+name|Exchange
+name|answer
+decl_stmt|;
 if|if
 condition|(
 name|newExchangeProcessor
@@ -490,23 +493,43 @@ literal|null
 condition|)
 block|{
 comment|// use a copy of the original exchange
-return|return
+name|answer
+operator|=
 name|configureCopyExchange
 argument_list|(
 name|exchange
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
 comment|// use a new exchange
-return|return
+name|answer
+operator|=
 name|configureNewExchange
 argument_list|(
 name|exchange
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+comment|// set property which endpoint we send to
+name|answer
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|,
+name|destination
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 DECL|method|configureCopyExchange (Exchange exchange)
 specifier|private
