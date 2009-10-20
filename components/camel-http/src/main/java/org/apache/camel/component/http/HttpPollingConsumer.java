@@ -263,8 +263,11 @@ name|receive
 parameter_list|()
 block|{
 return|return
-name|receiveNoWait
-argument_list|()
+name|doReceive
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 return|;
 block|}
 DECL|method|receive (long timeout)
@@ -277,8 +280,13 @@ name|timeout
 parameter_list|)
 block|{
 return|return
-name|receiveNoWait
-argument_list|()
+name|doReceive
+argument_list|(
+operator|(
+name|int
+operator|)
+name|timeout
+argument_list|)
 return|;
 block|}
 DECL|method|receiveNoWait ()
@@ -286,6 +294,23 @@ specifier|public
 name|Exchange
 name|receiveNoWait
 parameter_list|()
+block|{
+return|return
+name|doReceive
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+return|;
+block|}
+DECL|method|doReceive (int timeout)
+specifier|protected
+name|Exchange
+name|doReceive
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
 block|{
 name|Exchange
 name|exchange
@@ -301,6 +326,25 @@ init|=
 name|createMethod
 argument_list|()
 decl_stmt|;
+comment|// set optional timeout in millis
+if|if
+condition|(
+name|timeout
+operator|>
+literal|0
+condition|)
+block|{
+name|method
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|setSoTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|int
