@@ -75,13 +75,6 @@ return|return;
 block|}
 name|assertExpression
 argument_list|(
-literal|"exchange.getIn()"
-argument_list|,
-literal|"Message:<hello id='m123'>world!</hello>"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
 literal|"exchange.getIn().body"
 argument_list|,
 literal|"<hello id='m123'>world!</hello>"

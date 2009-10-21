@@ -85,9 +85,9 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"exchange.in"
+literal|"exchange.in.body"
 argument_list|,
-literal|"Message:<hello id='m123'>world!</hello>"
+literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 name|assertExpression
