@@ -910,38 +910,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testInvalidReplyTo ()
-specifier|public
-name|void
-name|testInvalidReplyTo
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|resolveMandatoryEndpoint
-argument_list|(
-literal|"jms:queue:Foo?replyTo=foo"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ResolveEndpointFailedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
-block|}
 DECL|method|assertCacheLevel (JmsEndpoint endpoint, int expected)
 specifier|protected
 name|void
