@@ -346,14 +346,27 @@ name|getExchangePattern
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"{foo=123, CamelToEndpoint=direct://start}"
-argument_list|,
+operator|.
+name|equals
+argument_list|(
 name|em
 operator|.
 name|getProperties
 argument_list|()
+argument_list|)
+operator|||
+literal|"{CamelToEndpoint=direct://start, foo=123}"
+operator|.
+name|equals
+argument_list|(
+name|em
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
