@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations to consume JMS messages  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations to consume JMS messages  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -79,6 +79,11 @@ DECL|field|messageListener
 specifier|private
 name|EndpointMessageListener
 name|messageListener
+decl_stmt|;
+DECL|field|initialized
+specifier|private
+name|boolean
+name|initialized
 decl_stmt|;
 DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
@@ -246,6 +251,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Starts the JMS listener container      *<p/>      * Can be used to start this consumer later if it was configured to not auto startup.      */
+DECL|method|startListenerContainer ()
+specifier|public
+name|void
+name|startListenerContainer
+parameter_list|()
+block|{
+name|listenerContainer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -278,10 +296,26 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-name|listenerContainer
-operator|.
-name|start
+comment|// only start listener if auto start is enabled or we are explicit invoking start later
+if|if
+condition|(
+name|initialized
+operator|||
+name|getEndpoint
 argument_list|()
+operator|.
+name|isAutoStartup
+argument_list|()
+condition|)
+block|{
+name|startListenerContainer
+argument_list|()
+expr_stmt|;
+block|}
+comment|// mark as initialized for the first time
+name|initialized
+operator|=
+literal|true
 expr_stmt|;
 block|}
 annotation|@

@@ -683,9 +683,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
 name|handleException
 argument_list|(
 name|rce
@@ -1410,7 +1407,8 @@ comment|// lets send a response back if we can
 name|Object
 name|destination
 init|=
-name|replyToDestination
+name|getReplyToDestination
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
