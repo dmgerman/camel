@@ -1121,7 +1121,7 @@ name|getJMSType
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO this works around a bug in the ActiveMQ property handling
+comment|// this works around a bug in the ActiveMQ property handling
 name|map
 operator|.
 name|put
@@ -1428,7 +1428,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param exchange the current exchange      * @param camelMessage the body to make a javax.jms.Message as      * @param session the JMS session used to create the message      * @param cause optional exception occured that should be sent as reply instead of a regular body      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param exchange the current exchange      * @param camelMessage the body to make a javax.jms.Message as      * @param session the JMS session used to create the message      * @param cause optional exception occurred that should be sent as reply instead of a regular body      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
 DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session, Exception cause)
 specifier|public
 name|Message
@@ -2191,22 +2191,6 @@ block|{
 if|if
 condition|(
 name|headerValue
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|isPrimitive
-argument_list|()
-condition|)
-block|{
-return|return
-name|headerValue
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|headerValue
 operator|instanceof
 name|String
 condition|)
@@ -2237,9 +2221,6 @@ condition|)
 block|{
 return|return
 name|headerValue
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 elseif|else
