@@ -586,7 +586,7 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|assertIsNotSatisfied
+name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -868,11 +868,6 @@ expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}

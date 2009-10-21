@@ -166,6 +166,15 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+comment|// Default wait time of 10 sec is not quite long enough on slow
+comment|// machines.
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|15000L
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceivedInAnyOrder

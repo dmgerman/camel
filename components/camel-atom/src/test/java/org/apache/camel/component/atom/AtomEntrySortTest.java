@@ -237,6 +237,13 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
+name|setResultWaitTime
+argument_list|(
+literal|15000L
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;

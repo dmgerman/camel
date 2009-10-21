@@ -1248,15 +1248,20 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|boolean
+name|failed
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected assertion failure!"
-argument_list|)
+comment|// did not throw expected error... fail!
+name|failed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 catch|catch
@@ -1272,6 +1277,18 @@ argument_list|(
 literal|"Caught expected failure: "
 operator|+
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|failed
+condition|)
+block|{
+comment|// fail() throws the AssertionError to indicate the test failed.
+name|fail
+argument_list|(
+literal|"Expected assertion failure but test succeeded!"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1288,6 +1305,11 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
+name|boolean
+name|failed
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|assertIsSatisfied
@@ -1295,10 +1317,10 @@ argument_list|(
 name|timeoutForEmptyEndpoints
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected assertion failure!"
-argument_list|)
+comment|// did not throw expected error... fail!
+name|failed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 catch|catch
@@ -1314,6 +1336,18 @@ argument_list|(
 literal|"Caught expected failure: "
 operator|+
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|failed
+condition|)
+block|{
+comment|// fail() throws the AssertionError to indicate the test failed.
+name|fail
+argument_list|(
+literal|"Expected assertion failure but test succeeded!"
 argument_list|)
 expr_stmt|;
 block|}

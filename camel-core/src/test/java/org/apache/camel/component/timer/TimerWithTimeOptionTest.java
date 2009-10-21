@@ -326,10 +326,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFiredInFutureWithTPatternFixedReat ()
+DECL|method|testFiredInFutureWithTPatternFixedRate ()
 specifier|public
 name|void
-name|testFiredInFutureWithTPatternFixedReat
+name|testFiredInFutureWithTPatternFixedRate
 parameter_list|()
 throws|throws
 name|Exception

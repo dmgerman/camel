@@ -169,7 +169,11 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-comment|// send in 10 messages
+comment|// Send in a first batch of 10 messages and check that the endpoint
+comment|// gets them.  We'll check the total time of the second and third
+comment|// batches as it seems that there is some time required to prime
+comment|// things, which can vary significantly... particularly on slower
+comment|// machines.
 for|for
 control|(
 name|int
@@ -237,6 +241,48 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route1\""
 argument_list|)
 decl_stmt|;
+comment|// reset the counters
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|routeName
+argument_list|,
+literal|"reset"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// send in 10 messages
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Message "
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
+block|}
 name|Long
 name|completed
 init|=
@@ -288,21 +334,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Long
-name|last
-init|=
-operator|(
-name|Long
-operator|)
-name|mbeanServer
-operator|.
-name|getAttribute
-argument_list|(
-name|routeName
-argument_list|,
-literal|"LastProcessingTime"
-argument_list|)
-decl_stmt|;
-name|Long
 name|total
 init|=
 operator|(
@@ -319,13 +350,13 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take at most 2.5 sec: was "
+literal|"Should take at most 1.5 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|<
-literal|2500
+literal|1500
 argument_list|)
 expr_stmt|;
 comment|// change the throttler using JMX

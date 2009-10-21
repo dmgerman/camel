@@ -375,7 +375,7 @@ block|{
 name|String
 name|body
 init|=
-literal|"Hellö Wörld"
+literal|"Hell\u00F6 W\u00F6rld"
 decl_stmt|;
 name|MockEndpoint
 name|result

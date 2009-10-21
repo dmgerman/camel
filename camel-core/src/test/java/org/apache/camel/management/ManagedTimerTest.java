@@ -392,6 +392,43 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// Take the time to check the service is started to help avoid
+comment|// sporadic failure on slower machines.
+name|String
+name|state
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"State"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should be started"
+argument_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ServiceStatus
+operator|.
+name|Started
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
 comment|// start and we should be done in at most 3 second
 name|mock
 operator|.
