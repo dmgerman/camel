@@ -624,7 +624,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|endpoingtReplyToUriA
+name|endpoingUriA
 argument_list|)
 operator|.
 name|to
