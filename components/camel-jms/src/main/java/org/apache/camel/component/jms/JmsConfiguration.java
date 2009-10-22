@@ -1598,6 +1598,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|class|CamelJmsTemplate102
 specifier|public
 specifier|static
@@ -2851,6 +2854,9 @@ operator|=
 name|templateConnectionFactory
 expr_stmt|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|isUseVersion102 ()
 specifier|public
 name|boolean
@@ -2861,6 +2867,9 @@ return|return
 name|useVersion102
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|setUseVersion102 (boolean useVersion102)
 specifier|public
 name|void
