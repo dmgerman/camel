@@ -74,6 +74,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|ApplicationContext
 name|ac
 init|=
@@ -113,6 +114,7 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 end_class
