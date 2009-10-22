@@ -363,7 +363,11 @@ name|template
 operator|.
 name|requestBodyAndHeaders
 argument_list|(
-literal|"restlet:http://localhost:9080/users/{username}/{id}?restletMethod=POST"
+literal|"restlet:http://localhost:9080/users/davsclaus/"
+operator|+
+name|index
+operator|+
+literal|"?restletMethod=POST"
 argument_list|,
 literal|null
 argument_list|,
