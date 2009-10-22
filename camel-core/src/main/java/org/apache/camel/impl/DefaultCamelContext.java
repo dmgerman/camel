@@ -92,27 +92,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeSet
 import|;
 end_import
 
@@ -850,20 +830,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|KeyValueHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|LRUCache
 import|;
 end_import
@@ -1227,6 +1193,20 @@ argument_list|<
 name|InterceptStrategy
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|firstStartDone
+specifier|private
+name|boolean
+name|firstStartDone
+decl_stmt|;
+DECL|field|autoStartup
+specifier|private
+name|Boolean
+name|autoStartup
+init|=
+name|Boolean
+operator|.
+name|TRUE
 decl_stmt|;
 DECL|field|trace
 specifier|private
@@ -4555,6 +4535,44 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|doNotStart
+init|=
+operator|!
+name|firstStartDone
+operator|&&
+operator|!
+name|isAutoStartup
+argument_list|()
+decl_stmt|;
+name|firstStartDone
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|doNotStart
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot start Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") as it has been configured to not auto start"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|super
 operator|.
 name|start
@@ -6534,7 +6552,12 @@ name|Boolean
 name|autoStartup
 parameter_list|)
 block|{
-comment|// noop as Camel always starts up
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
+expr_stmt|;
 block|}
 DECL|method|isAutoStartup ()
 specifier|public
@@ -6542,9 +6565,12 @@ name|boolean
 name|isAutoStartup
 parameter_list|()
 block|{
-comment|// Camel always starts up
 return|return
-literal|true
+name|autoStartup
+operator|!=
+literal|null
+operator|&&
+name|autoStartup
 return|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)

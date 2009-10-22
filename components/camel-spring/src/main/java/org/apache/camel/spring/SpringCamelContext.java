@@ -170,20 +170,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -397,22 +383,6 @@ specifier|private
 name|EventEndpoint
 name|eventEndpoint
 decl_stmt|;
-DECL|field|shouldStartContext
-specifier|private
-name|boolean
-name|shouldStartContext
-init|=
-name|ObjectHelper
-operator|.
-name|getSystemProperty
-argument_list|(
-literal|"shouldStartContext"
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-decl_stmt|;
 DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext
@@ -544,65 +514,6 @@ name|maybeStart
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|maybeStart ()
-specifier|private
-name|void
-name|maybeStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-operator|!
-name|getShouldStartContext
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Not starting Apache Camel as property ShouldStartContext is false"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
-operator|!
-name|isStarted
-argument_list|()
-operator|&&
-operator|!
-name|isStarting
-argument_list|()
-condition|)
-block|{
-comment|// Make sure we will not get into the endless loop of calling star
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting Apache Camel as property ShouldStartContext is true"
-argument_list|)
-expr_stmt|;
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// ignore as Camel is already started
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Ignoring maybeStart() as Apache Camel is already started"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 DECL|method|destroy ()
 specifier|public
 name|void
@@ -730,8 +641,6 @@ name|applicationContext
 expr_stmt|;
 name|ClassLoader
 name|cl
-init|=
-literal|null
 decl_stmt|;
 comment|// set the application context classloader
 if|if
@@ -758,22 +667,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Canot find the class loader from application context, so us the thread context class loader"
+literal|"Cannot find the class loader from application context, so using the thread context class loader instead"
 argument_list|)
 expr_stmt|;
-block|}
 name|cl
 operator|=
 name|Thread
@@ -797,7 +697,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Set the application context classloader with "
+literal|"Set the application context classloader to: "
 operator|+
 name|cl
 argument_list|)
@@ -880,24 +780,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|maybeDoStart
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|maybeDoStart ()
-specifier|protected
-name|void
-name|maybeDoStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|getShouldStartContext
-argument_list|()
-condition|)
-block|{
 name|super
 operator|.
 name|doStart
@@ -915,7 +797,6 @@ operator|=
 name|createEventEndpoint
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -1061,31 +942,40 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|setShouldStartContext (boolean shouldStartContext)
-specifier|public
+DECL|method|maybeStart ()
+specifier|private
 name|void
-name|setShouldStartContext
-parameter_list|(
-name|boolean
-name|shouldStartContext
-parameter_list|)
+name|maybeStart
+parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|this
-operator|.
-name|shouldStartContext
-operator|=
-name|shouldStartContext
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+operator|&&
+operator|!
+name|isStarting
+argument_list|()
+condition|)
+block|{
+name|start
+argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getShouldStartContext ()
-specifier|public
-name|boolean
-name|getShouldStartContext
-parameter_list|()
+else|else
 block|{
-return|return
-name|shouldStartContext
-return|;
+comment|// ignore as Camel is already started
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Ignoring maybeStart() as Apache Camel is already started"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

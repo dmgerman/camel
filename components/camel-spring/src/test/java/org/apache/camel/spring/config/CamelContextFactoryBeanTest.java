@@ -487,10 +487,10 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testShouldStartContext ()
+DECL|method|testAutoStartup ()
 specifier|public
 name|void
-name|testShouldStartContext
+name|testAutoStartup
 parameter_list|()
 throws|throws
 name|Exception
@@ -530,7 +530,7 @@ literal|"The context should not start yet"
 argument_list|,
 name|context
 operator|.
-name|getShouldStartContext
+name|isAutoStartup
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -567,7 +567,7 @@ literal|"The context should started"
 argument_list|,
 name|context
 operator|.
-name|getShouldStartContext
+name|isAutoStartup
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1027,10 +1027,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|shouldStartContext
+DECL|field|autoStartup
 specifier|private
 name|Boolean
-name|shouldStartContext
+name|autoStartup
 init|=
 name|Boolean
 operator|.
@@ -3877,32 +3877,6 @@ operator|=
 name|errorHandlerRef
 expr_stmt|;
 block|}
-DECL|method|getShouldStartContext ()
-specifier|public
-name|Boolean
-name|getShouldStartContext
-parameter_list|()
-block|{
-return|return
-name|shouldStartContext
-return|;
-block|}
-DECL|method|setShouldStartContext (Boolean shouldStartContext)
-specifier|public
-name|void
-name|setShouldStartContext
-parameter_list|(
-name|Boolean
-name|shouldStartContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|shouldStartContext
-operator|=
-name|shouldStartContext
-expr_stmt|;
-block|}
 DECL|method|setDataFormats (DataFormatsDefinition dataFormats)
 specifier|public
 name|void
@@ -3991,6 +3965,32 @@ operator|.
 name|onCompletions
 operator|=
 name|onCompletions
+expr_stmt|;
+block|}
+DECL|method|isAutoStartup ()
+specifier|public
+name|Boolean
+name|isAutoStartup
+parameter_list|()
+block|{
+return|return
+name|autoStartup
+return|;
+block|}
+DECL|method|setAutoStartup (Boolean autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -4101,16 +4101,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|shouldStartContext
+name|autoStartup
 operator|!=
 literal|null
 condition|)
 block|{
 name|ctx
 operator|.
-name|setShouldStartContext
+name|setAutoStartup
 argument_list|(
-name|shouldStartContext
+name|autoStartup
 argument_list|)
 expr_stmt|;
 block|}
