@@ -118,6 +118,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
 name|Endpoint
 name|endpoint
 init|=
@@ -159,6 +160,7 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 DECL|method|testBeanProxyStringReturnDocument ()
 specifier|public
@@ -307,6 +309,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e3
 name|Endpoint
 name|endpoint
 init|=
@@ -387,6 +390,7 @@ argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e3
 block|}
 DECL|method|testBeanProxyFailure ()
 specifier|public
@@ -691,6 +695,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
@@ -749,6 +754,7 @@ literal|"<order>FAIL</order>"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
