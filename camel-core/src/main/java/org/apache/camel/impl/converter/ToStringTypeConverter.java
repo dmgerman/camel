@@ -190,7 +190,7 @@ operator|.
 name|TYPE
 return|;
 block|}
-comment|// should not try to bean invocations
+comment|// should not try to convert bean invocations
 if|if
 condition|(
 name|BeanInvocation

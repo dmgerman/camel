@@ -128,7 +128,7 @@ name|TypeConverterRegistry
 name|registry
 parameter_list|)
 block|{
-comment|// use a fallback type converter so we can convert the embedded body if the value is GenericFile
+comment|// use a fallback type converter so we can convert the embedded body if the value is BeanInvocation
 if|if
 condition|(
 name|BeanInvocation
