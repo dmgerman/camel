@@ -215,6 +215,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|support
+operator|.
+name|converter
+operator|.
+name|SimpleMessageConverter
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -229,22 +245,6 @@ operator|.
 name|JmsComponent
 operator|.
 name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|support
-operator|.
-name|converter
-operator|.
-name|SimpleMessageConverter
 import|;
 end_import
 

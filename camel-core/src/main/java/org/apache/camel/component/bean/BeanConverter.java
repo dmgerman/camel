@@ -89,6 +89,7 @@ annotation|@
 name|Converter
 DECL|class|BeanConverter
 specifier|public
+specifier|final
 class|class
 name|BeanConverter
 block|{
