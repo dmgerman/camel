@@ -931,7 +931,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|findRightMethod (List<Class> resourceClasses, String methodName, Class[] parameterTypes)
+DECL|method|findRightMethod (List<Class<?>> resourceClasses, String methodName, Class[] parameterTypes)
 specifier|private
 name|Method
 name|findRightMethod
@@ -939,6 +939,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|resourceClasses
 parameter_list|,
