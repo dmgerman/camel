@@ -1315,7 +1315,7 @@ block|}
 if|if
 condition|(
 name|requestTimeout
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -1464,13 +1464,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reply recieved. Setting reply an Exception: "
+literal|"Reply recieved. Setting reply as an Exception: "
 operator|+
 name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we got an exception back and endpoint was configued to transfer exception
+comment|// we got an exception back and endpoint was configured to transfer exception
 comment|// therefore set response as exception
 name|exchange
 operator|.

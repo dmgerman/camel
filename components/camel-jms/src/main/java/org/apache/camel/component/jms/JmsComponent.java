@@ -1424,6 +1424,9 @@ name|transactionTimeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|setUseVersion102 (boolean useVersion102)
 specifier|public
 name|void
