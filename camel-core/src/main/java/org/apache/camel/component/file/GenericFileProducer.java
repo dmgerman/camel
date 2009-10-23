@@ -495,13 +495,27 @@ name|tempTarget
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
 name|operations
 operator|.
 name|deleteFile
 argument_list|(
 name|target
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot delete file: "
+operator|+
+name|target
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|// delete any pre existing temp file
@@ -533,13 +547,27 @@ name|tempTarget
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
 name|operations
 operator|.
 name|deleteFile
 argument_list|(
 name|tempTarget
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot delete file: "
+operator|+
+name|tempTarget
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|// write/upload the file
