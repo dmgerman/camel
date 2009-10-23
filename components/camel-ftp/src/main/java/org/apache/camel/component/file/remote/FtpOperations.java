@@ -1236,7 +1236,7 @@ name|success
 decl_stmt|;
 try|try
 block|{
-comment|// maybe the full directory already exsits
+comment|// maybe the full directory already exists
 name|success
 operator|=
 name|client
@@ -1650,10 +1650,12 @@ block|{
 if|if
 condition|(
 operator|!
-name|temp
+name|FileUtil
 operator|.
-name|delete
-argument_list|()
+name|deleteFile
+argument_list|(
+name|temp
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -1678,10 +1680,12 @@ block|{
 if|if
 condition|(
 operator|!
-name|local
+name|FileUtil
 operator|.
-name|delete
-argument_list|()
+name|deleteFile
+argument_list|(
+name|local
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -1855,10 +1859,12 @@ comment|// rename temp to local after we have retrieved the data
 if|if
 condition|(
 operator|!
-name|temp
+name|FileUtil
 operator|.
-name|renameTo
+name|renameFile
 argument_list|(
+name|temp
+argument_list|,
 name|local
 argument_list|)
 condition|)

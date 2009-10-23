@@ -420,6 +420,30 @@ argument_list|,
 literal|"operations"
 argument_list|)
 expr_stmt|;
+comment|// you cannot use temp prefix and file exists append
+if|if
+condition|(
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Append
+operator|&&
+name|getTempPrefix
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"You cannot set both fileExist=Append and tempPrefix options"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|GenericFileProducer

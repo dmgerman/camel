@@ -389,8 +389,160 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+comment|// cater for file exists option on the real target as
+comment|// the file operations code will work on the temp file
+comment|// if an existing file already exists what should we do?
+if|if
+condition|(
+name|operations
+operator|.
+name|existsFile
+argument_list|(
+name|target
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Ignore
+condition|)
+block|{
+comment|// ignore but indicate that the file was written
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"An existing file already exists: "
+operator|+
+name|target
+operator|+
+literal|". Ignore and do not override it."
+argument_list|)
+expr_stmt|;
 block|}
-comment|// upload the file
+return|return;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Fail
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"File already exist: "
+operator|+
+name|target
+operator|+
+literal|". Cannot write new file."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Override
+condition|)
+block|{
+comment|// we override the target so we do this by deleting it so the temp file can be renamed later
+comment|// with success as the existing target file have been deleted
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Deleting existing file: "
+operator|+
+name|tempTarget
+argument_list|)
+expr_stmt|;
+block|}
+name|operations
+operator|.
+name|deleteFile
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// delete any pre existing temp file
+if|if
+condition|(
+name|operations
+operator|.
+name|existsFile
+argument_list|(
+name|tempTarget
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Deleting existing temp file: "
+operator|+
+name|tempTarget
+argument_list|)
+expr_stmt|;
+block|}
+name|operations
+operator|.
+name|deleteFile
+argument_list|(
+name|tempTarget
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// write/upload the file
 name|writeFile
 argument_list|(
 name|exchange
