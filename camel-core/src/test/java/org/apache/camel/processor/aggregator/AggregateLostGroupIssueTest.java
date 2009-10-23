@@ -116,8 +116,6 @@ DECL|field|messageIndex
 specifier|private
 name|int
 name|messageIndex
-init|=
-literal|0
 decl_stmt|;
 DECL|method|testAggregateLostGroupIssue ()
 specifier|public
