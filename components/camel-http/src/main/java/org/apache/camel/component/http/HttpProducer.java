@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -790,6 +800,17 @@ block|{
 name|HttpOperationFailedException
 name|exception
 decl_stmt|;
+name|String
+name|uri
+init|=
+name|method
+operator|.
+name|getURI
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|Header
 index|[]
 name|headers
@@ -890,6 +911,8 @@ operator|=
 operator|new
 name|HttpOperationFailedException
 argument_list|(
+name|uri
+argument_list|,
 name|responseCode
 argument_list|,
 name|method
@@ -913,6 +936,8 @@ operator|=
 operator|new
 name|HttpOperationFailedException
 argument_list|(
+name|uri
+argument_list|,
 name|responseCode
 argument_list|,
 name|method
@@ -935,6 +960,8 @@ operator|=
 operator|new
 name|HttpOperationFailedException
 argument_list|(
+name|uri
+argument_list|,
 name|responseCode
 argument_list|,
 name|method

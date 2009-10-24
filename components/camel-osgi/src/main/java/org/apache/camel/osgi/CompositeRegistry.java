@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This registry will look up the object with the sequence of the registry list untill it find the Object.  */
+comment|/**  * This registry will look up the object with the sequence of the registry list until it finds the Object.  */
 end_comment
 
 begin_class

@@ -100,6 +100,12 @@ init|=
 operator|-
 literal|8721487434390572633L
 decl_stmt|;
+DECL|field|uri
+specifier|private
+specifier|final
+name|String
+name|uri
+decl_stmt|;
 DECL|field|redirectLocation
 specifier|private
 specifier|final
@@ -131,10 +137,13 @@ specifier|final
 name|InputStream
 name|responseBody
 decl_stmt|;
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, Header[] responseHeaders, InputStream responseBody)
+DECL|method|HttpOperationFailedException (String uri, int statusCode, StatusLine statusLine, String location, Header[] responseHeaders, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
+name|String
+name|uri
+parameter_list|,
 name|int
 name|statusCode
 parameter_list|,
@@ -154,7 +163,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"HTTP operation failed with statusCode: "
+literal|"HTTP operation failed invoking "
+operator|+
+name|uri
+operator|+
+literal|" with statusCode: "
 operator|+
 name|statusCode
 operator|+
@@ -174,6 +187,12 @@ else|:
 literal|""
 operator|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
 expr_stmt|;
 name|this
 operator|.
@@ -206,10 +225,13 @@ operator|=
 name|responseBody
 expr_stmt|;
 block|}
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, Header[] responseHeaders, InputStream responseBody)
+DECL|method|HttpOperationFailedException (String uri, int statusCode, StatusLine statusLine, Header[] responseHeaders, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
+name|String
+name|uri
+parameter_list|,
 name|int
 name|statusCode
 parameter_list|,
@@ -226,6 +248,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|uri
+argument_list|,
 name|statusCode
 argument_list|,
 name|statusLine
@@ -237,6 +261,16 @@ argument_list|,
 name|responseBody
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
 block|}
 DECL|method|isRedirectError ()
 specifier|public
