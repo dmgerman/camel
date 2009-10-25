@@ -1825,12 +1825,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// lets assume its the body
+comment|// lets assume its the body and it must be mandatory convertable to the parameter type
+comment|// so we dont pass in null as body in case Camel cannot convert to the parameter type
 name|expression
 operator|=
 name|ExpressionBuilder
 operator|.
-name|bodyExpression
+name|mandatoryBodyExpression
 argument_list|(
 name|parameterType
 argument_list|)

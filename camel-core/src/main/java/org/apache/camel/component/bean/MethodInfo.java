@@ -1173,7 +1173,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use object first to avoid type convertions so we know if there is a value or not
+comment|// use object first to avoid type conversion so we know if there is a value or not
 name|Object
 name|result
 init|=
@@ -1196,6 +1196,8 @@ literal|null
 condition|)
 block|{
 comment|// we got a value now try to convert it to the expected type
+try|try
+block|{
 name|value
 operator|=
 name|exchange
@@ -1206,7 +1208,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|parameters
 operator|.
@@ -1252,37 +1254,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-name|Exception
-name|e
-init|=
-operator|new
+block|}
+catch|catch
+parameter_list|(
 name|NoTypeConversionAvailableException
-argument_list|(
-name|result
-argument_list|,
-name|parameters
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|getType
-argument_list|()
-argument_list|)
-decl_stmt|;
+name|e
+parameter_list|)
+block|{
 throw|throw
 name|ObjectHelper
 operator|.
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 argument_list|(
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 throw|;

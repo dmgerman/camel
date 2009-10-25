@@ -186,6 +186,17 @@ name|Document
 name|doc
 parameter_list|)
 block|{
+if|if
+condition|(
+name|doc
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|String
 name|xml
 init|=
