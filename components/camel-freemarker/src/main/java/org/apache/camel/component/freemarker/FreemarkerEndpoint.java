@@ -636,7 +636,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|encoding
+name|getEncoding
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -649,7 +650,8 @@ name|getTemplate
 argument_list|(
 name|path
 argument_list|,
-name|encoding
+name|getEncoding
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
