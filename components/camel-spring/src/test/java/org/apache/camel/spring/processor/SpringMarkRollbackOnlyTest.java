@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.interceptor
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|interceptor
+name|processor
 package|;
 end_package
 
@@ -22,13 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|support
-operator|.
-name|AbstractXmlApplicationContext
+name|CamelContext
 import|;
 end_import
 
@@ -36,53 +34,56 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|support
+name|processor
 operator|.
-name|ClassPathXmlApplicationContext
+name|MarkRollbackOnlyTest
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|jdbc
+name|camel
 operator|.
-name|core
+name|spring
 operator|.
-name|JdbcTemplate
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
-
-begin_comment
-comment|/**  * Easier transaction configuration as we do not have to setup a transaction error handler  */
-end_comment
 
 begin_class
-DECL|class|SpringTransactionalClientDataSourceUsingTransactedTest
+DECL|class|SpringMarkRollbackOnlyTest
 specifier|public
 class|class
-name|SpringTransactionalClientDataSourceUsingTransactedTest
+name|SpringMarkRollbackOnlyTest
 extends|extends
-name|SpringTransactionalClientDataSourceTransactedTest
+name|MarkRollbackOnlyTest
 block|{
-DECL|method|createApplicationContext ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|AbstractXmlApplicationContext
-name|createApplicationContext
+name|CamelContext
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-operator|new
-name|ClassPathXmlApplicationContext
+name|createSpringCamelContext
 argument_list|(
-literal|"/org/apache/camel/spring/interceptor/springTransactionalClientDataSourceUsingTransacted.xml"
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/markrollbackonly.xml"
 argument_list|)
 return|;
 block|}

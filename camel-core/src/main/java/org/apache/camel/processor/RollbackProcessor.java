@@ -66,6 +66,11 @@ name|Processor
 implements|,
 name|Traceable
 block|{
+DECL|field|markRollbackOnly
+specifier|private
+name|boolean
+name|markRollbackOnly
+decl_stmt|;
 DECL|field|message
 specifier|private
 name|String
@@ -116,6 +121,14 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|markRollbackOnly
+condition|)
+block|{
+comment|// do not do anything more as we should only mark the rollback
+return|return;
+block|}
 if|if
 condition|(
 name|message
@@ -191,6 +204,32 @@ block|{
 return|return
 literal|"Rollback"
 return|;
+block|}
+DECL|method|isMarkRollbackOnly ()
+specifier|public
+name|boolean
+name|isMarkRollbackOnly
+parameter_list|()
+block|{
+return|return
+name|markRollbackOnly
+return|;
+block|}
+DECL|method|setMarkRollbackOnly (boolean markRollbackOnly)
+specifier|public
+name|void
+name|setMarkRollbackOnly
+parameter_list|(
+name|boolean
+name|markRollbackOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|markRollbackOnly
+operator|=
+name|markRollbackOnly
+expr_stmt|;
 block|}
 block|}
 end_class

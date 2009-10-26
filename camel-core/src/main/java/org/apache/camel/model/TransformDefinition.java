@@ -244,7 +244,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that TransformType will use      * @return the builder      */
+comment|/**      * Set the expression to be used      * @return the builder      */
 DECL|method|expression ()
 specifier|public
 name|ExpressionClause

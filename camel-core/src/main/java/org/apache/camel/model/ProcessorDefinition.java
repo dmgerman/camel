@@ -3985,7 +3985,45 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Marks the exchange for rollback only.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      */
+comment|/**      * Marks the exchange for rollback only.      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|markRollbackOnly ()
+specifier|public
+name|Type
+name|markRollbackOnly
+parameter_list|()
+block|{
+name|RollbackDefinition
+name|answer
+init|=
+operator|new
+name|RollbackDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setMarkRollbackOnly
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Marks the exchange for rollback only and sets an exception with a default message.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      * @see #markRollbackOnly()      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4004,7 +4042,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Marks the exchange for rollback only.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @param message an optional message used for logging purpose why the rollback was triggered      * @return the builder      */
+comment|/**      * Marks the exchange for rollback and sets an exception with the provided message.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @param message an optional message used for logging purpose why the rollback was triggered      * @return the builder      * @see #markRollbackOnly()      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

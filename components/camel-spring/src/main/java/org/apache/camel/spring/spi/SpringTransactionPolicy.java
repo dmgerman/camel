@@ -400,7 +400,7 @@ else|else
 block|{
 comment|// no transaction error handler builder configure so create a temporary one as we got all
 comment|// the needed information form the configured builder anyway this allow us to use transacted
-comment|// routes anway even though the error handler is not transactional, eg ease of configuration
+comment|// routes anyway even though the error handler is not transactional, eg ease of configuration
 if|if
 condition|(
 name|LOG

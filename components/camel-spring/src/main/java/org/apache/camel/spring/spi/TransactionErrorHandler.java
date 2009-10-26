@@ -338,7 +338,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if no output then dont do any description
+comment|// if no output then don't do any description
 return|return
 literal|""
 return|;
@@ -413,6 +413,8 @@ comment|// wrapper exception to throw if the exchange failed
 comment|// IMPORTANT: Must be a runtime exception to let Spring regard it as to do "rollback"
 name|TransactedRuntimeCamelException
 name|rce
+init|=
+literal|null
 decl_stmt|;
 comment|// find out if there is an actual transaction alive, and thus we are in transacted mode
 name|boolean
@@ -572,6 +574,17 @@ name|isRollbackOnly
 argument_list|()
 condition|)
 block|{
+comment|// wrap exception in transacted exception
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|rce
 operator|=
 name|wrapTransactedRuntimeException
@@ -582,6 +595,7 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|activeTx
@@ -638,7 +652,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// rethrow if an exception occured
+comment|// rethrow if an exception occurred
 if|if
 condition|(
 name|rce
@@ -756,13 +770,12 @@ return|;
 block|}
 else|else
 block|{
-comment|// Mark as handled so we dont want to handle the same exception twice or more in other
+comment|// Mark as handled so we don't want to handle the same exception twice or more in other
 comment|// wrapped transaction error handlers in this route.
-comment|// We need to mark this information in the exception as we need to propagage
+comment|// We need to mark this information in the exception as we need to propagate
 comment|// the exception back by rehtrowing it. We cannot mark it on the exchange as Camel
-comment|// uses copies of exchanges in its pipeline and the data isnt copied back in case
-comment|// when an exception occured
-comment|// TODO: revist if/when we avoid doing the copying in the pipeline
+comment|// uses copies of exchanges in its pipeline and the data isn't copied back in case
+comment|// when an exception occurred
 return|return
 operator|new
 name|TransactedRuntimeCamelException
