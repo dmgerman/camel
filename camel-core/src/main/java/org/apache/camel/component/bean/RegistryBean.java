@@ -294,7 +294,7 @@ name|Class
 condition|)
 block|{
 comment|// bean is a class so create an instance of it
-name|value
+name|bean
 operator|=
 name|context
 operator|.
@@ -311,6 +311,10 @@ argument_list|>
 operator|)
 name|bean
 argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|bean
 expr_stmt|;
 block|}
 block|}
