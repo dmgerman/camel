@@ -395,8 +395,6 @@ return|return
 name|bus
 return|;
 block|}
-annotation|@
-name|Resource
 DECL|method|setActivationNamespaces (Collection<String> ans)
 specifier|public
 name|void
