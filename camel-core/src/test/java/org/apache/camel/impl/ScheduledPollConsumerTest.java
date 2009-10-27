@@ -60,6 +60,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|PollingConsumerPollStrategy
 import|;
 end_import

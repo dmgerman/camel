@@ -84,7 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumerPollStrategy
+name|Processor
 import|;
 end_import
 
@@ -96,7 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|spi
+operator|.
+name|PollingConsumerPollStrategy
 import|;
 end_import
 

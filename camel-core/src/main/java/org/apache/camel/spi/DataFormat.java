@@ -58,7 +58,7 @@ specifier|public
 interface|interface
 name|DataFormat
 block|{
-comment|/**      * Marshals the object to the given Stream.      *      * @param exchange  the current exchange      * @param graph     the object to be marshalled      * @param stream    the output stream to write the marshalled rersult to      * @throws Exception can be thrown      */
+comment|/**      * Marshals the object to the given Stream.      *      * @param exchange  the current exchange      * @param graph     the object to be marshalled      * @param stream    the output stream to write the marshalled result to      * @throws Exception can be thrown      */
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 name|void
 name|marshal

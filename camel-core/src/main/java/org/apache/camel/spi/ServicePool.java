@@ -51,7 +51,7 @@ name|Service
 name|service
 parameter_list|)
 function_decl|;
-comment|/**      * Tries to acquire the servie with the given key      *       * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
+comment|/**      * Tries to acquire the service with the given key      *       * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
 DECL|method|acquire (Key key)
 name|Service
 name|acquire

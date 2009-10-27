@@ -845,6 +845,15 @@ name|isAssignableFrom
 argument_list|(
 name|type
 argument_list|)
+operator|||
+name|Boolean
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
 condition|)
 block|{
 return|return

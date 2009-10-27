@@ -4,18 +4,44 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * Strategy for a {@link org.apache.camel.PollingConsumer} when polling an {@link org.apache.camel.Endpoint}.  *<p/>  * This pluggable strategy allows to plugin different implementations what to do, most noticeable what to  * do in case the polling goes wrong. This can be handled in the {@link #rollback(Consumer, Endpoint, int, Exception) rollback}  * method.  *  * @version $Revision$  */
+comment|/**  * Strategy for a {@link org.apache.camel.PollingConsumer} when polling an {@link org.apache.camel.Endpoint}.  *<p/>  * This pluggable strategy allows to plugin different implementations what to do, most noticeable what to  * do in case the polling goes wrong. This can be handled in the  * {@link #rollback(org.apache.camel.Consumer , org.apache.camel.Endpoint , int, Exception) rollback} method.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
