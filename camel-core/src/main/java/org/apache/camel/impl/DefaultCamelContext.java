@@ -5376,6 +5376,11 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addService
+argument_list|(
+name|inflightRepository
+argument_list|)
+expr_stmt|;
 comment|// To avoid initiating the routeDefinitions after stopping the camel context
 if|if
 condition|(
@@ -5493,6 +5498,11 @@ name|servicesToClose
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|stopServices
+argument_list|(
+name|inflightRepository
+argument_list|)
 expr_stmt|;
 try|try
 block|{

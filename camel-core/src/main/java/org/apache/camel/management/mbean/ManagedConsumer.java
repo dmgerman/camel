@@ -157,6 +157,35 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current number of inflight Exchanges"
+argument_list|)
+DECL|method|getInflightExchanges ()
+specifier|public
+name|Integer
+name|getInflightExchanges
+parameter_list|()
+block|{
+return|return
+name|getContext
+argument_list|()
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|size
+argument_list|(
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

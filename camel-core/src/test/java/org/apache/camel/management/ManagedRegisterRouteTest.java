@@ -200,6 +200,32 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
+name|Integer
+name|val
+init|=
+operator|(
+name|Integer
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"InflightExchanges"
+argument_list|)
+decl_stmt|;
+comment|// the route has no inflight exchanges
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|val
+operator|.
+name|intValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// should be started
 name|String
 name|state

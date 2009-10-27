@@ -24,7 +24,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
 import|;
 end_import
 
@@ -37,6 +61,8 @@ DECL|interface|InflightRepository
 specifier|public
 interface|interface
 name|InflightRepository
+extends|extends
+name|Service
 block|{
 comment|/**      * Adds the exchange to the inflight registry      *      * @param exchange  the exchange      */
 DECL|method|add (Exchange exchange)
@@ -61,6 +87,15 @@ DECL|method|size ()
 name|int
 name|size
 parameter_list|()
+function_decl|;
+comment|/**      * Current size of inflight exchanges which are from the given endpoint.      *<p/>      * Will return 0 if there are no inflight exchanges.      *      * @param endpoint the endpoint where the {@link Exchange} are from.      * @return number of exchanges currently in flight.      */
+DECL|method|size (Endpoint endpoint)
+name|int
+name|size
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
 function_decl|;
 block|}
 end_interface
