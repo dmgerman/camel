@@ -285,6 +285,34 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// could be a class then create an instance of it
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|Class
+condition|)
+block|{
+comment|// bean is a class so create an instance of it
+name|value
+operator|=
+name|context
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+operator|(
+name|Class
+argument_list|<
+name|Object
+argument_list|>
+operator|)
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|value

@@ -76,6 +76,22 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|bean
+operator|.
+name|BeanAnnotationExpressionFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used to inject a bean expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
 end_comment
@@ -113,16 +129,29 @@ argument_list|(
 name|language
 operator|=
 literal|"bean"
+argument_list|,
+name|factory
+operator|=
+name|BeanAnnotationExpressionFactory
+operator|.
+name|class
 argument_list|)
 DECL|annotation|Bean
 specifier|public
 annotation_defn|@interface
 name|Bean
 block|{
-DECL|method|value ()
+DECL|method|ref ()
 name|String
-name|value
+name|ref
 parameter_list|()
+function_decl|;
+DECL|method|method ()
+name|String
+name|method
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 block|}
 end_annotation_defn

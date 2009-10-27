@@ -104,7 +104,7 @@ name|uri
 operator|=
 literal|"direct:startBeanExpression"
 argument_list|)
-DECL|method|doSomethingBeanExpression (String payload, @Bean(R) int count)
+DECL|method|doSomethingBeanExpression (String payload, @Bean(ref = R) int count)
 specifier|public
 name|void
 name|doSomethingBeanExpression
@@ -115,6 +115,8 @@ parameter_list|,
 annotation|@
 name|Bean
 argument_list|(
+name|ref
+operator|=
 literal|"myCounter"
 argument_list|)
 name|int
