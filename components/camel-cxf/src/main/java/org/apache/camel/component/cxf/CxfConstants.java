@@ -167,6 +167,12 @@ name|CAMEL_CXF_RS_OPERATION_RESOURCE_INFO_STACK
 init|=
 literal|"CamelCxfRsOperationResourceInfoStack"
 decl_stmt|;
+DECL|field|ATTACHMENTS_PROP_KEY
+name|String
+name|ATTACHMENTS_PROP_KEY
+init|=
+literal|"CamelAttachments"
+decl_stmt|;
 block|}
 end_interface
 
