@@ -522,8 +522,6 @@ operator|.
 name|to
 argument_list|(
 literal|"bean:widgetInventory"
-argument_list|,
-literal|"seda:aggregate"
 argument_list|)
 operator|.
 name|otherwise
@@ -532,7 +530,13 @@ operator|.
 name|to
 argument_list|(
 literal|"bean:gadgetInventory"
-argument_list|,
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|to
+argument_list|(
 literal|"seda:aggregate"
 argument_list|)
 expr_stmt|;
