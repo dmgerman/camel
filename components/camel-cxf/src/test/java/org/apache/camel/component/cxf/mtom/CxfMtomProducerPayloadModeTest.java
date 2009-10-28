@@ -512,6 +512,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// START SNIPPET: producer
 name|Exchange
 name|exchange
 init|=
@@ -669,6 +670,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+comment|// process response
 name|CxfPayload
 argument_list|<
 name|SoapHeader
@@ -940,6 +942,7 @@ name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: producer
 block|}
 block|}
 end_class

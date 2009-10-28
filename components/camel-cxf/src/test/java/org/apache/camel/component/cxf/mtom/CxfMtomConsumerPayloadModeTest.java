@@ -490,6 +490,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// START SNIPPET: consumer
 DECL|class|MyProcessor
 specifier|public
 specifier|static
@@ -911,6 +912,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// END SNIPPET: consumer
 block|}
 end_class
 
