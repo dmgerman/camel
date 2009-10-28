@@ -420,7 +420,7 @@ operator|new
 name|BankResponseAggregationStrategy
 argument_list|()
 argument_list|)
-comment|// Camel will create a thread pool with the size of the send to endpoints
+comment|// Camel will create a thread pool with the default size (10)
 comment|// for sending the message in parallel
 operator|.
 name|parallelProcessing
