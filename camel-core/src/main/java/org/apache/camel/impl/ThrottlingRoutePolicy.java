@@ -209,18 +209,6 @@ DECL|field|logger
 specifier|private
 name|Logger
 name|logger
-init|=
-operator|new
-name|Logger
-argument_list|(
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-argument_list|)
 decl_stmt|;
 DECL|method|ThrottlingRoutePolicy ()
 specifier|public
@@ -534,6 +522,19 @@ name|Logger
 name|getLogger
 parameter_list|()
 block|{
+if|if
+condition|(
+name|logger
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|=
+name|createLogger
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|logger
 return|;
@@ -571,6 +572,30 @@ name|loggingLevel
 operator|=
 name|loggingLevel
 expr_stmt|;
+block|}
+DECL|method|createLogger ()
+specifier|protected
+name|Logger
+name|createLogger
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Logger
+argument_list|(
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ThrottlingRoutePolicy
+operator|.
+name|class
+argument_list|)
+argument_list|,
+name|getLoggingLevel
+argument_list|()
+argument_list|)
+return|;
 block|}
 DECL|method|getSize (Consumer consumer, Exchange exchange)
 specifier|private
@@ -661,11 +686,12 @@ condition|(
 name|started
 condition|)
 block|{
-name|logger
+name|getLogger
+argument_list|()
 operator|.
 name|log
 argument_list|(
-literal|"Throtteling consumer: "
+literal|"Throttling consumer: "
 operator|+
 name|size
 operator|+
@@ -707,11 +733,12 @@ condition|(
 name|stopped
 condition|)
 block|{
-name|logger
+name|getLogger
+argument_list|()
 operator|.
 name|log
 argument_list|(
-literal|"Throtteling consumer: "
+literal|"Throttling consumer: "
 operator|+
 name|size
 operator|+
