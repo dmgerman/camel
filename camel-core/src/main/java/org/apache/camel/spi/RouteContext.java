@@ -330,11 +330,13 @@ name|String
 name|ref
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the route policy      *      * @return the route policy if any      */
 DECL|method|getRoutePolicy ()
 name|RoutePolicy
 name|getRoutePolicy
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a custom route policy      *      * @param routePolicy the custom route policy      */
 DECL|method|setRoutePolicy (RoutePolicy routePolicy)
 name|void
 name|setRoutePolicy

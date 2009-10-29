@@ -799,7 +799,7 @@ name|target
 init|=
 name|unitOfWorkProcessor
 decl_stmt|;
-comment|// and then optionally and route policy processor
+comment|// and then optionally add route policy processor if a custom policy is set
 name|RoutePolicyProcessor
 name|routePolicyProcessor
 init|=

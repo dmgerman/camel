@@ -328,7 +328,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// reload size in case a race condition with too many at once being invoked
-comment|// so we need to ensure that we read the most current side and start the consumer if we hit to low
+comment|// so we need to ensure that we read the most current size and start the consumer if we are already to low
 name|size
 operator|=
 name|getSize
