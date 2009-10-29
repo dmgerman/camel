@@ -330,6 +330,19 @@ name|String
 name|ref
 parameter_list|)
 function_decl|;
+DECL|method|getRoutePolicy ()
+name|RoutePolicy
+name|getRoutePolicy
+parameter_list|()
+function_decl|;
+DECL|method|setRoutePolicy (RoutePolicy routePolicy)
+name|void
+name|setRoutePolicy
+parameter_list|(
+name|RoutePolicy
+name|routePolicy
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

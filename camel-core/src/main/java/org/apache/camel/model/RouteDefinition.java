@@ -342,6 +342,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RoutePolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -463,6 +477,16 @@ DECL|field|startupOrder
 specifier|private
 name|Integer
 name|startupOrder
+decl_stmt|;
+DECL|field|routePolicy
+specifier|private
+name|RoutePolicy
+name|routePolicy
+decl_stmt|;
+DECL|field|routePolicyRef
+specifier|private
+name|String
+name|routePolicyRef
 decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
@@ -1153,6 +1177,44 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Disables this route from being auto started when Camel starts.      */
+DECL|method|routePolicy (RoutePolicy routePolicy)
+specifier|public
+name|RouteDefinition
+name|routePolicy
+parameter_list|(
+name|RoutePolicy
+name|routePolicy
+parameter_list|)
+block|{
+name|setRoutePolicy
+argument_list|(
+name|routePolicy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      */
+DECL|method|routePolicyRef (String routePolicyRef)
+specifier|public
+name|RouteDefinition
+name|routePolicyRef
+parameter_list|(
+name|String
+name|routePolicyRef
+parameter_list|)
+block|{
+name|setRoutePolicyRef
+argument_list|(
+name|routePolicyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -1536,6 +1598,62 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setRoutePolicyRef (String routePolicyRef)
+specifier|public
+name|void
+name|setRoutePolicyRef
+parameter_list|(
+name|String
+name|routePolicyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routePolicyRef
+operator|=
+name|routePolicyRef
+expr_stmt|;
+block|}
+DECL|method|getRoutePolicyRef ()
+specifier|public
+name|String
+name|getRoutePolicyRef
+parameter_list|()
+block|{
+return|return
+name|routePolicyRef
+return|;
+block|}
+annotation|@
+name|XmlTransient
+DECL|method|setRoutePolicy (RoutePolicy routePolicy)
+specifier|public
+name|void
+name|setRoutePolicy
+parameter_list|(
+name|RoutePolicy
+name|routePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routePolicy
+operator|=
+name|routePolicy
+expr_stmt|;
+block|}
+DECL|method|getRoutePolicy ()
+specifier|public
+name|RoutePolicy
+name|getRoutePolicy
+parameter_list|()
+block|{
+return|return
+name|routePolicy
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
@@ -1661,7 +1779,8 @@ name|StreamCaching
 operator|.
 name|getStreamCaching
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|)
 operator|==
 literal|null
@@ -1724,7 +1843,8 @@ name|HandleFault
 operator|.
 name|getHandleFault
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|)
 operator|==
 literal|null
@@ -1831,6 +1951,100 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+comment|// configure route policy
+if|if
+condition|(
+name|routePolicy
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"RoutePolicy is enabled: "
+operator|+
+name|routePolicy
+operator|+
+literal|" on route: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+name|routeContext
+operator|.
+name|setRoutePolicy
+argument_list|(
+name|getRoutePolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|routePolicyRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|RoutePolicy
+name|policy
+init|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|routePolicyRef
+argument_list|,
+name|RoutePolicy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"RoutePolicy is enabled: "
+operator|+
+name|policy
+operator|+
+literal|" on route: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+name|routeContext
+operator|.
+name|setRoutePolicy
+argument_list|(
+name|policy
+argument_list|)
+expr_stmt|;
 block|}
 comment|// configure auto startup
 if|if

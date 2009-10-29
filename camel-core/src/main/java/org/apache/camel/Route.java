@@ -84,6 +84,12 @@ name|Endpoint
 name|getEndpoint
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the inbound {@link Consumer}      */
+DECL|method|getConsumer ()
+name|Consumer
+name|getConsumer
+parameter_list|()
+function_decl|;
 comment|/**      * This property map is used to associate information about the route.      *      * @return properties      */
 DECL|method|getProperties ()
 name|Map
@@ -101,7 +107,9 @@ name|RouteContext
 name|getRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * This property map is used to associate information about      * the route. Gets all the services for this routes      *</p>      * This implementation is used for initiali      *      * @return the services      * @throws Exception is thrown in case of error      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * This property map is used to associate information about      * the route. Gets all the services for this routes      *</p>      * This implementation is used for initialization      *      * @return the services      * @throws Exception is thrown in case of error      * @deprecated will be removed in Camel 2.2      */
+annotation|@
+name|Deprecated
 DECL|method|getServicesForRoute ()
 name|List
 argument_list|<

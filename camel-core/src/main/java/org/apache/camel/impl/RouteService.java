@@ -579,7 +579,7 @@ range|:
 name|services
 control|)
 block|{
-name|doGetChildServies
+name|doGetChildServices
 argument_list|(
 name|list
 argument_list|,
@@ -810,7 +810,7 @@ range|:
 name|services
 control|)
 block|{
-name|doGetChildServies
+name|doGetChildServices
 argument_list|(
 name|list
 argument_list|,
@@ -1020,11 +1020,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Need to recursive start child services for routes      */
-DECL|method|doGetChildServies (List<Service> services, Service service)
+DECL|method|doGetChildServices (List<Service> services, Service service)
 specifier|private
 specifier|static
 name|void
-name|doGetChildServies
+name|doGetChildServices
 parameter_list|(
 name|List
 argument_list|<
@@ -1100,7 +1100,7 @@ operator|instanceof
 name|Service
 condition|)
 block|{
-name|doGetChildServies
+name|doGetChildServices
 argument_list|(
 name|services
 argument_list|,

@@ -210,6 +210,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|RoutePolicyProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|UnitOfWorkProcessor
 import|;
 end_import
@@ -239,6 +253,20 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RoutePolicy
 import|;
 end_import
 
@@ -353,6 +381,11 @@ init|=
 name|Boolean
 operator|.
 name|TRUE
+decl_stmt|;
+DECL|field|routePolicy
+specifier|private
+name|RoutePolicy
+name|routePolicy
 decl_stmt|;
 DECL|method|DefaultRouteContext (CamelContext camelContext, RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
@@ -761,6 +794,41 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+name|Processor
+name|target
+init|=
+name|unitOfWorkProcessor
+decl_stmt|;
+comment|// and then optionally and route policy processor
+name|RoutePolicyProcessor
+name|routePolicyProcessor
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|getRoutePolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|routePolicyProcessor
+operator|=
+operator|new
+name|RoutePolicyProcessor
+argument_list|(
+name|unitOfWorkProcessor
+argument_list|,
+name|getRoutePolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|target
+operator|=
+name|routePolicyProcessor
+expr_stmt|;
+block|}
 comment|// and wrap it by a instrumentation processor that is to be used for performance stats
 comment|// for this particular route
 name|InstrumentationProcessor
@@ -781,7 +849,7 @@ name|wrapper
 operator|.
 name|setProcessor
 argument_list|(
-name|unitOfWorkProcessor
+name|target
 argument_list|)
 expr_stmt|;
 comment|// and create the route that wraps the UoW
@@ -869,6 +937,22 @@ name|route
 operator|.
 name|getGroup
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// after the route is created then set the route on the policy processor so we get hold of it
+if|if
+condition|(
+name|routePolicyProcessor
+operator|!=
+literal|null
+condition|)
+block|{
+name|routePolicyProcessor
+operator|.
+name|setRoute
+argument_list|(
+name|edcr
 argument_list|)
 expr_stmt|;
 block|}
@@ -1263,6 +1347,32 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+DECL|method|getRoutePolicy ()
+specifier|public
+name|RoutePolicy
+name|getRoutePolicy
+parameter_list|()
+block|{
+return|return
+name|routePolicy
+return|;
+block|}
+DECL|method|setRoutePolicy (RoutePolicy routePolicy)
+specifier|public
+name|void
+name|setRoutePolicy
+parameter_list|(
+name|RoutePolicy
+name|routePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routePolicy
+operator|=
+name|routePolicy
+expr_stmt|;
 block|}
 block|}
 end_class
