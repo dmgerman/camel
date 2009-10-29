@@ -945,6 +945,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the route id for this route      *      * @param id  the route id      * @return the builder      */
+DECL|method|routeId (String id)
+specifier|public
+name|RouteDefinition
+name|routeId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Disable stream caching for this route.      */
 DECL|method|noStreamCaching ()
 specifier|public
