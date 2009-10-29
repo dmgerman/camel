@@ -2205,7 +2205,7 @@ name|get
 argument_list|(
 name|CxfConstants
 operator|.
-name|ATTACHMENTS_PROP_KEY
+name|CAMEL_CXF_ATTACHMENTS
 argument_list|)
 decl_stmt|;
 if|if
@@ -2234,7 +2234,7 @@ name|remove
 argument_list|(
 name|CxfConstants
 operator|.
-name|ATTACHMENTS_PROP_KEY
+name|CAMEL_CXF_ATTACHMENTS
 argument_list|)
 expr_stmt|;
 block|}

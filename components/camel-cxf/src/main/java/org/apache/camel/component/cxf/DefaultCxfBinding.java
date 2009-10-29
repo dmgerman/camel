@@ -622,7 +622,7 @@ name|put
 argument_list|(
 name|CxfConstants
 operator|.
-name|ATTACHMENTS_PROP_KEY
+name|CAMEL_CXF_ATTACHMENTS
 argument_list|,
 name|attachments
 argument_list|)
