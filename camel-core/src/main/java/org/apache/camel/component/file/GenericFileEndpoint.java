@@ -1480,11 +1480,12 @@ name|tempPrefix
 operator|=
 name|tempPrefix
 expr_stmt|;
+comment|// use only name as we set a prefix in from on the name
 name|setTempFileName
 argument_list|(
 name|tempPrefix
 operator|+
-literal|"${file:name}"
+literal|"${file:onlyname}"
 argument_list|)
 expr_stmt|;
 block|}
