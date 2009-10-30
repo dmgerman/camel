@@ -83,10 +83,10 @@ comment|/**  * Unit test for file producer option tempPrefix  */
 end_comment
 
 begin_class
-DECL|class|FileProduceTempPrefixTest
+DECL|class|FileProduceTempFileNameTest
 specifier|public
 class|class
-name|FileProduceTempPrefixTest
+name|FileProduceTempFileNameTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -95,7 +95,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/tempandrename/?tempPrefix=inprogress."
+literal|"file://target/tempandrename/?tempFileName=inprogress-${file:name.noext}.tmp"
 decl_stmt|;
 DECL|method|testCreateTempFileName ()
 specifier|public
@@ -162,7 +162,7 @@ argument_list|)
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/tempandrename/inprogress.claus.txt"
+literal|"target/tempandrename/inprogress-claus.tmp"
 argument_list|,
 name|tempFileName
 argument_list|)
@@ -233,16 +233,16 @@ argument_list|)
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"./inprogress.claus.txt"
+literal|"./inprogress-claus.tmp"
 argument_list|,
 name|tempFileName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTempPrefix ()
+DECL|method|testTempFileName ()
 specifier|public
 name|void
-name|testTempPrefix
+name|testTempFileName
 parameter_list|()
 throws|throws
 name|Exception
@@ -296,29 +296,6 @@ name|file
 operator|.
 name|exists
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testTempPrefixUUIDFilename ()
-specifier|public
-name|void
-name|testTempPrefixUUIDFilename
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/tempandrename"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:a"
-argument_list|,
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
