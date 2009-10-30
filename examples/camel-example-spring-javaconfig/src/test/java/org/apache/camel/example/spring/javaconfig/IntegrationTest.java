@@ -24,6 +24,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -43,16 +63,6 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
@@ -94,8 +104,10 @@ specifier|public
 class|class
 name|IntegrationTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testCamelRulesDeployCorrectlyInSpring ()
 specifier|public
 name|void
@@ -119,6 +131,8 @@ literal|"org.apache.camel.example.spring.javaconfig"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStartApplicationContext ()
 specifier|public
 name|void
