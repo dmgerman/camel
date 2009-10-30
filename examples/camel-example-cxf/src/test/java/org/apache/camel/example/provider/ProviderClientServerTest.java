@@ -153,7 +153,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"/org/apache/camel/example/cxf/provider/CamelCXFRouteConfig.xml"
+literal|"/META-INF/spring/CamelCXFProviderRouteConfig.xml"
 block|}
 argument_list|)
 return|;

@@ -212,6 +212,7 @@ name|CamelCxfExample
 parameter_list|()
 block|{     }
 DECL|class|MyRouteBuilder
+specifier|public
 specifier|static
 class|class
 name|MyRouteBuilder

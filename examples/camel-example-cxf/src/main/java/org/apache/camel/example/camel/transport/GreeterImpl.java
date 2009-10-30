@@ -128,9 +128,15 @@ specifier|private
 name|String
 name|suffix
 decl_stmt|;
-DECL|method|GreeterImpl (String suffix)
+DECL|method|GreeterImpl ()
 specifier|public
 name|GreeterImpl
+parameter_list|()
+block|{     }
+DECL|method|setSuffix (String suffix)
+specifier|public
+name|void
+name|setSuffix
 parameter_list|(
 name|String
 name|suffix
