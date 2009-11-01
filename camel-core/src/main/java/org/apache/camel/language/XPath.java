@@ -80,6 +80,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -176,6 +188,19 @@ literal|"http://www.w3.org/2001/XMLSchema"
 argument_list|)
 block|}
 expr_stmt|;
+DECL|method|resultType ()
+DECL|field|NodeList.class
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|()
+default|default
+name|NodeList
+operator|.
+name|class
+function_decl|;
 block|}
 end_annotation_defn
 
