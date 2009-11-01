@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|SuspendableService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|PollingConsumerPollStrategy
@@ -174,6 +186,8 @@ extends|extends
 name|DefaultConsumer
 implements|implements
 name|Runnable
+implements|,
+name|SuspendableService
 block|{
 DECL|field|DEFAULT_THREADPOOL_SIZE
 specifier|private
@@ -252,6 +266,11 @@ init|=
 operator|new
 name|DefaultPollingConsumerPollStrategy
 argument_list|()
+decl_stmt|;
+DECL|field|suspended
+specifier|private
+name|boolean
+name|suspended
 decl_stmt|;
 DECL|method|ScheduledPollConsumer (DefaultEndpoint endpoint, Processor processor)
 specifier|public
@@ -377,6 +396,13 @@ name|void
 name|run
 parameter_list|()
 block|{
+if|if
+condition|(
+name|suspended
+condition|)
+block|{
+return|return;
+block|}
 name|int
 name|retryCounter
 init|=
@@ -708,6 +734,38 @@ name|pollStrategy
 operator|=
 name|pollStrategy
 expr_stmt|;
+block|}
+DECL|method|suspend ()
+specifier|public
+name|void
+name|suspend
+parameter_list|()
+block|{
+name|suspended
+operator|=
+literal|true
+expr_stmt|;
+block|}
+DECL|method|resume ()
+specifier|public
+name|void
+name|resume
+parameter_list|()
+block|{
+name|suspended
+operator|=
+literal|false
+expr_stmt|;
+block|}
+DECL|method|isSuspended ()
+specifier|public
+name|boolean
+name|isSuspended
+parameter_list|()
+block|{
+return|return
+name|suspended
+return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
