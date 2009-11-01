@@ -1855,7 +1855,52 @@ name|LOG
 argument_list|)
 expr_stmt|;
 block|}
-comment|// rename temp to local after we have retrieved the data
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Retrieve file to local work file result: "
+operator|+
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|result
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Renaming local in progress file from: "
+operator|+
+name|temp
+operator|+
+literal|" to: "
+operator|+
+name|local
+argument_list|)
+expr_stmt|;
+block|}
+comment|// operation went okay so rename temp to local after we have retrieved the data
 if|if
 condition|(
 operator|!
@@ -1882,6 +1927,7 @@ operator|+
 name|local
 argument_list|)
 throw|;
+block|}
 block|}
 return|return
 name|result
