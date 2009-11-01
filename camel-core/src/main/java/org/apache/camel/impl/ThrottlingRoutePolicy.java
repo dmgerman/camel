@@ -146,13 +146,13 @@ name|RoutePolicySupport
 block|{
 comment|// TODO: need to be JMX enabled as well
 DECL|enum|ThrottlingScope
-DECL|enumConstant|Total
-DECL|enumConstant|Route
 specifier|public
 enum|enum
 name|ThrottlingScope
 block|{
-name|Total
+DECL|enumConstant|Context
+DECL|enumConstant|Route
+name|Context
 block|,
 name|Route
 block|}
@@ -224,7 +224,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ThrottlingRoutePolicyp["
+literal|"ThrottlingRoutePolicy["
 operator|+
 name|maxInflightExchanges
 operator|+
@@ -232,7 +232,9 @@ literal|" / "
 operator|+
 name|resumePercentOfMax
 operator|+
-literal|"%"
+literal|"% using scope "
+operator|+
+name|scope
 operator|+
 literal|"]"
 return|;
@@ -615,7 +617,7 @@ name|scope
 operator|==
 name|ThrottlingScope
 operator|.
-name|Total
+name|Context
 condition|)
 block|{
 return|return

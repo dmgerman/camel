@@ -61,10 +61,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ThrottelingRoutePolicyTest
+DECL|class|ThrottlingRoutePolicyTest
 specifier|public
 class|class
-name|ThrottelingRoutePolicyTest
+name|ThrottlingRoutePolicyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -82,10 +82,10 @@ name|size
 init|=
 literal|100
 decl_stmt|;
-DECL|method|testThrottelingRoutePolicy ()
+DECL|method|testThrottlingRoutePolicy ()
 specifier|public
 name|void
-name|testThrottelingRoutePolicy
+name|testThrottlingRoutePolicy
 parameter_list|()
 throws|throws
 name|Exception

@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|ThrottelingRoutePolicyTest
+name|ThrottlingRoutePolicyTest
 import|;
 end_import
 
@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|SpringThrottlingRoutePolicyTest
 extends|extends
-name|ThrottelingRoutePolicyTest
+name|ThrottlingRoutePolicyTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
