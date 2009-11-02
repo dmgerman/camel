@@ -269,6 +269,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|suspended
 specifier|private
+specifier|volatile
 name|boolean
 name|suspended
 decl_stmt|;
@@ -401,6 +402,29 @@ condition|(
 name|suspended
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot start to poll: "
+operator|+
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
+operator|+
+literal|" as its suspended"
+argument_list|)
+expr_stmt|;
+block|}
 return|return;
 block|}
 name|int
@@ -430,6 +454,10 @@ expr_stmt|;
 if|if
 condition|(
 name|isRunAllowed
+argument_list|()
+operator|&&
+operator|!
+name|isSuspended
 argument_list|()
 condition|)
 block|{
@@ -527,6 +555,27 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finished polling: "
+operator|+
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -580,27 +629,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Finished polling: "
-operator|+
-name|this
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|// Properties
