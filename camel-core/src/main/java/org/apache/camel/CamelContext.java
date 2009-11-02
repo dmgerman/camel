@@ -347,6 +347,15 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Has the given service already been added?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
+DECL|method|hasService (Object object)
+name|boolean
+name|hasService
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a component to the context.      *      * @param componentName  the name the component is registered as      * @param component      the component      */
 DECL|method|addComponent (String componentName, Component component)
 name|void

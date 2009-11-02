@@ -144,7 +144,6 @@ name|ThrottlingRoutePolicy
 extends|extends
 name|RoutePolicySupport
 block|{
-comment|// TODO: need to be JMX enabled as well
 DECL|enum|ThrottlingScope
 specifier|public
 enum|enum

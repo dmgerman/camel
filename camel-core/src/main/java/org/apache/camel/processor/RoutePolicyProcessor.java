@@ -181,6 +181,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// check whether the policy is enabled
+if|if
+condition|(
+name|isRoutePolicyRunAllowed
+argument_list|()
+condition|)
+block|{
 comment|// invoke begin
 name|routePolicy
 operator|.
@@ -240,6 +247,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|processor
@@ -311,6 +319,38 @@ return|;
 block|}
 return|return
 literal|false
+return|;
+block|}
+DECL|method|isRoutePolicyRunAllowed ()
+specifier|private
+name|boolean
+name|isRoutePolicyRunAllowed
+parameter_list|()
+block|{
+if|if
+condition|(
+name|routePolicy
+operator|instanceof
+name|ServiceSupport
+condition|)
+block|{
+name|ServiceSupport
+name|ss
+init|=
+operator|(
+name|ServiceSupport
+operator|)
+name|routePolicy
+decl_stmt|;
+return|return
+name|ss
+operator|.
+name|isRunAllowed
+argument_list|()
+return|;
+block|}
+return|return
+literal|true
 return|;
 block|}
 block|}

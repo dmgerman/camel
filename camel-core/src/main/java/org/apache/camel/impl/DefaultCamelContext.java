@@ -3767,6 +3767,35 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|hasService (Object object)
+specifier|public
+name|boolean
+name|hasService
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+block|{
+if|if
+condition|(
+name|object
+operator|instanceof
+name|Service
+condition|)
+block|{
+return|return
+name|servicesToClose
+operator|.
+name|contains
+argument_list|(
+name|object
+argument_list|)
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
 DECL|method|resolveLanguage (String language)
