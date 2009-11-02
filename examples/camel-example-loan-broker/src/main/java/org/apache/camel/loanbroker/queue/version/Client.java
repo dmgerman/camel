@@ -185,7 +185,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"tcp://localhost:61616"
+literal|"tcp://localhost:51616"
 argument_list|)
 decl_stmt|;
 comment|// Note we can explicit name of the component
