@@ -1143,7 +1143,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the parameter and remove it from the parameter map.      *       * @param parameters the parameters      * @param key        the key      * @param type       the requested type to convert the value from the parameter      * @return  the converted value parameter,<tt>null</tt> if parameter does not exists.      */
+comment|/**      * Gets the parameter and remove it from the parameter map. This method doesn't resolve      * reference parameters in the registry.      *       * @param parameters the parameters      * @param key        the key      * @param type       the requested type to convert the value from the parameter      * @return  the converted value parameter,<tt>null</tt> if parameter does not exists.      * @see #resolveAndRemoveReferenceParameter(Map, String, Class)      */
 DECL|method|getAndRemoveParameter (Map parameters, String key, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1178,7 +1178,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the parameter and remove it from the parameter map.      *      * @param parameters    the parameters      * @param key           the key      * @param type          the requested type to convert the value from the parameter      * @param defaultValue  use this default value if the parameter does not contain the key      * @return  the converted value parameter      */
+comment|/**      * Gets the parameter and remove it from the parameter map. This method doesn't resolve      * reference parameters in the registry.      *      * @param parameters    the parameters      * @param key           the key      * @param type          the requested type to convert the value from the parameter      * @param defaultValue  use this default value if the parameter does not contain the key      * @return  the converted value parameter      * @see #resolveAndRemoveReferenceParameter(Map, String, Class, Object)      */
 DECL|method|getAndRemoveParameter (Map parameters, String key, Class<T> type, T defaultValue)
 specifier|public
 parameter_list|<
@@ -1249,6 +1249,145 @@ argument_list|,
 name|value
 argument_list|)
 return|;
+block|}
+comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in th registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in th registry.      * @return the referenced object or<code>null</code>.      */
+DECL|method|resolveAndRemoveReferenceParameter (Map parameters, String key, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|resolveAndRemoveReferenceParameter
+parameter_list|(
+name|Map
+name|parameters
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+name|key
+argument_list|,
+name|type
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in th registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in th registry.      * @param defaultValue  default value to use if neither the parameter map contains      *                      the key nor the registry contains an object of requested      *                      type.      * @return the referenced object, the default value or<code>null</code>.      */
+DECL|method|resolveAndRemoveReferenceParameter (Map parameters, String key, Class<T> type, T defaultValue)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|resolveAndRemoveReferenceParameter
+parameter_list|(
+name|Map
+name|parameters
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|T
+name|defaultValue
+parameter_list|)
+block|{
+name|String
+name|value
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+name|key
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|EndpointHelper
+operator|.
+name|isReferenceParameter
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+name|T
+name|result
+init|=
+name|EndpointHelper
+operator|.
+name|resolveReferenceParameter
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|type
+argument_list|)
+decl_stmt|;
+return|return
+name|result
+operator|==
+literal|null
+condition|?
+name|defaultValue
+else|:
+name|result
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|defaultValue
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter value "
+operator|+
+name|value
+operator|+
+literal|" is not a valid reference"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Returns the reminder of the text if it starts with the prefix.      *<p/>      * Is useable for string parameters that contains commands.      *       * @param prefix  the prefix      * @param text  the text      * @return the reminder, or null if no reminder      */
 DECL|method|ifStartsWithReturnRemainder (String prefix, String text)
