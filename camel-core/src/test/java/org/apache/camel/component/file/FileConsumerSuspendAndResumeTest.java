@@ -332,6 +332,11 @@ name|MyPolicy
 extends|extends
 name|RoutePolicySupport
 block|{
+DECL|field|counter
+specifier|private
+name|int
+name|counter
+decl_stmt|;
 DECL|field|consumer
 specifier|private
 name|Consumer
@@ -358,6 +363,15 @@ operator|.
 name|getConsumer
 argument_list|()
 expr_stmt|;
+comment|// only stop it at first run
+if|if
+condition|(
+name|counter
+operator|++
+operator|==
+literal|0
+condition|)
+block|{
 try|try
 block|{
 name|super
@@ -379,6 +393,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|resumeConsumer ()

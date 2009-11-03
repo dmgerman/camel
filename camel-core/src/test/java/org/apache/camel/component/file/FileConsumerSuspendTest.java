@@ -276,6 +276,11 @@ name|MyPolicy
 extends|extends
 name|RoutePolicySupport
 block|{
+DECL|field|counter
+specifier|private
+name|int
+name|counter
+decl_stmt|;
 DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -287,6 +292,15 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+block|{
+comment|// only stop it at first run
+if|if
+condition|(
+name|counter
+operator|++
+operator|==
+literal|0
+condition|)
 block|{
 try|try
 block|{
@@ -312,6 +326,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
