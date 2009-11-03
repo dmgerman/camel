@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 import|;
 end_import
 
@@ -145,10 +145,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JmsThrottlingRoutePolicyTest
+DECL|class|JmsThrottlingInflightRoutePolicyTest
 specifier|public
 class|class
-name|JmsThrottlingRoutePolicyTest
+name|JmsThrottlingInflightRoutePolicyTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -182,10 +182,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testJmsThrottlingRoutePolicy ()
+DECL|method|testJmsThrottlingInflightRoutePolicy ()
 specifier|public
 name|void
-name|testJmsThrottlingRoutePolicy
+name|testJmsThrottlingInflightRoutePolicy
 parameter_list|()
 throws|throws
 name|Exception
@@ -260,11 +260,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 name|policy
 init|=
 operator|new
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 argument_list|()
 decl_stmt|;
 name|policy
@@ -285,7 +285,7 @@ name|policy
 operator|.
 name|setScope
 argument_list|(
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 operator|.
 name|ThrottlingScope
 operator|.
