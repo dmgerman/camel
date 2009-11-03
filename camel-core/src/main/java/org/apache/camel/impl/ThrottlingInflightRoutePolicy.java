@@ -137,10 +137,10 @@ comment|/**  * A throttle based {@link org.apache.camel.spi.RoutePolicy} which i
 end_comment
 
 begin_class
-DECL|class|ThrottlingRoutePolicy
+DECL|class|ThrottlingInflightRoutePolicy
 specifier|public
 class|class
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 extends|extends
 name|RoutePolicySupport
 block|{
@@ -209,9 +209,9 @@ specifier|private
 name|Logger
 name|logger
 decl_stmt|;
-DECL|method|ThrottlingRoutePolicy ()
+DECL|method|ThrottlingInflightRoutePolicy ()
 specifier|public
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 parameter_list|()
 block|{     }
 annotation|@
@@ -223,7 +223,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ThrottlingRoutePolicy["
+literal|"ThrottlingInflightRoutePolicy["
 operator|+
 name|maxInflightExchanges
 operator|+
@@ -451,7 +451,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"reconnectPercentOfMax must be a percentage between 0 and 100"
+literal|"Must be a percentage between 0 and 100, was: "
+operator|+
+name|resumePercentOfMax
 argument_list|)
 throw|;
 block|}
@@ -588,7 +590,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 operator|.
 name|class
 argument_list|)

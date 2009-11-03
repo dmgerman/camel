@@ -226,7 +226,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 import|;
 end_import
 
@@ -482,7 +482,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedThrottlingRoutePolicy
+name|ManagedThrottlingInflightRoutePolicy
 import|;
 end_import
 
@@ -1811,18 +1811,18 @@ if|if
 condition|(
 name|service
 operator|instanceof
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 condition|)
 block|{
 name|answer
 operator|=
 operator|new
-name|ManagedThrottlingRoutePolicy
+name|ManagedThrottlingInflightRoutePolicy
 argument_list|(
 name|context
 argument_list|,
 operator|(
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 operator|)
 name|service
 argument_list|)

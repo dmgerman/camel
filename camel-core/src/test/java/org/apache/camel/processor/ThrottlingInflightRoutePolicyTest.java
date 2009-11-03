@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 import|;
 end_import
 
@@ -61,10 +61,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ThrottlingRoutePolicyTest
+DECL|class|ThrottlingInflightRoutePolicyTest
 specifier|public
 class|class
-name|ThrottlingRoutePolicyTest
+name|ThrottlingInflightRoutePolicyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -90,6 +90,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMinimumMessageCount
+argument_list|(
+name|size
+operator|-
+literal|5
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -117,16 +129,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-name|size
-argument_list|)
-expr_stmt|;
 comment|// now start the route
 name|context
 operator|.
@@ -163,11 +165,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 name|policy
 init|=
 operator|new
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 argument_list|()
 decl_stmt|;
 name|policy

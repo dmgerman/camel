@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 import|;
 end_import
 
@@ -98,29 +98,29 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed ThrottlingRoutePolicy"
+literal|"Managed ThrottlingInflightRoutePolicy"
 argument_list|)
-DECL|class|ManagedThrottlingRoutePolicy
+DECL|class|ManagedThrottlingInflightRoutePolicy
 specifier|public
 class|class
-name|ManagedThrottlingRoutePolicy
+name|ManagedThrottlingInflightRoutePolicy
 extends|extends
 name|ManagedService
 block|{
 DECL|field|policy
 specifier|private
 specifier|final
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 name|policy
 decl_stmt|;
-DECL|method|ManagedThrottlingRoutePolicy (CamelContext context, ThrottlingRoutePolicy policy)
+DECL|method|ManagedThrottlingInflightRoutePolicy (CamelContext context, ThrottlingInflightRoutePolicy policy)
 specifier|public
-name|ManagedThrottlingRoutePolicy
+name|ManagedThrottlingInflightRoutePolicy
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 name|policy
 parameter_list|)
 block|{
@@ -140,7 +140,7 @@ expr_stmt|;
 block|}
 DECL|method|getPolicy ()
 specifier|public
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 name|getPolicy
 parameter_list|()
 block|{
@@ -285,7 +285,7 @@ argument_list|()
 operator|.
 name|setScope
 argument_list|(
-name|ThrottlingRoutePolicy
+name|ThrottlingInflightRoutePolicy
 operator|.
 name|ThrottlingScope
 operator|.
