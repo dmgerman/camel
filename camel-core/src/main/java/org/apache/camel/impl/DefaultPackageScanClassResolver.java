@@ -1183,7 +1183,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not read package: "
+literal|"Cannot read package: "
 operator|+
 name|packageName
 argument_list|,
@@ -1266,6 +1266,13 @@ argument_list|(
 literal|"Decoded urlPath: "
 operator|+
 name|urlPath
+operator|+
+literal|" with protocol: "
+operator|+
+name|url
+operator|.
+name|getProtocol
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1419,6 +1426,15 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"isLocalFileSystem: "
+operator|+
+name|isLocalFileSystem
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
 literal|"Scanning for classes in ["
 operator|+
 name|urlPath
@@ -1458,7 +1474,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from directory: "
+literal|"Loading from directory using file: "
 operator|+
 name|file
 argument_list|)
@@ -1488,13 +1504,24 @@ name|isLocalFileSystem
 condition|)
 block|{
 comment|// load resources using http (and other protocols) such as java webstart
+if|if
+condition|(
 name|log
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
 argument_list|(
-literal|"The current jar is accessed via http"
+literal|"Loading from jar using http/https: "
+operator|+
+name|urlPath
 argument_list|)
 expr_stmt|;
+block|}
 name|URL
 name|urlStream
 init|=
@@ -1530,15 +1557,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|stream
-operator|=
-operator|new
-name|FileInputStream
-argument_list|(
-name|file
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|log
@@ -1551,8 +1569,17 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from jar: "
+literal|"Loading from jar using file: "
 operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+name|stream
+operator|=
+operator|new
+name|FileInputStream
+argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
@@ -1583,7 +1610,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not read entries in url: "
+literal|"Cannot read entries in url: "
 operator|+
 name|url
 argument_list|,
@@ -1976,7 +2003,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not search jar file '"
+literal|"Cannot search jar file '"
 operator|+
 name|urlPath
 operator|+
@@ -2198,7 +2225,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find class '"
+literal|"Cannot find class '"
 operator|+
 name|fqn
 operator|+
@@ -2224,7 +2251,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find the class definition '"
+literal|"Cannot find the class definition '"
 operator|+
 name|fqn
 operator|+
@@ -2252,7 +2279,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find class '"
+literal|"Cannot find class '"
 operator|+
 name|fqn
 operator|+
@@ -2273,7 +2300,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not examine class '"
+literal|"Cannot examine class '"
 operator|+
 name|fqn
 operator|+
