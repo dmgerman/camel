@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -252,7 +240,7 @@ argument_list|)
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000
+literal|5000
 argument_list|)
 operator|.
 name|process
@@ -502,7 +490,7 @@ argument_list|)
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000
+literal|5000
 argument_list|)
 operator|.
 name|to
