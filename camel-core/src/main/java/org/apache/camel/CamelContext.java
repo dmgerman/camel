@@ -122,6 +122,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -793,7 +807,7 @@ name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the data formats that can be referenced in the routes.      * @param dataFormats the data formats      */
+comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      */
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 name|void
 name|setDataFormats
@@ -817,6 +831,24 @@ name|DataFormatDefinition
 argument_list|>
 name|getDataFormats
 parameter_list|()
+function_decl|;
+comment|/**      * Resolve a data format given its definition      *      * @param def the data format definition      * @return the resolved data format      */
+DECL|method|resolveDataFormat (DataFormatDefinition def)
+name|DataFormat
+name|resolveDataFormat
+parameter_list|(
+name|DataFormatDefinition
+name|def
+parameter_list|)
+function_decl|;
+comment|/**      * Resolve a data format given its name      *      * @param name the data format name      * @return the resolved data format      */
+DECL|method|resolveDataFormat (String name)
+name|DataFormat
+name|resolveDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 function_decl|;
 comment|/**      * Sets the properties that can be referenced in the camel context      *      * @param properties properties      */
 DECL|method|setProperties (Map<String, String> properties)
@@ -981,13 +1013,13 @@ name|InflightRepository
 name|repository
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the the application context class loader which may be helpful for running camel in other container           * @return the application context class loader      */
+comment|/**      * Gets the the application context class loader which may be helpful for running camel in other containers      *      * @return the application context class loader      */
 DECL|method|getApplicationContextClassLoader ()
 name|ClassLoader
 name|getApplicationContextClassLoader
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the application context class loader      * @param classLoader      */
+comment|/**      * Sets the application context class loader      *      * @param classLoader the class loader      */
 DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
 name|void
 name|setApplicationContextClassLoader
