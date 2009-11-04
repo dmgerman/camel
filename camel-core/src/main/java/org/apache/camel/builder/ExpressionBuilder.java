@@ -1393,7 +1393,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns the expression for the exchanges inbound message body converted      * to the given type      */
+comment|/**      * Returns the expression for the exchanges inbound message body converted      * to the given type.      *<p/>      * Does<b>not</b> allow null bodies.      */
 DECL|method|mandatoryBodyExpression (final Class<T> type)
 specifier|public
 specifier|static
@@ -1412,6 +1412,37 @@ name|type
 parameter_list|)
 block|{
 return|return
+name|mandatoryBodyExpression
+argument_list|(
+name|type
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the expression for the exchanges inbound message body converted      * to the given type      *      * @param type the type      * @param nullBodyAllowed whether null bodies is allowed and if so a null is returned,      *                        otherwise an exception is thrown      */
+DECL|method|mandatoryBodyExpression (final Class<T> type, final boolean nullBodyAllowed)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|Expression
+name|mandatoryBodyExpression
+parameter_list|(
+specifier|final
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+specifier|final
+name|boolean
+name|nullBodyAllowed
+parameter_list|)
+block|{
+return|return
 operator|new
 name|ExpressionAdapter
 argument_list|()
@@ -1424,6 +1455,25 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|nullBodyAllowed
+operator|&&
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 try|try
 block|{
 return|return

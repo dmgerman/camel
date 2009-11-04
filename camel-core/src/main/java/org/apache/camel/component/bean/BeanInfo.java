@@ -1826,7 +1826,7 @@ block|}
 else|else
 block|{
 comment|// lets assume its the body and it must be mandatory convertable to the parameter type
-comment|// so we dont pass in null as body in case Camel cannot convert to the parameter type
+comment|// but we allow null bodies in case the message really contains a null body
 name|expression
 operator|=
 name|ExpressionBuilder
@@ -1834,6 +1834,8 @@ operator|.
 name|mandatoryBodyExpression
 argument_list|(
 name|parameterType
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
