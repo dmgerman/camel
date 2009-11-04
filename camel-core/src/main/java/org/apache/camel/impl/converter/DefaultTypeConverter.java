@@ -738,6 +738,10 @@ operator|==
 name|Void
 operator|.
 name|TYPE
+operator|||
+name|value
+operator|==
+literal|null
 condition|)
 block|{
 comment|// Could not find suitable conversion
