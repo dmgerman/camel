@@ -52,25 +52,25 @@ specifier|public
 interface|interface
 name|DataFormatResolver
 block|{
-comment|/**      * Resolves the given data format by its definition.      *      * @param definition the definition      * @param context the camel context      * @return the data format      */
-DECL|method|resolveDataFormat (DataFormatDefinition definition, CamelContext context)
+comment|/**      * Resolves the given data format by a reference.      *      * @param name the fully qualified classname      * @param context the camel context      * @return the data format or<tt>null</tt> if not possible to resolve      */
+DECL|method|resolveDataFormatByClassName (String name, CamelContext context)
 name|DataFormat
-name|resolveDataFormat
+name|resolveDataFormatByClassName
 parameter_list|(
-name|DataFormatDefinition
-name|definition
+name|String
+name|name
 parameter_list|,
 name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given data format by its name.      *      * @param name the name      * @param context the camel context      * @return the data format      */
-DECL|method|resolveDataFormat (String name, CamelContext context)
+comment|/**      * Resolves the given data format by a reference.      *      * @param ref the reference to lookup in {@link org.apache.camel.spi.Registry}      * @param context the camel context      * @return the data format or<tt>null</tt> if not possible to resolve      */
+DECL|method|resolveDataFormatByRef (String ref, CamelContext context)
 name|DataFormat
-name|resolveDataFormat
+name|resolveDataFormatByRef
 parameter_list|(
 name|String
-name|name
+name|ref
 parameter_list|,
 name|CamelContext
 name|context

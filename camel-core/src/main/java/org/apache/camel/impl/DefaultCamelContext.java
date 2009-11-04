@@ -6699,30 +6699,10 @@ operator|=
 name|dataFormatResolver
 expr_stmt|;
 block|}
-DECL|method|resolveDataFormat (DataFormatDefinition def)
+DECL|method|resolveDataFormatByRef (String ref)
 specifier|public
 name|DataFormat
-name|resolveDataFormat
-parameter_list|(
-name|DataFormatDefinition
-name|def
-parameter_list|)
-block|{
-return|return
-name|dataFormatResolver
-operator|.
-name|resolveDataFormat
-argument_list|(
-name|def
-argument_list|,
-name|this
-argument_list|)
-return|;
-block|}
-DECL|method|resolveDataFormat (String ref)
-specifier|public
-name|DataFormat
-name|resolveDataFormat
+name|resolveDataFormatByRef
 parameter_list|(
 name|String
 name|ref
@@ -6731,9 +6711,29 @@ block|{
 return|return
 name|dataFormatResolver
 operator|.
-name|resolveDataFormat
+name|resolveDataFormatByRef
 argument_list|(
 name|ref
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
+DECL|method|resolveDataFormatByClassName (String name)
+specifier|public
+name|DataFormat
+name|resolveDataFormatByClassName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|dataFormatResolver
+operator|.
+name|resolveDataFormatByClassName
+argument_list|(
+name|name
 argument_list|,
 name|this
 argument_list|)
