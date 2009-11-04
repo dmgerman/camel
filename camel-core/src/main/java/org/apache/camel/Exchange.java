@@ -180,7 +180,7 @@ DECL|field|FAILURE_ENDPOINT
 name|String
 name|FAILURE_ENDPOINT
 init|=
-literal|"CamelFaulureEndpoint"
+literal|"CamelFailureEndpoint"
 decl_stmt|;
 DECL|field|FILE_LOCAL_WORK_PATH
 name|String
