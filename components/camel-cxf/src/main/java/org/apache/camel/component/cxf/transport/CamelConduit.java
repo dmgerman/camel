@@ -36,6 +36,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|OutputStream
 import|;
 end_import
@@ -85,6 +95,18 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|InvalidPayloadException
 import|;
 end_import
 
@@ -909,6 +931,8 @@ specifier|private
 name|void
 name|commitOutputMessage
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|ExchangePattern
 name|pattern
@@ -1071,6 +1095,30 @@ name|getExchange
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Throw the exception that the template get
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Can't get the response message. Caused by "
+operator|+
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1098,6 +1146,8 @@ operator|.
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|org
 operator|.
@@ -1110,6 +1160,12 @@ operator|.
 name|Message
 name|inMessage
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|inMessage
+operator|=
 name|CxfSoapBinding
 operator|.
 name|getCxfInMessage
@@ -1120,7 +1176,25 @@ name|exchange
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+comment|// Throw IOException here
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Can't get the response message. Caused by: "
+operator|+
+name|ex
+argument_list|)
+throw|;
+block|}
 name|incomingObserver
 operator|.
 name|onMessage
