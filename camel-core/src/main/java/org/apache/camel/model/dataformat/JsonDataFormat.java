@@ -320,7 +320,7 @@ name|this
 argument_list|,
 literal|"dataFormatName"
 argument_list|,
-literal|"org.apache.camel.dataformat.xstream.JsonDataFormat"
+literal|"json-xstream"
 argument_list|)
 expr_stmt|;
 block|}
@@ -332,7 +332,7 @@ name|this
 argument_list|,
 literal|"dataFormatName"
 argument_list|,
-literal|"org.apache.camel.component.jackson.JacksonDataFormat"
+literal|"json-jackson"
 argument_list|)
 expr_stmt|;
 block|}

@@ -133,7 +133,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.dataformat.xstream.XStreamDataFormat"
+literal|"xstream"
 argument_list|)
 expr_stmt|;
 block|}

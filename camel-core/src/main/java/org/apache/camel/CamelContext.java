@@ -832,19 +832,19 @@ argument_list|>
 name|getDataFormats
 parameter_list|()
 function_decl|;
-comment|/**      * Resolve a data format given a reference to lookup in {@link Registry}      *      * @param name the data format name or a reference to it in the {@link Registry}      * @return the resolved data format, or<tt>null</tt> if not found      */
-DECL|method|resolveDataFormatByRef (String name)
+comment|/**      * Resolve a data format given its name      *      * @param name the data format name or a reference to it in the {@link Registry}      * @return the resolved data format, or<tt>null</tt> if not found      */
+DECL|method|resolveDataFormat (String name)
 name|DataFormat
-name|resolveDataFormatByRef
+name|resolveDataFormat
 parameter_list|(
 name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Resolve a data format given its class name      *      * @param name the fully qualified class name      * @return the resolved data format, or<tt>null</tt> if not found      */
-DECL|method|resolveDataFormatByClassName (String name)
-name|DataFormat
-name|resolveDataFormatByClassName
+comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
+DECL|method|resolveDataFormatDefinition (String name)
+name|DataFormatDefinition
+name|resolveDataFormatDefinition
 parameter_list|(
 name|String
 name|name

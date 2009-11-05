@@ -321,15 +321,6 @@ name|boolean
 name|isRouteAdded
 parameter_list|()
 function_decl|;
-comment|/**      * Get a DataFormatType by ref name      *      * @param ref  the ref name to lookup      * @return the found object      */
-DECL|method|getDataFormat (String ref)
-name|DataFormatDefinition
-name|getDataFormat
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the route policy      *      * @return the route policy if any      */
 DECL|method|getRoutePolicy ()
 name|RoutePolicy

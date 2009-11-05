@@ -162,7 +162,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.dataformat.tagsoup.TidyMarkupDataFormat"
+literal|"tidyMarkup"
 argument_list|)
 expr_stmt|;
 name|this

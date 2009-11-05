@@ -201,7 +201,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.dataformat.castor.CastorDataFormat"
+literal|"castor"
 argument_list|)
 expr_stmt|;
 block|}

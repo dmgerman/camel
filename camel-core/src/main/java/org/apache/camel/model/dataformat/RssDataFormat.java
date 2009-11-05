@@ -107,7 +107,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.dataformat.rss.RssDataFormat"
+literal|"rss"
 argument_list|)
 expr_stmt|;
 block|}

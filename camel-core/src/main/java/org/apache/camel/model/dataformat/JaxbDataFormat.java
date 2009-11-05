@@ -197,7 +197,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.converter.jaxb.JaxbDataFormat"
+literal|"jaxb"
 argument_list|)
 expr_stmt|;
 block|}
