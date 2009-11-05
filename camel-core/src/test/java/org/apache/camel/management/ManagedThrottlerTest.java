@@ -496,7 +496,7 @@ name|total
 argument_list|,
 name|total
 operator|>
-literal|4500
+literal|3500
 argument_list|)
 expr_stmt|;
 block|}
