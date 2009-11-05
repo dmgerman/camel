@@ -218,6 +218,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|Bus
@@ -1107,11 +1121,12 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|IOException
+name|IOHelper
+operator|.
+name|createIOException
 argument_list|(
-literal|"Can't get the response message. Caused by "
-operator|+
+literal|"Can't send the request message."
+argument_list|,
 name|exchange
 operator|.
 name|getException
@@ -1186,11 +1201,12 @@ parameter_list|)
 block|{
 comment|// Throw IOException here
 throw|throw
-operator|new
-name|IOException
+name|IOHelper
+operator|.
+name|createIOException
 argument_list|(
-literal|"Can't get the response message. Caused by: "
-operator|+
+literal|"Can't get the response message. "
+argument_list|,
 name|ex
 argument_list|)
 throw|;
