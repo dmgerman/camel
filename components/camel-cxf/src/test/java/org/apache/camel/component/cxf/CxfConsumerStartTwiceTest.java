@@ -216,6 +216,11 @@ literal|"Soap 1.1 endpoint already registered on address http://localhost:7070/t
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
