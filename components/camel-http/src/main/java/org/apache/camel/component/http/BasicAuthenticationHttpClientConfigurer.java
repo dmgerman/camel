@@ -56,7 +56,7 @@ name|commons
 operator|.
 name|httpclient
 operator|.
-name|UsernamePasswordCredentials
+name|NTCredentials
 import|;
 end_import
 
@@ -96,7 +96,13 @@ specifier|final
 name|String
 name|password
 decl_stmt|;
-DECL|method|BasicAuthenticationHttpClientConfigurer (String user, String pwd)
+DECL|field|domain
+specifier|private
+specifier|final
+name|String
+name|domain
+decl_stmt|;
+DECL|method|BasicAuthenticationHttpClientConfigurer (String user, String pwd, String domain)
 specifier|public
 name|BasicAuthenticationHttpClientConfigurer
 parameter_list|(
@@ -105,6 +111,9 @@ name|user
 parameter_list|,
 name|String
 name|pwd
+parameter_list|,
+name|String
+name|domain
 parameter_list|)
 block|{
 name|username
@@ -114,6 +123,12 @@ expr_stmt|;
 name|password
 operator|=
 name|pwd
+expr_stmt|;
+name|this
+operator|.
+name|domain
+operator|=
+name|domain
 expr_stmt|;
 block|}
 DECL|method|configureHttpClient (HttpClient client)
@@ -129,11 +144,15 @@ name|Credentials
 name|defaultcreds
 init|=
 operator|new
-name|UsernamePasswordCredentials
+name|NTCredentials
 argument_list|(
 name|username
 argument_list|,
 name|password
+argument_list|,
+literal|null
+argument_list|,
+name|domain
 argument_list|)
 decl_stmt|;
 name|client

@@ -56,7 +56,7 @@ name|commons
 operator|.
 name|httpclient
 operator|.
-name|UsernamePasswordCredentials
+name|NTCredentials
 import|;
 end_import
 
@@ -112,6 +112,12 @@ specifier|final
 name|String
 name|password
 decl_stmt|;
+DECL|field|domain
+specifier|private
+specifier|final
+name|String
+name|domain
+decl_stmt|;
 DECL|method|ProxyHttpClientConfigurer (String host, Integer port)
 specifier|public
 name|ProxyHttpClientConfigurer
@@ -132,10 +138,12 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String username, String password)
+DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String username, String password, String domain)
 specifier|public
 name|ProxyHttpClientConfigurer
 parameter_list|(
@@ -150,6 +158,9 @@ name|username
 parameter_list|,
 name|String
 name|password
+parameter_list|,
+name|String
+name|domain
 parameter_list|)
 block|{
 name|this
@@ -175,6 +186,12 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+name|this
+operator|.
+name|domain
+operator|=
+name|domain
 expr_stmt|;
 block|}
 DECL|method|configureHttpClient (HttpClient client)
@@ -213,11 +230,15 @@ name|Credentials
 name|defaultcreds
 init|=
 operator|new
-name|UsernamePasswordCredentials
+name|NTCredentials
 argument_list|(
 name|username
 argument_list|,
 name|password
+argument_list|,
+literal|null
+argument_list|,
+name|domain
 argument_list|)
 decl_stmt|;
 name|client
