@@ -499,6 +499,11 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
+DECL|field|checkException
+specifier|private
+name|boolean
+name|checkException
+decl_stmt|;
 DECL|method|CamelDestination (CamelContext camelContext, Bus bus, ConduitInitiator ci, EndpointInfo info)
 specifier|public
 name|CamelDestination
@@ -529,10 +534,12 @@ argument_list|,
 name|info
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CamelDestination (CamelContext camelContext, Bus bus, ConduitInitiator ci, EndpointInfo info, HeaderFilterStrategy headerFilterStrategy)
+DECL|method|CamelDestination (CamelContext camelContext, Bus bus, ConduitInitiator ci, EndpointInfo info, HeaderFilterStrategy headerFilterStrategy, boolean checkException)
 specifier|public
 name|CamelDestination
 parameter_list|(
@@ -550,6 +557,9 @@ name|info
 parameter_list|,
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+parameter_list|,
+name|boolean
+name|checkException
 parameter_list|)
 throws|throws
 name|IOException
@@ -623,6 +633,12 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+name|this
+operator|.
+name|checkException
+operator|=
+name|checkException
 expr_stmt|;
 block|}
 DECL|method|getLogger ()
@@ -1380,6 +1396,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|checkException
+operator|&&
 name|exception
 operator|!=
 literal|null

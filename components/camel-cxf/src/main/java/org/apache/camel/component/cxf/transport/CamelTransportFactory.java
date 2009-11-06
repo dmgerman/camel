@@ -319,6 +319,11 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
+DECL|field|checkException
+specifier|private
+name|boolean
+name|checkException
+decl_stmt|;
 static|static
 block|{
 name|URI_PREFIXES
@@ -445,6 +450,30 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|setCheckException (boolean check)
+specifier|public
+name|void
+name|setCheckException
+parameter_list|(
+name|boolean
+name|check
+parameter_list|)
+block|{
+name|checkException
+operator|=
+name|check
+expr_stmt|;
+block|}
+DECL|method|isCheckException ()
+specifier|public
+name|boolean
+name|isCheckException
+parameter_list|()
+block|{
+return|return
+name|checkException
+return|;
+block|}
 DECL|method|getConduit (EndpointInfo targetInfo)
 specifier|public
 name|Conduit
@@ -519,6 +548,8 @@ argument_list|,
 name|endpointInfo
 argument_list|,
 name|headerFilterStrategy
+argument_list|,
+name|checkException
 argument_list|)
 return|;
 block|}
