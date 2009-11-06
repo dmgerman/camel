@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugable strategy for configuring the http binding so reading request and writing response  * can be customized using the Java Servlet API.  *<p/>  * This is used by the camel-jetty.  *  * @version $Revision$  */
+comment|/**  * A plugable strategy for configuring the http binding so reading request and writing response  * can be customized using the Java Servlet API.  *<p/>  * This is also used by the camel-jetty by the JettyHttpConsumer.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -100,7 +100,7 @@ specifier|public
 interface|interface
 name|HttpBinding
 block|{
-comment|/**      * Startegy to read the given request and bindings it to the given message.      *      * @param request  the request      * @param message  the message to populate with data from request      */
+comment|/**      * Strategy to read the given request and bindings it to the given message.      *      * @param request  the request      * @param message  the message to populate with data from request      */
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 name|void
 name|readRequest
@@ -112,7 +112,7 @@ name|HttpMessage
 name|message
 parameter_list|)
 function_decl|;
-comment|/**      * Parses the body from a {@link org.apache.camel.component.http.HttpMessage}      *      * @return the parsed body returned as either a {@link java.io.InputStream} or a {@link java.io.Reader}      * depending on the {@link #setUseReaderForPayload(boolean)} property.      * @throws java.io.IOException can be thrown      */
+comment|/**      * Parses the body from a {@link org.apache.camel.component.http.HttpMessage}      *      * @param httpMessage the http message      * @return the parsed body returned as either a {@link java.io.InputStream} or a {@link java.io.Reader}      * depending on the {@link #setUseReaderForPayload(boolean)} property.      * @throws java.io.IOException can be thrown      */
 DECL|method|parseBody (HttpMessage httpMessage)
 name|Object
 name|parseBody
@@ -185,12 +185,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Should reader by used instead of input stream.      *      * @see #setUseReaderForPayload(boolean) for more details      * @return<tt>true</tt> if reader should be used      */
 DECL|method|isUseReaderForPayload ()
 name|boolean
 name|isUseReaderForPayload
 parameter_list|()
 function_decl|;
-comment|/**      * Should the {@link javax.servlet.http.HttpServletRequest#getReader()} be exposed as the payload of input messages in the Camel      * {@link org.apache.camel.Message#getBody()} or not. If false then the {@link javax.servlet.http.HttpServletRequest#getInputStream()} will be exposed.      */
+comment|/**      * Should the {@link javax.servlet.http.HttpServletRequest#getReader()} be exposed as the payload of input messages in the Camel      * {@link org.apache.camel.Message#getBody()} or not. If false then the {@link javax.servlet.http.HttpServletRequest#getInputStream()} will be exposed.      *<p/>      * Is default<tt>false</tt>.      *      * @param useReaderForPayload whether to use reader or not      */
 DECL|method|setUseReaderForPayload (boolean useReaderForPayload)
 name|void
 name|setUseReaderForPayload
@@ -199,12 +200,13 @@ name|boolean
 name|useReaderForPayload
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the header filter strategy      *      * @return the strategy      */
 DECL|method|getHeaderFilterStrategy ()
 name|HeaderFilterStrategy
 name|getHeaderFilterStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the header filter stratety to use.      *<p/>      * Will default use {@link org.apache.camel.component.http.HttpHeaderFilterStrategy}      */
+comment|/**      * Sets the header filter strategy to use.      *<p/>      * Will default use {@link org.apache.camel.component.http.HttpHeaderFilterStrategy}      *      * @param headerFilterStrategy the custom strategy      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 name|void
 name|setHeaderFilterStrategy

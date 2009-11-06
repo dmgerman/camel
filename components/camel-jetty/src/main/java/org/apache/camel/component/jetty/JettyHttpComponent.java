@@ -288,6 +288,20 @@ name|mortbay
 operator|.
 name|jetty
 operator|.
+name|client
+operator|.
+name|HttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
 name|handler
 operator|.
 name|ContextHandlerCollection
@@ -447,6 +461,11 @@ argument_list|,
 name|SslSocketConnector
 argument_list|>
 name|sslSocketConnectors
+decl_stmt|;
+DECL|field|httpClient
+specifier|protected
+name|HttpClient
+name|httpClient
 decl_stmt|;
 DECL|class|ConnectorRef
 class|class
@@ -1455,6 +1474,32 @@ block|{
 name|sslSocketConnectors
 operator|=
 name|connectors
+expr_stmt|;
+block|}
+DECL|method|getHttpClient ()
+specifier|public
+name|HttpClient
+name|getHttpClient
+parameter_list|()
+block|{
+return|return
+name|httpClient
+return|;
+block|}
+DECL|method|setHttpClient (HttpClient httpClient)
+specifier|public
+name|void
+name|setHttpClient
+parameter_list|(
+name|HttpClient
+name|httpClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClient
+operator|=
+name|httpClient
 expr_stmt|;
 block|}
 comment|// Implementation methods

@@ -625,7 +625,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:http://localhost:9080/test"
+literal|"http://localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -780,7 +780,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:https://localhost:9080/test"
+literal|"https://localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -793,7 +793,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:https://localhost:9090/test"
+literal|"https://localhost:9090/test"
 argument_list|,
 name|expectedBody
 argument_list|,

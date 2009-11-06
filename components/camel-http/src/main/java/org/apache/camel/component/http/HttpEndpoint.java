@@ -344,6 +344,34 @@ specifier|public
 name|HttpEndpoint
 parameter_list|()
 block|{     }
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI)
+specifier|public
+name|HttpEndpoint
+parameter_list|(
+name|String
+name|endPointURI
+parameter_list|,
+name|HttpComponent
+name|component
+parameter_list|,
+name|URI
+name|httpURI
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+name|this
+argument_list|(
+name|endPointURI
+argument_list|,
+name|component
+argument_list|,
+name|httpURI
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpConnectionManager httpConnectionManager)
 specifier|public
 name|HttpEndpoint
