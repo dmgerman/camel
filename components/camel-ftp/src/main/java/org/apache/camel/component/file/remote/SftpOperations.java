@@ -632,7 +632,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not connect due: "
+literal|"Cannot connect due: "
 operator|+
 name|failed
 operator|.
@@ -1030,7 +1030,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleteing file: "
+literal|"Deleting file: "
 operator|+
 name|name
 argument_list|)
@@ -1170,7 +1170,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|// maybe the full directory already exsits
+comment|// maybe the full directory already exists
 try|try
 block|{
 name|channel
@@ -1555,7 +1555,7 @@ name|path
 argument_list|)
 condition|)
 block|{
-comment|// list current dirctory if file path is not given
+comment|// list current directory if file path is not given
 name|path
 operator|=
 literal|"."
@@ -1699,8 +1699,19 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+name|OutputStream
+name|os
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
+name|os
+operator|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+expr_stmt|;
 name|GenericFile
 argument_list|<
 name|ChannelSftp
@@ -1741,13 +1752,6 @@ operator|+
 literal|" set"
 argument_list|)
 expr_stmt|;
-name|OutputStream
-name|os
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
 name|target
 operator|.
 name|setBody
@@ -1785,6 +1789,22 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|os
+argument_list|,
+literal|"retrieve: "
+operator|+
+name|name
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
@@ -2258,11 +2278,15 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|InputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
-name|InputStream
-name|in
-init|=
+name|is
+operator|=
 name|ExchangeHelper
 operator|.
 name|getMandatoryInBody
@@ -2273,7 +2297,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -2290,7 +2314,7 @@ name|channel
 operator|.
 name|put
 argument_list|(
-name|in
+name|is
 argument_list|,
 name|name
 argument_list|,
@@ -2307,7 +2331,7 @@ name|channel
 operator|.
 name|put
 argument_list|(
-name|in
+name|is
 argument_list|,
 name|name
 argument_list|)
@@ -2352,6 +2376,22 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|,
+literal|"store: "
+operator|+
+name|name
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|existsFile (String name)

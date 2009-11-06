@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|InvalidPayloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -677,7 +689,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not connect due: "
+literal|"Cannot connect due: "
 operator|+
 name|failed
 operator|.
@@ -1061,7 +1073,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleteing file: "
+literal|"Deleting file: "
 operator|+
 name|name
 argument_list|)
@@ -2047,20 +2059,24 @@ block|}
 name|InputStream
 name|is
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|is
+operator|=
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|InputStream
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-try|try
-block|{
+expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -2122,6 +2138,24 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidPayloadException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot store file: "
+operator|+
+name|name
 argument_list|,
 name|e
 argument_list|)
