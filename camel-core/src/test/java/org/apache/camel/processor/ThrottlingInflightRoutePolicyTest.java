@@ -95,11 +95,9 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
 name|size
-operator|-
-literal|5
 argument_list|)
 expr_stmt|;
 for|for
@@ -129,14 +127,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now start the route
-name|context
-operator|.
-name|startRoute
-argument_list|(
-literal|"myRoute"
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -187,14 +177,6 @@ operator|.
 name|routePolicy
 argument_list|(
 name|policy
-argument_list|)
-operator|.
-name|noAutoStartup
-argument_list|()
-operator|.
-name|id
-argument_list|(
-literal|"myRoute"
 argument_list|)
 operator|.
 name|to
