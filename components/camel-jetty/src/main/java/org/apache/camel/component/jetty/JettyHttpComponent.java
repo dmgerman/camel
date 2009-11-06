@@ -665,35 +665,6 @@ argument_list|(
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
-name|URI
-name|httpUri
-init|=
-name|URISupport
-operator|.
-name|createRemainingURI
-argument_list|(
-operator|new
-name|URI
-argument_list|(
-name|UnsafeUriCharactersEncoder
-operator|.
-name|encode
-argument_list|(
-name|uri
-argument_list|)
-argument_list|)
-argument_list|,
-name|parameters
-argument_list|)
-decl_stmt|;
-name|uri
-operator|=
-name|httpUri
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
 name|JettyHttpEndpoint
 name|result
 init|=
@@ -704,7 +675,7 @@ name|this
 argument_list|,
 name|uri
 argument_list|,
-name|httpUri
+literal|null
 argument_list|,
 name|params
 argument_list|,
@@ -757,6 +728,35 @@ argument_list|(
 name|result
 argument_list|,
 name|parameters
+argument_list|)
+expr_stmt|;
+comment|// create the http uri after we have configured all the parameters on the camel objects
+name|URI
+name|httpUri
+init|=
+name|URISupport
+operator|.
+name|createRemainingURI
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+argument_list|,
+name|parameters
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|setHttpUri
+argument_list|(
+name|httpUri
 argument_list|)
 expr_stmt|;
 return|return
@@ -1457,6 +1457,8 @@ operator|=
 name|connectors
 expr_stmt|;
 block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
 DECL|method|createServletForConnector (Server server, Connector connector, List<Handler> handlers)
 specifier|protected
 name|CamelServlet
@@ -1579,8 +1581,6 @@ return|return
 name|camelServlet
 return|;
 block|}
-comment|// Implementation methods
-comment|// -------------------------------------------------------------------------
 DECL|method|createServer ()
 specifier|protected
 name|Server
