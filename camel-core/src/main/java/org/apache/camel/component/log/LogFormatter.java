@@ -40,6 +40,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -172,6 +184,11 @@ DECL|field|multiline
 specifier|private
 name|boolean
 name|multiline
+decl_stmt|;
+DECL|field|showFuture
+specifier|private
+name|boolean
+name|showFuture
 decl_stmt|;
 DECL|field|maxChars
 specifier|private
@@ -1202,6 +1219,33 @@ operator|=
 name|multiline
 expr_stmt|;
 block|}
+DECL|method|isShowFuture ()
+specifier|public
+name|boolean
+name|isShowFuture
+parameter_list|()
+block|{
+return|return
+name|showFuture
+return|;
+block|}
+comment|/**      * If enabled Camel will on Future objects wait for it to complete to obtain the payload to be logged.      *<p/>      * Is default disabled.      */
+DECL|method|setShowFuture (boolean showFuture)
+specifier|public
+name|void
+name|setShowFuture
+parameter_list|(
+name|boolean
+name|showFuture
+parameter_list|)
+block|{
+name|this
+operator|.
+name|showFuture
+operator|=
+name|showFuture
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|getBodyAsString (Message message)
@@ -1213,6 +1257,35 @@ name|Message
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|message
+operator|.
+name|getBody
+argument_list|()
+operator|instanceof
+name|Future
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|isShowFuture
+argument_list|()
+condition|)
+block|{
+comment|// just use a to string of the future object
+return|return
+name|message
+operator|.
+name|getBody
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+block|}
 name|StreamCache
 name|newBody
 init|=
