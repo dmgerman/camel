@@ -260,11 +260,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|stop
 argument_list|(
 name|childrenStarted
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// Ignore exceptions as we want to show the original exception
+block|}
 throw|throw
 name|ex
 throw|;
