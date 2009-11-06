@@ -767,11 +767,6 @@ name|type
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|commit ()
 specifier|public
 name|void

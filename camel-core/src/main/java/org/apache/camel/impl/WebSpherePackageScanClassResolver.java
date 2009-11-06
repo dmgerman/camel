@@ -109,11 +109,6 @@ block|}
 comment|/**      * Overloaded to handle specific problem with getting resources on the IBM WebSphere platform.      *<p/>      * WebSphere can<b>not</b> load resources if the resource to load is a folder name, such as a      * packagename, you have to explicit name a resource that is a file.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws java.io.IOException is thrown by the classloader      */
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getResources (ClassLoader loader, String packageName)
 specifier|protected
 name|Enumeration
