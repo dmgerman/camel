@@ -651,6 +651,30 @@ return|return
 name|LOG
 return|;
 block|}
+DECL|method|setCheckException (boolean exception)
+specifier|public
+name|void
+name|setCheckException
+parameter_list|(
+name|boolean
+name|exception
+parameter_list|)
+block|{
+name|checkException
+operator|=
+name|exception
+expr_stmt|;
+block|}
+DECL|method|isCheckException ()
+specifier|public
+name|boolean
+name|isCheckException
+parameter_list|()
+block|{
+return|return
+name|checkException
+return|;
+block|}
 comment|/**      * @param inMessage the incoming message      * @return the inbuilt backchannel      */
 DECL|method|getInbuiltBackChannel (Message inMessage)
 specifier|protected
