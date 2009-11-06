@@ -70,6 +70,20 @@ name|commons
 operator|.
 name|httpclient
 operator|.
+name|UsernamePasswordCredentials
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
 name|auth
 operator|.
 name|AuthScope
@@ -118,6 +132,12 @@ specifier|final
 name|String
 name|domain
 decl_stmt|;
+DECL|field|ntHost
+specifier|private
+specifier|final
+name|String
+name|ntHost
+decl_stmt|;
 DECL|method|ProxyHttpClientConfigurer (String host, Integer port)
 specifier|public
 name|ProxyHttpClientConfigurer
@@ -140,10 +160,12 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String username, String password, String domain)
+DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String username, String password, String domain, String ntHost)
 specifier|public
 name|ProxyHttpClientConfigurer
 parameter_list|(
@@ -161,6 +183,9 @@ name|password
 parameter_list|,
 name|String
 name|domain
+parameter_list|,
+name|String
+name|ntHost
 parameter_list|)
 block|{
 name|this
@@ -192,6 +217,12 @@ operator|.
 name|domain
 operator|=
 name|domain
+expr_stmt|;
+name|this
+operator|.
+name|ntHost
+operator|=
+name|ntHost
 expr_stmt|;
 block|}
 DECL|method|configureHttpClient (HttpClient client)
@@ -228,7 +259,16 @@ condition|)
 block|{
 name|Credentials
 name|defaultcreds
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|domain
+operator|!=
+literal|null
+condition|)
+block|{
+name|defaultcreds
+operator|=
 operator|new
 name|NTCredentials
 argument_list|(
@@ -236,11 +276,25 @@ name|username
 argument_list|,
 name|password
 argument_list|,
-literal|null
+name|ntHost
 argument_list|,
 name|domain
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|defaultcreds
+operator|=
+operator|new
+name|UsernamePasswordCredentials
+argument_list|(
+name|username
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+block|}
 name|client
 operator|.
 name|getState
