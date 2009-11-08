@@ -601,7 +601,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"No spring-event endpoint enabled to handle event: "
 operator|+
@@ -671,7 +671,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot find the class loader from application context, so using the thread context class loader instead"
+literal|"Cannot find the class loader from application context, using the thread context class loader instead"
 argument_list|)
 expr_stmt|;
 name|cl
