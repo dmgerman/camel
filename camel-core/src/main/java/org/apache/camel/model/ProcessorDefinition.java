@@ -1712,6 +1712,56 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the endpoint to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|toAsync (String uri)
+specifier|public
+name|Type
+name|toAsync
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|ToDefinition
+name|answer
+init|=
+operator|new
+name|ToDefinition
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setAsync
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+comment|// must push a block so we have a child route for the async reply
+comment|// routing which is separated from the caller route
+name|pushBlock
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the String formatted endpoint uri to send to      * @param args arguments for the string formatting of the uri      * @return the builder      */
 annotation|@
 name|SuppressWarnings

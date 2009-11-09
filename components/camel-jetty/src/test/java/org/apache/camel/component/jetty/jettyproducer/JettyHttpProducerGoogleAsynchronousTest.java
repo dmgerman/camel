@@ -141,15 +141,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"I am not blocked"
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -184,9 +175,9 @@ literal|"direct:start"
 argument_list|)
 comment|// to prevent redirect being thrown as an exception
 operator|.
-name|to
+name|toAsync
 argument_list|(
-literal|"jetty://http://www.google.com?throwExceptionOnFailure=false&synchronous=false&concurrentConsumers=5"
+literal|"jetty://http://www.google.com?throwExceptionOnFailure=false"
 argument_list|)
 operator|.
 name|to

@@ -141,7 +141,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"jetty://http://0.0.0.0:9123/foo?synchronous=false&concurrentConsumers=5"
+literal|"jetty://http://0.0.0.0:9123/foo"
 decl_stmt|;
 annotation|@
 name|Test
@@ -183,7 +183,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|outBody
+name|body
 argument_list|()
 operator|.
 name|isEqualTo
@@ -277,7 +277,7 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|to
+name|toAsync
 argument_list|(
 name|url
 argument_list|)

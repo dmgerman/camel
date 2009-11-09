@@ -410,7 +410,27 @@ name|lookup
 expr_stmt|;
 block|}
 block|}
+name|doProcess
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Strategy to process the exchange      *      * @param exchange the exchange      * @throws Exception can be thrown if error processing exchange      * @return the exchange that was processed      */
+DECL|method|doProcess (final Exchange exchange)
+specifier|public
+name|Exchange
+name|doProcess
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// send the exchange to the destination using a producer
+return|return
 name|getProducerCache
 argument_list|(
 name|exchange
@@ -469,7 +489,7 @@ return|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getProducerCache (Exchange exchange)
 specifier|protected

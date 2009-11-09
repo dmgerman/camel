@@ -198,7 +198,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty://http://www.google.com?throwExceptionOnFailure=false&synchronous=true"
+literal|"jetty://http://www.google.com?throwExceptionOnFailure=false"
 argument_list|)
 expr_stmt|;
 block|}

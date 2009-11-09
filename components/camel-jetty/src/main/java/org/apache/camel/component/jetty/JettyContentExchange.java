@@ -44,16 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -89,6 +79,18 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
 import|;
 end_import
 
@@ -253,14 +255,11 @@ specifier|volatile
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|field|completeTasks
+DECL|field|callback
 specifier|private
 specifier|volatile
-name|Collection
-argument_list|<
-name|Exchange
-argument_list|>
-name|completeTasks
+name|AsyncCallback
+name|callback
 decl_stmt|;
 DECL|method|JettyContentExchange ()
 specifier|public
@@ -290,23 +289,20 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-DECL|method|setCompleteTasks (Collection<Exchange> completeTasks)
+DECL|method|setCallback (AsyncCallback callback)
 specifier|public
 name|void
-name|setCompleteTasks
+name|setCallback
 parameter_list|(
-name|Collection
-argument_list|<
-name|Exchange
-argument_list|>
-name|completeTasks
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 name|this
 operator|.
-name|completeTasks
+name|callback
 operator|=
-name|completeTasks
+name|callback
 expr_stmt|;
 block|}
 annotation|@
@@ -421,7 +417,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|completeTasks
+name|callback
 operator|!=
 literal|null
 operator|&&
@@ -448,10 +444,10 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we are complete so add the exchange to completed tasks
-name|completeTasks
+comment|// signal we are complete
+name|callback
 operator|.
-name|add
+name|onDataReceived
 argument_list|(
 name|exchange
 argument_list|)
