@@ -912,6 +912,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// override the parameter setting from URI
+comment|// START SNIPPET: QueryMapExample
 name|Map
 argument_list|<
 name|String
@@ -958,6 +960,7 @@ argument_list|,
 name|queryMap
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: QueryMapExample
 name|inMessage
 operator|.
 name|setBody
