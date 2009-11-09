@@ -1775,6 +1775,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: coerce types before assertEquals
 name|assertEquals
 argument_list|(
 literal|"Body of message: "

@@ -324,6 +324,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// timeout occurred
 name|ExchangeTimedOutException
 name|cause
 init|=
