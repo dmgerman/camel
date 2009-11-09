@@ -343,6 +343,8 @@ DECL|field|httpClientAPI
 specifier|private
 name|boolean
 name|httpClientAPI
+init|=
+literal|true
 decl_stmt|;
 DECL|field|bindingInitialized
 specifier|private
