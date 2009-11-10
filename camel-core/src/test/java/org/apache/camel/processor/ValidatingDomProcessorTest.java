@@ -16,32 +16,6 @@ name|processor
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|validation
-operator|.
-name|ValidatingProcessor
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test of ValidatingProcessor.  */
 end_comment
