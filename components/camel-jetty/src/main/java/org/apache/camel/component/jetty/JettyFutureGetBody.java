@@ -115,6 +115,8 @@ comment|/**  * A {@link Future} task which to be used to retrieve the HTTP respo
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|JettyFutureGetBody
 specifier|public
 class|class
@@ -382,6 +384,11 @@ argument_list|,
 name|httpExchange
 operator|.
 name|getResponseStatus
+argument_list|()
+argument_list|,
+name|httpExchange
+operator|.
+name|getHeaders
 argument_list|()
 argument_list|,
 name|httpExchange

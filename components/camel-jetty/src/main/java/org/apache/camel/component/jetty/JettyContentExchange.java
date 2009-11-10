@@ -208,7 +208,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|headers
 init|=
@@ -217,7 +217,7 @@ name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -426,24 +426,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Adding Exchange to completed task: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 comment|// signal we are complete
 name|callback
 operator|.
@@ -527,7 +509,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|getHeaders
 parameter_list|()
