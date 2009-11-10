@@ -246,6 +246,8 @@ operator|.
 name|toAsync
 argument_list|(
 literal|"direct:bar"
+argument_list|,
+literal|5
 argument_list|)
 operator|.
 name|to

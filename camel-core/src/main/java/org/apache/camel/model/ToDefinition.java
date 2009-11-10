@@ -268,6 +268,10 @@ DECL|field|async
 specifier|private
 name|Boolean
 name|async
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -564,7 +568,10 @@ operator|+
 name|getLabel
 argument_list|()
 operator|+
-literal|"]"
+literal|"] -> "
+operator|+
+name|getOutputs
+argument_list|()
 return|;
 block|}
 else|else
@@ -629,6 +636,84 @@ operator|=
 name|async
 expr_stmt|;
 block|}
+DECL|method|getPoolSize ()
+specifier|public
+name|Integer
+name|getPoolSize
+parameter_list|()
+block|{
+return|return
+name|poolSize
+return|;
+block|}
+DECL|method|setPoolSize (Integer poolSize)
+specifier|public
+name|void
+name|setPoolSize
+parameter_list|(
+name|Integer
+name|poolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|poolSize
+operator|=
+name|poolSize
+expr_stmt|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
+expr_stmt|;
+block|}
 comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
 DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
@@ -645,6 +730,63 @@ name|pattern
 operator|=
 name|pattern
 expr_stmt|;
+block|}
+comment|/**      * Setting the executor service for executing the async routing.      *      * @return the builder      */
+DECL|method|executorService (ExecutorService executorService)
+specifier|public
+name|ToDefinition
+name|executorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|setExecutorService
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor service for executing the async routing.      *      * @return the builder      */
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|ToDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|executorServiceRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the core pool size for the underlying {@link java.util.concurrent.ExecutorService}.      *      * @return the builder      */
+DECL|method|poolSize (int poolSize)
+specifier|public
+name|ToDefinition
+name|poolSize
+parameter_list|(
+name|int
+name|poolSize
+parameter_list|)
+block|{
+name|setPoolSize
+argument_list|(
+name|poolSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

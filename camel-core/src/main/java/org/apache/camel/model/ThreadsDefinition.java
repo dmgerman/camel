@@ -388,7 +388,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the multicasting action.      *      * @return the builder      */
+comment|/**      * Setting the executor service for the thread pool      *      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThreadsDefinition
@@ -401,6 +401,25 @@ block|{
 name|setExecutorService
 argument_list|(
 name|executorService
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor service for the thread pool      *      * @return the builder      */
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|ThreadsDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|executorServiceRef
 argument_list|)
 expr_stmt|;
 return|return
@@ -469,6 +488,32 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 DECL|method|getPoolSize ()
