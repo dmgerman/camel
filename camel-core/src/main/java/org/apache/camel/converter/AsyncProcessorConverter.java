@@ -99,9 +99,17 @@ annotation|@
 name|Converter
 DECL|class|AsyncProcessorConverter
 specifier|public
+specifier|final
 class|class
 name|AsyncProcessorConverter
 block|{
+DECL|method|AsyncProcessorConverter ()
+specifier|private
+name|AsyncProcessorConverter
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 DECL|class|ProcessorToAsyncProcessorBridge
 specifier|private
 specifier|static
