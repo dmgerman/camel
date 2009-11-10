@@ -505,21 +505,25 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|producer
-operator|instanceof
 name|AsyncProcessor
-condition|)
-block|{
-comment|// let the producer use this callback to signal completion
-name|AsyncProcessor
-name|asyncProcessor
+name|asyncProducer
 init|=
-operator|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
 name|AsyncProcessor
-operator|)
+operator|.
+name|class
+argument_list|,
 name|producer
+argument_list|)
 decl_stmt|;
 comment|// pass in the callback that adds the exchange to the completed list of tasks
 specifier|final
@@ -548,7 +552,8 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-name|asyncProcessor
+comment|// produce it async
+name|asyncProducer
 operator|.
 name|process
 argument_list|(
@@ -557,25 +562,7 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// its not a real AsyncProcessor so simulate async processing
-name|producer
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|completedTasks
-operator|.
-name|add
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
+comment|// and return the exchange
 return|return
 name|exchange
 return|;
