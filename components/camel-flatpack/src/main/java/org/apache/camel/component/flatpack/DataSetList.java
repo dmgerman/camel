@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|net
 operator|.
 name|sf
@@ -61,6 +71,14 @@ class|class
 name|DataSetList
 extends|extends
 name|AbstractList
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 block|{
 DECL|field|dataSet
 specifier|private
@@ -85,7 +103,12 @@ expr_stmt|;
 block|}
 DECL|method|get (int index)
 specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|Object
+argument_list|>
 name|get
 parameter_list|(
 name|int
@@ -126,6 +149,14 @@ name|Override
 DECL|method|iterator ()
 specifier|public
 name|Iterator
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|iterator
 parameter_list|()
 block|{
@@ -137,6 +168,14 @@ expr_stmt|;
 return|return
 operator|new
 name|Iterator
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -152,7 +191,12 @@ argument_list|()
 return|;
 block|}
 specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|Object
+argument_list|>
 name|next
 parameter_list|()
 block|{

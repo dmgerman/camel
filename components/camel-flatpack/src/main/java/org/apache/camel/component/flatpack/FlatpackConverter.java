@@ -108,6 +108,11 @@ DECL|method|toMap (DataSet dataSet)
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|toMap
 parameter_list|(
 name|DataSet
@@ -148,6 +153,14 @@ DECL|method|toList (DataSet dataSet)
 specifier|public
 specifier|static
 name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|toList
 parameter_list|(
 name|DataSet
