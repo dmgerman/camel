@@ -1591,6 +1591,14 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+comment|// can return either null or an empty list depending on FTP servers
+if|if
+condition|(
+name|files
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Object
@@ -1611,6 +1619,7 @@ operator|)
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|list
@@ -2449,6 +2458,18 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
+comment|// can return either null or an empty list depending on FTP servers
+if|if
+condition|(
+name|files
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 for|for
 control|(
 name|Object
