@@ -206,6 +206,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -332,6 +346,9 @@ decl_stmt|;
 DECL|field|entityType
 specifier|private
 name|Class
+argument_list|<
+name|ProcessInstance
+argument_list|>
 name|entityType
 init|=
 name|ProcessInstance
@@ -485,12 +502,15 @@ name|answer
 return|;
 block|}
 comment|/**      * Sets the process entity type used to perform state management      */
-DECL|method|entityType (Class entityType)
+DECL|method|entityType (Class<ProcessInstance> entityType)
 specifier|public
 name|ProcessBuilder
 name|entityType
 parameter_list|(
 name|Class
+argument_list|<
+name|ProcessInstance
+argument_list|>
 name|entityType
 parameter_list|)
 block|{
@@ -591,6 +611,9 @@ block|}
 DECL|method|getEntityType ()
 specifier|public
 name|Class
+argument_list|<
+name|ProcessInstance
+argument_list|>
 name|getEntityType
 parameter_list|()
 block|{
@@ -851,6 +874,10 @@ name|ActivityDefinition
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|jpaTemplate
 operator|.
 name|find
@@ -869,6 +896,7 @@ argument_list|,
 name|definition
 argument_list|,
 name|activityName
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -943,6 +971,10 @@ name|ProcessDefinition
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|jpaTemplate
 operator|.
 name|find
@@ -959,6 +991,7 @@ operator|+
 literal|" x where x.name = ?1"
 argument_list|,
 name|processName
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

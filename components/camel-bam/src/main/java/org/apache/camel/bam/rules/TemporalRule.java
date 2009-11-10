@@ -186,6 +186,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -335,10 +349,22 @@ decl_stmt|;
 DECL|field|overdueProcessors
 specifier|private
 name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|overdueProcessors
 init|=
 operator|new
 name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|TemporalRule (TimeExpression first, TimeExpression second)
@@ -404,6 +430,12 @@ block|}
 DECL|method|errorIfOver (Time builder)
 specifier|public
 name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|errorIfOver
 parameter_list|(
 name|Time
@@ -423,6 +455,12 @@ block|}
 DECL|method|errorIfOver (long millis)
 specifier|public
 name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|errorIfOver
 parameter_list|(
 name|long
@@ -433,20 +471,6 @@ name|overdueMillis
 operator|=
 name|millis
 expr_stmt|;
-if|if
-condition|(
-name|overdueProcessors
-operator|==
-literal|null
-condition|)
-block|{
-name|overdueProcessors
-operator|=
-operator|new
-name|OutputDefinition
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|overdueProcessors
 return|;
@@ -490,20 +514,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TOOD refactor to avoid this messyness...
-name|ArrayList
-argument_list|<
-name|Route
-argument_list|>
-name|list
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Route
-argument_list|>
-argument_list|()
-decl_stmt|;
 name|RouteDefinition
 name|route
 init|=
@@ -548,7 +558,12 @@ name|route
 argument_list|,
 literal|null
 argument_list|,
-name|list
+operator|new
+name|ArrayList
+argument_list|<
+name|Route
+argument_list|>
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|overdueAction
@@ -594,7 +609,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// ignore as first event has not accurred yet
+comment|// ignore as first event has not occurred yet
 return|return;
 block|}
 comment|// TODO now we might need to set the second activity state

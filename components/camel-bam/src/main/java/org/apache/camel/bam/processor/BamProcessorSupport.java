@@ -19,6 +19,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -146,22 +162,6 @@ name|TransactionTemplate
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A base {@link Processor} for working on<a  * href="http://camel.apache.org/bam.html">BAM</a> which a derived  * class would do the actual persistence such as the {@link JpaBamProcessor}  *  * @version $Revision$  */
 end_comment
@@ -227,6 +227,11 @@ name|retrySleep
 init|=
 literal|1000L
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression correlationKeyExpression)
 specifier|protected
 name|BamProcessorSupport

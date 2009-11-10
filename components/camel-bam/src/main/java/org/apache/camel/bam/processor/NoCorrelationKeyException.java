@@ -54,17 +54,32 @@ name|NoCorrelationKeyException
 extends|extends
 name|CamelExchangeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4511220911189364989L
+decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
 name|BamProcessorSupport
+argument_list|<
+name|?
+argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|NoCorrelationKeyException (BamProcessorSupport processor, Exchange exchange)
+DECL|method|NoCorrelationKeyException (BamProcessorSupport<?> processor, Exchange exchange)
 specifier|public
 name|NoCorrelationKeyException
 parameter_list|(
 name|BamProcessorSupport
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|,
 name|Exchange
@@ -93,6 +108,9 @@ block|}
 DECL|method|getProcessor ()
 specifier|public
 name|BamProcessorSupport
+argument_list|<
+name|?
+argument_list|>
 name|getProcessor
 parameter_list|()
 block|{

@@ -88,6 +88,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -329,6 +343,10 @@ name|ProcessDefinition
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|template
 operator|.
 name|find
@@ -345,6 +363,7 @@ operator|+
 literal|" x where x.name = ?1"
 argument_list|,
 name|processName
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

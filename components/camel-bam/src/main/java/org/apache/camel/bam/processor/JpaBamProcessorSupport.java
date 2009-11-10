@@ -628,6 +628,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|findEntityByCorrelationKey (Object key)
 specifier|protected
 name|T
@@ -701,6 +706,9 @@ block|}
 DECL|method|getKeyType ()
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getKeyType
 parameter_list|()
 block|{

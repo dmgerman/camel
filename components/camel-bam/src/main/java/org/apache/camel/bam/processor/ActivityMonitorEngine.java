@@ -120,6 +120,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -254,11 +268,6 @@ DECL|field|rules
 specifier|private
 name|ProcessRules
 name|rules
-decl_stmt|;
-DECL|field|escalateLevel
-specifier|private
-name|int
-name|escalateLevel
 decl_stmt|;
 DECL|field|windowMillis
 specifier|private
@@ -399,13 +408,16 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
-comment|//List<ActivityState> list = template.find("select x from " + ActivityState.class.getName() + " x where x.escalationLevel = ?1 and x.timeOverdue< ?2", escalateLevel, timeNow);
 name|List
 argument_list|<
 name|ActivityState
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|template
 operator|.
 name|find
@@ -422,6 +434,7 @@ operator|+
 literal|" x where x.timeOverdue< ?1"
 argument_list|,
 name|timeNow
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for

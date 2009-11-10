@@ -140,34 +140,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a activity which is typically a system or could be an endpoint  *  * @version $Revision$  */
 end_comment
@@ -180,23 +152,6 @@ name|ActivityRules
 extends|extends
 name|ServiceSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|ActivityRules
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|expectedMessages
 specifier|private
 name|int
@@ -223,11 +178,6 @@ argument_list|<
 name|TemporalRule
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|activityDefinition
-specifier|private
-name|ActivityDefinition
-name|activityDefinition
 decl_stmt|;
 DECL|field|activityName
 specifier|private
@@ -385,14 +335,7 @@ parameter_list|(
 name|ActivityDefinition
 name|activityDefinition
 parameter_list|)
-block|{
-name|this
-operator|.
-name|activityDefinition
-operator|=
-name|activityDefinition
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getExpectedMessages ()
 specifier|public
 name|int
