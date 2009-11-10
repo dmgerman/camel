@@ -1071,12 +1071,13 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// Use the "original" Message, in case a copy ended up being made
 name|Message
 name|message
 init|=
 name|msg
 operator|.
-name|getMessage
+name|getOriginalMessage
 argument_list|()
 decl_stmt|;
 if|if
