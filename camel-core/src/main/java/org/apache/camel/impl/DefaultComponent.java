@@ -521,9 +521,43 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|afterConfiguration
+argument_list|(
+name|uri
+argument_list|,
+name|path
+argument_list|,
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which which leaves it with only additional parameters.      *      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */
+DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map parameters)
+specifier|protected
+name|void
+name|afterConfiguration
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 comment|/**      * Strategy for validation of parameters, that was not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
 DECL|method|validateParameters (String uri, Map parameters, String optionPrefix)
