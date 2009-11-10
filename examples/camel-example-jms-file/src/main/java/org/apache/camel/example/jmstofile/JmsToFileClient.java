@@ -108,15 +108,15 @@ parameter_list|()
 block|{
 comment|//Helper class
 block|}
-DECL|method|mail (String[] args)
+DECL|method|main (String args[])
 specifier|public
 specifier|static
 name|void
-name|mail
+name|main
 parameter_list|(
 name|String
-index|[]
 name|args
+index|[]
 parameter_list|)
 throws|throws
 name|Exception
