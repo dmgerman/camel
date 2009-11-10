@@ -42,7 +42,7 @@ name|processor
 operator|.
 name|async
 operator|.
-name|ToAsyncTest
+name|ToAsyncTwoTest
 import|;
 end_import
 
@@ -69,12 +69,12 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SpringToAsyncTest
+DECL|class|SpringToAsyncTwoTest
 specifier|public
 class|class
-name|SpringToAsyncTest
+name|SpringToAsyncTwoTest
 extends|extends
-name|ToAsyncTest
+name|ToAsyncTwoTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -89,7 +89,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/SpringToAsyncTest.xml"
+literal|"org/apache/camel/spring/processor/SpringToAsyncTwoTest.xml"
 argument_list|)
 return|;
 block|}

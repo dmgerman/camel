@@ -164,7 +164,35 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|Pipeline
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|SendAsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|UnitOfWorkProcessor
 import|;
 end_import
 
@@ -471,7 +499,12 @@ name|newScheduledThreadPool
 argument_list|(
 name|poolSize
 argument_list|,
-literal|"ToAsync"
+literal|"ToAsync["
+operator|+
+name|getLabel
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 literal|true
 argument_list|)
@@ -486,6 +519,16 @@ operator|.
 name|createProcessor
 argument_list|(
 name|this
+argument_list|)
+decl_stmt|;
+comment|// wrap it in a unit of work so the route that comes next is also done in a unit of work
+name|UnitOfWorkProcessor
+name|uow
+init|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|childProcessor
 argument_list|)
 decl_stmt|;
 comment|// create async processor
@@ -508,7 +551,7 @@ argument_list|,
 name|getPattern
 argument_list|()
 argument_list|,
-name|childProcessor
+name|uow
 argument_list|)
 decl_stmt|;
 if|if
