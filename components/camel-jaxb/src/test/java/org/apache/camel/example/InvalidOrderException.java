@@ -28,6 +28,15 @@ name|InvalidOrderException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|383958238537555588L
+decl_stmt|;
 DECL|method|InvalidOrderException (String message)
 specifier|public
 name|InvalidOrderException

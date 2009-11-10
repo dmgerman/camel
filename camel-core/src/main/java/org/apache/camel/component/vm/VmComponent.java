@@ -141,6 +141,9 @@ argument_list|<
 name|String
 argument_list|,
 name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
 argument_list|>
 name|QUEUES
 init|=
@@ -150,6 +153,9 @@ argument_list|<
 name|String
 argument_list|,
 name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -343,6 +349,9 @@ block|{
 for|for
 control|(
 name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
 name|q
 range|:
 name|QUEUES
