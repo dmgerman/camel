@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -93,6 +105,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangeTimedOutException
 import|;
 end_import
 
@@ -237,6 +261,20 @@ operator|.
 name|client
 operator|.
 name|HttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|client
+operator|.
+name|HttpExchange
 import|;
 end_import
 
@@ -385,7 +423,6 @@ operator|.
 name|getClient
 argument_list|()
 decl_stmt|;
-specifier|final
 name|JettyContentExchange
 name|httpExchange
 init|=
@@ -393,98 +430,6 @@ name|createHttpExchange
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
-comment|// wrap the original callback into another so we can populate the response
-comment|// before we signal completion to the original callback which then will start routing the exchange
-name|AsyncCallback
-name|wrapped
-init|=
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|onTaskCompleted
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// at first we must populate the response
-try|try
-block|{
-name|getBinding
-argument_list|()
-operator|.
-name|populateResponse
-argument_list|(
-name|exchange
-argument_list|,
-name|httpExchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JettyHttpOperationFailedException
-name|e
-parameter_list|)
-block|{
-comment|// can be expected
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Error populating response from "
-operator|+
-name|httpExchange
-operator|.
-name|getUrl
-argument_list|()
-operator|+
-literal|" on Exchange "
-operator|+
-name|exchange
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// now we are ready so signal completion to the original callback
-name|callback
-operator|.
-name|onTaskCompleted
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 decl_stmt|;
 name|sendAsynchronous
 argument_list|(
@@ -494,7 +439,7 @@ name|client
 argument_list|,
 name|httpExchange
 argument_list|,
-name|wrapped
+name|callback
 argument_list|)
 expr_stmt|;
 block|}
@@ -522,18 +467,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// set the callback for the async mode
 name|httpExchange
 operator|.
 name|setCallback
 argument_list|(
 name|callback
-argument_list|)
-expr_stmt|;
-name|httpExchange
-operator|.
-name|setExchange
-argument_list|(
-name|exchange
 argument_list|)
 expr_stmt|;
 name|doSendExchange
@@ -543,6 +482,7 @@ argument_list|,
 name|httpExchange
 argument_list|)
 expr_stmt|;
+comment|// the callback will handle all the response handling logic
 block|}
 DECL|method|sendSynchronous (Exchange exchange, HttpClient client, JettyContentExchange httpExchange)
 specifier|protected
@@ -569,12 +509,42 @@ name|httpExchange
 argument_list|)
 expr_stmt|;
 comment|// we send synchronous so wait for it to be done
+name|int
+name|exchangeState
+init|=
 name|httpExchange
 operator|.
 name|waitForDone
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP exchange is done with state "
+operator|+
+name|exchangeState
+argument_list|)
 expr_stmt|;
-comment|// and then process the response
+block|}
+if|if
+condition|(
+name|exchangeState
+operator|==
+name|HttpExchange
+operator|.
+name|STATUS_COMPLETED
+condition|)
+block|{
+comment|// process the response as the state is ok
 name|getBinding
 argument_list|()
 operator|.
@@ -585,6 +555,54 @@ argument_list|,
 name|httpExchange
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|exchangeState
+operator|==
+name|HttpExchange
+operator|.
+name|STATUS_EXPIRED
+condition|)
+block|{
+comment|// we did timeout
+throw|throw
+operator|new
+name|ExchangeTimedOutException
+argument_list|(
+name|exchange
+argument_list|,
+name|client
+operator|.
+name|getTimeout
+argument_list|()
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|exchangeState
+operator|==
+name|HttpExchange
+operator|.
+name|STATUS_EXCEPTED
+condition|)
+block|{
+comment|// some kind of other error
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"JettyClient failed with state "
+operator|+
+name|exchangeState
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|createHttpExchange (Exchange exchange)
 specifier|protected
@@ -651,7 +669,14 @@ name|httpExchange
 init|=
 operator|new
 name|JettyContentExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|getBinding
 argument_list|()
+argument_list|,
+name|client
+argument_list|)
 decl_stmt|;
 name|httpExchange
 operator|.
