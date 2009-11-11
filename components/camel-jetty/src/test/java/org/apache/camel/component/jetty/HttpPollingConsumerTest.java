@@ -109,7 +109,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:9444/test"
 argument_list|,
 name|String
 operator|.
@@ -141,7 +141,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:9444/test"
 argument_list|,
 literal|5000
 argument_list|,
@@ -174,7 +174,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:9444/test"
 argument_list|,
 literal|250
 argument_list|,
@@ -235,7 +235,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test"
+literal|"jetty://http://localhost:9444/test"
 argument_list|)
 operator|.
 name|delay

@@ -24,10 +24,10 @@ specifier|public
 interface|interface
 name|AsyncCallback
 block|{
-comment|/**      * Callback when the {@link Exchange} is ready to be routed as data has been received.      *      * @param exchange the exchange      */
-DECL|method|onDataReceived (Exchange exchange)
+comment|/**      * Callback when the async task is completed and the provided {@link Exchange}      * is ready to be routed.      *      * @param exchange the exchange      */
+DECL|method|onTaskCompleted (Exchange exchange)
 name|void
-name|onDataReceived
+name|onTaskCompleted
 parameter_list|(
 name|Exchange
 name|exchange

@@ -536,7 +536,7 @@ argument_list|()
 block|{
 specifier|public
 name|void
-name|onDataReceived
+name|onTaskCompleted
 parameter_list|(
 name|Exchange
 name|exchange

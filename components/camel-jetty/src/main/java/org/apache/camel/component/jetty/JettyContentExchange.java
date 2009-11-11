@@ -429,7 +429,7 @@ block|{
 comment|// signal we are complete
 name|callback
 operator|.
-name|onDataReceived
+name|onTaskCompleted
 argument_list|(
 name|exchange
 argument_list|)

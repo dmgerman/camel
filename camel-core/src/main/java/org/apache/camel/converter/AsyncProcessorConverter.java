@@ -175,7 +175,7 @@ expr_stmt|;
 block|}
 name|callback
 operator|.
-name|onDataReceived
+name|onTaskCompleted
 argument_list|(
 name|exchange
 argument_list|)
