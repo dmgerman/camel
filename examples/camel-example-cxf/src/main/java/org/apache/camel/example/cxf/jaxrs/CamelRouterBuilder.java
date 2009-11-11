@@ -520,6 +520,9 @@ block|{
 DECL|field|beanClass
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanClass
 decl_stmt|;
 DECL|field|instance
@@ -685,6 +688,9 @@ block|}
 DECL|method|getParameterTypes (Object[] parameters)
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|getParameterTypes
 parameter_list|(
@@ -709,6 +715,9 @@ index|]
 return|;
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|answer
 init|=

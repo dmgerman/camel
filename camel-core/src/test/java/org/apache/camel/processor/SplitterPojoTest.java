@@ -436,6 +436,9 @@ comment|/**          * The split body method returns something that is iteratabl
 DECL|method|splitBody (String body)
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|splitBody
 parameter_list|(
 name|String
@@ -448,10 +451,16 @@ comment|// of the box support for splitting a String based on comma
 comment|// but this is for show and tell, since this is java code
 comment|// you have the full power how you like to split your messages
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|String

@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -63,6 +75,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
 import|;
 end_import
 
@@ -131,30 +157,6 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
 import|;
 end_import
 
@@ -276,12 +278,18 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|>
 name|data
 init|=
-operator|(
-name|List
-operator|)
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|results
 operator|.
 name|getExchanges
@@ -296,10 +304,20 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|List
+operator|.
+name|class
+argument_list|)
+argument_list|)
 decl_stmt|;
 comment|// assert header
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|header
 init|=
 name|data
@@ -342,6 +360,11 @@ decl_stmt|;
 for|for
 control|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|row
 range|:
 name|data
@@ -390,6 +413,11 @@ expr_stmt|;
 block|}
 comment|// assert trailer
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|trailer
 init|=
 name|data

@@ -38,14 +38,14 @@ name|spring
 operator|.
 name|Main
 block|{
-DECL|method|main (String[] args)
+DECL|method|main (String... args)
 specifier|public
 specifier|static
 name|void
 name|main
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|args
 parameter_list|)
 throws|throws

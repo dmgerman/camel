@@ -512,11 +512,17 @@ decl_stmt|;
 DECL|field|expectedBodyValues
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|expectedBodyValues
 decl_stmt|;
 DECL|field|actualBodyValues
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|actualBodyValues
 decl_stmt|;
 DECL|field|headerName
@@ -1657,13 +1663,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in the specified order      */
-DECL|method|expectedBodiesReceived (final List bodies)
+DECL|method|expectedBodiesReceived (final List<Object> bodies)
 specifier|public
 name|void
 name|expectedBodiesReceived
 parameter_list|(
 specifier|final
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|bodies
 parameter_list|)
 block|{
@@ -1687,6 +1696,9 @@ name|actualBodyValues
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|expects
@@ -1805,10 +1817,16 @@ name|bodies
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|bodyList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|bodyList
@@ -1932,13 +1950,16 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
-DECL|method|expectedBodiesReceivedInAnyOrder (final List bodies)
+DECL|method|expectedBodiesReceivedInAnyOrder (final List<Object> bodies)
 specifier|public
 name|void
 name|expectedBodiesReceivedInAnyOrder
 parameter_list|(
 specifier|final
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|bodies
 parameter_list|)
 block|{
@@ -1962,6 +1983,9 @@ name|actualBodyValues
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|expects
@@ -1976,10 +2000,16 @@ name|run
 parameter_list|()
 block|{
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|actualBodyValuesSet
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|actualBodyValues
 argument_list|)
@@ -2059,11 +2089,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|expectedBodiesReceivedInAnyOrder (Object... bodies)
 specifier|public
 name|void
@@ -2075,10 +2100,16 @@ name|bodies
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|bodyList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|bodyList
@@ -3385,6 +3416,9 @@ name|actualBodyValues
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -3427,7 +3461,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// must catch throwable as AssertionException extends java.lang.Error
+comment|// must catch java.lang.Throwable as AssertionException extends java.lang.Error
 name|failures
 operator|.
 name|add

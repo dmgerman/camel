@@ -967,12 +967,18 @@ class|class
 name|MyFuture
 extends|extends
 name|FutureTask
+argument_list|<
+name|Object
+argument_list|>
 block|{
-DECL|method|MyFuture (Callable callable)
+DECL|method|MyFuture (Callable<Object> callable)
 specifier|public
 name|MyFuture
 parameter_list|(
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 name|callable
 parameter_list|)
 block|{

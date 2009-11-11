@@ -251,10 +251,20 @@ decl_stmt|;
 DECL|field|users
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|User
+argument_list|>
 name|users
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|User
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|testCannotBindToParameter ()
@@ -414,10 +424,16 @@ name|Exception
 block|{
 specifier|final
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list
@@ -663,9 +679,12 @@ decl_stmt|;
 DECL|field|users
 specifier|public
 name|List
+argument_list|<
+name|User
+argument_list|>
 name|users
 decl_stmt|;
-DECL|method|myMethod (@eadervalue = R) List users, Object body)
+DECL|method|myMethod (@eadervalue = R) List<User> users, Object body)
 specifier|public
 name|void
 name|myMethod
@@ -678,6 +697,9 @@ operator|=
 literal|"users"
 argument_list|)
 name|List
+argument_list|<
+name|User
+argument_list|>
 name|users
 parameter_list|,
 name|Object

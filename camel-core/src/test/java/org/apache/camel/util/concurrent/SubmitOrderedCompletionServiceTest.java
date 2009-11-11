@@ -84,6 +84,9 @@ decl_stmt|;
 DECL|field|service
 specifier|private
 name|SubmitOrderedCompletionService
+argument_list|<
+name|Object
+argument_list|>
 name|service
 decl_stmt|;
 annotation|@
@@ -109,6 +112,9 @@ name|service
 operator|=
 operator|new
 name|SubmitOrderedCompletionService
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|executor
 argument_list|)
@@ -144,6 +150,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -166,6 +175,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -233,6 +245,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -263,6 +278,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -330,6 +348,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -352,6 +373,9 @@ name|submit
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
