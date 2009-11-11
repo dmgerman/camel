@@ -46,20 +46,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|core
-operator|.
-name|JdbcTemplate
-import|;
-end_import
-
 begin_comment
 comment|/**  * Easier transaction configuration as we do not have to setup a transaction error handler  */
 end_comment
