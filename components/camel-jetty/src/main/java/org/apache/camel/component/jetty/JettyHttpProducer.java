@@ -1170,7 +1170,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|parameters
 init|=
@@ -1189,7 +1189,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|entry
 range|:
@@ -1211,6 +1211,9 @@ argument_list|,
 name|entry
 operator|.
 name|getValue
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

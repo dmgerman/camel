@@ -519,7 +519,7 @@ literal|false
 return|;
 block|}
 comment|/**      * Sets the regular properties on the given bean      *      * @param context the camel context      * @param bean the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
-DECL|method|setProperties (CamelContext context, Object bean, Map parameters)
+DECL|method|setProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
 name|void
@@ -532,6 +532,11 @@ name|Object
 name|bean
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -558,7 +563,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|setReferenceProperties (CamelContext context, Object bean, Map parameters)
+DECL|method|setReferenceProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
 name|void
@@ -571,6 +576,11 @@ name|Object
 name|bean
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -581,6 +591,11 @@ argument_list|<
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -603,6 +618,11 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 init|=
 name|it
@@ -610,8 +630,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|Object
-name|key
+name|String
+name|name
 init|=
 name|entry
 operator|.
@@ -665,14 +685,6 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|String
-name|name
-init|=
-name|key
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

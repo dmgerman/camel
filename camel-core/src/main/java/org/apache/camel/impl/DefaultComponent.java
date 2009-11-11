@@ -402,6 +402,11 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 init|=
 name|URISupport
@@ -537,7 +542,7 @@ name|endpoint
 return|;
 block|}
 comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which leaves only the additional parameters left.      *      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */
-DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map parameters)
+DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|afterConfiguration
@@ -552,6 +557,11 @@ name|Endpoint
 name|endpoint
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -884,7 +894,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * A factory method allowing derived components to create a new endpoint      * from the given URI, remaining path and optional parameters      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      */
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 specifier|abstract
 name|Endpoint
@@ -897,13 +907,18 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Sets the bean properties on the given bean      *      * @param bean  the bean      * @param parameters  properties to set      */
-DECL|method|setProperties (Object bean, Map parameters)
+DECL|method|setProperties (Object bean, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|setProperties
@@ -912,6 +927,11 @@ name|Object
 name|bean
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

@@ -92,6 +92,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -110,7 +124,7 @@ name|FeedComponent
 block|{
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|FeedEndpoint
 name|createEndpoint
@@ -122,6 +136,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -141,7 +160,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map parameters)
+DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|afterConfiguration
@@ -156,6 +175,11 @@ name|Endpoint
 name|endpoint
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -196,6 +220,21 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+name|params
+init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
+name|parameters
+argument_list|)
+decl_stmt|;
 name|URI
 name|remainingUri
 init|=
@@ -209,7 +248,7 @@ argument_list|(
 name|remaining
 argument_list|)
 argument_list|,
-name|parameters
+name|params
 argument_list|)
 decl_stmt|;
 name|feedUri

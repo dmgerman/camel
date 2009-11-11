@@ -82,7 +82,7 @@ name|PatternBasedPackageScanFilter
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Class... matchingClasses)
+DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Class<?>... matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
@@ -97,6 +97,9 @@ argument_list|>
 name|scannedClasses
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|matchingClasses
 parameter_list|)
@@ -104,6 +107,9 @@ block|{
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|expectedSet
 init|=
@@ -111,6 +117,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -138,7 +147,7 @@ name|expectedSet
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Set<Class> matchingClasses)
+DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Set<Class<?>> matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
@@ -155,6 +164,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|matchingClasses
 parameter_list|)
@@ -162,6 +174,9 @@ block|{
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|matching
 init|=
@@ -190,6 +205,9 @@ expr_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expected
 range|:
 name|matchingClasses
@@ -272,6 +290,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getMatchingClasses
 parameter_list|(
@@ -291,6 +312,9 @@ block|{
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|matching
 init|=
@@ -298,6 +322,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

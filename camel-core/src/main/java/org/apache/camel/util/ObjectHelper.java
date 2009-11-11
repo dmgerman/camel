@@ -3441,17 +3441,26 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Converts primitive types such as int to its wrapper type like      * {@link Integer}      */
-DECL|method|convertPrimitiveTypeToWrapperType (Class type)
+DECL|method|convertPrimitiveTypeToWrapperType (Class<?> type)
 specifier|public
 specifier|static
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|convertPrimitiveTypeToWrapperType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|rc
 init|=
 name|type

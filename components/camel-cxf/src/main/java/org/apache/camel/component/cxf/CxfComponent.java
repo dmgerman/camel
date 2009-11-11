@@ -142,7 +142,7 @@ block|}
 comment|/**      * Create a {@link CxfEndpoint} which, can be a Spring bean endpoint having       * URI format cxf:bean:<i>beanId</i> or transport address endpoint having URI format      * cxf://<i>transportAddress</i>.       */
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -154,6 +154,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

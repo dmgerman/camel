@@ -42,6 +42,15 @@ name|ScriptEvaluationException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|2487032913316865381L
+decl_stmt|;
 DECL|method|ScriptEvaluationException (String message)
 specifier|public
 name|ScriptEvaluationException

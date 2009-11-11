@@ -152,6 +152,11 @@ DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parseQuery
 parameter_list|(
 name|String
@@ -164,10 +169,20 @@ try|try
 block|{
 comment|// use a linked map so the parameters is in the same order
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rc
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -315,6 +330,11 @@ DECL|method|parseParameters (URI uri)
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parseParameters
 parameter_list|(
 name|URI
@@ -366,7 +386,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 else|else
@@ -496,13 +517,18 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|createQueryString (Map options)
+DECL|method|createQueryString (Map<Object, Object> options)
 specifier|public
 specifier|static
 name|String
 name|createQueryString
 parameter_list|(
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 throws|throws
@@ -676,7 +702,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Creates a URI from the original URI and the remaining parameters      *<p/>      * Used by various Camel components      */
-DECL|method|createRemainingURI (URI originalURI, Map params)
+DECL|method|createRemainingURI (URI originalURI, Map<Object, Object> params)
 specifier|public
 specifier|static
 name|URI
@@ -686,6 +712,11 @@ name|URI
 name|originalURI
 parameter_list|,
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|params
 parameter_list|)
 throws|throws
@@ -898,7 +929,7 @@ argument_list|)
 expr_stmt|;
 name|Map
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -907,7 +938,7 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>

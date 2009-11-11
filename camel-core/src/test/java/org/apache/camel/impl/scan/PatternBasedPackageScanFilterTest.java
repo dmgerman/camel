@@ -908,12 +908,15 @@ name|validateMatchingSetContains
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Class... matchingClasses)
+DECL|method|validateMatchingSetContains (Class<?>.... matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|matchingClasses
 parameter_list|)
@@ -928,7 +931,7 @@ name|matchingClasses
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Set<Class> matchingClasses)
+DECL|method|validateMatchingSetContains (Set<Class<?>> matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
@@ -936,6 +939,9 @@ parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|matchingClasses
 parameter_list|)
