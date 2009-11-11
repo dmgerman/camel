@@ -1141,6 +1141,9 @@ expr_stmt|;
 block|}
 comment|// Retrieve the format, pattern and precision associated to the type
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|field

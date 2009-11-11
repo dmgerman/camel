@@ -1874,6 +1874,9 @@ DECL|method|createIterator (Object value)
 specifier|public
 specifier|static
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|createIterator
 parameter_list|(
 name|Object
@@ -1899,6 +1902,9 @@ DECL|method|createIterator (Object value, String delimiter)
 specifier|public
 specifier|static
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|createIterator
 parameter_list|(
 name|Object
@@ -1939,7 +1945,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 operator|.
 name|iterator
 argument_list|()
@@ -2039,6 +2046,10 @@ operator|)
 name|value
 decl_stmt|;
 return|return
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|new
 name|Iterator
 argument_list|<
@@ -2093,6 +2104,7 @@ argument_list|()
 throw|;
 block|}
 block|}
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -2144,13 +2156,22 @@ name|delimiter
 argument_list|)
 expr_stmt|;
 return|return
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|scanner
+argument_list|)
 return|;
 block|}
 else|else
 block|{
 comment|// use a plain iterator that returns the value as is as there are only a single value
 return|return
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|new
 name|Iterator
 argument_list|<
@@ -2205,6 +2226,7 @@ argument_list|()
 throw|;
 block|}
 block|}
+argument_list|)
 return|;
 block|}
 block|}
@@ -2224,13 +2246,16 @@ return|;
 block|}
 block|}
 comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @return<tt>true</tt> if the first element is a boolean and its value      *         is true or if the list is non empty      */
-DECL|method|matches (List list)
+DECL|method|matches (List<Object> list)
 specifier|public
 specifier|static
 name|boolean
 name|matches
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 parameter_list|)
 block|{
@@ -2378,13 +2403,16 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the type name of the given type or null if the type variable is      * null      */
-DECL|method|name (Class type)
+DECL|method|name (Class<?> type)
 specifier|public
 specifier|static
 name|String
 name|name
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -2567,6 +2595,9 @@ return|;
 block|}
 comment|// try context class loader first
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|doLoadClass
@@ -3404,16 +3435,22 @@ return|;
 block|}
 block|}
 comment|/**      * Returns true if a class is assignable from another class like the      * {@link Class#isAssignableFrom(Class)} method but which also includes      * coercion between primitive types to deal with Java 5 primitive type      * wrapping      */
-DECL|method|isAssignableFrom (Class a, Class b)
+DECL|method|isAssignableFrom (Class<?> a, Class<?> b)
 specifier|public
 specifier|static
 name|boolean
 name|isAssignableFrom
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|a
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|b
 parameter_list|)
 block|{
@@ -4514,10 +4551,16 @@ condition|)
 block|{
 comment|// generic file is just a wrapper for the real file so call again with the real file
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|gf
 init|=
 operator|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;

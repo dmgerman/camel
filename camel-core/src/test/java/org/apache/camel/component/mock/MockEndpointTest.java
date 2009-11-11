@@ -2264,10 +2264,8 @@ return|;
 block|}
 DECL|method|listOfMessages (int... counters)
 specifier|protected
-name|List
-argument_list|<
-name|String
-argument_list|>
+name|Object
+index|[]
 name|listOfMessages
 parameter_list|(
 name|int
@@ -2313,6 +2311,9 @@ expr_stmt|;
 block|}
 return|return
 name|list
+operator|.
+name|toArray
+argument_list|()
 return|;
 block|}
 DECL|method|sendHeader (String name, Object value)

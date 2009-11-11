@@ -120,7 +120,7 @@ name|DefaultAnnotationExpressionFactory
 implements|implements
 name|AnnotationExpressionFactory
 block|{
-DECL|method|createExpression (CamelContext camelContext, Annotation annotation, LanguageAnnotation languageAnnotation, Class expressionReturnType)
+DECL|method|createExpression (CamelContext camelContext, Annotation annotation, LanguageAnnotation languageAnnotation, Class<?> expressionReturnType)
 specifier|public
 name|Expression
 name|createExpression
@@ -135,6 +135,9 @@ name|LanguageAnnotation
 name|languageAnnotation
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expressionReturnType
 parameter_list|)
 block|{

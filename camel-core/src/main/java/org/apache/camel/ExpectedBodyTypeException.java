@@ -26,6 +26,16 @@ name|ExpectedBodyTypeException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|7121445152234363768L
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final
@@ -38,9 +48,12 @@ specifier|private
 specifier|final
 specifier|transient
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expectedBodyType
 decl_stmt|;
-DECL|method|ExpectedBodyTypeException (Exchange exchange, Class expectedBodyType)
+DECL|method|ExpectedBodyTypeException (Exchange exchange, Class<?> expectedBodyType)
 specifier|public
 name|ExpectedBodyTypeException
 parameter_list|(
@@ -48,6 +61,9 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expectedBodyType
 parameter_list|)
 block|{
@@ -94,6 +110,9 @@ block|}
 DECL|method|getExpectedBodyType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getExpectedBodyType
 parameter_list|()
 block|{
