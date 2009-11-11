@@ -83,6 +83,9 @@ DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... pac
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findAnnotated
 parameter_list|(
@@ -104,6 +107,9 @@ DECL|method|findAnnotated (Set<Class<? extends Annotation>> annotations, String.
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findAnnotated
 parameter_list|(
@@ -124,14 +130,20 @@ name|packageNames
 parameter_list|)
 function_decl|;
 comment|/**      * Attempts to discover classes that are assignable to the type provided. In      * the case that an interface is provided this method will collect      * implementations. In the case of a non-interface class, subclasses will be      * collected.      *      * @param parent       the class of interface to find subclasses or implementations of      * @param packageNames one or more package names to scan (including subpackages) for classes      * @return the classes found, returns an empty set if none found      */
-DECL|method|findImplementations (Class parent, String... packageNames)
+DECL|method|findImplementations (Class<?> parent, String... packageNames)
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findImplementations
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parent
 parameter_list|,
 name|String
@@ -144,6 +156,9 @@ DECL|method|findByFilter (PackageScanFilter fiter, String... packageNames)
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findByFilter
 parameter_list|(

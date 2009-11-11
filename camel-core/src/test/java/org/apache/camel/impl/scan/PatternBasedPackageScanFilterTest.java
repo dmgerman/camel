@@ -142,6 +142,9 @@ specifier|private
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|allClasses
 decl_stmt|;
@@ -160,6 +163,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;

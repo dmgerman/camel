@@ -82,7 +82,7 @@ name|PatternBasedPackageScanFilter
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Set<Class> scannedClasses, Class... matchingClasses)
+DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Class... matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
@@ -90,6 +90,9 @@ parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|scannedClasses
 parameter_list|,
@@ -135,7 +138,7 @@ name|expectedSet
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|validateMatchingSetContains (Set<Class> scannedClasses, Set<Class> matchingClasses)
+DECL|method|validateMatchingSetContains (Set<Class<?>> scannedClasses, Set<Class> matchingClasses)
 specifier|protected
 name|void
 name|validateMatchingSetContains
@@ -143,6 +146,9 @@ parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|scannedClasses
 parameter_list|,
@@ -261,7 +267,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getMatchingClasses (Set<Class> scannedClasses, PatternBasedPackageScanFilter filter)
+DECL|method|getMatchingClasses (Set<Class<?>> scannedClasses, PatternBasedPackageScanFilter filter)
 specifier|public
 name|Set
 argument_list|<
@@ -272,6 +278,9 @@ parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|scannedClasses
 parameter_list|,

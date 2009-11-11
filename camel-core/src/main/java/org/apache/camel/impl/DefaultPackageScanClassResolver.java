@@ -548,6 +548,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findAnnotated
 parameter_list|(
@@ -624,6 +627,9 @@ decl_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -631,6 +637,9 @@ operator|new
 name|LinkedHashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -684,6 +693,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findAnnotated
 parameter_list|(
@@ -760,6 +772,9 @@ decl_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -767,6 +782,9 @@ operator|new
 name|LinkedHashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -820,6 +838,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findImplementations
 parameter_list|(
@@ -889,6 +910,9 @@ decl_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -896,6 +920,9 @@ operator|new
 name|LinkedHashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -949,6 +976,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findByFilter
 parameter_list|(
@@ -976,6 +1006,9 @@ block|}
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -983,6 +1016,9 @@ operator|new
 name|LinkedHashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1026,7 +1062,7 @@ return|return
 name|classes
 return|;
 block|}
-DECL|method|find (PackageScanFilter test, String packageName, Set<Class> classes)
+DECL|method|find (PackageScanFilter test, String packageName, Set<Class<?>> classes)
 specifier|protected
 name|void
 name|find
@@ -1040,6 +1076,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -1085,7 +1124,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|find (PackageScanFilter test, String packageName, ClassLoader loader, Set<Class> classes)
+DECL|method|find (PackageScanFilter test, String packageName, ClassLoader loader, Set<Class<?>> classes)
 specifier|protected
 name|void
 name|find
@@ -1102,6 +1141,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -1730,7 +1772,7 @@ name|filter
 return|;
 block|}
 comment|/**      * Finds matches in a physical directory on a filesystem. Examines all files      * within a directory - if the File object is not a directory, and ends with      *<i>.class</i> the file is loaded and tested to see if it is acceptable      * according to the Test. Operates recursively to find classes within a      * folder structure matching the package structure.      *      * @param test     a Test used to filter the classes that are discovered      * @param parent   the package name up to this directory in the package      *                 hierarchy. E.g. if /classes is in the classpath and we wish to      *                 examine files in /classes/org/apache then the values of      *<i>parent</i> would be<i>org/apache</i>      * @param location a File object representing a directory      */
-DECL|method|loadImplementationsInDirectory (PackageScanFilter test, String parent, File location, Set<Class> classes)
+DECL|method|loadImplementationsInDirectory (PackageScanFilter test, String parent, File location, Set<Class<?>> classes)
 specifier|private
 name|void
 name|loadImplementationsInDirectory
@@ -1747,6 +1789,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -1879,7 +1924,7 @@ block|}
 block|}
 block|}
 comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param stream  the inputstream of the jar file to be examined for classes      * @param urlPath the url of the jar file to be examined for classes      */
-DECL|method|loadImplementationsInJar (PackageScanFilter test, String parent, InputStream stream, String urlPath, Set<Class> classes)
+DECL|method|loadImplementationsInJar (PackageScanFilter test, String parent, InputStream stream, String urlPath, Set<Class<?>> classes)
 specifier|private
 name|void
 name|loadImplementationsInJar
@@ -1899,6 +1944,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -2038,7 +2086,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Add the class designated by the fully qualified class name provided to      * the set of resolved classes if and only if it is approved by the Test      * supplied.      *      * @param test the test used to determine if the class matches      * @param fqn  the fully qualified name of a class      */
-DECL|method|addIfMatching (PackageScanFilter test, String fqn, Set<Class> classes)
+DECL|method|addIfMatching (PackageScanFilter test, String fqn, Set<Class<?>> classes)
 specifier|protected
 name|void
 name|addIfMatching
@@ -2052,6 +2100,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)

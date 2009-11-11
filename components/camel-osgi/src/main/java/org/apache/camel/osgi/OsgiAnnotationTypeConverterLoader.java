@@ -225,6 +225,9 @@ decl_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -242,6 +245,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|classes

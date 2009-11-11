@@ -248,7 +248,7 @@ return|return
 name|classLoaders
 return|;
 block|}
-DECL|method|find (PackageScanFilter test, String packageName, Set<Class> classes)
+DECL|method|find (PackageScanFilter test, String packageName, Set<Class<?>> classes)
 specifier|public
 name|void
 name|find
@@ -262,6 +262,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -391,7 +394,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|findInOsgiClassLoader (PackageScanFilter test, String packageName, ClassLoader osgiClassLoader, Set<Class> classes)
+DECL|method|findInOsgiClassLoader (PackageScanFilter test, String packageName, ClassLoader osgiClassLoader, Set<Class<?>> classes)
 specifier|private
 name|void
 name|findInOsgiClassLoader
@@ -408,6 +411,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -428,10 +434,13 @@ literal|"getBundle"
 argument_list|,
 operator|new
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 block|{}
-argument_list|)
-decl_stmt|;
+block|)
+empty_stmt|;
 if|if
 condition|(
 name|mth
@@ -489,7 +498,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Gets the osgi classloader if any in the given set      */
+end_comment
+
+begin_function
 DECL|method|getOsgiClassLoader (Set<ClassLoader> set)
 specifier|private
 specifier|static
@@ -528,7 +543,13 @@ return|return
 literal|null
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Is it an osgi classloader      */
+end_comment
+
+begin_function
 DECL|method|isOsgiClassloader (ClassLoader loader)
 specifier|private
 specifier|static
@@ -583,7 +604,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|loadImplementationsInBundle (PackageScanFilter test, String packageName, ClassLoader loader, Method mth, Set<Class> classes)
+end_function
+
+begin_function
+DECL|method|loadImplementationsInBundle (PackageScanFilter test, String packageName, ClassLoader loader, Method mth, Set<Class<?>> classes)
 specifier|private
 name|void
 name|loadImplementationsInBundle
@@ -603,6 +627,9 @@ parameter_list|,
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 parameter_list|)
@@ -655,6 +682,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|OsgiUtil
 specifier|private
 specifier|static
@@ -930,8 +960,8 @@ return|;
 block|}
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
