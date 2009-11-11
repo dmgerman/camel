@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -117,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default strategy used in Camel to resolve the {@link org.apache.camel.model.OnExceptionDefinition} that should  * handle the thrown exception.  *<p/>  *<b>Selection strategy:</b>  *<br/>This strategy applies the following rules:  *<ul>  *<li>Will walk the exception hieracy from bottom upwards till the thrown exception, meaning that the most outer caused  * by is selected first, ending with the thrown exception itself. The method {@link #createExceptionIterator(Throwable)}  * provides the Iterator used for the walking.</li>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception, this  * is tested using the {@link #filter(org.apache.camel.model.OnExceptionDefinition, Class, Throwable)} method.  * By default the filter uses<tt>instanceof</tt> test.</li>  *<li>If the exception type has<b>exactly</b> the thrown exception then its selected as its an exact match</li>  *<li>Otherwise the type that has an exception that is the closets super of the thrown exception is selected  * (recurring up the exception hierarchy)</li>  *</ul>  *<p/>  *<b>Fine grained matching:</b>  *<br/> If the {@link OnExceptionDefinition} has a when defined with an expression the type is also matches against  * the current exchange using the {@link #matchesWhen(org.apache.camel.model.OnExceptionDefinition, org.apache.camel.Exchange)}  * method. This can be used to for more fine grained matching, so you can e.g. define multiple sets of  * exception types with the same exception class(es) but have a predicate attached to select which to select at runtime.  */
+comment|/**  * The default strategy used in Camel to resolve the {@link org.apache.camel.model.OnExceptionDefinition} that should  * handle the thrown exception.  *<p/>  *<b>Selection strategy:</b>  *<br/>This strategy applies the following rules:  *<ul>  *<li>Will walk the exception hierarchy from bottom upwards till the thrown exception, meaning that the most outer caused  * by is selected first, ending with the thrown exception itself. The method {@link #createExceptionIterator(Throwable)}  * provides the Iterator used for the walking.</li>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception, this  * is tested using the {@link #filter(org.apache.camel.model.OnExceptionDefinition, Class, Throwable)} method.  * By default the filter uses<tt>instanceof</tt> test.</li>  *<li>If the exception type has<b>exactly</b> the thrown exception then its selected as its an exact match</li>  *<li>Otherwise the type that has an exception that is the closets super of the thrown exception is selected  * (recurring up the exception hierarchy)</li>  *</ul>  *<p/>  *<b>Fine grained matching:</b>  *<br/> If the {@link OnExceptionDefinition} has a when defined with an expression the type is also matches against  * the current exchange using the {@link #matchesWhen(org.apache.camel.model.OnExceptionDefinition, org.apache.camel.Exchange)}  * method. This can be used to for more fine grained matching, so you can e.g. define multiple sets of  * exception types with the same exception class(es) but have a predicate attached to select which to select at runtime.  */
 end_comment
 
 begin_class
@@ -145,7 +155,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicies, Exchange exchange, Throwable exception)
 specifier|public
 name|OnExceptionDefinition
 name|getExceptionPolicy
@@ -156,7 +166,7 @@ name|ExceptionPolicyKey
 argument_list|,
 name|OnExceptionDefinition
 argument_list|>
-name|exceptionPolicices
+name|exceptionPolicies
 parameter_list|,
 name|Exchange
 name|exchange
@@ -165,7 +175,29 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|OnExceptionDefinition
+argument_list|>
+name|candidates
+init|=
+operator|new
+name|TreeMap
+argument_list|<
+name|Integer
+argument_list|,
+name|OnExceptionDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// recursive up the tree using the iterator
+name|boolean
+name|exactMatch
+init|=
+literal|false
+decl_stmt|;
 name|Iterator
 argument_list|<
 name|Throwable
@@ -179,18 +211,21 @@ argument_list|)
 decl_stmt|;
 while|while
 condition|(
+operator|!
+name|exactMatch
+operator|&&
 name|it
 operator|.
 name|hasNext
 argument_list|()
 condition|)
 block|{
-name|OnExceptionDefinition
-name|type
-init|=
+comment|// we should stop looking if we have found an exact match
+name|exactMatch
+operator|=
 name|findMatchedExceptionPolicy
 argument_list|(
-name|exceptionPolicices
+name|exceptionPolicies
 argument_list|,
 name|exchange
 argument_list|,
@@ -198,28 +233,68 @@ name|it
 operator|.
 name|next
 argument_list|()
+argument_list|,
+name|candidates
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+comment|// now go through the candidates and find the best
 if|if
 condition|(
-name|type
-operator|!=
-literal|null
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
 condition|)
 block|{
-return|return
-name|type
-return|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found "
+operator|+
+name|candidates
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" candidates"
+argument_list|)
+expr_stmt|;
 block|}
-block|}
+if|if
+condition|(
+name|candidates
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 comment|// no type found
 return|return
 literal|null
 return|;
 block|}
-DECL|method|findMatchedExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+else|else
+block|{
+comment|// return the first in the map as its sorted and
+return|return
+name|candidates
+operator|.
+name|values
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+return|;
+block|}
+block|}
+DECL|method|findMatchedExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicies, Exchange exchange, Throwable exception, Map<Integer, OnExceptionDefinition> candidates)
 specifier|private
-name|OnExceptionDefinition
+name|boolean
 name|findMatchedExceptionPolicy
 parameter_list|(
 name|Map
@@ -228,13 +303,21 @@ name|ExceptionPolicyKey
 argument_list|,
 name|OnExceptionDefinition
 argument_list|>
-name|exceptionPolicices
+name|exceptionPolicies
 parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|,
 name|Throwable
 name|exception
+parameter_list|,
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|OnExceptionDefinition
+argument_list|>
+name|candidates
 parameter_list|)
 block|{
 if|if
@@ -301,7 +384,7 @@ argument_list|>
 argument_list|>
 name|entries
 init|=
-name|exceptionPolicices
+name|exceptionPolicies
 operator|.
 name|entrySet
 argument_list|()
@@ -402,6 +485,10 @@ name|candidate
 operator|=
 name|type
 expr_stmt|;
+name|candidateDiff
+operator|=
+literal|0
+expr_stmt|;
 break|break;
 block|}
 comment|// not an exact match so find the best candidate
@@ -441,44 +528,121 @@ block|}
 block|}
 if|if
 condition|(
+name|candidate
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|candidates
+operator|.
+name|containsKey
+argument_list|(
+name|candidateDiff
+argument_list|)
+condition|)
+block|{
+comment|// only add as candidate if we do not already have it registered with that level
+if|if
+condition|(
 name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Adding "
+operator|+
+name|candidate
+operator|+
+literal|" as candidate at level "
+operator|+
+name|candidateDiff
+argument_list|)
+expr_stmt|;
+block|}
+name|candidates
+operator|.
+name|put
+argument_list|(
+name|candidateDiff
+argument_list|,
+name|candidate
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we have an existing candidate already which we should prefer to use
 if|if
 condition|(
-name|candidate
-operator|!=
-literal|null
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using "
+literal|"Existing candidate "
+operator|+
+name|candidates
+operator|.
+name|get
+argument_list|(
+name|candidateDiff
+argument_list|)
+operator|+
+literal|" takes precedence over "
 operator|+
 name|candidate
 operator|+
-literal|" as the exception policy"
+literal|" at level "
+operator|+
+name|candidateDiff
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+block|}
+block|}
+comment|// if we found a exact match then we should stop continue looking
+name|boolean
+name|exactMatch
+init|=
+name|candidateDiff
+operator|==
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+operator|&&
+name|exactMatch
+condition|)
 block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No candidate found to be used as exception policy"
+literal|"Exact match found for candidate: "
+operator|+
+name|candidate
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
-name|candidate
+name|exactMatch
 return|;
 block|}
 comment|/**      * Strategy to filter the given type exception class with the thrown exception      *      * @param type           the exception type      * @param exceptionClass the current exception class for testing      * @param exception      the thrown exception      * @return<tt>true</tt> if the to current exception class is a candidate,<tt>false</tt> to skip it.      */

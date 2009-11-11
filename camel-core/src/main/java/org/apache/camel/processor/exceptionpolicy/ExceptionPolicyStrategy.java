@@ -64,8 +64,8 @@ specifier|public
 interface|interface
 name|ExceptionPolicyStrategy
 block|{
-comment|/**      * Resolves the {@link org.apache.camel.model.OnExceptionDefinition} that should handle the thrown exception.      *      * @param exceptionPolicices the configured exception policies to resolve from      * @param exchange           the exchange      * @param exception          the exception that was thrown      * @return the resolved exception type to handle this exception,<tt>null</tt> if none found.      */
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+comment|/**      * Resolves the {@link org.apache.camel.model.OnExceptionDefinition} that should handle the thrown exception.      *      * @param exceptionPolicies the configured exception policies to resolve from      * @param exchange           the exchange      * @param exception          the exception that was thrown      * @return the resolved exception type to handle this exception,<tt>null</tt> if none found.      */
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicies, Exchange exchange, Throwable exception)
 name|OnExceptionDefinition
 name|getExceptionPolicy
 parameter_list|(
@@ -75,7 +75,7 @@ name|ExceptionPolicyKey
 argument_list|,
 name|OnExceptionDefinition
 argument_list|>
-name|exceptionPolicices
+name|exceptionPolicies
 parameter_list|,
 name|Exchange
 name|exchange
