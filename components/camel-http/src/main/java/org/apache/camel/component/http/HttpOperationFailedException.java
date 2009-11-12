@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -54,34 +64,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|Header
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|StatusLine
-import|;
-end_import
-
 begin_class
 DECL|class|HttpOperationFailedException
 specifier|public
@@ -98,7 +80,7 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|8721487434390572633L
+literal|8721487434390572634L
 decl_stmt|;
 DECL|field|uri
 specifier|private
@@ -118,26 +100,30 @@ specifier|final
 name|int
 name|statusCode
 decl_stmt|;
-DECL|field|statusLine
+DECL|field|statusText
 specifier|private
 specifier|final
-name|StatusLine
-name|statusLine
+name|String
+name|statusText
 decl_stmt|;
 DECL|field|responseHeaders
 specifier|private
 specifier|final
-name|Header
-index|[]
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|responseHeaders
 decl_stmt|;
 DECL|field|responseBody
 specifier|private
 specifier|final
-name|InputStream
+name|String
 name|responseBody
 decl_stmt|;
-DECL|method|HttpOperationFailedException (String uri, int statusCode, StatusLine statusLine, String location, Header[] responseHeaders, InputStream responseBody)
+DECL|method|HttpOperationFailedException (String uri, int statusCode, String statusText, String location, Map<String, String> responseHeaders, String responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -147,17 +133,21 @@ parameter_list|,
 name|int
 name|statusCode
 parameter_list|,
-name|StatusLine
-name|statusLine
+name|String
+name|statusText
 parameter_list|,
 name|String
 name|location
 parameter_list|,
-name|Header
-index|[]
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|responseHeaders
 parameter_list|,
-name|InputStream
+name|String
 name|responseBody
 parameter_list|)
 block|{
@@ -170,10 +160,6 @@ operator|+
 literal|" with statusCode: "
 operator|+
 name|statusCode
-operator|+
-literal|", status: "
-operator|+
-name|statusLine
 operator|+
 operator|(
 name|location
@@ -202,9 +188,9 @@ name|statusCode
 expr_stmt|;
 name|this
 operator|.
-name|statusLine
+name|statusText
 operator|=
-name|statusLine
+name|statusText
 expr_stmt|;
 name|this
 operator|.
@@ -223,43 +209,6 @@ operator|.
 name|responseBody
 operator|=
 name|responseBody
-expr_stmt|;
-block|}
-DECL|method|HttpOperationFailedException (String uri, int statusCode, StatusLine statusLine, Header[] responseHeaders, InputStream responseBody)
-specifier|public
-name|HttpOperationFailedException
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|int
-name|statusCode
-parameter_list|,
-name|StatusLine
-name|statusLine
-parameter_list|,
-name|Header
-index|[]
-name|responseHeaders
-parameter_list|,
-name|InputStream
-name|responseBody
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|uri
-argument_list|,
-name|statusCode
-argument_list|,
-name|statusLine
-argument_list|,
-literal|null
-argument_list|,
-name|responseHeaders
-argument_list|,
-name|responseBody
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getUri ()
@@ -313,16 +262,6 @@ return|return
 name|redirectLocation
 return|;
 block|}
-DECL|method|getStatusLine ()
-specifier|public
-name|StatusLine
-name|getStatusLine
-parameter_list|()
-block|{
-return|return
-name|statusLine
-return|;
-block|}
 DECL|method|getStatusCode ()
 specifier|public
 name|int
@@ -333,10 +272,24 @@ return|return
 name|statusCode
 return|;
 block|}
+DECL|method|getStatusText ()
+specifier|public
+name|String
+name|getStatusText
+parameter_list|()
+block|{
+return|return
+name|statusText
+return|;
+block|}
 DECL|method|getResponseHeaders ()
 specifier|public
-name|Header
-index|[]
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getResponseHeaders
 parameter_list|()
 block|{
@@ -346,7 +299,7 @@ return|;
 block|}
 DECL|method|getResponseBody ()
 specifier|public
-name|InputStream
+name|String
 name|getResponseBody
 parameter_list|()
 block|{

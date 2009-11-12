@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for HttpOperationFailedException should contain reponse body  */
+comment|/**  * Unit test for HttpOperationFailedException should contain response body  */
 end_comment
 
 begin_class
@@ -230,28 +230,29 @@ name|getResponseHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have http header with content type set"
-argument_list|,
+name|String
+name|type
+init|=
 name|cause
 operator|.
 name|getResponseHeaders
 argument_list|()
-index|[
-literal|0
-index|]
 operator|.
-name|getValue
-argument_list|()
+name|get
+argument_list|(
+name|Exchange
 operator|.
-name|indexOf
+name|CONTENT_TYPE
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|type
+operator|.
+name|startsWith
 argument_list|(
 literal|"text/plain"
 argument_list|)
-operator|>
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}

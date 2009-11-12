@@ -83,7 +83,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Whether to throw {@link org.apache.camel.component.jetty.JettyHttpOperationFailedException}      * in case of response code != 200.      *      * @param throwExceptionOnFailure<tt>true</tt> to throw exception      */
+comment|/**      * Whether to throw {@link org.apache.camel.component.http.HttpOperationFailedException}      * in case of response code != 200.      *      * @param throwExceptionOnFailure<tt>true</tt> to throw exception      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 name|void
 name|setThrowExceptionOnFailure
@@ -92,7 +92,7 @@ name|boolean
 name|throwExceptionOnFailure
 parameter_list|)
 function_decl|;
-comment|/**      * Whether to throw {@link org.apache.camel.component.jetty.JettyHttpOperationFailedException}      * in case of response code != 200.      *      * @return<tt>true</tt> to throw exception      */
+comment|/**      * Whether to throw {@link org.apache.camel.component.http.HttpOperationFailedException}      * in case of response code != 200.      *      * @return<tt>true</tt> to throw exception      */
 DECL|method|isThrowExceptionOnFailure ()
 name|boolean
 name|isThrowExceptionOnFailure

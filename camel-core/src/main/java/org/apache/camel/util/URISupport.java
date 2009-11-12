@@ -383,11 +383,18 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|// return an empty map
 return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
+operator|new
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 else|else

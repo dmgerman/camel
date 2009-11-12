@@ -277,6 +277,16 @@ operator|new
 name|Properties
 argument_list|()
 decl_stmt|;
+DECL|method|getHttpProducerScheme ()
+specifier|public
+name|String
+name|getHttpProducerScheme
+parameter_list|()
+block|{
+return|return
+literal|"https://"
+return|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -407,9 +417,6 @@ block|{
 name|Object
 name|value
 init|=
-operator|(
-name|String
-operator|)
 name|originalValues
 operator|.
 name|get
@@ -780,7 +787,10 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"https://localhost:9080/test"
+name|getHttpProducerScheme
+argument_list|()
+operator|+
+literal|"localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -793,7 +803,10 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"https://localhost:9090/test"
+name|getHttpProducerScheme
+argument_list|()
+operator|+
+literal|"localhost:9090/test"
 argument_list|,
 name|expectedBody
 argument_list|,

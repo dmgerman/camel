@@ -298,10 +298,7 @@ name|reason
 init|=
 name|exception
 operator|.
-name|getStatusLine
-argument_list|()
-operator|.
-name|getReasonPhrase
+name|getStatusText
 argument_list|()
 decl_stmt|;
 name|assertNotNull

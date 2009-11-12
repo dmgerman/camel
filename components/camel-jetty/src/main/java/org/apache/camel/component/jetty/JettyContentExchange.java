@@ -260,7 +260,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|headers
 init|=
@@ -269,7 +269,7 @@ name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -494,7 +494,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|getHeaders
 parameter_list|()
@@ -747,6 +747,13 @@ name|ex
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
 name|callback
 operator|.
 name|onTaskCompleted
@@ -754,6 +761,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

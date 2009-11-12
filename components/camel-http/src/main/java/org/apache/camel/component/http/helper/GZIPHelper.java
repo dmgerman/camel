@@ -190,7 +190,7 @@ index|[]
 name|data
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(
