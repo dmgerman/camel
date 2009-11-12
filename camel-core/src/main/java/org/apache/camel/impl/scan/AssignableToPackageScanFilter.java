@@ -122,12 +122,15 @@ name|parents
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addParentType (Class parentType)
+DECL|method|addParentType (Class<?> parentType)
 specifier|public
 name|void
 name|addParentType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parentType
 parameter_list|)
 block|{
@@ -165,6 +168,9 @@ block|{
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parent
 range|:
 name|parents
@@ -208,6 +214,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parent
 range|:
 name|parents

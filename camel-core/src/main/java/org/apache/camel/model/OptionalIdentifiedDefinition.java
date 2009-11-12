@@ -188,6 +188,9 @@ parameter_list|<
 name|T
 extends|extends
 name|OptionalIdentifiedDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 block|{
 annotation|@

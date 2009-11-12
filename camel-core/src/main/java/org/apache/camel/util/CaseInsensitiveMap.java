@@ -73,6 +73,16 @@ argument_list|,
 name|Object
 argument_list|>
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|8538318195477618308L
+decl_stmt|;
 comment|// holds a map of lower case key -> original key
 DECL|field|originalKeys
 specifier|private

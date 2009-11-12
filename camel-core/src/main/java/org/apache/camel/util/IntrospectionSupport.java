@@ -879,12 +879,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|setProperties (Object target, Map properties, String optionPrefix)
+DECL|method|setProperties (Object target, Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
 name|boolean
@@ -894,6 +889,11 @@ name|Object
 name|target
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|,
 name|String
@@ -932,6 +932,11 @@ argument_list|<
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -953,6 +958,11 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 init|=
 name|it

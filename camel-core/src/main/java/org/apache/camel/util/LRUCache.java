@@ -140,7 +140,7 @@ return|return
 name|maxCacheSize
 return|;
 block|}
-DECL|method|removeEldestEntry (Map.Entry entry)
+DECL|method|removeEldestEntry (Map.Entry<K, V> entry)
 specifier|protected
 name|boolean
 name|removeEldestEntry
@@ -148,6 +148,11 @@ parameter_list|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|entry
 parameter_list|)
 block|{

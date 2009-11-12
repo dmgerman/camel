@@ -219,7 +219,7 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition definition)
+DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition)
 name|ObjectName
 name|getObjectNameForProcessor
 parameter_list|(
@@ -230,6 +230,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws

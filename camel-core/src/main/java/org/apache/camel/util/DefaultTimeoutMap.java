@@ -163,19 +163,35 @@ DECL|field|map
 specifier|private
 specifier|final
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|index
 specifier|private
 name|SortedSet
+argument_list|<
+name|TimeoutMapEntry
+argument_list|>
 name|index
 init|=
 operator|new
 name|TreeSet
+argument_list|<
+name|TimeoutMapEntry
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|executor
@@ -228,11 +244,6 @@ name|schedulePoll
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|get (Object key)
 specifier|public
 name|Object
@@ -302,11 +313,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|put (Object key, Object value, long timeoutMillis)
 specifier|public
 name|void
@@ -425,11 +431,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getKeys ()
 specifier|public
 name|Object
@@ -449,6 +450,9 @@ name|map
 init|)
 block|{
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|keySet
 init|=
 name|map
@@ -532,6 +536,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|TimeoutMapEntry
+argument_list|>
 name|iter
 init|=
 name|index

@@ -209,6 +209,9 @@ name|startServices
 argument_list|(
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 argument_list|)
@@ -245,13 +248,16 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Starts all of the given services      */
-DECL|method|startServices (Collection services)
+DECL|method|startServices (Collection<?> services)
 specifier|public
 specifier|static
 name|void
 name|startServices
 parameter_list|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|services
 parameter_list|)
 throws|throws
@@ -321,6 +327,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 init|=
 name|Arrays
@@ -399,6 +408,9 @@ name|stopServices
 argument_list|(
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 argument_list|)
@@ -406,13 +418,16 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Stops all of the given services, throwing the first exception caught      */
-DECL|method|stopServices (Collection services)
+DECL|method|stopServices (Collection<?> services)
 specifier|public
 specifier|static
 name|void
 name|stopServices
 parameter_list|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|services
 parameter_list|)
 throws|throws

@@ -86,6 +86,11 @@ name|value
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|equals (Object o)
 specifier|public
@@ -127,10 +132,20 @@ literal|false
 return|;
 block|}
 name|KeyValueHolder
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|that
 init|=
 operator|(
 name|KeyValueHolder
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 operator|)
 name|o
 decl_stmt|;

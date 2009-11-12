@@ -95,11 +95,14 @@ name|getNodes
 parameter_list|()
 function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping how far this      * exchange have been intercepted by the general intercept().      *<p/>      * We need this special book keeping to keep correct order when dealing      * with concurrent exchanges being routed in the same route path.      *      * @param node the intercept node      * @return the current count      */
-DECL|method|getAndIncrement (ProcessorDefinition node)
+DECL|method|getAndIncrement (ProcessorDefinition<?> node)
 name|int
 name|getAndIncrement
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 function_decl|;

@@ -39,14 +39,20 @@ interface|interface
 name|TypeConverterRegistry
 block|{
 comment|/**      * Registers a new type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
-DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
+DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 name|void
 name|addTypeConverter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|,
 name|TypeConverter
@@ -63,14 +69,20 @@ name|typeConverter
 parameter_list|)
 function_decl|;
 comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or null if not found.      */
-DECL|method|lookup (Class toType, Class fromType)
+DECL|method|lookup (Class<?> toType, Class<?> fromType)
 name|TypeConverter
 name|lookup
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|)
 function_decl|;

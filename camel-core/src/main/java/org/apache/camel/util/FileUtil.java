@@ -832,6 +832,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|it
 init|=
 name|stack

@@ -137,11 +137,14 @@ name|managementAgent
 parameter_list|)
 function_decl|;
 comment|/**      * Filter whether the processor should be managed or not.      *<p/>      * Is used to filter out unwanted processors to avoid managing at too fine grained level.      *      * @param definition definition of the processor      * @return<tt>true</tt> to manage it      */
-DECL|method|manageProcessor (ProcessorDefinition definition)
+DECL|method|manageProcessor (ProcessorDefinition<?> definition)
 name|boolean
 name|manageProcessor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 function_decl|;

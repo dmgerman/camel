@@ -62,34 +62,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Some core java.lang based<a  * href="http://camel.apache.org/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
@@ -103,23 +75,6 @@ specifier|final
 class|class
 name|ObjectConverter
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|ObjectConverter
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|ObjectConverter ()
 specifier|private

@@ -853,12 +853,15 @@ name|this
 return|;
 block|}
 comment|/**      * Uses fail over load balancer      *       * @param exceptions exception classes which we want to failover if one of them was thrown      * @return the builder      */
-DECL|method|failover (Class... exceptions)
+DECL|method|failover (Class<?>.... exceptions)
 specifier|public
 name|LoadBalanceDefinition
 name|failover
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|exceptions
 parameter_list|)

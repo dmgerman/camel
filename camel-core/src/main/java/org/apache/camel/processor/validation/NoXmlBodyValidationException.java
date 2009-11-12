@@ -54,6 +54,15 @@ name|NoXmlBodyValidationException
 extends|extends
 name|ValidationException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4502520681354358599L
+decl_stmt|;
 DECL|method|NoXmlBodyValidationException (Exchange exchange)
 specifier|public
 name|NoXmlBodyValidationException

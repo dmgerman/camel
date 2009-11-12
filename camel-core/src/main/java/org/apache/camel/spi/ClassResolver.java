@@ -49,6 +49,9 @@ block|{
 comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @return the class if resolved,<tt>null</tt> if not found.      */
 DECL|method|resolveClass (String name)
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|String
@@ -79,6 +82,9 @@ function_decl|;
 comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      */
 DECL|method|resolveClass (String name, ClassLoader loader)
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|String
@@ -115,6 +121,9 @@ function_decl|;
 comment|/**      * Resolves the given class by its name      *      * @param name full qualified name of class      * @return the class if resolved,<tt>null</tt> if not found.      * @throws ClassNotFoundException is thrown if class not found      */
 DECL|method|resolveMandatoryClass (String name)
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveMandatoryClass
 parameter_list|(
 name|String
@@ -149,6 +158,9 @@ function_decl|;
 comment|/**      * Resolves the given class by its name      *      * @param name   full qualified name of class      * @param loader use the provided class loader      * @return the class if resolved,<tt>null</tt> if not found.      * @throws ClassNotFoundException is thrown if class not found      */
 DECL|method|resolveMandatoryClass (String name, ClassLoader loader)
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveMandatoryClass
 parameter_list|(
 name|String

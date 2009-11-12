@@ -106,6 +106,9 @@ name|HasAnnotation
 block|{
 DECL|method|value ()
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|()
 function_decl|;

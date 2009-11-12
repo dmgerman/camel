@@ -65,7 +65,7 @@ interface|interface
 name|InterceptStrategy
 block|{
 comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
@@ -73,6 +73,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Processor

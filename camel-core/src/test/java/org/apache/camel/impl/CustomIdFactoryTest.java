@@ -278,6 +278,9 @@ name|String
 name|createId
 parameter_list|(
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -471,7 +474,7 @@ name|MyDebuggerCheckingId
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -482,6 +485,9 @@ name|context
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Processor

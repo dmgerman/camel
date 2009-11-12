@@ -60,6 +60,20 @@ name|InitialContextFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * A factory of the Camel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision$  */
 end_comment
@@ -73,12 +87,17 @@ implements|implements
 name|InitialContextFactory
 block|{
 comment|/**      * Creates a new context with the given environment.      *      * @param  environment  the environment, must not be<tt>null</tt>      * @return the created context.      * @throws NamingException is thrown if creation failed.      */
-DECL|method|getInitialContext (Hashtable environment)
+DECL|method|getInitialContext (Hashtable<?, ?> environment)
 specifier|public
 name|Context
 name|getInitialContext
 parameter_list|(
 name|Hashtable
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|environment
 parameter_list|)
 throws|throws
@@ -90,7 +109,20 @@ return|return
 operator|new
 name|JndiContext
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|environment
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
 argument_list|)
 return|;
 block|}

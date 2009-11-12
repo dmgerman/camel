@@ -1197,6 +1197,11 @@ DECL|method|createVariableMap (Exchange exchange)
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|createVariableMap
 parameter_list|(
 name|Exchange
@@ -1204,10 +1209,20 @@ name|exchange
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|answer
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|populateVariableMap
@@ -1222,12 +1237,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Populates the Map with the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @param map      the map to populate      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|populateVariableMap (Exchange exchange, Map map)
+DECL|method|populateVariableMap (Exchange exchange, Map<String, Object> map)
 specifier|public
 specifier|static
 name|void
@@ -1237,6 +1247,11 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 parameter_list|)
 block|{
@@ -1957,7 +1972,7 @@ literal|null
 return|;
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future the future handle      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
-DECL|method|extractFutureBody (CamelContext context, Future future, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future<Object> future, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -1970,6 +1985,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|Class
@@ -2046,7 +2064,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
-DECL|method|extractFutureBody (CamelContext context, Future future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -2059,6 +2077,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|long

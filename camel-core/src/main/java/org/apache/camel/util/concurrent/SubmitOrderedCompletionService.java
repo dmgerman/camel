@@ -159,10 +159,16 @@ DECL|field|completionQueue
 specifier|private
 specifier|final
 name|DelayQueue
+argument_list|<
+name|SubmitOrderFutureTask
+argument_list|>
 name|completionQueue
 init|=
 operator|new
 name|DelayQueue
+argument_list|<
+name|SubmitOrderFutureTask
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// id is the unique id that determines the order in which tasks was submitted (incrementing)
@@ -191,13 +197,10 @@ DECL|class|SubmitOrderFutureTask
 specifier|private
 class|class
 name|SubmitOrderFutureTask
-parameter_list|<
-name|V
-parameter_list|>
 extends|extends
 name|FutureTask
 argument_list|<
-name|Void
+name|V
 argument_list|>
 implements|implements
 name|Delayed
@@ -209,7 +212,7 @@ specifier|final
 name|long
 name|id
 decl_stmt|;
-DECL|method|SubmitOrderFutureTask (long id, Callable<Void> voidCallable)
+DECL|method|SubmitOrderFutureTask (long id, Callable<V> voidCallable)
 specifier|public
 name|SubmitOrderFutureTask
 parameter_list|(
@@ -218,7 +221,7 @@ name|id
 parameter_list|,
 name|Callable
 argument_list|<
-name|Void
+name|V
 argument_list|>
 name|voidCallable
 parameter_list|)
@@ -235,7 +238,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|SubmitOrderFutureTask (long id, Runnable runnable, Void result)
+DECL|method|SubmitOrderFutureTask (long id, Runnable runnable, V result)
 specifier|public
 name|SubmitOrderFutureTask
 parameter_list|(
@@ -245,7 +248,7 @@ parameter_list|,
 name|Runnable
 name|runnable
 parameter_list|,
-name|Void
+name|V
 name|result
 parameter_list|)
 block|{
@@ -411,6 +414,12 @@ name|f
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Future
+argument_list|<
+name|V
+argument_list|>
+operator|)
 name|f
 return|;
 block|}

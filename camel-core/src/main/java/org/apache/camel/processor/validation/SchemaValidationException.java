@@ -76,6 +76,15 @@ name|SchemaValidationException
 extends|extends
 name|ValidationException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|2656907296674888684L
+decl_stmt|;
 DECL|field|schema
 specifier|private
 specifier|final

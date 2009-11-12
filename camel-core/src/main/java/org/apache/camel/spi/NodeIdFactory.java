@@ -41,11 +41,14 @@ interface|interface
 name|NodeIdFactory
 block|{
 comment|/**      * Creates an id for the given model definiton.      *      * @param definition model definition      * @return the id created      */
-DECL|method|createId (OptionalIdentifiedDefinition definition)
+DECL|method|createId (OptionalIdentifiedDefinition<?> definition)
 name|String
 name|createId
 parameter_list|(
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 function_decl|;

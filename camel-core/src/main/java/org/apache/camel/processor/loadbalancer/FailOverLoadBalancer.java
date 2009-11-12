@@ -84,6 +84,9 @@ specifier|final
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|exceptions
 decl_stmt|;
@@ -99,13 +102,16 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|FailOverLoadBalancer (List<Class> exceptions)
+DECL|method|FailOverLoadBalancer (List<Class<?>> exceptions)
 specifier|public
 name|FailOverLoadBalancer
 parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|exceptions
 parameter_list|)
@@ -119,6 +125,9 @@ expr_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|exceptions
@@ -156,6 +165,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getExceptions
 parameter_list|()
@@ -204,6 +216,9 @@ block|}
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exception
 range|:
 name|exceptions

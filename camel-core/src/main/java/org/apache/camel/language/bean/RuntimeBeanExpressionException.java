@@ -54,6 +54,16 @@ name|RuntimeBeanExpressionException
 extends|extends
 name|RuntimeExpressionException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|7184254079414493118L
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final

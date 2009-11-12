@@ -110,12 +110,15 @@ name|AtomicInteger
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|createId (OptionalIdentifiedDefinition definition)
+DECL|method|createId (OptionalIdentifiedDefinition<?> definition)
 specifier|public
 name|String
 name|createId
 parameter_list|(
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
