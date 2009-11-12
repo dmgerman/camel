@@ -179,6 +179,7 @@ return|;
 block|}
 DECL|class|MyUnmarshalException
 specifier|private
+specifier|final
 class|class
 name|MyUnmarshalException
 extends|extends
