@@ -52,6 +52,15 @@ name|ServiceStopFailureEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4139591666998762617L
+decl_stmt|;
 DECL|field|context
 specifier|private
 name|CamelContext

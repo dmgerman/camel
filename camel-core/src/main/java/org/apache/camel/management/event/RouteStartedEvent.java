@@ -52,6 +52,15 @@ name|RouteStartedEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1330257282431407329L
+decl_stmt|;
 DECL|field|route
 specifier|private
 specifier|final

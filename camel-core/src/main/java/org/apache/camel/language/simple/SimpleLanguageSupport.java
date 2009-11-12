@@ -1227,6 +1227,9 @@ comment|// okay the in operator is a bit more complex as we need to build a list
 comment|// from the right handside expression.
 comment|// each element on the right handside must be separated by comma (default for create iterator)
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -1344,6 +1347,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|rightType
 init|=
 name|exchange

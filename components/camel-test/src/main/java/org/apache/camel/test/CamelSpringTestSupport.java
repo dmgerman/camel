@@ -160,6 +160,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -315,7 +329,7 @@ name|ExcludingPackageScanClassResolver
 extends|extends
 name|DefaultPackageScanClassResolver
 block|{
-DECL|method|setExcludedClasses (Set<Class> excludedClasses)
+DECL|method|setExcludedClasses (Set<Class<?>> excludedClasses)
 specifier|public
 name|void
 name|setExcludedClasses
@@ -323,6 +337,9 @@ parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|excludedClasses
 parameter_list|)
@@ -401,15 +418,18 @@ argument_list|(
 literal|"excludingResolver"
 argument_list|)
 decl_stmt|;
-name|excludingResolver
-operator|.
-name|setExcludedClasses
-argument_list|(
-operator|new
-name|HashSet
+name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
 argument_list|>
+argument_list|>
+name|excluded
+init|=
+name|CastUtils
+operator|.
+name|cast
 argument_list|(
 name|Arrays
 operator|.
@@ -418,6 +438,22 @@ argument_list|(
 name|excludeRoutes
 argument_list|()
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|excludingResolver
+operator|.
+name|setExcludedClasses
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+argument_list|(
+name|excluded
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -429,11 +465,17 @@ comment|/**      * Template method used to exclude {@link org.apache.camel.Route
 DECL|method|excludeRoutes ()
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|excludeRoutes
 parameter_list|()
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|excludedRoute
 init|=
 name|excludeRoute
@@ -462,6 +504,9 @@ comment|/**      * Template method used to exclude a {@link org.apache.camel.Rou
 DECL|method|excludeRoute ()
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|excludeRoute
 parameter_list|()
 block|{

@@ -52,6 +52,16 @@ name|ExchangeFailureEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|8484326904627268101L
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final

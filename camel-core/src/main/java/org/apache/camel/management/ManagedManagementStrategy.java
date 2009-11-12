@@ -949,12 +949,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|manageProcessor (ProcessorDefinition definition)
+DECL|method|manageProcessor (ProcessorDefinition<?> definition)
 specifier|public
 name|boolean
 name|manageProcessor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

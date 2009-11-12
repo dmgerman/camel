@@ -70,6 +70,9 @@ specifier|final
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|parents
 init|=
@@ -77,6 +80,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -85,11 +91,14 @@ specifier|public
 name|AssignableToPackageScanFilter
 parameter_list|()
 block|{     }
-DECL|method|AssignableToPackageScanFilter (Class parentType)
+DECL|method|AssignableToPackageScanFilter (Class<?> parentType)
 specifier|public
 name|AssignableToPackageScanFilter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parentType
 parameter_list|)
 block|{
@@ -101,13 +110,16 @@ name|parentType
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|AssignableToPackageScanFilter (Set<Class> parents)
+DECL|method|AssignableToPackageScanFilter (Set<Class<?>> parents)
 specifier|public
 name|AssignableToPackageScanFilter
 parameter_list|(
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|parents
 parameter_list|)
@@ -142,12 +154,15 @@ name|parentType
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|matches (Class type)
+DECL|method|matches (Class<?> type)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

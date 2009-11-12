@@ -52,6 +52,16 @@ name|CamelContextStartupFailureEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|4271899927507894567L
+decl_stmt|;
 DECL|field|context
 specifier|private
 name|CamelContext

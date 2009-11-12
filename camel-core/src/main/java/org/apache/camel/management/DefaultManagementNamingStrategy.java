@@ -743,7 +743,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition definition)
+DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|ObjectName
 name|getObjectNameForProcessor
@@ -755,6 +755,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws

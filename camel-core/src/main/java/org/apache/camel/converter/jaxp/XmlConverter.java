@@ -472,6 +472,9 @@ specifier|private
 specifier|static
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|DOM_TO_SAX_CLASS
 decl_stmt|;
 DECL|field|documentBuilderFactory
@@ -487,6 +490,9 @@ decl_stmt|;
 static|static
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cl
 init|=
 literal|null
@@ -1930,6 +1936,9 @@ block|{
 try|try
 block|{
 name|Constructor
+argument_list|<
+name|?
+argument_list|>
 name|cns
 init|=
 name|DOM_TO_SAX_CLASS

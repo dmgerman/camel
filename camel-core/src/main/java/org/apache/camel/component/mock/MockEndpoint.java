@@ -1851,11 +1851,17 @@ comment|/**      * Adds an expectation that the given body value are received by
 DECL|method|expectedBodyReceived ()
 specifier|public
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|expectedBodyReceived
 parameter_list|()
 block|{
 specifier|final
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|clause
 init|=
 operator|new
@@ -2340,11 +2346,17 @@ comment|/**      * Adds an expectation that messages received should have ascend
 DECL|method|expectsAscending ()
 specifier|public
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|expectsAscending
 parameter_list|()
 block|{
 specifier|final
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|clause
 init|=
 operator|new
@@ -2419,11 +2431,17 @@ comment|/**      * Adds an expectation that messages received should have descen
 DECL|method|expectsDescending ()
 specifier|public
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|expectsDescending
 parameter_list|()
 block|{
 specifier|final
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|clause
 init|=
 operator|new
@@ -2498,11 +2516,17 @@ comment|/**      * Adds an expectation that no duplicate messages should be rece
 DECL|method|expectsNoDuplicates ()
 specifier|public
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|expectsNoDuplicates
 parameter_list|()
 block|{
 specifier|final
 name|ExpressionClause
+argument_list|<
+name|?
+argument_list|>
 name|clause
 init|=
 operator|new

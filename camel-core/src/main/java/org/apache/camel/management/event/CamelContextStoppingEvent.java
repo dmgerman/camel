@@ -52,6 +52,16 @@ name|CamelContextStoppingEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|1074581102102126334L
+decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final

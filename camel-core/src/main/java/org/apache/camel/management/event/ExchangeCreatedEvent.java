@@ -52,6 +52,16 @@ name|ExchangeCreatedEvent
 extends|extends
 name|EventObject
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|19248832613958243L
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final

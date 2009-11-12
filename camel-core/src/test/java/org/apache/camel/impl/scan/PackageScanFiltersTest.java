@@ -258,6 +258,9 @@ expr_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -265,6 +268,9 @@ operator|new
 name|LinkedHashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -656,7 +662,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|validateFilter (PackageScanFilter filter, Class type)
+DECL|method|validateFilter (PackageScanFilter filter, Class<?> type)
 specifier|private
 name|void
 name|validateFilter
@@ -665,6 +671,9 @@ name|PackageScanFilter
 name|filter
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

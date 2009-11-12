@@ -27,11 +27,14 @@ interface|interface
 name|PackageScanFilter
 block|{
 comment|/**      * Does the given class match      *      * @param type the class      * @return true to include this class, false to skip it.      */
-DECL|method|matches (Class type)
+DECL|method|matches (Class<?> type)
 name|boolean
 name|matches
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 function_decl|;
