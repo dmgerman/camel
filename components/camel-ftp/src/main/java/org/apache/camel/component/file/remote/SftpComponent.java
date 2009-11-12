@@ -147,7 +147,7 @@ name|Exception
 block|{
 comment|// get the base uri part before the options as they can be non URI valid such as the expression using $ chars
 comment|// and the URI constructor will regard $ as an illegal character and we dont want to enforce end users to
-comment|// to espace the $ for the expression (file language)
+comment|// to escape the $ for the expression (file language)
 name|String
 name|baseUri
 init|=

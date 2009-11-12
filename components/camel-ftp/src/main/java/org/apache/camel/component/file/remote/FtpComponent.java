@@ -74,6 +74,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|net
@@ -147,7 +161,7 @@ name|Exception
 block|{
 comment|// get the base uri part before the options as they can be non URI valid such as the expression using $ chars
 comment|// and the URI constructor will regard $ as an illegal character and we dont want to enforce end users to
-comment|// to espace the $ for the expression (file language)
+comment|// to escape the $ for the expression (file language)
 name|String
 name|baseUri
 init|=
@@ -198,7 +212,9 @@ name|baseUri
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|FtpEndpoint
+name|answer
+init|=
 operator|new
 name|FtpEndpoint
 argument_list|(
@@ -208,6 +224,87 @@ name|this
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+comment|// additional client configuration options
+if|if
+condition|(
+name|IntrospectionSupport
+operator|.
+name|hasProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"ftpClientConfig."
+argument_list|)
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|param
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"ftpClientConfig."
+argument_list|)
+decl_stmt|;
+comment|// remember these parameters so we can use them when creating a client
+name|answer
+operator|.
+name|setFtpClientConfigParameters
+argument_list|(
+name|param
+argument_list|)
+expr_stmt|;
+block|}
+comment|// additional client options
+if|if
+condition|(
+name|IntrospectionSupport
+operator|.
+name|hasProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"ftpClient."
+argument_list|)
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|param
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"ftpClient."
+argument_list|)
+decl_stmt|;
+comment|// remember these parameters so we can use them when creating a client
+name|answer
+operator|.
+name|setFtpClientParameters
+argument_list|(
+name|param
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 DECL|method|afterPropertiesSet (GenericFileEndpoint<FTPFile> endpoint)

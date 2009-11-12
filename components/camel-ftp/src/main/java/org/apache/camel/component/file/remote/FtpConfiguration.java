@@ -67,11 +67,6 @@ name|DEFAULT_FTP_PORT
 init|=
 literal|21
 decl_stmt|;
-DECL|field|ftpClientConfig
-specifier|private
-name|FTPClientConfig
-name|ftpClientConfig
-decl_stmt|;
 DECL|method|FtpConfiguration ()
 specifier|public
 name|FtpConfiguration
@@ -109,32 +104,6 @@ name|setPort
 argument_list|(
 name|DEFAULT_FTP_PORT
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getFtpClientConfig ()
-specifier|public
-name|FTPClientConfig
-name|getFtpClientConfig
-parameter_list|()
-block|{
-return|return
-name|ftpClientConfig
-return|;
-block|}
-DECL|method|setFtpClientConfig (FTPClientConfig ftpClientConfig)
-specifier|public
-name|void
-name|setFtpClientConfig
-parameter_list|(
-name|FTPClientConfig
-name|ftpClientConfig
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ftpClientConfig
-operator|=
-name|ftpClientConfig
 expr_stmt|;
 block|}
 block|}
