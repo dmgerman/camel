@@ -219,6 +219,19 @@ name|remoteExchange
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getOperations ()
+specifier|protected
+name|RemoteFileOperations
+name|getOperations
+parameter_list|()
+block|{
+return|return
+operator|(
+name|RemoteFileOperations
+operator|)
+name|operations
+return|;
+block|}
 comment|/**      * The file could not be written. We need to disconnect from the remote server.      */
 DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
 specifier|protected
@@ -252,7 +265,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during stopping: "
+literal|"Exception occurred during stopping: "
 operator|+
 name|exception
 operator|.
@@ -267,15 +280,35 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during processing. "
+literal|"Exception occurred during processing. "
 argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|disconnect
 argument_list|()
 expr_stmt|;
-comment|// Rethrow to signify that we didn't poll
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore exception
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Ignored exception during disconnect"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Rethrow the original exception
 throw|throw
 name|exception
 throw|;
@@ -295,6 +328,15 @@ literal|false
 expr_stmt|;
 if|if
 condition|(
+name|getOperations
+argument_list|()
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|log
 operator|.
 name|isDebugEnabled
@@ -312,16 +354,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-operator|(
-operator|(
-name|RemoteFileOperations
-operator|)
-name|operations
-operator|)
+name|getOperations
+argument_list|()
 operator|.
 name|disconnect
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -419,7 +458,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during disconnecting from: "
+literal|"Exception occurred during disconnecting from: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -451,10 +490,8 @@ if|if
 condition|(
 operator|!
 operator|(
-operator|(
-name|RemoteFileOperations
-operator|)
-name|operations
+name|getOperations
+argument_list|()
 operator|)
 operator|.
 name|isConnected
@@ -483,14 +520,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|RemoteFileOperations
-name|rfo
-init|=
-operator|(
-name|RemoteFileOperations
-operator|)
-name|operations
-decl_stmt|;
 name|RemoteFileEndpoint
 name|rfe
 init|=
@@ -513,7 +542,8 @@ argument_list|()
 decl_stmt|;
 name|loggedIn
 operator|=
-name|rfo
+name|getOperations
+argument_list|()
 operator|.
 name|connect
 argument_list|(
