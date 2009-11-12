@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -219,24 +207,6 @@ operator|.
 name|codec
 operator|.
 name|ProtocolEncoderOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|mina
-operator|.
-name|filter
-operator|.
-name|codec
-operator|.
-name|textline
-operator|.
-name|LineDelimiter
 import|;
 end_import
 

@@ -26,16 +26,6 @@ name|java
 operator|.
 name|text
 operator|.
-name|DecimalFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
 name|NumberFormat
 import|;
 end_import

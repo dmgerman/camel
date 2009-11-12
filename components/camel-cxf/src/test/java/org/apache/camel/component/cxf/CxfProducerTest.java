@@ -62,16 +62,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -180,18 +170,6 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|BusFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
 name|bus
 operator|.
 name|CXFBusFactory
@@ -209,20 +187,6 @@ operator|.
 name|endpoint
 operator|.
 name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|endpoint
-operator|.
-name|ServerImpl
 import|;
 end_import
 

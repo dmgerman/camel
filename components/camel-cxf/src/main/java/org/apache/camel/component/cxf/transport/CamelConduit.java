@@ -36,16 +36,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|OutputStream
 import|;
 end_import
@@ -95,18 +85,6 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|InvalidPayloadException
 import|;
 end_import
 
