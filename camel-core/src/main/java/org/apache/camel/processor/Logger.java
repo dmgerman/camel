@@ -1162,7 +1162,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
 name|message
 argument_list|,
