@@ -3028,7 +3028,7 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|extractFutureBody (Future future, Class<T> type)
+DECL|method|extractFutureBody (Future<Object> future, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -3037,6 +3037,9 @@ name|T
 name|extractFutureBody
 parameter_list|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|Class
@@ -3059,7 +3062,7 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|extractFutureBody (Future future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -3068,6 +3071,9 @@ name|T
 name|extractFutureBody
 parameter_list|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|long

@@ -224,6 +224,20 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -1649,7 +1663,12 @@ name|template
 operator|.
 name|extractFutureBody
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|future
+argument_list|)
 argument_list|,
 name|String
 operator|.
@@ -1799,7 +1818,12 @@ name|template
 operator|.
 name|extractFutureBody
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|future
+argument_list|)
 argument_list|,
 literal|5
 argument_list|,

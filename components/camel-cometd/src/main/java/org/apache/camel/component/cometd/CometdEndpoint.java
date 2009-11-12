@@ -179,7 +179,7 @@ specifier|private
 name|CometdComponent
 name|component
 decl_stmt|;
-DECL|method|CometdEndpoint (CometdComponent component, String uri, String remaining, Map parameters)
+DECL|method|CometdEndpoint (CometdComponent component, String uri, String remaining, Map<String, Object> parameters)
 specifier|public
 name|CometdEndpoint
 parameter_list|(
@@ -193,6 +193,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{

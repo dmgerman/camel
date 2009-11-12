@@ -451,6 +451,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|route
@@ -654,6 +657,9 @@ comment|//List<ProcessorType> outputs = node.getOutputs();
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -955,13 +961,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Is the given node a pipeline      */
-DECL|method|isPipeline (ProcessorDefinition node)
+DECL|method|isPipeline (ProcessorDefinition<?> node)
 specifier|private
 specifier|static
 name|boolean
 name|isPipeline
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{

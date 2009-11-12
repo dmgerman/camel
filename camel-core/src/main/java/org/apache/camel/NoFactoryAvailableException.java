@@ -36,6 +36,16 @@ name|NoFactoryAvailableException
 extends|extends
 name|IOException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|425141860196708627L
+decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final

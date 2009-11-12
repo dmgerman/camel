@@ -160,6 +160,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -257,6 +271,9 @@ decl_stmt|;
 DECL|field|deleteHandler
 specifier|private
 name|DeleteHandler
+argument_list|<
+name|Object
+argument_list|>
 name|deleteHandler
 decl_stmt|;
 DECL|field|query
@@ -396,12 +413,20 @@ name|query
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|results
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|query
 operator|.
 name|getResultList
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -451,7 +476,12 @@ try|try
 block|{
 name|processBatch
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|answer
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,12 +528,15 @@ operator|=
 name|maxMessagesPerPoll
 expr_stmt|;
 block|}
-DECL|method|processBatch (Queue exchanges)
+DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|void
 name|processBatch
 parameter_list|(
 name|Queue
+argument_list|<
+name|Object
+argument_list|>
 name|exchanges
 parameter_list|)
 throws|throws
@@ -581,13 +614,19 @@ comment|// only loop if we are started (allowed to run)
 name|DataHolder
 name|holder
 init|=
-operator|(
+name|ObjectHelper
+operator|.
+name|cast
+argument_list|(
 name|DataHolder
-operator|)
+operator|.
+name|class
+argument_list|,
 name|exchanges
 operator|.
 name|poll
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|EntityManager
 name|entityManager
@@ -784,6 +823,9 @@ block|}
 DECL|method|getDeleteHandler ()
 specifier|public
 name|DeleteHandler
+argument_list|<
+name|Object
+argument_list|>
 name|getDeleteHandler
 parameter_list|()
 block|{
@@ -804,12 +846,15 @@ return|return
 name|deleteHandler
 return|;
 block|}
-DECL|method|setDeleteHandler (DeleteHandler deleteHandler)
+DECL|method|setDeleteHandler (DeleteHandler<Object> deleteHandler)
 specifier|public
 name|void
 name|setDeleteHandler
 parameter_list|(
 name|DeleteHandler
+argument_list|<
+name|Object
+argument_list|>
 name|deleteHandler
 parameter_list|)
 block|{

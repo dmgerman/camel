@@ -26,6 +26,16 @@ name|ResolveEndpointFailedException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|9121465713858552263L
+decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final

@@ -645,12 +645,17 @@ name|createPollingConsumer
 argument_list|()
 return|;
 block|}
-DECL|method|configureProperties (Map options)
+DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void
 name|configureProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 block|{

@@ -106,11 +106,16 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Configure properties on this endpoint.      *       * @param options  the options (properties)      */
-DECL|method|configureProperties (Map options)
+DECL|method|configureProperties (Map<String, Object> options)
 name|void
 name|configureProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 function_decl|;

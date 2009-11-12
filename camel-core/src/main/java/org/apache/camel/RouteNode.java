@@ -47,6 +47,9 @@ function_decl|;
 comment|/**      * Gets the model definition that represents this node      *      * @return the definition, is newer<tt>null</tt>      */
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getProcessorDefinition
 parameter_list|()
 function_decl|;

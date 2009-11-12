@@ -138,11 +138,14 @@ name|getInterceptStrategies
 parameter_list|()
 function_decl|;
 comment|/**      * Initializes the channel.      *      * @param outputDefinition  the route defintion the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occured      */
-DECL|method|initChannel (ProcessorDefinition outputDefinition, RouteContext routeContext)
+DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 name|void
 name|initChannel
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|outputDefinition
 parameter_list|,
 name|RouteContext
@@ -175,6 +178,9 @@ function_decl|;
 comment|/**      * Gets the defintion of the next processor      *      * @return the processor definition      */
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getProcessorDefinition
 parameter_list|()
 function_decl|;

@@ -48,9 +48,12 @@ specifier|private
 specifier|final
 specifier|transient
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
-DECL|method|NoTypeConversionAvailableException (Object value, Class type)
+DECL|method|NoTypeConversionAvailableException (Object value, Class<?> type)
 specifier|public
 name|NoTypeConversionAvailableException
 parameter_list|(
@@ -58,6 +61,9 @@ name|Object
 name|value
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -84,7 +90,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-DECL|method|NoTypeConversionAvailableException (Object value, Class type, Throwable cause)
+DECL|method|NoTypeConversionAvailableException (Object value, Class<?> type, Throwable cause)
 specifier|public
 name|NoTypeConversionAvailableException
 parameter_list|(
@@ -92,6 +98,9 @@ name|Object
 name|value
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|Throwable
@@ -126,6 +135,9 @@ comment|/**      * Returns the required<tt>to</tt> type      */
 DECL|method|getToType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getToType
 parameter_list|()
 block|{
@@ -137,6 +149,9 @@ comment|/**      * Returns the required<tt>from</tt> type.      * Returns<tt>nul
 DECL|method|getFromType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getFromType
 parameter_list|()
 block|{
@@ -162,7 +177,7 @@ return|;
 block|}
 block|}
 comment|/**      * Returns an error message for no type converter available.      */
-DECL|method|createMessage (Object value, Class type)
+DECL|method|createMessage (Object value, Class<?> type)
 specifier|public
 specifier|static
 name|String
@@ -172,6 +187,9 @@ name|Object
 name|value
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

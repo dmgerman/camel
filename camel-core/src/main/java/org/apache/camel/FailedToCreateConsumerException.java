@@ -26,6 +26,15 @@ name|FailedToCreateConsumerException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1916718168052020246L
+decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final

@@ -180,6 +180,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -296,6 +310,11 @@ decl_stmt|;
 DECL|field|entityManagerProperties
 specifier|private
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|entityManagerProperties
 decl_stmt|;
 DECL|field|consumeDelete
@@ -497,12 +516,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureProperties (Map options)
+DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void
 name|configureProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 block|{
@@ -514,6 +538,11 @@ name|options
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|emProperties
 init|=
 name|IntrospectionSupport
@@ -534,7 +563,12 @@ condition|)
 block|{
 name|setEntityManagerProperties
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|emProperties
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -795,6 +829,11 @@ block|}
 DECL|method|getEntityManagerProperties ()
 specifier|public
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|getEntityManagerProperties
 parameter_list|()
 block|{
@@ -817,12 +856,17 @@ return|return
 name|entityManagerProperties
 return|;
 block|}
-DECL|method|setEntityManagerProperties (Map entityManagerProperties)
+DECL|method|setEntityManagerProperties (Map<Object, Object> entityManagerProperties)
 specifier|public
 name|void
 name|setEntityManagerProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|entityManagerProperties
 parameter_list|)
 block|{

@@ -163,11 +163,14 @@ name|getCamelContext
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a processor      *      * @param node  the node      * @return the created processor      * @throws Exception can be thrown      */
-DECL|method|createProcessor (ProcessorDefinition node)
+DECL|method|createProcessor (ProcessorDefinition<?> node)
 name|Processor
 name|createProcessor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 throws|throws

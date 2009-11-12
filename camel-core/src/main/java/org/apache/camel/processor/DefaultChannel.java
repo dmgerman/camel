@@ -319,12 +319,10 @@ decl_stmt|;
 DECL|field|definition
 specifier|private
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
-decl_stmt|;
-DECL|field|routeContext
-specifier|private
-name|RouteContext
-name|routeContext
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -439,12 +437,15 @@ return|return
 name|nextProcessor
 return|;
 block|}
-DECL|method|hasInterceptorStrategy (Class type)
+DECL|method|hasInterceptorStrategy (Class<?> type)
 specifier|public
 name|boolean
 name|hasInterceptorStrategy
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -554,6 +555,9 @@ block|}
 DECL|method|getProcessorDefinition ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getProcessorDefinition
 parameter_list|()
 block|{
@@ -601,12 +605,15 @@ name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|initChannel (ProcessorDefinition outputDefinition, RouteContext routeContext)
+DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 specifier|public
 name|void
 name|initChannel
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|outputDefinition
 parameter_list|,
 name|RouteContext
@@ -620,12 +627,6 @@ operator|.
 name|definition
 operator|=
 name|outputDefinition
-expr_stmt|;
-name|this
-operator|.
-name|routeContext
-operator|=
-name|routeContext
 expr_stmt|;
 name|this
 operator|.

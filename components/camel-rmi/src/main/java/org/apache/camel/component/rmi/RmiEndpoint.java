@@ -173,6 +173,9 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|remoteInterfaces
 decl_stmt|;
@@ -487,6 +490,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getRemoteInterfaces
 parameter_list|()
@@ -495,7 +501,7 @@ return|return
 name|remoteInterfaces
 return|;
 block|}
-DECL|method|setRemoteInterfaces (List<Class> remoteInterfaces)
+DECL|method|setRemoteInterfaces (List<Class<?>> remoteInterfaces)
 specifier|public
 name|void
 name|setRemoteInterfaces
@@ -503,6 +509,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|remoteInterfaces
 parameter_list|)
@@ -540,12 +549,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|setRemoteInterfaces (Class... remoteInterfaces)
+DECL|method|setRemoteInterfaces (Class<?>.... remoteInterfaces)
 specifier|public
 name|void
 name|setRemoteInterfaces
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|remoteInterfaces
 parameter_list|)

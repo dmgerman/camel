@@ -1249,7 +1249,7 @@ name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the response body from the future handle, will wait until the response is ready.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param future      the handle to get the response      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
-DECL|method|extractFutureBody (Future future, Class<T> type)
+DECL|method|extractFutureBody (Future<Object> future, Class<T> type)
 parameter_list|<
 name|T
 parameter_list|>
@@ -1257,6 +1257,9 @@ name|T
 name|extractFutureBody
 parameter_list|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|Class
@@ -1267,7 +1270,7 @@ name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the response body from the future handle, will wait at most the given time for the response to be ready.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param future      the handle to get the response      * @param timeout     the maximum time to wait      * @param unit        the time unit of the timeout argument      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws java.util.concurrent.TimeoutException if the wait timed out      * @throws CamelExecutionException if the processing of the exchange failed      */
-DECL|method|extractFutureBody (Future future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
 parameter_list|<
 name|T
 parameter_list|>
@@ -1275,6 +1278,9 @@ name|T
 name|extractFutureBody
 parameter_list|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 parameter_list|,
 name|long

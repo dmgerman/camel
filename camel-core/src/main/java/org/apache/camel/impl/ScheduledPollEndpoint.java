@@ -128,6 +128,11 @@ block|{
 DECL|field|consumerProperties
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|consumerProperties
 decl_stmt|;
 DECL|method|ScheduledPollEndpoint (String endpointUri, Component component)
@@ -190,6 +195,11 @@ block|{     }
 DECL|method|getConsumerProperties ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getConsumerProperties
 parameter_list|()
 block|{
@@ -197,12 +207,17 @@ return|return
 name|consumerProperties
 return|;
 block|}
-DECL|method|setConsumerProperties (Map consumerProperties)
+DECL|method|setConsumerProperties (Map<String, Object> consumerProperties)
 specifier|public
 name|void
 name|setConsumerProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|consumerProperties
 parameter_list|)
 block|{
@@ -302,16 +317,26 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|configureProperties (Map options)
+DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void
 name|configureProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|consumerProperties
 init|=
 name|IntrospectionSupport
@@ -344,20 +369,25 @@ name|consumerProperties
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|configureScheduledPollConsumerProperties (Map options, Map consumerProperties)
+DECL|method|configureScheduledPollConsumerProperties (Map<String, Object> options, Map<String, Object> consumerProperties)
 specifier|private
 name|void
 name|configureScheduledPollConsumerProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|consumerProperties
 parameter_list|)
 block|{
@@ -447,6 +477,11 @@ name|consumerProperties
 operator|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
