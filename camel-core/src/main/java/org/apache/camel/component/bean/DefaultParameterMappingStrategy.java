@@ -146,6 +146,9 @@ specifier|final
 name|Map
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|Expression
 argument_list|>
@@ -155,6 +158,9 @@ operator|new
 name|ConcurrentHashMap
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|Expression
 argument_list|>
@@ -169,12 +175,15 @@ name|loadDefaultRegistry
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
+DECL|method|getDefaultParameterTypeExpression (Class<?> parameterType)
 specifier|public
 name|Expression
 name|getDefaultParameterTypeExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|)
 block|{
@@ -188,12 +197,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds a default parameter type mapping to an expression      */
-DECL|method|addParameterMapping (Class parameterType, Expression expression)
+DECL|method|addParameterMapping (Class<?> parameterType, Expression expression)
 specifier|public
 name|void
 name|addParameterMapping
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|,
 name|Expression

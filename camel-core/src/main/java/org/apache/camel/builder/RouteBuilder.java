@@ -587,12 +587,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
-DECL|method|onException (Class exception)
+DECL|method|onException (Class<?> exception)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exception
 parameter_list|)
 block|{
@@ -614,12 +617,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
-DECL|method|onException (Class... exceptions)
+DECL|method|onException (Class<?>.... exceptions)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|exceptions
 parameter_list|)
@@ -632,6 +638,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|ex
 range|:
 name|exceptions

@@ -735,12 +735,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the log used for caught exceptions      *      * @param log the log class      * @return the builder      */
-DECL|method|log (Class log)
+DECL|method|log (Class<?> log)
 specifier|public
 name|DefaultErrorHandlerBuilder
 name|log
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|log
 parameter_list|)
 block|{

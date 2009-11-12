@@ -287,6 +287,9 @@ decl_stmt|;
 DECL|field|type
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|field|method
@@ -343,7 +346,7 @@ specifier|private
 name|RecipientList
 name|recipientList
 decl_stmt|;
-DECL|method|MethodInfo (CamelContext camelContext, Class type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation)
+DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -351,6 +354,9 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|Method
@@ -706,6 +712,9 @@ block|}
 DECL|method|getType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|()
 block|{
@@ -760,6 +769,9 @@ block|}
 DECL|method|getBodyParameterType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getBodyParameterType
 parameter_list|()
 block|{
@@ -792,16 +804,22 @@ name|getType
 argument_list|()
 return|;
 block|}
-DECL|method|bodyParameterMatches (Class bodyType)
+DECL|method|bodyParameterMatches (Class<?> bodyType)
 specifier|public
 name|boolean
 name|bodyParameterMatches
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|bodyType
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|actualType
 init|=
 name|getBodyParameterType
@@ -1399,6 +1417,9 @@ name|typesToSearch
 argument_list|)
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|interfaces
 init|=
@@ -1410,6 +1431,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|anInterface
 range|:
 name|interfaces

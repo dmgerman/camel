@@ -353,6 +353,9 @@ parameter_list|<
 name|T
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 block|{
 DECL|field|processorType

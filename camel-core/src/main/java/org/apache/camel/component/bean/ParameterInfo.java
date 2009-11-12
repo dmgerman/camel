@@ -72,6 +72,9 @@ DECL|field|type
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|field|annotations
@@ -86,7 +89,7 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|ParameterInfo (int index, Class type, Annotation[] annotations, Expression expression)
+DECL|method|ParameterInfo (int index, Class<?> type, Annotation[] annotations, Expression expression)
 specifier|public
 name|ParameterInfo
 parameter_list|(
@@ -94,6 +97,9 @@ name|int
 name|index
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|Annotation
@@ -163,6 +169,9 @@ block|}
 DECL|method|getType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|()
 block|{

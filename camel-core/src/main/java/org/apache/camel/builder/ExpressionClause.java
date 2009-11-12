@@ -328,12 +328,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An expression of an inbound message body converted to the expected type      */
-DECL|method|body (Class expectedType)
+DECL|method|body (Class<?> expectedType)
 specifier|public
 name|T
 name|body
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expectedType
 parameter_list|)
 block|{
@@ -541,12 +544,15 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
-DECL|method|method (Class beanType)
+DECL|method|method (Class<?> beanType)
 specifier|public
 name|T
 name|method
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|)
 block|{
@@ -602,12 +608,15 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
-DECL|method|method (Class beanType, String method)
+DECL|method|method (Class<?> beanType, String method)
 specifier|public
 name|T
 name|method
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|,
 name|String
@@ -863,7 +872,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
-DECL|method|xpath (String text, Class resultType)
+DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 name|T
 name|xpath
@@ -872,6 +881,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{
@@ -901,7 +913,7 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
-DECL|method|xpath (String text, Class resultType, Namespaces namespaces)
+DECL|method|xpath (String text, Class<?> resultType, Namespaces namespaces)
 specifier|public
 name|T
 name|xpath
@@ -910,6 +922,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|,
 name|Namespaces
@@ -931,7 +946,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
-DECL|method|xpath (String text, Class resultType, Map<String, String> namespaces)
+DECL|method|xpath (String text, Class<?> resultType, Map<String, String> namespaces)
 specifier|public
 name|T
 name|xpath
@@ -940,6 +955,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|,
 name|Map
@@ -1071,7 +1089,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
-DECL|method|xquery (String text, Class resultType)
+DECL|method|xquery (String text, Class<?> resultType)
 specifier|public
 name|T
 name|xquery
@@ -1080,6 +1098,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{
@@ -1109,7 +1130,7 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
-DECL|method|xquery (String text, Class resultType, Namespaces namespaces)
+DECL|method|xquery (String text, Class<?> resultType, Namespaces namespaces)
 specifier|public
 name|T
 name|xquery
@@ -1118,6 +1139,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|,
 name|Namespaces
@@ -1139,7 +1163,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
-DECL|method|xquery (String text, Class resultType, Map<String, String> namespaces)
+DECL|method|xquery (String text, Class<?> resultType, Map<String, String> namespaces)
 specifier|public
 name|T
 name|xquery
@@ -1148,6 +1172,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|,
 name|Map

@@ -109,13 +109,16 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the bean class which will be invoked      * @param method   name of method to invoke      * @return the builder      */
-DECL|method|bean (Class beanType, String method)
+DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 specifier|static
 name|ValueBuilder
 name|bean
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|,
 name|String

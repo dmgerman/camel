@@ -3279,7 +3279,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|beanExpression (final Class beanType, final String methodName)
+DECL|method|beanExpression (final Class<?> beanType, final String methodName)
 specifier|public
 specifier|static
 name|Expression
@@ -3287,6 +3287,9 @@ name|beanExpression
 parameter_list|(
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|,
 specifier|final

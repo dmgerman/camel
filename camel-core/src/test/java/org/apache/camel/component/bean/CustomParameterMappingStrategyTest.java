@@ -258,12 +258,15 @@ name|MyCustomStrategy
 implements|implements
 name|ParameterMappingStrategy
 block|{
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
+DECL|method|getDefaultParameterTypeExpression (Class<?> parameterType)
 specifier|public
 name|Expression
 name|getDefaultParameterTypeExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|)
 block|{

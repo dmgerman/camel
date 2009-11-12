@@ -377,12 +377,15 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|isInstanceOf (Class type)
+DECL|method|isInstanceOf (Class<?> type)
 specifier|public
 name|Predicate
 name|isInstanceOf
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

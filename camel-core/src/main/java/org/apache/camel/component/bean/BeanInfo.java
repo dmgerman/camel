@@ -334,6 +334,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -450,6 +464,9 @@ DECL|field|type
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|field|strategy
@@ -562,7 +579,7 @@ specifier|private
 name|BeanInfo
 name|superBeanInfo
 decl_stmt|;
-DECL|method|BeanInfo (CamelContext camelContext, Class type)
+DECL|method|BeanInfo (CamelContext camelContext, Class<?> type)
 specifier|public
 name|BeanInfo
 parameter_list|(
@@ -570,6 +587,9 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -586,7 +606,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|BeanInfo (CamelContext camelContext, Class type, ParameterMappingStrategy strategy)
+DECL|method|BeanInfo (CamelContext camelContext, Class<?> type, ParameterMappingStrategy strategy)
 specifier|public
 name|BeanInfo
 parameter_list|(
@@ -594,6 +614,9 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|ParameterMappingStrategy
@@ -732,6 +755,9 @@ block|}
 DECL|method|getType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|()
 block|{
@@ -1103,12 +1129,15 @@ literal|null
 return|;
 block|}
 comment|/**      * Introspects the given class      *      * @param clazz the class      */
-DECL|method|introspect (Class clazz)
+DECL|method|introspect (Class<?> clazz)
 specifier|protected
 name|void
 name|introspect
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{
@@ -1167,6 +1196,9 @@ expr_stmt|;
 block|}
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|superclass
 init|=
 name|clazz
@@ -1199,12 +1231,15 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Introspects the given method      *      * @param clazz the class      * @param method the method      * @return the method info, is newer<tt>null</tt>      */
-DECL|method|introspect (Class clazz, Method method)
+DECL|method|introspect (Class<?> clazz, Method method)
 specifier|protected
 name|MethodInfo
 name|introspect
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Method
@@ -1483,6 +1518,9 @@ name|class
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|superclass
 init|=
 name|type
@@ -2728,12 +2766,15 @@ literal|null
 return|;
 block|}
 comment|/**      * Validates wheter the given method is a valid candidate for Camel Bean Binding.      *      * @param clazz   the class      * @param method  the method      * @return true if valid, false to skip the method      */
-DECL|method|isValidMethod (Class clazz, Method method)
+DECL|method|isValidMethod (Class<?> clazz, Method method)
 specifier|protected
 name|boolean
 name|isValidMethod
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Method
@@ -2971,18 +3012,24 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Creates an expression for the given parameter type if the parameter can      * be mapped automatically or null if the parameter cannot be mapped due to      * insufficient annotations or not fitting with the default type      * conventions.      */
-DECL|method|createParameterUnmarshalExpression (Class clazz, Method method, Class parameterType, Annotation[] parameterAnnotation)
+DECL|method|createParameterUnmarshalExpression (Class<?> clazz, Method method, Class<?> parameterType, Annotation[] parameterAnnotation)
 specifier|private
 name|Expression
 name|createParameterUnmarshalExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Method
 name|method
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|,
 name|Annotation
@@ -3035,18 +3082,24 @@ name|parameterType
 argument_list|)
 return|;
 block|}
-DECL|method|createParameterUnmarshalExpressionForAnnotation (Class clazz, Method method, Class parameterType, Annotation annotation)
+DECL|method|createParameterUnmarshalExpressionForAnnotation (Class<?> clazz, Method method, Class<?> parameterType, Annotation annotation)
 specifier|private
 name|Expression
 name|createParameterUnmarshalExpressionForAnnotation
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Method
 name|method
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|,
 name|Annotation
@@ -3166,7 +3219,16 @@ name|ExpressionBuilder
 operator|.
 name|exchangeExceptionExpression
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|parameterType
+argument_list|,
+name|Exception
+operator|.
+name|class
+argument_list|)
 argument_list|)
 return|;
 block|}

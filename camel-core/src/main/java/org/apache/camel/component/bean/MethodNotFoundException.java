@@ -54,6 +54,16 @@ name|MethodNotFoundException
 extends|extends
 name|CamelExchangeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|7411465307141051012L
+decl_stmt|;
 DECL|field|methodName
 specifier|private
 specifier|final

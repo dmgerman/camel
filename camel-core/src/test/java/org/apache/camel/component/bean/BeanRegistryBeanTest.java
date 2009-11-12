@@ -270,6 +270,9 @@ name|Expression
 name|getDefaultParameterTypeExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|)
 block|{

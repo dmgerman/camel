@@ -41,11 +41,14 @@ interface|interface
 name|ParameterMappingStrategy
 block|{
 comment|/**      * Gets an expression used for evaluation with the current Exchange and its result      * is used as parameter value for the given type      *      * @param parameterType the parameter type      * @return the expression to evaluate as value      */
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
+DECL|method|getDefaultParameterTypeExpression (Class<?> parameterType)
 name|Expression
 name|getDefaultParameterTypeExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parameterType
 parameter_list|)
 function_decl|;

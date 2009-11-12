@@ -306,7 +306,7 @@ argument_list|(
 operator|(
 name|Class
 argument_list|<
-name|Object
+name|?
 argument_list|>
 operator|)
 name|bean
