@@ -66,7 +66,7 @@ name|RefComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -78,6 +78,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -148,7 +153,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Looks up an endpoint for a given name.      *      * Derived classes could use this name as a logical name and look it up on some registry.      *      * The default implementation will look up the name in the registry of the {@link #getCamelContext()} property      */
-DECL|method|lookupEndpoint (String name, Map parameters)
+DECL|method|lookupEndpoint (String name, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|lookupEndpoint
@@ -157,6 +162,11 @@ name|String
 name|name
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{

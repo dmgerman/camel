@@ -220,12 +220,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|GenericFileEndpoint
 argument_list|<
@@ -240,6 +235,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -372,7 +372,7 @@ name|endpoint
 return|;
 block|}
 comment|/**      * A factory method for derived file components to create the endpoint      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      * @throws Exception can be thrown      */
-DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
+DECL|method|buildFileEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 specifier|abstract
 name|GenericFileEndpoint
@@ -388,6 +388,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

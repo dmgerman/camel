@@ -152,6 +152,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|EndpointHelper
 import|;
 end_import
@@ -699,8 +713,17 @@ literal|null
 condition|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|beansOfType
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|applicationContext
 operator|.
 name|getBeansOfType
@@ -708,6 +731,7 @@ argument_list|(
 name|ConnectionFactory
 operator|.
 name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -746,6 +770,10 @@ expr_stmt|;
 block|}
 name|beansOfType
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|applicationContext
 operator|.
 name|getBeansOfType
@@ -753,6 +781,7 @@ argument_list|(
 name|DestinationResolver
 operator|.
 name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1688,7 +1717,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -1700,6 +1729,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -2177,6 +2211,12 @@ name|endpoint
 operator|.
 name|setJmsKeyFormatStrategy
 argument_list|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
 name|lookup
 argument_list|(
 name|key
@@ -2269,7 +2309,7 @@ name|endpoint
 return|;
 block|}
 comment|/**      * A strategy method allowing the URI destination to be translated into the      * actual JMS destination name (say by looking up in JNDI or something)      */
-DECL|method|convertPathToActualDestination (String path, Map parameters)
+DECL|method|convertPathToActualDestination (String path, Map<String, Object> parameters)
 specifier|protected
 name|String
 name|convertPathToActualDestination
@@ -2278,6 +2318,11 @@ name|String
 name|path
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{

@@ -120,7 +120,7 @@ name|LogComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -132,6 +132,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -254,12 +259,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Gets the logging level, will default to use INFO if no level parameter provided.      */
-DECL|method|getLoggingLevel (Map parameters)
+DECL|method|getLoggingLevel (Map<String, Object> parameters)
 specifier|protected
 name|LoggingLevel
 name|getLoggingLevel
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{

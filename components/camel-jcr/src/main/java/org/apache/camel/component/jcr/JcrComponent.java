@@ -68,7 +68,7 @@ name|DefaultComponent
 block|{
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map properties)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> properties)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -80,6 +80,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|)
 throws|throws

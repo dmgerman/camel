@@ -156,7 +156,7 @@ comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String path, Map options)
+DECL|method|createEndpoint (String uri, String path, Map<String, Object> options)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -168,6 +168,11 @@ name|String
 name|path
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|options
 parameter_list|)
 throws|throws

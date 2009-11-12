@@ -73,7 +73,7 @@ name|DEFAULT_LOCK_FILE_POSTFIX
 init|=
 literal|".camelLock"
 decl_stmt|;
-DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
+DECL|method|buildFileEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|GenericFileEndpoint
 argument_list|<
@@ -88,6 +88,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

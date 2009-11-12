@@ -42,7 +42,7 @@ name|RelaxNGCompactSyntaxComponent
 extends|extends
 name|JingComponent
 block|{
-DECL|method|configureValidator (JingValidator validator, String uri, String remaining, Map parameters)
+DECL|method|configureValidator (JingValidator validator, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|configureValidator
@@ -57,6 +57,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

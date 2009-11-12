@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -218,12 +232,17 @@ throws|throws
 name|Exception
 block|{     }
 comment|/**       * Setting http binding and http client configurer according to the parameters      * Also setting the BasicAuthenticationHttpClientConfigurer if the username       * and password option are not null.      *       * @param parameters the map of parameters       */
-DECL|method|configureParameters (Map parameters)
+DECL|method|configureParameters (Map<String, Object> parameters)
 specifier|protected
 name|void
 name|configureParameters
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{
@@ -551,7 +570,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -563,6 +582,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -664,7 +688,12 @@ argument_list|(
 name|uri
 argument_list|)
 argument_list|,
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|parameters
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|uri

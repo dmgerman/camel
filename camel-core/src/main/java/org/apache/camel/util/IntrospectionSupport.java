@@ -285,6 +285,9 @@ name|getName
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|method
@@ -293,6 +296,9 @@ name|getReturnType
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|params
 index|[]
 init|=
@@ -385,6 +391,9 @@ name|getName
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|method
@@ -393,6 +402,9 @@ name|getReturnType
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|params
 index|[]
 init|=
@@ -658,13 +670,18 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|hasProperties (Map properties, String optionPrefix)
+DECL|method|hasProperties (Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
 name|boolean
 name|hasProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|,
 name|String
@@ -799,6 +816,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -825,13 +845,16 @@ name|target
 argument_list|)
 return|;
 block|}
-DECL|method|getPropertyGetter (Class type, String propertyName)
+DECL|method|getPropertyGetter (Class<?> type, String propertyName)
 specifier|public
 specifier|static
 name|Method
 name|getPropertyGetter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String
@@ -1008,18 +1031,23 @@ return|return
 name|rc
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|extractProperties (Map properties, String optionPrefix)
+DECL|method|extractProperties (Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|extractProperties
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|,
 name|String
@@ -1036,10 +1064,20 @@ literal|"properties"
 argument_list|)
 expr_stmt|;
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|rc
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|properties
 operator|.
@@ -1054,6 +1092,11 @@ argument_list|<
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1075,6 +1118,11 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 init|=
 name|it
@@ -1088,9 +1136,6 @@ init|=
 name|entry
 operator|.
 name|getKey
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 decl_stmt|;
 if|if
@@ -1145,7 +1190,7 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|setProperties (TypeConverter typeConverter, Object target, Map properties)
+DECL|method|setProperties (TypeConverter typeConverter, Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
 name|boolean
@@ -1158,6 +1203,11 @@ name|Object
 name|target
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|)
 throws|throws
@@ -1189,6 +1239,16 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|iter
 init|=
 name|properties
@@ -1209,13 +1269,13 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 init|=
-operator|(
-name|Map
-operator|.
-name|Entry
-operator|)
 name|iter
 operator|.
 name|next
@@ -1259,7 +1319,7 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|setProperties (Object target, Map props)
+DECL|method|setProperties (Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
 name|boolean
@@ -1269,7 +1329,12 @@ name|Object
 name|target
 parameter_list|,
 name|Map
-name|props
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
 parameter_list|)
 throws|throws
 name|Exception
@@ -1281,7 +1346,7 @@ literal|null
 argument_list|,
 name|target
 argument_list|,
-name|props
+name|properties
 argument_list|)
 return|;
 block|}
@@ -1309,6 +1374,9 @@ block|{
 try|try
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -1715,7 +1783,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|convertToString (Object value, Class type)
+DECL|method|convertToString (Object value, Class<?> type)
 specifier|private
 specifier|static
 name|String
@@ -1725,6 +1793,9 @@ name|Object
 name|value
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 throws|throws
@@ -1781,7 +1852,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|findSetterMethods (TypeConverter typeConverter, Class clazz, String name, Object value)
+DECL|method|findSetterMethods (TypeConverter typeConverter, Class<?> clazz, String name, Object value)
 specifier|private
 specifier|static
 name|Set
@@ -1794,6 +1865,9 @@ name|TypeConverter
 name|typeConverter
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|String
@@ -1862,6 +1936,9 @@ name|methods
 control|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|params
 index|[]
 init|=
@@ -1890,6 +1967,9 @@ literal|1
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|paramType
 init|=
 name|params
@@ -2092,13 +2172,16 @@ name|candidates
 return|;
 block|}
 block|}
-DECL|method|isSettableType (Class clazz)
+DECL|method|isSettableType (Class<?> clazz)
 specifier|private
 specifier|static
 name|boolean
 name|isSettableType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

@@ -180,6 +180,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -609,7 +623,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -621,6 +635,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -850,7 +869,12 @@ name|uri
 argument_list|)
 argument_list|)
 argument_list|,
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|parameters
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|result

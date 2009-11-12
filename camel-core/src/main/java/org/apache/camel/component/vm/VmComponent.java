@@ -172,7 +172,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -184,6 +184,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -226,12 +231,7 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getBlockingQueue (String uri, Map parameters)
+DECL|method|getBlockingQueue (String uri, Map<String, Object> parameters)
 specifier|protected
 name|BlockingQueue
 argument_list|<
@@ -243,6 +243,11 @@ name|String
 name|uri
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{

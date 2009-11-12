@@ -263,7 +263,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (final String uri, final String remaining, final Map parameters)
+DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|QuartzEndpoint
 name|createEndpoint
@@ -278,6 +278,11 @@ name|remaining
 parameter_list|,
 specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -441,6 +446,11 @@ name|group
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|triggerParameters
 init|=
 name|IntrospectionSupport
@@ -453,6 +463,11 @@ literal|"trigger."
 argument_list|)
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|jobParameters
 init|=
 name|IntrospectionSupport

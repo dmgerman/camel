@@ -116,6 +116,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|core
@@ -169,12 +183,7 @@ operator|=
 name|xmlConverter
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -186,6 +195,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws
@@ -222,6 +236,12 @@ block|}
 name|XsltBuilder
 name|xslt
 init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
 name|newInstance
 argument_list|(
 name|XsltBuilder
@@ -258,8 +278,13 @@ condition|)
 block|{
 name|converter
 operator|=
+name|CamelContextHelper
+operator|.
 name|mandatoryLookup
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|converterName
 argument_list|,
 name|XmlConverter
@@ -324,6 +349,9 @@ condition|)
 block|{
 comment|// provide the class loader of this component to work in OSGi environments
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|factoryClass
 init|=
 name|getCamelContext
@@ -356,6 +384,12 @@ operator|=
 operator|(
 name|TransformerFactory
 operator|)
+name|getCamelContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
 name|newInstance
 argument_list|(
 name|factoryClass
@@ -398,8 +432,13 @@ condition|)
 block|{
 name|factory
 operator|=
+name|CamelContextHelper
+operator|.
 name|mandatoryLookup
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|transformerFactoryName
 argument_list|,
 name|TransformerFactory
@@ -459,7 +498,7 @@ name|xslt
 argument_list|)
 return|;
 block|}
-DECL|method|configureXslt (XsltBuilder xslt, String uri, String remaining, Map parameters)
+DECL|method|configureXslt (XsltBuilder xslt, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|configureXslt
@@ -474,6 +513,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

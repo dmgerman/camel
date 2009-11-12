@@ -26,6 +26,11 @@ specifier|public
 class|class
 name|OtherExampleBean
 block|{
+DECL|field|customerId
+specifier|private
+name|int
+name|customerId
+decl_stmt|;
 DECL|field|goldCustomer
 specifier|private
 name|boolean
@@ -36,16 +41,37 @@ specifier|private
 name|Boolean
 name|silverCustomer
 decl_stmt|;
-DECL|field|customerId
-specifier|private
-name|int
-name|customerId
-decl_stmt|;
 DECL|field|company
 specifier|private
 name|String
 name|company
 decl_stmt|;
+DECL|method|getCustomerId ()
+specifier|public
+name|int
+name|getCustomerId
+parameter_list|()
+block|{
+return|return
+name|customerId
+return|;
+block|}
+DECL|method|setCustomerId (int customerId)
+specifier|public
+name|void
+name|setCustomerId
+parameter_list|(
+name|int
+name|customerId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customerId
+operator|=
+name|customerId
+expr_stmt|;
+block|}
 DECL|method|isGoldCustomer ()
 specifier|public
 name|boolean
@@ -72,16 +98,6 @@ operator|=
 name|goldCustomer
 expr_stmt|;
 block|}
-DECL|method|getCustomerId ()
-specifier|public
-name|int
-name|getCustomerId
-parameter_list|()
-block|{
-return|return
-name|customerId
-return|;
-block|}
 DECL|method|isSilverCustomer ()
 specifier|public
 name|Boolean
@@ -106,22 +122,6 @@ operator|.
 name|silverCustomer
 operator|=
 name|silverCustomer
-expr_stmt|;
-block|}
-DECL|method|setCustomerId (int customerId)
-specifier|public
-name|void
-name|setCustomerId
-parameter_list|(
-name|int
-name|customerId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|customerId
-operator|=
-name|customerId
 expr_stmt|;
 block|}
 DECL|method|getCompany ()

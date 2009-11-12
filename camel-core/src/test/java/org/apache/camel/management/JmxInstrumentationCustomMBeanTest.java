@@ -124,6 +124,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * JmxInstrumentationCustomMBeanTest will verify that all endpoints are registered  * with the mbean server.  */
 end_comment
@@ -257,8 +271,15 @@ name|class
 argument_list|)
 expr_stmt|;
 name|Set
+argument_list|<
+name|ObjectName
+argument_list|>
 name|s
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -272,6 +293,7 @@ literal|":type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -580,8 +602,15 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Set
+argument_list|<
+name|ObjectName
+argument_list|>
 name|s
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -595,6 +624,7 @@ literal|":type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -613,6 +643,10 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -626,6 +660,7 @@ literal|":type=context,*"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -644,6 +679,10 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -657,6 +696,7 @@ literal|":type=processors,*"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -675,6 +715,10 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -688,6 +732,7 @@ literal|":type=routes,*"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -751,7 +796,7 @@ name|CustomComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|method|createEndpoint (final String uri, final String remaining, final Map parameters)
+DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -766,6 +811,11 @@ name|remaining
 parameter_list|,
 specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

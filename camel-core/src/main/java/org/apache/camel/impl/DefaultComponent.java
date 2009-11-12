@@ -570,7 +570,7 @@ block|{
 comment|// noop
 block|}
 comment|/**      * Strategy for validation of parameters, that was not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
-DECL|method|validateParameters (String uri, Map parameters, String optionPrefix)
+DECL|method|validateParameters (String uri, Map<String, Object> parameters, String optionPrefix)
 specifier|protected
 name|void
 name|validateParameters
@@ -579,6 +579,11 @@ name|String
 name|uri
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|,
 name|String
@@ -586,6 +591,11 @@ name|optionPrefix
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|param
 init|=
 name|parameters
@@ -646,7 +656,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Strategy for validation of the uri when creating the endpoint.      *      * @param uri        the uri - the uri the end user provided untouched      * @param path       the path - part after the scheme      * @param parameters the parameters, an empty map if no parameters given      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
-DECL|method|validateURI (String uri, String path, Map parameters)
+DECL|method|validateURI (String uri, String path, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|validateURI
@@ -658,6 +668,11 @@ name|String
 name|path
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 block|{
@@ -1198,7 +1213,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Gets the parameter and remove it from the parameter map. This method doesn't resolve      * reference parameters in the registry.      *       * @param parameters the parameters      * @param key        the key      * @param type       the requested type to convert the value from the parameter      * @return  the converted value parameter,<tt>null</tt> if parameter does not exists.      * @see #resolveAndRemoveReferenceParameter(Map, String, Class)      */
-DECL|method|getAndRemoveParameter (Map parameters, String key, Class<T> type)
+DECL|method|getAndRemoveParameter (Map<String, Object> parameters, String key, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1207,6 +1222,11 @@ name|T
 name|getAndRemoveParameter
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|,
 name|String
@@ -1233,7 +1253,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Gets the parameter and remove it from the parameter map. This method doesn't resolve      * reference parameters in the registry.      *      * @param parameters    the parameters      * @param key           the key      * @param type          the requested type to convert the value from the parameter      * @param defaultValue  use this default value if the parameter does not contain the key      * @return  the converted value parameter      * @see #resolveAndRemoveReferenceParameter(Map, String, Class, Object)      */
-DECL|method|getAndRemoveParameter (Map parameters, String key, Class<T> type, T defaultValue)
+DECL|method|getAndRemoveParameter (Map<String, Object> parameters, String key, Class<T> type, T defaultValue)
 specifier|public
 parameter_list|<
 name|T
@@ -1242,6 +1262,11 @@ name|T
 name|getAndRemoveParameter
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|,
 name|String
@@ -1305,7 +1330,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in th registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in th registry.      * @return the referenced object or<code>null</code>.      */
-DECL|method|resolveAndRemoveReferenceParameter (Map parameters, String key, Class<T> type)
+DECL|method|resolveAndRemoveReferenceParameter (Map<String, Object> parameters, String key, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1314,6 +1339,11 @@ name|T
 name|resolveAndRemoveReferenceParameter
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|,
 name|String
@@ -1340,7 +1370,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in th registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in th registry.      * @param defaultValue  default value to use if neither the parameter map contains      *                      the key nor the registry contains an object of requested      *                      type.      * @return the referenced object, the default value or<code>null</code>.      */
-DECL|method|resolveAndRemoveReferenceParameter (Map parameters, String key, Class<T> type, T defaultValue)
+DECL|method|resolveAndRemoveReferenceParameter (Map<String, Object> parameters, String key, Class<T> type, T defaultValue)
 specifier|public
 parameter_list|<
 name|T
@@ -1349,6 +1379,11 @@ name|T
 name|resolveAndRemoveReferenceParameter
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|,
 name|String
