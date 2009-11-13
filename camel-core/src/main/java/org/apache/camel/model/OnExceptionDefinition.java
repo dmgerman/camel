@@ -310,6 +310,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -505,6 +519,9 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 decl_stmt|;
@@ -541,13 +558,18 @@ specifier|public
 name|OnExceptionDefinition
 parameter_list|()
 block|{     }
-DECL|method|OnExceptionDefinition (List<Class> exceptionClasses)
+DECL|method|OnExceptionDefinition (List<Class<? extends Exception>> exceptionClasses)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -556,7 +578,12 @@ name|this
 operator|.
 name|exceptionClasses
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|exceptionClasses
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|OnExceptionDefinition (Class exceptionType)
@@ -573,6 +600,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1372,6 +1402,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|getExceptionClasses
 parameter_list|()
@@ -1393,7 +1426,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class<Exception>> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -1401,6 +1434,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -1719,6 +1755,9 @@ specifier|protected
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|createExceptionClasses
 parameter_list|()
@@ -1735,6 +1774,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -1742,6 +1784,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|(
 name|list
@@ -1759,8 +1804,15 @@ name|list
 control|)
 block|{
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 name|type
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|ObjectHelper
 operator|.
 name|loadClass
@@ -1772,6 +1824,11 @@ argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()
+argument_list|)
+argument_list|,
+name|Exception
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|answer

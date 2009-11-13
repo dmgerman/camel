@@ -89,6 +89,11 @@ block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -96,6 +101,11 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -181,6 +191,11 @@ block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -188,6 +203,11 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

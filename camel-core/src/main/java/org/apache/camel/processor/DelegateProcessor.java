@@ -115,6 +115,9 @@ implements|implements
 name|Processor
 implements|,
 name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 block|{
 DECL|field|processor
 specifier|protected

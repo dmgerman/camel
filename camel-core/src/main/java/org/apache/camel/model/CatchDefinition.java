@@ -222,6 +222,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -349,6 +363,9 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 decl_stmt|;
@@ -364,13 +381,16 @@ specifier|public
 name|CatchDefinition
 parameter_list|()
 block|{     }
-DECL|method|CatchDefinition (List<Class> exceptionClasses)
+DECL|method|CatchDefinition (List<Class<Exception>> exceptionClasses)
 specifier|public
 name|CatchDefinition
 parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -382,11 +402,14 @@ operator|=
 name|exceptionClasses
 expr_stmt|;
 block|}
-DECL|method|CatchDefinition (Class exceptionType)
+DECL|method|CatchDefinition (Class<Exception> exceptionType)
 specifier|public
 name|CatchDefinition
 parameter_list|(
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -396,6 +419,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -579,6 +605,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|getExceptionClasses
 parameter_list|()
@@ -600,7 +629,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class<Exception>> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -608,6 +637,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -622,7 +654,7 @@ block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the exceptionClasses of the CatchType      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
-DECL|method|exceptionClasses (List<Class> exceptionClasses)
+DECL|method|exceptionClasses (List<Class<Exception>> exceptionClasses)
 specifier|public
 name|CatchDefinition
 name|exceptionClasses
@@ -630,6 +662,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -782,18 +817,24 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      */
-DECL|method|exceptionClasses (Class exception)
+DECL|method|exceptionClasses (Class<Exception> exception)
 specifier|public
 name|CatchDefinition
 name|exceptionClasses
 parameter_list|(
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 name|exception
 parameter_list|)
 block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|list
 init|=
@@ -926,6 +967,9 @@ specifier|protected
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|createExceptionClasses
 parameter_list|()
@@ -942,6 +986,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -949,6 +996,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 argument_list|(
 name|list
@@ -966,8 +1016,15 @@ name|list
 control|)
 block|{
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 name|type
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|ObjectHelper
 operator|.
 name|loadClass
@@ -979,6 +1036,7 @@ argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer

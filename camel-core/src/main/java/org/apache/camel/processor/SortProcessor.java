@@ -94,6 +94,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * A processor that sorts the expression using a comparator  */
 end_comment
@@ -116,9 +130,12 @@ DECL|field|comparator
 specifier|private
 specifier|final
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 decl_stmt|;
-DECL|method|SortProcessor (Expression expression, Comparator comparator)
+DECL|method|SortProcessor (Expression expression, Comparator<Object> comparator)
 specifier|public
 name|SortProcessor
 parameter_list|(
@@ -126,6 +143,9 @@ name|Expression
 name|expression
 parameter_list|,
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 parameter_list|)
 block|{
@@ -142,11 +162,6 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -167,8 +182,15 @@ name|getIn
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|expression
 operator|.
 name|evaluate
@@ -178,6 +200,7 @@ argument_list|,
 name|List
 operator|.
 name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Collections

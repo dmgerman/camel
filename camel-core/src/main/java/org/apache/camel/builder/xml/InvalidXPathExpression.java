@@ -54,6 +54,15 @@ name|InvalidXPathExpression
 extends|extends
 name|RuntimeExpressionException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|9171451033826915273L
+decl_stmt|;
 DECL|field|xpath
 specifier|private
 specifier|final

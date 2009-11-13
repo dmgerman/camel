@@ -353,6 +353,9 @@ throws|throws
 name|Exception
 block|{
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper

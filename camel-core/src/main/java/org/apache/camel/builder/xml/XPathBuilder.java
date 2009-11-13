@@ -703,7 +703,7 @@ name|text
 argument_list|)
 return|;
 block|}
-DECL|method|xpath (String text, Class resultType)
+DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 specifier|static
 name|XPathBuilder
@@ -713,6 +713,9 @@ name|String
 name|text
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{
@@ -1058,12 +1061,15 @@ name|this
 return|;
 block|}
 comment|/**      * Configures the document type to use.      *<p/>      * The document type controls which kind of Class Camel should convert the payload      * to before doing the xpath evaluation.      *<p/>      * For example you can set it to {@link InputSource} to use SAX streams.      * By default Camel uses {@link Document} as the type.      *      * @param documentType the document type      * @return the current builder      */
-DECL|method|documentType (Class documentType)
+DECL|method|documentType (Class<?> documentType)
 specifier|public
 name|XPathBuilder
 name|documentType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|documentType
 parameter_list|)
 block|{
@@ -1141,6 +1147,9 @@ block|}
 DECL|method|getDocumentType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getDocumentType
 parameter_list|()
 block|{
@@ -1148,12 +1157,15 @@ return|return
 name|documentType
 return|;
 block|}
-DECL|method|setDocumentType (Class documentType)
+DECL|method|setDocumentType (Class<?> documentType)
 specifier|public
 name|void
 name|setDocumentType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|documentType
 parameter_list|)
 block|{
@@ -1338,6 +1350,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -1414,6 +1431,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -1519,6 +1541,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -1606,6 +1633,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -1698,6 +1730,9 @@ block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultType
 parameter_list|()
 block|{
@@ -1705,12 +1740,15 @@ return|return
 name|resultType
 return|;
 block|}
-DECL|method|setResultType (Class resultType)
+DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
 name|setResultType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{

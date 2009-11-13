@@ -625,6 +625,9 @@ argument_list|()
 expr_stmt|;
 block|}
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper
@@ -779,6 +782,9 @@ argument_list|,
 operator|(
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|allPairs
 operator|)

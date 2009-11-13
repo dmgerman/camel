@@ -265,6 +265,9 @@ implements|implements
 name|Runnable
 implements|,
 name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 block|{
 DECL|field|DEFAULT_THREADPOOL_SIZE
 specifier|private

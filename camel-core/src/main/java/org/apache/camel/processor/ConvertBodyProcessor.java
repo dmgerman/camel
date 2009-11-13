@@ -68,6 +68,9 @@ DECL|field|type
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|field|charset
@@ -76,11 +79,14 @@ specifier|final
 name|String
 name|charset
 decl_stmt|;
-DECL|method|ConvertBodyProcessor (Class type)
+DECL|method|ConvertBodyProcessor (Class<?> type)
 specifier|public
 name|ConvertBodyProcessor
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -97,11 +103,14 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|ConvertBodyProcessor (Class type, String charset)
+DECL|method|ConvertBodyProcessor (Class<?> type, String charset)
 specifier|public
 name|ConvertBodyProcessor
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String
@@ -241,6 +250,9 @@ block|}
 DECL|method|getType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|()
 block|{

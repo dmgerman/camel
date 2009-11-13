@@ -219,6 +219,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -429,12 +443,17 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Handles the given exception(s)      *      * @param exceptionType  the exception(s)      * @return the try builder      */
-DECL|method|doCatch (Class... exceptionType)
+DECL|method|doCatch (Class<? extends Exception>.... exceptionType)
 specifier|public
 name|TryDefinition
 name|doCatch
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
 modifier|...
 name|exceptionType
 parameter_list|)
@@ -445,14 +464,22 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|Exception
+argument_list|>
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|Arrays
 operator|.
 name|asList
 argument_list|(
 name|exceptionType
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|CatchDefinition
