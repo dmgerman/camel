@@ -93,7 +93,7 @@ name|StreamCaching
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -102,6 +102,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Processor

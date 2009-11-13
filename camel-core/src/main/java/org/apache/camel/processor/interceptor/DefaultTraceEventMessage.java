@@ -131,6 +131,16 @@ name|Serializable
 implements|,
 name|TraceEventMessage
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|4549012920528941202L
+decl_stmt|;
 DECL|field|timestamp
 specifier|private
 name|Date
@@ -207,7 +217,7 @@ name|String
 name|causedByException
 decl_stmt|;
 comment|/**      * Creates a {@link DefaultTraceEventMessage} based on the given node it was traced while processing      * the current {@link Exchange}      *      * @param toNode the node where this trace is intercepted      * @param exchange the current {@link Exchange}      */
-DECL|method|DefaultTraceEventMessage (final Date timestamp, final ProcessorDefinition toNode, final Exchange exchange)
+DECL|method|DefaultTraceEventMessage (final Date timestamp, final ProcessorDefinition<?> toNode, final Exchange exchange)
 specifier|public
 name|DefaultTraceEventMessage
 parameter_list|(
@@ -217,6 +227,9 @@ name|timestamp
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|toNode
 parameter_list|,
 specifier|final

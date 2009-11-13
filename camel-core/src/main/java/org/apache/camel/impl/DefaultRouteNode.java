@@ -117,13 +117,19 @@ decl_stmt|;
 DECL|field|processorDefinition
 specifier|private
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorDefinition
 decl_stmt|;
-DECL|method|DefaultRouteNode (ProcessorDefinition processorDefinition, Processor processor)
+DECL|method|DefaultRouteNode (ProcessorDefinition<?> processorDefinition, Processor processor)
 specifier|public
 name|DefaultRouteNode
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorDefinition
 parameter_list|,
 name|Processor
@@ -143,11 +149,14 @@ operator|=
 name|processorDefinition
 expr_stmt|;
 block|}
-DECL|method|DefaultRouteNode (ProcessorDefinition processorDefinition, Expression expression)
+DECL|method|DefaultRouteNode (ProcessorDefinition<?> processorDefinition, Expression expression)
 specifier|public
 name|DefaultRouteNode
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorDefinition
 parameter_list|,
 name|Expression
@@ -180,6 +189,9 @@ block|}
 DECL|method|getProcessorDefinition ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getProcessorDefinition
 parameter_list|()
 block|{

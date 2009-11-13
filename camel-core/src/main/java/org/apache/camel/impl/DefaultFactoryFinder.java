@@ -162,6 +162,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -186,6 +200,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classMap
 init|=
@@ -195,6 +212,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -314,12 +334,20 @@ block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|list
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|findClasses
 argument_list|(
 name|key
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
@@ -361,6 +389,9 @@ block|}
 DECL|method|findClass (String key)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findClass
 parameter_list|(
 name|String
@@ -383,6 +414,9 @@ block|}
 DECL|method|findClass (String key, String propertyPrefix)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findClass
 parameter_list|(
 name|String
@@ -408,6 +442,9 @@ else|:
 literal|""
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|classMap
@@ -483,6 +520,9 @@ throws|,
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|findClass
@@ -632,6 +672,9 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findClasses
 parameter_list|(
@@ -657,6 +700,9 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|findClasses
 parameter_list|(
@@ -673,6 +719,9 @@ name|IOException
 block|{
 comment|// TODO change to support finding multiple classes on the classpath!
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|findClass
@@ -683,17 +732,25 @@ name|propertyPrefix
 argument_list|)
 decl_stmt|;
 return|return
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|Collections
 operator|.
 name|singletonList
 argument_list|(
 name|type
 argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|newInstance (Properties properties, String propertyPrefix)
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|newInstance
 parameter_list|(
 name|Properties
@@ -739,6 +796,9 @@ argument_list|)
 throw|;
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|classResolver

@@ -173,6 +173,9 @@ DECL|field|definition
 specifier|private
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 decl_stmt|;
 DECL|field|id
@@ -186,7 +189,7 @@ specifier|private
 name|Route
 name|route
 decl_stmt|;
-DECL|method|ManagedProcessor (CamelContext context, Processor processor, ProcessorDefinition definition)
+DECL|method|ManagedProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|ManagedProcessor
 parameter_list|(
@@ -197,6 +200,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -276,6 +282,9 @@ block|}
 DECL|method|getDefinition ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getDefinition
 parameter_list|()
 block|{

@@ -86,6 +86,9 @@ DECL|field|node
 specifier|private
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 decl_stmt|;
 DECL|field|delayer
@@ -93,11 +96,14 @@ specifier|private
 name|Delayer
 name|delayer
 decl_stmt|;
-DECL|method|DelayInterceptor (ProcessorDefinition node, Processor target, Delayer delayer)
+DECL|method|DelayInterceptor (ProcessorDefinition<?> node, Processor target, Delayer delayer)
 specifier|public
 name|DelayInterceptor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

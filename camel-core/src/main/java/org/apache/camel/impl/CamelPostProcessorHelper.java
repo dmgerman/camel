@@ -672,6 +672,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the object to be injected for an {@link org.apache.camel.EndpointInject} or {@link org.apache.camel.Produce} injection point      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String injectionPointName)
 specifier|public
 name|Object

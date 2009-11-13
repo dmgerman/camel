@@ -283,6 +283,9 @@ specifier|private
 name|Map
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|AtomicInteger
 argument_list|>
@@ -292,6 +295,9 @@ operator|new
 name|HashMap
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|AtomicInteger
 argument_list|>
@@ -890,12 +896,15 @@ return|return
 name|originalInMessage
 return|;
 block|}
-DECL|method|getAndIncrement (ProcessorDefinition node)
+DECL|method|getAndIncrement (ProcessorDefinition<?> node)
 specifier|public
 name|int
 name|getAndIncrement
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{

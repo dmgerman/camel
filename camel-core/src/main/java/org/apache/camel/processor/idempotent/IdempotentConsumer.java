@@ -208,6 +208,9 @@ DECL|field|idempotentRepository
 specifier|private
 specifier|final
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|eager
@@ -216,7 +219,7 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, boolean eager, Processor processor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -224,6 +227,9 @@ name|Expression
 name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 parameter_list|,
 name|boolean
@@ -473,6 +479,9 @@ block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{

@@ -156,7 +156,7 @@ specifier|private
 name|Delayer
 name|delayer
 decl_stmt|;
-DECL|method|ManagedDelayer (CamelContext context, Delayer delayer, ProcessorDefinition definition)
+DECL|method|ManagedDelayer (CamelContext context, Delayer delayer, ProcessorDefinition<?> definition)
 specifier|public
 name|ManagedDelayer
 parameter_list|(
@@ -167,6 +167,9 @@ name|Delayer
 name|delayer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

@@ -408,6 +408,9 @@ block|}
 DECL|method|findComponent (String name, CamelContext context)
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findComponent
 parameter_list|(
 name|String

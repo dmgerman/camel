@@ -55,7 +55,7 @@ interface|interface
 name|TraceFormatter
 block|{
 comment|/**      * Formats a log message at given point of interception.      *       * @param interceptor    the tracing interceptor      * @param node           the node where the interception occured      * @param exchange       the current exchange      * @return the log message      */
-DECL|method|format (TraceInterceptor interceptor, ProcessorDefinition node, Exchange exchange)
+DECL|method|format (TraceInterceptor interceptor, ProcessorDefinition<?> node, Exchange exchange)
 name|Object
 name|format
 parameter_list|(
@@ -63,6 +63,9 @@ name|TraceInterceptor
 name|interceptor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Exchange

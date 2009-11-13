@@ -148,6 +148,9 @@ argument_list|)
 DECL|field|resultType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 decl_stmt|;
 DECL|method|XPathExpression ()
@@ -182,6 +185,9 @@ block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultType
 parameter_list|()
 block|{
@@ -189,12 +195,15 @@ return|return
 name|resultType
 return|;
 block|}
-DECL|method|setResultType (Class resultType)
+DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
 name|setResultType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{

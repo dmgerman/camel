@@ -100,11 +100,14 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-DECL|method|LoggingExceptionHandler (Class ownerType)
+DECL|method|LoggingExceptionHandler (Class<?> ownerType)
 specifier|public
 name|LoggingExceptionHandler
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|ownerType
 parameter_list|)
 block|{

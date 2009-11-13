@@ -202,7 +202,7 @@ specifier|private
 name|int
 name|maxChars
 decl_stmt|;
-DECL|method|format (final TraceInterceptor interceptor, final ProcessorDefinition node, final Exchange exchange)
+DECL|method|format (final TraceInterceptor interceptor, final ProcessorDefinition<?> node, final Exchange exchange)
 specifier|public
 name|Object
 name|format
@@ -213,6 +213,9 @@ name|interceptor
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 specifier|final
@@ -1049,7 +1052,7 @@ return|;
 block|}
 block|}
 comment|/**      * Creates the breadcrumb based on whether this was a trace of      * an exchange coming out of or into a processing step. For example,       *<br/><tt>transform(body) -> ID-mojo/39713-1225468755256/2-0</tt>      *<br/>or      *<br/><tt>ID-mojo/39713-1225468755256/2-0 -> transform(body)</tt>      */
-DECL|method|extractBreadCrumb (TraceInterceptor interceptor, ProcessorDefinition currentNode, Exchange exchange)
+DECL|method|extractBreadCrumb (TraceInterceptor interceptor, ProcessorDefinition<?> currentNode, Exchange exchange)
 specifier|protected
 name|String
 name|extractBreadCrumb
@@ -1058,6 +1061,9 @@ name|TraceInterceptor
 name|interceptor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|currentNode
 parameter_list|,
 name|Exchange

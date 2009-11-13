@@ -212,6 +212,9 @@ comment|// we don't need to support the beanType class in Spring
 DECL|field|beanType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 decl_stmt|;
 DECL|method|MethodCallExpression ()
@@ -256,11 +259,14 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-DECL|method|MethodCallExpression (Class type)
+DECL|method|MethodCallExpression (Class<?> type)
 specifier|public
 name|MethodCallExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -279,11 +285,14 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-DECL|method|MethodCallExpression (Class type, String method)
+DECL|method|MethodCallExpression (Class<?> type, String method)
 specifier|public
 name|MethodCallExpression
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String

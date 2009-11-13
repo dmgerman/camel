@@ -400,6 +400,9 @@ DECL|field|node
 specifier|private
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 decl_stmt|;
 DECL|field|tracer
@@ -416,6 +419,9 @@ decl_stmt|;
 DECL|field|jpaTraceEventMessageClass
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|jpaTraceEventMessageClass
 decl_stmt|;
 DECL|field|routeContext
@@ -423,11 +429,14 @@ specifier|private
 name|RouteContext
 name|routeContext
 decl_stmt|;
-DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|TraceInterceptor (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|TraceInterceptor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -872,6 +881,9 @@ comment|//----------------------------------------------------------------------
 DECL|method|getNode ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getNode
 parameter_list|()
 block|{
@@ -1819,12 +1831,15 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns true if the given node should be logged in the trace list      */
-DECL|method|shouldLogNode (ProcessorDefinition node)
+DECL|method|shouldLogNode (ProcessorDefinition<?> node)
 specifier|protected
 name|boolean
 name|shouldLogNode
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{

@@ -133,6 +133,9 @@ DECL|field|idempotentRepository
 specifier|private
 specifier|final
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|messageId
@@ -147,11 +150,14 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
-DECL|method|IdempotentOnCompletion (IdempotentRepository idempotentRepository, String messageId, boolean eager)
+DECL|method|IdempotentOnCompletion (IdempotentRepository<String> idempotentRepository, String messageId, boolean eager)
 specifier|public
 name|IdempotentOnCompletion
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 parameter_list|,
 name|String

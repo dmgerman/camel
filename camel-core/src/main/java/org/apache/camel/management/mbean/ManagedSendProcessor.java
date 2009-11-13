@@ -142,7 +142,7 @@ specifier|private
 name|SendProcessor
 name|processor
 decl_stmt|;
-DECL|method|ManagedSendProcessor (CamelContext context, SendProcessor processor, ProcessorDefinition definition)
+DECL|method|ManagedSendProcessor (CamelContext context, SendProcessor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|ManagedSendProcessor
 parameter_list|(
@@ -153,6 +153,9 @@ name|SendProcessor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

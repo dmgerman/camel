@@ -542,12 +542,15 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|createProcessor (ProcessorDefinition node)
+DECL|method|createProcessor (ProcessorDefinition<?> node)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 throws|throws

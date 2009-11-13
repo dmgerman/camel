@@ -47,6 +47,9 @@ DECL|field|exceptionClass
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionClass
 decl_stmt|;
 DECL|field|when
@@ -55,11 +58,14 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
-DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (Class<?> exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition
@@ -82,6 +88,9 @@ block|}
 DECL|method|getExceptionClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getExceptionClass
 parameter_list|()
 block|{
@@ -99,13 +108,16 @@ return|return
 name|when
 return|;
 block|}
-DECL|method|newInstance (Class exceptionClass)
+DECL|method|newInstance (Class<?> exceptionClass)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionClass
 parameter_list|)
 block|{
@@ -119,13 +131,16 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|newInstance (Class exceptionClass, WhenDefinition when)
+DECL|method|newInstance (Class<?> exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition

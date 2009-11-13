@@ -405,6 +405,9 @@ name|entries
 control|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|entry
@@ -646,7 +649,7 @@ name|exactMatch
 return|;
 block|}
 comment|/**      * Strategy to filter the given type exception class with the thrown exception      *      * @param type           the exception type      * @param exceptionClass the current exception class for testing      * @param exception      the thrown exception      * @return<tt>true</tt> if the to current exception class is a candidate,<tt>false</tt> to skip it.      */
-DECL|method|filter (OnExceptionDefinition type, Class exceptionClass, Throwable exception)
+DECL|method|filter (OnExceptionDefinition type, Class<?> exceptionClass, Throwable exception)
 specifier|protected
 name|boolean
 name|filter
@@ -655,6 +658,9 @@ name|OnExceptionDefinition
 name|type
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|Throwable
@@ -746,13 +752,16 @@ name|exception
 argument_list|)
 return|;
 block|}
-DECL|method|getInheritanceLevel (Class clazz)
+DECL|method|getInheritanceLevel (Class<?> clazz)
 specifier|private
 specifier|static
 name|int
 name|getInheritanceLevel
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

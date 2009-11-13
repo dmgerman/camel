@@ -60,6 +60,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -79,6 +93,9 @@ block|{
 DECL|method|resolveClass (String name)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|String
@@ -99,11 +116,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|resolveClass (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -126,8 +138,15 @@ name|type
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|answer
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|loadClass
 argument_list|(
 name|name
@@ -138,6 +157,7 @@ name|class
 operator|.
 name|getClassLoader
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
@@ -153,6 +173,9 @@ block|}
 DECL|method|resolveClass (String name, ClassLoader loader)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|String
@@ -171,11 +194,6 @@ name|loader
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|resolveClass (String name, Class<T> type, ClassLoader loader)
 specifier|public
 parameter_list|<
@@ -201,28 +219,33 @@ name|loader
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|answer
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|loadClass
 argument_list|(
 name|name
 argument_list|,
 name|loader
 argument_list|)
+argument_list|)
 decl_stmt|;
 return|return
-operator|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|answer
 return|;
 block|}
 DECL|method|resolveMandatoryClass (String name)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveMandatoryClass
 parameter_list|(
 name|String
@@ -232,6 +255,9 @@ throws|throws
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|answer
 init|=
 name|resolveClass
@@ -316,6 +342,9 @@ block|}
 DECL|method|resolveMandatoryClass (String name, ClassLoader loader)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveMandatoryClass
 parameter_list|(
 name|String
@@ -328,6 +357,9 @@ throws|throws
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|answer
 init|=
 name|resolveClass
@@ -473,6 +505,9 @@ block|}
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|loadClass
 parameter_list|(
 name|String

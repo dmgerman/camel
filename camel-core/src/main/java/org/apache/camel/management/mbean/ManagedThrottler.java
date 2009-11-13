@@ -114,7 +114,7 @@ specifier|private
 name|Throttler
 name|throttler
 decl_stmt|;
-DECL|method|ManagedThrottler (CamelContext context, Throttler throttler, ProcessorDefinition definition)
+DECL|method|ManagedThrottler (CamelContext context, Throttler throttler, ProcessorDefinition<?> definition)
 specifier|public
 name|ManagedThrottler
 parameter_list|(
@@ -125,6 +125,9 @@ name|Throttler
 name|throttler
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

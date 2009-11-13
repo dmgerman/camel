@@ -478,7 +478,7 @@ name|MyTraceFormatter
 implements|implements
 name|TraceFormatter
 block|{
-DECL|method|format (TraceInterceptor interceptor, ProcessorDefinition node, Exchange exchange)
+DECL|method|format (TraceInterceptor interceptor, ProcessorDefinition<?> node, Exchange exchange)
 specifier|public
 name|Object
 name|format
@@ -487,6 +487,9 @@ name|TraceInterceptor
 name|interceptor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Exchange

@@ -169,6 +169,9 @@ decl_stmt|;
 DECL|field|childServices
 specifier|private
 name|Collection
+argument_list|<
+name|Object
+argument_list|>
 name|childServices
 decl_stmt|;
 DECL|field|version
