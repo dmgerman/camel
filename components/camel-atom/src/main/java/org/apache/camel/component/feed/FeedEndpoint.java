@@ -436,6 +436,20 @@ operator|+
 name|feedUri
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getEndpointKey ()
+specifier|public
+name|String
+name|getEndpointKey
+parameter_list|()
+block|{
+comment|// use the full endpoint uri because the lenient properties matters as they should be unique based on the feed uri
+return|return
+name|getEndpointUri
+argument_list|()
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getFeedUri ()
