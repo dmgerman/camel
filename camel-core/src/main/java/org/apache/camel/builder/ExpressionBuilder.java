@@ -271,7 +271,7 @@ specifier|private
 name|ExpressionBuilder
 parameter_list|()
 block|{     }
-comment|/**      * Returns an expression for the header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+comment|/**      * Returns an expression for the header value with the given name      *<p/>      * Will fallback and look in properties if not found in headers.      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|headerExpression (final String headerName)
 specifier|public
 specifier|static
@@ -394,7 +394,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the out header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+comment|/**      * Returns an expression for the out header value with the given name      *<p/>      * Will fallback and look in properties if not found in headers.      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|outHeaderExpression (final String headerName)
 specifier|public
 specifier|static
