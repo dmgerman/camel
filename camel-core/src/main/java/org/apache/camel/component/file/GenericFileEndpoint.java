@@ -473,6 +473,9 @@ decl_stmt|;
 DECL|field|idempotentRepository
 specifier|protected
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|filter
@@ -519,6 +522,9 @@ decl_stmt|;
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|exclusiveReadLockStrategy
 decl_stmt|;
 DECL|method|GenericFileEndpoint ()
@@ -1284,6 +1290,9 @@ block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{
@@ -1291,12 +1300,15 @@ return|return
 name|idempotentRepository
 return|;
 block|}
-DECL|method|setIdempotentRepository (IdempotentRepository idempotentRepository)
+DECL|method|setIdempotentRepository (IdempotentRepository<String> idempotentRepository)
 specifier|public
 name|void
 name|setIdempotentRepository
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -1577,6 +1589,9 @@ block|}
 DECL|method|getExclusiveReadLockStrategy ()
 specifier|public
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|getExclusiveReadLockStrategy
 parameter_list|()
 block|{
@@ -1584,12 +1599,15 @@ return|return
 name|exclusiveReadLockStrategy
 return|;
 block|}
-DECL|method|setExclusiveReadLockStrategy (GenericFileExclusiveReadLockStrategy exclusiveReadLockStrategy)
+DECL|method|setExclusiveReadLockStrategy (GenericFileExclusiveReadLockStrategy<T> exclusiveReadLockStrategy)
 specifier|public
 name|void
 name|setExclusiveReadLockStrategy
 parameter_list|(
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|exclusiveReadLockStrategy
 parameter_list|)
 block|{

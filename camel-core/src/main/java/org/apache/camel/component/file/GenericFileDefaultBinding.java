@@ -58,6 +58,15 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1156079468647449995L
+decl_stmt|;
 DECL|field|body
 specifier|private
 name|Object

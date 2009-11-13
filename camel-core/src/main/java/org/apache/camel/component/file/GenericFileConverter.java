@@ -102,11 +102,6 @@ comment|// Helper Class
 block|}
 annotation|@
 name|FallbackConverter
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
@@ -146,14 +141,23 @@ argument_list|)
 condition|)
 block|{
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|file
 init|=
 operator|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|from
 init|=
 name|file
@@ -230,13 +234,16 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|convertToString (GenericFile file, Exchange exchange)
+DECL|method|convertToString (GenericFile<?> file, Exchange exchange)
 specifier|public
 specifier|static
 name|String
 name|convertToString
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|file
 parameter_list|,
 name|Exchange

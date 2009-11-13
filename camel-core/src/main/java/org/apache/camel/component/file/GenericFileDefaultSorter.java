@@ -115,6 +115,9 @@ specifier|static
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|sortByName
 parameter_list|(
@@ -128,6 +131,9 @@ operator|new
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -136,9 +142,15 @@ name|int
 name|compare
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o1
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o2
 parameter_list|)
 block|{
@@ -170,7 +182,7 @@ name|answer
 return|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 comment|/**      * Returns a new sort by path name      */
 DECL|method|sortByPathName (final boolean reverse)
@@ -179,6 +191,9 @@ specifier|static
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|sortByPathName
 parameter_list|(
@@ -192,6 +207,9 @@ operator|new
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -200,9 +218,15 @@ name|int
 name|compare
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o1
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o2
 parameter_list|)
 block|{
@@ -234,7 +258,7 @@ name|answer
 return|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 comment|/**      * Returns a new sort by last modified (newest first)      */
 DECL|method|sortByLastModified ( final boolean reverse)
@@ -243,6 +267,9 @@ specifier|static
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|sortByLastModified
 parameter_list|(
@@ -256,6 +283,9 @@ operator|new
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -264,9 +294,15 @@ name|int
 name|compare
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o1
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o2
 parameter_list|)
 block|{
@@ -318,7 +354,7 @@ name|answer
 return|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 comment|/**      * Returns a new sort by file size (smallest first)      */
 DECL|method|sortBySize (final boolean reverse)
@@ -327,6 +363,9 @@ specifier|static
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|sortBySize
 parameter_list|(
@@ -340,6 +379,9 @@ operator|new
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -348,9 +390,15 @@ name|int
 name|compare
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o1
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|o2
 parameter_list|)
 block|{
@@ -402,7 +450,7 @@ name|answer
 return|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 comment|/**      * Returns a new sory by file language expression      *      * @param context    the camel context      * @param expression the file language expression      * @param reverse    true to reverse order      * @return the comparator      */
 DECL|method|sortByFileLanguage ( CamelContext context, String expression, boolean reverse)

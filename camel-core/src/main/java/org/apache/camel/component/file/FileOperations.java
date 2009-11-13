@@ -261,12 +261,15 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+DECL|method|setEndpoint (GenericFileEndpoint<File> endpoint)
 specifier|public
 name|void
 name|setEndpoint
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|File
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{

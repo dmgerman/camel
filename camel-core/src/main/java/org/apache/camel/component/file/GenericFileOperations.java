@@ -50,11 +50,14 @@ name|T
 parameter_list|>
 block|{
 comment|/**      * Sets the endpoint as some implementations need access to the endpoint and how its configured.      *      * @param endpoint the endpoint      */
-DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+DECL|method|setEndpoint (GenericFileEndpoint<T> endpoint)
 name|void
 name|setEndpoint
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|endpoint
 parameter_list|)
 function_decl|;

@@ -91,6 +91,15 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1488800911529475617L
+decl_stmt|;
 DECL|field|body
 specifier|private
 name|File

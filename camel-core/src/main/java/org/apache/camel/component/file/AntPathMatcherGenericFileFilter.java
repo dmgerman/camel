@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * File filter using Spring's AntPathMatcher.  *<p/>  * Exclude take precedence over includes. If a file match both exclude and include it will be regarded as excluded.  */
+comment|/**  * File filter using Spring's AntPathMatcher.  *<p/>  * Exclude take precedence over includes. If a file match both exclude and include it will be regarded as excluded.  * @param<T>  */
 end_comment
 
 begin_class
@@ -93,8 +93,14 @@ DECL|class|AntPathMatcherGenericFileFilter
 specifier|public
 class|class
 name|AntPathMatcherGenericFileFilter
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileFilter
+argument_list|<
+name|T
+argument_list|>
 implements|,
 name|CamelContextAware
 block|{
@@ -144,12 +150,15 @@ specifier|private
 name|Method
 name|acceptsMethod
 decl_stmt|;
-DECL|method|accept (GenericFile file)
+DECL|method|accept (GenericFile<T> file)
 specifier|public
 name|boolean
 name|accept
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{

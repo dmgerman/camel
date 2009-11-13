@@ -140,6 +140,9 @@ DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, 
 specifier|public
 specifier|static
 name|GenericFileProcessStrategy
+argument_list|<
+name|File
+argument_list|>
 name|createGenericFileProcessStrategy
 parameter_list|(
 name|CamelContext

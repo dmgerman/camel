@@ -942,12 +942,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sorts the current value using the given comparator. The current value must be convertable      * to a {@link List} to allow sorting using the comparator.      *      * @param comparator  the comparator used by sorting      * @return the current builder      */
-DECL|method|sort (Comparator comparator)
+DECL|method|sort (Comparator<?> comparator)
 specifier|public
 name|ValueBuilder
 name|sort
 parameter_list|(
 name|Comparator
+argument_list|<
+name|?
+argument_list|>
 name|comparator
 parameter_list|)
 block|{

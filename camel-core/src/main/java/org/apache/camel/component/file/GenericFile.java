@@ -131,6 +131,15 @@ parameter_list|>
 implements|implements
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|565270785443491000L
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -389,15 +398,21 @@ name|result
 return|;
 block|}
 comment|/**      * Copies additional information from the source to the result.      *<p/>      * Inherited classes can override this method and copy their specific data.      *      * @param source  the source      * @param result  the result      */
-DECL|method|copyFromPopulateAdditional (GenericFile source, GenericFile result)
+DECL|method|copyFromPopulateAdditional (GenericFile<T> source, GenericFile<T> result)
 specifier|public
 name|void
 name|copyFromPopulateAdditional
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|source
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|result
 parameter_list|)
 block|{

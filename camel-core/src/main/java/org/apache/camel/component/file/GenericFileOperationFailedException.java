@@ -42,6 +42,16 @@ name|GenericFileOperationFailedException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|64176625836814418L
+decl_stmt|;
 DECL|field|code
 specifier|private
 specifier|final

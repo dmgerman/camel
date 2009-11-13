@@ -162,13 +162,19 @@ class|class
 name|MyGenericFileOperations
 implements|implements
 name|GenericFileOperations
+argument_list|<
+name|Object
+argument_list|>
 block|{
-DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+DECL|method|setEndpoint (GenericFileEndpoint<Object> endpoint)
 specifier|public
 name|void
 name|setEndpoint
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|Object
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{         }
@@ -329,6 +335,9 @@ block|{         }
 DECL|method|listFiles ()
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|listFiles
 parameter_list|()
 throws|throws
@@ -341,6 +350,9 @@ block|}
 DECL|method|listFiles (String path)
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|listFiles
 parameter_list|(
 name|String
