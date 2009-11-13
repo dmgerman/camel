@@ -658,9 +658,6 @@ name|ProcessorDefinition
 parameter_list|>
 extends|extends
 name|OptionalIdentifiedDefinition
-argument_list|<
-name|Type
-argument_list|>
 implements|implements
 name|Block
 block|{
