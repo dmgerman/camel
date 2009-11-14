@@ -419,21 +419,11 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-comment|// wrap in unit of work
-name|Processor
-name|target
-init|=
-operator|new
-name|UnitOfWorkProcessor
-argument_list|(
-name|producer
-argument_list|)
-decl_stmt|;
 name|processors
 operator|.
 name|add
 argument_list|(
-name|target
+name|producer
 argument_list|)
 expr_stmt|;
 block|}
