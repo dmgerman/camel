@@ -88,34 +88,6 @@ name|DefaultTypeConverter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -128,23 +100,6 @@ name|ConvertersResource
 extends|extends
 name|CamelChildResourceSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|ConvertersResource
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|ConvertersResource (CamelContextResource contextResource)
 specifier|public
 name|ConvertersResource
@@ -166,6 +121,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getFromClassTypes
 parameter_list|()
@@ -175,6 +133,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -184,6 +145,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -203,6 +167,9 @@ block|{
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -214,6 +181,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 range|:
 name|classes
@@ -264,6 +234,9 @@ name|typeName
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|getCamelContext
@@ -305,13 +278,16 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|nameOf (Class aClass)
+DECL|method|nameOf (Class<?> aClass)
 specifier|public
 specifier|static
 name|String
 name|nameOf
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 parameter_list|)
 block|{

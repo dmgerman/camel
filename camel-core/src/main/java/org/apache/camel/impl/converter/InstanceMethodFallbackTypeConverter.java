@@ -110,6 +110,9 @@ DECL|field|injector
 specifier|private
 specifier|final
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 decl_stmt|;
 DECL|field|method
@@ -130,11 +133,14 @@ specifier|final
 name|TypeConverterRegistry
 name|registry
 decl_stmt|;
-DECL|method|InstanceMethodFallbackTypeConverter (CachingInjector injector, Method method, TypeConverterRegistry registry)
+DECL|method|InstanceMethodFallbackTypeConverter (CachingInjector<?> injector, Method method, TypeConverterRegistry registry)
 specifier|public
 name|InstanceMethodFallbackTypeConverter
 parameter_list|(
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 parameter_list|,
 name|Method

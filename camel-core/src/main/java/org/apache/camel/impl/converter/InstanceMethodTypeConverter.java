@@ -96,6 +96,9 @@ DECL|field|injector
 specifier|private
 specifier|final
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 decl_stmt|;
 DECL|field|method
@@ -110,11 +113,14 @@ specifier|final
 name|boolean
 name|useExchange
 decl_stmt|;
-DECL|method|InstanceMethodTypeConverter (CachingInjector injector, Method method)
+DECL|method|InstanceMethodTypeConverter (CachingInjector<?> injector, Method method)
 specifier|public
 name|InstanceMethodTypeConverter
 parameter_list|(
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 parameter_list|,
 name|Method

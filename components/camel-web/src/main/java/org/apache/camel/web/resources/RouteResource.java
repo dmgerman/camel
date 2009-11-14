@@ -1609,16 +1609,13 @@ block|{
 try|try
 block|{
 comment|// store the route definition
-name|File
-name|file
-init|=
 name|storeRoute
 argument_list|(
 name|route
 argument_list|,
 name|LANGUAGE_SCALA
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// load the definition class
 comment|//TODO: process the route definition using scala route builder
 return|return

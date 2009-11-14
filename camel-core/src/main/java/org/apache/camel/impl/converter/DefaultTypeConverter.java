@@ -538,6 +538,11 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -720,6 +725,11 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -1167,15 +1177,21 @@ operator|.
 name|TYPE
 return|;
 block|}
-DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
+DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|public
 name|void
 name|addTypeConverter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|,
 name|TypeConverter
@@ -1319,15 +1335,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getTypeConverter (Class toType, Class fromType)
+DECL|method|getTypeConverter (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter
 name|getTypeConverter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|)
 block|{
@@ -1382,6 +1404,9 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getFromClassMappings
 parameter_list|()
@@ -1393,6 +1418,9 @@ expr_stmt|;
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -1400,6 +1428,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1435,23 +1466,32 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getToClassMappings (Class fromClass)
+DECL|method|getToClassMappings (Class<?> fromClass)
 specifier|public
 name|Map
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|TypeConverter
 argument_list|>
 name|getToClassMappings
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromClass
 parameter_list|)
 block|{
 name|Map
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|TypeConverter
 argument_list|>
@@ -1461,6 +1501,9 @@ operator|new
 name|HashMap
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|TypeConverter
 argument_list|>
@@ -1548,7 +1591,7 @@ return|return
 name|typeMappings
 return|;
 block|}
-DECL|method|getOrFindTypeConverter (Class toType, Object value)
+DECL|method|getOrFindTypeConverter (Class<?> toType, Object value)
 specifier|protected
 parameter_list|<
 name|T
@@ -1557,6 +1600,9 @@ name|TypeConverter
 name|getOrFindTypeConverter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Object
@@ -1564,6 +1610,9 @@ name|value
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 init|=
 literal|null
@@ -1650,15 +1699,21 @@ return|return
 name|converter
 return|;
 block|}
-DECL|method|lookup (Class toType, Class fromType)
+DECL|method|lookup (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter
 name|lookup
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|)
 block|{
@@ -1677,15 +1732,21 @@ literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|doLookup (Class toType, Class fromType, boolean isSuper)
+DECL|method|doLookup (Class<?> toType, Class<?> fromType, boolean isSuper)
 specifier|private
 name|TypeConverter
 name|doLookup
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|,
 name|boolean
@@ -1725,6 +1786,9 @@ comment|// try the interfaces
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|fromType
@@ -1756,6 +1820,9 @@ block|}
 block|}
 comment|// try super then
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromSuperClass
 init|=
 name|fromType
@@ -1871,6 +1938,9 @@ name|getKey
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aToType
 init|=
 name|key
@@ -1889,6 +1959,9 @@ argument_list|)
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aFromType
 init|=
 name|key
@@ -2078,20 +2151,32 @@ name|TypeMapping
 block|{
 DECL|field|toType
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 decl_stmt|;
 DECL|field|fromType
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 decl_stmt|;
-DECL|method|TypeMapping (Class toType, Class fromType)
+DECL|method|TypeMapping (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeMapping
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|)
 block|{
@@ -2111,6 +2196,9 @@ block|}
 DECL|method|getFromType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getFromType
 parameter_list|()
 block|{
@@ -2121,6 +2209,9 @@ block|}
 DECL|method|getToType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getToType
 parameter_list|()
 block|{
@@ -2243,12 +2334,15 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|isApplicable (Class fromClass)
+DECL|method|isApplicable (Class<?> fromClass)
 specifier|public
 name|boolean
 name|isApplicable
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromClass
 parameter_list|)
 block|{

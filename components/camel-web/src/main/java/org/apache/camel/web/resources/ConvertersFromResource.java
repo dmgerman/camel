@@ -81,9 +81,12 @@ block|{
 DECL|field|type
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
-DECL|method|ConvertersFromResource (CamelContextResource contextResource, Class type)
+DECL|method|ConvertersFromResource (CamelContextResource contextResource, Class<?> type)
 specifier|public
 name|ConvertersFromResource
 parameter_list|(
@@ -91,6 +94,9 @@ name|CamelContextResource
 name|contextResource
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -150,6 +156,9 @@ block|{
 name|Map
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|TypeConverter
 argument_list|>
@@ -169,6 +178,9 @@ operator|.
 name|Entry
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|TypeConverter
 argument_list|>
@@ -181,6 +193,9 @@ argument_list|()
 control|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 init|=
 name|entry
@@ -219,6 +234,9 @@ block|}
 DECL|method|getType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|()
 block|{

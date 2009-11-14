@@ -238,6 +238,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -318,6 +332,9 @@ specifier|private
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|visitedClasses
 init|=
@@ -325,6 +342,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -714,7 +734,7 @@ block|}
 block|}
 block|}
 comment|/**      * Loads all of the converter methods for the given type      */
-DECL|method|loadConverterMethods (TypeConverterRegistry registry, Class type)
+DECL|method|loadConverterMethods (TypeConverterRegistry registry, Class<?> type)
 specifier|protected
 name|void
 name|loadConverterMethods
@@ -723,6 +743,9 @@ name|TypeConverterRegistry
 name|registry
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -757,6 +780,9 @@ name|getDeclaredMethods
 argument_list|()
 decl_stmt|;
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 init|=
 literal|null
@@ -834,6 +860,9 @@ expr_stmt|;
 block|}
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|superclass
 init|=
 name|type
@@ -893,23 +922,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|handleHasConverterAnnotation (TypeConverterRegistry registry, Class type, CachingInjector injector, Method method)
+DECL|method|handleHasConverterAnnotation (TypeConverterRegistry registry, Class<?> type, CachingInjector<?> injector, Method method)
 specifier|private
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|handleHasConverterAnnotation
 parameter_list|(
 name|TypeConverterRegistry
 name|registry
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 parameter_list|,
 name|Method
@@ -1064,10 +1097,22 @@ name|injector
 operator|=
 operator|new
 name|CachingInjector
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|registry
 argument_list|,
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|type
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1119,23 +1164,27 @@ return|return
 name|injector
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|handleHasFallbackConverterAnnotation (TypeConverterRegistry registry, Class type, CachingInjector injector, Method method)
+DECL|method|handleHasFallbackConverterAnnotation (TypeConverterRegistry registry, Class<?> type, CachingInjector<?> injector, Method method)
 specifier|private
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|handleHasFallbackConverterAnnotation
 parameter_list|(
 name|TypeConverterRegistry
 name|registry
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
 name|injector
 parameter_list|,
 name|Method
@@ -1272,10 +1321,22 @@ name|injector
 operator|=
 operator|new
 name|CachingInjector
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|registry
 argument_list|,
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|type
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1323,7 +1384,7 @@ return|return
 name|injector
 return|;
 block|}
-DECL|method|registerTypeConverter (TypeConverterRegistry registry, Method method, Class toType, Class fromType, TypeConverter typeConverter)
+DECL|method|registerTypeConverter (TypeConverterRegistry registry, Method method, Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|protected
 name|void
 name|registerTypeConverter
@@ -1335,9 +1396,15 @@ name|Method
 name|method
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|,
 name|TypeConverter

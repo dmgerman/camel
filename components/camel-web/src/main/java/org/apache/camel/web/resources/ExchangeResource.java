@@ -145,12 +145,6 @@ specifier|public
 class|class
 name|ExchangeResource
 block|{
-DECL|field|endpointResource
-specifier|private
-specifier|final
-name|EndpointResource
-name|endpointResource
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final
@@ -168,12 +162,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|this
-operator|.
-name|endpointResource
-operator|=
-name|endpointResource
-expr_stmt|;
 name|this
 operator|.
 name|exchange
