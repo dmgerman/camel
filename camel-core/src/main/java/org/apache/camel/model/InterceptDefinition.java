@@ -444,7 +444,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
+comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
 specifier|public
 name|ChoiceDefinition

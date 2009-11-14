@@ -272,11 +272,16 @@ name|Predicate
 name|onWhen
 parameter_list|)
 block|{
+comment|// wrap processor in UnitOfWork so what we send out runs in a UoW
 name|this
 operator|.
 name|processor
 operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
 name|processor
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -463,10 +468,10 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
-name|processor
-operator|.
-name|process
+name|doProcess
 argument_list|(
+name|processor
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
@@ -567,10 +572,10 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
-name|processor
-operator|.
-name|process
+name|doProcess
 argument_list|(
+name|processor
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
@@ -622,6 +627,45 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Processes the exchange by the processors      *      * @param processor the processor      * @param exchange the exchange      */
+DECL|method|doProcess (Processor processor, Exchange exchange)
+specifier|protected
+specifier|static
+name|void
+name|doProcess
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+try|try
+block|{
+name|processor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Prepares the {@link Exchange} to send as onCompletion.      *      * @param exchange the current exchange      * @return the exchange to be routed in onComplete      */
 DECL|method|prepareExchange (Exchange exchange)
@@ -759,7 +803,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"OnCompletion"
+literal|"onCompletion"
 return|;
 block|}
 block|}
