@@ -1048,10 +1048,12 @@ argument_list|(
 name|routeContext
 argument_list|,
 name|processor
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|wrapChannel (RouteContext routeContext, Processor processor)
+DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child)
 specifier|protected
 name|Processor
 name|wrapChannel
@@ -1061,6 +1063,12 @@ name|routeContext
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|child
 parameter_list|)
 throws|throws
 name|Exception
@@ -1142,16 +1150,6 @@ name|getInterceptStrategies
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// init the channel
-name|channel
-operator|.
-name|initChannel
-argument_list|(
-name|this
-argument_list|,
-name|routeContext
-argument_list|)
-expr_stmt|;
 comment|// must do this ugly cast to avoid compiler error on HP-UX
 name|ProcessorDefinition
 name|defn
@@ -1161,6 +1159,23 @@ name|ProcessorDefinition
 operator|)
 name|this
 decl_stmt|;
+comment|// set the child before init the channel
+name|channel
+operator|.
+name|setChildDefinition
+argument_list|(
+name|child
+argument_list|)
+expr_stmt|;
+name|channel
+operator|.
+name|initChannel
+argument_list|(
+name|defn
+argument_list|,
+name|routeContext
+argument_list|)
+expr_stmt|;
 comment|// set the error handler, must be done after init as we can set the error handler as first in the chain
 if|if
 condition|(
@@ -1515,6 +1530,8 @@ argument_list|(
 name|routeContext
 argument_list|,
 name|processor
+argument_list|,
+name|output
 argument_list|)
 decl_stmt|;
 name|list

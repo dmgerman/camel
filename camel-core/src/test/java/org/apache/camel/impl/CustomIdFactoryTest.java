@@ -403,7 +403,7 @@ expr_stmt|;
 comment|// this should take the when path
 name|assertEquals
 argument_list|(
-literal|"#choice4##when2#"
+literal|"#choice6##when3#"
 argument_list|,
 name|ids
 argument_list|)
@@ -461,7 +461,7 @@ expr_stmt|;
 comment|// this should take the otherwise path
 name|assertEquals
 argument_list|(
-literal|"#choice4##otherwise3#"
+literal|"#choice6##otherwise5#"
 argument_list|,
 name|ids
 argument_list|)

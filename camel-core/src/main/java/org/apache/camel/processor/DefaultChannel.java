@@ -324,6 +324,14 @@ name|?
 argument_list|>
 name|definition
 decl_stmt|;
+DECL|field|childDefinition
+specifier|private
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|childDefinition
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -399,7 +407,7 @@ name|getOutput
 parameter_list|()
 block|{
 comment|// the errorHandler is already decorated with interceptors
-comment|// so it cointain the entire chain of processors, so we can safely use it directly as output
+comment|// so it contain the entire chain of processors, so we can safely use it directly as output
 comment|// if no error handler provided we use the output
 return|return
 name|errorHandler
@@ -565,6 +573,25 @@ return|return
 name|definition
 return|;
 block|}
+DECL|method|setChildDefinition (ProcessorDefinition<?> childDefinition)
+specifier|public
+name|void
+name|setChildDefinition
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|childDefinition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|childDefinition
+operator|=
+name|childDefinition
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -691,6 +718,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// then wrap the output with the tracer
+comment|// the tracer should have the fine grained definition so if a child is set then use it, if not then its the original output used
+name|ProcessorDefinition
+name|traceDef
+init|=
+name|childDefinition
+operator|!=
+literal|null
+condition|?
+name|childDefinition
+else|:
+name|outputDefinition
+decl_stmt|;
 name|TraceInterceptor
 name|trace
 init|=
@@ -707,7 +746,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|outputDefinition
+name|traceDef
 argument_list|,
 name|target
 argument_list|,

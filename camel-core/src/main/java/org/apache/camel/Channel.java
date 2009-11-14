@@ -137,7 +137,7 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Initializes the channel.      *      * @param outputDefinition  the route defintion the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occured      */
+comment|/**      * Initializes the channel.      *      * @param outputDefinition  the route definition the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occurred      */
 DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 name|void
 name|initChannel
@@ -153,6 +153,18 @@ name|routeContext
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * If the initialized output definition contained outputs (children) then we need to      * set the child so we can leverage fine grained tracing      *      * @param child the child      */
+DECL|method|setChildDefinition (ProcessorDefinition<?> child)
+name|void
+name|setChildDefinition
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|child
+parameter_list|)
 function_decl|;
 comment|/**      * Gets the wrapped output that at runtime should be delegated to.      *      * @return the output to route the {@link Exchange} to      */
 DECL|method|getOutput ()

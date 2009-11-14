@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|TraceableUnitOfWork
+name|TracedRouteNodes
 import|;
 end_import
 
@@ -323,16 +323,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// cast to TraceableUnitOfWork so we can work on the intercepted node path
-name|TraceableUnitOfWork
-name|tuow
+name|TracedRouteNodes
+name|traced
 init|=
-operator|(
-name|TraceableUnitOfWork
-operator|)
 name|exchange
 operator|.
 name|getUnitOfWork
+argument_list|()
+operator|.
+name|getTracedRouteNodes
 argument_list|()
 decl_stmt|;
 comment|// get the list of intercepted nodes
@@ -342,12 +341,12 @@ name|RouteNode
 argument_list|>
 name|list
 init|=
-name|tuow
+name|traced
 operator|.
 name|getNodes
 argument_list|()
 decl_stmt|;
-comment|// get the 3rd last as its the bean
+comment|// get the 2rd last as its the bean
 name|Processor
 name|last
 init|=
@@ -360,7 +359,7 @@ operator|.
 name|size
 argument_list|()
 operator|-
-literal|3
+literal|2
 argument_list|)
 operator|.
 name|getProcessor

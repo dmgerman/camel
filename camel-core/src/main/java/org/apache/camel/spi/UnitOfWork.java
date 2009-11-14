@@ -98,6 +98,12 @@ name|Message
 name|getOriginalInMessage
 parameter_list|()
 function_decl|;
+comment|/**      * Gets tracing information      *      * @return trace information      */
+DECL|method|getTracedRouteNodes ()
+name|TracedRouteNodes
+name|getTracedRouteNodes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
