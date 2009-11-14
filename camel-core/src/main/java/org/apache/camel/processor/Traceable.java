@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|Traceable
 block|{
-comment|/**      * Gets the trace label used for logging when tracing is enabled.      *<p/>      * The lable should be short and precise.      *      * @return  the label      */
+comment|/**      * Gets the trace label used for logging when tracing is enabled.      *<p/>      * The label should be short and precise.      *      * @return  the label      */
 DECL|method|getTraceLabel ()
 name|String
 name|getTraceLabel

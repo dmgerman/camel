@@ -767,7 +767,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Pipeline"
+literal|"pipeline"
 return|;
 block|}
 block|}

@@ -727,7 +727,7 @@ name|tracer
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// define a global on completion that is invoked when the exchage is complete
+comment|// define a global on completion that is invoked when the exchange is complete
 name|onCompletion
 argument_list|()
 operator|.

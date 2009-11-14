@@ -224,7 +224,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Transform["
+literal|"transform["
 operator|+
 name|expression
 operator|+

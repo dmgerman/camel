@@ -302,7 +302,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"RoutingSlip["
+literal|"routingSlip["
 operator|+
 name|header
 operator|+

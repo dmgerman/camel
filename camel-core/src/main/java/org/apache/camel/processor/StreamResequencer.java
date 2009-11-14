@@ -470,7 +470,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"StreamResequence"
+literal|"streamResequence"
 return|;
 block|}
 annotation|@

@@ -375,7 +375,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Choice"
+literal|"choice"
 return|;
 block|}
 DECL|method|getFilters ()

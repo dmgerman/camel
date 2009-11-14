@@ -290,7 +290,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Loop["
+literal|"loop["
 operator|+
 name|expression
 operator|+

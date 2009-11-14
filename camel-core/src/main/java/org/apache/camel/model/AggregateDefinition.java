@@ -607,6 +607,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"aggregate"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

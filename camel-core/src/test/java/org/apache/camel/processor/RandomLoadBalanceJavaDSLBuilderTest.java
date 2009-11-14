@@ -260,7 +260,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this one navigate using the route definiton
+comment|// this one navigate using the route definition
 name|StringBuilder
 name|sb
 init|=

@@ -246,7 +246,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Filter[if: "
+literal|"filter[if: "
 operator|+
 name|predicate
 operator|+

@@ -154,7 +154,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Instrumention"
+literal|"Instrumentation"
 operator|+
 operator|(
 name|type

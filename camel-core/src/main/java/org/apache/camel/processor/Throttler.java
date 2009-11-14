@@ -154,7 +154,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Throttle["
+literal|"throttle["
 operator|+
 name|maximumRequestsPerPeriod
 operator|+

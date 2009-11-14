@@ -199,7 +199,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Catch"
+literal|"catch"
 return|;
 block|}
 comment|/**      * Returns with the exception that is caught by this processor.      *       * This method traverses exception causes, so sometimes the exception      * returned from this method might be one of causes of the parameter      * passed.      *      * @param exchange  the current exchange      * @param exception the thrown exception      * @return Throwable that this processor catches.<tt>null</tt> if nothing matches.      */

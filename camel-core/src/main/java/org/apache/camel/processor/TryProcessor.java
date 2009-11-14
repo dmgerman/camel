@@ -287,7 +287,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Try"
+literal|"try"
 return|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -511,6 +511,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: No need to make a copy
 comment|// lets attach the exception to the exchange
 name|Exchange
 name|localExchange

@@ -227,7 +227,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Resequence"
+literal|"resequencer"
 return|;
 block|}
 comment|// Implementation methods

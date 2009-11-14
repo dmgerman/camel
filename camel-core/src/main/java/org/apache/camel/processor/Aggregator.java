@@ -251,7 +251,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Aggregate["
+literal|"aggregate["
 operator|+
 name|correlationExpression
 operator|+

@@ -127,7 +127,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Delayer["
+literal|"delay["
 operator|+
 name|delay
 operator|+

@@ -348,7 +348,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Split["
+literal|"split["
 operator|+
 name|expression
 operator|+

@@ -202,7 +202,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"Rollback"
+literal|"rollback"
 return|;
 block|}
 DECL|method|isMarkRollbackOnly ()
