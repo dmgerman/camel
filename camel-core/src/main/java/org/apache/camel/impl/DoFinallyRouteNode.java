@@ -71,16 +71,16 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|OnCompletionRouteNode
+DECL|class|DoFinallyRouteNode
 specifier|public
 class|class
-name|OnCompletionRouteNode
+name|DoFinallyRouteNode
 implements|implements
 name|RouteNode
 block|{
-DECL|method|OnCompletionRouteNode ()
+DECL|method|DoFinallyRouteNode ()
 specifier|public
-name|OnCompletionRouteNode
+name|DoFinallyRouteNode
 parameter_list|()
 block|{     }
 DECL|method|getProcessor ()
@@ -116,18 +116,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-literal|"OnCompletion["
-operator|+
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|CORRELATION_ID
-argument_list|)
-operator|+
-literal|"]"
+literal|"doFinally"
 return|;
 block|}
 DECL|method|isAbstract ()
@@ -149,7 +138,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"OnCompletionRouteNode"
+literal|"DoFinallyRouteNode"
 return|;
 block|}
 block|}

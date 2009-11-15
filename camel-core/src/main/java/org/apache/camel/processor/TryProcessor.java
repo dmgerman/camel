@@ -287,7 +287,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"try"
+literal|"doTry"
 return|;
 block|}
 DECL|method|process (Exchange exchange)

@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of the {@link org.apache.camel.RouteNode}  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -78,27 +78,11 @@ name|OnExceptionRouteNode
 implements|implements
 name|RouteNode
 block|{
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
-decl_stmt|;
-DECL|method|OnExceptionRouteNode (Exchange exchange)
+DECL|method|OnExceptionRouteNode ()
 specifier|public
 name|OnExceptionRouteNode
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 DECL|method|getProcessor ()
 specifier|public
 name|Processor

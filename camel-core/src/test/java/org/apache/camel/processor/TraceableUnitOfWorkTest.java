@@ -346,7 +346,7 @@ operator|.
 name|getNodes
 argument_list|()
 decl_stmt|;
-comment|// get the 2rd last as its the bean
+comment|// get the 3rd last as its the bean
 name|Processor
 name|last
 init|=
@@ -359,7 +359,7 @@ operator|.
 name|size
 argument_list|()
 operator|-
-literal|2
+literal|3
 argument_list|)
 operator|.
 name|getProcessor

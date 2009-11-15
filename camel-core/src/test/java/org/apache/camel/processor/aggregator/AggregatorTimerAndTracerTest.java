@@ -144,6 +144,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;

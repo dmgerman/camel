@@ -62,6 +62,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|CatchDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -71,16 +85,16 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|OnCompletionRouteNode
+DECL|class|DoCatchRouteNode
 specifier|public
 class|class
-name|OnCompletionRouteNode
+name|DoCatchRouteNode
 implements|implements
 name|RouteNode
 block|{
-DECL|method|OnCompletionRouteNode ()
+DECL|method|DoCatchRouteNode ()
 specifier|public
-name|OnCompletionRouteNode
+name|DoCatchRouteNode
 parameter_list|()
 block|{     }
 DECL|method|getProcessor ()
@@ -116,7 +130,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-literal|"OnCompletion["
+literal|"doCatch["
 operator|+
 name|exchange
 operator|.
@@ -124,8 +138,18 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|CORRELATION_ID
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Exception
+operator|.
+name|class
 argument_list|)
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
 operator|+
 literal|"]"
 return|;
@@ -149,7 +173,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"OnCompletionRouteNode"
+literal|"DoCatchRouteNode"
 return|;
 block|}
 block|}
