@@ -1078,7 +1078,7 @@ block|{
 return|return
 name|BusFactory
 operator|.
-name|getDefaultBus
+name|getThreadDefaultBus
 argument_list|()
 return|;
 block|}
