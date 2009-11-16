@@ -226,6 +226,14 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+comment|// give time for files to be deleted etc.
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 comment|// the temporary files should have been deleted
 name|File
 name|file
@@ -339,6 +347,14 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+comment|// give time for files to be deleted etc.
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 comment|// the temporary files should have been deleted
 name|File
 name|file
