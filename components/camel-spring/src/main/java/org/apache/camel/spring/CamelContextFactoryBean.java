@@ -204,9 +204,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|scan
+name|spring
 operator|.
 name|PatternBasedPackageScanFilter
 import|;

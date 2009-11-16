@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.scan.test.a
+DECL|package|org.apache.camel.spring.scan.b
 package|package
 name|org
 operator|.
@@ -12,13 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
 operator|.
 name|scan
 operator|.
-name|test
-operator|.
-name|a
+name|b
 package|;
 end_package
 
@@ -30,22 +28,45 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
 operator|.
 name|scan
 operator|.
-name|test
-operator|.
 name|ScannableOne
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|scan
+operator|.
+name|a
+operator|.
+name|ScanTargetOne
 import|;
 end_import
 
 begin_class
 annotation|@
 name|ScannableOne
-DECL|class|ScanTargetOne
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"all"
+argument_list|)
+DECL|class|ScanTargetTwo
 specifier|public
 class|class
+name|ScanTargetTwo
+extends|extends
 name|ScanTargetOne
 block|{
 DECL|method|someMethod ()

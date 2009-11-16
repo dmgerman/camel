@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.scan.test
+DECL|package|org.apache.camel.spring.scan
 package|package
 name|org
 operator|.
@@ -12,11 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
 operator|.
 name|scan
-operator|.
-name|test
 package|;
 end_package
 
@@ -52,10 +50,10 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
-DECL|annotation|ScannableOne
+DECL|annotation|ScannableTwo
 specifier|public
 annotation_defn|@interface
-name|ScannableOne
+name|ScannableTwo
 block|{  }
 end_annotation_defn
 
