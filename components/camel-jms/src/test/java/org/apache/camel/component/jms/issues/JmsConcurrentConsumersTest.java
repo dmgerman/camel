@@ -207,14 +207,6 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 comment|// setup a task executor to be able send the messages in parallel
 name|ThreadPoolTaskExecutor
 name|executor
@@ -269,7 +261,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// requestbody is InOut pattern and thus we expect a reply (JMSReply)
+comment|// request body is InOut pattern and thus we expect a reply (JMSReply)
 name|Object
 name|response
 init|=
@@ -303,6 +295,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 comment|// wait for test completion, timeout after 30 sec to let other unit test run to not wait forever
 name|latch
 operator|.
@@ -339,7 +339,7 @@ name|start
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be faster than 10000 millis, took "
+literal|"Should be faster than 20000 millis, took "
 operator|+
 name|delta
 operator|+
@@ -347,7 +347,7 @@ literal|" millis"
 argument_list|,
 name|delta
 operator|<
-literal|10000L
+literal|20000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -458,7 +458,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// sleep a little to simulate heacy work and force concurrency processing
+comment|// sleep a little to simulate heavy work and force concurrency processing
 name|Thread
 operator|.
 name|sleep
