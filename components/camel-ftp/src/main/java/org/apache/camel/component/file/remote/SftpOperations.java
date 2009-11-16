@@ -2532,6 +2532,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|sendNoop ()
+specifier|public
+name|boolean
+name|sendNoop
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+comment|// is not implemented
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

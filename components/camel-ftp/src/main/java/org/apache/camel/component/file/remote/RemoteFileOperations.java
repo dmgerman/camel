@@ -70,7 +70,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Connects to the remote server      *      * @param configuration configuraiton      * @return true if connected      * @throws GenericFileOperationFailedException can be thrown      */
+comment|/**      * Connects to the remote server      *      * @param configuration configuration      * @return true if connected      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|connect (RemoteFileConfiguration configuration)
 name|boolean
 name|connect
@@ -89,10 +89,18 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Discconects from the remote server      *      * @throws GenericFileOperationFailedException can be thrown      */
+comment|/**      * Disconnects from the remote server      *      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|disconnect ()
 name|void
 name|disconnect
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
+comment|/**      * Sends a noop command to the remote server      *      * @throws GenericFileOperationFailedException can be thrown      * @return<tt>true</tt> if the noop was a success,<tt>false</tt> otherwise      */
+DECL|method|sendNoop ()
+name|boolean
+name|sendNoop
 parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
