@@ -114,6 +114,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -416,8 +430,12 @@ name|factoryFinder
 decl_stmt|;
 DECL|field|loaded
 specifier|private
-name|boolean
+name|AtomicBoolean
 name|loaded
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder)
 specifier|public
@@ -1242,6 +1260,15 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+comment|// only override it if its different
+comment|// as race conditions can lead to many threads trying to promote the same fallback converter
+if|if
+condition|(
+name|typeConverter
+operator|!=
+name|converter
+condition|)
+block|{
 if|if
 condition|(
 name|converter
@@ -1272,6 +1299,7 @@ argument_list|,
 name|typeConverter
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
@@ -2038,15 +2066,27 @@ name|void
 name|checkLoaded
 parameter_list|()
 block|{
+comment|// must be synchronized to let other threads wait for it to initialize
+comment|// also use a atomic boolean so its state is visible for the other threads
+comment|// this ensure that at most one thread is loading all the type converters
 if|if
 condition|(
-operator|!
 name|loaded
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
 condition|)
 block|{
-name|loaded
-operator|=
-literal|true
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loading type converters ..."
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -2095,6 +2135,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loading type converters done"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|loadFallbackTypeConverters ()

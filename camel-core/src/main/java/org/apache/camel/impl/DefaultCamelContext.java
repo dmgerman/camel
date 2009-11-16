@@ -3971,11 +3971,19 @@ operator|==
 literal|null
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+comment|// we can synchronize on this as there is only one instance
+comment|// of the camel context (its the container)
 name|typeConverter
 operator|=
 name|createTypeConverter
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|typeConverter
