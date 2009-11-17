@@ -465,11 +465,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore for now
+comment|// ignore for now as we will reconnect below
 block|}
 block|}
 name|connectIfNecessary
