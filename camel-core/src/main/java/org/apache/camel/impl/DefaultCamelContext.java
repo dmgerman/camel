@@ -3548,7 +3548,17 @@ argument_list|(
 name|nodeIdFactory
 argument_list|)
 decl_stmt|;
+comment|// stop and remove the route
 name|stopRoute
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|routeServices
+operator|.
+name|remove
 argument_list|(
 name|key
 argument_list|)

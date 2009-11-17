@@ -742,6 +742,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|configureRoutes
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+comment|// add routes to Camel by populating them
+name|populateRoutes
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Configures the routes      *      * @param context the Camel context      * @return the routes configured      * @throws Exception can be thrown during configuration      */
+DECL|method|configureRoutes (CamelContext context)
+specifier|public
+name|RoutesDefinition
+name|configureRoutes
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|setContext
 argument_list|(
 name|context
@@ -750,6 +772,16 @@ expr_stmt|;
 name|checkInitialized
 argument_list|()
 expr_stmt|;
+name|routeCollection
+operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+return|return
+name|routeCollection
+return|;
 block|}
 comment|/**      * Includes the routes from the build to this builder.      *<p/>      * This allows you to use other builds as route templates.      * @param routes other builder with routes to include      *      * @throws Exception can be thrown during configuration      */
 DECL|method|includeRoutes (RoutesBuilder routes)
@@ -907,9 +939,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|configure
-argument_list|()
-expr_stmt|;
-name|populateRoutes
 argument_list|()
 expr_stmt|;
 block|}

@@ -750,7 +750,7 @@ name|getIntercepts
 argument_list|()
 control|)
 block|{
-comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
@@ -863,7 +863,7 @@ name|getInterceptSendTos
 argument_list|()
 control|)
 block|{
-comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
