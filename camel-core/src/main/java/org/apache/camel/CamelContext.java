@@ -588,6 +588,15 @@ argument_list|>
 name|getRouteDefinitions
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the route definition with the given id      *      * @param id id of the route      * @return the route definition or<tt>null</tt> if not found      */
+DECL|method|getRouteDefinition (String id)
+name|RouteDefinition
+name|getRouteDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the current routes in this context      *      * @return the current routes      */
 DECL|method|getRoutes ()
 name|List
