@@ -234,6 +234,36 @@ return|return
 name|port
 return|;
 block|}
+DECL|method|main (String args[])
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+name|args
+index|[]
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// set the client's service access point
+name|Client
+name|client
+init|=
+operator|new
+name|Client
+argument_list|(
+literal|"http://localhost:9001/SoapContext/SoapPort?wsdl"
+argument_list|)
+decl_stmt|;
+comment|// invoking the services
+name|client
+operator|.
+name|invoke
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|invoke ()
 specifier|public
 name|void

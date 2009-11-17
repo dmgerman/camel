@@ -350,6 +350,15 @@ argument_list|(
 literal|"Hello Camel!!"
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Send out the request: Hello Camel!!"
+argument_list|)
+expr_stmt|;
 comment|// Invoke the endpoint synchronously
 name|SOAPMessage
 name|reply
@@ -424,6 +433,17 @@ operator|.
 name|getTextContent
 argument_list|()
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Get the response: "
+operator|+
+name|responseMessageText
+argument_list|)
+expr_stmt|;
 return|return
 name|responseMessageText
 return|;

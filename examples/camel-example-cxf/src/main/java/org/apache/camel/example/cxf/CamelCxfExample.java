@@ -101,7 +101,7 @@ specifier|final
 name|String
 name|SERVICE_ADDRESS
 init|=
-literal|"http://localhost:9000/SoapContext/SoapPort"
+literal|"http://localhost:9003/SoapContext/SoapPort"
 decl_stmt|;
 DECL|field|SERVICE_CLASS
 specifier|private
