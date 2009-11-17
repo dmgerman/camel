@@ -360,7 +360,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// handle any exception occured during the try processor
+comment|// handle any exception occurred during the try processor
 try|try
 block|{
 if|if
@@ -511,17 +511,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: No need to make a copy
-comment|// lets attach the exception to the exchange
-name|Exchange
-name|localExchange
-init|=
+comment|// give the rest of the pipeline another chance
 name|exchange
-operator|.
-name|copy
-argument_list|()
-decl_stmt|;
-name|localExchange
 operator|.
 name|setProperty
 argument_list|(
@@ -532,8 +523,7 @@ argument_list|,
 name|caught
 argument_list|)
 expr_stmt|;
-comment|// give the rest of the pipeline another chance
-name|localExchange
+name|exchange
 operator|.
 name|setException
 argument_list|(
@@ -545,9 +535,10 @@ name|catchClause
 operator|.
 name|process
 argument_list|(
-name|localExchange
+name|exchange
 argument_list|)
 expr_stmt|;
+comment|// is the exception handled by the catch clause
 name|boolean
 name|handled
 init|=
@@ -602,7 +593,7 @@ block|{
 comment|// put exception back as it was not handled
 if|if
 condition|(
-name|localExchange
+name|exchange
 operator|.
 name|getException
 argument_list|()
@@ -610,11 +601,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|localExchange
+name|exchange
 operator|.
 name|setException
 argument_list|(
-name|localExchange
+name|exchange
 operator|.
 name|getProperty
 argument_list|(
@@ -630,16 +621,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// copy result back to the original exchange
-name|ExchangeHelper
-operator|.
-name|copyResults
-argument_list|(
-name|exchange
-argument_list|,
-name|localExchange
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 block|}
