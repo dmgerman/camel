@@ -326,14 +326,16 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -341,8 +343,7 @@ block|{
 return|return
 name|Collections
 operator|.
-name|emptyList
-argument_list|()
+name|EMPTY_LIST
 return|;
 block|}
 DECL|method|getException ()

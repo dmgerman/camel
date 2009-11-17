@@ -89,11 +89,6 @@ block|{
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -101,11 +96,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -191,11 +181,6 @@ block|{
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -203,11 +188,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

@@ -243,9 +243,6 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 comment|// TODO: Align this code with PolicyDefinition
@@ -427,7 +424,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-comment|/**      * Sets a policy type that this defition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based      * on this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
+comment|/**      * Sets a policy type that this definition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based      * on this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
 DECL|method|setType (Class<? extends Policy> type)
 specifier|public
 name|void

@@ -655,15 +655,9 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
-parameter_list|<
-name|?
-parameter_list|>
 parameter_list|>
 extends|extends
 name|OptionalIdentifiedDefinition
-argument_list|<
-name|Type
-argument_list|>
 implements|implements
 name|Block
 block|{
@@ -744,9 +738,6 @@ specifier|abstract
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -790,9 +781,6 @@ block|{
 name|Collection
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -808,15 +796,12 @@ name|outputs
 argument_list|)
 return|;
 block|}
-DECL|method|addOutput (ProcessorDefinition<?> processorType)
+DECL|method|addOutput (ProcessorDefinition processorType)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|processorType
 parameter_list|)
 block|{
@@ -1066,7 +1051,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child)
+DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition child)
 specifier|protected
 name|Processor
 name|wrapChannel
@@ -1078,9 +1063,6 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|child
 parameter_list|)
 throws|throws
@@ -1165,16 +1147,10 @@ argument_list|)
 expr_stmt|;
 comment|// must do this ugly cast to avoid compiler error on HP-UX
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|defn
 init|=
 operator|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|this
 decl_stmt|;
@@ -1480,7 +1456,7 @@ name|DefaultChannel
 argument_list|()
 return|;
 block|}
-DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition<?>> outputs)
+DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition> outputs)
 specifier|protected
 name|Processor
 name|createOutputsProcessor
@@ -1491,9 +1467,6 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -1692,15 +1665,12 @@ name|DEFAULT_ERROR_HANDLER_BUILDER
 argument_list|)
 return|;
 block|}
-DECL|method|configureChild (ProcessorDefinition<?> output)
+DECL|method|configureChild (ProcessorDefinition output)
 specifier|protected
 name|void
 name|configureChild
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -3025,14 +2995,6 @@ argument_list|)
 DECL|method|end ()
 specifier|public
 name|ProcessorDefinition
-argument_list|<
-name|?
-extends|extends
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|end
 parameter_list|()
 block|{
@@ -3550,7 +3512,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the buiider      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4598,17 +4560,12 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
-DECL|method|onException (Class<? extends Throwable> exceptionType)
+DECL|method|onException (Class exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -6511,14 +6468,6 @@ name|XmlTransient
 DECL|method|getParent ()
 specifier|public
 name|ProcessorDefinition
-argument_list|<
-name|?
-extends|extends
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|getParent
 parameter_list|()
 block|{
@@ -6526,20 +6475,12 @@ return|return
 name|parent
 return|;
 block|}
-DECL|method|setParent (ProcessorDefinition<? extends ProcessorDefinition<?>> parent)
+DECL|method|setParent (ProcessorDefinition parent)
 specifier|public
 name|void
 name|setParent
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-extends|extends
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|parent
 parameter_list|)
 block|{

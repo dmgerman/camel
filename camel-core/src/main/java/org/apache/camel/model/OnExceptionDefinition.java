@@ -371,9 +371,6 @@ extends|extends
 name|ProcessorDefinition
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -505,9 +502,6 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -515,9 +509,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -528,11 +519,6 @@ specifier|private
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptionClasses
 decl_stmt|;
@@ -569,18 +555,13 @@ specifier|public
 name|OnExceptionDefinition
 parameter_list|()
 block|{     }
-DECL|method|OnExceptionDefinition (List<Class<? extends Throwable>> exceptionClasses)
+DECL|method|OnExceptionDefinition (List<Class> exceptionClasses)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -597,16 +578,11 @@ name|exceptionClasses
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OnExceptionDefinition (Class<? extends Throwable> exceptionType)
+DECL|method|OnExceptionDefinition (Class exceptionType)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -616,11 +592,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -912,17 +883,12 @@ comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|onException (Class<? extends Throwable> exceptionType)
+DECL|method|onException (Class exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -1393,9 +1359,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -1404,7 +1367,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -1412,9 +1375,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -1431,11 +1391,6 @@ specifier|public
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|getExceptionClasses
 parameter_list|()
@@ -1457,7 +1412,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -1465,11 +1420,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -1788,11 +1738,6 @@ specifier|protected
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|createExceptionClasses
 parameter_list|()
@@ -1809,11 +1754,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -1821,11 +1761,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 argument_list|(
 name|list

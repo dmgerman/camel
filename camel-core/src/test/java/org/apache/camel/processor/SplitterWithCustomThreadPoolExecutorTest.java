@@ -263,7 +263,12 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|firstSplitterType (List<ProcessorDefinition<?>> outputs)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|firstSplitterType (List<ProcessorDefinition> outputs)
 specifier|protected
 name|SplitDefinition
 name|firstSplitterType
@@ -271,9 +276,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -286,9 +288,6 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|processorType
 range|:
 name|outputs

@@ -63,7 +63,7 @@ name|ProcessorDefinitionHelper
 parameter_list|()
 block|{     }
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the found definitions, or<tt>null</tt> if not found      */
-DECL|method|filterTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
+DECL|method|filterTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -78,9 +78,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
@@ -121,7 +118,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the first found type, or<tt>null</tt> if not found      */
-DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
+DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -133,9 +130,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
@@ -294,7 +288,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|doFindType (List<ProcessorDefinition<?>> outputs, Class<T> type, List<T> found)
+DECL|method|doFindType (List<ProcessorDefinition> outputs, Class<T> type, List<T> found)
 specifier|private
 specifier|static
 parameter_list|<
@@ -306,9 +300,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
@@ -396,9 +387,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|children
 init|=
@@ -447,9 +435,6 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|children
 init|=
@@ -482,9 +467,6 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|children
 init|=
@@ -511,9 +493,6 @@ comment|// try children as well
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|children
 init|=

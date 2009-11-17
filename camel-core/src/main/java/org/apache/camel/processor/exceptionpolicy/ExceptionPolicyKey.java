@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception policy key is a compound key for storing:  *<b>exception class</b> +<b>when</b> =><b>exception type</b>.  *<p/>  * This is used by Camel to store the onException types configued that has or has not predicates attached (when).  */
+comment|/**  * Exception policy key is a compound key for storing:  *<b>exception class</b> +<b>when</b> =><b>exception type</b>.  *<p/>  * This is used by Camel to store the onException types configured that has or has not predicates attached (when).  */
 end_comment
 
 begin_class
@@ -47,11 +47,6 @@ DECL|field|exceptionClass
 specifier|private
 specifier|final
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionClass
 decl_stmt|;
 DECL|field|when
@@ -60,16 +55,11 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
-DECL|method|ExceptionPolicyKey (Class<? extends Throwable> exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition
@@ -112,18 +102,13 @@ return|return
 name|when
 return|;
 block|}
-DECL|method|newInstance (Class<? extends Throwable> exceptionClass)
+DECL|method|newInstance (Class exceptionClass)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionClass
 parameter_list|)
 block|{
@@ -137,18 +122,13 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|newInstance (Class<? extends Throwable> exceptionClass, WhenDefinition when)
+DECL|method|newInstance (Class exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition

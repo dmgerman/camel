@@ -237,9 +237,6 @@ extends|extends
 name|ProcessorDefinition
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -297,9 +294,6 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -307,9 +301,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -445,7 +436,7 @@ name|when
 argument_list|)
 return|;
 block|}
-comment|/**      * Removes all existing {@link org.apache.camel.model.OnCompletionDefinition} from the defintion.      *<p/>      * This is used to let route scoped<tt>onCompletion</tt> overrule any global<tt>onCompletion</tt>.      * Hence we remove all existing as they are global.      *      * @param definition the parent defintion that is the route      */
+comment|/**      * Removes all existing {@link org.apache.camel.model.OnCompletionDefinition} from the definition.      *<p/>      * This is used to let route scoped<tt>onCompletion</tt> overrule any global<tt>onCompletion</tt>.      * Hence we remove all existing as they are global.      *      * @param definition the parent definition that is the route      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -522,7 +513,7 @@ argument_list|>
 name|end
 parameter_list|()
 block|{
-comment|// pop parent block, as we added outself as block to parent when synchronized was defined in the route
+comment|// pop parent block, as we added our self as block to parent when synchronized was defined in the route
 name|getParent
 argument_list|()
 operator|.
@@ -536,7 +527,7 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} completed succesfully (no errors).      *      * @return the builder      */
+comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} completed successfully (no errors).      *      * @return the builder      */
 DECL|method|onCompleteOnly ()
 specifier|public
 name|OnCompletionDefinition
@@ -660,9 +651,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -671,7 +659,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -679,9 +667,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

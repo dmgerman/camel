@@ -191,9 +191,6 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
-parameter_list|<
-name|?
-parameter_list|>
 parameter_list|>
 extends|extends
 name|ProcessorDefinition
@@ -413,9 +410,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()

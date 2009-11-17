@@ -249,9 +249,6 @@ specifier|final
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -259,9 +256,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -410,9 +404,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()

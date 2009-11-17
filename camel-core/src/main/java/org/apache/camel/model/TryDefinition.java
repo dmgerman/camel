@@ -308,9 +308,6 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputsWithoutCatches
 decl_stmt|;
@@ -458,17 +455,12 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Handles the given exception(s)      *      * @param exceptionType  the exception(s)      * @return the try builder      */
-DECL|method|doCatch (Class<? extends Throwable>.... exceptionType)
+DECL|method|doCatch (Class... exceptionType)
 specifier|public
 name|TryDefinition
 name|doCatch
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 modifier|...
 name|exceptionType
 parameter_list|)
@@ -479,11 +471,6 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|list
 init|=
@@ -868,9 +855,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputsWithoutCatches
 parameter_list|()
@@ -890,7 +874,7 @@ return|return
 name|outputsWithoutCatches
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -898,9 +882,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -919,15 +900,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|addOutput (ProcessorDefinition<?> output)
+DECL|method|addOutput (ProcessorDefinition output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -966,9 +944,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
