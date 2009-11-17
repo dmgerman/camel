@@ -132,6 +132,13 @@ name|Cloneable
 implements|,
 name|Serializable
 block|{
+DECL|field|randomNumberGenerator
+specifier|protected
+specifier|static
+specifier|transient
+name|Random
+name|randomNumberGenerator
+decl_stmt|;
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -158,13 +165,6 @@ name|RedeliveryPolicy
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|randomNumberGenerator
-specifier|protected
-specifier|static
-specifier|transient
-name|Random
-name|randomNumberGenerator
 decl_stmt|;
 DECL|field|redeliverDelay
 specifier|protected
