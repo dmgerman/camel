@@ -63,7 +63,7 @@ name|ProcessorDefinitionHelper
 parameter_list|()
 block|{     }
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the found definitions, or<tt>null</tt> if not found      */
-DECL|method|filterTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
+DECL|method|filterTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -78,6 +78,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
@@ -118,7 +121,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the first found type, or<tt>null</tt> if not found      */
-DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
+DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -130,6 +133,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
@@ -185,16 +191,22 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Is the given child the first in the outputs from the parent?      *      * @param parentType the type the parent must be      * @param node the node      * @return<tt>true</tt> if first child,<tt>false</tt> otherwise      */
-DECL|method|isFirstChildOfType (Class parentType, ProcessorDefinition node)
+DECL|method|isFirstChildOfType (Class<?> parentType, ProcessorDefinition<?> node)
 specifier|public
 specifier|static
 name|boolean
 name|isFirstChildOfType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parentType
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{
@@ -282,25 +294,34 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|doFindType (List<ProcessorDefinition> outputs, Class<?> type, List found)
+DECL|method|doFindType (List<ProcessorDefinition<?>> outputs, Class<T> type, List<T> found)
 specifier|private
 specifier|static
+parameter_list|<
+name|T
+parameter_list|>
 name|void
 name|doFindType
 parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|,
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 name|type
 parameter_list|,
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|found
 parameter_list|)
 block|{
@@ -321,6 +342,9 @@ block|}
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 range|:
 name|outputs
@@ -340,6 +364,9 @@ name|found
 operator|.
 name|add
 argument_list|(
+operator|(
+name|T
+operator|)
 name|out
 argument_list|)
 expr_stmt|;
@@ -353,16 +380,25 @@ name|SendDefinition
 condition|)
 block|{
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send
 init|=
 operator|(
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|out
 decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=
@@ -411,6 +447,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=
@@ -443,6 +482,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=
@@ -469,6 +511,9 @@ comment|// try children as well
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=

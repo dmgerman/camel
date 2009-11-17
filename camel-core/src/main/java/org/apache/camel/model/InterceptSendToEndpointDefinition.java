@@ -215,6 +215,9 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
@@ -453,6 +456,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -540,6 +546,9 @@ comment|// no outputs
 return|return;
 block|}
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|first
 init|=
 name|getOutputs
@@ -586,6 +595,9 @@ operator|++
 control|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 name|outputs
@@ -605,6 +617,9 @@ expr_stmt|;
 block|}
 comment|// remove the moved from the original output, by just keeping the first one
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|keep
 init|=
 name|outputs

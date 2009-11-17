@@ -587,7 +587,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
-DECL|method|onException (Class<?> exception)
+DECL|method|onException (Class<? extends Throwable> exception)
 specifier|public
 name|OnExceptionDefinition
 name|onException
@@ -595,6 +595,8 @@ parameter_list|(
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|exception
 parameter_list|)
@@ -617,7 +619,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
-DECL|method|onException (Class<?>.... exceptions)
+DECL|method|onException (Class<? extends Throwable>.... exceptions)
 specifier|public
 name|OnExceptionDefinition
 name|onException
@@ -625,6 +627,8 @@ parameter_list|(
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|Throwable
 argument_list|>
 modifier|...
 name|exceptions
@@ -640,6 +644,8 @@ control|(
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|ex
 range|:

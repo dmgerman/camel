@@ -185,6 +185,9 @@ extends|extends
 name|ProcessorDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -211,6 +214,9 @@ name|XmlTransient
 DECL|field|typeClass
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|typeClass
 decl_stmt|;
 DECL|method|ConvertBodyDefinition ()
@@ -232,11 +238,14 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ConvertBodyDefinition (Class typeClass)
+DECL|method|ConvertBodyDefinition (Class<?> typeClass)
 specifier|public
 name|ConvertBodyDefinition
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|typeClass
 parameter_list|)
 block|{
@@ -254,11 +263,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ConvertBodyDefinition (Class typeClass, String charset)
+DECL|method|ConvertBodyDefinition (Class<?> typeClass, String charset)
 specifier|public
 name|ConvertBodyDefinition
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|typeClass
 parameter_list|,
 name|String
@@ -396,6 +408,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -435,6 +450,9 @@ block|}
 DECL|method|getTypeClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getTypeClass
 parameter_list|()
 block|{
@@ -442,12 +460,15 @@ return|return
 name|typeClass
 return|;
 block|}
-DECL|method|setTypeClass (Class typeClass)
+DECL|method|setTypeClass (Class<?> typeClass)
 specifier|public
 name|void
 name|setTypeClass
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|typeClass
 parameter_list|)
 block|{

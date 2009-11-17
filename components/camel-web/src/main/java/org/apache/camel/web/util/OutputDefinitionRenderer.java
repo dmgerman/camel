@@ -436,7 +436,7 @@ parameter_list|()
 block|{
 comment|// Utility class, no public or protected default constructor
 block|}
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -446,14 +446,23 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 operator|(
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|processor
 decl_stmt|;
@@ -1148,7 +1157,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderAop (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderAop (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1158,6 +1167,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1368,7 +1380,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderBean (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|renderBean (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|private
 specifier|static
 name|void
@@ -1378,6 +1390,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -1459,7 +1474,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderFinally (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderFinally (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1469,6 +1484,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1490,6 +1508,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|branches
 init|=
@@ -1501,6 +1522,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|branch
 range|:
 name|branches
@@ -1524,7 +1548,7 @@ literal|".end()"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|renderPolicy (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderPolicy (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1534,6 +1558,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1591,7 +1618,7 @@ literal|")"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|renderPollEnrich (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderPollEnrich (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1601,6 +1628,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1668,7 +1698,7 @@ literal|")"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|renderProcess (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderProcess (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1678,6 +1708,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1745,7 +1778,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderThreads (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderThreads (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1755,6 +1788,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -1837,7 +1873,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderTransacted (StringBuilder buffer, OutputDefinition out)
+DECL|method|renderTransacted (StringBuilder buffer, OutputDefinition<?> out)
 specifier|private
 specifier|static
 name|void
@@ -1847,6 +1883,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|OutputDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 parameter_list|)
 block|{

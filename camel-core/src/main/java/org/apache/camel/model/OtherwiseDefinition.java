@@ -135,6 +135,9 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 implements|implements
 name|Block
@@ -208,6 +211,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|list
 init|=
@@ -217,6 +223,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|list

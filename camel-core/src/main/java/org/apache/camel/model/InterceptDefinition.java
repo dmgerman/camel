@@ -197,6 +197,9 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 comment|// TODO: support stop later (its a bit hard as it needs to break entire processing of route)
@@ -317,6 +320,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Processor
@@ -486,6 +492,9 @@ comment|// no outputs
 return|return;
 block|}
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|first
 init|=
 name|getOutputs
@@ -532,6 +541,9 @@ operator|++
 control|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 name|outputs
@@ -551,6 +563,9 @@ expr_stmt|;
 block|}
 comment|// remove the moved from the original output, by just keeping the first one
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|keep
 init|=
 name|outputs

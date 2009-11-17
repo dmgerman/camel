@@ -246,6 +246,9 @@ name|XmlTransient
 DECL|field|comparator
 specifier|private
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 decl_stmt|;
 annotation|@
@@ -295,7 +298,7 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SortDefinition (Expression expression, Comparator comparator)
+DECL|method|SortDefinition (Expression expression, Comparator<Object> comparator)
 specifier|public
 name|SortDefinition
 parameter_list|(
@@ -303,6 +306,9 @@ name|Expression
 name|expression
 parameter_list|,
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 parameter_list|)
 block|{
@@ -363,6 +369,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -417,6 +428,9 @@ name|comparator
 operator|=
 operator|new
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -507,6 +521,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -520,6 +537,9 @@ block|}
 DECL|method|getComparator ()
 specifier|public
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|getComparator
 parameter_list|()
 block|{
@@ -527,12 +547,15 @@ return|return
 name|comparator
 return|;
 block|}
-DECL|method|setComparator (Comparator comparator)
+DECL|method|setComparator (Comparator<Object> comparator)
 specifier|public
 name|void
 name|setComparator
 parameter_list|(
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 parameter_list|)
 block|{
@@ -616,12 +639,15 @@ name|expression
 expr_stmt|;
 block|}
 comment|/**      * Sets the comparator to use for sorting      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
-DECL|method|comparator (Comparator comparator)
+DECL|method|comparator (Comparator<Object> comparator)
 specifier|public
 name|SortDefinition
 name|comparator
 parameter_list|(
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|comparator
 parameter_list|)
 block|{

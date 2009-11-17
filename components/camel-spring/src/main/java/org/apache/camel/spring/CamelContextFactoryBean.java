@@ -2399,6 +2399,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=
@@ -2410,6 +2413,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|child
 range|:
 name|children
@@ -3014,6 +3020,9 @@ comment|// setup the policies as JAXB yet again have not created a correct model
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|types
 init|=
@@ -3037,6 +3046,9 @@ comment|// add to correct type
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|types

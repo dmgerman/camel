@@ -163,6 +163,12 @@ class|class
 name|SetExchangePatternDefinition
 extends|extends
 name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute

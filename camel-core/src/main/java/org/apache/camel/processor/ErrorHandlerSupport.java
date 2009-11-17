@@ -258,7 +258,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|list
@@ -272,7 +274,9 @@ for|for
 control|(
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|clazz
 range|:

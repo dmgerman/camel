@@ -159,6 +159,9 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -318,6 +321,9 @@ comment|// and the after if not afterFinally
 name|Collection
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|pipe
 init|=
@@ -325,6 +331,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

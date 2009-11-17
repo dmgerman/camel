@@ -217,6 +217,9 @@ name|XmlTransient
 DECL|field|idempotentRepository
 specifier|private
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|method|IdempotentConsumerDefinition ()
@@ -224,7 +227,7 @@ specifier|public
 name|IdempotentConsumerDefinition
 parameter_list|()
 block|{     }
-DECL|method|IdempotentConsumerDefinition (Expression messageIdExpression, IdempotentRepository idempotentRepository)
+DECL|method|IdempotentConsumerDefinition (Expression messageIdExpression, IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
 parameter_list|(
@@ -232,6 +235,9 @@ name|Expression
 name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -322,12 +328,15 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the the message id repository for the IdempotentConsumerType      *      * @param idempotentRepository  the repository instance of idempotent      * @return builder      */
-DECL|method|messageIdRepository (IdempotentRepository idempotentRepository)
+DECL|method|messageIdRepository (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
 name|messageIdRepository
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -388,6 +397,9 @@ block|}
 DECL|method|getMessageIdRepository ()
 specifier|public
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|getMessageIdRepository
 parameter_list|()
 block|{
@@ -395,12 +407,15 @@ return|return
 name|idempotentRepository
 return|;
 block|}
-DECL|method|setMessageIdRepository (IdempotentRepository idempotentRepository)
+DECL|method|setMessageIdRepository (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|void
 name|setMessageIdRepository
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -439,6 +454,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -461,8 +481,17 @@ name|this
 argument_list|)
 decl_stmt|;
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|idempotentRepository
 init|=
+operator|(
+name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|resolveMessageIdRepository
 argument_list|(
 name|routeContext
@@ -497,6 +526,9 @@ comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.Id
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
 specifier|protected
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|resolveMessageIdRepository
 parameter_list|(
 name|RouteContext

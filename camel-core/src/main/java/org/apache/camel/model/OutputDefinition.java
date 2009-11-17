@@ -92,34 +92,6 @@ name|XmlType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A useful base class for output types  *  * @version $Revision$  */
 end_comment
@@ -147,6 +119,9 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ProcessorDefinition
@@ -154,23 +129,6 @@ argument_list|<
 name|Type
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|OutputDefinition
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|XmlElementRef
 DECL|field|outputs
@@ -178,6 +136,9 @@ specifier|protected
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -185,6 +146,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -193,6 +157,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -201,7 +168,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -209,6 +176,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -229,6 +199,9 @@ block|{
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|outputs

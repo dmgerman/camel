@@ -346,6 +346,9 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -353,6 +356,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -364,7 +370,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -381,7 +389,7 @@ specifier|public
 name|CatchDefinition
 parameter_list|()
 block|{     }
-DECL|method|CatchDefinition (List<Class<Exception>> exceptionClasses)
+DECL|method|CatchDefinition (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|CatchDefinition
 parameter_list|(
@@ -389,7 +397,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -402,13 +412,15 @@ operator|=
 name|exceptionClasses
 expr_stmt|;
 block|}
-DECL|method|CatchDefinition (Class<Exception> exceptionType)
+DECL|method|CatchDefinition (Class<? extends Throwable> exceptionType)
 specifier|public
 name|CatchDefinition
 parameter_list|(
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|exceptionType
 parameter_list|)
@@ -420,7 +432,9 @@ name|ArrayList
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 argument_list|()
@@ -573,6 +587,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -581,7 +598,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -589,6 +606,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -606,7 +626,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|getExceptionClasses
@@ -629,7 +651,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class<Exception>> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -638,7 +660,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -654,7 +678,7 @@ block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the exceptionClasses of the CatchType      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
-DECL|method|exceptionClasses (List<Class<Exception>> exceptionClasses)
+DECL|method|exceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|CatchDefinition
 name|exceptionClasses
@@ -663,7 +687,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -817,14 +843,16 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      */
-DECL|method|exceptionClasses (Class<Exception> exception)
+DECL|method|exceptionClasses (Class<? extends Throwable> exception)
 specifier|public
 name|CatchDefinition
 name|exceptionClasses
 parameter_list|(
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|exception
 parameter_list|)
@@ -833,7 +861,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|list
@@ -968,7 +998,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|createExceptionClasses
@@ -987,7 +1019,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|answer
@@ -997,7 +1031,9 @@ name|ArrayList
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 argument_list|(

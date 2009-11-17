@@ -191,6 +191,9 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ProcessorDefinition
@@ -405,16 +408,14 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -422,7 +423,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns the endpoint URI or the name of the reference to it      */

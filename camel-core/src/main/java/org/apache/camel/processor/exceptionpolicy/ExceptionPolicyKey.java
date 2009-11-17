@@ -50,7 +50,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Exception
+name|Throwable
 argument_list|>
 name|exceptionClass
 decl_stmt|;
@@ -60,7 +60,7 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
-DECL|method|ExceptionPolicyKey (Class<? extends Exception> exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
@@ -68,7 +68,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Exception
+name|Throwable
 argument_list|>
 name|exceptionClass
 parameter_list|,
@@ -112,7 +112,7 @@ return|return
 name|when
 return|;
 block|}
-DECL|method|newInstance (Class<? extends Exception> exceptionClass)
+DECL|method|newInstance (Class<? extends Throwable> exceptionClass)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
@@ -122,7 +122,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Exception
+name|Throwable
 argument_list|>
 name|exceptionClass
 parameter_list|)
@@ -137,7 +137,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|newInstance (Class<? extends Exception> exceptionClass, WhenDefinition when)
+DECL|method|newInstance (Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
@@ -147,7 +147,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Exception
+name|Throwable
 argument_list|>
 name|exceptionClass
 parameter_list|,

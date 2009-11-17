@@ -88,7 +88,7 @@ parameter_list|()
 block|{
 comment|// Utility class, no public or protected default constructor
 block|}
-DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
+DECL|method|render (StringBuilder buffer, ProcessorDefinition<?> processor)
 specifier|public
 specifier|static
 name|void
@@ -98,6 +98,9 @@ name|StringBuilder
 name|buffer
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -155,7 +158,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptions
@@ -169,7 +174,9 @@ for|for
 control|(
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|excep
 range|:
@@ -413,6 +420,9 @@ block|}
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|branches
 init|=
@@ -424,6 +434,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|branch
 range|:
 name|branches

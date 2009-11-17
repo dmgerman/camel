@@ -371,6 +371,9 @@ extends|extends
 name|ProcessorDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -502,6 +505,9 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -509,6 +515,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -520,7 +529,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -558,7 +569,7 @@ specifier|public
 name|OnExceptionDefinition
 parameter_list|()
 block|{     }
-DECL|method|OnExceptionDefinition (List<Class<? extends Exception>> exceptionClasses)
+DECL|method|OnExceptionDefinition (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
@@ -568,7 +579,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Exception
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -586,11 +597,16 @@ name|exceptionClasses
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OnExceptionDefinition (Class exceptionType)
+DECL|method|OnExceptionDefinition (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -601,7 +617,9 @@ name|ArrayList
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 argument_list|()
@@ -894,12 +912,17 @@ comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|onException (Class exceptionType)
+DECL|method|onException (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -1370,6 +1393,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -1378,7 +1404,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -1386,6 +1412,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -1403,7 +1432,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|getExceptionClasses
@@ -1426,7 +1457,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class<Exception>> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -1435,7 +1466,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptionClasses
@@ -1756,7 +1789,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|createExceptionClasses
@@ -1775,7 +1810,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|answer
@@ -1785,7 +1822,9 @@ name|ArrayList
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 argument_list|(
@@ -1805,7 +1844,7 @@ control|)
 block|{
 name|Class
 argument_list|<
-name|Exception
+name|Throwable
 argument_list|>
 name|type
 init|=
@@ -1826,7 +1865,7 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 argument_list|,
-name|Exception
+name|Throwable
 operator|.
 name|class
 argument_list|)

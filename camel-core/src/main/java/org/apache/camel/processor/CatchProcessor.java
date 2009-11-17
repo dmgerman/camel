@@ -107,7 +107,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptions
@@ -124,7 +126,7 @@ specifier|final
 name|Predicate
 name|handled
 decl_stmt|;
-DECL|method|CatchProcessor (List<Class<Exception>> exceptions, Processor processor, Predicate onWhen, Predicate handled)
+DECL|method|CatchProcessor (List<Class<? extends Throwable>> exceptions, Processor processor, Predicate onWhen, Predicate handled)
 specifier|public
 name|CatchProcessor
 parameter_list|(
@@ -132,7 +134,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|exceptions
@@ -320,7 +324,9 @@ name|List
 argument_list|<
 name|Class
 argument_list|<
-name|Exception
+name|?
+extends|extends
+name|Throwable
 argument_list|>
 argument_list|>
 name|getExceptions

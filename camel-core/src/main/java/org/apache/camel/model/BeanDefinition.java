@@ -199,6 +199,9 @@ extends|extends
 name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -391,6 +394,9 @@ block|}
 DECL|method|getBeanType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getBeanType
 parameter_list|()
 block|{
@@ -398,12 +404,15 @@ return|return
 name|beanType
 return|;
 block|}
-DECL|method|setBeanType (Class beanType)
+DECL|method|setBeanType (Class<?> beanType)
 specifier|public
 name|void
 name|setBeanType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|)
 block|{
@@ -474,12 +483,15 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the Class of the bean that camel will instantiation it for calling      *      * @param beanType the Class of the bean      * @return the builder      */
-DECL|method|beanType (Class beanType)
+DECL|method|beanType (Class<?> beanType)
 specifier|public
 name|BeanDefinition
 name|beanType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|)
 block|{

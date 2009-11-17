@@ -655,9 +655,15 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 extends|extends
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|Type
+argument_list|>
 implements|implements
 name|Block
 block|{
@@ -710,6 +716,9 @@ decl_stmt|;
 DECL|field|parent
 specifier|private
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 decl_stmt|;
 DECL|field|interceptStrategies
@@ -735,6 +744,9 @@ specifier|abstract
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -778,6 +790,9 @@ block|{
 name|Collection
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -793,17 +808,15 @@ name|outputs
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|addOutput (ProcessorDefinition processorType)
+DECL|method|addOutput (ProcessorDefinition<?> processorType)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorType
 parameter_list|)
 block|{
@@ -1152,10 +1165,16 @@ argument_list|)
 expr_stmt|;
 comment|// must do this ugly cast to avoid compiler error on HP-UX
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|defn
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|this
 decl_stmt|;
@@ -1461,7 +1480,7 @@ name|DefaultChannel
 argument_list|()
 return|;
 block|}
-DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition> outputs)
+DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition<?>> outputs)
 specifier|protected
 name|Processor
 name|createOutputsProcessor
@@ -1472,6 +1491,9 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -1494,6 +1516,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|outputs
@@ -1667,12 +1692,15 @@ name|DEFAULT_ERROR_HANDLER_BUILDER
 argument_list|)
 return|;
 block|}
-DECL|method|configureChild (ProcessorDefinition output)
+DECL|method|configureChild (ProcessorDefinition<?> output)
 specifier|protected
 name|void
 name|configureChild
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -3001,6 +3029,9 @@ argument_list|<
 name|?
 extends|extends
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|end
 parameter_list|()
@@ -3081,7 +3112,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate chedck      * @return the builder      */
-DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository)
+DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
 name|idempotentConsumer
@@ -3090,6 +3121,9 @@ name|Expression
 name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -3114,7 +3148,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
-DECL|method|idempotentConsumer (IdempotentRepository idempotentRepository)
+DECL|method|idempotentConsumer (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|ExpressionClause
 argument_list|<
@@ -3123,6 +3157,9 @@ argument_list|>
 name|idempotentConsumer
 parameter_list|(
 name|IdempotentRepository
+argument_list|<
+name|?
+argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -4561,12 +4598,17 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
-DECL|method|onException (Class exceptionType)
+DECL|method|onException (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -5219,7 +5261,10 @@ argument_list|>
 argument_list|>
 argument_list|(
 operator|(
+name|ProcessorDefinition
+argument_list|<
 name|Type
+argument_list|>
 operator|)
 name|this
 argument_list|)
@@ -6463,11 +6508,6 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@
 name|XmlTransient
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getParent ()
 specifier|public
 name|ProcessorDefinition
@@ -6475,6 +6515,9 @@ argument_list|<
 name|?
 extends|extends
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getParent
 parameter_list|()
@@ -6483,7 +6526,7 @@ return|return
 name|parent
 return|;
 block|}
-DECL|method|setParent (ProcessorDefinition<? extends ProcessorDefinition> parent)
+DECL|method|setParent (ProcessorDefinition<? extends ProcessorDefinition<?>> parent)
 specifier|public
 name|void
 name|setParent
@@ -6493,6 +6536,9 @@ argument_list|<
 name|?
 extends|extends
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|parent
 parameter_list|)
