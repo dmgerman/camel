@@ -40,20 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -97,6 +83,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
 import|;
 end_import
 
@@ -195,6 +193,8 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
+implements|,
+name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -311,17 +311,6 @@ DECL|field|restletBinding
 specifier|private
 name|RestletBinding
 name|restletBinding
-decl_stmt|;
-DECL|field|bindingInitialized
-specifier|private
-name|AtomicBoolean
-name|bindingInitialized
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining)
 specifier|public
@@ -590,67 +579,6 @@ name|RestletBinding
 name|getRestletBinding
 parameter_list|()
 block|{
-if|if
-condition|(
-name|restletBinding
-operator|==
-literal|null
-condition|)
-block|{
-name|restletBinding
-operator|=
-operator|new
-name|DefaultRestletBinding
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Create default Restlet Binding "
-operator|+
-name|restletBinding
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-operator|!
-name|bindingInitialized
-operator|.
-name|getAndSet
-argument_list|(
-literal|true
-argument_list|)
-operator|&&
-name|restletBinding
-operator|instanceof
-name|HeaderFilterStrategyAware
-condition|)
-block|{
-operator|(
-operator|(
-name|HeaderFilterStrategyAware
-operator|)
-name|restletBinding
-operator|)
-operator|.
-name|setHeaderFilterStrategy
-argument_list|(
-name|getHeaderFilterStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|restletBinding
 return|;
@@ -669,13 +597,6 @@ operator|.
 name|restletBinding
 operator|=
 name|restletBinding
-expr_stmt|;
-name|bindingInitialized
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
@@ -720,38 +641,6 @@ name|HeaderFilterStrategy
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
-if|if
-condition|(
-name|headerFilterStrategy
-operator|==
-literal|null
-condition|)
-block|{
-name|headerFilterStrategy
-operator|=
-operator|new
-name|RestletHeaderFilterStrategy
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Create Restlet default header filter strategy "
-operator|+
-name|headerFilterStrategy
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 return|return
 name|headerFilterStrategy
 return|;
@@ -807,7 +696,6 @@ operator|.
 name|InOut
 return|;
 block|}
-comment|/**      * @param restletMethods the restletMethods to set      */
 DECL|method|setRestletMethods (Method[] restletMethods)
 specifier|public
 name|void
@@ -825,7 +713,6 @@ operator|=
 name|restletMethods
 expr_stmt|;
 block|}
-comment|/**      * @return the restletMethods      */
 DECL|method|getRestletMethods ()
 specifier|public
 name|Method
@@ -837,7 +724,6 @@ return|return
 name|restletMethods
 return|;
 block|}
-comment|/**      * @param restletUriPatterns the restletUriPatterns to set      */
 DECL|method|setRestletUriPatterns (List<String> restletUriPatterns)
 specifier|public
 name|void
@@ -857,7 +743,6 @@ operator|=
 name|restletUriPatterns
 expr_stmt|;
 block|}
-comment|/**      * @return the restletUriPatterns      */
 DECL|method|getRestletUriPatterns ()
 specifier|public
 name|List
@@ -870,6 +755,74 @@ block|{
 return|return
 name|restletUriPatterns
 return|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|headerFilterStrategy
+operator|==
+literal|null
+condition|)
+block|{
+name|headerFilterStrategy
+operator|=
+operator|new
+name|RestletHeaderFilterStrategy
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|restletBinding
+operator|==
+literal|null
+condition|)
+block|{
+name|restletBinding
+operator|=
+operator|new
+name|DefaultRestletBinding
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|restletBinding
+operator|instanceof
+name|HeaderFilterStrategyAware
+condition|)
+block|{
+operator|(
+operator|(
+name|HeaderFilterStrategyAware
+operator|)
+name|restletBinding
+operator|)
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
