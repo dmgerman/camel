@@ -60,10 +60,6 @@ name|RedeliveryPolicy
 import|;
 end_import
 
-begin_comment
-comment|/**  *   */
-end_comment
-
 begin_class
 DECL|class|ErrorHandlerRenderer
 specifier|public
@@ -136,7 +132,7 @@ name|getRedeliveryPolicy
 argument_list|()
 decl_stmt|;
 name|int
-name|maxRediliveries
+name|maxRedeliveries
 init|=
 name|redelivery
 operator|.
@@ -145,7 +141,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|maxRediliveries
+name|maxRedeliveries
 operator|!=
 literal|0
 condition|)
@@ -159,7 +155,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|maxRediliveries
+name|maxRedeliveries
 argument_list|)
 operator|.
 name|append

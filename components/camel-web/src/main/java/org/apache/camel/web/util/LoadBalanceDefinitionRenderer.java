@@ -152,10 +152,6 @@ name|TopicLoadBalancer
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|LoadBalanceDefinitionRenderer
 specifier|public
@@ -412,9 +408,6 @@ block|}
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|branches
 init|=
@@ -426,9 +419,6 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|branch
 range|:
 name|branches

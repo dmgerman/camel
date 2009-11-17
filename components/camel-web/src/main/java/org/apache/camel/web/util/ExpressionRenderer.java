@@ -80,10 +80,6 @@ name|XPathExpression
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ExpressionRenderer
 specifier|public
@@ -98,7 +94,7 @@ parameter_list|()
 block|{
 comment|// Utility class, no public or protected default constructor
 block|}
-comment|/**      * a common render method to process the expressionDefinition      *       * @param buffer      * @param expression      */
+comment|/**      * a common render method to process the expressionDefinition      */
 DECL|method|render (StringBuilder buffer, ExpressionDefinition expression)
 specifier|public
 specifier|static
@@ -223,7 +219,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Render a constant: constant("")      *       * @param expression      * @param buffer      */
+comment|/**      * Render a constant: constant("")      */
 DECL|method|renderConstant (StringBuilder buffer, ExpressionDefinition expression)
 specifier|public
 specifier|static
@@ -251,7 +247,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Render a constant: constant("")      *       * @param expression      * @param buffer      */
+comment|/**      * Render a constant: constant("")      */
 DECL|method|renderConstant (StringBuilder buffer, String expression)
 specifier|public
 specifier|static
@@ -304,7 +300,7 @@ literal|"\")"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Render an expression clause      *       * @param buffer      * @param expression      */
+comment|/**      * Render an expression clause      */
 DECL|method|renderExpressionClause (StringBuilder buffer, ExpressionClause expression)
 specifier|private
 specifier|static
@@ -604,7 +600,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Render a simple expression: header(foo) -> header("foo")      * tokenize(header(foo), ,) -> header("foo").tokenize(",")      *       * @param buffer      * @param expression      */
+comment|/**      * Render a simple expression: header(foo) -> header("foo")      * tokenize(header(foo), ,) -> header("foo").tokenize(",")      */
 DECL|method|renderExpression (StringBuilder buffer, String expression)
 specifier|public
 specifier|static

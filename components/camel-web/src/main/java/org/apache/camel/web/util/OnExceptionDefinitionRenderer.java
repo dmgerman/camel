@@ -70,10 +70,6 @@ name|RedeliveryPolicyDefinition
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|OnExceptionDefinitionRenderer
 specifier|public
@@ -157,11 +153,6 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -173,11 +164,6 @@ decl_stmt|;
 for|for
 control|(
 name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
 name|excep
 range|:
 name|exceptions
@@ -261,7 +247,7 @@ literal|null
 condition|)
 block|{
 name|int
-name|maxRediliveries
+name|maxRedeliveries
 init|=
 name|redelivery
 operator|.
@@ -270,7 +256,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|maxRediliveries
+name|maxRedeliveries
 operator|!=
 literal|0
 condition|)
@@ -284,7 +270,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|maxRediliveries
+name|maxRedeliveries
 argument_list|)
 operator|.
 name|append
@@ -420,9 +406,6 @@ block|}
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|branches
 init|=
@@ -434,9 +417,6 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|branch
 range|:
 name|branches

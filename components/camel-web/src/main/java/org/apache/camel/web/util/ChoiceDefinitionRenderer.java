@@ -74,10 +74,6 @@ name|WhenDefinition
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ChoiceDefinitionRenderer
 specifier|public
