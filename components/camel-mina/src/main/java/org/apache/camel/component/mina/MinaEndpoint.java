@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -185,6 +197,8 @@ class|class
 name|MinaEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|MultipleConsumersSupport
 block|{
 comment|/** The key of the IoSession which is stored in the message header*/
 DECL|field|HEADER_MINA_IOSESSION
@@ -495,6 +509,20 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+comment|// only datagram should allow multiple consumers
+return|return
+name|configuration
+operator|.
+name|isDatagramProtocol
+argument_list|()
 return|;
 block|}
 comment|// Properties

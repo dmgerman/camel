@@ -111,14 +111,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// only add as consumer if not already registered
 if|if
 condition|(
 operator|!
 name|endpoint
 operator|.
-name|isAllowMultipleConsumers
+name|getConsumers
 argument_list|()
-operator|&&
+operator|.
+name|contains
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|endpoint
 operator|.
@@ -154,6 +163,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|start

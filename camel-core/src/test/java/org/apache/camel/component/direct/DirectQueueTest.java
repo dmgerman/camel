@@ -112,7 +112,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo?allowMultipleConsumers=false"
+literal|"direct:foo"
 argument_list|,
 literal|"Bye World"
 argument_list|)
@@ -163,7 +163,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:bar?allowMultipleConsumers=false"
+literal|"direct:bar"
 argument_list|)
 operator|.
 name|to

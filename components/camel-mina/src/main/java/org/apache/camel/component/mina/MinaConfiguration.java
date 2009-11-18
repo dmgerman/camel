@@ -664,6 +664,35 @@ operator|=
 name|filters
 expr_stmt|;
 block|}
+DECL|method|isDatagramProtocol ()
+specifier|public
+name|boolean
+name|isDatagramProtocol
+parameter_list|()
+block|{
+return|return
+name|protocol
+operator|.
+name|equals
+argument_list|(
+literal|"udp"
+argument_list|)
+operator|||
+name|protocol
+operator|.
+name|equals
+argument_list|(
+literal|"mcast"
+argument_list|)
+operator|||
+name|protocol
+operator|.
+name|equals
+argument_list|(
+literal|"multicast"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

@@ -179,25 +179,23 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Expect the exception message has a Soap errror"
-argument_list|,
 name|ex
 operator|.
 name|getMessage
 argument_list|()
 operator|.
-name|equals
+name|endsWith
 argument_list|(
-literal|"Soap 1.1 endpoint already registered on address http://localhost:7070/test"
+literal|"Multiple consumers for the same endpoint is now allowed: Endpoint[http://localhost:7070/test]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|context
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

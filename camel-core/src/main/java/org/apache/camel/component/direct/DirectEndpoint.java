@@ -116,13 +116,6 @@ name|DirectEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|allowMultipleConsumers
-specifier|private
-name|boolean
-name|allowMultipleConsumers
-init|=
-literal|true
-decl_stmt|;
 DECL|field|consumers
 specifier|private
 specifier|final
@@ -213,32 +206,6 @@ argument_list|,
 name|processor
 argument_list|)
 return|;
-block|}
-DECL|method|isAllowMultipleConsumers ()
-specifier|public
-name|boolean
-name|isAllowMultipleConsumers
-parameter_list|()
-block|{
-return|return
-name|allowMultipleConsumers
-return|;
-block|}
-DECL|method|setAllowMultipleConsumers (boolean allowMutlipleConsumers)
-specifier|public
-name|void
-name|setAllowMultipleConsumers
-parameter_list|(
-name|boolean
-name|allowMutlipleConsumers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowMultipleConsumers
-operator|=
-name|allowMutlipleConsumers
-expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

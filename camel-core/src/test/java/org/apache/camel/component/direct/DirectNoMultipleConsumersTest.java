@@ -112,7 +112,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:in?allowMultipleConsumers=false"
+literal|"direct:in"
 argument_list|)
 operator|.
 name|to
@@ -122,7 +122,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:in?allowMultipleConsumers=false"
+literal|"direct:in"
 argument_list|)
 operator|.
 name|to

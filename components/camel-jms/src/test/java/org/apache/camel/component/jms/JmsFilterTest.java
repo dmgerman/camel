@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests filtering using Camel Test   * @version $Revision: 724291 $  */
+comment|/**  * Tests filtering using Camel Test  * @version $Revision: 724291 $  */
 end_comment
 
 begin_comment

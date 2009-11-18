@@ -140,6 +140,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -387,6 +399,8 @@ name|ManagementAware
 argument_list|<
 name|JmsEndpoint
 argument_list|>
+implements|,
+name|MultipleConsumersSupport
 block|{
 DECL|field|headerFilterStrategy
 specifier|private
@@ -1096,6 +1110,18 @@ parameter_list|)
 block|{
 return|return
 name|this
+return|;
+block|}
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+comment|// only allow multiple consumers for pub sub domain (e.g. topics)
+return|return
+name|isPubSubDomain
+argument_list|()
 return|;
 block|}
 comment|// Properties
