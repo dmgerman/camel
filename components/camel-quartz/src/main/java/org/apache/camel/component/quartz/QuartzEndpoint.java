@@ -572,6 +572,34 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// log exception if an exception occurred and was not handled
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Quart Job processing Exchange: "
+operator|+
+name|exchange
+operator|+
+literal|" failed with exception."
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

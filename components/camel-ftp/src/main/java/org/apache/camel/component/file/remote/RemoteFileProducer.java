@@ -278,11 +278,14 @@ else|else
 block|{
 name|log
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Exception occurred during processing. "
-argument_list|,
+literal|"Writing file failed with: "
+operator|+
 name|exception
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -302,13 +305,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignored exception during disconnect"
-argument_list|,
+literal|"Ignored exception during disconnect: "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Rethrow the original exception
+comment|// rethrow the original exception*/
 throw|throw
 name|exception
 throw|;

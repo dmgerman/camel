@@ -92,6 +92,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -491,7 +505,7 @@ argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
-comment|// also set now on in header with same key as quaartz to be consistent
+comment|// also set now on in header with same key as quartz to be consistent
 name|exchange
 operator|.
 name|getIn
@@ -537,6 +551,26 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// log exception if an exception occurred and was not handled
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|handleException
+argument_list|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
