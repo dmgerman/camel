@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -143,13 +155,13 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown an IllegalStateException"
+literal|"Should have thrown an FailedToStartRouteException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalStateException
+name|FailedToStartRouteException
 name|e
 parameter_list|)
 block|{
