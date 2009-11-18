@@ -361,9 +361,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|MethodInvocation
-name|methodInvocation
-init|=
 name|beanInfo
 operator|.
 name|createInvocation
@@ -374,7 +371,7 @@ argument_list|()
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown an exception"

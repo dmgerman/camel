@@ -489,12 +489,15 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createBeanInfo (Class type)
+DECL|method|createBeanInfo (Class<?> type)
 specifier|protected
 name|BeanInfo
 name|createBeanInfo
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -531,6 +534,9 @@ throws|throws
 name|NoSuchMethodException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|info

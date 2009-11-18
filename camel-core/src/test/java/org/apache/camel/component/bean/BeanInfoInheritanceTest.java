@@ -322,9 +322,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|MethodInvocation
-name|mi
-init|=
 name|beanInfo
 operator|.
 name|createInvocation
@@ -333,7 +330,7 @@ literal|null
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Assert
 operator|.
 name|fail

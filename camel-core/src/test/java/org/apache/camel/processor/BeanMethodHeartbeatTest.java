@@ -130,6 +130,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * This test shows we can poll a bean for a method and send the POJO over some transport  *  * @version $Revision$  */
 end_comment
@@ -247,8 +261,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|assertIsInstanceOf
 argument_list|(
 name|Map
@@ -262,6 +285,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|log
@@ -366,14 +390,29 @@ block|}
 DECL|method|status ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|status
 parameter_list|()
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|answer
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|answer

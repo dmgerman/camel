@@ -426,7 +426,7 @@ literal|"Should not invoce me"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|withAnnotations (@eaders Map headers, @Body String body)
+DECL|method|withAnnotations (@eaders Map<String, Object> headers, @Body String body)
 specifier|public
 name|void
 name|withAnnotations
@@ -434,6 +434,11 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|,
 annotation|@

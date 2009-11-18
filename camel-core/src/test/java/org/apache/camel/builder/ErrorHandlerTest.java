@@ -326,9 +326,6 @@ name|getNextProcessor
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|SendProcessor
-name|sendProcessor
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|SendProcessor
@@ -337,7 +334,7 @@ name|class
 argument_list|,
 name|processor
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 DECL|method|testOverloadingTheHandlerOnASingleRoute ()

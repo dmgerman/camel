@@ -199,9 +199,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|MethodInvocation
-name|mi
-init|=
 name|info
 operator|.
 name|createInvocation
@@ -210,7 +207,7 @@ name|pojo
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown an exception"
@@ -413,9 +410,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|MethodInvocation
-name|mi
-init|=
 name|info
 operator|.
 name|createInvocation
@@ -424,7 +418,7 @@ name|pojo
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw exception"

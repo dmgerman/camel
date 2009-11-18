@@ -720,6 +720,9 @@ block|}
 comment|// then wrap the output with the tracer
 comment|// the tracer should have the fine grained definition so if a child is set then use it, if not then its the original output used
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|traceDef
 init|=
 name|childDefinition

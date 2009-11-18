@@ -760,7 +760,17 @@ class|class
 name|MyBaseBusinessException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|MyBusinessException
 specifier|public
 specifier|static
@@ -768,7 +778,17 @@ class|class
 name|MyBusinessException
 extends|extends
 name|MyBaseBusinessException
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -782,6 +802,11 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|public
 name|void
 name|configure
