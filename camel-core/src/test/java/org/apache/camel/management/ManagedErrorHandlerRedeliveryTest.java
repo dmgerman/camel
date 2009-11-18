@@ -579,7 +579,7 @@ name|assertEquals
 argument_list|(
 name|LoggingLevel
 operator|.
-name|DEBUG
+name|ERROR
 operator|.
 name|name
 argument_list|()
