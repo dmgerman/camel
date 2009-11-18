@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -302,29 +282,14 @@ argument_list|(
 literal|"55512345678"
 argument_list|)
 expr_stmt|;
-comment|// must add to a list otherwise CXF cannot send data
-comment|// TODO: camel-cxf should be able to do this itself without me having to create a List object
-name|List
-name|data
-init|=
-operator|new
-name|ArrayList
-argument_list|()
-decl_stmt|;
-name|data
-operator|.
-name|add
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
+comment|// send our input to the Camel route
 name|producer
 operator|.
 name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|data
+name|input
 argument_list|)
 expr_stmt|;
 block|}
