@@ -410,13 +410,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore as we will try to recover connection
 name|noop
 operator|=
 literal|false
