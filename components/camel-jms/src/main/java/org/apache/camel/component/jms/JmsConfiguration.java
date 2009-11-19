@@ -914,6 +914,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|testConnectionOnStartup
+specifier|private
+name|boolean
+name|testConnectionOnStartup
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -5327,6 +5332,32 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isTestConnectionOnStartup ()
+specifier|public
+name|boolean
+name|isTestConnectionOnStartup
+parameter_list|()
+block|{
+return|return
+name|testConnectionOnStartup
+return|;
+block|}
+DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
+specifier|public
+name|void
+name|setTestConnectionOnStartup
+parameter_list|(
+name|boolean
+name|testConnectionOnStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|testConnectionOnStartup
+operator|=
+name|testConnectionOnStartup
 expr_stmt|;
 block|}
 block|}

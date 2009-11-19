@@ -123,7 +123,7 @@ implements|implements
 name|Consumer
 block|{
 DECL|field|log
-specifier|private
+specifier|protected
 specifier|final
 specifier|transient
 name|Log

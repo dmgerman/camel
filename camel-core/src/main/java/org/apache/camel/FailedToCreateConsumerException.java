@@ -75,6 +75,43 @@ name|getEndpointUri
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|FailedToCreateConsumerException (Endpoint endpoint, String message, Throwable cause)
+specifier|public
+name|FailedToCreateConsumerException
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to create Consumer for endpoint: "
+operator|+
+name|endpoint
+operator|+
+literal|". Reason: "
+operator|+
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getUri ()
 specifier|public
 name|String
