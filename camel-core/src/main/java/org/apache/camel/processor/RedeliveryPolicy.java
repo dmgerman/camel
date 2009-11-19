@@ -938,6 +938,25 @@ name|redeliverDelay
 operator|=
 name|redeliverDelay
 expr_stmt|;
+comment|// if max enabled then also set max to this value in case max was too low
+if|if
+condition|(
+name|maximumRedeliveryDelay
+operator|>
+literal|0
+operator|&&
+name|redeliverDelay
+operator|>
+name|maximumRedeliveryDelay
+condition|)
+block|{
+name|this
+operator|.
+name|maximumRedeliveryDelay
+operator|=
+name|redeliverDelay
+expr_stmt|;
+block|}
 block|}
 DECL|method|getBackOffMultiplier ()
 specifier|public
@@ -1066,7 +1085,7 @@ return|return
 name|maximumRedeliveryDelay
 return|;
 block|}
-comment|/**      * Sets the maximum redelivery delay if using exponential back off.      * Use -1 if you wish to have no maximum      */
+comment|/**      * Sets the maximum redelivery delay.      * Use -1 if you wish to have no maximum      */
 DECL|method|setMaximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|void
