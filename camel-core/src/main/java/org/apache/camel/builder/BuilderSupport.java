@@ -902,7 +902,7 @@ name|level
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intended destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -922,7 +922,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intended destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder
