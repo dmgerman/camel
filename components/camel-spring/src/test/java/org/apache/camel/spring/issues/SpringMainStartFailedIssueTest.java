@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
+name|FailedToCreateRouteException
 import|;
 end_import
 
@@ -113,11 +113,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertIsInstanceOf
+argument_list|(
+name|FailedToCreateRouteException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|assertNull
 argument_list|(

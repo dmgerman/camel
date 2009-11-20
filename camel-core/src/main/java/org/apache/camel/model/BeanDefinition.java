@@ -522,9 +522,12 @@ name|answer
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|ref
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|answer

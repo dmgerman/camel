@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -113,10 +125,25 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|Exception
 name|e
 parameter_list|)
 block|{
+name|assertIsInstanceOf
+argument_list|(
+name|ResolveEndpointFailedException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// expected
 block|}
 comment|// fallback to load another file that works

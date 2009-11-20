@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -101,7 +113,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
@@ -110,6 +122,9 @@ argument_list|(
 literal|"registry entry called hello must be specified on: process[ref:hello]"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

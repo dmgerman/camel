@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -131,17 +143,29 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown a ResolveEndpointFailedException due XSL compilation error"
+literal|"Should have thrown an exception due XSL compilation error"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
 comment|// expected
+name|assertIsInstanceOf
+argument_list|(
+name|ResolveEndpointFailedException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|createRouteBuilder ()

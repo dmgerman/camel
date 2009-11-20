@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
+name|FailedToCreateRouteException
 import|;
 end_import
 
@@ -682,7 +682,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
@@ -693,6 +693,9 @@ operator|.
 name|class
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
