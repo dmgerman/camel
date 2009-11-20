@@ -553,8 +553,8 @@ argument_list|(
 literal|"this is a camel - bindy test"
 argument_list|)
 expr_stmt|;
-comment|//order.setHeader(header);
-comment|//order.setTrailer(trailer);
+comment|// order.setHeader(header);
+comment|// order.setTrailer(trailer);
 name|modelObjects
 operator|.
 name|put

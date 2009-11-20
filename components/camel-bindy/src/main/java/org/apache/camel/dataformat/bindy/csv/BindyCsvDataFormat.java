@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using Bindy to marshal to and from CSV files  */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> (  * {@link DataFormat}) using Bindy to marshal to and from CSV files  */
 end_comment
 
 begin_class
@@ -597,7 +597,8 @@ literal|0
 decl_stmt|;
 try|try
 block|{
-comment|// If the first line of the CSV file contains columns name, then we skip this line
+comment|// If the first line of the CSV file contains columns name, then we
+comment|// skip this line
 if|if
 condition|(
 name|factory

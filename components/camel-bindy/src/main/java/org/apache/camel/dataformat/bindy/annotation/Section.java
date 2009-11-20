@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This annotation allows to define during  * the marshaling process how a message  * must be reconstruct  */
+comment|/**  * This annotation allows to define during the marshaling process how a message  * must be reconstruct  */
 end_comment
 
 begin_annotation_defn
@@ -75,7 +75,7 @@ specifier|public
 annotation_defn|@interface
 name|Section
 block|{
-comment|/**      * Number of the section      *       * @return       */
+comment|/**      * Number of the section      *       * @return      */
 DECL|method|number ()
 name|int
 name|number

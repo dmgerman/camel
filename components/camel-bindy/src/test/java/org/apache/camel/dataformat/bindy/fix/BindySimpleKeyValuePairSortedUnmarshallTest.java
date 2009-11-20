@@ -126,9 +126,9 @@ name|fix
 operator|.
 name|sorted
 operator|.
-name|header
+name|body
 operator|.
-name|Header
+name|Order
 import|;
 end_import
 
@@ -150,9 +150,9 @@ name|fix
 operator|.
 name|sorted
 operator|.
-name|body
+name|header
 operator|.
-name|Order
+name|Header
 import|;
 end_import
 

@@ -36,7 +36,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Method used to retrieve the pattern for the format      *       * @return String  the pattern      */
+comment|/**      * Method used to retrieve the pattern for the format      *       * @return String the pattern      */
 DECL|method|getPattern ()
 name|String
 name|getPattern

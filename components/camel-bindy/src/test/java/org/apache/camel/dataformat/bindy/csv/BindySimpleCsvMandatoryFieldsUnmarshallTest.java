@@ -522,7 +522,12 @@ name|record3
 init|=
 literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
 decl_stmt|;
-comment|// mandatory fields present (A1, Charles, Moulliard)
+comment|// mandatory
+comment|// fields
+comment|// present
+comment|// (A1,
+comment|// Charles,
+comment|// Moulliard)
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -560,7 +565,8 @@ name|record6
 init|=
 literal|",,,,,,,,,,,,,,"
 decl_stmt|;
-comment|// too much data in the record (only 11 are accepted by the model
+comment|// too much data in the record (only
+comment|// 11 are accepted by the model
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -628,7 +634,12 @@ name|record3
 init|=
 literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
 decl_stmt|;
-comment|// mandatory fields present (A1, Charles, Moulliard)
+comment|// mandatory
+comment|// fields
+comment|// present
+comment|// (A1,
+comment|// Charles,
+comment|// Moulliard)
 name|resultEndpoint2
 operator|.
 name|expectedMessageCount
@@ -668,7 +679,8 @@ name|record4
 init|=
 literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
 decl_stmt|;
-comment|// mandatory field missing
+comment|// mandatory
+comment|// field missing
 name|resultEndpoint2
 operator|.
 name|expectedMessageCount

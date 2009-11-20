@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *   * The ConvertSeparator helps to return the char associated to the unicode string  *  */
+comment|/**  * The ConvertSeparator helps to return the char associated to the unicode  * string  */
 end_comment
 
 begin_class

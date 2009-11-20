@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Format allows to format object to and from string received using format or parse method  */
+comment|/**  * Format allows to format object to and from string received using format or  * parse method  */
 end_comment
 
 begin_interface

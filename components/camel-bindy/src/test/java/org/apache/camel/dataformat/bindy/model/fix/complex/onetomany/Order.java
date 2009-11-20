@@ -133,15 +133,15 @@ specifier|public
 class|class
 name|Order
 block|{
-DECL|field|header
 annotation|@
 name|Link
+DECL|field|header
 name|Header
 name|header
 decl_stmt|;
-DECL|field|trailer
 annotation|@
 name|Link
+DECL|field|trailer
 name|Trailer
 name|trailer
 decl_stmt|;
@@ -192,6 +192,7 @@ operator|=
 literal|"org.apache.camel.dataformat.bindy.model.fix.complex.onetomany.Security"
 argument_list|)
 DECL|field|securities
+specifier|private
 name|List
 argument_list|<
 name|Security

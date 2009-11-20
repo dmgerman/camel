@@ -182,15 +182,15 @@ specifier|public
 class|class
 name|Order
 block|{
-DECL|field|header
 annotation|@
 name|Link
+DECL|field|header
 name|Header
 name|header
 decl_stmt|;
-DECL|field|trailer
 annotation|@
 name|Link
+DECL|field|trailer
 name|Trailer
 name|trailer
 decl_stmt|;

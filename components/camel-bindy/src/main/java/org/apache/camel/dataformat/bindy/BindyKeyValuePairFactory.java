@@ -749,7 +749,8 @@ literal|"Key Value Pair not defined in the @Message annotation"
 argument_list|)
 expr_stmt|;
 comment|// Generate map of key value
-comment|// We use a Map of List as we can have the same key several times (relation one to many)
+comment|// We use a Map of List as we can have the same key several times
+comment|// (relation one to many)
 for|for
 control|(
 name|String
@@ -920,7 +921,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      *       * @param clazz      * @param obj      * @param results      * @param line      * @throws Exception      */
+comment|/**      * @param clazz      * @param obj      * @param results      * @param line      * @throws Exception      */
 DECL|method|generateModelFromKeyValueMap (Class clazz, Object obj, Map<Integer, List> results, int line)
 specifier|private
 name|void
@@ -1019,7 +1020,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|/* 					 * The relation is one to one 					 * So we check if we are in a target class 					 * and if the field is mandatory 					 */
+comment|/*                      * The relation is one to one So we check if we are in a                      * target class and if the field is mandatory                      */
 if|if
 condition|(
 name|obj
@@ -1102,7 +1103,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/* 						 * The relation is one to many 						 * So, we create an object with empty fields 						 * and we don't check if the fields are mandatory 						 */
+comment|/*                          * The relation is one to many So, we create an object                          * with empty fields and we don't check if the fields                          * are mandatory                          */
 comment|// Get List from Map
 name|List
 name|l
@@ -1246,7 +1247,7 @@ argument_list|,
 name|l
 argument_list|)
 expr_stmt|;
-comment|//Reset obj to null
+comment|// Reset obj to null
 name|obj
 operator|=
 literal|null
@@ -1715,7 +1716,7 @@ argument_list|,
 name|l
 argument_list|)
 expr_stmt|;
-comment|//Reset obj to null
+comment|// Reset obj to null
 name|obj
 operator|=
 literal|null
@@ -1830,7 +1831,8 @@ operator|!=
 literal|""
 condition|)
 block|{
-comment|// Class cl = Class.forName(targetClass); Does not work in OSGI when class is defined in another bundle
+comment|// Class cl = Class.forName(targetClass); Does not work in
+comment|// OSGI when class is defined in another bundle
 name|Class
 name|cl
 init|=

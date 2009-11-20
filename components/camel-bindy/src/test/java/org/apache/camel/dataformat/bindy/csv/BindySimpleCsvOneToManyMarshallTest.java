@@ -465,8 +465,8 @@ name|Book
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//List<Reference> references = new ArrayList<Reference>();
-comment|//List<Editor> editors = new ArrayList<Editor>();
+comment|// List<Reference> references = new ArrayList<Reference>();
+comment|// List<Editor> editors = new ArrayList<Editor>();
 name|author
 operator|=
 operator|new

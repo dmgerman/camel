@@ -145,7 +145,7 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*    @Configuration     public static class ContextConfig extends SingleRouteCamelConfiguration {         @Override         @Bean         public RouteBuilder route() {             return new RouteBuilder() {                 @Override                 public void configure() {                     // from("file://src/test/data?noop=true")                     from(URI_DIRECT_START).unmarshal()                         .bindy(BindyType.Csv, "org.apache.camel.dataformat.bindy.model.simple.oneclass")                         .to(URI_MOCK_RESULT);                 }             };         }     }*/
+comment|/*      * @Configuration public static class ContextConfig extends      * SingleRouteCamelConfiguration {      * @Override      * @Bean public RouteBuilder route() { return new RouteBuilder() {      * @Override public void configure() { //      * from("file://src/test/data?noop=true") from(URI_DIRECT_START).unmarshal()      * .bindy(BindyType.Csv,      * "org.apache.camel.dataformat.bindy.model.simple.oneclass")      * .to(URI_MOCK_RESULT); } }; } }      */
 block|}
 end_class
 

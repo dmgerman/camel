@@ -142,10 +142,10 @@ name|pos
 operator|=
 literal|5
 argument_list|)
-DECL|field|Age
+DECL|field|age
 specifier|private
 name|String
-name|Age
+name|age
 decl_stmt|;
 DECL|method|getAge ()
 specifier|public
@@ -154,7 +154,7 @@ name|getAge
 parameter_list|()
 block|{
 return|return
-name|Age
+name|age
 return|;
 block|}
 DECL|method|setAge (String age)
@@ -166,7 +166,9 @@ name|String
 name|age
 parameter_list|)
 block|{
-name|Age
+name|this
+operator|.
+name|age
 operator|=
 name|age
 expr_stmt|;

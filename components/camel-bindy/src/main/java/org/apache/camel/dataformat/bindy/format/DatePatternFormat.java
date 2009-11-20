@@ -323,7 +323,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * Sets the pattern      *      * @param pattern the pattern      */
+comment|/**      * Sets the pattern      *       * @param pattern the pattern      */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void

@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...).  * The pos (mandatory) identifies the position of the data in the record  * The name is optional and could be used in the future to bind a property which a different name  * The columnName (optional) represents the name of the column who will appear in the header  * The pattern (optional) allows to define the pattern of the data (useful for Date, ...)  * The length (optional) allows to define for fixed length message the size of the data's block  * The precision(optional) reflects the precision to be used with BigDecimal number  * The position (optional) identify the position of the field in the CSV generated  * The required (optional) property identifies a field which is mandatory.  */
+comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...). The pos (mandatory) identifies the position of the data  * in the record The name is optional and could be used in the future to bind a  * property which a different name The columnName (optional) represents the name  * of the column who will appear in the header The pattern (optional) allows to  * define the pattern of the data (useful for Date, ...) The length (optional)  * allows to define for fixed length message the size of the data's block The  * precision(optional) reflects the precision to be used with BigDecimal number  * The position (optional) identify the position of the field in the CSV  * generated The required (optional) property identifies a field which is  * mandatory.  */
 end_comment
 
 begin_annotation_defn
@@ -89,7 +89,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * name of the header column (optional)      *        * @return String      */
+comment|/**      * name of the header column (optional)      *       * @return String      */
 DECL|method|columnName ()
 name|String
 name|columnName
@@ -121,7 +121,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      *       * Position of the field in the message generated      *       * @return int       */
+comment|/**      * Position of the field in the message generated      *       * @return int      */
 DECL|method|position ()
 name|int
 name|position
@@ -129,7 +129,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      *       * Indicates if the field is mandatory      *       * @return boolean      */
+comment|/**      * Indicates if the field is mandatory      *       * @return boolean      */
 DECL|method|required ()
 DECL|field|false
 name|boolean
