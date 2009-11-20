@@ -90,14 +90,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we use seda which are not persistent and hence can loose a message
+comment|// when we get graceful shutdown support we can prevent this
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 name|size
+operator|-
+literal|10
 argument_list|)
 expr_stmt|;
 for|for
