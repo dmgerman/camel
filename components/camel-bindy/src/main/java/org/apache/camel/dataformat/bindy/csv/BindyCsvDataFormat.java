@@ -419,7 +419,6 @@ name|bytesCRLF
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We iterate over the list of CSV record
 for|for
 control|(
 name|Map

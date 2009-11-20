@@ -515,8 +515,6 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Model : "
-operator|+
 name|Order
 operator|.
 name|class
@@ -524,37 +522,37 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", "
+literal|" --> 1: "
 operator|+
 name|this
 operator|.
 name|account
 operator|+
-literal|", "
+literal|", 11: "
 operator|+
 name|this
 operator|.
 name|clOrdId
 operator|+
-literal|", "
+literal|", 22: "
 operator|+
 name|this
 operator|.
 name|iDSource
 operator|+
-literal|", "
+literal|", 48: "
 operator|+
 name|this
 operator|.
 name|securityId
 operator|+
-literal|", "
+literal|", 54: "
 operator|+
 name|this
 operator|.
 name|side
 operator|+
-literal|", "
+literal|", 58: "
 operator|+
 name|this
 operator|.

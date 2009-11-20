@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.model.fix.simple
+DECL|package|org.apache.camel.dataformat.bindy.model.fix.complex.onetomany
 package|package
 name|org
 operator|.
@@ -20,7 +20,9 @@ name|model
 operator|.
 name|fix
 operator|.
-name|simple
+name|complex
+operator|.
+name|onetomany
 package|;
 end_package
 

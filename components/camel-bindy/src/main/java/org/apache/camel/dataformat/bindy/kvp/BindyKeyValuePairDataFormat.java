@@ -629,6 +629,7 @@ literal|0
 condition|)
 block|{
 comment|// Bind data from message with model classes
+comment|// Counter is used to detect line where error occurs
 name|factory
 operator|.
 name|bind

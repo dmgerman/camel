@@ -309,18 +309,26 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+for|for
+control|(
+name|String
+name|str
+range|:
+name|this
+operator|.
+name|packageNames
+control|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Package(s) name : "
+literal|"Package name : "
 operator|+
-name|packageNames
-operator|.
-name|toString
-argument_list|()
+name|str
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|initModel
 argument_list|()

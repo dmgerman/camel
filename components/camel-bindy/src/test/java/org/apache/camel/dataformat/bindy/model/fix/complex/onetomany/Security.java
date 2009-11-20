@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.model.fix.simple
+DECL|package|org.apache.camel.dataformat.bindy.model.fix.complex.onetomany
 package|package
 name|org
 operator|.
@@ -20,7 +20,9 @@ name|model
 operator|.
 name|fix
 operator|.
-name|simple
+name|complex
+operator|.
+name|onetomany
 package|;
 end_package
 
@@ -56,55 +58,135 @@ name|bindy
 operator|.
 name|annotation
 operator|.
-name|Link
+name|Message
 import|;
 end_import
 
+begin_comment
+comment|// @Message(keyValuePairSeparator = "=", pairSeparator = "\\u0001", type = "FIX", version = "4.1")
+end_comment
+
 begin_class
-annotation|@
-name|Link
-DECL|class|Trailer
+DECL|class|Security
 specifier|public
 class|class
-name|Trailer
+name|Security
 block|{
 annotation|@
 name|KeyValuePairField
 argument_list|(
 name|tag
 operator|=
-literal|10
+literal|22
 argument_list|)
-comment|// CheckSum
-DECL|field|checkSum
+comment|// Fund ID type (Sedol, ISIN, ...)
+DECL|field|idSource
 specifier|private
-name|int
-name|checkSum
+name|String
+name|idSource
 decl_stmt|;
-DECL|method|getCheckSum ()
+annotation|@
+name|KeyValuePairField
+argument_list|(
+name|tag
+operator|=
+literal|48
+argument_list|)
+comment|// Fund code
+DECL|field|securityCode
+specifier|private
+name|String
+name|securityCode
+decl_stmt|;
+annotation|@
+name|KeyValuePairField
+argument_list|(
+name|tag
+operator|=
+literal|54
+argument_list|)
+comment|// Movement type ( 1 = Buy, 2 = sell)
+DECL|field|side
+specifier|private
+name|String
+name|side
+decl_stmt|;
+DECL|method|getIdSource ()
 specifier|public
-name|int
-name|getCheckSum
+name|String
+name|getIdSource
 parameter_list|()
 block|{
 return|return
-name|checkSum
+name|idSource
 return|;
 block|}
-DECL|method|setCheckSum (int checkSum)
+DECL|method|setIdSource (String source)
 specifier|public
 name|void
-name|setCheckSum
+name|setIdSource
 parameter_list|(
-name|int
-name|checkSum
+name|String
+name|source
 parameter_list|)
 block|{
 name|this
 operator|.
-name|checkSum
+name|idSource
 operator|=
-name|checkSum
+name|source
+expr_stmt|;
+block|}
+DECL|method|getSecurityCode ()
+specifier|public
+name|String
+name|getSecurityCode
+parameter_list|()
+block|{
+return|return
+name|securityCode
+return|;
+block|}
+DECL|method|setSecurityCode (String securityCode)
+specifier|public
+name|void
+name|setSecurityCode
+parameter_list|(
+name|String
+name|securityCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securityCode
+operator|=
+name|securityCode
+expr_stmt|;
+block|}
+DECL|method|getSide ()
+specifier|public
+name|String
+name|getSide
+parameter_list|()
+block|{
+return|return
+name|side
+return|;
+block|}
+DECL|method|setSide (String side)
+specifier|public
+name|void
+name|setSide
+parameter_list|(
+name|String
+name|side
+parameter_list|)
+block|{
+name|this
+operator|.
+name|side
+operator|=
+name|side
 expr_stmt|;
 block|}
 annotation|@
@@ -116,18 +198,33 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|Trailer
+name|Security
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" --> 10: "
+literal|" --> 22: "
 operator|+
 name|this
 operator|.
-name|checkSum
+name|getIdSource
+argument_list|()
+operator|+
+literal|", 48: "
+operator|+
+name|this
+operator|.
+name|getSecurityCode
+argument_list|()
+operator|+
+literal|", 54: "
+operator|+
+name|this
+operator|.
+name|getSide
+argument_list|()
 return|;
 block|}
 block|}

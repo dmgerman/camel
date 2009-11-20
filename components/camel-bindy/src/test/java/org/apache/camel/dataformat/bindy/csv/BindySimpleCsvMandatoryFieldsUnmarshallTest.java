@@ -360,48 +360,7 @@ name|header
 init|=
 literal|"order nr,client ref,first name, last name,instrument code,instrument name,order type, instrument type, quantity,currency,date\r\n"
 decl_stmt|;
-DECL|field|record1
-name|String
-name|record1
-init|=
-literal|""
-decl_stmt|;
-comment|// empty records
-DECL|field|record2
-name|String
-name|record2
-init|=
-literal|",,blabla,,,,,,,,"
-decl_stmt|;
-comment|// optional fields
-DECL|field|record3
-name|String
-name|record3
-init|=
-literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
-decl_stmt|;
-comment|// mandatory fields present (A1, Charles, Moulliard)
-DECL|field|record4
-name|String
-name|record4
-init|=
-literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
-decl_stmt|;
-comment|// mandatory field missing
-DECL|field|record5
-name|String
-name|record5
-init|=
-literal|",,,,,,,,,,"
-decl_stmt|;
-comment|// record with no data
-DECL|field|record6
-name|String
-name|record6
-init|=
-literal|",,,,,,,,,,,,,,"
-decl_stmt|;
-comment|// too much data in the record (only 11 are accepted by the model
+comment|// String record5 = ",,,,,,,,,,"; // record with no data
 annotation|@
 name|DirtiesContext
 annotation|@
@@ -414,6 +373,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record1
+init|=
+literal|""
+decl_stmt|;
+comment|// empty records
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -476,6 +441,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record2
+init|=
+literal|",,blabla,,,,,,,,"
+decl_stmt|;
+comment|// optional fields
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -508,6 +479,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record2
+init|=
+literal|",,blabla,,,,,,,,"
+decl_stmt|;
+comment|// optional fields
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -540,6 +517,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record3
+init|=
+literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
+decl_stmt|;
+comment|// mandatory fields present (A1, Charles, Moulliard)
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -572,6 +555,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record6
+init|=
+literal|",,,,,,,,,,,,,,"
+decl_stmt|;
+comment|// too much data in the record (only 11 are accepted by the model
 name|resultEndpoint1
 operator|.
 name|expectedMessageCount
@@ -634,6 +623,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record3
+init|=
+literal|"1,A1,Charles,Moulliard,ISIN,LU123456789,,,,,"
+decl_stmt|;
+comment|// mandatory fields present (A1, Charles, Moulliard)
 name|resultEndpoint2
 operator|.
 name|expectedMessageCount
@@ -668,6 +663,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|record4
+init|=
+literal|"1,A1,Charles,,ISIN,LU123456789,,,,,"
+decl_stmt|;
+comment|// mandatory field missing
 name|resultEndpoint2
 operator|.
 name|expectedMessageCount

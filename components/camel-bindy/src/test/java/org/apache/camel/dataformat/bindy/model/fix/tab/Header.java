@@ -311,8 +311,6 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Model : "
-operator|+
 name|Header
 operator|.
 name|class
@@ -320,35 +318,37 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", "
+literal|" --> 8: "
 operator|+
 name|this
 operator|.
 name|beginString
 operator|+
-literal|", "
+literal|", 9: "
 operator|+
 name|this
 operator|.
 name|bodyLength
 operator|+
-literal|", "
+literal|", 34: "
 operator|+
 name|this
 operator|.
 name|msgSeqNum
 operator|+
+literal|" , 35: "
+operator|+
 name|this
 operator|.
 name|msgType
 operator|+
-literal|", "
+literal|", 49: "
 operator|+
 name|this
 operator|.
 name|sendCompId
 operator|+
-literal|", "
+literal|", 56: "
 operator|+
 name|this
 operator|.

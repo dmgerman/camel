@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This annotation represents the root class of the model. When a CSV,  * fixed-length record must be described in the model we will use this  * annotation and the separator (for csv record) to know how to split the data  * during the unmarshal process  * The separator (mandatory)  * The name is optional and could be used in the future to bind a property which a different name  * The skipfirstline (optional) allows to skip the first line of the file/content received  * The generateHeaderColumnNames (optional) allow to add in the CSV generated the header containing names of the columns  * The crlf (optional) is used to add a new line after a record. By default, the value is WINDOWS   */
+comment|/**  * This annotation represents the root class of the model. When a CSV,  * fixed-length record must be described in the model we will use this  * annotation and the separator (for csv record) to know how to split the data  * during the unmarshal process  * The separator (mandatory)  * The name is optional and could be used in the future to bind a property which a different name  * The skipfirstline (optional) allows to skip the first line of the file/content received  * The generateHeaderColumnNames (optional) allow to add in the CSV generated the header containing names of the columns  * The crlf (optional) is used to add a new line after a record. By default, the value is WINDOWS   * The isOrdered (optional) boolean is used to ordered the message generated in output  */
 end_comment
 
 begin_annotation_defn
@@ -111,6 +111,15 @@ DECL|method|generateHeaderColumns ()
 DECL|field|false
 name|boolean
 name|generateHeaderColumns
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      *       * Indicates if the message must be ordered in output      *       * @return boolean      */
+DECL|method|isOrdered ()
+DECL|field|false
+name|boolean
+name|isOrdered
 parameter_list|()
 default|default
 literal|false

@@ -100,6 +100,8 @@ name|int
 name|checkSum
 parameter_list|)
 block|{
+name|this
+operator|.
 name|checkSum
 operator|=
 name|checkSum
@@ -114,8 +116,6 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Model : "
-operator|+
 name|Trailer
 operator|.
 name|class
@@ -123,7 +123,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", "
+literal|" --> 10: "
 operator|+
 name|this
 operator|.
