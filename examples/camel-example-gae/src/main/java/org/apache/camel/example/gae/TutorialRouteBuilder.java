@@ -181,7 +181,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gmail://krasserm@googlemail.com"
+literal|"gmail://replaceme@gmail.com"
 argument_list|)
 expr_stmt|;
 block|}
