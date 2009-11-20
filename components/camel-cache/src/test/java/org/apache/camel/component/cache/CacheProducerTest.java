@@ -215,7 +215,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"direct:start"
+literal|"direct:a"
 argument_list|,
 operator|new
 name|Processor
@@ -305,7 +305,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"direct:start"
+literal|"direct:a"
 argument_list|,
 operator|new
 name|Processor
@@ -408,7 +408,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|setHeader
@@ -481,7 +481,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|setHeader
@@ -554,7 +554,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:c"
 argument_list|)
 operator|.
 name|setHeader
@@ -627,7 +627,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|setHeader
@@ -657,7 +657,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|setHeader
@@ -687,7 +687,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:c"
 argument_list|)
 operator|.
 name|setHeader
