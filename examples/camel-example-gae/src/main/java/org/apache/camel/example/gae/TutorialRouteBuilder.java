@@ -70,6 +70,27 @@ name|TutorialRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+DECL|field|sender
+specifier|private
+name|String
+name|sender
+decl_stmt|;
+DECL|method|setSender (String sender)
+specifier|public
+name|void
+name|setSender
+parameter_list|(
+name|String
+name|sender
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sender
+operator|=
+name|sender
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configure ()
@@ -181,7 +202,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gmail://replaceme@gmail.com"
+literal|"gmail://"
+operator|+
+name|sender
 argument_list|)
 expr_stmt|;
 block|}
