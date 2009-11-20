@@ -190,6 +190,19 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|clearRoutes ()
+specifier|public
+specifier|static
+name|void
+name|clearRoutes
+parameter_list|()
+block|{
+name|routes
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

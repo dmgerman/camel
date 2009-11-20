@@ -240,6 +240,12 @@ name|answer
 argument_list|)
 expr_stmt|;
 comment|// TODO make a better way to load ruby based route definitions!
+comment|// must clear before running script
+name|RubyCamel
+operator|.
+name|clearRoutes
+argument_list|()
+expr_stmt|;
 comment|// now lets run the script
 name|runScript
 argument_list|(
