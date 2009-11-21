@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -111,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test of invalid configuraiton  */
+comment|/**  * Unit test of invalid configuration  */
 end_comment
 
 begin_class
@@ -147,13 +159,28 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
+name|ResolveEndpointFailedException
+name|cause
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|ResolveEndpointFailedException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
-name|e
+name|cause
 operator|.
 name|getMessage
 argument_list|()
