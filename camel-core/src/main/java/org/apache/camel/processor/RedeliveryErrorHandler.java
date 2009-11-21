@@ -453,55 +453,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// do not handle transacted exchanges that failed as this error handler does not support it
-if|if
-condition|(
-name|exchange
-operator|.
-name|isTransacted
-argument_list|()
-operator|&&
-operator|!
-name|supportTransacted
-argument_list|()
-operator|&&
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"This error handler does not support transacted exchanges."
-operator|+
-literal|" Bypassing this error handler: "
-operator|+
-name|this
-operator|+
-literal|" for exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return;
-block|}
 comment|// did previous processing cause an exception?
 name|boolean
 name|handle

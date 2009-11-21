@@ -429,7 +429,7 @@ literal|null
 condition|)
 block|{
 comment|// no reason to continue as the first equal did not match and now one of the values is null
-comment|// so it wont help to type coerece to a null type
+comment|// so it wont help to type coerce to a null type
 return|return
 literal|false
 return|;
