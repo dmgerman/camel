@@ -34,7 +34,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -408,6 +428,34 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"timeNow"
+argument_list|,
+name|timeNow
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|ActivityState
@@ -420,7 +468,7 @@ name|cast
 argument_list|(
 name|template
 operator|.
-name|find
+name|findByNamedParams
 argument_list|(
 literal|"select x from "
 operator|+
@@ -431,9 +479,9 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" x where x.timeOverdue< ?1"
+literal|" x where x.timeOverdue< :timeNow"
 argument_list|,
-name|timeNow
+name|params
 argument_list|)
 argument_list|)
 decl_stmt|;

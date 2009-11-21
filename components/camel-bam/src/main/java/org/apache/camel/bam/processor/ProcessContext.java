@@ -339,7 +339,7 @@ name|ActivityState
 name|activityState
 parameter_list|)
 block|{
-comment|/** TODO */
+comment|// noop
 block|}
 comment|/**      * Called when the activity is completed which may end up creating some timers      * for dependent actions      */
 DECL|method|onCompleted (ActivityState activityState)
@@ -351,7 +351,7 @@ name|ActivityState
 name|activityState
 parameter_list|)
 block|{
-comment|/** TODO */
+comment|// noop
 block|}
 block|}
 end_class
