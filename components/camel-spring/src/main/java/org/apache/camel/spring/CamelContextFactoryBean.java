@@ -2234,7 +2234,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// do special preparation for some concepts such as interceptors and policies
-comment|// this is needed as JAXB does not build excaclty the same model definition as Spring DSL would do
+comment|// this is needed as JAXB does not build exactly the same model definition as Spring DSL would do
 comment|// using route builders. So we have here a little custom code to fix the JAXB gaps
 for|for
 control|(
@@ -2347,9 +2347,6 @@ block|{
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|output
 range|:
 name|route
@@ -2384,15 +2381,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|initParent (ProcessorDefinition<?> parent)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|initParent (ProcessorDefinition parent)
 specifier|private
 name|void
 name|initParent
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -2453,9 +2452,6 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -2463,9 +2459,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2582,9 +2575,6 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -2592,18 +2582,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|exceptionHandlers
 init|=
@@ -2611,9 +2595,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2737,7 +2718,7 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
@@ -2829,7 +2810,7 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
@@ -2860,7 +2841,7 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
@@ -2885,7 +2866,7 @@ name|RouteDefinition
 name|route
 parameter_list|)
 block|{
-comment|// only add global onCompletion if there are no route alredy
+comment|// only add global onCompletion if there are no route already
 name|boolean
 name|hasRouteScope
 init|=
@@ -3037,9 +3018,6 @@ comment|// add to correct type
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|type
 range|:
 name|types
