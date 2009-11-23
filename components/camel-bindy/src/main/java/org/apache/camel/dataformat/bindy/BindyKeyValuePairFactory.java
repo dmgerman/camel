@@ -1826,9 +1826,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|targetClass
-operator|!=
+operator|.
+name|equals
+argument_list|(
 literal|""
+argument_list|)
 condition|)
 block|{
 comment|// Class cl = Class.forName(targetClass); Does not work in
