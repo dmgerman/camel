@@ -495,7 +495,21 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// copy OUT to IN
+if|if
+condition|(
+operator|!
+name|skip
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|exchange
@@ -523,12 +537,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|skip
-condition|)
-block|{
 comment|// route to original destination
 name|producer
 operator|.
@@ -537,6 +545,35 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// exception is failed so do not route to original destination as we can use this to simulate errors
+comment|// caused from the intended destination
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exchange has failed so skip sending to original intended destination: "
+operator|+
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" for exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 else|else
 block|{
