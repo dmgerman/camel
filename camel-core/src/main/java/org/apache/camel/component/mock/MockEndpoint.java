@@ -845,7 +845,7 @@ name|endpoints
 init|=
 name|context
 operator|.
-name|getSingletonEndpoints
+name|getEndpoints
 argument_list|()
 decl_stmt|;
 for|for

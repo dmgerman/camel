@@ -348,7 +348,7 @@ name|String
 name|getVersion
 parameter_list|()
 function_decl|;
-comment|// Component Management Methods
+comment|// Service Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a service, starting it so that it will be stopped with this context      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
 DECL|method|addService (Object object)
@@ -370,6 +370,8 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
+comment|// Component Management Methods
+comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a component to the context.      *      * @param componentName  the name the component is registered as      * @param component      the component      */
 DECL|method|addComponent (String componentName, Component component)
 name|void
@@ -457,7 +459,7 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Resolves the given URI to an {@link Endpoint}.  If the URI has a singleton endpoint      * registered, then the singleton is returned.  Otherwise, a new {@link Endpoint} is created      * and if the endpoint is a singleton it is registered as a singleton endpoint.      *      * @param uri  the URI of the endpoint      * @return  the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri  the URI of the endpoint      * @return  the endpoint      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
 name|getEndpoint
@@ -466,7 +468,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and if the endpoint is a      * singleton it is registered as a singleton endpoint.      *      * @param name  the name of the endpoint      * @param endpointType  the expected type      * @return the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param name  the name of the endpoint      * @param endpointType  the expected type      * @return the endpoint      */
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 parameter_list|<
 name|T
@@ -515,7 +517,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated makes no sense, is removed in Camel 2.2      */
+comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated not used will be removed in Camel 2.2.      */
 annotation|@
 name|Deprecated
 DECL|method|getEndpoints (String uri)
@@ -529,7 +531,9 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      */
+comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      * @deprecated not used will be removed in Camel 2.2.      */
+annotation|@
+name|Deprecated
 DECL|method|getSingletonEndpoints ()
 name|Collection
 argument_list|<
@@ -538,7 +542,7 @@ argument_list|>
 name|getSingletonEndpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered to the context if       * there was already an singleton endpoint for that URI or null      * @throws Exception if the new endpoint could not be started or the old       * singleton endpoint could not be stopped      */
+comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
 name|addEndpoint
@@ -552,7 +556,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated makes no sense, is removed in Camel 2.2      */
+comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated not used will be removed in Camel 2.2.      */
 annotation|@
 name|Deprecated
 DECL|method|removeEndpoints (String uri)
