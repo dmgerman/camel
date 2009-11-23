@@ -125,9 +125,6 @@ specifier|private
 name|Map
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -143,25 +140,19 @@ argument_list|,
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
 argument_list|>
 name|wrappedProcessors
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition<?>, PerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<ProcessorDefinition<?>, InstrumentationProcessor>> wrappedProcessors)
+DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<ProcessorDefinition, InstrumentationProcessor>> wrappedProcessors)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
 name|Map
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -174,9 +165,6 @@ argument_list|,
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -197,7 +185,7 @@ operator|=
 name|wrappedProcessors
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -206,9 +194,6 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|definition
 parameter_list|,
 name|Processor
@@ -281,9 +266,6 @@ comment|// that when we register the processor
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -293,9 +275,6 @@ operator|new
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>

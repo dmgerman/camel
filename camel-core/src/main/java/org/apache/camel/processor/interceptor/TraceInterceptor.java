@@ -514,9 +514,6 @@ DECL|field|node
 specifier|private
 specifier|final
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|node
 decl_stmt|;
 DECL|field|tracer
@@ -543,14 +540,11 @@ specifier|private
 name|RouteContext
 name|routeContext
 decl_stmt|;
-DECL|method|TraceInterceptor (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|TraceInterceptor
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|node
 parameter_list|,
 name|Processor

@@ -721,15 +721,12 @@ argument_list|>
 name|map
 parameter_list|)
 function_decl|;
-DECL|method|isMulticastNode (ProcessorDefinition<?> node)
+DECL|method|isMulticastNode (ProcessorDefinition node)
 specifier|protected
 name|boolean
 name|isMulticastNode
 parameter_list|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|node
 parameter_list|)
 block|{

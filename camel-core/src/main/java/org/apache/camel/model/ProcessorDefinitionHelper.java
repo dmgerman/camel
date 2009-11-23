@@ -333,9 +333,6 @@ block|}
 for|for
 control|(
 name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
 name|out
 range|:
 name|outputs
@@ -371,16 +368,10 @@ name|SendDefinition
 condition|)
 block|{
 name|SendDefinition
-argument_list|<
-name|?
-argument_list|>
 name|send
 init|=
 operator|(
 name|SendDefinition
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|out
 decl_stmt|;
