@@ -1459,7 +1459,7 @@ argument_list|>
 literal|9
 condition|)
 block|{
-comment|// use prioriry from endpoint if not provided on message with a valid range
+comment|// use priority from endpoint if not provided on message with a valid range
 name|priority
 operator|=
 name|this
@@ -1500,7 +1500,7 @@ operator|.
 name|JMS_DELIVERY_MODE
 argument_list|)
 expr_stmt|;
-comment|// remove the temporary propery
+comment|// remove the temporary property
 name|JmsMessageHelper
 operator|.
 name|removeJmsProperty
