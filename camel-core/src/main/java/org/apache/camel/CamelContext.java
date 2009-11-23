@@ -440,7 +440,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      * @deprecated will be removed in Camel 2.3.      */
 annotation|@
 name|Deprecated
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
@@ -517,7 +517,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated not used will be removed in Camel 2.2.      */
+comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated not used will be removed in Camel 2.3.      */
 annotation|@
 name|Deprecated
 DECL|method|getEndpoints (String uri)
@@ -531,7 +531,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      * @deprecated not used will be removed in Camel 2.2.      */
+comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      * @deprecated not used will be removed in Camel 2.3.      */
 annotation|@
 name|Deprecated
 DECL|method|getSingletonEndpoints ()
@@ -556,7 +556,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated not used will be removed in Camel 2.2.      */
+comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated not used will be removed in Camel 2.3.      */
 annotation|@
 name|Deprecated
 DECL|method|removeEndpoints (String uri)
@@ -702,7 +702,7 @@ name|String
 name|routeId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      * @deprecated will be removed in Camel 2.3.      */
 annotation|@
 name|Deprecated
 DECL|method|getRouteStatus (RouteDefinition route)
