@@ -97,6 +97,7 @@ decl_stmt|;
 comment|// holds a snapshot view of current entry set
 DECL|field|entrySetView
 specifier|private
+specifier|transient
 name|Set
 argument_list|<
 name|Map
