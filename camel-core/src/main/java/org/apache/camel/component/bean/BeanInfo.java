@@ -1176,14 +1176,41 @@ range|:
 name|methods
 control|)
 block|{
-if|if
-condition|(
+name|boolean
+name|valid
+init|=
 name|isValidMethod
 argument_list|(
 name|clazz
 argument_list|,
 name|method
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Method:  "
+operator|+
+name|method
+operator|+
+literal|" is valid: "
+operator|+
+name|valid
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|valid
 condition|)
 block|{
 name|introspect
@@ -2765,7 +2792,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Validates wheter the given method is a valid candidate for Camel Bean Binding.      *      * @param clazz   the class      * @param method  the method      * @return true if valid, false to skip the method      */
+comment|/**      * Validates whether the given method is a valid candidate for Camel Bean Binding.      *      * @param clazz   the class      * @param method  the method      * @return true if valid, false to skip the method      */
 DECL|method|isValidMethod (Class<?> clazz, Method method)
 specifier|protected
 name|boolean
