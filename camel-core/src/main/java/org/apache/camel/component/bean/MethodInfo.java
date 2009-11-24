@@ -683,6 +683,10 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+comment|// we don't want to return the list of endpoints
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|result
