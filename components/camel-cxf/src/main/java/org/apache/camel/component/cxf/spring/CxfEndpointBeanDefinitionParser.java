@@ -84,7 +84,11 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|BusFactory
+name|bus
+operator|.
+name|spring
+operator|.
+name|BusWiringBeanFactoryPostProcessor
 import|;
 end_import
 
@@ -100,7 +104,7 @@ name|bus
 operator|.
 name|spring
 operator|.
-name|BusWiringBeanFactoryPostProcessor
+name|SpringBusFactory
 import|;
 end_import
 
@@ -565,12 +569,16 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// Don't relate on the DefaultBus
 name|Bus
 name|bus
 init|=
-name|BusFactory
+name|SpringBusFactory
 operator|.
-name|getThreadDefaultBus
+name|newInstance
+argument_list|()
+operator|.
+name|createBus
 argument_list|()
 decl_stmt|;
 name|setBus
