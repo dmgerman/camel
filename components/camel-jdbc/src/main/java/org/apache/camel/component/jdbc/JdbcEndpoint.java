@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -112,6 +122,16 @@ specifier|private
 name|DataSource
 name|dataSource
 decl_stmt|;
+DECL|field|parameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+decl_stmt|;
 DECL|method|JdbcEndpoint ()
 specifier|public
 name|JdbcEndpoint
@@ -191,6 +211,8 @@ argument_list|,
 name|dataSource
 argument_list|,
 name|readSize
+argument_list|,
+name|parameters
 argument_list|)
 return|;
 block|}
@@ -244,6 +266,43 @@ operator|.
 name|dataSource
 operator|=
 name|dataSource
+expr_stmt|;
+block|}
+DECL|method|getParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParameters
+parameter_list|()
+block|{
+return|return
+name|parameters
+return|;
+block|}
+comment|/**      * Optional parameters to the {@link java.sql.Statement}.      *<p/>      * For example to set maxRows, fetchSize etc.      *       * @param parameters parameters which will be set using reflection      */
+DECL|method|setParameters (Map<String, Object> parameters)
+specifier|public
+name|void
+name|setParameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parameters
+operator|=
+name|parameters
 expr_stmt|;
 block|}
 annotation|@
