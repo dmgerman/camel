@@ -98,6 +98,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -3587,6 +3599,57 @@ operator|(
 name|Type
 operator|)
 name|this
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/sampling.html">Sampling Throttler</a>      * Creates a sampling throttler allowing you to extract a sample of      * exchanges from the traffic on a route. It is configured with a sampling      * period, during which only a single exchange is allowed to pass through.      * All other exchanges will be stopped.      *<p/>      * Default period is one second.      *      * @return the builder      */
+DECL|method|sample ()
+specifier|public
+name|SamplingDefinition
+name|sample
+parameter_list|()
+block|{
+return|return
+name|sample
+argument_list|(
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/sampling.html">Sampling Throttler</a>      * Creates a sampling throttler allowing you to extract a sample of exchanges      * from the traffic through a route. It is configured with a sampling period      * during which only a single exchange is allowed to pass through.      * All other exchanges will be stopped.      *      * @param samplePeriod this is the sample interval, only one exchange is      *            allowed through in this interval      * @param unit this is the units for the samplePeriod e.g. Seconds      * @return the builder      */
+DECL|method|sample (long samplePeriod, TimeUnit unit)
+specifier|public
+name|SamplingDefinition
+name|sample
+parameter_list|(
+name|long
+name|samplePeriod
+parameter_list|,
+name|TimeUnit
+name|unit
+parameter_list|)
+block|{
+name|SamplingDefinition
+name|answer
+init|=
+operator|new
+name|SamplingDefinition
+argument_list|(
+name|samplePeriod
+argument_list|,
+name|unit
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
