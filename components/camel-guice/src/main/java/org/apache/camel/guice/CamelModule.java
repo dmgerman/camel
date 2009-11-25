@@ -136,17 +136,12 @@ name|CamelModule
 extends|extends
 name|Jsr250Module
 block|{
-DECL|method|configure ()
+DECL|method|configureCamelContext ()
 specifier|protected
 name|void
-name|configure
+name|configureCamelContext
 parameter_list|()
 block|{
-name|super
-operator|.
-name|configure
-argument_list|()
-expr_stmt|;
 name|bind
 argument_list|(
 name|CamelContext
@@ -162,6 +157,21 @@ name|class
 argument_list|)
 operator|.
 name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|configure ()
+specifier|protected
+name|void
+name|configure
+parameter_list|()
+block|{
+name|super
+operator|.
+name|configure
+argument_list|()
+expr_stmt|;
+name|configureCamelContext
 argument_list|()
 expr_stmt|;
 name|bindAnnotationInjector

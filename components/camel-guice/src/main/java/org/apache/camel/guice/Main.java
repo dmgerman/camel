@@ -42,6 +42,16 @@ name|javax
 operator|.
 name|naming
 operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
 name|InitialContext
 import|;
 end_import
@@ -214,11 +224,6 @@ specifier|static
 name|Main
 name|instance
 decl_stmt|;
-DECL|field|context
-specifier|private
-name|InitialContext
-name|context
-decl_stmt|;
 DECL|field|injector
 specifier|private
 name|Injector
@@ -277,8 +282,66 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|setInjector (Injector injector)
+specifier|protected
+name|void
+name|setInjector
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
+block|{
+name|this
+operator|.
+name|injector
+operator|=
+name|injector
+expr_stmt|;
+block|}
+DECL|method|getInjector ()
+specifier|protected
+name|Injector
+name|getInjector
+parameter_list|()
+block|{
+return|return
+name|injector
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+DECL|method|getInjectorFromContext ()
+specifier|protected
+name|Injector
+name|getInjectorFromContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Context
+name|context
+init|=
+operator|new
+name|InitialContext
+argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|Injector
+operator|)
+name|context
+operator|.
+name|lookup
+argument_list|(
+name|Injector
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -294,26 +357,9 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|context
-operator|=
-operator|new
-name|InitialContext
-argument_list|()
-expr_stmt|;
-name|injector
-operator|=
-operator|(
-name|Injector
-operator|)
-name|context
-operator|.
-name|lookup
+name|setInjector
 argument_list|(
-name|Injector
-operator|.
-name|class
-operator|.
-name|getName
+name|getInjectorFromContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -391,7 +437,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// TODO shouldbe Iterables.get(set, 0);
+comment|// TODO should be Iterables.get(set, 0);
 return|return
 name|Iterables
 operator|.
