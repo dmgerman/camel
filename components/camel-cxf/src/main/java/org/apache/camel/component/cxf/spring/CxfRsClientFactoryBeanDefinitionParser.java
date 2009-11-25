@@ -617,13 +617,17 @@ literal|null
 condition|)
 block|{
 comment|// Don't relate on the DefaultBus
+name|BusFactory
+name|factory
+init|=
+operator|new
+name|SpringBusFactory
+argument_list|()
+decl_stmt|;
 name|Bus
 name|bus
 init|=
-name|SpringBusFactory
-operator|.
-name|newInstance
-argument_list|()
+name|factory
 operator|.
 name|createBus
 argument_list|()

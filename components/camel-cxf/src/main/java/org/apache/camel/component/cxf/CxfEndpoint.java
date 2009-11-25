@@ -1089,7 +1089,7 @@ name|doGetBus
 parameter_list|()
 block|{
 return|return
-name|SpringBusFactory
+name|BusFactory
 operator|.
 name|newInstance
 argument_list|()
