@@ -3152,7 +3152,7 @@ name|exchange
 parameter_list|)
 block|{
 comment|// resolve language using context to have a clear separation of packages
-comment|// must call evalute to return the nested langauge evaluate when evaluating
+comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
 name|Language
 name|language
