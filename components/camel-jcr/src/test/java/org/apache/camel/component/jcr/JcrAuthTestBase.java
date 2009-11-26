@@ -353,6 +353,7 @@ operator|.
 name|exists
 argument_list|()
 condition|)
+block|{
 throw|throw
 operator|new
 name|Exception
@@ -365,6 +366,7 @@ name|getPath
 argument_list|()
 argument_list|)
 throw|;
+block|}
 name|repository
 operator|=
 operator|new
@@ -425,6 +427,7 @@ name|user
 operator|==
 literal|null
 condition|)
+block|{
 name|user
 operator|=
 name|userManager
@@ -436,6 +439,7 @@ argument_list|,
 literal|"quatloos"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// set up permissions
 name|String
 name|permissionsPath
