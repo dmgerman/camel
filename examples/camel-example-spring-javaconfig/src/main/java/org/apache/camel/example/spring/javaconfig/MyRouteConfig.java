@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -41,6 +51,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RoutesBuilder
 import|;
 end_import
 
@@ -82,6 +104,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|osgi
+operator|.
+name|SpringCamelContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|javaconfig
@@ -103,6 +153,32 @@ operator|.
 name|javaconfig
 operator|.
 name|SingleRouteCamelConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|BundleContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|InitializingBean
 import|;
 end_import
 
@@ -138,6 +214,20 @@ name|Configuration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|osgi
+operator|.
+name|context
+operator|.
+name|BundleContextAware
+import|;
+end_import
+
 begin_comment
 comment|//START SNIPPET: RouteConfig
 end_comment
@@ -155,7 +245,16 @@ class|class
 name|MyRouteConfig
 extends|extends
 name|SingleRouteCamelConfiguration
+implements|implements
+name|InitializingBean
+implements|,
+name|BundleContextAware
 block|{
+DECL|field|bundleContext
+specifier|private
+name|BundleContext
+name|bundleContext
+decl_stmt|;
 comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception       */
 DECL|method|main (String[] args)
 specifier|public
@@ -180,11 +279,78 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getBundleContext ()
+specifier|public
+name|BundleContext
+name|getBundleContext
+parameter_list|()
+block|{
+return|return
+name|bundleContext
+return|;
+block|}
+DECL|method|setBundleContext (BundleContext bundleContext)
+specifier|public
+name|void
+name|setBundleContext
+parameter_list|(
+name|BundleContext
+name|bundleContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleContext
+operator|=
+name|bundleContext
+expr_stmt|;
+block|}
+comment|/**      * Returns the CamelContext which support OSGi      */
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|SpringCamelContextFactory
+name|factory
+init|=
+operator|new
+name|SpringCamelContextFactory
+argument_list|()
+decl_stmt|;
+name|factory
+operator|.
+name|setApplicationContext
+argument_list|(
+name|getApplicationContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|factory
+operator|.
+name|setBundleContext
+argument_list|(
+name|getBundleContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|factory
+operator|.
+name|createContext
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 comment|// setup the ActiveMQ component and register it into the camel context
 DECL|method|setupCamelContext (CamelContext camelContext)
-specifier|public
+specifier|protected
 name|void
 name|setupCamelContext
 parameter_list|(
@@ -212,7 +378,7 @@ name|connectionFactory
 operator|.
 name|setBrokerURL
 argument_list|(
-literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
+literal|"vm://localhost.spring.javaconfig?marshal=false&broker.persistent=false&broker.useJmx=false"
 argument_list|)
 expr_stmt|;
 name|answer
@@ -318,6 +484,16 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+DECL|method|afterPropertiesSet ()
+specifier|public
+name|void
+name|afterPropertiesSet
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// just to make SpringDM happy do nothing here
 block|}
 block|}
 end_class

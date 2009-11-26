@@ -207,15 +207,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SpringCamelContext
+name|CamelContext
 name|camelContext
 init|=
-operator|new
-name|SpringCamelContext
-argument_list|(
-name|getApplicationContext
+name|createCamelContext
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|setupCamelContext
 argument_list|(
@@ -251,9 +247,9 @@ return|return
 name|camelContext
 return|;
 block|}
-comment|// maybe register the camel component, language here
+comment|// Can register the camel component, language here
 DECL|method|setupCamelContext (CamelContext camelContext)
-specifier|public
+specifier|protected
 name|void
 name|setupCamelContext
 parameter_list|(
@@ -262,7 +258,24 @@ name|camelContext
 parameter_list|)
 throws|throws
 name|Exception
-block|{     }
+block|{              }
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|SpringCamelContext
+argument_list|(
+name|getApplicationContext
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the list of routes to use in this configuration      */
 DECL|method|routes ()
 specifier|public

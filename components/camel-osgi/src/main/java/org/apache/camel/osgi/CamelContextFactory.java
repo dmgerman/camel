@@ -234,6 +234,18 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+DECL|method|newCamelContext ()
+specifier|protected
+name|DefaultCamelContext
+name|newCamelContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultCamelContext
+argument_list|()
+return|;
+block|}
 DECL|method|createContext ()
 specifier|public
 name|DefaultCamelContext
@@ -250,8 +262,7 @@ expr_stmt|;
 name|DefaultCamelContext
 name|context
 init|=
-operator|new
-name|DefaultCamelContext
+name|newCamelContext
 argument_list|()
 decl_stmt|;
 if|if
