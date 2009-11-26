@@ -1270,6 +1270,15 @@ operator|!
 name|connected
 condition|)
 block|{
+comment|// ensure resources get recreated on reconnection
+name|store
+operator|=
+literal|null
+expr_stmt|;
+name|folder
+operator|=
+literal|null
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -1342,6 +1351,27 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Getting folder "
+operator|+
+name|config
+operator|.
+name|getFolderName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|folder
 operator|=
 name|store
