@@ -2049,7 +2049,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Appends the Mail headers from the endpoint configuraiton.      */
+comment|/**      * Appends the Mail headers from the endpoint configuration.      */
 DECL|method|setRecipientFromEndpointConfiguration (MimeMessage mimeMessage, MailEndpoint endpoint)
 specifier|protected
 name|void
