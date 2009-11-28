@@ -135,6 +135,14 @@ block|{
 try|try
 block|{
 return|return
+operator|(
+name|property
+operator|instanceof
+name|Method
+operator|)
+condition|?
+name|property
+else|:
 name|super
 operator|.
 name|getValue
@@ -212,10 +220,6 @@ condition|(
 name|base
 operator|!=
 literal|null
-operator|&&
-name|property
-operator|instanceof
-name|String
 condition|)
 block|{
 name|Method
@@ -261,6 +265,9 @@ operator|.
 name|equals
 argument_list|(
 name|property
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 operator|&&
 name|Modifier
