@@ -68,6 +68,18 @@ name|google
 operator|.
 name|inject
 operator|.
+name|Injector
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|inject
+operator|.
 name|Provides
 import|;
 end_import
@@ -331,6 +343,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// loading the properties into Guice Context
 name|Names
 operator|.
 name|bindProperties

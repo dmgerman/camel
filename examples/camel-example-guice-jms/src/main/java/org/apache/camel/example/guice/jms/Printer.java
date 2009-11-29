@@ -20,64 +20,32 @@ name|jms
 package|;
 end_package
 
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_comment
-comment|/**  * @version $Revision$ */
-end_comment
-
 begin_class
-DECL|class|SomeBean
+DECL|class|Printer
 specifier|public
 class|class
-name|SomeBean
-block|{
-annotation|@
-name|Inject
-DECL|field|printer
-specifier|private
 name|Printer
-name|printer
-decl_stmt|;
-DECL|method|someMethod (String body)
+block|{
+DECL|method|print (String body)
 specifier|public
 name|void
-name|someMethod
+name|print
 parameter_list|(
 name|String
 name|body
 parameter_list|)
 block|{
-name|printer
+name|System
 operator|.
-name|print
+name|out
+operator|.
+name|println
 argument_list|(
+literal|"Received: "
+operator|+
 name|body
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("Received: " + body);
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"SomeBean"
-return|;
 block|}
 block|}
 end_class

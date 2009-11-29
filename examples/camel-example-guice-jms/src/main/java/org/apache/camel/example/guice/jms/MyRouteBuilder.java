@@ -117,11 +117,9 @@ argument_list|(
 literal|"file://target/routeOutput?noop=true"
 argument_list|)
 operator|.
-name|bean
+name|beanRef
 argument_list|(
-operator|new
-name|SomeBean
-argument_list|()
+literal|"myBean"
 argument_list|)
 expr_stmt|;
 block|}
