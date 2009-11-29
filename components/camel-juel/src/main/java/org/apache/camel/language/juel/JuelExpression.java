@@ -303,11 +303,6 @@ specifier|private
 name|ExpressionFactory
 name|expressionFactory
 decl_stmt|;
-DECL|field|expressionFactoryProperties
-specifier|private
-name|Properties
-name|expressionFactoryProperties
-decl_stmt|;
 DECL|method|JuelExpression (String expression, Class<?> type)
 specifier|public
 name|JuelExpression
@@ -377,6 +372,18 @@ parameter_list|)
 block|{
 comment|// TODO we could use caching here but then we'd have possible concurrency issues
 comment|// so lets assume that the provider caches
+comment|// Create (if needed) the ExpressionFactory first from the CamelContext using FactoryFinder
+name|ExpressionFactory
+name|factory
+init|=
+name|getExpressionFactory
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|ELContext
 name|context
 init|=
@@ -391,13 +398,7 @@ decl_stmt|;
 name|ValueExpression
 name|valueExpression
 init|=
-name|getExpressionFactory
-argument_list|(
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|)
+name|factory
 operator|.
 name|createValueExpression
 argument_list|(
@@ -584,19 +585,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Properties
-name|properties
-init|=
-name|getExpressionFactoryProperties
-argument_list|()
-decl_stmt|;
 name|expressionFactory
 operator|=
 operator|new
 name|ExpressionFactoryImpl
-argument_list|(
-name|properties
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -617,51 +610,6 @@ operator|.
 name|expressionFactory
 operator|=
 name|expressionFactory
-expr_stmt|;
-block|}
-DECL|method|getExpressionFactoryProperties ()
-specifier|public
-name|Properties
-name|getExpressionFactoryProperties
-parameter_list|()
-block|{
-if|if
-condition|(
-name|expressionFactoryProperties
-operator|==
-literal|null
-condition|)
-block|{
-name|expressionFactoryProperties
-operator|=
-operator|new
-name|Properties
-argument_list|()
-expr_stmt|;
-name|populateDefaultExpressionProperties
-argument_list|(
-name|expressionFactoryProperties
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|expressionFactoryProperties
-return|;
-block|}
-DECL|method|setExpressionFactoryProperties (Properties expressionFactoryProperties)
-specifier|public
-name|void
-name|setExpressionFactoryProperties
-parameter_list|(
-name|Properties
-name|expressionFactoryProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expressionFactoryProperties
-operator|=
-name|expressionFactoryProperties
 expr_stmt|;
 block|}
 DECL|method|populateContext (ELContext context, Exchange exchange)
@@ -733,27 +681,6 @@ block|}
 return|return
 name|context
 return|;
-block|}
-comment|/**      * A Strategy Method to populate the default properties used to create the expression factory      */
-DECL|method|populateDefaultExpressionProperties (Properties properties)
-specifier|protected
-name|void
-name|populateDefaultExpressionProperties
-parameter_list|(
-name|Properties
-name|properties
-parameter_list|)
-block|{
-comment|// lets enable method invocations
-name|properties
-operator|.
-name|setProperty
-argument_list|(
-literal|"javax.el.methodInvocations"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setVariable (ELContext context, String name, Object value, Class<?> type)
 specifier|protected
