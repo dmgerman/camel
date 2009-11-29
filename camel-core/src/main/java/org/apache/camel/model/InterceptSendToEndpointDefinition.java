@@ -220,7 +220,7 @@ block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 comment|// TODO: interceptSendToEndpoint needs to proxy the endpoints at very first
 comment|// so when other processors uses an endpoint its already proxied, see workaround in SendProcessor
-comment|// needed when we havent proxied beforehand. This requires some work in the route builder in Camel
+comment|// needed when we haven't proxied beforehand. This requires some work in the route builder in Camel
 comment|// to implement so that should be a part of a bigger rework/improvement in the future
 annotation|@
 name|XmlAttribute

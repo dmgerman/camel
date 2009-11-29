@@ -51,6 +51,8 @@ class|class
 name|ThrowExceptionProcessor
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|exception
 specifier|private
@@ -92,6 +94,26 @@ argument_list|(
 name|exception
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"throwException["
+operator|+
+name|exception
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"]"
+return|;
 block|}
 DECL|method|toString ()
 specifier|public

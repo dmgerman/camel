@@ -1378,7 +1378,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// if its an abstract dummy holder then get the 2nd last so we can get the real node that has
+comment|// if its an abstract dummy holder then we have to get the 2nd last so we can get the real node that has
 comment|// information which route it belongs to
 if|if
 condition|(
@@ -1386,6 +1386,13 @@ name|traceTo
 operator|.
 name|isAbstract
 argument_list|()
+operator|&&
+name|traceTo
+operator|.
+name|getProcessorDefinition
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|traceTo
@@ -1396,6 +1403,13 @@ name|getSecondLastNode
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|traceTo
+operator|!=
+literal|null
+condition|)
+block|{
 name|route
 operator|=
 name|extractRoute
@@ -1406,6 +1420,7 @@ name|getProcessorDefinition
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// assemble result with and without the to/from

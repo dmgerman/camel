@@ -322,6 +322,25 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"wireTap("
+operator|+
+name|destination
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|")"
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
