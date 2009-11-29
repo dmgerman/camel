@@ -330,14 +330,10 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"to("
-operator|+
 name|destination
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|")"
 return|;
 block|}
 DECL|method|process (final Exchange exchange)
