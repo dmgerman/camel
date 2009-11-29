@@ -17,18 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -478,6 +466,8 @@ name|getSampledLog
 parameter_list|()
 block|{
 return|return
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Sampled %d of %d total exchanges"
@@ -496,6 +486,8 @@ name|getDroppedLog
 parameter_list|()
 block|{
 return|return
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Dropped %d of %d exchanges in this period, totalling %d dropped of %d exchanges overall."

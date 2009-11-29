@@ -409,7 +409,9 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{}
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 argument_list|)

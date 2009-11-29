@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|*
+name|ContextTestSupport
 import|;
 end_import
 
