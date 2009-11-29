@@ -1464,7 +1464,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reply recieved. Setting reply as an Exception: "
+literal|"Reply received. Setting reply as an Exception: "
 operator|+
 name|body
 argument_list|)
@@ -1497,7 +1497,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reply recieved. Setting reply as OUT message: "
+literal|"Reply received. Setting reply as OUT message: "
 operator|+
 name|body
 argument_list|)
@@ -1710,7 +1710,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// we must honor these special flags to preverse QoS
+comment|// we must honor these special flags to preserve QoS
 if|if
 condition|(
 operator|!
