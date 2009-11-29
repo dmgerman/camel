@@ -125,6 +125,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|messageIndex
+operator|=
+literal|0
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -203,6 +207,11 @@ argument_list|(
 literal|"timer://foo?period=100"
 argument_list|)
 operator|.
+name|startupOrder
+argument_list|(
+literal|2
+argument_list|)
+operator|.
 name|process
 argument_list|(
 operator|new
@@ -254,6 +263,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:aggregator"
+argument_list|)
+operator|.
+name|startupOrder
+argument_list|(
+literal|1
 argument_list|)
 operator|.
 name|aggregate
