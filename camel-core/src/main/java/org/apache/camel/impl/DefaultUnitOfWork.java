@@ -519,6 +519,8 @@ name|isFailed
 argument_list|()
 decl_stmt|;
 comment|// fire event to signal the exchange is done
+try|try
+block|{
 if|if
 condition|(
 name|failed
@@ -549,6 +551,24 @@ name|getContext
 argument_list|()
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// must catch exceptions to ensure synchronizations is also invoked
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occurred during event notification. This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -611,7 +631,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exception occurred during onCompletion. This exception will be ignored: "
+literal|"Exception occurred during onCompletion. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
