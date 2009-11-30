@@ -28,10 +28,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  *   */
-end_comment
-
 begin_class
 DECL|class|TransactedDSLTest
 specifier|public
@@ -58,7 +54,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").policy(\"myTransacted\").to(\"mock:result\")"
+literal|"from(\"direct:start\").transacted(\"myTransacted\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -89,7 +85,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").policy().policy(\"myPolicy\").to(\"mock:result\")"
+literal|"from(\"direct:start\").transacted().policy(\"myPolicy\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
