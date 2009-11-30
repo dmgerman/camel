@@ -54,6 +54,17 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|newExchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|oldExchange
+return|;
+block|}
 name|newExchange
 operator|.
 name|setException
@@ -133,7 +144,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"useLatestAggregationStrategy"
+literal|"UseLatestAggregationStrategy"
 return|;
 block|}
 block|}

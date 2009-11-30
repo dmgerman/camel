@@ -158,6 +158,13 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|newExchange
+operator|!=
+literal|null
+condition|)
+block|{
 name|list
 operator|.
 name|add
@@ -165,6 +172,7 @@ argument_list|(
 name|newExchange
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
