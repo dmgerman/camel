@@ -554,13 +554,30 @@ argument_list|,
 name|httpExchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for HTTP exchange to be done"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we send synchronous so wait for it to be done
+comment|// must use our own lock detection as Jettys waitForDone will wait forever in case of connection issues
 name|int
 name|exchangeState
 init|=
 name|httpExchange
 operator|.
-name|waitForDone
+name|waitForDoneOrFailure
 argument_list|()
 decl_stmt|;
 if|if
