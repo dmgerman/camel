@@ -184,6 +184,13 @@ name|IoFilter
 argument_list|>
 name|filters
 decl_stmt|;
+DECL|field|allowDefaultCodec
+specifier|private
+name|boolean
+name|allowDefaultCodec
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -691,6 +698,32 @@ name|equals
 argument_list|(
 literal|"multicast"
 argument_list|)
+return|;
+block|}
+DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
+specifier|public
+name|void
+name|setAllowDefaultCodec
+parameter_list|(
+name|boolean
+name|allowDefaultCodec
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowDefaultCodec
+operator|=
+name|allowDefaultCodec
+expr_stmt|;
+block|}
+DECL|method|isAllowDefaultCodec ()
+specifier|public
+name|boolean
+name|isAllowDefaultCodec
+parameter_list|()
+block|{
+return|return
+name|allowDefaultCodec
 return|;
 block|}
 block|}
