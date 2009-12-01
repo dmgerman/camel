@@ -166,7 +166,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|20
+literal|10
 argument_list|)
 expr_stmt|;
 name|mock
@@ -218,7 +218,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|10
 condition|;
 name|i
 operator|++
@@ -368,7 +368,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 operator|.
 name|setBody
