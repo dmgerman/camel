@@ -177,7 +177,7 @@ name|ExpressionNode
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|ExpressionNode
 argument_list|>
 block|{
 annotation|@
