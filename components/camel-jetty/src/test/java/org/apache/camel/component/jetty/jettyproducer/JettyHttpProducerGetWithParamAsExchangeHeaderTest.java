@@ -105,7 +105,7 @@ specifier|private
 name|String
 name|serverUri
 init|=
-literal|"jetty://http://localhost:9080/myservice"
+literal|"jetty://http://localhost:9088/myservice"
 decl_stmt|;
 annotation|@
 name|Test

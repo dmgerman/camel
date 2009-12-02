@@ -93,7 +93,7 @@ specifier|private
 name|String
 name|serverUri
 init|=
-literal|"jetty://http://localhost:9080/myservice"
+literal|"jetty://http://localhost:9087/myservice"
 decl_stmt|;
 annotation|@
 name|Test
@@ -105,6 +105,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give Jetty time to startup properly
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -151,6 +159,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give Jetty time to startup properly
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=

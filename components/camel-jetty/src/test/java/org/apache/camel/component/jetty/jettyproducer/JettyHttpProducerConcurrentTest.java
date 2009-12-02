@@ -172,6 +172,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give Jetty time to startup properly
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|doSendMessages
 argument_list|(
 literal|1
@@ -190,6 +198,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give Jetty time to startup properly
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|doSendMessages
 argument_list|(
 literal|10

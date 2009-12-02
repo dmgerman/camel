@@ -613,6 +613,8 @@ specifier|public
 name|void
 name|testEndpointWithoutHttps
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|MockEndpoint
 name|mockEndpoint
