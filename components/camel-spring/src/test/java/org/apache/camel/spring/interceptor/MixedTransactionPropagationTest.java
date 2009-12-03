@@ -48,6 +48,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|SpringTestSupport
@@ -97,14 +125,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Easier transaction configuration as we only setup Spring TX stuff.  */
+comment|/**  * Unit test to demonstrate the transactional client pattern.  */
 end_comment
 
 begin_class
-DECL|class|TransactionalClientDataSourceMinimalConfigurationTest
+DECL|class|MixedTransactionPropagationTest
 specifier|public
 class|class
-name|TransactionalClientDataSourceMinimalConfigurationTest
+name|MixedTransactionPropagationTest
 extends|extends
 name|SpringTestSupport
 block|{
@@ -123,8 +151,18 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"/org/apache/camel/spring/interceptor/springTransactionalClientDataSourceMinimalConfiguration.xml"
+literal|"/org/apache/camel/spring/interceptor/MixedTransactionPropagationTest.xml"
 argument_list|)
+return|;
+block|}
+DECL|method|getExpectedRouteCount ()
+specifier|protected
+name|int
+name|getExpectedRouteCount
+parameter_list|()
+block|{
+return|return
+literal|0
 return|;
 block|}
 annotation|@
@@ -137,12 +175,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|this
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// create database and insert dummy data
 specifier|final
 name|DataSource
 name|ds
@@ -208,11 +250,16 @@ argument_list|(
 literal|"drop table books"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|enableJMX
+argument_list|()
+expr_stmt|;
 block|}
-DECL|method|testTransactionSuccess ()
+DECL|method|testOkay ()
 specifier|public
 name|void
-name|testTransactionSuccess
+name|testOkay
 parameter_list|()
 throws|throws
 name|Exception
@@ -246,10 +293,10 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTransactionRollback ()
+DECL|method|testFail ()
 specifier|public
 name|void
-name|testTransactionRollback
+name|testFail
 parameter_list|()
 throws|throws
 name|Exception
@@ -334,6 +381,252 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testMixed ()
+specifier|public
+name|void
+name|testMixed
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:mixed"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|4
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|SpringRouteBuilder
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|from
+argument_list|(
+literal|"direct:okay"
+argument_list|)
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Elephant in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:fail"
+argument_list|)
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Donkey in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
+comment|// START SNIPPET: e1
+name|from
+argument_list|(
+literal|"direct:mixed"
+argument_list|)
+comment|// using required
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|)
+comment|// all these steps will be okay
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Elephant in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Lion in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+comment|// continue on route 2
+operator|.
+name|to
+argument_list|(
+literal|"direct:mixed2"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:mixed2"
+argument_list|)
+comment|// using a different propagation which is requires new
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRES_NEW"
+argument_list|)
+comment|// tell Camel that if this route fails then only rollback this last route
+comment|// by using (rollback only *last*)
+operator|.
+name|onException
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
+operator|.
+name|markRollbackOnlyLast
+argument_list|()
+operator|.
+name|end
+argument_list|()
+comment|// this step will be okay
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Giraffe in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+comment|// this step will fail with donkey
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Donkey in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e1
+block|}
+block|}
+return|;
 block|}
 block|}
 end_class

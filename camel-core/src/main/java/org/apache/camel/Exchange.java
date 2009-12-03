@@ -350,6 +350,12 @@ name|ROLLBACK_ONLY
 init|=
 literal|"CamelRollbackOnly"
 decl_stmt|;
+DECL|field|ROLLBACK_ONLY_LAST
+name|String
+name|ROLLBACK_ONLY_LAST
+init|=
+literal|"CamelRollbackOnlyLast"
+decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
 name|SPLIT_INDEX

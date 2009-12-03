@@ -71,6 +71,11 @@ specifier|private
 name|boolean
 name|markRollbackOnly
 decl_stmt|;
+DECL|field|markRollbackOnlyLast
+specifier|private
+name|boolean
+name|markRollbackOnlyLast
+decl_stmt|;
 DECL|field|message
 specifier|private
 name|String
@@ -107,7 +112,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// mark the exchange for rollback
+if|if
+condition|(
+name|isMarkRollbackOnlyLast
+argument_list|()
+condition|)
+block|{
+comment|// only mark the last route (current) as rollback
+comment|// this is needed when you have multiple transactions in play
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY_LAST
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// default to mark the entire route as rollback
 name|exchange
 operator|.
 name|setProperty
@@ -121,9 +150,12 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|markRollbackOnly
+operator|||
+name|markRollbackOnlyLast
 condition|)
 block|{
 comment|// do not do anything more as we should only mark the rollback
@@ -229,6 +261,32 @@ operator|.
 name|markRollbackOnly
 operator|=
 name|markRollbackOnly
+expr_stmt|;
+block|}
+DECL|method|isMarkRollbackOnlyLast ()
+specifier|public
+name|boolean
+name|isMarkRollbackOnlyLast
+parameter_list|()
+block|{
+return|return
+name|markRollbackOnlyLast
+return|;
+block|}
+DECL|method|setMarkRollbackOnlyLast (boolean markRollbackOnlyLast)
+specifier|public
+name|void
+name|setMarkRollbackOnlyLast
+parameter_list|(
+name|boolean
+name|markRollbackOnlyLast
+parameter_list|)
+block|{
+name|this
+operator|.
+name|markRollbackOnlyLast
+operator|=
+name|markRollbackOnlyLast
 expr_stmt|;
 block|}
 block|}

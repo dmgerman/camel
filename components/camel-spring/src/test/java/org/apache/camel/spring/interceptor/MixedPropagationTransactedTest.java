@@ -86,22 +86,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|TransactedRuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -143,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For testing with mixed transacted propagations (required, requires new)  */
+comment|/**  * For testing with mixed transacted propagation (required, requires new)  */
 end_comment
 
 begin_class
@@ -504,10 +488,10 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expeced as we fail
+comment|// expected as we fail
 name|assertIsInstanceOf
 argument_list|(
-name|TransactedRuntimeCamelException
+name|RuntimeCamelException
 operator|.
 name|class
 argument_list|,
@@ -607,10 +591,10 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expeced as we fail
+comment|// expected as we fail
 name|assertIsInstanceOf
 argument_list|(
-name|TransactedRuntimeCamelException
+name|RuntimeCamelException
 operator|.
 name|class
 argument_list|,
@@ -713,7 +697,7 @@ block|{
 comment|// expeced as we fail
 name|assertIsInstanceOf
 argument_list|(
-name|TransactedRuntimeCamelException
+name|RuntimeCamelException
 operator|.
 name|class
 argument_list|,

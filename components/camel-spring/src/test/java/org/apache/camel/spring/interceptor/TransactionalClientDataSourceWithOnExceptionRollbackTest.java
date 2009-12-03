@@ -102,22 +102,6 @@ name|SpringTransactionPolicy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|TransactedRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to demonstrate the transactional client pattern.  */
 end_comment
@@ -184,7 +168,7 @@ block|{
 comment|// expected as we fail
 name|assertIsInstanceOf
 argument_list|(
-name|TransactedRuntimeCamelException
+name|RuntimeCamelException
 operator|.
 name|class
 argument_list|,

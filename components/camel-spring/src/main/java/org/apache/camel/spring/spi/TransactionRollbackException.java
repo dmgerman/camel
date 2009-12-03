@@ -18,67 +18,33 @@ name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * We use a runtime exception to force Spring transaction manager to rollback the transaction.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|TransactedRuntimeCamelException
+DECL|class|TransactionRollbackException
 specifier|public
 class|class
-name|TransactedRuntimeCamelException
+name|TransactionRollbackException
 extends|extends
-name|RuntimeCamelException
+name|RuntimeException
 block|{
-DECL|field|handled
-specifier|private
-specifier|final
-name|boolean
-name|handled
-decl_stmt|;
-DECL|method|TransactedRuntimeCamelException (Throwable cause, boolean handled)
+DECL|method|TransactionRollbackException ()
 specifier|public
-name|TransactedRuntimeCamelException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|,
-name|boolean
-name|handled
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|handled
-operator|=
-name|handled
-expr_stmt|;
-block|}
-DECL|method|isHandled ()
+name|TransactionRollbackException
+parameter_list|()
+block|{     }
+annotation|@
+name|Override
+DECL|method|getMessage ()
 specifier|public
-name|boolean
-name|isHandled
+name|String
+name|getMessage
 parameter_list|()
 block|{
 return|return
-name|handled
+literal|"Rollback"
 return|;
 block|}
 block|}

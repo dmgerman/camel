@@ -4350,7 +4350,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Cleans the string to pure java identifier so we can use it for loading class names.      *<p/>      * Especially from Sping DSL people can have \n \t or other characters that otherwise      * would result in ClassNotFoundException      *      * @param name the class name      * @return normalized classname that can be load by a class loader.      */
+comment|/**      * Cleans the string to pure java identifier so we can use it for loading class names.      *<p/>      * Especially from Spring DSL people can have \n \t or other characters that otherwise      * would result in ClassNotFoundException      *      * @param name the class name      * @return normalized classname that can be load by a class loader.      */
 DECL|method|normalizeClassName (String name)
 specifier|public
 specifier|static

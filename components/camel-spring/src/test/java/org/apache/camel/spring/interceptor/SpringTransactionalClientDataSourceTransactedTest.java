@@ -58,22 +58,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|TransactedRuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -288,10 +272,10 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expeced as we fail
+comment|// expected as we fail
 name|assertIsInstanceOf
 argument_list|(
-name|TransactedRuntimeCamelException
+name|RuntimeCamelException
 operator|.
 name|class
 argument_list|,

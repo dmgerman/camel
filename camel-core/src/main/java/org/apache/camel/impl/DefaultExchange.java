@@ -1254,6 +1254,20 @@ operator|.
 name|ROLLBACK_ONLY
 argument_list|)
 argument_list|)
+operator|||
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY_LAST
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|getUnitOfWork ()

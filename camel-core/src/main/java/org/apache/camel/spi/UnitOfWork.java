@@ -104,6 +104,33 @@ name|TracedRouteNodes
 name|getTracedRouteNodes
 parameter_list|()
 function_decl|;
+comment|/**      * Are we already transacted by the given transaction definition      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *      * @param transactionDefinition the transaction definition      * @return<tt>true</tt> if already,<tt>false</tt> otherwise      */
+DECL|method|isTransactedBy (Object transactionDefinition)
+name|boolean
+name|isTransactedBy
+parameter_list|(
+name|Object
+name|transactionDefinition
+parameter_list|)
+function_decl|;
+comment|/**      * Mark this UnitOfWork as being transacted by the given transaction definition.      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *<p/>      * When the transaction is completed then invoke the {@link #endTransactedBy(Object)} method.      *      * @param transactionDefinition the transaction definition      */
+DECL|method|beginTransactedBy (Object transactionDefinition)
+name|void
+name|beginTransactedBy
+parameter_list|(
+name|Object
+name|transactionDefinition
+parameter_list|)
+function_decl|;
+comment|/**      * Mark this UnitOfWork as not transacted anymore by the given transaction definition.      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *      * @param transactionDefinition the transaction definition      */
+DECL|method|endTransactedBy (Object transactionDefinition)
+name|void
+name|endTransactedBy
+parameter_list|(
+name|Object
+name|transactionDefinition
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

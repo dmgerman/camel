@@ -4301,7 +4301,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Marks the exchange for rollback only.      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      */
+comment|/**      * Marks the exchange for rollback only.      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnlyLast()      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4323,6 +4323,44 @@ decl_stmt|;
 name|answer
 operator|.
 name|setMarkRollbackOnly
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Marks the exchange for rollback only, but only for the last (current) transaction.      *<p/>      * A last rollback is used when you have nested transactions and only want the last local transaction to rollback,      * where as the outer transaction can still be completed      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnly()      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|markRollbackOnlyLast ()
+specifier|public
+name|Type
+name|markRollbackOnlyLast
+parameter_list|()
+block|{
+name|RollbackDefinition
+name|answer
+init|=
+operator|new
+name|RollbackDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setMarkRollbackOnlyLast
 argument_list|(
 literal|true
 argument_list|)
