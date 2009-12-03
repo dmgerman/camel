@@ -391,7 +391,10 @@ name|bus
 operator|=
 name|BusFactory
 operator|.
-name|getDefaultBus
+name|newInstance
+argument_list|()
+operator|.
+name|createBus
 argument_list|()
 expr_stmt|;
 block|}
