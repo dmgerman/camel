@@ -178,10 +178,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelExecutionException
+name|Exception
 name|e
 parameter_list|)
 block|{

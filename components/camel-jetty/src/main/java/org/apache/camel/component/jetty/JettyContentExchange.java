@@ -582,6 +582,8 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+comment|// just wait a little longer than Jetty itself to be safe
+comment|// as this timeout is a failsafe in case for some reason Jetty does not callback
 name|long
 name|timeout
 init|=
@@ -589,6 +591,8 @@ name|client
 operator|.
 name|getTimeout
 argument_list|()
+operator|+
+literal|5000
 decl_stmt|;
 if|if
 condition|(
@@ -819,17 +823,19 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|exchangeState
-operator|==
-name|HttpExchange
-operator|.
-name|STATUS_EXCEPTED
-condition|)
+else|else
 block|{
 comment|// some kind of other error
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|setException
@@ -845,6 +851,7 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -868,12 +875,8 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
-comment|// make sure to lower the latch
-name|done
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 comment|// some kind of other error
 name|exchange
 operator|.
@@ -895,6 +898,16 @@ name|ex
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// make sure to lower the latch
+name|done
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|callback
