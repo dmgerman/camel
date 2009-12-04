@@ -3376,7 +3376,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|recipientList (Expression recipients)
 specifier|public
-name|Type
+name|RecipientListDefinition
 name|recipientList
 parameter_list|(
 name|Expression
@@ -3398,10 +3398,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @param delimiter  a custom delimiter to use      * @return the builder      */
@@ -3412,7 +3409,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|recipientList (Expression recipients, String delimiter)
 specifier|public
-name|Type
+name|RecipientListDefinition
 name|recipientList
 parameter_list|(
 name|Expression
@@ -3444,10 +3441,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @return the expression clause to configure the expression to decide the destinations      */
@@ -3455,10 +3449,7 @@ DECL|method|recipientList ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
+name|RecipientListDefinition
 argument_list|>
 name|recipientList
 parameter_list|()
@@ -3475,36 +3466,13 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-name|ExpressionClause
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
-argument_list|>
-name|clause
-init|=
-operator|new
-name|ExpressionClause
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
-argument_list|>
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-name|answer
-operator|.
-name|setExpression
-argument_list|(
-name|clause
-argument_list|)
-expr_stmt|;
 return|return
-name|clause
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the builder      */

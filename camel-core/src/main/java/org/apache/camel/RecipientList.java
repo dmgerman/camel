@@ -117,6 +117,43 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|delimiter ()
+name|String
+name|delimiter
+parameter_list|()
+default|default
+literal|","
+function_decl|;
+DECL|method|parallelProcessoing ()
+DECL|field|false
+name|boolean
+name|parallelProcessoing
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+DECL|method|stopOnException ()
+DECL|field|false
+name|boolean
+name|stopOnException
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+DECL|method|strategyRef ()
+name|String
+name|strategyRef
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+DECL|method|executorServiceRef ()
+name|String
+name|executorServiceRef
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

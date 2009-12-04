@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -221,6 +209,22 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorServiceHelper
 import|;
 end_import
 
@@ -567,14 +571,17 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fall back and use default
 name|executorService
 operator|=
-name|Executors
+name|ExecutorServiceHelper
 operator|.
 name|newScheduledThreadPool
 argument_list|(
-literal|5
+literal|10
+argument_list|,
+literal|"Split"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -710,6 +717,8 @@ return|return
 name|this
 return|;
 block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
 DECL|method|getAggregationStrategy ()
 specifier|public
 name|AggregationStrategy
