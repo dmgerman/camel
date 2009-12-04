@@ -158,6 +158,7 @@ operator|>
 literal|4000
 argument_list|)
 expr_stmt|;
+comment|// some OS boxes are slow
 name|assertTrue
 argument_list|(
 literal|"Should not take that long to run: "
@@ -166,7 +167,7 @@ name|delta
 argument_list|,
 name|delta
 operator|<
-literal|9000
+literal|11000
 argument_list|)
 expr_stmt|;
 block|}
