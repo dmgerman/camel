@@ -465,7 +465,7 @@ name|context
 operator|.
 name|getFactoryFinder
 argument_list|(
-literal|"META-INF/services/org/apache/camel/component/"
+literal|"META-INF/services/org/apache/camel/language/"
 argument_list|)
 decl_stmt|;
 name|Class
@@ -478,7 +478,7 @@ name|finder
 operator|.
 name|findClass
 argument_list|(
-literal|"juel"
+literal|"el"
 argument_list|,
 literal|"impl."
 argument_list|)
@@ -528,7 +528,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No impl class for juel ExpressionFactory defined in 'META-INF/services/org/apache/camel/component/el'"
+literal|"No impl class for juel ExpressionFactory defined in 'META-INF/services/org/apache/camel/language/el'"
 argument_list|,
 name|e
 argument_list|)
