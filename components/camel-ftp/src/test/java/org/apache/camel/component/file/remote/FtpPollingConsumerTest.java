@@ -183,9 +183,9 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|5
+literal|3
 argument_list|)
 expr_stmt|;
 name|result
@@ -213,24 +213,6 @@ argument_list|(
 name|FTP_ROOT_DIR
 operator|+
 literal|"polling/done/3.txt"
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedFileExists
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"polling/done/4.txt"
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedFileExists
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"polling/done/5.txt"
 argument_list|)
 expr_stmt|;
 name|PollingConsumer
@@ -394,26 +376,6 @@ argument_list|,
 literal|"Message 3"
 argument_list|,
 literal|"3.txt"
-argument_list|)
-expr_stmt|;
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Message 4"
-argument_list|,
-literal|"4.txt"
-argument_list|)
-expr_stmt|;
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Message 5"
-argument_list|,
-literal|"5.txt"
 argument_list|)
 expr_stmt|;
 block|}
