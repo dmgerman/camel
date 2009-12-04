@@ -151,7 +151,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 operator|.
-name|aggregationStrategy
+name|parallelProcessing
 argument_list|()
 expr_stmt|;
 name|from
