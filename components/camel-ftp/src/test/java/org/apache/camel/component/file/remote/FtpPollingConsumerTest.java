@@ -183,17 +183,9 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|.
-name|expectedBodiesReceivedInAnyOrder
+name|expectedBodiesReceived
 argument_list|(
-literal|"Message 1"
-argument_list|,
-literal|"Message 2"
-argument_list|,
-literal|"Message 3"
-argument_list|,
-literal|"Message 4"
-argument_list|,
-literal|"Message 5"
+literal|5
 argument_list|)
 expr_stmt|;
 name|result
