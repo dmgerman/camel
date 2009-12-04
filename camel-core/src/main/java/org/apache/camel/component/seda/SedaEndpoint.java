@@ -210,6 +210,7 @@ name|BrowsableEndpoint
 block|{
 DECL|field|queue
 specifier|private
+specifier|volatile
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -248,6 +249,7 @@ literal|30000
 decl_stmt|;
 DECL|field|producers
 specifier|private
+specifier|volatile
 name|Set
 argument_list|<
 name|SedaProducer
@@ -263,6 +265,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|consumers
 specifier|private
+specifier|volatile
 name|Set
 argument_list|<
 name|SedaConsumer

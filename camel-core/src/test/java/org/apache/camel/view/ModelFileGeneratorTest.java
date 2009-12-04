@@ -96,6 +96,8 @@ argument_list|(
 name|outputDirectory
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|ModelFileGenerator
 name|generator
 init|=
@@ -124,6 +126,36 @@ name|getRouteDefinitions
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Not supported"
+argument_list|)
+condition|)
+block|{
+comment|// ignore as some OS does not support indent-number etc.
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+block|}
 name|File
 name|out
 init|=
