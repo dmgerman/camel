@@ -177,7 +177,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|doSendMessages
@@ -203,7 +203,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|doSendMessages
@@ -269,6 +269,11 @@ name|responses
 init|=
 operator|new
 name|ConcurrentHashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Future
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -358,10 +363,16 @@ argument_list|)
 expr_stmt|;
 comment|// get all responses
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|unique
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
