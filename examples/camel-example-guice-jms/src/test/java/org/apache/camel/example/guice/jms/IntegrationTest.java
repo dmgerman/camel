@@ -76,6 +76,10 @@ argument_list|,
 literal|"-o"
 argument_list|,
 literal|"target/site/cameldoc"
+argument_list|,
+literal|"-j"
+argument_list|,
+literal|"/guicejndi.properties"
 argument_list|)
 expr_stmt|;
 block|}
