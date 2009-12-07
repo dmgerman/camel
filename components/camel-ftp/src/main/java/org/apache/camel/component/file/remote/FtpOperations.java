@@ -350,8 +350,7 @@ name|FTPFile
 argument_list|>
 block|{
 DECL|field|LOG
-specifier|private
-specifier|static
+specifier|protected
 specifier|final
 specifier|transient
 name|Log
@@ -361,26 +360,28 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|FtpOperations
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|client
-specifier|private
+specifier|protected
 specifier|final
 name|FTPClient
 name|client
 decl_stmt|;
 DECL|field|clientConfig
-specifier|private
+specifier|protected
 specifier|final
 name|FTPClientConfig
 name|clientConfig
 decl_stmt|;
 DECL|field|endpoint
-specifier|private
+specifier|protected
 name|RemoteFileEndpoint
+argument_list|<
+name|FTPFile
+argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|method|FtpOperations (FTPClient client, FTPClientConfig clientConfig)
@@ -407,12 +408,15 @@ operator|=
 name|clientConfig
 expr_stmt|;
 block|}
-DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+DECL|method|setEndpoint (GenericFileEndpoint<FTPFile> endpoint)
 specifier|public
 name|void
 name|setEndpoint
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|FTPFile
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -422,6 +426,9 @@ name|endpoint
 operator|=
 operator|(
 name|RemoteFileEndpoint
+argument_list|<
+name|FTPFile
+argument_list|>
 operator|)
 name|endpoint
 expr_stmt|;
@@ -1411,6 +1418,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|retrieveFileToStreamInBody (String name, Exchange exchange)
 specifier|private
 name|boolean
@@ -1538,6 +1550,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
 specifier|private
 name|boolean

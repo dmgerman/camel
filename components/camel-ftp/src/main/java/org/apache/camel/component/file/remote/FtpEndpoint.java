@@ -153,6 +153,11 @@ DECL|class|FtpEndpoint
 specifier|public
 class|class
 name|FtpEndpoint
+parameter_list|<
+name|T
+extends|extends
+name|FTPFile
+parameter_list|>
 extends|extends
 name|RemoteFileEndpoint
 argument_list|<
@@ -160,17 +165,17 @@ name|FTPFile
 argument_list|>
 block|{
 DECL|field|ftpClient
-specifier|private
+specifier|protected
 name|FTPClient
 name|ftpClient
 decl_stmt|;
 DECL|field|ftpClientConfig
-specifier|private
+specifier|protected
 name|FTPClientConfig
 name|ftpClientConfig
 decl_stmt|;
 DECL|field|ftpClientParameters
-specifier|private
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -180,7 +185,7 @@ argument_list|>
 name|ftpClientParameters
 decl_stmt|;
 DECL|field|ftpClientConfigParameters
-specifier|private
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -194,14 +199,17 @@ specifier|public
 name|FtpEndpoint
 parameter_list|()
 block|{     }
-DECL|method|FtpEndpoint (String uri, FtpComponent component, RemoteFileConfiguration configuration)
+DECL|method|FtpEndpoint (String uri, RemoteFileComponent<FTPFile> component, RemoteFileConfiguration configuration)
 specifier|public
 name|FtpEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|FtpComponent
+name|RemoteFileComponent
+argument_list|<
+name|FTPFile
+argument_list|>
 name|component
 parameter_list|,
 name|RemoteFileConfiguration
@@ -345,8 +353,7 @@ block|{
 comment|// must use a new client if not explicit configured to use a custom client
 name|client
 operator|=
-operator|new
-name|FTPClient
+name|createFtpClient
 argument_list|()
 expr_stmt|;
 block|}
@@ -420,6 +427,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|operations
+return|;
+block|}
+DECL|method|createFtpClient ()
+specifier|protected
+name|FTPClient
+name|createFtpClient
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|FTPClient
+argument_list|()
 return|;
 block|}
 DECL|method|getFtpClient ()

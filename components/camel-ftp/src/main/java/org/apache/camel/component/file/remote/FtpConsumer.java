@@ -118,7 +118,7 @@ name|FTPFile
 argument_list|>
 block|{
 DECL|field|endpointPath
-specifier|private
+specifier|protected
 name|String
 name|endpointPath
 decl_stmt|;
@@ -387,11 +387,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|asRemoteFile (String directory, FTPFile file)
 specifier|private
 name|RemoteFile

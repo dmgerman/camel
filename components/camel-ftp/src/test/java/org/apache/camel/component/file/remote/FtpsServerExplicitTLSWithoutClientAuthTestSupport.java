@@ -20,75 +20,51 @@ name|remote
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
 begin_comment
-comment|/**  * FTP configuration  */
+comment|/**  * Abstract base class for unit testing using a secure FTP Server over TLS (explicit)  * and without client authentication.  *   * @version $Revision$  * @author muellerc  */
 end_comment
 
 begin_class
-DECL|class|FtpConfiguration
+DECL|class|FtpsServerExplicitTLSWithoutClientAuthTestSupport
 specifier|public
+specifier|abstract
 class|class
-name|FtpConfiguration
+name|FtpsServerExplicitTLSWithoutClientAuthTestSupport
 extends|extends
-name|RemoteFileConfiguration
+name|FtpsServerTestSupport
 block|{
-DECL|field|DEFAULT_FTP_PORT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_FTP_PORT
-init|=
-literal|21
-decl_stmt|;
-DECL|method|FtpConfiguration ()
-specifier|public
-name|FtpConfiguration
-parameter_list|()
-block|{
-name|setProtocol
-argument_list|(
-literal|"ftp"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|FtpConfiguration (URI uri)
-specifier|public
-name|FtpConfiguration
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|uri
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setDefaultPort ()
+comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#getClientAuth()      */
+DECL|method|getClientAuth ()
 specifier|protected
-name|void
-name|setDefaultPort
+name|String
+name|getClientAuth
 parameter_list|()
 block|{
-name|setPort
-argument_list|(
-name|DEFAULT_FTP_PORT
-argument_list|)
-expr_stmt|;
+return|return
+literal|"false"
+return|;
+block|}
+comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#useImplicit()      */
+DECL|method|useImplicit ()
+specifier|protected
+name|boolean
+name|useImplicit
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#getAuthValue()      */
+DECL|method|getAuthValue ()
+specifier|protected
+name|String
+name|getAuthValue
+parameter_list|()
+block|{
+return|return
+name|AUTH_VALUE_TLS
+return|;
 block|}
 block|}
 end_class

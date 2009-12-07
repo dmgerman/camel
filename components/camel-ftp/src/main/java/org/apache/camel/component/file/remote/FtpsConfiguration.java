@@ -31,40 +31,45 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP configuration  */
+comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version $Revision$  * @author muellerc  */
 end_comment
 
 begin_class
-DECL|class|FtpConfiguration
+DECL|class|FtpsConfiguration
 specifier|public
 class|class
-name|FtpConfiguration
+name|FtpsConfiguration
 extends|extends
-name|RemoteFileConfiguration
-block|{
-DECL|field|DEFAULT_FTP_PORT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_FTP_PORT
-init|=
-literal|21
-decl_stmt|;
-DECL|method|FtpConfiguration ()
-specifier|public
 name|FtpConfiguration
+block|{
+DECL|field|securityProtocol
+specifier|private
+name|String
+name|securityProtocol
+init|=
+literal|"TLS"
+decl_stmt|;
+DECL|field|isImplicit
+specifier|private
+name|boolean
+name|isImplicit
+init|=
+literal|false
+decl_stmt|;
+DECL|method|FtpsConfiguration ()
+specifier|public
+name|FtpsConfiguration
 parameter_list|()
 block|{
 name|setProtocol
 argument_list|(
-literal|"ftp"
+literal|"ftps"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|FtpConfiguration (URI uri)
+DECL|method|FtpsConfiguration (URI uri)
 specifier|public
-name|FtpConfiguration
+name|FtpsConfiguration
 parameter_list|(
 name|URI
 name|uri
@@ -86,8 +91,64 @@ parameter_list|()
 block|{
 name|setPort
 argument_list|(
-name|DEFAULT_FTP_PORT
+literal|2222
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns the underlying security protocol.      */
+DECL|method|getSecurityProtocol ()
+specifier|public
+name|String
+name|getSecurityProtocol
+parameter_list|()
+block|{
+return|return
+name|securityProtocol
+return|;
+block|}
+comment|/**      * Set the underlying security protocol.      */
+DECL|method|setSecurityProtocol (String securityProtocol)
+specifier|public
+name|void
+name|setSecurityProtocol
+parameter_list|(
+name|String
+name|securityProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securityProtocol
+operator|=
+name|securityProtocol
+expr_stmt|;
+block|}
+comment|/**      * Returns the secutiry mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      *       * @return isImplicit      */
+DECL|method|isImplicit ()
+specifier|public
+name|boolean
+name|isImplicit
+parameter_list|()
+block|{
+return|return
+name|isImplicit
+return|;
+block|}
+comment|/**      * Set the secutiry mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
+DECL|method|setIsImplicit (boolean isImplicit)
+specifier|public
+name|void
+name|setIsImplicit
+parameter_list|(
+name|boolean
+name|isImplicit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isImplicit
+operator|=
+name|isImplicit
 expr_stmt|;
 block|}
 block|}
