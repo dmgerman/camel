@@ -359,6 +359,11 @@ name|get
 argument_list|(
 literal|"test"
 argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
