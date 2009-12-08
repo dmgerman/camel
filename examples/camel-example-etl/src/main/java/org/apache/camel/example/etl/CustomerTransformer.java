@@ -299,13 +299,6 @@ argument_list|(
 name|user
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|persist
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
 return|return
 name|answer
 return|;
