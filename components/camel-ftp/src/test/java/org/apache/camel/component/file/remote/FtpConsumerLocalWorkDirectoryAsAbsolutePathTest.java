@@ -346,11 +346,12 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// give test some time to close file resources
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// now the lwd file should be deleted
@@ -408,6 +409,8 @@ operator|.
 name|toString
 argument_list|(
 name|out
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
