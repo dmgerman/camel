@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A trace event message that contains decomposited information about the traced  * {@link org.apache.camel.Exchange} at the point of interception. The information is stored as snapshot copies  * using String types.  */
+comment|/**  * A trace event message that contains decomposed information about the traced  * {@link org.apache.camel.Exchange} at the point of interception. The information is stored as snapshot copies  * using String types.  */
 end_comment
 
 begin_interface
@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|TraceEventMessage
 block|{
-comment|/**      * Gets the timestamp when the interception occured      */
+comment|/**      * Gets the timestamp when the interception occurred      */
 DECL|method|getTimestamp ()
 name|Date
 name|getTimestamp
@@ -50,13 +50,13 @@ name|String
 name|getFromEndpointUri
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the previous node.      *<p/>      * Will return<tt>null</tt> if this is the first node, then you can use the from endpoint uri      * instread to indicate the start      */
+comment|/**      * Gets the previous node.      *<p/>      * Will return<tt>null</tt> if this is the first node, then you can use the from endpoint uri      * instead to indicate the start      */
 DECL|method|getPreviousNode ()
 name|String
 name|getPreviousNode
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the current node that just have been intercepted and processed      *<p/>      * Is never null.      */
+comment|/**      * Gets the current node that just have been intercepted and processed      *<p/>      * Is never<tt>null</tt>.      */
 DECL|method|getToNode ()
 name|String
 name|getToNode

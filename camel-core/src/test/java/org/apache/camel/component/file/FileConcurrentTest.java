@@ -224,9 +224,9 @@ name|language
 operator|.
 name|simple
 operator|.
-name|FileLanguage
+name|SimpleLanguage
 operator|.
-name|file
+name|simple
 import|;
 end_import
 
@@ -384,7 +384,7 @@ name|setHeader
 argument_list|(
 literal|"id"
 argument_list|,
-name|file
+name|simple
 argument_list|(
 literal|"${file:onlyname.noext}"
 argument_list|)
@@ -513,7 +513,7 @@ name|setHeader
 argument_list|(
 literal|"id"
 argument_list|,
-name|file
+name|simple
 argument_list|(
 literal|"${file:onlyname.noext}"
 argument_list|)

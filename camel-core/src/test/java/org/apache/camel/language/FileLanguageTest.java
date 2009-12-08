@@ -176,7 +176,7 @@ name|language
 operator|.
 name|simple
 operator|.
-name|FileLanguage
+name|SimpleLanguage
 import|;
 end_import
 
@@ -408,9 +408,9 @@ comment|// modified is a Date object
 name|Date
 name|modified
 init|=
-name|FileLanguage
+name|SimpleLanguage
 operator|.
-name|file
+name|simple
 argument_list|(
 literal|"file:modified"
 argument_list|)

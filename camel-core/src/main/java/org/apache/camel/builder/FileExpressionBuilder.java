@@ -103,10 +103,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link org.apache.camel.language.simple.FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
+comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link org.apache.camel.language.simple.FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  * @deprecated will be removed in Camel 2.3  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FileExpressionBuilder
 specifier|public
 specifier|final
