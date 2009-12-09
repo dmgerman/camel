@@ -484,6 +484,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// must have at least one exception
+if|if
+condition|(
+name|getExceptionClasses
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"At least one Exception must be configured to catch"
+argument_list|)
+throw|;
+block|}
 name|Processor
 name|childProcessor
 init|=
