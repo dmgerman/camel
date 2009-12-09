@@ -196,7 +196,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/lwd/?password=admin&delay=5000&localWorkDirectory="
+literal|"/lwd/?password=admin&delay=5000&noop=true&localWorkDirectory="
 operator|+
 name|base
 return|;
