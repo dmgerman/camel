@@ -45,6 +45,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|Tracer
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -86,6 +114,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|/** 	Tracer tracer = new Tracer();         tracer.setLogLevel(LoggingLevel.FATAL);         tracer.setLogName("org.apache.camel.example.etl");         tracer.setLogStackTrace(true);         tracer.setTraceExceptions(true);         **/
 name|from
 argument_list|(
 literal|"file:src/data?noop=true"

@@ -108,6 +108,18 @@ name|JpaTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ClassUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Message Transformer of an XML document to a Customer entity bean  *   * @version $Revision$  */
 end_comment
@@ -141,7 +153,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * A transformation method to convert a person document into a customer      * entity      */
+comment|/**      * A transformation method to convert a person document into a customer      * entity      * @throws Exception       */
 annotation|@
 name|Converter
 DECL|method|toCustomer (PersonDocument doc, Exchange exchange)
@@ -155,6 +167,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|JpaTemplate
 name|template
@@ -194,6 +208,13 @@ decl_stmt|;
 comment|// let's convert information from the document into the entity bean
 name|customer
 operator|.
+name|setUserName
+argument_list|(
+name|user
+argument_list|)
+expr_stmt|;
+name|customer
+operator|.
 name|setFirstName
 argument_list|(
 name|doc
@@ -226,7 +247,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created customer: "
+literal|"Created object customer: "
 operator|+
 name|customer
 argument_list|)
@@ -235,7 +256,7 @@ return|return
 name|customer
 return|;
 block|}
-comment|/**      * Finds a customer for the given username, or creates and inserts a new one      */
+comment|/**      * Finds a customer for the given username      */
 DECL|method|findCustomerByName (JpaTemplate template, String user)
 specifier|protected
 name|CustomerEntity
@@ -247,6 +268,8 @@ parameter_list|,
 name|String
 name|user
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -262,14 +285,7 @@ name|template
 operator|.
 name|find
 argument_list|(
-literal|"select x from "
-operator|+
-name|CustomerEntity
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+literal|"select x from customer"
 operator|+
 literal|" x where x.userName = ?1"
 argument_list|,

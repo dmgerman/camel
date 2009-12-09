@@ -114,7 +114,7 @@ name|Entity
 argument_list|(
 name|name
 operator|=
-literal|"Customer"
+literal|"customer"
 argument_list|)
 annotation|@
 name|XmlRootElement
