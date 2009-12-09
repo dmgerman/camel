@@ -90,6 +90,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|net
@@ -215,7 +229,7 @@ name|getProtocol
 argument_list|()
 return|;
 block|}
-comment|/**      * create the FTPS client.      *       * @throws Exception       */
+comment|/**      * Create the FTPS client.      */
 DECL|method|createFtpClient ()
 specifier|protected
 name|FTPClient
@@ -366,6 +380,8 @@ name|file
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|keyStore
 operator|.
 name|load
@@ -378,11 +394,21 @@ name|toCharArray
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|keyStoreFileInputStream
+block|}
+finally|finally
+block|{
+name|ObjectHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|keyStoreFileInputStream
+argument_list|,
+literal|"keyStore"
+argument_list|,
+name|log
+argument_list|)
 expr_stmt|;
+block|}
 name|KeyManagerFactory
 name|keyMgrFactory
 init|=
@@ -536,6 +562,8 @@ name|file
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|trustStore
 operator|.
 name|load
@@ -548,11 +576,21 @@ name|toCharArray
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|trustStoreFileInputStream
+block|}
+finally|finally
+block|{
+name|ObjectHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|trustStoreFileInputStream
+argument_list|,
+literal|"trustStore"
+argument_list|,
+name|log
+argument_list|)
 expr_stmt|;
+block|}
 name|TrustManagerFactory
 name|trustMgrFactory
 init|=
@@ -618,7 +656,7 @@ name|getConfiguration
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the key store parameter      */
+comment|/**      * Set the key store parameters      */
 DECL|method|setFtpClientKeyStoreParameters (Map<String, Object> param)
 specifier|public
 name|void
@@ -640,7 +678,7 @@ operator|=
 name|param
 expr_stmt|;
 block|}
-comment|/**      * Set the trust store parameter      */
+comment|/**      * Set the trust store parameters      */
 DECL|method|setFtpClientTrustStoreParameters (Map<String, Object> param)
 specifier|public
 name|void

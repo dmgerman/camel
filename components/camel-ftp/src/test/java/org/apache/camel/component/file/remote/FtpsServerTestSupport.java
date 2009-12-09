@@ -271,11 +271,6 @@ argument_list|(
 name|getClientAuth
 argument_list|()
 argument_list|)
-operator|.
-name|booleanValue
-argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 name|sslConfigFactory

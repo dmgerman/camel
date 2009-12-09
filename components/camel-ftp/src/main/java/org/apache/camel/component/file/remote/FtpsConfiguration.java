@@ -53,8 +53,6 @@ DECL|field|isImplicit
 specifier|private
 name|boolean
 name|isImplicit
-init|=
-literal|false
 decl_stmt|;
 DECL|method|FtpsConfiguration ()
 specifier|public
@@ -123,7 +121,7 @@ operator|=
 name|securityProtocol
 expr_stmt|;
 block|}
-comment|/**      * Returns the secutiry mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      *       * @return isImplicit      */
+comment|/**      * Returns the security mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
 DECL|method|isImplicit ()
 specifier|public
 name|boolean
@@ -134,7 +132,7 @@ return|return
 name|isImplicit
 return|;
 block|}
-comment|/**      * Set the secutiry mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
+comment|/**      * Set the security mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
 DECL|method|setIsImplicit (boolean isImplicit)
 specifier|public
 name|void
