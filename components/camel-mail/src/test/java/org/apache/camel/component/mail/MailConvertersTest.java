@@ -128,6 +128,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jvnet
+operator|.
+name|mock_javamail
+operator|.
+name|Mailbox
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -140,6 +152,27 @@ name|MailConvertersTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testMailMessageToString ()

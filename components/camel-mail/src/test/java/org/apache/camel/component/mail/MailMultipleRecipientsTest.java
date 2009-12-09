@@ -227,8 +227,8 @@ literal|"willem"
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e2
-comment|// here we have preconfigued the to recievs to claus and willem. Notice we use comma to seperate
-comment|// the two recipeients. Camel also support using colon as seperator char
+comment|// here we have pre configured the to receivers to claus and willem. Notice we use comma to separate
+comment|// the two recipients. Camel also support using colon as separator char
 name|template
 operator|.
 name|sendBody

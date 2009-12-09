@@ -180,6 +180,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jvnet
+operator|.
+name|mock_javamail
+operator|.
+name|Mailbox
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -492,6 +504,11 @@ block|{
 name|super
 operator|.
 name|setUp
+argument_list|()
+expr_stmt|;
+name|Mailbox
+operator|.
+name|clearAll
 argument_list|()
 expr_stmt|;
 name|endpoint
