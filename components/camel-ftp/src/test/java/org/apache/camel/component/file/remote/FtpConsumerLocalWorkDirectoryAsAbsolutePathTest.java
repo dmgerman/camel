@@ -351,7 +351,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|6000
 argument_list|)
 expr_stmt|;
 comment|// now the lwd file should be deleted

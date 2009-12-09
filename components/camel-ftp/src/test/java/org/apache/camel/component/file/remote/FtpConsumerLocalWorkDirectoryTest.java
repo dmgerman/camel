@@ -180,7 +180,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/lwd/?password=admin&delay=5000&localWorkDirectory=target/lwd"
+literal|"/lwd/?password=admin&delay=5000&localWorkDirectory=target/lwd&noop=true"
 return|;
 block|}
 annotation|@
@@ -222,7 +222,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// prepares the FTP Server by creating a file on the server that we want to unit
+comment|// prepares the FTP Server by creating a file on the server that we want
+comment|// to unit
 comment|// test that we can pool
 name|Endpoint
 name|endpoint
@@ -333,30 +334,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
-comment|// now the lwd file should be deleted
-name|File
-name|local
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/lwd/hello.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Local work file should have been deleted"
-argument_list|,
-name|local
-operator|.
-name|exists
-argument_list|()
+literal|6000
 argument_list|)
 expr_stmt|;
 comment|// and the out file should exists
@@ -394,6 +372,29 @@ name|out
 argument_list|,
 literal|null
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// now the lwd file should be deleted
+name|File
+name|local
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/lwd/hello.txt"
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Local work file should have been deleted"
+argument_list|,
+name|local
+operator|.
+name|exists
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
