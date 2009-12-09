@@ -230,18 +230,6 @@ name|JpaCallback
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|ClassUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -379,6 +367,8 @@ name|createTransactionStrategy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|void
@@ -778,6 +768,8 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|JpaEndpoint
