@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|OnExceptionDefinition
@@ -499,6 +511,16 @@ parameter_list|()
 block|{
 return|return
 literal|false
+return|;
+block|}
+DECL|method|getOutput ()
+specifier|public
+name|Processor
+name|getOutput
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 DECL|method|process (Exchange exchange)

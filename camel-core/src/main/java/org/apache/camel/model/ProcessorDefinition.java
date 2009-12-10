@@ -1204,6 +1204,19 @@ return|return
 name|channel
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|defn
+operator|instanceof
+name|MulticastDefinition
+condition|)
+block|{
+comment|// do not use error handler for multicast based as it offers fine grained error handlers for its outputs
+return|return
+name|channel
+return|;
+block|}
 else|else
 block|{
 comment|// regular definition so add the error handler
@@ -1215,6 +1228,44 @@ operator|.
 name|getOutput
 argument_list|()
 decl_stmt|;
+name|Processor
+name|errorHandler
+init|=
+name|wrapInErrorHandler
+argument_list|(
+name|routeContext
+argument_list|,
+name|output
+argument_list|)
+decl_stmt|;
+comment|// set error handler on channel
+name|channel
+operator|.
+name|setErrorHandler
+argument_list|(
+name|errorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|channel
+return|;
+block|}
+block|}
+comment|/**      * Wraps the given output in an error handler      *      * @param routeContext the route context      * @param output the output      * @return the output wrapped with the error handler      * @throws Exception can be thrown      */
+DECL|method|wrapInErrorHandler (RouteContext routeContext, Processor output)
+specifier|protected
+name|Processor
+name|wrapInErrorHandler
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|output
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// create error handler
 name|ErrorHandlerBuilder
 name|builder
@@ -1234,14 +1285,6 @@ argument_list|,
 name|output
 argument_list|)
 decl_stmt|;
-comment|// set error handler on channel
-name|channel
-operator|.
-name|setErrorHandler
-argument_list|(
-name|errorHandler
-argument_list|)
-expr_stmt|;
 comment|// invoke lifecycles so we can manage this error handler builder
 for|for
 control|(
@@ -1270,9 +1313,8 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|channel
+name|errorHandler
 return|;
-block|}
 block|}
 comment|/**      * Adds the given list of interceptors to the channel.      *      * @param routeContext  the route context      * @param channel       the channel to add strategies      * @param strategies    list of strategies to add.      */
 DECL|method|addInterceptStrategies (RouteContext routeContext, Channel channel, List<InterceptStrategy> strategies)
@@ -1443,6 +1485,8 @@ name|Processor
 argument_list|>
 name|list
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
@@ -1461,6 +1505,8 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new

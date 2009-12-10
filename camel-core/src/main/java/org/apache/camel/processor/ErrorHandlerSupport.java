@@ -441,6 +441,14 @@ name|boolean
 name|supportTransacted
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the output      */
+DECL|method|getOutput ()
+specifier|public
+specifier|abstract
+name|Processor
+name|getOutput
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
