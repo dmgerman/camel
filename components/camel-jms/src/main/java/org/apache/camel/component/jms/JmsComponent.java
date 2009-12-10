@@ -1453,6 +1453,24 @@ name|transactionTimeout
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
+specifier|public
+name|void
+name|setTestConnectionOnStartup
+parameter_list|(
+name|boolean
+name|testConnectionOnStartup
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTestConnectionOnStartup
+argument_list|(
+name|testConnectionOnStartup
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @deprecated will be removed in Camel 2.2      */
 annotation|@
 name|Deprecated
