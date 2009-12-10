@@ -446,6 +446,31 @@ return|return
 literal|null
 return|;
 block|}
+comment|// only convert if there is a body
+if|if
+condition|(
+operator|!
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+operator|||
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// there is no body so return null
+return|return
+literal|null
+return|;
+block|}
 comment|// use type converter so we can convert output in the desired type defined by the method
 comment|// and let it be mandatory so we know wont return null if we cant convert it to the defined type
 name|Object
