@@ -1192,6 +1192,11 @@ name|exchange
 argument_list|,
 name|getEntityType
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 throw|;
 block|}
