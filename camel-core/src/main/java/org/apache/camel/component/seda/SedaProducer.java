@@ -351,6 +351,31 @@ argument_list|(
 name|copy
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|timeout
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for task to complete using timeout (ms): "
+operator|+
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lets see if we can get the task done before the timeout
 name|boolean
 name|done
@@ -384,6 +409,32 @@ argument_list|,
 name|timeout
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for task to complete (blocking)"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// no timeout then wait until its done
+name|latch
+operator|.
+name|await
+argument_list|()
 expr_stmt|;
 block|}
 block|}
