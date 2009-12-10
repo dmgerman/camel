@@ -262,13 +262,6 @@ specifier|private
 name|Date
 name|timeExpected
 decl_stmt|;
-annotation|@
-name|Temporal
-argument_list|(
-name|TemporalType
-operator|.
-name|TIME
-argument_list|)
 DECL|field|timeOverdue
 specifier|private
 name|Date
@@ -281,26 +274,6 @@ name|escalationLevel
 init|=
 literal|0
 decl_stmt|;
-comment|// This crap is required to work around a bug in hibernate
-annotation|@
-name|Override
-annotation|@
-name|Id
-annotation|@
-name|GeneratedValue
-DECL|method|getId ()
-specifier|public
-name|Long
-name|getId
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getId
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()

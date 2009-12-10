@@ -292,7 +292,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/bam/spring.xml"
+literal|"META-INF/spring/spring.xml"
 argument_list|)
 return|;
 block|}

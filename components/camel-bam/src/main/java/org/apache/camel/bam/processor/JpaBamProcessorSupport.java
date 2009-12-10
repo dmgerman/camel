@@ -134,6 +134,20 @@ name|camel
 operator|.
 name|bam
 operator|.
+name|QueryUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|model
 operator|.
 name|ProcessDefinition
@@ -550,6 +564,13 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|">> LoadEntity call"
+argument_list|)
+expr_stmt|;
 name|T
 name|entity
 init|=
@@ -959,11 +980,13 @@ block|{
 return|return
 literal|"select x from "
 operator|+
+name|QueryUtils
+operator|.
+name|getTypeName
+argument_list|(
 name|getEntityType
 argument_list|()
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 operator|+
 literal|" x where x."
 operator|+

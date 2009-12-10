@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a single business process  *  * @version $Revision$  */
+comment|/**  * Represents a single business process  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -469,8 +469,8 @@ name|timeCompleted
 expr_stmt|;
 block|}
 comment|// Helper methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * Returns the activity state for the given activity      *      * @param activityRules the activity to find the state for      * @return the activity state or null if no state could be found for the      *         given activity      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Returns the activity state for the given activity      *       * @param activityRules the activity to find the state for      * @return the activity state or null if no state could be found for the      *         given activity      */
 DECL|method|getActivityState (ActivityRules activityRules)
 specifier|public
 name|ActivityState

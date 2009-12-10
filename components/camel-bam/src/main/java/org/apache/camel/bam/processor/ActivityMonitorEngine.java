@@ -98,6 +98,20 @@ name|camel
 operator|.
 name|bam
 operator|.
+name|QueryUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|model
 operator|.
 name|ActivityState
@@ -241,6 +255,18 @@ operator|.
 name|support
 operator|.
 name|TransactionTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ClassUtils
 import|;
 end_import
 
@@ -472,12 +498,14 @@ name|findByNamedParams
 argument_list|(
 literal|"select x from "
 operator|+
+name|QueryUtils
+operator|.
+name|getTypeName
+argument_list|(
 name|ActivityState
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 operator|+
 literal|" x where x.timeOverdue< :timeNow"
 argument_list|,

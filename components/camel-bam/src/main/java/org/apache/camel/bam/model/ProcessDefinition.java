@@ -54,6 +54,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Column
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|Entity
 import|;
 end_import
@@ -95,6 +105,20 @@ operator|.
 name|persistence
 operator|.
 name|UniqueConstraint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|QueryUtils
 import|;
 end_import
 
@@ -181,18 +205,6 @@ argument_list|(
 name|name
 operator|=
 literal|"CAMEL_PROCESSDEFINITION"
-argument_list|,
-name|uniqueConstraints
-operator|=
-annotation|@
-name|UniqueConstraint
-argument_list|(
-name|columnNames
-operator|=
-block|{
-literal|"name"
-block|}
-argument_list|)
 argument_list|)
 DECL|class|ProcessDefinition
 specifier|public
@@ -223,26 +235,13 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
-comment|// This crap is required to work around a bug in hibernate
 annotation|@
-name|Override
-annotation|@
-name|Id
-annotation|@
-name|GeneratedValue
-DECL|method|getId ()
-specifier|public
-name|Long
-name|getId
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getId
-argument_list|()
-return|;
-block|}
+name|Column
+argument_list|(
+name|unique
+operator|=
+literal|true
+argument_list|)
 DECL|method|getName ()
 specifier|public
 name|String
@@ -401,12 +400,14 @@ name|findByNamedParams
 argument_list|(
 literal|"select x from "
 operator|+
+name|QueryUtils
+operator|.
+name|getTypeName
+argument_list|(
 name|ProcessDefinition
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 operator|+
 literal|" x where x.name = :processName"
 argument_list|,

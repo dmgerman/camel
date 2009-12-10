@@ -38,11 +38,23 @@ name|Id
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|MappedSuperclass
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for persistent entities  *  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|MappedSuperclass
 DECL|class|EntitySupport
 specifier|public
 class|class

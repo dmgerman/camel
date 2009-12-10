@@ -34,6 +34,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Column
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|Entity
 import|;
 end_import
@@ -111,18 +121,6 @@ argument_list|(
 name|name
 operator|=
 literal|"CAMEL_ACTIVITYDEFINITION"
-argument_list|,
-name|uniqueConstraints
-operator|=
-annotation|@
-name|UniqueConstraint
-argument_list|(
-name|columnNames
-operator|=
-block|{
-literal|"name"
-block|}
-argument_list|)
 argument_list|)
 DECL|class|ActivityDefinition
 specifier|public
@@ -141,26 +139,6 @@ specifier|private
 name|ProcessDefinition
 name|processDefinition
 decl_stmt|;
-comment|// This crap is required to work around a bug in hibernate
-annotation|@
-name|Override
-annotation|@
-name|Id
-annotation|@
-name|GeneratedValue
-DECL|method|getId ()
-specifier|public
-name|Long
-name|getId
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getId
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -183,6 +161,13 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Column
+argument_list|(
+name|unique
+operator|=
+literal|true
+argument_list|)
 DECL|method|getName ()
 specifier|public
 name|String
