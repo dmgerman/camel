@@ -202,6 +202,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSortFilesReverse ()
 specifier|public
 name|void

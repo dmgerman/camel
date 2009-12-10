@@ -144,13 +144,6 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"exist"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/exist"
 argument_list|)
 expr_stmt|;

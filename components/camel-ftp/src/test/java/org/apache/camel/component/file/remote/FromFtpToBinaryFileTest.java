@@ -177,11 +177,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-argument_list|)
-expr_stmt|;
 name|prepareFtpServer
 argument_list|()
 expr_stmt|;

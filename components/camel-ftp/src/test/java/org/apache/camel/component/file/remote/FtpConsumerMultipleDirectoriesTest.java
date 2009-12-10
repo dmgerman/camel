@@ -142,54 +142,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"multidir"
-argument_list|)
-expr_stmt|;
 name|prepareFtpServer
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|prepareFtpServer ()
-specifier|private
-name|void
-name|prepareFtpServer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Bye World"
-argument_list|,
-literal|"bye.txt"
-argument_list|)
-expr_stmt|;
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Hello World"
-argument_list|,
-literal|"sub/hello.txt"
-argument_list|)
-expr_stmt|;
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Godday World"
-argument_list|,
-literal|"sub/sub2/godday.txt"
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -407,6 +361,45 @@ name|file
 operator|.
 name|getFileName
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|prepareFtpServer ()
+specifier|private
+name|void
+name|prepareFtpServer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|sendFile
+argument_list|(
+name|getFtpUrl
+argument_list|()
+argument_list|,
+literal|"Bye World"
+argument_list|,
+literal|"bye.txt"
+argument_list|)
+expr_stmt|;
+name|sendFile
+argument_list|(
+name|getFtpUrl
+argument_list|()
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"sub/hello.txt"
+argument_list|)
+expr_stmt|;
+name|sendFile
+argument_list|(
+name|getFtpUrl
+argument_list|()
+argument_list|,
+literal|"Godday World"
+argument_list|,
+literal|"sub/sub2/godday.txt"
 argument_list|)
 expr_stmt|;
 block|}

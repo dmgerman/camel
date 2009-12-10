@@ -142,11 +142,6 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"res/home/thirdpool"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/thridpool"
 argument_list|)
 expr_stmt|;

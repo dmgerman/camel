@@ -91,13 +91,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|""
-argument_list|)
-expr_stmt|;
 name|sendFile
 argument_list|(
 name|getFtpUrl
@@ -145,6 +138,8 @@ operator|.
 name|toString
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

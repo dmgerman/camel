@@ -88,16 +88,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -114,31 +104,6 @@ name|FtpLoginTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"login"
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testBadLogin ()
@@ -212,6 +177,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGoodLogin ()
 specifier|public
 name|void

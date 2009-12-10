@@ -144,6 +144,27 @@ literal|"/tmp3/camel?password=admin&binary=false&fileExist=Override"
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Test
 DECL|method|testFtpRoute ()
 specifier|public
@@ -211,27 +232,6 @@ argument_list|()
 operator|>
 literal|10
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|prepareFtpServer ()

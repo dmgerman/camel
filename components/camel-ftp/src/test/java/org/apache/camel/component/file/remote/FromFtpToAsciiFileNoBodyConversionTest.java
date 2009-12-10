@@ -134,6 +134,27 @@ literal|"/tmp5/camel?password=admin&binary=false"
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Test
 DECL|method|testFromFtpToAsciiFileNoBodyConversion ()
 specifier|public
@@ -164,27 +185,6 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Hello ASCII from FTPServer"
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|prepareFtpServer ()

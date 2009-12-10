@@ -174,13 +174,6 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/incoming"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"./target/ftpsetnamestest"
 argument_list|)
 expr_stmt|;

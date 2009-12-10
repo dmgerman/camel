@@ -133,18 +133,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -159,13 +147,6 @@ name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"filelanguage"
-argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
@@ -204,6 +185,18 @@ argument_list|)
 expr_stmt|;
 return|return
 name|jndi
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 annotation|@

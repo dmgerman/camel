@@ -142,37 +142,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|deleteDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-name|FTP_ROOT_DIR
-argument_list|)
-expr_stmt|;
 name|prepareFtpServer
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|prepareFtpServer ()
-specifier|private
-name|void
-name|prepareFtpServer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|sendFile
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|,
-literal|"Hello World"
-argument_list|,
-literal|"hello.txt"
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -264,6 +235,25 @@ name|file
 operator|.
 name|getFileName
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|prepareFtpServer ()
+specifier|private
+name|void
+name|prepareFtpServer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|sendFile
+argument_list|(
+name|getFtpUrl
+argument_list|()
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 block|}

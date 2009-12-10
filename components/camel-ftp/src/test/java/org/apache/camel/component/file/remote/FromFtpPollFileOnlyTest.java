@@ -134,6 +134,27 @@ literal|"/fileonly/?password=admin"
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Test
 DECL|method|testPollFileOnly ()
 specifier|public
@@ -161,27 +182,6 @@ expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
 argument_list|()
 expr_stmt|;
 block|}

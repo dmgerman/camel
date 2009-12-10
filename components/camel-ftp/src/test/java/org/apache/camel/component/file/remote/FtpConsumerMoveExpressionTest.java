@@ -160,11 +160,6 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"res/home/filelanguage"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/filelanguage"
 argument_list|)
 expr_stmt|;

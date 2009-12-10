@@ -139,27 +139,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deleteDirectory
-argument_list|(
-literal|"./res/home/recover"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry

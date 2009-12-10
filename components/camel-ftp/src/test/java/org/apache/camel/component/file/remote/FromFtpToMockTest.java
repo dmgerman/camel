@@ -72,11 +72,6 @@ name|FromFtpToMockTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|protected
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|field|expectedBody
 specifier|protected
 name|String
