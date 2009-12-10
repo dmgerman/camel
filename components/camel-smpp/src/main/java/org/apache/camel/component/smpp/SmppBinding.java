@@ -470,7 +470,10 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|configuration
+operator|.
+name|getEncoding
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1041,6 +1044,8 @@ operator|new
 name|SmppMessage
 argument_list|(
 name|alertNotification
+argument_list|,
+name|configuration
 argument_list|)
 decl_stmt|;
 name|smppMessage
@@ -1174,6 +1179,8 @@ operator|new
 name|SmppMessage
 argument_list|(
 name|deliverSm
+argument_list|,
+name|configuration
 argument_list|)
 decl_stmt|;
 if|if

@@ -107,17 +107,35 @@ specifier|private
 name|Command
 name|command
 decl_stmt|;
-DECL|method|SmppMessage ()
+DECL|field|configuration
+specifier|private
+name|SmppConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|SmppMessage (SmppConfiguration configuration)
 specifier|public
 name|SmppMessage
-parameter_list|()
-block|{     }
-DECL|method|SmppMessage (AlertNotification command)
+parameter_list|(
+name|SmppConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+DECL|method|SmppMessage (AlertNotification command, SmppConfiguration configuration)
 specifier|public
 name|SmppMessage
 parameter_list|(
 name|AlertNotification
 name|command
+parameter_list|,
+name|SmppConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|this
@@ -126,13 +144,22 @@ name|command
 operator|=
 name|command
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
-DECL|method|SmppMessage (DeliverSm command)
+DECL|method|SmppMessage (DeliverSm command, SmppConfiguration configuration)
 specifier|public
 name|SmppMessage
 parameter_list|(
 name|DeliverSm
 name|command
+parameter_list|,
+name|SmppConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|this
@@ -140,6 +167,12 @@ operator|.
 name|command
 operator|=
 name|command
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -153,7 +186,11 @@ block|{
 return|return
 operator|new
 name|SmppMessage
-argument_list|()
+argument_list|(
+name|this
+operator|.
+name|configuration
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -193,7 +230,10 @@ name|String
 argument_list|(
 name|shortMessage
 argument_list|,
-literal|"ISO-8859-1"
+name|configuration
+operator|.
+name|getEncoding
+argument_list|()
 argument_list|)
 return|;
 block|}
