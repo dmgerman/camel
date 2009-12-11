@@ -253,6 +253,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|getLog
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
@@ -267,6 +276,7 @@ operator|+
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

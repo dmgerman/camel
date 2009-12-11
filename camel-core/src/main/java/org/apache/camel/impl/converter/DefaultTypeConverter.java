@@ -2081,6 +2081,14 @@ literal|true
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -2088,6 +2096,7 @@ argument_list|(
 literal|"Loading type converters ..."
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 for|for
@@ -2135,6 +2144,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -2142,6 +2159,7 @@ argument_list|(
 literal|"Loading type converters done"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|loadFallbackTypeConverters ()

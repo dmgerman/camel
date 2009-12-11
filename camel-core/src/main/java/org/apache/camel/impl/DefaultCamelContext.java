@@ -5445,6 +5445,14 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -5452,6 +5460,7 @@ argument_list|(
 literal|"StreamCaching is enabled"
 argument_list|)
 expr_stmt|;
+block|}
 name|addInterceptStrategy
 argument_list|(
 operator|new
@@ -6101,6 +6110,14 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -6112,6 +6129,7 @@ operator|+
 literal|" is already started"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

@@ -477,6 +477,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -487,6 +495,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -494,6 +503,14 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
 block|{
 name|log
 operator|.
@@ -504,6 +521,7 @@ operator|+
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|BlockingQueue

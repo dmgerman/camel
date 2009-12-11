@@ -636,6 +636,14 @@ name|boolean
 name|sleep
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -643,6 +651,7 @@ argument_list|(
 literal|"Exclusive read lock not granted. Sleeping for 1000 millis."
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Thread
@@ -662,6 +671,14 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -669,6 +686,7 @@ argument_list|(
 literal|"Sleep interrupted while waiting for exclusive read lock, so breaking out"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;

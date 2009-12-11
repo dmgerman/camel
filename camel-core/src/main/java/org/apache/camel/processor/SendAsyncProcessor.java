@@ -1051,6 +1051,14 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -1066,6 +1074,7 @@ argument_list|()
 operator|)
 argument_list|)
 expr_stmt|;
+block|}
 continue|continue;
 block|}
 if|if

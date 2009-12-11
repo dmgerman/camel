@@ -818,6 +818,14 @@ name|absolute
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -829,6 +837,7 @@ operator|+
 literal|"] (could be because of denied permissions)"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

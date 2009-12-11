@@ -618,6 +618,14 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -633,6 +641,7 @@ argument_list|()
 operator|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// continue from top
 continue|continue;
 block|}

@@ -550,6 +550,14 @@ operator|<=
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -557,6 +565,7 @@ argument_list|(
 literal|"Disabling batch size, will only be triggered by timeout"
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|batchSize

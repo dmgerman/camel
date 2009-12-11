@@ -315,6 +315,14 @@ name|prePollCheck
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -322,6 +330,7 @@ argument_list|(
 literal|"Skipping pool as pre poll check returned false"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// gather list of files to process
 name|List
@@ -569,6 +578,14 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -584,6 +601,7 @@ operator|+
 literal|" messages in this poll."
 argument_list|)
 expr_stmt|;
+block|}
 name|total
 operator|=
 name|maxMessagesPerPoll
@@ -837,6 +855,14 @@ operator|!
 name|begin
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -848,6 +874,7 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 comment|// remove file from the in progress list as its no longer in progress
 name|endpoint
 operator|.
