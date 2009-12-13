@@ -1349,7 +1349,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in th registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in th registry.      * @return the referenced object or<code>null</code>.      */
+comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in the registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in the registry.      * @return the referenced object or<code>null</code> if the parameter map       *         doesn't contain the key.      * @throws IllegalArgumentException if a non-null reference was not found in       *         registry.      */
 DECL|method|resolveAndRemoveReferenceParameter (Map<String, Object> parameters, String key, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1389,7 +1389,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in the registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in the registry.      * @param defaultValue  default value to use if either the parameter map doesn't       *                      contain the key or the registry doesn't contain an object      *                      of requested type.      * @return the referenced object, the default value or<code>null</code>.      */
+comment|/**      * Resolves a reference parameter in the registry and removes it from the map.       *       * @param<T>           type of object to lookup in the registry.      * @param parameters    parameter map.      * @param key           parameter map key.      * @param type          type of object to lookup in the registry.      * @param defaultValue  default value to use if the parameter map doesn't       *                      contain the key.      * @return the referenced object or the default value.      * @throws IllegalArgumentException if referenced object was not found in       *         registry.      */
 DECL|method|resolveAndRemoveReferenceParameter (Map<String, Object> parameters, String key, Class<T> type, T defaultValue)
 specifier|public
 parameter_list|<
@@ -1435,17 +1435,18 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|EndpointHelper
-operator|.
-name|isReferenceParameter
-argument_list|(
 name|value
-argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
-name|T
-name|result
-init|=
+return|return
+name|defaultValue
+return|;
+block|}
+else|else
+block|{
+return|return
 name|EndpointHelper
 operator|.
 name|resolveReferenceParameter
@@ -1460,45 +1461,10 @@ argument_list|()
 argument_list|,
 name|type
 argument_list|)
-decl_stmt|;
-return|return
-name|result
-operator|==
-literal|null
-condition|?
-name|defaultValue
-else|:
-name|result
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|defaultValue
-return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Parameter value "
-operator|+
-name|value
-operator|+
-literal|" is not a valid reference"
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @return the list of referenced objects or an empty list, never      *<code>null</code>.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
+comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @return the list of referenced objects or an empty list if the parameter      *         map doesn't contain the key.      * @throws IllegalArgumentException if any of the referenced objects was       *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
 DECL|method|resolveAndRemoveReferenceListParameter (Map<String, Object> parameters, String key, Class<T> elementType)
 specifier|public
 parameter_list|<
@@ -1548,7 +1514,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @param defaultValue      *            default value to use if either the parameter map doesn't      *            contain the key or the lookup for none of the references      *            was successful.      * @return the list of referenced objects, the default value or an empty list, never      *<code>null</code>.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
+comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @param defaultValue      *            default value to use if the parameter map doesn't      *            contain the key.      * @return the list of referenced objects or the default value.      * @throws IllegalArgumentException if any of the referenced objects was       *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
 DECL|method|resolveAndRemoveReferenceListParameter (Map<String, Object> parameters, String key, Class<T> elementType, List<T> defaultValue)
 specifier|public
 parameter_list|<
@@ -1600,20 +1566,18 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|EndpointHelper
-operator|.
-name|isReferenceParameter
-argument_list|(
 name|value
-argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
-name|List
-argument_list|<
-name|T
-argument_list|>
-name|result
-init|=
+return|return
+name|defaultValue
+return|;
+block|}
+else|else
+block|{
+return|return
 name|EndpointHelper
 operator|.
 name|resolveReferenceListParameter
@@ -1628,43 +1592,7 @@ argument_list|()
 argument_list|,
 name|elementType
 argument_list|)
-decl_stmt|;
-return|return
-name|result
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-name|defaultValue
-else|:
-name|result
 return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|defaultValue
-return|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Parameter value "
-operator|+
-name|value
-operator|+
-literal|" is not a valid reference (list)"
-argument_list|)
-throw|;
 block|}
 block|}
 comment|/**      * Returns the reminder of the text if it starts with the prefix.      *<p/>      * Is useable for string parameters that contains commands.      *       * @param prefix  the prefix      * @param text  the text      * @return the reminder, or null if no reminder      */
