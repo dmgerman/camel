@@ -1459,7 +1459,7 @@ name|getErrorHandlerBuilder
 argument_list|()
 decl_stmt|;
 comment|// create error handler (create error handler directly to keep it light weight,
-comment|// instead of using ProcessorDefinitionHelper.wrapInErrorHandler)
+comment|// instead of using ProcessorDefinition.wrapInErrorHandler)
 name|producer
 operator|=
 name|builder
