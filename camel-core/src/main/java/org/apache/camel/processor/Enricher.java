@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.Producer} to obatin the additional data as opposed to {@link PollEnricher}  * that uses a {@link org.apache.camel.PollingConsumer}.  *  * @see PollEnricher  */
+comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.Producer} to obtain the additional data as opposed to {@link PollEnricher}  * that uses a {@link org.apache.camel.PollingConsumer}.  *  * @see PollEnricher  */
 end_comment
 
 begin_class
@@ -337,34 +337,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// aggregate original exchange and resource exchange
-comment|// but do not aggregate if the resource exchange was filtered
-name|Boolean
-name|filtered
-init|=
-name|resourceExchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FILTERED
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|filtered
-operator|==
-literal|null
-operator|||
-operator|!
-name|filtered
-condition|)
-block|{
 comment|// prepare the exchanges for aggregation
 name|ExchangeHelper
 operator|.
@@ -402,28 +374,6 @@ argument_list|,
 name|aggregatedExchange
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Cannot aggregate exchange as its filtered: "
-operator|+
-name|resourceExchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}

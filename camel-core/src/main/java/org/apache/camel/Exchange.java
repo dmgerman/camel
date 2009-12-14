@@ -218,12 +218,6 @@ name|FILE_PARENT
 init|=
 literal|"CamelFileParent"
 decl_stmt|;
-DECL|field|FILTERED
-name|String
-name|FILTERED
-init|=
-literal|"CamelFiltered"
-decl_stmt|;
 DECL|field|GROUPED_EXCHANGE
 name|String
 name|GROUPED_EXCHANGE

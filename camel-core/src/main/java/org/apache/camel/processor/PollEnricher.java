@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -167,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link org.apache.camel.processor.aggregate.AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.PollingConsumer} to obatin the additional data as opposed to {@link Enricher}  * that uses a {@link org.apache.camel.Producer}.  *  * @see Enricher  */
+comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link org.apache.camel.processor.aggregate.AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.PollingConsumer} to obtain the additional data as opposed to {@link Enricher}  * that uses a {@link org.apache.camel.Producer}.  *  * @see Enricher  */
 end_comment
 
 begin_class
@@ -500,46 +488,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// aggregate original exchange and resource exchange
-comment|// but do not aggregate if the resource exchange was filtered
-name|Boolean
-name|filtered
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|resourceExchange
-operator|!=
-literal|null
-condition|)
-block|{
-name|filtered
-operator|=
-name|resourceExchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FILTERED
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|filtered
-operator|==
-literal|null
-operator|||
-operator|!
-name|filtered
-condition|)
-block|{
 comment|// prepare the exchanges for aggregation
 name|ExchangeHelper
 operator|.
@@ -577,28 +525,6 @@ argument_list|,
 name|aggregatedExchange
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Cannot aggregate exchange as its filtered: "
-operator|+
-name|resourceExchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -726,38 +652,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-comment|/**      * Creates a new {@link org.apache.camel.impl.DefaultExchange} instance from the given      *<code>exchange</code>. The resulting exchange's pattern is defined by      *<code>pattern</code>.      *      * @param source  exchange to copy from.      * @param pattern exchange pattern to set.      * @return created exchange.      */
-DECL|method|createResourceExchange (Exchange source, ExchangePattern pattern)
-specifier|protected
-name|Exchange
-name|createResourceExchange
-parameter_list|(
-name|Exchange
-name|source
-parameter_list|,
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-name|Exchange
-name|target
-init|=
-name|source
-operator|.
-name|copy
-argument_list|()
-decl_stmt|;
-name|target
-operator|.
-name|setPattern
-argument_list|(
-name|pattern
-argument_list|)
-expr_stmt|;
-return|return
-name|target
-return|;
 block|}
 DECL|method|prepareResult (Exchange exchange)
 specifier|private

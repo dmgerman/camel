@@ -1527,37 +1527,11 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// only aggregate if the exchange is not filtered (eg by the FilterProcessor)
-name|Boolean
-name|filtered
-init|=
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FILTERED
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|aggregationStrategy
 operator|!=
 literal|null
-operator|&&
-operator|(
-name|filtered
-operator|==
-literal|null
-operator|||
-operator|!
-name|filtered
-operator|)
 condition|)
 block|{
 comment|// prepare the exchanges for aggregation
@@ -1592,27 +1566,6 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Cannot aggregate exchange as its filtered: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs)

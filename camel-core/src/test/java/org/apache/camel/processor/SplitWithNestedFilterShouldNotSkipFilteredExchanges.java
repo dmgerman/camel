@@ -53,16 +53,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that Splitter aggregator does not included filtered exchanges.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify that Splitter aggregator always include any exchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SplitWithNestedFilterShouldSkipFilteredExchanges
+DECL|class|SplitWithNestedFilterShouldNotSkipFilteredExchanges
 specifier|public
 class|class
-name|SplitWithNestedFilterShouldSkipFilteredExchanges
+name|SplitWithNestedFilterShouldNotSkipFilteredExchanges
 extends|extends
-name|SplitShouldSkipFilteredExchanges
+name|SplitShouldNotSkipFilteredExchanges
 block|{
 annotation|@
 name|Override
