@@ -102,6 +102,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Synchronization
 import|;
 end_import
@@ -252,6 +266,11 @@ argument_list|<
 name|Object
 argument_list|>
 name|transactedBy
+decl_stmt|;
+DECL|field|routeContext
+specifier|private
+name|RouteContext
+name|routeContext
 decl_stmt|;
 DECL|method|DefaultUnitOfWork (Exchange exchange)
 specifier|public
@@ -430,6 +449,10 @@ argument_list|()
 expr_stmt|;
 block|}
 name|originalInMessage
+operator|=
+literal|null
+expr_stmt|;
+name|routeContext
 operator|=
 literal|null
 expr_stmt|;
@@ -808,6 +831,32 @@ name|remove
 argument_list|(
 name|transactionDefinition
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRouteContext ()
+specifier|public
+name|RouteContext
+name|getRouteContext
+parameter_list|()
+block|{
+return|return
+name|routeContext
+return|;
+block|}
+DECL|method|setRouteContext (RouteContext routeContext)
+specifier|public
+name|void
+name|setRouteContext
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
 expr_stmt|;
 block|}
 DECL|method|getTransactedBy ()

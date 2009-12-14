@@ -131,6 +131,21 @@ name|Object
 name|transactionDefinition
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @return the route context      */
+DECL|method|getRouteContext ()
+name|RouteContext
+name|getRouteContext
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @param routeContext the route context      */
+DECL|method|setRouteContext (RouteContext routeContext)
+name|void
+name|setRouteContext
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

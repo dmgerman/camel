@@ -902,6 +902,7 @@ name|Exception
 block|{
 comment|// only done if the exchange hasn't failed
 comment|// and it has not been handled by the failure processor
+comment|// or we are exhausted
 return|return
 name|exchange
 operator|.
@@ -913,6 +914,13 @@ operator|||
 name|ExchangeHelper
 operator|.
 name|isFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
+operator|||
+name|ExchangeHelper
+operator|.
+name|isRedelieryExhausted
 argument_list|(
 name|exchange
 argument_list|)

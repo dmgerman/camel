@@ -377,6 +377,8 @@ operator|=
 operator|new
 name|UnitOfWorkProcessor
 argument_list|(
+name|routeContext
+argument_list|,
 name|childProcessor
 argument_list|)
 expr_stmt|;

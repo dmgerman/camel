@@ -55,6 +55,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -83,6 +97,12 @@ name|UnitOfWorkProcessor
 extends|extends
 name|DelegateProcessor
 block|{
+DECL|field|routeContext
+specifier|private
+specifier|final
+name|RouteContext
+name|routeContext
+decl_stmt|;
 DECL|method|UnitOfWorkProcessor (Processor processor)
 specifier|public
 name|UnitOfWorkProcessor
@@ -91,10 +111,35 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|UnitOfWorkProcessor (RouteContext routeContext, Processor processor)
+specifier|public
+name|UnitOfWorkProcessor
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
 expr_stmt|;
 block|}
 annotation|@

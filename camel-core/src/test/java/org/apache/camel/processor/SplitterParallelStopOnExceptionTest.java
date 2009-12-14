@@ -294,7 +294,7 @@ operator|.
 name|getMessage
 argument_list|()
 operator|.
-name|endsWith
+name|contains
 argument_list|(
 literal|"on the exchange: Exchange[Message: Kaboom]"
 argument_list|)

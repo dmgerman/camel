@@ -839,6 +839,8 @@ init|=
 operator|new
 name|UnitOfWorkProcessor
 argument_list|(
+name|this
+argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;

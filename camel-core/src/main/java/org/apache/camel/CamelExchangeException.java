@@ -93,6 +93,8 @@ argument_list|(
 name|message
 argument_list|,
 name|exchange
+argument_list|,
+name|cause
 argument_list|)
 argument_list|,
 name|cause
@@ -135,6 +137,50 @@ operator|+
 literal|" on the exchange: "
 operator|+
 name|exchange
+return|;
+block|}
+DECL|method|createMessage (String message, Exchange exchange, Throwable cause)
+specifier|protected
+specifier|static
+name|String
+name|createMessage
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+return|return
+name|createMessage
+argument_list|(
+name|message
+argument_list|,
+name|exchange
+argument_list|)
+operator|+
+literal|". Cause by: ["
+operator|+
+name|cause
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" - "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

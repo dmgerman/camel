@@ -1210,9 +1210,13 @@ condition|(
 name|defn
 operator|instanceof
 name|MulticastDefinition
+operator|||
+name|defn
+operator|instanceof
+name|RecipientListDefinition
 condition|)
 block|{
-comment|// do not use error handler for multicast based as it offers fine grained error handlers for its outputs
+comment|// do not use error handler for multicast or recipientlist based as it offers fine grained error handlers for its outputs
 return|return
 name|channel
 return|;
@@ -1235,6 +1239,9 @@ name|wrapInErrorHandler
 argument_list|(
 name|routeContext
 argument_list|,
+name|getErrorHandlerBuilder
+argument_list|()
+argument_list|,
 name|output
 argument_list|)
 decl_stmt|;
@@ -1251,14 +1258,17 @@ name|channel
 return|;
 block|}
 block|}
-comment|/**      * Wraps the given output in an error handler      *      * @param routeContext the route context      * @param output the output      * @return the output wrapped with the error handler      * @throws Exception can be thrown      */
-DECL|method|wrapInErrorHandler (RouteContext routeContext, Processor output)
+comment|/**      * Wraps the given output in an error handler      *      * @param routeContext the route context      * @param output the output      * @return the output wrapped with the error handler      * @throws Exception can be thrown if failed to create error handler builder      */
+DECL|method|wrapInErrorHandler (RouteContext routeContext, ErrorHandlerBuilder builder, Processor output)
 specifier|protected
 name|Processor
 name|wrapInErrorHandler
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|ErrorHandlerBuilder
+name|builder
 parameter_list|,
 name|Processor
 name|output
@@ -1267,12 +1277,6 @@ throws|throws
 name|Exception
 block|{
 comment|// create error handler
-name|ErrorHandlerBuilder
-name|builder
-init|=
-name|getErrorHandlerBuilder
-argument_list|()
-decl_stmt|;
 name|Processor
 name|errorHandler
 init|=

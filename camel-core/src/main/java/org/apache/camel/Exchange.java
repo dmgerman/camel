@@ -344,6 +344,12 @@ name|REDELIVERY_COUNTER
 init|=
 literal|"CamelRedeliveryCounter"
 decl_stmt|;
+DECL|field|REDELIVERY_EXHAUSTED
+name|String
+name|REDELIVERY_EXHAUSTED
+init|=
+literal|"CamelRedeliveryExhausted"
+decl_stmt|;
 DECL|field|ROLLBACK_ONLY
 name|String
 name|ROLLBACK_ONLY

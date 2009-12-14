@@ -47,10 +47,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MulticastFineGrainedErrorHandlingTest
+DECL|class|MulticastParallelFineGrainedErrorHandlingTest
 specifier|public
 class|class
-name|MulticastFineGrainedErrorHandlingTest
+name|MulticastParallelFineGrainedErrorHandlingTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -105,6 +105,9 @@ name|multicast
 argument_list|()
 operator|.
 name|stopOnException
+argument_list|()
+operator|.
+name|parallelProcessing
 argument_list|()
 operator|.
 name|to
@@ -231,6 +234,9 @@ operator|.
 name|stopOnException
 argument_list|()
 operator|.
+name|parallelProcessing
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:foo"
@@ -298,7 +304,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 try|try

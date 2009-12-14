@@ -250,14 +250,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Sequential processing failed for number 1 on the exchange: Exchange[Message: Kaboom]"
-argument_list|,
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Sequential processing failed for number 1 on the exchange: Exchange[Message: Kaboom]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -178,6 +178,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -226,6 +238,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -245,6 +271,20 @@ operator|.
 name|aggregate
 operator|.
 name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
 import|;
 end_import
 
@@ -494,7 +534,6 @@ block|}
 block|}
 DECL|field|processors
 specifier|private
-specifier|final
 name|Collection
 argument_list|<
 name|Processor
@@ -529,6 +568,11 @@ DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
+decl_stmt|;
+DECL|field|channel
+specifier|private
+name|Channel
+name|channel
 decl_stmt|;
 DECL|method|MulticastProcessor (Collection<Processor> processors)
 specifier|public
@@ -709,6 +753,32 @@ return|return
 literal|"multicast"
 return|;
 block|}
+DECL|method|getChannel ()
+specifier|public
+name|Channel
+name|getChannel
+parameter_list|()
+block|{
+return|return
+name|channel
+return|;
+block|}
+DECL|method|setChannel (Channel channel)
+specifier|public
+name|void
+name|setChannel
+parameter_list|(
+name|Channel
+name|channel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channel
+operator|=
+name|channel
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -740,6 +810,10 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// multicast uses fine grained error handling on the output processors
+comment|// so use try .. catch to cater for this
+try|try
+block|{
 if|if
 condition|(
 name|isParallelProcessing
@@ -787,6 +861,37 @@ name|result
 operator|.
 name|get
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1307,6 +1412,66 @@ argument_list|,
 name|producer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap the producer in error handler so we have fine grained error handling on
+comment|// the output side instead of the input side
+comment|// this is needed to support redelivery on that output alone and not doing redelivery
+comment|// for the entire multicast block again which will start from scratch again
+name|RouteContext
+name|routeContext
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+decl_stmt|;
+name|ErrorHandlerBuilder
+name|builder
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+comment|// create error handler (create error handler directly to keep it light weight,
+comment|// instead of using ProcessorDefinitionHelper.wrapInErrorHandler)
+name|producer
+operator|=
+name|builder
+operator|.
+name|createErrorHandler
+argument_list|(
+name|routeContext
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
+block|}
 comment|// let the producer process it
 name|producer
 operator|.

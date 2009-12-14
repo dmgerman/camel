@@ -187,13 +187,19 @@ name|Processor
 name|getNextProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the defintion of the next processor      *      * @return the processor definition      */
+comment|/**      * Gets the definition of the next processor      *      * @return the processor definition      */
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
 name|getProcessorDefinition
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link RouteContext}      *      * @return the route context      */
+DECL|method|getRouteContext ()
+name|RouteContext
+name|getRouteContext
 parameter_list|()
 function_decl|;
 block|}

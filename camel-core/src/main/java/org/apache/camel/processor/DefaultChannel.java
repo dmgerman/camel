@@ -337,6 +337,11 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|routeContext
+specifier|private
+name|RouteContext
+name|routeContext
+decl_stmt|;
 DECL|method|next ()
 specifier|public
 name|List
@@ -592,6 +597,16 @@ operator|=
 name|childDefinition
 expr_stmt|;
 block|}
+DECL|method|getRouteContext ()
+specifier|public
+name|RouteContext
+name|getRouteContext
+parameter_list|()
+block|{
+return|return
+name|routeContext
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -649,6 +664,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
+expr_stmt|;
 name|this
 operator|.
 name|definition
@@ -968,6 +989,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// keep route context up to date
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|setRouteContext
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
 name|Processor
 name|processor
 init|=
