@@ -1343,7 +1343,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"This method is already overriden in a subclass, so the method from the sub class is prefered: "
+literal|"This method is already overriden in a subclass, so the method from the sub class is preferred: "
 operator|+
 name|existingMethodInfo
 argument_list|)
@@ -2569,7 +2569,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No possible methods trying to convert body to parameter types"
+literal|"No possible methods so now trying to convert body to parameter types"
 argument_list|)
 expr_stmt|;
 block|}
