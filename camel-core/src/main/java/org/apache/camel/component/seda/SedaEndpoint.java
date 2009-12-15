@@ -138,6 +138,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -207,6 +219,8 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|BrowsableEndpoint
+implements|,
+name|MultipleConsumersSupport
 block|{
 DECL|field|queue
 specifier|private
@@ -230,6 +244,11 @@ name|int
 name|concurrentConsumers
 init|=
 literal|1
+decl_stmt|;
+DECL|field|multipleConsumers
+specifier|private
+name|boolean
+name|multipleConsumers
 decl_stmt|;
 DECL|field|waitForTaskToComplete
 specifier|private
@@ -614,6 +633,32 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+DECL|method|isMultipleConsumers ()
+specifier|public
+name|boolean
+name|isMultipleConsumers
+parameter_list|()
+block|{
+return|return
+name|multipleConsumers
+return|;
+block|}
+DECL|method|setMultipleConsumers (boolean multipleConsumers)
+specifier|public
+name|void
+name|setMultipleConsumers
+parameter_list|(
+name|boolean
+name|multipleConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|multipleConsumers
+operator|=
+name|multipleConsumers
+expr_stmt|;
+block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -644,6 +689,17 @@ argument_list|(
 name|getQueue
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+return|return
+name|isMultipleConsumers
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns the current active consumers on this endpoint      */
