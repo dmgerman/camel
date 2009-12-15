@@ -202,7 +202,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|1500
 argument_list|)
 expr_stmt|;
 name|Integer
@@ -237,7 +237,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|Long
@@ -297,24 +297,24 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 2 sec: was "
+literal|"Should take around 3 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|1900
+literal|2900
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 2 sec: was "
+literal|"Should take around 3 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|1900
+literal|2900
 argument_list|)
 expr_stmt|;
 comment|// send in another message
@@ -381,24 +381,24 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 2 sec: was "
+literal|"Should take around 3 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|1900
+literal|2900
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be around 4 sec now: was "
+literal|"Should be around 5 sec now: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|3900
+literal|4900
 argument_list|)
 expr_stmt|;
 name|Date
@@ -502,7 +502,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 operator|.
 name|to
