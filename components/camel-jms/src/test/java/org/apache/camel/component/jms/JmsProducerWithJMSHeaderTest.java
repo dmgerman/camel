@@ -896,7 +896,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -907,6 +907,8 @@ operator|.
 name|receive
 argument_list|(
 literal|"activemq:queue:bar"
+argument_list|,
+literal|5000
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -923,6 +925,13 @@ argument_list|(
 literal|"activemq:queue:foo?preserveMessageQos=true"
 argument_list|,
 name|bar
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
