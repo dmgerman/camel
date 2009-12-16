@@ -5041,7 +5041,7 @@ return|return
 name|replyToTempDestinationAffinity
 return|;
 block|}
-DECL|method|setReplyToTempDestinationAffinity ( String replyToTempDestinationAffinity)
+DECL|method|setReplyToTempDestinationAffinity (String replyToTempDestinationAffinity)
 specifier|public
 name|void
 name|setReplyToTempDestinationAffinity

@@ -998,7 +998,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// the producers will be stopped from where they are acquired
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|producers
+argument_list|)
+expr_stmt|;
 name|producers
 operator|.
 name|clear
