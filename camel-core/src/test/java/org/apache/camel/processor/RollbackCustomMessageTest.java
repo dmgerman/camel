@@ -123,7 +123,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"boo on the exchange: Exchange[Message: Hello World]"
+literal|"boo. Exchange[Message: Hello World]"
 argument_list|,
 name|e
 operator|.

@@ -120,6 +120,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -572,7 +586,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// log exception if an exception occurred and was not handled
 if|if
 condition|(
 name|exchange
@@ -583,33 +596,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|error
+comment|// propagate the exception back to Quartz
+throw|throw
+operator|new
+name|JobExecutionException
 argument_list|(
-literal|"Quart Job processing Exchange: "
-operator|+
-name|exchange
-operator|+
-literal|" failed with exception."
-argument_list|,
 name|exchange
 operator|.
 name|getException
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|JobExecutionException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
 throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -617,6 +615,38 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// log the error
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|ExchangeHelper
+operator|.
+name|createExceptionMessage
+argument_list|(
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// and rethrow to let quartz handle it
+if|if
+condition|(
+name|e
+operator|instanceof
+name|JobExecutionException
+condition|)
+block|{
+throw|throw
+operator|(
+name|JobExecutionException
+operator|)
+name|e
+throw|;
+block|}
 throw|throw
 operator|new
 name|JobExecutionException

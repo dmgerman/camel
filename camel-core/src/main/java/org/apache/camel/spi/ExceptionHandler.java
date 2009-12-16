@@ -16,6 +16,18 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers  *  * @version $Revision$  */
 end_comment
@@ -31,6 +43,33 @@ DECL|method|handleException (Throwable exception)
 name|void
 name|handleException
 parameter_list|(
+name|Throwable
+name|exception
+parameter_list|)
+function_decl|;
+comment|/**      * Handles the given exception      *      * @param message additional message      * @param exception the exception      */
+DECL|method|handleException (String message, Throwable exception)
+name|void
+name|handleException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|exception
+parameter_list|)
+function_decl|;
+comment|/**      * Handles the given exception      *      * @param message additional message      * @param exchange exchange which cause the exception      * @param exception the exception      */
+DECL|method|handleException (String message, Exchange exchange, Throwable exception)
+name|void
+name|handleException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
 name|Throwable
 name|exception
 parameter_list|)

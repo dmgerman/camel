@@ -499,6 +499,33 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// log exception if an exception occurred and was not handled
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -511,6 +538,10 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

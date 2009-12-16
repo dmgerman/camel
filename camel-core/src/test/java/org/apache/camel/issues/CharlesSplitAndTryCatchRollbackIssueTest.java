@@ -372,7 +372,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 2 on the exchange: Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 2. Exchange[Message: Kaboom]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -393,7 +393,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Intended rollback on the exchange: Exchange[Message: Kaboom]"
+literal|"Intended rollback. Exchange[Message: Kaboom]"
 argument_list|,
 name|re
 operator|.
@@ -508,7 +508,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 3 on the exchange: Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 3. Exchange[Message: Kaboom]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -529,7 +529,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Intended rollback on the exchange: Exchange[Message: Kaboom]"
+literal|"Intended rollback. Exchange[Message: Kaboom]"
 argument_list|,
 name|re
 operator|.

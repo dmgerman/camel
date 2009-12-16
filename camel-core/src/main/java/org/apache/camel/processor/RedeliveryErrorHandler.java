@@ -1052,7 +1052,7 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
-name|Throwable
+name|Exception
 name|e
 init|=
 name|exchange
@@ -1331,6 +1331,14 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+name|Exception
+name|caught
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
 comment|// we did not success with the redelivery so now we let the failure processor handle it
 comment|// clear exception as we let the failure processor handle it
 name|exchange
@@ -1527,6 +1535,8 @@ argument_list|(
 literal|"Failure processor done"
 argument_list|)
 expr_stmt|;
+block|}
+comment|// create log message
 name|String
 name|msg
 init|=
@@ -1536,11 +1546,38 @@ name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
+decl_stmt|;
+name|msg
+operator|=
+name|msg
+operator|+
+literal|". Exhausted after delivery attempt: "
+operator|+
+name|data
+operator|.
+name|redeliveryCounter
+operator|+
+literal|" caught: "
+operator|+
+name|caught
+expr_stmt|;
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|=
+name|msg
 operator|+
 literal|". Processed by failure processor: "
 operator|+
 name|processor
-decl_stmt|;
+expr_stmt|;
+block|}
+comment|// log that we failed delivery as we are exhausted
 name|logFailedDelivery
 argument_list|(
 literal|false
@@ -1554,7 +1591,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data)
 specifier|protected
@@ -1929,7 +1965,7 @@ operator|.
 name|FATAL
 condition|)
 block|{
-comment|// log intented rollback on maximum WARN level (no ERROR or FATAL)
+comment|// log intended rollback on maximum WARN level (no ERROR or FATAL)
 name|logger
 operator|.
 name|log

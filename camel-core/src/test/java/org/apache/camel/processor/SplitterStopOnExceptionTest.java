@@ -227,7 +227,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 1 on the exchange: Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 1. Exchange[Message: Kaboom]"
 argument_list|)
 argument_list|)
 expr_stmt|;

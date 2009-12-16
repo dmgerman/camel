@@ -296,7 +296,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"on the exchange: Exchange[Message: Kaboom]"
+literal|"Exchange[Message: Kaboom]"
 argument_list|)
 argument_list|)
 expr_stmt|;

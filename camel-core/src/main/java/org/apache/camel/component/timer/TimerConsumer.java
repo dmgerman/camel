@@ -562,8 +562,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
 name|handleException
 argument_list|(
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
 name|exchange
 operator|.
 name|getException
@@ -578,9 +585,19 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
 name|handleException
 argument_list|(
-name|e
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
