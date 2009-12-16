@@ -480,6 +480,10 @@ decl_stmt|;
 comment|// configure http proxy from camelContext
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
@@ -490,9 +494,12 @@ name|get
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
@@ -503,8 +510,7 @@ name|get
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|String
