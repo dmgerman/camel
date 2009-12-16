@@ -477,22 +477,29 @@ name|getClientParams
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// configure http proxy if defined as system property
-comment|// http://java.sun.com/javase/6/docs/technotes/guides/net/proxies.html
+comment|// configure http proxy from camelContext
 if|if
 condition|(
-name|System
+name|getCamelContext
+argument_list|()
 operator|.
-name|getProperty
+name|getProperties
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
 operator|!=
 literal|null
 operator|&&
-name|System
+name|getCamelContext
+argument_list|()
 operator|.
-name|getProperty
+name|getProperties
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -503,9 +510,13 @@ block|{
 name|String
 name|host
 init|=
-name|System
+name|getCamelContext
+argument_list|()
 operator|.
-name|getProperty
+name|getProperties
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -517,9 +528,13 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|System
+name|getCamelContext
+argument_list|()
 operator|.
-name|getProperty
+name|getProperties
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -537,7 +552,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Java System Property http.proxyHost and http.proxyPort detected. Using http proxy host: "
+literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: "
 operator|+
 name|host
 operator|+
