@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * As we have the JAXB FallbackTypeConverter, so we don't need to register this converter  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -239,18 +239,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Converter
-DECL|method|toSource (@asAnnotationXmlRootElement.class)Object value)
+DECL|method|toSource (Object value)
 specifier|public
 name|JAXBSource
 name|toSource
 parameter_list|(
-annotation|@
-name|HasAnnotation
-argument_list|(
-name|XmlRootElement
-operator|.
-name|class
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -272,6 +265,24 @@ literal|"Cannot convert from null value to JAXBSource"
 argument_list|)
 throw|;
 block|}
+comment|// just need to check if the Object class has the XmlRootElement
+if|if
+condition|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getAnnotation
+argument_list|(
+name|XmlRootElement
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
 name|JAXBContext
 name|context
 init|=
@@ -290,20 +301,20 @@ name|value
 argument_list|)
 return|;
 block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 annotation|@
 name|Converter
-DECL|method|toDocument (@asAnnotationXmlRootElement.class)Object value)
+DECL|method|toDocument (Object value)
 specifier|public
 name|Document
 name|toDocument
 parameter_list|(
-annotation|@
-name|HasAnnotation
-argument_list|(
-name|XmlRootElement
-operator|.
-name|class
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -327,6 +338,23 @@ literal|"Cannot convert from null value to JAXBSource"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getAnnotation
+argument_list|(
+name|XmlRootElement
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
 name|JAXBContext
 name|context
 init|=
@@ -335,7 +363,7 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-comment|// must create a new instance of marshaller as its not thred safe
+comment|// must create a new instance of marshaller as its not thread safe
 name|Marshaller
 name|marshaller
 init|=
@@ -364,6 +392,13 @@ expr_stmt|;
 return|return
 name|doc
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 annotation|@
 name|Converter
