@@ -916,7 +916,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|bean
@@ -1141,7 +1141,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|)
 expr_stmt|;

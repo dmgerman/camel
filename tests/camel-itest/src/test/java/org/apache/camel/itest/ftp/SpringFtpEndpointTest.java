@@ -295,7 +295,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"myFTPEndpoint"
 argument_list|)

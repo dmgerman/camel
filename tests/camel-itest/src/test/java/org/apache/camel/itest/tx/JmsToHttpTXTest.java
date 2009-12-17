@@ -138,11 +138,11 @@ name|mock
 decl_stmt|;
 comment|// use the spring id to refer to the endpoint we should send data to
 comment|// notice using this id we can setup the actual endpoint in spring XML
-comment|// and we can even use spring ${ } propertiy in the spring XML
+comment|// and we can even use spring ${ } property in the spring XML
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"data"
 argument_list|)

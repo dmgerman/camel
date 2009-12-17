@@ -171,7 +171,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"myFileEndpoint"
 argument_list|)

@@ -455,7 +455,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -606,7 +606,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -776,7 +776,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -928,7 +928,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -1069,7 +1069,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -1212,7 +1212,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -1325,7 +1325,7 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|name
+name|ref
 argument_list|()
 argument_list|,
 name|propertyName
@@ -1659,7 +1659,7 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"unknown"
 argument_list|)

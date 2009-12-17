@@ -191,7 +191,7 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"namedEndpoint1"
 argument_list|)

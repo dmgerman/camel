@@ -213,7 +213,7 @@ name|endpointRef
 init|=
 name|inject
 operator|.
-name|name
+name|ref
 argument_list|()
 decl_stmt|;
 return|return
@@ -294,7 +294,7 @@ name|endpointRef
 init|=
 name|inject
 operator|.
-name|name
+name|ref
 argument_list|()
 decl_stmt|;
 name|String

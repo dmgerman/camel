@@ -149,7 +149,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"result"
 argument_list|)

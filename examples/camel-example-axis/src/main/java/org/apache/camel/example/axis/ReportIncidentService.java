@@ -87,7 +87,7 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|name
+name|ref
 operator|=
 literal|"backup"
 argument_list|)
