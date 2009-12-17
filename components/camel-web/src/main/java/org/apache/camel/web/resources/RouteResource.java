@@ -599,6 +599,8 @@ block|,
 name|MediaType
 operator|.
 name|APPLICATION_JSON
+block|,
+literal|"text/json"
 block|}
 argument_list|)
 DECL|method|getRoute ()
@@ -819,6 +821,8 @@ block|,
 name|MediaType
 operator|.
 name|APPLICATION_JSON
+block|,
+literal|"text/json"
 block|}
 argument_list|)
 DECL|method|postRoute (RouteDefinition routeDefinition)
