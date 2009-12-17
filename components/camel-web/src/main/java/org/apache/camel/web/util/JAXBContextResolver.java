@@ -20,6 +20,22 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|marshaller
+operator|.
+name|NamespacePrefixMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -60,33 +76,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|sun
+name|util
 operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|json
-operator|.
-name|JSONConfiguration
+name|HashMap
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|sun
+name|util
 operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|json
-operator|.
-name|JSONJAXBContext
+name|Map
 import|;
 end_import
 
@@ -126,18 +130,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO we can't use natural with JAXB 2.1.6 or 2.1 for some reason?
-name|JSONConfiguration
-operator|.
-name|Builder
-name|builder
-init|=
-name|JSONConfiguration
-operator|.
-name|mapped
-argument_list|()
-decl_stmt|;
-comment|//JSONConfiguration.Builder builder = JSONConfiguration.natural();
 name|this
 operator|.
 name|packages
@@ -160,14 +152,10 @@ name|this
 operator|.
 name|context
 operator|=
-operator|new
-name|JSONJAXBContext
-argument_list|(
-name|builder
+name|JAXBContext
 operator|.
-name|build
-argument_list|()
-argument_list|,
+name|newInstance
+argument_list|(
 name|packages
 argument_list|)
 expr_stmt|;
