@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Component</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  *   *<pre>  * Ibatis Component used to read/write to a database.  *  *<u>Requires one of the following:</u>  *  * 1. A Sql Map config file either on the root of  * the classpath or explicitly set.  *  *<b>OR</b>  *  * 2. A SqlMapClient explicityly set.  *  * Using Ibatis as a source of data (&lt;from&gt;) you can use this component  * to treat a database table as a logical queue.  * Details are available in the {@link IBatisPollingConsumer}  *  * Using Ibatis as a destination for data (&lt;to&gt;) you can use this  * component to run an insert statement either on a single message or if the  * delivered content contains a collection of messages it can iterate through  * the collection and run the insert on each element.  * Details are available in the {@link IBatisProducer}  *</pre>  *  * @see IBatisProducer  * @see IBatisPollingConsumer  */
+comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Component</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  *   *<pre>  * Ibatis Component used to read/write to a database.  *  *<u>Requires one of the following:</u>  *  * 1. A Sql Map config file either on the root of  * the classpath or explicitly set.  *  *<b>OR</b>  *  * 2. A SqlMapClient explicit set.  *  * Using Ibatis as a source of data (&lt;from&gt;) you can use this component  * to treat a database table as a logical queue.  * Details are available in the {@link IBatisPollingConsumer}  *  * Using Ibatis as a destination for data (&lt;to&gt;) you can use this  * component to run an insert statement either on a single message or if the  * delivered content contains a collection of messages it can iterate through  * the collection and run the insert on each element.  * Details are available in the {@link IBatisProducer}  *</pre>  *  * @see IBatisProducer  * @see IBatisPollingConsumer  */
 end_comment
 
 begin_class
@@ -343,6 +343,22 @@ block|{
 return|return
 name|sqlMapConfig
 return|;
+block|}
+DECL|method|setSqlMapConfig (String sqlMapConfig)
+specifier|public
+name|void
+name|setSqlMapConfig
+parameter_list|(
+name|String
+name|sqlMapConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sqlMapConfig
+operator|=
+name|sqlMapConfig
+expr_stmt|;
 block|}
 DECL|method|isUseTransactions ()
 specifier|public
