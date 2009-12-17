@@ -532,8 +532,6 @@ parameter_list|)
 block|{
 name|Endpoint
 name|endpoint
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -550,6 +548,32 @@ operator|.
 name|getEndpoint
 argument_list|(
 name|uri
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if a name is given then it should be possible to lookup
+comment|// otherwise we do not catch situations where there is a typo etc
+if|if
+condition|(
+name|isNotEmpty
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|endpoint
+operator|=
+name|mandatoryLookup
+argument_list|(
+name|camelContext
+argument_list|,
+name|name
+argument_list|,
+name|Endpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -602,6 +626,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
