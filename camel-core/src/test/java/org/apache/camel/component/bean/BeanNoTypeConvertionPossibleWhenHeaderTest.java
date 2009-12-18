@@ -316,6 +316,9 @@ literal|"Hello World"
 argument_list|,
 literal|"foo"
 argument_list|,
+operator|(
+name|Object
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

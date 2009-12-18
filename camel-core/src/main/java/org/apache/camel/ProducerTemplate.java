@@ -669,6 +669,21 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+DECL|method|requestBodyAndHeader (Object body, String header, Object headerValue)
+name|Object
+name|requestBodyAndHeader
+parameter_list|(
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 name|Object
@@ -816,6 +831,23 @@ parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+DECL|method|requestBodyAndHeaders (Object body, Map<String, Object> headers)
+name|Object
+name|requestBodyAndHeaders
+parameter_list|(
 name|Object
 name|body
 parameter_list|,
