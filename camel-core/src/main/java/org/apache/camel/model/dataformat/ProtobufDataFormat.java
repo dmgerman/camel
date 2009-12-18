@@ -154,6 +154,11 @@ specifier|private
 name|String
 name|instanceClass
 decl_stmt|;
+DECL|field|defaultInstance
+specifier|private
+name|Object
+name|defaultInstance
+decl_stmt|;
 DECL|method|ProtobufDataFormat ()
 specifier|public
 name|ProtobufDataFormat
@@ -198,6 +203,22 @@ operator|=
 name|instanceClass
 expr_stmt|;
 block|}
+DECL|method|setDefaultInstance (Object instance)
+specifier|public
+name|void
+name|setDefaultInstance
+parameter_list|(
+name|Object
+name|instance
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultInstance
+operator|=
+name|instance
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat)
@@ -225,6 +246,25 @@ argument_list|,
 literal|"instanceClass"
 argument_list|,
 name|instanceClass
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|defaultInstance
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"defaultInstance"
+argument_list|,
+name|defaultInstance
 argument_list|)
 expr_stmt|;
 block|}

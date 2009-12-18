@@ -765,6 +765,36 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|protobuf (Object defaultInstance)
+specifier|public
+name|T
+name|protobuf
+parameter_list|(
+name|Object
+name|defaultInstance
+parameter_list|)
+block|{
+name|ProtobufDataFormat
+name|dataFormat
+init|=
+operator|new
+name|ProtobufDataFormat
+argument_list|()
+decl_stmt|;
+name|dataFormat
+operator|.
+name|setDefaultInstance
+argument_list|(
+name|defaultInstance
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|dataFormat
+argument_list|)
+return|;
+block|}
 DECL|method|protobuf (String instanceClassName)
 specifier|public
 name|T

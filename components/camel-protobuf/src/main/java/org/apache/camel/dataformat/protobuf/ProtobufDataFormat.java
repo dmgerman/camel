@@ -232,6 +232,43 @@ operator|=
 name|instance
 expr_stmt|;
 block|}
+DECL|method|setDefaultInstance (Object instance)
+specifier|public
+name|void
+name|setDefaultInstance
+parameter_list|(
+name|Object
+name|instance
+parameter_list|)
+block|{
+if|if
+condition|(
+name|instance
+operator|instanceof
+name|Message
+condition|)
+block|{
+name|this
+operator|.
+name|defaultInstance
+operator|=
+operator|(
+name|Message
+operator|)
+name|instance
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The instance should be subClass of com.google.protobuf.Message"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|setInstanceClass (String className)
 specifier|public
 name|void
@@ -445,6 +482,11 @@ throw|;
 block|}
 else|else
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 operator|!
@@ -468,6 +510,7 @@ name|getContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
