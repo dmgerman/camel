@@ -258,6 +258,22 @@ name|processor
 operator|.
 name|aggregate
 operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
 name|UseLatestAggregationStrategy
 import|;
 end_import
@@ -1004,12 +1020,32 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// pick a default strategy
 if|if
 condition|(
 name|strategy
 operator|==
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+name|groupExchanges
+operator|!=
+literal|null
+operator|&&
+name|groupExchanges
+condition|)
+block|{
+comment|// if grouped exchange is enabled then use special strategy for that
+name|strategy
+operator|=
+operator|new
+name|GroupedExchangeAggregationStrategy
+argument_list|()
+expr_stmt|;
+block|}
+else|else
 block|{
 comment|// fallback to use latest
 name|strategy
@@ -1018,6 +1054,7 @@ operator|new
 name|UseLatestAggregationStrategy
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|strategy
