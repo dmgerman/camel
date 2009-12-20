@@ -110,10 +110,10 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 1 messages since we group all we get in using the same correlation key
+comment|// we expect 1 or 2 messages since we group all we get in using the same correlation key
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
