@@ -115,6 +115,8 @@ class|class
 name|UnmarshalProcessor
 implements|implements
 name|Processor
+implements|,
+name|Traceable
 block|{
 DECL|field|dataFormat
 specifier|private
@@ -238,6 +240,20 @@ parameter_list|()
 block|{
 return|return
 literal|"Unmarshal["
+operator|+
+name|dataFormat
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"unmarshal["
 operator|+
 name|dataFormat
 operator|+

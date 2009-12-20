@@ -366,6 +366,7 @@ name|id
 decl_stmt|;
 annotation|@
 name|XmlValue
+argument_list|()
 DECL|field|expression
 specifier|private
 name|String

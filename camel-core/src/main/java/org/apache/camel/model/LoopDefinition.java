@@ -165,8 +165,6 @@ class|class
 name|LoopDefinition
 extends|extends
 name|ExpressionNode
-implements|implements
-name|Block
 block|{
 DECL|method|LoopDefinition ()
 specifier|public
