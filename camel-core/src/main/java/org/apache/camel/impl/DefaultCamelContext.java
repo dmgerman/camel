@@ -842,6 +842,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ShutdownStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -1486,6 +1500,15 @@ name|int
 name|defaultRouteStartupOrder
 init|=
 literal|1000
+decl_stmt|;
+DECL|field|shutdownStrategy
+specifier|private
+name|ShutdownStrategy
+name|shutdownStrategy
+init|=
+operator|new
+name|DefaultShutdownStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -5667,6 +5690,11 @@ argument_list|(
 name|inflightRepository
 argument_list|)
 expr_stmt|;
+name|addService
+argument_list|(
+name|shutdownStrategy
+argument_list|)
+expr_stmt|;
 comment|// To avoid initiating the routeDefinitions after stopping the camel context
 if|if
 condition|(
@@ -5720,30 +5748,18 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// stop route inputs in the same order as they was started so we stop the very first inputs first
-name|stopServices
+name|shutdownStrategy
+operator|.
+name|shutdown
 argument_list|(
-name|getRouteStartupOrder
-argument_list|()
+name|this
 argument_list|,
-literal|false
+name|getRouteStartupOrder
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getRouteStartupOrder
 argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-comment|// the stop order is important
-name|stopServices
-argument_list|(
-name|endpoints
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|endpoints
 operator|.
 name|clear
 argument_list|()
@@ -5757,10 +5773,29 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// do not clear route services as we can start Camel again and get the route back as before
+comment|// the stop order is important
 name|stopServices
 argument_list|(
-name|producerServicePool
+name|servicesToClose
 argument_list|)
+expr_stmt|;
+name|servicesToClose
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|stopServices
+argument_list|(
+name|endpoints
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|endpoints
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|stopServices
 argument_list|(
@@ -5777,13 +5812,8 @@ argument_list|()
 expr_stmt|;
 name|stopServices
 argument_list|(
-name|servicesToClose
+name|producerServicePool
 argument_list|)
-expr_stmt|;
-name|servicesToClose
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
 name|stopServices
 argument_list|(
@@ -6982,6 +7012,32 @@ argument_list|,
 name|this
 argument_list|)
 return|;
+block|}
+DECL|method|getShutdownStrategy ()
+specifier|public
+name|ShutdownStrategy
+name|getShutdownStrategy
+parameter_list|()
+block|{
+return|return
+name|shutdownStrategy
+return|;
+block|}
+DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
+specifier|public
+name|void
+name|setShutdownStrategy
+parameter_list|(
+name|ShutdownStrategy
+name|shutdownStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownStrategy
+operator|=
+name|shutdownStrategy
+expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected

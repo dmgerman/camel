@@ -130,6 +130,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|ShutdownAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|LoggingExceptionHandler
@@ -251,6 +265,8 @@ implements|implements
 name|Consumer
 implements|,
 name|Runnable
+implements|,
+name|ShutdownAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -398,6 +414,35 @@ parameter_list|()
 block|{
 return|return
 name|processor
+return|;
+block|}
+DECL|method|deferShutdown ()
+specifier|public
+name|boolean
+name|deferShutdown
+parameter_list|()
+block|{
+comment|// deny stopping on shutdown as we want seda consumers to run in case some other queues
+comment|// depend on this consumer to run, so it can complete its exchanges
+return|return
+literal|false
+return|;
+block|}
+DECL|method|getPendingExchanges ()
+specifier|public
+name|int
+name|getPendingExchanges
+parameter_list|()
+block|{
+comment|// number of pending messages on the queue
+return|return
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 DECL|method|run ()

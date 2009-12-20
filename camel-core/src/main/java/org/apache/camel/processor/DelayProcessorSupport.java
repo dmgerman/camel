@@ -318,7 +318,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|handleSleepInteruptedException
+name|handleSleepInterruptedException
 argument_list|(
 name|e
 argument_list|)
@@ -396,11 +396,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when a sleep is interupted; allows derived classes to handle this      * case differently      */
-DECL|method|handleSleepInteruptedException (InterruptedException e)
+comment|/**      * Called when a sleep is interrupted; allows derived classes to handle this      * case differently      */
+DECL|method|handleSleepInterruptedException (InterruptedException e)
 specifier|protected
 name|void
-name|handleSleepInteruptedException
+name|handleSleepInterruptedException
 parameter_list|(
 name|InterruptedException
 name|e

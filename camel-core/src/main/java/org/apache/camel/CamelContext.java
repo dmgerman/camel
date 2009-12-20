@@ -136,6 +136,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|DataFormatResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -305,6 +319,20 @@ operator|.
 name|spi
 operator|.
 name|ServicePool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownStrategy
 import|;
 end_import
 
@@ -863,6 +891,21 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the current data format resolver      *      * @return the resolver      */
+DECL|method|getDataFormatResolver ()
+name|DataFormatResolver
+name|getDataFormatResolver
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom data format resolver      *      * @param dataFormatResolver  the resolver      */
+DECL|method|setDataFormatResolver (DataFormatResolver dataFormatResolver)
+name|void
+name|setDataFormatResolver
+parameter_list|(
+name|DataFormatResolver
+name|dataFormatResolver
+parameter_list|)
+function_decl|;
 comment|/**      * Sets the properties that can be referenced in the camel context      *      * @param properties properties      */
 DECL|method|setProperties (Map<String, String> properties)
 name|void
@@ -1039,6 +1082,22 @@ name|setApplicationContextClassLoader
 parameter_list|(
 name|ClassLoader
 name|classLoader
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current shutdown strategy      *      * @return the strategy      */
+DECL|method|getShutdownStrategy ()
+specifier|public
+name|ShutdownStrategy
+name|getShutdownStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom shtudown strategy      *      * @param shutdownStrategy the custom strategy      */
+DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
+name|void
+name|setShutdownStrategy
+parameter_list|(
+name|ShutdownStrategy
+name|shutdownStrategy
 parameter_list|)
 function_decl|;
 block|}
