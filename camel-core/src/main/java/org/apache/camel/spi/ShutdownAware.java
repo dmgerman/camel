@@ -32,10 +32,10 @@ name|boolean
 name|deferShutdown
 parameter_list|()
 function_decl|;
-comment|/**      * Some consumers have internal queues with {@link org.apache.camel.Exchange} which are pending.      *<p/>      * Return<tt>zero</tt> to indicate no pending exchanges and therefore ready to shutdown.      *      * @return number of pending exchanges      */
-DECL|method|getPendingExchanges ()
+comment|/**      * Gets the number of pending exchanges.      *<p/>      * Some consumers has internal queues with {@link org.apache.camel.Exchange} which are pending.      * For example the {@link org.apache.camel.component.seda.SedaConsumer}.      *<p/>      * Return<tt>zero</tt> to indicate no pending exchanges and therefore ready to shutdown.      *      * @return number of pending exchanges      */
+DECL|method|getPendingExchangesSize ()
 name|int
-name|getPendingExchanges
+name|getPendingExchangesSize
 parameter_list|()
 function_decl|;
 block|}

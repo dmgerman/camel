@@ -1086,12 +1086,11 @@ parameter_list|)
 function_decl|;
 comment|/**      * Gets the current shutdown strategy      *      * @return the strategy      */
 DECL|method|getShutdownStrategy ()
-specifier|public
 name|ShutdownStrategy
 name|getShutdownStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom shtudown strategy      *      * @param shutdownStrategy the custom strategy      */
+comment|/**      * Sets a custom shutdown strategy      *      * @param shutdownStrategy the custom strategy      */
 DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
 name|void
 name|setShutdownStrategy

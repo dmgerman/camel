@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -50,6 +62,18 @@ name|Consumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * Pluggable shutdown strategy executed during shutdown of routes.  *<p/>  * Shutting down routes in a reliable and graceful manner is not a trivial task. Therefore Camel provides a pluggable  * strategy allowing 3rd party to use their own strategy if needed.  *<p/>  * The key problem is to stop the input consumers for the routes such that no new messages is coming into Camel.  * But at the same time still keep the routes running so the existing in flight exchanges can still be run to  * completion. On top of that there are some in memory components (such as SEDA) which may have pending messages  * on its in memory queue which we want to run to completion as well, otherwise they will get lost.  *<p/>  * Camel provides a default strategy which supports all that that can be used as inspiration for your own strategy.  *  * @version $Revision$  * @see org.apache.camel.spi.ShutdownAware  */
 end_comment
@@ -59,6 +83,8 @@ DECL|interface|ShutdownStrategy
 specifier|public
 interface|interface
 name|ShutdownStrategy
+extends|extends
+name|Service
 block|{
 comment|/**      * Shutdown the routes      *      * @param context the camel context      * @param consumers the consumers for the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
 DECL|method|shutdown (CamelContext context, List<Consumer> consumers)
@@ -76,6 +102,51 @@ name|consumers
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *      * @param timeout timeout in millis      */
+DECL|method|setTimeout (long timeout)
+name|void
+name|setTimeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the timeout.      *<p/>      * Use 0 or a negative value to disable timeout      *      * @return the timeout      */
+DECL|method|getTimeout ()
+name|long
+name|getTimeout
+parameter_list|()
+function_decl|;
+comment|/**      * Set the time unit to use      *      * @param timeUnit the unit to use      */
+DECL|method|setTimeUnit (TimeUnit timeUnit)
+name|void
+name|setTimeUnit
+parameter_list|(
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the time unit used      *      * @return the time unit      */
+DECL|method|getTimeUnit ()
+name|TimeUnit
+name|getTimeUnit
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * @param shutdownNowOnTimeout<tt>true</tt> to force shutdown,<tt>false</tt> to leave them running      */
+DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
+name|void
+name|setShutdownNowOnTimeout
+parameter_list|(
+name|boolean
+name|shutdownNowOnTimeout
+parameter_list|)
+function_decl|;
+comment|/**      * whether to force shutdown of all consumers when a timeout occurred.      *      * @return force shutdown or not      */
+DECL|method|isShutdownNowOnTimeout ()
+name|boolean
+name|isShutdownNowOnTimeout
+parameter_list|()
 function_decl|;
 block|}
 end_interface

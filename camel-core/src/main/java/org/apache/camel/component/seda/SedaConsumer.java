@@ -130,20 +130,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ShutdownAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|LoggingExceptionHandler
@@ -189,6 +175,20 @@ operator|.
 name|spi
 operator|.
 name|ExceptionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownAware
 import|;
 end_import
 
@@ -428,10 +428,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|getPendingExchanges ()
+DECL|method|getPendingExchangesSize ()
 specifier|public
 name|int
-name|getPendingExchanges
+name|getPendingExchangesSize
 parameter_list|()
 block|{
 comment|// number of pending messages on the queue

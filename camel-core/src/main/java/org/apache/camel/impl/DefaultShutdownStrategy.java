@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default shutdowns strategy which supports graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 5 minutes by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *  * @version $Revision$  */
+comment|/**  * Default {@link org.apache.camel.spi.ShutdownStrategy} which uses graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 5 minutes by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -507,7 +507,6 @@ literal|" seconds"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *      * @param timeout timeout in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -524,7 +523,16 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-comment|/**      * Set the time unit to use      *      * @param timeUnit the unit to use      */
+DECL|method|getTimeout ()
+specifier|public
+name|long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -541,7 +549,16 @@ operator|=
 name|timeUnit
 expr_stmt|;
 block|}
-comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * @param shutdownNowOnTimeout<tt>true</tt> to force shutdown,<tt>false</tt> to leave them running      */
+DECL|method|getTimeUnit ()
+specifier|public
+name|TimeUnit
+name|getTimeUnit
+parameter_list|()
+block|{
+return|return
+name|timeUnit
+return|;
+block|}
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|void
@@ -558,6 +575,17 @@ operator|=
 name|shutdownNowOnTimeout
 expr_stmt|;
 block|}
+DECL|method|isShutdownNowOnTimeout ()
+specifier|public
+name|boolean
+name|isShutdownNowOnTimeout
+parameter_list|()
+block|{
+return|return
+name|shutdownNowOnTimeout
+return|;
+block|}
+comment|/**      * Shutdown all the consumers immediately.      *      * @param consumers the consumers to shutdown      */
 DECL|method|shutdownNow (List<Consumer> consumers)
 specifier|protected
 name|void
@@ -578,17 +606,18 @@ range|:
 name|consumers
 control|)
 block|{
-name|shutdownConsumer
+name|shutdownNow
 argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|shutdownConsumer (Consumer consumer)
+comment|/**      * Shutdown the consumer immediately.      *      * @param consumer the consumer to shutdown      */
+DECL|method|shutdownNow (Consumer consumer)
 specifier|protected
 name|void
-name|shutdownConsumer
+name|shutdownNow
 parameter_list|(
 name|Consumer
 name|consumer
@@ -745,6 +774,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Shutdown task which shutdown all the routes in a graceful manner.      */
 DECL|class|ShutdownTask
 class|class
 name|ShutdownTask
@@ -876,7 +906,7 @@ condition|(
 name|shutdown
 condition|)
 block|{
-name|shutdownConsumer
+name|shutdownNow
 argument_list|(
 name|consumer
 argument_list|)
@@ -953,7 +983,7 @@ operator|)
 name|consumer
 operator|)
 operator|.
-name|getPendingExchanges
+name|getPendingExchangesSize
 argument_list|()
 expr_stmt|;
 block|}
