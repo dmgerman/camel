@@ -184,17 +184,6 @@ specifier|private
 name|String
 name|instanceClassName
 decl_stmt|;
-DECL|field|setDefaultInstanceHasBeenCalled
-specifier|private
-name|AtomicBoolean
-name|setDefaultInstanceHasBeenCalled
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 comment|/**      * @param defaultInstance      */
 DECL|method|ProtobufDataFormat (Message defaultInstance)
 specifier|public
@@ -458,8 +447,6 @@ name|Exception
 block|{
 if|if
 condition|(
-name|this
-operator|.
 name|defaultInstance
 operator|==
 literal|null
@@ -489,13 +476,9 @@ init|)
 block|{
 if|if
 condition|(
-operator|!
-name|setDefaultInstanceHasBeenCalled
-operator|.
-name|getAndSet
-argument_list|(
-literal|true
-argument_list|)
+name|defaultInstance
+operator|==
+literal|null
 condition|)
 block|{
 name|defaultInstance
