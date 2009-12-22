@@ -69,6 +69,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -97,6 +125,23 @@ name|UnitOfWorkProcessor
 extends|extends
 name|DelegateProcessor
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|UnitOfWorkProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|routeContext
 specifier|private
 specifier|final
@@ -246,6 +291,43 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+comment|// must always done unit of work
+name|done
+argument_list|(
+name|uow
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// There was an existing UoW, so we should just pass through..
+comment|// so that the guy the initiated the UoW can terminate it.
+name|processor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|done (DefaultUnitOfWork uow, Exchange exchange)
+specifier|private
+name|void
+name|done
+parameter_list|(
+name|DefaultUnitOfWork
+name|uow
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 comment|// unit of work is done
 name|exchange
 operator|.
@@ -271,12 +353,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-name|wrapRuntimeCamelException
+name|LOG
+operator|.
+name|warn
 argument_list|(
-name|e
+literal|"Exception occurred during stopping UnitOfWork for Exchange: "
+operator|+
+name|exchange
+operator|+
+literal|". This exception will be ignored."
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 name|exchange
 operator|.
@@ -285,19 +372,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// There was an existing UoW, so we should just pass through..
-comment|// so that the guy the initiated the UoW can terminate it.
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class
