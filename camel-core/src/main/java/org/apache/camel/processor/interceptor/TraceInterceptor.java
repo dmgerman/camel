@@ -699,12 +699,12 @@ name|Exchange
 operator|.
 name|TRACE_EVENT
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class
 argument_list|)
-operator|!=
-literal|null
 condition|)
 block|{
 comment|// but we must still process to allow routing of TraceEvents to eg a JPA endpoint
@@ -1766,7 +1766,7 @@ expr_stmt|;
 block|}
 comment|// marker property to indicate its a tracing event being routed in case
 comment|// new Exchange instances is created during trace routing so we can check
-comment|// for this marker when interceptor also kickins in during routing of trace events
+comment|// for this marker when interceptor also kick in during routing of trace events
 name|event
 operator|.
 name|setProperty

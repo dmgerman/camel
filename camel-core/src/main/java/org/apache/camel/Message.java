@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers is represented in Camel using a  * {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version $Revision$  */
+comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -90,7 +90,7 @@ name|boolean
 name|fault
 parameter_list|)
 function_decl|;
-comment|/**      * Accesses a specific header      *      * @param name  name of header      * @return object header associated with the name      */
+comment|/**      * Accesses a specific header      *      * @param name  name of header      * @return the value of the given header or<tt>null</tt> if there is no      *         header for the given name      */
 DECL|method|getHeader (String name)
 name|Object
 name|getHeader
@@ -99,7 +99,19 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or null if there is no property for      *         the given name or it cannot be converted to the given type      */
+comment|/**      * Accesses a specific header      *      * @param name  name of header      * @param defaultValue the default value to return if header was absent      * @return the value of the given header or<tt>defaultValue</tt> if there is no      *         header for the given name      */
+DECL|method|getHeader (String name, Object defaultValue)
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|defaultValue
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or<tt>null</tt> if there is no header for      *         the given name or<tt>null</tt> if it cannot be converted to the given type      */
 DECL|method|getHeader (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -109,6 +121,27 @@ name|getHeader
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param defaultValue the default value to return if header was absent      * @param type the type of the header      * @return the value of the given header or<tt>defaultValue</tt> if there is no header for      *         the given name or<tt>null</tt> if it cannot be converted to the given type      */
+DECL|method|getHeader (String name, Object defaultValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|defaultValue
 parameter_list|,
 name|Class
 argument_list|<
@@ -257,7 +290,7 @@ name|Message
 name|message
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the attachment specified by the id      *      * @param id        the id under which the attachment is stored      * @return          the data handler for this attachment or null      */
+comment|/**      * Returns the attachment specified by the id      *      * @param id the id under which the attachment is stored      * @return the data handler for this attachment or<tt>null</tt>      */
 DECL|method|getAttachment (String id)
 name|DataHandler
 name|getAttachment
@@ -266,7 +299,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a set of attachment names of the message      *      * @return  a set of attachment names      */
+comment|/**      * Returns a set of attachment names of the message      *      * @return a set of attachment names      */
 DECL|method|getAttachmentNames ()
 name|Set
 argument_list|<
@@ -275,7 +308,7 @@ argument_list|>
 name|getAttachmentNames
 parameter_list|()
 function_decl|;
-comment|/**      * Removes the attachment specified by the id      *      * @param id        the id of the attachment to remove      */
+comment|/**      * Removes the attachment specified by the id      *      * @param id   the id of the attachment to remove      */
 DECL|method|removeAttachment (String id)
 name|void
 name|removeAttachment
@@ -296,7 +329,7 @@ name|DataHandler
 name|content
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all attachments of the message      *      * @return  the attachments in a map or null      */
+comment|/**      * Returns all attachments of the message      *      * @return the attachments in a map or<tt>null</tt>      */
 DECL|method|getAttachments ()
 name|Map
 argument_list|<
@@ -307,7 +340,7 @@ argument_list|>
 name|getAttachments
 parameter_list|()
 function_decl|;
-comment|/**      * Set all the attachments associated with this message      *      * @param attachments attachements      */
+comment|/**      * Set all the attachments associated with this message      *      * @param attachments the attachments      */
 DECL|method|setAttachments (Map<String, DataHandler> attachments)
 name|void
 name|setAttachments
@@ -327,7 +360,7 @@ name|boolean
 name|hasAttachments
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the unique ID for a message exchange if this message is capable of creating one or null if not      *      * @return the created exchange id, or<tt>null</tt> if not capable of creating      */
+comment|/**      * Returns the unique ID for a message exchange if this message is capable      * of creating one or<tt>null</tt> if not      *      * @return the created exchange id, or<tt>null</tt> if not capable of creating      */
 DECL|method|createExchangeId ()
 name|String
 name|createExchangeId

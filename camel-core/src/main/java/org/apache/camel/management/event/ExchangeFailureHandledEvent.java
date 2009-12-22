@@ -147,6 +147,8 @@ name|Exchange
 operator|.
 name|ERRORHANDLER_HANDLED
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class

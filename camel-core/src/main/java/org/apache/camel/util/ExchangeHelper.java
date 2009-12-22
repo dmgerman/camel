@@ -1724,9 +1724,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|Boolean
-name|handled
-init|=
+return|return
 name|exchange
 operator|.
 name|getProperty
@@ -1735,17 +1733,12 @@ name|Exchange
 operator|.
 name|FAILURE_HANDLED
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-return|return
-name|handled
-operator|!=
-literal|null
-operator|&&
-name|handled
 return|;
 block|}
 DECL|method|setFailureHandled (Exchange exchange)
@@ -1790,9 +1783,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|Boolean
-name|exhausted
-init|=
+return|return
 name|exchange
 operator|.
 name|getProperty
@@ -1801,17 +1792,12 @@ name|Exchange
 operator|.
 name|REDELIVERY_EXHAUSTED
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-return|return
-name|exhausted
-operator|!=
-literal|null
-operator|&&
-name|exhausted
 return|;
 block|}
 comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the exchange      * @param pattern    exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */

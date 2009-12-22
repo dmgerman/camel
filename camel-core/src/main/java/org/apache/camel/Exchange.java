@@ -437,7 +437,7 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
+comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @return the value of the given property or<tt>null</tt> if there is no property for      *         the given name      */
 DECL|method|getProperty (String name)
 name|Object
 name|getProperty
@@ -446,7 +446,19 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a property associated with this exchange by name and specifying      * the type required      *      * @param name the name of the property      * @param type the type of the property      * @return the value of the given header or null if there is no property for      *         the given name or null if it cannot be converted to the given      *         type      */
+comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @param defaultValue the default value to return if property was absent      * @return the value of the given property or<tt>defaultValue</tt> if there is no      *         property for the given name      */
+DECL|method|getProperty (String name, Object defaultValue)
+name|Object
+name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|defaultValue
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a property associated with this exchange by name and specifying      * the type required      *      * @param name the name of the property      * @param type the type of the property      * @return the value of the given property or<tt>null</tt> if there is no property for      *         the given name or<tt>null</tt> if it cannot be converted to the given type      */
 DECL|method|getProperty (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -456,6 +468,27 @@ name|getProperty
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a property associated with this exchange by name and specifying      * the type required      *      * @param name the name of the property      * @param defaultValue the default value to return if property was absent      * @param type the type of the property      * @return the value of the given property or<tt>defaultValue</tt> if there is no property for      *         the given name or<tt>null</tt> if it cannot be converted to the given type      */
+DECL|method|getProperty (String name, Object defaultValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|defaultValue
 parameter_list|,
 name|Class
 argument_list|<

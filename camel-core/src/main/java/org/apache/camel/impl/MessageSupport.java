@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for implementation inheritence providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *  * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *  * @version $Revision$  */
+comment|/**  * A base class for implementation inheritance providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *  * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *  * @version $Revision$  */
 end_comment
 
 begin_class

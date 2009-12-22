@@ -1842,8 +1842,8 @@ name|data
 parameter_list|)
 block|{
 comment|// if marked as rollback only then do not redeliver
-name|Boolean
-name|rollback
+name|boolean
+name|rollbackOnly
 init|=
 name|exchange
 operator|.
@@ -1853,6 +1853,8 @@ name|Exchange
 operator|.
 name|ROLLBACK_ONLY
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class
@@ -1860,11 +1862,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|rollback
-operator|!=
-literal|null
-operator|&&
-name|rollback
+name|rollbackOnly
 condition|)
 block|{
 if|if
