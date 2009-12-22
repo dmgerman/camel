@@ -431,6 +431,17 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+comment|// reduce default shutdown timeout to avoid waiting for 300 seconds
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 name|template
 operator|=
 name|context
