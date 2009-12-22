@@ -204,6 +204,24 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+comment|// force shutdown after 5 seconds as otherwise the bean will keep generating a new input
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
