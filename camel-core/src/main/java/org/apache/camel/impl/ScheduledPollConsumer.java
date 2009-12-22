@@ -453,11 +453,7 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
-name|isRunAllowed
-argument_list|()
-operator|&&
-operator|!
-name|isSuspended
+name|isPollAllowed
 argument_list|()
 condition|)
 block|{
@@ -624,6 +620,21 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|isPollAllowed ()
+specifier|protected
+name|boolean
+name|isPollAllowed
+parameter_list|()
+block|{
+return|return
+name|isRunAllowed
+argument_list|()
+operator|&&
+operator|!
+name|isSuspended
+argument_list|()
+return|;
+block|}
 DECL|method|getInitialDelay ()
 specifier|public
 name|long

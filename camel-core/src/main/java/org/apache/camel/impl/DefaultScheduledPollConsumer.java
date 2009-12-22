@@ -146,7 +146,8 @@ name|Exception
 block|{
 while|while
 condition|(
-literal|true
+name|isPollAllowed
+argument_list|()
 condition|)
 block|{
 name|Exchange
