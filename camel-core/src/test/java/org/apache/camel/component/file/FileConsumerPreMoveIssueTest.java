@@ -99,10 +99,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerPreMoveTest
+DECL|class|FileConsumerPreMoveIssueTest
 specifier|public
 class|class
-name|FileConsumerPreMoveTest
+name|FileConsumerPreMoveIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -169,73 +169,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testPreMoveSameFileTwice ()
-specifier|public
-name|void
-name|testPreMoveSameFileTwice
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceivedInAnyOrder
-argument_list|(
-literal|"Hello World"
-argument_list|,
-literal|"Hello Again World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/premove"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-comment|// give time for consumer to process this file before we drop the next file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/premove"
-argument_list|,
-literal|"Hello Again World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -262,7 +195,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?preMove=work/work-${file:name}"
+literal|"file://target/premove?preMove=before/${file:name.noext}-moved.${file:ext}"
 argument_list|)
 operator|.
 name|process
@@ -306,7 +239,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/premove/work/work-hello.txt"
+literal|"target/premove/before/hello-moved.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
