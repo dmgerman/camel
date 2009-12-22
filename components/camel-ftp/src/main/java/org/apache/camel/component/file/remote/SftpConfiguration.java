@@ -66,6 +66,13 @@ specifier|private
 name|String
 name|privateKeyFilePassphrase
 decl_stmt|;
+DECL|field|strictHostKeyChecking
+specifier|private
+name|String
+name|strictHostKeyChecking
+init|=
+literal|"no"
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -181,6 +188,32 @@ operator|.
 name|privateKeyFilePassphrase
 operator|=
 name|privateKeyFilePassphrase
+expr_stmt|;
+block|}
+DECL|method|getStrictHostKeyChecking ()
+specifier|public
+name|String
+name|getStrictHostKeyChecking
+parameter_list|()
+block|{
+return|return
+name|strictHostKeyChecking
+return|;
+block|}
+DECL|method|setStrictHostKeyChecking (String strictHostKeyChecking)
+specifier|public
+name|void
+name|setStrictHostKeyChecking
+parameter_list|(
+name|String
+name|strictHostKeyChecking
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strictHostKeyChecking
+operator|=
+name|strictHostKeyChecking
 expr_stmt|;
 block|}
 block|}

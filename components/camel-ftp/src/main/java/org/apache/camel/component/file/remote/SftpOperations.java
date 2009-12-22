@@ -846,6 +846,43 @@ name|getPort
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isNotEmpty
+argument_list|(
+name|sftpConfig
+operator|.
+name|getStrictHostKeyChecking
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using StrickHostKeyChecking: "
+operator|+
+name|sftpConfig
+operator|.
+name|getStrictHostKeyChecking
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setConfig
+argument_list|(
+literal|"StrictHostKeyChecking"
+argument_list|,
+name|sftpConfig
+operator|.
+name|getStrictHostKeyChecking
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set user information
 name|session
 operator|.
 name|setUserInfo
@@ -909,9 +946,13 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
+literal|"Server asks for confirmation (yes|no): "
+operator|+
 name|s
+operator|+
+literal|". Camel will answer no."
 argument_list|)
 expr_stmt|;
 comment|// Return 'false' indicating modification of the hosts file is disabled.
@@ -926,7 +967,17 @@ parameter_list|(
 name|String
 name|s
 parameter_list|)
-block|{             }
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Message received from Server: "
+operator|+
+name|s
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
