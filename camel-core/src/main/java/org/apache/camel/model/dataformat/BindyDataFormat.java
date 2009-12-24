@@ -228,7 +228,7 @@ else|else
 block|{
 name|setDataFormatName
 argument_list|(
-literal|"bindy-kv"
+literal|"bindy-kvp"
 argument_list|)
 expr_stmt|;
 block|}
