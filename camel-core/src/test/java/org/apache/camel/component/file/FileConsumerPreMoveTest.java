@@ -145,6 +145,13 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
@@ -232,6 +239,7 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+comment|// give time for consumer to process this file before we drop the next file
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

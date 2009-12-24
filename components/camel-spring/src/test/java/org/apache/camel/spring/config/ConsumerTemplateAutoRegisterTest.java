@@ -46,6 +46,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultConsumerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -127,6 +141,21 @@ argument_list|(
 literal|"Should have injected a consumer template"
 argument_list|,
 name|template
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The template context should not be null"
+argument_list|,
+operator|(
+operator|(
+name|DefaultConsumerTemplate
+operator|)
+name|template
+operator|)
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ConsumerTemplate

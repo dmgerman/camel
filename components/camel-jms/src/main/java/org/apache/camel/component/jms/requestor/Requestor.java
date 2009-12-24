@@ -1109,6 +1109,12 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+comment|// Need to call the container start in Spring 3.x
+name|container
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -151,18 +151,23 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Error creating bean with name 'camel': Invocation of init method failed;"
-operator|+
-literal|" nested exception is org.apache.camel.CamelException: "
-operator|+
-literal|"Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
+literal|"Get a wrong exception name"
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"nested exception is org.apache.camel.CamelException: "
+operator|+
+literal|"Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
+argument_list|)
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
