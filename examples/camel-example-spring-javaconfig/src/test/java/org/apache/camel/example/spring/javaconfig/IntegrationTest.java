@@ -125,9 +125,9 @@ literal|"-duration"
 argument_list|,
 literal|"2s"
 argument_list|,
-literal|"-bp"
+literal|"-cc"
 argument_list|,
-literal|"org.apache.camel.example.spring.javaconfig"
+literal|"org.apache.camel.example.spring.javaconfig.MyRouteConfig"
 argument_list|)
 expr_stmt|;
 block|}
