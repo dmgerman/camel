@@ -58,9 +58,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|config
-operator|.
-name|java
+name|context
 operator|.
 name|annotation
 operator|.
