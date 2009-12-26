@@ -1310,6 +1310,7 @@ condition|)
 block|{
 name|shutdown
 operator|=
+operator|!
 operator|(
 operator|(
 name|ShutdownAware
@@ -1318,17 +1319,21 @@ name|consumer
 operator|)
 operator|.
 name|deferShutdown
-argument_list|()
+argument_list|(
+name|shutdownRunningTask
+argument_list|)
 expr_stmt|;
 block|}
-elseif|else
 if|if
 condition|(
+name|shutdown
+operator|&&
 name|consumer
 operator|instanceof
 name|SuspendableService
 condition|)
 block|{
+comment|// we prefer to suspend over shutdown
 name|suspend
 operator|=
 literal|true

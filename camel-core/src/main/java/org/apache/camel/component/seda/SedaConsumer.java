@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|LoggingExceptionHandler
@@ -416,16 +428,19 @@ return|return
 name|processor
 return|;
 block|}
-DECL|method|deferShutdown ()
+DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean
 name|deferShutdown
-parameter_list|()
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
 block|{
 comment|// deny stopping on shutdown as we want seda consumers to run in case some other queues
 comment|// depend on this consumer to run, so it can complete its exchanges
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getPendingExchangesSize ()

@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -129,6 +141,20 @@ operator|.
 name|impl
 operator|.
 name|ScheduledPollConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownAware
 import|;
 end_import
 
@@ -205,6 +231,8 @@ extends|extends
 name|ScheduledPollConsumer
 implements|implements
 name|BatchConsumer
+implements|,
+name|ShutdownAware
 block|{
 DECL|field|log
 specifier|protected
@@ -251,6 +279,18 @@ DECL|field|maxMessagesPerPoll
 specifier|protected
 name|int
 name|maxMessagesPerPoll
+decl_stmt|;
+DECL|field|shutdownRunningTask
+specifier|protected
+specifier|volatile
+name|ShutdownRunningTask
+name|shutdownRunningTask
+decl_stmt|;
+DECL|field|pendingExchanges
+specifier|protected
+specifier|volatile
+name|int
+name|pendingExchanges
 decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
@@ -305,6 +345,14 @@ comment|// must reset for each poll
 name|fileExpressionResult
 operator|=
 literal|null
+expr_stmt|;
+name|shutdownRunningTask
+operator|=
+literal|null
+expr_stmt|;
+name|pendingExchanges
+operator|=
+literal|0
 expr_stmt|;
 comment|// before we poll is there anything we need to check ? Such as are we
 comment|// connected to the FTP Server Still ?
@@ -618,7 +666,7 @@ name|index
 operator|<
 name|total
 operator|&&
-name|isRunAllowed
+name|isBatchAllowed
 argument_list|()
 condition|;
 name|index
@@ -675,6 +723,15 @@ name|total
 operator|-
 literal|1
 argument_list|)
+expr_stmt|;
+comment|// update pending number of exchanges
+name|pendingExchanges
+operator|=
+name|total
+operator|-
+name|index
+operator|-
+literal|1
 expr_stmt|;
 comment|// process the current exchange
 name|processExchange
@@ -745,6 +802,98 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|boolean
+name|deferShutdown
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+comment|// store a reference what to do in case when shutting down and we have pending messages
+name|this
+operator|.
+name|shutdownRunningTask
+operator|=
+name|shutdownRunningTask
+expr_stmt|;
+comment|// do not defer shutdown
+return|return
+literal|false
+return|;
+block|}
+DECL|method|getPendingExchangesSize ()
+specifier|public
+name|int
+name|getPendingExchangesSize
+parameter_list|()
+block|{
+comment|// only return the real pending size in case we are configured to complete all tasks
+if|if
+condition|(
+name|ShutdownRunningTask
+operator|.
+name|CompleteAllTasks
+operator|==
+name|shutdownRunningTask
+condition|)
+block|{
+return|return
+name|pendingExchanges
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
+block|}
+block|}
+DECL|method|isBatchAllowed ()
+specifier|public
+name|boolean
+name|isBatchAllowed
+parameter_list|()
+block|{
+comment|// stop if we are not running
+name|boolean
+name|answer
+init|=
+name|isRunAllowed
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|shutdownRunningTask
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we are not shutting down so continue to run
+return|return
+literal|true
+return|;
+block|}
+comment|// we are shutting down so only continue if we are configured to complete all tasks
+return|return
+name|ShutdownRunningTask
+operator|.
+name|CompleteAllTasks
+operator|==
+name|shutdownRunningTask
+return|;
 block|}
 comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
 DECL|method|prePollCheck ()

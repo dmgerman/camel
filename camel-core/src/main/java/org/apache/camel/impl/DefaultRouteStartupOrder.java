@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.impl.DefaultCamelContext}  *  * @version $Revision$  */
+comment|/**  * Default implementation of {@link org.apache.camel.spi.RouteStartupOrder}.  *  * @version $Revision$  */
 end_comment
 
 begin_class

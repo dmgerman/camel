@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,17 +12,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|spring
+operator|.
+name|processor
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -34,55 +38,61 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|processor
+operator|.
+name|ShutdownCompleteCurrentTaskOnlyTest
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.CamelContext}.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|RouteStartupOrder
+begin_class
+DECL|class|SpringShutdownCompleteCurrentTaskOnlyTest
 specifier|public
-interface|interface
-name|RouteStartupOrder
+class|class
+name|SpringShutdownCompleteCurrentTaskOnlyTest
+extends|extends
+name|ShutdownCompleteCurrentTaskOnlyTest
 block|{
-comment|/**      * Get the order this route should be started.      *<p/>      * See more at<a href="http://camel.apache.org/configuring-route-startup-ordering-and-autostartup.html">      * configuring route startup ordering</a>.      *      * @return the order      */
-DECL|method|getStartupOrder ()
-name|int
-name|getStartupOrder
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
-function_decl|;
-comment|/**      * Gets the route      *      * @return the route      */
-DECL|method|getRoute ()
-name|Route
-name|getRoute
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the input to this route (often only one consumer)      *      * @return the input consumers.      */
-DECL|method|getInputs ()
-name|List
-argument_list|<
-name|Consumer
-argument_list|>
-name|getInputs
-parameter_list|()
-function_decl|;
+throws|throws
+name|Exception
+block|{
+return|return
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/ShutdownCompleteCurrentTaskOnlyTest.xml"
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

@@ -59,6 +59,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Whether processing the batch is still allowed.      *<p/>      * This is used during shutdown to help indicate whether to complete the pending      * exchanges or stop after current exchange has been processed.      *      * @return<tt>true</tt> to continue processing from the batch, or<tt>false</tt> to stop.      * @see org.apache.camel.ShutdownRunningTask      */
+DECL|method|isBatchAllowed ()
+name|boolean
+name|isBatchAllowed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
