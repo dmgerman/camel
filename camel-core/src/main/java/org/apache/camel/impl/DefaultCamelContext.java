@@ -370,6 +370,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -815,6 +839,20 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteStartupOrder
 import|;
 end_import
 
@@ -1483,14 +1521,14 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
 name|routeStartupOrder
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1509,6 +1547,24 @@ init|=
 operator|new
 name|DefaultShutdownStrategy
 argument_list|()
+decl_stmt|;
+DECL|field|shutdownRoute
+specifier|private
+name|ShutdownRoute
+name|shutdownRoute
+init|=
+name|ShutdownRoute
+operator|.
+name|Default
+decl_stmt|;
+DECL|field|shutdownRunningTask
+specifier|private
+name|ShutdownRunningTask
+name|shutdownRunningTask
+init|=
+name|ShutdownRunningTask
+operator|.
+name|CompleteCurrentTaskOnly
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -3197,7 +3253,7 @@ DECL|method|getRouteStartupOrder ()
 specifier|public
 name|List
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
 name|getRouteStartupOrder
 parameter_list|()
@@ -4784,7 +4840,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 argument_list|>
 name|inputs
 init|=
@@ -4793,7 +4849,7 @@ name|TreeMap
 argument_list|<
 name|Integer
 argument_list|,
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4876,7 +4932,7 @@ operator|++
 expr_stmt|;
 block|}
 comment|// create holder object that contains information about this route to be started
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 name|holder
 init|=
 literal|null
@@ -4912,7 +4968,7 @@ block|{
 name|holder
 operator|=
 operator|new
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 argument_list|(
 name|startupOrder
 argument_list|,
@@ -4936,7 +4992,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// check for clash by startupOrder id
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 name|other
 init|=
 name|inputs
@@ -5179,7 +5235,7 @@ name|Entry
 argument_list|<
 name|Integer
 argument_list|,
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
 argument_list|>
 name|entry
 range|:
@@ -5234,13 +5290,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Starting consumer (order: "
 operator|+
@@ -5287,7 +5343,10 @@ name|routeStartupOrder
 operator|.
 name|add
 argument_list|(
-name|consumer
+name|entry
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5348,6 +5407,21 @@ literal|"... Routes started"
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started "
+operator|+
+name|getRoutes
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" routes"
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -7061,6 +7135,58 @@ operator|.
 name|shutdownStrategy
 operator|=
 name|shutdownStrategy
+expr_stmt|;
+block|}
+DECL|method|getShutdownRoute ()
+specifier|public
+name|ShutdownRoute
+name|getShutdownRoute
+parameter_list|()
+block|{
+return|return
+name|shutdownRoute
+return|;
+block|}
+DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
+specifier|public
+name|void
+name|setShutdownRoute
+parameter_list|(
+name|ShutdownRoute
+name|shutdownRoute
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRoute
+operator|=
+name|shutdownRoute
+expr_stmt|;
+block|}
+DECL|method|getShutdownRunningTask ()
+specifier|public
+name|ShutdownRunningTask
+name|getShutdownRunningTask
+parameter_list|()
+block|{
+return|return
+name|shutdownRunningTask
+return|;
+block|}
+DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|void
+name|setShutdownRunningTask
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRunningTask
+operator|=
+name|shutdownRunningTask
 expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)

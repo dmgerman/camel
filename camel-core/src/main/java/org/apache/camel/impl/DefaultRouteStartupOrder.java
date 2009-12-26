@@ -60,14 +60,31 @@ name|Route
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteStartupOrder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.impl.DefaultCamelContext}  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|StartupRouteHolder
+DECL|class|DefaultRouteStartupOrder
+specifier|public
 class|class
-name|StartupRouteHolder
+name|DefaultRouteStartupOrder
+implements|implements
+name|RouteStartupOrder
 block|{
 DECL|field|startupOrder
 specifier|private
@@ -97,8 +114,9 @@ name|Consumer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|StartupRouteHolder (int startupOrder, Route route)
-name|StartupRouteHolder
+DECL|method|DefaultRouteStartupOrder (int startupOrder, Route route)
+specifier|public
+name|DefaultRouteStartupOrder
 parameter_list|(
 name|int
 name|startupOrder

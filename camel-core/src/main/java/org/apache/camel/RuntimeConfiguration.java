@@ -99,6 +99,36 @@ name|boolean
 name|isAutoStartup
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the option to use when shutting down routes.      *      * @param shutdownRoute the option to use.      */
+DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
+name|void
+name|setShutdownRoute
+parameter_list|(
+name|ShutdownRoute
+name|shutdownRoute
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the option to use when shutting down route.      *      * @return the option      */
+DECL|method|getShutdownRoute ()
+name|ShutdownRoute
+name|getShutdownRoute
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the option to use when shutting down a route and how to act when it has running tasks.      *<p/>      * A running task is for example a {@link org.apache.camel.BatchConsumer} which has a group      * of messages to process. With this option you can control whether it should complete the entire      * group or stop after the current message has been processed.      *      * @param shutdownRunningTask the option to use.      */
+DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
+name|void
+name|setShutdownRunningTask
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the option to use when shutting down a route and how to act when it has running tasks.      *      * @return the option      */
+DECL|method|getShutdownRunningTask ()
+name|ShutdownRunningTask
+name|getShutdownRunningTask
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

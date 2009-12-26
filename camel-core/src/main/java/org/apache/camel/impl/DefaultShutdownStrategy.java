@@ -128,7 +128,57 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ShutdownRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteStartupOrder
 import|;
 end_import
 
@@ -247,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.ShutdownStrategy} which uses graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 5 minutes by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *  * @version $Revision$  */
+comment|/**  * Default {@link org.apache.camel.spi.ShutdownStrategy} which uses graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 300 seconds (5 minutes) by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -307,7 +357,7 @@ name|shutdownNowOnTimeout
 init|=
 literal|true
 decl_stmt|;
-DECL|method|shutdown (CamelContext context, List<Consumer> consumers)
+DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|void
 name|shutdown
@@ -317,9 +367,9 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
-name|consumers
+name|routes
 parameter_list|)
 throws|throws
 name|Exception
@@ -385,7 +435,7 @@ name|ShutdownTask
 argument_list|(
 name|context
 argument_list|,
-name|consumers
+name|routes
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -443,10 +493,10 @@ argument_list|(
 literal|"Timeout occurred. Now forcing all routes to be shutdown now."
 argument_list|)
 expr_stmt|;
-comment|// force the consumers to shutdown now
-name|shutdownNow
+comment|// force the routes to shutdown now
+name|shutdownRoutesNow
 argument_list|(
-name|consumers
+name|routes
 argument_list|)
 expr_stmt|;
 block|}
@@ -596,6 +646,114 @@ block|{
 return|return
 name|shutdownNowOnTimeout
 return|;
+block|}
+comment|/**      * Shutdown all the consumers immediately.      *      * @param routes the routes to shutdown      */
+DECL|method|shutdownRoutesNow (List<RouteStartupOrder> routes)
+specifier|protected
+name|void
+name|shutdownRoutesNow
+parameter_list|(
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|)
+block|{
+for|for
+control|(
+name|RouteStartupOrder
+name|order
+range|:
+name|routes
+control|)
+block|{
+comment|// set the route to shutdown as fast as possible by stopping after
+comment|// it has completed its current task
+name|ShutdownRunningTask
+name|current
+init|=
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getShutdownRunningTask
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|current
+operator|!=
+name|ShutdownRunningTask
+operator|.
+name|CompleteCurrentTaskOnly
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Changing shutdownRunningTask from "
+operator|+
+name|current
+operator|+
+literal|" to "
+operator|+
+name|ShutdownRunningTask
+operator|.
+name|CompleteCurrentTaskOnly
+operator|+
+literal|" on route "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" to shutdown faster"
+argument_list|)
+expr_stmt|;
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|setShutdownRunningTask
+argument_list|(
+name|ShutdownRunningTask
+operator|.
+name|CompleteCurrentTaskOnly
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|Consumer
+name|consumer
+range|:
+name|order
+operator|.
+name|getInputs
+argument_list|()
+control|)
+block|{
+name|shutdownNow
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * Shutdown all the consumers immediately.      *      * @param consumers the consumers to shutdown      */
 DECL|method|shutdownNow (List<Consumer> consumers)
@@ -880,6 +1038,64 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+DECL|class|ShutdownDeferredConsumer
+class|class
+name|ShutdownDeferredConsumer
+block|{
+DECL|field|route
+specifier|private
+specifier|final
+name|Route
+name|route
+decl_stmt|;
+DECL|field|consumer
+specifier|private
+specifier|final
+name|Consumer
+name|consumer
+decl_stmt|;
+DECL|method|ShutdownDeferredConsumer (Route route, Consumer consumer)
+name|ShutdownDeferredConsumer
+parameter_list|(
+name|Route
+name|route
+parameter_list|,
+name|Consumer
+name|consumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|route
+operator|=
+name|route
+expr_stmt|;
+name|this
+operator|.
+name|consumer
+operator|=
+name|consumer
+expr_stmt|;
+block|}
+DECL|method|getRoute ()
+name|Route
+name|getRoute
+parameter_list|()
+block|{
+return|return
+name|route
+return|;
+block|}
+DECL|method|getConsumer ()
+name|Consumer
+name|getConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
+block|}
 comment|/**      * Shutdown task which shutdown all the routes in a graceful manner.      */
 DECL|class|ShutdownTask
 class|class
@@ -893,16 +1109,16 @@ specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|consumers
+DECL|field|routes
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
-name|consumers
+name|routes
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<Consumer> consumers)
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|ShutdownTask
 parameter_list|(
@@ -911,9 +1127,9 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Consumer
+name|RouteStartupOrder
 argument_list|>
-name|consumers
+name|routes
 parameter_list|)
 block|{
 name|this
@@ -924,9 +1140,9 @@ name|context
 expr_stmt|;
 name|this
 operator|.
-name|consumers
+name|routes
 operator|=
-name|consumers
+name|routes
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -935,6 +1151,12 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// the strategy in this run method is to
+comment|// 1) go over the routes and shutdown those routes which can be shutdown asap
+comment|//    some routes will be deferred to shutdown at the end, as they are needed
+comment|//    by other routes so they can complete their tasks
+comment|// 2) wait until all inflight and pending exchanges has been completed
+comment|// 3) shutdown the deferred routes
 if|if
 condition|(
 name|LOG
@@ -949,7 +1171,7 @@ name|debug
 argument_list|(
 literal|"There are "
 operator|+
-name|consumers
+name|routes
 operator|.
 name|size
 argument_list|()
@@ -962,37 +1184,123 @@ comment|// list of deferred consumers to shutdown when all exchanges has been co
 comment|// and thus there are no more inflight exchanges so they can be safely shutdown at that time
 name|List
 argument_list|<
-name|Consumer
+name|ShutdownDeferredConsumer
 argument_list|>
 name|deferredConsumers
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Consumer
+name|ShutdownDeferredConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
+name|RouteStartupOrder
+name|order
+range|:
+name|routes
+control|)
+block|{
+name|ShutdownRoute
+name|shutdownRoute
+init|=
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getShutdownRoute
+argument_list|()
+decl_stmt|;
+name|ShutdownRunningTask
+name|shutdownRunningTask
+init|=
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getShutdownRunningTask
+argument_list|()
+decl_stmt|;
+comment|// TODO: shutdownRunningTask should be implemented in various consumers
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Shutting down route: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" with options ["
+operator|+
+name|shutdownRoute
+operator|+
+literal|","
+operator|+
+name|shutdownRunningTask
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
 name|Consumer
 name|consumer
 range|:
-name|consumers
+name|order
+operator|.
+name|getInputs
+argument_list|()
 control|)
 block|{
-comment|// some consumers do not support shutting down so let them decide
-comment|// if a consumer is suspendable then prefer to use that and then shutdown later
-name|boolean
-name|shutdown
-init|=
-literal|true
-decl_stmt|;
 name|boolean
 name|suspend
 init|=
 literal|false
 decl_stmt|;
+comment|// assume we should shutdown if we are not deferred
+name|boolean
+name|shutdown
+init|=
+name|shutdownRoute
+operator|!=
+name|ShutdownRoute
+operator|.
+name|Defer
+decl_stmt|;
+if|if
+condition|(
+name|shutdown
+condition|)
+block|{
+comment|// if we are to shutdown then check whether we can suspend instead as its a more
+comment|// gentle wat to graceful shutdown
+comment|// some consumers do not support shutting down so let them decide
+comment|// if a consumer is suspendable then prefer to use that and then shutdown later
 if|if
 condition|(
 name|consumer
@@ -1021,14 +1329,11 @@ operator|instanceof
 name|SuspendableService
 condition|)
 block|{
-name|shutdown
-operator|=
-literal|false
-expr_stmt|;
 name|suspend
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1051,7 +1356,33 @@ name|deferredConsumers
 operator|.
 name|add
 argument_list|(
+operator|new
+name|ShutdownDeferredConsumer
+argument_list|(
+name|order
+operator|.
+name|getRoute
+argument_list|()
+argument_list|,
 name|consumer
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" suspended and shutdown deferred."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1066,6 +1397,23 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" shutdown complete."
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1075,12 +1423,39 @@ name|deferredConsumers
 operator|.
 name|add
 argument_list|(
+operator|new
+name|ShutdownDeferredConsumer
+argument_list|(
+name|order
+operator|.
+name|getRoute
+argument_list|()
+argument_list|,
 name|consumer
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" shutdown deferred."
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// wait till there are no more pending inflight messages
+block|}
+comment|// wait till there are no more pending and inflight messages
 name|boolean
 name|done
 init|=
@@ -1099,14 +1474,26 @@ literal|0
 decl_stmt|;
 for|for
 control|(
+name|RouteStartupOrder
+name|order
+range|:
+name|routes
+control|)
+block|{
+for|for
+control|(
 name|Consumer
 name|consumer
 range|:
-name|consumers
+name|order
+operator|.
+name|getInputs
+argument_list|()
 control|)
 block|{
-name|size
-operator|+=
+name|int
+name|inflight
+init|=
 name|context
 operator|.
 name|getInflightRepository
@@ -1119,7 +1506,7 @@ operator|.
 name|getEndpoint
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// include any additional pending exchanges on some consumers which may have internal
 comment|// memory queues such as seda
 if|if
@@ -1129,7 +1516,7 @@ operator|instanceof
 name|ShutdownAware
 condition|)
 block|{
-name|size
+name|inflight
 operator|+=
 operator|(
 operator|(
@@ -1141,6 +1528,39 @@ operator|.
 name|getPendingExchangesSize
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|inflight
+operator|>
+literal|0
+condition|)
+block|{
+name|size
+operator|+=
+name|inflight
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+name|inflight
+operator|+
+literal|" inflight and pending exchanges for consumer: "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 if|if
@@ -1160,7 +1580,7 @@ literal|"Waiting as there are still "
 operator|+
 name|size
 operator|+
-literal|" inflight exchanges to complete before we can shutdown"
+literal|" inflight and pending exchanges to complete before we can shutdown"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -1204,11 +1624,40 @@ expr_stmt|;
 block|}
 block|}
 comment|// now all messages has been completed then stop the deferred consumers
+for|for
+control|(
+name|ShutdownDeferredConsumer
+name|deferred
+range|:
+name|deferredConsumers
+control|)
+block|{
 name|shutdownNow
 argument_list|(
-name|deferredConsumers
+name|deferred
+operator|.
+name|getConsumer
+argument_list|()
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|deferred
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" shutdown complete."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

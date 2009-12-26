@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -389,9 +401,18 @@ argument_list|(
 literal|"activemq:topic:registry.heartbeats"
 argument_list|)
 expr_stmt|;
+comment|// defer shutting this route down as the first route depends upon it to
+comment|// be running so it can complete its current exchanges
 name|from
 argument_list|(
 literal|"activemq:topic:registry.heartbeats"
+argument_list|)
+operator|.
+name|shutdownRoute
+argument_list|(
+name|ShutdownRoute
+operator|.
+name|Defer
 argument_list|)
 operator|.
 name|to

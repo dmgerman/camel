@@ -236,6 +236,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -513,6 +537,16 @@ DECL|field|routePolicyRef
 specifier|private
 name|String
 name|routePolicyRef
+decl_stmt|;
+DECL|field|shutdownRoute
+specifier|private
+name|ShutdownRoute
+name|shutdownRoute
+decl_stmt|;
+DECL|field|shutdownRunningTask
+specifier|private
+name|ShutdownRunningTask
+name|shutdownRunningTask
 decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
@@ -1427,6 +1461,44 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Configures a shutdown route option.      *      * @param shutdownRoute the option to use when shutting down this route      */
+DECL|method|shutdownRoute (ShutdownRoute shutdownRoute)
+specifier|public
+name|RouteDefinition
+name|shutdownRoute
+parameter_list|(
+name|ShutdownRoute
+name|shutdownRoute
+parameter_list|)
+block|{
+name|setShutdownRoute
+argument_list|(
+name|shutdownRoute
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Configures a shutdown running task option.      *      * @param shutdownRunningTask the option to use when shutting down and how to act upon running tasks.      */
+DECL|method|shutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|RouteDefinition
+name|shutdownRunningTask
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+name|setShutdownRunningTask
+argument_list|(
+name|shutdownRunningTask
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -1866,6 +1938,62 @@ return|return
 name|routePolicy
 return|;
 block|}
+DECL|method|getShutdownRoute ()
+specifier|public
+name|ShutdownRoute
+name|getShutdownRoute
+parameter_list|()
+block|{
+return|return
+name|shutdownRoute
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
+specifier|public
+name|void
+name|setShutdownRoute
+parameter_list|(
+name|ShutdownRoute
+name|shutdownRoute
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRoute
+operator|=
+name|shutdownRoute
+expr_stmt|;
+block|}
+DECL|method|getShutdownRunningTask ()
+specifier|public
+name|ShutdownRunningTask
+name|getShutdownRunningTask
+parameter_list|()
+block|{
+return|return
+name|shutdownRunningTask
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|void
+name|setShutdownRunningTask
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRunningTask
+operator|=
+name|shutdownRunningTask
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
@@ -2271,6 +2399,39 @@ operator|.
 name|setAutoStartup
 argument_list|(
 name|isAutoStartup
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// configure shutdown
+if|if
+condition|(
+name|shutdownRoute
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeContext
+operator|.
+name|setShutdownRoute
+argument_list|(
+name|getShutdownRoute
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|shutdownRunningTask
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeContext
+operator|.
+name|setShutdownRunningTask
+argument_list|(
+name|getShutdownRunningTask
 argument_list|()
 argument_list|)
 expr_stmt|;

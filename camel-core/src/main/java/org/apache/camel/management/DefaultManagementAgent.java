@@ -1763,7 +1763,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created JMXConnector RMI regisry on port "
+literal|"Created JMXConnector RMI registry on port "
 operator|+
 name|registryPort
 argument_list|)

@@ -813,7 +813,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing remote file: "
+literal|"Processing file: "
 operator|+
 name|file
 argument_list|)
@@ -928,7 +928,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Retreiving file: "
+literal|"Retrieving file: "
 operator|+
 name|name
 operator|+
@@ -991,7 +991,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// register on completion callback that does the completiom stategies
+comment|// register on completion callback that does the completion strategies
 comment|// (for instance to move the file after we have processed it)
 name|String
 name|originalFileName
@@ -1044,7 +1044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
+comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1148,7 +1148,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if not      */
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if not      */
 DECL|method|isMatched (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
@@ -1317,7 +1317,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|evaluteFileExpression
+name|evaluateFileExpression
 argument_list|()
 expr_stmt|;
 if|if
@@ -1382,10 +1382,10 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|evaluteFileExpression ()
+DECL|method|evaluateFileExpression ()
 specifier|private
 name|void
-name|evaluteFileExpression
+name|evaluateFileExpression
 parameter_list|()
 block|{
 if|if
