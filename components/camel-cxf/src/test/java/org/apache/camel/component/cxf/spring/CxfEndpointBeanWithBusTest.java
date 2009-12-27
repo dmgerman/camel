@@ -169,6 +169,8 @@ literal|"cxf:bean:routerEndpoint"
 argument_list|)
 decl_stmt|;
 comment|// verify the interceptor that is added by the logging feature
+comment|// Spring 3.0.0 has an issue of SPR-6589 which will call the BusApplicationListener twice for the same event,
+comment|// so we will get more one InInterceptors here
 name|assertTrue
 argument_list|(
 name|endpoint
@@ -181,7 +183,7 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|==
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
