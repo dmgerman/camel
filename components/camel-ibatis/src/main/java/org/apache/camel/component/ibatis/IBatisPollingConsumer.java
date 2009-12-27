@@ -258,6 +258,18 @@ name|DataHolder
 parameter_list|()
 block|{         }
 block|}
+DECL|field|shutdownRunningTask
+specifier|protected
+specifier|volatile
+name|ShutdownRunningTask
+name|shutdownRunningTask
+decl_stmt|;
+DECL|field|pendingExchanges
+specifier|protected
+specifier|volatile
+name|int
+name|pendingExchanges
+decl_stmt|;
 comment|/**      * Statement to run after data has been processed in the route      */
 DECL|field|onConsume
 specifier|private
@@ -282,18 +294,6 @@ DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
 name|maxMessagesPerPoll
-decl_stmt|;
-DECL|field|shutdownRunningTask
-specifier|protected
-specifier|volatile
-name|ShutdownRunningTask
-name|shutdownRunningTask
-decl_stmt|;
-DECL|field|pendingExchanges
-specifier|protected
-specifier|volatile
-name|int
-name|pendingExchanges
 decl_stmt|;
 DECL|method|IBatisPollingConsumer (IBatisEndpoint endpoint, Processor processor)
 specifier|public
