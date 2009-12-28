@@ -562,7 +562,7 @@ argument_list|)
 operator|.
 name|artifactId
 argument_list|(
-literal|"features"
+literal|"apache-camel"
 argument_list|)
 operator|.
 name|versionAsInProject
