@@ -480,9 +480,7 @@ argument_list|)
 argument_list|,
 literal|"camel-core"
 argument_list|,
-literal|"camel-osgi"
-argument_list|,
-literal|"camel-spring"
+literal|"camel-spring-osgi"
 argument_list|,
 literal|"camel-test"
 argument_list|)
