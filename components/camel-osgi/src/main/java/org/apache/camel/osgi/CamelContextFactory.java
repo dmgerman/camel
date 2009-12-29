@@ -297,6 +297,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"Using the OsgiClassResolver"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setClassResolver
+argument_list|(
+operator|new
+name|OsgiClassResolver
+argument_list|(
+name|bundleContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
 literal|"Using OsgiFactoryFinderResolver"
 argument_list|)
 expr_stmt|;

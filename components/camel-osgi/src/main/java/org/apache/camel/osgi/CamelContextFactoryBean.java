@@ -359,13 +359,31 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using OSGI resolvers"
+literal|"Using OSGi resolvers"
 argument_list|)
 expr_stmt|;
 block|}
 name|updateRegistry
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using the OsgiClassResolver"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setClassResolver
+argument_list|(
+operator|new
+name|OsgiClassResolver
+argument_list|(
+name|bundleContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|LOG
