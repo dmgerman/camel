@@ -489,21 +489,6 @@ name|ClassNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Cannot load class: "
-operator|+
-name|name
-operator|+
-literal|" using classloader: "
-operator|+
-name|loader
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|LOG
