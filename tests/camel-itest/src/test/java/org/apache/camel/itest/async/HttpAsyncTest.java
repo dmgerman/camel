@@ -99,6 +99,11 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testAsyncAndSyncAtSameTimeWithHttp ()
 specifier|public
@@ -176,6 +181,9 @@ comment|// JDK Future API to get hold of it, but you can also use that if you wa
 name|String
 name|response
 init|=
+operator|(
+name|String
+operator|)
 name|template
 operator|.
 name|extractFutureBody
