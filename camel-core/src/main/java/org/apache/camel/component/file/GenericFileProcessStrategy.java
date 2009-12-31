@@ -43,7 +43,27 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Called when work is about to begin on this file. This method may attempt      * to acquire some file lock before returning true; returning false if the      * file lock could not be obtained so that the file should be ignored.      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @return true if the file can be processed (such as if a file lock could      *         be obtained)      * @throws Exception can be thrown in case of errors      */
+comment|/**      * Allows custom logic to be run on startup preparing the strategy,      * such as removing old lock files etc.      *      * @param operations file operations      * @param endpoint   the endpoint      * @throws Exception can be thrown in case of errors which causes startup to fail      */
+DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
+name|void
+name|prepareOnStartup
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Called when work is about to begin on this file. This method may attempt      * to acquire some file lock before returning true; returning false if the      * file lock could not be obtained so that the file should be ignored.      *      * @param operations file operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the file      * @return true if the file can be processed (such as if a file lock could be obtained)      * @throws Exception can be thrown in case of errors      */
 DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|boolean
 name|begin
@@ -72,7 +92,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Releases any file locks and possibly deletes or moves the file after      * successful processing      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @throws Exception can be thrown in case of errors      */
+comment|/**      * Releases any file locks and possibly deletes or moves the file after      * successful processing      *      * @param operations file operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the file      * @throws Exception can be thrown in case of errors      */
 DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|void
 name|commit
@@ -101,7 +121,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Releases any file locks and possibly deletes or moves the file after      * unsuccessful processing      *      * @param operations ftp operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the remote file      * @throws Exception can be thrown in case of errors      */
+comment|/**      * Releases any file locks and possibly deletes or moves the file after      * unsuccessful processing      *      * @param operations file operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the file      * @throws Exception can be thrown in case of errors      */
 DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|void
 name|rollback

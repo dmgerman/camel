@@ -60,6 +60,22 @@ name|component
 operator|.
 name|file
 operator|.
+name|GenericFileEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
 name|GenericFileExclusiveReadLockStrategy
 import|;
 end_import
@@ -148,6 +164,28 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
+specifier|public
+name|void
+name|prepareOnStartup
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -454,7 +492,6 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

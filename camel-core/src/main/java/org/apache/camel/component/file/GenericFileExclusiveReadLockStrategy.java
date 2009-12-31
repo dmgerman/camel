@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is realeased, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *</ul>  */
+comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is released, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *<li>FileChangedExclusiveReadLockStrategy using a file changed detection for acquiring read lock.</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -43,6 +43,26 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**      * Allows custom logic to be run on startup preparing the strategy, such as removing old lock files etc.      *      * @param operations generic file operations      * @param endpoint the endpoint      * @throws Exception can be thrown in case of errors      */
+DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
+name|void
+name|prepareOnStartup
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel      *         will skip the file and try it on the next poll      * @throws Exception can be thrown in case of errors      */
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 name|boolean
@@ -89,7 +109,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> method returns<tt>false</tt>.      *      * @param timeout period in millis      */
+comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the time period then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> method returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 name|void
 name|setTimeout

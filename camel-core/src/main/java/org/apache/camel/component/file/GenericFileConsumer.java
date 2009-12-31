@@ -1609,6 +1609,35 @@ name|FILE_EXCHANGE_FILE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// prepare on startup
+name|endpoint
+operator|.
+name|getGenericFileProcessStrategy
+argument_list|()
+operator|.
+name|prepareOnStartup
+argument_list|(
+name|operations
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

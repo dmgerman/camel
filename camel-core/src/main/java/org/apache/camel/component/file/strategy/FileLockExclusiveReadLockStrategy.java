@@ -126,6 +126,22 @@ name|component
 operator|.
 name|file
 operator|.
+name|GenericFileEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
 name|GenericFileExclusiveReadLockStrategy
 import|;
 end_import
@@ -239,6 +255,26 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
+specifier|public
+name|void
+name|prepareOnStartup
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|File
+argument_list|>
+name|endpoint
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
