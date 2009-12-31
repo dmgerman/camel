@@ -178,18 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -569,11 +557,6 @@ specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
-DECL|field|channel
-specifier|private
-name|Channel
-name|channel
-decl_stmt|;
 DECL|method|MulticastProcessor (Collection<Processor> processors)
 specifier|public
 name|MulticastProcessor
@@ -752,32 +735,6 @@ block|{
 return|return
 literal|"multicast"
 return|;
-block|}
-DECL|method|getChannel ()
-specifier|public
-name|Channel
-name|getChannel
-parameter_list|()
-block|{
-return|return
-name|channel
-return|;
-block|}
-DECL|method|setChannel (Channel channel)
-specifier|public
-name|void
-name|setChannel
-parameter_list|(
-name|Channel
-name|channel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|channel
-operator|=
-name|channel
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
