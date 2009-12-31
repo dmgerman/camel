@@ -1231,7 +1231,6 @@ operator|.
 name|getShutdownRunningTask
 argument_list|()
 decl_stmt|;
-comment|// TODO: shutdownRunningTask should be implemented in various consumers
 if|if
 condition|(
 name|LOG
