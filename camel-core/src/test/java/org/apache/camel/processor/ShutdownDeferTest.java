@@ -116,7 +116,7 @@ name|bar
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|1000
+literal|3500
 argument_list|)
 expr_stmt|;
 name|template
