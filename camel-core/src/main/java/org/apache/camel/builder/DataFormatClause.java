@@ -652,6 +652,37 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the JAXB data format with context path      */
+DECL|method|jaxb (String contextPath)
+specifier|public
+name|T
+name|jaxb
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|JaxbDataFormat
+name|dataFormat
+init|=
+operator|new
+name|JaxbDataFormat
+argument_list|()
+decl_stmt|;
+name|dataFormat
+operator|.
+name|setContextPath
+argument_list|(
+name|contextPath
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|dataFormat
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the JAXB data format turning pretty printing on or off      */
 DECL|method|jaxb (boolean prettyPrint)
 specifier|public

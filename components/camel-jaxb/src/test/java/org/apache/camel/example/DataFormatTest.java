@@ -401,8 +401,11 @@ literal|"direct:marshalled"
 argument_list|)
 operator|.
 name|unmarshal
+argument_list|()
+operator|.
+name|jaxb
 argument_list|(
-name|example
+literal|"org.apache.camel.example"
 argument_list|)
 operator|.
 name|to
