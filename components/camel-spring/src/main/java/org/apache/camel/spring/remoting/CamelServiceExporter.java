@@ -419,7 +419,8 @@ argument_list|)
 decl_stmt|;
 name|notNull
 argument_list|(
-name|camelContext
+name|getService
+argument_list|()
 argument_list|,
 literal|"service"
 argument_list|)
