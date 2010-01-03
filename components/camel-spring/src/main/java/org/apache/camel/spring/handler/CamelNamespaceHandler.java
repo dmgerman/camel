@@ -742,7 +742,6 @@ name|void
 name|init
 parameter_list|()
 block|{
-comment|// These elements parser should be used inside the camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"proxy"
@@ -751,7 +750,7 @@ name|CamelProxyFactoryBean
 operator|.
 name|class
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -762,7 +761,7 @@ name|CamelProducerTemplateFactoryBean
 operator|.
 name|class
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -773,7 +772,7 @@ name|CamelConsumerTemplateFactoryBean
 operator|.
 name|class
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -784,7 +783,7 @@ name|CamelServiceExporter
 operator|.
 name|class
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// jmx agent cannot be used outside of the camel context
@@ -800,7 +799,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// endpoint
-comment|// This element cannot be used out side of camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"endpoint"
@@ -809,7 +807,7 @@ name|CamelEndpointFactoryBean
 operator|.
 name|class
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// camel context

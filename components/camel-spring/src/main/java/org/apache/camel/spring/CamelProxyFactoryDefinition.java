@@ -95,6 +95,13 @@ specifier|private
 name|Class
 name|serviceInterface
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|camelContextId
+specifier|private
+name|String
+name|camelContextId
+decl_stmt|;
 block|}
 end_class
 
