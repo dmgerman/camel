@@ -172,9 +172,11 @@ operator|!=
 literal|1
 condition|)
 block|{
-comment|// not possible to convert as we try to convert the data passed in at first argument
+comment|// not possible to convert at this time as we try to convert the data passed in at first argument
 return|return
-literal|null
+name|Void
+operator|.
+name|TYPE
 return|;
 block|}
 name|Class

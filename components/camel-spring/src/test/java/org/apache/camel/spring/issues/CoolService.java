@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.spring.issues
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|bean
+name|issues
 package|;
 end_package
 
@@ -22,11 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|Document
+name|Produce
 import|;
 end_import
 
@@ -34,75 +34,63 @@ begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
-begin_comment
-comment|// START SNIPPET: e1
-end_comment
-
-begin_interface
-DECL|interface|OrderService
+begin_class
+DECL|class|CoolService
 specifier|public
-interface|interface
-name|OrderService
+class|class
+name|CoolService
 block|{
-DECL|method|submitOrderStringReturnString (String order)
+annotation|@
+name|Produce
+argument_list|(
+name|uri
+operator|=
+literal|"direct:start"
+argument_list|)
+DECL|field|stuff
+specifier|private
+name|MyCoolStuff
+name|stuff
+decl_stmt|;
+DECL|method|stuff (String s)
+specifier|public
 name|String
-name|submitOrderStringReturnString
-parameter_list|(
-name|String
-name|order
-parameter_list|)
-function_decl|;
-DECL|method|submitOrderStringReturnDocument (String order)
-name|Document
-name|submitOrderStringReturnDocument
-parameter_list|(
-name|String
-name|order
-parameter_list|)
-function_decl|;
-DECL|method|submitOrderDocumentReturnString (Document order)
-name|String
-name|submitOrderDocumentReturnString
-parameter_list|(
-name|Document
-name|order
-parameter_list|)
-function_decl|;
-DECL|method|submitOrderDocumentReturnDocument (Document order)
-name|Document
-name|submitOrderDocumentReturnDocument
-parameter_list|(
-name|Document
-name|order
-parameter_list|)
-function_decl|;
-DECL|method|doNothing (String s)
-name|void
-name|doNothing
+name|stuff
 parameter_list|(
 name|String
 name|s
 parameter_list|)
-function_decl|;
-DECL|method|invalidReturnType (String s)
-name|Integer
-name|invalidReturnType
-parameter_list|(
-name|String
+block|{
+return|return
+name|stuff
+operator|.
+name|cool
+argument_list|(
 name|s
-parameter_list|)
-function_decl|;
-DECL|method|doAbsolutelyNothing ()
-name|String
-name|doAbsolutelyNothing
-parameter_list|()
-function_decl|;
+argument_list|)
+return|;
 block|}
-end_interface
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
+DECL|method|split (String s)
+specifier|public
+name|String
+index|[]
+name|split
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+name|s
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
