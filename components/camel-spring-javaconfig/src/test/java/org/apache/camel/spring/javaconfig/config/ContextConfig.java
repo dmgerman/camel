@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.javaconfig
+DECL|package|org.apache.camel.spring.javaconfig.config
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|javaconfig
+operator|.
+name|config
 package|;
 end_package
 
@@ -29,6 +31,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|javaconfig
+operator|.
+name|SingleRouteCamelConfiguration
 import|;
 end_import
 
