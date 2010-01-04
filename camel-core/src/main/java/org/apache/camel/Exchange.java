@@ -274,6 +274,12 @@ name|HTTP_URL
 init|=
 literal|"CamelHttpUrl"
 decl_stmt|;
+DECL|field|HTTP_CHUNKED
+name|String
+name|HTTP_CHUNKED
+init|=
+literal|"CamelHttpChunked"
+decl_stmt|;
 DECL|field|INTERCEPTED_ENDPOINT
 name|String
 name|INTERCEPTED_ENDPOINT
