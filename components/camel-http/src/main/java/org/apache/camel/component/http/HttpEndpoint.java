@@ -277,6 +277,13 @@ specifier|private
 name|boolean
 name|matchOnUriPrefix
 decl_stmt|;
+DECL|field|chunked
+specifier|private
+name|boolean
+name|chunked
+init|=
+literal|true
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -998,6 +1005,34 @@ operator|.
 name|matchOnUriPrefix
 operator|=
 name|match
+expr_stmt|;
+block|}
+DECL|method|isChunked ()
+specifier|public
+name|boolean
+name|isChunked
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|chunked
+return|;
+block|}
+DECL|method|setChunked (boolean chunked)
+specifier|public
+name|void
+name|setChunked
+parameter_list|(
+name|boolean
+name|chunked
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chunked
+operator|=
+name|chunked
 expr_stmt|;
 block|}
 block|}

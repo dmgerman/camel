@@ -160,11 +160,44 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testHttpClient ()
+DECL|method|testHttpRouteWithMessageHeader ()
 specifier|public
 name|void
-name|testHttpClient
+name|testHttpRouteWithMessageHeader
 parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testHttpClient
+argument_list|(
+literal|"direct:start"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testHttpRouteWithOption ()
+specifier|public
+name|void
+name|testHttpRouteWithOption
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testHttpClient
+argument_list|(
+literal|"direct:start2"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testHttpClient (String uri)
+specifier|private
+name|void
+name|testHttpClient
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -199,7 +232,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"direct:start"
+name|uri
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -299,6 +332,19 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// should get the Content-Length
+name|assertNotNull
+argument_list|(
+literal|"Should get the content-lenghth "
+argument_list|,
+name|headers
+operator|.
+name|get
+argument_list|(
+literal|"Content-Length"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -386,6 +432,21 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:start2"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"http://localhost:9081/hello"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:a"
+argument_list|)
+expr_stmt|;
 name|Processor
 name|proc
 init|=
@@ -431,6 +492,28 @@ decl_stmt|;
 name|from
 argument_list|(
 literal|"jetty:http://localhost:9080/hello"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+name|proc
+argument_list|)
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_CHUNKED
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"jetty:http://localhost:9081/hello?chunked=false"
 argument_list|)
 operator|.
 name|process
