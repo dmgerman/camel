@@ -868,7 +868,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"camel-osgi.jar detected in classpath"
+literal|"camel-osgi.jar/camel-spring-osgi.jar detected in classpath"
 argument_list|)
 expr_stmt|;
 block|}
@@ -878,7 +878,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"camel-osgi.jar not detected in classpath"
+literal|"camel-osgi.jar/camel-spring-osgi.jar not detected in classpath"
 argument_list|)
 expr_stmt|;
 block|}
