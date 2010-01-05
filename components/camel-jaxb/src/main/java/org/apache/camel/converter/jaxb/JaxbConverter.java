@@ -237,8 +237,7 @@ name|JAXBContext
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Converter
+comment|//@Converter
 DECL|method|toSource (Object value)
 specifier|public
 name|JAXBSource
@@ -308,8 +307,7 @@ literal|null
 return|;
 block|}
 block|}
-annotation|@
-name|Converter
+comment|//@Converter
 DECL|method|toDocument (Object value)
 specifier|public
 name|Document
