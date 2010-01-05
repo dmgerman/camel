@@ -281,7 +281,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/oldlock?recursive=true"
+literal|"file:target/oldlock?recursive=true&sortBy=file:name"
 argument_list|)
 operator|.
 name|routeId

@@ -190,14 +190,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|2
+literal|"Should be either 2 or 4, was "
+operator|+
+name|grouped
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|grouped
 operator|.
 name|size
 argument_list|()
+operator|==
+literal|2
+operator|||
+name|grouped
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|4
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -252,6 +266,16 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|result
+operator|.
+name|getReceivedCounter
+argument_list|()
+operator|==
+literal|2
+condition|)
+block|{
 name|out
 operator|=
 name|result
@@ -333,6 +357,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// END SNIPPET: e2
 block|}
 annotation|@

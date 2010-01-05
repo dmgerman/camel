@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for shutting down whil DLC is sleeping in a redelivery.  */
+comment|/**  * Unit test for shutting down while DLC is sleeping in a redelivery.  */
 end_comment
 
 begin_class
@@ -132,7 +132,7 @@ name|sendBody
 argument_list|(
 literal|"seda:damm"
 argument_list|,
-literal|"Damm World"
+literal|"Damn World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -157,6 +157,7 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
+comment|// cater for slow servers
 name|assertTrue
 argument_list|(
 literal|"Should be faster than: "
@@ -165,7 +166,7 @@ name|delta
 argument_list|,
 name|delta
 operator|<
-literal|2500
+literal|4000
 argument_list|)
 expr_stmt|;
 block|}
@@ -207,7 +208,7 @@ argument_list|)
 operator|.
 name|redeliverDelay
 argument_list|(
-literal|5000
+literal|3000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -251,7 +252,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Damm"
+literal|"Damn"
 argument_list|)
 throw|;
 block|}
