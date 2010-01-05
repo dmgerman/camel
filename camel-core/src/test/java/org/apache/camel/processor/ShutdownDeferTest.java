@@ -84,10 +84,12 @@ name|ShutdownDeferTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testShutdownDeferred ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testShutdownDeferred
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,6 +99,20 @@ argument_list|(
 literal|"target/deferred"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testShutdownDeferred ()
+specifier|public
+name|void
+name|testShutdownDeferred
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|bar
 init|=
@@ -116,7 +132,7 @@ name|bar
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|3500
+literal|3000
 argument_list|)
 expr_stmt|;
 name|template
@@ -250,7 +266,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|1000
 argument_list|)
 operator|.
 name|to

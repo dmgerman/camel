@@ -351,7 +351,7 @@ block|{
 name|int
 name|numMessages
 init|=
-literal|500
+literal|200
 decl_stmt|;
 name|ExecutorService
 name|service

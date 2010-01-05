@@ -145,13 +145,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1

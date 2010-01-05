@@ -84,10 +84,12 @@ name|ShutdownNotDeferTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testShutdownNotDeferred ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testShutdownNotDeferred
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,6 +99,20 @@ argument_list|(
 literal|"target/deferred"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testShutdownNotDeferred ()
+specifier|public
+name|void
+name|testShutdownNotDeferred
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|bar
 init|=
@@ -199,7 +215,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should route all 8
+comment|// should not route all 8
 name|assertTrue
 argument_list|(
 literal|"Should NOT complete all 8 messages, was "
