@@ -404,6 +404,18 @@ literal|"transacted"
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isAbstract ()
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String

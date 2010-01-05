@@ -649,6 +649,18 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isAbstract ()
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param context the camel context      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public

@@ -352,6 +352,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isAbstract ()
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

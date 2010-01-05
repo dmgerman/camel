@@ -2327,7 +2327,34 @@ range|:
 name|routes
 control|)
 block|{
-comment|// interceptors should be first
+comment|// move all abstracts into their own list so we can deal with them separately
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|abstracts
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|initAbstracts
+argument_list|(
+name|route
+argument_list|,
+name|abstracts
+argument_list|)
+expr_stmt|;
+comment|// toAsync should fix up itself at first
+name|initToAsync
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+comment|// interceptors should be first for the cross cutting concerns
 name|initInterceptors
 argument_list|(
 name|route
@@ -2337,24 +2364,24 @@ comment|// then on completion
 name|initOnCompletions
 argument_list|(
 name|route
+argument_list|,
+name|abstracts
 argument_list|)
 expr_stmt|;
 comment|// then polices
 name|initPolicies
 argument_list|(
 name|route
+argument_list|,
+name|abstracts
 argument_list|)
 expr_stmt|;
 comment|// then on exception
 name|initOnExceptions
 argument_list|(
 name|route
-argument_list|)
-expr_stmt|;
-comment|// and then for toAsync
-name|initToAsync
-argument_list|(
-name|route
+argument_list|,
+name|abstracts
 argument_list|)
 expr_stmt|;
 comment|// configure parents
@@ -2646,41 +2673,21 @@ name|outputs
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|initOnExceptions (RouteDefinition route)
+DECL|method|initOnExceptions (RouteDefinition route, List<ProcessorDefinition> abstracts)
 specifier|private
 name|void
 name|initOnExceptions
 parameter_list|(
 name|RouteDefinition
 name|route
+parameter_list|,
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|abstracts
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|exceptionHandlers
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|// add global on exceptions if any
 if|if
 condition|(
@@ -2695,6 +2702,30 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|abstracts
+operator|.
+name|addAll
+argument_list|(
+name|onExceptions
+argument_list|)
+expr_stmt|;
+block|}
+comment|// now add onExceptions to the route
+for|for
+control|(
+name|ProcessorDefinition
+name|output
+range|:
+name|abstracts
+control|)
+block|{
+if|if
+condition|(
+name|output
+operator|instanceof
+name|OnExceptionDefinition
+condition|)
+block|{
 comment|// on exceptions must be added at top, so the route flow is correct as
 comment|// on exceptions should be the first outputs
 name|route
@@ -2702,14 +2733,44 @@ operator|.
 name|getOutputs
 argument_list|()
 operator|.
-name|addAll
+name|add
 argument_list|(
 literal|0
 argument_list|,
-name|onExceptions
+name|output
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|initAbstracts (RouteDefinition route, List<ProcessorDefinition> abstracts)
+specifier|private
+name|void
+name|initAbstracts
+parameter_list|(
+name|RouteDefinition
+name|route
+parameter_list|,
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|abstracts
+parameter_list|)
+block|{
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|retains
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
@@ -2721,15 +2782,15 @@ name|getOutputs
 argument_list|()
 control|)
 block|{
-comment|// split into on exception and regular outputs
 if|if
 condition|(
 name|output
-operator|instanceof
-name|OnExceptionDefinition
+operator|.
+name|isAbstract
+argument_list|()
 condition|)
 block|{
-name|exceptionHandlers
+name|abstracts
 operator|.
 name|add
 argument_list|(
@@ -2739,7 +2800,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|outputs
+name|retains
 operator|.
 name|add
 argument_list|(
@@ -2748,34 +2809,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// clearing the outputs
 name|route
 operator|.
 name|clearOutput
 argument_list|()
 expr_stmt|;
-comment|// add exception handlers as top children
+for|for
+control|(
+name|ProcessorDefinition
+name|retain
+range|:
+name|retains
+control|)
+block|{
 name|route
 operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
+name|addOutput
 argument_list|(
-name|exceptionHandlers
+name|retain
 argument_list|)
 expr_stmt|;
-comment|// and the remaining outputs
-name|route
-operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
-argument_list|(
-name|outputs
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 DECL|method|initInterceptors (RouteDefinition route)
 specifier|private
@@ -2940,30 +2994,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|initOnCompletions (RouteDefinition route)
+DECL|method|initOnCompletions (RouteDefinition route, List<ProcessorDefinition> abstracts)
 specifier|private
 name|void
 name|initOnCompletions
 parameter_list|(
 name|RouteDefinition
 name|route
+parameter_list|,
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|abstracts
 parameter_list|)
 block|{
-comment|// only add global onCompletion if there are no route already
-name|boolean
-name|hasRouteScope
+name|List
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+name|completions
 init|=
-literal|false
+operator|new
+name|ArrayList
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+argument_list|()
 decl_stmt|;
+comment|// find the route scoped onCompletions
 for|for
 control|(
 name|ProcessorDefinition
 name|out
 range|:
-name|route
-operator|.
-name|getOutputs
-argument_list|()
+name|abstracts
 control|)
 block|{
 if|if
@@ -2973,21 +3038,45 @@ operator|instanceof
 name|OnCompletionDefinition
 condition|)
 block|{
-name|hasRouteScope
-operator|=
-literal|true
+name|completions
+operator|.
+name|add
+argument_list|(
+operator|(
+name|OnCompletionDefinition
+operator|)
+name|out
+argument_list|)
 expr_stmt|;
-break|break;
 block|}
 block|}
-comment|// only add global onCompletion if we do *not* have any route onCompletion defined in the route
-comment|// add onCompletion *after* intercept, as its important intercept is first
+comment|// only add global onCompletion if there are no route already
 if|if
 condition|(
-operator|!
-name|hasRouteScope
+name|completions
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
+name|completions
+operator|=
+name|getOnCompletions
+argument_list|()
+expr_stmt|;
+block|}
+comment|// are there any completions to init at all?
+if|if
+condition|(
+name|completions
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+comment|// add onCompletion *after* intercept, as its important intercept is first
 name|int
 name|index
 init|=
@@ -3059,33 +3148,25 @@ name|addAll
 argument_list|(
 name|index
 argument_list|,
-name|getOnCompletions
-argument_list|()
+name|completions
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|initPolicies (RouteDefinition route)
+DECL|method|initPolicies (RouteDefinition route, List<ProcessorDefinition> abstracts)
 specifier|private
 name|void
 name|initPolicies
 parameter_list|(
 name|RouteDefinition
 name|route
-parameter_list|)
-block|{
-comment|// setup the policies as JAXB yet again have not created a correct model for us
+parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
 argument_list|>
-name|types
-init|=
-name|route
-operator|.
-name|getOutputs
-argument_list|()
-decl_stmt|;
+name|abstracts
+parameter_list|)
+block|{
 comment|// we need two types as transacted cannot extend policy due JAXB limitations
 name|PolicyDefinition
 name|policy
@@ -3103,7 +3184,7 @@ control|(
 name|ProcessorDefinition
 name|type
 range|:
-name|types
+name|abstracts
 control|)
 block|{
 if|if
@@ -3137,7 +3218,7 @@ operator|)
 name|type
 expr_stmt|;
 block|}
-elseif|else
+block|}
 if|if
 condition|(
 name|policy
@@ -3148,38 +3229,18 @@ block|{
 comment|// the outputs should be moved to the policy
 name|policy
 operator|.
-name|addOutput
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|transacted
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// the outputs should be moved to the transacted policy
-name|transacted
+name|getOutputs
+argument_list|()
 operator|.
-name|addOutput
+name|addAll
 argument_list|(
-name|type
+name|route
+operator|.
+name|getOutputs
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-comment|// did we find a policy if so replace it as the only output on the route
-if|if
-condition|(
-name|policy
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// and add it as the single output
 name|route
 operator|.
 name|clearOutput
@@ -3201,6 +3262,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// the outputs should be moved to the transacted policy
+name|transacted
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|addAll
+argument_list|(
+name|route
+operator|.
+name|getOutputs
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and add it as the single output
 name|route
 operator|.
 name|clearOutput
