@@ -116,6 +116,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
 begin_comment
 comment|/**  * URI utilities.  *  * @version $Revision$  */
 end_comment
@@ -165,6 +177,33 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
+comment|// must check for trailing& as the uri.split("&") will ignore those
+if|if
+condition|(
+name|uri
+operator|!=
+literal|null
+operator|&&
+name|uri
+operator|.
+name|endsWith
+argument_list|(
+literal|"&"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|URISyntaxException
+argument_list|(
+name|uri
+argument_list|,
+literal|"Invalid uri syntax: Trailing& marker found. "
+operator|+
+literal|"Check the uri and remove the trailing& marker."
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 comment|// use a linked map so the parameters is in the same order

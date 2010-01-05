@@ -750,6 +750,29 @@ literal|"Check the uri and remove the duplicate& marker."
 argument_list|)
 throw|;
 block|}
+comment|// if we have a trailing& then that is invalid as well
+if|if
+condition|(
+name|uri
+operator|.
+name|endsWith
+argument_list|(
+literal|"&"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"Invalid uri syntax: Trailing& marker found. "
+operator|+
+literal|"Check the uri and remove the trailing& marker."
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getCamelContext ()
 specifier|public
