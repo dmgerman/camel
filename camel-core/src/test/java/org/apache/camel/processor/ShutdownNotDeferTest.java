@@ -128,13 +128,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|bar
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -180,33 +173,6 @@ argument_list|,
 literal|"E"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"F"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"G"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"H"
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -215,10 +181,10 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should not route all 8
+comment|// should not route all 5
 name|assertTrue
 argument_list|(
-literal|"Should NOT complete all 8 messages, was "
+literal|"Should NOT complete all 5 messages, was "
 operator|+
 name|bar
 operator|.
@@ -230,7 +196,7 @@ operator|.
 name|getReceivedCounter
 argument_list|()
 operator|<
-literal|8
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
