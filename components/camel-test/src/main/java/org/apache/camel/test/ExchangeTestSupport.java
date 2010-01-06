@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example
+DECL|package|org.apache.camel.test
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|example
+name|test
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -36,23 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxb
-operator|.
-name|MessageDefinition
+name|Message
 import|;
 end_import
 
@@ -66,90 +50,117 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
+name|DefaultExchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for JABX conversion of MessageType  */
+comment|/**  * A base class for a test which requires a {@link CamelContext} and  * a populated {@link Exchange}  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JAXBConverterMessageTypeTest
+DECL|class|ExchangeTestSupport
 specifier|public
+specifier|abstract
 class|class
-name|JAXBConverterMessageTypeTest
+name|ExchangeTestSupport
 extends|extends
-name|Assert
+name|CamelTestSupport
 block|{
-DECL|field|context
+DECL|field|exchange
 specifier|protected
-name|CamelContext
-name|context
-init|=
+name|Exchange
+name|exchange
+decl_stmt|;
+comment|/**      * A factory method to create an Exchange implementation      */
+DECL|method|createExchange ()
+specifier|protected
+name|Exchange
+name|createExchange
+parameter_list|()
+block|{
+return|return
 operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-DECL|field|converter
-specifier|protected
-name|TypeConverter
-name|converter
-init|=
+name|DefaultExchange
+argument_list|(
 name|context
+argument_list|)
+return|;
+block|}
+comment|/**      * A strategy method to populate an exchange with some example values for use      * by language plugins      */
+DECL|method|populateExchange (Exchange exchange)
+specifier|protected
+name|void
+name|populateExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Message
+name|in
+init|=
+name|exchange
 operator|.
-name|getTypeConverter
+name|getIn
 argument_list|()
 decl_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+literal|"bar"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|setBody
+argument_list|(
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
-name|Test
-DECL|method|testConverter ()
-specifier|public
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testConverter
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MessageDefinition
-name|message
-init|=
-name|converter
+name|super
 operator|.
-name|convertTo
-argument_list|(
-name|MessageDefinition
-operator|.
-name|class
-argument_list|,
-literal|"<message><hello>bar</hello></message>"
-argument_list|)
-decl_stmt|;
+name|setUp
+argument_list|()
+expr_stmt|;
+name|exchange
+operator|=
+name|createExchange
+argument_list|()
+expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Message should not be null!"
+literal|"No exchange created!"
 argument_list|,
-name|message
+name|exchange
+argument_list|)
+expr_stmt|;
+name|populateExchange
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}

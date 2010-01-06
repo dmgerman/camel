@@ -112,7 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangeTestSupport
+name|example
+operator|.
+name|PurchaseOrder
 import|;
 end_import
 
@@ -124,9 +126,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|example
+name|test
 operator|.
-name|PurchaseOrder
+name|junit4
+operator|.
+name|ExchangeTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -150,8 +174,10 @@ name|order
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -197,6 +223,8 @@ literal|2.4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSourceUsingExplicitJaxbConverter ()
 specifier|public
 name|void
@@ -239,6 +267,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSourceUsingTypeConverter ()
 specifier|public
 name|void
@@ -316,6 +346,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDocumentUsingExplicitJaxbConverter ()
 specifier|public
 name|void
@@ -360,6 +392,8 @@ name|document
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDocumentUsingTypeConverter ()
 specifier|public
 name|void

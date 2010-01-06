@@ -60,7 +60,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
 name|ExchangeTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -81,6 +105,8 @@ specifier|protected
 name|JAXBContext
 name|jaxbContext
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCamelToJaxbUsingExplicitJaxbConverter ()
 specifier|public
 name|void
@@ -152,8 +178,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
