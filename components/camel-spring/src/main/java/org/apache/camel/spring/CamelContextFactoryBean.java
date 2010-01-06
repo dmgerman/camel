@@ -3111,7 +3111,6 @@ argument_list|(
 name|completions
 argument_list|)
 expr_stmt|;
-comment|/*        // add onCompletion *after* intercept, as its important intercept is first         int index = 0;         for (int i = 0; i< route.getOutputs().size(); i++) {             index = i;             ProcessorDefinition out = route.getOutputs().get(i);             if (out instanceof InterceptDefinition || out instanceof InterceptSendToEndpointDefinition) {                 continue;             } else {                 // we found the spot                 break;             }         }         route.getOutputs().addAll(index, completions);*/
 block|}
 DECL|method|initPolicies (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> lower)
 specifier|private
@@ -3950,9 +3949,6 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
-comment|/**      * @deprecated replaced by {@link #getPackageScan()}      */
-annotation|@
-name|Deprecated
 DECL|method|getPackages ()
 specifier|public
 name|String
@@ -3964,9 +3960,7 @@ return|return
 name|packages
 return|;
 block|}
-comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the spring.xml      *       * @deprecated replaced by {@link #setPackageScan(org.apache.camel.model.PackageScanDefinition)}      * @param packages the package names which are recursively searched      */
-annotation|@
-name|Deprecated
+comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the spring.xml      *<p/>      * A more advanced configuration can be done using {@link #setPackageScan(org.apache.camel.model.PackageScanDefinition)}      *       * @param packages the package names which are recursively searched      * @see #setPackageScan(org.apache.camel.model.PackageScanDefinition)      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -4882,13 +4876,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using a packages element to specify packages to search has been deprecated. Please use a packageScan element instead."
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|packageScanDef
