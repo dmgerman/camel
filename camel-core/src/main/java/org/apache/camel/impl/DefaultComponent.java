@@ -1034,7 +1034,7 @@ return|;
 block|}
 comment|// Some helper methods
 comment|//-------------------------------------------------------------------------
-comment|/**      * Converts the given value to the requested type      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Converts the given value to the requested type      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|convertTo (Class<T> type, Object value)
@@ -1069,7 +1069,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given value to the specified type throwing an {@link IllegalArgumentException}      * if the value could not be converted to a non null value      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Converts the given value to the specified type throwing an {@link IllegalArgumentException}      * if the value could not be converted to a non null value      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
@@ -1104,7 +1104,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new instance of the given type using the {@link org.apache.camel.spi.Injector} on the given      * {@link CamelContext}      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Creates a new instance of the given type using the {@link org.apache.camel.spi.Injector} on the given      * {@link CamelContext}      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|newInstance (Class<T> beanType)
@@ -1135,7 +1135,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|lookup (String name)
@@ -1160,7 +1160,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|lookup (String name, Class<T> beanType)
@@ -1196,7 +1196,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|mandatoryLookup (String name)
@@ -1220,7 +1220,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      * @deprecated will be removed in Camel 2.3      */
 annotation|@
 name|Deprecated
 DECL|method|mandatoryLookup (String name, Class<T> beanType)
