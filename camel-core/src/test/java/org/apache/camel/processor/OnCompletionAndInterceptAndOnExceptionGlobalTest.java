@@ -318,6 +318,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//context.setTracing(true);
 name|intercept
 argument_list|()
 operator|.
@@ -326,7 +327,7 @@ argument_list|(
 literal|"mock:intercept"
 argument_list|)
 expr_stmt|;
-comment|// define a global on completion that is invoked when the exchage is complete
+comment|// define a global on completion that is invoked when the exchange is complete
 name|onCompletion
 argument_list|()
 operator|.
@@ -340,7 +341,7 @@ argument_list|(
 literal|"mock:sync"
 argument_list|)
 expr_stmt|;
-comment|// define an on excpetion
+comment|// define an on exception
 name|onException
 argument_list|(
 name|Exception
@@ -350,6 +351,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"mock:foo"
+argument_list|,
+literal|"mock:bar"
+argument_list|,
 literal|"mock:exception"
 argument_list|)
 expr_stmt|;
