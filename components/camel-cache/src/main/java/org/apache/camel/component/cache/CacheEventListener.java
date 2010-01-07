@@ -561,15 +561,12 @@ name|CacheException
 argument_list|(
 literal|"Error in consumer while dispatching exchange containing Key "
 operator|+
-operator|(
-name|String
-operator|)
 name|element
 operator|.
 name|getObjectKey
 argument_list|()
 operator|+
-literal|" for further processing  "
+literal|" for further processing"
 argument_list|,
 name|e
 argument_list|)
@@ -607,7 +604,9 @@ specifier|public
 name|void
 name|dispose
 parameter_list|()
-block|{              }
+block|{
+comment|// noop
+block|}
 DECL|method|clone ()
 specifier|public
 name|Object

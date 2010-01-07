@@ -108,15 +108,24 @@ name|String
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Cache Name: "
 operator|+
 name|cacheName
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -144,14 +153,9 @@ literal|"No existing Cache found with name: "
 operator|+
 name|cacheName
 operator|+
-literal|". Please ensure a cache is first instantiated using a Cache Consumer or Cache Producer"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Replacement will not be performed since the cache "
+literal|". Please ensure a cache is first instantiated using a Cache Consumer or Cache Producer."
+operator|+
+literal|" Replacement will not be performed since the cache "
 operator|+
 name|cacheName
 operator|+
@@ -172,9 +176,17 @@ operator|+
 name|cacheName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Cache "
 operator|+
@@ -195,6 +207,7 @@ operator|+
 literal|" elements"
 argument_list|)
 expr_stmt|;
+block|}
 name|Ehcache
 name|cache
 init|=
@@ -232,14 +245,9 @@ literal|"No Key with name: "
 operator|+
 name|key
 operator|+
-literal|"presently exists in the cache. It is also possible that the key may have expired in the cache"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Replacement will not be performed until an appropriate key/value pair is added to (or) found in the cache."
+literal|"presently exists in the cache. It is also possible that the key may have expired in the cache."
+operator|+
+literal|" Replacement will not be performed until an appropriate key/value pair is added to (or) found in the cache."
 argument_list|)
 expr_stmt|;
 block|}

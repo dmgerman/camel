@@ -39,12 +39,13 @@ class|class
 name|CacheManagerFactory
 block|{
 DECL|field|cacheManager
-specifier|public
+specifier|private
 name|CacheManager
 name|cacheManager
 decl_stmt|;
 DECL|method|instantiateCacheManager ()
 specifier|public
+specifier|synchronized
 name|CacheManager
 name|instantiateCacheManager
 parameter_list|()

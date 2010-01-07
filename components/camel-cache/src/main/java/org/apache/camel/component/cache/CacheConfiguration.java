@@ -184,11 +184,6 @@ specifier|private
 name|long
 name|diskExpiryThreadIntervalSeconds
 decl_stmt|;
-DECL|field|cacheSettings
-specifier|private
-name|Map
-name|cacheSettings
-decl_stmt|;
 DECL|method|CacheConfiguration ()
 specifier|public
 name|CacheConfiguration
@@ -262,15 +257,16 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Map
 name|cacheSettings
-operator|=
+init|=
 name|URISupport
 operator|.
 name|parseParameters
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|cacheSettings
@@ -755,7 +751,7 @@ return|return
 name|diskExpiryThreadIntervalSeconds
 return|;
 block|}
-DECL|method|setDiskExpiryThreadIntervalSeconds ( long diskExpiryThreadIntervalSeconds)
+DECL|method|setDiskExpiryThreadIntervalSeconds (long diskExpiryThreadIntervalSeconds)
 specifier|public
 name|void
 name|setDiskExpiryThreadIntervalSeconds

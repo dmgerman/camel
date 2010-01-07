@@ -595,6 +595,8 @@ name|File
 argument_list|(
 literal|"./src/main/resources/xpathreplacer.xsl"
 argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|xslString
@@ -683,7 +685,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// DOMSource can be coverted to byte[] by camel type converter mechanism
+comment|// DOMSource can be converted to byte[] by camel type converter mechanism
 name|DOMSource
 name|dom
 init|=

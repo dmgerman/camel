@@ -226,7 +226,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 name|super
 operator|.
 name|doStart
@@ -246,13 +245,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
+name|removeConsumerCacheConnection
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|doStop
-argument_list|()
-expr_stmt|;
-name|removeConsumerCacheConnection
 argument_list|()
 expr_stmt|;
 block|}
@@ -269,7 +267,7 @@ name|endpoint
 return|;
 block|}
 DECL|method|createConsumerCacheConnection ()
-specifier|private
+specifier|protected
 name|void
 name|createConsumerCacheConnection
 parameter_list|()
@@ -417,7 +415,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Added a new cache: "
 operator|+
@@ -430,7 +428,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|removeConsumerCacheConnection ()
-specifier|private
+specifier|protected
 name|void
 name|removeConsumerCacheConnection
 parameter_list|()
