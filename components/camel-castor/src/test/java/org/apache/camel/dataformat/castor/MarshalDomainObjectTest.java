@@ -96,6 +96,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// some platform cannot test using Castor as it uses a SUN dependent Xerces
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=
@@ -164,6 +175,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// some platform cannot test using Castor as it uses a SUN dependent Xerces
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=
