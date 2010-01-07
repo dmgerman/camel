@@ -616,6 +616,43 @@ argument_list|)
 throw|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Error
+name|e
+parameter_list|)
+block|{
+comment|// log the fatal error as the JDK itself may not log it for us
+name|log
+operator|.
+name|fatal
+argument_list|(
+literal|"Consumer "
+operator|+
+name|this
+operator|+
+literal|" could not poll endpoint: "
+operator|+
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 comment|// Properties
