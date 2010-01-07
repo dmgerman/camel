@@ -105,6 +105,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// some platforms cannot test SSL
+if|if
+condition|(
+operator|!
+name|canTest
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=

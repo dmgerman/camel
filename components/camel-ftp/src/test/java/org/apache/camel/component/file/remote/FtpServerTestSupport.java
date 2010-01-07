@@ -295,6 +295,11 @@ specifier|protected
 name|FtpServer
 name|ftpServer
 decl_stmt|;
+DECL|field|canTest
+specifier|protected
+name|boolean
+name|canTest
+decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|initPort ()
@@ -431,6 +436,10 @@ argument_list|(
 name|FTP_ROOT_DIR
 argument_list|)
 expr_stmt|;
+name|canTest
+operator|=
+literal|false
+expr_stmt|;
 name|ftpServer
 operator|=
 name|createFtpServerFactory
@@ -439,11 +448,23 @@ operator|.
 name|createServer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ftpServer
+operator|!=
+literal|null
+condition|)
+block|{
 name|ftpServer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|canTest
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|setUp
@@ -467,6 +488,13 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ftpServer
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|ftpServer
@@ -490,6 +518,7 @@ comment|// and get errors when the ftp server is stopping. This is only an issue
 comment|// since we host the ftp server embedded in the same jvm for unit testing
 block|}
 block|}
+block|}
 annotation|@
 name|AfterClass
 DECL|method|resetPort ()
@@ -505,6 +534,16 @@ name|port
 operator|=
 literal|0
 expr_stmt|;
+block|}
+DECL|method|canTest ()
+specifier|protected
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+return|return
+name|canTest
+return|;
 block|}
 DECL|method|createFtpServerFactory ()
 specifier|protected
