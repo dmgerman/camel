@@ -211,6 +211,14 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+comment|// give some time to run on slower boxes
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|expectedMinimumMessageCount
