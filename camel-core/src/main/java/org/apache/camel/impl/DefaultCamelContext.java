@@ -7336,9 +7336,9 @@ name|warn
 argument_list|(
 literal|"Could not find needed classes for JMX lifecycle strategy."
 operator|+
-literal|" Needed class is in spring-context.jar using Spring 2.5 or newer ("
+literal|" Needed class is in spring-context.jar using Spring 2.5 or newer"
 operator|+
-literal|" spring-jmx.jar using Spring 2.0.x)."
+literal|" (spring-jmx.jar using Spring 2.0.x)."
 operator|+
 literal|" NoClassDefFoundError: "
 operator|+
