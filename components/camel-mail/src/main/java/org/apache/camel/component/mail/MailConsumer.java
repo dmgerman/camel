@@ -770,6 +770,14 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -785,6 +793,7 @@ operator|+
 literal|" messages in this poll."
 argument_list|)
 expr_stmt|;
+block|}
 name|total
 operator|=
 name|maxMessagesPerPoll
@@ -1332,6 +1341,35 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
+name|Exception
+name|cause
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exchange failed, so rolling back message status: "
+operator|+
+name|exchange
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|warn
@@ -1341,6 +1379,7 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|ensureIsConnected ()
 specifier|private
