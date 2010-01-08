@@ -82,6 +82,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// these tests does not run well on Windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|String
 name|reply
 init|=
