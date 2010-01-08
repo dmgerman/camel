@@ -45,7 +45,7 @@ specifier|final
 name|String
 name|DATA_MIME_TYPES
 init|=
-literal|"text/xml,application/xml,application/json,text/json"
+literal|"text/xml,application/xml,application/json"
 decl_stmt|;
 DECL|field|DOT_MIMETYPE
 specifier|public
