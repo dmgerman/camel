@@ -1512,7 +1512,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-comment|// correlation
+comment|// restore correlation id in case the remote server messed with it
 if|if
 condition|(
 name|correlationId

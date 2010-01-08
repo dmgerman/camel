@@ -171,10 +171,10 @@ literal|"activemq"
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testRequetReplyNoMutate ()
+DECL|method|testRequestReplyNoMutate ()
 specifier|public
 name|void
-name|testRequetReplyNoMutate
+name|testRequestReplyNoMutate
 parameter_list|()
 throws|throws
 name|Exception
