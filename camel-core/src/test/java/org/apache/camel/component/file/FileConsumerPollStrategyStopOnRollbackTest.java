@@ -307,6 +307,13 @@ argument_list|(
 name|fileUrl
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
@@ -335,7 +342,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// start consumer as we simualte the fail in begin
+comment|// start consumer as we simulate the fail in begin
 comment|// and thus before camel lazy start it itself
 try|try
 block|{

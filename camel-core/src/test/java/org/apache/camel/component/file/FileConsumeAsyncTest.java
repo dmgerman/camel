@@ -257,6 +257,13 @@ argument_list|(
 literal|"file://target/files/?delete=true&delay=10000"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|threads
 argument_list|()
 operator|.

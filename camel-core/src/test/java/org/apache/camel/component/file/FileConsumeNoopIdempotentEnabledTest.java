@@ -185,6 +185,13 @@ argument_list|(
 literal|"file://target/noop?noop=true&idempotent=true"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

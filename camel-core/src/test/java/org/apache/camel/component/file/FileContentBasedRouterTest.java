@@ -278,32 +278,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// okay get the payload to compare
-name|assertEquals
-argument_list|(
-literal|"Hello Copenhagen"
-argument_list|,
-name|mock
-operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

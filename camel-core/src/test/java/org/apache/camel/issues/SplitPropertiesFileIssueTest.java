@@ -439,7 +439,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// as we use the recipeientList afterwards we set the destination
+comment|// as we use the recipientList afterwards we set the destination
 comment|// as well on our message where we want to route it
 comment|// as we are an unit test then just store the list using toString so its easier to test
 name|msg1

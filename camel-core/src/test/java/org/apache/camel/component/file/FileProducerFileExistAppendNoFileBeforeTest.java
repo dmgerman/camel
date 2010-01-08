@@ -94,15 +94,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/file"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testAppend ()
@@ -183,6 +183,13 @@ block|{
 name|from
 argument_list|(
 literal|"file://target/file?noop=true&delay=1000"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to

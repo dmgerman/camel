@@ -84,10 +84,12 @@ name|FileToFileNioLowBufferTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testFileToFileNioLowBuffer ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testFileToFileNioLowBuffer
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,6 +99,20 @@ argument_list|(
 literal|"target/nio"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testFileToFileNioLowBuffer ()
+specifier|public
+name|void
+name|testFileToFileNioLowBuffer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|String
 name|body
 init|=
@@ -172,6 +188,13 @@ block|{
 name|from
 argument_list|(
 literal|"file://target/nio/in"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to

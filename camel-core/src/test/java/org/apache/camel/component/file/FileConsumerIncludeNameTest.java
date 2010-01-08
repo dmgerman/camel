@@ -229,6 +229,13 @@ argument_list|(
 literal|"file://target/include/?include=^report.*txt$"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

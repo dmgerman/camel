@@ -121,7 +121,7 @@ argument_list|(
 literal|"./target/move"
 argument_list|)
 expr_stmt|;
-comment|// use current dir as base as aboslute path
+comment|// use current dir as base as absolute path
 name|base
 operator|=
 operator|new
@@ -276,6 +276,13 @@ operator|+
 name|base
 operator|+
 literal|"/.done"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to

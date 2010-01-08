@@ -239,6 +239,13 @@ operator|+
 literal|"a/?sortBy=file:ext;file:name"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
@@ -313,6 +320,13 @@ argument_list|(
 name|fileUrl
 operator|+
 literal|"b/?sortBy=file:ext;reverse:file:name"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to

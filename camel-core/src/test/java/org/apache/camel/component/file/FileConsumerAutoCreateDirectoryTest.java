@@ -206,7 +206,7 @@ argument_list|(
 literal|"target/file/foo"
 argument_list|)
 expr_stmt|;
-comment|// use current dir as base as aboslute path
+comment|// use current dir as base as absolute path
 name|String
 name|base
 init|=
