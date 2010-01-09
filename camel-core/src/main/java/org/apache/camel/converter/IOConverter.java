@@ -1706,7 +1706,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getCharsetName (Exchange exchange)
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|getCharsetName
@@ -1756,7 +1756,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|getDefaultCharsetName ()
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|getDefaultCharsetName

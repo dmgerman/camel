@@ -184,6 +184,12 @@ name|FAILURE_ENDPOINT
 init|=
 literal|"CamelFailureEndpoint"
 decl_stmt|;
+DECL|field|FILTER_NON_XML_CHARS
+name|String
+name|FILTER_NON_XML_CHARS
+init|=
+literal|"CamelFilterNonXmlChars"
+decl_stmt|;
 DECL|field|FILE_LOCAL_WORK_PATH
 name|String
 name|FILE_LOCAL_WORK_PATH
