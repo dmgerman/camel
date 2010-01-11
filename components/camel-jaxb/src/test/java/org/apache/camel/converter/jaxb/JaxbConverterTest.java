@@ -307,7 +307,7 @@ literal|"The result source should not be JAXBSource"
 argument_list|,
 name|source
 operator|instanceof
-name|JAXBSource
+name|Source
 argument_list|)
 expr_stmt|;
 name|exchange
