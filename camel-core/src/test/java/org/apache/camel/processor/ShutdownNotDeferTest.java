@@ -113,6 +113,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give it 20 seconds to shutdown
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -184,7 +195,7 @@ expr_stmt|;
 comment|// should not route all 5
 name|assertTrue
 argument_list|(
-literal|"Should NOT complete all 5 messages, was "
+literal|"Should NOT complete all messages, was "
 operator|+
 name|bar
 operator|.

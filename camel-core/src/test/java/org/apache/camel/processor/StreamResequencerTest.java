@@ -449,6 +449,13 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
+name|setResultWaitTime
+argument_list|(
+literal|20000
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
@@ -471,6 +478,9 @@ block|{
 name|super
 operator|.
 name|setUp
+argument_list|()
+expr_stmt|;
+name|disableJMX
 argument_list|()
 expr_stmt|;
 name|resultEndpoint
@@ -765,7 +775,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2
+literal|4
 argument_list|)
 expr_stmt|;
 block|}

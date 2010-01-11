@@ -195,6 +195,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give it 20 seconds to shutdown
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -226,12 +237,12 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should route all 8
+comment|// should route all 5
 name|assertEquals
 argument_list|(
 literal|"Should complete all messages"
 argument_list|,
-literal|8
+literal|5
 argument_list|,
 name|bar
 operator|.
@@ -319,7 +330,7 @@ init|=
 operator|new
 name|Message
 index|[
-literal|8
+literal|5
 index|]
 decl_stmt|;
 for|for
@@ -331,7 +342,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|8
+literal|5
 condition|;
 name|i
 operator|++

@@ -281,7 +281,7 @@ argument_list|,
 name|camelId
 argument_list|)
 expr_stmt|;
-comment|// change period
+comment|// change period and delay
 name|mbeanServer
 operator|.
 name|setAttribute
@@ -293,7 +293,7 @@ name|Attribute
 argument_list|(
 literal|"Period"
 argument_list|,
-literal|1000
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -308,7 +308,7 @@ name|Attribute
 argument_list|(
 literal|"Delay"
 argument_list|,
-literal|0
+literal|250
 argument_list|)
 argument_list|)
 expr_stmt|;
