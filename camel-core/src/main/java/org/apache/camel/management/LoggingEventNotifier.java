@@ -32,20 +32,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|EventNotifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -69,32 +55,35 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default event notifier that only notifies if<tt>TRACE</tt> log level has  * been configured for its logger.  *  * @version $Revision$  */
+comment|/**  * Logging event notifier that only notifies if<tt>INFO</tt> log level has  * been configured for its logger.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DefaultEventNotifier
+DECL|class|LoggingEventNotifier
 specifier|public
 class|class
-name|DefaultEventNotifier
-implements|implements
-name|EventNotifier
+name|LoggingEventNotifier
+extends|extends
+name|EventNotifierSupport
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|private
-specifier|static
-specifier|final
 name|Log
-name|LOG
+name|log
 init|=
 name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultEventNotifier
+name|LoggingEventNotifier
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|logName
+specifier|private
+name|String
+name|logName
 decl_stmt|;
 DECL|method|notify (EventObject event)
 specifier|public
@@ -107,9 +96,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
-name|trace
+name|info
 argument_list|(
 literal|"Event: "
 operator|+
@@ -127,12 +116,73 @@ name|event
 parameter_list|)
 block|{
 return|return
-name|LOG
+name|log
 operator|.
-name|isTraceEnabled
+name|isInfoEnabled
 argument_list|()
 return|;
 block|}
+DECL|method|getLogName ()
+specifier|public
+name|String
+name|getLogName
+parameter_list|()
+block|{
+return|return
+name|logName
+return|;
+block|}
+comment|/**      * Sets the log name to use.      *      * @param logName a custom log name to use      */
+DECL|method|setLogName (String logName)
+specifier|public
+name|void
+name|setLogName
+parameter_list|(
+name|String
+name|logName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logName
+operator|=
+name|logName
+expr_stmt|;
+block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|logName
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|logName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

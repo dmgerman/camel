@@ -56,9 +56,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|management
 operator|.
-name|EventNotifier
+name|EventNotifierSupport
 import|;
 end_import
 
@@ -71,8 +71,8 @@ DECL|class|MyEventNotifier
 specifier|public
 class|class
 name|MyEventNotifier
-implements|implements
-name|EventNotifier
+extends|extends
+name|EventNotifierSupport
 block|{
 DECL|field|events
 specifier|private
@@ -134,6 +134,26 @@ return|return
 name|events
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

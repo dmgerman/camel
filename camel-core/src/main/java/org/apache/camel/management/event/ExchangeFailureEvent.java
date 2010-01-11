@@ -106,11 +106,49 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|Exception
+name|cause
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
-literal|"Exchange failure: "
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" exchange failure: "
+operator|+
+name|exchange
+operator|+
+literal|" cause "
+operator|+
+name|cause
+return|;
+block|}
+else|else
+block|{
+return|return
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" exchange failure: "
 operator|+
 name|exchange
 return|;
+block|}
 block|}
 block|}
 end_class

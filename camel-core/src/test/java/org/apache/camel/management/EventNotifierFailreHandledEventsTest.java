@@ -208,20 +208,6 @@ name|SendProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|EventNotifier
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -311,7 +297,7 @@ operator|.
 name|setEventNotifier
 argument_list|(
 operator|new
-name|EventNotifier
+name|EventNotifierSupport
 argument_list|()
 block|{
 specifier|public
@@ -344,6 +330,24 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{             }
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{             }
 block|}
 argument_list|)
 expr_stmt|;

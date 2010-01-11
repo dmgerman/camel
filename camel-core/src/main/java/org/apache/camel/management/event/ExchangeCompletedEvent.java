@@ -107,7 +107,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Exchange completed: "
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" exchange completed: "
 operator|+
 name|exchange
 return|;

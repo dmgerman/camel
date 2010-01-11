@@ -117,7 +117,6 @@ name|ServiceSupport
 implements|implements
 name|Service
 block|{
-comment|// TODO: refactor and move me to org.apache.camel.util package
 DECL|field|started
 specifier|private
 specifier|final

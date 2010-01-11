@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for easily sending event notifcations in a single line of code  *  * @version $Revision$  */
+comment|/**  * Helper for easily sending event notifications in a single line of code  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -188,6 +188,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -265,6 +270,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -345,6 +355,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -424,6 +439,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -501,6 +521,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -581,6 +606,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreCamelContextEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -666,6 +696,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreServiceEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -753,6 +788,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreServiceEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -837,6 +877,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreRouteEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -917,6 +962,11 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreRouteEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -997,6 +1047,16 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeEvents
+argument_list|()
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeCreatedEvent
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -1077,6 +1137,16 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeEvents
+argument_list|()
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeCompletedEvent
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -1157,6 +1227,16 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeEvents
+argument_list|()
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeFailureEvents
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -1243,6 +1323,16 @@ condition|(
 name|notifier
 operator|==
 literal|null
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeEvents
+argument_list|()
+operator|||
+name|notifier
+operator|.
+name|isIgnoreExchangeFailureEvents
+argument_list|()
 condition|)
 block|{
 return|return;
