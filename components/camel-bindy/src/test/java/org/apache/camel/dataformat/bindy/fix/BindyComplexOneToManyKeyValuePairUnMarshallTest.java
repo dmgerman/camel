@@ -46,6 +46,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -358,6 +368,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// must use linked to preserve order
 name|Map
 argument_list|<
 name|String
@@ -367,7 +378,7 @@ argument_list|>
 name|model
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
