@@ -5475,13 +5475,6 @@ operator|+
 literal|") is starting"
 argument_list|)
 expr_stmt|;
-name|EventHelper
-operator|.
-name|notifyCamelContextStarting
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|doStartCamel
@@ -5748,6 +5741,14 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// must let some bootstrap service be started before we can notify the starting event
+name|EventHelper
+operator|.
+name|notifyCamelContextStarting
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|forceLazyInitialization
 argument_list|()
 expr_stmt|;
@@ -5956,18 +5957,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// stop management as the last one
-name|stopServices
-argument_list|(
-name|getManagementStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// must notify that we are stopped before stopping the management strategy
 name|EventHelper
 operator|.
 name|notifyCamelContextStopped
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+comment|// stop management as the last one
+name|stopServices
+argument_list|(
+name|getManagementStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG

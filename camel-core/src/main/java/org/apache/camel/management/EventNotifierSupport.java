@@ -44,6 +44,34 @@ name|EventNotifier
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class to extend for custom {@link EventNotifier} implementations.  *  * @version $Revision$  */
 end_comment
@@ -93,6 +121,19 @@ DECL|field|ignoreExchangeFailureEvents
 specifier|private
 name|boolean
 name|ignoreExchangeFailureEvents
+decl_stmt|;
+DECL|field|log
+specifier|protected
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|method|isIgnoreCamelContextEvents ()
 specifier|public
