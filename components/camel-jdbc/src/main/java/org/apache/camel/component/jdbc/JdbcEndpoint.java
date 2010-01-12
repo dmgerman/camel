@@ -132,6 +132,13 @@ name|Object
 argument_list|>
 name|parameters
 decl_stmt|;
+DECL|field|useJDBC4ColumnNameAndLabelSemantics
+specifier|private
+name|boolean
+name|useJDBC4ColumnNameAndLabelSemantics
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JdbcEndpoint ()
 specifier|public
 name|JdbcEndpoint
@@ -303,6 +310,33 @@ operator|.
 name|parameters
 operator|=
 name|parameters
+expr_stmt|;
+block|}
+DECL|method|isUseJDBC4ColumnNameAndLabelSemantics ()
+specifier|public
+name|boolean
+name|isUseJDBC4ColumnNameAndLabelSemantics
+parameter_list|()
+block|{
+return|return
+name|useJDBC4ColumnNameAndLabelSemantics
+return|;
+block|}
+comment|/**      * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when retrieving column name.      *<p/>      * JDBC 4.0 uses columnLabel to get the column name where as JDBC 3.0 uses both columnName or columnLabel.      * Unfortunately JDBC drivers behave differently so you can use this option to work out issues around your      * JDBC driver if you get problem using this component      *<p/>      * This option is default<tt>true</tt>.      *      * @param useJDBC4ColumnNameAndLabelSemantics<tt>true</tt> to use JDBC 4.0 semantics,<tt>false</tt> to use JDBC 3.0.      */
+DECL|method|setUseJDBC4ColumnNameAndLabelSemantics (boolean useJDBC4ColumnNameAndLabelSemantics)
+specifier|public
+name|void
+name|setUseJDBC4ColumnNameAndLabelSemantics
+parameter_list|(
+name|boolean
+name|useJDBC4ColumnNameAndLabelSemantics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useJDBC4ColumnNameAndLabelSemantics
+operator|=
+name|useJDBC4ColumnNameAndLabelSemantics
 expr_stmt|;
 block|}
 annotation|@

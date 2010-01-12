@@ -283,6 +283,24 @@ operator|=
 name|parameters
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|JdbcEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|JdbcEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
 comment|/**      * Execute sql of exchange and set results on output      */
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -537,6 +555,16 @@ operator|.
 name|getMetaData
 argument_list|()
 decl_stmt|;
+comment|// should we use jdbc4 or jdbc3 semantics
+name|boolean
+name|jdbc4
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|isUseJDBC4ColumnNameAndLabelSemantics
+argument_list|()
+decl_stmt|;
 name|int
 name|count
 init|=
@@ -630,16 +658,59 @@ name|i
 operator|+
 literal|1
 decl_stmt|;
+comment|// use column label to get the name as it also handled SQL SELECT aliases
 name|String
 name|columnName
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|jdbc4
+condition|)
+block|{
+comment|// jdbc 4 should use label to get the name
+name|columnName
+operator|=
+name|meta
+operator|.
+name|getColumnLabel
+argument_list|(
+name|columnNumber
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// jdbc 3 uses the label or name to get the name
+try|try
+block|{
+name|columnName
+operator|=
+name|meta
+operator|.
+name|getColumnLabel
+argument_list|(
+name|columnNumber
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SQLException
+name|e
+parameter_list|)
+block|{
+name|columnName
+operator|=
 name|meta
 operator|.
 name|getColumnName
 argument_list|(
 name|columnNumber
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+block|}
+comment|// use index based which should be faster
 name|row
 operator|.
 name|put
@@ -650,7 +721,7 @@ name|rs
 operator|.
 name|getObject
 argument_list|(
-name|columnName
+name|columnNumber
 argument_list|)
 argument_list|)
 expr_stmt|;
