@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify remotefile filter option.  */
+comment|/**  * Unit test to verify FTP filter option.  */
 end_comment
 
 begin_class
@@ -207,6 +207,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// skip testing on AIX as it have an issue with this test with the file filter
+return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=
