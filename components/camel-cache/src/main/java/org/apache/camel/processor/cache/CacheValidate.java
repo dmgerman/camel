@@ -167,6 +167,14 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -176,6 +184,7 @@ operator|+
 name|cacheName
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG

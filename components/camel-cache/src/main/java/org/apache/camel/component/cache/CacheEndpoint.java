@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -297,7 +309,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|DefaultExchange
+name|Exchange
 name|exchange
 init|=
 operator|new
@@ -312,7 +324,7 @@ name|getExchangePattern
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|DefaultMessage
+name|Message
 name|message
 init|=
 operator|new

@@ -559,12 +559,20 @@ throw|throw
 operator|new
 name|CacheException
 argument_list|(
-literal|"Error in consumer while dispatching exchange containing Key "
+literal|"Error in consumer while dispatching exchange containing key "
 operator|+
+operator|(
+name|element
+operator|!=
+literal|null
+condition|?
 name|element
 operator|.
 name|getObjectKey
 argument_list|()
+else|:
+literal|null
+operator|)
 operator|+
 literal|" for further processing"
 argument_list|,
