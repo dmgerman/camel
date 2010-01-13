@@ -5207,7 +5207,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-literal|"Multiple consumers for the same endpoint is now allowed: "
+literal|"Multiple consumers for the same endpoint is not allowed: "
 operator|+
 name|endpoint
 argument_list|)

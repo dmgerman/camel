@@ -220,7 +220,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is now allowed: Endpoint[MyEndpoint]"
+literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[MyEndpoint]"
 argument_list|)
 argument_list|)
 expr_stmt|;
