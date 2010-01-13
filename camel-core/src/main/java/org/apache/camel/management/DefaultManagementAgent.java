@@ -1408,7 +1408,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// register bean if by force or not exsists
+comment|// register bean if by force or not exists
 name|ObjectInstance
 name|instance
 init|=
@@ -1510,8 +1510,7 @@ literal|true
 decl_stmt|;
 try|try
 block|{
-comment|// we'll do it this way mostly to determine if we should lookup the
-comment|// hostName
+comment|// we'll do it this way mostly to determine if we should lookup the hostName
 name|SecurityManager
 name|sm
 init|=

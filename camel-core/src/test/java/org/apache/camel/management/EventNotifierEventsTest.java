@@ -316,7 +316,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|setEventNotifier
+name|addEventNotifier
 argument_list|(
 operator|new
 name|EventNotifierSupport

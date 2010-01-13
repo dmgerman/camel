@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -76,16 +86,31 @@ name|ManagementStrategy
 extends|,
 name|Service
 block|{
-comment|/**      * Gets the event notifier.      *      * @return event notifier      */
-DECL|method|getEventNotifier ()
+comment|/**      * Gets the event notifiers.      *      * @return event notifiers      */
+DECL|method|getEventNotifiers ()
+name|List
+argument_list|<
 name|EventNotifier
-name|getEventNotifier
+argument_list|>
+name|getEventNotifiers
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the event notifier to use.      *      * @param eventNotifier event notifier      */
-DECL|method|setEventNotifier (EventNotifier eventNotifier)
+comment|/**      * Sets the list of event notifier to use.      *      * @param eventNotifier list of event notifiers      */
+DECL|method|setEventNotifiers (List<EventNotifier> eventNotifier)
 name|void
-name|setEventNotifier
+name|setEventNotifiers
+parameter_list|(
+name|List
+argument_list|<
+name|EventNotifier
+argument_list|>
+name|eventNotifier
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the event notifier to use.      *      * @param eventNotifier event notifier      */
+DECL|method|addEventNotifier (EventNotifier eventNotifier)
+name|void
+name|addEventNotifier
 parameter_list|(
 name|EventNotifier
 name|eventNotifier
@@ -164,9 +189,9 @@ name|isOnlyManageProcessorWithCustomId
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#All}      *      * @param level the new level      */
-DECL|method|setSatisticsLevel (ManagementStatisticsLevel level)
+DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 name|void
-name|setSatisticsLevel
+name|setStatisticsLevel
 parameter_list|(
 name|ManagementStatisticsLevel
 name|level

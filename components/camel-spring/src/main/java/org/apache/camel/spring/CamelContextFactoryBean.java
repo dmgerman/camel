@@ -2001,10 +2001,22 @@ name|eventFactory
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set the event notifier strategies if defined
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|EventNotifier
-name|eventNotifier
+argument_list|>
+name|eventNotifiers
 init|=
-name|getBeanForType
+name|getContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookupByType
 argument_list|(
 name|EventNotifier
 operator|.
@@ -2013,18 +2025,68 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|eventNotifier
+name|eventNotifiers
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|eventNotifiers
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|String
+name|id
+range|:
+name|eventNotifiers
+operator|.
+name|keySet
+argument_list|()
+control|)
+block|{
+name|EventNotifier
+name|notifier
+init|=
+name|eventNotifiers
+operator|.
+name|get
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
+if|if
+condition|(
+operator|!
+name|getContext
+argument_list|()
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getEventNotifiers
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|notifier
+argument_list|)
 condition|)
 block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom EventNotifier: "
+literal|"Using custom EventNotifier with id: "
 operator|+
-name|eventNotifier
+name|id
+operator|+
+literal|" and implementation: "
+operator|+
+name|notifier
 argument_list|)
 expr_stmt|;
 name|getContext
@@ -2033,11 +2095,13 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|setEventNotifier
+name|addEventNotifier
 argument_list|(
-name|eventNotifier
+name|notifier
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 name|ShutdownStrategy
 name|shutdownStrategy
@@ -2150,7 +2214,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom intercept strategy with id: "
+literal|"Using custom InterceptStrategy with id: "
 operator|+
 name|id
 operator|+
@@ -2246,7 +2310,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom lifecycle strategy with id: "
+literal|"Using custom LifecycleStrategy with id: "
 operator|+
 name|id
 operator|+
@@ -3462,7 +3526,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|setSatisticsLevel
+name|setStatisticsLevel
 argument_list|(
 name|camelJMXAgent
 operator|.

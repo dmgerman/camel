@@ -160,7 +160,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|setSatisticsLevel
+name|setStatisticsLevel
 argument_list|(
 name|ManagementStatisticsLevel
 operator|.

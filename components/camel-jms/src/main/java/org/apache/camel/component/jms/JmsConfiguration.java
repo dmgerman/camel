@@ -1603,7 +1603,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * @deprecated will be removed in the future      */
 annotation|@
 name|Deprecated
 DECL|class|CamelJmsTemplate102
@@ -2105,7 +2105,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// use prioriry from endpoint if not provided on message
+comment|// use priority from endpoint if not provided on message
 name|priority
 operator|=
 name|this
@@ -2146,7 +2146,7 @@ operator|.
 name|JMS_DELIVERY_MODE
 argument_list|)
 expr_stmt|;
-comment|// remove the temporary propery
+comment|// remove the temporary property
 name|JmsMessageHelper
 operator|.
 name|removeJmsProperty
@@ -2859,7 +2859,7 @@ operator|=
 name|templateConnectionFactory
 expr_stmt|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * @deprecated will be removed in the future      */
 annotation|@
 name|Deprecated
 DECL|method|isUseVersion102 ()
@@ -2872,7 +2872,7 @@ return|return
 name|useVersion102
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
+comment|/**      * @deprecated will be removed in the future      */
 annotation|@
 name|Deprecated
 DECL|method|setUseVersion102 (boolean useVersion102)
@@ -5200,8 +5200,8 @@ operator|=
 name|replyToDestinationSelectorName
 expr_stmt|;
 comment|// in case of consumer -> producer and a named replyTo correlation selector
-comment|// message passthough is impossible as we need to set the value of selector into
-comment|// outgoing message, which would be read-only if passthough were to remain enabled
+comment|// message pass through is impossible as we need to set the value of selector into
+comment|// outgoing message, which would be read-only if pass through were to remain enabled
 if|if
 condition|(
 name|replyToDestinationSelectorName
