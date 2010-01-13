@@ -337,7 +337,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>excact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param uri  the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param uri  the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchEndpoint (String uri, String pattern)
 specifier|public
 specifier|static
