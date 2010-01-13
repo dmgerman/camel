@@ -225,7 +225,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Didn't filter the non-xml chars"
+literal|"Should get a right marshalled string"
 argument_list|,
 name|value
 operator|.
@@ -237,6 +237,71 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|byte
+index|[]
+name|buffers
+init|=
+literal|"<Person><firstName>FOO</firstName><lastName>BAR\u0008</lastName></Person>"
+operator|.
+name|getBytes
+argument_list|(
+literal|"UTF-8"
+argument_list|)
+decl_stmt|;
+name|InputStream
+name|is
+init|=
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|buffers
+argument_list|)
+decl_stmt|;
+name|person
+operator|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|PersonType
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"expect the exception here"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"The exception should be CamelExecutionException"
+argument_list|,
+name|ex
+operator|instanceof
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExecutionException
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -248,7 +313,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|byte
 index|[]
 name|buffers
@@ -420,7 +484,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Didn't filter the non-xml chars"
+literal|"Should not filter the non-xml chars"
 argument_list|,
 name|value
 operator|.

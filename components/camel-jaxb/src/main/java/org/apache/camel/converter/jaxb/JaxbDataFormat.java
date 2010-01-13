@@ -555,6 +555,13 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|stream
+argument_list|,
+name|IOConverter
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -629,6 +636,12 @@ parameter_list|)
 block|{
 comment|// exchange property takes precedence over data format property
 return|return
+name|exchange
+operator|==
+literal|null
+condition|?
+name|filterNonXmlChars
+else|:
 name|exchange
 operator|.
 name|getProperty

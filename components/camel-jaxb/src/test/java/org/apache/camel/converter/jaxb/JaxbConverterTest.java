@@ -303,7 +303,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The result source should not be JAXBSource"
+literal|"The result source should be Source instance"
 argument_list|,
 name|source
 operator|instanceof
