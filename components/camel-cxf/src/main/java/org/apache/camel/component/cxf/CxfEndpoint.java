@@ -939,10 +939,9 @@ name|cls
 argument_list|)
 condition|)
 block|{
-return|return
-operator|new
-name|JaxWsProxyFactoryBean
-argument_list|(
+name|ClientFactoryBean
+name|cfb
+init|=
 operator|new
 name|JaxWsClientFactoryBean
 argument_list|()
@@ -969,15 +968,29 @@ argument_list|)
 return|;
 block|}
 block|}
+decl_stmt|;
+comment|// set the client bus with cxfEndpoint Bus
+name|cfb
+operator|.
+name|setBus
+argument_list|(
+name|getBus
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|JaxWsProxyFactoryBean
+argument_list|(
+name|cfb
 argument_list|)
 return|;
 block|}
 else|else
 block|{
-return|return
-operator|new
-name|ClientProxyFactoryBean
-argument_list|(
+name|ClientFactoryBean
+name|cfb
+init|=
 operator|new
 name|ClientFactoryBean
 argument_list|()
@@ -1004,6 +1017,21 @@ argument_list|)
 return|;
 block|}
 block|}
+decl_stmt|;
+comment|// set the client bus with cxfEndpoint Bus
+name|cfb
+operator|.
+name|setBus
+argument_list|(
+name|getBus
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|ClientProxyFactoryBean
+argument_list|(
+name|cfb
 argument_list|)
 return|;
 block|}
@@ -1015,7 +1043,9 @@ name|ClientFactoryBean
 name|createClientFactoryBean
 parameter_list|()
 block|{
-return|return
+name|ClientFactoryBean
+name|cfb
+init|=
 operator|new
 name|ClientFactoryBean
 argument_list|(
@@ -1064,6 +1094,18 @@ block|{
 comment|// Do nothing here
 block|}
 block|}
+decl_stmt|;
+comment|// set the client bus with cxfEndpoint Bus
+name|cfb
+operator|.
+name|setBus
+argument_list|(
+name|getBus
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|cfb
 return|;
 block|}
 DECL|method|doGetBus ()
