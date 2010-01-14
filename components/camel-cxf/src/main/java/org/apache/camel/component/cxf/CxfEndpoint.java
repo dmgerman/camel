@@ -939,9 +939,10 @@ name|cls
 argument_list|)
 condition|)
 block|{
-name|ClientFactoryBean
-name|cfb
-init|=
+return|return
+operator|new
+name|JaxWsProxyFactoryBean
+argument_list|(
 operator|new
 name|JaxWsClientFactoryBean
 argument_list|()
@@ -968,29 +969,15 @@ argument_list|)
 return|;
 block|}
 block|}
-decl_stmt|;
-comment|// set the client bus with cxfEndpoint Bus
-name|cfb
-operator|.
-name|setBus
-argument_list|(
-name|getBus
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|JaxWsProxyFactoryBean
-argument_list|(
-name|cfb
 argument_list|)
 return|;
 block|}
 else|else
 block|{
-name|ClientFactoryBean
-name|cfb
-init|=
+return|return
+operator|new
+name|ClientProxyFactoryBean
+argument_list|(
 operator|new
 name|ClientFactoryBean
 argument_list|()
@@ -1017,21 +1004,6 @@ argument_list|)
 return|;
 block|}
 block|}
-decl_stmt|;
-comment|// set the client bus with cxfEndpoint Bus
-name|cfb
-operator|.
-name|setBus
-argument_list|(
-name|getBus
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|ClientProxyFactoryBean
-argument_list|(
-name|cfb
 argument_list|)
 return|;
 block|}
@@ -1043,9 +1015,7 @@ name|ClientFactoryBean
 name|createClientFactoryBean
 parameter_list|()
 block|{
-name|ClientFactoryBean
-name|cfb
-init|=
+return|return
 operator|new
 name|ClientFactoryBean
 argument_list|(
@@ -1094,18 +1064,6 @@ block|{
 comment|// Do nothing here
 block|}
 block|}
-decl_stmt|;
-comment|// set the client bus with cxfEndpoint Bus
-name|cfb
-operator|.
-name|setBus
-argument_list|(
-name|getBus
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|cfb
 return|;
 block|}
 DECL|method|doGetBus ()
@@ -2161,7 +2119,6 @@ comment|// noop
 block|}
 comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD}      * mode.      */
 DECL|class|CamelCxfClientImpl
-specifier|private
 class|class
 name|CamelCxfClientImpl
 extends|extends
@@ -2185,6 +2142,16 @@ argument_list|,
 name|ep
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getBus ()
+specifier|public
+name|Bus
+name|getBus
+parameter_list|()
+block|{
+return|return
+name|bus
+return|;
 block|}
 annotation|@
 name|SuppressWarnings
