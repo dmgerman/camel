@@ -306,7 +306,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is now allowed: Endpoint[jms://queue:foo]"
+literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[jms://queue:foo]"
 argument_list|)
 argument_list|)
 expr_stmt|;
