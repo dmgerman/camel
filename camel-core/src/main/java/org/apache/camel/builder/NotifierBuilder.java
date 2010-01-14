@@ -1701,6 +1701,7 @@ block|}
 comment|/**      * Notifier which hooks into Camel to listen for {@link Exchange} relevant events for this builder      */
 DECL|class|ExchangeNotifier
 specifier|private
+specifier|final
 class|class
 name|ExchangeNotifier
 extends|extends
@@ -2199,6 +2200,7 @@ block|}
 comment|/**      * To hold an operation and predicate      */
 DECL|class|EventPredicateHolder
 specifier|private
+specifier|final
 class|class
 name|EventPredicateHolder
 block|{
@@ -2281,6 +2283,7 @@ block|}
 comment|/**      * To hold multiple predicates which are part of same expression      */
 DECL|class|CompoundEventPredicate
 specifier|private
+specifier|final
 class|class
 name|CompoundEventPredicate
 implements|implements
