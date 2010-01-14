@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A builder to build an expression based on {@link org.apache.camel.spi.EventNotifier} notifications  * about {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a test is supposed to be done.  * The idea is that you can build an expression that explains when the test is done. For example when Camel  * have finished routing 5 messages. You can then in your test await for this condition to occur.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -242,7 +242,18 @@ specifier|public
 class|class
 name|ExchangeNotifierBuilder
 block|{
-comment|// TODO work in progress
+comment|// notifier to hook into Camel to listen for events
+DECL|field|notifier
+specifier|private
+specifier|final
+name|EventNotifier
+name|notifier
+init|=
+operator|new
+name|ExchangeNotifier
+argument_list|()
+decl_stmt|;
+comment|// the predicates build with this builder
 DECL|field|predicates
 specifier|private
 specifier|final
@@ -259,16 +270,7 @@ name|EventPredicateHolder
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|notifier
-specifier|private
-specifier|final
-name|EventNotifier
-name|notifier
-init|=
-operator|new
-name|ExchangeNotifier
-argument_list|()
-decl_stmt|;
+comment|// latch to be used if waiting for condition
 DECL|field|latch
 specifier|private
 specifier|final
@@ -281,6 +283,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// the current state while building an event predicate where we use a stack and the operation
 DECL|field|stack
 specifier|private
 specifier|final
@@ -297,16 +300,18 @@ name|EventPredicate
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|matches
-specifier|private
-name|boolean
-name|matches
-decl_stmt|;
 DECL|field|operation
 specifier|private
 name|EventOperation
 name|operation
 decl_stmt|;
+comment|// computed value whether all the predicates matched
+DECL|field|matches
+specifier|private
+name|boolean
+name|matches
+decl_stmt|;
+comment|/**      * Creates a new builder.      *      * @param context the Camel context      */
 DECL|method|ExchangeNotifierBuilder (CamelContext context)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -314,8 +319,8 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 name|ServiceHelper
 operator|.
@@ -324,6 +329,22 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|getManagementStrategy
@@ -335,6 +356,7 @@ name|notifier
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
 DECL|method|from (final String endpointUri)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -465,6 +487,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been received.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenReceived (final int number)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -537,6 +560,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenDone (final int number)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -626,6 +650,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenCompleted (final int number)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -698,6 +723,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenFailed (final int number)
 specifier|public
 name|ExchangeNotifierBuilder
@@ -770,6 +796,243 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
+DECL|method|whenExactlyDone (final int number)
+specifier|public
+name|ExchangeNotifierBuilder
+name|whenExactlyDone
+parameter_list|(
+specifier|final
+name|int
+name|number
+parameter_list|)
+block|{
+name|stack
+operator|.
+name|add
+argument_list|(
+operator|new
+name|EventPredicateSupport
+argument_list|()
+block|{
+specifier|private
+name|int
+name|current
+decl_stmt|;
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchangeCompleted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|current
+operator|++
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchangeFailure
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|current
+operator|++
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+specifier|public
+name|boolean
+name|matches
+parameter_list|()
+block|{
+return|return
+name|current
+operator|==
+name|number
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"whenExactlyDone("
+operator|+
+name|number
+operator|+
+literal|")"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
+DECL|method|whenExactlyCompleted (final int number)
+specifier|public
+name|ExchangeNotifierBuilder
+name|whenExactlyCompleted
+parameter_list|(
+specifier|final
+name|int
+name|number
+parameter_list|)
+block|{
+name|stack
+operator|.
+name|add
+argument_list|(
+operator|new
+name|EventPredicateSupport
+argument_list|()
+block|{
+specifier|private
+name|int
+name|current
+decl_stmt|;
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchangeCompleted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|current
+operator|++
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+specifier|public
+name|boolean
+name|matches
+parameter_list|()
+block|{
+return|return
+name|current
+operator|==
+name|number
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"whenExactlyCompleted("
+operator|+
+name|number
+operator|+
+literal|")"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *      * @param number exactly number of messages      * @return the builder      */
+DECL|method|whenExactlyFailed (final int number)
+specifier|public
+name|ExchangeNotifierBuilder
+name|whenExactlyFailed
+parameter_list|(
+specifier|final
+name|int
+name|number
+parameter_list|)
+block|{
+name|stack
+operator|.
+name|add
+argument_list|(
+operator|new
+name|EventPredicateSupport
+argument_list|()
+block|{
+specifier|private
+name|int
+name|current
+decl_stmt|;
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchangeFailure
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|current
+operator|++
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+specifier|public
+name|boolean
+name|matches
+parameter_list|()
+block|{
+return|return
+name|current
+operator|==
+name|number
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"whenExactlyFailed("
+operator|+
+name|number
+operator|+
+literal|")"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Prepares to append an additional expression using the<i>and</i> operator.      *      * @return the builder      */
 DECL|method|and ()
 specifier|public
 name|ExchangeNotifierBuilder
@@ -787,6 +1050,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Prepares to append an additional expression using the<i>or</i> operator.      *      * @return the builder      */
 DECL|method|or ()
 specifier|public
 name|ExchangeNotifierBuilder
@@ -804,6 +1068,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Prepares to append an additional expression using the<i>not</i> operator.      *      * @return the builder      */
 DECL|method|not ()
 specifier|public
 name|ExchangeNotifierBuilder
@@ -821,6 +1086,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates the expression this builder should use for matching.      *<p/>      * You must call this method when you are finished building the expressions.      *      * @return the created builder ready for matching      */
 DECL|method|create ()
 specifier|public
 name|ExchangeNotifierBuilder
@@ -838,82 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|doCreate (EventOperation newOperation)
-specifier|private
-name|void
-name|doCreate
-parameter_list|(
-name|EventOperation
-name|newOperation
-parameter_list|)
-block|{
-comment|// init operation depending on the newOperation
-if|if
-condition|(
-name|operation
-operator|==
-literal|null
-condition|)
-block|{
-name|operation
-operator|=
-name|newOperation
-operator|==
-name|EventOperation
-operator|.
-name|or
-condition|?
-name|EventOperation
-operator|.
-name|or
-else|:
-name|EventOperation
-operator|.
-name|and
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|stack
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|CompoundEventPredicate
-name|compound
-init|=
-operator|new
-name|CompoundEventPredicate
-argument_list|(
-name|stack
-argument_list|)
-decl_stmt|;
-name|stack
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|predicates
-operator|.
-name|add
-argument_list|(
-operator|new
-name|EventPredicateHolder
-argument_list|(
-name|operation
-argument_list|,
-name|compound
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|operation
-operator|=
-name|newOperation
-expr_stmt|;
-block|}
+comment|/**      * Does all the expression match?      *<p/>      * This operation will return immediately which means it can be used for testing at this very moment.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise      */
 DECL|method|matches ()
 specifier|public
 name|boolean
@@ -924,6 +1115,7 @@ return|return
 name|matches
 return|;
 block|}
+comment|/**      * Does all the expression match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *      * @param timeout  the timeout value      * @param timeUnit the time unit      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      */
 DECL|method|matches (long timeout, TimeUnit timeUnit)
 specifier|public
 name|boolean
@@ -935,8 +1127,8 @@ parameter_list|,
 name|TimeUnit
 name|timeUnit
 parameter_list|)
-throws|throws
-name|InterruptedException
+block|{
+try|try
 block|{
 name|latch
 operator|.
@@ -947,6 +1139,22 @@ argument_list|,
 name|timeUnit
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 name|matches
 argument_list|()
@@ -1019,7 +1227,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// a crud way of skipping the first invisible operation
+comment|// a crude way of skipping the first invisible operation
 return|return
 name|ObjectHelper
 operator|.
@@ -1034,6 +1242,86 @@ literal|"()."
 argument_list|)
 return|;
 block|}
+DECL|method|doCreate (EventOperation newOperation)
+specifier|private
+name|void
+name|doCreate
+parameter_list|(
+name|EventOperation
+name|newOperation
+parameter_list|)
+block|{
+comment|// init operation depending on the newOperation
+if|if
+condition|(
+name|operation
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if the first new operation is an or then this operation must be an or as well
+comment|// otherwise it should be and based
+name|operation
+operator|=
+name|newOperation
+operator|==
+name|EventOperation
+operator|.
+name|or
+condition|?
+name|EventOperation
+operator|.
+name|or
+else|:
+name|EventOperation
+operator|.
+name|and
+expr_stmt|;
+block|}
+comment|// we have some
+if|if
+condition|(
+operator|!
+name|stack
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|CompoundEventPredicate
+name|compound
+init|=
+operator|new
+name|CompoundEventPredicate
+argument_list|(
+name|stack
+argument_list|)
+decl_stmt|;
+name|stack
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|predicates
+operator|.
+name|add
+argument_list|(
+operator|new
+name|EventPredicateHolder
+argument_list|(
+name|operation
+argument_list|,
+name|compound
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|operation
+operator|=
+name|newOperation
+expr_stmt|;
+block|}
+comment|/**      * Notifier which hooks into Camel to listen for {@link Exchange} relevant events for this builder      */
 DECL|class|ExchangeNotifier
 specifier|private
 class|class
@@ -1102,6 +1390,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+comment|// now compute whether we matched
 name|computeMatches
 argument_list|()
 expr_stmt|;
@@ -1222,6 +1511,7 @@ name|void
 name|computeMatches
 parameter_list|()
 block|{
+comment|// use a temporary answer until we have computed the value to assign
 name|Boolean
 name|answer
 init|=
@@ -1342,6 +1632,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// if we did compute a value then assign that
 if|if
 condition|(
 name|answer
@@ -1353,6 +1644,18 @@ name|matches
 operator|=
 name|answer
 expr_stmt|;
+if|if
+condition|(
+name|matches
+condition|)
+block|{
+comment|// signal completion
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -1393,8 +1696,22 @@ throws|throws
 name|Exception
 block|{         }
 block|}
+DECL|enum|EventOperation
+specifier|private
+enum|enum
+name|EventOperation
+block|{
+DECL|enumConstant|and
+DECL|enumConstant|or
+DECL|enumConstant|not
+name|and
+block|,
+name|or
+block|,
+name|not
+block|;     }
 DECL|interface|EventPredicate
-specifier|public
+specifier|private
 interface|interface
 name|EventPredicate
 block|{
@@ -1476,20 +1793,7 @@ literal|true
 return|;
 block|}
 block|}
-DECL|enum|EventOperation
-specifier|private
-enum|enum
-name|EventOperation
-block|{
-DECL|enumConstant|and
-DECL|enumConstant|or
-DECL|enumConstant|not
-name|and
-block|,
-name|or
-block|,
-name|not
-block|;     }
+comment|/**      * To hold an operation and predicate      */
 DECL|class|EventPredicateHolder
 specifier|private
 class|class
@@ -1571,6 +1875,7 @@ name|predicate
 return|;
 block|}
 block|}
+comment|/**      * To hold multiple predicates which are part of same expression      */
 DECL|class|CompoundEventPredicate
 specifier|private
 class|class
@@ -1580,14 +1885,14 @@ name|EventPredicate
 block|{
 DECL|field|predicates
 specifier|private
-name|Stack
+name|List
 argument_list|<
 name|EventPredicate
 argument_list|>
 name|predicates
 init|=
 operator|new
-name|Stack
+name|ArrayList
 argument_list|<
 name|EventPredicate
 argument_list|>
