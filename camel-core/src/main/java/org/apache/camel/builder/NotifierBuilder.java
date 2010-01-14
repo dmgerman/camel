@@ -277,17 +277,17 @@ comment|/**  * A builder to build an expression based on {@link org.apache.camel
 end_comment
 
 begin_class
-DECL|class|ExchangeNotifierBuilder
+DECL|class|NotifierBuilder
 specifier|public
 class|class
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 block|{
 comment|// notifier to hook into Camel to listen for events
-DECL|field|notifier
+DECL|field|eventNotifier
 specifier|private
 specifier|final
 name|EventNotifier
-name|notifier
+name|eventNotifier
 init|=
 operator|new
 name|ExchangeNotifier
@@ -310,7 +310,7 @@ name|EventPredicateHolder
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// latch to be used if waiting for condition
+comment|// latch to be used to signal predicates matches
 DECL|field|latch
 specifier|private
 specifier|final
@@ -352,9 +352,9 @@ name|boolean
 name|matches
 decl_stmt|;
 comment|/**      * Creates a new builder.      *      * @param context the Camel context      */
-DECL|method|ExchangeNotifierBuilder (CamelContext context)
+DECL|method|NotifierBuilder (CamelContext context)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 parameter_list|(
 name|CamelContext
 name|context
@@ -366,7 +366,7 @@ name|ServiceHelper
 operator|.
 name|startService
 argument_list|(
-name|notifier
+name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
@@ -392,14 +392,14 @@ argument_list|()
 operator|.
 name|addEventNotifier
 argument_list|(
-name|notifier
+name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
 DECL|method|from (final String endpointUri)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|from
 parameter_list|(
 specifier|final
@@ -530,7 +530,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been received.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenReceived (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenReceived
 parameter_list|(
 specifier|final
@@ -603,7 +603,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenDone (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenDone
 parameter_list|(
 specifier|final
@@ -693,7 +693,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenCompleted (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenCompleted
 parameter_list|(
 specifier|final
@@ -766,7 +766,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenFailed (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenFailed
 parameter_list|(
 specifier|final
@@ -839,7 +839,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
 DECL|method|whenExactlyDone (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenExactlyDone
 parameter_list|(
 specifier|final
@@ -929,7 +929,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
 DECL|method|whenExactlyCompleted (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenExactlyCompleted
 parameter_list|(
 specifier|final
@@ -1002,7 +1002,7 @@ block|}
 comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *      * @param number exactly number of messages      * @return the builder      */
 DECL|method|whenExactlyFailed (final int number)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenExactlyFailed
 parameter_list|(
 specifier|final
@@ -1075,7 +1075,7 @@ block|}
 comment|/**      * Sets a condition that<b>any</b> received {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAnyReceivedMatches (final Predicate predicate)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenAnyReceivedMatches
 parameter_list|(
 specifier|final
@@ -1142,7 +1142,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"whenAntReceivedMatches("
+literal|"whenAnyReceivedMatches("
 operator|+
 name|predicate
 operator|+
@@ -1159,7 +1159,7 @@ block|}
 comment|/**      * Sets a condition that<b>all</b> received {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAllReceivedMatches (final Predicate predicate)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenAllReceivedMatches
 parameter_list|(
 specifier|final
@@ -1244,7 +1244,7 @@ block|}
 comment|/**      * Sets a condition when the provided mock is satisfied.      *<p/>      * The idea is that you can use Mock for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param mock the mock      * @return the builder      */
 DECL|method|whenSatisfied (final MockEndpoint mock)
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|whenSatisfied
 parameter_list|(
 specifier|final
@@ -1395,7 +1395,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"whenMock("
+literal|"whenSatisfied("
 operator|+
 name|mock
 operator|+
@@ -1412,7 +1412,7 @@ block|}
 comment|/**      * Prepares to append an additional expression using the<i>and</i> operator.      *      * @return the builder      */
 DECL|method|and ()
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|and
 parameter_list|()
 block|{
@@ -1430,7 +1430,7 @@ block|}
 comment|/**      * Prepares to append an additional expression using the<i>or</i> operator.      *      * @return the builder      */
 DECL|method|or ()
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|or
 parameter_list|()
 block|{
@@ -1448,7 +1448,7 @@ block|}
 comment|/**      * Prepares to append an additional expression using the<i>not</i> operator.      *      * @return the builder      */
 DECL|method|not ()
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|not
 parameter_list|()
 block|{
@@ -1466,7 +1466,7 @@ block|}
 comment|/**      * Creates the expression this builder should use for matching.      *<p/>      * You must call this method when you are finished building the expressions.      *      * @return the created builder ready for matching      */
 DECL|method|create ()
 specifier|public
-name|ExchangeNotifierBuilder
+name|NotifierBuilder
 name|create
 parameter_list|()
 block|{
