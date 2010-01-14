@@ -2536,6 +2536,37 @@ name|ClassLoader
 name|loader
 parameter_list|)
 block|{
+return|return
+name|loadClass
+argument_list|(
+name|name
+argument_list|,
+name|loader
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @param needToWarn if it is true will use log a warning message for not loading the class                     * @return the class or null if it could not be loaded      */
+DECL|method|loadClass (String name, ClassLoader loader, boolean needToWarn)
+specifier|public
+specifier|static
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|loadClass
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|ClassLoader
+name|loader
+parameter_list|,
+name|boolean
+name|needToWarn
+parameter_list|)
+block|{
 comment|// must clean the name so its pure java name, eg remoing \n or whatever people can do in the Spring XML
 name|name
 operator|=
@@ -2661,6 +2692,11 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|needToWarn
+condition|)
+block|{
 name|LOG
 operator|.
 name|warn
@@ -2670,6 +2706,7 @@ operator|+
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|clazz

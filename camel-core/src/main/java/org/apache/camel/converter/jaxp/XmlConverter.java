@@ -499,6 +499,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// will not warn the user if the class could not be found
 name|cl
 operator|=
 name|ObjectHelper
@@ -506,6 +507,15 @@ operator|.
 name|loadClass
 argument_list|(
 literal|"org.apache.xalan.xsltc.trax.DOM2SAX"
+argument_list|,
+name|XmlConverter
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
