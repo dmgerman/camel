@@ -747,7 +747,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelFileLastModified"
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
 argument_list|,
 name|Date
 operator|.
@@ -817,7 +819,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelFileLastModified"
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
 argument_list|,
 name|Date
 operator|.

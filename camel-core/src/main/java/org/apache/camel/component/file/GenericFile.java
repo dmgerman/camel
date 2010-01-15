@@ -634,7 +634,9 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelFileLastModified"
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
 argument_list|,
 operator|new
 name|Date

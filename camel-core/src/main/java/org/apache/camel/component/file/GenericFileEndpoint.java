@@ -527,6 +527,11 @@ name|T
 argument_list|>
 name|exclusiveReadLockStrategy
 decl_stmt|;
+DECL|field|keepLastModified
+specifier|protected
+name|boolean
+name|keepLastModified
+decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
 name|GenericFileEndpoint
@@ -1879,6 +1884,32 @@ operator|.
 name|inProgressRepository
 operator|=
 name|inProgressRepository
+expr_stmt|;
+block|}
+DECL|method|isKeepLastModified ()
+specifier|public
+name|boolean
+name|isKeepLastModified
+parameter_list|()
+block|{
+return|return
+name|keepLastModified
+return|;
+block|}
+DECL|method|setKeepLastModified (boolean keepLastModified)
+specifier|public
+name|void
+name|setKeepLastModified
+parameter_list|(
+name|boolean
+name|keepLastModified
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keepLastModified
+operator|=
+name|keepLastModified
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */

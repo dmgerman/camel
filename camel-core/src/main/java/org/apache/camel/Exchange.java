@@ -226,6 +226,12 @@ name|FILE_PARENT
 init|=
 literal|"CamelFileParent"
 decl_stmt|;
+DECL|field|FILE_LAST_MODIFIED
+name|String
+name|FILE_LAST_MODIFIED
+init|=
+literal|"CamelFileLastModified"
+decl_stmt|;
 DECL|field|GROUPED_EXCHANGE
 name|String
 name|GROUPED_EXCHANGE

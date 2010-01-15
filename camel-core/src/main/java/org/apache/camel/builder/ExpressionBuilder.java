@@ -3184,7 +3184,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelFileLastModified"
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
 argument_list|,
 name|Date
 operator|.
@@ -3202,7 +3204,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find CamelFileLastModified header at command: "
+literal|"Cannot find "
+operator|+
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
+operator|+
+literal|" header at command: "
 operator|+
 name|command
 argument_list|)
@@ -4254,7 +4262,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelFileLastModified"
+name|Exchange
+operator|.
+name|FILE_LAST_MODIFIED
 argument_list|,
 name|Date
 operator|.
