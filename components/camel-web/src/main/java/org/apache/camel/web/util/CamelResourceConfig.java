@@ -254,7 +254,7 @@ name|prop
 argument_list|(
 literal|"applicationDocsFile"
 argument_list|,
-literal|"classpath:/application-doc.xml"
+literal|"application-doc.xml"
 argument_list|)
 operator|.
 name|generator
@@ -268,7 +268,7 @@ name|prop
 argument_list|(
 literal|"grammarsFile"
 argument_list|,
-literal|"classpath:/application-grammars.xml"
+literal|"application-grammars.xml"
 argument_list|)
 operator|.
 name|generator
@@ -282,7 +282,7 @@ name|prop
 argument_list|(
 literal|"resourceDocFile"
 argument_list|,
-literal|"classpath:/resourcedoc.xml"
+literal|"resourcedoc.xml"
 argument_list|)
 operator|.
 name|build
