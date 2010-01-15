@@ -1204,10 +1204,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testInvalidStartingDirectory ()
+DECL|method|testStartingDirectoryWithDot ()
 specifier|public
 name|void
-name|testInvalidStartingDirectory
+name|testStartingDirectoryWithDot
 parameter_list|()
 throws|throws
 name|Exception
@@ -1256,11 +1256,9 @@ name|config
 operator|.
 name|setDirectory
 argument_list|(
-literal|"some/file.txt"
+literal|"temp.dir"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|ftpEndpoint
 operator|.
 name|createConsumer
@@ -1284,29 +1282,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Only directory is supported. Endpoint must be configured with a valid directory: some/file.txt"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class
