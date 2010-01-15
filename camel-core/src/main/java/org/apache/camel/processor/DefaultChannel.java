@@ -1071,6 +1071,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// push the current route context
 if|if
 condition|(
 name|exchange
@@ -1081,13 +1082,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// keep route context up to date
 name|exchange
 operator|.
 name|getUnitOfWork
 argument_list|()
 operator|.
-name|setRouteContext
+name|pushRouteContext
 argument_list|(
 name|routeContext
 argument_list|)
@@ -1099,6 +1099,8 @@ init|=
 name|getOutput
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|processor
@@ -1118,6 +1120,30 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+comment|// pop the route context we just used
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|popRouteContext
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Strategy to determine if we should continue processing the {@link Exchange}.      */

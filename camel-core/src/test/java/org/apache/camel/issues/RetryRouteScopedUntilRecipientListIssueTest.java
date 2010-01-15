@@ -193,7 +193,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|invoked
-specifier|private
+specifier|protected
 specifier|static
 name|int
 name|invoked
@@ -651,10 +651,13 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// TODO: CAMEL-2360
-comment|// This test fails as the error handler after direct:foo will be changed to the default error handler
-comment|// and not the one having the retryUntil bean
-comment|// assertEquals(3, invoked);
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|invoked
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testRetryUntilRecipientNotFail ()
 specifier|public
@@ -914,6 +917,27 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:fail"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:fail"
+argument_list|,
+literal|"mock:fail"
+argument_list|)
+operator|.
+name|throwException
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
@@ -951,15 +975,6 @@ name|causedBy
 parameter_list|)
 block|{
 comment|// NOTE: counter is the redelivery attempt, will start from 1
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"retry"
-argument_list|)
-expr_stmt|;
 name|invoked
 operator|++
 expr_stmt|;

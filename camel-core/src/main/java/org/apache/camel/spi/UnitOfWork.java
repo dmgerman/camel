@@ -131,20 +131,26 @@ name|Object
 name|transactionDefinition
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @return the route context      */
+comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @return the route context      * @see #pushRouteContext(RouteContext)      * @see #popRouteContext()      */
 DECL|method|getRouteContext ()
 name|RouteContext
 name|getRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @param routeContext the route context      */
-DECL|method|setRouteContext (RouteContext routeContext)
+comment|/**      * Pushes the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @param routeContext the route context      */
+DECL|method|pushRouteContext (RouteContext routeContext)
 name|void
-name|setRouteContext
+name|pushRouteContext
 parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+function_decl|;
+comment|/**      * When finished being routed under the current {@link org.apache.camel.spi.RouteContext}      * it should be removed.      *      * @return the route context or<tt>null</tt> if none existed      */
+DECL|method|popRouteContext ()
+name|RouteContext
+name|popRouteContext
+parameter_list|()
 function_decl|;
 block|}
 end_interface
