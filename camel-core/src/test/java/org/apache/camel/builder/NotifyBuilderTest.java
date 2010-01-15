@@ -61,10 +61,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|NotifierBuilderTest
+DECL|class|NotifyBuilderTest
 specifier|public
 class|class
-name|NotifierBuilderTest
+name|NotifyBuilderTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -76,11 +76,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -102,7 +102,7 @@ name|assertEquals
 argument_list|(
 literal|"from(direct:foo).whenDone(5)"
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|toString
 argument_list|()
@@ -112,7 +112,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -167,7 +167,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -195,7 +195,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -223,7 +223,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -238,11 +238,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -277,7 +277,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -332,7 +332,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -360,7 +360,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -388,7 +388,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -425,7 +425,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -440,11 +440,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -479,7 +479,7 @@ name|assertEquals
 argument_list|(
 literal|"from(direct:foo).whenDone(5).or().from(direct:bar).whenDone(7)"
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|toString
 argument_list|()
@@ -489,7 +489,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -544,7 +544,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -563,7 +563,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -582,7 +582,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -619,7 +619,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -634,11 +634,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -673,7 +673,7 @@ name|assertEquals
 argument_list|(
 literal|"from(direct:foo).whenDone(5).not().from(direct:bar).whenDone(1)"
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|toString
 argument_list|()
@@ -683,7 +683,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -729,7 +729,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -748,7 +748,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -767,7 +767,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -786,7 +786,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -801,11 +801,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -830,7 +830,7 @@ name|assertEquals
 argument_list|(
 literal|"whenDone(5).or().whenFailed(1)"
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|toString
 argument_list|()
@@ -840,7 +840,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -877,7 +877,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -907,7 +907,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -922,11 +922,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -951,7 +951,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1006,7 +1006,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1036,7 +1036,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1051,11 +1051,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1072,7 +1072,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1150,7 +1150,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1188,7 +1188,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1203,11 +1203,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1268,7 +1268,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1279,7 +1279,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|(
@@ -1327,11 +1327,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1392,7 +1392,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1403,7 +1403,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|(
@@ -1451,11 +1451,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1481,7 +1481,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1492,7 +1492,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|(
@@ -1509,7 +1509,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|(
@@ -1530,11 +1530,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1551,7 +1551,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1597,7 +1597,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1616,7 +1616,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1635,7 +1635,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1650,11 +1650,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1671,7 +1671,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1717,7 +1717,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1736,7 +1736,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1755,7 +1755,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1770,11 +1770,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1791,7 +1791,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1857,7 +1857,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1887,7 +1887,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1906,7 +1906,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1936,7 +1936,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1951,11 +1951,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -1978,7 +1978,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -1997,7 +1997,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2016,7 +2016,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2035,7 +2035,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2050,11 +2050,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2077,7 +2077,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2096,7 +2096,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2115,7 +2115,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2134,7 +2134,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2149,11 +2149,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2176,7 +2176,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2195,7 +2195,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2214,7 +2214,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2233,7 +2233,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2248,11 +2248,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2275,7 +2275,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2294,7 +2294,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2313,7 +2313,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2332,7 +2332,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2347,11 +2347,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2370,7 +2370,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2389,7 +2389,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2408,7 +2408,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2428,7 +2428,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2447,7 +2447,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2462,11 +2462,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2485,7 +2485,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2504,7 +2504,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2523,7 +2523,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2543,7 +2543,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2558,11 +2558,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2581,7 +2581,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2600,7 +2600,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2619,7 +2619,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2639,7 +2639,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2658,7 +2658,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2673,11 +2673,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2696,7 +2696,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2715,7 +2715,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2734,7 +2734,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2754,7 +2754,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2790,11 +2790,11 @@ argument_list|,
 literal|"Hi World"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2816,7 +2816,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2835,7 +2835,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2854,13 +2854,13 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the notifier  is based on direct:foo so sending to bar should not trigger match
+comment|// the notify  is based on direct:foo so sending to bar should not trigger match
 name|template
 operator|.
 name|sendBody
@@ -2874,7 +2874,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2893,7 +2893,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2940,11 +2940,11 @@ argument_list|(
 literal|"Camel"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -2967,7 +2967,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -2986,7 +2986,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3005,7 +3005,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3052,11 +3052,11 @@ argument_list|(
 literal|"Camel"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -3078,7 +3078,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3097,7 +3097,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3116,7 +3116,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3150,11 +3150,11 @@ argument_list|,
 literal|"Hi World"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -3200,7 +3200,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3219,7 +3219,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3238,13 +3238,13 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the notifier  is based on direct:foo so sending to bar should not trigger match
+comment|// the notify  is based on direct:foo so sending to bar should not trigger match
 name|template
 operator|.
 name|sendBody
@@ -3258,7 +3258,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3277,7 +3277,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3296,7 +3296,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3333,7 +3333,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3367,11 +3367,11 @@ argument_list|,
 literal|"Bye Camel"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -3389,7 +3389,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3408,7 +3408,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3427,7 +3427,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3447,7 +3447,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3481,11 +3481,11 @@ argument_list|,
 literal|"Bye Camel"
 argument_list|)
 expr_stmt|;
-name|NotifierBuilder
-name|notifier
+name|NotifyBuilder
+name|notify
 init|=
 operator|new
-name|NotifierBuilder
+name|NotifyBuilder
 argument_list|(
 name|context
 argument_list|)
@@ -3503,7 +3503,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3522,7 +3522,7 @@ name|assertEquals
 argument_list|(
 literal|true
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3541,7 +3541,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
@@ -3561,7 +3561,7 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
-name|notifier
+name|notify
 operator|.
 name|matches
 argument_list|()
