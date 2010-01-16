@@ -197,51 +197,6 @@ argument_list|,
 literal|"e.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"F"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"f.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"G"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"g.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"H"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"h.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testShutdownCompleteAllTasks ()
 specifier|public
@@ -282,12 +237,12 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should route all 8
+comment|// should route all 5
 name|assertEquals
 argument_list|(
 literal|"Should complete all messages"
 argument_list|,
-literal|8
+literal|5
 argument_list|,
 name|bar
 operator|.
