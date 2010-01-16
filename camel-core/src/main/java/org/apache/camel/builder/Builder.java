@@ -45,44 +45,36 @@ specifier|private
 name|Builder
 parameter_list|()
 block|{     }
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
-DECL|method|bean (String beanRef)
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+DECL|method|bean (final Object beanOrBeanRef)
 specifier|public
 specifier|static
 name|ValueBuilder
 name|bean
 parameter_list|(
-name|String
-name|beanRef
+specifier|final
+name|Object
+name|beanOrBeanRef
 parameter_list|)
 block|{
-name|Expression
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|beanExpression
-argument_list|(
-name|beanRef
-argument_list|)
-decl_stmt|;
 return|return
-operator|new
-name|ValueBuilder
+name|bean
 argument_list|(
-name|expression
+name|beanOrBeanRef
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
-DECL|method|bean (String beanRef, String method)
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method the method name      * @return the builder      */
+DECL|method|bean (Object beanOrBeanRef, String method)
 specifier|public
 specifier|static
 name|ValueBuilder
 name|bean
 parameter_list|(
-name|String
-name|beanRef
+name|Object
+name|beanOrBeanRef
 parameter_list|,
 name|String
 name|method
@@ -90,16 +82,43 @@ parameter_list|)
 block|{
 name|Expression
 name|expression
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|beanOrBeanRef
+operator|instanceof
+name|String
+condition|)
+block|{
+name|expression
+operator|=
 name|ExpressionBuilder
 operator|.
 name|beanExpression
 argument_list|(
-name|beanRef
+operator|(
+name|String
+operator|)
+name|beanOrBeanRef
 argument_list|,
 name|method
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|expression
+operator|=
+name|ExpressionBuilder
+operator|.
+name|beanExpression
+argument_list|(
+name|beanOrBeanRef
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|ValueBuilder

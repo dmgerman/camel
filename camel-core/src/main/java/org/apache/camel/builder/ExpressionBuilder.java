@@ -3450,6 +3450,32 @@ name|methodName
 argument_list|)
 return|;
 block|}
+DECL|method|beanExpression (final Object bean, final String methodName)
+specifier|public
+specifier|static
+name|Expression
+name|beanExpression
+parameter_list|(
+specifier|final
+name|Object
+name|bean
+parameter_list|,
+specifier|final
+name|String
+name|methodName
+parameter_list|)
+block|{
+return|return
+name|BeanLanguage
+operator|.
+name|bean
+argument_list|(
+name|bean
+argument_list|,
+name|methodName
+argument_list|)
+return|;
+block|}
 DECL|method|beanExpression (final String beanRef, final String methodName)
 specifier|public
 specifier|static

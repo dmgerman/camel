@@ -543,6 +543,34 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @return the builder to continue processing the DSL      */
+DECL|method|method (Object instance)
+specifier|public
+name|T
+name|method
+parameter_list|(
+name|Object
+name|instance
+parameter_list|)
+block|{
+name|MethodCallExpression
+name|expression
+init|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|instance
+argument_list|)
+decl_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
 DECL|method|method (Class<?> beanType)
 specifier|public
@@ -594,6 +622,39 @@ operator|new
 name|MethodCallExpression
 argument_list|(
 name|bean
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+DECL|method|method (Object instance, String method)
+specifier|public
+name|T
+name|method
+parameter_list|(
+name|Object
+name|instance
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|MethodCallExpression
+name|expression
+init|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|instance
 argument_list|,
 name|method
 argument_list|)

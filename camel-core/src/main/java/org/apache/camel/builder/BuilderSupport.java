@@ -403,35 +403,33 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
-DECL|method|bean (String beanRef)
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+DECL|method|bean (Object beanOrBeanRef)
 specifier|public
 name|ValueBuilder
 name|bean
 parameter_list|(
-name|String
-name|beanRef
+name|Object
+name|beanOrBeanRef
 parameter_list|)
 block|{
 return|return
-name|Builder
-operator|.
 name|bean
 argument_list|(
-name|beanRef
+name|beanOrBeanRef
 argument_list|,
 literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
-DECL|method|bean (String beanRef, String method)
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (Object beanOrBeanRef, String method)
 specifier|public
 name|ValueBuilder
 name|bean
 parameter_list|(
-name|String
-name|beanRef
+name|Object
+name|beanOrBeanRef
 parameter_list|,
 name|String
 name|method
@@ -442,7 +440,7 @@ name|Builder
 operator|.
 name|bean
 argument_list|(
-name|beanRef
+name|beanOrBeanRef
 argument_list|,
 name|method
 argument_list|)
