@@ -460,7 +460,7 @@ operator|.
 name|getName
 argument_list|()
 block|,
-name|JAXBContextResolver
+name|JAXBContextResolverOSGI
 operator|.
 name|class
 operator|.
