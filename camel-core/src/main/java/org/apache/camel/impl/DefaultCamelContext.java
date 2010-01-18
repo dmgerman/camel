@@ -5032,7 +5032,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-literal|"starupOrder clash. Route "
+literal|"startupOrder clash. Route "
 operator|+
 name|otherId
 operator|+

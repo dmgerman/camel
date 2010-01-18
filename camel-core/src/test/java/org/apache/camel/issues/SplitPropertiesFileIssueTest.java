@@ -250,6 +250,13 @@ argument_list|(
 literal|"file://target/file/splitprop?move=done"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|split
 argument_list|(
 operator|new

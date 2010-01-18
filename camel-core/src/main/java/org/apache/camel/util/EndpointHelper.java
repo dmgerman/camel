@@ -154,6 +154,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -351,6 +363,35 @@ name|String
 name|pattern
 parameter_list|)
 block|{
+comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
+try|try
+block|{
+name|uri
+operator|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// we need to test with and without scheme separators (//)
 if|if
 condition|(
@@ -488,7 +529,7 @@ name|pattern
 argument_list|)
 condition|)
 block|{
-comment|// excact match
+comment|// exact match
 return|return
 literal|true
 return|;
