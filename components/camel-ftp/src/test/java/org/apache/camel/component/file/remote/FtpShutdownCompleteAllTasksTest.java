@@ -118,7 +118,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/pending?password=admin"
+literal|"/pending?password=admin&initialDelay=5000"
 return|;
 block|}
 annotation|@
@@ -271,13 +271,6 @@ operator|.
 name|expectedMinimumMessageCount
 argument_list|(
 literal|1
-argument_list|)
-expr_stmt|;
-name|bar
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|3000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
