@@ -98,6 +98,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ExpressionClauseSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ValueBuilder
 import|;
 end_import
@@ -128,7 +142,55 @@ name|builder
 operator|.
 name|ExpressionBuilder
 operator|.
-name|*
+name|bodyExpression
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|headerExpression
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|outBodyExpression
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|propertyExpression
 import|;
 end_import
 
@@ -142,6 +204,11 @@ specifier|public
 specifier|abstract
 class|class
 name|AssertionClause
+parameter_list|<
+name|T
+parameter_list|>
+extends|extends
+name|ExpressionClauseSupport
 implements|implements
 name|Runnable
 block|{
@@ -160,6 +227,25 @@ name|Predicate
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|AssertionClause (Object result)
+specifier|public
+name|AssertionClause
+parameter_list|(
+name|Object
+name|result
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Adds the given predicate to this assertion clause      */

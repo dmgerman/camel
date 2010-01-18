@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -105,20 +117,6 @@ operator|.
 name|spi
 operator|.
 name|NamespaceAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
 import|;
 end_import
 
@@ -214,13 +212,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureExpression (RouteContext routeContext, Expression expression)
+DECL|method|configureExpression (CamelContext camelContext, Expression expression)
 specifier|protected
 name|void
 name|configureExpression
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|Expression
 name|expression
@@ -234,13 +232,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configurePredicate (RouteContext routeContext, Predicate predicate)
+DECL|method|configurePredicate (CamelContext camelContext, Predicate predicate)
 specifier|protected
 name|void
 name|configurePredicate
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|Predicate
 name|predicate

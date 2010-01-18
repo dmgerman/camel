@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -102,22 +114,8 @@ name|TokenizeLanguage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * For expressions and predicates using a body or header tokenzier  *  * @version $Revision$  */
+comment|/**  * For expressions and predicates using a body or header tokenizer  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -275,13 +273,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createExpression (RouteContext routeContext)
+DECL|method|createExpression (CamelContext camelContext)
 specifier|public
 name|Expression
 name|createExpression
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|TokenizeLanguage

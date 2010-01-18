@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -431,13 +443,13 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|createExpression (RouteContext routeContext)
+DECL|method|createExpression (CamelContext camelContext)
 specifier|public
 name|Expression
 name|createExpression
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -504,13 +516,13 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|createPredicate (RouteContext routeContext)
+DECL|method|createPredicate (CamelContext camelContext)
 specifier|public
 name|Predicate
 name|createPredicate
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if

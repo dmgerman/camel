@@ -360,6 +360,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xml
 operator|.
 name|sax
@@ -682,6 +694,27 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Converts the given NodeList to a boolean      */
+annotation|@
+name|Converter
+DECL|method|toBoolean (NodeList list)
+specifier|public
+name|Boolean
+name|toBoolean
+parameter_list|(
+name|NodeList
+name|list
+parameter_list|)
+block|{
+return|return
+name|list
+operator|.
+name|getLength
+argument_list|()
+operator|>
+literal|0
+return|;
 block|}
 comment|/**      * Converts the given byte[] to a Source      */
 annotation|@
