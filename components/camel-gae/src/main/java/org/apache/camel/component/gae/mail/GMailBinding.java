@@ -95,7 +95,7 @@ specifier|final
 name|String
 name|GMAIL_SENDER
 init|=
-literal|"org.apache.camel.component.gae.mail.Sender"
+literal|"CamelGmailSender"
 decl_stmt|;
 comment|/**      * Camel header for setting the mail message subject.      */
 DECL|field|GMAIL_SUBJECT
@@ -105,7 +105,7 @@ specifier|final
 name|String
 name|GMAIL_SUBJECT
 init|=
-literal|"org.apache.camel.component.gae.mail.Subject"
+literal|"CamelGmailSubject"
 decl_stmt|;
 comment|/**      * Camel header for setting the mail message to-recipient (single recipient      * or comma-separated list).      */
 DECL|field|GMAIL_TO
@@ -115,7 +115,7 @@ specifier|final
 name|String
 name|GMAIL_TO
 init|=
-literal|"org.apache.camel.component.gae.mail.To"
+literal|"CamelGmailTo"
 decl_stmt|;
 comment|/**      * Camel header for setting the mail message cc-recipient (single recipient      * or comma-separated list).      */
 DECL|field|GMAIL_CC
@@ -125,7 +125,7 @@ specifier|final
 name|String
 name|GMAIL_CC
 init|=
-literal|"org.apache.camel.component.gae.mail.Cc"
+literal|"CamelGmailCc"
 decl_stmt|;
 comment|/**      * Camel header for setting the mail message bcc-recipient (single recipient      * or comma-separated list).      */
 DECL|field|GMAIL_BCC
@@ -135,7 +135,7 @@ specifier|final
 name|String
 name|GMAIL_BCC
 init|=
-literal|"org.apache.camel.component.gae.mail.Bcc"
+literal|"CamelGmailBcc"
 decl_stmt|;
 comment|/**      * Reads data from<code>exchange</code> and writes it to a newly created      * {@link Message} instance. The<code>request</code> parameter is      * ignored.      *       * @param endpoint      * @param exchange      * @param request      *            ignored.      * @return a newly created {@link Message} instance containing data from      *<code>exchange</code>.      */
 DECL|method|writeRequest (GMailEndpoint endpoint, Exchange exchange, Message request)

@@ -204,7 +204,7 @@ specifier|final
 name|String
 name|GTASK_QUEUE_NAME
 init|=
-literal|"org.apache.camel.component.gae.task.QueueName"
+literal|"CamelGtaskQueueName"
 decl_stmt|;
 comment|/**      * Camel header name corresponding to<code>X-AppEngine-TaskName</code>      * header created by task queueing service.      */
 DECL|field|GTASK_TASK_NAME
@@ -214,7 +214,7 @@ specifier|final
 name|String
 name|GTASK_TASK_NAME
 init|=
-literal|"org.apache.camel.component.gae.task.TaskName"
+literal|"CamelGtaskTaskName"
 decl_stmt|;
 comment|/**      * Camel header name corresponding to<code>X-AppEngine-TaskRetryCount</code>      * header created by task queueing service.      */
 DECL|field|GTASK_RETRY_COUNT
@@ -224,7 +224,7 @@ specifier|final
 name|String
 name|GTASK_RETRY_COUNT
 init|=
-literal|"org.apache.camel.component.gae.task.RetryCount"
+literal|"CamelGtaskRetryCount"
 decl_stmt|;
 DECL|field|GAE_QUEUE_NAME
 specifier|static
