@@ -195,6 +195,7 @@ block|{
 DECL|field|invoked
 specifier|protected
 specifier|static
+specifier|volatile
 name|int
 name|invoked
 decl_stmt|;
@@ -564,9 +565,9 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -625,9 +626,9 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -747,7 +748,7 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|0
 argument_list|)
@@ -808,7 +809,7 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|0
 argument_list|)
