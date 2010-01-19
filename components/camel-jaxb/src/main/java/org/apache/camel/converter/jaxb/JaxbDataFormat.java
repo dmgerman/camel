@@ -516,8 +516,6 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ClassNotFoundException
 block|{
 try|try
 block|{
