@@ -193,6 +193,16 @@ specifier|private
 name|String
 name|to
 decl_stmt|;
+DECL|field|cc
+specifier|private
+name|String
+name|cc
+decl_stmt|;
+DECL|field|bcc
+specifier|private
+name|String
+name|bcc
+decl_stmt|;
 DECL|method|GMailEndpoint (String endpointUri, String sender)
 specifier|public
 name|GMailEndpoint
@@ -342,6 +352,58 @@ operator|.
 name|to
 operator|=
 name|to
+expr_stmt|;
+block|}
+DECL|method|getCc ()
+specifier|public
+name|String
+name|getCc
+parameter_list|()
+block|{
+return|return
+name|cc
+return|;
+block|}
+DECL|method|setCc (String cc)
+specifier|public
+name|void
+name|setCc
+parameter_list|(
+name|String
+name|cc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cc
+operator|=
+name|cc
+expr_stmt|;
+block|}
+DECL|method|getBcc ()
+specifier|public
+name|String
+name|getBcc
+parameter_list|()
+block|{
+return|return
+name|bcc
+return|;
+block|}
+DECL|method|setBcc (String bcc)
+specifier|public
+name|void
+name|setBcc
+parameter_list|(
+name|String
+name|bcc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bcc
+operator|=
+name|bcc
 expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
