@@ -586,6 +586,30 @@ argument_list|(
 name|camelExchange
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|boi
+argument_list|,
+literal|"BindingOperationInfo"
+argument_list|)
+expr_stmt|;
+comment|// store the original boi in the exchange
+name|camelExchange
+operator|.
+name|setProperty
+argument_list|(
+name|BindingOperationInfo
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|boi
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -598,27 +622,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"BOI = "
+literal|"Set exchange property: BindingOperationInfo: "
 operator|+
 name|boi
 argument_list|)
 expr_stmt|;
 block|}
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|boi
-argument_list|,
-literal|"You should set '"
-operator|+
-name|CxfConstants
-operator|.
-name|OPERATION_NAME
-operator|+
-literal|"' in header."
-argument_list|)
-expr_stmt|;
+comment|// Unwrap boi before passing it to make a client call
 if|if
 condition|(
 operator|!
@@ -666,38 +676,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-name|camelExchange
-operator|.
-name|setProperty
-argument_list|(
-name|BindingOperationInfo
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|boi
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Set exchange property: BindingOperationInfo: "
-operator|+
-name|boi
-argument_list|)
-expr_stmt|;
 block|}
 comment|// bind the request CXF exchange
 name|binding
