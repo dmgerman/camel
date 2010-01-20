@@ -79,15 +79,6 @@ argument_list|(
 name|order
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|order
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"AKC4433"
