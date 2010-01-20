@@ -323,15 +323,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An expression of an inbound message body converted to the expected type      */
-DECL|method|body (Class<?> expectedType)
+DECL|method|body (Class expectedType)
 specifier|public
 name|T
 name|body
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-argument_list|>
 name|expectedType
 parameter_list|)
 block|{
