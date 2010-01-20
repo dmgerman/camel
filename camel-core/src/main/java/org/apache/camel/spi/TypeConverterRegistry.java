@@ -68,7 +68,7 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 function_decl|;
-comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or null if not found.      */
+comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or<tt>null</tt> if not found.      */
 DECL|method|lookup (Class<?> toType, Class<?> fromType)
 name|TypeConverter
 name|lookup

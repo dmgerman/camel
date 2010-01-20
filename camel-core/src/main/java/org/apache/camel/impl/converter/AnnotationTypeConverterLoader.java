@@ -1132,6 +1132,8 @@ argument_list|(
 name|injector
 argument_list|,
 name|method
+argument_list|,
+name|registry
 argument_list|)
 argument_list|)
 expr_stmt|;

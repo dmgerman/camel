@@ -264,12 +264,12 @@ name|DefaultProducerTemplateAsyncTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|order
+DECL|field|ORDER
 specifier|private
 specifier|static
 specifier|final
 name|AtomicInteger
-name|order
+name|ORDER
 init|=
 operator|new
 name|AtomicInteger
@@ -1897,7 +1897,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -1969,7 +1969,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -1998,7 +1998,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2016,7 +2016,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2030,7 +2030,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2045,7 +2045,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2116,7 +2116,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2145,7 +2145,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2163,7 +2163,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2174,7 +2174,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2189,7 +2189,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2257,7 +2257,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2281,7 +2281,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2302,7 +2302,7 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2316,7 +2316,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2336,7 +2336,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2403,7 +2403,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2427,7 +2427,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2448,7 +2448,7 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2459,7 +2459,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2492,7 +2492,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2541,7 +2541,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2570,7 +2570,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2588,7 +2588,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2602,7 +2602,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2617,7 +2617,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2656,7 +2656,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2685,7 +2685,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2703,7 +2703,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2714,7 +2714,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2729,7 +2729,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2774,7 +2774,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2798,7 +2798,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2819,7 +2819,7 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2833,7 +2833,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2856,7 +2856,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -2891,7 +2891,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2915,7 +2915,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2936,7 +2936,7 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -2947,7 +2947,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -2969,7 +2969,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -3043,7 +3043,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3072,7 +3072,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3090,7 +3090,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3104,7 +3104,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
@@ -3119,7 +3119,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|order
+name|ORDER
 operator|.
 name|set
 argument_list|(
@@ -3192,7 +3192,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3221,7 +3221,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3239,7 +3239,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|order
+name|ORDER
 operator|.
 name|addAndGet
 argument_list|(
@@ -3250,7 +3250,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|order
+name|ORDER
 operator|.
 name|get
 argument_list|()
