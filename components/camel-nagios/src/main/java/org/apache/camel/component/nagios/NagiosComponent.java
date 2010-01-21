@@ -40,20 +40,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|googlecode
-operator|.
-name|jsendnsca
-operator|.
-name|core
-operator|.
-name|NagiosSettings
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -116,11 +102,6 @@ name|NagiosComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|nagiosSettings
-specifier|private
-name|NagiosSettings
-name|nagiosSettings
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 name|NagiosConfiguration
@@ -253,32 +234,6 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
-block|}
-DECL|method|getNagiosSettings ()
-specifier|public
-name|NagiosSettings
-name|getNagiosSettings
-parameter_list|()
-block|{
-return|return
-name|nagiosSettings
-return|;
-block|}
-DECL|method|setNagiosSettings (NagiosSettings nagiosSettings)
-specifier|public
-name|void
-name|setNagiosSettings
-parameter_list|(
-name|NagiosSettings
-name|nagiosSettings
-parameter_list|)
-block|{
-name|this
-operator|.
-name|nagiosSettings
-operator|=
-name|nagiosSettings
-expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public

@@ -283,6 +283,14 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -607,6 +615,14 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -724,6 +740,14 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -878,6 +902,14 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
