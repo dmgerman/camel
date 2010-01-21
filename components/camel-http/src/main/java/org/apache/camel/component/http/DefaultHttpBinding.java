@@ -440,13 +440,6 @@ name|equalsIgnoreCase
 argument_list|(
 literal|"POST"
 argument_list|)
-operator|&&
-name|contentType
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"application/x-www-form-urlencoded"
-argument_list|)
 operator|)
 condition|)
 block|{
