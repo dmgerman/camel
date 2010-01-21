@@ -272,6 +272,8 @@ name|String
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|file
 operator|.
 name|getBody
@@ -281,7 +283,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// should revert to fallback converter if we dont have an exchange
+comment|// should revert to fallback converter if we don't have an exchange
 return|return
 literal|null
 return|;
