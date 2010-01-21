@@ -1343,7 +1343,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"This method is already overriden in a subclass, so the method from the sub class is preferred: "
+literal|"This method is already overridden in a subclass, so the method from the sub class is preferred: "
 operator|+
 name|existingMethodInfo
 argument_list|)
