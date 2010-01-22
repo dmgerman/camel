@@ -166,6 +166,20 @@ name|ReflectionInjector
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -213,6 +227,29 @@ name|expectedBody
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|converter
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSerialization ()
 specifier|public
 name|void

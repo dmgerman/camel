@@ -114,20 +114,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -183,6 +169,20 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -298,22 +298,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Default implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *  * @version $Revision$  */
 end_comment
@@ -323,6 +307,8 @@ DECL|class|DefaultTypeConverter
 specifier|public
 class|class
 name|DefaultTypeConverter
+extends|extends
+name|ServiceSupport
 implements|implements
 name|TypeConverter
 implements|,
@@ -428,15 +414,6 @@ specifier|final
 name|FactoryFinder
 name|factoryFinder
 decl_stmt|;
-DECL|field|loaded
-specifier|private
-name|AtomicBoolean
-name|loaded
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|()
-decl_stmt|;
 DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder)
 specifier|public
 name|DefaultTypeConverter
@@ -463,6 +440,8 @@ name|factoryFinder
 operator|=
 name|factoryFinder
 expr_stmt|;
+name|this
+operator|.
 name|typeConverterLoaders
 operator|.
 name|add
@@ -988,10 +967,6 @@ operator|.
 name|TYPE
 return|;
 block|}
-comment|// make sure we have loaded the converters
-name|checkLoaded
-argument_list|()
-expr_stmt|;
 comment|// try to find a suitable type converter
 name|TypeConverter
 name|converter
@@ -1439,10 +1414,6 @@ argument_list|>
 name|getFromClassMappings
 parameter_list|()
 block|{
-comment|// make sure we have loaded the converters
-name|checkLoaded
-argument_list|()
-expr_stmt|;
 name|Set
 argument_list|<
 name|Class
@@ -1611,10 +1582,6 @@ argument_list|>
 name|getTypeMappings
 parameter_list|()
 block|{
-comment|// make sure we have loaded the converters
-name|checkLoaded
-argument_list|()
-expr_stmt|;
 return|return
 name|typeMappings
 return|;
@@ -1745,10 +1712,6 @@ argument_list|>
 name|fromType
 parameter_list|)
 block|{
-comment|// make sure we have loaded the converters
-name|checkLoaded
-argument_list|()
-expr_stmt|;
 return|return
 name|doLookup
 argument_list|(
@@ -2059,27 +2022,13 @@ literal|null
 return|;
 block|}
 comment|/**      * Checks if the registry is loaded and if not lazily load it      */
-DECL|method|checkLoaded ()
+DECL|method|loadTypeConverters ()
 specifier|protected
-specifier|synchronized
 name|void
-name|checkLoaded
+name|loadTypeConverters
 parameter_list|()
-block|{
-comment|// must be synchronized to let other threads wait for it to initialize
-comment|// also use a atomic boolean so its state is visible for the other threads
-comment|// this ensure that at most one thread is loading all the type converters
-if|if
-condition|(
-name|loaded
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -2097,8 +2046,6 @@ literal|"Loading type converters ..."
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 for|for
 control|(
 name|TypeConverterLoader
@@ -2130,20 +2077,6 @@ parameter_list|)
 block|{
 comment|// ignore its fine to have none
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|LOG
@@ -2159,7 +2092,6 @@ argument_list|(
 literal|"Loading type converters done"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|loadFallbackTypeConverters ()
@@ -2207,6 +2139,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|loadTypeConverters
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 comment|/**      * Represents a mapping from one type (which can be null) to another      */
 DECL|class|TypeMapping
 specifier|protected
