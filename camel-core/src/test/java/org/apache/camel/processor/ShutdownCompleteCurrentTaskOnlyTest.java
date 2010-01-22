@@ -197,51 +197,6 @@ argument_list|,
 literal|"e.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"F"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"f.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"G"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"g.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"H"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"h.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testShutdownCompleteCurrentTaskOnly ()
 specifier|public
@@ -251,6 +206,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give it 20 seconds to shutdown
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -266,13 +232,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|bar
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -282,7 +241,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should NOT route all 8
+comment|// should NOT route all 5
 name|assertTrue
 argument_list|(
 literal|"Should NOT complete all messages, was: "
@@ -297,7 +256,7 @@ operator|.
 name|getReceivedCounter
 argument_list|()
 operator|<
-literal|8
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
