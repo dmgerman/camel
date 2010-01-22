@@ -572,6 +572,9 @@ name|q
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|postPollCheck
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
@@ -907,6 +910,15 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+comment|/**      * Override if required. Perform some checks (and perhaps actions) after we      * have polled.      */
+DECL|method|postPollCheck ()
+specifier|protected
+name|void
+name|postPollCheck
+parameter_list|()
+block|{
+comment|// noop
 block|}
 comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      */
 DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)

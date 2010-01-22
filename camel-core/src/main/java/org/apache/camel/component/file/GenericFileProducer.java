@@ -701,6 +701,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|postWriteCheck
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * If we fail writing out a file, we will call this method. This hook is      * provided to disconnect from servers or clean up files we created (if needed).      */
 DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
@@ -729,6 +732,15 @@ name|preWriteCheck
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+comment|// nothing needed to check
+block|}
+comment|/**      * Perform any actions that need to occur after we are done such as disconnecting.      */
+DECL|method|postWriteCheck ()
+specifier|protected
+name|void
+name|postWriteCheck
+parameter_list|()
 block|{
 comment|// nothing needed to check
 block|}

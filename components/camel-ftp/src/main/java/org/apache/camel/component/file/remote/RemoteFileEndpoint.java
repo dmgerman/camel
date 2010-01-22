@@ -169,6 +169,11 @@ name|reconnectDelay
 init|=
 literal|1000
 decl_stmt|;
+DECL|field|disconnect
+specifier|private
+name|boolean
+name|disconnect
+decl_stmt|;
 DECL|method|RemoteFileEndpoint ()
 specifier|public
 name|RemoteFileEndpoint
@@ -565,6 +570,32 @@ operator|.
 name|reconnectDelay
 operator|=
 name|reconnectDelay
+expr_stmt|;
+block|}
+DECL|method|isDisconnect ()
+specifier|public
+name|boolean
+name|isDisconnect
+parameter_list|()
+block|{
+return|return
+name|disconnect
+return|;
+block|}
+DECL|method|setDisconnect (boolean disconnect)
+specifier|public
+name|void
+name|setDisconnect
+parameter_list|(
+name|boolean
+name|disconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnect
+operator|=
+name|disconnect
 expr_stmt|;
 block|}
 block|}
