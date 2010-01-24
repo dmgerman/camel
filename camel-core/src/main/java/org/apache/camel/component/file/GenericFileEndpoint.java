@@ -1089,7 +1089,7 @@ name|this
 operator|.
 name|moveFailed
 operator|=
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 argument_list|(
 name|expression
 argument_list|)
@@ -1143,7 +1143,7 @@ name|this
 operator|.
 name|move
 operator|=
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 argument_list|(
 name|expression
 argument_list|)
@@ -1197,7 +1197,7 @@ name|this
 operator|.
 name|preMove
 operator|=
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 argument_list|(
 name|expression
 argument_list|)
@@ -1243,7 +1243,7 @@ name|this
 operator|.
 name|fileName
 operator|=
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 argument_list|(
 name|fileLanguageExpression
 argument_list|)
@@ -1545,7 +1545,7 @@ name|this
 operator|.
 name|tempFileName
 operator|=
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 argument_list|(
 name|tempFileNameExpression
 argument_list|)
@@ -2316,10 +2316,10 @@ return|return
 name|params
 return|;
 block|}
-DECL|method|createFileLangugeExpression (String expression)
+DECL|method|createFileLanguageExpression (String expression)
 specifier|private
 name|Expression
-name|createFileLangugeExpression
+name|createFileLanguageExpression
 parameter_list|(
 name|String
 name|expression
@@ -2327,7 +2327,20 @@ parameter_list|)
 block|{
 name|Language
 name|language
-init|=
+decl_stmt|;
+comment|// only use file language if the name is complex (eg. using $)
+if|if
+condition|(
+name|expression
+operator|.
+name|contains
+argument_list|(
+literal|"$"
+argument_list|)
+condition|)
+block|{
+name|language
+operator|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -2335,7 +2348,21 @@ name|resolveLanguage
 argument_list|(
 literal|"file"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|language
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"constant"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|language
 operator|.
