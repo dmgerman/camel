@@ -778,6 +778,26 @@ name|isOneWay
 argument_list|()
 condition|)
 block|{
+comment|// copy the InMessage header to OutMessage header
+name|camelExchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|binding
 operator|.
 name|populateExchangeFromCxfResponse
