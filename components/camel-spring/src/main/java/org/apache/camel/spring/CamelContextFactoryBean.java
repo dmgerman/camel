@@ -4462,12 +4462,8 @@ block|{
 name|SpringCamelContext
 name|ctx
 init|=
-operator|new
-name|SpringCamelContext
-argument_list|(
-name|getApplicationContext
+name|newCamelContext
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|ctx
 operator|.
@@ -4611,6 +4607,21 @@ expr_stmt|;
 block|}
 return|return
 name|ctx
+return|;
+block|}
+DECL|method|newCamelContext ()
+specifier|protected
+name|SpringCamelContext
+name|newCamelContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpringCamelContext
+argument_list|(
+name|getApplicationContext
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Strategy to install all available routes into the context      */

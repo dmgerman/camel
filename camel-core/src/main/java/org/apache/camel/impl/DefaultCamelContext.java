@@ -6348,9 +6348,10 @@ name|getDefaultFactoryFinder
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|typeConverterRegistry
-operator|=
+name|setTypeConverterRegistry
+argument_list|(
 name|answer
+argument_list|)
 expr_stmt|;
 return|return
 name|answer

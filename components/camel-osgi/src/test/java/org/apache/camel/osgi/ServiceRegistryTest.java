@@ -255,7 +255,7 @@ name|context
 init|=
 name|factoryBean
 operator|.
-name|createContext
+name|getContext
 argument_list|()
 decl_stmt|;
 name|context
