@@ -415,34 +415,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//we populate the http request parameters for GET and POST
-name|String
-name|method
-init|=
-name|request
-operator|.
-name|getMethod
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|method
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"GET"
-argument_list|)
-operator|||
-operator|(
-name|method
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"POST"
-argument_list|)
-operator|)
-condition|)
-block|{
+comment|//we populate the http request parameters without checking the request method
 name|names
 operator|=
 name|request
@@ -510,7 +483,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// store the method and query and other info in headers
