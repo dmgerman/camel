@@ -255,7 +255,7 @@ block|}
 return|;
 block|}
 DECL|class|MyAggregationStrategy
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|MyAggregationStrategy
