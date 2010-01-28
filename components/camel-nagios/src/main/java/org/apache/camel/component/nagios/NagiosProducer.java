@@ -166,7 +166,7 @@ name|nagios
 operator|.
 name|NagiosConstants
 operator|.
-name|SERIVCE_NAME
+name|SERVICE_NAME
 import|;
 end_import
 
@@ -305,7 +305,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|SERIVCE_NAME
+name|SERVICE_NAME
 argument_list|,
 name|exchange
 operator|.

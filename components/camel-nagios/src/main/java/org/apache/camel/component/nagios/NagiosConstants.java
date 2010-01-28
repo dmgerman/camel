@@ -47,12 +47,12 @@ name|LEVEL
 init|=
 literal|"CamelNagiosLevel"
 decl_stmt|;
-DECL|field|SERIVCE_NAME
+DECL|field|SERVICE_NAME
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|SERIVCE_NAME
+name|SERVICE_NAME
 init|=
 literal|"CamelNagiosServiceName"
 decl_stmt|;

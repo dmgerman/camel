@@ -884,7 +884,7 @@ name|put
 argument_list|(
 name|NagiosConstants
 operator|.
-name|SERIVCE_NAME
+name|SERVICE_NAME
 argument_list|,
 literal|"myService"
 argument_list|)
