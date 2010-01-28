@@ -109,6 +109,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// START SNIPPET: e1
 DECL|method|testAdvised ()
 specifier|public
 name|void
@@ -117,6 +118,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// advice the first route using the inlined route builder
 name|context
 operator|.
 name|getRouteDefinitions
@@ -142,6 +144,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// intercept sending to mock:foo and do something else
 name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:foo"
@@ -207,6 +210,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// END SNIPPET: e1
 DECL|method|testAdvisedNoNewRoutesAllowed ()
 specifier|public
 name|void
