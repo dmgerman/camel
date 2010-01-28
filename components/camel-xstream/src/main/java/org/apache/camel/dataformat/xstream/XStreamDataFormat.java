@@ -353,6 +353,8 @@ operator|.
 name|createXMLStreamWriter
 argument_list|(
 name|stream
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
@@ -390,6 +392,8 @@ operator|.
 name|createXMLStreamReader
 argument_list|(
 name|stream
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return

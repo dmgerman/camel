@@ -455,7 +455,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// just used for helping to marhsal
+comment|// just used for helping to marshal
 name|from
 argument_list|(
 literal|"direct:marshal"

@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -155,7 +167,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<?xml version='1.0' encoding='UTF-8'?>"
+literal|"<?xml version='1.0' encoding='ISO-8859-1'?>"
 operator|+
 literal|"<list><string>Hello World</string></list>"
 argument_list|)
@@ -182,11 +194,17 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndProperty
 argument_list|(
 literal|"direct:in"
 argument_list|,
 name|body
+argument_list|,
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+literal|"ISO-8859-1"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -226,7 +244,7 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"<?xml version='1.0' encoding='UTF-8'?><list><map><entry><string>city</string>"
 operator|+
-literal|"<string>London</string></entry></map></list>"
+literal|"<string>London\u0E08</string></entry></map></list>"
 argument_list|)
 expr_stmt|;
 name|List
@@ -275,7 +293,7 @@ name|put
 argument_list|(
 literal|"city"
 argument_list|,
-literal|"London"
+literal|"London\u0E08"
 argument_list|)
 expr_stmt|;
 name|body
@@ -287,11 +305,17 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndProperty
 argument_list|(
 literal|"direct:in"
 argument_list|,
 name|body
+argument_list|,
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 name|mock
