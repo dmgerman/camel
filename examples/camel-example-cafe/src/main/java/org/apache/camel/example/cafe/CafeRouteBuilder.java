@@ -401,6 +401,7 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+comment|//START SNIPPET: RouteConfig
 DECL|method|configure ()
 specifier|public
 name|void
@@ -445,7 +446,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean:barista?method=prepareColdDrink"
+literal|"bean: ?method=prepareColdDrink"
 argument_list|)
 operator|.
 name|to
@@ -505,6 +506,7 @@ literal|"bean:waiter?method=deliverCafes"
 argument_list|)
 expr_stmt|;
 block|}
+comment|//END SNIPPET: RouteConfig
 block|}
 end_class
 
