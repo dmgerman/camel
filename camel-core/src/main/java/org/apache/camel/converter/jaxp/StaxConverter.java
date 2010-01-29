@@ -260,7 +260,7 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|createXMLEventWriter (OutputStream out)
 specifier|public
 name|XMLEventWriter
@@ -329,7 +329,7 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|createXMLStreamWriter (OutputStream outputStream)
 specifier|public
 name|XMLStreamWriter
@@ -431,7 +431,7 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|createXMLStreamReader (InputStream in)
 specifier|public
 name|XMLStreamReader
@@ -533,7 +533,7 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|createXMLEventReader (InputStream in)
 specifier|public
 name|XMLEventReader
