@@ -446,7 +446,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean: ?method=prepareColdDrink"
+literal|"bean:barista?method=prepareColdDrink"
 argument_list|)
 operator|.
 name|to
