@@ -200,6 +200,10 @@ name|XStreamDataFormat
 extends|extends
 name|AbstractXStreamWrapper
 block|{
+DECL|field|encoding
+name|String
+name|encoding
+decl_stmt|;
 DECL|method|XStreamDataFormat ()
 specifier|public
 name|XStreamDataFormat
@@ -218,6 +222,32 @@ argument_list|(
 name|xstream
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
 block|}
 comment|/**      * A factory method which takes a collection of types to be annotated      */
 DECL|method|processAnnotations (Iterable<Class<?>> types)
@@ -327,6 +357,47 @@ return|return
 name|answer
 return|;
 block|}
+comment|// just make sure the exchange property can override the xmlstream encoding setting
+DECL|method|updateCharactorEncodingInfo (Exchange exchange)
+specifier|protected
+name|void
+name|updateCharactorEncodingInfo
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|)
+operator|==
+literal|null
+operator|&&
+name|encoding
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|createHierarchicalStreamWriter (Exchange exchange, Object body, OutputStream stream)
 specifier|protected
 name|HierarchicalStreamWriter
@@ -344,6 +415,11 @@ parameter_list|)
 throws|throws
 name|XMLStreamException
 block|{
+name|updateCharactorEncodingInfo
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|XMLStreamWriter
 name|xmlWriter
 init|=
@@ -383,6 +459,11 @@ parameter_list|)
 throws|throws
 name|XMLStreamException
 block|{
+name|updateCharactorEncodingInfo
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|XMLStreamReader
 name|xmlReader
 init|=

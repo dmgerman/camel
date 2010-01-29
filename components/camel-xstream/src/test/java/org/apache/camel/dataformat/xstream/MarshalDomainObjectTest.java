@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marhsal tests with domain objects.  */
+comment|/**  * Marshal tests with domain objects.  */
 end_comment
 
 begin_class
@@ -465,7 +465,9 @@ name|marshal
 argument_list|()
 operator|.
 name|xstream
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -476,7 +478,9 @@ name|unmarshal
 argument_list|()
 operator|.
 name|xstream
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 operator|.
 name|to
 argument_list|(

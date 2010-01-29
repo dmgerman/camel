@@ -983,6 +983,27 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the xstream by setting the encoding      */
+DECL|method|xstream (String encoding)
+specifier|public
+name|T
+name|xstream
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|XStreamDataFormat
+argument_list|(
+name|encoding
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the XML Security data format      */
 DECL|method|secureXML ()
 specifier|public
