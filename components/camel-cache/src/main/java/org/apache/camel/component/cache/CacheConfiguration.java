@@ -423,7 +423,7 @@ literal|"timeToIdleSeconds"
 argument_list|)
 condition|)
 block|{
-name|setTimeToLiveSeconds
+name|setTimeToIdleSeconds
 argument_list|(
 name|Long
 operator|.
@@ -455,7 +455,7 @@ literal|"diskPersistent"
 argument_list|)
 condition|)
 block|{
-name|setEternal
+name|setDiskPersistent
 argument_list|(
 name|Boolean
 operator|.
@@ -484,7 +484,7 @@ literal|"diskExpiryThreadIntervalSeconds"
 argument_list|)
 condition|)
 block|{
-name|setTimeToLiveSeconds
+name|setDiskExpiryThreadIntervalSeconds
 argument_list|(
 name|Long
 operator|.
