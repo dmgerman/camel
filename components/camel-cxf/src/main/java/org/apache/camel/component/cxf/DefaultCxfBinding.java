@@ -728,6 +728,23 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|headerFilterStrategy
+operator|.
+name|applyFilterToExternalHeaders
+argument_list|(
+name|Client
+operator|.
+name|RESPONSE_CONTEXT
+argument_list|,
+name|responseContext
+argument_list|,
+name|camelExchange
+argument_list|)
+condition|)
+block|{
 name|camelExchange
 operator|.
 name|getOut
@@ -765,6 +782,7 @@ operator|+
 name|responseContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// propagate protocol headers
