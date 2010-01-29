@@ -327,6 +327,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|cacheSettings
@@ -350,7 +351,6 @@ literal|"diskStorePath"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
