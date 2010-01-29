@@ -475,6 +475,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// these tests does not run well on Windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mockEndpointA
 init|=
@@ -616,6 +627,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// these tests does not run well on Windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mockEndpoint
 init|=
@@ -679,6 +701,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// these tests does not run well on Windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|ByteArrayOutputStream
 name|os
 init|=
@@ -753,6 +786,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// these tests does not run well on Windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 operator|new
