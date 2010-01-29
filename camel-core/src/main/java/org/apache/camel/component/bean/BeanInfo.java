@@ -3582,7 +3582,6 @@ name|getSuperclass
 argument_list|()
 return|;
 block|}
-empty_stmt|;
 return|return
 name|clazz
 return|;
