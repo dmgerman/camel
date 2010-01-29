@@ -99,6 +99,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/transacted"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -150,6 +155,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/transacted"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -250,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/transacted/fail"
+literal|"file://target/transacted/fail?delay=1000"
 argument_list|)
 operator|.
 name|transacted
