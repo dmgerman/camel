@@ -1742,17 +1742,7 @@ operator|-
 name|start
 operator|)
 operator|<
-literal|1500
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|notify
-operator|.
-name|matches
-argument_list|()
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// should be quick as its when received and NOT when done
@@ -1796,7 +1786,7 @@ operator|-
 name|start
 operator|)
 operator|<
-literal|1500
+literal|2000
 argument_list|)
 expr_stmt|;
 block|}
@@ -1866,7 +1856,7 @@ operator|-
 name|start
 operator|)
 operator|<
-literal|1500
+literal|2000
 argument_list|)
 expr_stmt|;
 name|assertEquals
