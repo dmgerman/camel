@@ -328,6 +328,18 @@ argument_list|(
 literal|"content-type"
 argument_list|)
 expr_stmt|;
+comment|// Filter out Content-Length since it can fool Jetty (HttpGenerator) to
+comment|// close response output stream prematurely.  (It occurs when the
+comment|// message size (e.g. with attachment) is large and response content length
+comment|// is bigger than request content length.)
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"Content-Length"
+argument_list|)
+expr_stmt|;
 comment|// initialize message header filter map with default SOAP filter
 name|messageHeaderFiltersMap
 operator|=
