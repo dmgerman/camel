@@ -1546,7 +1546,9 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Header of message"
+literal|"Header with name "
+operator|+
+name|headerName
 argument_list|,
 name|headerValue
 argument_list|,
@@ -1650,7 +1652,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property of message"
+literal|"Property with name "
+operator|+
+name|propertyName
 argument_list|,
 name|actualValue
 argument_list|,
@@ -2140,7 +2144,7 @@ name|bodyList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expection that a file exists with the given name      *      * @param name name of file, will cater for / and \ on different OS platforms      */
+comment|/**      * Adds an expectation that a file exists with the given name      *      * @param name name of file, will cater for / and \ on different OS platforms      */
 DECL|method|expectedFileExists (final String name)
 specifier|public
 name|void
@@ -2159,7 +2163,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expection that a file exists with the given name      *<p/>      * Will wait at most 5 seconds while checking for the existence of the file.      *      * @param name name of file, will cater for / and \ on different OS platforms      * @param content content of file to compare, can be<tt>null</tt> to not compare content      */
+comment|/**      * Adds an expectation that a file exists with the given name      *<p/>      * Will wait at most 5 seconds while checking for the existence of the file.      *      * @param name name of file, will cater for / and \ on different OS platforms      * @param content content of file to compare, can be<tt>null</tt> to not compare content      */
 DECL|method|expectedFileExists (final String name, final String content)
 specifier|public
 name|void
