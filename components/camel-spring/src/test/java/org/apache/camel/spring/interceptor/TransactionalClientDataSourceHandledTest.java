@@ -119,7 +119,7 @@ argument_list|(
 literal|"select count(*) from books"
 argument_list|)
 decl_stmt|;
-comment|// there should be 2 books as the first insert operation succeded
+comment|// there should be 2 books as the first insert operation succeeded
 name|assertEquals
 argument_list|(
 literal|"Number of books"

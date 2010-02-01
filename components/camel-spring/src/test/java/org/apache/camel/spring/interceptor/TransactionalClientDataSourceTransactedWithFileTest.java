@@ -68,7 +68,7 @@ specifier|public
 class|class
 name|TransactionalClientDataSourceTransactedWithFileTest
 extends|extends
-name|TransactionalClientDataSourceTransactedTest
+name|TransactionClientDataSourceSupport
 block|{
 annotation|@
 name|Override
@@ -99,11 +99,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/transacted"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -155,11 +150,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/transacted"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader

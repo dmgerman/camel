@@ -84,8 +84,59 @@ specifier|public
 class|class
 name|TransactionalClientDataSourceTransactedWithFileOnExceptionTest
 extends|extends
-name|TransactionalClientDataSourceTransactedWithFileTest
+name|TransactionClientDataSourceSupport
 block|{
+DECL|method|testTransactionSuccess ()
+specifier|public
+name|void
+name|testTransactionSuccess
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/transacted/okay"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"okay.txt"
+argument_list|)
+expr_stmt|;
+comment|// wait for route to complete
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|3
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void
@@ -174,7 +225,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 comment|// should not be able to process the file so we still got 1 book as we did from the start
