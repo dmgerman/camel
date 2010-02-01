@@ -572,6 +572,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logRetryStackTrace (boolean logRetryStackTrace)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logRetryStackTrace
+parameter_list|(
+name|boolean
+name|logRetryStackTrace
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogRetryStackTrace
+argument_list|(
+name|logRetryStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public

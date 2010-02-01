@@ -119,7 +119,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliverDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logStrackTrace = false</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliverDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -234,6 +234,13 @@ DECL|field|logStackTrace
 specifier|protected
 name|boolean
 name|logStackTrace
+init|=
+literal|true
+decl_stmt|;
+DECL|field|logRetryStackTrace
+specifier|protected
+name|boolean
+name|logRetryStackTrace
 decl_stmt|;
 DECL|field|delayPattern
 specifier|protected
@@ -274,9 +281,13 @@ literal|", retryAttemptedLogLevel="
 operator|+
 name|retryAttemptedLogLevel
 operator|+
-literal|", logTraceStace="
+literal|", logStackTrace="
 operator|+
 name|logStackTrace
+operator|+
+literal|", logRetryStackTrace="
+operator|+
+name|logRetryStackTrace
 operator|+
 literal|", useExponentialBackOff="
 operator|+
@@ -856,7 +867,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level to use for log messages when retries are attempted.      */
+comment|/**      * Sets whether to log stacktraces for failed messages.      */
 DECL|method|logStackTrace (boolean logStackTrace)
 specifier|public
 name|RedeliveryPolicy
@@ -869,6 +880,25 @@ block|{
 name|setLogStackTrace
 argument_list|(
 name|logStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log stacktrace for failed redelivery attempts      */
+DECL|method|logRetryStackTrace (boolean logRetryStackTrace)
+specifier|public
+name|RedeliveryPolicy
+name|logRetryStackTrace
+parameter_list|(
+name|boolean
+name|logRetryStackTrace
+parameter_list|)
+block|{
+name|setLogRetryStackTrace
+argument_list|(
+name|logRetryStackTrace
 argument_list|)
 expr_stmt|;
 return|return
@@ -1288,6 +1318,33 @@ operator|.
 name|logStackTrace
 operator|=
 name|logStackTrace
+expr_stmt|;
+block|}
+DECL|method|isLogRetryStackTrace ()
+specifier|public
+name|boolean
+name|isLogRetryStackTrace
+parameter_list|()
+block|{
+return|return
+name|logRetryStackTrace
+return|;
+block|}
+comment|/**      * Sets whether stack traces should be logged or not      */
+DECL|method|setLogRetryStackTrace (boolean logRetryStackTrace)
+specifier|public
+name|void
+name|setLogRetryStackTrace
+parameter_list|(
+name|boolean
+name|logRetryStackTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logRetryStackTrace
+operator|=
+name|logRetryStackTrace
 expr_stmt|;
 block|}
 block|}
