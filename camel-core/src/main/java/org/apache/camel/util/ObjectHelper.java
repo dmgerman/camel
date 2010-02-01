@@ -4435,6 +4435,10 @@ name|ch
 operator|==
 literal|']'
 operator|||
+name|ch
+operator|==
+literal|'-'
+operator|||
 name|Character
 operator|.
 name|isJavaIdentifierPart

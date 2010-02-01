@@ -1987,6 +1987,55 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalizeClassName ()
+specifier|public
+name|void
+name|testNormalizeClassName
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"Should get the right class name"
+argument_list|,
+literal|"my.package-info"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|normalizeClassName
+argument_list|(
+literal|"my.package-info"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should get the right class name"
+argument_list|,
+literal|"Integer[]"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|normalizeClassName
+argument_list|(
+literal|"Integer[] \r"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should get the right class name"
+argument_list|,
+literal|"Hello_World"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|normalizeClassName
+argument_list|(
+literal|"Hello_World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
