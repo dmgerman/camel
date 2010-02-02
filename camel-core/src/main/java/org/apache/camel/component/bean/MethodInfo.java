@@ -855,8 +855,11 @@ name|result
 argument_list|)
 expr_stmt|;
 comment|// we don't want to return the list of endpoints
+comment|// return Void to indicate to BeanProcessor that there is no reply
 return|return
-literal|null
+name|Void
+operator|.
+name|TYPE
 return|;
 block|}
 return|return
