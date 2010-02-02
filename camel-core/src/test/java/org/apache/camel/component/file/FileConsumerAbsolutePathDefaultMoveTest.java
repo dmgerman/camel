@@ -209,7 +209,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:/"
+literal|"file:"
 operator|+
 name|base
 argument_list|)
