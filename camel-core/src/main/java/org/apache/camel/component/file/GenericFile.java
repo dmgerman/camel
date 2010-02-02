@@ -658,20 +658,17 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|File
-name|file
-init|=
+return|return
+name|FileUtil
+operator|.
+name|isAbsolute
+argument_list|(
 operator|new
 name|File
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
-return|return
-name|file
-operator|.
-name|isAbsolute
-argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|normalizePath (String name)

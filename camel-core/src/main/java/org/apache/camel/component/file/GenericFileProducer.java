@@ -805,10 +805,12 @@ decl_stmt|;
 name|boolean
 name|absolute
 init|=
-name|file
+name|FileUtil
 operator|.
 name|isAbsolute
-argument_list|()
+argument_list|(
+name|file
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

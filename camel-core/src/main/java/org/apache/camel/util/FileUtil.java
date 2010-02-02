@@ -1511,6 +1511,56 @@ return|return
 name|deleted
 return|;
 block|}
+comment|/**      * Is the given file an absolute file.      *<p/>      * Will also work around issue on Windows to consider files on Windows starting with a \      * as absolute files. This makes the logic consistent across all OS platforms.      *      * @param file  the file      * @return<tt>true</ff> if its an absolute path,<tt>false</tt> otherwise.      */
+DECL|method|isAbsolute (File file)
+specifier|public
+specifier|static
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isWindows
+argument_list|()
+condition|)
+block|{
+comment|// special for windows
+name|String
+name|path
+init|=
+name|file
+operator|.
+name|getPath
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|path
+operator|.
+name|startsWith
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

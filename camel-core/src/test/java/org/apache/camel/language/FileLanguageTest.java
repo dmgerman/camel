@@ -180,6 +180,20 @@ name|SimpleLanguage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for File Language.  */
 end_comment
@@ -378,10 +392,12 @@ name|assertExpression
 argument_list|(
 literal|"${file:absolute}"
 argument_list|,
-name|file
+name|FileUtil
 operator|.
 name|isAbsolute
-argument_list|()
+argument_list|(
+name|file
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertExpression

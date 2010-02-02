@@ -393,7 +393,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configued with      * @param file the source file      * @return wrapped as a GenericFile      */
+comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configured with      * @param file the source file      * @return wrapped as a GenericFile      */
 DECL|method|asGenericFile (String endpointPath, File file)
 specifier|public
 specifier|static
@@ -477,14 +477,21 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// must use FileUtil.isAbsolute to have consistent check for whether the file is
+comment|// absolute or not. As windows do not consider \ paths as absolute where as all
+comment|// other OS platforms will consider \ as absolute. The logic in Camel mandates
+comment|// that we align this for all OS. That is why we must use FileUtil.isAbsolute
+comment|// to return a consistent answer for all OS platforms.
 name|answer
 operator|.
 name|setAbsolute
 argument_list|(
-name|file
+name|FileUtil
 operator|.
 name|isAbsolute
-argument_list|()
+argument_list|(
+name|file
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -509,7 +516,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|file
+name|answer
 operator|.
 name|isAbsolute
 argument_list|()
