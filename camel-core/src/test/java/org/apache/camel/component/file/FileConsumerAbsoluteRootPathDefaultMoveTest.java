@@ -114,6 +114,14 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testDummy ()
+specifier|public
+name|void
+name|testDummy
+parameter_list|()
+block|{
+comment|// noop
+block|}
 comment|// TODO: Enable to test locally
 DECL|method|xxxTestConsumeFromAbsolutePath ()
 specifier|public
