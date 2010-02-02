@@ -133,9 +133,16 @@ name|dsl
 init|=
 literal|"errorHandler(deadLetterChannel(\"mock://error\"));onException(Exception.class).to(\"mock:invalid\");from(\"direct:start\").beanRef(\"myBean\").to(\"mock:valid\")"
 decl_stmt|;
+name|String
+name|expect
+init|=
+literal|"errorHandler(deadLetterChannel(\"mock://error\").logStackTrace(true));onException(Exception.class).to(\"mock:invalid\");"
+operator|+
+literal|"from(\"direct:start\").beanRef(\"myBean\").to(\"mock:valid\")"
+decl_stmt|;
 name|assertEquals
 argument_list|(
-name|dsl
+name|expect
 argument_list|,
 name|render
 argument_list|(

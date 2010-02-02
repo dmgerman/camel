@@ -177,7 +177,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"errorHandler(deadLetterChannel(\"mock://error\"));"
+literal|"errorHandler(deadLetterChannel(\"mock://error\").logStackTrace(true));"
 operator|+
 literal|"onException(CamelException.class).maximumRedeliveries(2);"
 operator|+

@@ -53,7 +53,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"errorHandler(deadLetterChannel(\"mock://failed\").handled(false));from(\"direct:start\").to(\"mock:result\")"
+literal|"errorHandler(deadLetterChannel(\"mock://failed\").logStackTrace(true).handled(false));from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -79,7 +79,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"errorHandler(deadLetterChannel(\"mock://failed\").maximumRedeliveries(3).redeliverDelay(5000));from(\"direct:start\").to(\"mock:result\")"
+literal|"errorHandler(deadLetterChannel(\"mock://failed\").maximumRedeliveries(3).redeliverDelay(5000).logStackTrace(true));from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -110,7 +110,9 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"errorHandler(deadLetterChannel(\"mock://failed\").maximumRedeliveries(3).redeliverDelay(5000).handled(false));from(\"direct:start\").to(\"mock:result\")"
+literal|"errorHandler(deadLetterChannel(\"mock://failed\").maximumRedeliveries(3).redeliverDelay(5000).logStackTrace(true).handled(false));"
+operator|+
+literal|"from(\"direct:start\").to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
