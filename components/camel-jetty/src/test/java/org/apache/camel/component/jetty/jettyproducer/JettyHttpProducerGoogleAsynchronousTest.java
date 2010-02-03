@@ -72,6 +72,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -90,6 +100,11 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"ignore online tests, will be improved in Camel 2.3"
+argument_list|)
 DECL|method|testGoogleFrontPageAsync ()
 specifier|public
 name|void
