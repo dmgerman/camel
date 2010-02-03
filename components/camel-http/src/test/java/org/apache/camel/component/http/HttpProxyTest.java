@@ -54,6 +54,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -72,6 +82,11 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"ignore online tests, will be improved in Camel 2.3"
+argument_list|)
 DECL|method|testNoHttpProxyConfigured ()
 specifier|public
 name|void
@@ -134,6 +149,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"ignore online tests, will be improved in Camel 2.3"
+argument_list|)
 DECL|method|testHttpProxyConfigured ()
 specifier|public
 name|void
@@ -243,6 +263,11 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"ignore online tests, will be improved in Camel 2.3"
+argument_list|)
 DECL|method|testHttpProxyEndpointConfigured ()
 specifier|public
 name|void
