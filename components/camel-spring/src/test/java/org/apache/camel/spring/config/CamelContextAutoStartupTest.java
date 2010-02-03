@@ -193,7 +193,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|false
+name|Boolean
+operator|.
+name|FALSE
 argument_list|,
 name|camel
 operator|.
@@ -241,7 +243,9 @@ expr_stmt|;
 comment|// but auto startup is still fasle
 name|assertEquals
 argument_list|(
-literal|false
+name|Boolean
+operator|.
+name|FALSE
 argument_list|,
 name|camel
 operator|.
@@ -355,7 +359,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+name|Boolean
+operator|.
+name|TRUE
 argument_list|,
 name|camel
 operator|.

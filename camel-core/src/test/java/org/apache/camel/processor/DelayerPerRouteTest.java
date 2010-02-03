@@ -135,7 +135,7 @@ name|context
 operator|.
 name|setDelayer
 argument_list|(
-literal|2000
+literal|2000L
 argument_list|)
 expr_stmt|;
 name|from

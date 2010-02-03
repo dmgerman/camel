@@ -35,7 +35,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns whether stream cache is enabled      *      * @return true if stream cache is enabled      */
 DECL|method|isStreamCaching ()
-name|boolean
+name|Boolean
 name|isStreamCaching
 parameter_list|()
 function_decl|;
@@ -50,7 +50,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns whether tracing enabled      *      * @return true if tracing is enabled      */
 DECL|method|isTracing ()
-name|boolean
+name|Boolean
 name|isTracing
 parameter_list|()
 function_decl|;
@@ -65,16 +65,16 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns whether tracing enabled      *      * @return true if tracing is enabled      */
 DECL|method|isHandleFault ()
-name|boolean
+name|Boolean
 name|isHandleFault
 parameter_list|()
 function_decl|;
 comment|/**      * Sets a delay value in millis that a message is delayed at every step it takes in the route path,      * to slow things down to better helps you to see what goes      *<p/>      * Is disabled by default      *      * @param delay delay in millis      */
-DECL|method|setDelayer (long delay)
+DECL|method|setDelayer (Long delay)
 name|void
 name|setDelayer
 parameter_list|(
-name|long
+name|Long
 name|delay
 parameter_list|)
 function_decl|;
@@ -95,7 +95,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Gets whether it should automatic start when Camel starts.      *      * @return true if should auto start      */
 DECL|method|isAutoStartup ()
-name|boolean
+name|Boolean
 name|isAutoStartup
 parameter_list|()
 function_decl|;

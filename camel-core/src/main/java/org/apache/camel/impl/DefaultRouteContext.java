@@ -1228,7 +1228,7 @@ expr_stmt|;
 block|}
 DECL|method|isTracing ()
 specifier|public
-name|boolean
+name|Boolean
 name|isTracing
 parameter_list|()
 block|{
@@ -1273,7 +1273,7 @@ expr_stmt|;
 block|}
 DECL|method|isStreamCaching ()
 specifier|public
-name|boolean
+name|Boolean
 name|isStreamCaching
 parameter_list|()
 block|{
@@ -1318,7 +1318,7 @@ expr_stmt|;
 block|}
 DECL|method|isHandleFault ()
 specifier|public
-name|boolean
+name|Boolean
 name|isHandleFault
 parameter_list|()
 block|{
@@ -1345,12 +1345,12 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|setDelayer (long delay)
+DECL|method|setDelayer (Long delay)
 specifier|public
 name|void
 name|setDelayer
 parameter_list|(
-name|long
+name|Long
 name|delay
 parameter_list|)
 block|{
@@ -1408,7 +1408,7 @@ expr_stmt|;
 block|}
 DECL|method|isAutoStartup ()
 specifier|public
-name|boolean
+name|Boolean
 name|isAutoStartup
 parameter_list|()
 block|{
