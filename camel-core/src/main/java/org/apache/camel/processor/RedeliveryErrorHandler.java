@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -627,6 +639,29 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// let Camel error handle take care of all kind of exceptions now
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error processing Exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|t
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|done
 init|=
@@ -664,7 +699,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Strategy to process the given exchange to the destinated output.      *<p/>      * This happens when the exchange is processed the first time and also for redeliveries      * to the same destination.      */
+comment|/**      * Strategy to process the given exchange to the designated output.      *<p/>      * This happens when the exchange is processed the first time and also for redeliveries      * to the same destination.      */
 DECL|method|processExchange (Exchange exchange)
 specifier|protected
 name|void

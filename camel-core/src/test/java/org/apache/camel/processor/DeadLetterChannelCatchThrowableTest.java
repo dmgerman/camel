@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.aggregator
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|processor
-operator|.
-name|aggregator
 package|;
 end_package
 
@@ -85,22 +83,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|AggregatorExceptionTest
+DECL|class|DeadLetterChannelCatchThrowableTest
 specifier|public
 class|class
-name|AggregatorExceptionTest
+name|DeadLetterChannelCatchThrowableTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testAggregateAndOnException ()
+DECL|method|testDeadLetterChannelCatchThrowable ()
 specifier|public
 name|void
-name|testAggregateAndOnException
+name|testDeadLetterChannelCatchThrowable
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// all goes to error
 name|MockEndpoint
 name|mock
 init|=
@@ -113,40 +110,18 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|int
-name|c
-init|=
-literal|0
-init|;
-name|c
-operator|<=
-literal|10
-condition|;
-name|c
-operator|++
-control|)
-block|{
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hi!"
-operator|+
-name|c
-argument_list|,
-literal|"id"
-argument_list|,
-literal|123
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -194,19 +169,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|aggregate
-argument_list|(
-name|header
-argument_list|(
-literal|"id"
-argument_list|)
-argument_list|)
-operator|.
-name|batchSize
-argument_list|(
-literal|5
-argument_list|)
-operator|.
 name|process
 argument_list|(
 operator|new
@@ -225,10 +187,6 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|java
-operator|.
-name|lang
-operator|.
 name|NoSuchMethodError
 argument_list|(
 name|exceptionString
