@@ -240,6 +240,30 @@ name|assertEquals
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @version $Revision$  */
 end_comment
@@ -411,6 +435,24 @@ name|getResponseBodyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// need to check the content type
+name|assertEquals
+argument_list|(
+literal|"We should get content-type from the response"
+argument_list|,
+literal|"text/xml"
+argument_list|,
+name|put
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -500,6 +542,24 @@ name|getResponseBodyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// need to check the content type
+name|assertEquals
+argument_list|(
+literal|"We should get content-type from the response"
+argument_list|,
+literal|"text/xml"
+argument_list|,
+name|post
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -586,6 +646,24 @@ argument_list|,
 name|post
 operator|.
 name|getResponseBodyAsString
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// need to check the content type
+name|assertEquals
+argument_list|(
+literal|"We should get content-type from the response"
+argument_list|,
+literal|"text/xml"
+argument_list|,
+name|post
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -701,6 +779,38 @@ argument_list|,
 name|correct
 argument_list|,
 name|response
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|post
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"content-type"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// need to check the content type
+name|assertEquals
+argument_list|(
+literal|"We should get content-type from the response"
+argument_list|,
+literal|"text/xml"
+argument_list|,
+name|post
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
