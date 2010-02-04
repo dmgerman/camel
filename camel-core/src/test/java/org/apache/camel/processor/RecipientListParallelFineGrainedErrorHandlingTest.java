@@ -366,14 +366,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// can be 0 or 1 depending whether the task was executed or not (we run parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -381,9 +382,9 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -391,9 +392,9 @@ argument_list|(
 literal|"mock:baz"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 try|try
@@ -520,14 +521,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// can be 0 or 1 depending whether the task was executed or not (we run parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -535,12 +537,11 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
-comment|// can be 0 or 1 depending whether the task was executed or not (we run parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:baz"
