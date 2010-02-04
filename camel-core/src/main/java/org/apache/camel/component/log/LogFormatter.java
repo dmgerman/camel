@@ -426,7 +426,11 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|showAll
+operator|||
 name|showCaughtException
+operator|)
 operator|&&
 name|exception
 operator|==
