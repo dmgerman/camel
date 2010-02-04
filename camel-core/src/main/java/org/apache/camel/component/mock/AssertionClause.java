@@ -130,70 +130,6 @@ name|PredicateAssertHelper
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|headerExpression
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|outBodyExpression
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|propertyExpression
-import|;
-end_import
-
 begin_comment
 comment|/**  * A builder of assertions on message exchanges  *  * @version $Revision$  */
 end_comment
@@ -204,11 +140,11 @@ specifier|public
 specifier|abstract
 class|class
 name|AssertionClause
-parameter_list|<
-name|T
-parameter_list|>
 extends|extends
 name|ExpressionClauseSupport
+argument_list|<
+name|ValueBuilder
+argument_list|>
 implements|implements
 name|Runnable
 block|{
@@ -227,27 +163,44 @@ name|Predicate
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|AssertionClause (Object result)
+DECL|method|AssertionClause ()
 specifier|public
 name|AssertionClause
-parameter_list|(
-name|Object
-name|result
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|result
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
+DECL|method|expression (Expression expression)
+specifier|public
+name|ValueBuilder
+name|expression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|super
+operator|.
+name|expression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|PredicateValueBuilder
+argument_list|(
+name|getExpressionValue
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds the given predicate to this assertion clause      */
 DECL|method|predicate (Predicate predicate)
 specifier|public
@@ -298,164 +251,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|clause
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for headers on an exchange      */
-DECL|method|header (String name)
-specifier|public
-name|ValueBuilder
-name|header
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|Expression
-name|expression
-init|=
-name|headerExpression
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for property on an exchange      */
-DECL|method|property (String name)
-specifier|public
-name|ValueBuilder
-name|property
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|Expression
-name|expression
-init|=
-name|propertyExpression
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
-DECL|method|body ()
-specifier|public
-name|PredicateValueBuilder
-name|body
-parameter_list|()
-block|{
-name|Expression
-name|expression
-init|=
-name|bodyExpression
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
-DECL|method|body (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|PredicateValueBuilder
-name|body
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-name|Expression
-name|expression
-init|=
-name|bodyExpression
-argument_list|(
-name|type
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
-DECL|method|outBody ()
-specifier|public
-name|PredicateValueBuilder
-name|outBody
-parameter_list|()
-block|{
-name|Expression
-name|expression
-init|=
-name|outBodyExpression
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
-DECL|method|outBody (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|PredicateValueBuilder
-name|outBody
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-name|Expression
-name|expression
-init|=
-name|outBodyExpression
-argument_list|(
-name|type
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|PredicateValueBuilder
-argument_list|(
-name|expression
-argument_list|)
 return|;
 block|}
 comment|/**      * Performs any assertions on the given exchange      */
@@ -520,6 +315,7 @@ block|}
 comment|/**      * Public class needed for fluent builders      */
 DECL|class|PredicateValueBuilder
 specifier|public
+specifier|final
 class|class
 name|PredicateValueBuilder
 extends|extends
