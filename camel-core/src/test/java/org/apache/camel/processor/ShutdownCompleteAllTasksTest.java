@@ -100,7 +100,7 @@ specifier|static
 name|String
 name|url
 init|=
-literal|"file:target/pending"
+literal|"file:target/pending?initialDelay=3000"
 decl_stmt|;
 annotation|@
 name|Override
