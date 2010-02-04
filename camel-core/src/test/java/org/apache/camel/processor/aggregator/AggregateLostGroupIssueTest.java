@@ -204,7 +204,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?period=100"
+literal|"timer://foo?period=100&delay=1000"
 argument_list|)
 operator|.
 name|startupOrder
