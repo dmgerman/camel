@@ -528,6 +528,10 @@ operator|.
 name|posStart
 operator|>
 literal|0
+operator|||
+name|state
+operator|.
+name|waitingForEndByte2
 condition|)
 block|{
 name|LOG
@@ -556,6 +560,12 @@ operator|.
 name|position
 argument_list|()
 expr_stmt|;
+name|state
+operator|.
+name|waitingForEndByte2
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -578,7 +588,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// Check end bytes
+comment|// Check end byte1
 if|if
 condition|(
 name|b
@@ -589,22 +599,60 @@ name|getEndByte1
 argument_list|()
 condition|)
 block|{
-name|byte
-name|next
-init|=
-name|in
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|next
+operator|!
+name|state
+operator|.
+name|waitingForEndByte2
+operator|&&
+name|state
+operator|.
+name|posStart
+operator|>
+literal|0
+condition|)
+block|{
+name|state
+operator|.
+name|waitingForEndByte2
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Ignoring unexpected 1st end byte "
+operator|+
+name|b
+operator|+
+literal|". Expected 2nd endpoint  "
+operator|+
+name|config
+operator|.
+name|getEndByte2
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// Check end byte2
+if|if
+condition|(
+name|b
 operator|==
 name|config
 operator|.
 name|getEndByte2
 argument_list|()
+operator|&&
+name|state
+operator|.
+name|waitingForEndByte2
 condition|)
 block|{
 name|state
@@ -620,6 +668,12 @@ literal|2
 expr_stmt|;
 comment|// use -2 to skip these
 comment|// last 2 end markers
+name|state
+operator|.
+name|waitingForEndByte2
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -641,27 +695,6 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
-block|}
-else|else
-block|{
-comment|// we expected the 2nd end marker
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"The 2nd end byte "
-operator|+
-name|config
-operator|.
-name|getEndByte2
-argument_list|()
-operator|+
-literal|" was not found, but was "
-operator|+
-name|b
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// Remember where we are
@@ -783,6 +816,10 @@ DECL|field|current
 name|int
 name|current
 decl_stmt|;
+DECL|field|waitingForEndByte2
+name|boolean
+name|waitingForEndByte2
+decl_stmt|;
 DECL|method|length ()
 name|int
 name|length
@@ -806,6 +843,10 @@ expr_stmt|;
 name|posEnd
 operator|=
 literal|0
+expr_stmt|;
+name|waitingForEndByte2
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}
