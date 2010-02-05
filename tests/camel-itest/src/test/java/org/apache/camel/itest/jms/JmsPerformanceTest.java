@@ -46,9 +46,31 @@ begin_import
 import|import
 name|javax
 operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|naming
 operator|.
 name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|ActiveMQConnectionFactory
 import|;
 end_import
 
@@ -63,6 +85,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
 import|;
 end_import
 
@@ -253,6 +291,17 @@ specifier|private
 name|int
 name|consumedMessageCount
 decl_stmt|;
+DECL|method|getActiveMQFileName ()
+specifier|protected
+name|String
+name|getActiveMQFileName
+parameter_list|()
+block|{
+comment|// using different port number to avoid clash
+return|return
+literal|"activemq7.xml"
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testSendingAndReceivingMessages ()
@@ -456,7 +505,8 @@ operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"activemq.xml"
+name|getActiveMQFileName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|applicationContext
@@ -563,6 +613,30 @@ argument_list|(
 literal|"myBean"
 argument_list|,
 name|myBean
+argument_list|)
+expr_stmt|;
+comment|// add ActiveMQ client
+name|ConnectionFactory
+name|connectionFactory
+init|=
+operator|new
+name|ActiveMQConnectionFactory
+argument_list|(
+literal|"tcp://localhost:61617"
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|bind
+argument_list|(
+literal|"activemq"
+argument_list|,
+name|JmsComponent
+operator|.
+name|jmsComponentAutoAcknowledge
+argument_list|(
+name|connectionFactory
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
