@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -195,9 +209,12 @@ block|{
 DECL|field|invoked
 specifier|protected
 specifier|static
-specifier|volatile
-name|int
+name|AtomicInteger
 name|invoked
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -425,8 +442,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -474,6 +494,9 @@ argument_list|(
 literal|0
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -486,8 +509,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -535,6 +561,9 @@ argument_list|(
 literal|3
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -547,8 +576,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -596,6 +628,9 @@ argument_list|(
 literal|3
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -608,8 +643,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -657,6 +695,9 @@ argument_list|(
 literal|3
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -669,8 +710,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -718,6 +762,9 @@ argument_list|(
 literal|0
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -730,8 +777,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -779,6 +829,9 @@ argument_list|(
 literal|3
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -791,8 +844,11 @@ throws|throws
 name|Exception
 block|{
 name|invoked
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
@@ -840,6 +896,9 @@ argument_list|(
 literal|3
 argument_list|,
 name|invoked
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -977,7 +1036,9 @@ parameter_list|)
 block|{
 comment|// NOTE: counter is the redelivery attempt, will start from 1
 name|invoked
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 comment|// we can of course do what ever we want to determine the result but this is a unit test so we end after 3 attempts
 return|return
