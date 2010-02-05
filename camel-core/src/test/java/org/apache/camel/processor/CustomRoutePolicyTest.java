@@ -125,6 +125,14 @@ name|MyCustomRoutePolicy
 extends|extends
 name|RoutePolicySupport
 block|{
+DECL|field|stopped
+specifier|private
+specifier|volatile
+name|boolean
+name|stopped
+init|=
+literal|false
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
@@ -166,6 +174,10 @@ condition|)
 block|{
 try|try
 block|{
+name|stopped
+operator|=
+literal|true
+expr_stmt|;
 name|stopConsumer
 argument_list|(
 name|route
@@ -188,6 +200,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|isStopped ()
+specifier|public
+name|boolean
+name|isStopped
+parameter_list|()
+block|{
+return|return
+name|stopped
+return|;
 block|}
 block|}
 DECL|method|testCustomPolicy ()
@@ -247,57 +269,18 @@ argument_list|,
 literal|"stop"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
+name|assertTrue
 argument_list|(
-literal|"seda:foo"
+literal|"Should be stopped"
 argument_list|,
-literal|"Bye World"
+name|policy
+operator|.
+name|isStopped
+argument_list|()
 argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// we reset and prepare for the last message to arrive
-name|mock
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-comment|// start the route consumer again
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getConsumer
-argument_list|()
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -327,6 +310,11 @@ block|{
 name|from
 argument_list|(
 literal|"seda:foo"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"foo"
 argument_list|)
 operator|.
 name|routePolicy
