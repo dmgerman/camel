@@ -207,14 +207,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we run in parallel so we may get 0 or 1 messages
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMinimumMessageCount
 argument_list|(
-literal|"Kaboom"
+literal|0
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -222,22 +223,22 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we do stop so we should NOT continue and thus baz do not receive any message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:baz"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// we should not complete and thus 0
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"

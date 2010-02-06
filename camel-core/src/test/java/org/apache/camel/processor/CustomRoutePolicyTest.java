@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -128,10 +142,12 @@ block|{
 DECL|field|stopped
 specifier|private
 specifier|volatile
-name|boolean
+name|AtomicBoolean
 name|stopped
 init|=
-literal|false
+operator|new
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -175,8 +191,11 @@ block|{
 try|try
 block|{
 name|stopped
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 name|stopConsumer
 argument_list|(
@@ -209,6 +228,9 @@ parameter_list|()
 block|{
 return|return
 name|stopped
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 block|}
@@ -271,6 +293,14 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// give time for slow boxes
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
