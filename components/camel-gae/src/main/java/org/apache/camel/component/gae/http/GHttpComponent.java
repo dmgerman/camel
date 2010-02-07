@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/todo.html">Google App Engine HTTP  * Component</a> supports HTTP-based inbound and outbound communication. Inbound  * HTTP communication is realized in terms of the<a  * href="http://camel.apache.org/servlet.html"> Servlet Component</a> component.  * Outbound HTTP communication uses the URL fetch service of the Google App  * Engine.  */
+comment|/**  * The<a href="http://camel.apache.org/ghttp.html">Google App Engine HTTP  * Component</a> supports HTTP-based inbound and outbound communication. Inbound  * HTTP communication is realized in terms of the<a  * href="http://camel.apache.org/servlet.html"> Servlet Component</a> component.  * Outbound HTTP communication uses the URL fetch service of the Google App  * Engine.  */
 end_comment
 
 begin_class

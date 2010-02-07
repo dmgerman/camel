@@ -312,7 +312,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * @throws UnsupportedOperationException.      */
+comment|/**      * @throws UnsupportedOperationException      */
 DECL|method|readResponse (GTaskEndpoint endpoint, Exchange exchange, Void response)
 specifier|public
 name|Exchange
@@ -368,7 +368,6 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * @throws UnsupportedOperationException.      */
 DECL|method|writeResponse (GTaskEndpoint endpoint, Exchange exchange, HttpServletResponse response)
 specifier|public
 name|HttpServletResponse
@@ -384,13 +383,9 @@ name|HttpServletResponse
 name|response
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"gtask responses not supported"
-argument_list|)
-throw|;
+return|return
+name|response
+return|;
 block|}
 comment|// ----------------------------------------------------------------
 comment|//  Customization points

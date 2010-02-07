@@ -363,7 +363,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/todo.html">Google App Engine  * HTTP endpoint</a>.  */
+comment|/**  * Represents a<a href="http://camel.apache.org/ghttp.html">Google App Engine  * HTTP endpoint</a>.  */
 end_comment
 
 begin_class

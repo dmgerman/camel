@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/todo.html">Google App Engine Mail endpoint</a>.  */
+comment|/**  * Represents a<a href="http://camel.apache.org/gmail.html">Google App Engine Mail endpoint</a>.  */
 end_comment
 
 begin_class
