@@ -434,6 +434,12 @@ name|TRACE_EVENT_EXCHANGE
 init|=
 literal|"CamelTraceEventExchange"
 decl_stmt|;
+DECL|field|SOAP_ACTION
+name|String
+name|SOAP_ACTION
+init|=
+literal|"CamelSoapAction"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern
