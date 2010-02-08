@@ -106,7 +106,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/poll/?password=admin&delay=3000&delete=true&sortBy=file:name&maxMessagesPerPoll=2"
+literal|"/poll/?password=admin&delay=6000&delete=true&sortBy=file:name&maxMessagesPerPoll=2"
 return|;
 block|}
 annotation|@
@@ -140,6 +140,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// start route
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -161,7 +169,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|4000
 argument_list|)
 expr_stmt|;
 name|mock
@@ -268,6 +276,14 @@ name|from
 argument_list|(
 name|getFtpUrl
 argument_list|()
+argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
+operator|.
+name|routeId
+argument_list|(
+literal|"foo"
 argument_list|)
 operator|.
 name|to
