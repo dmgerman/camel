@@ -373,7 +373,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as simple expression wiht operator: "
+literal|"Expression is evaluated as simple expression with operator: "
 operator|+
 name|expression
 argument_list|)

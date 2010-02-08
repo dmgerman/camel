@@ -306,6 +306,20 @@ name|camel
 operator|.
 name|spring
 operator|.
+name|CamelPropertiesComponentFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
 name|remoting
 operator|.
 name|CamelProxyFactoryBean
@@ -780,6 +794,17 @@ argument_list|(
 literal|"export"
 argument_list|,
 name|CamelServiceExporter
+operator|.
+name|class
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|addBeanDefinitionParser
+argument_list|(
+literal|"propertyPlaceholder"
+argument_list|,
+name|CamelPropertiesComponentFactoryBean
 operator|.
 name|class
 argument_list|,
@@ -1925,6 +1950,13 @@ name|equals
 argument_list|(
 literal|"export"
 argument_list|)
+operator|||
+name|localName
+operator|.
+name|equals
+argument_list|(
+literal|"propertyPlaceholder"
+argument_list|)
 condition|)
 block|{
 comment|// set the camel context
@@ -1950,7 +1982,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// register as endpoint defined indirectly in the routes by from/to types having id explict set
+comment|// register as endpoint defined indirectly in the routes by from/to types having id explicit set
 name|registerEndpointsWithIdsDefinedInFromOrToTypes
 argument_list|(
 name|element
@@ -1986,7 +2018,7 @@ operator|!
 name|createdBeanPostProcessor
 condition|)
 block|{
-comment|// no bean processor element so lets create it by ourself
+comment|// no bean processor element so lets create it by our self
 name|Element
 name|childElement
 init|=
@@ -2620,7 +2652,7 @@ block|{
 comment|// it is a bit cumbersome to work with the spring bean definition parser
 comment|// as we kinda need to eagerly register the bean definition on the parser context
 comment|// and then later we might find out that we should not have done that in case we have multiple camel contexts
-comment|// that would have a id clash by auto regsitering the same bean definition with the same id such as a producer template
+comment|// that would have a id clash by auto registering the same bean definition with the same id such as a producer template
 comment|// see if we have already auto registered this id
 name|BeanDefinition
 name|existing
