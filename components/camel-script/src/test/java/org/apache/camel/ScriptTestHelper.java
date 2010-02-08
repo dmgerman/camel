@@ -37,7 +37,7 @@ name|boolean
 name|canRunTestOnThisPlatform
 parameter_list|()
 block|{
-comment|// we cannot run unit tests on Mac with JDK 1.5
+comment|// requires java 1.6
 name|String
 name|version
 init|=
@@ -91,25 +91,8 @@ return|return
 literal|true
 return|;
 block|}
-comment|// for JDK 1.5 or lower we can run on any platform except Apple/MacOSx
-name|String
-name|os
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"os.name"
-argument_list|)
-decl_stmt|;
 return|return
-operator|!
-name|os
-operator|.
-name|startsWith
-argument_list|(
-literal|"Mac"
-argument_list|)
+literal|false
 return|;
 block|}
 block|}
