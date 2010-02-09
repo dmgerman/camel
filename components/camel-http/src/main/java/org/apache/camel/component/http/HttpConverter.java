@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|http
@@ -144,13 +156,13 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Converter
-DECL|method|toServletRequest (HttpMessage message)
+DECL|method|toServletRequest (Message message)
 specifier|public
 specifier|static
 name|HttpServletRequest
 name|toServletRequest
 parameter_list|(
-name|HttpMessage
+name|Message
 name|message
 parameter_list|)
 block|{
@@ -168,19 +180,27 @@ block|}
 return|return
 name|message
 operator|.
-name|getRequest
-argument_list|()
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_SERVLET_REQUEST
+argument_list|,
+name|HttpServletRequest
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toServletResponse (HttpMessage message)
+DECL|method|toServletResponse (Message message)
 specifier|public
 specifier|static
 name|HttpServletResponse
 name|toServletResponse
 parameter_list|(
-name|HttpMessage
+name|Message
 name|message
 parameter_list|)
 block|{
@@ -198,19 +218,27 @@ block|}
 return|return
 name|message
 operator|.
-name|getResponse
-argument_list|()
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_SERVLET_RESPONSE
+argument_list|,
+name|HttpServletResponse
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toServletInputStream (HttpMessage message)
+DECL|method|toServletInputStream (Message message)
 specifier|public
 specifier|static
 name|ServletInputStream
 name|toServletInputStream
 parameter_list|(
-name|HttpMessage
+name|Message
 name|message
 parameter_list|)
 throws|throws
@@ -244,13 +272,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (HttpMessage message)
+DECL|method|toInputStream (Message message)
 specifier|public
 specifier|static
 name|InputStream
 name|toInputStream
 parameter_list|(
-name|HttpMessage
+name|Message
 name|message
 parameter_list|)
 throws|throws
@@ -268,13 +296,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toReader (HttpMessage message)
+DECL|method|toReader (Message message)
 specifier|public
 specifier|static
 name|BufferedReader
 name|toReader
 parameter_list|(
-name|HttpMessage
+name|Message
 name|message
 parameter_list|)
 throws|throws

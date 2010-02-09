@@ -143,6 +143,29 @@ name|response
 operator|=
 name|response
 expr_stmt|;
+comment|// Put the request and response into the message header
+name|this
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_SERVLET_REQUEST
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_SERVLET_RESPONSE
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 comment|// use binding to read the request allowing end users to use their
 comment|// implementation of the binding
 name|getEndpoint

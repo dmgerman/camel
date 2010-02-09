@@ -440,6 +440,18 @@ name|SOAP_ACTION
 init|=
 literal|"CamelSoapAction"
 decl_stmt|;
+DECL|field|HTTP_SERVLET_REQUEST
+name|String
+name|HTTP_SERVLET_REQUEST
+init|=
+literal|"CamelHttpServletRequest"
+decl_stmt|;
+DECL|field|HTTP_SERVLET_RESPONSE
+name|String
+name|HTTP_SERVLET_RESPONSE
+init|=
+literal|"CamelHttpServletResponse"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern
