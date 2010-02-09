@@ -232,13 +232,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toServletInputStream (Message message)
+DECL|method|toServletInputStream (HttpMessage message)
 specifier|public
 specifier|static
 name|ServletInputStream
 name|toServletInputStream
 parameter_list|(
-name|Message
+name|HttpMessage
 name|message
 parameter_list|)
 throws|throws
@@ -272,13 +272,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (Message message)
+DECL|method|toInputStream (HttpMessage message)
 specifier|public
 specifier|static
 name|InputStream
 name|toInputStream
 parameter_list|(
-name|Message
+name|HttpMessage
 name|message
 parameter_list|)
 throws|throws
@@ -296,13 +296,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toReader (Message message)
+DECL|method|toReader (HttpMessage message)
 specifier|public
 specifier|static
 name|BufferedReader
 name|toReader
 parameter_list|(
-name|Message
+name|HttpMessage
 name|message
 parameter_list|)
 throws|throws
