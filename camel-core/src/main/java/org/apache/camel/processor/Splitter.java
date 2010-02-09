@@ -527,8 +527,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|ProcessorExchangePair
+name|createProcessorExchangePair
 argument_list|(
 name|getProcessors
 argument_list|()
@@ -701,8 +700,7 @@ name|result
 operator|.
 name|add
 argument_list|(
-operator|new
-name|ProcessorExchangePair
+name|createProcessorExchangePair
 argument_list|(
 name|getProcessors
 argument_list|()

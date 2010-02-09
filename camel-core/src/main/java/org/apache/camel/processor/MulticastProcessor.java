@@ -340,6 +340,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -495,18 +509,28 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
+DECL|field|prepared
+specifier|private
+specifier|final
+name|Processor
+name|prepared
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|method|ProcessorExchangePair (Processor processor, Exchange exchange)
-specifier|public
+comment|/**          * Private constructor as you must use the static creator          * {@link org.apache.camel.processor.MulticastProcessor#createProcessorExchangePair(org.apache.camel.Processor,          *        org.apache.camel.Exchange)} which prepares the processor before its ready to be used.          *          * @param processor  the original processor          * @param prepared   the prepared processor          * @param exchange   the exchange          */
+DECL|method|ProcessorExchangePair (Processor processor, Processor prepared, Exchange exchange)
+specifier|private
 name|ProcessorExchangePair
 parameter_list|(
 name|Processor
 name|processor
+parameter_list|,
+name|Processor
+name|prepared
 parameter_list|,
 name|Exchange
 name|exchange
@@ -517,6 +541,12 @@ operator|.
 name|processor
 operator|=
 name|processor
+expr_stmt|;
+name|this
+operator|.
+name|prepared
+operator|=
+name|prepared
 expr_stmt|;
 name|this
 operator|.
@@ -533,6 +563,16 @@ parameter_list|()
 block|{
 return|return
 name|processor
+return|;
+block|}
+DECL|method|getPrepared ()
+specifier|public
+name|Processor
+name|getPrepared
+parameter_list|()
+block|{
+return|return
+name|prepared
 return|;
 block|}
 DECL|method|getExchange ()
@@ -972,11 +1012,20 @@ control|)
 block|{
 specifier|final
 name|Processor
-name|producer
+name|processor
 init|=
 name|pair
 operator|.
 name|getProcessor
+argument_list|()
+decl_stmt|;
+specifier|final
+name|Processor
+name|prepared
+init|=
+name|pair
+operator|.
+name|getPrepared
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1034,7 +1083,9 @@ return|;
 block|}
 name|doProcess
 argument_list|(
-name|producer
+name|processor
+argument_list|,
+name|prepared
 argument_list|,
 name|subExchange
 argument_list|)
@@ -1216,11 +1267,19 @@ name|pairs
 control|)
 block|{
 name|Processor
-name|producer
+name|processor
 init|=
 name|pair
 operator|.
 name|getProcessor
+argument_list|()
+decl_stmt|;
+name|Processor
+name|prepared
+init|=
+name|pair
+operator|.
+name|getPrepared
 argument_list|()
 decl_stmt|;
 name|Exchange
@@ -1242,7 +1301,9 @@ argument_list|)
 expr_stmt|;
 name|doProcess
 argument_list|(
-name|producer
+name|processor
+argument_list|,
+name|prepared
 argument_list|,
 name|subExchange
 argument_list|)
@@ -1339,13 +1400,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doProcess (Processor producer, Exchange exchange)
+DECL|method|doProcess (Processor processor, Processor prepared, Exchange exchange)
 specifier|private
 name|void
 name|doProcess
 parameter_list|(
 name|Processor
-name|producer
+name|processor
+parameter_list|,
+name|Processor
+name|prepared
 parameter_list|,
 name|Exchange
 name|exchange
@@ -1379,7 +1443,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|producer
+name|processor
 operator|instanceof
 name|Producer
 condition|)
@@ -1408,82 +1472,8 @@ name|pushBlock
 argument_list|()
 expr_stmt|;
 block|}
-comment|// set property which endpoint we send to
-name|setToEndpoint
-argument_list|(
-name|exchange
-argument_list|,
-name|producer
-argument_list|)
-expr_stmt|;
-comment|// wrap error handler
-name|Processor
-name|wrapped
-init|=
-name|producer
-decl_stmt|;
-if|if
-condition|(
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|getRouteContext
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// wrap the producer in error handler so we have fine grained error handling on
-comment|// the output side instead of the input side
-comment|// this is needed to support redelivery on that output alone and not doing redelivery
-comment|// for the entire multicast block again which will start from scratch again
-name|RouteContext
-name|routeContext
-init|=
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|getRouteContext
-argument_list|()
-decl_stmt|;
-name|ErrorHandlerBuilder
-name|builder
-init|=
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getErrorHandlerBuilder
-argument_list|()
-decl_stmt|;
-comment|// create error handler (create error handler directly to keep it light weight,
-comment|// instead of using ProcessorDefinition.wrapInErrorHandler)
-name|wrapped
-operator|=
-name|builder
-operator|.
-name|createErrorHandler
-argument_list|(
-name|routeContext
-argument_list|,
-name|wrapped
-argument_list|)
-expr_stmt|;
-block|}
-comment|// let the producer process it
-name|wrapped
+comment|// let the prepared process it
+name|prepared
 operator|.
 name|process
 argument_list|(
@@ -1523,7 +1513,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|producer
+name|processor
 operator|instanceof
 name|Producer
 condition|)
@@ -1545,7 +1535,7 @@ operator|(
 operator|(
 name|Producer
 operator|)
-name|producer
+name|processor
 operator|)
 operator|.
 name|getEndpoint
@@ -1667,6 +1657,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -1706,8 +1698,7 @@ name|result
 operator|.
 name|add
 argument_list|(
-operator|new
-name|ProcessorExchangePair
+name|createProcessorExchangePair
 argument_list|(
 name|processor
 argument_list|,
@@ -1718,6 +1709,124 @@ expr_stmt|;
 block|}
 return|return
 name|result
+return|;
+block|}
+comment|/**      * Creates the {@link ProcessorExchangePair} which holds the processor and exchange to be send out.      *<p/>      * You<b>must</b> use this method to create the instances of {@link ProcessorExchangePair} as they      * need to be specially prepared before use.      *      * @param processor  the processor      * @param exchange   the exchange      * @return prepared for use      */
+DECL|method|createProcessorExchangePair (Processor processor, Exchange exchange)
+specifier|protected
+specifier|static
+name|ProcessorExchangePair
+name|createProcessorExchangePair
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Processor
+name|prepared
+init|=
+name|processor
+decl_stmt|;
+comment|// set property which endpoint we send to
+name|setToEndpoint
+argument_list|(
+name|exchange
+argument_list|,
+name|prepared
+argument_list|)
+expr_stmt|;
+comment|// rework error handling to support fine grained error handling
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap the producer in error handler so we have fine grained error handling on
+comment|// the output side instead of the input side
+comment|// this is needed to support redelivery on that output alone and not doing redelivery
+comment|// for the entire multicast block again which will start from scratch again
+name|RouteContext
+name|routeContext
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+decl_stmt|;
+name|ErrorHandlerBuilder
+name|builder
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+comment|// create error handler (create error handler directly to keep it light weight,
+comment|// instead of using ProcessorDefinition.wrapInErrorHandler)
+try|try
+block|{
+name|prepared
+operator|=
+name|builder
+operator|.
+name|createErrorHandler
+argument_list|(
+name|routeContext
+argument_list|,
+name|prepared
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+return|return
+operator|new
+name|ProcessorExchangePair
+argument_list|(
+name|processor
+argument_list|,
+name|prepared
+argument_list|,
+name|exchange
+argument_list|)
 return|;
 block|}
 DECL|method|doStop ()
