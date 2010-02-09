@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.soap.name
+DECL|package|org.apache.camel.dataformat.soap.name
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|dataformat
 operator|.
 name|soap
 operator|.
@@ -20,44 +20,52 @@ name|name
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|namespace
+operator|.
+name|QName
+import|;
+end_import
+
 begin_comment
-comment|/**  * Value object to hold information about a method in a JAX-WS service interface  */
+comment|/**  * Value object to hold type information about parameters and return type of a  * method  */
 end_comment
 
 begin_class
-DECL|class|MethodInfo
+DECL|class|TypeInfo
 specifier|final
 class|class
-name|MethodInfo
+name|TypeInfo
 block|{
-DECL|field|soapAction
+DECL|field|typeName
 specifier|private
+specifier|final
 name|String
-name|soapAction
+name|typeName
 decl_stmt|;
-DECL|field|in
+DECL|field|elName
 specifier|private
-name|TypeInfo
-name|in
+specifier|final
+name|QName
+name|elName
 decl_stmt|;
-DECL|field|out
-specifier|private
-name|TypeInfo
-name|out
-decl_stmt|;
-comment|/**      * Initialize       *       * @param soapAction      * @param in input parameter (document style so only one parameter)      * @param out return type      */
-DECL|method|MethodInfo (String soapAction, TypeInfo in, TypeInfo out)
+comment|/**      * Initialize TypeInfo with given name and resolved element name for a type      *       * @param typeName      * @param elName      */
+DECL|method|TypeInfo (final String typeName, final QName elName)
 specifier|public
-name|MethodInfo
+name|TypeInfo
 parameter_list|(
+specifier|final
 name|String
-name|soapAction
+name|typeName
 parameter_list|,
-name|TypeInfo
-name|in
-parameter_list|,
-name|TypeInfo
-name|out
+specifier|final
+name|QName
+name|elName
 parameter_list|)
 block|{
 name|super
@@ -65,51 +73,35 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|soapAction
+name|typeName
 operator|=
-name|soapAction
+name|typeName
 expr_stmt|;
 name|this
 operator|.
-name|in
+name|elName
 operator|=
-name|in
-expr_stmt|;
-name|this
-operator|.
-name|out
-operator|=
-name|out
+name|elName
 expr_stmt|;
 block|}
-DECL|method|getSoapAction ()
+DECL|method|getTypeName ()
 specifier|public
 name|String
-name|getSoapAction
+name|getTypeName
 parameter_list|()
 block|{
 return|return
-name|soapAction
+name|typeName
 return|;
 block|}
-DECL|method|getIn ()
+DECL|method|getElName ()
 specifier|public
-name|TypeInfo
-name|getIn
+name|QName
+name|getElName
 parameter_list|()
 block|{
 return|return
-name|in
-return|;
-block|}
-DECL|method|getOut ()
-specifier|public
-name|TypeInfo
-name|getOut
-parameter_list|()
-block|{
-return|return
-name|out
+name|elName
 return|;
 block|}
 block|}

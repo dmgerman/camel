@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.soap.name
+DECL|package|org.apache.camel.dataformat.soap.name
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|dataformat
 operator|.
 name|soap
 operator|.
@@ -33,17 +33,41 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy interface for determining the element name for a SOAP body or fault  */
+comment|/**  * Simply ElementNameStrategy that returns one preset QName  */
 end_comment
 
-begin_interface
-DECL|interface|ElementNameStrategy
+begin_class
+DECL|class|QNameStrategy
 specifier|public
-interface|interface
+class|class
+name|QNameStrategy
+implements|implements
 name|ElementNameStrategy
 block|{
-comment|/**      * Deterimine element name for given type      *       * @param soapAction      * @param type      * @return resolved element name      */
+DECL|field|elementName
+specifier|private
+name|QName
+name|elementName
+decl_stmt|;
+comment|/**      * Initialize with one QName      *       * @param elmentName QName to be used for all finds      */
+DECL|method|QNameStrategy (QName elmentName)
+specifier|public
+name|QNameStrategy
+parameter_list|(
+name|QName
+name|elmentName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|elementName
+operator|=
+name|elmentName
+expr_stmt|;
+block|}
+comment|/**      * @return preset element name      */
 DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
+specifier|public
 name|QName
 name|findQNameForSoapActionOrType
 parameter_list|(
@@ -56,9 +80,13 @@ name|?
 argument_list|>
 name|type
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|elementName
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

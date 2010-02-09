@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.soap.name
+DECL|package|org.apache.camel.dataformat.soap.name
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|dataformat
 operator|.
 name|soap
 operator|.
@@ -33,79 +33,32 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Value object to hold type information about parameters and return type of a  * method  */
+comment|/**  * Strategy interface for determining the element name for a SOAP body or fault  */
 end_comment
 
-begin_class
-DECL|class|TypeInfo
-specifier|final
-class|class
-name|TypeInfo
-block|{
-DECL|field|typeName
-specifier|private
-specifier|final
-name|String
-name|typeName
-decl_stmt|;
-DECL|field|elName
-specifier|private
-specifier|final
-name|QName
-name|elName
-decl_stmt|;
-comment|/**      * Initialize TypeInfo with given name and resolved element name for a type      *       * @param typeName      * @param elName      */
-DECL|method|TypeInfo (final String typeName, final QName elName)
+begin_interface
+DECL|interface|ElementNameStrategy
 specifier|public
-name|TypeInfo
+interface|interface
+name|ElementNameStrategy
+block|{
+comment|/**      * Deterimine element name for given type      *       * @param soapAction      * @param type      * @return resolved element name      */
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
+name|QName
+name|findQNameForSoapActionOrType
 parameter_list|(
-specifier|final
 name|String
-name|typeName
+name|soapAction
 parameter_list|,
-specifier|final
-name|QName
-name|elName
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
 parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|typeName
-operator|=
-name|typeName
-expr_stmt|;
-name|this
-operator|.
-name|elName
-operator|=
-name|elName
-expr_stmt|;
+function_decl|;
 block|}
-DECL|method|getTypeName ()
-specifier|public
-name|String
-name|getTypeName
-parameter_list|()
-block|{
-return|return
-name|typeName
-return|;
-block|}
-DECL|method|getElName ()
-specifier|public
-name|QName
-name|getElName
-parameter_list|()
-block|{
-return|return
-name|elName
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

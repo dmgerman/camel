@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.soap.name
+DECL|package|org.apache.camel.dataformat.soap.name
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|dataformat
 operator|.
 name|soap
 operator|.
@@ -20,69 +20,96 @@ name|name
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|namespace
-operator|.
-name|QName
-import|;
-end_import
-
 begin_comment
-comment|/**  * Simply ElementNameStrategy that returns one preset QName  */
+comment|/**  * Value object to hold information about a method in a JAX-WS service interface  */
 end_comment
 
 begin_class
-DECL|class|QNameStrategy
-specifier|public
+DECL|class|MethodInfo
+specifier|final
 class|class
-name|QNameStrategy
-implements|implements
-name|ElementNameStrategy
+name|MethodInfo
 block|{
-DECL|field|elementName
+DECL|field|soapAction
 specifier|private
-name|QName
-name|elementName
+name|String
+name|soapAction
 decl_stmt|;
-comment|/**      * Initialize with one QName      *       * @param elmentName QName to be used for all finds      */
-DECL|method|QNameStrategy (QName elmentName)
+DECL|field|in
+specifier|private
+name|TypeInfo
+name|in
+decl_stmt|;
+DECL|field|out
+specifier|private
+name|TypeInfo
+name|out
+decl_stmt|;
+comment|/**      * Initialize       *       * @param soapAction      * @param in input parameter (document style so only one parameter)      * @param out return type      */
+DECL|method|MethodInfo (String soapAction, TypeInfo in, TypeInfo out)
 specifier|public
-name|QNameStrategy
-parameter_list|(
-name|QName
-name|elmentName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|elementName
-operator|=
-name|elmentName
-expr_stmt|;
-block|}
-comment|/**      * @return preset element name      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
-specifier|public
-name|QName
-name|findQNameForSoapActionOrType
+name|MethodInfo
 parameter_list|(
 name|String
 name|soapAction
 parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
+name|TypeInfo
+name|in
+parameter_list|,
+name|TypeInfo
+name|out
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|soapAction
+operator|=
+name|soapAction
+expr_stmt|;
+name|this
+operator|.
+name|in
+operator|=
+name|in
+expr_stmt|;
+name|this
+operator|.
+name|out
+operator|=
+name|out
+expr_stmt|;
+block|}
+DECL|method|getSoapAction ()
+specifier|public
+name|String
+name|getSoapAction
+parameter_list|()
+block|{
 return|return
-name|elementName
+name|soapAction
+return|;
+block|}
+DECL|method|getIn ()
+specifier|public
+name|TypeInfo
+name|getIn
+parameter_list|()
+block|{
+return|return
+name|in
+return|;
+block|}
+DECL|method|getOut ()
+specifier|public
+name|TypeInfo
+name|getOut
+parameter_list|()
+block|{
+return|return
+name|out
 return|;
 block|}
 block|}
