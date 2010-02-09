@@ -73,13 +73,20 @@ comment|/**  * Unit test for close session when complete test.  */
 end_comment
 
 begin_class
-DECL|class|MinaInOutCloseSessionWhenCompleteTest
+DECL|class|MinaDisconnectTest
 specifier|public
 class|class
-name|MinaInOutCloseSessionWhenCompleteTest
+name|MinaDisconnectTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+init|=
+literal|"mina:tcp://localhost:8080?sync=true&textline=true&disconnect=true"
+decl_stmt|;
 DECL|method|testCloseSessionWhenComplete ()
 specifier|public
 name|void
@@ -95,7 +102,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true&textline=true"
+name|uri
 argument_list|,
 literal|"Claus"
 argument_list|)
@@ -132,7 +139,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true&textline=true"
+name|uri
 argument_list|)
 operator|.
 name|process
@@ -176,20 +183,6 @@ argument_list|(
 literal|"Bye "
 operator|+
 name|body
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-name|MinaConstants
-operator|.
-name|MINA_CLOSE_SESSION_WHEN_COMPLETE
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

@@ -191,6 +191,11 @@ name|allowDefaultCodec
 init|=
 literal|true
 decl_stmt|;
+DECL|field|disconnect
+specifier|private
+name|boolean
+name|disconnect
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -725,6 +730,32 @@ block|{
 return|return
 name|allowDefaultCodec
 return|;
+block|}
+DECL|method|isDisconnect ()
+specifier|public
+name|boolean
+name|isDisconnect
+parameter_list|()
+block|{
+return|return
+name|disconnect
+return|;
+block|}
+DECL|method|setDisconnect (boolean disconnect)
+specifier|public
+name|void
+name|setDisconnect
+parameter_list|(
+name|boolean
+name|disconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnect
+operator|=
+name|disconnect
+expr_stmt|;
 block|}
 block|}
 end_class
