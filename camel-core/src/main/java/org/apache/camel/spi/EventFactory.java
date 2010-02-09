@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -232,6 +244,21 @@ name|failureHandler
 parameter_list|,
 name|boolean
 name|deadLetterChannel
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has been sent to the endpoint.      *      * @param exchange the exchange      * @param endpoint the destination      * @param timeTaken time in millis taken      * @return the created event      */
+DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
+name|EventObject
+name|createExchangeSentEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|)
 function_decl|;
 block|}

@@ -160,7 +160,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|9
 argument_list|)
 expr_stmt|;
 name|template
@@ -191,7 +191,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 expr_stmt|;
 try|try
