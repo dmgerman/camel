@@ -253,7 +253,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The instance should be subClass of com.google.protobuf.Message"
+literal|"The argument for setDefaultInstance should be subClass of com.google.protobuf.Message"
 argument_list|)
 throw|;
 block|}
