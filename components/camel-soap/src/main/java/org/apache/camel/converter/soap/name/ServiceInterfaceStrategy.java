@@ -142,20 +142,6 @@ name|RuntimeCamelException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
 begin_comment
 comment|/**  * Offers a finder for a webservice interface to determine the QName of a  * webservice data element  */
 end_comment
@@ -744,7 +730,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Determine the QName of the method parameter of the method that matches      * either soapAction and type or if not possible only the type      *       * @param soapAction      * @param type      * @return matching QName throws RuntimeException if no matching QName was      *         found      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type, ClassResolver classResolver)
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
 name|findQNameForSoapActionOrType
@@ -757,9 +743,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 name|MethodInfo
@@ -863,8 +846,6 @@ argument_list|(
 name|soapAction
 argument_list|,
 name|type
-argument_list|,
-name|classResolver
 argument_list|)
 expr_stmt|;
 block|}

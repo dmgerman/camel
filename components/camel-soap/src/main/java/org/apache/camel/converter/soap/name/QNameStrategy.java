@@ -32,20 +32,6 @@ name|QName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
 begin_comment
 comment|/**  * Simply ElementNameStrategy that returns one preset QName  */
 end_comment
@@ -80,7 +66,7 @@ name|elmentName
 expr_stmt|;
 block|}
 comment|/**      * @return preset element name      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type, ClassResolver classResolver)
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
 name|findQNameForSoapActionOrType
@@ -93,9 +79,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 return|return

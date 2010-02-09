@@ -234,20 +234,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|xmlsoap
 operator|.
 name|schemas
@@ -462,17 +448,6 @@ operator|new
 name|Body
 argument_list|()
 decl_stmt|;
-name|ClassResolver
-name|classResolver
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
-decl_stmt|;
 name|Throwable
 name|exception
 init|=
@@ -536,8 +511,6 @@ argument_list|(
 name|exception
 argument_list|,
 name|soapAction
-argument_list|,
-name|classResolver
 argument_list|)
 expr_stmt|;
 block|}
@@ -550,8 +523,6 @@ argument_list|(
 name|inputObject
 argument_list|,
 name|soapAction
-argument_list|,
-name|classResolver
 argument_list|)
 expr_stmt|;
 block|}
@@ -612,7 +583,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createBodyContentFromObject (final Object inputObject, String soapAction, ClassResolver classResolver)
+DECL|method|createBodyContentFromObject (final Object inputObject, String soapAction)
 specifier|private
 name|JAXBElement
 argument_list|<
@@ -626,9 +597,6 @@ name|inputObject
 parameter_list|,
 name|String
 name|soapAction
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 name|Object
@@ -713,8 +681,6 @@ name|graph
 operator|.
 name|getClass
 argument_list|()
-argument_list|,
-name|classResolver
 argument_list|)
 decl_stmt|;
 return|return
@@ -732,13 +698,13 @@ name|graph
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception      * @param soapAction      * @param classResolver      * @return SOAP fault from given Throwable      */
+comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception      * @param soapAction      * @return SOAP fault from given Throwable      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createFaultFromException (final Throwable exception, String soapAction, ClassResolver classResolver)
+DECL|method|createFaultFromException (final Throwable exception, String soapAction)
 specifier|private
 name|JAXBElement
 argument_list|<
@@ -752,9 +718,6 @@ name|exception
 parameter_list|,
 name|String
 name|soapAction
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 name|QName
@@ -772,8 +735,6 @@ name|exception
 operator|.
 name|getClass
 argument_list|()
-argument_list|,
-name|classResolver
 argument_list|)
 decl_stmt|;
 name|Object

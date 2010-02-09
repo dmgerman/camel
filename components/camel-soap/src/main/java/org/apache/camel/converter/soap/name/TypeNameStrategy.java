@@ -60,20 +60,6 @@ name|QName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
 begin_comment
 comment|/**  * Strategy to determine the marshalled element name by looking at the annotations of the  * class to be marshalled  */
 end_comment
@@ -87,7 +73,7 @@ implements|implements
 name|ElementNameStrategy
 block|{
 comment|/**      * @return determine element name by using the XmlType.name() of the type to be      * marshalled and the XmlSchema.namespace() of the package-info      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type, ClassResolver classResolver)
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
 name|findQNameForSoapActionOrType
@@ -100,9 +86,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 name|XmlType
@@ -164,33 +147,13 @@ name|nameSpace
 argument_list|)
 condition|)
 block|{
-try|try
-block|{
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|packageInfo
+name|XmlSchema
+name|xmlSchema
 init|=
-name|classResolver
-operator|.
-name|resolveMandatoryClass
-argument_list|(
 name|type
 operator|.
 name|getPackage
 argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|".package-info"
-argument_list|)
-decl_stmt|;
-name|XmlSchema
-name|xmlSchema
-init|=
-name|packageInfo
 operator|.
 name|getAnnotation
 argument_list|(
@@ -199,6 +162,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|xmlSchema
+operator|!=
+literal|null
+condition|)
+block|{
 name|nameSpace
 operator|=
 name|xmlSchema
@@ -206,30 +176,6 @@ operator|.
 name|namespace
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"package info not found for package "
-operator|+
-name|type
-operator|.
-name|getPackage
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 return|return

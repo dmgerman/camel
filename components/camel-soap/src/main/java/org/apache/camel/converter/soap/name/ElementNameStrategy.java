@@ -32,20 +32,6 @@ name|QName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
 begin_comment
 comment|/**  * Strategy interface for determining the element name for a SOAP body or fault  */
 end_comment
@@ -56,8 +42,8 @@ specifier|public
 interface|interface
 name|ElementNameStrategy
 block|{
-comment|/**      * Deterimine element name for given type      *       * @param soapAction      * @param type      * @param classResolver      * @return resolved element name      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type, ClassResolver classResolver)
+comment|/**      * Deterimine element name for given type      *       * @param soapAction      * @param type      * @return resolved element name      */
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 name|QName
 name|findQNameForSoapActionOrType
 parameter_list|(
@@ -69,9 +55,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 function_decl|;
 block|}

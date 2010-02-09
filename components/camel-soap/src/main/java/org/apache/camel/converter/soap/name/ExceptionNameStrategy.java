@@ -44,20 +44,6 @@ name|WebFault
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
 begin_comment
 comment|/**  * Determine element name for an exception  */
 end_comment
@@ -71,7 +57,7 @@ implements|implements
 name|ElementNameStrategy
 block|{
 comment|/**      * @return QName from exception class by evaluating the WebFault annotataion      */
-DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type, ClassResolver classResolver)
+DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
 name|findQNameForSoapActionOrType
@@ -84,9 +70,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|,
-name|ClassResolver
-name|classResolver
 parameter_list|)
 block|{
 name|WebFault
