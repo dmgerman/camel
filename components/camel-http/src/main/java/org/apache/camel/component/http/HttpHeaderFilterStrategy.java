@@ -82,7 +82,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Cache-Control"
+literal|"cache-control"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -90,7 +90,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Connection"
+literal|"connection"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -98,7 +98,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Pragma"
+literal|"pragma"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -106,7 +106,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Trailer"
+literal|"trailer"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -114,7 +114,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Transfer-Encoding"
+literal|"transfer-encoding"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -122,7 +122,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Upgrade"
+literal|"upgrade"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -130,7 +130,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Via"
+literal|"via"
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -138,7 +138,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Warning"
+literal|"warning"
 argument_list|)
 expr_stmt|;
 name|setLowerCase
