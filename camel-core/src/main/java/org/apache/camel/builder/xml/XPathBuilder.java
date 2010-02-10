@@ -1007,6 +1007,77 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Evaluates the given xpath using the provided body as a String return type.      *      * @param context the camel context      * @param body the body      * @return result of the evaluation      */
+DECL|method|evaluate (CamelContext context, Object body)
+specifier|public
+name|String
+name|evaluate
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|context
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
+comment|// create a dummy Exchange to use during evaluation
+name|Exchange
+name|dummy
+init|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+name|dummy
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+name|setResultQName
+argument_list|(
+name|XPathConstants
+operator|.
+name|STRING
+argument_list|)
+expr_stmt|;
+name|String
+name|answer
+init|=
+name|evaluate
+argument_list|(
+name|dummy
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// remove the dummy from the thread local after usage
+name|exchange
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
@@ -1131,6 +1202,23 @@ operator|.
 name|objectModelUri
 operator|=
 name|uri
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Configures to use Saxon as the XPathFactory which allows you to use XPath 2.0 functions      * which may not be part of the build in JDK XPath parser.      *      * @return the current builder      */
+DECL|method|saxon ()
+specifier|public
+name|XPathBuilder
+name|saxon
+parameter_list|()
+block|{
+name|this
+operator|.
+name|objectModelUri
+operator|=
+literal|"http://saxon.sf.net/jaxp/xpath/om"
 expr_stmt|;
 return|return
 name|this

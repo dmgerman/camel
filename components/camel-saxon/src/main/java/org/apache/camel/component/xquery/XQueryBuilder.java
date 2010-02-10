@@ -718,7 +718,7 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// propogate headers
+comment|// propagate headers
 name|exchange
 operator|.
 name|getOut
