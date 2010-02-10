@@ -58,6 +58,22 @@ name|TemporaryQueue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *  * @version $Revision$  */
 end_comment
@@ -67,6 +83,13 @@ comment|// TODO need to be really careful to always use the same Connection othe
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed JMS Temporary Queue Endpoint"
+argument_list|)
 DECL|class|JmsTemporaryQueueEndpoint
 specifier|public
 class|class
