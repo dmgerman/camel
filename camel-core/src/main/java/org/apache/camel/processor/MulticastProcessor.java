@@ -500,6 +500,7 @@ decl_stmt|;
 comment|/**      * Class that represent each step in the multicast route to do      */
 DECL|class|ProcessorExchangePair
 specifier|static
+specifier|final
 class|class
 name|ProcessorExchangePair
 block|{
