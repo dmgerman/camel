@@ -98,6 +98,14 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
+literal|"date"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
 literal|"pragma"
 argument_list|)
 expr_stmt|;
