@@ -419,6 +419,66 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
 block|}
+annotation|@
+name|Test
+DECL|method|testXPathFunctionTokenizeUsingSystemProperty ()
+specifier|public
+name|void
+name|testXPathFunctionTokenizeUsingSystemProperty
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// START SNIPPET: e4
+comment|// set system property with the XPath factory to use which is Saxon
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|XPathFactory
+operator|.
+name|DEFAULT_PROPERTY_NAME
+operator|+
+literal|":"
+operator|+
+literal|"http://saxon.sf.net/jaxp/xpath/om"
+argument_list|,
+literal|"net.sf.saxon.xpath.XPathFactoryImpl"
+argument_list|)
+expr_stmt|;
+comment|// create a builder to evaluate the xpath using saxon
+name|XPathBuilder
+name|builder
+init|=
+name|XPathBuilder
+operator|.
+name|xpath
+argument_list|(
+literal|"tokenize(/foo/bar, '_')[2]"
+argument_list|)
+decl_stmt|;
+comment|// evaluate as a String result
+name|String
+name|result
+init|=
+name|builder
+operator|.
+name|evaluate
+argument_list|(
+name|context
+argument_list|,
+literal|"<foo><bar>abc_def_ghi</bar></foo>"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"def"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e4
+block|}
 block|}
 end_class
 
