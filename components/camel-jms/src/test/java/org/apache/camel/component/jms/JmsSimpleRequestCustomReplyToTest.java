@@ -476,7 +476,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Wating for latch"
+literal|"Waiting for latch"
 argument_list|)
 expr_stmt|;
 name|latch
