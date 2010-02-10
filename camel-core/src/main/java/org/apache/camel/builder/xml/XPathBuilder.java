@@ -1253,6 +1253,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Configures to use the provided XPath factory.      *<p/>      * Can be used to use Saxon instead of the build in factory from the JDK.      *      * @param xpathFactory the xpath factory to use      * @return the current builder.      */
+DECL|method|factory (XPathFactory xpathFactory)
+specifier|public
+name|XPathBuilder
+name|factory
+parameter_list|(
+name|XPathFactory
+name|xpathFactory
+parameter_list|)
+block|{
+name|setXPathFactory
+argument_list|(
+name|xpathFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getXPathFactory ()
