@@ -793,7 +793,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 name|T

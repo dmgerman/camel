@@ -511,7 +511,7 @@ name|trace
 argument_list|(
 literal|"Deleting existing file: "
 operator|+
-name|tempTarget
+name|target
 argument_list|)
 expr_stmt|;
 block|}
