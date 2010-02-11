@@ -171,6 +171,11 @@ specifier|private
 name|XmlConverter
 name|xmlConverter
 decl_stmt|;
+DECL|field|uriResolver
+specifier|private
+name|URIResolver
+name|uriResolver
+decl_stmt|;
 DECL|method|getXmlConverter ()
 specifier|public
 name|XmlConverter
@@ -195,6 +200,32 @@ operator|.
 name|xmlConverter
 operator|=
 name|xmlConverter
+expr_stmt|;
+block|}
+DECL|method|getUriResolver ()
+specifier|public
+name|URIResolver
+name|getUriResolver
+parameter_list|()
+block|{
+return|return
+name|uriResolver
+return|;
+block|}
+DECL|method|setUriResolver (URIResolver uriResolver)
+specifier|public
+name|void
+name|setUriResolver
+parameter_list|(
+name|URIResolver
+name|uriResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolver
+operator|=
+name|uriResolver
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -442,6 +473,19 @@ comment|// set resolver before input stream as resolver is used when loading the
 name|URIResolver
 name|resolver
 init|=
+name|getUriResolver
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|resolver
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to use a Camel specific resolver
+name|resolver
+operator|=
 operator|new
 name|XsltUriResolver
 argument_list|(
@@ -453,7 +497,8 @@ argument_list|()
 argument_list|,
 name|remaining
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|xslt
 operator|.
 name|setUriResolver
