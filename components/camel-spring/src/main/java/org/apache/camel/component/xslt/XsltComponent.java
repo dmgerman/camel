@@ -469,13 +469,35 @@ name|factory
 argument_list|)
 expr_stmt|;
 block|}
-comment|// set resolver before input stream as resolver is used when loading the input stream
+comment|// lookup custom resolver to use
 name|URIResolver
 name|resolver
 init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"uriResolver"
+argument_list|,
+name|URIResolver
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resolver
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not in endpoint then use component specific resolver
+name|resolver
+operator|=
 name|getUriResolver
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|resolver
@@ -499,6 +521,7 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set resolver before input stream as resolver is used when loading the input stream
 name|xslt
 operator|.
 name|setUriResolver
