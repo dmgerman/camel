@@ -274,9 +274,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// in case we add more files in src/test/data
 name|endpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|2
 argument_list|)

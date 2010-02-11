@@ -168,6 +168,30 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|TransformerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|URIResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|stream
 operator|.
 name|StreamSource
@@ -326,6 +350,11 @@ name|boolean
 name|failOnNullBody
 init|=
 literal|true
+decl_stmt|;
+DECL|field|uriResolver
+specifier|private
+name|URIResolver
+name|uriResolver
 decl_stmt|;
 DECL|method|XsltBuilder ()
 specifier|public
@@ -692,6 +721,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a custom URI resolver to be used      */
+DECL|method|uriResolver (URIResolver uriResolver)
+specifier|public
+name|XsltBuilder
+name|uriResolver
+parameter_list|(
+name|URIResolver
+name|uriResolver
+parameter_list|)
+block|{
+name|setUriResolver
+argument_list|(
+name|uriResolver
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getParameters ()
@@ -820,16 +868,38 @@ parameter_list|)
 throws|throws
 name|TransformerConfigurationException
 block|{
+name|TransformerFactory
+name|factory
+init|=
+name|converter
+operator|.
+name|getTransformerFactory
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|getUriResolver
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|factory
+operator|.
+name|setURIResolver
+argument_list|(
+name|getUriResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Check that the call to newTemplates() returns a valid template instance.
 comment|// In case of an xslt parse error, it will return null and we should stop the
 comment|// deployment and raise an exception as the route will not be setup properly.
 name|Templates
 name|templates
 init|=
-name|converter
-operator|.
-name|getTransformerFactory
-argument_list|()
+name|factory
 operator|.
 name|newTemplates
 argument_list|(
@@ -973,6 +1043,32 @@ operator|=
 name|converter
 expr_stmt|;
 block|}
+DECL|method|getUriResolver ()
+specifier|public
+name|URIResolver
+name|getUriResolver
+parameter_list|()
+block|{
+return|return
+name|uriResolver
+return|;
+block|}
+DECL|method|setUriResolver (URIResolver uriResolver)
+specifier|public
+name|void
+name|setUriResolver
+parameter_list|(
+name|URIResolver
+name|uriResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolver
+operator|=
+name|uriResolver
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Converts the inbound body to a {@link Source}      */
@@ -1080,6 +1176,37 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|uriResolver
+operator|==
+literal|null
+condition|)
+block|{
+name|uriResolver
+operator|=
+operator|new
+name|XsltUriResolver
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+name|transformer
+operator|.
+name|setURIResolver
+argument_list|(
+name|uriResolver
+argument_list|)
+expr_stmt|;
 name|transformer
 operator|.
 name|clearParameters
