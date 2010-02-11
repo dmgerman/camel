@@ -217,6 +217,11 @@ literal|"file://target/subfolder"
 argument_list|)
 comment|// return OK as response
 operator|.
+name|log
+argument_list|(
+literal|"Wrote ${file:name} and returning OK response"
+argument_list|)
+operator|.
 name|transform
 argument_list|(
 name|constant
@@ -242,6 +247,11 @@ literal|"new incident reported"
 argument_list|)
 argument_list|)
 comment|// send the email
+operator|.
+name|log
+argument_list|(
+literal|"Sending email to incident@mycompany.com:\n${body}"
+argument_list|)
 operator|.
 name|to
 argument_list|(
