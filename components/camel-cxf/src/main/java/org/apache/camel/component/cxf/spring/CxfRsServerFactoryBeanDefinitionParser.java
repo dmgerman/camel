@@ -712,7 +712,9 @@ name|factory
 init|=
 operator|new
 name|SpringBusFactory
-argument_list|()
+argument_list|(
+name|ctx
+argument_list|)
 decl_stmt|;
 name|Bus
 name|bus
