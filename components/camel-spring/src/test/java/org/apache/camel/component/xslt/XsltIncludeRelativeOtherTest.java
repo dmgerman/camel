@@ -103,7 +103,10 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|constant
+name|body
+argument_list|()
+operator|.
+name|contains
 argument_list|(
 literal|"<span style=\"color:yellow;\">48</span>"
 argument_list|)
