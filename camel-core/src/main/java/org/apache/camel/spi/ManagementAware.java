@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object being managed.  *<p/>  * This allows you to gain fine grained control of manageing objects with Camel.  * For example various Camel components will implement this interface to provide  * management to their endpoints and consumers.  *<p/>  * Camel will by default use generic management objects if objects do not implement  * this interface. These defaults are located in<tt>org.apache.camel.management.mbean</tt>.  *  * @version $Revision$  */
+comment|/**  * An interface to represent an object being managed.  *<p/>  * This allows you to gain fine grained control of managing objects with Camel.  * For example various Camel components will implement this interface to provide  * management to their endpoints and consumers.  *<p/>  * Camel will by default use generic management objects if objects do not implement  * this interface. These defaults are located in<tt>org.apache.camel.management.mbean</tt>.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

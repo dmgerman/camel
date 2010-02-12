@@ -143,7 +143,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// give it a bit of time to run
+comment|// Give it a bit of time to run
 name|Thread
 operator|.
 name|sleep
@@ -165,6 +165,7 @@ operator|.
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
+comment|// Find the endpoints
 name|Set
 argument_list|<
 name|ObjectName
@@ -178,12 +179,38 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"*:type=routes,*"
+literal|"*:type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|set
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Find the routes
+name|set
+operator|=
+name|mbeanServer
+operator|.
+name|queryNames
+argument_list|(
+operator|new
+name|ObjectName
+argument_list|(
+literal|"*:type=routes,*"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3
@@ -194,7 +221,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// stop routes
+comment|// Stop routes
 for|for
 control|(
 name|ObjectName
