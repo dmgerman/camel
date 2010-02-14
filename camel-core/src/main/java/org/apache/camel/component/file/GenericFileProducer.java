@@ -487,6 +487,11 @@ if|if
 condition|(
 name|endpoint
 operator|.
+name|isEagerDeleteTargetFile
+argument_list|()
+operator|&&
+name|endpoint
+operator|.
 name|getFileExist
 argument_list|()
 operator|==
@@ -509,7 +514,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting existing file: "
+literal|"Eagerly deleting existing file: "
 operator|+
 name|target
 argument_list|)
@@ -613,6 +618,75 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// if we should not eager delete the target file then do it now just before renaming
+if|if
+condition|(
+operator|!
+name|endpoint
+operator|.
+name|isEagerDeleteTargetFile
+argument_list|()
+operator|&&
+name|operations
+operator|.
+name|existsFile
+argument_list|(
+name|target
+argument_list|)
+operator|&&
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Override
+condition|)
+block|{
+comment|// we override the target so we do this by deleting it so the temp file can be renamed later
+comment|// with success as the existing target file have been deleted
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Deleting existing file: "
+operator|+
+name|target
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|operations
+operator|.
+name|deleteFile
+argument_list|(
+name|target
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot delete file: "
+operator|+
+name|target
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// now we are ready to rename the temp file to the target file
 if|if
 condition|(
 name|log

@@ -435,6 +435,13 @@ specifier|protected
 name|Expression
 name|tempFileName
 decl_stmt|;
+DECL|field|eagerDeleteTargetFile
+specifier|protected
+name|boolean
+name|eagerDeleteTargetFile
+init|=
+literal|true
+decl_stmt|;
 DECL|field|include
 specifier|protected
 name|String
@@ -1549,6 +1556,32 @@ name|createFileLanguageExpression
 argument_list|(
 name|tempFileNameExpression
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isEagerDeleteTargetFile ()
+specifier|public
+name|boolean
+name|isEagerDeleteTargetFile
+parameter_list|()
+block|{
+return|return
+name|eagerDeleteTargetFile
+return|;
+block|}
+DECL|method|setEagerDeleteTargetFile (boolean eagerDeleteTargetFile)
+specifier|public
+name|void
+name|setEagerDeleteTargetFile
+parameter_list|(
+name|boolean
+name|eagerDeleteTargetFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerDeleteTargetFile
+operator|=
+name|eagerDeleteTargetFile
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
