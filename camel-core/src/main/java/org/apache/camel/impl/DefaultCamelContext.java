@@ -4891,6 +4891,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// super will invoke doStart which will prepare internal services before we continue and start the routes below
 name|super
 operator|.
 name|start
@@ -5550,7 +5551,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|// rethrown cause
+comment|// rethrow cause
 throw|throw
 name|e
 throw|;

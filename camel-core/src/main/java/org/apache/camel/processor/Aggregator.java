@@ -207,6 +207,11 @@ name|correlationExpression
 operator|=
 name|correlationExpression
 expr_stmt|;
+name|setCompletionPredicate
+argument_list|(
+name|aggregationCompletedPredicate
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|Aggregator (Processor processor, AggregationCollection collection)
 specifier|public
