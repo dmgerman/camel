@@ -68,6 +68,8 @@ name|ACCEPT_CONTENT_TYPE
 init|=
 literal|"CamelAcceptContentType"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|AGGREGATED_INDEX
 name|String
 name|AGGREGATED_INDEX

@@ -56,7 +56,7 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Confirms the key, after the exchange has been processed sucesfully.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was confirmed      */
+comment|/**      * Confirms the key, after the exchange has been processed successfully.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was confirmed      */
 DECL|method|confirm (E key)
 name|boolean
 name|confirm

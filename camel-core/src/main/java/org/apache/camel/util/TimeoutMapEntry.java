@@ -35,6 +35,11 @@ DECL|class|TimeoutMapEntry
 specifier|public
 class|class
 name|TimeoutMapEntry
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 implements|implements
 name|Comparable
 argument_list|<
@@ -45,19 +50,19 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|Object
+name|K
 argument_list|,
-name|Object
+name|V
 argument_list|>
 block|{
 DECL|field|key
 specifier|private
-name|Object
+name|K
 name|key
 decl_stmt|;
 DECL|field|value
 specifier|private
-name|Object
+name|V
 name|value
 decl_stmt|;
 DECL|field|timeout
@@ -70,14 +75,14 @@ specifier|private
 name|long
 name|expireTime
 decl_stmt|;
-DECL|method|TimeoutMapEntry (Object id, Object handler, long timeout)
+DECL|method|TimeoutMapEntry (K id, V handler, long timeout)
 specifier|public
 name|TimeoutMapEntry
 parameter_list|(
-name|Object
+name|K
 name|id
 parameter_list|,
-name|Object
+name|V
 name|handler
 parameter_list|,
 name|long
@@ -105,7 +110,7 @@ expr_stmt|;
 block|}
 DECL|method|getKey ()
 specifier|public
-name|Object
+name|K
 name|getKey
 parameter_list|()
 block|{
@@ -141,7 +146,7 @@ expr_stmt|;
 block|}
 DECL|method|getValue ()
 specifier|public
-name|Object
+name|V
 name|getValue
 parameter_list|()
 block|{
@@ -149,16 +154,16 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|setValue (Object value)
+DECL|method|setValue (V value)
 specifier|public
-name|Object
+name|V
 name|setValue
 parameter_list|(
-name|Object
+name|V
 name|value
 parameter_list|)
 block|{
-name|Object
+name|V
 name|oldValue
 init|=
 name|this
@@ -201,6 +206,11 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|compareTo (Object that)
 specifier|public
 name|int
@@ -242,12 +252,17 @@ return|return
 literal|1
 return|;
 block|}
-DECL|method|compareTo (TimeoutMapEntry that)
+DECL|method|compareTo (TimeoutMapEntry<K, V> that)
 specifier|public
 name|int
 name|compareTo
 parameter_list|(
 name|TimeoutMapEntry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|that
 parameter_list|)
 block|{

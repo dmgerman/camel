@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.processor.aggregate
 package|package
 name|org
 operator|.
@@ -12,65 +12,59 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|processor
+operator|.
+name|aggregate
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a thread safe map of values which timeout after a period of  * inactivity.  *  * @version $Revision$  */
+comment|/**  * Access to a repository to store aggregated exchanges to support pluggable implementations.  *    * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|TimeoutMap
+DECL|interface|AggregationRepository
 specifier|public
 interface|interface
-name|TimeoutMap
+name|AggregationRepository
 parameter_list|<
 name|K
-parameter_list|,
-name|V
 parameter_list|>
-extends|extends
-name|Runnable
 block|{
-comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or null if it is not present (or has timed out)      */
+comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *      * @param key  the correlation key      * @param exchange the aggregated exchange      * @return the old exchange if any existed      */
+DECL|method|add (K key, Exchange exchange)
+name|Exchange
+name|add
+parameter_list|(
+name|K
+name|key
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the given exchange with the correlation key      *      * @param key the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
 DECL|method|get (K key)
-name|V
+name|Exchange
 name|get
 parameter_list|(
 name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a copy of the keys in the map      */
-DECL|method|getKeys ()
-name|Object
-index|[]
-name|getKeys
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the size of the map      */
-DECL|method|size ()
-name|int
-name|size
-parameter_list|()
-function_decl|;
-comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      */
-DECL|method|put (K key, V value, long timeoutMillis)
-name|void
-name|put
-parameter_list|(
-name|K
-name|key
-parameter_list|,
-name|V
-name|value
-parameter_list|,
-name|long
-name|timeoutMillis
-parameter_list|)
-function_decl|;
-comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      */
+comment|/**      * Removes the exchange with the given correlation key      *      * @param key the correlation key      */
 DECL|method|remove (K key)
 name|void
 name|remove
@@ -78,12 +72,6 @@ parameter_list|(
 name|K
 name|key
 parameter_list|)
-function_decl|;
-comment|/**      * Purges any old entries from the map      */
-DECL|method|purge ()
-name|void
-name|purge
-parameter_list|()
 function_decl|;
 block|}
 end_interface
