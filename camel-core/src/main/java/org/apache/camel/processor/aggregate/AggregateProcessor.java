@@ -34,7 +34,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -356,11 +376,37 @@ operator|new
 name|MemoryAggregationRepository
 argument_list|()
 decl_stmt|;
-comment|// different ways to have completion triggered
-DECL|field|eagerEvaluateCompletionPredicate
+DECL|field|closedCorrelationKeys
+specifier|private
+name|Set
+argument_list|<
+name|Object
+argument_list|>
+name|closedCorrelationKeys
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+comment|// options
+DECL|field|ignoreBadCorrelationKeys
 specifier|private
 name|boolean
-name|eagerEvaluateCompletionPredicate
+name|ignoreBadCorrelationKeys
+decl_stmt|;
+DECL|field|closeCorrelationKeyOnCompletion
+specifier|private
+name|boolean
+name|closeCorrelationKeyOnCompletion
+decl_stmt|;
+comment|// different ways to have completion triggered
+DECL|field|eagerCheckCompletion
+specifier|private
+name|boolean
+name|eagerCheckCompletion
 decl_stmt|;
 DECL|field|completionPredicate
 specifier|private
@@ -547,6 +593,35 @@ name|key
 argument_list|)
 condition|)
 block|{
+comment|// we have a bad correlation key
+if|if
+condition|(
+name|isIgnoreBadCorrelationKeys
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Correlation key could not be evaluated to a value. Exchange will be ignored: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|CamelExchangeException
@@ -556,6 +631,35 @@ argument_list|,
 name|exchange
 argument_list|)
 throw|;
+block|}
+block|}
+comment|// is the correlation key closed?
+if|if
+condition|(
+name|isCloseCorrelationKeyOnCompletion
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|closedCorrelationKeys
+operator|.
+name|contains
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Correlation key has been closed"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 block|}
 name|Exchange
 name|oldExchange
@@ -618,7 +722,7 @@ name|size
 operator|++
 expr_stmt|;
 block|}
-comment|// are we complete?
+comment|// check if we are complete
 name|boolean
 name|complete
 init|=
@@ -626,7 +730,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-name|isEagerEvaluateCompletionPredicate
+name|isEagerCheckCompletion
 argument_list|()
 condition|)
 block|{
@@ -672,14 +776,15 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-comment|// if not set to evaluate eager then do that after the aggregation
+comment|// maybe we should check completion after the aggregation
 if|if
 condition|(
 operator|!
-name|isEagerEvaluateCompletionPredicate
+name|isEagerCheckCompletion
 argument_list|()
 condition|)
 block|{
+comment|// use the new aggregated exchange when testing
 name|complete
 operator|=
 name|isCompleted
@@ -928,6 +1033,21 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+comment|// this key has been closed so add it to the closed map
+if|if
+condition|(
+name|isCloseCorrelationKeyOnCompletion
+argument_list|()
+condition|)
+block|{
+name|closedCorrelationKeys
+operator|.
+name|add
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -1045,30 +1165,30 @@ operator|=
 name|completionPredicate
 expr_stmt|;
 block|}
-DECL|method|isEagerEvaluateCompletionPredicate ()
+DECL|method|isEagerCheckCompletion ()
 specifier|public
 name|boolean
-name|isEagerEvaluateCompletionPredicate
+name|isEagerCheckCompletion
 parameter_list|()
 block|{
 return|return
-name|eagerEvaluateCompletionPredicate
+name|eagerCheckCompletion
 return|;
 block|}
-DECL|method|setEagerEvaluateCompletionPredicate (boolean eagerEvaluateCompletionPredicate)
+DECL|method|setEagerCheckCompletion (boolean eagerCheckCompletion)
 specifier|public
 name|void
-name|setEagerEvaluateCompletionPredicate
+name|setEagerCheckCompletion
 parameter_list|(
 name|boolean
-name|eagerEvaluateCompletionPredicate
+name|eagerCheckCompletion
 parameter_list|)
 block|{
 name|this
 operator|.
-name|eagerEvaluateCompletionPredicate
+name|eagerCheckCompletion
 operator|=
-name|eagerEvaluateCompletionPredicate
+name|eagerCheckCompletion
 expr_stmt|;
 block|}
 DECL|method|getCompletionTimeout ()
@@ -1121,6 +1241,58 @@ operator|.
 name|completionAggregatedSize
 operator|=
 name|completionAggregatedSize
+expr_stmt|;
+block|}
+DECL|method|isIgnoreBadCorrelationKeys ()
+specifier|public
+name|boolean
+name|isIgnoreBadCorrelationKeys
+parameter_list|()
+block|{
+return|return
+name|ignoreBadCorrelationKeys
+return|;
+block|}
+DECL|method|setIgnoreBadCorrelationKeys (boolean ignoreBadCorrelationKeys)
+specifier|public
+name|void
+name|setIgnoreBadCorrelationKeys
+parameter_list|(
+name|boolean
+name|ignoreBadCorrelationKeys
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreBadCorrelationKeys
+operator|=
+name|ignoreBadCorrelationKeys
+expr_stmt|;
+block|}
+DECL|method|isCloseCorrelationKeyOnCompletion ()
+specifier|public
+name|boolean
+name|isCloseCorrelationKeyOnCompletion
+parameter_list|()
+block|{
+return|return
+name|closeCorrelationKeyOnCompletion
+return|;
+block|}
+DECL|method|setCloseCorrelationKeyOnCompletion (boolean closeCorrelationKeyOnCompletion)
+specifier|public
+name|void
+name|setCloseCorrelationKeyOnCompletion
+parameter_list|(
+name|boolean
+name|closeCorrelationKeyOnCompletion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|closeCorrelationKeyOnCompletion
+operator|=
+name|closeCorrelationKeyOnCompletion
 expr_stmt|;
 block|}
 comment|/**      * Background tasks that looks for aggregated exchanges which is triggered by completion timeouts.      */
@@ -1356,6 +1528,11 @@ name|stopService
 argument_list|(
 name|aggregationRepository
 argument_list|)
+expr_stmt|;
+name|closedCorrelationKeys
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
