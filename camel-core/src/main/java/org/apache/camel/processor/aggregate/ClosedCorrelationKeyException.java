@@ -57,6 +57,7 @@ block|{
 comment|// the correlation key is not expected to be serialized
 DECL|field|correlationKey
 specifier|private
+specifier|final
 specifier|transient
 name|Object
 name|correlationKey

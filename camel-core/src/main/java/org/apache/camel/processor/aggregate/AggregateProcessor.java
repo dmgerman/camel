@@ -84,6 +84,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -493,8 +507,12 @@ name|completionFromBatchConsumer
 decl_stmt|;
 DECL|field|batchConsumerCounter
 specifier|private
-name|int
+name|AtomicInteger
 name|batchConsumerCounter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|method|AggregateProcessor (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
@@ -753,6 +771,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key the correlation key      * @param exchange the exchange      * @return the aggregated exchange      */
 DECL|method|doAggregation (Object key, Exchange exchange)
 specifier|private
 specifier|synchronized
@@ -766,7 +785,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO: lock this based on keys so we can run in parallel groups
+comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
+comment|// bound such as JPA etc then concurrent aggregation per correlation key could
+comment|// improve performance as we can run aggregation repository get/add in parallel
 if|if
 condition|(
 name|LOG
@@ -779,7 +800,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"+++ start +++ onAggregation for key "
+literal|"onAggregation +++ start +++ with correlation key: "
 operator|+
 name|key
 argument_list|)
@@ -1006,13 +1027,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"+++ end +++ onAggregation for key "
+literal|"onAggregation +++  end  +++ with correlation key: "
 operator|+
 name|key
-operator|+
-literal|" with size "
-operator|+
-name|size
 argument_list|)
 expr_stmt|;
 block|}
@@ -1156,7 +1173,9 @@ argument_list|()
 condition|)
 block|{
 name|batchConsumerCounter
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|int
 name|size
@@ -1183,14 +1202,20 @@ operator|>
 literal|0
 operator|&&
 name|batchConsumerCounter
+operator|.
+name|intValue
+argument_list|()
 operator|>=
 name|size
 condition|)
 block|{
-comment|// batch consumer is complete
+comment|// batch consumer is complete then reset the counter
 name|batchConsumerCounter
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 return|return
 literal|true
@@ -1677,9 +1702,42 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
+DECL|method|getAggregationRepository ()
+specifier|public
+name|AggregationRepository
+argument_list|<
+name|Object
+argument_list|>
+name|getAggregationRepository
+parameter_list|()
+block|{
+return|return
+name|aggregationRepository
+return|;
+block|}
+DECL|method|setAggregationRepository (AggregationRepository<Object> aggregationRepository)
+specifier|public
+name|void
+name|setAggregationRepository
+parameter_list|(
+name|AggregationRepository
+argument_list|<
+name|Object
+argument_list|>
+name|aggregationRepository
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregationRepository
+operator|=
+name|aggregationRepository
+expr_stmt|;
+block|}
 comment|/**      * Background tasks that looks for aggregated exchanges which is triggered by completion timeouts.      */
 DECL|class|AggregationTimeoutMap
 specifier|private
+specifier|final
 class|class
 name|AggregationTimeoutMap
 extends|extends
