@@ -66,8 +66,22 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|AggregationRepository
+import|;
+end_import
+
 begin_comment
-comment|/**  * A memory based {@link org.apache.camel.processor.aggregate.AggregationRepository} which stores in memory only.  *  * @version $Revision$  */
+comment|/**  * A memory based {@link org.apache.camel.spi.AggregationRepository} which stores in memory only.  *  * @version $Revision$  */
 end_comment
 
 begin_class

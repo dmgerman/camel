@@ -685,6 +685,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategyRef a reference to a strategy to lookup      * @return the builder      */
+DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
+specifier|public
+name|RecipientListDefinition
+name|aggregationStrategyRef
+parameter_list|(
+name|String
+name|aggregationStrategyRef
+parameter_list|)
+block|{
+name|setStrategyRef
+argument_list|(
+name|aggregationStrategyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Doing the recipient list work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public

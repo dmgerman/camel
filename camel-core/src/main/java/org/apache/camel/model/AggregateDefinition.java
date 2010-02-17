@@ -250,9 +250,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
+name|spi
 operator|.
 name|AggregationRepository
 import|;
