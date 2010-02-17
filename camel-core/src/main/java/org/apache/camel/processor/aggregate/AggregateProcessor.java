@@ -359,7 +359,6 @@ argument_list|>
 implements|,
 name|Traceable
 block|{
-comment|// TODO: Add support for parallelProcessing, setting custom ExecutorService like multicast
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -375,16 +374,6 @@ name|AggregateProcessor
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|timeoutMap
-specifier|private
-name|TimeoutMap
-argument_list|<
-name|Object
-argument_list|,
-name|Exchange
-argument_list|>
-name|timeoutMap
 decl_stmt|;
 DECL|field|processor
 specifier|private
@@ -404,10 +393,25 @@ specifier|final
 name|Expression
 name|correlationExpression
 decl_stmt|;
+DECL|field|timeoutMap
+specifier|private
+name|TimeoutMap
+argument_list|<
+name|Object
+argument_list|,
+name|Exchange
+argument_list|>
+name|timeoutMap
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
+decl_stmt|;
+DECL|field|exceptionHandler
+specifier|private
+name|ExceptionHandler
+name|exceptionHandler
 decl_stmt|;
 DECL|field|aggregationRepository
 specifier|private
@@ -436,11 +440,6 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|exceptionHandler
-specifier|private
-name|ExceptionHandler
-name|exceptionHandler
-decl_stmt|;
 comment|// options
 DECL|field|ignoreBadCorrelationKeys
 specifier|private
@@ -452,12 +451,10 @@ specifier|private
 name|boolean
 name|closeCorrelationKeyOnCompletion
 decl_stmt|;
-DECL|field|concurrentConsumers
+DECL|field|parallelProcessing
 specifier|private
-name|int
-name|concurrentConsumers
-init|=
-literal|1
+name|boolean
+name|parallelProcessing
 decl_stmt|;
 comment|// different ways to have completion triggered
 DECL|field|eagerCheckCompletion
@@ -733,9 +730,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelExchangeException
+name|ClosedCorrelationKeyException
 argument_list|(
-literal|"Correlation key has been closed"
+name|key
 argument_list|,
 name|exchange
 argument_list|)
@@ -1602,32 +1599,6 @@ operator|=
 name|completionFromBatchConsumer
 expr_stmt|;
 block|}
-DECL|method|getConcurrentConsumers ()
-specifier|public
-name|int
-name|getConcurrentConsumers
-parameter_list|()
-block|{
-return|return
-name|concurrentConsumers
-return|;
-block|}
-DECL|method|setConcurrentConsumers (int concurrentConsumers)
-specifier|public
-name|void
-name|setConcurrentConsumers
-parameter_list|(
-name|int
-name|concurrentConsumers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|concurrentConsumers
-operator|=
-name|concurrentConsumers
-expr_stmt|;
-block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -1669,6 +1640,32 @@ operator|.
 name|exceptionHandler
 operator|=
 name|exceptionHandler
+expr_stmt|;
+block|}
+DECL|method|isParallelProcessing ()
+specifier|public
+name|boolean
+name|isParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+return|;
+block|}
+DECL|method|setParallelProcessing (boolean parallelProcessing)
+specifier|public
+name|void
+name|setParallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelProcessing
+operator|=
+name|parallelProcessing
 expr_stmt|;
 block|}
 comment|/**      * Background tasks that looks for aggregated exchanges which is triggered by completion timeouts.      */
@@ -1810,20 +1807,44 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isParallelProcessing
+argument_list|()
+condition|)
+block|{
+comment|// we are running in parallel so create a default thread pool
 name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
 name|newFixedThreadPool
 argument_list|(
-name|getConcurrentConsumers
-argument_list|()
+literal|10
 argument_list|,
-literal|"AggregateProcessor"
+literal|"Aggregator"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use a single threaded if we are not running in parallel
+name|executorService
+operator|=
+name|ExecutorServiceHelper
+operator|.
+name|newFixedThreadPool
+argument_list|(
+literal|1
+argument_list|,
+literal|"Aggregator"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// start timeout service if its in use
 if|if
@@ -1843,7 +1864,7 @@ name|newScheduledThreadPool
 argument_list|(
 literal|1
 argument_list|,
-literal|"AggregateProcessorTimeoutCompletion"
+literal|"AggregateTimeoutChecker"
 argument_list|,
 literal|true
 argument_list|)

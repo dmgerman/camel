@@ -596,7 +596,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"There are "
 operator|+

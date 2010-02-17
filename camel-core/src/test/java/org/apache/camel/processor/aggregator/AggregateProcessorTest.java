@@ -2086,7 +2086,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Correlation key has been closed. Exchange[Message: C]"
+literal|"The correlation key [123] has been closed. Exchange[Message: C]"
 argument_list|,
 name|e
 operator|.

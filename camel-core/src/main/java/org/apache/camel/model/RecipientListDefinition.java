@@ -685,7 +685,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the splitting work in parallel      *      * @return the builder      */
+comment|/**      * Doing the recipient list work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|RecipientListDefinition
@@ -730,6 +730,25 @@ block|{
 name|setExecutorService
 argument_list|(
 name|executorService
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor service for executing the sending to the recipients.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|RecipientListDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|executorServiceRef
 argument_list|)
 expr_stmt|;
 return|return
