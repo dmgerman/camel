@@ -558,6 +558,11 @@ argument_list|(
 literal|"orderId"
 argument_list|)
 operator|.
+name|completionTimeout
+argument_list|(
+literal|1000L
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

@@ -110,7 +110,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").aggregate().simple(\"id\").batchTimeout(500L).groupExchanges().to(\"mock:result\")"
+literal|"from(\"direct:start\").aggregate().simple(\"id\").completionTimeout(500L).groupExchanges().to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -136,12 +136,12 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").aggregate(header(\"id\")).batchTimeout(3000).batchSize(0).to(\"mock:result\")"
+literal|"from(\"direct:start\").aggregate(header(\"id\")).completionTimeout(3000).completionSize(0).to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:start\").aggregate().header(\"id\").batchTimeout(3000).batchSize(0).to(\"mock:result\")"
+literal|"from(\"direct:start\").aggregate().header(\"id\").completionTimeout(3000).completionSize(0).to(\"mock:result\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(

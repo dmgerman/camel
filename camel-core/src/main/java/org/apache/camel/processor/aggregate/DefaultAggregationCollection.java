@@ -157,6 +157,8 @@ comment|/**  * A {@link java.util.Collection} which aggregates exchanges togethe
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultAggregationCollection
 specifier|public
 class|class

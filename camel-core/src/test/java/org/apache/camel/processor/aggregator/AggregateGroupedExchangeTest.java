@@ -361,7 +361,7 @@ literal|true
 argument_list|)
 comment|// wait for 0.5 seconds to aggregate
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|500L
 argument_list|)

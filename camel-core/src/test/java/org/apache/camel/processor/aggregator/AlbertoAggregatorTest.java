@@ -998,6 +998,11 @@ argument_list|,
 name|surnameAggregator
 argument_list|)
 operator|.
+name|completionTimeout
+argument_list|(
+literal|2000L
+argument_list|)
+operator|.
 name|setHeader
 argument_list|(
 name|TYPE_HEADER
@@ -1034,7 +1039,7 @@ argument_list|)
 decl_stmt|;
 name|agg
 operator|.
-name|setBatchTimeout
+name|setCompletionTimeout
 argument_list|(
 literal|2000L
 argument_list|)

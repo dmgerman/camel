@@ -184,12 +184,9 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchSizeFromConsumer
-argument_list|()
-operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
-literal|60000
+literal|2000L
 argument_list|)
 operator|.
 name|to
@@ -306,12 +303,9 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchSizeFromConsumer
-argument_list|()
-operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
-literal|60000
+literal|2000L
 argument_list|)
 operator|.
 name|to
@@ -365,7 +359,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Time taken sequentiel: "
+literal|"Time taken sequential: "
 operator|+
 name|delta
 argument_list|)

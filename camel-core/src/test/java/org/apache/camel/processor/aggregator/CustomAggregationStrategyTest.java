@@ -120,14 +120,7 @@ decl_stmt|;
 comment|// we expect to find the two winners with the highest bid
 name|result
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"200"
 argument_list|,
@@ -246,11 +239,11 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-comment|// wait for 0.5 seconds to aggregate
+comment|// wait for 1 seconds to aggregate
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
-literal|500L
+literal|1000L
 argument_list|)
 operator|.
 name|to

@@ -82,6 +82,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|BodyInAggregatingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|aggregate
 operator|.
 name|AggregationStrategy
@@ -208,26 +222,26 @@ literal|"direct:tap"
 argument_list|)
 comment|// just use a constant correlation expression as we want to agg everything
 comment|// in the same group. set batch size to two which means to fire when we
-comment|// have received 2 incoming messages, if not the timeout of 5 sec will kick in
+comment|// have aggregated 2 messages, if not the timeout of 5 sec will kick in
 operator|.
 name|aggregate
 argument_list|(
+name|constant
+argument_list|(
+literal|true
+argument_list|)
+argument_list|,
 operator|new
 name|MyAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
-name|constant
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|5000L
 argument_list|)

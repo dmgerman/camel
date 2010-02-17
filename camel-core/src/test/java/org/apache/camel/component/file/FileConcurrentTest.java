@@ -400,6 +400,11 @@ argument_list|(
 literal|"business"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"Country is ${in.header.country}"
+argument_list|)
+operator|.
 name|aggregate
 argument_list|(
 name|header
@@ -412,14 +417,9 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchSize
+name|completionTimeout
 argument_list|(
-literal|10
-argument_list|)
-operator|.
-name|batchTimeout
-argument_list|(
-literal|60000
+literal|2000L
 argument_list|)
 operator|.
 name|to
@@ -536,14 +536,9 @@ name|MyBusinessTotal
 argument_list|()
 argument_list|)
 operator|.
-name|batchSize
+name|completionTimeout
 argument_list|(
-literal|10
-argument_list|)
-operator|.
-name|batchTimeout
-argument_list|(
-literal|60000
+literal|2000L
 argument_list|)
 operator|.
 name|to
@@ -844,7 +839,7 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Aggregated sum so far: "
 operator|+

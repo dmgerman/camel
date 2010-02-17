@@ -84,6 +84,22 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|UseLatestAggregationStrategy
+import|;
+end_import
+
 begin_class
 DECL|class|AggregatorExceptionTest
 specifier|public
@@ -200,9 +216,13 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
+argument_list|,
+operator|new
+name|UseLatestAggregationStrategy
+argument_list|()
 argument_list|)
 operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|5
 argument_list|)

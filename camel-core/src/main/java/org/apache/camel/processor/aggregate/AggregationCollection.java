@@ -67,6 +67,8 @@ comment|/**  * A {@link Collection} which aggregates exchanges together,  * usin
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|AggregationCollection
 specifier|public
 interface|interface

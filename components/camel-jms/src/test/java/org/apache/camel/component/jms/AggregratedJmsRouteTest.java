@@ -558,6 +558,11 @@ block|}
 block|}
 argument_list|)
 operator|.
+name|completionTimeout
+argument_list|(
+literal|2000L
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

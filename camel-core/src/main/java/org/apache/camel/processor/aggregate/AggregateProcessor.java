@@ -190,6 +190,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|Traceable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -325,7 +339,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/aggregator.html">Aggregator</a> EIP pattern.  *  * @version $Revision$  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/aggregator2.html">Aggregator</a>  * pattern where a batch of messages are processed (up to a maximum amount or  * until some timeout is reached) and messages for the same correlation key are  * combined together using some kind of {@link AggregationStrategy}  * (by default the latest message is used) to compress many message exchanges  * into a smaller number of exchanges.  *<p/>  * A good example of this is stock market data; you may be receiving 30,000  * messages/second and you may want to throttle it right down so that multiple  * messages for the same stock are combined (or just the latest message is used  * and older prices are discarded). Another idea is to combine line item messages  * together into a single invoice message.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -342,7 +356,10 @@ name|Navigate
 argument_list|<
 name|Processor
 argument_list|>
+implements|,
+name|Traceable
 block|{
+comment|// TODO: Add support for parallelProcessing, setting custom ExecutorService like multicast
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -435,11 +452,6 @@ specifier|private
 name|boolean
 name|closeCorrelationKeyOnCompletion
 decl_stmt|;
-DECL|field|useBatchSizeFromConsumer
-specifier|private
-name|boolean
-name|useBatchSizeFromConsumer
-decl_stmt|;
 DECL|field|concurrentConsumers
 specifier|private
 name|int
@@ -463,10 +475,20 @@ specifier|private
 name|long
 name|completionTimeout
 decl_stmt|;
-DECL|field|completionAggregatedSize
+DECL|field|completionSize
 specifier|private
 name|int
-name|completionAggregatedSize
+name|completionSize
+decl_stmt|;
+DECL|field|completionFromBatchConsumer
+specifier|private
+name|boolean
+name|completionFromBatchConsumer
+decl_stmt|;
+DECL|field|batchConsumerCounter
+specifier|private
+name|int
+name|batchConsumerCounter
 decl_stmt|;
 DECL|method|AggregateProcessor (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
@@ -540,6 +562,20 @@ return|return
 literal|"AggregateProcessor[to: "
 operator|+
 name|processor
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"aggregate["
+operator|+
+name|correlationExpression
 operator|+
 literal|"]"
 return|;
@@ -706,47 +742,28 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// if batch consumer is enabled then we need to adjust the batch size
-comment|// with the size from the batch consumer
-if|if
-condition|(
-name|isUseBatchSizeFromConsumer
-argument_list|()
-condition|)
-block|{
-name|int
-name|size
-init|=
-name|exchange
-operator|.
-name|getProperty
+name|doAggregation
 argument_list|(
-name|Exchange
-operator|.
-name|BATCH_SIZE
+name|key
 argument_list|,
-literal|0
-argument_list|,
-name|Integer
-operator|.
-name|class
+name|exchange
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|size
-operator|>
-literal|0
-operator|&&
-name|size
-operator|!=
-name|completionAggregatedSize
-condition|)
-block|{
-name|completionAggregatedSize
-operator|=
-name|size
 expr_stmt|;
+block|}
+DECL|method|doAggregation (Object key, Exchange exchange)
+specifier|private
+specifier|synchronized
+name|Exchange
+name|doAggregation
+parameter_list|(
+name|Object
+name|key
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// TODO: lock this based on keys so we can run in parallel groups
 if|if
 condition|(
 name|LOG
@@ -759,14 +776,15 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using batch consumer completion, so setting completionAggregatedSize to: "
+literal|"+++ start +++ onAggregation for key "
 operator|+
-name|completionAggregatedSize
+name|key
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
+name|Exchange
+name|answer
+decl_stmt|;
 name|Exchange
 name|oldExchange
 init|=
@@ -804,24 +822,11 @@ name|Exchange
 operator|.
 name|AGGREGATED_SIZE
 argument_list|,
+literal|0
+argument_list|,
 name|Integer
 operator|.
 name|class
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|size
-argument_list|,
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
-operator|+
-literal|" on "
-operator|+
-name|oldExchange
 argument_list|)
 expr_stmt|;
 name|size
@@ -840,15 +845,35 @@ name|isEagerCheckCompletion
 argument_list|()
 condition|)
 block|{
+comment|// put the current aggregated size on the exchange so its avail during completion check
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
 name|complete
 operator|=
 name|isCompleted
 argument_list|(
 name|key
 argument_list|,
-name|exchange
-argument_list|,
-name|size
+name|newExchange
+argument_list|)
+expr_stmt|;
+comment|// remove it afterwards
+name|newExchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -862,16 +887,16 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
-name|newExchange
+name|answer
 operator|=
 name|onAggregation
 argument_list|(
 name|oldExchange
 argument_list|,
-name|newExchange
+name|exchange
 argument_list|)
 expr_stmt|;
-name|newExchange
+name|answer
 operator|.
 name|setProperty
 argument_list|(
@@ -890,16 +915,25 @@ name|isEagerCheckCompletion
 argument_list|()
 condition|)
 block|{
-comment|// use the new aggregated exchange when testing
+comment|// put the current aggregated size on the exchange so its avail during completion check
+name|answer
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
 name|complete
 operator|=
 name|isCompleted
 argument_list|(
 name|key
 argument_list|,
-name|newExchange
-argument_list|,
-name|size
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
@@ -908,14 +942,6 @@ if|if
 condition|(
 operator|!
 name|complete
-operator|&&
-operator|!
-name|newExchange
-operator|.
-name|equals
-argument_list|(
-name|oldExchange
-argument_list|)
 condition|)
 block|{
 if|if
@@ -930,9 +956,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Put exchange:"
+literal|"In progress aggregated exchange: "
 operator|+
-name|newExchange
+name|answer
 operator|+
 literal|" with correlation key:"
 operator|+
@@ -946,7 +972,7 @@ name|add
 argument_list|(
 name|key
 argument_list|,
-name|newExchange
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,35 +985,39 @@ name|onCompletion
 argument_list|(
 name|key
 argument_list|,
-name|newExchange
+name|answer
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|onAggregation (Exchange oldExchange, Exchange newExchange)
-specifier|protected
-name|Exchange
-name|onAggregation
-parameter_list|(
-name|Exchange
-name|oldExchange
-parameter_list|,
-name|Exchange
-name|newExchange
-parameter_list|)
-block|{
-return|return
-name|aggregationStrategy
+if|if
+condition|(
+name|LOG
 operator|.
-name|aggregate
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
-name|oldExchange
-argument_list|,
-name|newExchange
+literal|"+++ end +++ onAggregation for key "
+operator|+
+name|key
+operator|+
+literal|" with size "
+operator|+
+name|size
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
-DECL|method|isCompleted (Object key, Exchange exchange, int size)
+DECL|method|isCompleted (Object key, Exchange exchange)
 specifier|protected
 name|boolean
 name|isCompleted
@@ -997,9 +1027,6 @@ name|key
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|int
-name|size
 parameter_list|)
 block|{
 if|if
@@ -1033,17 +1060,35 @@ block|}
 block|}
 if|if
 condition|(
-name|getCompletionAggregatedSize
+name|getCompletionSize
 argument_list|()
 operator|>
 literal|0
 condition|)
 block|{
+name|int
+name|size
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+literal|1
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|size
 operator|>=
-name|getCompletionAggregatedSize
+name|getCompletionSize
 argument_list|()
 condition|)
 block|{
@@ -1065,13 +1110,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Updating correlation key "
 operator|+
@@ -1082,7 +1127,9 @@ operator|+
 name|getCompletionTimeout
 argument_list|()
 operator|+
-literal|" ms."
+literal|" ms. as exchange received: "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -1099,11 +1146,82 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isCompletionFromBatchConsumer
+argument_list|()
+condition|)
+block|{
+name|batchConsumerCounter
+operator|++
+expr_stmt|;
+name|int
+name|size
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BATCH_SIZE
+argument_list|,
+literal|0
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|size
+operator|>
+literal|0
+operator|&&
+name|batchConsumerCounter
+operator|>=
+name|size
+condition|)
+block|{
+comment|// batch consumer is complete
+name|batchConsumerCounter
+operator|=
+literal|0
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+block|}
 return|return
 literal|false
 return|;
 block|}
-DECL|method|onCompletion (Object key, final Exchange exchange)
+DECL|method|onAggregation (Exchange oldExchange, Exchange newExchange)
+specifier|protected
+name|Exchange
+name|onAggregation
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+block|{
+return|return
+name|aggregationStrategy
+operator|.
+name|aggregate
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+return|;
+block|}
+DECL|method|onCompletion (Object key, final Exchange exchange, boolean fromTimeout)
 specifier|protected
 name|void
 name|onCompletion
@@ -1114,9 +1232,12 @@ parameter_list|,
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|fromTimeout
 parameter_list|)
 block|{
-comment|// remove from repository and timeout map as its completed
+comment|// remove from repository as its completed
 name|aggregationRepository
 operator|.
 name|remove
@@ -1126,11 +1247,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|fromTimeout
+operator|&&
 name|timeoutMap
 operator|!=
 literal|null
 condition|)
 block|{
+comment|// cleanup timeout map if it was a incoming exchange which triggered the timeout (and not the timeout checker)
 name|timeoutMap
 operator|.
 name|remove
@@ -1373,30 +1498,30 @@ operator|=
 name|completionTimeout
 expr_stmt|;
 block|}
-DECL|method|getCompletionAggregatedSize ()
+DECL|method|getCompletionSize ()
 specifier|public
 name|int
-name|getCompletionAggregatedSize
+name|getCompletionSize
 parameter_list|()
 block|{
 return|return
-name|completionAggregatedSize
+name|completionSize
 return|;
 block|}
-DECL|method|setCompletionAggregatedSize (int completionAggregatedSize)
+DECL|method|setCompletionSize (int completionSize)
 specifier|public
 name|void
-name|setCompletionAggregatedSize
+name|setCompletionSize
 parameter_list|(
 name|int
-name|completionAggregatedSize
+name|completionSize
 parameter_list|)
 block|{
 name|this
 operator|.
-name|completionAggregatedSize
+name|completionSize
 operator|=
-name|completionAggregatedSize
+name|completionSize
 expr_stmt|;
 block|}
 DECL|method|isIgnoreBadCorrelationKeys ()
@@ -1451,30 +1576,30 @@ operator|=
 name|closeCorrelationKeyOnCompletion
 expr_stmt|;
 block|}
-DECL|method|isUseBatchSizeFromConsumer ()
+DECL|method|isCompletionFromBatchConsumer ()
 specifier|public
 name|boolean
-name|isUseBatchSizeFromConsumer
+name|isCompletionFromBatchConsumer
 parameter_list|()
 block|{
 return|return
-name|useBatchSizeFromConsumer
+name|completionFromBatchConsumer
 return|;
 block|}
-DECL|method|setUseBatchSizeFromConsumer (boolean useBatchSizeFromConsumer)
+DECL|method|setCompletionFromBatchConsumer (boolean completionFromBatchConsumer)
 specifier|public
 name|void
-name|setUseBatchSizeFromConsumer
+name|setCompletionFromBatchConsumer
 parameter_list|(
 name|boolean
-name|useBatchSizeFromConsumer
+name|completionFromBatchConsumer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useBatchSizeFromConsumer
+name|completionFromBatchConsumer
 operator|=
-name|useBatchSizeFromConsumer
+name|completionFromBatchConsumer
 expr_stmt|;
 block|}
 DECL|method|getConcurrentConsumers ()
@@ -1624,6 +1749,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1648,7 +1775,7 @@ argument_list|()
 operator|<=
 literal|0
 operator|&&
-name|getCompletionAggregatedSize
+name|getCompletionSize
 argument_list|()
 operator|<=
 literal|0

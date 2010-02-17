@@ -398,13 +398,13 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|2
 argument_list|)
 comment|// wait for 0.5 seconds to aggregate
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|500L
 argument_list|)

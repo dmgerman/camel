@@ -640,29 +640,6 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// now lets dispatch
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|">>>> "
-operator|+
-name|endpoint
-operator|+
-literal|" "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 comment|// invoke the callback
 return|return
 name|callback

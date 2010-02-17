@@ -354,12 +354,12 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|2000L
 argument_list|)

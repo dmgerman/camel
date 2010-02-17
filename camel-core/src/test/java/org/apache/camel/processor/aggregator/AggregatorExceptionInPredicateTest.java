@@ -98,6 +98,22 @@ name|AggregationStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|UseLatestAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Based on CAMEL-1546  *  * @version $Revision$  */
 end_comment
@@ -249,7 +265,7 @@ literal|"id"
 argument_list|)
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|500
 argument_list|)
@@ -377,9 +393,13 @@ argument_list|)
 return|;
 block|}
 block|}
+argument_list|,
+operator|new
+name|UseLatestAggregationStrategy
+argument_list|()
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|500
 argument_list|)

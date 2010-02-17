@@ -488,7 +488,7 @@ argument_list|,
 literal|"checkOrder"
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|5
 operator|*

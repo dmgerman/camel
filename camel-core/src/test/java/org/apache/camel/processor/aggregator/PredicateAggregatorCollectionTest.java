@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -69,38 +57,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|AggregationCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|PredicateAggregationCollection
 import|;
 end_import
 
@@ -326,38 +282,6 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// create the aggregation collection we will use.
-comment|// - we will correlate the received message based on the id header
-comment|// - as we will just keep the latest message we use the latest strategy
-comment|// - and finally we stop aggregate if we receive 2 or more messages
-name|AggregationCollection
-name|ag
-init|=
-operator|new
-name|PredicateAggregationCollection
-argument_list|(
-name|header
-argument_list|(
-literal|"id"
-argument_list|)
-argument_list|,
-operator|new
-name|UseLatestAggregationStrategy
-argument_list|()
-argument_list|,
-name|property
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|3
-argument_list|)
-argument_list|)
-decl_stmt|;
 comment|// our route is aggregating from the direct queue and sending the response to the mock
 name|from
 argument_list|(
@@ -367,13 +291,19 @@ comment|// we use the collection based aggregator we already have configured
 operator|.
 name|aggregate
 argument_list|(
-name|ag
-argument_list|)
-comment|// wait for 0.5 seconds to aggregate
-operator|.
-name|batchTimeout
+name|header
 argument_list|(
-literal|500L
+literal|"id"
+argument_list|)
+argument_list|,
+operator|new
+name|UseLatestAggregationStrategy
+argument_list|()
+argument_list|)
+operator|.
+name|completionSize
+argument_list|(
+literal|3
 argument_list|)
 operator|.
 name|to

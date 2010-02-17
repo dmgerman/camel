@@ -134,6 +134,7 @@ name|BatchProcessor
 implements|implements
 name|Traceable
 block|{
+comment|// TODO: Rework to avoid using BatchProcessor
 DECL|method|Resequencer (Processor processor, Expression expression)
 specifier|public
 name|Resequencer

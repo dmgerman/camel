@@ -89,6 +89,8 @@ comment|/**  * An aggregator collection which uses a predicate to decide when an
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|PredicateAggregationCollection
 specifier|public
 class|class

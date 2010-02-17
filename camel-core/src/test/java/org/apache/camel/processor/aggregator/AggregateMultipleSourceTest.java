@@ -298,12 +298,12 @@ name|MyAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|25
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|5000
 argument_list|)

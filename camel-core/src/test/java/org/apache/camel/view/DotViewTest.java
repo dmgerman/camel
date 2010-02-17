@@ -59,6 +59,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|UseLatestAggregationStrategy
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -440,6 +456,15 @@ name|constant
 argument_list|(
 literal|"messageId"
 argument_list|)
+argument_list|,
+operator|new
+name|UseLatestAggregationStrategy
+argument_list|()
+argument_list|)
+operator|.
+name|completionTimeout
+argument_list|(
+literal|1000L
 argument_list|)
 operator|.
 name|to

@@ -317,10 +317,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version $Revision$  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version $Revision$  * @deprecated will be removed in Camel 2.4  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BatchProcessor
 specifier|public
 class|class
@@ -335,7 +337,6 @@ argument_list|<
 name|Processor
 argument_list|>
 block|{
-comment|// TODO: Should aggregate on the fly as well
 DECL|field|DEFAULT_BATCH_TIMEOUT
 specifier|public
 specifier|static

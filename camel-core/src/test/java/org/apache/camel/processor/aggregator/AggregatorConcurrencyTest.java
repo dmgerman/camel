@@ -551,7 +551,7 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|60000
 argument_list|)

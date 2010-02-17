@@ -100,22 +100,6 @@ name|AggregationStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|PredicateAggregationCollection
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test inspired by user forum.  */
 end_comment
@@ -232,9 +216,6 @@ argument_list|)
 operator|.
 name|aggregate
 argument_list|(
-operator|new
-name|PredicateAggregationCollection
-argument_list|(
 name|header
 argument_list|(
 literal|"id"
@@ -260,22 +241,14 @@ name|newExchange
 return|;
 block|}
 block|}
-argument_list|,
-name|property
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
 argument_list|)
 operator|.
-name|isEqualTo
+name|completionSize
 argument_list|(
 literal|2
 argument_list|)
-argument_list|)
-argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|500L
 argument_list|)

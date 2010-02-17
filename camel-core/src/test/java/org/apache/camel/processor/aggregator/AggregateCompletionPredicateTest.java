@@ -902,7 +902,7 @@ literal|"END"
 argument_list|)
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|20000
 argument_list|)

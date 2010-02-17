@@ -60,6 +60,22 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|UseLatestAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify that aggregate by timeout only also works.  *   * @version $Revision$  */
 end_comment
@@ -88,7 +104,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// by default the use latest aggregatation strategy is used so we get message 9
+comment|// by default the use latest aggregation strategy is used so we get message 9
 name|result
 operator|.
 name|expectedBodiesReceived
@@ -176,14 +192,18 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
+argument_list|,
+operator|new
+name|UseLatestAggregationStrategy
+argument_list|()
 argument_list|)
 operator|.
-name|batchTimeout
+name|completionTimeout
 argument_list|(
 literal|3000
 argument_list|)
 operator|.
-name|batchSize
+name|completionSize
 argument_list|(
 literal|0
 argument_list|)
