@@ -1910,7 +1910,7 @@ name|ap
 operator|.
 name|setCloseCorrelationKeyOnCompletion
 argument_list|(
-literal|true
+literal|1000
 argument_list|)
 expr_stmt|;
 name|ap

@@ -504,7 +504,7 @@ literal|false
 argument_list|)
 DECL|field|closeCorrelationKeyOnCompletion
 specifier|private
-name|Boolean
+name|Integer
 name|closeCorrelationKeyOnCompletion
 decl_stmt|;
 DECL|method|AggregateDefinition ()
@@ -896,23 +896,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isCloseCorrelationKeyOnCompletion
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|.
-name|setCloseCorrelationKeyOnCompletion
-argument_list|(
-name|isCloseCorrelationKeyOnCompletion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|isEagerCheckCompletion
 argument_list|()
 operator|!=
@@ -941,6 +924,23 @@ operator|.
 name|setIgnoreBadCorrelationKeys
 argument_list|(
 name|isIgnoreBadCorrelationKeys
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getCloseCorrelationKeyOnCompletion
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setCloseCorrelationKeyOnCompletion
+argument_list|(
+name|getCloseCorrelationKeyOnCompletion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1407,22 +1407,22 @@ operator|=
 name|ignoreBadCorrelationKeys
 expr_stmt|;
 block|}
-DECL|method|isCloseCorrelationKeyOnCompletion ()
+DECL|method|getCloseCorrelationKeyOnCompletion ()
 specifier|public
-name|Boolean
-name|isCloseCorrelationKeyOnCompletion
+name|Integer
+name|getCloseCorrelationKeyOnCompletion
 parameter_list|()
 block|{
 return|return
 name|closeCorrelationKeyOnCompletion
 return|;
 block|}
-DECL|method|setCloseCorrelationKeyOnCompletion (Boolean closeCorrelationKeyOnCompletion)
+DECL|method|setCloseCorrelationKeyOnCompletion (Integer closeCorrelationKeyOnCompletion)
 specifier|public
 name|void
 name|setCloseCorrelationKeyOnCompletion
 parameter_list|(
-name|Boolean
+name|Integer
 name|closeCorrelationKeyOnCompletion
 parameter_list|)
 block|{
@@ -1467,16 +1467,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received exchanges which has a correlation key      * that has been closed, it will be defined and a {@link org.apache.camel.processor.aggregate.ClosedCorrelationKeyException}      * is thrown.      *      * @return builder      */
-DECL|method|closeCorrelationKeyOnCompletion ()
+comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received exchanges which has a correlation key      * that has been closed, it will be defined and a {@link org.apache.camel.processor.aggregate.ClosedCorrelationKeyException}      * is thrown.      *      * @param capacity the maximum capacity of the closed correlation key cache.      *                 Use<tt>0</tt> or negative value for unbounded capacity.      * @return builder      */
+DECL|method|closeCorrelationKeyOnCompletion (int capacity)
 specifier|public
 name|AggregateDefinition
 name|closeCorrelationKeyOnCompletion
-parameter_list|()
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
 block|{
 name|setCloseCorrelationKeyOnCompletion
 argument_list|(
-literal|true
+name|capacity
 argument_list|)
 expr_stmt|;
 return|return
