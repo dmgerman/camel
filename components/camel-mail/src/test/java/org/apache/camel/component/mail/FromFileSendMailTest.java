@@ -231,6 +231,26 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+name|Object
+name|subject
+init|=
+name|mailbox
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getSubject
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|subject
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

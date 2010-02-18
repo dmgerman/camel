@@ -513,6 +513,36 @@ literal|"The mail message does not have any recipients set."
 argument_list|)
 throw|;
 block|}
+comment|// set the subject if it was passed in as an option in the uri. Note: if it is in both the URI
+comment|// and headers the headers win.
+name|String
+name|subject
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSubject
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|subject
+operator|!=
+literal|null
+condition|)
+block|{
+name|mimeMessage
+operator|.
+name|setHeader
+argument_list|(
+literal|"Subject"
+argument_list|,
+name|subject
+argument_list|)
+expr_stmt|;
+block|}
 comment|// append the rest of the headers (no recipients) that could be subject, reply-to etc.
 name|appendHeadersFromCamelMessage
 argument_list|(

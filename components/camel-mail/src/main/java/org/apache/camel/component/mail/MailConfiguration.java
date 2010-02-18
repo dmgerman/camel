@@ -193,6 +193,11 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
+DECL|field|subject
+specifier|private
+name|String
+name|subject
+decl_stmt|;
 DECL|field|session
 specifier|private
 name|Session
@@ -1253,6 +1258,32 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+block|}
+DECL|method|getSubject ()
+specifier|public
+name|String
+name|getSubject
+parameter_list|()
+block|{
+return|return
+name|subject
+return|;
+block|}
+DECL|method|setSubject (String subject)
+specifier|public
+name|void
+name|setSubject
+parameter_list|(
+name|String
+name|subject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subject
+operator|=
+name|subject
 expr_stmt|;
 block|}
 DECL|method|getPort ()
