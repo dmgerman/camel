@@ -134,12 +134,10 @@ literal|false
 argument_list|)
 DECL|field|disabled
 specifier|private
-name|Boolean
+name|String
 name|disabled
 init|=
-name|Boolean
-operator|.
-name|FALSE
+literal|"false"
 decl_stmt|;
 comment|/**      * Only register processor if a custom id was defined for it.      */
 annotation|@
@@ -151,12 +149,10 @@ literal|false
 argument_list|)
 DECL|field|onlyRegisterProcessorWithCustomId
 specifier|private
-name|Boolean
+name|String
 name|onlyRegisterProcessorWithCustomId
 init|=
-name|Boolean
-operator|.
-name|FALSE
+literal|"false"
 decl_stmt|;
 comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
@@ -168,7 +164,7 @@ literal|false
 argument_list|)
 DECL|field|registryPort
 specifier|private
-name|Integer
+name|String
 name|registryPort
 decl_stmt|;
 comment|/**      * RMI connector server port (default -1 not used)      */
@@ -181,7 +177,7 @@ literal|false
 argument_list|)
 DECL|field|connectorPort
 specifier|private
-name|Integer
+name|String
 name|connectorPort
 decl_stmt|;
 comment|/**      * MBean server default domain name (default org.apache.camel)      */
@@ -233,12 +229,10 @@ literal|false
 argument_list|)
 DECL|field|createConnector
 specifier|private
-name|Boolean
+name|String
 name|createConnector
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|"true"
 decl_stmt|;
 comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
@@ -250,12 +244,10 @@ literal|false
 argument_list|)
 DECL|field|usePlatformMBeanServer
 specifier|private
-name|Boolean
+name|String
 name|usePlatformMBeanServer
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|"true"
 decl_stmt|;
 comment|/**      * Level of granularity for performance statistics enabled      */
 annotation|@
@@ -274,33 +266,80 @@ name|ManagementStatisticsLevel
 operator|.
 name|All
 decl_stmt|;
-DECL|method|getConnectorPort ()
+DECL|method|getDisabled ()
 specifier|public
-name|Integer
-name|getConnectorPort
+name|String
+name|getDisabled
 parameter_list|()
 block|{
 return|return
-name|connectorPort
+name|disabled
 return|;
 block|}
-DECL|method|setConnectorPort (Integer value)
+DECL|method|isAgentDisabled ()
+specifier|public
+name|boolean
+name|isAgentDisabled
+parameter_list|()
+block|{
+return|return
+name|disabled
+operator|!=
+literal|null
+operator|&&
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|disabled
+argument_list|)
+return|;
+block|}
+DECL|method|setDisabled (String disabled)
 specifier|public
 name|void
-name|setConnectorPort
+name|setDisabled
 parameter_list|(
-name|Integer
-name|value
+name|String
+name|disabled
 parameter_list|)
 block|{
-name|connectorPort
+name|this
+operator|.
+name|disabled
 operator|=
-name|value
+name|disabled
+expr_stmt|;
+block|}
+DECL|method|getOnlyRegisterProcessorWithCustomId ()
+specifier|public
+name|String
+name|getOnlyRegisterProcessorWithCustomId
+parameter_list|()
+block|{
+return|return
+name|onlyRegisterProcessorWithCustomId
+return|;
+block|}
+DECL|method|setOnlyRegisterProcessorWithCustomId (String onlyRegisterProcessorWithCustomId)
+specifier|public
+name|void
+name|setOnlyRegisterProcessorWithCustomId
+parameter_list|(
+name|String
+name|onlyRegisterProcessorWithCustomId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onlyRegisterProcessorWithCustomId
+operator|=
+name|onlyRegisterProcessorWithCustomId
 expr_stmt|;
 block|}
 DECL|method|getRegistryPort ()
 specifier|public
-name|Integer
+name|String
 name|getRegistryPort
 parameter_list|()
 block|{
@@ -308,18 +347,46 @@ return|return
 name|registryPort
 return|;
 block|}
-DECL|method|setRegistryPort (Integer value)
+DECL|method|setRegistryPort (String registryPort)
 specifier|public
 name|void
 name|setRegistryPort
 parameter_list|(
-name|Integer
-name|value
+name|String
+name|registryPort
 parameter_list|)
 block|{
+name|this
+operator|.
 name|registryPort
 operator|=
-name|value
+name|registryPort
+expr_stmt|;
+block|}
+DECL|method|getConnectorPort ()
+specifier|public
+name|String
+name|getConnectorPort
+parameter_list|()
+block|{
+return|return
+name|connectorPort
+return|;
+block|}
+DECL|method|setConnectorPort (String connectorPort)
+specifier|public
+name|void
+name|setConnectorPort
+parameter_list|(
+name|String
+name|connectorPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectorPort
+operator|=
+name|connectorPort
 expr_stmt|;
 block|}
 DECL|method|getMbeanServerDefaultDomain ()
@@ -332,18 +399,20 @@ return|return
 name|mbeanServerDefaultDomain
 return|;
 block|}
-DECL|method|setMbeanServerDefaultDomain (String value)
+DECL|method|setMbeanServerDefaultDomain (String mbeanServerDefaultDomain)
 specifier|public
 name|void
 name|setMbeanServerDefaultDomain
 parameter_list|(
 name|String
-name|value
+name|mbeanServerDefaultDomain
 parameter_list|)
 block|{
+name|this
+operator|.
 name|mbeanServerDefaultDomain
 operator|=
-name|value
+name|mbeanServerDefaultDomain
 expr_stmt|;
 block|}
 DECL|method|getMbeanObjectDomainName ()
@@ -356,18 +425,20 @@ return|return
 name|mbeanObjectDomainName
 return|;
 block|}
-DECL|method|setMbeanObjectDomainName (String value)
+DECL|method|setMbeanObjectDomainName (String mbeanObjectDomainName)
 specifier|public
 name|void
 name|setMbeanObjectDomainName
 parameter_list|(
 name|String
-name|value
+name|mbeanObjectDomainName
 parameter_list|)
 block|{
+name|this
+operator|.
 name|mbeanObjectDomainName
 operator|=
-name|value
+name|mbeanObjectDomainName
 expr_stmt|;
 block|}
 DECL|method|getServiceUrlPath ()
@@ -380,140 +451,72 @@ return|return
 name|serviceUrlPath
 return|;
 block|}
-DECL|method|setServiceUrlPath (String value)
+DECL|method|setServiceUrlPath (String serviceUrlPath)
 specifier|public
 name|void
 name|setServiceUrlPath
 parameter_list|(
 name|String
-name|value
-parameter_list|)
-block|{
 name|serviceUrlPath
-operator|=
-name|value
-expr_stmt|;
-block|}
-DECL|method|isCreateConnector ()
-specifier|public
-name|Boolean
-name|isCreateConnector
-parameter_list|()
-block|{
-return|return
-name|createConnector
-return|;
-block|}
-DECL|method|setCreateConnector (Boolean value)
-specifier|public
-name|void
-name|setCreateConnector
-parameter_list|(
-name|Boolean
-name|value
-parameter_list|)
-block|{
-name|createConnector
-operator|=
-name|value
-operator|!=
-literal|null
-condition|?
-name|value
-else|:
-name|Boolean
-operator|.
-name|FALSE
-expr_stmt|;
-block|}
-DECL|method|isUsePlatformMBeanServer ()
-specifier|public
-name|Boolean
-name|isUsePlatformMBeanServer
-parameter_list|()
-block|{
-return|return
-name|usePlatformMBeanServer
-return|;
-block|}
-DECL|method|setUsePlatformMBeanServer (Boolean value)
-specifier|public
-name|void
-name|setUsePlatformMBeanServer
-parameter_list|(
-name|Boolean
-name|value
-parameter_list|)
-block|{
-name|usePlatformMBeanServer
-operator|=
-name|value
-operator|!=
-literal|null
-condition|?
-name|value
-else|:
-name|Boolean
-operator|.
-name|FALSE
-expr_stmt|;
-block|}
-DECL|method|getOnlyRegisterProcessorWithCustomId ()
-specifier|public
-name|Boolean
-name|getOnlyRegisterProcessorWithCustomId
-parameter_list|()
-block|{
-return|return
-name|onlyRegisterProcessorWithCustomId
-return|;
-block|}
-DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
-specifier|public
-name|void
-name|setOnlyRegisterProcessorWithCustomId
-parameter_list|(
-name|Boolean
-name|onlyRegisterProcessorWithCustomId
 parameter_list|)
 block|{
 name|this
 operator|.
-name|onlyRegisterProcessorWithCustomId
+name|serviceUrlPath
 operator|=
-name|onlyRegisterProcessorWithCustomId
+name|serviceUrlPath
 expr_stmt|;
 block|}
-DECL|method|isDisabled ()
+DECL|method|getCreateConnector ()
 specifier|public
-name|Boolean
-name|isDisabled
+name|String
+name|getCreateConnector
 parameter_list|()
 block|{
 return|return
-name|disabled
+name|createConnector
 return|;
 block|}
-DECL|method|setDisabled (Boolean value)
+DECL|method|setCreateConnector (String createConnector)
 specifier|public
 name|void
-name|setDisabled
+name|setCreateConnector
 parameter_list|(
-name|Boolean
-name|value
+name|String
+name|createConnector
 parameter_list|)
 block|{
-name|disabled
-operator|=
-name|value
-operator|!=
-literal|null
-condition|?
-name|value
-else|:
-name|Boolean
+name|this
 operator|.
-name|FALSE
+name|createConnector
+operator|=
+name|createConnector
+expr_stmt|;
+block|}
+DECL|method|getUsePlatformMBeanServer ()
+specifier|public
+name|String
+name|getUsePlatformMBeanServer
+parameter_list|()
+block|{
+return|return
+name|usePlatformMBeanServer
+return|;
+block|}
+DECL|method|setUsePlatformMBeanServer (String usePlatformMBeanServer)
+specifier|public
+name|void
+name|setUsePlatformMBeanServer
+parameter_list|(
+name|String
+name|usePlatformMBeanServer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usePlatformMBeanServer
+operator|=
+name|usePlatformMBeanServer
 expr_stmt|;
 block|}
 DECL|method|getStatisticsLevel ()

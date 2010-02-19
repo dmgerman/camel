@@ -1680,11 +1680,10 @@ block|{
 name|this
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
+name|setRegistry
+argument_list|(
 name|registry
-operator|=
-name|registry
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -4124,6 +4123,10 @@ block|{
 comment|// do not parse uris that are designated for the properties component as it will handle that itself
 if|if
 condition|(
+name|uri
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|uri
 operator|.
@@ -4504,6 +4507,11 @@ operator|=
 name|createRegistry
 argument_list|()
 expr_stmt|;
+name|setRegistry
+argument_list|(
+name|registry
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|registry
@@ -4538,6 +4546,28 @@ name|Registry
 name|registry
 parameter_list|)
 block|{
+comment|// wrap the registry so we always do propery placeholder lookups
+if|if
+condition|(
+operator|!
+operator|(
+name|registry
+operator|instanceof
+name|PropertyPlaceholderDelegateRegistry
+operator|)
+condition|)
+block|{
+name|registry
+operator|=
+operator|new
+name|PropertyPlaceholderDelegateRegistry
+argument_list|(
+name|this
+argument_list|,
+name|registry
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|registry

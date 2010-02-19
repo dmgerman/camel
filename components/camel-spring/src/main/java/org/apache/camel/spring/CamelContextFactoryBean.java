@@ -1049,7 +1049,7 @@ literal|false
 argument_list|)
 DECL|field|trace
 specifier|private
-name|Boolean
+name|String
 name|trace
 decl_stmt|;
 annotation|@
@@ -1061,12 +1061,10 @@ literal|false
 argument_list|)
 DECL|field|streamCache
 specifier|private
-name|Boolean
+name|String
 name|streamCache
 init|=
-name|Boolean
-operator|.
-name|FALSE
+literal|"false"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -1077,7 +1075,7 @@ literal|false
 argument_list|)
 DECL|field|delayer
 specifier|private
-name|Long
+name|String
 name|delayer
 decl_stmt|;
 annotation|@
@@ -1089,7 +1087,7 @@ literal|false
 argument_list|)
 DECL|field|handleFault
 specifier|private
-name|Boolean
+name|String
 name|handleFault
 decl_stmt|;
 annotation|@
@@ -1113,12 +1111,10 @@ literal|false
 argument_list|)
 DECL|field|autoStartup
 specifier|private
-name|Boolean
+name|String
 name|autoStartup
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|"true"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -1696,10 +1692,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// setup JMX agent at first
-name|initJMXAgent
-argument_list|()
-expr_stmt|;
 comment|// set the resolvers first
 name|PackageScanClassResolver
 name|packageResolver
@@ -1844,6 +1836,10 @@ expr_stmt|;
 block|}
 comment|// setup property placeholder so we got it as early as possible
 name|initPropertyPlaceholder
+argument_list|()
+expr_stmt|;
+comment|// setup JMX agent at first
+name|initJMXAgent
 argument_list|()
 expr_stmt|;
 name|Tracer
@@ -2464,6 +2460,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|initSpringCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// do special preparation for some concepts such as interceptors and policies
 comment|// this is needed as JAXB does not build exactly the same model definition as Spring DSL would do
 comment|// using route builders. So we have here a little custom code to fix the JAXB gaps
@@ -3412,7 +3414,7 @@ literal|null
 operator|&&
 name|camelJMXAgent
 operator|.
-name|isDisabled
+name|isAgentDisabled
 argument_list|()
 condition|)
 block|{
@@ -3473,80 +3475,104 @@ name|agent
 operator|.
 name|setConnectorPort
 argument_list|(
+name|parseInteger
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getConnectorPort
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setCreateConnector
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|camelJMXAgent
 operator|.
-name|isCreateConnector
+name|getCreateConnector
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setMBeanObjectDomainName
 argument_list|(
+name|parseText
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getMbeanObjectDomainName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setMBeanServerDefaultDomain
 argument_list|(
+name|parseText
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getMbeanServerDefaultDomain
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setRegistryPort
 argument_list|(
+name|parseInteger
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getRegistryPort
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setServiceUrlPath
 argument_list|(
+name|parseText
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getServiceUrlPath
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setUsePlatformMBeanServer
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|camelJMXAgent
 operator|.
-name|isUsePlatformMBeanServer
+name|getUsePlatformMBeanServer
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|agent
 operator|.
 name|setOnlyRegisterProcessorWithCustomId
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|camelJMXAgent
 operator|.
 name|getOnlyRegisterProcessorWithCustomId
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ManagementStrategy
@@ -3590,6 +3616,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// set additional configuration from camelJMXAgent
+name|boolean
+name|onlyId
+init|=
+name|agent
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|agent
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+decl_stmt|;
 name|getContext
 argument_list|()
 operator|.
@@ -3598,10 +3639,7 @@ argument_list|()
 operator|.
 name|onlyManageProcessorWithCustomId
 argument_list|(
-name|camelJMXAgent
-operator|.
-name|getOnlyRegisterProcessorWithCustomId
-argument_list|()
+name|onlyId
 argument_list|)
 expr_stmt|;
 name|getContext
@@ -3952,6 +3990,333 @@ throw|;
 block|}
 block|}
 block|}
+block|}
+DECL|method|parseText (String text)
+specifier|private
+name|String
+name|parseText
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// ensure we support property placeholders
+return|return
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+return|;
+block|}
+DECL|method|parseInteger (String text)
+specifier|private
+name|Integer
+name|parseInteger
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// ensure we support property placeholders
+name|String
+name|s
+init|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|s
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+return|return
+operator|new
+name|Integer
+argument_list|(
+name|s
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] as an Integer."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] from property "
+operator|+
+name|text
+operator|+
+literal|" as an Integer."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
+DECL|method|parseLong (String text)
+specifier|private
+name|Long
+name|parseLong
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// ensure we support property placeholders
+name|String
+name|s
+init|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|s
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+return|return
+operator|new
+name|Long
+argument_list|(
+name|s
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] as a Long."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] from property "
+operator|+
+name|text
+operator|+
+literal|" as a Long."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
+DECL|method|parseBoolean (String text)
+specifier|private
+name|Boolean
+name|parseBoolean
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// ensure we support property placeholders
+name|String
+name|s
+init|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|s
+operator|!=
+literal|null
+condition|)
+block|{
+name|s
+operator|=
+name|s
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|s
+operator|.
+name|equals
+argument_list|(
+literal|"true"
+argument_list|)
+operator|||
+name|s
+operator|.
+name|equals
+argument_list|(
+literal|"false"
+argument_list|)
+condition|)
+block|{
+return|return
+operator|new
+name|Boolean
+argument_list|(
+name|s
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] as a Boolean."
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] from property "
+operator|+
+name|text
+operator|+
+literal|" as a Boolean."
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+return|return
+literal|null
+return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -4315,7 +4680,7 @@ expr_stmt|;
 block|}
 DECL|method|getTrace ()
 specifier|public
-name|Boolean
+name|String
 name|getTrace
 parameter_list|()
 block|{
@@ -4323,12 +4688,12 @@ return|return
 name|trace
 return|;
 block|}
-DECL|method|setTrace (Boolean trace)
+DECL|method|setTrace (String trace)
 specifier|public
 name|void
 name|setTrace
 parameter_list|(
-name|Boolean
+name|String
 name|trace
 parameter_list|)
 block|{
@@ -4341,7 +4706,7 @@ expr_stmt|;
 block|}
 DECL|method|getStreamCache ()
 specifier|public
-name|Boolean
+name|String
 name|getStreamCache
 parameter_list|()
 block|{
@@ -4349,12 +4714,12 @@ return|return
 name|streamCache
 return|;
 block|}
-DECL|method|setStreamCache (Boolean streamCache)
+DECL|method|setStreamCache (String streamCache)
 specifier|public
 name|void
 name|setStreamCache
 parameter_list|(
-name|Boolean
+name|String
 name|streamCache
 parameter_list|)
 block|{
@@ -4367,7 +4732,7 @@ expr_stmt|;
 block|}
 DECL|method|getDelayer ()
 specifier|public
-name|Long
+name|String
 name|getDelayer
 parameter_list|()
 block|{
@@ -4375,12 +4740,12 @@ return|return
 name|delayer
 return|;
 block|}
-DECL|method|setDelayer (Long delayer)
+DECL|method|setDelayer (String delayer)
 specifier|public
 name|void
 name|setDelayer
 parameter_list|(
-name|Long
+name|String
 name|delayer
 parameter_list|)
 block|{
@@ -4393,7 +4758,7 @@ expr_stmt|;
 block|}
 DECL|method|getHandleFault ()
 specifier|public
-name|Boolean
+name|String
 name|getHandleFault
 parameter_list|()
 block|{
@@ -4401,12 +4766,12 @@ return|return
 name|handleFault
 return|;
 block|}
-DECL|method|setHandleFault (Boolean handleFault)
+DECL|method|setHandleFault (String handleFault)
 specifier|public
 name|void
 name|setHandleFault
 parameter_list|(
-name|Boolean
+name|String
 name|handleFault
 parameter_list|)
 block|{
@@ -4415,6 +4780,32 @@ operator|.
 name|handleFault
 operator|=
 name|handleFault
+expr_stmt|;
+block|}
+DECL|method|getAutoStartup ()
+specifier|public
+name|String
+name|getAutoStartup
+parameter_list|()
+block|{
+return|return
+name|autoStartup
+return|;
+block|}
+DECL|method|setAutoStartup (String autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|String
+name|autoStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
 expr_stmt|;
 block|}
 DECL|method|getCamelJMXAgent ()
@@ -4576,32 +4967,6 @@ operator|=
 name|onCompletions
 expr_stmt|;
 block|}
-DECL|method|isAutoStartup ()
-specifier|public
-name|Boolean
-name|isAutoStartup
-parameter_list|()
-block|{
-return|return
-name|autoStartup
-return|;
-block|}
-DECL|method|setAutoStartup (Boolean autoStartup)
-specifier|public
-name|void
-name|setAutoStartup
-parameter_list|(
-name|Boolean
-name|autoStartup
-parameter_list|)
-block|{
-name|this
-operator|.
-name|autoStartup
-operator|=
-name|autoStartup
-expr_stmt|;
-block|}
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -4677,6 +5042,22 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|ctx
+return|;
+block|}
+comment|/**      * Initializes the context      *       * @param ctx the contxt      * @throws Exception is thrown if error occurred      */
+DECL|method|initSpringCamelContext (SpringCamelContext ctx)
+specifier|protected
+name|void
+name|initSpringCamelContext
+parameter_list|(
+name|SpringCamelContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|streamCache
@@ -4688,8 +5069,11 @@ name|ctx
 operator|.
 name|setStreamCaching
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|getStreamCache
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4704,8 +5088,11 @@ name|ctx
 operator|.
 name|setTracing
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|getTrace
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4720,8 +5107,11 @@ name|ctx
 operator|.
 name|setDelayer
 argument_list|(
+name|parseLong
+argument_list|(
 name|getDelayer
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4736,8 +5126,11 @@ name|ctx
 operator|.
 name|setHandleFault
 argument_list|(
+name|parseBoolean
+argument_list|(
 name|getHandleFault
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4772,8 +5165,11 @@ name|ctx
 operator|.
 name|setAutoStartup
 argument_list|(
-name|isAutoStartup
+name|parseBoolean
+argument_list|(
+name|getAutoStartup
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4809,9 +5205,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|ctx
-return|;
 block|}
 DECL|method|newCamelContext ()
 specifier|protected

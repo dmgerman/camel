@@ -136,6 +136,20 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|PropertyPlaceholderDelegateRegistry
+import|;
+end_import
+
 begin_class
 DECL|class|RefComponentTest
 specifier|public
@@ -252,13 +266,24 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|PropertyPlaceholderDelegateRegistry
+name|delegate
+init|=
+operator|(
+name|PropertyPlaceholderDelegateRegistry
+operator|)
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+decl_stmt|;
 name|JndiRegistry
 name|jndi
 init|=
 operator|(
 name|JndiRegistry
 operator|)
-name|context
+name|delegate
 operator|.
 name|getRegistry
 argument_list|()

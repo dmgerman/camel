@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring
+DECL|package|org.apache.camel.component.properties
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
+operator|.
+name|properties
 package|;
 end_package
 
@@ -24,35 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|spring
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|PropertyPlaceholderDelegateRegistry
+name|SpringTestSupport
 import|;
 end_import
 
@@ -85,14 +61,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for Registry injection.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|RegistryInjectionTest
+DECL|class|SpringBuilderRefPropertiesTest
 specifier|public
 class|class
-name|RegistryInjectionTest
+name|SpringBuilderRefPropertiesTest
 extends|extends
 name|SpringTestSupport
 block|{
@@ -104,53 +80,43 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
-name|setUseRouteBuilder
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/RegistryInjection.xml"
+literal|"org/apache/camel/component/properties/SpringBuilderRefPropertiesTest.xml"
 argument_list|)
 return|;
 block|}
-DECL|method|testInjectedStrategy ()
+DECL|method|testSpringBuilderRefProperties ()
 specifier|public
 name|void
-name|testInjectedStrategy
+name|testSpringBuilderRefProperties
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|context
-init|=
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-name|PropertyPlaceholderDelegateRegistry
-name|delegate
-init|=
-operator|(
-name|PropertyPlaceholderDelegateRegistry
-operator|)
-name|context
-operator|.
-name|getRegistry
-argument_list|()
-decl_stmt|;
-name|assertTrue
+name|getMockEndpoint
 argument_list|(
-name|delegate
-operator|.
-name|getRegistry
-argument_list|()
-operator|instanceof
-name|JndiRegistry
+literal|"#{result}"
 argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 block|}
