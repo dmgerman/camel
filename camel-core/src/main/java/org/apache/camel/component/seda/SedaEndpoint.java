@@ -365,6 +365,15 @@ name|queue
 expr_stmt|;
 name|this
 operator|.
+name|size
+operator|=
+name|queue
+operator|.
+name|remainingCapacity
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
@@ -421,6 +430,15 @@ operator|.
 name|queue
 operator|=
 name|queue
+expr_stmt|;
+name|this
+operator|.
+name|size
+operator|=
+name|queue
+operator|.
+name|remainingCapacity
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -545,6 +563,15 @@ operator|.
 name|queue
 operator|=
 name|queue
+expr_stmt|;
+name|this
+operator|.
+name|size
+operator|=
+name|queue
+operator|.
+name|remainingCapacity
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getSize ()
