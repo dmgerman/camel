@@ -110,6 +110,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|CamelPropertyPlaceholderDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -293,20 +307,6 @@ operator|.
 name|spring
 operator|.
 name|CamelProducerTemplateFactoryBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|CamelPropertiesComponentFactoryBean
 import|;
 end_import
 
@@ -662,9 +662,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|(
-operator|(
-name|Element
-operator|)
 name|node
 operator|)
 operator|.
@@ -802,16 +799,16 @@ argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
 argument_list|(
-literal|"propertyPlaceholder"
+literal|"endpoint"
 argument_list|,
-name|CamelPropertiesComponentFactoryBean
+name|CamelEndpointFactoryBean
 operator|.
 name|class
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// jmx agent cannot be used outside of the camel context
+comment|// jmx agent and property placeholder cannot be used outside of the camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"jmxAgent"
@@ -823,16 +820,15 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// endpoint
 name|addBeanDefinitionParser
 argument_list|(
-literal|"endpoint"
+literal|"propertyPlaceholder"
 argument_list|,
-name|CamelEndpointFactoryBean
+name|CamelPropertyPlaceholderDefinition
 operator|.
 name|class
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// camel context
@@ -875,7 +871,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find class so assuming not running in OSGI container: "
+literal|"Cannot find class so assuming not running in OSGi container: "
 operator|+
 name|t
 operator|.
@@ -1719,6 +1715,30 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|addPropertyValue
+argument_list|(
+literal|"camelPropertyPlaceholder"
+argument_list|,
+name|factoryBean
+operator|.
+name|getCamelPropertyPlaceholder
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|addPropertyValue
+argument_list|(
+literal|"camelJMXAgent"
+argument_list|,
+name|factoryBean
+operator|.
+name|getCamelJMXAgent
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|boolean
 name|createdBeanPostProcessor
@@ -1900,26 +1920,6 @@ name|id
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|localName
-operator|.
-name|equals
-argument_list|(
-literal|"jmxAgent"
-argument_list|)
-condition|)
-block|{
-name|builder
-operator|.
-name|addPropertyReference
-argument_list|(
-literal|"camelJMXAgent"
-argument_list|,
-name|id
-argument_list|)
-expr_stmt|;
-block|}
 comment|// set the templates with the camel context
 if|if
 condition|(
@@ -1949,13 +1949,6 @@ operator|.
 name|equals
 argument_list|(
 literal|"export"
-argument_list|)
-operator|||
-name|localName
-operator|.
-name|equals
-argument_list|(
-literal|"propertyPlaceholder"
 argument_list|)
 condition|)
 block|{
@@ -2436,7 +2429,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// either we have not used templat before or we have auto registered it already and therefore we
+comment|// either we have not used template before or we have auto registered it already and therefore we
 comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
 comment|// since we have multiple camel contexts
 name|boolean
@@ -2533,7 +2526,7 @@ name|contextId
 argument_list|)
 expr_stmt|;
 block|}
-comment|// either we have not used templat before or we have auto registered it already and therefore we
+comment|// either we have not used template before or we have auto registered it already and therefore we
 comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
 comment|// since we have multiple camel contexts
 name|boolean
