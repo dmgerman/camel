@@ -36,6 +36,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Least Recently Used Cache  *  * @version $Revision$  */
 end_comment
@@ -57,6 +69,8 @@ name|K
 argument_list|,
 name|V
 argument_list|>
+implements|implements
+name|Service
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -162,6 +176,45 @@ argument_list|()
 operator|>
 name|maxCacheSize
 return|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// stop the value and clear the cache
+if|if
+condition|(
+operator|!
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

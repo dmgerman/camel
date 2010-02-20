@@ -262,138 +262,25 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|MBeanServer
-name|mbeanServer
-init|=
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementAgent
-argument_list|()
-operator|.
-name|getMBeanServer
-argument_list|()
-decl_stmt|;
-name|Set
-argument_list|<
-name|ObjectName
-argument_list|>
-name|set
-init|=
-name|mbeanServer
-operator|.
-name|queryNames
-argument_list|(
-operator|new
-name|ObjectName
-argument_list|(
-literal|"*:type=producers,*"
-argument_list|)
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|set
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|ObjectName
-name|on
-init|=
-name|set
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should be registered"
-argument_list|,
-name|mbeanServer
-operator|.
-name|isRegistered
-argument_list|(
-name|on
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|String
-name|uri
-init|=
-operator|(
-name|String
-operator|)
-name|mbeanServer
-operator|.
-name|getAttribute
-argument_list|(
-name|on
-argument_list|,
-literal|"EndpointUri"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"mock://result"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
+comment|// TODO: producers are not managed due they can lead to memory leak CAMEL-2484
+comment|//        MBeanServer mbeanServer = context.getManagementStrategy().getManagementAgent().getMBeanServer();
+comment|//        Set<ObjectName> set = mbeanServer.queryNames(new ObjectName("*:type=producers,*"), null);
+comment|//        assertEquals(0, set.size());
+comment|//        ObjectName on = set.iterator().next();
+comment|//        assertTrue("Should be registered", mbeanServer.isRegistered(on));
+comment|//        String uri = (String) mbeanServer.getAttribute(on, "EndpointUri");
+comment|//        assertEquals("mock://result", uri);
 comment|// TODO: populating route id on producers is not implemented yet
 comment|//        String routeId = (String) mbeanServer.getAttribute(on, "RouteId");
 comment|//        assertEquals("route1", routeId);
-name|Boolean
-name|singleton
-init|=
-operator|(
-name|Boolean
-operator|)
-name|mbeanServer
-operator|.
-name|getAttribute
-argument_list|(
-name|on
-argument_list|,
-literal|"Singleton"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|,
-name|singleton
-argument_list|)
-expr_stmt|;
+comment|//        Boolean singleton = (Boolean) mbeanServer.getAttribute(on, "Singleton");
+comment|//        assertEquals(Boolean.TRUE, singleton);
 name|context
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should no longer be registered"
-argument_list|,
-name|mbeanServer
-operator|.
-name|isRegistered
-argument_list|(
-name|on
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//        assertFalse("Should no longer be registered", mbeanServer.isRegistered(on));
 block|}
 annotation|@
 name|Override

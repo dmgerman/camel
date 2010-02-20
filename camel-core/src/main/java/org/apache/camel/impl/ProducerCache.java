@@ -389,28 +389,75 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
-DECL|method|getProducer (Endpoint endpoint)
+comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.Producer)} method.      *      * @param endpoint the endpoint      * @return the producer      */
+DECL|method|acquireProducer (Endpoint endpoint)
 specifier|public
 name|Producer
-name|getProducer
+name|acquireProducer
 parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// As the producer is returned outside this method we do not want to return pooled producers
-comment|// so we pass in false to the method. if we returned pooled producers then the user had
-comment|// to remember to return it back in the pool.
-comment|// See method doInProducer that is safe template pattern where we handle the lifecycle and
-comment|// thus safely can use pooled producers there
 return|return
 name|doGetProducer
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 return|;
+block|}
+comment|/**      * Releases an acquired producer back after usage.      *      * @param endpoint the endpoint      * @param producer the producer to release      * @throws Exception can be thrown if error stopping producer if that was needed.      */
+DECL|method|releaseProducer (Endpoint endpoint, Producer producer)
+specifier|public
+name|void
+name|releaseProducer
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Producer
+name|producer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|producer
+operator|instanceof
+name|ServicePoolAware
+condition|)
+block|{
+comment|// release back to the pool
+name|pool
+operator|.
+name|release
+argument_list|(
+name|endpoint
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|producer
+operator|.
+name|isSingleton
+argument_list|()
+condition|)
+block|{
+comment|// stop non singleton producers as we should not leak resources
+name|producer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (Endpoint endpoint, Exchange exchange)
@@ -987,10 +1034,10 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-comment|// add it as service to camel context so it can be managed as well
-name|context
+comment|// must then start service so producer is ready to be used
+name|ServiceHelper
 operator|.
-name|addService
+name|startService
 argument_list|(
 name|answer
 argument_list|)
