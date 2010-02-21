@@ -638,6 +638,15 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the route with the given id      *      * @param id id of the route      * @return the route or<tt>null</tt> if not found      */
+DECL|method|getRoute (String id)
+name|Route
+name|getRoute
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RoutesBuilder builder)
 name|void
