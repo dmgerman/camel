@@ -111,7 +111,7 @@ argument_list|)
 decl_stmt|;
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
 specifier|public
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer
@@ -121,7 +121,9 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// noop
+return|return
+literal|true
+return|;
 block|}
 DECL|method|commit (Consumer consumer, Endpoint endpoint)
 specifier|public

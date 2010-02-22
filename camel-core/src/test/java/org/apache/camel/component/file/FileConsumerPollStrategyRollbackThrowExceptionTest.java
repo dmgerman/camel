@@ -327,7 +327,7 @@ name|PollingConsumerPollStrategy
 block|{
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
 specifier|public
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer

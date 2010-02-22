@@ -50,9 +50,9 @@ specifier|public
 interface|interface
 name|PollingConsumerPollStrategy
 block|{
-comment|/**      * Called when poll is about to begin      *      * @param consumer the consumer      * @param endpoint the endpoint being consumed      */
+comment|/**      * Called when poll is about to begin      *      * @param consumer the consumer      * @param endpoint the endpoint being consumed      * @return<tt>true</tt> to begin polling, or<tt>false</tt> to skip polling this time.      */
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer

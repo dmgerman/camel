@@ -130,7 +130,7 @@ name|PollingConsumerPollStrategy
 argument_list|()
 block|{
 specifier|public
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer
@@ -139,7 +139,11 @@ parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|)
-block|{             }
+block|{
+return|return
+literal|true
+return|;
+block|}
 specifier|public
 name|void
 name|commit
@@ -297,7 +301,7 @@ name|PollingConsumerPollStrategy
 argument_list|()
 block|{
 specifier|public
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer
@@ -306,7 +310,11 @@ parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|)
-block|{             }
+block|{
+return|return
+literal|true
+return|;
+block|}
 specifier|public
 name|void
 name|commit

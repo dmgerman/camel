@@ -129,10 +129,10 @@ comment|/**  * Unit test for poll strategy  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerPollStrategyTest
+DECL|class|FileConsumerPollStrategyNotBeginTest
 specifier|public
 class|class
-name|FileConsumerPollStrategyTest
+name|FileConsumerPollStrategyNotBeginTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -226,10 +226,10 @@ literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFirstPollRollbackThenCommit ()
+DECL|method|testFirstPollNotBegin ()
 specifier|public
 name|void
-name|testFirstPollRollbackThenCommit
+name|testFirstPollNotBegin
 parameter_list|()
 throws|throws
 name|Exception
@@ -266,7 +266,7 @@ name|event
 operator|.
 name|startsWith
 argument_list|(
-literal|"rollbackcommit"
+literal|"beginbegincommit"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -331,6 +331,10 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+name|event
+operator|+=
+literal|"begin"
+expr_stmt|;
 if|if
 condition|(
 name|counter
@@ -339,14 +343,10 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// simulate an error on first poll
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Damn I cannot do this"
-argument_list|)
-throw|;
+comment|// deny polling at first call
+return|return
+literal|false
+return|;
 block|}
 return|return
 literal|true
@@ -389,24 +389,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"Damn I cannot do this"
-argument_list|)
-condition|)
-block|{
 name|event
 operator|+=
 literal|"rollback"
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

@@ -332,7 +332,7 @@ name|PollingConsumerPollStrategy
 block|{
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
 specifier|public
-name|void
+name|boolean
 name|begin
 parameter_list|(
 name|Consumer
@@ -383,6 +383,9 @@ literal|"Damn I cannot do this"
 argument_list|)
 throw|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|commit (Consumer consumer, Endpoint endpoint)
 specifier|public
