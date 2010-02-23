@@ -80,10 +80,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * Tests the HawtDBAggregationRepository implementation.  */
-end_comment
-
 begin_class
 DECL|class|HawtDBAggregationRepositoryTest
 specifier|public

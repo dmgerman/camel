@@ -227,7 +227,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|indexesFactory
+comment|// the root which contains an index with name -> page for the real indexes
+DECL|field|rootIndexesFactory
 specifier|private
 specifier|final
 specifier|static
@@ -237,7 +238,7 @@ name|String
 argument_list|,
 name|Integer
 argument_list|>
-name|indexesFactory
+name|rootIndexesFactory
 init|=
 operator|new
 name|BTreeIndexFactory
@@ -248,6 +249,7 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// the real indexes where we store persisted data in buffers
 DECL|field|indexFactory
 specifier|private
 specifier|final
@@ -282,7 +284,7 @@ expr_stmt|;
 block|}
 static|static
 block|{
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|setKeyMarshaller
 argument_list|(
@@ -291,7 +293,7 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|setValueMarshaller
 argument_list|(
@@ -300,7 +302,7 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|setDeferredEncoding
 argument_list|(
@@ -422,7 +424,7 @@ name|page
 operator|==
 literal|0
 assert|;
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|create
 argument_list|(
@@ -452,7 +454,7 @@ name|Integer
 argument_list|>
 name|indexes
 init|=
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|open
 argument_list|(
@@ -537,6 +539,24 @@ argument_list|>
 name|work
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Executing work "
+operator|+
+name|work
+argument_list|)
+expr_stmt|;
+block|}
 name|Transaction
 name|tx
 init|=
@@ -572,6 +592,28 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Error executing work "
+operator|+
+name|work
+operator|+
+literal|" will do rollback"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|tx
 operator|.
 name|rollback
@@ -607,7 +649,7 @@ name|Integer
 argument_list|>
 name|indexes
 init|=
-name|indexesFactory
+name|rootIndexesFactory
 operator|.
 name|open
 argument_list|(
@@ -674,12 +716,56 @@ argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new repository index with name "
+operator|+
+name|name
+operator|+
+literal|" at location "
+operator|+
+name|page
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|created
 return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Repository index with name "
+operator|+
+name|name
+operator|+
+literal|" at location "
+operator|+
+name|location
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|indexFactory
 operator|.

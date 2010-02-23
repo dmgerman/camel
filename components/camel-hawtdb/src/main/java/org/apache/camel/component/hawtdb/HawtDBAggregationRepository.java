@@ -361,6 +361,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|// TODO: We can improve performance by not returning the old when adding
 return|return
 name|unmarshallExchange
 argument_list|(
@@ -378,6 +379,14 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Error adding to repository "
+operator|+
+name|name
+operator|+
+literal|" with key "
+operator|+
+name|key
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -482,6 +491,14 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Error getting key "
+operator|+
+name|key
+operator|+
+literal|" from repository "
+operator|+
+name|name
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -566,6 +583,14 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Error removing key "
+operator|+
+name|key
+operator|+
+literal|" from repository "
+operator|+
+name|name
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -623,6 +648,7 @@ operator|new
 name|DataByteArrayOutputStream
 argument_list|()
 decl_stmt|;
+comment|// use DefaultExchangeHolder to marshal to a serialized object
 name|DefaultExchangeHolder
 name|pe
 init|=
@@ -635,6 +661,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// TODO: store aggregation size
 name|exchangeMarshaller
 operator|.
 name|writePayload
