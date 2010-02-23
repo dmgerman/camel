@@ -316,6 +316,11 @@ specifier|private
 name|ClientConnectionManager
 name|httpConnectionManager
 decl_stmt|;
+DECL|field|httpClient
+specifier|private
+name|HttpClient
+name|httpClient
+decl_stmt|;
 DECL|field|throwExceptionOnFailure
 specifier|private
 name|boolean
@@ -505,9 +510,50 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Factory method used by producers and consumers to create a new {@link HttpClient} instance      */
-DECL|method|createHttpClient ()
+comment|/**      * Gets the HttpClient to be used by {@link org.apache.camel.component.http.HttpProducer}      */
+DECL|method|getHttpClient ()
 specifier|public
+specifier|synchronized
+name|HttpClient
+name|getHttpClient
+parameter_list|()
+block|{
+if|if
+condition|(
+name|httpClient
+operator|==
+literal|null
+condition|)
+block|{
+name|httpClient
+operator|=
+name|createHttpClient
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|httpClient
+return|;
+block|}
+DECL|method|setHttpClient (HttpClient httpClient)
+specifier|public
+name|void
+name|setHttpClient
+parameter_list|(
+name|HttpClient
+name|httpClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClient
+operator|=
+name|httpClient
+expr_stmt|;
+block|}
+comment|/**      * Factory method to create a new {@link HttpClient} instance      *<p/>      * Producers and consumers should use the {@link #getHttpClient()} method instead.      */
+DECL|method|createHttpClient ()
+specifier|protected
 name|HttpClient
 name|createHttpClient
 parameter_list|()
@@ -676,6 +722,24 @@ name|configurer
 operator|.
 name|configureHttpClient
 argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created HttpClient "
+operator|+
 name|answer
 argument_list|)
 expr_stmt|;

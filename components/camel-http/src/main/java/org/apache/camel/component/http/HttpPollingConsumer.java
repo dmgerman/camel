@@ -286,11 +286,13 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|this
+operator|.
 name|httpClient
 operator|=
 name|endpoint
 operator|.
-name|createHttpClient
+name|getHttpClient
 argument_list|()
 expr_stmt|;
 block|}

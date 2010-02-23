@@ -458,7 +458,7 @@ name|httpClient
 operator|=
 name|endpoint
 operator|.
-name|createHttpClient
+name|getHttpClient
 argument_list|()
 expr_stmt|;
 name|this
