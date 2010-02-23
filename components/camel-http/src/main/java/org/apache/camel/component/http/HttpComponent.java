@@ -975,15 +975,25 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Using ClientConnectionManager: "
+literal|"Using existing ClientConnectionManager: "
 operator|+
 name|httpConnectionManager
 argument_list|)
 expr_stmt|;
+block|}
 name|HttpEndpoint
 name|endpoint
 init|=
@@ -1091,18 +1101,6 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|StringBuilder
-name|sb
-init|=
-operator|new
-name|StringBuilder
-argument_list|(
-literal|"Created ClientConnectionManager configured with"
-argument_list|)
-decl_stmt|;
-name|ThreadSafeClientConnManager
-name|answer
-decl_stmt|;
 name|SchemeRegistry
 name|schemeRegistry
 init|=
@@ -1158,16 +1156,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|answer
-operator|=
-operator|new
-name|ThreadSafeClientConnManager
-argument_list|(
-name|clientParams
-argument_list|,
-name|schemeRegistry
-argument_list|)
-expr_stmt|;
 comment|// configure additional configurations
 name|ConnManagerParamBean
 name|param
@@ -1186,16 +1174,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|" maxTotalConnections="
-operator|+
-name|getMaxTotalConnections
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|param
 operator|.
 name|setMaxTotalConnections
@@ -1213,16 +1191,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|" connectionsPerRoute="
-operator|+
-name|getConnectionsPerRoute
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|param
 operator|.
 name|setConnectionsPerRoute
@@ -1236,50 +1204,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// log information about the created connection manager
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|String
-name|msg
-init|=
-name|sb
-operator|.
-name|toString
-argument_list|()
+name|ThreadSafeClientConnManager
+name|answer
 decl_stmt|;
-if|if
-condition|(
-name|msg
-operator|.
-name|endsWith
+name|answer
+operator|=
+operator|new
+name|ThreadSafeClientConnManager
 argument_list|(
-literal|"with"
+name|clientParams
+argument_list|,
+name|schemeRegistry
 argument_list|)
-condition|)
-block|{
-name|msg
-operator|+=
-literal|" default values"
 expr_stmt|;
-block|}
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-name|msg
-operator|+
-literal|": "
+literal|"Created ClientConnectionManager "
 operator|+
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
