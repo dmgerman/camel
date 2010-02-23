@@ -322,7 +322,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+literal|12
 argument_list|,
 name|events
 operator|.
@@ -379,7 +379,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+literal|11
 argument_list|,
 name|events
 operator|.
