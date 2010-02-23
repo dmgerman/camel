@@ -86,22 +86,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
-operator|.
-name|HttpComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -185,28 +169,6 @@ block|{
 comment|// This is needed as by default there are 2 parallel
 comment|// connections to some host and there is nothing that
 comment|// closes the http connection here.
-name|context
-operator|.
-name|getComponent
-argument_list|(
-literal|"http"
-argument_list|,
-name|HttpComponent
-operator|.
-name|class
-argument_list|)
-operator|.
-name|getHttpConnectionManager
-argument_list|()
-operator|.
-name|getParams
-argument_list|()
-operator|.
-name|setDefaultMaxConnectionsPerHost
-argument_list|(
-literal|5
-argument_list|)
-expr_stmt|;
 name|String
 name|endpointName
 init|=

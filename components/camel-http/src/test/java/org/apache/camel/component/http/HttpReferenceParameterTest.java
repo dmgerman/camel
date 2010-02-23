@@ -68,9 +68,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|HttpClient
 import|;
@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for resolving reference parameters.  */
+comment|/**  * Unit test for resolving reference parameters.  *  * @version $Revision: $  */
 end_comment
 
 begin_class

@@ -62,11 +62,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
-name|HttpMethod
+name|methods
+operator|.
+name|HttpDelete
 import|;
 end_import
 
@@ -76,13 +78,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|DeleteMethod
+name|HttpEntityEnclosingRequestBase
 import|;
 end_import
 
@@ -92,13 +94,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|EntityEnclosingMethod
+name|HttpGet
 import|;
 end_import
 
@@ -108,13 +110,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|GetMethod
+name|HttpHead
 import|;
 end_import
 
@@ -124,13 +126,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|HeadMethod
+name|HttpOptions
 import|;
 end_import
 
@@ -140,13 +142,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|OptionsMethod
+name|HttpPost
 import|;
 end_import
 
@@ -156,13 +158,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|PostMethod
+name|HttpPut
 import|;
 end_import
 
@@ -172,13 +174,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|PutMethod
+name|HttpRequestBase
 import|;
 end_import
 
@@ -188,13 +190,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|TraceMethod
+name|HttpTrace
 import|;
 end_import
 
@@ -207,53 +209,53 @@ implements|implements
 name|Expression
 block|{
 DECL|enumConstant|GET
-DECL|enumConstant|POST
-DECL|enumConstant|PUT
-DECL|enumConstant|DELETE
-DECL|enumConstant|HEAD
 name|GET
 parameter_list|(
-name|GetMethod
+name|HttpGet
 operator|.
 name|class
 parameter_list|)
 operator|,
-constructor|POST(PostMethod.class
+DECL|enumConstant|POST
+constructor|POST(HttpPost.class
 block|)
 enum|,
+DECL|enumConstant|PUT
 name|PUT
 argument_list|(
-name|PutMethod
+name|HttpPut
 operator|.
 name|class
 argument_list|)
 operator|,
+DECL|enumConstant|DELETE
 name|DELETE
 argument_list|(
-name|DeleteMethod
+name|HttpDelete
 operator|.
 name|class
 argument_list|)
 operator|,
+DECL|enumConstant|HEAD
 name|HEAD
 argument_list|(
-DECL|enumConstant|OPTIONS
-DECL|enumConstant|TRACE
-name|HeadMethod
+name|HttpHead
 operator|.
 name|class
 argument_list|)
 operator|,
+DECL|enumConstant|OPTIONS
 name|OPTIONS
 argument_list|(
-name|OptionsMethod
+name|HttpOptions
 operator|.
 name|class
 argument_list|)
 operator|,
+DECL|enumConstant|TRACE
 name|TRACE
 argument_list|(
-name|TraceMethod
+name|HttpTrace
 operator|.
 name|class
 argument_list|)
@@ -267,7 +269,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|HttpMethod
+name|HttpRequestBase
 argument_list|>
 name|clazz
 decl_stmt|;
@@ -282,14 +284,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_expr_stmt
-DECL|method|HttpMethods (Class<? extends HttpMethod> clazz)
+DECL|method|HttpMethods (Class<? extends HttpRequestBase> clazz)
 name|HttpMethods
 argument_list|(
 name|Class
 argument_list|<
 name|?
 extends|extends
-name|HttpMethod
+name|HttpRequestBase
 argument_list|>
 name|clazz
 argument_list|)
@@ -302,7 +304,7 @@ name|clazz
 block|;
 name|entity
 operator|=
-name|EntityEnclosingMethod
+name|HttpEntityEnclosingRequestBase
 operator|.
 name|class
 operator|.
@@ -313,7 +315,7 @@ argument_list|)
 block|;     }
 DECL|method|createMethod (final String url)
 specifier|public
-name|HttpMethod
+name|HttpRequestBase
 name|createMethod
 argument_list|(
 name|final

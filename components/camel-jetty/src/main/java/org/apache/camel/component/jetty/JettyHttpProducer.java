@@ -740,7 +740,7 @@ argument_list|(
 name|url
 argument_list|)
 operator|.
-name|getName
+name|getMethod
 argument_list|()
 decl_stmt|;
 name|JettyContentExchange

@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test of invalid configuration  */
+comment|/**  * Unit test of invalid configuration  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -136,6 +136,8 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Before
+annotation|@
+name|Override
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -203,6 +205,8 @@ parameter_list|()
 block|{
 comment|// dummy
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

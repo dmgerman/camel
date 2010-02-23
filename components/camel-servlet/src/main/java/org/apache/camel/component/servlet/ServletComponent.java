@@ -138,20 +138,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -190,11 +176,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|conn
 operator|.
-name|HttpConnectionManager
+name|ClientConnectionManager
 import|;
 end_import
 
@@ -204,13 +190,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|httpclient
+name|http
 operator|.
 name|params
 operator|.
-name|HttpClientParams
+name|HttpParams
 import|;
 end_import
 
@@ -335,24 +319,14 @@ name|remaining
 else|:
 name|uri
 expr_stmt|;
-name|HttpClientParams
-name|params
+name|HttpParams
+name|clientParams
 init|=
-operator|new
-name|HttpClientParams
-argument_list|()
-decl_stmt|;
-name|IntrospectionSupport
-operator|.
-name|setProperties
+name|configureHttpParams
 argument_list|(
-name|params
-argument_list|,
 name|parameters
-argument_list|,
-literal|"httpClient."
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// configure regular parameters
 name|configureParameters
 argument_list|(
@@ -404,7 +378,7 @@ name|this
 argument_list|,
 name|httpUri
 argument_list|,
-name|params
+name|clientParams
 argument_list|,
 name|getHttpConnectionManager
 argument_list|()
@@ -443,7 +417,7 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpParams params, ClientConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|protected
 name|ServletEndpoint
 name|createServletEndpoint
@@ -457,10 +431,10 @@ parameter_list|,
 name|URI
 name|httpUri
 parameter_list|,
-name|HttpClientParams
+name|HttpParams
 name|params
 parameter_list|,
-name|HttpConnectionManager
+name|ClientConnectionManager
 name|httpConnectionManager
 parameter_list|,
 name|HttpClientConfigurer

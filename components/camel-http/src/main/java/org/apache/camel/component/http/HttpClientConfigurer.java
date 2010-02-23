@@ -24,9 +24,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|HttpClient
 import|;

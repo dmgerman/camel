@@ -270,6 +270,11 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 specifier|public
 name|void
@@ -283,14 +288,11 @@ name|message
 parameter_list|)
 block|{
 comment|// lets parser the parameterMap first to avoid consuming the POST parameters as InputStream
-name|Map
-name|parameterMap
-init|=
 name|request
 operator|.
 name|getParameterMap
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// lets force a parse of the body and headers
 name|message
 operator|.
@@ -310,11 +312,6 @@ name|message
 operator|.
 name|getHeaders
 argument_list|()
-decl_stmt|;
-name|String
-name|contentType
-init|=
-literal|""
 decl_stmt|;
 comment|//apply the headerFilterStrategy
 name|Enumeration
@@ -373,13 +370,6 @@ operator|=
 name|Exchange
 operator|.
 name|CONTENT_TYPE
-expr_stmt|;
-name|contentType
-operator|=
-operator|(
-name|String
-operator|)
-name|value
 expr_stmt|;
 block|}
 if|if
