@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Demarcates the statements that need to be performed as a   * HawtDB transactional unit of work.  *   * @author<a href="http://hiramchirino.com">Hiram Chirino</a>  */
+comment|/**  * Demarcates the statements that need to be performed as a   * HawtDB transactional unit of work.  */
 end_comment
 
 begin_interface
@@ -44,6 +44,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**      * Executs the work within the bounds of the given transaction      *      * @param transaction the transaction      * @return result of the work, can be<tt>null</tt> if no result to return.      */
 DECL|method|execute (Transaction transaction)
 name|T
 name|execute

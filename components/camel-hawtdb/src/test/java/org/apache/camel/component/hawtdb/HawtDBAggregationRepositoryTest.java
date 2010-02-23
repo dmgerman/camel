@@ -48,7 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangeTestSupport
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
@@ -60,14 +62,26 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|test
 operator|.
-name|DefaultExchange
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
 begin_comment
-comment|/**  * Tests the HawtDBAggregationRepository implementation.  *   * @author<a href="http://hiramchirino.com">Hiram Chirino</a>  */
+comment|/**  * Tests the HawtDBAggregationRepository implementation.  */
 end_comment
 
 begin_class
@@ -76,7 +90,7 @@ specifier|public
 class|class
 name|HawtDBAggregationRepositoryTest
 extends|extends
-name|ExchangeTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|hawtDBFile
 specifier|private
@@ -86,31 +100,30 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
+literal|"target/data"
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/test-data/"
-operator|+
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"-"
-operator|+
-name|getName
-argument_list|()
+literal|"target/data/hawtdb.dat"
 argument_list|)
 decl_stmt|;
 name|hawtDBFile
@@ -135,7 +148,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -147,7 +160,14 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOperations ()
 specifier|public
 name|void
@@ -249,9 +269,15 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|exchange1
+literal|"counter:1"
 argument_list|,
 name|actual
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Change it..
@@ -285,11 +311,18 @@ argument_list|,
 name|exchange2
 argument_list|)
 expr_stmt|;
+comment|// the old one
 name|assertEquals
 argument_list|(
-name|exchange1
+literal|"counter:1"
 argument_list|,
 name|actual
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Get it back..
@@ -304,9 +337,15 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|exchange2
+literal|"counter:2"
 argument_list|,
 name|actual
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

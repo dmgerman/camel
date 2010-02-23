@@ -34,6 +34,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|fusesource
 operator|.
 name|hawtdb
@@ -169,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manages access to a shared HawtDB file from multiple HawtDBAggregationRepository objects.  *   * @author<a href="http://hiramchirino.com">Hiram Chirino</a>  */
+comment|/**  * Manages access to a shared HawtDB file from multiple HawtDBAggregationRepository objects.  */
 end_comment
 
 begin_class
@@ -182,6 +210,23 @@ name|HawtPageFileFactory
 implements|implements
 name|Service
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|HawtDBFile
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|indexesFactory
 specifier|private
 specifier|final
@@ -299,6 +344,25 @@ name|void
 name|start
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting HawtDB using file: "
+operator|+
+name|getFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|boolean
 name|initialize
@@ -367,13 +431,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Aggregation repository data store created."
+literal|"Aggregation repository data store created using file: "
+operator|+
+name|getFile
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -396,20 +461,23 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"You have "
+literal|"Aggregation repository data store loaded using file: "
+operator|+
+name|getFile
+argument_list|()
+operator|+
+literal|" containing "
 operator|+
 name|indexes
 operator|.
 name|size
 argument_list|()
 operator|+
-literal|" aggregation repositories stored."
+literal|" repositories."
 argument_list|)
 expr_stmt|;
 block|}
@@ -427,6 +495,25 @@ name|void
 name|stop
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping HawtDB using file: "
+operator|+
+name|getFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|close
 argument_list|()
 expr_stmt|;
@@ -547,13 +634,9 @@ literal|null
 condition|)
 block|{
 comment|// create it..
-return|return
-name|indexFactory
-operator|.
-name|create
-argument_list|(
-name|tx
-argument_list|,
+name|int
+name|page
+init|=
 name|tx
 operator|.
 name|allocator
@@ -563,7 +646,36 @@ name|alloc
 argument_list|(
 literal|1
 argument_list|)
+decl_stmt|;
+name|Index
+argument_list|<
+name|Buffer
+argument_list|,
+name|Buffer
+argument_list|>
+name|created
+init|=
+name|indexFactory
+operator|.
+name|create
+argument_list|(
+name|tx
+argument_list|,
+name|page
 argument_list|)
+decl_stmt|;
+comment|// add it to indexes so we can find it the next time
+name|indexes
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|page
+argument_list|)
+expr_stmt|;
+return|return
+name|created
 return|;
 block|}
 else|else
