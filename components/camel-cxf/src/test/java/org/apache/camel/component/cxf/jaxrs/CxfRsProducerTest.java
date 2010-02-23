@@ -52,20 +52,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|core
-operator|.
-name|Response
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
