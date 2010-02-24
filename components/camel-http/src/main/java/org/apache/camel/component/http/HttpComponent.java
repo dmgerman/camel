@@ -444,10 +444,10 @@ specifier|protected
 name|HttpClientConfigurer
 name|httpClientConfigurer
 decl_stmt|;
-DECL|field|httpConnectionManager
+DECL|field|clientConnectionManager
 specifier|protected
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 decl_stmt|;
 DECL|field|httpBinding
 specifier|protected
@@ -960,12 +960,12 @@ block|}
 comment|// create default connection manager if none provided
 if|if
 condition|(
-name|httpConnectionManager
+name|clientConnectionManager
 operator|==
 literal|null
 condition|)
 block|{
-name|httpConnectionManager
+name|clientConnectionManager
 operator|=
 name|createConnectionManager
 argument_list|(
@@ -990,7 +990,7 @@ name|debug
 argument_list|(
 literal|"Using existing ClientConnectionManager: "
 operator|+
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|)
 expr_stmt|;
 block|}
@@ -1008,7 +1008,7 @@ name|httpUri
 argument_list|,
 name|clientParams
 argument_list|,
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|,
 name|httpClientConfigurer
 argument_list|)
@@ -1473,30 +1473,30 @@ operator|=
 name|httpClientConfigurer
 expr_stmt|;
 block|}
-DECL|method|getHttpConnectionManager ()
+DECL|method|getClientConnectionManager ()
 specifier|public
 name|ClientConnectionManager
-name|getHttpConnectionManager
+name|getClientConnectionManager
 parameter_list|()
 block|{
 return|return
-name|httpConnectionManager
+name|clientConnectionManager
 return|;
 block|}
-DECL|method|setHttpConnectionManager (ClientConnectionManager httpConnectionManager)
+DECL|method|setClientConnectionManager (ClientConnectionManager clientConnectionManager)
 specifier|public
 name|void
-name|setHttpConnectionManager
+name|setClientConnectionManager
 parameter_list|(
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 parameter_list|)
 block|{
 name|this
 operator|.
-name|httpConnectionManager
+name|clientConnectionManager
 operator|=
-name|httpConnectionManager
+name|clientConnectionManager
 expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()
@@ -1590,7 +1590,7 @@ block|{
 comment|// shutdown connection manager
 if|if
 condition|(
-name|httpConnectionManager
+name|clientConnectionManager
 operator|!=
 literal|null
 condition|)
@@ -1601,15 +1601,15 @@ name|info
 argument_list|(
 literal|"Shutting down ClientConnectionManager: "
 operator|+
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|)
 expr_stmt|;
-name|httpConnectionManager
+name|clientConnectionManager
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
-name|httpConnectionManager
+name|clientConnectionManager
 operator|=
 literal|null
 expr_stmt|;

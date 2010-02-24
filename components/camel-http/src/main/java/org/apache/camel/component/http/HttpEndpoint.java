@@ -311,10 +311,10 @@ specifier|private
 name|HttpClientConfigurer
 name|httpClientConfigurer
 decl_stmt|;
-DECL|field|httpConnectionManager
+DECL|field|clientConnectionManager
 specifier|private
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 decl_stmt|;
 DECL|field|httpClient
 specifier|private
@@ -378,7 +378,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, ClientConnectionManager httpConnectionManager)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, ClientConnectionManager clientConnectionManager)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -392,7 +392,7 @@ name|URI
 name|httpURI
 parameter_list|,
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -409,13 +409,13 @@ operator|new
 name|BasicHttpParams
 argument_list|()
 argument_list|,
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpParams clientParams, ClientConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpParams clientParams, ClientConnectionManager clientConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -432,7 +432,7 @@ name|HttpParams
 name|clientParams
 parameter_list|,
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 parameter_list|,
 name|HttpClientConfigurer
 name|clientConfigurer
@@ -473,9 +473,9 @@ name|clientConfigurer
 expr_stmt|;
 name|this
 operator|.
-name|httpConnectionManager
+name|clientConnectionManager
 operator|=
-name|httpConnectionManager
+name|clientConnectionManager
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -571,7 +571,7 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|,
 literal|"httpConnectionManager"
 argument_list|)
@@ -582,7 +582,7 @@ init|=
 operator|new
 name|DefaultHttpClient
 argument_list|(
-name|httpConnectionManager
+name|clientConnectionManager
 argument_list|,
 name|getClientParams
 argument_list|()
@@ -1005,30 +1005,30 @@ operator|=
 name|httpUri
 expr_stmt|;
 block|}
-DECL|method|getHttpConnectionManager ()
+DECL|method|getClientConnectionManager ()
 specifier|public
 name|ClientConnectionManager
-name|getHttpConnectionManager
+name|getClientConnectionManager
 parameter_list|()
 block|{
 return|return
-name|httpConnectionManager
+name|clientConnectionManager
 return|;
 block|}
-DECL|method|setHttpConnectionManager (ClientConnectionManager httpConnectionManager)
+DECL|method|setClientConnectionManager (ClientConnectionManager clientConnectionManager)
 specifier|public
 name|void
-name|setHttpConnectionManager
+name|setClientConnectionManager
 parameter_list|(
 name|ClientConnectionManager
-name|httpConnectionManager
+name|clientConnectionManager
 parameter_list|)
 block|{
 name|this
 operator|.
-name|httpConnectionManager
+name|clientConnectionManager
 operator|=
-name|httpConnectionManager
+name|clientConnectionManager
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
