@@ -103,6 +103,7 @@ name|d1
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|d2
 operator|.
@@ -111,10 +112,13 @@ argument_list|(
 name|d1
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 literal|0
 return|;
+block|}
 block|}
 DECL|method|getUpdatedDate (SyndEntry entry)
 specifier|private
