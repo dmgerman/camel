@@ -205,6 +205,8 @@ name|repo
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"missing"
 argument_list|)
 decl_stmt|;
@@ -241,6 +243,8 @@ name|repo
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange1
@@ -260,6 +264,8 @@ name|repo
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -302,6 +308,8 @@ name|repo
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange2
@@ -328,6 +336,8 @@ name|repo
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -349,6 +359,8 @@ name|repo
 operator|.
 name|remove
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -358,6 +370,8 @@ name|repo
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -393,6 +407,8 @@ name|repo
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange1
@@ -412,6 +428,8 @@ name|repo
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -117,11 +129,14 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|add (Object key, Exchange exchange)
+DECL|method|add (CamelContext camelContext, Object key, Exchange exchange)
 specifier|public
 name|Exchange
 name|add
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|key
 parameter_list|,
@@ -140,11 +155,14 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|get (Object key)
+DECL|method|get (CamelContext camelContext, Object key)
 specifier|public
 name|Exchange
 name|get
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|key
 parameter_list|)
@@ -158,11 +176,14 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|remove (Object key)
+DECL|method|remove (CamelContext camelContext, Object key)
 specifier|public
 name|void
 name|remove
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|key
 parameter_list|)

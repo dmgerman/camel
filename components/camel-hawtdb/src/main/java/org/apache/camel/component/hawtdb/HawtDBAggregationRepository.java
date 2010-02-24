@@ -260,11 +260,14 @@ name|DefaultExchangeHolder
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|add (K key, Exchange exchange)
+DECL|method|add (CamelContext camelContext, K key, Exchange exchange)
 specifier|public
 name|Exchange
 name|add
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|K
 name|key
 parameter_list|,
@@ -294,6 +297,8 @@ name|exchangeBuffer
 init|=
 name|marshallExchange
 argument_list|(
+name|camelContext
+argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
@@ -365,6 +370,8 @@ comment|// TODO: We can improve performance by not returning the old when adding
 return|return
 name|unmarshallExchange
 argument_list|(
+name|camelContext
+argument_list|,
 name|rc
 argument_list|)
 return|;
@@ -392,11 +399,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|get (K key)
+DECL|method|get (CamelContext camelContext, K key)
 specifier|public
 name|Exchange
 name|get
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|K
 name|key
 parameter_list|)
@@ -477,6 +487,8 @@ block|}
 return|return
 name|unmarshallExchange
 argument_list|(
+name|camelContext
+argument_list|,
 name|rc
 argument_list|)
 return|;
@@ -504,11 +516,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|remove (K key)
+DECL|method|remove (CamelContext camelContext, K key)
 specifier|public
 name|void
 name|remove
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|K
 name|key
 parameter_list|)
@@ -630,11 +645,14 @@ name|toBuffer
 argument_list|()
 return|;
 block|}
-DECL|method|marshallExchange (Exchange exchange)
+DECL|method|marshallExchange (CamelContext camelContext, Exchange exchange)
 specifier|protected
 name|Buffer
 name|marshallExchange
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
@@ -661,7 +679,31 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// TODO: store aggregation size
+comment|// add the aggregated size property as the only property we want to retain
+name|DefaultExchangeHolder
+operator|.
+name|addProperty
+argument_list|(
+name|pe
+argument_list|,
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|exchangeMarshaller
 operator|.
 name|writePayload
@@ -678,11 +720,14 @@ name|toBuffer
 argument_list|()
 return|;
 block|}
-DECL|method|unmarshallExchange (Buffer buffer)
+DECL|method|unmarshallExchange (CamelContext camelContext, Buffer buffer)
 specifier|protected
 name|Exchange
 name|unmarshallExchange
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Buffer
 name|buffer
 parameter_list|)
@@ -708,18 +753,13 @@ argument_list|(
 name|bais
 argument_list|)
 decl_stmt|;
-comment|// create a new dummy default exchange which the aggregator must
-comment|// set the CamelContext
 name|Exchange
 name|answer
 init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-operator|(
-name|CamelContext
-operator|)
-literal|null
+name|camelContext
 argument_list|)
 decl_stmt|;
 name|DefaultExchangeHolder

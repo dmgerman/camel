@@ -232,6 +232,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"missing"
 argument_list|)
 decl_stmt|;
@@ -248,6 +250,8 @@ name|repo2
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"missing"
 argument_list|)
 expr_stmt|;
@@ -284,6 +288,8 @@ name|repo1
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange1
@@ -303,6 +309,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -327,6 +335,8 @@ name|repo2
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
@@ -357,6 +367,8 @@ name|repo1
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange2
@@ -402,6 +414,8 @@ name|repo2
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"bar"
 argument_list|,
 name|exchange3
@@ -422,6 +436,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|)
@@ -433,6 +449,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
@@ -457,6 +475,8 @@ name|repo2
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
@@ -467,6 +487,8 @@ name|repo2
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
@@ -491,6 +513,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|)
@@ -581,6 +605,8 @@ name|repo1
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange1
@@ -609,6 +635,8 @@ name|repo2
 operator|.
 name|add
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|,
 name|exchange2
@@ -621,6 +649,8 @@ name|repo1
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
@@ -643,6 +673,8 @@ name|repo2
 operator|.
 name|get
 argument_list|(
+name|context
+argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;

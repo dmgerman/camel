@@ -840,6 +840,11 @@ name|aggregationRepository
 operator|.
 name|get
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
@@ -1018,6 +1023,11 @@ name|aggregationRepository
 operator|.
 name|add
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|key
 argument_list|,
 name|answer
@@ -1446,6 +1456,11 @@ name|aggregationRepository
 operator|.
 name|remove
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;

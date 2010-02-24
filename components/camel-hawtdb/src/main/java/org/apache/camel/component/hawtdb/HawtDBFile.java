@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manages access to a shared HawtDB file.  *<p/>  * Will by default not sync writes which allows it to be faster.  * You can force syncing by setting sync=true.  */
+comment|/**  * Manages access to a shared<a href="http://hawtdb.fusesource.org/">HawtDB</a> file.  *<p/>  * Will by default not sync writes which allows it to be faster.  * You can force syncing by setting the sync option to<tt>true</tt>.  */
 end_comment
 
 begin_class
