@@ -380,7 +380,7 @@ name|httpUri
 argument_list|,
 name|clientParams
 argument_list|,
-name|getHttpConnectionManager
+name|getClientConnectionManager
 argument_list|()
 argument_list|,
 name|httpClientConfigurer
