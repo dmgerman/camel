@@ -38,18 +38,6 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
 name|Method
 import|;
 end_import
@@ -408,11 +396,7 @@ name|fault
 throw|;
 block|}
 throw|throw
-operator|new
-name|InvocationTargetException
-argument_list|(
 name|fault
-argument_list|)
 throw|;
 block|}
 comment|// do not return a reply if the method is VOID or the MEP is not OUT capable

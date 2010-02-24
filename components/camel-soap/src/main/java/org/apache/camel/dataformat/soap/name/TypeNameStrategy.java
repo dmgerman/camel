@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to determine the marshalled element name by looking at the annotations of the  * class to be marshalled  */
+comment|/**  * Strategy to determine the marshalled element name by looking at the  * annotations of the class to be marshalled  */
 end_comment
 
 begin_class
@@ -72,7 +72,7 @@ name|TypeNameStrategy
 implements|implements
 name|ElementNameStrategy
 block|{
-comment|/**      * @return determine element name by using the XmlType.name() of the type to be      * marshalled and the XmlSchema.namespace() of the package-info      */
+comment|/**      * @return determine element name by using the XmlType.name() of the type to      *         be marshalled and the XmlSchema.namespace() of the package-info      */
 DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
@@ -190,6 +190,28 @@ name|name
 argument_list|()
 argument_list|)
 return|;
+block|}
+DECL|method|findExceptionForFaultName (QName faultName)
+specifier|public
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
+name|findExceptionForFaultName
+parameter_list|(
+name|QName
+name|faultName
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Exception lookup is not supported for TypeNameStrategy"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

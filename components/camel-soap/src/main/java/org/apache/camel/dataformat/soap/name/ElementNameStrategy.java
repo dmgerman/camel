@@ -57,6 +57,20 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Determine exception class for given SOAP Fault QName      * @param faultName      * @return      */
+DECL|method|findExceptionForFaultName (QName faultName)
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
+name|findExceptionForFaultName
+parameter_list|(
+name|QName
+name|faultName
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

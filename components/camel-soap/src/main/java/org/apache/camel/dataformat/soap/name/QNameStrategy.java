@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simply ElementNameStrategy that returns one preset QName  */
+comment|/**  * Simply ElementNameStrategy that returns one preset QName. This can be handy  * for simple asynchronous calls  */
 end_comment
 
 begin_class
@@ -49,7 +49,7 @@ specifier|private
 name|QName
 name|elementName
 decl_stmt|;
-comment|/**      * Initialize with one QName      *       * @param elmentName QName to be used for all finds      */
+comment|/**      * Initialize with one QName      *       * @param elmentName      *            QName to be used for all finds      */
 DECL|method|QNameStrategy (QName elmentName)
 specifier|public
 name|QNameStrategy
@@ -84,6 +84,28 @@ block|{
 return|return
 name|elementName
 return|;
+block|}
+DECL|method|findExceptionForFaultName (QName faultName)
+specifier|public
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exception
+argument_list|>
+name|findExceptionForFaultName
+parameter_list|(
+name|QName
+name|faultName
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Exception lookup is not supported for QNameStrategy"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
