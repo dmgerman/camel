@@ -532,7 +532,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|resequencer
+name|resequence
 argument_list|(
 name|header
 argument_list|(

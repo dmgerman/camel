@@ -4000,10 +4000,10 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (Expression... expressions)
+DECL|method|resequence (Expression... expressions)
 specifier|public
 name|ResequenceDefinition
-name|resequencer
+name|resequence
 parameter_list|(
 name|Expression
 modifier|...

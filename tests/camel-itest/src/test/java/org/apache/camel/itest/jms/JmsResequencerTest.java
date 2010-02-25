@@ -672,7 +672,7 @@ literal|"myBean1"
 argument_list|)
 argument_list|)
 operator|.
-name|resequencer
+name|resequence
 argument_list|(
 name|header
 argument_list|(
@@ -717,7 +717,7 @@ literal|"myBean1"
 argument_list|)
 argument_list|)
 operator|.
-name|resequencer
+name|resequence
 argument_list|(
 name|header
 argument_list|(
