@@ -353,6 +353,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategyRef a reference to a strategy to lookup      * @return the builder      */
+DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
+specifier|public
+name|MulticastDefinition
+name|aggregationStrategyRef
+parameter_list|(
+name|String
+name|aggregationStrategyRef
+parameter_list|)
+block|{
+name|setStrategyRef
+argument_list|(
+name|aggregationStrategyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Uses the {@link java.util.concurrent.ExecutorService} to do the multicasting work      *           * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
@@ -414,6 +433,25 @@ block|{
 name|setExecutorService
 argument_list|(
 name|executorService
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor service for executing the sending to the recipients.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|MulticastDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|executorServiceRef
 argument_list|)
 expr_stmt|;
 return|return
@@ -664,6 +702,58 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+block|}
+DECL|method|getStrategyRef ()
+specifier|public
+name|String
+name|getStrategyRef
+parameter_list|()
+block|{
+return|return
+name|strategyRef
+return|;
+block|}
+DECL|method|setStrategyRef (String strategyRef)
+specifier|public
+name|void
+name|setStrategyRef
+parameter_list|(
+name|String
+name|strategyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strategyRef
+operator|=
+name|strategyRef
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 block|}

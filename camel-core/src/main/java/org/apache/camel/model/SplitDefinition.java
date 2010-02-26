@@ -629,6 +629,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategyRef a reference to a strategy to lookup      * @return the builder      */
+DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
+specifier|public
+name|SplitDefinition
+name|aggregationStrategyRef
+parameter_list|(
+name|String
+name|aggregationStrategyRef
+parameter_list|)
+block|{
+name|setStrategyRef
+argument_list|(
+name|aggregationStrategyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Doing the splitting work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
@@ -639,27 +658,6 @@ block|{
 name|setParallelProcessing
 argument_list|(
 literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Set the splitting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @deprecated use #parallelProcessing instead      * @return the builder      */
-annotation|@
-name|Deprecated
-DECL|method|parallelProcessing (boolean parallelProcessing)
-specifier|public
-name|SplitDefinition
-name|parallelProcessing
-parameter_list|(
-name|boolean
-name|parallelProcessing
-parameter_list|)
-block|{
-name|setParallelProcessing
-argument_list|(
-name|parallelProcessing
 argument_list|)
 expr_stmt|;
 return|return
@@ -711,6 +709,25 @@ block|{
 name|setExecutorService
 argument_list|(
 name|executorService
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor service for executing the splitting action.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|SplitDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|executorServiceRef
 argument_list|)
 expr_stmt|;
 return|return
@@ -866,6 +883,58 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+block|}
+DECL|method|getStrategyRef ()
+specifier|public
+name|String
+name|getStrategyRef
+parameter_list|()
+block|{
+return|return
+name|strategyRef
+return|;
+block|}
+DECL|method|setStrategyRef (String strategyRef)
+specifier|public
+name|void
+name|setStrategyRef
+parameter_list|(
+name|String
+name|strategyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strategyRef
+operator|=
+name|strategyRef
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 block|}

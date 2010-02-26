@@ -1260,9 +1260,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|parallelProcessing
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -1348,9 +1346,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|parallelProcessing
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|process
 argument_list|(
