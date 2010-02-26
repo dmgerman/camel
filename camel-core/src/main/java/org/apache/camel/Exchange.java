@@ -82,6 +82,12 @@ name|AGGREGATED_SIZE
 init|=
 literal|"CamelAggregatedSize"
 decl_stmt|;
+DECL|field|AGGREGATED_COMPLETED_BY
+name|String
+name|AGGREGATED_COMPLETED_BY
+init|=
+literal|"CamelAggregatedCompletedBy"
+decl_stmt|;
 DECL|field|ASYNC_WAIT
 name|String
 name|ASYNC_WAIT
