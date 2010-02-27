@@ -1249,6 +1249,116 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log stacktrace for failed messages.      */
+DECL|method|logStackTrace (boolean logStackTrace)
+specifier|public
+name|OnExceptionDefinition
+name|logStackTrace
+parameter_list|(
+name|boolean
+name|logStackTrace
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogStackTrace
+argument_list|(
+name|logStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log stacktrace for failed redelivery attempts      */
+DECL|method|logRetryStackTrace (boolean logRetryStackTrace)
+specifier|public
+name|OnExceptionDefinition
+name|logRetryStackTrace
+parameter_list|(
+name|boolean
+name|logRetryStackTrace
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogRetryStackTrace
+argument_list|(
+name|logRetryStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log errors even if its handled      */
+DECL|method|logHandled (boolean logHandled)
+specifier|public
+name|OnExceptionDefinition
+name|logHandled
+parameter_list|(
+name|boolean
+name|logHandled
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogHandled
+argument_list|(
+name|logHandled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log retry attempts      */
+DECL|method|logRetryAttempted (boolean logRetryAttempted)
+specifier|public
+name|OnExceptionDefinition
+name|logRetryAttempted
+parameter_list|(
+name|boolean
+name|logRetryAttempted
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogRetryAttempted
+argument_list|(
+name|logRetryAttempted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log exhausted exceptions      */
+DECL|method|logExhausted (boolean logExhausted)
+specifier|public
+name|OnExceptionDefinition
+name|logExhausted
+parameter_list|(
+name|boolean
+name|logExhausted
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogExhasted
+argument_list|(
+name|logExhausted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public

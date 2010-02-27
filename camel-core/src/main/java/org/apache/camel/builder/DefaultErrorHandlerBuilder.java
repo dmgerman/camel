@@ -593,6 +593,48 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logHandled (boolean logHandled)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logHandled
+parameter_list|(
+name|boolean
+name|logHandled
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogHandled
+argument_list|(
+name|logHandled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|logExhausted (boolean logExhausted)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logExhausted
+parameter_list|(
+name|boolean
+name|logExhausted
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogExhausted
+argument_list|(
+name|logExhausted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public

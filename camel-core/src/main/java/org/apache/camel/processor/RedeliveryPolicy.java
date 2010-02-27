@@ -119,7 +119,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliverDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliverDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -242,6 +242,25 @@ specifier|protected
 name|boolean
 name|logRetryStackTrace
 decl_stmt|;
+DECL|field|logHandled
+specifier|protected
+name|boolean
+name|logHandled
+decl_stmt|;
+DECL|field|logExhausted
+specifier|protected
+name|boolean
+name|logExhausted
+init|=
+literal|true
+decl_stmt|;
+DECL|field|logRetryAttempted
+specifier|protected
+name|boolean
+name|logRetryAttempted
+init|=
+literal|true
+decl_stmt|;
 DECL|field|delayPattern
 specifier|protected
 name|String
@@ -281,6 +300,10 @@ literal|", retryAttemptedLogLevel="
 operator|+
 name|retryAttemptedLogLevel
 operator|+
+literal|", logRetryAttempted="
+operator|+
+name|logRetryAttempted
+operator|+
 literal|", logStackTrace="
 operator|+
 name|logStackTrace
@@ -288,6 +311,14 @@ operator|+
 literal|", logRetryStackTrace="
 operator|+
 name|logRetryStackTrace
+operator|+
+literal|", logHandled="
+operator|+
+name|logHandled
+operator|+
+literal|", logExhausted="
+operator|+
+name|logExhausted
 operator|+
 literal|", useExponentialBackOff="
 operator|+
@@ -867,7 +898,26 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to log stacktraces for failed messages.      */
+comment|/**      * Sets whether to log retry attempts      */
+DECL|method|logRetryAttempted (boolean logRetryAttempted)
+specifier|public
+name|RedeliveryPolicy
+name|logRetryAttempted
+parameter_list|(
+name|boolean
+name|logRetryAttempted
+parameter_list|)
+block|{
+name|setLogRetryAttempted
+argument_list|(
+name|logRetryAttempted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log stacktrace for failed messages.      */
 DECL|method|logStackTrace (boolean logStackTrace)
 specifier|public
 name|RedeliveryPolicy
@@ -899,6 +949,44 @@ block|{
 name|setLogRetryStackTrace
 argument_list|(
 name|logRetryStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log errors even if its handled      */
+DECL|method|logHandled (boolean logHandled)
+specifier|public
+name|RedeliveryPolicy
+name|logHandled
+parameter_list|(
+name|boolean
+name|logHandled
+parameter_list|)
+block|{
+name|setLogHandled
+argument_list|(
+name|logHandled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log exhausted errors      */
+DECL|method|logExhausted (boolean logExhausted)
+specifier|public
+name|RedeliveryPolicy
+name|logExhausted
+parameter_list|(
+name|boolean
+name|logExhausted
+parameter_list|)
+block|{
+name|setLogExhausted
+argument_list|(
+name|logExhausted
 argument_list|)
 expr_stmt|;
 return|return
@@ -1345,6 +1433,87 @@ operator|.
 name|logRetryStackTrace
 operator|=
 name|logRetryStackTrace
+expr_stmt|;
+block|}
+DECL|method|isLogHandled ()
+specifier|public
+name|boolean
+name|isLogHandled
+parameter_list|()
+block|{
+return|return
+name|logHandled
+return|;
+block|}
+comment|/**      * Sets whether errors should be logged even if its handled      */
+DECL|method|setLogHandled (boolean logHandled)
+specifier|public
+name|void
+name|setLogHandled
+parameter_list|(
+name|boolean
+name|logHandled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logHandled
+operator|=
+name|logHandled
+expr_stmt|;
+block|}
+DECL|method|isLogRetryAttempted ()
+specifier|public
+name|boolean
+name|isLogRetryAttempted
+parameter_list|()
+block|{
+return|return
+name|logRetryAttempted
+return|;
+block|}
+comment|/**      * Sets whether retry attempts should be logged or not      */
+DECL|method|setLogRetryAttempted (boolean logRetryAttempted)
+specifier|public
+name|void
+name|setLogRetryAttempted
+parameter_list|(
+name|boolean
+name|logRetryAttempted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logRetryAttempted
+operator|=
+name|logRetryAttempted
+expr_stmt|;
+block|}
+DECL|method|isLogExhausted ()
+specifier|public
+name|boolean
+name|isLogExhausted
+parameter_list|()
+block|{
+return|return
+name|logExhausted
+return|;
+block|}
+comment|/**      * Sets whether exhausted exceptions should be logged or not      */
+DECL|method|setLogExhausted (boolean logExhausted)
+specifier|public
+name|void
+name|setLogExhausted
+parameter_list|(
+name|boolean
+name|logExhausted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhausted
+operator|=
+name|logExhausted
 expr_stmt|;
 block|}
 block|}

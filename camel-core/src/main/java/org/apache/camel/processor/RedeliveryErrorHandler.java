@@ -1037,6 +1037,8 @@ name|logFailedDelivery
 argument_list|(
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|exchange
 argument_list|,
 name|msg
@@ -1180,6 +1182,11 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+name|boolean
+name|handled
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|data
@@ -1222,6 +1229,10 @@ name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
+expr_stmt|;
+name|handled
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -1413,6 +1424,8 @@ comment|// log that we failed delivery as we are exhausted
 name|logFailedDelivery
 argument_list|(
 literal|false
+argument_list|,
+name|handled
 argument_list|,
 name|exchange
 argument_list|,
@@ -1684,13 +1697,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logFailedDelivery (boolean shouldRedeliver, Exchange exchange, String message, RedeliveryData data, Throwable e)
+DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean handled, Exchange exchange, String message, RedeliveryData data, Throwable e)
 specifier|private
 name|void
 name|logFailedDelivery
 parameter_list|(
 name|boolean
 name|shouldRedeliver
+parameter_list|,
+name|boolean
+name|handled
 parameter_list|,
 name|Exchange
 name|exchange
@@ -1712,6 +1728,55 @@ operator|==
 literal|null
 condition|)
 block|{
+return|return;
+block|}
+if|if
+condition|(
+name|handled
+operator|&&
+operator|!
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogHandled
+argument_list|()
+condition|)
+block|{
+comment|// do not log handled
+return|return;
+block|}
+if|if
+condition|(
+name|shouldRedeliver
+operator|&&
+operator|!
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogRetryAttempted
+argument_list|()
+condition|)
+block|{
+comment|// do not log retry attempts
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|shouldRedeliver
+operator|&&
+operator|!
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhausted
+argument_list|()
+condition|)
+block|{
+comment|// do not log exhausted
 return|return;
 block|}
 name|LoggingLevel
