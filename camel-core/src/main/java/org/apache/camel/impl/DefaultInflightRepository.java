@@ -149,7 +149,7 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-comment|// us endpoint key as key so endpoints with lenient properties is registered using the same key (eg dynamic http endpoints)
+comment|// use endpoint key as key so endpoints with lenient properties is registered using the same key (eg dynamic http endpoints)
 DECL|field|endpointCount
 specifier|private
 specifier|final

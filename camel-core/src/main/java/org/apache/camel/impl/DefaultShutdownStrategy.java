@@ -374,6 +374,43 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|shutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|getTimeout
+argument_list|()
+argument_list|,
+name|getTimeUnit
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
+specifier|public
+name|void
+name|shutdown
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|long
 name|start
 init|=
@@ -393,7 +430,14 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting to graceful shutdown routes (timeout "
+literal|"Starting to graceful shutdown "
+operator|+
+name|routes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" routes (timeout "
 operator|+
 name|timeout
 operator|+
@@ -417,7 +461,14 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting to graceful shutdown routes (no timeout)"
+literal|"Starting to graceful shutdown "
+operator|+
+name|routes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" routes (no timeout)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -490,7 +541,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Now forcing all routes to be shutdown now."
+literal|"Timeout occurred. Now forcing the routes to be shutdown now."
 argument_list|)
 expr_stmt|;
 comment|// force the routes to shutdown now
@@ -561,7 +612,14 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Graceful shutdown of routes completed in "
+literal|"Graceful shutdown of "
+operator|+
+name|routes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" routes completed in "
 operator|+
 name|seconds
 operator|+

@@ -58,6 +58,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -708,7 +720,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
+comment|/**      * Stops the given route.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
@@ -719,13 +731,41 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
+comment|/**      * Stops the given route.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
 DECL|method|stopRoute (String routeId)
 name|void
 name|stopRoute
 parameter_list|(
 name|String
 name|routeId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Shutdown the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+DECL|method|shutdownRoute (String routeId)
+name|void
+name|shutdownRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Shutdown the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId the route id      * @param timeout   timeout      * @param timeUnit  the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+DECL|method|shutdownRoute (String routeId, long timeout, TimeUnit timeUnit)
+name|void
+name|shutdownRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
 parameter_list|)
 throws|throws
 name|Exception

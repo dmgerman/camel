@@ -74,7 +74,7 @@ name|ShutdownStrategy
 extends|extends
 name|Service
 block|{
-comment|/**      * Shutdown the routes      *      * @param context   the camel context      * @param routes the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
+comment|/**      * Shutdown the routes      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes)
 name|void
 name|shutdown
@@ -91,7 +91,30 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *      * @param timeout timeout in millis      */
+comment|/**      * Shutdown the routes using a specified timeout instead of the default timeout values      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @param timeout   timeout      * @param timeUnit  the unit to use      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
+DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
+name|void
+name|shutdown
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *      * @param timeout timeout      */
 DECL|method|setTimeout (long timeout)
 name|void
 name|setTimeout
