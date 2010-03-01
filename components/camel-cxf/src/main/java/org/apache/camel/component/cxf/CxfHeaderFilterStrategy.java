@@ -328,6 +328,14 @@ argument_list|(
 literal|"content-type"
 argument_list|)
 expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"Content-Type"
+argument_list|)
+expr_stmt|;
 comment|// Filter out Content-Length since it can fool Jetty (HttpGenerator) to
 comment|// close response output stream prematurely.  (It occurs when the
 comment|// message size (e.g. with attachment) is large and response content length
