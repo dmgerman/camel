@@ -1355,7 +1355,7 @@ name|shutdown
 condition|)
 block|{
 comment|// if we are to shutdown then check whether we can suspend instead as its a more
-comment|// gentle wat to graceful shutdown
+comment|// gentle way to graceful shutdown
 comment|// some consumers do not support shutting down so let them decide
 comment|// if a consumer is suspendable then prefer to use that and then shutdown later
 if|if

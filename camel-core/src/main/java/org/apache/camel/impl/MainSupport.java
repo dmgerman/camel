@@ -547,7 +547,7 @@ literal|"d"
 argument_list|,
 literal|"duration"
 argument_list|,
-literal|"Sets the time duration that the applicaiton will run for, by default in milliseconds. You can use '10s' for 10 seconds etc"
+literal|"Sets the time duration that the application will run for, by default in milliseconds. You can use '10s' for 10 seconds etc"
 argument_list|,
 literal|"duration"
 argument_list|)
@@ -723,8 +723,13 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-comment|// while running then just log errors
+name|afterStart
+argument_list|()
+expr_stmt|;
 name|waitUntilCompleted
+argument_list|()
+expr_stmt|;
+name|beforeStop
 argument_list|()
 expr_stmt|;
 name|stop
@@ -737,6 +742,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// while running then just log errors
 name|LOG
 operator|.
 name|error
@@ -750,6 +756,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Callback to run custom logic after CamelContext has been started      */
+DECL|method|afterStart ()
+specifier|protected
+name|void
+name|afterStart
+parameter_list|()
+block|{
+comment|// noop
+block|}
+comment|/**      * Callback to run custom logic before CamelContext is being stopped      */
+DECL|method|beforeStop ()
+specifier|protected
+name|void
+name|beforeStop
+parameter_list|()
+block|{
+comment|// noop
 block|}
 comment|/**      * Marks this process as being completed      */
 DECL|method|completed ()
@@ -1466,7 +1490,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Can't find any Camel Context from the Application Context. Please check your Application Context setting"
+literal|"Cannot find any Camel Context from the Application Context. Please check your Application Context setting"
 argument_list|)
 throw|;
 block|}
@@ -1543,7 +1567,7 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|postProcesCamelContext
+name|postProcessCamelContext
 argument_list|(
 name|camelContext
 argument_list|)
@@ -1784,10 +1808,10 @@ name|answer
 return|;
 block|}
 block|}
-DECL|method|postProcesCamelContext (CamelContext camelContext)
+DECL|method|postProcessCamelContext (CamelContext camelContext)
 specifier|protected
 name|void
-name|postProcesCamelContext
+name|postProcessCamelContext
 parameter_list|(
 name|CamelContext
 name|camelContext
