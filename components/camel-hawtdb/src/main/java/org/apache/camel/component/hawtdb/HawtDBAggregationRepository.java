@@ -351,6 +351,11 @@ specifier|private
 name|boolean
 name|sync
 decl_stmt|;
+DECL|field|returnOldExchange
+specifier|private
+name|boolean
+name|returnOldExchange
+decl_stmt|;
 DECL|field|keyMarshaller
 specifier|private
 name|Marshaller
@@ -641,8 +646,22 @@ return|return
 literal|null
 return|;
 block|}
-comment|// we can improve performance by not returning the old when adding
-comment|// return unmarshallExchange(camelContext, rc);
+comment|// only return old exchange if enabled
+if|if
+condition|(
+name|isReturnOldExchange
+argument_list|()
+condition|)
+block|{
+return|return
+name|unmarshallExchange
+argument_list|(
+name|camelContext
+argument_list|,
+name|rc
+argument_list|)
+return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1272,6 +1291,32 @@ operator|.
 name|sync
 operator|=
 name|sync
+expr_stmt|;
+block|}
+DECL|method|isReturnOldExchange ()
+specifier|public
+name|boolean
+name|isReturnOldExchange
+parameter_list|()
+block|{
+return|return
+name|returnOldExchange
+return|;
+block|}
+DECL|method|setReturnOldExchange (boolean returnOldExchange)
+specifier|public
+name|void
+name|setReturnOldExchange
+parameter_list|(
+name|boolean
+name|returnOldExchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|returnOldExchange
+operator|=
+name|returnOldExchange
 expr_stmt|;
 block|}
 annotation|@

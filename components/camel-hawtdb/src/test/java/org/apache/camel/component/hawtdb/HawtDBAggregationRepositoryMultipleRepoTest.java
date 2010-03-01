@@ -197,6 +197,13 @@ argument_list|(
 literal|"repo1"
 argument_list|)
 expr_stmt|;
+name|repo1
+operator|.
+name|setReturnOldExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|HawtDBAggregationRepository
 argument_list|<
 name|String
@@ -222,6 +229,13 @@ operator|.
 name|setRepositoryName
 argument_list|(
 literal|"repo2"
+argument_list|)
+expr_stmt|;
+name|repo2
+operator|.
+name|setReturnOldExchange
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Can't get something we have not put in...

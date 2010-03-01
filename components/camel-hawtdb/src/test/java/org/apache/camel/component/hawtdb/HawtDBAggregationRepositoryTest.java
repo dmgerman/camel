@@ -197,6 +197,13 @@ argument_list|(
 literal|"repo1"
 argument_list|)
 expr_stmt|;
+name|repo
+operator|.
+name|setReturnOldExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// Can't get something we have not put in...
 name|Exchange
 name|actual
