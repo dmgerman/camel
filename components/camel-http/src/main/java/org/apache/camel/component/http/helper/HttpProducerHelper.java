@@ -342,7 +342,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't anylze the Exchange.HTTP_PATH header, due to: can't find the right HTTP_BASE_URI"
+literal|"Cannot analyze the Exchange.HTTP_PATH header, due to: cannot find the right HTTP_BASE_URI"
 argument_list|)
 throw|;
 block|}
@@ -357,7 +357,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't anylze the Exchange.HTTP_PATH header, due to: "
+literal|"Cannot analyze the Exchange.HTTP_PATH header, due to: "
 operator|+
 name|t
 operator|.
