@@ -348,6 +348,22 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|getFile
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"A file must be configured"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled

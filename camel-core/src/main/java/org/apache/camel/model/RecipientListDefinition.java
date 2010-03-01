@@ -594,6 +594,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(

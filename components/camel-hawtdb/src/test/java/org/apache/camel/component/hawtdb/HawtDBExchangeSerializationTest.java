@@ -195,14 +195,14 @@ argument_list|()
 decl_stmt|;
 name|repo
 operator|.
-name|setFile
+name|setHawtDBFile
 argument_list|(
 name|hawtDBFile
 argument_list|)
 expr_stmt|;
 name|repo
 operator|.
-name|setName
+name|setRepositoryName
 argument_list|(
 literal|"repo1"
 argument_list|)
