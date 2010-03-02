@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|dojox
-operator|.
-name|cometd
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -103,6 +93,16 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|cometd
+operator|.
+name|Client
 import|;
 end_import
 
