@@ -91,7 +91,7 @@ specifier|final
 name|String
 name|URI
 init|=
-literal|"cometd://127.0.0.1:9091/service/test?resourceBase=./src/test/resources/webapp&"
+literal|"cometd://127.0.0.1:9091/service/test?baseResource=file:./src/test/resources/webapp&"
 operator|+
 literal|"timeout=240000&interval=0&maxInterval=30000&multiFrameInterval=1500&jsonCommented=true&logLevel=2"
 decl_stmt|;
@@ -102,7 +102,7 @@ specifier|final
 name|String
 name|URIS
 init|=
-literal|"cometds://127.0.0.1:9443/service/test?resourceBase=./src/test/resources/webapp&"
+literal|"cometds://127.0.0.1:9443/service/test?baseResource=file:./src/test/resources/webapp&"
 operator|+
 literal|"timeout=240000&interval=0&maxInterval=30000&multiFrameInterval=1500&jsonCommented=true&logLevel=2"
 decl_stmt|;

@@ -124,10 +124,10 @@ name|CometdEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|resourceBase
+DECL|field|baseResource
 specifier|private
 name|String
-name|resourceBase
+name|baseResource
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -447,30 +447,30 @@ return|return
 name|uri
 return|;
 block|}
-DECL|method|getResourceBase ()
+DECL|method|getBaseResource ()
 specifier|public
 name|String
-name|getResourceBase
+name|getBaseResource
 parameter_list|()
 block|{
 return|return
-name|resourceBase
+name|baseResource
 return|;
 block|}
-DECL|method|setResourceBase (String resourceBase)
+DECL|method|setBaseResource (String baseResource)
 specifier|public
 name|void
-name|setResourceBase
+name|setBaseResource
 parameter_list|(
 name|String
-name|resourceBase
+name|baseResource
 parameter_list|)
 block|{
 name|this
 operator|.
-name|resourceBase
+name|baseResource
 operator|=
-name|resourceBase
+name|baseResource
 expr_stmt|;
 block|}
 DECL|method|getTimeout ()
