@@ -396,7 +396,7 @@ argument_list|()
 expr_stmt|;
 name|pageFile
 operator|=
-name|getConcurrentPageFile
+name|getHawtPageFile
 argument_list|()
 expr_stmt|;
 name|execute
