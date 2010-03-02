@@ -527,6 +527,7 @@ name|from
 argument_list|(
 literal|"direct:camelClient"
 argument_list|)
+comment|//
 operator|.
 name|onException
 argument_list|(
@@ -534,16 +535,19 @@ name|NoSuchCustomerException
 operator|.
 name|class
 argument_list|)
+comment|//
 operator|.
 name|handled
 argument_list|(
 literal|true
 argument_list|)
+comment|//
 operator|.
 name|unmarshal
 argument_list|(
 name|soapDataFormat
 argument_list|)
+comment|//
 operator|.
 name|end
 argument_list|()
