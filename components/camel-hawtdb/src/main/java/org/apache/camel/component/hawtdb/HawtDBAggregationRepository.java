@@ -518,7 +518,7 @@ operator|=
 name|repositoryName
 expr_stmt|;
 block|}
-DECL|method|add (CamelContext camelContext, K key, Exchange exchange)
+DECL|method|add (CamelContext camelContext, final K key, Exchange exchange)
 specifier|public
 name|Exchange
 name|add
@@ -526,6 +526,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
+specifier|final
 name|K
 name|key
 parameter_list|,
@@ -632,6 +633,21 @@ name|exchangeBuffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Adding key ["
+operator|+
+name|key
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -689,7 +705,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|get (CamelContext camelContext, K key)
+DECL|method|get (CamelContext camelContext, final K key)
 specifier|public
 name|Exchange
 name|get
@@ -697,6 +713,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
+specifier|final
 name|K
 name|key
 parameter_list|)
@@ -763,6 +780,21 @@ name|get
 argument_list|(
 name|keyBuffer
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Getting key ["
+operator|+
+name|key
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
@@ -834,7 +866,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|remove (CamelContext camelContext, K key)
+DECL|method|remove (CamelContext camelContext, final K key)
 specifier|public
 name|void
 name|remove
@@ -842,6 +874,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
+specifier|final
 name|K
 name|key
 parameter_list|)
@@ -920,6 +953,21 @@ name|remove
 argument_list|(
 name|keyBuffer
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Removing key ["
+operator|+
+name|key
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

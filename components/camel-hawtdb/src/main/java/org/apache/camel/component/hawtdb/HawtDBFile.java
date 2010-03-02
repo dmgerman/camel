@@ -567,12 +567,15 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Executing work "
+literal|"Executing work +++ start +++ "
 operator|+
 name|work
 argument_list|)
 expr_stmt|;
 block|}
+name|T
+name|answer
+decl_stmt|;
 name|Transaction
 name|tx
 init|=
@@ -583,24 +586,20 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|T
-name|rc
-init|=
+name|answer
+operator|=
 name|work
 operator|.
 name|execute
 argument_list|(
 name|tx
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|tx
 operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-return|return
-name|rc
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -608,6 +607,28 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error executing work "
+operator|+
+name|work
+operator|+
+literal|" will do rollback."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|tx
+operator|.
+name|rollback
+argument_list|()
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -620,25 +641,15 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Error executing work "
+literal|"Executing work +++ done  +++ "
 operator|+
 name|work
-operator|+
-literal|" will do rollback"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|tx
-operator|.
-name|rollback
-argument_list|()
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|getRepositoryIndex (Transaction tx, String name)
 specifier|public
@@ -657,6 +668,14 @@ name|String
 name|name
 parameter_list|)
 block|{
+name|Index
+argument_list|<
+name|Buffer
+argument_list|,
+name|Buffer
+argument_list|>
+name|answer
+decl_stmt|;
 name|Index
 argument_list|<
 name|String
@@ -754,9 +773,10 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|answer
+operator|=
 name|created
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -782,7 +802,8 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|answer
+operator|=
 name|INDEX_FACTORY
 operator|.
 name|open
@@ -791,8 +812,33 @@ name|tx
 argument_list|,
 name|location
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Repository index with name "
+operator|+
+name|name
+operator|+
+literal|" -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
 block|}
 block|}
 end_class
