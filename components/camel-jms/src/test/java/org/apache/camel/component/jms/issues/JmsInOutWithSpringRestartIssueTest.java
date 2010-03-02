@@ -40,9 +40,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
 import|;
 end_import
 
@@ -94,7 +96,7 @@ specifier|public
 class|class
 name|JmsInOutWithSpringRestartIssueTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Override

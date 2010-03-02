@@ -54,9 +54,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -98,7 +110,7 @@ specifier|public
 class|class
 name|BeanConsumerIssueTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -114,6 +126,8 @@ literal|"org/apache/camel/component/jms/issues/BeanConsumerIssue.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCollectMessages ()
 specifier|public
 name|void

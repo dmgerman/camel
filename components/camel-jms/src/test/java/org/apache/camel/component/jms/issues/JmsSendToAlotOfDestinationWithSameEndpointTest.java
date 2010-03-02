@@ -56,9 +56,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
 import|;
 end_import
 
@@ -140,7 +142,7 @@ specifier|public
 class|class
 name|JmsSendToAlotOfDestinationWithSameEndpointTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
 DECL|field|LOG
 specifier|private
