@@ -924,7 +924,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Using the org.apache.camel.spring.javaconfig.Main to initate a camel context"
+literal|"Using the org.apache.camel.spring.javaconfig.Main to initiate a CamelContext"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1126,6 +1126,41 @@ name|e
 parameter_list|)
 block|{
 comment|// just pass it on
+comment|// let it be printed so end users can see the exception on the console
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Error occurred while running main from: "
+operator|+
+name|mainClass
+argument_list|)
+expr_stmt|;
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|currentThread
