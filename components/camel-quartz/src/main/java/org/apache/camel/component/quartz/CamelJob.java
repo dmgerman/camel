@@ -72,7 +72,7 @@ throws|throws
 name|JobExecutionException
 block|{
 name|QuartzEndpoint
-name|component
+name|endpoint
 init|=
 operator|(
 name|QuartzEndpoint
@@ -94,7 +94,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|component
+name|endpoint
 operator|==
 literal|null
 condition|)
@@ -111,7 +111,7 @@ name|QUARTZ_ENDPOINT
 argument_list|)
 throw|;
 block|}
-name|component
+name|endpoint
 operator|.
 name|onJobExecute
 argument_list|(
