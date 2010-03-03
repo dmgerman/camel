@@ -361,9 +361,12 @@ name|MyHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
+comment|// From camel 2.3.0, we added a new parameter responseCode into doWriteExceptionResponse method
+comment|// If the camel version is below camel 2.3.0, please still use below method
+comment|// public void doWriteExceptionResponse(Throwable exception, HttpServletResponse response) throws IOException
 annotation|@
 name|Override
-DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response)
+DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response, int responseCode)
 specifier|public
 name|void
 name|doWriteExceptionResponse
@@ -373,6 +376,9 @@ name|exception
 parameter_list|,
 name|HttpServletResponse
 name|response
+parameter_list|,
+name|int
+name|responseCode
 parameter_list|)
 throws|throws
 name|IOException
