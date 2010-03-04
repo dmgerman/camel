@@ -349,7 +349,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param uri  the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param uri     the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchEndpoint (String uri, String pattern)
 specifier|public
 specifier|static
@@ -433,7 +433,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|doMatchEndpoint
+name|matchPattern
 argument_list|(
 name|scheme
 operator|+
@@ -479,7 +479,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|doMatchEndpoint
+name|matchPattern
 argument_list|(
 name|scheme
 operator|+
@@ -498,7 +498,7 @@ block|}
 block|}
 comment|// and fallback to test with the uri as is
 return|return
-name|doMatchEndpoint
+name|matchPattern
 argument_list|(
 name|uri
 argument_list|,
@@ -506,14 +506,15 @@ name|pattern
 argument_list|)
 return|;
 block|}
-DECL|method|doMatchEndpoint (String uri, String pattern)
-specifier|private
+comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+DECL|method|matchPattern (String name, String pattern)
+specifier|public
 specifier|static
 name|boolean
-name|doMatchEndpoint
+name|matchPattern
 parameter_list|(
 name|String
-name|uri
+name|name
 parameter_list|,
 name|String
 name|pattern
@@ -521,7 +522,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|uri
+name|name
 operator|.
 name|equals
 argument_list|(
@@ -544,7 +545,7 @@ argument_list|(
 literal|"*"
 argument_list|)
 operator|&&
-name|uri
+name|name
 operator|.
 name|startsWith
 argument_list|(
@@ -573,7 +574,7 @@ try|try
 block|{
 if|if
 condition|(
-name|uri
+name|name
 operator|.
 name|matches
 argument_list|(
@@ -599,7 +600,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Sets the regular properties on the given bean      *      * @param context the camel context      * @param bean the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
+comment|/**      * Sets the regular properties on the given bean      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
 DECL|method|setProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
@@ -638,7 +639,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      *      * @param context the camel context      * @param bean the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
+comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
 DECL|method|setReferenceProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
@@ -860,7 +861,7 @@ literal|"#"
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference parameter by making a lookup in the registry.      *       * @param<T> type of object to lookup.      * @param context Camel context to use for lookup.      * @param value reference parameter value.      * @param type type of object to lookup.      * @return lookup result.       * @throws IllegalArgumentException if referenced object was not found in       *         registry.      */
+comment|/**      * Resolves a reference parameter by making a lookup in the registry.      *      * @param<T>     type of object to lookup.      * @param context Camel context to use for lookup.      * @param value   reference parameter value.      * @param type    type of object to lookup.      * @return lookup result.      * @throws IllegalArgumentException if referenced object was not found in registry.      */
 DECL|method|resolveReferenceParameter (CamelContext context, String value, Class<T> type)
 specifier|public
 specifier|static
@@ -896,7 +897,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference parameter by making a lookup in the registry.      *       * @param<T> type of object to lookup.      * @param context Camel context to use for lookup.      * @param value reference parameter value.      * @param type type of object to lookup.      * @return lookup result (or<code>null</code> only if       *<code>mandatory</code> is<code>false</code>).       * @throws IllegalArgumentException if object was not found in registry and       *<code>mandatory</code> is<code>true</code>.      */
+comment|/**      * Resolves a reference parameter by making a lookup in the registry.      *      * @param<T>     type of object to lookup.      * @param context Camel context to use for lookup.      * @param value   reference parameter value.      * @param type    type of object to lookup.      * @return lookup result (or<code>null</code> only if      *<code>mandatory</code> is<code>false</code>).      * @throws IllegalArgumentException if object was not found in registry and      *<code>mandatory</code> is<code>true</code>.      */
 DECL|method|resolveReferenceParameter (CamelContext context, String value, Class<T> type, boolean mandatory)
 specifier|public
 specifier|static
@@ -968,7 +969,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Resolves a reference list parameter by making lookups in the registry.      * The parameter value must be one of the following:      *<ul>      *<li>a comma-separated list of references to beans of type T</li>      *<li>a single reference to a bean type T</li>      *<li>a single reference to a bean of type java.util.List</li>      *</ul>      *       * @param context      *            Camel context to use for lookup.      * @param value      *            reference parameter value.      * @param elementType      *            result list element type.      * @return list of lookup results.      * @throws IllegalArgumentException if any referenced object was not found       *         in registry.      */
+comment|/**      * Resolves a reference list parameter by making lookups in the registry.      * The parameter value must be one of the following:      *<ul>      *<li>a comma-separated list of references to beans of type T</li>      *<li>a single reference to a bean type T</li>      *<li>a single reference to a bean of type java.util.List</li>      *</ul>      *      * @param context     Camel context to use for lookup.      * @param value       reference parameter value.      * @param elementType result list element type.      * @return list of lookup results.      * @throws IllegalArgumentException if any referenced object was not found in registry.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

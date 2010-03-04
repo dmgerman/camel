@@ -171,6 +171,15 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the headers from this message      *      * @param pattern pattern of names      * @return boolean whether any headers was removed      */
+DECL|method|removeHeaders (String pattern)
+name|boolean
+name|removeHeaders
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all of the headers associated with the message      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
