@@ -190,7 +190,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|250
 argument_list|)
 expr_stmt|;
 name|template

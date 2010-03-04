@@ -42,20 +42,20 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a copy of the keys in the map      */
+comment|/**      * Returns a copy of the keys in the map      *      * @return the keys      */
 DECL|method|getKeys ()
 name|Object
 index|[]
 name|getKeys
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the size of the map      */
+comment|/**      * Returns the size of the map      *      * @return the size      */
 DECL|method|size ()
 name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      */
+comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      *      * @param key   the key      * @param value the value      * @param timeoutMillis  timeout in millis      */
 DECL|method|put (K key, V value, long timeoutMillis)
 name|void
 name|put
@@ -68,6 +68,18 @@ name|value
 parameter_list|,
 name|long
 name|timeoutMillis
+parameter_list|)
+function_decl|;
+comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      */
+DECL|method|onEviction (K key, V value)
+name|void
+name|onEviction
+parameter_list|(
+name|K
+name|key
+parameter_list|,
+name|V
+name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      */
