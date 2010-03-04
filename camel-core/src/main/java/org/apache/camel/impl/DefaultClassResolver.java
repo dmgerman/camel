@@ -161,12 +161,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|answer
 return|;
 block|}

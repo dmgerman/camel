@@ -643,6 +643,39 @@ literal|"Hello Just testing World"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyAs ()
+specifier|public
+name|void
+name|testBodyAs
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${bodyAs(String)}"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|456
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bodyAs(Integer)}"
+argument_list|,
+literal|456
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testIllegalSyntax ()
 specifier|public
 name|void
@@ -707,6 +740,38 @@ block|{
 name|assertEquals
 argument_list|(
 literal|"Illegal syntax: xxx"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${bodyAs(xxx}"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ExpressionIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Illegal syntax: Valid syntax: ${bodyAs(type)} was: bodyAs(xxx"
 argument_list|,
 name|e
 operator|.
