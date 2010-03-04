@@ -171,7 +171,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the headers from this message      *      * @param pattern pattern of names      * @return boolean whether any headers was removed      */
+comment|/**      * Removes the headers from this message      *      * @param pattern pattern of names      * @return boolean whether any headers matched      */
 DECL|method|removeHeaders (String pattern)
 name|boolean
 name|removeHeaders
