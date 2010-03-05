@@ -193,12 +193,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"https://"
-operator|+
-name|getHostName
-argument_list|()
-operator|+
-literal|":"
+literal|"https://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
