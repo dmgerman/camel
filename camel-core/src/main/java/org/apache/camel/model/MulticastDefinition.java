@@ -208,6 +208,11 @@ name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
 argument_list|>
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|MulticastDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
@@ -420,7 +425,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the multicasting action.      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|MulticastDefinition
@@ -439,7 +448,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the sending to the recipients.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|MulticastDefinition

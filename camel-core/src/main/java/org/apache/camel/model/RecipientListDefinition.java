@@ -259,6 +259,11 @@ class|class
 name|RecipientListDefinition
 extends|extends
 name|ExpressionNode
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|RecipientListDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -755,7 +760,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the sending to the recipients.      *      * @param executorService the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|RecipientListDefinition
@@ -774,7 +783,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the sending to the recipients.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|RecipientListDefinition

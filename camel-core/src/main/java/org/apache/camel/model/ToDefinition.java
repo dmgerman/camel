@@ -240,6 +240,11 @@ name|SendDefinition
 argument_list|<
 name|ToDefinition
 argument_list|>
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|ToDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -445,6 +450,8 @@ name|routeContext
 argument_list|)
 return|;
 block|}
+comment|// this code below is only for creating when async is enabled
+comment|// ----------------------------------------------------------
 if|if
 condition|(
 name|executorServiceRef
@@ -465,6 +472,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -762,7 +788,30 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-comment|/**      * Setting the executor service for executing the async routing.      *      * @return the builder      */
+comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
+DECL|method|pattern (ExchangePattern pattern)
+specifier|public
+name|ToDefinition
+name|pattern
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
+block|{
+name|setPattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ToDefinition
@@ -781,7 +830,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the async routing.      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ToDefinition

@@ -330,6 +330,11 @@ name|ProcessorDefinition
 argument_list|<
 name|AggregateDefinition
 argument_list|>
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|AggregateDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlElement
@@ -2100,7 +2105,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the sending the aggregated output.      *      * @param executorService the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -2119,7 +2128,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the sending the aggregated output.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition

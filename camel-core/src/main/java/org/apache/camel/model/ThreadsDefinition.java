@@ -208,6 +208,11 @@ name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
 argument_list|>
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|ThreadsDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -390,7 +395,11 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Setting the executor service for the thread pool      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThreadsDefinition
@@ -409,7 +418,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for the thread pool      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ThreadsDefinition

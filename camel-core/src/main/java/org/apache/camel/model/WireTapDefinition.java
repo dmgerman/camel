@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -204,6 +216,11 @@ name|SendDefinition
 argument_list|<
 name|WireTapDefinition
 argument_list|>
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -243,6 +260,25 @@ DECL|field|newExchangeExpression
 specifier|private
 name|ExpressionSubElementDefinition
 name|newExchangeExpression
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|executorServiceRef
+specifier|private
+name|String
+name|executorServiceRef
 decl_stmt|;
 DECL|method|WireTapDefinition ()
 specifier|public
@@ -358,6 +394,53 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|executorServiceRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+name|routeContext
+operator|.
+name|lookup
+argument_list|(
+name|executorServiceRef
+argument_list|,
+name|ExecutorService
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
+block|}
+name|answer
+operator|.
+name|setExecutorService
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
@@ -402,6 +485,54 @@ block|{
 return|return
 literal|"wireTap"
 return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|executorService (ExecutorService executorService)
+specifier|public
+name|ProcessorDefinition
+name|executorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+comment|// wiretap has no outputs and therefore we cannot use custom wiretap builder methods in Java DSL
+comment|// as the Java DSL is stretched so far we can using regular Java
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"wireTap does not support these builder methods"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|executorServiceRef (String executorServiceRef)
+specifier|public
+name|ProcessorDefinition
+name|executorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+comment|// wiretap has no outputs and therefore we cannot use custom wiretap builder methods in Java DSL
+comment|// as the Java DSL is stretched so far we can using regular Java
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"wireTap does not support these builder methods"
+argument_list|)
+throw|;
 block|}
 DECL|method|getNewExchangeProcessor ()
 specifier|public
@@ -499,6 +630,58 @@ name|ExpressionSubElementDefinition
 argument_list|(
 name|expression
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 block|}

@@ -253,6 +253,11 @@ class|class
 name|SplitDefinition
 extends|extends
 name|ExpressionNode
+implements|implements
+name|ExecutorServiceAware
+argument_list|<
+name|SplitDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -696,7 +701,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the splitting action.      *      * @param executorService the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|SplitDefinition
@@ -715,7 +724,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor service for executing the splitting action.      *      * @param executorServiceRef reference to the executor service      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|SplitDefinition
