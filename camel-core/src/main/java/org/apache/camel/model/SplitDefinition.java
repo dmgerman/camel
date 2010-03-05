@@ -550,6 +550,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|executorService
+operator|==
+literal|null
+operator|&&
 name|executorServiceRef
 operator|!=
 literal|null
@@ -568,6 +572,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -576,14 +599,13 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// fall back and use default
 name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newCachedThreadPool
 argument_list|(
-literal|10
-argument_list|,
 literal|"Split"
 argument_list|,
 literal|true

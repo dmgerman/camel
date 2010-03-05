@@ -507,10 +507,8 @@ name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newThreadPool
 argument_list|(
-name|poolSize
-argument_list|,
 literal|"ToAsync["
 operator|+
 name|getLabel
@@ -518,7 +516,9 @@ argument_list|()
 operator|+
 literal|"]"
 argument_list|,
-literal|true
+name|poolSize
+argument_list|,
+name|poolSize
 argument_list|)
 expr_stmt|;
 block|}

@@ -132,15 +132,6 @@ name|DelegateProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|DEFAULT_THREADPOOL_SIZE
-specifier|protected
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_THREADPOOL_SIZE
-init|=
-literal|10
-decl_stmt|;
 DECL|field|executorService
 specifier|protected
 name|ExecutorService
@@ -451,10 +442,8 @@ block|{
 return|return
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newCachedThreadPool
 argument_list|(
-name|DEFAULT_THREADPOOL_SIZE
-argument_list|,
 literal|"Threads"
 argument_list|,
 literal|true

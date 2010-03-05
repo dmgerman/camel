@@ -276,6 +276,10 @@ name|Exception
 block|{
 if|if
 condition|(
+name|executorService
+operator|==
+literal|null
+operator|&&
 name|executorServiceRef
 operator|!=
 literal|null
@@ -294,6 +298,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -310,13 +333,13 @@ name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newThreadPool
 argument_list|(
-name|poolSize
-argument_list|,
 literal|"Threads"
 argument_list|,
-literal|true
+name|poolSize
+argument_list|,
+name|poolSize
 argument_list|)
 expr_stmt|;
 block|}

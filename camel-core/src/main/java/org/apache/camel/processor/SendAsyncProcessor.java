@@ -626,7 +626,7 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The producer is<b>not</b> capable of async processing so lets simulate this by transfering the task      * to another {@link ExecutorService} for async processing.      *      * @param producer the producer      * @param exchange the exchange      * @param callback the callback      *      * @throws Exception can be thrown in case of processing errors      */
+comment|/**      * The producer is<b>not</b> capable of async processing so lets simulate this by transferring the task      * to another {@link ExecutorService} for async processing.      *      * @param producer the producer      * @param exchange the exchange      * @param callback the callback      *      * @throws Exception can be thrown in case of processing errors      */
 DECL|method|doSimulateAsyncProcess (final Processor producer, final Exchange exchange, final AsyncCallback callback)
 specifier|protected
 name|void
@@ -813,9 +813,15 @@ condition|)
 block|{
 name|executorService
 operator|=
-name|createExecutorService
+name|ExecutorServiceHelper
+operator|.
+name|newThreadPool
 argument_list|(
 literal|"SendAsyncProcessor-Consumer"
+argument_list|,
+name|poolSize
+argument_list|,
+name|poolSize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1157,28 +1163,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-DECL|method|createExecutorService (String name)
-specifier|protected
-name|ExecutorService
-name|createExecutorService
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|ExecutorServiceHelper
-operator|.
-name|newScheduledThreadPool
-argument_list|(
-name|poolSize
-argument_list|,
-name|name
-argument_list|,
-literal|true
-argument_list|)
-return|;
 block|}
 DECL|method|doStart ()
 specifier|protected

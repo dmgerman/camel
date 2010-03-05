@@ -2229,15 +2229,13 @@ name|isParallelProcessing
 argument_list|()
 condition|)
 block|{
-comment|// we are running in parallel so create a default thread pool
+comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
 name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newFixedThreadPool
+name|newCachedThreadPool
 argument_list|(
-literal|10
-argument_list|,
 literal|"Aggregator"
 argument_list|,
 literal|true
@@ -2251,10 +2249,8 @@ name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newFixedThreadPool
+name|newSingleThreadExecutor
 argument_list|(
-literal|1
-argument_list|,
 literal|"Aggregator"
 argument_list|,
 literal|true
@@ -2290,6 +2286,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// check for timed out aggregated messages once every second
 name|timeoutMap
 operator|=
 operator|new

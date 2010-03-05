@@ -194,15 +194,6 @@ name|WireTapProcessor
 extends|extends
 name|SendProcessor
 block|{
-DECL|field|DEFAULT_THREADPOOL_SIZE
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_THREADPOOL_SIZE
-init|=
-literal|10
-decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
@@ -722,7 +713,7 @@ name|executorService
 return|;
 block|}
 DECL|method|createExecutorService ()
-specifier|private
+specifier|protected
 name|ExecutorService
 name|createExecutorService
 parameter_list|()
@@ -730,10 +721,8 @@ block|{
 return|return
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newCachedThreadPool
 argument_list|(
-name|DEFAULT_THREADPOOL_SIZE
-argument_list|,
 name|this
 operator|.
 name|toString

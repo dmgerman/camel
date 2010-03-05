@@ -497,7 +497,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newScheduledThreadPool
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 literal|"foo"
 argument_list|,

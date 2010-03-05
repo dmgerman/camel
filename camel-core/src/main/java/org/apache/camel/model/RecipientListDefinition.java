@@ -631,10 +631,8 @@ name|executorService
 operator|=
 name|ExecutorServiceHelper
 operator|.
-name|newScheduledThreadPool
+name|newCachedThreadPool
 argument_list|(
-literal|10
-argument_list|,
 literal|"RecipientList"
 argument_list|,
 literal|true
