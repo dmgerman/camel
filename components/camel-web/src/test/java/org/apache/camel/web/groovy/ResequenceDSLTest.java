@@ -79,7 +79,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:start\").resequencer(header(\"seqnum\")).stream().to(\"mock:result\")"
+literal|"from(\"direct:start\").resequence(header(\"seqnum\")).stream().to(\"mock:result\")"
 decl_stmt|;
 name|String
 name|expected
