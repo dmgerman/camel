@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spring
 operator|.
 name|processor
 package|;
@@ -24,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelContext
 import|;
 end_import
 
@@ -36,100 +38,53 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
 operator|.
-name|RouteBuilder
+name|ThreadsDefaultTest
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version $Revision$  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
 
 begin_class
-DECL|class|ThreadsDefaultTest
+DECL|class|SpringThreadsThreadPoolFactoryBeanTest
 specifier|public
 class|class
-name|ThreadsDefaultTest
+name|SpringThreadsThreadPoolFactoryBeanTest
 extends|extends
-name|ContextTestSupport
+name|ThreadsDefaultTest
 block|{
-DECL|method|testThreadsDefault ()
-specifier|public
-name|void
-name|testThreadsDefault
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
+name|createSpringCamelContext
 argument_list|(
-literal|"direct:start"
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/ThreadsThreadPoolFactoryBeanTest.xml"
 argument_list|)
-comment|// will use a cached thread pool which can grown/shrink
-operator|.
-name|threads
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"log:foo"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 return|;
 block|}
 block|}

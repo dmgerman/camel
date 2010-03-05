@@ -177,6 +177,11 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
+name|threadName
+argument_list|(
+literal|"myPool"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

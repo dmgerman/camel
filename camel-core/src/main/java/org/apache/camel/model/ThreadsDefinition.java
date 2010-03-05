@@ -345,6 +345,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|threadName
+specifier|private
+name|String
+name|threadName
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|waitForTaskToComplete
 specifier|private
 name|WaitForTaskToComplete
@@ -418,6 +430,19 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|name
+init|=
+name|getThreadName
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getThreadName
+argument_list|()
+else|:
+literal|"Threads"
+decl_stmt|;
 if|if
 condition|(
 name|poolSize
@@ -436,7 +461,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newCachedThreadPool
 argument_list|(
-literal|"Threads"
+name|name
 argument_list|,
 literal|true
 argument_list|)
@@ -464,7 +489,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newThreadPool
 argument_list|(
-literal|"Threads"
+name|name
 argument_list|,
 name|poolSize
 argument_list|,
@@ -678,6 +703,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread name to use.      *      * @param threadName the thread name      * @return the builder      */
+DECL|method|threadName (String threadName)
+specifier|public
+name|ThreadsDefinition
+name|threadName
+parameter_list|(
+name|String
+name|threadName
+parameter_list|)
+block|{
+name|setThreadName
+argument_list|(
+name|threadName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>IfReplyExpected</tt>      *      * @param wait the wait option      * @return the builder      */
 DECL|method|waitForTaskToComplete (WaitForTaskToComplete wait)
 specifier|public
@@ -877,6 +921,32 @@ operator|.
 name|units
 operator|=
 name|units
+expr_stmt|;
+block|}
+DECL|method|getThreadName ()
+specifier|public
+name|String
+name|getThreadName
+parameter_list|()
+block|{
+return|return
+name|threadName
+return|;
+block|}
+DECL|method|setThreadName (String threadName)
+specifier|public
+name|void
+name|setThreadName
+parameter_list|(
+name|String
+name|threadName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadName
+operator|=
+name|threadName
 expr_stmt|;
 block|}
 block|}
