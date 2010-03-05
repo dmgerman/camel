@@ -2977,7 +2977,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * The caller thread will either wait for the async route      * to complete or imeddiately continue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default<tt>Always</tt> wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>Configuring the<tt>waitForTaskToComplete</tt> option</li>      *<li>Provide an IN header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT} with the      * value containing a type {@link org.apache.camel.WaitForTaskToComplete}. The header will take precedence, if provided.</li>      *</ul>      *      * @return the builder      */
+comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * The caller thread will either wait for the async route      * to complete or immediately continue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default<tt>Always</tt> wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>Configuring the<tt>waitForTaskToComplete</tt> option</li>      *<li>Provide an IN header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT} with the      * value containing a type {@link org.apache.camel.WaitForTaskToComplete}. The header will take precedence, if provided.</li>      *</ul>      *<p/>      * If no<tt>corePoolSize</tt> is set then a default CachedExecutorService is used which automatic grown and shrinks.      * If no<tt>maxPoolSize</tt> is set, then the<tt>corePoolSize</tt> is used as max.      *      * @return the builder      */
 DECL|method|threads ()
 specifier|public
 name|ThreadsDefinition
@@ -3000,7 +3000,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * See {@link #threads()} for more details.      *      * @param poolSize the core pool size      * @return the builder      */
+comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * See {@link #threads()} for more details.      * If no<tt>maxPoolSize</tt> is set, then the<tt>corePoolSize</tt> is used as max.      *      * @param poolSize the core pool size      * @return the builder      */
 DECL|method|threads (int poolSize)
 specifier|public
 name|ThreadsDefinition
@@ -3021,6 +3021,43 @@ operator|.
 name|setPoolSize
 argument_list|(
 name|poolSize
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Leverages a thread pool for multi threading processing exchanges.      *<p/>      * See {@link #threads()} for more details.      *      * @param poolSize    the core pool size      * @param maxPoolSize the maximum pool size      * @return the builder      */
+DECL|method|threads (int poolSize, int maxPoolSize)
+specifier|public
+name|ThreadsDefinition
+name|threads
+parameter_list|(
+name|int
+name|poolSize
+parameter_list|,
+name|int
+name|maxPoolSize
+parameter_list|)
+block|{
+name|ThreadsDefinition
+name|answer
+init|=
+name|threads
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setPoolSize
+argument_list|(
+name|poolSize
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setMaxPoolSize
+argument_list|(
+name|maxPoolSize
 argument_list|)
 expr_stmt|;
 return|return

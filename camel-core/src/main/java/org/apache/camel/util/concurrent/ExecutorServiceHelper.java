@@ -476,7 +476,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param name          part of the thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool      *      * @param name          part of the thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
 DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, final boolean daemon)
 specifier|public
 specifier|static
@@ -504,6 +504,28 @@ name|boolean
 name|daemon
 parameter_list|)
 block|{
+comment|// validate max>= core
+if|if
+condition|(
+name|maxPoolSize
+operator|<
+name|corePoolSize
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"MaxPoolSize must be>= corePoolSize, was "
+operator|+
+name|maxPoolSize
+operator|+
+literal|">= "
+operator|+
+name|corePoolSize
+argument_list|)
+throw|;
+block|}
 name|ThreadPoolExecutor
 name|answer
 init|=
