@@ -939,6 +939,11 @@ init|=
 operator|new
 name|StreamResequencer
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|processor
 argument_list|,
 name|config

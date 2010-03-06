@@ -98,7 +98,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelContext
 import|;
 end_import
 
@@ -238,7 +238,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -252,9 +252,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -293,6 +291,12 @@ name|DELIVERY_ATTEMPT_INTERVAL
 init|=
 literal|1000L
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|exceptionHandler
 specifier|private
 specifier|final
@@ -325,10 +329,13 @@ name|int
 name|capacity
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param processor next processor that processes re-ordered exchanges.      * @param comparator a sequence element comparator for exchanges.      */
-DECL|method|StreamResequencer (Processor processor, SequenceElementComparator<Exchange> comparator)
+DECL|method|StreamResequencer (CamelContext camelContext, Processor processor, SequenceElementComparator<Exchange> comparator)
 specifier|public
 name|StreamResequencer
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -339,6 +346,21 @@ argument_list|>
 name|comparator
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|exceptionHandler
@@ -698,7 +720,10 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|ExecutorServiceHelper
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|getThreadName
 argument_list|(
