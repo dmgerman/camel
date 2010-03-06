@@ -1515,6 +1515,11 @@ return|return
 operator|new
 name|Pipeline
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|list
 argument_list|)
 return|;

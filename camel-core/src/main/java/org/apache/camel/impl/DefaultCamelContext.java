@@ -708,6 +708,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExecutorServiceStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -1584,7 +1598,9 @@ name|shutdownStrategy
 init|=
 operator|new
 name|DefaultShutdownStrategy
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|shutdownRoute
 specifier|private
@@ -1603,6 +1619,17 @@ init|=
 name|ShutdownRunningTask
 operator|.
 name|CompleteCurrentTaskOnly
+decl_stmt|;
+DECL|field|executorServiceStrategy
+specifier|private
+name|ExecutorServiceStrategy
+name|executorServiceStrategy
+init|=
+operator|new
+name|DefaultExecutorServiceStrategy
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -7628,6 +7655,32 @@ operator|.
 name|shutdownRunningTask
 operator|=
 name|shutdownRunningTask
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceStrategy ()
+specifier|public
+name|ExecutorServiceStrategy
+name|getExecutorServiceStrategy
+parameter_list|()
+block|{
+return|return
+name|executorServiceStrategy
+return|;
+block|}
+DECL|method|setExecutorServiceStrategy (ExecutorServiceStrategy executorServiceStrategy)
+specifier|public
+name|void
+name|setExecutorServiceStrategy
+parameter_list|(
+name|ExecutorServiceStrategy
+name|executorServiceStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceStrategy
+operator|=
+name|executorServiceStrategy
 expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)

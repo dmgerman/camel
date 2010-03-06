@@ -532,6 +532,11 @@ init|=
 operator|new
 name|OnCompletionProcessor
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|childProcessor
 argument_list|,
 name|onCompleteOnly

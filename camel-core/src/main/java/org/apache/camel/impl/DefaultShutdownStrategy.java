@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -258,22 +270,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -309,6 +305,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|ShutdownStrategy
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -326,6 +324,11 @@ name|DefaultShutdownStrategy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|executor
 specifier|private
@@ -357,6 +360,26 @@ name|shutdownNowOnTimeout
 init|=
 literal|true
 decl_stmt|;
+DECL|method|DefaultShutdownStrategy ()
+specifier|public
+name|DefaultShutdownStrategy
+parameter_list|()
+block|{     }
+DECL|method|DefaultShutdownStrategy (CamelContext camelContext)
+specifier|public
+name|DefaultShutdownStrategy
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|void
@@ -705,6 +728,32 @@ return|return
 name|shutdownNowOnTimeout
 return|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 comment|/**      * Shutdown all the consumers immediately.      *      * @param routes the routes to shutdown      */
 DECL|method|shutdownRoutesNow (List<RouteStartupOrder> routes)
 specifier|protected
@@ -1044,13 +1093,14 @@ condition|)
 block|{
 name|executor
 operator|=
-name|ExecutorServiceHelper
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
 literal|"ShutdownTask"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1067,7 +1117,17 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext must be set"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()

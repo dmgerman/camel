@@ -863,6 +863,9 @@ name|Pipeline
 operator|.
 name|newInstance
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|eventDrivenProcessors
 argument_list|)
 decl_stmt|;

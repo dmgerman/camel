@@ -42,6 +42,10 @@ name|ApplicationContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Helper to resolve {@link CamelContext} from the Spring {@link org.springframework.context.ApplicationContext}.  */
+end_comment
+
 begin_class
 DECL|class|CamelContextResolverHelper
 specifier|public
@@ -69,13 +73,9 @@ name|String
 name|contextId
 parameter_list|)
 block|{
-name|CamelContext
-name|answer
-decl_stmt|;
 try|try
 block|{
-name|answer
-operator|=
+return|return
 operator|(
 name|CamelContext
 operator|)
@@ -85,9 +85,6 @@ name|getBean
 argument_list|(
 name|contextId
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 catch|catch
@@ -100,11 +97,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't find the CamelContext with id "
+literal|"Cannot find the CamelContext with id "
 operator|+
 name|contextId
-operator|+
-literal|", the cause : "
 argument_list|,
 name|e
 argument_list|)

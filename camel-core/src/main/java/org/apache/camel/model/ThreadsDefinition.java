@@ -208,22 +208,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;threads/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -457,13 +441,17 @@ block|{
 comment|// use the cached thread pool
 name|executorService
 operator|=
-name|ExecutorServiceHelper
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
 name|name
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -485,7 +473,13 @@ name|poolSize
 decl_stmt|;
 name|executorService
 operator|=
-name|ExecutorServiceHelper
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newThreadPool
 argument_list|(
@@ -532,6 +526,11 @@ return|return
 operator|new
 name|ThreadsProcessor
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|uow
 argument_list|,
 name|executorService

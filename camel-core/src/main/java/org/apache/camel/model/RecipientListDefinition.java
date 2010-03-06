@@ -218,22 +218,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;recipientList/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -629,13 +613,17 @@ block|{
 comment|// fall back and use default
 name|executorService
 operator|=
-name|ExecutorServiceHelper
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
 literal|"RecipientList"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

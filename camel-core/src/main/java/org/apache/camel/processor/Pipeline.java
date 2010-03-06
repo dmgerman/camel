@@ -54,6 +54,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -159,10 +171,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|Pipeline (Collection<Processor> processors)
+DECL|method|Pipeline (CamelContext camelContext, Collection<Processor> processors)
 specifier|public
 name|Pipeline
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Collection
 argument_list|<
 name|Processor
@@ -172,16 +187,21 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|processors
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|newInstance (List<Processor> processors)
+DECL|method|newInstance (CamelContext camelContext, List<Processor> processors)
 specifier|public
 specifier|static
 name|Processor
 name|newInstance
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|List
 argument_list|<
 name|Processor
@@ -225,6 +245,8 @@ return|return
 operator|new
 name|Pipeline
 argument_list|(
+name|camelContext
+argument_list|,
 name|processors
 argument_list|)
 return|;

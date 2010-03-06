@@ -568,6 +568,11 @@ return|return
 operator|new
 name|MulticastProcessor
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|list
 argument_list|,
 name|aggregationStrategy

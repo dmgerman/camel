@@ -172,22 +172,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default endpoint useful for implementation inheritance  *  * @version $Revision$  */
 end_comment
@@ -875,16 +859,18 @@ name|createScheduledExecutorService
 parameter_list|()
 block|{
 return|return
-name|ExecutorServiceHelper
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newScheduledThreadPool
 argument_list|(
-name|DEFAULT_THREADPOOL_SIZE
-argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|,
-literal|true
+name|DEFAULT_THREADPOOL_SIZE
 argument_list|)
 return|;
 block|}

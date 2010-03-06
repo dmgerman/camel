@@ -176,6 +176,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExecutorServiceStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -1157,6 +1171,21 @@ name|setShutdownStrategy
 parameter_list|(
 name|ShutdownStrategy
 name|shutdownStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @return the strategy      */
+DECL|method|getExecutorServiceStrategy ()
+name|ExecutorServiceStrategy
+name|getExecutorServiceStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @param executorServiceStrategy the custom strategy      */
+DECL|method|setExecutorServiceStrategy (ExecutorServiceStrategy executorServiceStrategy)
+name|void
+name|setExecutorServiceStrategy
+parameter_list|(
+name|ExecutorServiceStrategy
+name|executorServiceStrategy
 parameter_list|)
 function_decl|;
 block|}

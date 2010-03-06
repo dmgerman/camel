@@ -166,22 +166,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Processor for wire tapping exchanges to an endpoint destination.  *  * @version $Revision$  */
 end_comment
@@ -719,7 +703,14 @@ name|createExecutorService
 parameter_list|()
 block|{
 return|return
-name|ExecutorServiceHelper
+name|getDestination
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
@@ -727,8 +718,6 @@ name|this
 operator|.
 name|toString
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

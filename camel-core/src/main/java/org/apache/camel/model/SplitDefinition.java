@@ -212,22 +212,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;split/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -451,10 +435,9 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-return|return
-operator|new
-name|Splitter
-argument_list|(
+name|Expression
+name|exp
+init|=
 name|getExpression
 argument_list|()
 operator|.
@@ -462,6 +445,17 @@ name|createExpression
 argument_list|(
 name|routeContext
 argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|Splitter
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|exp
 argument_list|,
 name|childProcessor
 argument_list|,
@@ -602,13 +596,17 @@ block|{
 comment|// fall back and use default
 name|executorService
 operator|=
-name|ExecutorServiceHelper
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
 literal|"Split"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

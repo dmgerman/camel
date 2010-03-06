@@ -117,10 +117,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *  * @version $Revision$  */
+comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *  * @version $Revision$  * @deprecated replaced with {@link org.apache.camel.spi.ExecutorServiceStrategy}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ExecutorServiceHelper
 specifier|public
 specifier|final

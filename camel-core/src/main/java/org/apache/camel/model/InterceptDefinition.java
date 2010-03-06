@@ -400,6 +400,8 @@ return|return
 operator|new
 name|Pipeline
 argument_list|(
+name|context
+argument_list|,
 name|list
 argument_list|)
 return|;

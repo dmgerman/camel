@@ -556,6 +556,11 @@ init|=
 operator|new
 name|MulticastProcessor
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|processors
 argument_list|,
 name|getAggregationStrategy

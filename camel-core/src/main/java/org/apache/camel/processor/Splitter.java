@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -208,10 +220,13 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy)
+DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Splitter
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|,
@@ -224,6 +239,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 name|destination
@@ -240,10 +257,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException)
+DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException)
 specifier|public
 name|Splitter
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|,
@@ -268,6 +288,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|Collections
 operator|.
 name|singleton

@@ -312,6 +312,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -579,6 +581,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -866,6 +870,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1153,6 +1159,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1430,6 +1438,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1674,6 +1684,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1936,6 +1948,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -2219,6 +2233,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -2847,6 +2863,8 @@ init|=
 operator|new
 name|AggregateProcessor
 argument_list|(
+name|context
+argument_list|,
 name|done
 argument_list|,
 name|corr
