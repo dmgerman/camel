@@ -1124,7 +1124,7 @@ name|notNull
 argument_list|(
 name|camelContext
 argument_list|,
-literal|"CamelContext must be set"
+literal|"CamelContext"
 argument_list|)
 expr_stmt|;
 block|}

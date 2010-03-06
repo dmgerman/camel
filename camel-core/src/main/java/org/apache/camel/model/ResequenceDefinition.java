@@ -858,6 +858,11 @@ init|=
 operator|new
 name|Resequencer
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|processor
 argument_list|,
 name|resolveExpressionList

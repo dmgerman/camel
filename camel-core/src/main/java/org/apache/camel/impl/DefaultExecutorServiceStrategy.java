@@ -137,6 +137,24 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|getThreadName (String nameSuffix)
+specifier|public
+name|String
+name|getThreadName
+parameter_list|(
+name|String
+name|nameSuffix
+parameter_list|)
+block|{
+return|return
+name|ExecutorServiceHelper
+operator|.
+name|getThreadName
+argument_list|(
+name|nameSuffix
+argument_list|)
+return|;
+block|}
 DECL|method|lookup (String executorServiceRef)
 specifier|public
 name|ExecutorService
@@ -162,13 +180,13 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|newCachedThreadPool (String name)
+DECL|method|newCachedThreadPool (String nameSuffix)
 specifier|public
 name|ExecutorService
 name|newCachedThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|)
 block|{
 return|return
@@ -176,19 +194,19 @@ name|ExecutorServiceHelper
 operator|.
 name|newCachedThreadPool
 argument_list|(
-name|name
+name|nameSuffix
 argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newScheduledThreadPool (String name, int poolSize)
+DECL|method|newScheduledThreadPool (String nameSuffix, int poolSize)
 specifier|public
 name|ScheduledExecutorService
 name|newScheduledThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|poolSize
@@ -201,19 +219,19 @@ name|newScheduledThreadPool
 argument_list|(
 name|poolSize
 argument_list|,
-name|name
+name|nameSuffix
 argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newFixedThreadPool (String name, int poolSize)
+DECL|method|newFixedThreadPool (String nameSuffix, int poolSize)
 specifier|public
 name|ExecutorService
 name|newFixedThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|poolSize
@@ -226,19 +244,19 @@ name|newFixedThreadPool
 argument_list|(
 name|poolSize
 argument_list|,
-name|name
+name|nameSuffix
 argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newSingleThreadExecutor (String name)
+DECL|method|newSingleThreadExecutor (String nameSuffix)
 specifier|public
 name|ExecutorService
 name|newSingleThreadExecutor
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|)
 block|{
 return|return
@@ -246,19 +264,19 @@ name|ExecutorServiceHelper
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
-name|name
+name|nameSuffix
 argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize)
+DECL|method|newThreadPool (String nameSuffix, int corePoolSize, int maxPoolSize)
 specifier|public
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|corePoolSize
@@ -272,7 +290,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newThreadPool
 argument_list|(
-name|name
+name|nameSuffix
 argument_list|,
 name|corePoolSize
 argument_list|,
@@ -280,13 +298,13 @@ name|maxPoolSize
 argument_list|)
 return|;
 block|}
-DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
+DECL|method|newThreadPool (String nameSuffix, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
 specifier|public
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|corePoolSize
@@ -309,7 +327,7 @@ name|ExecutorServiceHelper
 operator|.
 name|newThreadPool
 argument_list|(
-name|name
+name|nameSuffix
 argument_list|,
 name|corePoolSize
 argument_list|,

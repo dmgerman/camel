@@ -64,6 +64,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -135,10 +147,13 @@ implements|implements
 name|Traceable
 block|{
 comment|// TODO: Rework to avoid using BatchProcessor
-DECL|method|Resequencer (Processor processor, Expression expression)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, Expression expression)
 specifier|public
 name|Resequencer
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -148,6 +163,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|processor
 argument_list|,
 name|createSet
@@ -157,10 +174,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (Processor processor, List<Expression> expressions)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions)
 specifier|public
 name|Resequencer
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -173,6 +193,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|processor
 argument_list|,
 name|createSet
@@ -182,10 +204,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (Processor processor, Set<Exchange> collection)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, Set<Exchange> collection)
 specifier|public
 name|Resequencer
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -198,6 +223,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|processor
 argument_list|,
 name|collection

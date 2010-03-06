@@ -150,7 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelContext
 import|;
 end_import
 
@@ -278,22 +278,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -405,6 +389,12 @@ specifier|private
 name|Predicate
 name|completionPredicate
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
@@ -431,10 +421,13 @@ specifier|final
 name|BatchSender
 name|sender
 decl_stmt|;
-DECL|method|BatchProcessor (Processor processor, Collection<Exchange> collection)
+DECL|method|BatchProcessor (CamelContext camelContext, Processor processor, Collection<Exchange> collection)
 specifier|public
 name|BatchProcessor
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -445,6 +438,15 @@ argument_list|>
 name|collection
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -464,6 +466,12 @@ literal|"collection"
 argument_list|)
 expr_stmt|;
 comment|// wrap processor in UnitOfWork so what we send out of the batch runs in a UoW
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|processor
@@ -1102,7 +1110,10 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|ExecutorServiceHelper
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|getThreadName
 argument_list|(
@@ -1361,11 +1372,7 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-operator|new
-name|CamelException
-argument_list|(
 name|t
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

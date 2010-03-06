@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -72,6 +72,16 @@ specifier|public
 interface|interface
 name|ExecutorServiceStrategy
 block|{
+comment|/**      * Creates a full thread name      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the full thread name      */
+DECL|method|getThreadName (String nameSuffix)
+name|String
+name|getThreadName
+parameter_list|(
+name|String
+name|nameSuffix
+parameter_list|)
+function_decl|;
+comment|/**      * Lookup a {@link java.util.concurrent.ExecutorService} from the {@link org.apache.camel.spi.Registry}.      *      * @param executorServiceRef  reference to lookup      * @return the {@link java.util.concurrent.ExecutorService} or<tt>null</tt> if not found      */
 DECL|method|lookup (String executorServiceRef)
 name|ExecutorService
 name|lookup
@@ -80,50 +90,55 @@ name|String
 name|executorServiceRef
 parameter_list|)
 function_decl|;
-DECL|method|newCachedThreadPool (String name)
+comment|/**      * Creates a new cached thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the thread pool      */
+DECL|method|newCachedThreadPool (String nameSuffix)
 name|ExecutorService
 name|newCachedThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|)
 function_decl|;
-DECL|method|newScheduledThreadPool (String name, int poolSize)
+comment|/**      * Creates a new scheduled thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+DECL|method|newScheduledThreadPool (String nameSuffix, int poolSize)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-DECL|method|newFixedThreadPool (String name, int poolSize)
+comment|/**      * Creates a new fixed thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+DECL|method|newFixedThreadPool (String nameSuffix, int poolSize)
 name|ExecutorService
 name|newFixedThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-DECL|method|newSingleThreadExecutor (String name)
+comment|/**      * Creates a new single-threaded thread pool. This is often used for background threads.      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the thread pool      */
+DECL|method|newSingleThreadExecutor (String nameSuffix)
 name|ExecutorService
 name|newSingleThreadExecutor
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|)
 function_decl|;
-DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize)
+comment|/**      * Creates a new custom thread pool.      *<p/>      * Will by default use 60 seconds for keep alive time for idle threads.      *      * @param nameSuffix    suffix which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @return the thread pool      */
+DECL|method|newThreadPool (String nameSuffix, int corePoolSize, int maxPoolSize)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|corePoolSize
@@ -132,13 +147,14 @@ name|int
 name|maxPoolSize
 parameter_list|)
 function_decl|;
-DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
+comment|/**      * Creates a new custom thread pool.      *      * @param nameSuffix    suffix which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive time for idle threads      * @param timeUnit      time unit for keep alive time      * @param daemon        whether or not the created threads is daemon or not      * @return the thread pool      */
+DECL|method|newThreadPool (final String nameSuffix, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 specifier|final
 name|String
-name|name
+name|nameSuffix
 parameter_list|,
 name|int
 name|corePoolSize
@@ -156,6 +172,7 @@ name|boolean
 name|daemon
 parameter_list|)
 function_decl|;
+comment|/**      * Shutdown the given executor service.      *      * @param executorService the executor service to shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      */
 DECL|method|shutdown (ExecutorService executorService)
 name|void
 name|shutdown
@@ -164,6 +181,7 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
+comment|/**      * Shutdown now the given executor service.      *      * @param executorService the executor service to shutdown now      * @return list of tasks that never commenced execution      * @see java.util.concurrent.ExecutorService#shutdownNow()      */
 DECL|method|shutdownNow (ExecutorService executorService)
 name|List
 argument_list|<

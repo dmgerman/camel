@@ -7798,7 +7798,9 @@ name|ManagedManagementStrategy
 argument_list|(
 operator|new
 name|DefaultManagementAgent
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// prefer to have it at first strategy

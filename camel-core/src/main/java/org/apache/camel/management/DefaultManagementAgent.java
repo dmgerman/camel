@@ -262,6 +262,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -292,9 +316,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -371,6 +393,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|ManagementAgent
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|DEFAULT_DOMAIN
 specifier|public
@@ -434,6 +458,11 @@ name|DefaultManagementAgent
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|executorService
 specifier|private
@@ -513,6 +542,26 @@ specifier|private
 name|Boolean
 name|onlyRegisterProcessorWithCustomId
 decl_stmt|;
+DECL|method|DefaultManagementAgent ()
+specifier|public
+name|DefaultManagementAgent
+parameter_list|()
+block|{     }
+DECL|method|DefaultManagementAgent (CamelContext camelContext)
+specifier|public
+name|DefaultManagementAgent
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 DECL|method|finalizeSettings ()
 specifier|protected
 name|void
@@ -934,6 +983,32 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 DECL|method|register (Object obj, ObjectName name)
 specifier|public
 name|void
@@ -1146,6 +1221,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
 name|assembler
 operator|=
 operator|new
@@ -1854,18 +1938,18 @@ literal|null
 condition|)
 block|{
 comment|// we only need a single for the JMX connector
-comment|// TODO use ExecutorServiceStrategy
 name|executorService
 operator|=
-name|ExecutorServiceHelper
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
 literal|"JMXConnector: "
 operator|+
 name|url
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

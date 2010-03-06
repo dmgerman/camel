@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -312,16 +324,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|ManagedManagementStrategy ()
+DECL|method|ManagedManagementStrategy (CamelContext camelContext)
 specifier|public
 name|ManagedManagementStrategy
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 name|this
 argument_list|(
 operator|new
 name|DefaultManagementAgent
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
