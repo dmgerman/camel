@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -811,6 +823,8 @@ implements|implements
 name|LifecycleStrategy
 implements|,
 name|Service
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -858,30 +872,60 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|context
+DECL|field|camelContext
 specifier|private
-specifier|final
 name|CamelContext
-name|context
+name|camelContext
 decl_stmt|;
 DECL|field|initialized
 specifier|private
 name|boolean
 name|initialized
 decl_stmt|;
-DECL|method|DefaultManagementLifecycleStrategy (CamelContext context)
+DECL|method|DefaultManagementLifecycleStrategy ()
+specifier|public
+name|DefaultManagementLifecycleStrategy
+parameter_list|()
+block|{     }
+DECL|method|DefaultManagementLifecycleStrategy (CamelContext camelContext)
 specifier|public
 name|DefaultManagementLifecycleStrategy
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|context
+name|camelContext
 operator|=
-name|context
+name|camelContext
+expr_stmt|;
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 block|}
 DECL|method|onContextStart (CamelContext context)
@@ -2175,7 +2219,7 @@ init|=
 operator|new
 name|ManagedRoute
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 name|route
 argument_list|)
@@ -2609,7 +2653,7 @@ comment|// set statistics enabled depending on the option
 name|boolean
 name|enabled
 init|=
-name|context
+name|camelContext
 operator|.
 name|getManagementStrategy
 argument_list|()
@@ -2746,7 +2790,7 @@ name|getManagementStrategy
 parameter_list|()
 block|{
 return|return
-name|context
+name|camelContext
 operator|.
 name|getManagementStrategy
 argument_list|()
@@ -2759,7 +2803,17 @@ name|start
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|stop ()
 specifier|public
 name|void

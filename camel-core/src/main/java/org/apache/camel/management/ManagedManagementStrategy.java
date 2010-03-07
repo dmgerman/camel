@@ -324,6 +324,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|ManagedManagementStrategy ()
+specifier|public
+name|ManagedManagementStrategy
+parameter_list|()
+block|{     }
 DECL|method|ManagedManagementStrategy (CamelContext camelContext)
 specifier|public
 name|ManagedManagementStrategy
