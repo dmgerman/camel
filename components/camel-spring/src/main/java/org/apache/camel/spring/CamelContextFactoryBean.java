@@ -3537,7 +3537,10 @@ name|agent
 init|=
 operator|new
 name|DefaultManagementAgent
+argument_list|(
+name|getContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|agent
 operator|.
