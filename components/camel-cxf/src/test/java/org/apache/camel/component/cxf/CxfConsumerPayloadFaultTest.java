@@ -328,6 +328,7 @@ decl_stmt|;
 DECL|field|FROM_URI
 specifier|protected
 specifier|static
+specifier|final
 name|String
 name|FROM_URI
 init|=
@@ -356,6 +357,7 @@ decl_stmt|;
 DECL|field|DETAILS
 specifier|protected
 specifier|static
+specifier|final
 name|String
 name|DETAILS
 init|=
