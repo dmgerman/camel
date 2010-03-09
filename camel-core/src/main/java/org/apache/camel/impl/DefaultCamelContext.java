@@ -1689,7 +1689,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      */
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      */
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
 name|DefaultCamelContext
@@ -1707,7 +1707,7 @@ name|jndiContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given registry      */
+comment|/**      * Creates the {@link CamelContext} using the given registry      *      * @param registry the registry      */
 DECL|method|DefaultCamelContext (Registry registry)
 specifier|public
 name|DefaultCamelContext
@@ -1735,7 +1735,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Sets the name of the this context.      */
+comment|/**      * Sets the name of the this context.      *      * @param name the name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -4416,7 +4416,7 @@ comment|// the uri contains property placeholders so lookup mandatory properties
 name|Component
 name|component
 init|=
-name|hasComponent
+name|getComponent
 argument_list|(
 literal|"properties"
 argument_list|)
