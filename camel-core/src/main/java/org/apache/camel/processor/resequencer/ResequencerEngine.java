@@ -148,6 +148,8 @@ name|ExecutorServiceHelper
 operator|.
 name|getThreadName
 argument_list|(
+literal|"Camel Thread ${counter} - ${suffix}"
+argument_list|,
 literal|"Stream Resequencer Timer"
 argument_list|)
 argument_list|,

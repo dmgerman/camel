@@ -144,30 +144,8 @@ specifier|private
 name|ExecutorServiceHelper
 parameter_list|()
 block|{     }
-comment|/**      * Creates a new thread name with the given prefix      *      * @param name the prefix      * @return the thread name, which is unique      */
-DECL|method|getThreadName (String name)
-specifier|public
-specifier|static
-name|String
-name|getThreadName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-literal|"Camel thread "
-operator|+
-name|nextThreadCounter
-argument_list|()
-operator|+
-literal|": "
-operator|+
-name|name
-return|;
-block|}
 DECL|method|nextThreadCounter ()
-specifier|protected
+specifier|private
 specifier|static
 specifier|synchronized
 name|int
@@ -179,6 +157,93 @@ name|threadCounter
 operator|.
 name|getAndIncrement
 argument_list|()
+return|;
+block|}
+comment|/**      * Creates a new thread name with the given prefix      *      * @param pattern the pattern      * @param name the name      * @return the thread name, which is unique      */
+DECL|method|getThreadName (String pattern, String name)
+specifier|public
+specifier|static
+name|String
+name|getThreadName
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+name|String
+name|answer
+init|=
+name|pattern
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\\$\\{counter\\}"
+argument_list|,
+literal|""
+operator|+
+name|nextThreadCounter
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|answer
+operator|=
+name|answer
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\\$\\{name\\}"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|.
+name|indexOf
+argument_list|(
+literal|"$"
+argument_list|)
+operator|>
+operator|-
+literal|1
+operator|||
+name|answer
+operator|.
+name|indexOf
+argument_list|(
+literal|"${"
+argument_list|)
+operator|>
+operator|-
+literal|1
+operator|||
+name|answer
+operator|.
+name|indexOf
+argument_list|(
+literal|"}"
+argument_list|)
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Pattern is invalid: "
+operator|+
+name|pattern
+argument_list|)
+throw|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Creates a new scheduled thread pool which can schedule threads.      *      * @param poolSize the core pool size      * @param name     part of the thread name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
@@ -228,10 +293,7 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
-name|getThreadName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -295,10 +357,7 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
-name|getThreadName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -356,10 +415,7 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
-name|getThreadName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -377,7 +433,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool which should be the most commonly used.      *      * @param name    part of the thread name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new cached thread pool which should be the most commonly used.      *      * @param name    the full thread name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newCachedThreadPool (final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -418,10 +474,7 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
-name|getThreadName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -439,7 +492,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive      *      * @param name          part of the thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive      *      * @param name          the full thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
 DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize)
 specifier|public
 specifier|static
@@ -478,7 +531,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param name          part of the thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
+comment|/**      * Creates a new custom thread pool      *      * @param name          the full thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
 DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, final boolean daemon)
 specifier|public
 specifier|static
@@ -574,10 +627,7 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
-name|getThreadName
-argument_list|(
 name|name
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer

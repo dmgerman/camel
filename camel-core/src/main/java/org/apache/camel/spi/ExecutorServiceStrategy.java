@@ -72,14 +72,31 @@ specifier|public
 interface|interface
 name|ExecutorServiceStrategy
 block|{
-comment|/**      * Creates a full thread name      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the full thread name      */
-DECL|method|getThreadName (String nameSuffix)
+comment|/**      * Creates a full thread name      *      * @param name  name which is appended to the full thread name      * @return the full thread name      */
+DECL|method|getThreadName (String name)
 name|String
 name|getThreadName
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the thread name pattern used for creating the full thread name.      *      * @return the pattern      */
+DECL|method|getThreadNamePattern ()
+name|String
+name|getThreadNamePattern
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel Thread ${counter} - ${suffix}</tt>      *</br>      * Where<tt>${counter}</tt> is a unique incrementing counter.      * And<tt>${name}</tt> is the thread name.      *      * @param pattern  the pattern      * @throws IllegalArgumentException if the pattern is invalid.      */
+DECL|method|setThreadNamePattern (String pattern)
+name|void
+name|setThreadNamePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
 function_decl|;
 comment|/**      * Lookup a {@link java.util.concurrent.ExecutorService} from the {@link org.apache.camel.spi.Registry}.      *      * @param executorServiceRef  reference to lookup      * @return the {@link java.util.concurrent.ExecutorService} or<tt>null</tt> if not found      */
 DECL|method|lookup (String executorServiceRef)
@@ -90,55 +107,55 @@ name|String
 name|executorServiceRef
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new cached thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the thread pool      */
-DECL|method|newCachedThreadPool (String nameSuffix)
+comment|/**      * Creates a new cached thread pool.      *      * @param name  name which is appended to the thread name      * @return the thread pool      */
+DECL|method|newCachedThreadPool (String name)
 name|ExecutorService
 name|newCachedThreadPool
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new scheduled thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
-DECL|method|newScheduledThreadPool (String nameSuffix, int poolSize)
+comment|/**      * Creates a new scheduled thread pool.      *      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+DECL|method|newScheduledThreadPool (String name, int poolSize)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|,
 name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new fixed thread pool.      *      * @param nameSuffix  suffix which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
-DECL|method|newFixedThreadPool (String nameSuffix, int poolSize)
+comment|/**      * Creates a new fixed thread pool.      *      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+DECL|method|newFixedThreadPool (String name, int poolSize)
 name|ExecutorService
 name|newFixedThreadPool
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|,
 name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new single-threaded thread pool. This is often used for background threads.      *      * @param nameSuffix  suffix which is appended to the thread name      * @return the thread pool      */
-DECL|method|newSingleThreadExecutor (String nameSuffix)
+comment|/**      * Creates a new single-threaded thread pool. This is often used for background threads.      *      * @param name  name which is appended to the thread name      * @return the thread pool      */
+DECL|method|newSingleThreadExecutor (String name)
 name|ExecutorService
 name|newSingleThreadExecutor
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new custom thread pool.      *<p/>      * Will by default use 60 seconds for keep alive time for idle threads.      *      * @param nameSuffix    suffix which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @return the thread pool      */
-DECL|method|newThreadPool (String nameSuffix, int corePoolSize, int maxPoolSize)
+comment|/**      * Creates a new custom thread pool.      *<p/>      * Will by default use 60 seconds for keep alive time for idle threads.      *      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @return the thread pool      */
+DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 name|String
-name|nameSuffix
+name|name
 parameter_list|,
 name|int
 name|corePoolSize
@@ -147,14 +164,14 @@ name|int
 name|maxPoolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new custom thread pool.      *      * @param nameSuffix    suffix which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive time for idle threads      * @param timeUnit      time unit for keep alive time      * @param daemon        whether or not the created threads is daemon or not      * @return the thread pool      */
-DECL|method|newThreadPool (final String nameSuffix, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
+comment|/**      * Creates a new custom thread pool.      *      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive time for idle threads      * @param timeUnit      time unit for keep alive time      * @param daemon        whether or not the created threads is daemon or not      * @return the thread pool      */
+DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 specifier|final
 name|String
-name|nameSuffix
+name|name
 parameter_list|,
 name|int
 name|corePoolSize

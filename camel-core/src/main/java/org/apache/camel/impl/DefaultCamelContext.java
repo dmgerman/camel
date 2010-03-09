@@ -6000,22 +6000,16 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|info
 argument_list|(
-literal|"StreamCaching is enabled"
+literal|"StreamCaching is enabled on CamelContext"
+operator|+
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|addInterceptStrategy
 argument_list|(
 operator|new
@@ -6034,9 +6028,12 @@ block|{
 comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Tracing is enabled"
+literal|"Tracing is enabled on CamelContext"
+operator|+
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6061,9 +6058,12 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"HandleFault is enabled"
+literal|"HandleFault is enabled on CamelContext"
+operator|+
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|addInterceptStrategy
@@ -6109,13 +6109,16 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Delayer is enabled with: "
 operator|+
 name|millis
 operator|+
-literal|" ms."
+literal|" ms. on CamelContext"
+operator|+
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|addInterceptStrategy
