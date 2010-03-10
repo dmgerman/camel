@@ -258,6 +258,8 @@ argument_list|(
 literal|"properties"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|context
 operator|.
 name|addRoutes
@@ -294,8 +296,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|context
 operator|.
 name|start
