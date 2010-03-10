@@ -148,7 +148,7 @@ expr_stmt|;
 comment|// setup SSL using system properties
 name|setSystemProp
 argument_list|(
-literal|"jetty.ssl.keystore"
+literal|"org.eclipse.jetty.ssl.keystore"
 argument_list|,
 name|trustStoreUrl
 operator|.
@@ -158,14 +158,14 @@ argument_list|)
 expr_stmt|;
 name|setSystemProp
 argument_list|(
-literal|"jetty.ssl.keypassword"
+literal|"org.eclipse.jetty.ssl.keypassword"
 argument_list|,
 name|pwd
 argument_list|)
 expr_stmt|;
 name|setSystemProp
 argument_list|(
-literal|"jetty.ssl.password"
+literal|"org.eclipse.jetty.ssl.password"
 argument_list|,
 name|pwd
 argument_list|)

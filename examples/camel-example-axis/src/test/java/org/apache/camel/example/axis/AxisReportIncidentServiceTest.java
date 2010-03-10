@@ -116,9 +116,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|Connector
 import|;
@@ -128,9 +130,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|Server
 import|;
@@ -140,9 +144,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|nio
 operator|.
@@ -154,7 +160,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
 operator|.

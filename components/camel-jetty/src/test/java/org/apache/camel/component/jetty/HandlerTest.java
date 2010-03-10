@@ -120,9 +120,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|eclipse
 operator|.
-name|Test
+name|jetty
+operator|.
+name|server
+operator|.
+name|handler
+operator|.
+name|StatisticsHandler
 import|;
 end_import
 
@@ -130,13 +136,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|junit
 operator|.
-name|jetty
-operator|.
-name|handler
-operator|.
-name|StatisticsHandler
+name|Test
 import|;
 end_import
 
@@ -184,10 +186,10 @@ literal|"<html><body>Book 123 is Camel in Action</body></html>"
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testHandler ()
+DECL|method|testWithOneHandler ()
 specifier|public
 name|void
-name|testHandler
+name|testWithOneHandler
 parameter_list|()
 throws|throws
 name|Exception
@@ -291,10 +293,21 @@ name|getRequests
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Now test the situation where one should invoke the handler twice
+block|}
+annotation|@
+name|Test
+DECL|method|testWithTwoHandlers ()
+specifier|public
+name|void
+name|testWithTwoHandlers
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// First test the situation where one should invoke the handler once
 name|assertEquals
 argument_list|(
-literal|1
+literal|0
 argument_list|,
 name|statisticsHandler1
 operator|.
@@ -322,8 +335,9 @@ name|getRequests
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ByteArrayInputStream
 name|html
-operator|=
+init|=
 operator|(
 name|ByteArrayInputStream
 operator|)
@@ -335,9 +349,10 @@ literal|"http://localhost:9081/"
 argument_list|,
 literal|""
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|BufferedReader
 name|br
-operator|=
+init|=
 operator|new
 name|BufferedReader
 argument_list|(
@@ -347,7 +362,7 @@ argument_list|(
 name|html
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|htmlResponse
@@ -360,7 +375,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|0
 argument_list|,
 name|statisticsHandler1
 operator|.

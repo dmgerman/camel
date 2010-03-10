@@ -110,9 +110,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
-operator|.
 name|cometd
+operator|.
+name|server
 operator|.
 name|AbstractBayeux
 import|;

@@ -120,11 +120,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
 operator|.
-name|Handler
+name|client
+operator|.
+name|HttpClient
 import|;
 end_import
 
@@ -132,13 +134,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
 operator|.
-name|client
+name|server
 operator|.
-name|HttpClient
+name|Handler
 import|;
 end_import
 
