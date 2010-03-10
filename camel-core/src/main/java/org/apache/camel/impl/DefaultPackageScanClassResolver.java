@@ -1318,19 +1318,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|isLocalFileSystem
-init|=
-literal|"file"
-operator|.
-name|equals
-argument_list|(
-name|url
-operator|.
-name|getProtocol
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// If it's a file in a directory, trim the stupid file: spec
 if|if
 condition|(
@@ -1391,10 +1378,6 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
-name|isLocalFileSystem
-operator|=
-literal|true
-expr_stmt|;
 block|}
 comment|// osgi bundles should be skipped
 if|if
@@ -1468,15 +1451,6 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"isLocalFileSystem: "
-operator|+
-name|isLocalFileSystem
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
 literal|"Scanning for classes in ["
 operator|+
 name|urlPath
@@ -1541,11 +1515,30 @@ name|stream
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|isLocalFileSystem
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"http:"
+argument_list|)
+operator|||
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"https:"
+argument_list|)
+operator|||
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"sonicfs:"
+argument_list|)
 condition|)
 block|{
-comment|// load resources using http (and other protocols) such as java webstart
+comment|// load resources using http/https
+comment|// sonic ESB requires to be loaded using a regular URLConnection
 if|if
 condition|(
 name|log
