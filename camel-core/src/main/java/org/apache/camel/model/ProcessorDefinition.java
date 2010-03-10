@@ -158,6 +158,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -706,6 +720,15 @@ specifier|protected
 name|String
 name|errorHandlerRef
 decl_stmt|;
+DECL|field|inheritErrorHandler
+specifier|protected
+name|Boolean
+name|inheritErrorHandler
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|field|nodeFactory
 specifier|private
 name|NodeFactory
@@ -1219,9 +1242,6 @@ name|FinallyDefinition
 condition|)
 block|{
 comment|// do not use error handler for try .. catch .. finally blocks as it will handle errors itself
-return|return
-name|channel
-return|;
 block|}
 elseif|else
 if|if
@@ -1235,13 +1255,34 @@ operator|instanceof
 name|RecipientListDefinition
 condition|)
 block|{
-comment|// do not use error handler for multicast or recipientlist based as it offers fine grained error handlers for its outputs
-return|return
-name|channel
-return|;
+comment|// do not use error handler for multicast or recipient list based as it offers fine grained error handlers for its outputs
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|inheritErrorHandler
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+name|defn
+operator|+
+literal|" is configured to inheritErrorHandler"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// only add error handler if we are configured to do so
 comment|// regular definition so add the error handler
 name|Processor
 name|output
@@ -1272,10 +1313,52 @@ argument_list|(
 name|errorHandler
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|defn
+operator|+
+literal|" is configured to not inheritErrorHandler."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+name|defn
+operator|+
+literal|" wrapped in Channel: "
+operator|+
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|channel
 return|;
-block|}
 block|}
 comment|/**      * Wraps the given output in an error handler      *      * @param routeContext the route context      * @param output the output      * @return the output wrapped with the error handler      * @throws Exception can be thrown if failed to create error handler builder      */
 DECL|method|wrapInErrorHandler (RouteContext routeContext, ErrorHandlerBuilder builder, Processor output)
@@ -6867,6 +6950,84 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Sets whether or not to inherit the configured error handler.      *<br/>      * The default value is<tt>true</tt>.      *<p/>      * You can use this to disable using the inherited error handler for a given      * DSL such as a load balancer where you want to use a custom error handler strategy.      *      * @param inheritErrorHandler whether to not to inherit the error handler for this node      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|inheritErrorHandler (boolean inheritErrorHandler)
+specifier|public
+name|Type
+name|inheritErrorHandler
+parameter_list|(
+name|boolean
+name|inheritErrorHandler
+parameter_list|)
+block|{
+comment|// set on last output
+name|int
+name|size
+init|=
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+comment|// if no outputs then configure this DSL
+name|setInheritErrorHandler
+argument_list|(
+name|inheritErrorHandler
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// configure on last output as its the intended
+name|ProcessorDefinition
+name|output
+init|=
+name|getOutputs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|size
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|output
+operator|!=
+literal|null
+condition|)
+block|{
+name|output
+operator|.
+name|setInheritErrorHandler
+argument_list|(
+name|inheritErrorHandler
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@
@@ -7013,6 +7174,34 @@ name|add
 argument_list|(
 name|strategy
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isInheritErrorHandler ()
+specifier|public
+name|Boolean
+name|isInheritErrorHandler
+parameter_list|()
+block|{
+return|return
+name|inheritErrorHandler
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setInheritErrorHandler (Boolean inheritErrorHandler)
+specifier|public
+name|void
+name|setInheritErrorHandler
+parameter_list|(
+name|Boolean
+name|inheritErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inheritErrorHandler
+operator|=
+name|inheritErrorHandler
 expr_stmt|;
 block|}
 comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      */
