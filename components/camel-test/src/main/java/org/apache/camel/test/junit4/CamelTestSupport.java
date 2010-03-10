@@ -1313,6 +1313,21 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Reset all Mock endpoints.      */
+DECL|method|resetMocks ()
+specifier|protected
+name|void
+name|resetMocks
+parameter_list|()
+block|{
+name|MockEndpoint
+operator|.
+name|resetMocks
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|assertValidContext (CamelContext context)
 specifier|protected
 name|void
