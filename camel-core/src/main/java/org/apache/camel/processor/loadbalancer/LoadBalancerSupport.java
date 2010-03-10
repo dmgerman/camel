@@ -102,6 +102,34 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default base class for a {@link LoadBalancer} implementation  *  * @version $Revision$  */
 end_comment
@@ -137,6 +165,20 @@ argument_list|<
 name|Processor
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|log
+specifier|protected
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|method|addProcessor (Processor processor)
 specifier|public

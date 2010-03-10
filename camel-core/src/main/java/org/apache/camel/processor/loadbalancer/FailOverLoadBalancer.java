@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This FailOverLoadBalancer will failover to use next processor when an exception occured  */
+comment|/**  * This FailOverLoadBalancer will failover to use next processor when an exception occurred  */
 end_comment
 
 begin_class
@@ -89,6 +89,28 @@ name|?
 argument_list|>
 argument_list|>
 name|exceptions
+decl_stmt|;
+DECL|field|roundRobin
+specifier|private
+name|boolean
+name|roundRobin
+decl_stmt|;
+DECL|field|maximumFailoverAttempts
+specifier|private
+name|int
+name|maximumFailoverAttempts
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// stateful counter
+DECL|field|counter
+specifier|private
+name|int
+name|counter
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|FailOverLoadBalancer ()
 specifier|public
@@ -175,6 +197,58 @@ block|{
 return|return
 name|exceptions
 return|;
+block|}
+DECL|method|isRoundRobin ()
+specifier|public
+name|boolean
+name|isRoundRobin
+parameter_list|()
+block|{
+return|return
+name|roundRobin
+return|;
+block|}
+DECL|method|setRoundRobin (boolean roundRobin)
+specifier|public
+name|void
+name|setRoundRobin
+parameter_list|(
+name|boolean
+name|roundRobin
+parameter_list|)
+block|{
+name|this
+operator|.
+name|roundRobin
+operator|=
+name|roundRobin
+expr_stmt|;
+block|}
+DECL|method|getMaximumFailoverAttempts ()
+specifier|public
+name|int
+name|getMaximumFailoverAttempts
+parameter_list|()
+block|{
+return|return
+name|maximumFailoverAttempts
+return|;
+block|}
+DECL|method|setMaximumFailoverAttempts (int maximumFailoverAttempts)
+specifier|public
+name|void
+name|setMaximumFailoverAttempts
+parameter_list|(
+name|int
+name|maximumFailoverAttempts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumFailoverAttempts
+operator|=
+name|maximumFailoverAttempts
+expr_stmt|;
 block|}
 comment|/**      * Should the given failed Exchange failover?      *      * @param exchange the exchange that failed      * @return<tt>true</tt> to failover      */
 DECL|method|shouldFailOver (Exchange exchange)
@@ -290,6 +364,57 @@ name|index
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|attempts
+init|=
+literal|0
+decl_stmt|;
+comment|// pick the first endpoint to use
+if|if
+condition|(
+name|isRoundRobin
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+operator|++
+name|counter
+operator|>=
+name|list
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+name|counter
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|index
+operator|=
+name|counter
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failover starting with endpoint index "
+operator|+
+name|index
+argument_list|)
+expr_stmt|;
+block|}
 name|Processor
 name|processor
 init|=
@@ -306,6 +431,8 @@ argument_list|(
 name|processor
 argument_list|,
 name|exchange
+argument_list|,
+name|attempts
 argument_list|)
 expr_stmt|;
 comment|// loop while we should fail over
@@ -317,7 +444,48 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+name|attempts
+operator|++
+expr_stmt|;
+comment|// are we exhausted by attempts?
+if|if
+condition|(
+name|maximumFailoverAttempts
+operator|>
+operator|-
+literal|1
+operator|&&
+name|attempts
+operator|>
+name|maximumFailoverAttempts
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Braking out of failover after "
+operator|+
+name|attempts
+operator|+
+literal|" failover attempts"
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
 name|index
+operator|++
+expr_stmt|;
+name|counter
 operator|++
 expr_stmt|;
 if|if
@@ -350,13 +518,47 @@ argument_list|(
 name|processor
 argument_list|,
 name|exchange
+argument_list|,
+name|attempts
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isRoundRobin
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failover is round robin enabled and therefore starting from the first endpoint"
+argument_list|)
+expr_stmt|;
+name|index
+operator|=
+literal|0
+expr_stmt|;
+name|counter
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// no more processors to try
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Braking out of failover as we reach the end of endpoints to use for failover"
+argument_list|)
+expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 block|}
@@ -435,7 +637,7 @@ name|REDELIVERY_COUNTER
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|processExchange (Processor processor, Exchange exchange)
+DECL|method|processExchange (Processor processor, Exchange exchange, int attempt)
 specifier|private
 name|void
 name|processExchange
@@ -445,6 +647,9 @@ name|processor
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|int
+name|attempt
 parameter_list|)
 block|{
 if|if
@@ -466,6 +671,28 @@ throw|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Processing failover at attempt "
+operator|+
+name|attempt
+operator|+
+literal|" for exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|processor
 operator|.
 name|process
