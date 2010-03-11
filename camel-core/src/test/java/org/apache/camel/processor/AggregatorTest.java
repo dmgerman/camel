@@ -111,7 +111,7 @@ specifier|protected
 name|int
 name|messageCount
 init|=
-literal|100
+literal|50
 decl_stmt|;
 DECL|method|testSendingLotsOfMessagesGetAggregatedToTheLatestMessage ()
 specifier|public
@@ -295,17 +295,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
-operator|.
-name|setSleepForEmptyTest
-argument_list|(
-literal|2
-operator|*
-name|BatchProcessor
-operator|.
-name|DEFAULT_BATCH_TIMEOUT
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -366,17 +355,6 @@ argument_list|)
 operator|.
 name|isNotNull
 argument_list|()
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|setSleepForEmptyTest
-argument_list|(
-literal|2
-operator|*
-name|BatchProcessor
-operator|.
-name|DEFAULT_BATCH_TIMEOUT
-argument_list|)
 expr_stmt|;
 name|template
 operator|.
@@ -594,7 +572,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 block|}
