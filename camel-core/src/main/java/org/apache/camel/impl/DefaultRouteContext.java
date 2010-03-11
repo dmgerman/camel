@@ -1085,6 +1085,22 @@ name|edcr
 argument_list|)
 expr_stmt|;
 block|}
+comment|// invoke init on route policy
+if|if
+condition|(
+name|policy
+operator|!=
+literal|null
+condition|)
+block|{
+name|policy
+operator|.
+name|onInit
+argument_list|(
+name|edcr
+argument_list|)
+expr_stmt|;
+block|}
 name|routes
 operator|.
 name|add

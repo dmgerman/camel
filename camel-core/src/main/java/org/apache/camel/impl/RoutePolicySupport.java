@@ -157,6 +157,17 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
+DECL|method|onInit (Route route)
+specifier|public
+name|void
+name|onInit
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -168,7 +179,9 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -180,7 +193,9 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|startConsumer (Consumer consumer)
 specifier|protected
 name|boolean
@@ -271,6 +286,62 @@ return|return
 name|suspended
 return|;
 block|}
+DECL|method|startRoute (Route route)
+specifier|protected
+name|void
+name|startRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|startRoute
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|stopRoute (Route route)
+specifier|protected
+name|void
+name|stopRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|stopRoute
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Handles the given exception using the {@link #getExceptionHandler()}      *      * @param t the exception to handle      */
 DECL|method|handleException (Throwable t)
 specifier|protected
@@ -299,7 +370,9 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -309,7 +382,9 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler

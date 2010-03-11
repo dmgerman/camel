@@ -244,6 +244,17 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RoutePolicy"
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
