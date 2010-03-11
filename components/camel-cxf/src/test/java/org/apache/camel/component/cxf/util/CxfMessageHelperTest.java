@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf
+DECL|package|org.apache.camel.component.cxf.util
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|cxf
+operator|.
+name|util
 package|;
 end_package
 
@@ -91,6 +93,22 @@ operator|.
 name|dom
 operator|.
 name|DOMSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
+name|CxfHeaderFilterStrategy
 import|;
 end_import
 
@@ -199,10 +217,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CxfSoapBindingTest
+DECL|class|CxfMessageHelperTest
 specifier|public
 class|class
-name|CxfSoapBindingTest
+name|CxfMessageHelperTest
 extends|extends
 name|Assert
 block|{
@@ -279,7 +297,7 @@ operator|.
 name|Message
 name|message
 init|=
-name|CxfSoapBinding
+name|CxfMessageHelper
 operator|.
 name|getCxfInMessage
 argument_list|(
@@ -393,7 +411,7 @@ argument_list|)
 expr_stmt|;
 name|message
 operator|=
-name|CxfSoapBinding
+name|CxfMessageHelper
 operator|.
 name|getCxfInMessage
 argument_list|(
@@ -447,7 +465,7 @@ argument_list|)
 expr_stmt|;
 name|message
 operator|=
-name|CxfSoapBinding
+name|CxfMessageHelper
 operator|.
 name|getCxfInMessage
 argument_list|(

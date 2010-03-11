@@ -64,7 +64,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfSoapBinding
+name|util
+operator|.
+name|CxfMessageHelper
 import|;
 end_import
 
@@ -316,7 +318,7 @@ operator|.
 name|Message
 name|answer
 init|=
-name|CxfSoapBinding
+name|CxfMessageHelper
 operator|.
 name|getCxfInMessage
 argument_list|(

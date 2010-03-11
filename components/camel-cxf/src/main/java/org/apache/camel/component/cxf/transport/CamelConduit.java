@@ -140,7 +140,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfSoapBinding
+name|util
+operator|.
+name|CxfHeaderHelper
 import|;
 end_import
 
@@ -158,7 +160,7 @@ name|cxf
 operator|.
 name|util
 operator|.
-name|CxfHeaderHelper
+name|CxfMessageHelper
 import|;
 end_import
 
@@ -1159,7 +1161,7 @@ try|try
 block|{
 name|inMessage
 operator|=
-name|CxfSoapBinding
+name|CxfMessageHelper
 operator|.
 name|getCxfInMessage
 argument_list|(

@@ -323,7 +323,7 @@ import|;
 end_import
 
 begin_comment
-comment|//The service factorybean which just create the service for soap component
+comment|//The service factory bean which is used for the service without SEI
 end_comment
 
 begin_class
