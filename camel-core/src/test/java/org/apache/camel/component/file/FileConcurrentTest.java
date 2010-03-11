@@ -350,6 +350,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testProcessFilesConcurrently ()
 specifier|public
 name|void
@@ -377,7 +389,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/concurrent?delay=60000&initialDelay=2500"
+literal|"file://target/concurrent"
 argument_list|)
 operator|.
 name|setHeader
@@ -419,7 +431,7 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000L
+literal|4000L
 argument_list|)
 operator|.
 name|to
@@ -430,6 +442,11 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|long
 name|start
@@ -454,6 +471,13 @@ argument_list|(
 literal|"2000"
 argument_list|,
 literal|"2500"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|20000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -506,7 +530,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/concurrent?delay=60000&initialDelay=2500"
+literal|"file://target/concurrent"
 argument_list|)
 operator|.
 name|setHeader
@@ -538,7 +562,7 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000L
+literal|4000L
 argument_list|)
 operator|.
 name|to
@@ -549,6 +573,11 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|long
 name|start
@@ -573,6 +602,13 @@ argument_list|(
 literal|"2000"
 argument_list|,
 literal|"2500"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|20000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
