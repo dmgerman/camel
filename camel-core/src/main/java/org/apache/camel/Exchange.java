@@ -753,6 +753,15 @@ name|Synchronization
 name|onCompletion
 parameter_list|)
 function_decl|;
+comment|/**      * Handover all the on completions from this exchange to the target exchange.      *      * @param target the target exchange      */
+DECL|method|handoverCompletions (Exchange target)
+name|void
+name|handoverCompletions
+parameter_list|(
+name|Exchange
+name|target
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

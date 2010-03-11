@@ -525,6 +525,22 @@ argument_list|,
 name|aggregatedExchange
 argument_list|)
 expr_stmt|;
+comment|// handover any synchronization
+if|if
+condition|(
+name|resourceExchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|resourceExchange
+operator|.
+name|handoverCompletions
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
