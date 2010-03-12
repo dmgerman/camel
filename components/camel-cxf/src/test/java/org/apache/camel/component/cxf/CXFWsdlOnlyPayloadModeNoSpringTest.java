@@ -244,15 +244,6 @@ name|CXFWsdlOnlyPayloadModeNoSpringTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|SERVICE_NAME
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|SERVICE_NAME
-init|=
-literal|"{http://camel.apache.org/wsdl-first}PersonService"
-decl_stmt|;
 DECL|field|SERVICE_NAME_PROP
 specifier|protected
 specifier|static
@@ -261,8 +252,6 @@ name|String
 name|SERVICE_NAME_PROP
 init|=
 literal|"serviceName="
-operator|+
-name|SERVICE_NAME
 decl_stmt|;
 DECL|field|PORT_NAME_PROP
 specifier|protected
@@ -283,7 +272,7 @@ init|=
 literal|"wsdlURL=classpath:person.wsdl"
 decl_stmt|;
 DECL|field|endpoint
-specifier|private
+specifier|protected
 name|Endpoint
 name|endpoint
 decl_stmt|;
@@ -359,6 +348,9 @@ literal|"&"
 operator|+
 name|SERVICE_NAME_PROP
 operator|+
+name|getServiceName
+argument_list|()
+operator|+
 literal|"&"
 operator|+
 name|WSDL_URL_PROP
@@ -378,6 +370,9 @@ operator|+
 literal|"&"
 operator|+
 name|SERVICE_NAME_PROP
+operator|+
+name|getServiceName
+argument_list|()
 operator|+
 literal|"&"
 operator|+
@@ -439,7 +434,8 @@ name|QName
 operator|.
 name|valueOf
 argument_list|(
-name|SERVICE_NAME
+name|getServiceName
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -585,7 +581,8 @@ name|QName
 operator|.
 name|valueOf
 argument_list|(
-name|SERVICE_NAME
+name|getServiceName
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -723,6 +720,16 @@ operator|instanceof
 name|UnknownPersonFault
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getServiceName ()
+specifier|protected
+name|String
+name|getServiceName
+parameter_list|()
+block|{
+return|return
+literal|"{http://camel.apache.org/wsdl-first}PersonService"
+return|;
 block|}
 block|}
 end_class
