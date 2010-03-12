@@ -6301,7 +6301,7 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") is stopping"
+literal|") is shutting down"
 argument_list|)
 expr_stmt|;
 name|EventHelper
@@ -6328,7 +6328,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|routeServices
 operator|.
@@ -6338,7 +6338,7 @@ argument_list|)
 expr_stmt|;
 comment|// do not clear route services as we can start Camel again and get the route back as before
 comment|// the stop order is important
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|servicesToClose
 argument_list|)
@@ -6348,7 +6348,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|endpoints
 operator|.
@@ -6361,7 +6361,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|components
 operator|.
@@ -6397,13 +6397,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|producerServicePool
 argument_list|)
 expr_stmt|;
 block|}
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|inflightRepository
 argument_list|)
@@ -6454,8 +6454,8 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// stop management as the last one
-name|stopServices
+comment|// shutdown management as the last one
+name|shutdownServices
 argument_list|(
 name|getManagementStrategy
 argument_list|()
@@ -6475,7 +6475,7 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") stopped"
+literal|") shutdown"
 argument_list|)
 expr_stmt|;
 block|}
@@ -6532,10 +6532,63 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stopServices (Collection<?> services)
+DECL|method|shutdownServices (Object service)
 specifier|private
 name|void
-name|stopServices
+name|shutdownServices
+parameter_list|(
+name|Object
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// allow us to do custom work before delegating to service helper
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred while shutting down service: "
+operator|+
+name|service
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyServiceStopFailure
+argument_list|(
+name|this
+argument_list|,
+name|service
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|shutdownServices (Collection<?> services)
+specifier|private
+name|void
+name|shutdownServices
 parameter_list|(
 name|Collection
 argument_list|<
@@ -6547,7 +6600,7 @@ throws|throws
 name|Exception
 block|{
 comment|// reverse stopping by default
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|services
 argument_list|,
@@ -6555,10 +6608,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stopServices (Collection<?> services, boolean reverse)
+DECL|method|shutdownServices (Collection<?> services, boolean reverse)
 specifier|private
 name|void
-name|stopServices
+name|shutdownServices
 parameter_list|(
 name|Collection
 argument_list|<
@@ -6625,7 +6678,7 @@ range|:
 name|list
 control|)
 block|{
-name|stopServices
+name|shutdownServices
 argument_list|(
 name|service
 argument_list|)

@@ -750,6 +750,15 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if we are stopping CamelContext then we are shutting down
+name|boolean
+name|isShutdownCamelContext
+init|=
+name|camelContext
+operator|.
+name|isStopping
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Route
@@ -823,9 +832,26 @@ argument_list|(
 name|route
 argument_list|,
 name|list
+argument_list|,
+name|isShutdownCamelContext
 argument_list|)
 expr_stmt|;
 comment|// stop the route itself
+if|if
+condition|(
+name|isShutdownCamelContext
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ServiceHelper
 operator|.
 name|stopService
@@ -833,6 +859,7 @@ argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
+block|}
 comment|// fire event
 name|EventHelper
 operator|.
@@ -957,7 +984,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stopChildService (Route route, List<Service> services)
+DECL|method|stopChildService (Route route, List<Service> services, boolean shutdown)
 specifier|protected
 name|void
 name|stopChildService
@@ -970,6 +997,9 @@ argument_list|<
 name|Service
 argument_list|>
 name|services
+parameter_list|,
+name|boolean
+name|shutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -1005,6 +1035,21 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|shutdown
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ServiceHelper
 operator|.
 name|stopService
@@ -1012,6 +1057,7 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
 name|removeChildService
 argument_list|(
 name|service

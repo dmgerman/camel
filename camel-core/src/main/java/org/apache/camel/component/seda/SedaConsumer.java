@@ -942,6 +942,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// must shutdown executor on stop to avoid overhead of having them running
 name|executor
 operator|.
 name|shutdownNow

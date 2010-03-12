@@ -1213,6 +1213,7 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+comment|// must shutdown thread pools on stop as we are consumers
 if|if
 condition|(
 name|producerExecutorService

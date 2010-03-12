@@ -402,6 +402,12 @@ name|String
 name|getVersion
 parameter_list|()
 function_decl|;
+comment|/**      * Get the status of this context      *      * @return the status      */
+DECL|method|getStatus ()
+name|ServiceStatus
+name|getStatus
+parameter_list|()
+function_decl|;
 comment|// Service Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a service, starting it so that it will be stopped with this context      *      * @param object the service      * @throws Exception can be thrown when starting the service      */

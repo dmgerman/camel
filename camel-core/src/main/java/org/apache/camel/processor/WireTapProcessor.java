@@ -230,30 +230,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|doShutdown ()
 specifier|protected
 name|void
-name|doStart
+name|doShutdown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|doStart
+name|doShutdown
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+comment|// only shutdown thread pool on shutdown
 if|if
 condition|(
 name|executorService
@@ -263,7 +253,7 @@ condition|)
 block|{
 name|executorService
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 comment|// must null it so we can restart
@@ -272,11 +262,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -373,7 +358,7 @@ argument_list|,
 name|pattern
 argument_list|)
 decl_stmt|;
-name|procesWireTap
+name|processWireTap
 argument_list|(
 name|producer
 argument_list|,
@@ -389,10 +374,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Wiretaps the exchange.      *      * @param exchange  the exchange to wire tap      */
-DECL|method|procesWireTap (final Producer producer, final Exchange exchange)
+DECL|method|processWireTap (final Producer producer, final Exchange exchange)
 specifier|protected
 name|void
-name|procesWireTap
+name|processWireTap
 parameter_list|(
 specifier|final
 name|Producer
@@ -405,7 +390,7 @@ parameter_list|)
 block|{
 comment|// use submit instead of execute to force it to use a new thread, execute might
 comment|// decide to use current thread, so we must submit a new task
-comment|// as we dont care for the response we dont hold the future object and wait for the result
+comment|// as we don't care for the response we dont hold the future object and wait for the result
 name|getExecutorService
 argument_list|()
 operator|.
@@ -679,11 +664,6 @@ condition|(
 name|executorService
 operator|==
 literal|null
-operator|||
-name|executorService
-operator|.
-name|isShutdown
-argument_list|()
 condition|)
 block|{
 name|executorService

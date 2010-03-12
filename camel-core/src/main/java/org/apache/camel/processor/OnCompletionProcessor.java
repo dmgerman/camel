@@ -361,6 +361,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// only shutdown thread pool on shutdown
 if|if
 condition|(
 name|executorService
@@ -370,7 +389,7 @@ condition|)
 block|{
 name|executorService
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 comment|// must null it so we can restart
@@ -379,13 +398,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public

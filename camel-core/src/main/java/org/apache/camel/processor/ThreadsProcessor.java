@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownableService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|WaitForTaskToComplete
 import|;
 end_import
@@ -485,19 +497,22 @@ return|return
 name|executorService
 return|;
 block|}
-DECL|method|doStop ()
+annotation|@
+name|Override
+DECL|method|doShutdown ()
 specifier|protected
 name|void
-name|doStop
+name|doShutdown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|doStop
+name|doShutdown
 argument_list|()
 expr_stmt|;
+comment|// only shutdown thread pool on shutdown
 if|if
 condition|(
 name|executorService
@@ -507,10 +522,9 @@ condition|)
 block|{
 name|executorService
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
-comment|// must null it so we can restart
 name|executorService
 operator|=
 literal|null
