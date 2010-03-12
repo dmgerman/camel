@@ -885,6 +885,8 @@ argument_list|()
 operator|.
 name|newScheduledThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|name
 argument_list|,
 name|DEFAULT_THREADPOOL_SIZE

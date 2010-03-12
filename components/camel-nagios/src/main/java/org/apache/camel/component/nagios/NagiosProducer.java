@@ -438,6 +438,8 @@ argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
+name|this
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.

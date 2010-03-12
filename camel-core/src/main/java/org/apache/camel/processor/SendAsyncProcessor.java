@@ -807,6 +807,8 @@ argument_list|()
 operator|.
 name|newThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"SendAsyncProcessor-Consumer"
 argument_list|,
 name|poolSize
@@ -862,6 +864,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"SendAsyncProcessor-Producer"
 argument_list|)
 expr_stmt|;

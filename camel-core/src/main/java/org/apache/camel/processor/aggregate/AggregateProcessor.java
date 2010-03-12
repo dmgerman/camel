@@ -2259,6 +2259,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"Aggregator"
 argument_list|)
 expr_stmt|;
@@ -2275,6 +2277,8 @@ argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
+name|this
+argument_list|,
 literal|"Aggregator"
 argument_list|)
 expr_stmt|;
@@ -2304,6 +2308,8 @@ argument_list|()
 operator|.
 name|newScheduledThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"AggregateTimeoutChecker"
 argument_list|,
 literal|1

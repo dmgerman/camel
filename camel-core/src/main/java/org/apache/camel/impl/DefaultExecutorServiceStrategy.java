@@ -190,11 +190,14 @@ operator|=
 name|threadNamePattern
 expr_stmt|;
 block|}
-DECL|method|lookup (String executorServiceRef)
+DECL|method|lookup (Object source, String executorServiceRef)
 specifier|public
 name|ExecutorService
 name|lookup
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|executorServiceRef
 parameter_list|)
@@ -215,11 +218,14 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|newCachedThreadPool (String name)
+DECL|method|newCachedThreadPool (Object source, String name)
 specifier|public
 name|ExecutorService
 name|newCachedThreadPool
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|)
@@ -238,11 +244,14 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newScheduledThreadPool (String name, int poolSize)
+DECL|method|newScheduledThreadPool (Object source, String name, int poolSize)
 specifier|public
 name|ScheduledExecutorService
 name|newScheduledThreadPool
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -266,11 +275,14 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newFixedThreadPool (String name, int poolSize)
+DECL|method|newFixedThreadPool (Object source, String name, int poolSize)
 specifier|public
 name|ExecutorService
 name|newFixedThreadPool
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -294,11 +306,14 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newSingleThreadExecutor (String name)
+DECL|method|newSingleThreadExecutor (Object source, String name)
 specifier|public
 name|ExecutorService
 name|newSingleThreadExecutor
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|)
@@ -317,11 +332,14 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize)
+DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize)
 specifier|public
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -348,11 +366,14 @@ name|maxPoolSize
 argument_list|)
 return|;
 block|}
-DECL|method|newThreadPool (String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
+DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
 specifier|public
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|String
 name|name
 parameter_list|,

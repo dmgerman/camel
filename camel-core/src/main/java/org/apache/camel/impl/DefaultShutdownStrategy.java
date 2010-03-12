@@ -1100,6 +1100,8 @@ argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
+name|this
+argument_list|,
 literal|"ShutdownTask"
 argument_list|)
 expr_stmt|;

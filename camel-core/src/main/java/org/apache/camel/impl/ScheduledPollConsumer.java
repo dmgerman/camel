@@ -315,6 +315,8 @@ argument_list|()
 operator|.
 name|newScheduledThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.

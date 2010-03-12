@@ -790,6 +790,8 @@ operator|.
 name|newCachedThreadPool
 argument_list|(
 name|this
+argument_list|,
+name|this
 operator|.
 name|toString
 argument_list|()

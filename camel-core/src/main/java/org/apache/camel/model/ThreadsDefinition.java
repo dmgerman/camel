@@ -436,6 +436,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -468,6 +470,8 @@ argument_list|()
 operator|.
 name|newThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|name
 argument_list|,
 name|poolSize

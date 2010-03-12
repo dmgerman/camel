@@ -1158,6 +1158,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaSocketAcceptor"
 argument_list|)
 argument_list|)
@@ -1178,6 +1180,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaSocketConnector"
 argument_list|)
 argument_list|)
@@ -1246,6 +1250,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaThreadPool"
 argument_list|)
 argument_list|)
@@ -1357,6 +1363,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaThreadPool"
 argument_list|)
 argument_list|)
@@ -1801,6 +1809,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaDatagramAcceptor"
 argument_list|)
 argument_list|)
@@ -1819,6 +1829,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaDatagramConnector"
 argument_list|)
 argument_list|)
@@ -1899,6 +1911,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaThreadPool"
 argument_list|)
 argument_list|)
@@ -2003,6 +2017,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"MinaThreadPool"
 argument_list|)
 argument_list|)

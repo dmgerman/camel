@@ -471,6 +471,8 @@ argument_list|()
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
+name|this
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri

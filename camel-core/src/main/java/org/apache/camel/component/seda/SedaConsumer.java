@@ -818,6 +818,8 @@ argument_list|()
 operator|.
 name|newFixedThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
@@ -884,6 +886,8 @@ argument_list|()
 operator|.
 name|newFixedThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri

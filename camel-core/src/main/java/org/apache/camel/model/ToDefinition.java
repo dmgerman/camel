@@ -487,6 +487,8 @@ argument_list|()
 operator|.
 name|newThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"ToAsync["
 operator|+
 name|getLabel

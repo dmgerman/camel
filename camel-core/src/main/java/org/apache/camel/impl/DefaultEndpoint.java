@@ -867,6 +867,8 @@ argument_list|()
 operator|.
 name|newScheduledThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|,

@@ -783,6 +783,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"Multicast"
 argument_list|)
 expr_stmt|;

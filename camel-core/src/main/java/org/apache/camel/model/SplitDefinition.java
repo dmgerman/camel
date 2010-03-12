@@ -475,6 +475,8 @@ argument_list|()
 operator|.
 name|newCachedThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"Split"
 argument_list|)
 expr_stmt|;
