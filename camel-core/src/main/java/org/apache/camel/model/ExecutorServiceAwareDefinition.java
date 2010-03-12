@@ -28,26 +28,37 @@ name|ExecutorService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExecutorServiceAware
+import|;
+end_import
+
 begin_comment
-comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  *  * @version $Revision$  */
+comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  *  * @version $Revision$  * @see org.apache.camel.util.concurrent.ExecutorServiceHelper#getConfiguredExecutorService(org.apache.camel.spi.RouteContext,  *                                                                                          ExecutorServiceAwareDefinition)  */
 end_comment
 
 begin_interface
-DECL|interface|ExecutorServiceAware
+DECL|interface|ExecutorServiceAwareDefinition
 specifier|public
 interface|interface
-name|ExecutorServiceAware
+name|ExecutorServiceAwareDefinition
 parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
 parameter_list|>
+extends|extends
+name|ExecutorServiceAware
 block|{
 comment|/**      * Setting the executor service for executing      *      * @param executorService the executor service      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
-parameter_list|<
-name|Type
-parameter_list|>
 name|Type
 name|executorService
 parameter_list|(
@@ -57,37 +68,8 @@ parameter_list|)
 function_decl|;
 comment|/**      * Setting the executor service for executing      *      * @param executorServiceRef reference for a {@link java.util.concurrent.ExecutorService}      *                           to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
-parameter_list|<
-name|Type
-parameter_list|>
 name|Type
 name|executorServiceRef
-parameter_list|(
-name|String
-name|executorServiceRef
-parameter_list|)
-function_decl|;
-DECL|method|getExecutorService ()
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-function_decl|;
-DECL|method|setExecutorService (ExecutorService executorService)
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-function_decl|;
-DECL|method|getExecutorServiceRef ()
-name|String
-name|getExecutorServiceRef
-parameter_list|()
-function_decl|;
-DECL|method|setExecutorServiceRef (String executorServiceRef)
-name|void
-name|setExecutorServiceRef
 parameter_list|(
 name|String
 name|executorServiceRef

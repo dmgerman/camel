@@ -1191,7 +1191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable stream caching for this route.      */
+comment|/**      * Disable stream caching for this route.      *       * @return the builder      */
 DECL|method|noStreamCaching ()
 specifier|public
 name|RouteDefinition
@@ -1217,7 +1217,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable stream caching for this route.      */
+comment|/**      * Enable stream caching for this route.      *       * @return the builder      */
 DECL|method|streamCaching ()
 specifier|public
 name|RouteDefinition
@@ -1268,7 +1268,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable tracing for this route.      */
+comment|/**      * Disable tracing for this route.      *       * @return the builder      */
 DECL|method|noTracing ()
 specifier|public
 name|RouteDefinition
@@ -1284,7 +1284,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable tracing for this route.      */
+comment|/**      * Enable tracing for this route.      *       * @return the builder      */
 DECL|method|tracing ()
 specifier|public
 name|RouteDefinition
@@ -1300,7 +1300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable handle fault for this route.      */
+comment|/**      * Disable handle fault for this route.      *       * @return the builder      */
 DECL|method|noHandleFault ()
 specifier|public
 name|RouteDefinition
@@ -1316,7 +1316,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable handle fault for this route.      */
+comment|/**      * Enable handle fault for this route.      *       * @return the builder      */
 DECL|method|handleFault ()
 specifier|public
 name|RouteDefinition
@@ -1332,7 +1332,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable delayer for this route.      */
+comment|/**      * Disable delayer for this route.      *       * @return the builder      */
 DECL|method|noDelayer ()
 specifier|public
 name|RouteDefinition
@@ -1348,7 +1348,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable delayer for this route.      *      * @param delay delay in millis      */
+comment|/**      * Enable delayer for this route.      *      * @param delay delay in millis      * @return the builder      */
 DECL|method|delayer (long delay)
 specifier|public
 name|RouteDefinition
@@ -1386,7 +1386,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disables this route from being auto started when Camel starts.      */
+comment|/**      * Disables this route from being auto started when Camel starts.      *       * @return the builder      */
 DECL|method|noAutoStartup ()
 specifier|public
 name|RouteDefinition
@@ -1404,7 +1404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return this builder      */
+comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return the builder      */
 DECL|method|startupOrder (int order)
 specifier|public
 name|RouteDefinition
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disables this route from being auto started when Camel starts.      */
+comment|/**      * Configures a route policy for this route      *      * @param routePolicy the route policy      * @return the builder      */
 DECL|method|routePolicy (RoutePolicy routePolicy)
 specifier|public
 name|RouteDefinition
@@ -1442,7 +1442,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      */
+comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      * @return the builder      */
 DECL|method|routePolicyRef (String routePolicyRef)
 specifier|public
 name|RouteDefinition
@@ -1461,7 +1461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a shutdown route option.      *      * @param shutdownRoute the option to use when shutting down this route      */
+comment|/**      * Configures a shutdown route option.      *      * @param shutdownRoute the option to use when shutting down this route      * @return the builder      */
 DECL|method|shutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|RouteDefinition
@@ -1480,7 +1480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a shutdown running task option.      *      * @param shutdownRunningTask the option to use when shutting down and how to act upon running tasks.      */
+comment|/**      * Configures a shutdown running task option.      *      * @param shutdownRunningTask the option to use when shutting down and how to act upon running tasks.      * @return the builder      */
 DECL|method|shutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|RouteDefinition
@@ -2394,6 +2394,29 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using AutoStartup "
+operator|+
+name|isAutoStartup
+argument_list|()
+operator|+
+literal|" on route: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|routeContext
 operator|.
 name|setAutoStartup
@@ -2411,6 +2434,29 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using ShutdownRoute "
+operator|+
+name|getShutdownRoute
+argument_list|()
+operator|+
+literal|" on route: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|routeContext
 operator|.
 name|setShutdownRoute
@@ -2427,6 +2473,29 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using ShutdownRunningTask "
+operator|+
+name|getShutdownRunningTask
+argument_list|()
+operator|+
+literal|" on route: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|routeContext
 operator|.
 name|setShutdownRunningTask

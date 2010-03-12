@@ -196,6 +196,22 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -225,7 +241,7 @@ argument_list|<
 name|ToDefinition
 argument_list|>
 implements|implements
-name|ExecutorServiceAware
+name|ExecutorServiceAwareDefinition
 argument_list|<
 name|ToDefinition
 argument_list|>
@@ -436,46 +452,17 @@ return|;
 block|}
 comment|// this code below is only for creating when async is enabled
 comment|// ----------------------------------------------------------
-if|if
-condition|(
-name|executorServiceRef
-operator|!=
-literal|null
-condition|)
-block|{
 name|executorService
 operator|=
-name|routeContext
+name|ExecutorServiceHelper
 operator|.
-name|lookup
+name|getConfiguredExecutorService
 argument_list|(
-name|executorServiceRef
+name|routeContext
 argument_list|,
-name|ExecutorService
-operator|.
-name|class
+name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"ExecutorServiceRef "
-operator|+
-name|executorServiceRef
-operator|+
-literal|" not found in registry."
-argument_list|)
-throw|;
-block|}
-block|}
 if|if
 condition|(
 name|executorService
@@ -487,6 +474,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// crete a new based on the other options
 name|executorService
 operator|=
 name|routeContext

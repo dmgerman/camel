@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -70,6 +82,30 @@ name|SpringSplitterWithCustomThreadPoolExecutorTest
 extends|extends
 name|SplitterWithCustomThreadPoolExecutorTest
 block|{
+annotation|@
+name|Override
+DECL|method|getThreadPoolExecutor ()
+specifier|protected
+name|ThreadPoolExecutor
+name|getThreadPoolExecutor
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+literal|"myThreadPoolExecutor"
+argument_list|,
+name|ThreadPoolExecutor
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
