@@ -280,8 +280,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
