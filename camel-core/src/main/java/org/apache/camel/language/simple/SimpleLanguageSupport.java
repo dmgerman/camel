@@ -230,7 +230,7 @@ name|language
 operator|.
 name|simple
 operator|.
-name|SimpleLangaugeOperator
+name|SimpleLanguageOperator
 operator|.
 name|*
 import|;
@@ -639,7 +639,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SimpleLangaugeOperator
+name|SimpleLanguageOperator
 name|operator
 init|=
 name|asOperator
@@ -865,7 +865,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SimpleLangaugeOperator
+name|SimpleLanguageOperator
 name|operator
 init|=
 name|asOperator
