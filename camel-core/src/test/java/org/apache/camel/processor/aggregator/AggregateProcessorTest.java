@@ -26,6 +26,30 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -220,6 +244,11 @@ name|AggregateProcessorTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
@@ -231,6 +260,29 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|executorService
+operator|=
+name|Executors
+operator|.
+name|newSingleThreadExecutor
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testAggregateProcessorCompletionPredicate ()
 specifier|public
@@ -319,6 +371,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -588,6 +642,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -877,6 +933,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -1166,6 +1224,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -1445,6 +1505,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -1691,6 +1753,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -1955,6 +2019,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -2240,6 +2306,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap
@@ -2870,6 +2938,8 @@ argument_list|,
 name|corr
 argument_list|,
 name|as
+argument_list|,
+name|executorService
 argument_list|)
 decl_stmt|;
 name|ap

@@ -198,6 +198,7 @@ name|camelContext
 decl_stmt|;
 DECL|field|executorService
 specifier|private
+specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
@@ -213,18 +214,36 @@ specifier|private
 name|Processor
 name|newExchangeProcessor
 decl_stmt|;
-DECL|method|WireTapProcessor (Endpoint destination)
+DECL|method|WireTapProcessor (Endpoint destination, ExecutorService executorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
 name|Endpoint
 name|destination
+parameter_list|,
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|destination
 argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"executorService"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 name|this
 operator|.
@@ -236,7 +255,7 @@ name|getCamelContext
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|WireTapProcessor (Endpoint destination, ExchangePattern pattern)
+DECL|method|WireTapProcessor (Endpoint destination, ExchangePattern pattern, ExecutorService executorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
@@ -245,6 +264,9 @@ name|destination
 parameter_list|,
 name|ExchangePattern
 name|pattern
+parameter_list|,
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
@@ -253,6 +275,21 @@ name|destination
 argument_list|,
 name|pattern
 argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"executorService"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 name|this
 operator|.
@@ -296,11 +333,6 @@ name|shutdownNow
 argument_list|(
 name|executorService
 argument_list|)
-expr_stmt|;
-comment|// must null it so we can restart
-name|executorService
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}
@@ -414,7 +446,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Wiretaps the exchange.      *      * @param exchange  the exchange to wire tap      */
+comment|/**      * Wiretaps the exchange.      *      * @param producer  the producer      * @param exchange  the exchange to wire tap      */
 DECL|method|processWireTap (final Producer producer, final Exchange exchange)
 specifier|protected
 name|void
@@ -432,8 +464,7 @@ block|{
 comment|// use submit instead of execute to force it to use a new thread, execute might
 comment|// decide to use current thread, so we must submit a new task
 comment|// as we don't care for the response we dont hold the future object and wait for the result
-name|getExecutorService
-argument_list|()
+name|executorService
 operator|.
 name|submit
 argument_list|(
@@ -693,72 +724,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
-DECL|method|getExecutorService ()
-specifier|public
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-name|executorService
-operator|=
-name|createExecutorService
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|executorService
-return|;
-block|}
-DECL|method|createExecutorService ()
-specifier|protected
-name|ExecutorService
-name|createExecutorService
-parameter_list|()
-block|{
-return|return
-name|getDestination
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newCachedThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|this
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|setExecutorService (ExecutorService executorService)
-specifier|public
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
 block|}
 DECL|method|getNewExchangeProcessor ()
 specifier|public

@@ -423,6 +423,12 @@ specifier|final
 name|Expression
 name|correlationExpression
 decl_stmt|;
+DECL|field|executorService
+specifier|private
+specifier|final
+name|ExecutorService
+name|executorService
+decl_stmt|;
 DECL|field|timeoutMap
 specifier|private
 name|TimeoutMap
@@ -432,11 +438,6 @@ argument_list|,
 name|Exchange
 argument_list|>
 name|timeoutMap
-decl_stmt|;
-DECL|field|executorService
-specifier|private
-name|ExecutorService
-name|executorService
 decl_stmt|;
 DECL|field|exceptionHandler
 specifier|private
@@ -526,7 +527,7 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
+DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService)
 specifier|public
 name|AggregateProcessor
 parameter_list|(
@@ -541,6 +542,9 @@ name|correlationExpression
 parameter_list|,
 name|AggregationStrategy
 name|aggregationStrategy
+parameter_list|,
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -579,6 +583,15 @@ argument_list|,
 literal|"aggregationStrategy"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"executorService"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|camelContext
@@ -602,6 +615,12 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
+expr_stmt|;
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 block|}
 annotation|@
@@ -1666,32 +1685,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getExecutorService ()
-specifier|public
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-return|return
-name|executorService
-return|;
-block|}
-DECL|method|setExecutorService (ExecutorService executorService)
-specifier|public
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
-block|}
 DECL|method|getCompletionPredicate ()
 specifier|public
 name|Predicate
@@ -2236,54 +2229,6 @@ argument_list|(
 name|aggregationRepository
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|isParallelProcessing
-argument_list|()
-condition|)
-block|{
-comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
-name|executorService
-operator|=
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newCachedThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"Aggregator"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// use a single threaded if we are not running in parallel
-name|executorService
-operator|=
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newSingleThreadExecutor
-argument_list|(
-name|this
-argument_list|,
-literal|"Aggregator"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// start timeout service if its in use
 if|if
 condition|(
@@ -2384,13 +2329,6 @@ throws|throws
 name|Exception
 block|{
 comment|// only shutdown thread pool when we are shutting down
-if|if
-condition|(
-name|executorService
-operator|!=
-literal|null
-condition|)
-block|{
 name|camelContext
 operator|.
 name|getExecutorServiceStrategy
@@ -2401,11 +2339,6 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
-name|executorService
-operator|=
-literal|null
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link java.util.Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *  * @version $Revision$  */
+comment|/**  * A {@link java.util.Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *  * @version $Revision$  * @deprecated will be removed in Camel 2.4  */
 end_comment
 
 begin_class

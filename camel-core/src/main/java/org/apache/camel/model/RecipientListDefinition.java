@@ -457,13 +457,16 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|parallelProcessing
-operator|!=
-literal|null
-condition|)
-block|{
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|createAggregationStrategy
+argument_list|(
+name|routeContext
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setParallelProcessing
@@ -472,7 +475,6 @@ name|isParallelProcessing
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|stopOnException
@@ -489,16 +491,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|answer
-operator|.
-name|setAggregationStrategy
-argument_list|(
-name|createAggregationStrategy
-argument_list|(
-name|routeContext
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|executorService
 operator|=
 name|ExecutorServiceHelper
@@ -512,12 +504,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|isParallelProcessing
+argument_list|()
+operator|&&
 name|executorService
 operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to create a new executor
+comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
 name|executorService
 operator|=
 name|routeContext
@@ -791,20 +786,24 @@ expr_stmt|;
 block|}
 DECL|method|isParallelProcessing ()
 specifier|public
-name|Boolean
+name|boolean
 name|isParallelProcessing
 parameter_list|()
 block|{
 return|return
 name|parallelProcessing
+operator|!=
+literal|null
+operator|&&
+name|parallelProcessing
 return|;
 block|}
-DECL|method|setParallelProcessing (Boolean parallelProcessing)
+DECL|method|setParallelProcessing (boolean parallelProcessing)
 specifier|public
 name|void
 name|setParallelProcessing
 parameter_list|(
-name|Boolean
+name|boolean
 name|parallelProcessing
 parameter_list|)
 block|{

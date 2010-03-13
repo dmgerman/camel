@@ -247,6 +247,7 @@ name|processor
 decl_stmt|;
 DECL|field|executorService
 specifier|private
+specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
@@ -265,7 +266,7 @@ specifier|private
 name|Predicate
 name|onWhen
 decl_stmt|;
-DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen)
+DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, ExecutorService executorService, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen)
 specifier|public
 name|OnCompletionProcessor
 parameter_list|(
@@ -274,6 +275,9 @@ name|camelContext
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|ExecutorService
+name|executorService
 parameter_list|,
 name|boolean
 name|onCompleteOnly
@@ -299,6 +303,13 @@ argument_list|,
 literal|"processor"
 argument_list|)
 expr_stmt|;
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"executorService"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|camelContext
@@ -315,6 +326,12 @@ name|UnitOfWorkProcessor
 argument_list|(
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 name|this
 operator|.
@@ -397,11 +414,6 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
-comment|// must null it so we can restart
-name|executorService
-operator|=
-literal|null
-expr_stmt|;
 block|}
 block|}
 DECL|method|process (Exchange exchange)
@@ -481,8 +493,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|getExecutorService
-argument_list|()
+name|executorService
 operator|.
 name|submit
 argument_list|(
@@ -585,8 +596,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|getExecutorService
-argument_list|()
+name|executorService
 operator|.
 name|submit
 argument_list|(
@@ -768,68 +778,6 @@ expr_stmt|;
 return|return
 name|copy
 return|;
-block|}
-DECL|method|getExecutorService ()
-specifier|public
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-name|executorService
-operator|=
-name|createExecutorService
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|executorService
-return|;
-block|}
-DECL|method|createExecutorService ()
-specifier|protected
-name|ExecutorService
-name|createExecutorService
-parameter_list|()
-block|{
-return|return
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newCachedThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|this
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|setExecutorService (ExecutorService executorService)
-specifier|public
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
 block|}
 annotation|@
 name|Override

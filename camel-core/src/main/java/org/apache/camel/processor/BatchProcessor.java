@@ -301,7 +301,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version $Revision$  * @deprecated will be removed in Camel 2.4  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version $Revision$  * @deprecated may be removed in the future  */
 end_comment
 
 begin_class

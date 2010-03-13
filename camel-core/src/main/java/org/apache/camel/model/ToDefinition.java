@@ -452,56 +452,6 @@ return|;
 block|}
 comment|// this code below is only for creating when async is enabled
 comment|// ----------------------------------------------------------
-name|executorService
-operator|=
-name|ExecutorServiceHelper
-operator|.
-name|getConfiguredExecutorService
-argument_list|(
-name|routeContext
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-operator|&&
-name|poolSize
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// crete a new based on the other options
-name|executorService
-operator|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"ToAsync["
-operator|+
-name|getLabel
-argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|poolSize
-argument_list|,
-name|poolSize
-argument_list|)
-expr_stmt|;
-block|}
 comment|// create the child processor which is the async route
 name|Processor
 name|childProcessor
@@ -534,6 +484,7 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+comment|// TODO: rework to have configured executor service in SendAsyncProcessor being handled in stop/start scenario
 name|SendAsyncProcessor
 name|async
 init|=
@@ -548,6 +499,17 @@ argument_list|,
 name|uow
 argument_list|)
 decl_stmt|;
+name|executorService
+operator|=
+name|ExecutorServiceHelper
+operator|.
+name|getConfiguredExecutorService
+argument_list|(
+name|routeContext
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|executorService

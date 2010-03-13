@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Collection} which aggregates exchanges together,  * using a correlation {@link Expression} and a {@link AggregationStrategy}.  *<p/>  * The Default Implementation will group messages based on the correlation expression.  * Other implementations could for instance just add all exchanges as a batch.  *  * @version $Revision$  */
+comment|/**  * A {@link Collection} which aggregates exchanges together,  * using a correlation {@link Expression} and a {@link AggregationStrategy}.  *<p/>  * The Default Implementation will group messages based on the correlation expression.  * Other implementations could for instance just add all exchanges as a batch.  *  * @version $Revision$  * @deprecated will be removed in Camel 2.4  */
 end_comment
 
 begin_interface

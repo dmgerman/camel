@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An aggregator collection which uses a predicate to decide when an aggregation is completed for  * a particular correlation key  *  * @version $Revision$  */
+comment|/**  * An aggregator collection which uses a predicate to decide when an aggregation is completed for  * a particular correlation key  *  * @version $Revision$  * @deprecated will be removed in Camel 2.4  */
 end_comment
 
 begin_class

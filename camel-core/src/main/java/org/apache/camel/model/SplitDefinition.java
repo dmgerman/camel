@@ -457,12 +457,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|isParallelProcessing
+argument_list|()
+operator|&&
 name|executorService
 operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to create a new executor
+comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
 name|executorService
 operator|=
 name|routeContext
