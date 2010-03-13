@@ -6475,7 +6475,7 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") shutdown"
+literal|") is shutdown"
 argument_list|)
 expr_stmt|;
 block|}

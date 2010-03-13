@@ -943,10 +943,18 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// must shutdown executor on stop to avoid overhead of having them running
-name|executor
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|shutdownNow
-argument_list|()
+argument_list|(
+name|executor
+argument_list|)
 expr_stmt|;
 name|executor
 operator|=

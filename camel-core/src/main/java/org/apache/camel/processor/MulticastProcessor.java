@@ -1894,10 +1894,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|executorService
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|shutdownNow
-argument_list|()
+argument_list|(
+name|executorService
+argument_list|)
 expr_stmt|;
 name|executorService
 operator|=
