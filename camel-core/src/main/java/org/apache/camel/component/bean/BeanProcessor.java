@@ -211,6 +211,11 @@ specifier|private
 name|BeanHolder
 name|beanHolder
 decl_stmt|;
+DECL|field|shorthandMethod
+specifier|private
+name|boolean
+name|shorthandMethod
+decl_stmt|;
 DECL|method|BeanProcessor (Object pojo, BeanInfo beanInfo)
 specifier|public
 name|BeanProcessor
@@ -988,6 +993,33 @@ operator|.
 name|method
 operator|=
 name|method
+expr_stmt|;
+block|}
+DECL|method|isShorthandMethod ()
+specifier|public
+name|boolean
+name|isShorthandMethod
+parameter_list|()
+block|{
+return|return
+name|shorthandMethod
+return|;
+block|}
+comment|/**      * Sets whether to support getter style method name, so you can      * say the method is called 'name' but it will invoke the 'getName' method.      *<p/>      * Is by default turned off.      */
+DECL|method|setShorthandMethod (boolean shorthandMethod)
+specifier|public
+name|void
+name|setShorthandMethod
+parameter_list|(
+name|boolean
+name|shorthandMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shorthandMethod
+operator|=
+name|shorthandMethod
 expr_stmt|;
 block|}
 comment|// Implementation methods

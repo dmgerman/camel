@@ -547,6 +547,43 @@ name|Object
 name|rightValue
 parameter_list|)
 block|{
+comment|// prefer to NOT coerce to String so use the type which is not String
+comment|// for example if we are comparing String vs Integer then prefer to coerce to Interger
+comment|// as all types can be converted to String which does not work well for comparison
+comment|// as eg "10"< 6 would return true, where as 10< 6 will return false.
+comment|// if they are both String then it doesn't matter
+if|if
+condition|(
+name|rightValue
+operator|instanceof
+name|String
+operator|&&
+operator|(
+operator|!
+operator|(
+name|leftValue
+operator|instanceof
+name|String
+operator|)
+operator|)
+condition|)
+block|{
+comment|// if right is String and left is not then flip order (remember to * -1 the result then)
+return|return
+name|typeCoerceCompare
+argument_list|(
+name|converter
+argument_list|,
+name|rightValue
+argument_list|,
+name|leftValue
+argument_list|)
+operator|*
+operator|-
+literal|1
+return|;
+block|}
+comment|// prefer to coerce to the right hand side at first
 if|if
 condition|(
 name|rightValue
@@ -594,6 +631,7 @@ literal|1
 return|;
 block|}
 block|}
+comment|// then fallback to the left hand side
 if|if
 condition|(
 name|leftValue

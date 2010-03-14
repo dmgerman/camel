@@ -99,10 +99,10 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|tesValueWithSpace ()
+DECL|method|testValueWithSpace ()
 specifier|public
 name|void
-name|tesValueWithSpace
+name|testValueWithSpace
 parameter_list|()
 throws|throws
 name|Exception
