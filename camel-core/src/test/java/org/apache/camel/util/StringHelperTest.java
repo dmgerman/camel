@@ -132,6 +132,97 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testCountChar ()
+specifier|public
+name|void
+name|testCountChar
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|'x'
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|'e'
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|'l'
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|' '
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|""
+argument_list|,
+literal|' '
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|StringHelper
+operator|.
+name|countChar
+argument_list|(
+literal|null
+argument_list|,
+literal|' '
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
