@@ -728,11 +728,6 @@ specifier|private
 name|Object
 name|result
 decl_stmt|;
-DECL|field|startElvis
-specifier|private
-name|boolean
-name|startElvis
-decl_stmt|;
 DECL|method|OgnlInvokeProcessor (Object bean, String ognl)
 specifier|public
 name|OgnlInvokeProcessor
@@ -794,17 +789,17 @@ operator|.
 name|InOut
 argument_list|)
 expr_stmt|;
-comment|// loop and invoke each method
-name|Object
-name|beanToCall
-init|=
-name|bean
-decl_stmt|;
 comment|// current ognl path as we go along
 name|String
 name|ognlPath
 init|=
 literal|""
+decl_stmt|;
+comment|// loop and invoke each method
+name|Object
+name|beanToCall
+init|=
+name|bean
 decl_stmt|;
 name|List
 argument_list|<
@@ -852,21 +847,6 @@ argument_list|(
 name|methodName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|startElvis
-condition|)
-block|{
-name|elvis
-operator|=
-literal|true
-expr_stmt|;
-comment|// flip flag to not apply elvis the next time
-name|startElvis
-operator|=
-literal|false
-expr_stmt|;
-block|}
 comment|// keep up with how far are we doing
 name|ognlPath
 operator|+=
