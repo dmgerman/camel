@@ -499,6 +499,8 @@ name|newScheduledThreadPool
 argument_list|(
 literal|2
 argument_list|,
+literal|null
+argument_list|,
 literal|"foo"
 argument_list|,
 literal|true

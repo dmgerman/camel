@@ -183,6 +183,15 @@ specifier|final
 class|class
 name|ExecutorServiceHelper
 block|{
+DECL|field|DEFAULT_PATTERN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_PATTERN
+init|=
+literal|"Camel Thread ${counter} - ${name}"
+decl_stmt|;
 DECL|field|threadCounter
 specifier|private
 specifier|static
@@ -227,6 +236,18 @@ name|String
 name|name
 parameter_list|)
 block|{
+if|if
+condition|(
+name|pattern
+operator|==
+literal|null
+condition|)
+block|{
+name|pattern
+operator|=
+name|DEFAULT_PATTERN
+expr_stmt|;
+block|}
 name|String
 name|answer
 init|=
@@ -300,8 +321,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new scheduled thread pool which can schedule threads.      *      * @param poolSize the core pool size      * @param name     part of the thread name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
-DECL|method|newScheduledThreadPool (final int poolSize, final String name, final boolean daemon)
+comment|/**      * Creates a new scheduled thread pool which can schedule threads.      *      * @param poolSize the core pool size      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+DECL|method|newScheduledThreadPool (final int poolSize, final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
 name|ScheduledExecutorService
@@ -313,6 +334,10 @@ name|poolSize
 parameter_list|,
 specifier|final
 name|String
+name|pattern
+parameter_list|,
+specifier|final
+name|String
 name|name
 parameter_list|,
 specifier|final
@@ -347,7 +372,12 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
+name|getThreadName
+argument_list|(
+name|pattern
+argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -365,7 +395,8 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|newFixedThreadPool (final int poolSize, final String name, final boolean daemon)
+comment|/**      * Creates a new fixed thread pool      *      * @param poolSize the fixed pool size      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+DECL|method|newFixedThreadPool (final int poolSize, final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
@@ -377,6 +408,10 @@ name|poolSize
 parameter_list|,
 specifier|final
 name|String
+name|pattern
+parameter_list|,
+specifier|final
+name|String
 name|name
 parameter_list|,
 specifier|final
@@ -411,7 +446,12 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
+name|getThreadName
+argument_list|(
+name|pattern
+argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -429,12 +469,17 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|newSingleThreadExecutor (final String name, final boolean daemon)
+comment|/**      * Creates a new single thread pool (usually for background tasks)      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+DECL|method|newSingleThreadExecutor (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
 name|newSingleThreadExecutor
 parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
 specifier|final
 name|String
 name|name
@@ -469,7 +514,12 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
+name|getThreadName
+argument_list|(
+name|pattern
+argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -487,13 +537,17 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool which should be the most commonly used.      *      * @param name    the full thread name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
-DECL|method|newCachedThreadPool (final String name, final boolean daemon)
+comment|/**      * Creates a new cached thread pool which should be the most commonly used.      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+DECL|method|newCachedThreadPool (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
 name|newCachedThreadPool
 parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
 specifier|final
 name|String
 name|name
@@ -528,7 +582,12 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
+name|getThreadName
+argument_list|(
+name|pattern
+argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer
@@ -546,13 +605,17 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive      *      * @param name          the full thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
-DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize)
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
+DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize)
 specifier|public
 specifier|static
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
 specifier|final
 name|String
 name|name
@@ -569,6 +632,8 @@ name|ExecutorServiceHelper
 operator|.
 name|newThreadPool
 argument_list|(
+name|pattern
+argument_list|,
 name|name
 argument_list|,
 name|corePoolSize
@@ -585,13 +650,17 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param name          the full thread name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
-DECL|method|newThreadPool (final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, final boolean daemon)
+comment|/**      * Creates a new custom thread pool      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
+DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
 specifier|final
 name|String
 name|name
@@ -681,7 +750,12 @@ name|Thread
 argument_list|(
 name|r
 argument_list|,
+name|getThreadName
+argument_list|(
+name|pattern
+argument_list|,
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|answer

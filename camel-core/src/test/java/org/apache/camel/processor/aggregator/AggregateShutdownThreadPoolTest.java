@@ -107,6 +107,8 @@ name|ExecutorServiceHelper
 operator|.
 name|newCachedThreadPool
 argument_list|(
+literal|null
+argument_list|,
 literal|"myPool"
 argument_list|,
 literal|true
