@@ -56,6 +56,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|RejectedExecutionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -448,6 +460,11 @@ operator|.
 name|getMaxQueueSize
 argument_list|()
 argument_list|,
+name|defaultThreadPoolProfile
+operator|.
+name|getRejectedExecutionHandler
+argument_list|()
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
@@ -653,7 +670,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, boolean daemon)
+DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, boolean daemon)
 specifier|public
 name|ExecutorService
 name|newThreadPool
@@ -679,6 +696,9 @@ parameter_list|,
 name|int
 name|maxQueueSize
 parameter_list|,
+name|RejectedExecutionHandler
+name|rejectedExecutionHandler
+parameter_list|,
 name|boolean
 name|daemon
 parameter_list|)
@@ -703,6 +723,8 @@ argument_list|,
 name|timeUnit
 argument_list|,
 name|maxQueueSize
+argument_list|,
+name|rejectedExecutionHandler
 argument_list|,
 name|daemon
 argument_list|)

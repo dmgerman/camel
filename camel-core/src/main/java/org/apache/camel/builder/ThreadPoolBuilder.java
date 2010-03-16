@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ThreadPoolRejectedPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ThreadPoolProfileDefinition
@@ -220,6 +232,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|rejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
+specifier|public
+name|ThreadPoolBuilder
+name|rejectedPolicy
+parameter_list|(
+name|ThreadPoolRejectedPolicy
+name|rejectedPolicy
+parameter_list|)
+block|{
+name|threadPoolDefinition
+operator|.
+name|rejectedPolicy
+argument_list|(
+name|rejectedPolicy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Lookup a {@link java.util.concurrent.ExecutorService} from the {@link org.apache.camel.spi.Registry}.      *      * @param source             the source object, usually it should be<tt>this</tt> passed in as parameter      * @param executorServiceRef reference to lookup      * @return the {@link java.util.concurrent.ExecutorService} or<tt>null</tt> if not found      */
 DECL|method|lookup (Object source, String executorServiceRef)
 specifier|public
@@ -316,6 +348,11 @@ argument_list|,
 name|threadPoolDefinition
 operator|.
 name|getMaxQueueSize
+argument_list|()
+argument_list|,
+name|threadPoolDefinition
+operator|.
+name|getRejectedExecutionHandler
 argument_list|()
 argument_list|,
 literal|false

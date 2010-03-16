@@ -24,7 +24,31 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|RejectedExecutionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ThreadPoolRejectedPolicy
 import|;
 end_import
 
@@ -126,6 +150,27 @@ name|setMaxQueueSize
 parameter_list|(
 name|Integer
 name|maxQueueSize
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the handler for tasks which cannot be executed by the thread pool.      *      * @return the policy for the handler      */
+DECL|method|getRejectedPolicy ()
+name|ThreadPoolRejectedPolicy
+name|getRejectedPolicy
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the handler for tasks which cannot be executed by the thread pool.      *      * @return the handler, or<tt>null</tt> if none defined      */
+DECL|method|getRejectedExecutionHandler ()
+name|RejectedExecutionHandler
+name|getRejectedExecutionHandler
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the handler for tasks which cannot be executed by the thread pool.      *      * @param rejectedPolicy  the policy for the handler      */
+DECL|method|setRejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
+name|void
+name|setRejectedPolicy
+parameter_list|(
+name|ThreadPoolRejectedPolicy
+name|rejectedPolicy
 parameter_list|)
 function_decl|;
 block|}

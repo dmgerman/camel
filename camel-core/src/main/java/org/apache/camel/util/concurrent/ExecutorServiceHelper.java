@@ -74,6 +74,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|RejectedExecutionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -234,7 +246,7 @@ name|getAndIncrement
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new thread name with the given prefix      *      * @param pattern the pattern      * @param name the name      * @return the thread name, which is unique      */
+comment|/**      * Creates a new thread name with the given prefix      *      * @param pattern the pattern      * @param name    the name      * @return the thread name, which is unique      */
 DECL|method|getThreadName (String pattern, String name)
 specifier|public
 specifier|static
@@ -481,7 +493,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new single thread pool (usually for background tasks)      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new single thread pool (usually for background tasks)      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newSingleThreadExecutor (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -549,7 +561,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new cached thread pool      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newCachedThreadPool (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -617,7 +629,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @return the created pool      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize)
 specifier|public
 specifier|static
@@ -661,12 +673,18 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
+operator|new
+name|ThreadPoolExecutor
+operator|.
+name|CallerRunsPolicy
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param maxQueueSize  the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
-DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, final boolean daemon)
+comment|/**      * Creates a new custom thread pool      *      * @param pattern                  pattern of the thread name      * @param name                     ${name} in the pattern name      * @param corePoolSize             the core size      * @param maxPoolSize              the maximum pool size      * @param keepAliveTime            keep alive time      * @param timeUnit                 keep alive time unit      * @param maxQueueSize             the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param rejectedExecutionHandler the handler for tasks which cannot be executed by the thread pool.      *                                 If<tt>null</tt> is provided then {@link java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy CallerRunsPolicy} is used.      * @param daemon                   whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
+DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
@@ -694,6 +712,9 @@ name|timeUnit
 parameter_list|,
 name|int
 name|maxQueueSize
+parameter_list|,
+name|RejectedExecutionHandler
+name|rejectedExecutionHandler
 parameter_list|,
 specifier|final
 name|boolean
@@ -837,11 +858,34 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rejectedExecutionHandler
+operator|==
+literal|null
+condition|)
+block|{
+name|rejectedExecutionHandler
+operator|=
+operator|new
+name|ThreadPoolExecutor
+operator|.
+name|CallerRunsPolicy
+argument_list|()
+expr_stmt|;
+block|}
+name|answer
+operator|.
+name|setRejectedExecutionHandler
+argument_list|(
+name|rejectedExecutionHandler
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
 block|}
-comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext  the rout context      * @param definition    the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
+comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext the rout context      * @param definition   the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
 DECL|method|getConfiguredExecutorService (RouteContext routeContext, ExecutorServiceAwareDefinition definition)
 specifier|public
 specifier|static

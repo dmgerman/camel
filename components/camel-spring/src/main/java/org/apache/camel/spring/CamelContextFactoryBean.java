@@ -1396,7 +1396,7 @@ DECL|field|threadPools
 specifier|private
 name|List
 argument_list|<
-name|CamelExecutorServiceFactoryBean
+name|CamelThreadPoolFactoryBean
 argument_list|>
 name|threadPools
 decl_stmt|;

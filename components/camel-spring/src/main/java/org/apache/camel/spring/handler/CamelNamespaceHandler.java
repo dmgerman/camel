@@ -278,7 +278,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|CamelExecutorServiceFactoryBean
+name|CamelThreadPoolFactoryBean
 import|;
 end_import
 
@@ -824,7 +824,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"threadPool"
 argument_list|,
-name|CamelExecutorServiceFactoryBean
+name|CamelThreadPoolFactoryBean
 operator|.
 name|class
 argument_list|,
