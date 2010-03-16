@@ -173,7 +173,7 @@ operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"META-INF/spring/camel-context.xml"
+literal|"META-INF/camel-routes.xml"
 argument_list|)
 expr_stmt|;
 name|setUseRouteBuilder
