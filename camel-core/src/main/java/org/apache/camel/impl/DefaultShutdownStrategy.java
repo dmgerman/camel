@@ -1169,6 +1169,11 @@ argument_list|(
 name|executor
 argument_list|)
 expr_stmt|;
+comment|// should clear executor so we can restart by creating a new thread pool
+name|executor
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 DECL|class|ShutdownDeferredConsumer
