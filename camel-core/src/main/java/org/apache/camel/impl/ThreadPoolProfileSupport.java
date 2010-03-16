@@ -134,6 +134,10 @@ parameter_list|()
 block|{
 return|return
 name|defaultProfile
+operator|!=
+literal|null
+operator|&&
+name|defaultProfile
 return|;
 block|}
 DECL|method|setDefaultProfile (Boolean defaultProfile)
@@ -331,6 +335,46 @@ name|rejectedPolicy
 operator|=
 name|rejectedPolicy
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ThreadPoolProfile["
+operator|+
+name|defaultProfile
+operator|+
+literal|", "
+operator|+
+name|poolSize
+operator|+
+literal|", "
+operator|+
+name|maxPoolSize
+operator|+
+literal|", "
+operator|+
+name|keepAliveTime
+operator|+
+literal|" "
+operator|+
+name|timeUnit
+operator|+
+literal|", "
+operator|+
+name|maxPoolSize
+operator|+
+literal|", "
+operator|+
+name|rejectedPolicy
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

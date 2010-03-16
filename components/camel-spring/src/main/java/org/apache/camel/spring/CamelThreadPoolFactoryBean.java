@@ -324,10 +324,10 @@ annotation|@
 name|XmlAttribute
 DECL|field|keepAliveTime
 specifier|private
-name|Integer
+name|Long
 name|keepAliveTime
 init|=
-literal|60
+literal|60L
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -640,7 +640,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeepAliveTime ()
 specifier|public
-name|Integer
+name|Long
 name|getKeepAliveTime
 parameter_list|()
 block|{
@@ -648,12 +648,12 @@ return|return
 name|keepAliveTime
 return|;
 block|}
-DECL|method|setKeepAliveTime (Integer keepAliveTime)
+DECL|method|setKeepAliveTime (Long keepAliveTime)
 specifier|public
 name|void
 name|setKeepAliveTime
 parameter_list|(
-name|Integer
+name|Long
 name|keepAliveTime
 parameter_list|)
 block|{

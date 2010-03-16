@@ -1140,6 +1140,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|executor
@@ -1147,16 +1159,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|executor
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|shutdownNow
-argument_list|()
+argument_list|(
+name|executor
+argument_list|)
 expr_stmt|;
 block|}
-name|executor
-operator|=
-literal|null
-expr_stmt|;
 block|}
 DECL|class|ShutdownDeferredConsumer
 class|class

@@ -443,6 +443,10 @@ parameter_list|()
 block|{
 return|return
 name|defaultProfile
+operator|!=
+literal|null
+operator|&&
+name|defaultProfile
 return|;
 block|}
 DECL|method|setDefaultProfile (Boolean defaultProfile)

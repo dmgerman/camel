@@ -283,6 +283,15 @@ name|ThreadPoolProfile
 name|defaultThreadPoolProfile
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using custom DefaultThreadPoolProfile: "
+operator|+
+name|defaultThreadPoolProfile
+argument_list|)
+expr_stmt|;
 comment|// the old is no longer default
 if|if
 condition|(
@@ -424,14 +433,10 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|ExecutorService
-name|answer
-init|=
-name|ExecutorServiceHelper
-operator|.
+return|return
 name|newThreadPool
 argument_list|(
-name|threadNamePattern
+name|source
 argument_list|,
 name|name
 argument_list|,
@@ -467,14 +472,6 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
-name|onNewExecutorService
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 DECL|method|newCachedThreadPool (Object source, String name)
@@ -503,11 +500,44 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new cached thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -543,11 +573,48 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new scheduled thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". [poolSize="
+operator|+
+name|poolSize
+operator|+
+literal|"]. -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -583,11 +650,48 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new fixed thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". [poolSize="
+operator|+
+name|poolSize
+operator|+
+literal|"]. -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -618,11 +722,44 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new single thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -661,11 +798,52 @@ argument_list|,
 name|maxPoolSize
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". [poolSize="
+operator|+
+name|corePoolSize
+operator|+
+literal|", maxPoolSize="
+operator|+
+name|maxPoolSize
+operator|+
+literal|"] -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -729,11 +907,72 @@ argument_list|,
 name|daemon
 argument_list|)
 decl_stmt|;
+name|executorServices
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|onNewExecutorService
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". [poolSize="
+operator|+
+name|corePoolSize
+operator|+
+literal|", maxPoolSize="
+operator|+
+name|maxPoolSize
+operator|+
+literal|", keepAliveTime="
+operator|+
+name|keepAliveTime
+operator|+
+literal|" "
+operator|+
+name|timeUnit
+operator|+
+literal|", maxQueueSize="
+operator|+
+name|maxQueueSize
+operator|+
+literal|", rejectedExecutionHandler="
+operator|+
+name|rejectedExecutionHandler
+operator|+
+literal|", daemon="
+operator|+
+name|daemon
+operator|+
+literal|"] -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -878,7 +1117,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Callback when a new {@link java.util.concurrent.ExecutorService} have been created.      *      * @param executorService the created {@link java.util.concurrent.ExecutorService}       */
+comment|/**      * Strategy callback when a new {@link java.util.concurrent.ExecutorService} have been created.      *      * @param executorService the created {@link java.util.concurrent.ExecutorService}       */
 DECL|method|onNewExecutorService (ExecutorService executorService)
 specifier|protected
 name|void
@@ -888,31 +1127,7 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Created new ExecutorService: "
-operator|+
-name|executorService
-argument_list|)
-expr_stmt|;
-block|}
-name|executorServices
-operator|.
-name|add
-argument_list|(
-name|executorService
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override
