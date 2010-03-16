@@ -1119,8 +1119,14 @@ decl_stmt|;
 DECL|field|nameSuffix
 specifier|private
 specifier|static
-name|int
+name|AtomicInteger
 name|nameSuffix
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 DECL|field|applicationContextClassLoader
 specifier|private
@@ -1643,8 +1649,10 @@ name|name
 operator|=
 name|NAME_PREFIX
 operator|+
-operator|++
 name|nameSuffix
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 comment|// use WebSphere specific resolver if running on WebSphere
 if|if

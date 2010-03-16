@@ -445,7 +445,7 @@ name|String
 name|body
 parameter_list|)
 block|{
-comment|// since this is based on an unit test you can of couse
+comment|// since this is based on an unit test you can of cause
 comment|// use different logic for splitting as Camel have out
 comment|// of the box support for splitting a String based on comma
 comment|// but this is for show and tell, since this is java code
