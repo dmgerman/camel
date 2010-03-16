@@ -308,6 +308,11 @@ name|ApplicationContextAware
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|poolSize
 specifier|private
 name|Integer
@@ -338,10 +343,10 @@ name|TimeUnitAdapter
 operator|.
 name|class
 argument_list|)
-DECL|field|units
+DECL|field|timeUnit
 specifier|private
 name|TimeUnit
-name|units
+name|timeUnit
 init|=
 name|TimeUnit
 operator|.
@@ -363,6 +368,10 @@ DECL|field|rejectedPolicy
 specifier|private
 name|ThreadPoolRejectedPolicy
 name|rejectedPolicy
+init|=
+name|ThreadPoolRejectedPolicy
+operator|.
+name|CallerRuns
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -441,6 +450,25 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|poolSize
+operator|==
+literal|null
+operator|||
+name|poolSize
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"PoolSize must be a positive number"
+argument_list|)
+throw|;
+block|}
 name|String
 name|name
 init|=
@@ -455,42 +483,6 @@ else|:
 name|getId
 argument_list|()
 decl_stmt|;
-name|ExecutorService
-name|answer
-decl_stmt|;
-if|if
-condition|(
-name|getPoolSize
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|getPoolSize
-argument_list|()
-operator|<=
-literal|0
-condition|)
-block|{
-comment|// use the default profile
-name|answer
-operator|=
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|getId
-argument_list|()
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// use a custom pool based on the settings
 name|int
 name|max
 init|=
@@ -525,8 +517,9 @@ name|asRejectedExecutionHandler
 argument_list|()
 expr_stmt|;
 block|}
+name|ExecutorService
 name|answer
-operator|=
+init|=
 name|camelContext
 operator|.
 name|getExecutorServiceStrategy
@@ -547,7 +540,7 @@ argument_list|,
 name|getKeepAliveTime
 argument_list|()
 argument_list|,
-name|getUnits
+name|getTimeUnit
 argument_list|()
 argument_list|,
 name|getMaxQueueSize
@@ -558,8 +551,7 @@ argument_list|,
 name|isDaemon
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 return|return
 name|answer
 return|;
@@ -664,30 +656,30 @@ operator|=
 name|keepAliveTime
 expr_stmt|;
 block|}
-DECL|method|getUnits ()
+DECL|method|getTimeUnit ()
 specifier|public
 name|TimeUnit
-name|getUnits
+name|getTimeUnit
 parameter_list|()
 block|{
 return|return
-name|units
+name|timeUnit
 return|;
 block|}
-DECL|method|setUnits (TimeUnit units)
+DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
-name|setUnits
+name|setTimeUnit
 parameter_list|(
 name|TimeUnit
-name|units
+name|timeUnit
 parameter_list|)
 block|{
 name|this
 operator|.
-name|units
+name|timeUnit
 operator|=
-name|units
+name|timeUnit
 expr_stmt|;
 block|}
 DECL|method|getMaxQueueSize ()

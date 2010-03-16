@@ -139,7 +139,7 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|units
+name|timeUnit
 argument_list|(
 name|TimeUnit
 operator|.
