@@ -115,26 +115,26 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} for Camel failing to start      *      * @param context camel context      * @param cause the cause exception      * @return the created event      */
-DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 name|EventObject
 name|createCamelContextStartupFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} for Camel failing to stop cleanly      *      * @param context camel context      * @param cause the cause exception      * @return the created event      */
-DECL|method|createCamelContextStopFailureEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStopFailureEvent (CamelContext context, Throwable cause)
 name|EventObject
 name|createCamelContextStopFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 function_decl|;
@@ -157,7 +157,7 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} for a Service failed to start cleanly      *      * @param context camel context      * @param service the service      * @param cause the cause exception      * @return the created event      */
-DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Exception cause)
+DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 name|EventObject
 name|createServiceStartupFailureEvent
 parameter_list|(
@@ -167,12 +167,12 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} for a Service failed to stop cleanly      *      * @param context camel context      * @param service the service      * @param cause the cause exception      * @return the created event      */
-DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Exception cause)
+DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Throwable cause)
 name|EventObject
 name|createServiceStopFailureEvent
 parameter_list|(
@@ -182,7 +182,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 function_decl|;

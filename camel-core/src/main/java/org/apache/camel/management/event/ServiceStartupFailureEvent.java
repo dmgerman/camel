@@ -74,10 +74,10 @@ name|service
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|Exception
+name|Throwable
 name|cause
 decl_stmt|;
-DECL|method|ServiceStartupFailureEvent (CamelContext context, Object service, Exception cause)
+DECL|method|ServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
 name|ServiceStartupFailureEvent
 parameter_list|(
@@ -87,7 +87,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -137,7 +137,7 @@ return|;
 block|}
 DECL|method|getCause ()
 specifier|public
-name|Exception
+name|Throwable
 name|getCause
 parameter_list|()
 block|{

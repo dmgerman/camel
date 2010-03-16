@@ -406,7 +406,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|notifyCamelContextStartupFailed (CamelContext context, Exception cause)
+DECL|method|notifyCamelContextStartupFailed (CamelContext context, Throwable cause)
 specifier|public
 specifier|static
 name|void
@@ -415,7 +415,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -723,7 +723,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|notifyCamelContextStopFailed (CamelContext context, Exception cause)
+DECL|method|notifyCamelContextStopFailed (CamelContext context, Throwable cause)
 specifier|public
 specifier|static
 name|void
@@ -732,7 +732,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -832,7 +832,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|notifyServiceStopFailure (CamelContext context, Object service, Exception cause)
+DECL|method|notifyServiceStopFailure (CamelContext context, Object service, Throwable cause)
 specifier|public
 specifier|static
 name|void
@@ -844,7 +844,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -946,7 +946,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|notifyServiceStartupFailure (CamelContext context, Object service, Exception cause)
+DECL|method|notifyServiceStartupFailure (CamelContext context, Object service, Throwable cause)
 specifier|public
 specifier|static
 name|void
@@ -958,7 +958,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -1966,7 +1966,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{

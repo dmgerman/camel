@@ -420,7 +420,7 @@ name|context
 argument_list|)
 return|;
 block|}
-DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|EventObject
 name|createCamelContextStartupFailureEvent
@@ -428,7 +428,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -442,7 +442,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|createCamelContextStopFailureEvent (CamelContext context, Exception cause)
+DECL|method|createCamelContextStopFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|EventObject
 name|createCamelContextStopFailureEvent
@@ -450,7 +450,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -464,7 +464,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Exception cause)
+DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
 name|EventObject
 name|createServiceStartupFailureEvent
@@ -475,7 +475,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -491,7 +491,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Exception cause)
+DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
 name|EventObject
 name|createServiceStopFailureEvent
@@ -502,7 +502,7 @@ parameter_list|,
 name|Object
 name|service
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{

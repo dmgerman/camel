@@ -1944,7 +1944,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Could not auto create component: "
+literal|"Cannot auto create component: "
 operator|+
 name|name
 argument_list|,
@@ -2193,7 +2193,7 @@ literal|"Factory failed to create the "
 operator|+
 name|componentName
 operator|+
-literal|" component"
+literal|" component."
 argument_list|,
 name|e
 argument_list|)
@@ -5313,7 +5313,7 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|" (CamelContext:"
+literal|" (CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -5885,13 +5885,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"... Routes started"
-argument_list|)
-expr_stmt|;
 block|}
 name|LOG
 operator|.
@@ -5917,7 +5910,7 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|" (CamelContext:"
+literal|" (CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -5953,7 +5946,7 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|" (CamelContext:"
+literal|" (CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -5997,11 +5990,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startServices
-argument_list|(
-name|producerServicePool
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|isStreamCaching
@@ -6025,7 +6013,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"StreamCaching is enabled on CamelContext"
+literal|"StreamCaching is enabled on CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -6081,7 +6069,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"HandleFault is enabled on CamelContext"
+literal|"HandleFault is enabled on CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -6136,7 +6124,7 @@ literal|"Delayer is enabled with: "
 operator|+
 name|millis
 operator|+
-literal|" ms. on CamelContext"
+literal|" ms. on CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -6160,34 +6148,14 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|Iterator
-argument_list|<
-name|LifecycleStrategy
-argument_list|>
-name|it
-init|=
-name|lifecycleStrategies
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+comment|// start lifecycle strategies
+for|for
+control|(
 name|LifecycleStrategy
 name|strategy
-init|=
-name|it
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-try|try
+range|:
+name|lifecycleStrategies
+control|)
 block|{
 name|strategy
 operator|.
@@ -6196,39 +6164,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// not all containers allow access to its MBeanServer (such as OC4j)
-comment|// so here we remove the troublesome strategy to be able to continue
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot start lifecycle strategy: "
-operator|+
-name|strategy
-operator|+
-literal|". This strategy will be removed. Cause "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|it
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|// must let some bootstrap service be started before we can notify the starting event
 name|EventHelper
@@ -6244,6 +6179,11 @@ expr_stmt|;
 name|addService
 argument_list|(
 name|executorServiceStrategy
+argument_list|)
+expr_stmt|;
+name|addService
+argument_list|(
+name|producerServicePool
 argument_list|)
 expr_stmt|;
 name|addService
@@ -6369,45 +6309,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// special shutdown of a shared producer service pool as it should only be shutdown by camel context
-if|if
-condition|(
-name|producerServicePool
-operator|instanceof
-name|SharedProducerServicePool
-condition|)
-block|{
-operator|(
-operator|(
-name|SharedProducerServicePool
-operator|)
-name|producerServicePool
-operator|)
-operator|.
-name|shutdown
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|shutdownServices
-argument_list|(
-name|producerServicePool
-argument_list|)
-expr_stmt|;
-block|}
-name|shutdownServices
-argument_list|(
-name|servicesToClose
-argument_list|)
-expr_stmt|;
-name|servicesToClose
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 for|for
@@ -6429,7 +6330,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -6437,15 +6338,23 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot stop lifecycle strategies: "
-operator|+
+literal|"Error occurred while stopping lifecycle strategies. This exception will be ignored."
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// shutdown services as late as possible
+name|shutdownServices
+argument_list|(
+name|servicesToClose
+argument_list|)
+expr_stmt|;
+name|servicesToClose
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// must notify that we are stopped before stopping the management strategy
 name|EventHelper
 operator|.
@@ -6469,7 +6378,7 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|" (CamelContext:"
+literal|" (CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -6477,59 +6386,6 @@ operator|+
 literal|") is shutdown"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|stopServices (Object service)
-specifier|private
-name|void
-name|stopServices
-parameter_list|(
-name|Object
-name|service
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// allow us to do custom work before delegating to service helper
-try|try
-block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|service
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Error occurred while stopping service: "
-operator|+
-name|service
-operator|+
-literal|". This exception will be ignored."
-argument_list|)
-expr_stmt|;
-comment|// fire event
-name|EventHelper
-operator|.
-name|notifyServiceStopFailure
-argument_list|(
-name|this
-argument_list|,
-name|service
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|shutdownServices (Object service)
 specifier|private
@@ -6539,9 +6395,8 @@ parameter_list|(
 name|Object
 name|service
 parameter_list|)
-throws|throws
-name|Exception
 block|{
+comment|// do not rethrow exception as we want to keep shutting down in case of problems
 comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
@@ -6555,7 +6410,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -6568,6 +6423,8 @@ operator|+
 name|service
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// fire event
@@ -6595,8 +6452,6 @@ name|?
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// reverse stopping by default
 name|shutdownServices
@@ -6621,8 +6476,6 @@ parameter_list|,
 name|boolean
 name|reverse
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Collection
 argument_list|<
@@ -6702,6 +6555,52 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|stopServices (Object service)
+specifier|private
+name|void
+name|stopServices
+parameter_list|(
+name|Object
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// allow us to do custom work before delegating to service helper
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyServiceStopFailure
+argument_list|(
+name|this
+argument_list|,
+name|service
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+comment|// rethrow to signal error with stopping
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
@@ -7864,7 +7763,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JMX enabled. Using DefaultManagedLifecycleStrategy."
+literal|"JMX enabled. Using ManagedManagementStrategy."
 argument_list|)
 expr_stmt|;
 name|answer
@@ -7931,12 +7830,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not create JMX lifecycle strategy, caused by: "
-operator|+
+literal|"Cannot create JMX lifecycle strategy. Will fallback to use non JMX and this exception will be ignored."
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7952,7 +7848,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot use JMX. Fallback to using DefaultManagementStrategy."
+literal|"Cannot use JMX. Fallback to using DefaultManagementStrategy (non JMX)."
 argument_list|)
 expr_stmt|;
 name|answer

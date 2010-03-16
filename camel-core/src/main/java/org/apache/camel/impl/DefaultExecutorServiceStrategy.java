@@ -590,7 +590,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Shutting down ExecutorService: "
+literal|"Shutdown ExecutorService: "
 operator|+
 name|executorService
 argument_list|)
@@ -601,6 +601,26 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Shutdown ExecutorService: "
+operator|+
+name|executorService
+operator|+
+literal|" complete."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|shutdownNow (ExecutorService executorService)
 specifier|public
@@ -638,17 +658,45 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Shutting down now ExecutorService: "
+literal|"ShutdownNow ExecutorService: "
 operator|+
 name|executorService
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|List
+argument_list|<
+name|Runnable
+argument_list|>
+name|answer
+init|=
 name|executorService
 operator|.
 name|shutdownNow
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"ShutdownNow ExecutorService: "
+operator|+
+name|executorService
+operator|+
+literal|" complete."
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Callback when a new {@link java.util.concurrent.ExecutorService} have been created.      *      * @param executorService the created {@link java.util.concurrent.ExecutorService}       */
@@ -741,7 +789,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{

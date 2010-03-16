@@ -69,17 +69,17 @@ name|context
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|Exception
+name|Throwable
 name|cause
 decl_stmt|;
-DECL|method|CamelContextStartupFailureEvent (CamelContext context, Exception cause)
+DECL|method|CamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|CamelContextStartupFailureEvent
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Exception
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -113,7 +113,7 @@ return|;
 block|}
 DECL|method|getCause ()
 specifier|public
-name|Exception
+name|Throwable
 name|getCause
 parameter_list|()
 block|{
