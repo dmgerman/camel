@@ -6149,13 +6149,34 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// start lifecycle strategies
-for|for
-control|(
+name|Iterator
+argument_list|<
+name|LifecycleStrategy
+argument_list|>
+name|it
+init|=
+name|lifecycleStrategies
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
 name|LifecycleStrategy
 name|strategy
-range|:
-name|lifecycleStrategies
-control|)
+init|=
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+try|try
 block|{
 name|strategy
 operator|.
@@ -6164,6 +6185,39 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// not all containers allow access to its MBeanServer (such as OC4j)
+comment|// so here we remove the troublesome strategy to be able to continue
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot start lifecycle strategy: "
+operator|+
+name|strategy
+operator|+
+literal|". This strategy will be removed. Cause: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|it
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|// must let some bootstrap service be started before we can notify the starting event
 name|EventHelper
