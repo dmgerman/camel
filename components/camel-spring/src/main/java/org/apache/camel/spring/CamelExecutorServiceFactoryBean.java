@@ -284,11 +284,6 @@ name|ApplicationContextAware
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|poolSize
 specifier|private
 name|Integer
@@ -296,11 +291,6 @@ name|poolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|maxPoolSize
 specifier|private
 name|Integer
@@ -308,11 +298,6 @@ name|maxPoolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|keepAliveTime
 specifier|private
 name|Integer
@@ -322,11 +307,6 @@ literal|60
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
@@ -345,11 +325,16 @@ name|SECONDS
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
+DECL|field|maxQueueSize
+specifier|private
+name|Integer
+name|maxQueueSize
+init|=
+operator|-
+literal|1
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|threadName
 specifier|private
 name|String
@@ -357,10 +342,10 @@ name|threadName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|deamon
+DECL|field|daemon
 specifier|private
 name|Boolean
-name|deamon
+name|daemon
 init|=
 name|Boolean
 operator|.
@@ -455,7 +440,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// use the cached thread pool
+comment|// use the default profile
 name|answer
 operator|=
 name|camelContext
@@ -463,7 +448,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newCachedThreadPool
+name|newDefaultThreadPool
 argument_list|(
 name|getId
 argument_list|()
@@ -514,7 +499,10 @@ argument_list|,
 name|getUnits
 argument_list|()
 argument_list|,
-name|isDeamon
+name|getMaxQueueSize
+argument_list|()
+argument_list|,
+name|isDaemon
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -649,6 +637,32 @@ operator|=
 name|units
 expr_stmt|;
 block|}
+DECL|method|getMaxQueueSize ()
+specifier|public
+name|Integer
+name|getMaxQueueSize
+parameter_list|()
+block|{
+return|return
+name|maxQueueSize
+return|;
+block|}
+DECL|method|setMaxQueueSize (Integer maxQueueSize)
+specifier|public
+name|void
+name|setMaxQueueSize
+parameter_list|(
+name|Integer
+name|maxQueueSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxQueueSize
+operator|=
+name|maxQueueSize
+expr_stmt|;
+block|}
 DECL|method|getThreadName ()
 specifier|public
 name|String
@@ -675,30 +689,30 @@ operator|=
 name|threadName
 expr_stmt|;
 block|}
-DECL|method|isDeamon ()
+DECL|method|isDaemon ()
 specifier|public
 name|Boolean
-name|isDeamon
+name|isDaemon
 parameter_list|()
 block|{
 return|return
-name|deamon
+name|daemon
 return|;
 block|}
-DECL|method|setDeamon (Boolean deamon)
+DECL|method|setDaemon (Boolean daemon)
 specifier|public
 name|void
-name|setDeamon
+name|setDaemon
 parameter_list|(
 name|Boolean
-name|deamon
+name|daemon
 parameter_list|)
 block|{
 name|this
 operator|.
-name|deamon
+name|daemon
 operator|=
-name|deamon
+name|daemon
 expr_stmt|;
 block|}
 DECL|method|getCamelContextId ()

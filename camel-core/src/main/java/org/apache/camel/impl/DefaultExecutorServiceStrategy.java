@@ -271,7 +271,7 @@ name|ThreadPoolProfile
 name|defaultThreadPoolProfile
 parameter_list|)
 block|{
-comment|// the old is no long default
+comment|// the old is no longer default
 if|if
 condition|(
 name|this
