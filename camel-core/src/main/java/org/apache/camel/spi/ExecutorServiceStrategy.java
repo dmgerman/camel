@@ -62,6 +62,18 @@ name|TimeUnit
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ShutdownableService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *  * @version $Revision$  */
 end_comment
@@ -71,6 +83,8 @@ DECL|interface|ExecutorServiceStrategy
 specifier|public
 interface|interface
 name|ExecutorServiceStrategy
+extends|extends
+name|ShutdownableService
 block|{
 comment|/**      * Creates a full thread name      *      * @param name  name which is appended to the full thread name      * @return the full thread name      */
 DECL|method|getThreadName (String name)

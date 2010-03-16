@@ -303,41 +303,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doShutdown ()
-specifier|protected
-name|void
-name|doShutdown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doShutdown
-argument_list|()
-expr_stmt|;
-comment|// only shutdown thread pool on shutdown
-if|if
-condition|(
-name|executorService
-operator|!=
-literal|null
-condition|)
-block|{
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|shutdownNow
-argument_list|(
-name|executorService
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
 DECL|method|toString ()
 specifier|public
 name|String

@@ -70,22 +70,6 @@ name|BodyInAggregatingStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -102,17 +86,6 @@ DECL|field|myPool
 specifier|private
 name|ExecutorService
 name|myPool
-init|=
-name|ExecutorServiceHelper
-operator|.
-name|newCachedThreadPool
-argument_list|(
-literal|null
-argument_list|,
-literal|"myPool"
-argument_list|,
-literal|true
-argument_list|)
 decl_stmt|;
 DECL|method|testAggregateShutdownDefaultThreadPoolTest ()
 specifier|public
@@ -469,6 +442,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|myPool
+operator|=
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|newCachedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"myPool"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:foo"

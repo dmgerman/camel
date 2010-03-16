@@ -2318,28 +2318,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doShutdown ()
-specifier|protected
-name|void
-name|doShutdown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// only shutdown thread pool when we are shutting down
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|shutdownNow
-argument_list|(
-name|executorService
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

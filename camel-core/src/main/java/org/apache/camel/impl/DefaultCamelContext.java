@@ -6241,12 +6241,9 @@ expr_stmt|;
 name|forceLazyInitialization
 argument_list|()
 expr_stmt|;
-name|startServices
+name|addService
 argument_list|(
-name|components
-operator|.
-name|values
-argument_list|()
+name|executorServiceStrategy
 argument_list|)
 expr_stmt|;
 name|addService
@@ -6257,6 +6254,14 @@ expr_stmt|;
 name|addService
 argument_list|(
 name|shutdownStrategy
+argument_list|)
+expr_stmt|;
+name|startServices
+argument_list|(
+name|components
+operator|.
+name|values
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// To avoid initiating the routeDefinitions after stopping the camel context
@@ -6340,16 +6345,6 @@ comment|// do not clear route services as we can start Camel again and get the r
 comment|// the stop order is important
 name|shutdownServices
 argument_list|(
-name|servicesToClose
-argument_list|)
-expr_stmt|;
-name|servicesToClose
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|shutdownServices
-argument_list|(
 name|endpoints
 operator|.
 name|values
@@ -6405,8 +6400,13 @@ expr_stmt|;
 block|}
 name|shutdownServices
 argument_list|(
-name|inflightRepository
+name|servicesToClose
 argument_list|)
+expr_stmt|;
+name|servicesToClose
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -6457,8 +6457,7 @@ expr_stmt|;
 comment|// shutdown management as the last one
 name|shutdownServices
 argument_list|(
-name|getManagementStrategy
-argument_list|()
+name|managementStrategy
 argument_list|)
 expr_stmt|;
 name|LOG

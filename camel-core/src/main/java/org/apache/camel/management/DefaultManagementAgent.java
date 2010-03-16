@@ -1310,7 +1310,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred during stopping JMXConnectorService: "
+operator|+
+name|cs
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
 block|}
 name|cs
 operator|=
@@ -1359,6 +1369,8 @@ range|:
 name|mBeans
 control|)
 block|{
+try|try
+block|{
 name|mbeansRegistered
 operator|.
 name|remove
@@ -1366,8 +1378,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|unregister
 argument_list|(
 name|name
@@ -1376,17 +1386,19 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|JMException
-name|jmex
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Exception unregistering MBean"
+literal|"Exception unregistering MBean with name "
+operator|+
+name|name
 argument_list|,
-name|jmex
+name|e
 argument_list|)
 expr_stmt|;
 name|caught
