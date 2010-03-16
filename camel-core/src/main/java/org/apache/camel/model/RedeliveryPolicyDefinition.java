@@ -249,10 +249,10 @@ name|logHandled
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|logExhasted
+DECL|field|logExhausted
 specifier|private
 name|Boolean
-name|logExhasted
+name|logExhausted
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -502,7 +502,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|logExhasted
+name|logExhausted
 operator|!=
 literal|null
 condition|)
@@ -511,7 +511,7 @@ name|answer
 operator|.
 name|setLogExhausted
 argument_list|(
-name|logExhasted
+name|logExhausted
 argument_list|)
 expr_stmt|;
 block|}
@@ -754,7 +754,7 @@ name|boolean
 name|logExhausted
 parameter_list|)
 block|{
-name|setLogExhasted
+name|setLogExhausted
 argument_list|(
 name|logExhausted
 argument_list|)
@@ -1248,30 +1248,30 @@ operator|=
 name|logRetryAttempted
 expr_stmt|;
 block|}
-DECL|method|isLogExhasted ()
+DECL|method|isLogExhausted ()
 specifier|public
 name|Boolean
-name|isLogExhasted
+name|isLogExhausted
 parameter_list|()
 block|{
 return|return
-name|logExhasted
+name|logExhausted
 return|;
 block|}
-DECL|method|setLogExhasted (Boolean logExhasted)
+DECL|method|setLogExhausted (Boolean logExhausted)
 specifier|public
 name|void
-name|setLogExhasted
+name|setLogExhausted
 parameter_list|(
 name|Boolean
-name|logExhasted
+name|logExhausted
 parameter_list|)
 block|{
 name|this
 operator|.
-name|logExhasted
+name|logExhausted
 operator|=
-name|logExhasted
+name|logExhausted
 expr_stmt|;
 block|}
 block|}

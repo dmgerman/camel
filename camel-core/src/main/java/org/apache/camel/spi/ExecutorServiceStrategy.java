@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *  * @version $Revision$  */
+comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -86,6 +86,21 @@ name|ExecutorServiceStrategy
 extends|extends
 name|ShutdownableService
 block|{
+comment|/**      * Gets the default thread pool profile      *      * @return the default profile      */
+DECL|method|getDefaultThreadPoolProfile ()
+name|ThreadPoolProfile
+name|getDefaultThreadPoolProfile
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the default thread pool profile      *      * @param defaultThreadPoolProfile the new default thread pool profile      */
+DECL|method|setDefaultThreadPoolProfile (ThreadPoolProfile defaultThreadPoolProfile)
+name|void
+name|setDefaultThreadPoolProfile
+parameter_list|(
+name|ThreadPoolProfile
+name|defaultThreadPoolProfile
+parameter_list|)
+function_decl|;
 comment|/**      * Creates a full thread name      *      * @param name  name which is appended to the full thread name      * @return the full thread name      */
 DECL|method|getThreadName (String name)
 name|String
@@ -124,7 +139,19 @@ name|String
 name|executorServiceRef
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new cached thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the thread pool      */
+comment|/**      * Creates a new thread pool using the default thread pool profile.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
+DECL|method|newDefaultThreadPool (Object source, String name)
+name|ExecutorService
+name|newDefaultThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new cached thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
 DECL|method|newCachedThreadPool (Object source, String name)
 name|ExecutorService
 name|newCachedThreadPool
@@ -136,7 +163,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new scheduled thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+comment|/**      * Creates a new scheduled thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the created thread pool      */
 DECL|method|newScheduledThreadPool (Object source, String name, int poolSize)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
@@ -151,7 +178,7 @@ name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new fixed thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the thread pool      */
+comment|/**      * Creates a new fixed thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the created thread pool      */
 DECL|method|newFixedThreadPool (Object source, String name, int poolSize)
 name|ExecutorService
 name|newFixedThreadPool
@@ -166,7 +193,7 @@ name|int
 name|poolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new single-threaded thread pool. This is often used for background threads.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the thread pool      */
+comment|/**      * Creates a new single-threaded thread pool. This is often used for background threads.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
 DECL|method|newSingleThreadExecutor (Object source, String name)
 name|ExecutorService
 name|newSingleThreadExecutor
@@ -178,7 +205,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new custom thread pool.      *<p/>      * Will by default use 60 seconds for keep alive time for idle threads.      *      * @param source        the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @return the thread pool      */
+comment|/**      * Creates a new custom thread pool.      *<p/>      * Will by default use 60 seconds for keep alive time for idle threads.      *      * @param source        the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @return the created thread pool      */
 DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize)
 name|ExecutorService
 name|newThreadPool
@@ -196,8 +223,8 @@ name|int
 name|maxPoolSize
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new custom thread pool.      *      * @param source        the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive time for idle threads      * @param timeUnit      time unit for keep alive time      * @param daemon        whether or not the created threads is daemon or not      * @return the thread pool      */
-DECL|method|newThreadPool (Object source, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, boolean daemon)
+comment|/**      * Creates a new custom thread pool.      *      * @param source        the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name          name which is appended to the thread name      * @param corePoolSize  the core pool size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive time for idle threads      * @param timeUnit      time unit for keep alive time      * @param maxQueueSize  the maximum number of tasks in the queue, use<tt>Integer.MAX_INT</tt> or<tt>-1</tt> to indicate unbounded      * @param daemon        whether or not the created threads is daemon or not      * @return the created thread pool      */
+DECL|method|newThreadPool (Object source, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, boolean daemon)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
@@ -219,6 +246,9 @@ name|keepAliveTime
 parameter_list|,
 name|TimeUnit
 name|timeUnit
+parameter_list|,
+name|int
+name|maxQueueSize
 parameter_list|,
 name|boolean
 name|daemon

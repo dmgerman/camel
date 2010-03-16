@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|BlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ExecutorService
 import|;
 end_import
@@ -537,7 +549,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool which should be the most commonly used.      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new cached thread pool      *      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newCachedThreadPool (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -605,7 +617,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @return the created pool      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize)
 specifier|public
 specifier|static
@@ -646,12 +658,15 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|,
+operator|-
+literal|1
+argument_list|,
 literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
-DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, final boolean daemon)
+comment|/**      * Creates a new custom thread pool      *      * @param pattern       pattern of the thread name      * @param name          ${name} in the pattern name      * @param corePoolSize  the core size      * @param maxPoolSize   the maximum pool size      * @param keepAliveTime keep alive      * @param timeUnit      keep alive time unit      * @param maxQueueSize  the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param daemon        whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
+DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, final boolean daemon)
 specifier|public
 specifier|static
 name|ExecutorService
@@ -676,6 +691,9 @@ name|keepAliveTime
 parameter_list|,
 name|TimeUnit
 name|timeUnit
+parameter_list|,
+name|int
+name|maxQueueSize
 parameter_list|,
 specifier|final
 name|boolean
@@ -704,6 +722,58 @@ name|corePoolSize
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|maxQueueSize
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"MaxQueueSize cannot be 0."
+argument_list|)
+throw|;
+block|}
+name|BlockingQueue
+argument_list|<
+name|Runnable
+argument_list|>
+name|queue
+decl_stmt|;
+if|if
+condition|(
+name|maxQueueSize
+operator|<
+literal|0
+condition|)
+block|{
+name|queue
+operator|=
+operator|new
+name|LinkedBlockingQueue
+argument_list|<
+name|Runnable
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|queue
+operator|=
+operator|new
+name|LinkedBlockingQueue
+argument_list|<
+name|Runnable
+argument_list|>
+argument_list|(
+name|maxQueueSize
+argument_list|)
+expr_stmt|;
+block|}
 name|ThreadPoolExecutor
 name|answer
 init|=
@@ -718,12 +788,7 @@ name|keepAliveTime
 argument_list|,
 name|timeUnit
 argument_list|,
-operator|new
-name|LinkedBlockingQueue
-argument_list|<
-name|Runnable
-argument_list|>
-argument_list|()
+name|queue
 argument_list|)
 decl_stmt|;
 name|answer

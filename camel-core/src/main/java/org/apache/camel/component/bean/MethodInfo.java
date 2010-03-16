@@ -646,7 +646,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
+comment|// we are running in parallel so we need a thread pool
 name|ExecutorService
 name|executor
 init|=
@@ -655,7 +655,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newCachedThreadPool
+name|newDefaultThreadPool
 argument_list|(
 name|this
 argument_list|,

@@ -321,7 +321,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newCachedThreadPool
+name|newDefaultThreadPool
 argument_list|(
 name|this
 argument_list|,
@@ -4328,7 +4328,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newCachedThreadPool
+name|newDefaultThreadPool
 argument_list|(
 name|this
 argument_list|,

@@ -1350,7 +1350,7 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogExhasted
+name|setLogExhausted
 argument_list|(
 name|logExhausted
 argument_list|)
