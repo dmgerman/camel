@@ -118,8 +118,7 @@ specifier|private
 name|Integer
 name|maxQueueSize
 init|=
-operator|-
-literal|1
+literal|1000
 decl_stmt|;
 DECL|field|rejectedPolicy
 specifier|private
