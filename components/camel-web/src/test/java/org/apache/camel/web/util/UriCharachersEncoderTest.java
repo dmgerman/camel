@@ -38,10 +38,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|UriCharachersEncoderTest
 specifier|public
@@ -99,8 +95,20 @@ block|{
 name|String
 name|noEncoding
 init|=
-literal|"direct:start"
+literal|"direct:start\uFD04"
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|noEncoding
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|result
 init|=
