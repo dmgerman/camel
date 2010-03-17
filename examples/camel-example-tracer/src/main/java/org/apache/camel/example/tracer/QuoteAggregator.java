@@ -133,7 +133,7 @@ range|:
 name|coolWords
 control|)
 block|{
-comment|// use lower case to be incase sensitive
+comment|// use lower case to be case insensitive
 name|this
 operator|.
 name|coolWords
@@ -170,12 +170,24 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// the first time then just return the new exchange
+return|return
+name|newExchange
+return|;
+block|}
 comment|// here we aggregate
 comment|// oldExchange is the current "winner"
 comment|// newExchange is the new candidate
 comment|// we get the quotes of the two exchanges
 name|String
-name|oldQute
+name|oldQuote
 init|=
 name|oldExchange
 operator|.
@@ -190,7 +202,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|String
-name|newQute
+name|newQuote
 init|=
 name|newExchange
 operator|.
@@ -214,9 +226,9 @@ argument_list|()
 operator|.
 name|compare
 argument_list|(
-name|oldQute
+name|oldQuote
 argument_list|,
-name|newQute
+name|newQuote
 argument_list|)
 decl_stmt|;
 comment|// we return the winner

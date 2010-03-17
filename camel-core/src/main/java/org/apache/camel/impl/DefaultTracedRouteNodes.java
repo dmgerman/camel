@@ -144,6 +144,7 @@ name|TracedRouteNodes
 block|{
 DECL|field|routeNodes
 specifier|private
+specifier|final
 name|Stack
 argument_list|<
 name|List
@@ -165,6 +166,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|nodeCounter
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|ProcessorDefinition
@@ -224,6 +226,13 @@ name|list
 init|=
 name|routeNodes
 operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|null
+else|:
+name|routeNodes
+operator|.
 name|peek
 argument_list|()
 decl_stmt|;
@@ -273,6 +282,13 @@ name|list
 init|=
 name|routeNodes
 operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|null
+else|:
+name|routeNodes
+operator|.
 name|peek
 argument_list|()
 decl_stmt|;
@@ -318,6 +334,13 @@ name|RouteNode
 argument_list|>
 name|list
 init|=
+name|routeNodes
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|null
+else|:
 name|routeNodes
 operator|.
 name|peek
