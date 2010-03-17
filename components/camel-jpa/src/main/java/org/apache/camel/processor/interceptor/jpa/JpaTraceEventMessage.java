@@ -72,6 +72,28 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Transient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -611,6 +633,18 @@ name|causedByException
 operator|=
 name|causedByException
 expr_stmt|;
+block|}
+annotation|@
+name|Transient
+DECL|method|getTracedExchange ()
+specifier|public
+name|Exchange
+name|getTracedExchange
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override

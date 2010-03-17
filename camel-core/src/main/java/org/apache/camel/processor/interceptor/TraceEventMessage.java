@@ -28,8 +28,20 @@ name|Date
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
-comment|/**  * A trace event message that contains decomposed information about the traced  * {@link org.apache.camel.Exchange} at the point of interception. The information is stored as snapshot copies  * using String types.  */
+comment|/**  * A trace event message that contains decomposed information about the traced  * {@link org.apache.camel.Exchange} at the point of interception. The information is stored as snapshot copies  * using String types.  *<p/>  * Notice not all implementations may provide direct access to the traced {@link Exchange} using  * the {@link #getTracedExchange()} method, and thus this method may return<tt>null</tt>.  * For example the JPA implementation will return<tt>null</tt>.  */
 end_comment
 
 begin_interface
@@ -112,6 +124,12 @@ comment|/**      * Gets the caused by exception (ie {@link org.apache.camel.Exch
 DECL|method|getCausedByException ()
 name|String
 name|getCausedByException
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the traced {@link Exchange}.      *<p/>      * Not all implementations may provide direct access to the traced {@link Exchange} and thus this      * method may return<tt>null</tt>. For example the JPA implementation will return<tt>null</tt>.      *      * @return the traced {@link Exchange}, however it can be<tt>null</tt> in some implementations.      */
+DECL|method|getTracedExchange ()
+name|Exchange
+name|getTracedExchange
 parameter_list|()
 function_decl|;
 block|}

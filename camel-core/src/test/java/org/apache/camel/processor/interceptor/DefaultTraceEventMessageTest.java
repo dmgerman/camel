@@ -717,6 +717,16 @@ name|getShortExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertSame
+argument_list|(
+name|exchange
+argument_list|,
+name|em
+operator|.
+name|getTracedExchange
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

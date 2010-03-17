@@ -743,21 +743,6 @@ name|corePoolSize
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|maxQueueSize
-operator|==
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"MaxQueueSize cannot be 0."
-argument_list|)
-throw|;
-block|}
 name|BlockingQueue
 argument_list|<
 name|Runnable
@@ -767,7 +752,7 @@ decl_stmt|;
 if|if
 condition|(
 name|maxQueueSize
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{

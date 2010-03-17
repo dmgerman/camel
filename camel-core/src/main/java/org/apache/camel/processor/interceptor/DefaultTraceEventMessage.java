@@ -139,7 +139,7 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|4549012920528941202L
+literal|4549012920528941203L
 decl_stmt|;
 DECL|field|timestamp
 specifier|private
@@ -216,6 +216,13 @@ specifier|private
 name|String
 name|causedByException
 decl_stmt|;
+DECL|field|tracedExchange
+specifier|private
+specifier|final
+specifier|transient
+name|Exchange
+name|tracedExchange
+decl_stmt|;
 comment|/**      * Creates a {@link DefaultTraceEventMessage} based on the given node it was traced while processing      * the current {@link Exchange}      *      * @param toNode the node where this trace is intercepted      * @param exchange the current {@link Exchange}      */
 DECL|method|DefaultTraceEventMessage (final Date timestamp, final ProcessorDefinition<?> toNode, final Exchange exchange)
 specifier|public
@@ -237,6 +244,12 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|this
+operator|.
+name|tracedExchange
+operator|=
+name|exchange
+expr_stmt|;
 name|Message
 name|in
 init|=
@@ -1011,6 +1024,16 @@ name|causedByException
 operator|=
 name|causedByException
 expr_stmt|;
+block|}
+DECL|method|getTracedExchange ()
+specifier|public
+name|Exchange
+name|getTracedExchange
+parameter_list|()
+block|{
+return|return
+name|tracedExchange
+return|;
 block|}
 annotation|@
 name|Override
