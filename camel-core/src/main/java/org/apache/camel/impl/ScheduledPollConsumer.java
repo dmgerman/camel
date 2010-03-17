@@ -161,15 +161,6 @@ name|Runnable
 implements|,
 name|SuspendableService
 block|{
-DECL|field|DEFAULT_THREADPOOL_SIZE
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_THREADPOOL_SIZE
-init|=
-literal|10
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -263,7 +254,7 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-comment|// TODO: this executor should also be shutdown when CamelContext stops
+comment|// we only need one thread in the pool to schedule this task
 name|this
 operator|.
 name|executor
@@ -285,7 +276,7 @@ operator|.
 name|getEndpointUri
 argument_list|()
 argument_list|,
-name|DEFAULT_THREADPOOL_SIZE
+literal|1
 argument_list|)
 expr_stmt|;
 name|ObjectHelper

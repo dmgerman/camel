@@ -52,30 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -187,15 +163,6 @@ name|Endpoint
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|DEFAULT_THREADPOOL_SIZE
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_THREADPOOL_SIZE
-init|=
-literal|10
-decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -210,11 +177,6 @@ DECL|field|component
 specifier|private
 name|Component
 name|component
-decl_stmt|;
-DECL|field|executorService
-specifier|private
-name|ExecutorService
-name|executorService
 decl_stmt|;
 DECL|field|exchangePattern
 specifier|private
@@ -524,53 +486,6 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.4      */
-annotation|@
-name|Deprecated
-DECL|method|getExecutorService ()
-specifier|public
-specifier|synchronized
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-name|executorService
-operator|=
-name|createScheduledExecutorService
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|executorService
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 2.4      */
-annotation|@
-name|Deprecated
-DECL|method|setExecutorService (ExecutorService executorService)
-specifier|public
-specifier|synchronized
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
-block|}
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
@@ -785,33 +700,6 @@ name|exchangePattern
 operator|=
 name|exchangePattern
 expr_stmt|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 2.4      */
-annotation|@
-name|Deprecated
-DECL|method|createScheduledExecutorService ()
-specifier|protected
-name|ScheduledExecutorService
-name|createScheduledExecutorService
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newScheduledThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|getEndpointUri
-argument_list|()
-argument_list|,
-name|DEFAULT_THREADPOOL_SIZE
-argument_list|)
-return|;
 block|}
 DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
