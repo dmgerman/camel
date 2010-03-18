@@ -509,6 +509,13 @@ name|parameters
 parameter_list|)
 block|{
 comment|// lookup http binding in registry if provided
+if|if
+condition|(
+name|httpBinding
+operator|==
+literal|null
+condition|)
+block|{
 name|httpBinding
 operator|=
 name|resolveAndRemoveReferenceParameter
@@ -522,7 +529,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 comment|// lookup http client front configurer in the registry if provided
+if|if
+condition|(
+name|httpClientConfigurer
+operator|==
+literal|null
+condition|)
+block|{
 name|httpClientConfigurer
 operator|=
 name|resolveAndRemoveReferenceParameter
@@ -536,6 +551,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 comment|// check the user name and password for basic authentication
 name|String
 name|username
