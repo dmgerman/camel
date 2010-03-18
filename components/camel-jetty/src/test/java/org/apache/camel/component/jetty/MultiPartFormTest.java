@@ -434,6 +434,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"jetty://http://localhost:9080/test"
@@ -478,6 +479,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// The file name is attachment id
 name|DataHandler
 name|data
 init|=
@@ -507,6 +509,7 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// The other form date can be get from the message header
 name|exchange
 operator|.
 name|getOut
@@ -526,6 +529,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
