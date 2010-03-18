@@ -677,7 +677,7 @@ operator|+
 name|port
 argument_list|,
 name|port
-operator|>
+operator|>=
 literal|21000
 argument_list|)
 expr_stmt|;
