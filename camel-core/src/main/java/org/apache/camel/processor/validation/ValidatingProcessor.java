@@ -271,6 +271,13 @@ specifier|private
 name|boolean
 name|useDom
 decl_stmt|;
+DECL|field|useSharedSchema
+specifier|private
+name|boolean
+name|useSharedSchema
+init|=
+literal|true
+decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -284,10 +291,27 @@ name|Exception
 block|{
 name|Schema
 name|schema
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|isUseSharedSchema
+argument_list|()
+condition|)
+block|{
+name|schema
+operator|=
 name|getSchema
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|schema
+operator|=
+name|createSchema
+argument_list|()
+expr_stmt|;
+block|}
 name|Validator
 name|validator
 init|=
@@ -426,6 +450,7 @@ comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getSchema ()
 specifier|public
+specifier|synchronized
 name|Schema
 name|getSchema
 parameter_list|()
@@ -495,6 +520,7 @@ expr_stmt|;
 block|}
 DECL|method|getSchemaSource ()
 specifier|public
+specifier|synchronized
 name|Source
 name|getSchemaSource
 parameter_list|()
@@ -588,6 +614,7 @@ expr_stmt|;
 block|}
 DECL|method|getSchemaFactory ()
 specifier|public
+specifier|synchronized
 name|SchemaFactory
 name|getSchemaFactory
 parameter_list|()
@@ -676,6 +703,32 @@ operator|.
 name|useDom
 operator|=
 name|useDom
+expr_stmt|;
+block|}
+DECL|method|isUseSharedSchema ()
+specifier|public
+name|boolean
+name|isUseSharedSchema
+parameter_list|()
+block|{
+return|return
+name|useSharedSchema
+return|;
+block|}
+DECL|method|setUseSharedSchema (boolean useSharedSchema)
+specifier|public
+name|void
+name|setUseSharedSchema
+parameter_list|(
+name|boolean
+name|useSharedSchema
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useSharedSchema
+operator|=
+name|useSharedSchema
 expr_stmt|;
 block|}
 comment|// Implementation methods

@@ -145,10 +145,10 @@ comment|/**  * Unit test of ValidatingProcessor.  */
 end_comment
 
 begin_class
-DECL|class|ValidatingProcessorTest
+DECL|class|ValidatingProcessorNotUseSharedSchemaTest
 specifier|public
 class|class
-name|ValidatingProcessorTest
+name|ValidatingProcessorNotUseSharedSchemaTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -185,6 +185,13 @@ argument_list|)
 operator|.
 name|getAbsoluteFile
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|validating
+operator|.
+name|setUseSharedSchema
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|super

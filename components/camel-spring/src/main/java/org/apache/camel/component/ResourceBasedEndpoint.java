@@ -484,7 +484,7 @@ return|return
 name|contentCache
 return|;
 block|}
-comment|/**      * Sets wether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
+comment|/**      * Sets whether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
 DECL|method|setContentCache (boolean contentCache)
 specifier|public
 name|void
