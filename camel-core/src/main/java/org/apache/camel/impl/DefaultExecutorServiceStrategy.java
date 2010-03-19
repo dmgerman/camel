@@ -160,6 +160,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ExecutorServiceHelper
@@ -872,6 +886,16 @@ name|boolean
 name|daemon
 parameter_list|)
 block|{
+comment|// the thread name must not be null
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|name
+argument_list|,
+literal|"ThreadName"
+argument_list|)
+expr_stmt|;
 name|ExecutorService
 name|answer
 init|=
