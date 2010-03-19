@@ -144,7 +144,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"META-INF/spring/camel-client.xml"
+literal|"META-INF/camel-client.xml"
 argument_list|)
 decl_stmt|;
 comment|// get the camel template for Spring template style sending of messages (= producer)
