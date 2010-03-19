@@ -152,6 +152,10 @@ name|CamelTestSupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Checks that a static soap request is unmarshalled to the correct java  * objects  */
+end_comment
+
 begin_class
 DECL|class|SoapUnMarshalTest
 specifier|public

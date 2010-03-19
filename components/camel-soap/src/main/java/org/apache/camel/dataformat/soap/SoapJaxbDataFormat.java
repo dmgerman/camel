@@ -721,8 +721,6 @@ operator|=
 name|createFaultFromException
 argument_list|(
 name|exception
-argument_list|,
-name|soapAction
 argument_list|)
 expr_stmt|;
 block|}
@@ -910,13 +908,13 @@ name|graph
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception      * @param soapAction      * @return SOAP fault from given Throwable      */
+comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception      * @return SOAP fault from given Throwable      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createFaultFromException (final Throwable exception, String soapAction)
+DECL|method|createFaultFromException (final Throwable exception)
 specifier|private
 name|JAXBElement
 argument_list|<
@@ -927,9 +925,6 @@ parameter_list|(
 specifier|final
 name|Throwable
 name|exception
-parameter_list|,
-name|String
-name|soapAction
 parameter_list|)
 block|{
 name|WebFault

@@ -222,6 +222,10 @@ name|SpringJUnit4ClassRunner
 import|;
 end_import
 
+begin_comment
+comment|/**  * Checks for interoperability between a CXF client that is attached using   * the Camel transport for CXF and the SOAP data format  */
+end_comment
+
 begin_class
 annotation|@
 name|RunWith
@@ -439,11 +443,11 @@ argument_list|,
 name|elNameStrat
 argument_list|)
 decl_stmt|;
-name|CustomerServerBean
+name|CustomerServiceImpl
 name|serverBean
 init|=
 operator|new
-name|CustomerServerBean
+name|CustomerServiceImpl
 argument_list|()
 decl_stmt|;
 name|from

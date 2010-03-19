@@ -144,9 +144,25 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_comment
+comment|/*  * Checks the soap data format by using fixed request and expected response  * messages that are run against an implementation of the CustomerService  */
+end_comment
 
 begin_class
 DECL|class|SoapServerTest
@@ -168,6 +184,8 @@ specifier|protected
 name|ProducerTemplate
 name|producer
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSuccess ()
 specifier|public
 name|void
@@ -186,6 +204,8 @@ literal|"response.xml"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFault ()
 specifier|public
 name|void
@@ -348,11 +368,11 @@ argument_list|,
 name|elNameStrat
 argument_list|)
 decl_stmt|;
-name|CustomerServerBean
+name|CustomerServiceImpl
 name|serverBean
 init|=
 operator|new
-name|CustomerServerBean
+name|CustomerServiceImpl
 argument_list|()
 decl_stmt|;
 name|from

@@ -90,14 +90,19 @@ name|NoSuchCustomerException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Simple implementation of CustomerService that supports  * returning a customer or a NoSuchCustomerException depending on input  */
+end_comment
+
 begin_class
-DECL|class|CustomerServerBean
+DECL|class|CustomerServiceImpl
 specifier|public
 class|class
-name|CustomerServerBean
+name|CustomerServiceImpl
 implements|implements
 name|CustomerService
 block|{
+comment|/**      * If the request.name is "none" a NoSuchCustomerException is thrown in any other case      * a dummy customer is returned that has the same name as the request      */
 DECL|method|getCustomersByName (GetCustomersByName request)
 specifier|public
 name|GetCustomersByNameResponse

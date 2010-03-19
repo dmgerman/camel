@@ -198,9 +198,25 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_comment
+comment|/**  *   */
+end_comment
 
 begin_class
 DECL|class|SoapMarshalTest
@@ -235,6 +251,8 @@ name|ProducerTemplate
 name|producer
 decl_stmt|;
 comment|/**      * Test Soap marshalling by sending a GetCustomerByName object and checking      * against a xml file.      *       * @throws IOException      * @throws InterruptedException      */
+annotation|@
+name|Test
 DECL|method|testMarshalNormalObject ()
 specifier|public
 name|void
@@ -305,6 +323,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Test Soap marshalling by sending a NoSuchCustomerException object and      * checking against a xml file. We expect to receive a SOAP fault here that      * contains a NoSuchCustomer object as detail.      *       * @throws IOException      * @throws InterruptedException      */
+annotation|@
+name|Test
 DECL|method|testMarshalException ()
 specifier|public
 name|void
@@ -391,6 +411,7 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Create data format by using the constructor      */
 DECL|method|createDataFormat ()
 specifier|protected
 name|SoapJaxbDataFormat
