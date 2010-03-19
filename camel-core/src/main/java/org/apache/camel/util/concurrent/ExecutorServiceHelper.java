@@ -98,6 +98,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|SynchronousQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ThreadFactory
 import|;
 end_import
@@ -751,11 +763,35 @@ name|queue
 decl_stmt|;
 if|if
 condition|(
+name|corePoolSize
+operator|==
+literal|0
+operator|&&
 name|maxQueueSize
 operator|<=
 literal|0
 condition|)
 block|{
+comment|// use a synchronous so we can act like the cached thread pool
+name|queue
+operator|=
+operator|new
+name|SynchronousQueue
+argument_list|<
+name|Runnable
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|maxQueueSize
+operator|<=
+literal|0
+condition|)
+block|{
+comment|// unbounded task queue
 name|queue
 operator|=
 operator|new
@@ -768,6 +804,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// bounded task queue
 name|queue
 operator|=
 operator|new

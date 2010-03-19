@@ -137,11 +137,13 @@ name|ManagedTracer
 block|{
 DECL|field|camelContext
 specifier|private
+specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
 DECL|field|tracer
 specifier|private
+specifier|final
 name|Tracer
 name|tracer
 decl_stmt|;

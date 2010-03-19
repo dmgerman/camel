@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -288,6 +300,18 @@ argument_list|<
 name|Route
 argument_list|>
 name|routes
+parameter_list|)
+block|{     }
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+specifier|public
+name|void
+name|onThreadPoolAdd
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
 parameter_list|)
 block|{     }
 block|}

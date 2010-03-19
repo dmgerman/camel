@@ -201,19 +201,19 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-DECL|method|receive (Endpoint endpoinit)
+DECL|method|receive (Endpoint endpoint)
 specifier|public
 name|Exchange
 name|receive
 parameter_list|(
 name|Endpoint
-name|endpoinit
+name|endpoint
 parameter_list|)
 block|{
 return|return
 name|receive
 argument_list|(
-name|endpoinit
+name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
@@ -699,7 +699,7 @@ name|endpointUri
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body from the given result.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param result   the result      * @return  the result, can be<tt>null</tt>.      */
+comment|/**      * Extracts the body from the given result.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrieve the body      * from either IN or OUT according to the pattern.      *      * @param result   the result      * @return  the result, can be<tt>null</tt>.      */
 DECL|method|extractResultBody (Exchange result)
 specifier|protected
 name|Object

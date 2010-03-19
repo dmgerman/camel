@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -296,6 +308,19 @@ name|context
 parameter_list|,
 name|Service
 name|service
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
+DECL|method|getObjectNameForThreadPool (CamelContext context, ThreadPoolExecutor threadPool)
+name|ObjectName
+name|getObjectNameForThreadPool
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException

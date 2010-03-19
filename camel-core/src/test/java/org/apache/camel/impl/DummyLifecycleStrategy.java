@@ -48,6 +48,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -418,6 +430,26 @@ operator|.
 name|add
 argument_list|(
 literal|"onErrorHandlerAdd"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+specifier|public
+name|void
+name|onThreadPoolAdd
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
+parameter_list|)
+block|{
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onThreadPoolAdd"
 argument_list|)
 expr_stmt|;
 block|}

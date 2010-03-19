@@ -168,10 +168,10 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|testManagedErrorHandlerOptions ()
+DECL|method|testManagedTracerOptions ()
 specifier|public
 name|void
-name|testManagedErrorHandlerOptions
+name|testManagedTracerOptions
 parameter_list|()
 throws|throws
 name|Exception

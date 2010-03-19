@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -258,6 +270,18 @@ name|errorHandler
 parameter_list|,
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
+parameter_list|)
+function_decl|;
+comment|/**      * Notification on adding a thread pool.      *      * @param camelContext  the camel context      * @param threadPool    the thread pool      */
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+name|void
+name|onThreadPoolAdd
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
 parameter_list|)
 function_decl|;
 block|}
