@@ -199,8 +199,6 @@ DECL|field|poolSize
 specifier|private
 name|Integer
 name|poolSize
-init|=
-literal|10
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -209,8 +207,6 @@ DECL|field|maxPoolSize
 specifier|private
 name|Integer
 name|maxPoolSize
-init|=
-literal|20
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -219,8 +215,6 @@ DECL|field|keepAliveTime
 specifier|private
 name|Long
 name|keepAliveTime
-init|=
-literal|60L
 decl_stmt|;
 annotation|@
 name|XmlJavaTypeAdapter
@@ -233,10 +227,6 @@ DECL|field|timeUnit
 specifier|private
 name|TimeUnit
 name|timeUnit
-init|=
-name|TimeUnit
-operator|.
-name|SECONDS
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -245,9 +235,6 @@ DECL|field|maxQueueSize
 specifier|private
 name|Integer
 name|maxQueueSize
-init|=
-operator|-
-literal|1
 decl_stmt|;
 annotation|@
 name|XmlAttribute

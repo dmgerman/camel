@@ -2546,7 +2546,7 @@ block|}
 block|}
 block|}
 comment|// set the default thread pool profile if defined
-name|initDefaultThreadPoolProfile
+name|initThreadPoolProfiles
 argument_list|(
 name|getContext
 argument_list|()
@@ -5398,10 +5398,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|initDefaultThreadPoolProfile (CamelContext context)
+DECL|method|initThreadPoolProfiles (CamelContext context)
 specifier|private
 name|void
-name|initDefaultThreadPoolProfile
+name|initThreadPoolProfiles
 parameter_list|(
 name|CamelContext
 name|context
@@ -5411,7 +5411,7 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|ids
+name|defaultIds
 init|=
 operator|new
 name|HashSet
@@ -5507,11 +5507,24 @@ argument_list|(
 name|profile
 argument_list|)
 expr_stmt|;
-name|ids
+name|defaultIds
 operator|.
 name|add
 argument_list|(
 name|id
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|registerThreadPoolProfile
+argument_list|(
+name|profile
 argument_list|)
 expr_stmt|;
 block|}
@@ -5573,7 +5586,7 @@ argument_list|(
 name|profile
 argument_list|)
 expr_stmt|;
-name|ids
+name|defaultIds
 operator|.
 name|add
 argument_list|(
@@ -5584,12 +5597,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|registerThreadPoolProfile
+argument_list|(
+name|profile
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// validate at most one is defined
 if|if
 condition|(
-name|ids
+name|defaultIds
 operator|.
 name|size
 argument_list|()
@@ -5603,14 +5629,14 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Only exactly one default ThreadPoolProfile is allowed, was "
 operator|+
-name|ids
+name|defaultIds
 operator|.
 name|size
 argument_list|()
 operator|+
 literal|" ids: "
 operator|+
-name|ids
+name|defaultIds
 argument_list|)
 throw|;
 block|}

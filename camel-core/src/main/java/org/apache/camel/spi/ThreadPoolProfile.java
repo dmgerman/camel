@@ -62,6 +62,12 @@ specifier|public
 interface|interface
 name|ThreadPoolProfile
 block|{
+comment|/**      * Gets the id of this profile      *      * @return the id of this profile      */
+DECL|method|getId ()
+name|String
+name|getId
+parameter_list|()
+function_decl|;
 comment|/**      * Whether this profile is the default profile (there can only be one).      *      * @return<tt>true</tt> if its the default profile,<tt>false</tt> otherwise      */
 DECL|method|isDefaultProfile ()
 name|Boolean

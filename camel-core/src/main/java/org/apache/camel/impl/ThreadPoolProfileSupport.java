@@ -78,6 +78,12 @@ name|ThreadPoolProfileSupport
 implements|implements
 name|ThreadPoolProfile
 block|{
+DECL|field|id
+specifier|private
+specifier|final
+name|String
+name|id
+decl_stmt|;
 DECL|field|defaultProfile
 specifier|private
 name|Boolean
@@ -87,22 +93,16 @@ DECL|field|poolSize
 specifier|private
 name|Integer
 name|poolSize
-init|=
-literal|10
 decl_stmt|;
 DECL|field|maxPoolSize
 specifier|private
 name|Integer
 name|maxPoolSize
-init|=
-literal|20
 decl_stmt|;
 DECL|field|keepAliveTime
 specifier|private
 name|Long
 name|keepAliveTime
-init|=
-literal|60L
 decl_stmt|;
 DECL|field|timeUnit
 specifier|private
@@ -117,14 +117,37 @@ DECL|field|maxQueueSize
 specifier|private
 name|Integer
 name|maxQueueSize
-init|=
-literal|1000
 decl_stmt|;
 DECL|field|rejectedPolicy
 specifier|private
 name|ThreadPoolRejectedPolicy
 name|rejectedPolicy
 decl_stmt|;
+DECL|method|ThreadPoolProfileSupport (String id)
+specifier|public
+name|ThreadPoolProfileSupport
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
 DECL|method|isDefaultProfile ()
 specifier|public
 name|Boolean
@@ -345,6 +368,10 @@ parameter_list|()
 block|{
 return|return
 literal|"ThreadPoolProfile["
+operator|+
+name|id
+operator|+
+literal|", "
 operator|+
 name|defaultProfile
 operator|+

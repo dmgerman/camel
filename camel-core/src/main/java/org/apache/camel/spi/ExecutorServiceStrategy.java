@@ -98,7 +98,25 @@ name|ExecutorServiceStrategy
 extends|extends
 name|ShutdownableService
 block|{
-comment|/**      * Gets the default thread pool profile      *      * @return the default profile      */
+comment|/**      * Registers the given thread pool profile      *      * @param profile the profile      */
+DECL|method|registerThreadPoolProfile (ThreadPoolProfile profile)
+name|void
+name|registerThreadPoolProfile
+parameter_list|(
+name|ThreadPoolProfile
+name|profile
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the thread pool profile by the given id      *      * @param id  id of the thread pool profile to get      * @return the found profile, or<tt>null</tt> if not found      */
+DECL|method|getThreadPoolProfile (String id)
+name|ThreadPoolProfile
+name|getThreadPoolProfile
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the default thread pool profile      *      * @return the default profile which are newer<tt>null</tt>      */
 DECL|method|getDefaultThreadPoolProfile ()
 name|ThreadPoolProfile
 name|getDefaultThreadPoolProfile
@@ -161,6 +179,21 @@ name|source
 parameter_list|,
 name|String
 name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new thread pool using based on the given profile id.      *      * @param source                the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name                  name which is appended to the thread name      * @param threadPoolProfileId   id of the thread pool profile to use for creating the thread pool      * @return the created thread pool, or<tt>null</tt> if the was no thread pool profile with that given id.      */
+DECL|method|newThreadPool (Object source, String name, String threadPoolProfileId)
+name|ExecutorService
+name|newThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|String
+name|threadPoolProfileId
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a new cached thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
