@@ -391,26 +391,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// prefer any explicit configured executor service
-name|executorService
-operator|=
-name|ExecutorServiceHelper
-operator|.
-name|getConfiguredExecutorService
-argument_list|(
-name|routeContext
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-comment|// none was configured so create an executor based on the other parameters
+comment|// The threads name
 name|String
 name|name
 init|=
@@ -424,6 +405,28 @@ argument_list|()
 else|:
 literal|"Threads"
 decl_stmt|;
+comment|// prefer any explicit configured executor service
+name|executorService
+operator|=
+name|ExecutorServiceHelper
+operator|.
+name|getConfiguredExecutorService
+argument_list|(
+name|routeContext
+argument_list|,
+name|name
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// none was configured so create an executor based on the other parameters
 if|if
 condition|(
 name|poolSize

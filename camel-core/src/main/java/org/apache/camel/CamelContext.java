@@ -372,20 +372,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ThreadPoolProfile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -897,13 +883,13 @@ argument_list|>
 name|getLanguageNames
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new ProducerTemplate.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *      * @return the template      */
+comment|/**      * Creates a new {@link ProducerTemplate} which is<b>not</b> started.      *<p/>      * You<b>must</b> start the template before its being used.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *      * @return the template      */
 DECL|method|createProducerTemplate ()
 name|ProducerTemplate
 name|createProducerTemplate
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new ConsumerTemplate.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a> as it also applies for ConsumerTemplate.      *      * @return the template      */
+comment|/**      * Creates a new {@link ConsumerTemplate} which is<b>not</b> started.      *<p/>      * You<b>must</b> start the template before its being used.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a> as it also applies for ConsumerTemplate.      *      * @return the template      */
 DECL|method|createConsumerTemplate ()
 name|ConsumerTemplate
 name|createConsumerTemplate

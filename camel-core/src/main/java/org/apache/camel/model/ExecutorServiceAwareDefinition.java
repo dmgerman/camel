@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  *  * @version $Revision$  * @see org.apache.camel.util.concurrent.ExecutorServiceHelper#getConfiguredExecutorService(org.apache.camel.spi.RouteContext,  *                                                                                          ExecutorServiceAwareDefinition)  */
+comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  *  * @version $Revision$  * @see org.apache.camel.util.concurrent.ExecutorServiceHelper#getConfiguredExecutorService(org.apache.camel.spi.RouteContext, String name,  *                                                                                          ExecutorServiceAwareDefinition)  */
 end_comment
 
 begin_interface

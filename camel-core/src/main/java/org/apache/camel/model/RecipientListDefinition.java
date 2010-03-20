@@ -499,6 +499,8 @@ name|getConfiguredExecutorService
 argument_list|(
 name|routeContext
 argument_list|,
+literal|"RecipientList"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

@@ -252,33 +252,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Lookup a {@link java.util.concurrent.ExecutorService} from the {@link org.apache.camel.spi.Registry}.      *      * @param source             the source object, usually it should be<tt>this</tt> passed in as parameter      * @param executorServiceRef reference to lookup      * @return the {@link java.util.concurrent.ExecutorService} or<tt>null</tt> if not found      */
-DECL|method|lookup (Object source, String executorServiceRef)
-specifier|public
-name|ExecutorService
-name|lookup
-parameter_list|(
-name|Object
-name|source
-parameter_list|,
-name|String
-name|executorServiceRef
-parameter_list|)
-block|{
-return|return
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|source
-argument_list|,
-name|executorServiceRef
-argument_list|)
-return|;
-block|}
 comment|/**      * Builds the new thread pool      *      * @param name name which is appended to the thread name      * @return the created thread pool      */
 DECL|method|build (String name)
 specifier|public
