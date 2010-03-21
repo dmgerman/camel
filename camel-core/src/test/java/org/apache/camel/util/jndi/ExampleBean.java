@@ -28,6 +28,11 @@ specifier|public
 class|class
 name|ExampleBean
 block|{
+DECL|field|id
+specifier|private
+name|String
+name|id
+decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -52,6 +57,10 @@ operator|+
 literal|" price: "
 operator|+
 name|price
+operator|+
+literal|" id: "
+operator|+
+name|id
 operator|+
 literal|"]"
 return|;
@@ -106,6 +115,32 @@ operator|.
 name|price
 operator|=
 name|price
+expr_stmt|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
 expr_stmt|;
 block|}
 block|}
