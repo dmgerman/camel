@@ -122,6 +122,18 @@ name|ManagedUnregisterConsumerTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

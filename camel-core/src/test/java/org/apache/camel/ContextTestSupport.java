@@ -239,6 +239,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|useJmx
+argument_list|()
+condition|)
+block|{
+name|disableJMX
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|enableJMX
+argument_list|()
+expr_stmt|;
+block|}
 name|context
 operator|=
 name|createCamelContext
@@ -386,6 +403,17 @@ block|}
 name|stopCamelContext
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Whether or not JMX should be used during testing.      *       * @return<tt>false</tt> by default.      */
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 DECL|method|stopCamelContext ()
 specifier|protected

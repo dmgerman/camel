@@ -98,6 +98,18 @@ name|ContextTestSupport
 block|{
 annotation|@
 name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -187,16 +199,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|set
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ObjectName
 name|on
 init|=

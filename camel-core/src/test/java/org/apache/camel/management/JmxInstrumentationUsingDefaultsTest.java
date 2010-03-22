@@ -171,6 +171,18 @@ specifier|protected
 name|long
 name|sleepForConnection
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|canRunOnThisPlatform ()
 specifier|protected
 name|boolean
