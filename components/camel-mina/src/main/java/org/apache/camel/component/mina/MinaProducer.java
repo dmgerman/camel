@@ -600,6 +600,9 @@ argument_list|(
 literal|"Waiting for response"
 argument_list|)
 expr_stmt|;
+name|boolean
+name|done
+init|=
 name|latch
 operator|.
 name|await
@@ -610,15 +613,11 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|latch
-operator|.
-name|getCount
-argument_list|()
-operator|==
-literal|1
+operator|!
+name|done
 condition|)
 block|{
 throw|throw

@@ -1692,7 +1692,7 @@ operator|.
 name|getEncoderMaxLineLength
 argument_list|()
 operator|+
-literal|"Decoder maximum line length: "
+literal|". Decoder maximum line length: "
 operator|+
 name|codecFactory
 operator|.
