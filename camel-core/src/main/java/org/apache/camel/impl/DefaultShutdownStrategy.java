@@ -580,7 +580,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Will ignore shutting down the remainder route input consumers."
+literal|"Timeout occurred. Will ignore shutting down the remainder routes."
 argument_list|)
 expr_stmt|;
 block|}
@@ -931,7 +931,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -944,6 +944,8 @@ operator|+
 name|consumer
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// fire event
@@ -1025,7 +1027,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1038,6 +1040,8 @@ operator|+
 name|consumer
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// fire event

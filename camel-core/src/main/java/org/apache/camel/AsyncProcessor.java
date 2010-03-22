@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An<b>asynchronous</b> processor which can process an {@link Exchange} in an asynchronous fashion  * and signal completion by invoking the {@link AsyncCallback}.  *<p/>  * For example {@link Producer} can implmenet this interface to support real asynchronous non blocking  * when using the {@link org.apache.camel.processor.SendAsyncProcessor}.  *  * @version $Revision$  */
+comment|/**  * An<b>asynchronous</b> processor which can process an {@link Exchange} in an asynchronous fashion  * and signal completion by invoking the {@link AsyncCallback}.  *<p/>  * For example {@link Producer} can implement this interface to support real asynchronous non blocking  * when using the {@link org.apache.camel.processor.SendAsyncProcessor}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
