@@ -2953,7 +2953,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @return the builder      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastDefinition
@@ -3709,6 +3709,9 @@ argument_list|)
 DECL|method|recipientList (Expression recipients)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|recipientList
 parameter_list|(
 name|Expression
@@ -3716,10 +3719,16 @@ name|recipients
 parameter_list|)
 block|{
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|answer
 init|=
 operator|new
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|(
 name|recipients
 argument_list|)
@@ -3742,6 +3751,9 @@ argument_list|)
 DECL|method|recipientList (Expression recipients, String delimiter)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|recipientList
 parameter_list|(
 name|Expression
@@ -3752,10 +3764,16 @@ name|delimiter
 parameter_list|)
 block|{
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|answer
 init|=
 operator|new
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|(
 name|recipients
 argument_list|)
@@ -3782,15 +3800,24 @@ specifier|public
 name|ExpressionClause
 argument_list|<
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|>
 name|recipientList
 parameter_list|()
 block|{
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|answer
 init|=
 operator|new
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|addOutput

@@ -257,6 +257,11 @@ DECL|class|RecipientListDefinition
 specifier|public
 class|class
 name|RecipientListDefinition
+parameter_list|<
+name|Type
+extends|extends
+name|ProcessorDefinition
+parameter_list|>
 extends|extends
 name|ExpressionNode
 implements|implements
@@ -642,10 +647,37 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Set the aggregationStrategy      *      * @return the builder      */
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|end ()
+specifier|public
+name|Type
+name|end
+parameter_list|()
+block|{
+comment|// allow end() to return to previous type so you can continue in the DSL
+return|return
+operator|(
+name|Type
+operator|)
+name|super
+operator|.
+name|end
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategy the strategy      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|aggregationStrategy
 parameter_list|(
 name|AggregationStrategy
@@ -665,6 +697,9 @@ comment|/**      * Set the aggregationStrategy      *      * @param aggregationS
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|aggregationStrategyRef
 parameter_list|(
 name|String
@@ -684,6 +719,9 @@ comment|/**      * Doing the recipient list work in parallel      *      * @retu
 DECL|method|parallelProcessing ()
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|parallelProcessing
 parameter_list|()
 block|{
@@ -700,6 +738,9 @@ comment|/**      * Will now stop further processing if an exception occurred dur
 DECL|method|stopOnException ()
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|stopOnException
 parameter_list|()
 block|{
@@ -720,6 +761,9 @@ argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorService
 parameter_list|(
 name|ExecutorService
@@ -743,6 +787,9 @@ argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorServiceRef
 parameter_list|(
 name|String
