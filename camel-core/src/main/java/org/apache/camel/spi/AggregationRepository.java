@@ -53,7 +53,7 @@ parameter_list|<
 name|K
 parameter_list|>
 block|{
-comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *      * @param camelContext the current CamelContext      * @param key  the correlation key      * @param exchange the aggregated exchange      * @return the old exchange if any existed      */
+comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @return the old exchange if any existed      */
 DECL|method|add (CamelContext camelContext, K key, Exchange exchange)
 name|Exchange
 name|add
@@ -68,7 +68,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the given exchange with the correlation key      *      * @param camelContext the current CamelContext      * @param key the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
+comment|/**      * Gets the given exchange with the correlation key      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
 DECL|method|get (CamelContext camelContext, K key)
 name|Exchange
 name|get
@@ -80,8 +80,8 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the exchange with the given correlation key      *      * @param camelContext the current CamelContext      * @param key the correlation key      */
-DECL|method|remove (CamelContext camelContext, K key)
+comment|/**      * Removes the exchange with the given correlation key, which should happen      * when an {@link Exchange} is completed      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      */
+DECL|method|remove (CamelContext camelContext, K key, Exchange exchange)
 name|void
 name|remove
 parameter_list|(
@@ -90,6 +90,21 @@ name|camelContext
 parameter_list|,
 name|K
 name|key
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Confirms the completion of the {@link Exchange}.      *      * @param camelContext  the current CamelContext      * @param exchangeId    exchange id to confirm      */
+DECL|method|confirm (CamelContext camelContext, String exchangeId)
+name|void
+name|confirm
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|exchangeId
 parameter_list|)
 function_decl|;
 block|}

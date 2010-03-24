@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version $Revision$  */
+comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>exchangeId</li>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -105,7 +105,7 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|1L
+literal|2L
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -123,6 +123,11 @@ name|DefaultExchangeHolder
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|exchangeId
+specifier|private
+name|String
+name|exchangeId
 decl_stmt|;
 DECL|field|inBody
 specifier|private
@@ -219,6 +224,15 @@ operator|new
 name|DefaultExchangeHolder
 argument_list|()
 decl_stmt|;
+name|payload
+operator|.
+name|exchangeId
+operator|=
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+expr_stmt|;
 name|payload
 operator|.
 name|inBody
@@ -332,6 +346,15 @@ name|DefaultExchangeHolder
 name|payload
 parameter_list|)
 block|{
+name|exchange
+operator|.
+name|setExchangeId
+argument_list|(
+name|payload
+operator|.
+name|exchangeId
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn
@@ -552,7 +575,12 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"DefaultExchangeHolder["
+literal|"DefaultExchangeHolder[exchangeId="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|exchangeId
 argument_list|)
 decl_stmt|;
 name|sb

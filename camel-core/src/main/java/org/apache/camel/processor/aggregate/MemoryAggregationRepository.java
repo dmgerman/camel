@@ -176,7 +176,7 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|remove (CamelContext camelContext, Object key)
+DECL|method|remove (CamelContext camelContext, Object key, Exchange exchange)
 specifier|public
 name|void
 name|remove
@@ -186,6 +186,9 @@ name|camelContext
 parameter_list|,
 name|Object
 name|key
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|cache
@@ -195,6 +198,20 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|confirm (CamelContext camelContext, String exchangeId)
+specifier|public
+name|void
+name|confirm
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|exchangeId
+parameter_list|)
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override

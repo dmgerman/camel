@@ -1504,11 +1504,12 @@ name|newExchange
 argument_list|)
 return|;
 block|}
-DECL|method|onCompletion (Object key, final Exchange exchange, boolean fromTimeout)
+DECL|method|onCompletion (final Object key, final Exchange exchange, boolean fromTimeout)
 specifier|protected
 name|void
 name|onCompletion
 parameter_list|(
+specifier|final
 name|Object
 name|key
 parameter_list|,
@@ -1520,6 +1521,18 @@ name|boolean
 name|fromTimeout
 parameter_list|)
 block|{
+comment|// store the correlation key as property
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_CORRELATION_KEY
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 comment|// remove from repository as its completed
 name|aggregationRepository
 operator|.
@@ -1531,6 +1544,8 @@ name|getContext
 argument_list|()
 argument_list|,
 name|key
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 if|if
@@ -1570,6 +1585,28 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onSubmitCompletion (final Object key, final Exchange exchange)
+specifier|private
+name|void
+name|onSubmitCompletion
+parameter_list|(
+specifier|final
+name|Object
+name|key
+parameter_list|,
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -1650,6 +1687,24 @@ name|exchange
 argument_list|,
 name|t
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|aggregationRepository
+operator|.
+name|confirm
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -369,6 +369,8 @@ argument_list|(
 name|context
 argument_list|,
 literal|"foo"
+argument_list|,
+name|actual
 argument_list|)
 expr_stmt|;
 name|actual

@@ -88,6 +88,12 @@ name|AGGREGATED_COMPLETED_BY
 init|=
 literal|"CamelAggregatedCompletedBy"
 decl_stmt|;
+DECL|field|AGGREGATED_CORRELATION_KEY
+name|String
+name|AGGREGATED_CORRELATION_KEY
+init|=
+literal|"CamelAggregatedCorrelationKey"
+decl_stmt|;
 DECL|field|ASYNC_WAIT
 name|String
 name|ASYNC_WAIT

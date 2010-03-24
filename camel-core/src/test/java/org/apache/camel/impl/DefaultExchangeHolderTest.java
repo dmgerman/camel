@@ -52,6 +52,11 @@ name|DefaultExchangeHolderTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|id
+specifier|private
+name|String
+name|id
+decl_stmt|;
 DECL|method|testMarshal ()
 specifier|public
 name|void
@@ -88,6 +93,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|id
+operator|=
+literal|null
+expr_stmt|;
 name|Exchange
 name|exchange
 init|=
@@ -160,6 +169,16 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|id
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createHolder ()
 specifier|private
@@ -176,6 +195,13 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|id
+operator|=
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn
