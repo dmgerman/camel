@@ -170,6 +170,16 @@ name|Exception
 block|{
 name|assertExpression
 argument_list|(
+literal|"exchangeId"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"id"
 argument_list|,
 name|exchange
