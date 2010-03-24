@@ -234,6 +234,42 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSimpleThreadName ()
+specifier|public
+name|void
+name|testSimpleThreadName
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|name
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|assertExpression
+argument_list|(
+literal|"threadName"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"The name is ${threadName}"
+argument_list|,
+literal|"The name is "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSimpleOutExpressions ()
 specifier|public
 name|void

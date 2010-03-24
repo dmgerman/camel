@@ -1893,6 +1893,51 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns the expression for the current thread name      */
+DECL|method|threadNameExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|threadNameExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"threadName"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns the expression for the exchanges inbound message body converted      * to the given type.      *<p/>      * Does<b>not</b> allow null bodies.      */
 DECL|method|mandatoryBodyExpression (final Class<T> type)
 specifier|public
