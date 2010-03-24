@@ -158,6 +158,24 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
+literal|"log:org.apache.camel.TEST?showExchangePattern=true"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST?showExchangePattern=false"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
 literal|"log:org.apache.camel.TEST?showProperties=true"
 argument_list|,
 literal|"Hello World"
