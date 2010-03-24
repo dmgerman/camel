@@ -5771,7 +5771,7 @@ throw|;
 block|}
 else|else
 block|{
-comment|// start the
+comment|// start the consumer on the route
 if|if
 condition|(
 name|LOG
@@ -5846,14 +5846,6 @@ block|}
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 for|for
 control|(
 name|int
@@ -5872,6 +5864,44 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
+name|Route
+name|route
+init|=
+name|getRoutes
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|route
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" started and consuming from: "
+operator|+
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
 block|{
 name|LOG
 operator|.
