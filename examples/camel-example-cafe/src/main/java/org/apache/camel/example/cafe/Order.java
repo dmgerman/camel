@@ -38,10 +38,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author Mark Fisher  * @author Marius Bogoevici  */
-end_comment
-
 begin_class
 DECL|class|Order
 specifier|public

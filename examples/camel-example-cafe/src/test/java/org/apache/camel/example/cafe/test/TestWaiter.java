@@ -155,6 +155,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|deliveredDrinks
+operator|==
+literal|null
+operator|||
 name|expectDrinks
 operator|.
 name|size
@@ -170,7 +174,27 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-literal|"Can't get expect size of drinks"
+literal|"Did not deliver expected number of drinks "
+operator|+
+name|expectDrinks
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" was "
+operator|+
+operator|(
+name|deliveredDrinks
+operator|!=
+literal|null
+condition|?
+name|deliveredDrinks
+operator|.
+name|size
+argument_list|()
+else|:
+literal|"null"
+operator|)
 argument_list|)
 throw|;
 block|}
@@ -197,11 +221,11 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-literal|"Can't find drink "
+literal|"Cannot find expected drink "
 operator|+
 name|drink
 operator|+
-literal|" in the deliveredDrinks"
+literal|" in the delivered drinks"
 argument_list|)
 throw|;
 block|}

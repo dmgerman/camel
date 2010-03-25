@@ -606,11 +606,12 @@ argument_list|,
 name|order
 argument_list|)
 expr_stmt|;
+comment|// wait enough time to let the aggregate complete
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|6000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|waiter
