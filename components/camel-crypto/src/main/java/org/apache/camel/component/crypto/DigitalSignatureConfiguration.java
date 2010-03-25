@@ -244,6 +244,11 @@ specifier|private
 name|boolean
 name|clearHeaders
 decl_stmt|;
+DECL|field|operation
+specifier|private
+name|String
+name|operation
+decl_stmt|;
 DECL|method|copy ()
 specifier|public
 name|DigitalSignatureConfiguration
@@ -1152,6 +1157,34 @@ name|clearHeaders
 operator|=
 name|clearHeaders
 expr_stmt|;
+block|}
+comment|/**      * Set the Crypto operation from that supplied after the crypto scheme in the      * endpoint uri e.g. crypto:sign sets sign as the operation.      *      * @param operation the operation supplied after the crypto scheme      */
+DECL|method|setCryptoOperation (String operation)
+specifier|public
+name|void
+name|setCryptoOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
+block|}
+comment|/**      * Gets the Crypto operation that was supplied in the the crypto scheme in the endpoint uri      */
+DECL|method|getCryptoOperation ()
+specifier|public
+name|String
+name|getCryptoOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
 block|}
 block|}
 end_class
