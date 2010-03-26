@@ -611,7 +611,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
+comment|/**      * Sets the initial redelivery delay      *      * @param delay  delay in millis      * @return the builder      */
 DECL|method|redeliveryDelay (long delay)
 specifier|public
 name|RedeliveryPolicyDefinition

@@ -675,7 +675,7 @@ operator|.
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|getRedeliverDelay
+name|getRedeliveryDelay
 argument_list|()
 return|;
 block|}
@@ -723,7 +723,7 @@ operator|.
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|setRedeliverDelay
+name|setRedeliveryDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -734,7 +734,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"RedeliveryPolicy for backoff multipler"
+literal|"RedeliveryPolicy for backoff multiplier"
 argument_list|)
 DECL|method|getBackOffMultiplier ()
 specifier|public
@@ -776,7 +776,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"RedeliveryPolicy for backoff multipler"
+literal|"RedeliveryPolicy for backoff multiplier"
 argument_list|)
 DECL|method|setBackOffMultiplier (Double multiplier)
 specifier|public

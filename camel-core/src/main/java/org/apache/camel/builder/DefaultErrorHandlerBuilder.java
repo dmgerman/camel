@@ -375,6 +375,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|redeliverDelay (long delay)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -387,7 +389,28 @@ block|{
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|redeliveryDelay (long delay)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|redeliveryDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|redeliveryDelay
 argument_list|(
 name|delay
 argument_list|)

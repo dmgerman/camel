@@ -218,7 +218,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
@@ -250,7 +250,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
