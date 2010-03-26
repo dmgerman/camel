@@ -1039,7 +1039,7 @@ name|getRedeliverDelay
 parameter_list|()
 block|{
 return|return
-name|getRedeliverDelay
+name|getRedeliveryDelay
 argument_list|()
 return|;
 block|}
