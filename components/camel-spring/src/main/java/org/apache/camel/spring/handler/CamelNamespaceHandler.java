@@ -854,6 +854,16 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// errorhandler should not be the sub element of camelContext
+name|registerParser
+argument_list|(
+literal|"errorHandler"
+argument_list|,
+operator|new
+name|ErrorHandlerDefinitionParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// camel context
 name|boolean
 name|osgi
