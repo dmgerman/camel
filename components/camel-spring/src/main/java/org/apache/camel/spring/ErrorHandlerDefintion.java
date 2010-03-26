@@ -201,7 +201,7 @@ literal|true
 argument_list|)
 DECL|field|type
 specifier|private
-name|String
+name|ErrorHandlerType
 name|type
 decl_stmt|;
 annotation|@
@@ -302,6 +302,18 @@ argument_list|(
 name|name
 operator|=
 literal|"failureProcessor"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"transactionTemplate"
 argument_list|,
 name|required
 operator|=
