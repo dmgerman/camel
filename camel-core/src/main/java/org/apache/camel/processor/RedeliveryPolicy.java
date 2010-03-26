@@ -166,10 +166,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|redeliverDelay
+DECL|field|redeliveryDelay
 specifier|protected
 name|long
-name|redeliverDelay
+name|redeliveryDelay
 init|=
 literal|1000L
 decl_stmt|;
@@ -284,9 +284,9 @@ literal|"RedeliveryPolicy[maximumRedeliveries="
 operator|+
 name|maximumRedeliveries
 operator|+
-literal|", redeliverDelay="
+literal|", redeliveryDelay="
 operator|+
-name|redeliverDelay
+name|redeliveryDelay
 operator|+
 literal|", maximumRedeliveryDelay="
 operator|+
@@ -529,7 +529,7 @@ return|;
 block|}
 comment|// calculate the delay using the conventional parameters
 name|long
-name|redeliveryDelay
+name|redeliveryDelayResult
 decl_stmt|;
 if|if
 condition|(
@@ -538,9 +538,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|=
-name|redeliverDelay
+name|redeliveryDelay
 expr_stmt|;
 block|}
 elseif|else
@@ -553,7 +553,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|=
 name|Math
 operator|.
@@ -567,7 +567,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|=
 name|previousDelay
 expr_stmt|;
@@ -604,9 +604,9 @@ operator|.
 name|nextDouble
 argument_list|()
 decl_stmt|;
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|+=
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|*
 name|variance
 expr_stmt|;
@@ -622,13 +622,13 @@ operator|>
 name|maximumRedeliveryDelay
 condition|)
 block|{
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|=
 name|maximumRedeliveryDelay
 expr_stmt|;
 block|}
 return|return
-name|redeliveryDelay
+name|redeliveryDelayResult
 return|;
 block|}
 comment|/**      * Calculates the delay using the delay pattern      */
@@ -1030,6 +1030,8 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Deprecated
 DECL|method|getRedeliverDelay ()
 specifier|public
 name|long
@@ -1037,14 +1039,42 @@ name|getRedeliverDelay
 parameter_list|()
 block|{
 return|return
-name|redeliverDelay
+name|getRedeliverDelay
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the delay in milliseconds      */
-DECL|method|setRedeliverDelay (long redeliverDelay)
+annotation|@
+name|Deprecated
+DECL|method|setRedeliverDelay (long redeliveryDelay)
 specifier|public
 name|void
 name|setRedeliverDelay
+parameter_list|(
+name|long
+name|redeliveryDelay
+parameter_list|)
+block|{
+name|setRedeliveryDelay
+argument_list|(
+name|redeliveryDelay
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRedeliveryDelay ()
+specifier|public
+name|long
+name|getRedeliveryDelay
+parameter_list|()
+block|{
+return|return
+name|redeliveryDelay
+return|;
+block|}
+comment|/**      * Sets the delay in milliseconds      */
+DECL|method|setRedeliveryDelay (long redeliverDelay)
+specifier|public
+name|void
+name|setRedeliveryDelay
 parameter_list|(
 name|long
 name|redeliverDelay
@@ -1052,7 +1082,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
 operator|=
 name|redeliverDelay
 expr_stmt|;
