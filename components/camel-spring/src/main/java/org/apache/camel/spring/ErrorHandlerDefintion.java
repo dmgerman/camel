@@ -239,8 +239,6 @@ DECL|field|handled
 specifier|private
 name|Boolean
 name|handled
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|XmlAttribute
