@@ -50,9 +50,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownAware
 import|;
 end_import
 
@@ -67,6 +93,8 @@ class|class
 name|DirectConsumer
 extends|extends
 name|DefaultConsumer
+implements|implements
+name|ShutdownAware
 block|{
 DECL|field|endpoint
 specifier|private
@@ -195,6 +223,33 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|boolean
+name|deferShutdown
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+comment|// deny stopping on shutdown as we want direct consumers to run in case some other queues
+comment|// depend on this consumer to run, so it can complete its exchanges
+return|return
+literal|true
+return|;
+block|}
+DECL|method|getPendingExchangesSize ()
+specifier|public
+name|int
+name|getPendingExchangesSize
+parameter_list|()
+block|{
+comment|// return 0 as we do not have an internal memory queue with a variable size
+comment|// of inflight messages.
+return|return
+literal|0
+return|;
 block|}
 block|}
 end_class
