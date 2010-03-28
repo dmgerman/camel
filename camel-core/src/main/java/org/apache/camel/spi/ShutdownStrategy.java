@@ -153,10 +153,25 @@ name|boolean
 name|shutdownNowOnTimeout
 parameter_list|)
 function_decl|;
-comment|/**      * whether to force shutdown of all consumers when a timeout occurred.      *      * @return force shutdown or not      */
+comment|/**      * Whether to force shutdown of all consumers when a timeout occurred.      *      * @return force shutdown or not      */
 DECL|method|isShutdownNowOnTimeout ()
 name|boolean
 name|isShutdownNowOnTimeout
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether routes should be shutdown in reverse or the same order as they where started.      *      * @param shutdownRoutesInReverseOrder<tt>true</tt> to shutdown in reverse order      */
+DECL|method|setShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
+name|void
+name|setShutdownRoutesInReverseOrder
+parameter_list|(
+name|boolean
+name|shutdownRoutesInReverseOrder
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to shutdown routes in reverse order than they where started.      *<p/>      * This option is by default set to<tt>true</tt>.      *      * @return<tt>true</tt> if routes should be shutdown in reverse order.      */
+DECL|method|isShutdownRoutesInReverseOrder ()
+name|boolean
+name|isShutdownRoutesInReverseOrder
 parameter_list|()
 function_decl|;
 block|}

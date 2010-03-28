@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -293,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.ShutdownStrategy} which uses graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 300 seconds (5 minutes) by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *  * @version $Revision$  */
+comment|/**  * Default {@link org.apache.camel.spi.ShutdownStrategy} which uses graceful shutdown.  *<p/>  * Graceful shutdown ensures that any inflight and pending messages will be taken into account  * and it will wait until these exchanges has been completed.  *<p/>  * As this strategy will politely wait until all exchanges has been completed it can potential wait  * for a long time, and hence why a timeout value can be set. When the timeout triggers you can also  * specify whether the remainder consumers should be shutdown now or ignore.  *<p/>  * Will by default use a timeout of 300 seconds (5 minutes) by which it will shutdown now the remaining consumers.  * This ensures that when shutting down Camel it at some point eventually will shutdown.  * This behavior can of course be configured using the {@link #setTimeout(long)} and  * {@link #setShutdownNowOnTimeout(boolean)} methods.  *<p/>  * Routes will by default be shutdown in the reverse order of which they where started.  * You can customize this using the {@link #setShutdownRoutesInReverseOrder(boolean)} method.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -357,6 +367,13 @@ DECL|field|shutdownNowOnTimeout
 specifier|private
 name|boolean
 name|shutdownNowOnTimeout
+init|=
+literal|true
+decl_stmt|;
+DECL|field|shutdownRoutesInReverseOrder
+specifier|private
+name|boolean
+name|shutdownRoutesInReverseOrder
 init|=
 literal|true
 decl_stmt|;
@@ -442,6 +459,35 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+comment|// should the order of routes be reversed?
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routesOrdered
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+argument_list|(
+name|routes
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|shutdownRoutesInReverseOrder
+condition|)
+block|{
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|routesOrdered
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|timeout
@@ -455,7 +501,7 @@ name|info
 argument_list|(
 literal|"Starting to graceful shutdown "
 operator|+
-name|routes
+name|routesOrdered
 operator|.
 name|size
 argument_list|()
@@ -486,7 +532,7 @@ name|info
 argument_list|(
 literal|"Starting to graceful shutdown "
 operator|+
-name|routes
+name|routesOrdered
 operator|.
 name|size
 argument_list|()
@@ -509,7 +555,7 @@ name|ShutdownTask
 argument_list|(
 name|context
 argument_list|,
-name|routes
+name|routesOrdered
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -570,7 +616,7 @@ expr_stmt|;
 comment|// force the routes to shutdown now
 name|shutdownRoutesNow
 argument_list|(
-name|routes
+name|routesOrdered
 argument_list|)
 expr_stmt|;
 block|}
@@ -637,7 +683,7 @@ name|info
 argument_list|(
 literal|"Graceful shutdown of "
 operator|+
-name|routes
+name|routesOrdered
 operator|.
 name|size
 argument_list|()
@@ -727,6 +773,32 @@ block|{
 return|return
 name|shutdownNowOnTimeout
 return|;
+block|}
+DECL|method|isShutdownRoutesInReverseOrder ()
+specifier|public
+name|boolean
+name|isShutdownRoutesInReverseOrder
+parameter_list|()
+block|{
+return|return
+name|shutdownRoutesInReverseOrder
+return|;
+block|}
+DECL|method|setShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
+specifier|public
+name|void
+name|setShutdownRoutesInReverseOrder
+parameter_list|(
+name|boolean
+name|shutdownRoutesInReverseOrder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRoutesInReverseOrder
+operator|=
+name|shutdownRoutesInReverseOrder
+expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
 specifier|public
@@ -1528,7 +1600,15 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|" suspended and shutdown deferred."
+literal|" suspended and shutdown deferred, was consuming from: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1557,7 +1637,15 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|" shutdown complete."
+literal|" shutdown complete, was consuming from: "
+operator|+
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
