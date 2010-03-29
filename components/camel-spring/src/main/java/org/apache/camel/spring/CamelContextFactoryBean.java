@@ -1406,7 +1406,7 @@ literal|"errorHandler"
 argument_list|,
 name|type
 operator|=
-name|ErrorHandlerDefintion
+name|ErrorHandlerDefinition
 operator|.
 name|class
 argument_list|,
