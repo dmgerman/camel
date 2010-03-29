@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -30,18 +40,34 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * Factory for {@link org.apache.camel.builder.xml.ResultHandler}  *  * @version $Revision$  */
+comment|/**  * Factory for {@link javax.xml.transform.stream.StreamResult} which is streamed to file.  *  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|ResultHandlerFactory
+begin_class
+DECL|class|FileResultHandlerFactory
 specifier|public
-interface|interface
+class|class
+name|FileResultHandlerFactory
+implements|implements
 name|ResultHandlerFactory
 block|{
-comment|/**      * Creates the {@link ResultHandler} to use      *      * @param exchange the current exchange      * @return the result handler      */
 DECL|method|createResult (Exchange exchange)
+specifier|public
 name|ResultHandler
 name|createResult
 parameter_list|(
@@ -50,9 +76,39 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+name|String
+name|fileName
+init|=
+name|ExchangeHelper
+operator|.
+name|getMandatoryHeader
+argument_list|(
+name|exchange
+argument_list|,
+name|Exchange
+operator|.
+name|XSLT_FILE_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|FileResultHandler
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|fileName
+argument_list|)
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

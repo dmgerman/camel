@@ -472,6 +472,12 @@ name|TIMER_TIME
 init|=
 literal|"CamelTimerTime"
 decl_stmt|;
+DECL|field|XSLT_FILE_NAME
+name|String
+name|XSLT_FILE_NAME
+init|=
+literal|"CamelXsltFileName"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

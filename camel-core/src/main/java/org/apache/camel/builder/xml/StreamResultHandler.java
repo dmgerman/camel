@@ -79,6 +79,7 @@ implements|implements
 name|ResultHandler
 block|{
 DECL|field|buffer
+specifier|private
 name|ByteArrayOutputStream
 name|buffer
 init|=
@@ -87,6 +88,7 @@ name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 DECL|field|result
+specifier|private
 name|StreamResult
 name|result
 init|=

@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body  *  * @version $Revision$  */
+comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by defult output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -441,7 +441,9 @@ init|=
 name|resultHandlerFactory
 operator|.
 name|createResult
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|Result
 name|result
@@ -689,6 +691,24 @@ name|setResultHandlerFactory
 argument_list|(
 operator|new
 name|DomResultHandlerFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the output as being a File where the filename      * must be provided in the {@link Exchange#XSLT_FILE_NAME} header.      */
+DECL|method|outputFile ()
+specifier|public
+name|XsltBuilder
+name|outputFile
+parameter_list|()
+block|{
+name|setResultHandlerFactory
+argument_list|(
+operator|new
+name|FileResultHandlerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;

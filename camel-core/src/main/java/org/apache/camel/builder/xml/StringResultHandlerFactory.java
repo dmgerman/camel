@@ -18,6 +18,18 @@ name|xml
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for {@link StringResultHandler}  *  * @version $Revision$  */
 end_comment
@@ -30,11 +42,16 @@ name|StringResultHandlerFactory
 implements|implements
 name|ResultHandlerFactory
 block|{
-DECL|method|createResult ()
+DECL|method|createResult (Exchange exchange)
 specifier|public
 name|ResultHandler
 name|createResult
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new

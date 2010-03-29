@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|StringWriter
+name|File
 import|;
 end_import
 
@@ -67,37 +67,54 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes the XSLT result as a String  *  * @version $Revision$  */
+comment|/**  * Use file to handle the result of XSLT transformation.  *<p/>  * For example when transforming big files you can stream directly to a file output  * to avoid consuming to much memory.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|StringResultHandler
+DECL|class|FileResultHandler
 specifier|public
 class|class
-name|StringResultHandler
+name|FileResultHandler
 implements|implements
 name|ResultHandler
 block|{
-DECL|field|buffer
+DECL|field|file
 specifier|private
-name|StringWriter
-name|buffer
-init|=
-operator|new
-name|StringWriter
-argument_list|()
+specifier|final
+name|File
+name|file
 decl_stmt|;
 DECL|field|result
 specifier|private
+specifier|final
 name|StreamResult
 name|result
-init|=
+decl_stmt|;
+DECL|method|FileResultHandler (File file)
+specifier|public
+name|FileResultHandler
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+name|this
+operator|.
+name|file
+operator|=
+name|file
+expr_stmt|;
+name|this
+operator|.
+name|result
+operator|=
 operator|new
 name|StreamResult
 argument_list|(
-name|buffer
+name|file
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 DECL|method|getResult ()
 specifier|public
 name|Result
@@ -121,10 +138,7 @@ name|in
 operator|.
 name|setBody
 argument_list|(
-name|buffer
-operator|.
-name|toString
-argument_list|()
+name|file
 argument_list|)
 expr_stmt|;
 block|}
