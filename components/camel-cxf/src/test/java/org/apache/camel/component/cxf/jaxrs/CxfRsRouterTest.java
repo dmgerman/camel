@@ -250,7 +250,7 @@ init|=
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://localhost:9000/customerservice/customers/123"
+literal|"http://localhost:9000/route/customerservice/customers/123"
 argument_list|)
 decl_stmt|;
 name|get
@@ -338,7 +338,7 @@ init|=
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://localhost:9000/customerservice/customers/"
+literal|"http://localhost:9000/route/customerservice/customers/"
 argument_list|)
 decl_stmt|;
 name|get
@@ -462,7 +462,7 @@ init|=
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://localhost:9000/customerservice/orders/223/products/323"
+literal|"http://localhost:9000/route/customerservice/orders/223/products/323"
 argument_list|)
 decl_stmt|;
 name|get
@@ -550,7 +550,7 @@ init|=
 operator|new
 name|HttpPut
 argument_list|(
-literal|"http://localhost:9000/customerservice/customers"
+literal|"http://localhost:9000/route/customerservice/customers"
 argument_list|)
 decl_stmt|;
 name|StringEntity
@@ -654,7 +654,7 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"http://localhost:9000/customerservice/customers"
+literal|"http://localhost:9000/route/customerservice/customers"
 argument_list|)
 decl_stmt|;
 name|post
@@ -767,7 +767,7 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"http://localhost:9000/customerservice/customersUniqueResponseCode"
+literal|"http://localhost:9000/route/customerservice/customersUniqueResponseCode"
 argument_list|)
 decl_stmt|;
 name|post
