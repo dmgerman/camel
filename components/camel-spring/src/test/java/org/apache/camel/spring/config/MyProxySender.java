@@ -18,6 +18,30 @@ name|config
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -34,6 +58,23 @@ name|hello
 parameter_list|(
 name|String
 name|name
+parameter_list|)
+function_decl|;
+annotation|@
+name|Pattern
+argument_list|(
+name|value
+operator|=
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+DECL|method|greeting (String message)
+name|void
+name|greeting
+parameter_list|(
+name|String
+name|message
 parameter_list|)
 function_decl|;
 block|}
