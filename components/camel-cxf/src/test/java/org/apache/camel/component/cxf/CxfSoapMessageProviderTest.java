@@ -374,18 +374,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Can't get the right headers count"
-argument_list|,
-name|fromHandler
-operator|.
-name|getGetHeadersCount
-argument_list|()
-argument_list|,
-literal|4
-argument_list|)
-expr_stmt|;
+comment|//From CXF 2.2.7 the soap handler's getHeader() method will not be called if the SOAP message don't have headers
+comment|//assertEquals("Can't get the right headers count", fromHandler.getGetHeadersCount(), 4);
 block|}
 block|}
 end_class

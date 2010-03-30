@@ -430,16 +430,8 @@ name|getMessageCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|8
-argument_list|,
-name|toHandler
-operator|.
-name|getGetHeadersCount
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//From CXF 2.2.7 the soap handler's getHeader() method will not be called if the SOAP message don't have headers
+comment|//assertEquals(8, toHandler.getGetHeadersCount());
 name|assertEquals
 argument_list|(
 literal|10
