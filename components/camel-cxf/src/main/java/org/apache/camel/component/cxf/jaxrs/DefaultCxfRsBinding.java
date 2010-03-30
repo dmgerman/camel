@@ -994,7 +994,11 @@ name|camelMessage
 operator|.
 name|setBody
 argument_list|(
+operator|new
+name|MessageContentsList
+argument_list|(
 name|paramArray
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
