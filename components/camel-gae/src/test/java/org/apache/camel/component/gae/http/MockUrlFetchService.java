@@ -42,6 +42,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -252,6 +264,46 @@ block|}
 return|return
 name|response
 return|;
+block|}
+DECL|method|fetchAsync (URL url)
+specifier|public
+name|Future
+argument_list|<
+name|HTTPResponse
+argument_list|>
+name|fetchAsync
+parameter_list|(
+name|URL
+name|url
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
+block|}
+DECL|method|fetchAsync (HTTPRequest httpRequest)
+specifier|public
+name|Future
+argument_list|<
+name|HTTPResponse
+argument_list|>
+name|fetchAsync
+parameter_list|(
+name|HTTPRequest
+name|httpRequest
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"not implemented"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
