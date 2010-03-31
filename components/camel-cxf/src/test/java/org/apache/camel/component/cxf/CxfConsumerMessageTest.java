@@ -161,6 +161,24 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// check the content-length header is filtered
+name|Object
+name|value
+init|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"Content-Length"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"The Content-Length header should be removed"
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 comment|// Get the request message
 name|String
 name|request

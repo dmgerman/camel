@@ -348,6 +348,16 @@ argument_list|(
 literal|"Content-Length"
 argument_list|)
 expr_stmt|;
+comment|// Filter Content-Length as it will cause some trouble when the message
+comment|// is passed to the other endpoint
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"Content-Length"
+argument_list|)
+expr_stmt|;
 comment|// initialize message header filter map with default SOAP filter
 name|messageHeaderFiltersMap
 operator|=
