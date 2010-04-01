@@ -891,7 +891,7 @@ parameter_list|)
 function_decl|;
 comment|// Asynchronous methods
 comment|// -----------------------------------------------------------------------
-comment|/**      * Sets the executor service to use for async messaging.      *<p/>      * If none provided Camel will default use a {@link java.util.concurrent.ScheduledExecutorService}      * with a pool of 5 threads.      *      * @param executorService  the executor service.      */
+comment|/**      * Sets a custom executor service to use for async messaging.      *      * @param executorService  the executor service.      */
 DECL|method|setExecutorService (ExecutorService executorService)
 name|void
 name|setExecutorService

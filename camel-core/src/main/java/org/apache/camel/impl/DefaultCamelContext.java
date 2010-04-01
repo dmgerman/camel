@@ -7057,6 +7057,18 @@ name|isStarting
 argument_list|()
 return|;
 block|}
+DECL|method|resetFirstStartDone ()
+specifier|protected
+name|void
+name|resetFirstStartDone
+parameter_list|()
+block|{
+comment|// to prevent issue with Spring 3.0 calling ContextRefreshedEvent twice instead of only once
+name|firstStartDone
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 specifier|public
 name|void
