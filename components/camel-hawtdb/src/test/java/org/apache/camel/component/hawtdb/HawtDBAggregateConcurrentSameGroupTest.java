@@ -312,6 +312,15 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|setResultWaitTime
+argument_list|(
+literal|20
+operator|*
+literal|1000L
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1

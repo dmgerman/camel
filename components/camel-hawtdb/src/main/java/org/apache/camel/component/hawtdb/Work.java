@@ -44,7 +44,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Executs the work within the bounds of the given transaction      *      * @param transaction the transaction      * @return result of the work, can be<tt>null</tt> if no result to return.      */
+comment|/**      * Executes the work within the bounds of the given transaction      *      * @param transaction the transaction      * @return result of the work, can be<tt>null</tt> if no result to return.      */
 DECL|method|execute (Transaction transaction)
 name|T
 name|execute

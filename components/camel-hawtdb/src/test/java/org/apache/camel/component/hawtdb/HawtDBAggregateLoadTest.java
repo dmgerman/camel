@@ -181,7 +181,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|20
+literal|30
 operator|*
 literal|1000
 argument_list|)
