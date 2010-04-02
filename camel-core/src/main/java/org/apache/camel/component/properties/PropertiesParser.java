@@ -59,31 +59,13 @@ specifier|final
 class|class
 name|PropertiesParser
 block|{
-DECL|field|PREFIX_TOKEN
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PREFIX_TOKEN
-init|=
-literal|"#{"
-decl_stmt|;
-DECL|field|SUFFIX_TOKEN
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SUFFIX_TOKEN
-init|=
-literal|"}"
-decl_stmt|;
 DECL|method|PropertiesParser ()
 specifier|private
 name|PropertiesParser
 parameter_list|()
 block|{     }
-comment|/**      * Parses the string and replaces the property placeholders with values from the given properties      *      * @param uri the uri      * @param properties the properties      * @return the uri with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
-DECL|method|parseUri (String uri, Properties properties)
+comment|/**      * Parses the string and replaces the property placeholders with values from the given properties      *      * @param uri the uri      * @param properties the properties      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @return the uri with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
+DECL|method|parseUri (String uri, Properties properties, String prefixToken, String suffixToken)
 specifier|public
 specifier|static
 name|String
@@ -94,6 +76,12 @@ name|uri
 parameter_list|,
 name|Properties
 name|properties
+parameter_list|,
+name|String
+name|prefixToken
+parameter_list|,
+name|String
+name|suffixToken
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
@@ -151,6 +139,10 @@ argument_list|,
 name|properties
 argument_list|,
 name|replaced
+argument_list|,
+name|prefixToken
+argument_list|,
+name|suffixToken
 argument_list|)
 expr_stmt|;
 comment|// check the replaced with the visited to avoid circular reference
@@ -203,7 +195,7 @@ name|answer
 operator|.
 name|contains
 argument_list|(
-name|PREFIX_TOKEN
+name|prefixToken
 argument_list|)
 expr_stmt|;
 block|}
@@ -211,7 +203,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doParseUri (String uri, Properties properties, List<String> replaced)
+DECL|method|doParseUri (String uri, Properties properties, List<String> replaced, String prefixToken, String suffixToken)
 specifier|private
 specifier|static
 name|String
@@ -228,6 +220,12 @@ argument_list|<
 name|String
 argument_list|>
 name|replaced
+parameter_list|,
+name|String
+name|prefixToken
+parameter_list|,
+name|String
+name|suffixToken
 parameter_list|)
 block|{
 name|StringBuilder
@@ -264,7 +262,7 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-name|PREFIX_TOKEN
+name|prefixToken
 argument_list|,
 name|pivot
 argument_list|)
@@ -320,7 +318,7 @@ name|pivot
 operator|=
 name|idx
 operator|+
-name|PREFIX_TOKEN
+name|prefixToken
 operator|.
 name|length
 argument_list|()
@@ -332,7 +330,7 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-name|SUFFIX_TOKEN
+name|suffixToken
 argument_list|,
 name|pivot
 argument_list|)
@@ -350,7 +348,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Expecting "
 operator|+
-name|SUFFIX_TOKEN
+name|suffixToken
 operator|+
 literal|" but found end of string for uri: "
 operator|+
@@ -414,7 +412,7 @@ name|pivot
 operator|=
 name|endIdx
 operator|+
-name|SUFFIX_TOKEN
+name|suffixToken
 operator|.
 name|length
 argument_list|()

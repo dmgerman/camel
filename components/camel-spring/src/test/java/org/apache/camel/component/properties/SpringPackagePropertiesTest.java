@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-literal|"#{result}"
+literal|"{{result}}"
 argument_list|)
 operator|.
 name|expectedMessageCount

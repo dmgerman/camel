@@ -4416,7 +4416,9 @@ name|uri
 operator|.
 name|contains
 argument_list|(
-literal|"#{"
+name|PropertiesComponent
+operator|.
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{

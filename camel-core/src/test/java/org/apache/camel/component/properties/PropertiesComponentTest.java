@@ -136,7 +136,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.end}"
+literal|"properties:{{cool.end}}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -203,7 +203,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:mock:#{cool.result}"
+literal|"properties:mock:{{cool.result}}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -270,7 +270,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.mock}:#{cool.mock}"
+literal|"properties:{{cool.mock}}:{{cool.mock}}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -337,7 +337,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.concat}"
+literal|"properties:cool.concat"
 argument_list|)
 expr_stmt|;
 block|}
@@ -404,7 +404,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{bar.end}?locations=org/apache/camel/component/properties/bar.properties"
+literal|"properties:{{bar.end}}?locations=org/apache/camel/component/properties/bar.properties"
 argument_list|)
 expr_stmt|;
 block|}
@@ -471,7 +471,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{bar.end}?locations=org/apache/camel/component/properties/bar.properties"
+literal|"properties:bar.end?locations=org/apache/camel/component/properties/bar.properties"
 argument_list|)
 expr_stmt|;
 name|from
@@ -481,7 +481,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cheese.end}?locations=org/apache/camel/component/properties/bar.properties,"
+literal|"properties:cheese.end?locations=org/apache/camel/component/properties/bar.properties,"
 operator|+
 literal|"classpath:org/apache/camel/component/properties/cheese.properties"
 argument_list|)
@@ -569,7 +569,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{foo.unknown}"
+literal|"properties:{{foo.unknown}}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -627,7 +627,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [foo.unknown] not found in properties for uri: #{foo.unknown}"
+literal|"Property with key [foo.unknown] not found in properties for uri: {{foo.unknown}}"
 argument_list|,
 name|iae
 operator|.
@@ -669,7 +669,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.a}"
+literal|"properties:cool.a"
 argument_list|)
 expr_stmt|;
 block|}
@@ -727,7 +727,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Circular reference detected with key [cool.a] in uri #{cool.a}"
+literal|"Circular reference detected with key [cool.a] in uri {{cool.a}}"
 argument_list|,
 name|iae
 operator|.
@@ -762,6 +762,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// properties component can also have {{ }} around but its not needed
 name|from
 argument_list|(
 literal|"direct:start"
@@ -769,7 +770,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.end}"
+literal|"properties:{{cool.end}}"
 argument_list|)
 expr_stmt|;
 name|from
@@ -779,7 +780,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:mock:#{cool.result}"
+literal|"properties:mock:{{cool.result}}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -876,7 +877,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{cool.end}"
+literal|"properties:cool.end"
 argument_list|)
 expr_stmt|;
 name|from
@@ -886,7 +887,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:mock:#{cool.result}"
+literal|"properties:mock:{{cool.result}}"
 argument_list|)
 expr_stmt|;
 block|}

@@ -157,7 +157,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{foo}"
+literal|"properties:foo"
 argument_list|)
 expr_stmt|;
 block|}

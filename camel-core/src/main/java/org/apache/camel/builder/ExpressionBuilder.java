@@ -4995,7 +4995,7 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-comment|// enclose key with #{ } to force parsing
+comment|// enclose key with {{ }} to force parsing
 name|String
 index|[]
 name|paths
@@ -5012,11 +5012,15 @@ name|pc
 operator|.
 name|parseUri
 argument_list|(
-literal|"#{"
+name|PropertiesComponent
+operator|.
+name|PREFIX_TOKEN
 operator|+
 name|key
 operator|+
-literal|"}"
+name|PropertiesComponent
+operator|.
+name|SUFFIX_TOKEN
 argument_list|,
 name|paths
 argument_list|)
@@ -5075,17 +5079,21 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
-comment|// enclose key with #{ } to force parsing
+comment|// enclose key with {{ }} to force parsing
 return|return
 name|pc
 operator|.
 name|parseUri
 argument_list|(
-literal|"#{"
+name|PropertiesComponent
+operator|.
+name|PREFIX_TOKEN
 operator|+
 name|key
 operator|+
-literal|"}"
+name|PropertiesComponent
+operator|.
+name|SUFFIX_TOKEN
 argument_list|)
 return|;
 block|}

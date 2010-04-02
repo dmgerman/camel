@@ -63,7 +63,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"#{result}"
+literal|"{{result}}"
 argument_list|)
 expr_stmt|;
 block|}

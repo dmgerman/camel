@@ -319,7 +319,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.foo}"
+literal|"{{bean.foo}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -334,7 +334,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.bar}"
+literal|"{{bean.bar}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -347,7 +347,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.unknown}"
+literal|"{{bean.unknown}}"
 argument_list|)
 expr_stmt|;
 name|fail
@@ -379,7 +379,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [bean.unknown] not found in properties for uri: #{bean.unknown}"
+literal|"Property with key [bean.unknown] not found in properties for uri: {{bean.unknown}}"
 argument_list|,
 name|cause
 operator|.
@@ -413,7 +413,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.foo}"
+literal|"{{bean.foo}}"
 argument_list|,
 name|MyFooBean
 operator|.
@@ -432,7 +432,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.bar}"
+literal|"{{bean.bar}}"
 argument_list|,
 name|MyDummyBean
 operator|.
@@ -449,7 +449,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"#{bean.unknown}"
+literal|"{{bean.unknown}}"
 argument_list|,
 name|MyDummyBean
 operator|.
@@ -485,7 +485,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [bean.unknown] not found in properties for uri: #{bean.unknown}"
+literal|"Property with key [bean.unknown] not found in properties for uri: {{bean.unknown}}"
 argument_list|,
 name|cause
 operator|.

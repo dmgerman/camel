@@ -122,7 +122,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{bar.end}?locations=org/apache/camel/component/properties/bar.properties"
+literal|"properties:bar.end?locations=org/apache/camel/component/properties/bar.properties"
 argument_list|)
 expr_stmt|;
 block|}
@@ -189,7 +189,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"properties:#{bar.end}?locations=org/apache/camel/component/properties/unknown.properties"
+literal|"properties:bar.end?locations=org/apache/camel/component/properties/unknown.properties"
 argument_list|)
 expr_stmt|;
 block|}

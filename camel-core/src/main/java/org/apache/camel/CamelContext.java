@@ -863,7 +863,7 @@ name|String
 name|language
 parameter_list|)
 function_decl|;
-comment|/**      * Parses the given text and resolve any property placeholders - using #{key}.      *      * @param text the text such as an endpoint uri or the likes      * @return the text with resolved property placeholders      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      */
+comment|/**      * Parses the given text and resolve any property placeholders - using {{key}}.      *      * @param text the text such as an endpoint uri or the likes      * @return the text with resolved property placeholders      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      */
 DECL|method|resolvePropertyPlaceholders (String text)
 name|String
 name|resolvePropertyPlaceholders
