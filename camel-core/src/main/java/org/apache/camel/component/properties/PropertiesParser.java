@@ -59,6 +59,24 @@ specifier|final
 class|class
 name|PropertiesParser
 block|{
+DECL|field|PREFIX_TOKEN
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PREFIX_TOKEN
+init|=
+literal|"#{"
+decl_stmt|;
+DECL|field|SUFFIX_TOKEN
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SUFFIX_TOKEN
+init|=
+literal|"}"
+decl_stmt|;
 DECL|method|PropertiesParser ()
 specifier|private
 name|PropertiesParser
@@ -185,7 +203,7 @@ name|answer
 operator|.
 name|contains
 argument_list|(
-literal|"#{"
+name|PREFIX_TOKEN
 argument_list|)
 expr_stmt|;
 block|}
@@ -246,7 +264,7 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-literal|"#{"
+name|PREFIX_TOKEN
 argument_list|,
 name|pivot
 argument_list|)
@@ -302,7 +320,10 @@ name|pivot
 operator|=
 name|idx
 operator|+
-literal|2
+name|PREFIX_TOKEN
+operator|.
+name|length
+argument_list|()
 expr_stmt|;
 name|int
 name|endIdx
@@ -311,7 +332,7 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-literal|'}'
+name|SUFFIX_TOKEN
 argument_list|,
 name|pivot
 argument_list|)
@@ -327,7 +348,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Expecting } but found end of string for uri: "
+literal|"Expecting "
+operator|+
+name|SUFFIX_TOKEN
+operator|+
+literal|" but found end of string for uri: "
 operator|+
 name|uri
 argument_list|)
@@ -389,7 +414,10 @@ name|pivot
 operator|=
 name|endIdx
 operator|+
-literal|1
+name|SUFFIX_TOKEN
+operator|.
+name|length
+argument_list|()
 expr_stmt|;
 block|}
 block|}
