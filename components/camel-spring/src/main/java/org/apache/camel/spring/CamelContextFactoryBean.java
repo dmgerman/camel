@@ -1793,6 +1793,25 @@ name|Exception
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|getId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Id must be set"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|properties
 operator|!=
 literal|null

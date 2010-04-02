@@ -276,18 +276,6 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
 name|ConfigurableApplicationContext
 import|;
 end_import
@@ -576,11 +564,6 @@ comment|// now lets start the CamelContext so that all its possible
 comment|// dependencies are initialized
 try|try
 block|{
-comment|// must reset the first start to handle Spring 3.0 sending
-comment|// this event twice per camel context instead of only once as in 2.x
-name|resetFirstStartDone
-argument_list|()
-expr_stmt|;
 name|maybeStart
 argument_list|()
 expr_stmt|;
