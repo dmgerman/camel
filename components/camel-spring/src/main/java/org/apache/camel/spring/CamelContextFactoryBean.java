@@ -4077,6 +4077,9 @@ name|ApplicationEvent
 name|event
 parameter_list|)
 block|{
+comment|// From Spring 3.0.1, The BeanFactory applicationEventListener
+comment|// and Bean's applicationEventListener will be called,
+comment|// So we just delegate the onApplicationEvent call here.
 if|if
 condition|(
 name|context

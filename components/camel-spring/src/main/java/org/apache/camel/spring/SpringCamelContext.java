@@ -367,8 +367,6 @@ implements|,
 name|DisposableBean
 implements|,
 name|ApplicationContextAware
-implements|,
-name|ApplicationListener
 block|{
 DECL|field|LOG
 specifier|private
