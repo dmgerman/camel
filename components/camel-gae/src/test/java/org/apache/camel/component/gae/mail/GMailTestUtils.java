@@ -110,17 +110,6 @@ name|registry
 operator|.
 name|put
 argument_list|(
-literal|"mockMailService"
-argument_list|,
-operator|new
-name|MockMailService
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|registry
-operator|.
-name|put
-argument_list|(
 literal|"customBinding"
 argument_list|,
 operator|new

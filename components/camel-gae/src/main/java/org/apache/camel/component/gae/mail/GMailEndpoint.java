@@ -56,6 +56,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|appengine
+operator|.
+name|api
+operator|.
+name|mail
+operator|.
+name|MailServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -225,6 +241,15 @@ name|sender
 operator|=
 name|sender
 expr_stmt|;
+name|this
+operator|.
+name|mailService
+operator|=
+name|MailServiceFactory
+operator|.
+name|getMailService
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getOutboundBinding ()
 specifier|public
@@ -266,16 +291,6 @@ operator|=
 name|outboundBinding
 expr_stmt|;
 block|}
-DECL|method|getSender ()
-specifier|public
-name|String
-name|getSender
-parameter_list|()
-block|{
-return|return
-name|sender
-return|;
-block|}
 DECL|method|getMailService ()
 specifier|public
 name|MailService
@@ -286,21 +301,15 @@ return|return
 name|mailService
 return|;
 block|}
-DECL|method|setMailService (MailService mailService)
+DECL|method|getSender ()
 specifier|public
-name|void
-name|setMailService
-parameter_list|(
-name|MailService
-name|mailService
-parameter_list|)
+name|String
+name|getSender
+parameter_list|()
 block|{
-name|this
-operator|.
-name|mailService
-operator|=
-name|mailService
-expr_stmt|;
+return|return
+name|sender
+return|;
 block|}
 DECL|method|getSubject ()
 specifier|public

@@ -59,7 +59,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gmail:test1@example.org?to=test2@example.org&subject=testSubject&mailServiceRef=#mockMailService"
+literal|"gmail:test1@example.org?to=test2@example.org&subject=testSubject"
 argument_list|)
 expr_stmt|;
 block|}
