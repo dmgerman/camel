@@ -1105,6 +1105,22 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
+name|name
+operator|=
+literal|"depends-on"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|dependsOn
+specifier|private
+name|String
+name|dependsOn
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
 name|required
 operator|=
 literal|false
@@ -5234,6 +5250,32 @@ operator|.
 name|threadPoolProfiles
 operator|=
 name|threadPoolProfiles
+expr_stmt|;
+block|}
+DECL|method|getDependsOn ()
+specifier|public
+name|String
+name|getDependsOn
+parameter_list|()
+block|{
+return|return
+name|dependsOn
+return|;
+block|}
+DECL|method|setDependsOn (String dependsOn)
+specifier|public
+name|void
+name|setDependsOn
+parameter_list|(
+name|String
+name|dependsOn
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dependsOn
+operator|=
+name|dependsOn
 expr_stmt|;
 block|}
 comment|// Implementation methods
