@@ -59,7 +59,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ghttp://somewhere.com/test?a=b&urlFetchServiceRef=#mockUrlFetchService"
+literal|"ghttp://localhost:7441/test?a=b"
 argument_list|)
 expr_stmt|;
 block|}

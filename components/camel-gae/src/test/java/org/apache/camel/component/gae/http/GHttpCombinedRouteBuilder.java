@@ -71,7 +71,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ghttp://somewhere.com/test?urlFetchServiceRef=#mockUrlFetchService"
+literal|"ghttp://localhost:7441/test"
 argument_list|)
 expr_stmt|;
 name|from
@@ -88,12 +88,12 @@ argument_list|)
 operator|.
 name|constant
 argument_list|(
-literal|"http://another.org:1234/abc"
+literal|"ghttp://localhost:7441/blah"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ghttp://somewhere.com/test?bridgeEndpoint=false&urlFetchServiceRef=#mockUrlFetchService"
+literal|"ghttp://localhost:7441/test?bridgeEndpoint=false"
 argument_list|)
 expr_stmt|;
 block|}

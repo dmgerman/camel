@@ -146,6 +146,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|appengine
+operator|.
+name|api
+operator|.
+name|urlfetch
+operator|.
+name|URLFetchServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -485,6 +501,13 @@ name|httpConnectionManager
 argument_list|,
 name|clientConfigurer
 argument_list|)
+expr_stmt|;
+name|urlFetchService
+operator|=
+name|URLFetchServiceFactory
+operator|.
+name|getURLFetchService
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructs a {@link URL} from an<code>uri</code> and an optional      *<code>query</code> string. The encoding strategy follow those of the      * Camel HTTP component.      *       * @param uri      *            must be encoded with      *            {@link UnsafeUriCharactersEncoder#encode(String)}.      * @param query      *            decoded query string. Replaces the query part of      *<code>uri</code> if not<code>null</code>.      */
