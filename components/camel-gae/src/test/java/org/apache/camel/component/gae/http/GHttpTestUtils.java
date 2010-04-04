@@ -66,6 +66,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|gae
+operator|.
+name|TestConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -207,15 +223,12 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|createTestServer (int port)
+DECL|method|createTestServer ()
 specifier|public
 specifier|static
 name|Server
 name|createTestServer
-parameter_list|(
-name|int
-name|port
-parameter_list|)
+parameter_list|()
 block|{
 name|ServletContextHandler
 name|handler
@@ -256,7 +269,10 @@ init|=
 operator|new
 name|Server
 argument_list|(
-name|port
+name|TestConfig
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|server

@@ -278,6 +278,24 @@ begin_import
 import|import static
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|gae
+operator|.
+name|TestConfig
+operator|.
+name|getBaseUri
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -303,9 +321,7 @@ init|=
 name|GHttpTestUtils
 operator|.
 name|createTestServer
-argument_list|(
-literal|7441
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|config
 specifier|private
@@ -611,7 +627,10 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://localhost:7441/blah"
+name|getBaseUri
+argument_list|()
+operator|+
+literal|"/blah"
 argument_list|,
 name|response
 operator|.

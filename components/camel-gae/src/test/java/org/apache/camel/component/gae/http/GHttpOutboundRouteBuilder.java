@@ -34,6 +34,24 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|gae
+operator|.
+name|TestConfig
+operator|.
+name|getBaseUri
+import|;
+end_import
+
 begin_class
 DECL|class|GHttpOutboundRouteBuilder
 specifier|public
@@ -59,7 +77,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ghttp://localhost:7441/test?a=b"
+name|getBaseUri
+argument_list|(
+literal|"ghttp"
+argument_list|)
+operator|+
+literal|"/test?a=b"
 argument_list|)
 expr_stmt|;
 block|}

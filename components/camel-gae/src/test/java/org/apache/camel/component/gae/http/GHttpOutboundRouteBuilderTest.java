@@ -257,9 +257,7 @@ init|=
 name|GHttpTestUtils
 operator|.
 name|createTestServer
-argument_list|(
-literal|7441
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|config
 specifier|private
