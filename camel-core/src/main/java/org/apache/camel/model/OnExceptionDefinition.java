@@ -661,7 +661,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param context the camel context      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
+comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      *      * @param context      the camel context      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      *         for this exception handler.      */
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -916,7 +916,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public
 name|OnExceptionDefinition
@@ -948,7 +948,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled predicate that determines true or false      * @return the builder      */
 DECL|method|handled (Predicate handled)
 specifier|public
 name|OnExceptionDefinition
@@ -967,7 +967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled expression that determines true or false      * @return the builder      */
 DECL|method|handled (Expression handled)
 specifier|public
 name|OnExceptionDefinition
@@ -989,7 +989,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|OnExceptionDefinition
@@ -1095,7 +1095,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the delay      *      * @param delay  the redeliver delay      * @return the builder      */
+comment|/**      * Sets the initial redelivery delay      *      * @param delay the initial redelivery delay      * @return the builder      * @deprecated      */
+annotation|@
+name|Deprecated
 DECL|method|redeliverDelay (long delay)
 specifier|public
 name|OnExceptionDefinition
@@ -1117,7 +1119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
+comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|OnExceptionDefinition
@@ -1139,7 +1141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
+comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|OnExceptionDefinition
@@ -1161,7 +1163,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
+comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent the percentage      * @return the builder      */
 DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|OnExceptionDefinition
@@ -1183,7 +1185,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
+comment|/**      * Sets the initial redelivery delay      *      * @param delay delay in millis      * @return the builder      */
 DECL|method|redeliveryDelay (long delay)
 specifier|public
 name|OnExceptionDefinition
@@ -1205,7 +1207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel  the logging level      * @return the builder      */
+comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
 name|OnExceptionDefinition
@@ -1227,7 +1229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel  the logging level      * @return the builder      */
+comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel the logging level      * @return the builder      */
 DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
 name|OnExceptionDefinition
@@ -1359,7 +1361,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
+comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|OnExceptionDefinition
@@ -1415,7 +1417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
+comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|OnExceptionDefinition
@@ -1431,6 +1433,50 @@ operator|.
 name|maximumRedeliveryDelay
 argument_list|(
 name|maximumRedeliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a reference to a {@link RedeliveryPolicy} to lookup in the {@link org.apache.camel.spi.Registry} to be used.      *      * @param redeliveryPolicyRef reference to use for lookup      * @return the builder      */
+DECL|method|redeliveryPolicyRef (String redeliveryPolicyRef)
+specifier|public
+name|OnExceptionDefinition
+name|redeliveryPolicyRef
+parameter_list|(
+name|String
+name|redeliveryPolicyRef
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setRef
+argument_list|(
+name|redeliveryPolicyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the delay pattern with delay intervals.      *      * @param delayPattern the delay pattern      * @return the builder      */
+DECL|method|delayPattern (String delayPattern)
+specifier|public
+name|OnExceptionDefinition
+name|delayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setDelayPattern
+argument_list|(
+name|delayPattern
 argument_list|)
 expr_stmt|;
 return|return
@@ -1455,7 +1501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
+comment|/**      * Sets a processor that should be processed<b>before</b> a redelivery attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
 DECL|method|onRedelivery (Processor processor)
 specifier|public
 name|OnExceptionDefinition

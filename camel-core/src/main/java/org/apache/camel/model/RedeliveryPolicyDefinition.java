@@ -261,6 +261,13 @@ specifier|private
 name|Boolean
 name|disableRedelivery
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|delayPattern
+specifier|private
+name|String
+name|delayPattern
+decl_stmt|;
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -298,12 +305,31 @@ return|;
 block|}
 name|RedeliveryPolicy
 name|answer
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|parentPolicy
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|=
 name|parentPolicy
 operator|.
 name|copy
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
+operator|new
+name|RedeliveryPolicy
+argument_list|()
+expr_stmt|;
+block|}
 comment|// copy across the properties - if they are set
 if|if
 condition|(
@@ -329,7 +355,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setRedeliverDelay
+name|setRedeliveryDelay
 argument_list|(
 name|redeliveryDelay
 argument_list|)
@@ -529,6 +555,21 @@ operator|.
 name|setMaximumRedeliveries
 argument_list|(
 literal|0
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|delayPattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setDelayPattern
+argument_list|(
+name|delayPattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -763,7 +804,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
+comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -850,6 +891,25 @@ block|{
 name|setRef
 argument_list|(
 name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the delay pattern with delay intervals.      *      * @param delayPattern the delay pattern      * @return the builder      */
+DECL|method|delayPattern (String delayPattern)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|delayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|setDelayPattern
+argument_list|(
+name|delayPattern
 argument_list|)
 expr_stmt|;
 return|return
@@ -1272,6 +1332,32 @@ operator|.
 name|logExhausted
 operator|=
 name|logExhausted
+expr_stmt|;
+block|}
+DECL|method|getDelayPattern ()
+specifier|public
+name|String
+name|getDelayPattern
+parameter_list|()
+block|{
+return|return
+name|delayPattern
+return|;
+block|}
+DECL|method|setDelayPattern (String delayPattern)
+specifier|public
+name|void
+name|setDelayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayPattern
+operator|=
+name|delayPattern
 expr_stmt|;
 block|}
 block|}

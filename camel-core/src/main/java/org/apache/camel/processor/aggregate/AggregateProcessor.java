@@ -260,9 +260,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|SynchronizationAdapter
+name|RedeliveryPolicy
 import|;
 end_import
 
@@ -319,6 +319,20 @@ operator|.
 name|spi
 operator|.
 name|RecoverableAggregationRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Synchronization
 import|;
 end_import
 
@@ -1767,7 +1781,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add this as in progress
+comment|// add this as in progress before we submit the task
 name|inProgressCompleteExchanges
 operator|.
 name|add
@@ -2239,21 +2253,19 @@ DECL|class|AggregateOnCompletion
 specifier|private
 class|class
 name|AggregateOnCompletion
-extends|extends
-name|SynchronizationAdapter
+implements|implements
+name|Synchronization
 block|{
-annotation|@
-name|Override
-DECL|method|onDone (Exchange exchange)
+DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void
-name|onDone
+name|onFailure
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// must remember to remove when we are done (done = success or failure)
+comment|// must remember to remove in progress when we failed
 name|inProgressCompleteExchanges
 operator|.
 name|remove
@@ -2264,9 +2276,8 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not remove redelivery state as we need it when we redeliver again later
 block|}
-annotation|@
-name|Override
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -2276,7 +2287,18 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// remove redelivery state when it was processed successfully
+comment|// must remember to remove in progress when we are complete
+name|inProgressCompleteExchanges
+operator|.
+name|remove
+argument_list|(
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and remove redelivery state as well
 name|redeliveryState
 operator|.
 name|remove
@@ -2668,8 +2690,6 @@ operator|.
 name|redeliveryCounter
 operator|++
 expr_stmt|;
-comment|// TODO: support delay and have a DelayQueue to avoid blocking
-comment|// if so we need to pre add in progress so we wont add again to delay queue
 comment|// set redelivery counter
 name|exchange
 operator|.

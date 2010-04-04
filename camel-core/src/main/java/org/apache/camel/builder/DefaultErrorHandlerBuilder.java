@@ -1248,7 +1248,7 @@ argument_list|()
 expr_stmt|;
 name|policy
 operator|.
-name|setRedeliverDelay
+name|setRedeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
