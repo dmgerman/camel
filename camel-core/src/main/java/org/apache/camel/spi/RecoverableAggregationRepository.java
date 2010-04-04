@@ -80,7 +80,7 @@ argument_list|<
 name|K
 argument_list|>
 block|{
-comment|/**      * Scans the repository for exchanges to be recovered      *       * @param camelContext   the current CamelContext      * @return the exchange ids for to be recovered      */
+comment|/**      * Scans the repository for {@link Exchange}s to be recovered      *       * @param camelContext   the current CamelContext      * @return the exchange ids for to be recovered      */
 DECL|method|scan (CamelContext camelContext)
 name|Set
 argument_list|<

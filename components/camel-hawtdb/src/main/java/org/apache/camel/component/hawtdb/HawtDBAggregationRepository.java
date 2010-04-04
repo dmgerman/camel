@@ -1363,6 +1363,26 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|answer
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Scanned and found no exchange to recover."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -1380,9 +1400,10 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" exchanges to recover."
+literal|" exchange(s) to recover (note some of them may already be in progress)."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
@@ -1540,7 +1561,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Recovering exchangeId  ["
+literal|"Recovering exchangeId ["
 operator|+
 name|exchangeId
 operator|+

@@ -2301,29 +2301,44 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|AggregateProcessor
+comment|// only run if CamelContext has been fully started
+if|if
+condition|(
+operator|!
+name|camelContext
 operator|.
-name|this
+name|getStatus
+argument_list|()
 operator|.
-name|doRecover
+name|isStarted
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
-name|recoverable
+literal|"Recover check cannot start due CamelContext("
+operator|+
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|") has not been started yet"
 argument_list|)
 expr_stmt|;
 block|}
+return|return;
 block|}
-DECL|method|doRecover (RecoverableAggregationRepository<Object> recoverable)
-specifier|private
-name|void
-name|doRecover
-parameter_list|(
-name|RecoverableAggregationRepository
-argument_list|<
-name|Object
-argument_list|>
-name|recoverable
-parameter_list|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -2384,6 +2399,14 @@ condition|(
 name|inProgress
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -2392,9 +2415,10 @@ literal|"Aggregated exchange with id "
 operator|+
 name|exchangeId
 operator|+
-literal|" is already in progress"
+literal|" is already in progress."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -2452,6 +2476,23 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// and mark it as redelivered
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 comment|// resubmit the recovered exchange
 name|onSubmitCompletion
 argument_list|(
@@ -2470,6 +2511,7 @@ argument_list|(
 literal|"Recover check complete"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2634,11 +2676,21 @@ decl_stmt|;
 if|if
 condition|(
 name|interval
-operator|>
+operator|<=
 literal|0
 condition|)
 block|{
-comment|// create a background recover thread to check once ev
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"AggregationRepository has recovery enabled and the CheckInterval option must be a positive number, was: "
+operator|+
+name|interval
+argument_list|)
+throw|;
+block|}
+comment|// create a background recover thread to check every interval
 name|recoverService
 operator|=
 name|camelContext
@@ -2668,7 +2720,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Scheduling recover checker to run every "
+literal|"Using RecoverableAggregationRepository by scheduling recover checker to run every "
 operator|+
 name|interval
 operator|+
@@ -2690,23 +2742,6 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// its a one shot recover during startup
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Running recover checker once at startup to recover existing aggregated exchanges"
-argument_list|)
-expr_stmt|;
-name|doRecover
-argument_list|(
-name|recoverable
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// start timeout service if its in use
