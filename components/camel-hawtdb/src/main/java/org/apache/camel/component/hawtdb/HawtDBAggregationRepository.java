@@ -343,10 +343,10 @@ name|K
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|interval
+DECL|field|recoveryInterval
 specifier|private
 name|long
-name|interval
+name|recoveryInterval
 init|=
 literal|5000
 decl_stmt|;
@@ -1743,10 +1743,10 @@ operator|=
 name|returnOldExchange
 expr_stmt|;
 block|}
-DECL|method|setCheckInterval (long interval, TimeUnit timeUnit)
+DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
 specifier|public
 name|void
-name|setCheckInterval
+name|setRecoveryInterval
 parameter_list|(
 name|long
 name|interval
@@ -1757,7 +1757,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|interval
+name|recoveryInterval
 operator|=
 name|timeUnit
 operator|.
@@ -1767,10 +1767,10 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setCheckInterval (long interval)
+DECL|method|setRecoveryInterval (long interval)
 specifier|public
 name|void
-name|setCheckInterval
+name|setRecoveryInterval
 parameter_list|(
 name|long
 name|interval
@@ -1778,19 +1778,19 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|interval
+name|recoveryInterval
 operator|=
 name|interval
 expr_stmt|;
 block|}
-DECL|method|getCheckIntervalInMillis ()
+DECL|method|getRecoveryIntervalInMillis ()
 specifier|public
 name|long
-name|getCheckIntervalInMillis
+name|getRecoveryIntervalInMillis
 parameter_list|()
 block|{
 return|return
-name|interval
+name|recoveryInterval
 return|;
 block|}
 DECL|method|isUseRecovery ()

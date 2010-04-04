@@ -191,7 +191,7 @@ expr_stmt|;
 comment|// check faster
 name|repo
 operator|.
-name|setCheckInterval
+name|setRecoveryInterval
 argument_list|(
 literal|1
 argument_list|,
@@ -237,6 +237,7 @@ argument_list|(
 literal|"ABCDE"
 argument_list|)
 expr_stmt|;
+comment|// should be marked as redelivered
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -259,6 +260,29 @@ argument_list|(
 name|Boolean
 operator|.
 name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// on the 2nd redelivery attempt we success
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|2
 argument_list|)
 expr_stmt|;
 name|template

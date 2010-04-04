@@ -104,10 +104,10 @@ name|String
 name|exchangeId
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the interval between scans      *      * @param interval  the interval      * @param timeUnit  the time unit      */
-DECL|method|setCheckInterval (long interval, TimeUnit timeUnit)
+comment|/**      * Sets the interval between recovery scans      *      * @param interval  the interval      * @param timeUnit  the time unit      */
+DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
 name|void
-name|setCheckInterval
+name|setRecoveryInterval
 parameter_list|(
 name|long
 name|interval
@@ -116,19 +116,19 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the interval between scans      *      * @param interval  the interval in millis      */
-DECL|method|setCheckInterval (long interval)
+comment|/**      * Sets the interval between recovery scans      *      * @param interval  the interval in millis      */
+DECL|method|setRecoveryInterval (long interval)
 name|void
-name|setCheckInterval
+name|setRecoveryInterval
 parameter_list|(
 name|long
 name|interval
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the interval between scans in millis.      *      * @return the interval in millis      */
-DECL|method|getCheckIntervalInMillis ()
+comment|/**      * Gets the interval between recovery scans in millis.      *      * @return the interval in millis      */
+DECL|method|getRecoveryIntervalInMillis ()
 name|long
-name|getCheckIntervalInMillis
+name|getRecoveryIntervalInMillis
 parameter_list|()
 function_decl|;
 comment|/**      * Whether or not recovery is enabled or not      *      * @return<tt>true</tt> to use recovery,<tt>false</tt> otherwise.      */
