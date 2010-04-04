@@ -100,34 +100,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * An implementation of the<a href="http://camel.apache.org/seda.html">SEDA components</a>  * for asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version $Revision$  */
 end_comment
@@ -140,23 +112,6 @@ name|SedaComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|SedaComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|queues
 specifier|private
 specifier|final
@@ -381,9 +336,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The limitConcurrentConsumers flag in set to true. Concurrent Consumers cannot be set at a value greater than "
+literal|"The limitConcurrentConsumers flag in set to true. ConcurrentConsumers cannot be set at a value greater than "
 operator|+
 name|maxConcurrentConsumers
+operator|+
+literal|" was "
+operator|+
+name|consumers
 argument_list|)
 throw|;
 block|}
