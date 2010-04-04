@@ -116,6 +116,15 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the interval between scans      *      * @param interval  the interval in millis      */
+DECL|method|setCheckInterval (long interval)
+name|void
+name|setCheckInterval
+parameter_list|(
+name|long
+name|interval
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the interval between scans in millis.      *      * @return the interval in millis      */
 DECL|method|getCheckIntervalInMillis ()
 name|long

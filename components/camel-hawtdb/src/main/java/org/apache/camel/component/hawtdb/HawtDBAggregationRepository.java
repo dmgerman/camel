@@ -355,7 +355,7 @@ specifier|private
 name|boolean
 name|useRecovery
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Creates an aggregation repository      */
 DECL|method|HawtDBAggregationRepository ()
@@ -1765,6 +1765,22 @@ name|toMillis
 argument_list|(
 name|interval
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setCheckInterval (long interval)
+specifier|public
+name|void
+name|setCheckInterval
+parameter_list|(
+name|long
+name|interval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|interval
+operator|=
+name|interval
 expr_stmt|;
 block|}
 DECL|method|getCheckIntervalInMillis ()
