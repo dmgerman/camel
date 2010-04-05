@@ -243,6 +243,11 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
+DECL|field|voidAsInOnly
+specifier|private
+name|boolean
+name|voidAsInOnly
+decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -410,6 +415,8 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|producer
+argument_list|,
+name|voidAsInOnly
 argument_list|,
 name|getServiceInterface
 argument_list|()
@@ -614,6 +621,32 @@ operator|.
 name|applicationContext
 operator|=
 name|applicationContext
+expr_stmt|;
+block|}
+DECL|method|isVoidAsInOnly ()
+specifier|public
+name|boolean
+name|isVoidAsInOnly
+parameter_list|()
+block|{
+return|return
+name|voidAsInOnly
+return|;
+block|}
+DECL|method|setVoidAsInOnly (boolean voidAsInOnly)
+specifier|public
+name|void
+name|setVoidAsInOnly
+parameter_list|(
+name|boolean
+name|voidAsInOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|voidAsInOnly
+operator|=
+name|voidAsInOnly
 expr_stmt|;
 block|}
 block|}

@@ -59,11 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;proxy&gt; tag element.  *  * @version $Revision$ */
-end_comment
-
-begin_comment
-comment|// to fudge the XSD generation
+comment|/**  * The&lt;proxy&gt; tag element.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -108,6 +104,17 @@ DECL|field|camelContextId
 specifier|private
 name|String
 name|camelContextId
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|voidAsInOnly
+specifier|private
+name|Boolean
+name|voidAsInOnly
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 block|}
 end_class

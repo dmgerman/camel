@@ -119,6 +119,11 @@ name|BeanInfo
 argument_list|>
 name|classCache
 decl_stmt|;
+DECL|field|voidAsInOnly
+specifier|private
+name|boolean
+name|voidAsInOnly
+decl_stmt|;
 DECL|method|MethodInfoCache (CamelContext camelContext)
 specifier|public
 name|MethodInfoCache
@@ -373,6 +378,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 name|declaringClass
+argument_list|,
+name|voidAsInOnly
 argument_list|)
 return|;
 block|}
@@ -460,6 +467,32 @@ name|size
 argument_list|)
 argument_list|)
 return|;
+block|}
+DECL|method|isVoidAsInOnly ()
+specifier|public
+name|boolean
+name|isVoidAsInOnly
+parameter_list|()
+block|{
+return|return
+name|voidAsInOnly
+return|;
+block|}
+DECL|method|setVoidAsInOnly (boolean voidAsInOnly)
+specifier|public
+name|void
+name|setVoidAsInOnly
+parameter_list|(
+name|boolean
+name|voidAsInOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|voidAsInOnly
+operator|=
+name|voidAsInOnly
+expr_stmt|;
 block|}
 block|}
 end_class
