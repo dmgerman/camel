@@ -125,10 +125,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|HawtDBAggregateRecoverWithRedeliveryPolicyTest
+DECL|class|HawtDBAggregateRecoverWithSedaTest
 specifier|public
 class|class
-name|HawtDBAggregateRecoverWithRedeliveryPolicyTest
+name|HawtDBAggregateRecoverWithSedaTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -208,35 +208,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHawtDBAggregateRecover ()
+DECL|method|testHawtDBAggregateRecoverWithSeda ()
 specifier|public
 name|void
-name|testHawtDBAggregateRecover
+name|testHawtDBAggregateRecoverWithSeda
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:aggregated"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|20000
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|20000
-argument_list|)
-expr_stmt|;
-comment|// should fail the first 3 times and then recover
+comment|// should fail the first 2 times and then recover
 name|getMockEndpoint
 argument_list|(
 literal|"mock:aggregated"
@@ -244,7 +224,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -302,7 +282,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -424,7 +404,6 @@ name|aggregationRepository
 argument_list|(
 name|repo
 argument_list|)
-comment|// this is the output from the aggregator
 operator|.
 name|log
 argument_list|(
@@ -435,7 +414,27 @@ name|to
 argument_list|(
 literal|"mock:aggregated"
 argument_list|)
-comment|// simulate errors the first three times
+operator|.
+name|to
+argument_list|(
+literal|"seda:foo"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+comment|// should be able to recover when we send over SEDA as its a OnCompletion
+comment|// which confirms the exchange when its complete.
+name|from
+argument_list|(
+literal|"seda:foo"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|1000
+argument_list|)
+comment|// simulate errors the first two times
 operator|.
 name|process
 argument_list|(
@@ -465,7 +464,7 @@ if|if
 condition|(
 name|count
 operator|<=
-literal|3
+literal|2
 condition|)
 block|{
 throw|throw
@@ -484,9 +483,6 @@ name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
-operator|.
-name|end
-argument_list|()
 expr_stmt|;
 block|}
 block|}

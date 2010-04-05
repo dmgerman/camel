@@ -2349,7 +2349,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param uri  the endpoint to send to      * @return the builder      * @see org.apache.camel.SendAsyncProcessor      */
+comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param uri  the endpoint to send to      * @return the builder      * @see org.apache.camel.processor.SendAsyncProcessor      */
 DECL|method|toAsync (String uri)
 specifier|public
 name|ToDefinition
@@ -2391,7 +2391,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param uri  the endpoint to send to      * @param poolSize the core pool size      * @return the builder      * @see org.apache.camel.SendAsyncProcessor      */
+comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param uri  the endpoint to send to      * @param poolSize the core pool size      * @return the builder      * @see org.apache.camel.processor.SendAsyncProcessor      */
 DECL|method|toAsync (String uri, int poolSize)
 specifier|public
 name|ToDefinition
@@ -2443,7 +2443,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param endpoint  the endpoint to send to      * @return the builder      * @see org.apache.camel.SendAsyncProcessor      */
+comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param endpoint  the endpoint to send to      * @return the builder      * @see org.apache.camel.processor.SendAsyncProcessor      */
 DECL|method|toAsync (Endpoint endpoint)
 specifier|public
 name|ToDefinition
@@ -2485,7 +2485,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param endpoint  the endpoint to send to      * @param poolSize the core pool size      * @return the builder      * @see org.apache.camel.SendAsyncProcessor      */
+comment|/**      * Sends the exchange to the given endpoint using asynchronous mode.      *      * @param endpoint  the endpoint to send to      * @param poolSize the core pool size      * @return the builder      * @see org.apache.camel.processor.SendAsyncProcessor      */
 DECL|method|toAsync (Endpoint endpoint, int poolSize)
 specifier|public
 name|ToDefinition

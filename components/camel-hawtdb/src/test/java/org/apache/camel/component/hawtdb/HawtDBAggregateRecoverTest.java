@@ -132,14 +132,6 @@ name|HawtDBAggregateRecoverTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|repo
-specifier|private
-name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
-name|repo
-decl_stmt|;
 DECL|field|counter
 specifier|private
 specifier|static
@@ -151,6 +143,14 @@ name|AtomicInteger
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+DECL|field|repo
+specifier|private
+name|HawtDBAggregationRepository
+argument_list|<
+name|String
+argument_list|>
+name|repo
 decl_stmt|;
 annotation|@
 name|Override
@@ -193,11 +193,11 @@ name|repo
 operator|.
 name|setRecoveryInterval
 argument_list|(
-literal|1
+literal|500
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 name|super
@@ -417,7 +417,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 comment|// simulate errors the first two times
 operator|.

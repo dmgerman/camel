@@ -357,6 +357,14 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// wait a bit to ensure JMX have updated values
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|poolSize
 operator|=
 operator|(

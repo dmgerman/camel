@@ -94,6 +94,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// use a bit longer timer
+name|context
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"

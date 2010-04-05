@@ -321,15 +321,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|limitConcurrentConsumers
-operator|)
 operator|&&
-operator|(
 name|consumers
 operator|>
 name|maxConcurrentConsumers
-operator|)
 condition|)
 block|{
 throw|throw

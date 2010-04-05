@@ -178,7 +178,6 @@ decl_stmt|;
 DECL|field|counter
 specifier|private
 specifier|static
-specifier|final
 name|AtomicInteger
 name|counter
 init|=

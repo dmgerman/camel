@@ -534,6 +534,13 @@ DECL|field|exceptionHandler
 specifier|private
 name|ExceptionHandler
 name|exceptionHandler
+init|=
+operator|new
+name|LoggingExceptionHandler
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|field|aggregationRepository
 specifier|private
@@ -556,16 +563,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|closedCorrelationKeys
-decl_stmt|;
-DECL|field|aggregateOnCompletion
-specifier|private
-specifier|final
-name|AggregateOnCompletion
-name|aggregateOnCompletion
-init|=
-operator|new
-name|AggregateOnCompletion
-argument_list|()
 decl_stmt|;
 DECL|field|inProgressCompleteExchanges
 specifier|private
@@ -1806,12 +1803,37 @@ name|void
 name|run
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Processing aggregated exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// add on completion task so we remember to update the inProgressCompleteExchanges
 name|exchange
 operator|.
 name|addOnCompletion
 argument_list|(
-name|aggregateOnCompletion
+operator|new
+name|AggregateOnCompletion
+argument_list|(
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 try|try
@@ -1861,35 +1883,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// was it good or bad?
+comment|// log exception if there was a problem
 if|if
 condition|(
 name|exchange
 operator|.
 name|getException
 argument_list|()
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-comment|// only confirm if we processed without a problem
-name|aggregationRepository
-operator|.
-name|confirm
-argument_list|(
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 comment|// if there was an exception then let the exception handler handle it
 name|getExceptionHandler
@@ -2153,23 +2156,6 @@ name|ExceptionHandler
 name|getExceptionHandler
 parameter_list|()
 block|{
-if|if
-condition|(
-name|exceptionHandler
-operator|==
-literal|null
-condition|)
-block|{
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|exceptionHandler
 return|;
@@ -2251,11 +2237,34 @@ block|}
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
 DECL|class|AggregateOnCompletion
 specifier|private
+specifier|final
 class|class
 name|AggregateOnCompletion
 implements|implements
 name|Synchronization
 block|{
+DECL|field|exchangeId
+specifier|private
+specifier|final
+name|String
+name|exchangeId
+decl_stmt|;
+DECL|method|AggregateOnCompletion (String exchangeId)
+specifier|private
+name|AggregateOnCompletion
+parameter_list|(
+name|String
+name|exchangeId
+parameter_list|)
+block|{
+comment|// must use the original exchange id as it could potentially change if send over SEDA etc.
+name|this
+operator|.
+name|exchangeId
+operator|=
+name|exchangeId
+expr_stmt|;
+block|}
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void
@@ -2270,10 +2279,7 @@ name|inProgressCompleteExchanges
 operator|.
 name|remove
 argument_list|(
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|exchangeId
 argument_list|)
 expr_stmt|;
 comment|// do not remove redelivery state as we need it when we redeliver again later
@@ -2287,15 +2293,19 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// must remember to remove in progress when we are complete
-name|inProgressCompleteExchanges
+comment|// only confirm if we processed without a problem
+try|try
+block|{
+name|aggregationRepository
 operator|.
-name|remove
+name|confirm
 argument_list|(
 name|exchange
 operator|.
-name|getExchangeId
+name|getContext
 argument_list|()
+argument_list|,
+name|exchangeId
 argument_list|)
 expr_stmt|;
 comment|// and remove redelivery state as well
@@ -2303,12 +2313,21 @@ name|redeliveryState
 operator|.
 name|remove
 argument_list|(
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|exchangeId
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// must remember to remove in progress when we are complete
+name|inProgressCompleteExchanges
+operator|.
+name|remove
+argument_list|(
+name|exchangeId
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2898,7 +2917,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"AggregationRepository has recovery enabled and the CheckInterval option must be a positive number, was: "
+literal|"AggregationRepository has recovery enabled and the RecoveryInterval option must be a positive number, was: "
 operator|+
 name|interval
 argument_list|)
@@ -2941,9 +2960,10 @@ operator|+
 literal|" millis."
 argument_list|)
 expr_stmt|;
+comment|// use fixed delay so there is X interval between each run
 name|recoverService
 operator|.
-name|scheduleAtFixedRate
+name|scheduleWithFixedDelay
 argument_list|(
 name|recoverTask
 argument_list|,

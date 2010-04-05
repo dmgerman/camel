@@ -217,9 +217,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|IllegalStateException
-name|ise
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|IllegalStateException
@@ -229,16 +226,6 @@ argument_list|,
 name|e
 operator|.
 name|getCause
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Queue full"
-argument_list|,
-name|ise
-operator|.
-name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
