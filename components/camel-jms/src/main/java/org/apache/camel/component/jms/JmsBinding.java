@@ -2539,7 +2539,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// let body deterime the type
+comment|// let body determine the type
 if|if
 condition|(
 name|body
@@ -2851,9 +2851,13 @@ default|default:
 break|break;
 block|}
 block|}
-comment|// TODO: should we throw an exception instead?
+comment|// warn if the body could not be mapped
 if|if
 condition|(
+name|body
+operator|!=
+literal|null
+operator|&&
 name|LOG
 operator|.
 name|isWarnEnabled
@@ -2868,25 +2872,14 @@ literal|"Cannot determine specific JmsMessage type to use from body class."
 operator|+
 literal|" Will use generic JmsMessage."
 operator|+
-operator|(
-name|body
-operator|!=
-literal|null
-condition|?
-operator|(
 literal|" Body class: "
 operator|+
+name|ObjectHelper
+operator|.
+name|classCanonicalName
+argument_list|(
 name|body
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|)
-else|:
-literal|" Body is null"
-operator|)
+argument_list|)
 operator|+
 literal|". If you want to send a POJO then your class might need to implement java.io.Serializable"
 operator|+
