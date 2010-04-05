@@ -5234,7 +5234,6 @@ return|return
 name|errorHandlerBuilder
 return|;
 block|}
-comment|/**      * Sets the default error handler builder which is inherited by the routes      */
 DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|void
