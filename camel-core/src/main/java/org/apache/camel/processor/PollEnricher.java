@@ -220,7 +220,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link PollEnricher}.      *      * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param consumer consumer to resource endpoint.      */
+comment|/**      * Creates a new {@link PollEnricher}.      *      * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param consumer consumer to resource endpoint.      * @param timeout timeout in millis      */
 DECL|method|PollEnricher (AggregationStrategy aggregationStrategy, PollingConsumer consumer, long timeout)
 specifier|public
 name|PollEnricher
@@ -608,6 +608,14 @@ name|exchange
 operator|.
 name|getFromEndpoint
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|exchange
+operator|.
+name|getFromEndpoint
+argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
@@ -629,6 +637,7 @@ name|startsWith
 argument_list|(
 literal|"ftp"
 argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(
