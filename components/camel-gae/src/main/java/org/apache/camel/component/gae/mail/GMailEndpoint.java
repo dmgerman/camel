@@ -78,7 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Component
 import|;
 end_import
 
@@ -231,15 +231,15 @@ specifier|private
 name|String
 name|bcc
 decl_stmt|;
-DECL|method|GMailEndpoint (String endpointUri, CamelContext camelContext, String sender)
+DECL|method|GMailEndpoint (String endpointUri, Component component, String sender)
 specifier|public
 name|GMailEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|Component
+name|component
 parameter_list|,
 name|String
 name|sender
@@ -249,7 +249,7 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|,
-name|camelContext
+name|component
 argument_list|)
 expr_stmt|;
 name|this
