@@ -141,6 +141,9 @@ name|GMailEndpoint
 argument_list|(
 name|uri
 argument_list|,
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;

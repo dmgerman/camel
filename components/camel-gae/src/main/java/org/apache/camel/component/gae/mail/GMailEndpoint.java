@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -219,12 +231,15 @@ specifier|private
 name|String
 name|bcc
 decl_stmt|;
-DECL|method|GMailEndpoint (String endpointUri, String sender)
+DECL|method|GMailEndpoint (String endpointUri, CamelContext camelContext, String sender)
 specifier|public
 name|GMailEndpoint
 parameter_list|(
 name|String
 name|endpointUri
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
 name|sender
@@ -233,6 +248,8 @@ block|{
 name|super
 argument_list|(
 name|endpointUri
+argument_list|,
+name|camelContext
 argument_list|)
 expr_stmt|;
 name|this
