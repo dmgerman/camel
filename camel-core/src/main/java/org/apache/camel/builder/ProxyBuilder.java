@@ -78,11 +78,6 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|field|voidAsInOnly
-specifier|private
-name|boolean
-name|voidAsInOnly
-decl_stmt|;
 DECL|method|ProxyBuilder (CamelContext camelContext)
 specifier|public
 name|ProxyBuilder
@@ -143,21 +138,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Let methods which return<tt>void</tt> be regarded as<tt>InOnly</tt> methods (eg Fire and forget).      *      * @return the builder      */
-DECL|method|voidAsInOnly ()
-specifier|public
-name|ProxyBuilder
-name|voidAsInOnly
-parameter_list|()
-block|{
-name|voidAsInOnly
-operator|=
-literal|true
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Builds the proxy.      *      * @param interfaceClasses  the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
 DECL|method|build (Class<T>.... interfaceClasses)
 specifier|public
@@ -183,8 +163,6 @@ operator|.
 name|createProxy
 argument_list|(
 name|endpoint
-argument_list|,
-name|voidAsInOnly
 argument_list|,
 name|interfaceClasses
 argument_list|)

@@ -402,7 +402,7 @@ specifier|private
 name|RecipientList
 name|recipientList
 decl_stmt|;
-DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation, boolean voidAsInOnly)
+DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -435,9 +435,6 @@ name|hasCustomAnnotation
 parameter_list|,
 name|boolean
 name|hasHandlerAnnotation
-parameter_list|,
-name|boolean
-name|voidAsInOnly
 parameter_list|)
 block|{
 name|this
@@ -489,7 +486,6 @@ operator|=
 name|createParametersExpression
 argument_list|()
 expr_stmt|;
-comment|// prefer annotations
 name|Pattern
 name|oneway
 init|=
@@ -511,23 +507,6 @@ name|oneway
 operator|.
 name|value
 argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|voidAsInOnly
-operator|&&
-name|isReturnTypeVoid
-argument_list|()
-condition|)
-block|{
-comment|// okay its a void method and we are configured to let that be InOnly
-name|pattern
-operator|=
-name|ExchangePattern
-operator|.
-name|InOnly
 expr_stmt|;
 block|}
 if|if
