@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -180,6 +192,13 @@ name|CamelContext
 name|context
 decl_stmt|;
 annotation|@
+name|Autowired
+DECL|field|producer
+specifier|protected
+name|ProducerTemplate
+name|producer
+decl_stmt|;
+annotation|@
 name|EndpointInject
 argument_list|(
 name|uri
@@ -215,10 +234,7 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|createProducerTemplate
-argument_list|()
+name|producer
 operator|.
 name|sendBody
 argument_list|(

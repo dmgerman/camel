@@ -73,6 +73,13 @@ argument_list|()
 decl_stmt|;
 name|jdbc
 operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|jdbc
+operator|.
 name|setDataSource
 argument_list|(
 name|ds

@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client helper object (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link org.apache.camel.Message} instances in an  * {@link org.apache.camel.Exchange} to an {@link org.apache.camel.Endpoint}.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -274,7 +274,6 @@ name|context
 decl_stmt|;
 DECL|field|producerCache
 specifier|private
-specifier|final
 name|ProducerCache
 name|producerCache
 decl_stmt|;
@@ -287,6 +286,11 @@ DECL|field|executor
 specifier|private
 name|ExecutorService
 name|executor
+decl_stmt|;
+DECL|field|maximumCacheSize
+specifier|private
+name|int
+name|maximumCacheSize
 decl_stmt|;
 DECL|method|DefaultProducerTemplate (CamelContext context)
 specifier|public
@@ -301,16 +305,6 @@ operator|.
 name|context
 operator|=
 name|context
-expr_stmt|;
-name|this
-operator|.
-name|producerCache
-operator|=
-operator|new
-name|ProducerCache
-argument_list|(
-name|context
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|DefaultProducerTemplate (CamelContext context, ExecutorService executor)
@@ -329,16 +323,6 @@ operator|.
 name|context
 operator|=
 name|context
-expr_stmt|;
-name|this
-operator|.
-name|producerCache
-operator|=
-operator|new
-name|ProducerCache
-argument_list|(
-name|context
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -403,6 +387,56 @@ name|camelContext
 argument_list|,
 name|endpoint
 argument_list|)
+return|;
+block|}
+DECL|method|getMaximumCacheSize ()
+specifier|public
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+block|{
+return|return
+name|maximumCacheSize
+return|;
+block|}
+DECL|method|setMaximumCacheSize (int maximumCacheSize)
+specifier|public
+name|void
+name|setMaximumCacheSize
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumCacheSize
+operator|=
+name|maximumCacheSize
+expr_stmt|;
+block|}
+DECL|method|getCurrentCacheSize ()
+specifier|public
+name|int
+name|getCurrentCacheSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|producerCache
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+return|return
+name|producerCache
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 DECL|method|send (String endpointUri, Exchange exchange)
@@ -509,7 +543,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|producerCache
+name|getProducerCache
+argument_list|()
 operator|.
 name|send
 argument_list|(
@@ -535,7 +570,8 @@ name|processor
 parameter_list|)
 block|{
 return|return
-name|producerCache
+name|getProducerCache
+argument_list|()
 operator|.
 name|send
 argument_list|(
@@ -561,7 +597,8 @@ name|processor
 parameter_list|)
 block|{
 return|return
-name|producerCache
+name|getProducerCache
+argument_list|()
 operator|.
 name|send
 argument_list|(
@@ -4337,7 +4374,8 @@ block|{
 name|Exchange
 name|answer
 init|=
-name|producerCache
+name|getProducerCache
+argument_list|()
 operator|.
 name|send
 argument_list|(
@@ -4406,6 +4444,31 @@ name|task
 argument_list|)
 return|;
 block|}
+DECL|method|getProducerCache ()
+specifier|private
+name|ProducerCache
+name|getProducerCache
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"ProducerTemplate has not been started"
+argument_list|)
+throw|;
+block|}
+return|return
+name|producerCache
+return|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -4414,6 +4477,43 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|producerCache
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|maximumCacheSize
+operator|>
+literal|0
+condition|)
+block|{
+name|producerCache
+operator|=
+operator|new
+name|ProducerCache
+argument_list|(
+name|context
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|producerCache
+operator|=
+operator|new
+name|ProducerCache
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|ServiceHelper
 operator|.
 name|startService
@@ -4458,6 +4558,10 @@ name|stopService
 argument_list|(
 name|producerCache
 argument_list|)
+expr_stmt|;
+name|producerCache
+operator|=
+literal|null
 expr_stmt|;
 if|if
 condition|(

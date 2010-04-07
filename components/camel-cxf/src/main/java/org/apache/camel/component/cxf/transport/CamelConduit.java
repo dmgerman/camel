@@ -940,6 +940,8 @@ specifier|public
 name|ProducerTemplate
 name|getCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(

@@ -516,21 +516,12 @@ name|Exception
 block|{
 comment|// now we are done, we should have a API callback for this
 comment|// send the exchange to the destination using a producer
-specifier|final
-name|ProducerCache
-name|cache
-init|=
-name|getProducerCache
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 comment|// acquire the producer from the service pool
 specifier|final
 name|Producer
 name|producer
 init|=
-name|cache
+name|producerCache
 operator|.
 name|acquireProducer
 argument_list|(
@@ -596,7 +587,7 @@ block|{
 comment|// must return the producer to service pool when we are done
 try|try
 block|{
-name|cache
+name|producerCache
 operator|.
 name|releaseProducer
 argument_list|(
@@ -1257,7 +1248,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"PoolSize must be a positive number"
+literal|"PoolSize must be a positive number, was: "
+operator|+
+name|poolSize
 argument_list|)
 throw|;
 block|}

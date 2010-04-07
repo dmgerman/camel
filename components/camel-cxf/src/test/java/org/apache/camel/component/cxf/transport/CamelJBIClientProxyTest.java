@@ -229,6 +229,8 @@ specifier|public
 name|void
 name|testCallFromCamel
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// get camel context
 name|CamelContext

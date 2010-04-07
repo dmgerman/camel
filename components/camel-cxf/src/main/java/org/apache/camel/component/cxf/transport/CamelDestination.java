@@ -491,10 +491,10 @@ specifier|private
 name|ProducerTemplate
 name|camelTemplate
 decl_stmt|;
-DECL|field|distinationEndpoint
+DECL|field|destinationEndpoint
 specifier|private
 name|Endpoint
-name|distinationEndpoint
+name|destinationEndpoint
 decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
@@ -728,7 +728,7 @@ argument_list|,
 literal|"establishing Camel connection"
 argument_list|)
 expr_stmt|;
-name|distinationEndpoint
+name|destinationEndpoint
 operator|=
 name|getCamelContext
 argument_list|()
@@ -740,7 +740,7 @@ argument_list|)
 expr_stmt|;
 name|consumer
 operator|=
-name|distinationEndpoint
+name|destinationEndpoint
 operator|.
 name|createConsumer
 argument_list|(
@@ -844,6 +844,8 @@ specifier|public
 name|ProducerTemplate
 name|getCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(

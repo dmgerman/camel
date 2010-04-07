@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -51,6 +65,18 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
 import|;
 end_import
 
@@ -115,9 +141,12 @@ block|{
 DECL|field|failed
 specifier|private
 specifier|static
-specifier|volatile
-name|boolean
+name|AtomicBoolean
 name|failed
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -131,17 +160,20 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|testOneProcesssor ()
+DECL|method|testOneProcessor ()
 specifier|public
 name|void
-name|testOneProcesssor
+name|testOneProcessor
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|failed
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 name|context
 operator|.
@@ -250,6 +282,9 @@ argument_list|(
 literal|"Should not have out"
 argument_list|,
 name|failed
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -356,17 +391,20 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testThreeProcesssors ()
+DECL|method|testThreeProcessors ()
 specifier|public
 name|void
-name|testThreeProcesssors
+name|testThreeProcessors
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|failed
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 name|context
 operator|.
@@ -487,6 +525,9 @@ argument_list|(
 literal|"Should not have out"
 argument_list|,
 name|failed
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

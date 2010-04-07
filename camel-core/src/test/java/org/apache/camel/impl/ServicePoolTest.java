@@ -340,10 +340,10 @@ name|cleanup
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSingleEnry ()
+DECL|method|testSingleEntry ()
 specifier|public
 name|void
-name|testSingleEnry
+name|testSingleEntry
 parameter_list|()
 throws|throws
 name|Exception
@@ -471,10 +471,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTwoEnries ()
+DECL|method|testTwoEntries ()
 specifier|public
 name|void
-name|testTwoEnries
+name|testTwoEntries
 parameter_list|()
 throws|throws
 name|Exception
@@ -1047,7 +1047,7 @@ literal|"mock:foo"
 argument_list|)
 decl_stmt|;
 name|ExecutorService
-name|exectur
+name|executor
 init|=
 name|Executors
 operator|.
@@ -1093,7 +1093,7 @@ decl_stmt|;
 name|Future
 name|out
 init|=
-name|exectur
+name|executor
 operator|.
 name|submit
 argument_list|(
@@ -1225,7 +1225,7 @@ literal|"mock:foo"
 argument_list|)
 decl_stmt|;
 name|ExecutorService
-name|exectur
+name|executor
 init|=
 name|Executors
 operator|.
@@ -1271,7 +1271,7 @@ decl_stmt|;
 name|Future
 name|out
 init|=
-name|exectur
+name|executor
 operator|.
 name|submit
 argument_list|(

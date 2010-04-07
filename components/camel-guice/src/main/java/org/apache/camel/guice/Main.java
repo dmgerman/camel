@@ -565,7 +565,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel terminating"
+literal|"Apache Camel stopping"
 argument_list|)
 expr_stmt|;
 if|if
@@ -589,6 +589,8 @@ specifier|protected
 name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(

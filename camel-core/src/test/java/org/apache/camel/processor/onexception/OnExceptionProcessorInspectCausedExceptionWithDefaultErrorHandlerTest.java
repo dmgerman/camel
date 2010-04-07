@@ -164,7 +164,7 @@ argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// here we register exception cause for MyFunctionException
-comment|// when this exception occur we want it to be processed by our proceesor
+comment|// when this exception occur we want it to be processed by our processor
 name|onException
 argument_list|(
 name|MyFunctionalException

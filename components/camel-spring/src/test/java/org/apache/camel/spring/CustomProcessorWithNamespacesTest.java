@@ -208,6 +208,11 @@ argument_list|()
 decl_stmt|;
 name|template
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|template
+operator|.
 name|send
 argument_list|(
 literal|"direct:start"
@@ -251,6 +256,11 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|List
 name|list

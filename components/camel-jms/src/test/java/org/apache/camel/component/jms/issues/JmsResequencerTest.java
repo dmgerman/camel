@@ -88,16 +88,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -181,27 +171,13 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
+annotation|@
+name|Autowired
 DECL|field|template
 specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-block|{
-name|template
-operator|=
-name|context
-operator|.
-name|createProducerTemplate
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|After
 DECL|method|tearDown ()

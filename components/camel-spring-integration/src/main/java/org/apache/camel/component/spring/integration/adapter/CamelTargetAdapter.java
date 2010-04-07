@@ -214,22 +214,8 @@ name|MessageHandler
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|message
-operator|.
-name|MessageRejectedException
-import|;
-end_import
-
 begin_comment
-comment|/**  * CamelTargeAdapter will redirect the Spring Integration message to the Camel context.  * When we inject the camel context into it, we need also specify the Camel endpoint url  * we will route the Spring Integration message to the Camel context  *  * @version $Revision$  */
+comment|/**  * CamelTargetAdapter will redirect the Spring Integration message to the Camel context.  * When we inject the camel context into it, we need also specify the Camel endpoint url  * we will route the Spring Integration message to the Camel context  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -297,6 +283,8 @@ specifier|public
 name|ProducerTemplate
 name|getCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -349,9 +337,7 @@ argument_list|>
 name|message
 parameter_list|)
 throws|throws
-name|MessageRejectedException
-throws|,
-name|MessageDeliveryException
+name|Exception
 block|{
 name|ExchangePattern
 name|pattern
@@ -551,12 +537,35 @@ name|?
 argument_list|>
 name|message
 parameter_list|)
+throws|throws
+name|MessageDeliveryException
+block|{
+try|try
 block|{
 name|send
 argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MessageDeliveryException
+argument_list|(
+name|message
+argument_list|,
+literal|"Cannot send message"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

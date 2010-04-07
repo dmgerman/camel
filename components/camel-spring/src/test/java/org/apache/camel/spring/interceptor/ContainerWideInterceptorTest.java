@@ -261,12 +261,22 @@ argument_list|()
 decl_stmt|;
 name|template
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|template
+operator|.
 name|sendBody
 argument_list|(
 literal|"direct:one"
 argument_list|,
 literal|"Hello World"
 argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|result
 operator|.
@@ -341,12 +351,22 @@ argument_list|()
 decl_stmt|;
 name|template
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|template
+operator|.
 name|sendBody
 argument_list|(
 literal|"direct:two"
 argument_list|,
 literal|"Bye World"
 argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|result
 operator|.

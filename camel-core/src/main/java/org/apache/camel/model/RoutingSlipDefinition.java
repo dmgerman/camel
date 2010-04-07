@@ -324,6 +324,11 @@ return|return
 operator|new
 name|RoutingSlip
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|getHeaderName
 argument_list|()
 argument_list|,

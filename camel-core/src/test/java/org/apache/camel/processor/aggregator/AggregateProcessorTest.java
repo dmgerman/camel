@@ -2891,6 +2891,9 @@ argument_list|)
 throw|;
 block|}
 comment|// else send it further along
+name|SendProcessor
+name|send
+init|=
 operator|new
 name|SendProcessor
 argument_list|(
@@ -2901,6 +2904,13 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|send
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|send
 operator|.
 name|process
 argument_list|(

@@ -342,11 +342,6 @@ DECL|field|template
 specifier|protected
 name|ProducerTemplate
 name|template
-init|=
-name|camelContext
-operator|.
-name|createProducerTemplate
-argument_list|()
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected
@@ -712,6 +707,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|template
+operator|=
+name|camelContext
+operator|.
+name|createProducerTemplate
+argument_list|()
+expr_stmt|;
 name|startServices
 argument_list|(
 name|template

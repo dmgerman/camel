@@ -124,10 +124,10 @@ parameter_list|()
 default|default
 literal|","
 function_decl|;
-DECL|method|parallelProcessoing ()
+DECL|method|parallelProcessing ()
 DECL|field|false
 name|boolean
-name|parallelProcessoing
+name|parallelProcessing
 parameter_list|()
 default|default
 literal|false

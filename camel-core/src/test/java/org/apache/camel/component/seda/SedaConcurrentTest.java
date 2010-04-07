@@ -500,6 +500,12 @@ literal|10
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// must start the template
+name|pt
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|List
 argument_list|<
 name|Future

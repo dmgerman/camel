@@ -77,7 +77,9 @@ name|cache
 init|=
 operator|new
 name|ConsumerCache
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|cache
 operator|.
@@ -96,7 +98,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// test that we cache at most 1000 producers to avoid it eating to much memory
+comment|// test that we cache at most 1000 consumers to avoid it eating to much memory
 for|for
 control|(
 name|int

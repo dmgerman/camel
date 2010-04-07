@@ -346,6 +346,12 @@ name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
 decl_stmt|;
+DECL|field|MAXIMUM_CACHE_POOL_SIZE
+name|String
+name|MAXIMUM_CACHE_POOL_SIZE
+init|=
+literal|"CamelMaximumCachePoolSize"
+decl_stmt|;
 DECL|field|MULTICAST_INDEX
 name|String
 name|MULTICAST_INDEX

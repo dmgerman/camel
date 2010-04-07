@@ -1420,6 +1420,8 @@ specifier|public
 name|ProducerTemplate
 name|getCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -1444,6 +1446,8 @@ specifier|abstract
 name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|getCamelContextMap ()
 specifier|protected

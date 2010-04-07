@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if processing of  * the {@link Exchange} failed and an Exception occured. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the send<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
+comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if processing of  * the {@link Exchange} failed and an Exception occurred. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the send<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -98,6 +98,29 @@ name|ProducerTemplate
 extends|extends
 name|Service
 block|{
+comment|// Configuration methods
+comment|// -----------------------------------------------------------------------
+comment|/**      * Gets the maximum cache size used in the backing cache pools.      *      * @return the maximum cache size      */
+DECL|method|getMaximumCacheSize ()
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom maximum cache size to use in the backing cache pools.      *      * @param maximumCacheSize the custom maximum cache size      */
+DECL|method|setMaximumCacheSize (int maximumCacheSize)
+name|void
+name|setMaximumCacheSize
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+function_decl|;
+comment|/**      * Gets an approximated size of the current cached resources in the backing cache pools.      *      * @return the size of current cached resources      */
+DECL|method|getCurrentCacheSize ()
+name|int
+name|getCurrentCacheSize
+parameter_list|()
+function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the default endpoint      *      * @param exchange the exchange to send      * @return the returned exchange      */

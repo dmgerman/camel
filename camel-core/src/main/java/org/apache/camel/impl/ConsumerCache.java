@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -83,6 +95,20 @@ operator|.
 name|camel
 operator|.
 name|PollingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
 import|;
 end_import
 
@@ -171,6 +197,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|consumers
 specifier|private
 specifier|final
@@ -182,15 +214,42 @@ name|PollingConsumer
 argument_list|>
 name|consumers
 decl_stmt|;
-DECL|method|ConsumerCache ()
+DECL|method|ConsumerCache (CamelContext camelContext)
 specifier|public
 name|ConsumerCache
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 name|this
+argument_list|(
+name|camelContext
+argument_list|,
+name|CamelContextHelper
 operator|.
-name|consumers
-operator|=
+name|getMaximumCachePoolSize
+argument_list|(
+name|camelContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ConsumerCache (CamelContext camelContext, int maximumCacheSize)
+specifier|public
+name|ConsumerCache
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|int
+name|maximumCacheSize
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|camelContext
+argument_list|,
 operator|new
 name|LRUCache
 argument_list|<
@@ -199,14 +258,18 @@ argument_list|,
 name|PollingConsumer
 argument_list|>
 argument_list|(
-literal|1000
+name|maximumCacheSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ConsumerCache (Map<String, PollingConsumer> cache)
+DECL|method|ConsumerCache (CamelContext camelContext, Map<String, PollingConsumer> cache)
 specifier|public
 name|ConsumerCache
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -216,6 +279,12 @@ argument_list|>
 name|cache
 parameter_list|)
 block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|consumers
@@ -510,6 +579,22 @@ name|receiveNoWait
 argument_list|()
 return|;
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|consumers
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -523,9 +608,6 @@ operator|.
 name|stopServices
 argument_list|(
 name|consumers
-operator|.
-name|values
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumers
@@ -534,14 +616,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 comment|/**      * Returns the current size of the consumer cache      *      * @return the current size      */
 DECL|method|size ()
 name|int

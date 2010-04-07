@@ -52,6 +52,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -117,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify DLC and JSM based on user reporting  */
+comment|/**  * Unit test to verify DLC and JMS based on user reporting  */
 end_comment
 
 begin_class
@@ -136,6 +148,13 @@ DECL|field|context
 specifier|protected
 name|CamelContext
 name|context
+decl_stmt|;
+annotation|@
+name|Autowired
+DECL|field|template
+specifier|protected
+name|ProducerTemplate
+name|template
 decl_stmt|;
 annotation|@
 name|Test
@@ -227,10 +246,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|createProducerTemplate
-argument_list|()
+name|template
 operator|.
 name|sendBody
 argument_list|(

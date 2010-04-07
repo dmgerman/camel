@@ -445,6 +445,11 @@ operator|=
 operator|new
 name|RecipientList
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|expression
 argument_list|,
 name|delimiter
@@ -458,6 +463,11 @@ operator|=
 operator|new
 name|RecipientList
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;

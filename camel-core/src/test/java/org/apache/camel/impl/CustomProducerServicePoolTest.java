@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -169,6 +181,25 @@ name|MyEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|method|MyEndpoint (String endpointUri, CamelContext camelContext)
+specifier|private
+name|MyEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -279,27 +310,6 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
-DECL|method|setCapacity (int capacity)
-specifier|public
-name|void
-name|setCapacity
-parameter_list|(
-name|int
-name|capacity
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|getCapacity ()
-specifier|public
-name|int
-name|getCapacity
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|addAndAcquire (Endpoint endpoint, Producer producer)
 specifier|public
 name|Producer
@@ -465,7 +475,11 @@ literal|"my"
 argument_list|,
 operator|new
 name|MyEndpoint
-argument_list|()
+argument_list|(
+literal|"my"
+argument_list|,
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -619,7 +633,11 @@ literal|"my"
 argument_list|,
 operator|new
 name|MyEndpoint
-argument_list|()
+argument_list|(
+literal|"my"
+argument_list|,
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|MyPool

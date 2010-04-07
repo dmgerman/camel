@@ -256,6 +256,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -388,6 +402,7 @@ specifier|private
 name|RecipientList
 name|recipientList
 decl_stmt|;
+comment|// TODO: This class should extends ServiceSupport so we can cleanup recipientList when stopping
 DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation, boolean voidAsInOnly)
 specifier|public
 name|MethodInfo
@@ -586,6 +601,8 @@ operator|=
 operator|new
 name|RecipientList
 argument_list|(
+name|camelContext
+argument_list|,
 name|annotation
 operator|.
 name|delimiter
@@ -608,7 +625,7 @@ name|setParallelProcessing
 argument_list|(
 name|annotation
 operator|.
-name|parallelProcessoing
+name|parallelProcessing
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -656,7 +673,7 @@ if|if
 condition|(
 name|annotation
 operator|.
-name|parallelProcessoing
+name|parallelProcessing
 argument_list|()
 operator|&&
 name|recipientList
@@ -905,6 +922,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// ensure its started
+if|if
+condition|(
+operator|!
+name|recipientList
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|recipientList
+argument_list|)
+expr_stmt|;
+block|}
 name|recipientList
 operator|.
 name|sendToRecipientList

@@ -683,7 +683,7 @@ name|stopOnException
 operator|=
 literal|true
 argument_list|,
-name|parallelProcessoing
+name|parallelProcessing
 operator|=
 literal|true
 argument_list|)

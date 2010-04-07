@@ -26,6 +26,31 @@ name|ConsumerTemplate
 extends|extends
 name|Service
 block|{
+comment|// Configuration methods
+comment|// -----------------------------------------------------------------------
+comment|/**      * Gets the maximum cache size used.      *      * @return the maximum cache size      */
+DECL|method|getMaximumCacheSize ()
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom maximum cache size.      *      * @param maximumCacheSize the custom maximum cache size      */
+DECL|method|setMaximumCacheSize (int maximumCacheSize)
+name|void
+name|setMaximumCacheSize
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+function_decl|;
+comment|/**      * Gets an approximated size of the current cached resources in the backing cache pools.      *      * @return the size of current cached resources      */
+DECL|method|getCurrentCacheSize ()
+name|int
+name|getCurrentCacheSize
+parameter_list|()
+function_decl|;
+comment|// Synchronous methods
+comment|// -----------------------------------------------------------------------
 comment|/**      * Receives from the endpoint, waiting until there is a response      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange      */
 DECL|method|receive (String endpointUri)
 name|Exchange

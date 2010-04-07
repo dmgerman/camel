@@ -2863,8 +2863,10 @@ block|}
 block|}
 name|ServiceHelper
 operator|.
-name|startService
+name|startServices
 argument_list|(
+name|processor
+argument_list|,
 name|aggregationRepository
 argument_list|)
 expr_stmt|;
@@ -3048,6 +3050,8 @@ argument_list|,
 name|recoverService
 argument_list|,
 name|aggregationRepository
+argument_list|,
+name|processor
 argument_list|)
 expr_stmt|;
 if|if

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *  * @version $Revision$  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -30,16 +30,8 @@ name|Key
 parameter_list|,
 name|Service
 parameter_list|>
-extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
 block|{
-comment|/**      * Adds the given service to the pool and acquires it.      *      * @param key the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      */
+comment|/**      * Adds the given service to the pool and acquires it.      *      * @param key     the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      */
 DECL|method|addAndAcquire (Key key, Service service)
 name|Service
 name|addAndAcquire
@@ -51,7 +43,7 @@ name|Service
 name|service
 parameter_list|)
 function_decl|;
-comment|/**      * Tries to acquire the service with the given key      *       * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
+comment|/**      * Tries to acquire the service with the given key      *      * @param key the key      * @return the acquired service, or<tt>null</tt> if no free in pool      */
 DECL|method|acquire (Key key)
 name|Service
 name|acquire
@@ -60,7 +52,7 @@ name|Key
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Releases the service back to the pool      *      * @param key  the key      * @param service the service      */
+comment|/**      * Releases the service back to the pool      *      * @param key     the key      * @param service the service      */
 DECL|method|release (Key key, Service service)
 name|void
 name|release
@@ -71,6 +63,12 @@ parameter_list|,
 name|Service
 name|service
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the current size of the pool      *      * @return the current size of the pool      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
 function_decl|;
 block|}
 end_interface

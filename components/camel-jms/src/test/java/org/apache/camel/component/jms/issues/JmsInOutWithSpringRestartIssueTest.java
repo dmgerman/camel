@@ -149,6 +149,11 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Object
 name|out
 init|=
@@ -175,16 +180,11 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 comment|// TODO: Does not work properly with AMQ 5.3.1
+comment|// Thread.sleep(2000);
 comment|// context.start();
 comment|//producer = context.createProducerTemplate();
+comment|//producer.start();
 comment|// out = producer.requestBody("activemq:queue:foo", "Bar");
 comment|//assertEquals("Bye Bar", out);
 comment|//producer.stop();

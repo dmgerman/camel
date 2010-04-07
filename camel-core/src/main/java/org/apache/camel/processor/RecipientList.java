@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -226,6 +238,36 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implements a dynamic<a  * href="http://camel.apache.org/recipient-list.html">Recipient List</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on some dynamic expression.  *  * @version $Revision$  */
 end_comment
@@ -240,6 +282,12 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|producerCache
 specifier|private
 name|ProducerCache
@@ -280,27 +328,56 @@ operator|new
 name|UseLatestAggregationStrategy
 argument_list|()
 decl_stmt|;
-DECL|method|RecipientList ()
-specifier|public
-name|RecipientList
-parameter_list|()
-block|{
-comment|// use comma by default as delimiter
-name|this
-operator|.
-name|delimiter
-operator|=
-literal|","
-expr_stmt|;
-block|}
-DECL|method|RecipientList (String delimiter)
+DECL|method|RecipientList (CamelContext camelContext)
 specifier|public
 name|RecipientList
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+comment|// use comma by default as delimiter
+name|this
+argument_list|(
+name|camelContext
+argument_list|,
+literal|","
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RecipientList (CamelContext camelContext, String delimiter)
+specifier|public
+name|RecipientList
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|delimiter
 parameter_list|)
 block|{
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|delimiter
+argument_list|,
+literal|"delimiter"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|delimiter
@@ -308,10 +385,13 @@ operator|=
 name|delimiter
 expr_stmt|;
 block|}
-DECL|method|RecipientList (Expression expression)
+DECL|method|RecipientList (CamelContext camelContext, Expression expression)
 specifier|public
 name|RecipientList
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|)
@@ -319,16 +399,21 @@ block|{
 comment|// use comma by default as delimiter
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|","
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RecipientList (Expression expression, String delimiter)
+DECL|method|RecipientList (CamelContext camelContext, Expression expression, String delimiter)
 specifier|public
 name|RecipientList
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|,
@@ -336,6 +421,13 @@ name|String
 name|delimiter
 parameter_list|)
 block|{
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -353,6 +445,12 @@ name|delimiter
 argument_list|,
 literal|"delimiter"
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -402,6 +500,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"RecipientList has not been started: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 name|Object
 name|receipientList
 init|=
@@ -456,14 +571,6 @@ argument_list|)
 decl_stmt|;
 comment|// we should acquire and release the producers we need so we can leverage the producer
 comment|// cache to the fullest
-name|ProducerCache
-name|cache
-init|=
-name|getProducerCache
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -526,7 +633,7 @@ comment|// acquire producer which we then release later
 name|Producer
 name|producer
 init|=
-name|cache
+name|producerCache
 operator|.
 name|acquireProducer
 argument_list|(
@@ -608,7 +715,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|cache
+name|producerCache
 operator|.
 name|releaseProducer
 argument_list|(
@@ -625,52 +732,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|getProducerCache (Exchange exchange)
-specifier|protected
-name|ProducerCache
-name|getProducerCache
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// setup producer cache as we need to use the pluggable service pool defined on camel context
-if|if
-condition|(
-name|producerCache
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|producerCache
-operator|=
-operator|new
-name|ProducerCache
-argument_list|(
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|producerCache
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|this
-operator|.
-name|producerCache
-return|;
 block|}
 DECL|method|resolveEndpoint (Exchange exchange, Object recipient)
 specifier|protected
@@ -727,16 +788,34 @@ block|{
 if|if
 condition|(
 name|producerCache
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
 name|producerCache
+operator|=
+operator|new
+name|ProducerCache
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+comment|// add it as a service so we can manage it
+name|camelContext
 operator|.
-name|start
-argument_list|()
+name|addService
+argument_list|(
+name|producerCache
+argument_list|)
 expr_stmt|;
 block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -746,19 +825,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|producerCache
-operator|!=
-literal|null
-condition|)
-block|{
-name|producerCache
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|producerCache
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|isParallelProcessing ()
 specifier|public
