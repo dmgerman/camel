@@ -1446,8 +1446,6 @@ specifier|abstract
 name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
 DECL|method|getCamelContextMap ()
 specifier|protected

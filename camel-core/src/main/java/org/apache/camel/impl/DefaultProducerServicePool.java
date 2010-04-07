@@ -57,6 +57,11 @@ argument_list|,
 name|Producer
 argument_list|>
 block|{
+DECL|method|DefaultProducerServicePool ()
+specifier|public
+name|DefaultProducerServicePool
+parameter_list|()
+block|{     }
 DECL|method|DefaultProducerServicePool (int capacity)
 specifier|public
 name|DefaultProducerServicePool

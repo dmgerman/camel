@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *  * @version $Revision$  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *<p/>  * By default the capacity is set to 100.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -31,7 +31,22 @@ parameter_list|,
 name|Service
 parameter_list|>
 block|{
-comment|/**      * Adds the given service to the pool and acquires it.      *      * @param key     the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      */
+comment|/**      * Sets the capacity, which is capacity<b>per key</b>.      *      * @param capacity the capacity per key      */
+DECL|method|setCapacity (int capacity)
+name|void
+name|setCapacity
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the capacity per key.      *      * @return the capacity per key      */
+DECL|method|getCapacity ()
+name|int
+name|getCapacity
+parameter_list|()
+function_decl|;
+comment|/**      * Adds the given service to the pool and acquires it.      *      * @param key     the key      * @param service the service      * @return the acquired service, is newer<tt>null</tt>      * @throws IllegalStateException if the queue is full (capacity has been reached)      */
 DECL|method|addAndAcquire (Key key, Service service)
 name|Service
 name|addAndAcquire

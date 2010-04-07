@@ -112,8 +112,6 @@ specifier|protected
 name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|context

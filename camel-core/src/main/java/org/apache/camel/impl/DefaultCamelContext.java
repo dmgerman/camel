@@ -1548,7 +1548,7 @@ name|PackageScanClassResolver
 name|packageScanClassResolver
 decl_stmt|;
 comment|// we use a capacity of 100 per endpoint, so for the same endpoint we have at most 100 producers in the pool
-comment|// so if we have 6 endpoints in the pool, we have 6 x 100 producers in total
+comment|// so if we have 6 endpoints in the pool, we can have 6 x 100 producers in total
 DECL|field|producerServicePool
 specifier|private
 name|ServicePool
@@ -1604,6 +1604,7 @@ name|RouteStartupOrder
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// start auto assigning route ids using numbering 1000 and upwards
 DECL|field|defaultRouteStartupOrder
 specifier|private
 name|int
@@ -5215,8 +5216,6 @@ specifier|public
 name|ProducerTemplate
 name|createProducerTemplate
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|int
 name|size
@@ -5243,8 +5242,6 @@ parameter_list|(
 name|int
 name|maximumCacheSize
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|DefaultProducerTemplate
 name|answer
@@ -5263,11 +5260,29 @@ name|maximumCacheSize
 argument_list|)
 expr_stmt|;
 comment|// start it so its ready to use
+try|try
+block|{
 name|answer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 name|answer
 return|;
@@ -5277,8 +5292,6 @@ specifier|public
 name|ConsumerTemplate
 name|createConsumerTemplate
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|int
 name|size
@@ -5305,8 +5318,6 @@ parameter_list|(
 name|int
 name|maximumCacheSize
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|DefaultConsumerTemplate
 name|answer
@@ -5325,11 +5336,29 @@ name|maximumCacheSize
 argument_list|)
 expr_stmt|;
 comment|// start it so its ready to use
+try|try
+block|{
 name|answer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 name|answer
 return|;

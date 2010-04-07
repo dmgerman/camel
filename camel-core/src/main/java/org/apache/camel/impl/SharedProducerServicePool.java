@@ -42,6 +42,11 @@ name|DefaultProducerServicePool
 implements|implements
 name|ShutdownableService
 block|{
+DECL|method|SharedProducerServicePool ()
+specifier|public
+name|SharedProducerServicePool
+parameter_list|()
+block|{     }
 DECL|method|SharedProducerServicePool (int capacity)
 specifier|public
 name|SharedProducerServicePool

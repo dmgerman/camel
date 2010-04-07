@@ -195,14 +195,45 @@ argument_list|()
 decl_stmt|;
 DECL|field|capacity
 specifier|protected
-specifier|final
 name|int
 name|capacity
+init|=
+literal|100
 decl_stmt|;
-comment|/**      * The capacity, note this is per key.      *      * @param capacity the capacity per key.      */
+DECL|method|DefaultServicePool ()
+specifier|protected
+name|DefaultServicePool
+parameter_list|()
+block|{     }
 DECL|method|DefaultServicePool (int capacity)
 specifier|public
 name|DefaultServicePool
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
+block|{
+name|this
+operator|.
+name|capacity
+operator|=
+name|capacity
+expr_stmt|;
+block|}
+DECL|method|getCapacity ()
+specifier|public
+name|int
+name|getCapacity
+parameter_list|()
+block|{
+return|return
+name|capacity
+return|;
+block|}
+DECL|method|setCapacity (int capacity)
+specifier|public
+name|void
+name|setCapacity
 parameter_list|(
 name|int
 name|capacity

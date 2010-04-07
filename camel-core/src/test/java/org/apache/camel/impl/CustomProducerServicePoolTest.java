@@ -310,6 +310,25 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
+DECL|method|setCapacity (int capacity)
+specifier|public
+name|void
+name|setCapacity
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
+block|{         }
+DECL|method|getCapacity ()
+specifier|public
+name|int
+name|getCapacity
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 DECL|method|addAndAcquire (Endpoint endpoint, Producer producer)
 specifier|public
 name|Producer
