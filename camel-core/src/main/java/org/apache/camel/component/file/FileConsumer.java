@@ -158,6 +158,24 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"pollDirectory from fileName: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
 name|File
 name|directory
 init|=
@@ -246,7 +264,59 @@ literal|0
 condition|)
 block|{
 comment|// no files in this directory to poll
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"No files found in directory: "
+operator|+
+name|directory
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return;
+block|}
+else|else
+block|{
+comment|// we found some files
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Found "
+operator|+
+name|files
+operator|.
+name|length
+operator|+
+literal|" in directory: "
+operator|+
+name|directory
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 for|for
 control|(
@@ -256,6 +326,55 @@ range|:
 name|files
 control|)
 block|{
+comment|// trace log as Windows/Unix can have different views what the file is?
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Found file: "
+operator|+
+name|file
+operator|+
+literal|" [isAbsolute: "
+operator|+
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
+operator|+
+literal|", isDirectory: "
+operator|+
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+operator|+
+literal|", isFile: "
+operator|+
+name|file
+operator|.
+name|isFile
+argument_list|()
+operator|+
+literal|", isHidden: "
+operator|+
+name|file
+operator|.
+name|isHidden
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// creates a generic file
 name|GenericFile
 argument_list|<
@@ -362,6 +481,24 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Adding valid file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 comment|// matched file so add
 name|fileList
 operator|.
