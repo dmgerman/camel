@@ -317,15 +317,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-name|file
-operator|.
-name|isFile
-argument_list|()
-condition|)
+else|else
 block|{
+comment|// Windows can report false to a file on a share so regard it always as a file (if its not a directory)
 if|if
 condition|(
 name|isValidFile
@@ -378,18 +372,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Ignoring unsupported file type for file: "
-operator|+
-name|file
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
