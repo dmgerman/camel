@@ -402,7 +402,6 @@ specifier|private
 name|RecipientList
 name|recipientList
 decl_stmt|;
-comment|// TODO: This class should extends ServiceSupport so we can cleanup recipientList when stopping
 DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation, boolean voidAsInOnly)
 specifier|public
 name|MethodInfo
@@ -747,6 +746,32 @@ argument_list|(
 name|strategy
 argument_list|)
 expr_stmt|;
+block|}
+comment|// add created recipientList as a service so we have its lifecycle managed
+try|try
+block|{
+name|camelContext
+operator|.
+name|addService
+argument_list|(
+name|recipientList
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

@@ -277,9 +277,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: Expose this cache for management in JMX (also ConsumerCache)
-comment|// TODO: Add source information so we know who uses this cache
-comment|// TODO: Add purge operation to purge the cache
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -308,16 +305,27 @@ name|Producer
 argument_list|>
 name|producers
 decl_stmt|;
-DECL|method|ProducerCache (CamelContext camelContext)
+DECL|field|source
+specifier|private
+specifier|final
+name|Object
+name|source
+decl_stmt|;
+DECL|method|ProducerCache (Object source, CamelContext camelContext)
 specifier|public
 name|ProducerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
 name|this
 argument_list|(
+name|source
+argument_list|,
 name|camelContext
 argument_list|,
 name|CamelContextHelper
@@ -329,10 +337,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProducerCache (CamelContext camelContext, int cacheSize)
+DECL|method|ProducerCache (Object source, CamelContext camelContext, int cacheSize)
 specifier|public
 name|ProducerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
@@ -342,6 +353,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|source
+argument_list|,
 name|camelContext
 argument_list|,
 name|camelContext
@@ -362,10 +375,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProducerCache (CamelContext camelContext, ServicePool<Endpoint, Producer> producerServicePool, Map<String, Producer> cache)
+DECL|method|ProducerCache (Object source, CamelContext camelContext, ServicePool<Endpoint, Producer> producerServicePool, Map<String, Producer> cache)
 specifier|public
 name|ProducerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
@@ -388,6 +404,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+name|this
+operator|.
 name|camelContext
 operator|=
 name|camelContext
@@ -404,6 +426,17 @@ name|producers
 operator|=
 name|cache
 expr_stmt|;
+block|}
+comment|/**      * Gets the source which uses this cache      *      * @return the source      */
+DECL|method|getSource ()
+specifier|public
+name|Object
+name|getSource
+parameter_list|()
+block|{
+return|return
+name|source
+return|;
 block|}
 comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.Producer)} method.      *      * @param endpoint the endpoint      * @return the producer      */
 DECL|method|acquireProducer (Endpoint endpoint)
@@ -1208,6 +1241,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the current size of the cache      *      * @return the current size      */
 DECL|method|size ()
+specifier|public
 name|int
 name|size
 parameter_list|()
@@ -1227,8 +1261,80 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"size = "
+operator|+
+name|size
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|size
+return|;
+block|}
+comment|/**      * Gets the maximum cache size (capacity).      *<p/>      * Will return -1 if it cannot determine this if a custom cache was used.      *      * @return the capacity      */
+DECL|method|getCapacity ()
+specifier|public
+name|int
+name|getCapacity
+parameter_list|()
+block|{
+name|int
+name|capacity
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|producers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|producers
+decl_stmt|;
+name|capacity
+operator|=
+name|cache
+operator|.
+name|getMaxCacheSize
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|capacity
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ProducerCache for source: "
+operator|+
+name|source
 return|;
 block|}
 block|}

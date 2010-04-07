@@ -78,6 +78,8 @@ init|=
 operator|new
 name|ProducerCache
 argument_list|(
+name|this
+argument_list|,
 name|context
 argument_list|)
 decl_stmt|;

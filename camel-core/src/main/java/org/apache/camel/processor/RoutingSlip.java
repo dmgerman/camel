@@ -821,6 +821,8 @@ operator|=
 operator|new
 name|ProducerCache
 argument_list|(
+name|this
+argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
