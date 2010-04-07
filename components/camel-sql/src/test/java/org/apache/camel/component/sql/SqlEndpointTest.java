@@ -358,6 +358,13 @@ argument_list|()
 decl_stmt|;
 name|sql
 operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|sql
+operator|.
 name|setJdbcTemplate
 argument_list|(
 operator|new
