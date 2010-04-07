@@ -591,6 +591,8 @@ operator|=
 operator|new
 name|ProducerCache
 argument_list|(
+name|this
+argument_list|,
 name|container
 argument_list|,
 literal|10
