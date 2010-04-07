@@ -2107,8 +2107,11 @@ name|hasNext
 parameter_list|()
 block|{
 return|return
-operator|++
+operator|(
 name|idx
+operator|+
+literal|1
+operator|)
 operator|<
 name|nodeList
 operator|.
@@ -2121,6 +2124,9 @@ name|Node
 name|next
 parameter_list|()
 block|{
+name|idx
+operator|++
+expr_stmt|;
 return|return
 name|nodeList
 operator|.
@@ -2230,8 +2236,9 @@ parameter_list|()
 block|{
 comment|// empty string should not be regarded as having next
 return|return
-operator|++
 name|idx
+operator|+
+literal|1
 operator|==
 literal|0
 operator|&&
@@ -2248,6 +2255,9 @@ name|String
 name|next
 parameter_list|()
 block|{
+name|idx
+operator|++
+expr_stmt|;
 return|return
 name|s
 return|;
