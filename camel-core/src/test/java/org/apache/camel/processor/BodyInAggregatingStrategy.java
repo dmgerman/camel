@@ -79,10 +79,14 @@ block|{
 if|if
 condition|(
 name|oldExchange
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+name|newExchange
+return|;
+block|}
 name|String
 name|oldBody
 init|=
@@ -113,7 +117,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|newExchange
+name|oldExchange
 operator|.
 name|getIn
 argument_list|()
@@ -127,9 +131,8 @@ operator|+
 name|newBody
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-name|newExchange
+name|oldExchange
 return|;
 block|}
 comment|/**      * An expression used to determine if the aggregation is complete      */

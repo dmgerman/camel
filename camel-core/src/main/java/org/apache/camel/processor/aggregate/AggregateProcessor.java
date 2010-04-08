@@ -544,13 +544,14 @@ specifier|private
 name|ScheduledExecutorService
 name|recoverService
 decl_stmt|;
+comment|// store correlation key -> exchange id in timeout map
 DECL|field|timeoutMap
 specifier|private
 name|TimeoutMap
 argument_list|<
 name|Object
 argument_list|,
-name|Exchange
+name|String
 argument_list|>
 name|timeoutMap
 decl_stmt|;
@@ -1100,10 +1101,10 @@ operator|++
 expr_stmt|;
 block|}
 comment|// check if we are complete
-name|boolean
+name|String
 name|complete
 init|=
-literal|false
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1195,8 +1196,9 @@ block|}
 comment|// only need to update aggregation repository if we are not complete
 if|if
 condition|(
-operator|!
 name|complete
+operator|==
+literal|null
 condition|)
 block|{
 if|if
@@ -1236,11 +1238,19 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|complete
-condition|)
+else|else
 block|{
+name|answer
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_COMPLETED_BY
+argument_list|,
+name|complete
+argument_list|)
+expr_stmt|;
 name|onCompletion
 argument_list|(
 name|key
@@ -1273,9 +1283,10 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Tests whether the given exchange is complete or not      *      * @param key       the correlation key      * @param exchange  the incoming exchange      * @return<tt>null</tt> if not completed, otherwise a String with the type that triggered the completion      */
 DECL|method|isCompleted (Object key, Exchange exchange)
 specifier|protected
-name|boolean
+name|String
 name|isCompleted
 parameter_list|(
 name|Object
@@ -1309,19 +1320,8 @@ condition|(
 name|answer
 condition|)
 block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_COMPLETED_BY
-argument_list|,
-literal|"predicate"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+literal|"predicate"
 return|;
 block|}
 block|}
@@ -1384,19 +1384,8 @@ operator|>=
 name|value
 condition|)
 block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_COMPLETED_BY
-argument_list|,
-literal|"size"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+literal|"size"
 return|;
 block|}
 block|}
@@ -1435,19 +1424,8 @@ name|getCompletionSize
 argument_list|()
 condition|)
 block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_COMPLETED_BY
-argument_list|,
-literal|"size"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+literal|"size"
 return|;
 block|}
 block|}
@@ -1525,6 +1503,9 @@ argument_list|(
 name|key
 argument_list|,
 name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
@@ -1581,6 +1562,9 @@ argument_list|(
 name|key
 argument_list|,
 name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|getCompletionTimeout
 argument_list|()
@@ -1638,24 +1622,14 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_COMPLETED_BY
-argument_list|,
-literal|"consumer"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+literal|"consumer"
 return|;
 block|}
 block|}
+comment|// not complete
 return|return
-literal|false
+literal|null
 return|;
 block|}
 DECL|method|onAggregation (Exchange oldExchange, Exchange newExchange)
@@ -2381,7 +2355,7 @@ name|DefaultTimeoutMap
 argument_list|<
 name|Object
 argument_list|,
-name|Exchange
+name|String
 argument_list|>
 block|{
 DECL|method|AggregationTimeoutMap (ScheduledExecutorService executor, long requestMapPollTimeMillis)
@@ -2405,7 +2379,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onEviction (Object key, Exchange exchange)
+DECL|method|onEviction (Object key, String exchangeId)
 specifier|public
 name|void
 name|onEviction
@@ -2413,8 +2387,8 @@ parameter_list|(
 name|Object
 name|key
 parameter_list|,
-name|Exchange
-name|exchange
+name|String
+name|exchangeId
 parameter_list|)
 block|{
 if|if
@@ -2435,7 +2409,21 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-name|exchange
+comment|// get the aggregated exchange
+name|Exchange
+name|answer
+init|=
+name|aggregationRepository
+operator|.
+name|get
+argument_list|(
+name|camelContext
+argument_list|,
+name|key
+argument_list|)
+decl_stmt|;
+comment|// indicate it was completed by timeout
+name|answer
 operator|.
 name|setProperty
 argument_list|(
@@ -2457,7 +2445,7 @@ name|onCompletion
 argument_list|(
 name|key
 argument_list|,
-name|exchange
+name|answer
 argument_list|,
 literal|true
 argument_list|)
@@ -2771,13 +2759,6 @@ name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 comment|// resubmit the recovered exchange
-try|try
-block|{
-name|lock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -2785,15 +2766,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|lock
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}

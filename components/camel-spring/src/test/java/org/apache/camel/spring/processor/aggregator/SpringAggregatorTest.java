@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.spring.processor.aggregator
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|processor
+operator|.
+name|aggregator
 package|;
 end_package
 
@@ -39,6 +41,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|aggregator
 operator|.
 name|AggregatorTest
 import|;
