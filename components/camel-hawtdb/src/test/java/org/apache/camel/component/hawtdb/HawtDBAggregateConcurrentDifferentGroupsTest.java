@@ -375,13 +375,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|idx
-init|=
-name|index
-operator|%
-literal|10
-decl_stmt|;
 name|String
 name|id
 init|=
@@ -401,7 +394,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|idx
+name|index
 argument_list|,
 literal|"id"
 argument_list|,
@@ -488,7 +481,7 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|3000
+literal|1000
 argument_list|)
 operator|.
 name|aggregationRepository

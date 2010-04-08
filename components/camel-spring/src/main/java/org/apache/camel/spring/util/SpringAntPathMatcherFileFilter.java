@@ -169,7 +169,7 @@ name|String
 name|path
 parameter_list|)
 block|{
-comment|// must use single / as path seperators
+comment|// must use single / as path separators
 name|path
 operator|=
 name|StringUtils

@@ -142,6 +142,34 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|Lock
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantLock
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -249,20 +277,6 @@ operator|.
 name|impl
 operator|.
 name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|RedeliveryPolicy
 import|;
 end_import
 
@@ -484,6 +498,16 @@ name|AggregateProcessor
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|lock
+specifier|private
+specifier|final
+name|Lock
+name|lock
+init|=
+operator|new
+name|ReentrantLock
+argument_list|()
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -961,6 +985,16 @@ name|exchange
 argument_list|)
 throw|;
 block|}
+comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
+comment|// bound such as JPA etc then concurrent aggregation per correlation key could
+comment|// improve performance as we can run aggregation repository get/add in parallel
+try|try
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 name|doAggregation
 argument_list|(
 name|key
@@ -969,10 +1003,18 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      */
 DECL|method|doAggregation (Object key, Exchange exchange)
 specifier|private
-specifier|synchronized
 name|Exchange
 name|doAggregation
 parameter_list|(
@@ -983,9 +1025,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
-comment|// bound such as JPA etc then concurrent aggregation per correlation key could
-comment|// improve performance as we can run aggregation repository get/add in parallel
 if|if
 condition|(
 name|LOG
@@ -1123,6 +1162,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// update the aggregated size
 name|answer
 operator|.
 name|setProperty
@@ -1142,18 +1182,6 @@ name|isEagerCheckCompletion
 argument_list|()
 condition|)
 block|{
-comment|// put the current aggregated size on the exchange so its avail during completion check
-name|answer
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
-argument_list|,
-name|size
-argument_list|)
-expr_stmt|;
 name|complete
 operator|=
 name|isCompleted
@@ -2418,6 +2446,13 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 name|onCompletion
 argument_list|(
 name|key
@@ -2427,6 +2462,15 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Background task that looks for aggregated exchanges to recover.      */
@@ -2727,6 +2771,13 @@ name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 comment|// resubmit the recovered exchange
+try|try
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -2734,6 +2785,15 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

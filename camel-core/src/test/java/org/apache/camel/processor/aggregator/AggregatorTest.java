@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.processor.aggregator
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|aggregator
 package|;
 end_package
 
@@ -75,6 +77,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|MyAggregationStrategy
 import|;
 end_import
 
@@ -565,14 +581,6 @@ argument_list|,
 literal|"cheese"
 argument_list|,
 literal|123
-argument_list|)
-expr_stmt|;
-comment|// need a little sleep when sending large batches
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3
 argument_list|)
 expr_stmt|;
 block|}

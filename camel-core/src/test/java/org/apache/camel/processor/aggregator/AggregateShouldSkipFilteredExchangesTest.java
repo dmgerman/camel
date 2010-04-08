@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.processor.aggregator
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|aggregator
 package|;
 end_package
 
@@ -103,10 +105,10 @@ comment|/**  * Unit test to verify that Aggregate aggregator does not included f
 end_comment
 
 begin_class
-DECL|class|AggregateShouldSkipFilteredExchanges
+DECL|class|AggregateShouldSkipFilteredExchangesTest
 specifier|public
 class|class
-name|AggregateShouldSkipFilteredExchanges
+name|AggregateShouldSkipFilteredExchangesTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -268,10 +270,18 @@ name|MyAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
+name|completionTimeout
+argument_list|(
+literal|1000
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
+operator|.
+name|end
+argument_list|()
 operator|.
 name|end
 argument_list|()
@@ -299,6 +309,17 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|newExchange
+return|;
+block|}
 name|String
 name|newBody
 init|=
@@ -314,17 +335,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|oldExchange
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|newExchange
-return|;
-block|}
 name|String
 name|body
 init|=
