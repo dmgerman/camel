@@ -276,6 +276,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -2030,14 +2044,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -2045,13 +2058,13 @@ argument_list|(
 literal|"Loading type converters ..."
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|TypeConverterLoader
 name|typeConverterLoader
 range|:
-name|typeConverterLoaders
+name|getTypeConverterLoaders
+argument_list|()
 control|)
 block|{
 name|typeConverterLoader
@@ -2077,14 +2090,6 @@ parameter_list|)
 block|{
 comment|// ignore its fine to have none
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -2092,7 +2097,28 @@ argument_list|(
 literal|"Loading type converters done"
 argument_list|)
 expr_stmt|;
-block|}
+comment|// report how long time it took to load
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Loaded "
+operator|+
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" type converters in "
+operator|+
+name|watch
+operator|.
+name|stop
+argument_list|()
+operator|+
+literal|" millis"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|loadFallbackTypeConverters ()
 specifier|protected
@@ -2162,7 +2188,18 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|typeMappings
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|misses
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Represents a mapping from one type (which can be null) to another      */
 DECL|class|TypeMapping
 specifier|protected

@@ -210,6 +210,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -713,10 +727,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-literal|0
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -726,11 +740,10 @@ literal|null
 condition|)
 block|{
 comment|// record timing for sending the exchange using the producer
-name|start
+name|watch
 operator|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 expr_stmt|;
 block|}
@@ -762,12 +775,10 @@ block|{
 name|long
 name|timeTaken
 init|=
-name|System
+name|watch
 operator|.
-name|currentTimeMillis
+name|stop
 argument_list|()
-operator|-
-name|start
 decl_stmt|;
 comment|// emit event that the exchange was sent to the endpoint
 name|EventHelper
@@ -959,12 +970,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// send the exchange using the processor
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 try|try
@@ -983,12 +993,10 @@ comment|// emit event that the exchange was sent to the endpoint
 name|long
 name|timeTaken
 init|=
-name|System
+name|watch
 operator|.
-name|currentTimeMillis
+name|stop
 argument_list|()
-operator|-
-name|start
 decl_stmt|;
 name|EventHelper
 operator|.

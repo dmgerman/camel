@@ -280,6 +280,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -451,12 +465,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 comment|// should the order of routes be reversed?
@@ -650,16 +663,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|long
-name|delta
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-decl_stmt|;
 comment|// convert to seconds as its easier to read than a big milli seconds number
 name|long
 name|seconds
@@ -670,7 +673,10 @@ name|SECONDS
 operator|.
 name|convert
 argument_list|(
-name|delta
+name|watch
+operator|.
+name|stop
+argument_list|()
 argument_list|,
 name|TimeUnit
 operator|.

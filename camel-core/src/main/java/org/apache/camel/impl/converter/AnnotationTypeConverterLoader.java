@@ -348,6 +348,21 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|visitedURLs
+specifier|private
+name|Set
+argument_list|<
+name|URL
+argument_list|>
+name|visitedURLs
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|URL
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|AnnotationTypeConverterLoader (PackageScanClassResolver resolver)
 specifier|public
 name|AnnotationTypeConverterLoader
@@ -406,6 +421,26 @@ argument_list|,
 name|packageNames
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Found "
+operator|+
+name|packageNames
+operator|.
+name|length
+operator|+
+literal|" packages with "
+operator|+
+name|classes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" @Converter classes to load"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Class
@@ -445,6 +480,17 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+comment|// now clear the maps so we do not hold references
+name|visitedClasses
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|visitedURLs
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO related errors      */
 DECL|method|findPackageNames ()
@@ -573,8 +619,46 @@ condition|(
 name|url
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|visitedURLs
+operator|.
+name|contains
+argument_list|(
+name|url
+argument_list|)
 condition|)
 block|{
+comment|// remember we have visited this url so we wont read it twice
+name|visitedURLs
+operator|.
+name|add
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Loading file "
+operator|+
+name|META_INF_SERVICES
+operator|+
+literal|" to retrieve list of packages, from url: "
+operator|+
+name|url
+argument_list|)
+expr_stmt|;
+block|}
 name|BufferedReader
 name|reader
 init|=

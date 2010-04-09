@@ -1058,6 +1058,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -1650,6 +1664,18 @@ operator|new
 name|DefaultExecutorServiceStrategy
 argument_list|(
 name|this
+argument_list|)
+decl_stmt|;
+DECL|field|stopWatch
+specifier|private
+specifier|final
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|(
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
@@ -6093,7 +6119,14 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") started"
+literal|") started in "
+operator|+
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+operator|+
+literal|" millis"
 argument_list|)
 expr_stmt|;
 name|EventHelper
@@ -6115,6 +6148,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|stopWatch
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -6464,6 +6502,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|stopWatch
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -6615,7 +6658,14 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") is shutdown"
+literal|") is shutdown in "
+operator|+
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+operator|+
+literal|" millis"
 argument_list|)
 expr_stmt|;
 block|}
