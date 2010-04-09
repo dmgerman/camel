@@ -62,6 +62,12 @@ specifier|public
 interface|interface
 name|Exchange
 block|{
+DECL|field|AUTHENTICATION
+name|String
+name|AUTHENTICATION
+init|=
+literal|"CamelAuthentication"
+decl_stmt|;
 DECL|field|ACCEPT_CONTENT_TYPE
 name|String
 name|ACCEPT_CONTENT_TYPE
