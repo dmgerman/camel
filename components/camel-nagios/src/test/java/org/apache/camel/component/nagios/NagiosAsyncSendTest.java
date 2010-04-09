@@ -76,7 +76,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"nagios:127.0.0.1:5667?password=secret&sendSync=false"
+literal|"nagios:127.0.0.1:25667?password=secret&sendSync=false"
 argument_list|)
 operator|.
 name|to

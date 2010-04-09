@@ -176,7 +176,7 @@ operator|=
 operator|new
 name|NagiosNscaStub
 argument_list|(
-literal|5667
+literal|25667
 argument_list|,
 literal|"password"
 argument_list|)
@@ -249,7 +249,7 @@ argument_list|()
 operator|.
 name|setPort
 argument_list|(
-literal|5667
+literal|25667
 argument_list|)
 expr_stmt|;
 name|notifier
@@ -332,14 +332,21 @@ operator|.
 name|getMessagePayloadList
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|12
+literal|"Should be 12+ events, was: "
+operator|+
+name|events
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|events
 operator|.
 name|size
 argument_list|()
+operator|>=
+literal|12
 argument_list|)
 expr_stmt|;
 block|}
@@ -389,14 +396,21 @@ operator|.
 name|getMessagePayloadList
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|11
+literal|"Should be 10+ events, was: "
+operator|+
+name|events
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|events
 operator|.
 name|size
 argument_list|()
+operator|>=
+literal|10
 argument_list|)
 expr_stmt|;
 block|}

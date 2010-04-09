@@ -192,7 +192,7 @@ operator|=
 operator|new
 name|NagiosNscaStub
 argument_list|(
-literal|5667
+literal|25667
 argument_list|,
 literal|"secret"
 argument_list|)
@@ -1015,7 +1015,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"nagios:127.0.0.1:5667?password=secret"
+literal|"nagios:127.0.0.1:25667?password=secret"
 argument_list|)
 operator|.
 name|to

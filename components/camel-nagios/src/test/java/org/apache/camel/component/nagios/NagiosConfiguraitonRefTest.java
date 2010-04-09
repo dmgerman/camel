@@ -186,7 +186,7 @@ operator|=
 operator|new
 name|NagiosNscaStub
 argument_list|(
-literal|5667
+literal|25667
 argument_list|,
 literal|"secret"
 argument_list|)
@@ -260,7 +260,7 @@ name|config
 operator|.
 name|setPort
 argument_list|(
-literal|5667
+literal|25667
 argument_list|)
 expr_stmt|;
 name|JndiRegistry
