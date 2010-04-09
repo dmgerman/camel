@@ -50,6 +50,27 @@ name|TutorialRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+DECL|field|application
+specifier|private
+name|String
+name|application
+decl_stmt|;
+DECL|method|setApplication (String application)
+specifier|public
+name|void
+name|setApplication
+parameter_list|(
+name|String
+name|application
+parameter_list|)
+block|{
+name|this
+operator|.
+name|application
+operator|=
+name|application
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configure ()
@@ -67,7 +88,14 @@ name|URLEncoder
 operator|.
 name|encode
 argument_list|(
-literal|"https://ipfcloud.appspot.com/camel/handler"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"https://%s.appspot.com/camel/handler"
+argument_list|,
+name|application
+argument_list|)
 argument_list|,
 literal|"UTF-8"
 argument_list|)
