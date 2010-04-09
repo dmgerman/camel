@@ -2759,6 +2759,13 @@ name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 comment|// resubmit the recovered exchange
+try|try
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -2766,6 +2773,15 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
