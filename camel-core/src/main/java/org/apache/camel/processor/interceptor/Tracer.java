@@ -184,6 +184,15 @@ name|InterceptStrategy
 implements|,
 name|Service
 block|{
+DECL|field|JPA_TRACE_EVENT_MESSAGE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|JPA_TRACE_EVENT_MESSAGE
+init|=
+literal|"org.apache.camel.processor.interceptor.jpa.JpaTraceEventMessage"
+decl_stmt|;
 DECL|field|formatter
 specifier|private
 name|TraceFormatter
@@ -267,6 +276,27 @@ DECL|field|logger
 specifier|private
 name|Logger
 name|logger
+decl_stmt|;
+DECL|field|traceInterceptorFactory
+specifier|private
+name|TraceInterceptorFactory
+name|traceInterceptorFactory
+init|=
+operator|new
+name|DefaultTraceInterceptorFactory
+argument_list|()
+decl_stmt|;
+DECL|field|traceHandler
+specifier|private
+name|TraceEventHandler
+name|traceHandler
+decl_stmt|;
+DECL|field|jpaTraceEventMessageClassName
+specifier|private
+name|String
+name|jpaTraceEventMessageClassName
+init|=
+name|JPA_TRACE_EVENT_MESSAGE
 decl_stmt|;
 comment|/**      * Creates a new tracer.      *      * @param context Camel context      * @return a new tracer      */
 DECL|method|createTracer (CamelContext context)
@@ -455,8 +485,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|TraceInterceptor
+name|getTraceInterceptorFactory
+argument_list|()
+operator|.
+name|createTraceInterceptor
 argument_list|(
 name|definition
 argument_list|,
@@ -842,6 +874,89 @@ operator|.
 name|useJpa
 operator|=
 name|useJpa
+expr_stmt|;
+block|}
+DECL|method|getTraceInterceptorFactory ()
+specifier|public
+name|TraceInterceptorFactory
+name|getTraceInterceptorFactory
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|traceInterceptorFactory
+return|;
+block|}
+comment|/**      * Set the factory to be used to create the trace interceptor.      * It is expected that the factory will create a subclass of TraceInterceptor.      *<p/>      * Use this to take complete control of how trace events are handled.      * The TraceInterceptorFactory should only be set before any routes are created, hence this      * method is not thread safe.      */
+DECL|method|setTraceInterceptorFactory (TraceInterceptorFactory traceInterceptorFactory)
+specifier|public
+name|void
+name|setTraceInterceptorFactory
+parameter_list|(
+name|TraceInterceptorFactory
+name|traceInterceptorFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceInterceptorFactory
+operator|=
+name|traceInterceptorFactory
+expr_stmt|;
+block|}
+DECL|method|getTraceHandler ()
+specifier|public
+name|TraceEventHandler
+name|getTraceHandler
+parameter_list|()
+block|{
+return|return
+name|traceHandler
+return|;
+block|}
+comment|/**      * Set the object to be used to perform tracing.      *<p/>      * Use this to take more control of how trace events are persisted.      * Setting the traceHandler provides a simpler mechanism for controlling tracing      * than the TraceInterceptorFactory.      * The TraceHandler should only be set before any routes are created, hence this      * method is not thread safe.      */
+DECL|method|setTraceHandler (TraceEventHandler traceHandler)
+specifier|public
+name|void
+name|setTraceHandler
+parameter_list|(
+name|TraceEventHandler
+name|traceHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceHandler
+operator|=
+name|traceHandler
+expr_stmt|;
+block|}
+DECL|method|getJpaTraceEventMessageClassName ()
+specifier|public
+name|String
+name|getJpaTraceEventMessageClassName
+parameter_list|()
+block|{
+return|return
+name|jpaTraceEventMessageClassName
+return|;
+block|}
+comment|/**      * Set the fully qualified name of the class to be used by the JPA event tracing.      *<p/>      * The class must exist in the classpath and be available for dynamic loading.      * The class name should only be set before any routes are created, hence this      * method is not thread safe.      */
+DECL|method|setJpaTraceEventMessageClassName (String jpaTraceEventMessageClassName)
+specifier|public
+name|void
+name|setJpaTraceEventMessageClassName
+parameter_list|(
+name|String
+name|jpaTraceEventMessageClassName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jpaTraceEventMessageClassName
+operator|=
+name|jpaTraceEventMessageClassName
 expr_stmt|;
 block|}
 annotation|@

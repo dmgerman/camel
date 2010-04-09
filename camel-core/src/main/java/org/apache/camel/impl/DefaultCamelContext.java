@@ -1590,7 +1590,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|defaultTracer
 specifier|private
-name|Tracer
+name|InterceptStrategy
 name|defaultTracer
 decl_stmt|;
 DECL|field|inflightRepository
@@ -7678,6 +7678,22 @@ block|}
 return|return
 name|defaultTracer
 return|;
+block|}
+DECL|method|setDefaultTracer (InterceptStrategy defaultTracer)
+specifier|public
+name|void
+name|setDefaultTracer
+parameter_list|(
+name|InterceptStrategy
+name|defaultTracer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultTracer
+operator|=
+name|defaultTracer
+expr_stmt|;
 block|}
 DECL|method|disableJMX ()
 specifier|public

@@ -1146,6 +1146,15 @@ name|InterceptStrategy
 name|getDefaultTracer
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a custom tracer to be used as the default tracer.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the defaultTracer for existing routes is not supported.      *      * @param tracer the custom tracer to use as default tracer      */
+DECL|method|setDefaultTracer (InterceptStrategy tracer)
+name|void
+name|setDefaultTracer
+parameter_list|(
+name|InterceptStrategy
+name|tracer
+parameter_list|)
+function_decl|;
 comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      */
 DECL|method|disableJMX ()
 name|void
