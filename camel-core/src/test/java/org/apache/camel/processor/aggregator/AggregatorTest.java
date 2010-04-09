@@ -538,13 +538,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// have a little slack when large batch
 name|resultEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
+operator|(
 name|messageCount
 operator|/
 literal|5
+operator|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 comment|// lets send a large batch of messages
