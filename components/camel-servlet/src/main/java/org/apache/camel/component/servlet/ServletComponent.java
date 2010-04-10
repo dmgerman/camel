@@ -154,6 +154,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -192,11 +206,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|http
+name|commons
 operator|.
-name|conn
+name|httpclient
 operator|.
-name|ClientConnectionManager
+name|HttpConnectionManager
 import|;
 end_import
 
@@ -206,11 +220,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|http
+name|commons
+operator|.
+name|httpclient
 operator|.
 name|params
 operator|.
-name|HttpParams
+name|HttpClientParams
 import|;
 end_import
 
@@ -335,14 +351,30 @@ name|remaining
 else|:
 name|uri
 expr_stmt|;
-name|HttpParams
-name|clientParams
+name|HttpClientParams
+name|params
 init|=
-name|configureHttpParams
+operator|new
+name|HttpClientParams
+argument_list|()
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|params
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
+comment|// configure regular parameters
+name|configureParameters
 argument_list|(
 name|parameters
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// must extract well known parameters before we create the endpoint
 name|HttpBinding
 name|binding
@@ -417,9 +449,9 @@ name|this
 argument_list|,
 name|httpUri
 argument_list|,
-name|clientParams
+name|params
 argument_list|,
-name|getClientConnectionManager
+name|getHttpConnectionManager
 argument_list|()
 argument_list|,
 name|httpClientConfigurer
@@ -486,7 +518,7 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpParams params, ClientConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|protected
 name|ServletEndpoint
 name|createServletEndpoint
@@ -500,10 +532,10 @@ parameter_list|,
 name|URI
 name|httpUri
 parameter_list|,
-name|HttpParams
+name|HttpClientParams
 name|params
 parameter_list|,
-name|ClientConnectionManager
+name|HttpConnectionManager
 name|httpConnectionManager
 parameter_list|,
 name|HttpClientConfigurer

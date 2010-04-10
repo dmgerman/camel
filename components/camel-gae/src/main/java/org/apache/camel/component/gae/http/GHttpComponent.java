@@ -142,11 +142,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|http
+name|commons
 operator|.
-name|conn
+name|httpclient
 operator|.
-name|ClientConnectionManager
+name|HttpConnectionManager
 import|;
 end_import
 
@@ -156,11 +156,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|http
+name|commons
+operator|.
+name|httpclient
 operator|.
 name|params
 operator|.
-name|HttpParams
+name|HttpClientParams
 import|;
 end_import
 
@@ -324,7 +326,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpParams params, ClientConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|protected
 name|ServletEndpoint
 name|createServletEndpoint
@@ -338,10 +340,10 @@ parameter_list|,
 name|URI
 name|httpUri
 parameter_list|,
-name|HttpParams
+name|HttpClientParams
 name|params
 parameter_list|,
-name|ClientConnectionManager
+name|HttpConnectionManager
 name|httpConnectionManager
 parameter_list|,
 name|HttpClientConfigurer

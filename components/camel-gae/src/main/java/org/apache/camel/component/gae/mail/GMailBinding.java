@@ -227,7 +227,6 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * @throws UnsupportedOperationException.      */
 DECL|method|readResponse (GMailEndpoint endpoint, Exchange exchange, Void response)
 specifier|public
 name|Exchange
