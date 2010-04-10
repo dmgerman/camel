@@ -150,6 +150,10 @@ name|RequestMethod
 import|;
 end_import
 
+begin_comment
+comment|/**  * Single controller for the demo application that handles GET requests. Obtains OAuth access  * token and access token secret from cookies and uses them to obtain calendar names from the  * Google Calendar API. If the interaction with the calendar API fails due to invalid or non-  * existing OAuth tokens an error message is displayed in authorize.jsp. If it succeeds the  * calendar names are displayed in calendar.jsp.  *<p>  * In production systems it is<em>not</em> recommended to store access tokens in cookies. The  * recommended approach is to store them in a database. The demo application is only doing that  * to keep the example as simple as possible. However, an attacker could not use an access token  * alone to get access to a user's calendar data because the application's consumer secret is  * necessary for that as well. The consumer secret never leaves the demo application.  */
+end_comment
+
 begin_class
 annotation|@
 name|Controller
@@ -209,6 +213,7 @@ name|calendarNames
 init|=
 literal|null
 decl_stmt|;
+comment|// Get OAuth tokens from cookies
 name|String
 name|accessToken
 init|=
@@ -247,6 +252,7 @@ return|;
 block|}
 try|try
 block|{
+comment|// Get calendar names from Google Calendar API
 name|calendarNames
 operator|=
 name|service

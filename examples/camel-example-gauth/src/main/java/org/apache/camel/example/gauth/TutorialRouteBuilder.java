@@ -42,6 +42,10 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builds the OAuth-specific routes (implements the OAuth integration layer) of the demo application.  */
+end_comment
+
 begin_class
 DECL|class|TutorialRouteBuilder
 specifier|public
@@ -55,6 +59,7 @@ specifier|private
 name|String
 name|application
 decl_stmt|;
+comment|/**      * Sets the name of the GAE application.      *      * @param application a GAE application name.      */
 DECL|method|setApplication (String application)
 specifier|public
 name|void
@@ -81,6 +86,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Callback URL for sending back an authorized access token.
 name|String
 name|encodedCallback
 init|=
@@ -100,6 +106,7 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|// Google should issue an access token that is scoped to calendar feeds.
 name|String
 name|encodedScope
 init|=
@@ -112,6 +119,8 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|// Route for obtaining an unauthorized request token from Google Accounts. The
+comment|// response redirects the browser to an authorization page provided by Google.
 name|from
 argument_list|(
 literal|"ghttp:///authorize"
@@ -128,6 +137,11 @@ operator|+
 name|encodedScope
 argument_list|)
 expr_stmt|;
+comment|// Handles callbacks from Google Accounts which contain an authorized request token.
+comment|// The authorized request token is upgraded to an access token which is stored in
+comment|// the response message header. The TutorialTokenProcessor is application-specific
+comment|// and stores the access token (plus access token secret) is cookies. It further
+comment|// redirects the user to the application's main location (/oauth/calendar).
 name|from
 argument_list|(
 literal|"ghttp:///handler"

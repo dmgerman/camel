@@ -142,6 +142,10 @@ name|CalendarFeed
 import|;
 end_import
 
+begin_comment
+comment|/**  * Facade for getting calendar names from the Google Calendar API. The access is made on  * behalf of a user by providing an OAuth access token and access token secret.  */
+end_comment
+
 begin_class
 DECL|class|TutorialService
 specifier|public
@@ -153,6 +157,7 @@ specifier|private
 name|Properties
 name|credentials
 decl_stmt|;
+comment|/**      * Sets properties that contains the application's consumer key and consumer secret.      *      * @param credentials consumer key and consumer secret.      */
 DECL|method|setCredentials (Properties credentials)
 specifier|public
 name|void
@@ -169,6 +174,7 @@ operator|=
 name|credentials
 expr_stmt|;
 block|}
+comment|/**      * Obtains a list of names of a user's public and private calendars from the Google      * Calendar API.      *       * @param accessToken OAuth access token.      * @param accessTokenSecret OAuth access token secret.      * @return list of names of a user's public and private calendars.      */
 DECL|method|getCalendarNames (String accessToken, String accessTokenSecret)
 specifier|public
 name|List
