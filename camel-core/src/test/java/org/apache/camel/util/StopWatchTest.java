@@ -86,7 +86,7 @@ name|taken
 argument_list|,
 name|taken
 operator|>
-literal|190
+literal|150
 argument_list|)
 expr_stmt|;
 block|}
@@ -159,7 +159,7 @@ name|taken
 argument_list|,
 name|taken
 operator|>
-literal|190
+literal|150
 argument_list|)
 expr_stmt|;
 block|}
@@ -211,7 +211,7 @@ name|taken
 argument_list|,
 name|taken
 operator|>
-literal|190
+literal|150
 argument_list|)
 expr_stmt|;
 name|watch
@@ -251,7 +251,7 @@ name|taken
 argument_list|,
 name|taken
 operator|>
-literal|90
+literal|50
 argument_list|)
 expr_stmt|;
 block|}

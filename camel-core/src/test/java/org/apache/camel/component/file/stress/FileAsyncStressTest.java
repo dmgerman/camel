@@ -264,7 +264,7 @@ name|ran
 operator|.
 name|nextInt
 argument_list|(
-literal|500
+literal|250
 argument_list|)
 operator|+
 literal|10
