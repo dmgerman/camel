@@ -99,9 +99,9 @@ block|{
 comment|// some platform cannot test using Castor as it uses a SUN dependent Xerces
 if|if
 condition|(
-name|isPlatform
+name|isJavaVendor
 argument_list|(
-literal|"aix"
+literal|"IBM"
 argument_list|)
 condition|)
 block|{
@@ -171,9 +171,9 @@ block|{
 comment|// some platform cannot test using Castor as it uses a SUN dependent Xerces
 if|if
 condition|(
-name|isPlatform
+name|isJavaVendor
 argument_list|(
-literal|"aix"
+literal|"IBM"
 argument_list|)
 condition|)
 block|{
