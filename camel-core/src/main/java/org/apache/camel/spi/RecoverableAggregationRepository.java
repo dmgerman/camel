@@ -131,10 +131,49 @@ name|long
 name|getRecoveryIntervalInMillis
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether or not recovery is enabled      *      * @param useRecovery whether or not recovery is enabled      */
+DECL|method|setUseRecovery (boolean useRecovery)
+name|void
+name|setUseRecovery
+parameter_list|(
+name|boolean
+name|useRecovery
+parameter_list|)
+function_decl|;
 comment|/**      * Whether or not recovery is enabled or not      *      * @return<tt>true</tt> to use recovery,<tt>false</tt> otherwise.      */
 DECL|method|isUseRecovery ()
 name|boolean
 name|isUseRecovery
+parameter_list|()
+function_decl|;
+comment|/**      * Sets an optional dead letter channel which exhausted recovered {@link Exchange}      * should be send to.      *<p/>      * By default this option is disabled      *      * @param deadLetterUri  the uri of the dead letter channel      */
+DECL|method|setDeadLetterUri (String deadLetterUri)
+name|void
+name|setDeadLetterUri
+parameter_list|(
+name|String
+name|deadLetterUri
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the dead letter channel      *      * @return  the uri of the dead letter channel      */
+DECL|method|getDeadLetterUri ()
+name|String
+name|getDeadLetterUri
+parameter_list|()
+function_decl|;
+comment|/**      * Sets an optional limit of the number of redelivery attempt of recovered {@link Exchange}      * should be attempted, before its exhausted.      *<p/>      * When this limit is hit, then the {@link Exchange} is moved to the dead letter channel.      *<p/>      * By default this option is disabled      *      * @param maximumRedeliveries the maximum redeliveries      */
+DECL|method|setMaximumRedeliveries (int maximumRedeliveries)
+name|void
+name|setMaximumRedeliveries
+parameter_list|(
+name|int
+name|maximumRedeliveries
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the maximum redelivery attempts to do before a recovered {@link Exchange} is doomed      * as exhausted and moved to the dead letter channel.      *      * @return the maximum redeliveries      */
+DECL|method|getMaximumRedeliveries ()
+name|int
+name|getMaximumRedeliveries
 parameter_list|()
 function_decl|;
 block|}

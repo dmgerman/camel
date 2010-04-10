@@ -625,6 +625,12 @@ name|RedeliveryData
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// optional dead letter channel for exhausted recovered exchanges
+DECL|field|deadLetterProcessor
+specifier|private
+name|Processor
+name|deadLetterProcessor
+decl_stmt|;
 comment|// keep booking about redelivery
 DECL|class|RedeliveryData
 specifier|private
@@ -1913,6 +1919,29 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing aggregated exchange: "
+operator|+
+name|exchange
+operator|+
+literal|" complete."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 argument_list|)
@@ -2276,6 +2305,24 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Aggregated exchange onFailure: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// must remember to remove in progress when we failed
 name|inProgressCompleteExchanges
 operator|.
@@ -2295,6 +2342,24 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Aggregated exchange onComplete: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// only confirm if we processed without a problem
 try|try
 block|{
@@ -2613,7 +2678,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregated exchange with id "
+literal|"Aggregated exchange with id: "
 operator|+
 name|exchangeId
 operator|+
@@ -2636,9 +2701,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Recovering aggregated exchange with id "
+literal|"Loading aggregated exchange with id: "
 operator|+
 name|exchangeId
+operator|+
+literal|" to be recovered."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2758,7 +2825,117 @@ operator|.
 name|redeliveryCounter
 argument_list|)
 expr_stmt|;
-comment|// resubmit the recovered exchange
+comment|// if we are exhausted, then move to dead letter channel
+if|if
+condition|(
+name|recoverable
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|data
+operator|.
+name|redeliveryCounter
+operator|>
+name|recoverable
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The recovered exchange is exhausted after "
+operator|+
+name|recoverable
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|+
+literal|" attempts, will now be moved to dead letter channel: "
+operator|+
+name|recoverable
+operator|.
+name|getDeadLetterUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|deadLetterProcessor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// confirm after it has been moved to dead letter channel
+name|recoverable
+operator|.
+name|confirm
+argument_list|(
+name|camelContext
+argument_list|,
+name|exchangeId
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Failed to move recovered Exchange to dead letter channel: "
+operator|+
+name|recoverable
+operator|.
+name|getDeadLetterUri
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Delivery attempt: "
+operator|+
+name|data
+operator|.
+name|redeliveryCounter
+operator|+
+literal|" to recover aggregated exchange with id: "
+operator|+
+name|exchangeId
+operator|+
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+comment|// not exhaust so resubmit the recovered exchange
 try|try
 block|{
 name|lock
@@ -2781,6 +2958,7 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3026,6 +3204,73 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|recoverable
+operator|.
+name|getDeadLetterUri
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|max
+init|=
+name|recoverable
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|max
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option maximumRedeliveries must be a positive number, was: "
+operator|+
+name|max
+argument_list|)
+throw|;
+block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"After "
+operator|+
+name|max
+operator|+
+literal|" failed redelivery attempts Exchanges will be moved to deadLetterUri: "
+operator|+
+name|recoverable
+operator|.
+name|getDeadLetterUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|deadLetterProcessor
+operator|=
+name|camelContext
+operator|.
+name|getEndpoint
+argument_list|(
+name|recoverable
+operator|.
+name|getDeadLetterUri
+argument_list|()
+argument_list|)
+operator|.
+name|createProducer
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// start timeout service if its in use

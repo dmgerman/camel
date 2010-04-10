@@ -357,6 +357,16 @@ name|useRecovery
 init|=
 literal|true
 decl_stmt|;
+DECL|field|maximumRedeliveries
+specifier|private
+name|int
+name|maximumRedeliveries
+decl_stmt|;
+DECL|field|deadLetterUri
+specifier|private
+name|String
+name|deadLetterUri
+decl_stmt|;
 comment|/**      * Creates an aggregation repository      */
 DECL|method|HawtDBAggregationRepository ()
 specifier|public
@@ -1817,6 +1827,58 @@ operator|.
 name|useRecovery
 operator|=
 name|useRecovery
+expr_stmt|;
+block|}
+DECL|method|getMaximumRedeliveries ()
+specifier|public
+name|int
+name|getMaximumRedeliveries
+parameter_list|()
+block|{
+return|return
+name|maximumRedeliveries
+return|;
+block|}
+DECL|method|setMaximumRedeliveries (int maximumRedeliveries)
+specifier|public
+name|void
+name|setMaximumRedeliveries
+parameter_list|(
+name|int
+name|maximumRedeliveries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumRedeliveries
+operator|=
+name|maximumRedeliveries
+expr_stmt|;
+block|}
+DECL|method|getDeadLetterUri ()
+specifier|public
+name|String
+name|getDeadLetterUri
+parameter_list|()
+block|{
+return|return
+name|deadLetterUri
+return|;
+block|}
+DECL|method|setDeadLetterUri (String deadLetterUri)
+specifier|public
+name|void
+name|setDeadLetterUri
+parameter_list|(
+name|String
+name|deadLetterUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deadLetterUri
+operator|=
+name|deadLetterUri
 expr_stmt|;
 block|}
 annotation|@
