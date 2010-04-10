@@ -263,10 +263,10 @@ end_import
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|HttpMaxConnectionPerHostTest
+DECL|class|Http4EndpointTest
 specifier|public
 class|class
-name|HttpMaxConnectionPerHostTest
+name|Http4EndpointTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{

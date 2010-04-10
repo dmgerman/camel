@@ -186,7 +186,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hi! /someservice"
+literal|"Hi! /someservice/myservice"
 argument_list|)
 expr_stmt|;
 name|template
@@ -224,7 +224,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hi! /someservice/relative"
+literal|"Hi! /someservice/myservice/relative"
 argument_list|)
 expr_stmt|;
 name|template
