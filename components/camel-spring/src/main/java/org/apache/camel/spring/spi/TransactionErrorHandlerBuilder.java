@@ -707,6 +707,26 @@ name|getTransactionTemplate
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
+specifier|public
+name|void
+name|setTransactionManager
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionTemplate
+operator|=
+operator|new
+name|TransactionTemplate
+argument_list|(
+name|transactionManager
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 DECL|method|createLogger ()

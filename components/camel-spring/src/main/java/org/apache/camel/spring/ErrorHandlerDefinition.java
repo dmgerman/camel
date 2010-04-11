@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;errorHandler&gt; tag element.  *  */
+comment|/**  * The&lt;errorHandler&gt; tag element.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -194,23 +194,17 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|type
 specifier|private
 name|ErrorHandlerType
 name|type
+init|=
+name|ErrorHandlerType
+operator|.
+name|DefaultErrorHandler
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|deadLetterUri
 specifier|private
 name|String
@@ -218,23 +212,17 @@ name|deadLetterUri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|level
 specifier|private
 name|LoggingLevel
 name|level
+init|=
+name|LoggingLevel
+operator|.
+name|ERROR
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|useOriginalMessage
 specifier|private
 name|Boolean
@@ -242,11 +230,6 @@ name|useOriginalMessage
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|transactionTemplateRef
 specifier|private
 name|String
@@ -254,11 +237,13 @@ name|transactionTemplateRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
+DECL|field|transactionManagerRef
+specifier|private
+name|String
+name|transactionManagerRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|onRedeliveryRef
 specifier|private
 name|String
@@ -270,10 +255,6 @@ argument_list|(
 name|name
 operator|=
 literal|"redeliveryPolicy"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|redeliveryPolicy
 specifier|private
