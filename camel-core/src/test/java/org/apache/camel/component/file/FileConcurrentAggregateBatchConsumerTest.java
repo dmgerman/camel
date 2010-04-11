@@ -136,19 +136,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: batchConsumer needs to be reworked
-DECL|method|testDummy ()
+DECL|method|testProcessFilesConcurrently ()
 specifier|public
 name|void
-name|testDummy
-parameter_list|()
-block|{
-comment|// noop
-block|}
-DECL|method|xxxTestProcessFilesConcurrently ()
-specifier|public
-name|void
-name|xxxTestProcessFilesConcurrently
+name|testProcessFilesConcurrently
 parameter_list|()
 throws|throws
 name|Exception
@@ -464,10 +455,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|xxxTestProcessFilesSequentiel ()
+DECL|method|testProcessFilesSequentiel ()
 specifier|public
 name|void
-name|xxxTestProcessFilesSequentiel
+name|testProcessFilesSequentiel
 parameter_list|()
 throws|throws
 name|Exception
