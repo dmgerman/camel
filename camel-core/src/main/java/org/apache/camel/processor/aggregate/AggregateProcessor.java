@@ -1246,6 +1246,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO: if we are completed from batch consumer then they should all complete (trigger that like timeout map)
 name|answer
 operator|.
 name|setProperty
