@@ -142,7 +142,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/messages"
+literal|"target/messages/input"
 argument_list|)
 expr_stmt|;
 name|super
@@ -178,7 +178,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true&delay=5000"
+literal|"file:target/messages/input/"
 argument_list|,
 literal|"Paris"
 argument_list|,
@@ -202,7 +202,7 @@ argument_list|(
 literal|200
 argument_list|)
 expr_stmt|;
-name|asserFiles
+name|assertFiles
 argument_list|(
 literal|"paris.txt"
 argument_list|,
@@ -238,7 +238,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true&delay=5000"
+literal|"file:target/messages/input/"
 argument_list|,
 literal|"London"
 argument_list|,
@@ -262,8 +262,8 @@ argument_list|(
 literal|200
 argument_list|)
 expr_stmt|;
-comment|// london should be delated as we have failure handled it
-name|asserFiles
+comment|// london should be deleted as we have failure handled it
+name|assertFiles
 argument_list|(
 literal|"london.txt"
 argument_list|,
@@ -299,7 +299,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true&delay=5000"
+literal|"file:target/messages/input/"
 argument_list|,
 literal|"Dublin"
 argument_list|,
@@ -324,7 +324,7 @@ literal|200
 argument_list|)
 expr_stmt|;
 comment|// dublin should NOT be deleted, but should be retired on next consumer
-name|asserFiles
+name|assertFiles
 argument_list|(
 literal|"dublin.txt"
 argument_list|,
@@ -360,7 +360,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true&delay=5000"
+literal|"file:target/messages/input/"
 argument_list|,
 literal|"Madrid"
 argument_list|,
@@ -385,7 +385,7 @@ literal|200
 argument_list|)
 expr_stmt|;
 comment|// madrid should NOT be deleted, but should be retired on next consumer
-name|asserFiles
+name|assertFiles
 argument_list|(
 literal|"madrid.txt"
 argument_list|,
@@ -393,11 +393,11 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|asserFiles (String filename, boolean deleted)
+DECL|method|assertFiles (String filename, boolean deleted)
 specifier|private
 specifier|static
 name|void
-name|asserFiles
+name|assertFiles
 parameter_list|(
 name|String
 name|filename
@@ -408,7 +408,7 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-comment|// file should be deleted as deleted=true in parameter in the route below
+comment|// file should be deleted as delete=true in parameter in the route below
 name|File
 name|file
 init|=

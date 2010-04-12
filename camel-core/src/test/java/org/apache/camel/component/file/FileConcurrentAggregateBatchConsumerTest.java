@@ -545,10 +545,10 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// should be ordered
+comment|// should be ordered in the body, but the files can be loaded in different order per OS
 name|result
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"A+C+E+G+I"
 argument_list|,
