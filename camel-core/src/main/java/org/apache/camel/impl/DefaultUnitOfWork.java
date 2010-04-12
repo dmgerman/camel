@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -516,6 +526,25 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+comment|// must add to top of list so we run last added first (FILO)
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Adding synchronization "
+operator|+
+name|synchronization
+argument_list|)
+expr_stmt|;
+block|}
 name|synchronizations
 operator|.
 name|add
@@ -682,6 +711,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// reverse so we invoke it FILO style instead of FIFO
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|synchronizations
+argument_list|)
+expr_stmt|;
 comment|// invoke synchronization callbacks
 for|for
 control|(
