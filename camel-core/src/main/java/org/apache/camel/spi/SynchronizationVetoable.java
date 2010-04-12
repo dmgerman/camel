@@ -1,0 +1,41 @@
+begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
+begin_package
+DECL|package|org.apache.camel.spi
+package|package
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+package|;
+end_package
+
+begin_comment
+comment|/**  * A vetoable {@link org.apache.camel.spi.Synchronization}.  *<p/>  * When using {@link org.apache.camel.spi.Synchronization} they are normally executed  * when the {@link org.apache.camel.Exchange} complete at the end. If the {@link org.apache.camel.Exchange}  * is processed asynchronously the {@link org.apache.camel.spi.Synchronization} will be handed  * over to the next thread. This ensures for example the file consumer will delete the processed file at the very  * end, when the {@link org.apache.camel.Exchange} has been completed succesfully.  *<p/>  * However there may be situations where you do not want to handover certain {@link org.apache.camel.spi.Synchronization}  * , such as when doing asynchronously request/reply over SEDA or VM endpoints.  *  * @version $Revision$  */
+end_comment
+
+begin_interface
+DECL|interface|SynchronizationVetoable
+specifier|public
+interface|interface
+name|SynchronizationVetoable
+extends|extends
+name|Synchronization
+block|{
+comment|/**      * Whether or not handover this synchronization is allowed.      *<p/>      * For example when an {@link org.apache.camel.Exchange} is being routed      * from one thread to another thread, such as using toAsync etc.      *      * @return<tt>true</tt> to allow handover,<tt>false</tt> to deny.      */
+DECL|method|allowHandover ()
+name|boolean
+name|allowHandover
+parameter_list|()
+function_decl|;
+block|}
+end_interface
+
+end_unit
+

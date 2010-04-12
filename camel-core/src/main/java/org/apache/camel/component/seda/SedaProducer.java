@@ -430,6 +430,19 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|boolean
+name|allowHandover
+parameter_list|()
+block|{
+comment|// do not allow handover as we want to seda producer to have its completion triggered
+comment|// at this point in the routing (at this leg), instead of at the very last (this ensure timeout is honored)
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|String
 name|toString
 parameter_list|()
@@ -522,6 +535,12 @@ argument_list|,
 name|timeout
 argument_list|)
 argument_list|)
+expr_stmt|;
+comment|// count down to indicate timeout
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

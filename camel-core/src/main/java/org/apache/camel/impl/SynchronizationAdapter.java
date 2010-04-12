@@ -42,6 +42,20 @@ name|Synchronization
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|SynchronizationVetoable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Simple {@link Synchronization} adapter with empty methods for easier overriding  * of single methods.  *  * @version $Revision$  */
 end_comment
@@ -52,7 +66,7 @@ specifier|public
 class|class
 name|SynchronizationAdapter
 implements|implements
-name|Synchronization
+name|SynchronizationVetoable
 block|{
 DECL|method|onComplete (Exchange exchange)
 specifier|public
@@ -94,6 +108,17 @@ name|exchange
 parameter_list|)
 block|{
 comment|// noop
+block|}
+DECL|method|allowHandover ()
+specifier|public
+name|boolean
+name|allowHandover
+parameter_list|()
+block|{
+comment|// allow by default
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class
