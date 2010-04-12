@@ -153,10 +153,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ErrorHandlerDefintionParserTest
+DECL|class|ErrorHandlerDefinitionParserTest
 specifier|public
 class|class
-name|ErrorHandlerDefintionParserTest
+name|ErrorHandlerDefinitionParserTest
 extends|extends
 name|TestCase
 block|{
@@ -435,7 +435,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"get worng deadletteruri "
+literal|"get worng deadletteruri"
 argument_list|,
 literal|"log:dead"
 argument_list|,
