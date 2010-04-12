@@ -438,7 +438,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/concurrent"
+literal|"file://target/concurrent?sortBy=file:name"
 argument_list|)
 operator|.
 name|setHeader
@@ -764,7 +764,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/concurrent"
+literal|"file://target/concurrent?sortBy=file:name"
 argument_list|)
 operator|.
 name|setHeader
