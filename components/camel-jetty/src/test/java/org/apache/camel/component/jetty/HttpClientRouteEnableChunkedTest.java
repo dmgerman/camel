@@ -331,6 +331,17 @@ literal|"Transfer-Encoding"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// remove the system property
+name|System
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|"HTTPClient.dontChunkRequests"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
