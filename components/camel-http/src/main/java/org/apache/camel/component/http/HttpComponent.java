@@ -193,7 +193,7 @@ specifier|protected
 name|HttpBinding
 name|httpBinding
 decl_stmt|;
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param  consumer the consumer      * @throws Exception can be thrown      */
+comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -205,7 +205,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Disconnects the URL specified on the endpoint from the specified processor.      *      * @param  consumer the consumer      * @throws Exception can be thrown      */
+comment|/**      * Disconnects the URL specified on the endpoint from the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -217,11 +217,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**       * Setting http binding and http client configurer according to the parameters      * Also setting the BasicAuthenticationHttpClientConfigurer if the username       * and password option are not null.      *       * @param parameters the map of parameters       */
-DECL|method|configureParameters (Map<String, Object> parameters)
+comment|/**       * Creates the HttpClientConfigurer based on the given parameters      *       * @param parameters the map of parameters       * @return the configurer      */
+DECL|method|createHttpClientConfigurer (Map<String, Object> parameters)
 specifier|protected
-name|void
-name|configureParameters
+name|HttpClientConfigurer
+name|createHttpClientConfigurer
 parameter_list|(
 name|Map
 argument_list|<
@@ -232,38 +232,10 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-comment|// lookup http binding in registry if provided
-if|if
-condition|(
-name|httpBinding
-operator|==
-literal|null
-condition|)
-block|{
-name|httpBinding
-operator|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"httpBindingRef"
-argument_list|,
-name|HttpBinding
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-comment|// lookup http client front configurer in the registry if provided
-if|if
-condition|(
-name|httpClientConfigurer
-operator|==
-literal|null
-condition|)
-block|{
-name|httpClientConfigurer
-operator|=
+comment|// prefer to use endpoint configured over component configured
+name|HttpClientConfigurer
+name|configurer
+init|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -274,6 +246,19 @@ name|HttpClientConfigurer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|configurer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to component configured
+name|configurer
+operator|=
+name|getHttpClientConfigurer
+argument_list|()
 expr_stmt|;
 block|}
 comment|// check the user name and password for basic authentication
@@ -344,13 +329,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|httpClientConfigurer
+name|configurer
 operator|=
 name|CompositeHttpConfigurer
 operator|.
 name|combineConfigurers
 argument_list|(
-name|httpClientConfigurer
+name|configurer
 argument_list|,
 operator|new
 name|BasicAuthenticationHttpClientConfigurer
@@ -473,13 +458,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|httpClientConfigurer
+name|configurer
 operator|=
 name|CompositeHttpConfigurer
 operator|.
 name|combineConfigurers
 argument_list|(
-name|httpClientConfigurer
+name|configurer
 argument_list|,
 operator|new
 name|ProxyHttpClientConfigurer
@@ -501,13 +486,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|httpClientConfigurer
+name|configurer
 operator|=
 name|CompositeHttpConfigurer
 operator|.
 name|combineConfigurers
 argument_list|(
-name|httpClientConfigurer
+name|configurer
 argument_list|,
 operator|new
 name|ProxyHttpClientConfigurer
@@ -520,6 +505,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|configurer
+return|;
 block|}
 annotation|@
 name|Override
@@ -545,41 +533,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// http client can be configured from URI options
-name|HttpClientParams
-name|clientParams
+comment|// must extract well known parameters before we create the endpoint
+name|HttpBinding
+name|binding
 init|=
-operator|new
-name|HttpClientParams
-argument_list|()
-decl_stmt|;
-name|IntrospectionSupport
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpBindingRef"
+argument_list|,
+name|HttpBinding
 operator|.
-name|setProperties
-argument_list|(
-name|clientParams
-argument_list|,
-name|parameters
-argument_list|,
-literal|"httpClient."
+name|class
 argument_list|)
-expr_stmt|;
-comment|// validate that we could resolve all httpClient. parameters as this component is lenient
-name|validateParameters
-argument_list|(
-name|uri
-argument_list|,
-name|parameters
-argument_list|,
-literal|"httpClient."
-argument_list|)
-expr_stmt|;
-name|configureParameters
-argument_list|(
-name|parameters
-argument_list|)
-expr_stmt|;
-comment|// should we use an exception for failed error codes?
+decl_stmt|;
 name|Boolean
 name|throwExceptionOnFailure
 init|=
@@ -611,20 +579,53 @@ decl_stmt|;
 name|Boolean
 name|matchOnUriPrefix
 init|=
-name|Boolean
-operator|.
-name|parseBoolean
-argument_list|(
 name|getAndRemoveParameter
 argument_list|(
 name|parameters
 argument_list|,
 literal|"matchOnUriPrefix"
 argument_list|,
-name|String
+name|Boolean
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// http client can be configured from URI options
+name|HttpClientParams
+name|clientParams
+init|=
+operator|new
+name|HttpClientParams
+argument_list|()
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|clientParams
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
+comment|// validate that we could resolve all httpClient. parameters as this component is lenient
+name|validateParameters
+argument_list|(
+name|uri
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
+comment|// create the configurer to use for this endpoint
+name|HttpClientConfigurer
+name|configurer
+init|=
+name|createHttpClientConfigurer
+argument_list|(
+name|parameters
 argument_list|)
 decl_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
@@ -707,6 +708,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// create the endpoint
 name|HttpEndpoint
 name|endpoint
 init|=
@@ -723,12 +725,32 @@ name|clientParams
 argument_list|,
 name|httpConnectionManager
 argument_list|,
-name|httpClientConfigurer
+name|configurer
 argument_list|)
 decl_stmt|;
+name|setEndpointHeaderFilterStrategy
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+comment|// prefer to use endpoint configured over component configured
 if|if
 condition|(
-name|httpBinding
+name|binding
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to component configured
+name|binding
+operator|=
+name|getHttpBinding
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|binding
 operator|!=
 literal|null
 condition|)
@@ -737,15 +759,11 @@ name|endpoint
 operator|.
 name|setBinding
 argument_list|(
-name|httpBinding
+name|binding
 argument_list|)
 expr_stmt|;
 block|}
-name|setEndpointHeaderFilterStrategy
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
+comment|// should we use an exception for failed error codes?
 if|if
 condition|(
 name|throwExceptionOnFailure

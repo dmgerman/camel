@@ -54,16 +54,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -80,12 +70,10 @@ name|HttpClientConfigurerTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|expectedText
-specifier|protected
-name|String
-name|expectedText
-init|=
-literal|"activemq"
+DECL|field|configurer
+specifier|private
+name|HttpClientConfigurer
+name|configurer
 decl_stmt|;
 annotation|@
 name|Test
@@ -98,7 +86,7 @@ throws|throws
 name|Exception
 block|{
 name|HttpClientConfigurer
-name|configurer
+name|gotConfigurer
 init|=
 name|getMandatoryEndpoint
 argument_list|(
@@ -112,11 +100,11 @@ operator|.
 name|getHttpClientConfigurer
 argument_list|()
 decl_stmt|;
-name|assertNotNull
+name|assertSame
 argument_list|(
-literal|"Client configurer should not be null!"
-argument_list|,
 name|configurer
+argument_list|,
+name|gotConfigurer
 argument_list|)
 expr_stmt|;
 block|}
@@ -140,9 +128,9 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|ProxyHttpClientConfigurer
+comment|// add configurer to http component
 name|configurer
-init|=
+operator|=
 operator|new
 name|ProxyHttpClientConfigurer
 argument_list|(
@@ -158,7 +146,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|getContext
 argument_list|()
 operator|.

@@ -369,12 +369,15 @@ argument_list|,
 literal|"httpClient."
 argument_list|)
 expr_stmt|;
-comment|// configure regular parameters
-name|configureParameters
+comment|// create the configurer to use for this endpoint
+name|HttpClientConfigurer
+name|configurer
+init|=
+name|createHttpClientConfigurer
 argument_list|(
 name|parameters
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// must extract well known parameters before we create the endpoint
 name|HttpBinding
 name|binding
@@ -454,7 +457,7 @@ argument_list|,
 name|getHttpConnectionManager
 argument_list|()
 argument_list|,
-name|httpClientConfigurer
+name|configurer
 argument_list|)
 decl_stmt|;
 name|setEndpointHeaderFilterStrategy
