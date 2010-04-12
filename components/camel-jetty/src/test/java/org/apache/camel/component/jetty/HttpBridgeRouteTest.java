@@ -153,7 +153,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong response"
 argument_list|,
-literal|"/test/hello"
+literal|"/"
 argument_list|,
 name|response
 argument_list|)
