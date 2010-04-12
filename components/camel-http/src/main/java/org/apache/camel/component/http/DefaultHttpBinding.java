@@ -868,6 +868,31 @@ name|contentEncoding
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|checkChunked
+argument_list|(
+name|response
+argument_list|,
+name|response
+operator|.
+name|getExchange
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|response
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|TRANSFER_ENCODING
+argument_list|,
+literal|"chunked"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response)
 specifier|public
@@ -1162,7 +1187,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|checkChucked
+name|checkChunked
 argument_list|(
 name|message
 argument_list|,
@@ -1300,10 +1325,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|checkChucked (Message message, Exchange exchange)
+DECL|method|checkChunked (Message message, Exchange exchange)
 specifier|protected
 name|boolean
-name|checkChucked
+name|checkChunked
 parameter_list|(
 name|Message
 name|message
