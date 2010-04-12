@@ -633,7 +633,9 @@ name|inMsg
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelHttpQuery"
+name|Exchange
+operator|.
+name|HTTP_QUERY
 argument_list|,
 name|httpQuery
 argument_list|)
@@ -650,7 +652,9 @@ name|inMsg
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelHttpMethod"
+name|Exchange
+operator|.
+name|HTTP_METHOD
 argument_list|,
 name|httpMethod
 argument_list|)
@@ -671,6 +675,8 @@ parameter_list|,
 name|String
 name|httpPath
 parameter_list|)
+throws|throws
+name|URISyntaxException
 block|{
 name|CamelContext
 name|context
@@ -679,7 +685,7 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-name|Exchange
+name|DefaultExchange
 name|exchange
 init|=
 operator|new
@@ -707,7 +713,9 @@ name|inMsg
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelHttpUri"
+name|Exchange
+operator|.
+name|HTTP_URI
 argument_list|,
 name|endpointURI
 argument_list|)
@@ -724,7 +732,9 @@ name|inMsg
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelHttpPath"
+name|Exchange
+operator|.
+name|HTTP_PATH
 argument_list|,
 name|httpPath
 argument_list|)
