@@ -236,11 +236,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fix me later"
-argument_list|)
 DECL|method|testSendMultiPartForm ()
 specifier|public
 name|void
@@ -282,9 +277,9 @@ block|{
 operator|new
 name|StringPart
 argument_list|(
-literal|"param_name"
+literal|"comment"
 argument_list|,
-literal|"NOTICE.txt"
+literal|"A binary file of some kind"
 argument_list|)
 block|,
 operator|new
