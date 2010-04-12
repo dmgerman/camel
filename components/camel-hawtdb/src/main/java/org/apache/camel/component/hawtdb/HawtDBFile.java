@@ -108,11 +108,9 @@ name|fusesource
 operator|.
 name|hawtdb
 operator|.
-name|internal
+name|api
 operator|.
-name|page
-operator|.
-name|HawtPageFile
+name|TxPageFile
 import|;
 end_import
 
@@ -124,11 +122,9 @@ name|fusesource
 operator|.
 name|hawtdb
 operator|.
-name|internal
+name|api
 operator|.
-name|page
-operator|.
-name|HawtPageFileFactory
+name|TxPageFileFactory
 import|;
 end_import
 
@@ -206,7 +202,7 @@ specifier|public
 class|class
 name|HawtDBFile
 extends|extends
-name|HawtPageFileFactory
+name|TxPageFileFactory
 implements|implements
 name|Service
 block|{
@@ -273,7 +269,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|pageFile
 specifier|private
-name|HawtPageFile
+name|TxPageFile
 name|pageFile
 decl_stmt|;
 static|static
@@ -386,7 +382,8 @@ name|boolean
 name|initialize
 init|=
 operator|!
-name|file
+name|getFile
+argument_list|()
 operator|.
 name|exists
 argument_list|()
@@ -396,7 +393,7 @@ argument_list|()
 expr_stmt|;
 name|pageFile
 operator|=
-name|getHawtPageFile
+name|getTxPageFile
 argument_list|()
 expr_stmt|;
 name|execute
