@@ -17,6 +17,16 @@ end_empty_stmt
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -35,36 +45,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents the component that manages {@link DirectEndpoint}. It holds the  * list of named direct endpoints.  *  * @version  */
+comment|/**  * Represents the component that manages {@link DirectEndpoint}. It holds the  * list of named direct endpoints.  *  * @version $Revision$  */
 end_comment
 
 begin_class
