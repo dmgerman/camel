@@ -435,7 +435,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"get worng deadletteruri"
+literal|"Get wrong deadletteruri"
 argument_list|,
 literal|"log:dead"
 argument_list|,
