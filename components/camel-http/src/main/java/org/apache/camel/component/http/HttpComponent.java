@@ -254,6 +254,28 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// try without ref
+name|configurer
+operator|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpClientConfigurer"
+argument_list|,
+name|HttpClientConfigurer
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|configurer
+operator|==
+literal|null
+condition|)
+block|{
 comment|// fallback to component configured
 name|configurer
 operator|=
@@ -548,6 +570,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|binding
+operator|==
+literal|null
+condition|)
+block|{
+comment|// try without ref
+name|binding
+operator|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpBinding"
+argument_list|,
+name|HttpBinding
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 name|Boolean
 name|throwExceptionOnFailure
 init|=
