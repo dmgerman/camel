@@ -20,23 +20,11 @@ name|validator
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|BeanValidatorXMLConfigurationRouteTest
 specifier|public
 class|class
