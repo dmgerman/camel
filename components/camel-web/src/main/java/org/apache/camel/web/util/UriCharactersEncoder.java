@@ -374,11 +374,11 @@ return|;
 block|}
 block|}
 comment|// okay there are some unsafe characters so we do need to encode
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -436,13 +436,13 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|appendEscape (StringBuffer sb, byte b)
+DECL|method|appendEscape (StringBuilder sb, byte b)
 specifier|private
 specifier|static
 name|void
 name|appendEscape
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|byte

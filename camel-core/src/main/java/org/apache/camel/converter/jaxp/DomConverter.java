@@ -122,11 +122,11 @@ name|NodeList
 name|nodeList
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|append
@@ -155,11 +155,11 @@ name|NodeList
 name|nodeList
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|append
@@ -198,11 +198,11 @@ name|NodeList
 name|nodeList
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|append
@@ -229,13 +229,13 @@ name|s
 argument_list|)
 return|;
 block|}
-DECL|method|append (StringBuffer buffer, NodeList nodeList)
+DECL|method|append (StringBuilder buffer, NodeList nodeList)
 specifier|private
 specifier|static
 name|void
 name|append
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|buffer
 parameter_list|,
 name|NodeList
@@ -279,13 +279,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|append (StringBuffer buffer, Node node)
+DECL|method|append (StringBuilder buffer, Node node)
 specifier|private
 specifier|static
 name|void
 name|append
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|buffer
 parameter_list|,
 name|Node

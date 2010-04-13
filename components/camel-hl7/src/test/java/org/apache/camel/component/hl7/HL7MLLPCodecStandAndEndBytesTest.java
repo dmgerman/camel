@@ -412,11 +412,11 @@ name|line2
 init|=
 literal|"QRD|200612211200|R|I|GetPatient|||1^RD|0101701234|DEM||"
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|in
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|in

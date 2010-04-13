@@ -200,7 +200,7 @@ operator|.
 name|setBody
 argument_list|(
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 operator|.
 name|append

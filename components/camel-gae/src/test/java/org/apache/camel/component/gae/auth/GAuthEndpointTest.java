@@ -216,11 +216,11 @@ name|scope
 init|=
 literal|"http://scope1.example.org,http://scope2.example.org"
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"gauth://authorize"
 argument_list|)

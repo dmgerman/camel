@@ -105,11 +105,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|out
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|in
 operator|.

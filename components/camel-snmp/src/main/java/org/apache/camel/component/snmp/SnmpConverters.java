@@ -222,11 +222,11 @@ name|pdu
 parameter_list|)
 block|{
 comment|// the output buffer
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 comment|// prepare the header

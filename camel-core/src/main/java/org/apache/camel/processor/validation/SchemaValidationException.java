@@ -269,11 +269,11 @@ argument_list|>
 name|warnings
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"Validation failed for: "
 argument_list|)

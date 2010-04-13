@@ -183,7 +183,7 @@ literal|"java.lang.String, "
 operator|+
 literal|"org.apache.camel.component.cxf.converter.ConverterTest ;"
 operator|+
-literal|"java.lang.StringBuffer"
+literal|"java.lang.StringBuilder"
 decl_stmt|;
 name|List
 argument_list|<
@@ -253,7 +253,7 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|,
-name|StringBuffer
+name|StringBuilder
 operator|.
 name|class
 argument_list|)

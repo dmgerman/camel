@@ -121,11 +121,11 @@ throws|throws
 name|Exception
 block|{
 comment|// create a big body
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for

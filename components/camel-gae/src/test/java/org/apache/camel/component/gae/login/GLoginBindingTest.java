@@ -268,11 +268,11 @@ operator|new
 name|GLoginBinding
 argument_list|()
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"glogin:test.appspot.com"
 argument_list|)

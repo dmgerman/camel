@@ -103,11 +103,11 @@ throws|throws
 name|Exception
 block|{
 comment|// test internet hostname
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"glogin:test.appspot.com"
 argument_list|)

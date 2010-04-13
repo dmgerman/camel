@@ -116,18 +116,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ResolveEndpointFailedException
-import|;
-end_import
-
 begin_comment
 comment|/**  * URI utilities.  *  * @version $Revision$  */
 end_comment
@@ -592,11 +580,11 @@ operator|>
 literal|0
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|rc
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|boolean
