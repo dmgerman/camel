@@ -402,6 +402,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ErrorHandlerBuilder with id "
+operator|+
+name|ref
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|answer
@@ -472,6 +491,25 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ErrorHandlerBuilder with id "
+operator|+
+name|otherRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 return|return
