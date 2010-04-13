@@ -732,8 +732,7 @@ block|}
 block|}
 block|}
 DECL|class|RedeliveryPolicyDefinitionParser
-specifier|private
-specifier|final
+specifier|protected
 class|class
 name|RedeliveryPolicyDefinitionParser
 extends|extends
