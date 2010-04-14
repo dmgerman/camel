@@ -256,12 +256,19 @@ operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 name|contextConfigLocation
-block|}
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started the application context rightly"
 argument_list|)
 expr_stmt|;
 block|}
