@@ -354,8 +354,8 @@ name|pendingExchanges
 operator|=
 literal|0
 expr_stmt|;
-comment|// before we poll is there anything we need to check ? Such as are we
-comment|// connected to the FTP Server Still ?
+comment|// before we poll is there anything we need to check?
+comment|// such as are we connected to the FTP Server still?
 if|if
 condition|(
 operator|!
@@ -791,7 +791,7 @@ name|key
 init|=
 name|file
 operator|.
-name|getFileName
+name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
 name|endpoint
@@ -980,6 +980,16 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must extract the absolute name before the begin strategy as the file could potentially be pre moved
+comment|// and then the file name would be changed
+name|String
+name|absoluteFileName
+init|=
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 specifier|final
@@ -1044,10 +1054,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|file
-operator|.
-name|getFileName
-argument_list|()
+name|absoluteFileName
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1154,14 +1161,6 @@ expr_stmt|;
 block|}
 comment|// register on completion callback that does the completion strategies
 comment|// (for instance to move the file after we have processed it)
-name|String
-name|originalFileName
-init|=
-name|file
-operator|.
-name|getFileName
-argument_list|()
-decl_stmt|;
 name|exchange
 operator|.
 name|addOnCompletion
@@ -1178,7 +1177,7 @@ name|operations
 argument_list|,
 name|target
 argument_list|,
-name|originalFileName
+name|absoluteFileName
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1205,7 +1204,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
+comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1276,12 +1275,11 @@ name|contains
 argument_list|(
 name|file
 operator|.
-name|getFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// only use the filename as the key as the file could be moved into a done folder
 if|if
 condition|(
 name|log
@@ -1527,7 +1525,7 @@ name|key
 init|=
 name|file
 operator|.
-name|getFileName
+name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
 return|return

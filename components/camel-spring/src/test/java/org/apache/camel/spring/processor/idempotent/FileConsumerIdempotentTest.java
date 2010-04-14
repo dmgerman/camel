@@ -97,6 +97,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -189,16 +203,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertFalse
-argument_list|(
-name|repo
-operator|.
-name|contains
-argument_list|(
-literal|"report.txt"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// send a file
 name|template
 operator|.
@@ -295,13 +299,34 @@ comment|// should NOT consume the file again, let 2 secs pass to let the consume
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|String
+name|name
+init|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"target/fileidempotent/report.txt"
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"Should contain file: "
+operator|+
+name|name
+argument_list|,
 name|repo
 operator|.
 name|contains
 argument_list|(
-literal|"report.txt"
+name|name
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -160,12 +160,12 @@ name|T
 argument_list|>
 name|file
 decl_stmt|;
-DECL|field|originalFileName
+DECL|field|absoluteFileName
 specifier|private
 name|String
-name|originalFileName
+name|absoluteFileName
 decl_stmt|;
-DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file, String originalFileName)
+DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file, String absoluteFileName)
 specifier|public
 name|GenericFileOnCompletion
 parameter_list|(
@@ -188,7 +188,7 @@ argument_list|>
 name|file
 parameter_list|,
 name|String
-name|originalFileName
+name|absoluteFileName
 parameter_list|)
 block|{
 name|this
@@ -211,9 +211,9 @@ name|file
 expr_stmt|;
 name|this
 operator|.
-name|originalFileName
+name|absoluteFileName
 operator|=
-name|originalFileName
+name|absoluteFileName
 expr_stmt|;
 block|}
 DECL|method|onComplete (Exchange exchange)
@@ -420,7 +420,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|originalFileName
+name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
@@ -456,7 +456,6 @@ argument_list|()
 condition|)
 block|{
 comment|// only add to idempotent repository if we could process the file
-comment|// only use the filename as the key as the file could be moved into a done folder
 name|endpoint
 operator|.
 name|getIdempotentRepository
@@ -464,10 +463,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|file
-operator|.
-name|getFileName
-argument_list|()
+name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
