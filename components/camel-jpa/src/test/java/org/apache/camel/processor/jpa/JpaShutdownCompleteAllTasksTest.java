@@ -485,11 +485,6 @@ operator|.
 name|CompleteAllTasks
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-literal|1000
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"seda:foo"
@@ -500,9 +495,9 @@ argument_list|(
 literal|"seda:foo"
 argument_list|)
 operator|.
-name|routeId
+name|delay
 argument_list|(
-literal|"route2"
+literal|1000
 argument_list|)
 operator|.
 name|to
@@ -531,7 +526,7 @@ name|bar
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
