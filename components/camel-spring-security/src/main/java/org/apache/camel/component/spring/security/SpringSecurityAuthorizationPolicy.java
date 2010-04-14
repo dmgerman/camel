@@ -410,14 +410,41 @@ decl_stmt|;
 try|try
 block|{
 name|Authentication
-name|authenticated
+name|authToken
 init|=
-name|authenticateIfRequired
-argument_list|(
 name|getAuthentication
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|authToken
+operator|==
+literal|null
+condition|)
+block|{
+name|CamelAuthorizationException
+name|authorizationException
+init|=
+operator|new
+name|CamelAuthorizationException
+argument_list|(
+literal|"Cannot find the Authentication instance."
+argument_list|,
+name|exchange
+argument_list|)
+decl_stmt|;
+throw|throw
+name|authorizationException
+throw|;
+block|}
+name|Authentication
+name|authenticated
+init|=
+name|authenticateIfRequired
+argument_list|(
+name|authToken
 argument_list|)
 decl_stmt|;
 comment|// Attempt authorization with exchange
@@ -493,7 +520,7 @@ init|=
 operator|new
 name|CamelAuthorizationException
 argument_list|(
-literal|"Cannot access the below process"
+literal|"Cannot access the processor which has been protected."
 argument_list|,
 name|exchange
 argument_list|,
