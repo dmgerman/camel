@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -109,8 +97,6 @@ class|class
 name|DirectProducer
 extends|extends
 name|DefaultProducer
-implements|implements
-name|Processor
 block|{
 DECL|field|LOG
 specifier|private
