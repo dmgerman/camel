@@ -182,11 +182,39 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
 operator|.
 name|BeansException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|DisposableBean
 import|;
 end_import
 
@@ -272,10 +300,19 @@ name|FactoryBean
 implements|,
 name|InitializingBean
 implements|,
+name|DisposableBean
+implements|,
 name|CamelContextAware
 implements|,
 name|ApplicationContextAware
 block|{
+annotation|@
+name|XmlTransient
+DECL|field|template
+specifier|private
+name|ProducerTemplate
+name|template
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -371,9 +408,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ProducerTemplate
-name|answer
-decl_stmt|;
 name|CamelContext
 name|context
 init|=
@@ -416,7 +450,7 @@ throw|;
 block|}
 else|else
 block|{
-name|answer
+name|template
 operator|=
 operator|new
 name|DefaultProducerTemplate
@@ -430,7 +464,7 @@ block|}
 block|}
 else|else
 block|{
-name|answer
+name|template
 operator|=
 operator|new
 name|DefaultProducerTemplate
@@ -447,7 +481,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|answer
+name|template
 operator|.
 name|setMaximumCacheSize
 argument_list|(
@@ -456,13 +490,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// must start it so its ready to use
-name|answer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|template
+argument_list|)
 expr_stmt|;
 return|return
-name|answer
+name|template
 return|;
 block|}
 DECL|method|getObjectType ()
@@ -484,8 +520,24 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
+block|}
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------

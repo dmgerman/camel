@@ -170,11 +170,39 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
 operator|.
 name|BeansException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|DisposableBean
 import|;
 end_import
 
@@ -260,10 +288,19 @@ name|FactoryBean
 implements|,
 name|InitializingBean
 implements|,
+name|DisposableBean
+implements|,
 name|CamelContextAware
 implements|,
 name|ApplicationContextAware
 block|{
+annotation|@
+name|XmlTransient
+DECL|field|template
+specifier|private
+name|ConsumerTemplate
+name|template
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|camelContextId
@@ -347,15 +384,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ConsumerTemplate
-name|answer
-init|=
+name|template
+operator|=
 operator|new
 name|DefaultConsumerTemplate
 argument_list|(
 name|camelContext
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// set custom cache size if provided
 if|if
 condition|(
@@ -364,7 +400,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|answer
+name|template
 operator|.
 name|setMaximumCacheSize
 argument_list|(
@@ -373,13 +409,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// must start it so its ready to use
-name|answer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|template
+argument_list|)
 expr_stmt|;
 return|return
-name|answer
+name|template
 return|;
 block|}
 DECL|method|getObjectType ()
@@ -401,8 +439,24 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
+block|}
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
