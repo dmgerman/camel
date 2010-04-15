@@ -64,6 +64,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -147,20 +157,6 @@ operator|.
 name|exec
 operator|.
 name|ExecResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -290,8 +286,24 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
-comment|/**  * Executes the command utilizing the<a  * href="http://commons.apache.org/exec/">Apache Commmons exec library</a>. Adds  * a shutdown hook for every executed process.  */
+comment|/**  * Executes the command utilizing the<a  * href="http://commons.apache.org/exec/">Apache Commons exec library</a>. Adds  * a shutdown hook for every executed process.  */
 end_comment
 
 begin_class
@@ -327,8 +339,6 @@ name|ExecCommand
 name|command
 parameter_list|)
 block|{
-name|ObjectHelper
-operator|.
 name|notNull
 argument_list|(
 name|command
@@ -349,15 +359,6 @@ init|=
 operator|new
 name|ByteArrayOutputStream
 argument_list|()
-decl_stmt|;
-name|ExecResult
-name|result
-init|=
-operator|new
-name|ExecResult
-argument_list|(
-name|command
-argument_list|)
 decl_stmt|;
 name|DefaultExecutor
 name|executor
@@ -412,17 +413,20 @@ argument_list|(
 name|cl
 argument_list|)
 decl_stmt|;
-name|result
+comment|// if the size is zero, we have no output, so construct the result
+comment|// with null (required by ExecResult)
+name|InputStream
+name|stdout
+init|=
+name|out
 operator|.
-name|setExitValue
-argument_list|(
-name|exitValue
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|setStdout
-argument_list|(
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
 operator|new
 name|ByteArrayInputStream
 argument_list|(
@@ -431,12 +435,19 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|result
+decl_stmt|;
+name|InputStream
+name|stderr
+init|=
+name|err
 operator|.
-name|setStderr
-argument_list|(
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
 operator|new
 name|ByteArrayInputStream
 argument_list|(
@@ -445,8 +456,22 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|ExecResult
+name|result
+init|=
+operator|new
+name|ExecResult
+argument_list|(
+name|command
+argument_list|,
+name|stdout
+argument_list|,
+name|stderr
+argument_list|,
+name|exitValue
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
 name|result
 return|;
@@ -618,7 +643,7 @@ return|return
 name|executor
 return|;
 block|}
-comment|/**      * Transforms an exec command to a {@link CommandLine}      *       * @param execCommand      * @return a {@link CommandLine} object      */
+comment|/**      * Transforms an {@link ExecCommand} to a {@link CommandLine}. No quoting fo      * the arguments is used.      *       * @param execCommand a not-null<code>ExecCommand</code> instance.      * @return a {@link CommandLine} object.      */
 DECL|method|toCommandLine (ExecCommand execCommand)
 specifier|protected
 name|CommandLine
@@ -628,6 +653,13 @@ name|ExecCommand
 name|execCommand
 parameter_list|)
 block|{
+name|notNull
+argument_list|(
+name|execCommand
+argument_list|,
+literal|"execCommand"
+argument_list|)
+expr_stmt|;
 name|CommandLine
 name|cl
 init|=

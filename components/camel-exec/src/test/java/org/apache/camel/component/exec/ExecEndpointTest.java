@@ -757,7 +757,7 @@ block|{
 name|String
 name|executable
 init|=
-literal|"\"C:/Program Files/test/text.exe\""
+literal|"C:/Program Files/test/text.exe"
 decl_stmt|;
 name|String
 name|uri

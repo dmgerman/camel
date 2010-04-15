@@ -24,16 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -48,8 +38,24 @@ name|Serializable
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents the result of the execution of an {@link ExecCommand}  */
+comment|/**  * Value object, that represents the result of an {@link ExecCommand} execution.  */
 end_comment
 
 begin_class
@@ -78,27 +84,47 @@ name|command
 decl_stmt|;
 DECL|field|exitValue
 specifier|private
+specifier|final
 name|int
 name|exitValue
 decl_stmt|;
 DECL|field|stdout
 specifier|private
+specifier|final
 name|InputStream
 name|stdout
 decl_stmt|;
 DECL|field|stderr
 specifier|private
+specifier|final
 name|InputStream
 name|stderr
 decl_stmt|;
-DECL|method|ExecResult (ExecCommand command)
+comment|/**      * Creates a<code>ExecResult</code> instance.      *       * @param command A not-null reference of {@link ExecCommand}, that produced      *            the result.      * @param stdout InputStream with the stdout of the command executable. If      *            there was no stdout, the value must be<code>null</code>.      * @param stderr InputStream with the stderr of the command executable. If      *            there was no stderr, the value must be<code>null</code>.      * @param exitValue the exit value of the command executable.      */
+DECL|method|ExecResult (ExecCommand command, InputStream stdout, InputStream stderr, int exitValue)
 specifier|public
 name|ExecResult
 parameter_list|(
 name|ExecCommand
 name|command
+parameter_list|,
+name|InputStream
+name|stdout
+parameter_list|,
+name|InputStream
+name|stderr
+parameter_list|,
+name|int
+name|exitValue
 parameter_list|)
 block|{
+name|notNull
+argument_list|(
+name|command
+argument_list|,
+literal|"command"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|command
@@ -109,32 +135,22 @@ name|this
 operator|.
 name|stdout
 operator|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-operator|new
-name|byte
-index|[
-literal|0
-index|]
-argument_list|)
+name|stdout
 expr_stmt|;
 name|this
 operator|.
 name|stderr
 operator|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-operator|new
-name|byte
-index|[
-literal|0
-index|]
-argument_list|)
+name|stderr
+expr_stmt|;
+name|this
+operator|.
+name|exitValue
+operator|=
+name|exitValue
 expr_stmt|;
 block|}
-comment|/**      * @return The command, that produced this result      */
+comment|/**      * The executed command, that produced this result. The returned object is      * never<code>null</code>.      *       * @return The executed command, that produced this result.      */
 DECL|method|getCommand ()
 specifier|public
 name|ExecCommand
@@ -145,7 +161,7 @@ return|return
 name|command
 return|;
 block|}
-comment|/**      * @return The exit value of the command executable      */
+comment|/**      * The exit value of the command executable.      *       * @return The exit value of the command executable      */
 DECL|method|getExitValue ()
 specifier|public
 name|int
@@ -156,23 +172,7 @@ return|return
 name|exitValue
 return|;
 block|}
-DECL|method|setExitValue (int exitValue)
-specifier|public
-name|void
-name|setExitValue
-parameter_list|(
-name|int
-name|exitValue
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exitValue
-operator|=
-name|exitValue
-expr_stmt|;
-block|}
-comment|/**      * @return The stdout of the command executable      */
+comment|/**      * Returns the content of the standart output (stdout) of the executed      * command or<code>null</code>, if no output was produced in the stdout.      *       * @return The standart output (stdout) of the command executable.      */
 DECL|method|getStdout ()
 specifier|public
 name|InputStream
@@ -183,23 +183,7 @@ return|return
 name|stdout
 return|;
 block|}
-DECL|method|setStdout (InputStream stdout)
-specifier|public
-name|void
-name|setStdout
-parameter_list|(
-name|InputStream
-name|stdout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|stdout
-operator|=
-name|stdout
-expr_stmt|;
-block|}
-comment|/**      * @return The stderr of the command executable      */
+comment|/**      * Returns the content of the standart error output (stderr) of the executed      * command or<code>null</code>, if no output was produced in the stderr.      *       * @return The standart error output (stderr) of the command executable.      */
 DECL|method|getStderr ()
 specifier|public
 name|InputStream
@@ -209,22 +193,6 @@ block|{
 return|return
 name|stderr
 return|;
-block|}
-DECL|method|setStderr (InputStream stderr)
-specifier|public
-name|void
-name|setStderr
-parameter_list|(
-name|InputStream
-name|stderr
-parameter_list|)
-block|{
-name|this
-operator|.
-name|stderr
-operator|=
-name|stderr
-expr_stmt|;
 block|}
 block|}
 end_class

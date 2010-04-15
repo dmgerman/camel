@@ -52,7 +52,7 @@ specifier|public
 interface|interface
 name|ExecCommandExecutor
 block|{
-comment|/**      * Executes the<code>command</code> and returns its exit value      *       * @param execCommand The command object, that describes the executable      *            application      * @throws ExecuteException if the execution failed      * @throws IOException if there is an invalid path in the working directory,      *             or if the absolute path of the command executable is invalid,      *             or if the executable does not exist      */
+comment|/**      * Executes the<code>command</code> and returns a not-<code>null</code>      * {@link ExecResult} instance.      *       * @param execCommand The command object, that describes the executable      *            application      * @throws ExecuteException if the execution failed      * @throws IOException if there is an invalid path in the working directory,      *             or if the absolute path of the command executable is invalid,      *             or if the executable does not exist      */
 DECL|method|execute (ExecCommand execCommand)
 name|ExecResult
 name|execute

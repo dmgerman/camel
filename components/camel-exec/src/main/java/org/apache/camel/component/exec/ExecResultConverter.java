@@ -44,6 +44,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -81,6 +91,20 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|io
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -169,6 +193,38 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|convertToByteArray (ExecResult result, Exchange exchange)
+specifier|public
+specifier|static
+name|byte
+index|[]
+name|convertToByteArray
+parameter_list|(
+name|ExecResult
+name|result
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|FileNotFoundException
+throws|,
+name|IOException
+block|{
+return|return
+name|IOUtils
+operator|.
+name|toByteArray
+argument_list|(
+name|toInputStream
+argument_list|(
+name|result
+argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|convertToString (ExecResult result, Exchange exchange)
 specifier|public
 specifier|static
@@ -220,38 +276,6 @@ argument_list|(
 name|Document
 operator|.
 name|class
-argument_list|,
-name|exchange
-argument_list|,
-name|result
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Converter
-DECL|method|convertToByteArray (ExecResult result, Exchange exchange)
-specifier|public
-specifier|static
-name|byte
-index|[]
-name|convertToByteArray
-parameter_list|(
-name|ExecResult
-name|result
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|FileNotFoundException
-block|{
-return|return
-name|convertTo
-argument_list|(
-name|byte
-index|[]
-operator|.
-expr|class
 argument_list|,
 name|exchange
 argument_list|,
@@ -324,7 +348,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * If the ExecResult contains out file,      *<code>InputStream<code> with the output of the<code>execResult</code>.      * If there is {@link ExecCommand#getOutFile()}, its content is preferred to      * {@link ExecResult#getStdout()}      *       * @param execResult ExecResult object.      * @return InputStream object      * @throws FileNotFoundException if the {@link ExecResult#getOutFile()} is      *             not<code>null</code>, but can not be found      */
+comment|/**      * If the ExecResult contains out file,      *<code>InputStream<code> with the output of the<code>execResult</code>.      * If there is {@link ExecCommand#getOutFile()}, its content is preferred to      * {@link ExecResult#getStdout()}. Returns<code>null</code> if the stdout      * is null, or if the<code>execResult</code> is<code>null</code>.      *       * @param execResult ExecResult object.      * @return InputStream object if the output of the executable.      * @throws FileNotFoundException if the {@link ExecCommand#getOutFile()} is      *             not<code>null</code>, but can not be found      */
 DECL|method|toInputStream (ExecResult execResult)
 specifier|public
 specifier|static
@@ -346,23 +370,15 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Unable to convert a null exec result!"
+literal|"Received a null ExecResult instance to convert!"
 argument_list|)
 expr_stmt|;
 return|return
 literal|null
 return|;
 block|}
-name|InputStream
-name|resultVal
-init|=
-name|execResult
-operator|.
-name|getStdout
-argument_list|()
-decl_stmt|;
 comment|// prefer generic file conversion
 if|if
 condition|(
@@ -377,8 +393,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|resultVal
-operator|=
+return|return
 operator|new
 name|FileInputStream
 argument_list|(
@@ -390,11 +405,35 @@ operator|.
 name|getOutFile
 argument_list|()
 argument_list|)
+return|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|execResult
+operator|.
+name|getStdout
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Received null stdout of the ExecResult for conversion!"
+argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|resultVal
+name|execResult
+operator|.
+name|getStdout
+argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class

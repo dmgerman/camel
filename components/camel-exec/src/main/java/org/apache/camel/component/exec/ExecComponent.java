@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link ExecEndpoint}. With the  * component it is possible to execute an system command.  */
+comment|/**  * Represents the component that manages {@link ExecEndpoint}. With the  * component it is possible to execute system commands.  */
 end_comment
 
 begin_class

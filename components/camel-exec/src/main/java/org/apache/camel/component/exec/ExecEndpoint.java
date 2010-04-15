@@ -110,6 +110,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|exec
+operator|.
+name|impl
+operator|.
+name|ExecParseUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -286,7 +304,7 @@ return|return
 name|executable
 return|;
 block|}
-comment|/**      * Sets the executable to be executed      *       * @param executable must not be empty or<code>null</code>      */
+comment|/**      * Sets the executable to be executed. The executable must not be empty or      *<code>null</code>.      *       * @param executable Sets the executable to be executed.      */
 DECL|method|setExecutable (String executable)
 specifier|public
 name|void
@@ -312,7 +330,7 @@ operator|=
 name|executable
 expr_stmt|;
 block|}
-comment|/**      * @return the arguments of the executable application, as configured from      *         the endpoint URI      * @see ExecBinding#EXEC_COMMAND_ARGS      */
+comment|/**      * The arguments may be one or many whitespace-separated tokens, that can be      * quoted with ", e.g.<code>args="arg 1" arg2"</code> will use two arguments      *<code>arg 1</code> and<code>arg2</code>. To include the quotes use      *<code>""</code><br>      * , e.g.<code>args=""arg 1"" arg2</code> will use the arguments      *<code>"arg 1"</code> and<code>arg2</code>.      *       * @return the arguments of the executable application, as configured from      *         the endpoint URI.      * @see ExecBinding#EXEC_COMMAND_ARGS      * @see ExecParseUtils#splitToWhiteSpaceSeparatedTokens(String)      */
 DECL|method|getArgs ()
 specifier|public
 name|String
@@ -323,7 +341,7 @@ return|return
 name|args
 return|;
 block|}
-comment|/**      * Sets the arguments of the executable application      *       * @param args Returns<code>null</code> value if no arguments are      *            configured in the endpoint URI      */
+comment|/**      * Sets the arguments of the executable application      *       * @param args Returns<code>null</code> value if no arguments are      *            configured in the endpoint URI      * @see #getArgs()      * @see ExecBinding#EXEC_COMMAND_ARGS      */
 DECL|method|setArgs (String args)
 specifier|public
 name|void
@@ -340,7 +358,7 @@ operator|=
 name|args
 expr_stmt|;
 block|}
-comment|/**      * @return the working directory of the executable, or<code>null</code>      * @see ExecBinding#EXEC_COMMAND_WORKING_DIR      */
+comment|/**      * @return the working directory of the executable, or<code>null</code> is      *         such is not set.      * @see ExecBinding#EXEC_COMMAND_WORKING_DIR      */
 DECL|method|getWorkingDir ()
 specifier|public
 name|String
@@ -351,7 +369,7 @@ return|return
 name|workingDir
 return|;
 block|}
-comment|/**      * Sets the working directory of the executable application      *       * @param dir the working directory of the executable.<code>null</code>      *            values indicates that the current working directory will be      *            used.      */
+comment|/**      * Sets the working directory of the executable.      *       * @param dir the working directory of the executable.<code>null</code>      *            values indicates that the current working directory will be      *            used.      */
 DECL|method|setWorkingDir (String dir)
 specifier|public
 name|void
