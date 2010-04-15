@@ -77,10 +77,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NTMLAuthenticationHttpClientConfigurer
+DECL|class|NTLMAuthenticationHttpClientConfigurer
 specifier|public
 class|class
-name|NTMLAuthenticationHttpClientConfigurer
+name|NTLMAuthenticationHttpClientConfigurer
 implements|implements
 name|HttpClientConfigurer
 block|{
@@ -114,9 +114,9 @@ specifier|final
 name|String
 name|host
 decl_stmt|;
-DECL|method|NTMLAuthenticationHttpClientConfigurer (boolean proxy, String user, String pwd, String domain, String host)
+DECL|method|NTLMAuthenticationHttpClientConfigurer (boolean proxy, String user, String pwd, String domain, String host)
 specifier|public
-name|NTMLAuthenticationHttpClientConfigurer
+name|NTLMAuthenticationHttpClientConfigurer
 parameter_list|(
 name|boolean
 name|proxy

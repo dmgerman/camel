@@ -100,6 +100,11 @@ specifier|private
 name|int
 name|proxyPort
 decl_stmt|;
+DECL|field|authMethodPriority
+specifier|private
+name|String
+name|authMethodPriority
+decl_stmt|;
 DECL|method|getAuthUsername ()
 specifier|public
 name|String
@@ -410,6 +415,32 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+DECL|method|getAuthMethodPriority ()
+specifier|public
+name|String
+name|getAuthMethodPriority
+parameter_list|()
+block|{
+return|return
+name|authMethodPriority
+return|;
+block|}
+DECL|method|setAuthMethodPriority (String authMethodPriority)
+specifier|public
+name|void
+name|setAuthMethodPriority
+parameter_list|(
+name|String
+name|authMethodPriority
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authMethodPriority
+operator|=
+name|authMethodPriority
 expr_stmt|;
 block|}
 block|}
