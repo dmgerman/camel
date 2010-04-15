@@ -579,6 +579,7 @@ name|TYPE
 argument_list|)
 return|;
 block|}
+comment|/**      * Will inspect the target for properties.      *<p/>      *<b>Notice:</b> only properties which is convertable to String will be selected,      * other properties will be skipped.      *      * @param target         the target bean      * @param properties     the map to fill in found properties      * @param optionPrefix   an optional prefix to append the property key      * @return<tt>true</tt> if any properties was found,<tt>false</tt> otherwise.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -731,6 +732,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// TODO: Why must the found property be convertable to String?
 name|String
 name|strValue
 init|=
@@ -2330,6 +2332,7 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
+comment|// TODO: Why limit to what the JDK property editor can set?
 if|if
 condition|(
 name|PropertyEditorManager
