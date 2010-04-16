@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 import|;
 end_import
 
@@ -91,7 +91,7 @@ specifier|abstract
 class|class
 name|BinaryPredicateSupport
 implements|implements
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 block|{
 DECL|field|left
 specifier|private

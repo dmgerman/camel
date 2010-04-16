@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 import|;
 end_import
 
@@ -90,15 +90,15 @@ if|if
 condition|(
 name|predicate
 operator|instanceof
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 condition|)
 block|{
 comment|// special for binary evaluable as we can get more detailed information
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 name|eval
 init|=
 operator|(
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 operator|)
 name|predicate
 decl_stmt|;

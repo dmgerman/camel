@@ -19,10 +19,10 @@ comment|/**  * A predicate which is evaluating a binary expression.  *<p/>  * Th
 end_comment
 
 begin_interface
-DECL|interface|BinaryEvaluablePredicate
+DECL|interface|BinaryPredicate
 specifier|public
 interface|interface
-name|BinaryEvaluablePredicate
+name|BinaryPredicate
 extends|extends
 name|Predicate
 block|{
