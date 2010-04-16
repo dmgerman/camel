@@ -399,7 +399,15 @@ block|{
 return|return
 literal|"Exchange["
 operator|+
+operator|(
+name|out
+operator|==
+literal|null
+condition|?
 name|in
+else|:
+name|out
+operator|)
 operator|+
 literal|"]"
 return|;

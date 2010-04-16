@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BinaryEvaluablePredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -69,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for {@link Predicate} implementations  *   * @version $Revision$  */
+comment|/**  * A useful base class for {@link Predicate} implementations  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -79,7 +91,7 @@ specifier|abstract
 class|class
 name|BinaryPredicateSupport
 implements|implements
-name|Predicate
+name|BinaryEvaluablePredicate
 block|{
 DECL|field|left
 specifier|private
@@ -92,6 +104,16 @@ specifier|private
 specifier|final
 name|Expression
 name|right
+decl_stmt|;
+DECL|field|leftValue
+specifier|private
+name|Object
+name|leftValue
+decl_stmt|;
+DECL|field|rightValue
+specifier|private
+name|Object
+name|rightValue
 decl_stmt|;
 DECL|method|BinaryPredicateSupport (Expression left, Expression right)
 specifier|protected
@@ -161,9 +183,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|Object
 name|leftValue
-init|=
+operator|=
 name|left
 operator|.
 name|evaluate
@@ -174,10 +195,9 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|Object
+expr_stmt|;
 name|rightValue
-init|=
+operator|=
 name|right
 operator|.
 name|evaluate
@@ -188,7 +208,7 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|matches
 argument_list|(
@@ -223,6 +243,57 @@ name|String
 name|getOperationText
 parameter_list|()
 function_decl|;
+DECL|method|getRight ()
+specifier|public
+name|Expression
+name|getRight
+parameter_list|()
+block|{
+return|return
+name|right
+return|;
+block|}
+DECL|method|getLeft ()
+specifier|public
+name|Expression
+name|getLeft
+parameter_list|()
+block|{
+return|return
+name|left
+return|;
+block|}
+DECL|method|getOperator ()
+specifier|public
+name|String
+name|getOperator
+parameter_list|()
+block|{
+return|return
+name|getOperationText
+argument_list|()
+return|;
+block|}
+DECL|method|getRightValue ()
+specifier|public
+name|Object
+name|getRightValue
+parameter_list|()
+block|{
+return|return
+name|rightValue
+return|;
+block|}
+DECL|method|getLeftValue ()
+specifier|public
+name|Object
+name|getLeftValue
+parameter_list|()
+block|{
+return|return
+name|leftValue
+return|;
+block|}
 block|}
 end_class
 
