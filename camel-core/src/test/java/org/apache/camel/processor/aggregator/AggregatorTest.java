@@ -248,9 +248,9 @@ name|headers
 operator|.
 name|put
 argument_list|(
-literal|"aggregated"
+literal|"bar"
 argument_list|,
-literal|5
+literal|"viper bar"
 argument_list|)
 expr_stmt|;
 name|template
@@ -460,7 +460,6 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// in this sample we aggregate using our own strategy with a completion predicate
-comment|// stating that the aggregated header is equal to 5.
 name|from
 argument_list|(
 literal|"direct:predicate"
@@ -482,12 +481,12 @@ name|completionPredicate
 argument_list|(
 name|header
 argument_list|(
-literal|"aggregated"
+literal|"bar"
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|5
+literal|"viper bar"
 argument_list|)
 argument_list|)
 operator|.
