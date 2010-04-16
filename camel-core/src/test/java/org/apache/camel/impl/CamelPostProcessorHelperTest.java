@@ -326,6 +326,8 @@ argument_list|(
 name|method
 argument_list|,
 name|my
+argument_list|,
+literal|"foo"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -459,6 +461,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|ObjectHelper
@@ -610,6 +616,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|ObjectHelper
@@ -780,6 +790,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|ObjectHelper
@@ -932,6 +946,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|field
@@ -1073,6 +1091,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|field
@@ -1216,6 +1238,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|fail
@@ -1329,6 +1355,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|fail
@@ -1442,6 +1472,10 @@ name|ref
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+literal|"foo"
 argument_list|)
 decl_stmt|;
 name|fail

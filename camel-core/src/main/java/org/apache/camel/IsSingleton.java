@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|IsSingleton
 block|{
-comment|/**      * Wheter this class supports being singleton or not.      *        * @return<tt>true</tt> to be a single shared instance,<tt>false</tt> to create new instances.      */
+comment|/**      * Whether this class supports being singleton or not.      *        * @return<tt>true</tt> to be a single shared instance,<tt>false</tt> to create new instances.      */
 DECL|method|isSingleton ()
 name|boolean
 name|isSingleton

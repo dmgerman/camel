@@ -42,6 +42,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -164,6 +184,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|CamelPostProcessorHelper
@@ -211,6 +243,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -353,6 +399,22 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|XmlTransient
+DECL|field|prototypeBeans
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|prototypeBeans
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -463,11 +525,15 @@ block|}
 name|injectFields
 argument_list|(
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 name|injectMethods
 argument_list|(
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 if|if
@@ -692,6 +758,100 @@ name|e
 argument_list|)
 return|;
 block|}
+specifier|protected
+name|boolean
+name|isSingleton
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|)
+block|{
+return|return
+name|applicationContext
+operator|.
+name|isSingleton
+argument_list|(
+name|beanName
+argument_list|)
+return|;
+block|}
+specifier|protected
+name|void
+name|startService
+parameter_list|(
+name|Service
+name|service
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|isSingleton
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// only start service and do not add it to CamelContext
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|prototypeBeans
+operator|.
+name|add
+argument_list|(
+name|beanName
+argument_list|)
+condition|)
+block|{
+comment|// do not spam the log with WARN so do this only once per bean name
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The bean with id ["
+operator|+
+name|beanName
+operator|+
+literal|"] is prototype scoped and cannot stop the injected service when bean is destroyed: "
+operator|+
+name|service
+operator|+
+literal|". You may want to stop the service manually from the bean."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 expr_stmt|;
 block|}
@@ -839,7 +999,7 @@ name|answer
 return|;
 block|}
 comment|/**      * A strategy method to allow implementations to perform some custom JBI      * based injection of the POJO      *      * @param bean the bean to be injected      */
-DECL|method|injectFields (final Object bean)
+DECL|method|injectFields (final Object bean, final String beanName)
 specifier|protected
 name|void
 name|injectFields
@@ -847,6 +1007,10 @@ parameter_list|(
 specifier|final
 name|Object
 name|bean
+parameter_list|,
+specifier|final
+name|String
+name|beanName
 parameter_list|)
 block|{
 name|ReflectionUtils
@@ -920,6 +1084,8 @@ name|ref
 argument_list|()
 argument_list|,
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 block|}
@@ -967,6 +1133,8 @@ name|ref
 argument_list|()
 argument_list|,
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 block|}
@@ -975,7 +1143,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectField (Field field, String endpointUri, String endpointRef, Object bean)
+DECL|method|injectField (Field field, String endpointUri, String endpointRef, Object bean, String beanName)
 specifier|protected
 name|void
 name|injectField
@@ -991,6 +1159,9 @@ name|endpointRef
 parameter_list|,
 name|Object
 name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 name|ReflectionUtils
@@ -1019,11 +1190,15 @@ name|field
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectMethods (final Object bean)
+DECL|method|injectMethods (final Object bean, final String beanName)
 specifier|protected
 name|void
 name|injectMethods
@@ -1031,6 +1206,10 @@ parameter_list|(
 specifier|final
 name|Object
 name|bean
+parameter_list|,
+specifier|final
+name|String
+name|beanName
 parameter_list|)
 block|{
 name|ReflectionUtils
@@ -1070,6 +1249,8 @@ argument_list|(
 name|method
 argument_list|,
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 name|getPostProcessor
@@ -1080,6 +1261,8 @@ argument_list|(
 name|method
 argument_list|,
 name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1087,7 +1270,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setterInjection (Method method, Object bean)
+DECL|method|setterInjection (Method method, Object bean, String beanName)
 specifier|protected
 name|void
 name|setterInjection
@@ -1097,6 +1280,9 @@ name|method
 parameter_list|,
 name|Object
 name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 name|EndpointInject
@@ -1134,6 +1320,8 @@ name|method
 argument_list|,
 name|bean
 argument_list|,
+name|beanName
+argument_list|,
 name|endpointInject
 operator|.
 name|uri
@@ -1181,6 +1369,8 @@ name|method
 argument_list|,
 name|bean
 argument_list|,
+name|beanName
+argument_list|,
 name|produce
 operator|.
 name|uri
@@ -1194,7 +1384,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setterInjection (Method method, Object bean, String endpointUri, String endpointRef)
+DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef)
 specifier|protected
 name|void
 name|setterInjection
@@ -1204,6 +1394,9 @@ name|method
 parameter_list|,
 name|Object
 name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|,
 name|String
 name|endpointUri
@@ -1280,6 +1473,10 @@ argument_list|,
 name|endpointRef
 argument_list|,
 name|propertyName
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 decl_stmt|;
 name|ObjectHelper

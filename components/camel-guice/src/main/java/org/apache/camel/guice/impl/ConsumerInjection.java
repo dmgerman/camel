@@ -164,6 +164,8 @@ argument_list|(
 name|method
 argument_list|,
 name|injectee
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

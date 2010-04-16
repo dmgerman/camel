@@ -226,6 +226,10 @@ argument_list|,
 name|endpointRef
 argument_list|,
 name|injectionPointName
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -315,10 +319,14 @@ argument_list|,
 name|endpointRef
 argument_list|,
 name|injectionPointName
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|isNullParameterAllowed (EndpointInject endpointInject, Method method, Class<?> aClass, int i)
+DECL|method|isNullParameterAllowed (EndpointInject endpointInject, Method method, Class<?> aClass, int index)
 specifier|public
 name|boolean
 name|isNullParameterAllowed
@@ -336,7 +344,7 @@ argument_list|>
 name|aClass
 parameter_list|,
 name|int
-name|i
+name|index
 parameter_list|)
 block|{
 return|return

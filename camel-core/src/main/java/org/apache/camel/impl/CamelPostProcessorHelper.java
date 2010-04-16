@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -231,6 +243,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -388,7 +414,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|consumerInjection (Method method, Object bean)
+DECL|method|consumerInjection (Method method, Object bean, String beanName)
 specifier|public
 name|void
 name|consumerInjection
@@ -398,6 +424,9 @@ name|method
 parameter_list|,
 name|Object
 name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 name|Consume
@@ -442,6 +471,8 @@ name|method
 argument_list|,
 name|bean
 argument_list|,
+name|beanName
+argument_list|,
 name|consume
 operator|.
 name|uri
@@ -455,7 +486,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|subscribeMethod (Method method, Object bean, String endpointUri, String endpointName)
+DECL|method|subscribeMethod (Method method, Object bean, String beanName, String endpointUri, String endpointName)
 specifier|public
 name|void
 name|subscribeMethod
@@ -465,6 +496,9 @@ name|method
 parameter_list|,
 name|Object
 name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|,
 name|String
 name|endpointUri
@@ -552,6 +586,10 @@ block|}
 name|startService
 argument_list|(
 name|consumer
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,16 +611,32 @@ block|}
 block|}
 block|}
 comment|/**      * Stats the given service      */
-DECL|method|startService (Service service)
+DECL|method|startService (Service service, Object bean, String beanName)
 specifier|protected
 name|void
 name|startService
 parameter_list|(
 name|Service
 name|service
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|isSingleton
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+condition|)
 block|{
 name|getCamelContext
 argument_list|()
@@ -592,6 +646,35 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Service is not singleton so you must remember to stop it manually "
+operator|+
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Create a processor which invokes the given method when an incoming      * message exchange is received      */
 DECL|method|createConsumerProcessor (final Object pojo, final Method method, final Endpoint endpoint)
@@ -677,7 +760,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String injectionPointName)
+DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String injectionPointName, Object bean, String beanName)
 specifier|public
 name|Object
 name|getInjectionValue
@@ -696,6 +779,12 @@ name|endpointRef
 parameter_list|,
 name|String
 name|injectionPointName
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 if|if
@@ -799,6 +888,10 @@ return|return
 name|createInjectionProducer
 argument_list|(
 name|endpoint
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 return|;
 block|}
@@ -819,6 +912,10 @@ return|return
 name|createInjectionPollingConsumer
 argument_list|(
 name|endpoint
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 return|;
 block|}
@@ -1014,13 +1111,19 @@ name|answer
 return|;
 block|}
 comment|/**      * Factory method to create a started {@link org.apache.camel.PollingConsumer} to be injected into a POJO      */
-DECL|method|createInjectionPollingConsumer (Endpoint endpoint)
+DECL|method|createInjectionPollingConsumer (Endpoint endpoint, Object bean, String beanName)
 specifier|protected
 name|PollingConsumer
 name|createInjectionPollingConsumer
 parameter_list|(
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 try|try
@@ -1036,6 +1139,10 @@ decl_stmt|;
 name|startService
 argument_list|(
 name|pollingConsumer
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 return|return
@@ -1059,13 +1166,19 @@ throw|;
 block|}
 block|}
 comment|/**      * A Factory method to create a started {@link org.apache.camel.Producer} to be injected into a POJO      */
-DECL|method|createInjectionProducer (Endpoint endpoint)
+DECL|method|createInjectionProducer (Endpoint endpoint, Object bean, String beanName)
 specifier|protected
 name|Producer
 name|createInjectionProducer
 parameter_list|(
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
 parameter_list|)
 block|{
 try|try
@@ -1081,6 +1194,10 @@ decl_stmt|;
 name|startService
 argument_list|(
 name|producer
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
 argument_list|)
 expr_stmt|;
 return|return
@@ -1131,6 +1248,45 @@ name|endpoint
 argument_list|,
 name|e
 argument_list|)
+return|;
+block|}
+comment|/**      * Implementations can override this method to determine if the bean is singleton.      *      * @param bean the bean      * @return<tt>true</tt> if its singleton scoped, for prototype scoped<tt>false</tt> is returned.      */
+DECL|method|isSingleton (Object bean, String beanName)
+specifier|protected
+name|boolean
+name|isSingleton
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|)
+block|{
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|IsSingleton
+condition|)
+block|{
+name|IsSingleton
+name|singleton
+init|=
+operator|(
+name|IsSingleton
+operator|)
+name|bean
+decl_stmt|;
+return|return
+name|singleton
+operator|.
+name|isSingleton
+argument_list|()
+return|;
+block|}
+return|return
+literal|true
 return|;
 block|}
 block|}
