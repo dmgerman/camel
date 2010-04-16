@@ -34,7 +34,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -87,6 +107,20 @@ operator|.
 name|util
 operator|.
 name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CollectionHelper
 import|;
 end_import
 
@@ -237,7 +271,7 @@ throws|throws
 name|Exception
 block|{     }
 comment|/**       * Creates the HttpClientConfigurer based on the given parameters      *       * @param parameters the map of parameters       * @return the configurer      */
-DECL|method|createHttpClientConfigurer (Map<String, Object> parameters)
+DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, Set<AuthMethod> authMethods)
 specifier|protected
 name|HttpClientConfigurer
 name|createHttpClientConfigurer
@@ -249,6 +283,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|parameters
+parameter_list|,
+name|Set
+argument_list|<
+name|AuthMethod
+argument_list|>
+name|authMethods
 parameter_list|)
 block|{
 comment|// prefer to use endpoint configured over component configured
@@ -415,6 +455,8 @@ argument_list|,
 name|authDomain
 argument_list|,
 name|authHost
+argument_list|,
+name|authMethods
 argument_list|)
 expr_stmt|;
 block|}
@@ -457,6 +499,8 @@ name|httpConfiguration
 operator|.
 name|getAuthHost
 argument_list|()
+argument_list|,
+name|authMethods
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,6 +617,8 @@ argument_list|,
 name|proxyAuthDomain
 argument_list|,
 name|proxyAuthHost
+argument_list|,
+name|authMethods
 argument_list|)
 expr_stmt|;
 block|}
@@ -615,6 +661,8 @@ name|httpConfiguration
 operator|.
 name|getProxyAuthHost
 argument_list|()
+argument_list|,
+name|authMethods
 argument_list|)
 expr_stmt|;
 block|}
@@ -623,7 +671,7 @@ name|configurer
 return|;
 block|}
 comment|/**      * Configures the authentication method to be used      *      * @return configurer to used      */
-DECL|method|configureAuth (HttpClientConfigurer configurer, AuthMethod authMethod, String username, String password, String domain, String host)
+DECL|method|configureAuth (HttpClientConfigurer configurer, AuthMethod authMethod, String username, String password, String domain, String host, Set<AuthMethod> authMethods)
 specifier|protected
 name|HttpClientConfigurer
 name|configureAuth
@@ -645,6 +693,12 @@ name|domain
 parameter_list|,
 name|String
 name|host
+parameter_list|,
+name|Set
+argument_list|<
+name|AuthMethod
+argument_list|>
+name|authMethods
 parameter_list|)
 block|{
 if|if
@@ -658,6 +712,13 @@ return|return
 name|configurer
 return|;
 block|}
+name|authMethods
+operator|.
+name|add
+argument_list|(
+name|authMethod
+argument_list|)
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -720,7 +781,7 @@ operator|.
 name|NTLM
 condition|)
 block|{
-comment|// domain is mandatory for NTML
+comment|// domain is mandatory for NTLM
 name|ObjectHelper
 operator|.
 name|notNull
@@ -764,7 +825,7 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Configures the proxy authentication method to be used      *      * @return configurer to used      */
-DECL|method|configureProxyAuth (HttpClientConfigurer configurer, AuthMethod authMethod, String username, String password, String domain, String host)
+DECL|method|configureProxyAuth (HttpClientConfigurer configurer, AuthMethod authMethod, String username, String password, String domain, String host, Set<AuthMethod> authMethods)
 specifier|protected
 name|HttpClientConfigurer
 name|configureProxyAuth
@@ -786,6 +847,12 @@ name|domain
 parameter_list|,
 name|String
 name|host
+parameter_list|,
+name|Set
+argument_list|<
+name|AuthMethod
+argument_list|>
+name|authMethods
 parameter_list|)
 block|{
 if|if
@@ -799,6 +866,13 @@ return|return
 name|configurer
 return|;
 block|}
+name|authMethods
+operator|.
+name|add
+argument_list|(
+name|authMethod
+argument_list|)
+expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -1078,13 +1152,29 @@ argument_list|,
 literal|"httpClient."
 argument_list|)
 expr_stmt|;
-comment|// create the configurer to use for this endpoint
+comment|// create the configurer to use for this endpoint (authMethods contains the used methods created by the configurer)
+specifier|final
+name|Set
+argument_list|<
+name|AuthMethod
+argument_list|>
+name|authMethods
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|AuthMethod
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|HttpClientConfigurer
 name|configurer
 init|=
 name|createHttpClientConfigurer
 argument_list|(
 name|parameters
+argument_list|,
+name|authMethods
 argument_list|)
 decl_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
@@ -1340,6 +1430,13 @@ condition|(
 name|httpConfiguration
 operator|!=
 literal|null
+operator|&&
+name|httpConfiguration
+operator|.
+name|getAuthMethodPriority
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|endpoint
@@ -1352,6 +1449,37 @@ name|getAuthMethodPriority
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// no explicit auth method priority configured, so use convention over configuration
+comment|// and set priority based on auth method
+if|if
+condition|(
+operator|!
+name|authMethods
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|authMethodPriority
+operator|=
+name|CollectionHelper
+operator|.
+name|collectionAsCommaDelimitedString
+argument_list|(
+name|authMethods
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setAuthMethodPriority
+argument_list|(
+name|authMethodPriority
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|setProperties
 argument_list|(

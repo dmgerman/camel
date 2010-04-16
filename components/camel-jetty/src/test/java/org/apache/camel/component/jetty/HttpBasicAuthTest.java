@@ -435,10 +435,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHttpBaiscAuthInvalidPassword ()
+DECL|method|testHttpBasicAuthInvalidPassword ()
 specifier|public
 name|void
-name|testHttpBaiscAuthInvalidPassword
+name|testHttpBasicAuthInvalidPassword
 parameter_list|()
 throws|throws
 name|Exception
