@@ -322,6 +322,8 @@ DECL|field|sync
 specifier|private
 name|boolean
 name|sync
+init|=
+literal|true
 decl_stmt|;
 DECL|field|returnOldExchange
 specifier|private

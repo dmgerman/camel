@@ -2568,6 +2568,51 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+comment|// double check that its not already in progress
+name|boolean
+name|inProgress
+init|=
+name|inProgressCompleteExchanges
+operator|.
+name|contains
+argument_list|(
+name|exchangeId
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|inProgress
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Aggregated exchange with id: "
+operator|+
+name|exchangeId
+operator|+
+literal|" is already in progress."
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
 comment|// get the aggregated exchange
 name|Exchange
 name|answer
@@ -2592,13 +2637,6 @@ name|AGGREGATED_COMPLETED_BY
 argument_list|,
 literal|"timeout"
 argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|lock
-operator|.
-name|lock
-argument_list|()
 expr_stmt|;
 name|onCompletion
 argument_list|(
