@@ -548,7 +548,7 @@ name|rightValue
 parameter_list|)
 block|{
 comment|// prefer to NOT coerce to String so use the type which is not String
-comment|// for example if we are comparing String vs Integer then prefer to coerce to Interger
+comment|// for example if we are comparing String vs Integer then prefer to coerce to Integer
 comment|// as all types can be converted to String which does not work well for comparison
 comment|// as eg "10"< 6 would return true, where as 10< 6 will return false.
 comment|// if they are both String then it doesn't matter
@@ -1186,7 +1186,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notNull (Object value, String name, Object on)
 specifier|public
 specifier|static

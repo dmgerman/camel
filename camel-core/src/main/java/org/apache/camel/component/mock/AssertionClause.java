@@ -283,12 +283,18 @@ name|assertMatches
 argument_list|(
 name|predicate
 argument_list|,
+literal|"Assertion error at index "
+operator|+
+name|index
+operator|+
+literal|" on mock "
+operator|+
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
 operator|+
-literal|" "
+literal|" with predicate: "
 argument_list|,
 name|exchange
 argument_list|)
