@@ -104,6 +104,9 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
+name|end
+argument_list|()
+operator|.
 name|setBody
 argument_list|(
 name|constant
@@ -155,6 +158,9 @@ name|to
 argument_list|(
 literal|"mock:error"
 argument_list|)
+operator|.
+name|end
+argument_list|()
 operator|.
 name|setBody
 argument_list|(

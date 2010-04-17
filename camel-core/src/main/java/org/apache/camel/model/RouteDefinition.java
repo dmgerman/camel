@@ -2552,10 +2552,15 @@ block|}
 comment|// validate route has output processors
 if|if
 condition|(
-name|outputs
+operator|!
+name|ProcessorDefinitionHelper
 operator|.
-name|isEmpty
-argument_list|()
+name|hasOutputs
+argument_list|(
+name|outputs
+argument_list|,
+literal|true
+argument_list|)
 condition|)
 block|{
 name|RouteDefinition
