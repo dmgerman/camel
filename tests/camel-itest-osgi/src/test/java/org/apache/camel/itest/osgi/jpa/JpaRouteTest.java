@@ -838,24 +838,7 @@ literal|"INFO"
 argument_list|)
 argument_list|,
 comment|//org.ops4j.pax.exam.CoreOptions.systemProperty("org.apache.servicemix.specs.debug").value("true"),
-name|mavenBundle
-argument_list|()
-operator|.
-name|groupId
-argument_list|(
-literal|"net.sourceforge.serp"
-argument_list|)
-operator|.
-name|artifactId
-argument_list|(
-literal|"com.springsource.serp"
-argument_list|)
-operator|.
-name|version
-argument_list|(
-literal|"1.13.1"
-argument_list|)
-argument_list|,
+comment|//mavenBundle().groupId("net.sourceforge.serp").artifactId("com.springsource.serp").version("1.13.1"),
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
