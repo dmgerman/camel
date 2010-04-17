@@ -769,6 +769,32 @@ name|String
 name|beanName
 parameter_list|)
 block|{
+comment|// no application context has been injected which means the bean
+comment|// has not been enlisted in Spring application context
+if|if
+condition|(
+name|applicationContext
+operator|==
+literal|null
+operator|||
+name|beanName
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|super
+operator|.
+name|isSingleton
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|applicationContext
 operator|.
@@ -777,6 +803,7 @@ argument_list|(
 name|beanName
 argument_list|)
 return|;
+block|}
 block|}
 specifier|protected
 name|void
