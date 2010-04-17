@@ -684,6 +684,11 @@ specifier|protected
 name|MBeanContainer
 name|mbContainer
 decl_stmt|;
+DECL|field|enableJmx
+specifier|protected
+name|boolean
+name|enableJmx
+decl_stmt|;
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -762,6 +767,32 @@ operator|--
 name|refCount
 return|;
 block|}
+block|}
+DECL|method|setEnableJmx (boolean enableJmx)
+specifier|public
+name|void
+name|setEnableJmx
+parameter_list|(
+name|boolean
+name|enableJmx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJmx
+operator|=
+name|enableJmx
+expr_stmt|;
+block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|enableJmx
+return|;
 block|}
 annotation|@
 name|Override
@@ -1105,6 +1136,18 @@ operator|.
 name|setEnableJmx
 argument_list|(
 name|enableJmx
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// set this option based on setting of JettyHttpComponent
+name|endpoint
+operator|.
+name|setEnableJmx
+argument_list|(
+name|isEnableJmx
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2653,7 +2696,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|fatal
+name|warn
 argument_list|(
 literal|"Could not start Jetty MBeanContainer.  Jetty JMX extensions will remain disabled."
 argument_list|,
