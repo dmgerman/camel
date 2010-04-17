@@ -467,14 +467,13 @@ literal|" from the content cache"
 argument_list|)
 expr_stmt|;
 block|}
-name|is
-operator|=
+return|return
 operator|new
 name|ByteArrayInputStream
 argument_list|(
 name|buffer
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
 name|getResourceAsInputStreamWithoutCache
