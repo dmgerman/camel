@@ -179,6 +179,11 @@ specifier|private
 name|JettyHttpBinding
 name|jettyBinding
 decl_stmt|;
+DECL|field|enableJmx
+specifier|private
+name|boolean
+name|enableJmx
+decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
 name|JettyHttpEndpoint
@@ -432,6 +437,34 @@ operator|.
 name|jettyBinding
 operator|=
 name|jettyBinding
+expr_stmt|;
+block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|enableJmx
+return|;
+block|}
+DECL|method|setEnableJmx (boolean enableJmx)
+specifier|public
+name|void
+name|setEnableJmx
+parameter_list|(
+name|boolean
+name|enableJmx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJmx
+operator|=
+name|enableJmx
 expr_stmt|;
 block|}
 block|}

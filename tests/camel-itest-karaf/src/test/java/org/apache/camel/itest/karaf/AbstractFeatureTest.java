@@ -841,7 +841,7 @@ argument_list|(
 literal|"xml/features"
 argument_list|)
 argument_list|,
-literal|"camel-osgi"
+literal|"camel-spring-osgi"
 argument_list|,
 literal|"camel-"
 operator|+
