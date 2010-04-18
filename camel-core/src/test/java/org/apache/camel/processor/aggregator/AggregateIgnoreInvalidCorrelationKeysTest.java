@@ -87,10 +87,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AggregateIgnoreBadCorrelationKeysTest
+DECL|class|AggregateIgnoreInvalidCorrelationKeysTest
 specifier|public
 class|class
-name|AggregateIgnoreBadCorrelationKeysTest
+name|AggregateIgnoreInvalidCorrelationKeysTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -106,10 +106,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|testAggregateIgnoreBadCorrelationKeys ()
+DECL|method|testAggregateIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|void
-name|testAggregateIgnoreBadCorrelationKeys
+name|testAggregateIgnoreInvalidCorrelationKeys
 parameter_list|()
 throws|throws
 name|Exception
@@ -153,7 +153,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 argument_list|()
 operator|.
 name|to
@@ -224,10 +224,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testAggregateNotIgnoreBadCorrelationKeys ()
+DECL|method|testAggregateNotIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|void
-name|testAggregateNotIgnoreBadCorrelationKeys
+name|testAggregateNotIgnoreInvalidCorrelationKeys
 parameter_list|()
 throws|throws
 name|Exception
@@ -352,7 +352,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Correlation key could not be evaluated to a value. Exchange[Message: B]"
+literal|"Invalid correlation key. Exchange[Message: B]"
 argument_list|,
 name|cause
 operator|.

@@ -576,10 +576,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|ignoreBadCorrelationKeys
+DECL|field|ignoreInvalidCorrelationKeys
 specifier|private
 name|Boolean
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -1133,7 +1133,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isIgnoreBadCorrelationKeys
+name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 operator|!=
 literal|null
@@ -1143,7 +1143,7 @@ name|answer
 operator|.
 name|setIgnoreBadCorrelationKeys
 argument_list|(
-name|isIgnoreBadCorrelationKeys
+name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1682,30 +1682,30 @@ operator|=
 name|eagerCheckCompletion
 expr_stmt|;
 block|}
-DECL|method|isIgnoreBadCorrelationKeys ()
+DECL|method|isIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|Boolean
-name|isIgnoreBadCorrelationKeys
+name|isIgnoreInvalidCorrelationKeys
 parameter_list|()
 block|{
 return|return
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 return|;
 block|}
-DECL|method|setIgnoreBadCorrelationKeys (Boolean ignoreBadCorrelationKeys)
+DECL|method|setIgnoreInvalidCorrelationKeys (Boolean ignoreInvalidCorrelationKeys)
 specifier|public
 name|void
-name|setIgnoreBadCorrelationKeys
+name|setIgnoreInvalidCorrelationKeys
 parameter_list|(
 name|Boolean
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 operator|=
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 expr_stmt|;
 block|}
 DECL|method|getCloseCorrelationKeyOnCompletion ()
@@ -1805,13 +1805,13 @@ name|this
 return|;
 block|}
 comment|/**      * If a correlation key cannot be successfully evaluated it will be ignored by logging a {{DEBUG}} and then just      * ignore the incoming Exchange.      *      * @return builder      */
-DECL|method|ignoreBadCorrelationKeys ()
+DECL|method|ignoreInvalidCorrelationKeys ()
 specifier|public
 name|AggregateDefinition
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 parameter_list|()
 block|{
-name|setIgnoreBadCorrelationKeys
+name|setIgnoreInvalidCorrelationKeys
 argument_list|(
 literal|true
 argument_list|)

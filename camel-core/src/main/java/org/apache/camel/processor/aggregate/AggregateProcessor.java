@@ -968,7 +968,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Correlation key could not be evaluated to a value. Exchange will be ignored: "
+literal|"Invalid correlation key. This Exchange will be ignored: "
 operator|+
 name|exchange
 argument_list|)
@@ -982,7 +982,7 @@ throw|throw
 operator|new
 name|CamelExchangeException
 argument_list|(
-literal|"Correlation key could not be evaluated to a value"
+literal|"Invalid correlation key"
 argument_list|,
 name|exchange
 argument_list|)
