@@ -141,9 +141,6 @@ block|{
 DECL|field|repo
 specifier|private
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 decl_stmt|;
 annotation|@
@@ -165,9 +162,6 @@ name|repo
 operator|=
 operator|new
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 argument_list|(
 literal|"repo1"
 argument_list|,
@@ -267,14 +261,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// sleep a bit since the completed signal is done async
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
 expr_stmt|;
 name|String
 name|exchangeId

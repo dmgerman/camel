@@ -473,16 +473,10 @@ throws|throws
 name|Exception
 block|{
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 init|=
 operator|new
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 argument_list|(
 literal|"repo1"
 argument_list|,

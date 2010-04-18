@@ -138,20 +138,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|AggregationRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RecoverableAggregationRepository
 import|;
 end_import
@@ -265,21 +251,10 @@ DECL|class|HawtDBAggregationRepository
 specifier|public
 class|class
 name|HawtDBAggregationRepository
-parameter_list|<
-name|K
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
-name|AggregationRepository
-argument_list|<
-name|K
-argument_list|>
-implements|,
 name|RecoverableAggregationRepository
-argument_list|<
-name|K
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -334,14 +309,14 @@ DECL|field|marshaller
 specifier|private
 name|HawtDBCamelMarshaller
 argument_list|<
-name|K
+name|String
 argument_list|>
 name|marshaller
 init|=
 operator|new
 name|HawtDBCamelMarshaller
 argument_list|<
-name|K
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -486,7 +461,7 @@ operator|=
 name|repositoryName
 expr_stmt|;
 block|}
-DECL|method|add (final CamelContext camelContext, final K key, final Exchange exchange)
+DECL|method|add (final CamelContext camelContext, final String key, final Exchange exchange)
 specifier|public
 name|Exchange
 name|add
@@ -496,7 +471,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 specifier|final
-name|K
+name|String
 name|key
 parameter_list|,
 specifier|final
@@ -681,7 +656,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|get (final CamelContext camelContext, final K key)
+DECL|method|get (final CamelContext camelContext, final String key)
 specifier|public
 name|Exchange
 name|get
@@ -691,7 +666,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 specifier|final
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -847,7 +822,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|remove (final CamelContext camelContext, final K key, final Exchange exchange)
+DECL|method|remove (final CamelContext camelContext, final String key, final Exchange exchange)
 specifier|public
 name|void
 name|remove
@@ -857,7 +832,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 specifier|final
-name|K
+name|String
 name|key
 parameter_list|,
 specifier|final

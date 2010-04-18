@@ -71,14 +71,8 @@ DECL|interface|RecoverableAggregationRepository
 specifier|public
 interface|interface
 name|RecoverableAggregationRepository
-parameter_list|<
-name|K
-parameter_list|>
 extends|extends
 name|AggregationRepository
-argument_list|<
-name|K
-argument_list|>
 block|{
 comment|/**      * Scans the repository for {@link Exchange}s to be recovered      *       * @param camelContext   the current CamelContext      * @return the exchange ids for to be recovered      */
 DECL|method|scan (CamelContext camelContext)

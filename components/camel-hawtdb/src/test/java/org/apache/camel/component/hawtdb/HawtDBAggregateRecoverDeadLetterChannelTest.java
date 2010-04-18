@@ -109,9 +109,6 @@ block|{
 DECL|field|repo
 specifier|private
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 decl_stmt|;
 annotation|@
@@ -133,9 +130,6 @@ name|repo
 operator|=
 operator|new
 name|HawtDBAggregationRepository
-argument_list|<
-name|String
-argument_list|>
 argument_list|(
 literal|"repo1"
 argument_list|,

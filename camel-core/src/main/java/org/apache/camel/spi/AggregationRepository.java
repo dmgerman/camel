@@ -49,19 +49,16 @@ DECL|interface|AggregationRepository
 specifier|public
 interface|interface
 name|AggregationRepository
-parameter_list|<
-name|K
-parameter_list|>
 block|{
 comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @return the old exchange if any existed      */
-DECL|method|add (CamelContext camelContext, K key, Exchange exchange)
+DECL|method|add (CamelContext camelContext, String key, Exchange exchange)
 name|Exchange
 name|add
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|K
+name|String
 name|key
 parameter_list|,
 name|Exchange
@@ -69,26 +66,26 @@ name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the given exchange with the correlation key      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
-DECL|method|get (CamelContext camelContext, K key)
+DECL|method|get (CamelContext camelContext, String key)
 name|Exchange
 name|get
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|K
+name|String
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the exchange with the given correlation key, which should happen      * when an {@link Exchange} is completed      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      */
-DECL|method|remove (CamelContext camelContext, K key, Exchange exchange)
+DECL|method|remove (CamelContext camelContext, String key, Exchange exchange)
 name|void
 name|remove
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|K
+name|String
 name|key
 parameter_list|,
 name|Exchange

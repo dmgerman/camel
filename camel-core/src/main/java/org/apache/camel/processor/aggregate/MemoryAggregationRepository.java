@@ -105,16 +105,13 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|AggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 block|{
 DECL|field|cache
 specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Exchange
 argument_list|>
@@ -123,13 +120,13 @@ init|=
 operator|new
 name|ConcurrentHashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|add (CamelContext camelContext, Object key, Exchange exchange)
+DECL|method|add (CamelContext camelContext, String key, Exchange exchange)
 specifier|public
 name|Exchange
 name|add
@@ -137,7 +134,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Object
+name|String
 name|key
 parameter_list|,
 name|Exchange
@@ -155,7 +152,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|get (CamelContext camelContext, Object key)
+DECL|method|get (CamelContext camelContext, String key)
 specifier|public
 name|Exchange
 name|get
@@ -163,7 +160,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Object
+name|String
 name|key
 parameter_list|)
 block|{
@@ -176,7 +173,7 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|remove (CamelContext camelContext, Object key, Exchange exchange)
+DECL|method|remove (CamelContext camelContext, String key, Exchange exchange)
 specifier|public
 name|void
 name|remove
@@ -184,7 +181,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Object
+name|String
 name|key
 parameter_list|,
 name|Exchange

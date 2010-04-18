@@ -951,9 +951,6 @@ name|executorService
 argument_list|)
 decl_stmt|;
 name|AggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|repository
 init|=
 name|createAggregationRepository

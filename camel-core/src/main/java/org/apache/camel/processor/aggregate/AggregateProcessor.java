@@ -559,7 +559,7 @@ DECL|field|timeoutMap
 specifier|private
 name|TimeoutMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|String
 argument_list|>
@@ -580,9 +580,6 @@ decl_stmt|;
 DECL|field|aggregationRepository
 specifier|private
 name|AggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|aggregationRepository
 init|=
 operator|new
@@ -603,14 +600,14 @@ DECL|field|batchConsumerCorrelationKeys
 specifier|private
 name|Set
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|batchConsumerCorrelationKeys
 init|=
 operator|new
 name|LinkedHashSet
 argument_list|<
-name|Object
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -928,7 +925,7 @@ throws|throws
 name|Exception
 block|{
 comment|// compute correlation expression
-name|Object
+name|String
 name|key
 init|=
 name|correlationExpression
@@ -937,7 +934,7 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
@@ -1045,12 +1042,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      */
-DECL|method|doAggregation (Object key, Exchange exchange)
+DECL|method|doAggregation (String key, Exchange exchange)
 specifier|private
 name|Exchange
 name|doAggregation
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|,
 name|Exchange
@@ -1284,7 +1281,7 @@ condition|)
 block|{
 for|for
 control|(
-name|Object
+name|String
 name|batchKey
 range|:
 name|batchConsumerCorrelationKeys
@@ -1377,12 +1374,12 @@ name|answer
 return|;
 block|}
 comment|/**      * Tests whether the given exchange is complete or not      *      * @param key       the correlation key      * @param exchange  the incoming exchange      * @return<tt>null</tt> if not completed, otherwise a String with the type that triggered the completion      */
-DECL|method|isCompleted (Object key, Exchange exchange)
+DECL|method|isCompleted (String key, Exchange exchange)
 specifier|protected
 name|String
 name|isCompleted
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|,
 name|Exchange
@@ -1755,13 +1752,13 @@ name|newExchange
 argument_list|)
 return|;
 block|}
-DECL|method|onCompletion (final Object key, final Exchange exchange, boolean fromTimeout)
+DECL|method|onCompletion (final String key, final Exchange exchange, boolean fromTimeout)
 specifier|protected
 name|void
 name|onCompletion
 parameter_list|(
 specifier|final
-name|Object
+name|String
 name|key
 parameter_list|,
 specifier|final
@@ -2330,9 +2327,6 @@ block|}
 DECL|method|getAggregationRepository ()
 specifier|public
 name|AggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|getAggregationRepository
 parameter_list|()
 block|{
@@ -2340,15 +2334,12 @@ return|return
 name|aggregationRepository
 return|;
 block|}
-DECL|method|setAggregationRepository (AggregationRepository<Object> aggregationRepository)
+DECL|method|setAggregationRepository (AggregationRepository aggregationRepository)
 specifier|public
 name|void
 name|setAggregationRepository
 parameter_list|(
 name|AggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|aggregationRepository
 parameter_list|)
 block|{
@@ -2512,7 +2503,7 @@ name|AggregationTimeoutMap
 extends|extends
 name|DefaultTimeoutMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|String
 argument_list|>
@@ -2538,12 +2529,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onEviction (Object key, String exchangeId)
+DECL|method|onEviction (String key, String exchangeId)
 specifier|public
 name|void
 name|onEviction
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|,
 name|String
@@ -2671,19 +2662,13 @@ DECL|field|recoverable
 specifier|private
 specifier|final
 name|RecoverableAggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|recoverable
 decl_stmt|;
-DECL|method|RecoverTask (RecoverableAggregationRepository<Object> recoverable)
+DECL|method|RecoverTask (RecoverableAggregationRepository recoverable)
 specifier|private
 name|RecoverTask
 parameter_list|(
 name|RecoverableAggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|recoverable
 parameter_list|)
 block|{
@@ -3285,16 +3270,10 @@ name|RecoverableAggregationRepository
 condition|)
 block|{
 name|RecoverableAggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 name|recoverable
 init|=
 operator|(
 name|RecoverableAggregationRepository
-argument_list|<
-name|Object
-argument_list|>
 operator|)
 name|aggregationRepository
 decl_stmt|;

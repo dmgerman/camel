@@ -459,7 +459,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_CORRELATION_KEY
 argument_list|,
-name|Serializable
+name|String
 operator|.
 name|class
 argument_list|)
