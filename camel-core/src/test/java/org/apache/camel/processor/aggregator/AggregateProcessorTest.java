@@ -1429,10 +1429,10 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testAggregateIgnoreBadCorrelationKey ()
+DECL|method|testAggregateIgnoreInvalidCorrelationKey ()
 specifier|public
 name|void
-name|testAggregateIgnoreBadCorrelationKey
+name|testAggregateIgnoreInvalidCorrelationKey
 parameter_list|()
 throws|throws
 name|Exception
@@ -1518,7 +1518,7 @@ argument_list|)
 expr_stmt|;
 name|ap
 operator|.
-name|setIgnoreBadCorrelationKeys
+name|setIgnoreInvalidCorrelationKeys
 argument_list|(
 literal|true
 argument_list|)
@@ -1911,7 +1911,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Correlation key could not be evaluated to a value. Exchange[Message: B]"
+literal|"Invalid correlation key. Exchange[Message: B]"
 argument_list|,
 name|e
 operator|.

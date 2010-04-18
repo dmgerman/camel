@@ -669,10 +669,10 @@ name|redeliveryDelay
 decl_stmt|;
 block|}
 comment|// options
-DECL|field|ignoreBadCorrelationKeys
+DECL|field|ignoreInvalidCorrelationKeys
 specifier|private
 name|boolean
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 decl_stmt|;
 DECL|field|closeCorrelationKeyOnCompletion
 specifier|private
@@ -952,7 +952,7 @@ block|{
 comment|// we have a bad correlation key
 if|if
 condition|(
-name|isIgnoreBadCorrelationKeys
+name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 condition|)
 block|{
@@ -2194,30 +2194,30 @@ operator|=
 name|completionSizeExpression
 expr_stmt|;
 block|}
-DECL|method|isIgnoreBadCorrelationKeys ()
+DECL|method|isIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|boolean
-name|isIgnoreBadCorrelationKeys
+name|isIgnoreInvalidCorrelationKeys
 parameter_list|()
 block|{
 return|return
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 return|;
 block|}
-DECL|method|setIgnoreBadCorrelationKeys (boolean ignoreBadCorrelationKeys)
+DECL|method|setIgnoreInvalidCorrelationKeys (boolean ignoreInvalidCorrelationKeys)
 specifier|public
 name|void
-name|setIgnoreBadCorrelationKeys
+name|setIgnoreInvalidCorrelationKeys
 parameter_list|(
 name|boolean
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 operator|=
-name|ignoreBadCorrelationKeys
+name|ignoreInvalidCorrelationKeys
 expr_stmt|;
 block|}
 DECL|method|getCloseCorrelationKeyOnCompletion ()
