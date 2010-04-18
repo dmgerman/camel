@@ -54,19 +54,17 @@ name|ClosedCorrelationKeyException
 extends|extends
 name|CamelExchangeException
 block|{
-comment|// the correlation key is not expected to be serialized
 DECL|field|correlationKey
 specifier|private
 specifier|final
-specifier|transient
-name|Object
+name|String
 name|correlationKey
 decl_stmt|;
-DECL|method|ClosedCorrelationKeyException (Object correlationKey, Exchange exchange)
+DECL|method|ClosedCorrelationKeyException (String correlationKey, Exchange exchange)
 specifier|public
 name|ClosedCorrelationKeyException
 parameter_list|(
-name|Object
+name|String
 name|correlationKey
 parameter_list|,
 name|Exchange
@@ -91,11 +89,11 @@ operator|=
 name|correlationKey
 expr_stmt|;
 block|}
-DECL|method|ClosedCorrelationKeyException (Object correlationKey, Exchange exchange, Throwable cause)
+DECL|method|ClosedCorrelationKeyException (String correlationKey, Exchange exchange, Throwable cause)
 specifier|public
 name|ClosedCorrelationKeyException
 parameter_list|(
-name|Object
+name|String
 name|correlationKey
 parameter_list|,
 name|Exchange
@@ -127,7 +125,7 @@ expr_stmt|;
 block|}
 DECL|method|getCorrelationKey ()
 specifier|public
-name|Object
+name|String
 name|getCorrelationKey
 parameter_list|()
 block|{
