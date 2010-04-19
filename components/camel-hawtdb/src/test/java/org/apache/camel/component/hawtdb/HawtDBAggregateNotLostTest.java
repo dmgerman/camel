@@ -303,16 +303,10 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|HawtDBCamelMarshaller
-argument_list|<
-name|Object
-argument_list|>
 name|marshaller
 init|=
 operator|new
 name|HawtDBCamelMarshaller
-argument_list|<
-name|Object
-argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -321,7 +315,7 @@ name|confirmKeyBuffer
 init|=
 name|marshaller
 operator|.
-name|marshallConfirmKey
+name|marshallKey
 argument_list|(
 name|exchangeId
 argument_list|)
