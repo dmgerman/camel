@@ -486,6 +486,13 @@ name|completionSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|completionInterval
+specifier|private
+name|Long
+name|completionInterval
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|completionTimeout
 specifier|private
 name|Long
@@ -988,6 +995,23 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|getCompletionInterval
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setCompletionInterval
+argument_list|(
+name|getCompletionInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|getCompletionSizeExpression
 argument_list|()
 operator|!=
@@ -1338,6 +1362,32 @@ operator|.
 name|completionSize
 operator|=
 name|completionSize
+expr_stmt|;
+block|}
+DECL|method|getCompletionInterval ()
+specifier|public
+name|Long
+name|getCompletionInterval
+parameter_list|()
+block|{
+return|return
+name|completionInterval
+return|;
+block|}
+DECL|method|setCompletionInterval (Long completionInterval)
+specifier|public
+name|void
+name|setCompletionInterval
+parameter_list|(
+name|Long
+name|completionInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionInterval
+operator|=
+name|completionInterval
 expr_stmt|;
 block|}
 DECL|method|getCompletionTimeout ()
@@ -1839,6 +1889,25 @@ name|ExpressionSubElementDefinition
 argument_list|(
 name|completionSize
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the completion interval, which would cause the aggregate to consider the group as complete      * and send out the aggregated exchange.      *      * @param completionInterval  the interval in millis      * @return the builder      */
+DECL|method|completionInterval (long completionInterval)
+specifier|public
+name|AggregateDefinition
+name|completionInterval
+parameter_list|(
+name|long
+name|completionInterval
+parameter_list|)
+block|{
+name|setCompletionInterval
+argument_list|(
+name|completionInterval
 argument_list|)
 expr_stmt|;
 return|return

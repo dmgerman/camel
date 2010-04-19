@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,6 +113,15 @@ parameter_list|,
 name|String
 name|exchangeId
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the keys currently in the repository.      *      * @return the keys      */
+DECL|method|getKeys ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getKeys
+parameter_list|()
 function_decl|;
 block|}
 end_interface

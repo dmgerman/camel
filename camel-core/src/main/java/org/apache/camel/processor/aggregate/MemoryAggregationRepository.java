@@ -24,7 +24,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -209,6 +229,28 @@ name|exchangeId
 parameter_list|)
 block|{
 comment|// noop
+block|}
+DECL|method|getKeys ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getKeys
+parameter_list|()
+block|{
+comment|// do not allow edits to the set
+return|return
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+name|cache
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
