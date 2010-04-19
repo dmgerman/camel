@@ -82,15 +82,33 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+operator|.
+name|simple
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|WireTapUsingFireAndForgetTest
+DECL|class|WireTapUsingFireAndForgetCopyTest
 specifier|public
 class|class
-name|WireTapUsingFireAndForgetTest
+name|WireTapUsingFireAndForgetCopyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -141,7 +159,7 @@ name|wireTap
 argument_list|(
 literal|"direct:foo"
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 operator|new
 name|Processor
@@ -157,6 +175,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|exchange
 operator|.
 name|getIn
@@ -164,7 +197,9 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Bye World"
+literal|"Bye "
+operator|+
+name|body
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -220,7 +255,7 @@ name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -253,7 +288,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -358,11 +393,11 @@ name|wireTap
 argument_list|(
 literal|"direct:foo"
 argument_list|,
-literal|false
+literal|true
 argument_list|,
-name|constant
+name|simple
 argument_list|(
-literal|"Bye World"
+literal|"Bye ${body}"
 argument_list|)
 argument_list|)
 operator|.
@@ -403,7 +438,7 @@ name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -427,7 +462,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

@@ -211,7 +211,7 @@ argument_list|,
 name|e2
 argument_list|)
 expr_stmt|;
-comment|// should have different from endpoint
+comment|// should have same from endpoint
 name|assertEquals
 argument_list|(
 literal|"direct://start"
@@ -227,7 +227,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct://foo"
+literal|"direct://start"
 argument_list|,
 name|e2
 operator|.
@@ -334,7 +334,7 @@ argument_list|,
 name|e2
 argument_list|)
 expr_stmt|;
-comment|// should have different from endpoint
+comment|// should have same from endpoint
 name|assertEquals
 argument_list|(
 literal|"direct://start2"
@@ -350,7 +350,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct://foo"
+literal|"direct://start2"
 argument_list|,
 name|e2
 operator|.
@@ -383,7 +383,7 @@ throws|throws
 name|Exception
 block|{
 comment|// here we prepare the new exchange by setting the payload on the exchange
-comment|// on the IN messege.
+comment|// on the IN message.
 name|exchange
 operator|.
 name|getIn

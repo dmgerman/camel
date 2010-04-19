@@ -4915,7 +4915,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param body expression that creates the body to send      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given expression      *      * @param uri  the destination      * @param body expression that creates the body to send      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -4928,6 +4928,38 @@ name|wireTap
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|Expression
+name|body
+parameter_list|)
+block|{
+return|return
+name|wireTap
+argument_list|(
+name|uri
+argument_list|,
+literal|true
+argument_list|,
+name|body
+argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param body expression that creates the body to send      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|wireTap (String uri, boolean copy, Expression body)
+specifier|public
+name|Type
+name|wireTap
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|copy
 parameter_list|,
 name|Expression
 name|body
@@ -4949,6 +4981,13 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
+name|setCopy
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
 name|setNewExchangeExpression
 argument_list|(
 name|body
@@ -4966,12 +5005,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param processor  processor preparing the new exchange to send      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given processor      *      * @param uri  the destination      * @param processor  processor preparing the new exchange to send      * @return the builder      */
 DECL|method|wireTap (String uri, Processor processor)
 specifier|public
 name|Type
@@ -4979,6 +5013,38 @@ name|wireTap
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+return|return
+name|wireTap
+argument_list|(
+name|uri
+argument_list|,
+literal|true
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param processor  processor preparing the new exchange to send      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|wireTap (String uri, boolean copy, Processor processor)
+specifier|public
+name|Type
+name|wireTap
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|copy
 parameter_list|,
 name|Processor
 name|processor
@@ -4996,6 +5062,13 @@ operator|.
 name|setUri
 argument_list|(
 name|uri
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setCopy
+argument_list|(
+name|copy
 argument_list|)
 expr_stmt|;
 name|answer
