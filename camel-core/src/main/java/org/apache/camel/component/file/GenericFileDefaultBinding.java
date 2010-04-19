@@ -58,15 +58,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1156079468647449995L
-decl_stmt|;
 DECL|field|body
 specifier|private
 name|Object
@@ -110,7 +101,7 @@ operator|=
 name|body
 expr_stmt|;
 block|}
-DECL|method|loadContent (Exchange exchange, GenericFile<T> file)
+DECL|method|loadContent (Exchange exchange, GenericFile<?> file)
 specifier|public
 name|void
 name|loadContent
@@ -120,7 +111,7 @@ name|exchange
 parameter_list|,
 name|GenericFile
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|file
 parameter_list|)

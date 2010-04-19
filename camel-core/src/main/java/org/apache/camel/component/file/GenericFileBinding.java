@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -62,8 +52,6 @@ name|GenericFileBinding
 parameter_list|<
 name|T
 parameter_list|>
-extends|extends
-name|Serializable
 block|{
 comment|/**      * Gets the body of the file      *      * @param file the file      * @return the body      */
 DECL|method|getBody (GenericFile<T> file)
@@ -92,8 +80,8 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Loads the content from the file into memory      *      * @param exchange the current exchange      * @param file the file      * @throws java.io.IOException is thrown if the content could not be loaded      */
-DECL|method|loadContent (Exchange exchange, GenericFile<T> file)
+comment|/**      * Ensures the content is loaded from the file into memory      *      * @param exchange the current exchange      * @param file the file      * @throws java.io.IOException is thrown if the content could not be loaded      */
+DECL|method|loadContent (Exchange exchange, GenericFile<?> file)
 name|void
 name|loadContent
 parameter_list|(
@@ -102,7 +90,7 @@ name|exchange
 parameter_list|,
 name|GenericFile
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|file
 parameter_list|)

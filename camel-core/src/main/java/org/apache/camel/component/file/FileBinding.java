@@ -91,15 +91,6 @@ argument_list|<
 name|File
 argument_list|>
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1488800911529475617L
-decl_stmt|;
 DECL|field|body
 specifier|private
 name|File
@@ -195,7 +186,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|loadContent (Exchange exchange, GenericFile<File> file)
+DECL|method|loadContent (Exchange exchange, GenericFile<?> file)
 specifier|public
 name|void
 name|loadContent
@@ -205,12 +196,19 @@ name|exchange
 parameter_list|,
 name|GenericFile
 argument_list|<
-name|File
+name|?
 argument_list|>
 name|file
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|content
+operator|==
+literal|null
+condition|)
 block|{
 try|try
 block|{
@@ -259,6 +257,7 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
