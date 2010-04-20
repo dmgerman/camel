@@ -95,6 +95,21 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -118,7 +133,7 @@ block|{
 comment|// lets setup a server
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:9123?sync=false"
+literal|"mina:tcp://localhost:9123?sync=false&textline=true"
 argument_list|)
 operator|.
 name|to
@@ -133,7 +148,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:9123?sync=false&lazySessionCreation=true"
+literal|"mina:tcp://localhost:9123?sync=false&textline=true"
 argument_list|)
 expr_stmt|;
 block|}

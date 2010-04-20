@@ -489,6 +489,40 @@ expr_stmt|;
 return|return;
 comment|// exit early since nothing to write
 block|}
+comment|// if textline enabled then covert to a String which must be used for textline
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isTextline
+argument_list|()
+condition|)
+block|{
+name|body
+operator|=
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if sync is true then we should also wait for a response (synchronous mode)
 if|if
 condition|(
@@ -593,13 +627,26 @@ name|sync
 condition|)
 block|{
 comment|// wait for response, consider timeout
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting for response"
+literal|"Waiting for response using timeout "
+operator|+
+name|timeout
+operator|+
+literal|" millis."
 argument_list|)
 expr_stmt|;
+block|}
 name|boolean
 name|done
 init|=
@@ -656,7 +703,7 @@ throw|throw
 operator|new
 name|CamelExchangeException
 argument_list|(
-literal|"Response Handler had an exception"
+literal|"Error occurred in ResponseHandler"
 argument_list|,
 name|exchange
 argument_list|,
