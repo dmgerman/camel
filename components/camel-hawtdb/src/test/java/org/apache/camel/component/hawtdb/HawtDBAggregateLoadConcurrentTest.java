@@ -285,9 +285,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|9
+literal|10
 argument_list|)
 expr_stmt|;
 name|mock
@@ -401,9 +401,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"seda:start?size="
-operator|+
-name|SIZE
+literal|"direct:start"
 argument_list|,
 name|value
 argument_list|,
@@ -474,9 +472,7 @@ argument_list|)
 decl_stmt|;
 name|from
 argument_list|(
-literal|"seda:start?size="
-operator|+
-name|SIZE
+literal|"direct:start"
 argument_list|)
 operator|.
 name|to

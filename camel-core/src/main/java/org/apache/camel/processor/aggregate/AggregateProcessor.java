@@ -3723,7 +3723,7 @@ name|info
 argument_list|(
 literal|"Using CompletionTimeout to trigger after "
 operator|+
-name|getCompletionInterval
+name|getCompletionTimeout
 argument_list|()
 operator|+
 literal|" millis of inactivity."

@@ -421,6 +421,47 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"********************************************************************************"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Testing: "
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|"("
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"********************************************************************************"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"setUp test"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -577,9 +618,18 @@ name|Exception
 block|{
 name|log
 operator|.
+name|info
+argument_list|(
+literal|"Testing done: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
 name|debug
 argument_list|(
-literal|"tearDown test "
+literal|"tearDown test"
 argument_list|)
 expr_stmt|;
 if|if

@@ -184,7 +184,7 @@ argument_list|(
 literal|"mock:gold"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 operator|(
 name|size
@@ -204,7 +204,7 @@ argument_list|(
 literal|"mock:silver"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 name|size
 operator|/

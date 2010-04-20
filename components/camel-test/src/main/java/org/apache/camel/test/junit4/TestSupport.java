@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -339,7 +349,7 @@ specifier|abstract
 class|class
 name|TestSupport
 extends|extends
-name|Assert
+name|TestCase
 block|{
 DECL|field|LOG
 specifier|private
