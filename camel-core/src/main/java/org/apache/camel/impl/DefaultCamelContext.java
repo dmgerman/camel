@@ -6532,6 +6532,8 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// stop route inputs in the same order as they was started so we stop the very first inputs first
+try|try
+block|{
 name|shutdownStrategy
 operator|.
 name|shutdown
@@ -6542,6 +6544,23 @@ name|getRouteStartupOrder
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred while shutting down routes. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|getRouteStartupOrder
 argument_list|()
 operator|.
