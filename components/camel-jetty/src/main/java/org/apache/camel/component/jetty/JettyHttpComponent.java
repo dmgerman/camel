@@ -768,32 +768,6 @@ name|refCount
 return|;
 block|}
 block|}
-DECL|method|setEnableJmx (boolean enableJmx)
-specifier|public
-name|void
-name|setEnableJmx
-parameter_list|(
-name|boolean
-name|enableJmx
-parameter_list|)
-block|{
-name|this
-operator|.
-name|enableJmx
-operator|=
-name|enableJmx
-expr_stmt|;
-block|}
-DECL|method|isEnableJmx ()
-specifier|public
-name|boolean
-name|isEnableJmx
-parameter_list|()
-block|{
-return|return
-name|enableJmx
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -2254,6 +2228,32 @@ name|httpClientMaxThreads
 operator|=
 name|httpClientMaxThreads
 expr_stmt|;
+block|}
+DECL|method|setEnableJmx (boolean enableJmx)
+specifier|public
+name|void
+name|setEnableJmx
+parameter_list|(
+name|boolean
+name|enableJmx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJmx
+operator|=
+name|enableJmx
+expr_stmt|;
+block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|enableJmx
+return|;
 block|}
 DECL|method|getMbContainer ()
 specifier|public

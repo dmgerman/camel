@@ -200,6 +200,26 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// are we suspended?
+if|if
+condition|(
+name|consumer
+operator|.
+name|isSuspended
+argument_list|()
+condition|)
+block|{
+name|response
+operator|.
+name|sendError
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_SERVICE_UNAVAILABLE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// Have the camel process the HTTP exchange.
 name|DefaultExchange
 name|exchange
