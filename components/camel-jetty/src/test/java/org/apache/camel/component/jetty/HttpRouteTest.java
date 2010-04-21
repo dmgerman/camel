@@ -468,7 +468,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://localhost:9080/hello"
+literal|"http://localhost:9280/hello"
 argument_list|)
 operator|.
 name|openStream
@@ -536,7 +536,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/echo"
+literal|"http://localhost:9280/echo"
 argument_list|,
 literal|"HelloWorld"
 argument_list|,
@@ -600,7 +600,7 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:9080/parameter"
+literal|"http://localhost:9280/parameter"
 argument_list|)
 decl_stmt|;
 name|post
@@ -675,7 +675,7 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:9080/postxml"
+literal|"http://localhost:9280/postxml"
 argument_list|)
 decl_stmt|;
 name|StringRequestEntity
@@ -763,7 +763,7 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:9080/parameter?request=PostParameter&others=bloggs"
+literal|"http://localhost:9280/parameter?request=PostParameter&others=bloggs"
 argument_list|)
 decl_stmt|;
 name|StringRequestEntity
@@ -851,7 +851,7 @@ init|=
 operator|new
 name|PutMethod
 argument_list|(
-literal|"http://localhost:9080/parameter?request=PutParameter&others=bloggs"
+literal|"http://localhost:9280/parameter?request=PutParameter&others=bloggs"
 argument_list|)
 decl_stmt|;
 name|StringRequestEntity
@@ -928,7 +928,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:9280/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -968,7 +968,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/test"
+literal|"jetty:http://localhost:9280/test"
 argument_list|)
 operator|.
 name|to
@@ -1156,7 +1156,7 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/hello?sessionSupport=true"
+literal|"jetty:http://localhost:9280/hello?sessionSupport=true"
 argument_list|)
 operator|.
 name|process
@@ -1166,7 +1166,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/echo"
+literal|"jetty:http://localhost:9280/echo"
 argument_list|)
 operator|.
 name|process
@@ -1283,7 +1283,7 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/parameter"
+literal|"jetty:http://localhost:9280/parameter"
 argument_list|)
 operator|.
 name|process
@@ -1293,7 +1293,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/postxml"
+literal|"jetty:http://localhost:9280/postxml"
 argument_list|)
 operator|.
 name|process
