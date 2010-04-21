@@ -2832,20 +2832,14 @@ argument_list|()
 expr_stmt|;
 comment|// Camel controls the lifecycle of these entities so remove the
 comment|// registered MBeans when Camel is done with the managed objects.
-name|MBeanContainer
-name|containerToClean
-init|=
-name|getMbContainer
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|containerToClean
+name|mbContainer
 operator|!=
 literal|null
 condition|)
 block|{
-name|containerToClean
+name|mbContainer
 operator|.
 name|removeBean
 argument_list|(
@@ -2854,7 +2848,7 @@ operator|.
 name|server
 argument_list|)
 expr_stmt|;
-name|containerToClean
+name|mbContainer
 operator|.
 name|removeBean
 argument_list|(
