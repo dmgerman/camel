@@ -2096,11 +2096,12 @@ block|}
 comment|/**      * Gets the current test method name      *      * @return the method name      */
 DECL|method|getTestMethodName ()
 specifier|public
-specifier|static
 name|String
 name|getTestMethodName
 parameter_list|()
 block|{
+comment|// TODO: When using latest junit we can use @Rule to remember the test name
+comment|// http://kentbeck.github.com/junit/javadoc/latest/org/junit/rules/TestName.html
 return|return
 literal|""
 return|;
