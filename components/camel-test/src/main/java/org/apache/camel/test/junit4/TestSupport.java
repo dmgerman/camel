@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -349,7 +339,7 @@ specifier|abstract
 class|class
 name|TestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|LOG
 specifier|private
@@ -2101,6 +2091,18 @@ argument_list|)
 operator|>
 operator|-
 literal|1
+return|;
+block|}
+comment|/**      * Gets the current test method name      *      * @return the method name      */
+DECL|method|getTestMethodName ()
+specifier|public
+specifier|static
+name|String
+name|getTestMethodName
+parameter_list|()
+block|{
+return|return
+literal|""
 return|;
 block|}
 block|}

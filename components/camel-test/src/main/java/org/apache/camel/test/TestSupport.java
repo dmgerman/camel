@@ -2101,6 +2101,18 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**      * Gets the current test method name      *      * @return the method name      */
+DECL|method|getTestMethodName ()
+specifier|public
+name|String
+name|getTestMethodName
+parameter_list|()
+block|{
+return|return
+name|getName
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

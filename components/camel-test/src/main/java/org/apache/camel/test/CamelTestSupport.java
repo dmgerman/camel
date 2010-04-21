@@ -412,7 +412,7 @@ name|info
 argument_list|(
 literal|"Testing: "
 operator|+
-name|getName
+name|getTestMethodName
 argument_list|()
 operator|+
 literal|"("
