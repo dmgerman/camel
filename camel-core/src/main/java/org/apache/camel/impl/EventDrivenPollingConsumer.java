@@ -108,9 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|Logger
+name|ExceptionHandler
 import|;
 end_import
 
@@ -122,9 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|ExceptionHandler
+name|ServiceHelper
 import|;
 end_import
 
@@ -189,25 +189,24 @@ argument_list|)
 decl_stmt|;
 DECL|field|queue
 specifier|private
+specifier|final
 name|BlockingQueue
 argument_list|<
 name|Exchange
 argument_list|>
 name|queue
 decl_stmt|;
-DECL|field|interuptedExceptionHandler
+DECL|field|interruptedExceptionHandler
 specifier|private
 name|ExceptionHandler
-name|interuptedExceptionHandler
+name|interruptedExceptionHandler
 init|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
-operator|new
-name|Logger
-argument_list|(
-name|LOG
-argument_list|)
+name|EventDrivenPollingConsumer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|consumer
@@ -304,7 +303,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|handleInteruptedException
+name|handleInterruptedException
 argument_list|(
 name|e
 argument_list|)
@@ -361,7 +360,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|handleInteruptedException
+name|handleInterruptedException
 argument_list|(
 name|e
 argument_list|)
@@ -390,42 +389,42 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getInteruptedExceptionHandler ()
+DECL|method|getInterruptedExceptionHandler ()
 specifier|public
 name|ExceptionHandler
-name|getInteruptedExceptionHandler
+name|getInterruptedExceptionHandler
 parameter_list|()
 block|{
 return|return
-name|interuptedExceptionHandler
+name|interruptedExceptionHandler
 return|;
 block|}
-DECL|method|setInteruptedExceptionHandler (ExceptionHandler interuptedExceptionHandler)
+DECL|method|setInterruptedExceptionHandler (ExceptionHandler interruptedExceptionHandler)
 specifier|public
 name|void
-name|setInteruptedExceptionHandler
+name|setInterruptedExceptionHandler
 parameter_list|(
 name|ExceptionHandler
-name|interuptedExceptionHandler
+name|interruptedExceptionHandler
 parameter_list|)
 block|{
 name|this
 operator|.
-name|interuptedExceptionHandler
+name|interruptedExceptionHandler
 operator|=
-name|interuptedExceptionHandler
+name|interruptedExceptionHandler
 expr_stmt|;
 block|}
-DECL|method|handleInteruptedException (InterruptedException e)
+DECL|method|handleInterruptedException (InterruptedException e)
 specifier|protected
 name|void
-name|handleInteruptedException
+name|handleInterruptedException
 parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|getInteruptedExceptionHandler
+name|getInterruptedExceptionHandler
 argument_list|()
 operator|.
 name|handleException
@@ -453,10 +452,12 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|consumer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doStop ()
@@ -467,29 +468,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|consumer
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
+name|stopService
+argument_list|(
 name|consumer
-operator|=
-literal|null
+argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 end_class
