@@ -990,6 +990,7 @@ operator|.
 name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
+comment|// check if we can begin processing the file
 try|try
 block|{
 specifier|final
@@ -1046,7 +1047,55 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove file from the in progress list as its no longer in progress
+comment|// begin returned false, so remove file from the in progress list as its no longer in progress
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|absoluteFileName
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|endpoint
+operator|+
+literal|" cannot begin processing file: "
+operator|+
+name|file
+operator|+
+literal|" due to: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|endpoint
 operator|.
 name|getInProgressRepository
@@ -1083,6 +1132,8 @@ operator|.
 name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 comment|// retrieve the file using the stream
 if|if
 condition|(
@@ -1137,28 +1188,6 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"About to process file: "
-operator|+
-name|target
-operator|+
-literal|" using exchange: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 comment|// register on completion callback that does the completion strategies
 comment|// (for instance to move the file after we have processed it)
 name|exchange
@@ -1181,6 +1210,28 @@ name|absoluteFileName
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"About to process file: "
+operator|+
+name|target
+operator|+
+literal|" using exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// process the exchange
 name|getProcessor
 argument_list|()
@@ -1197,6 +1248,20 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// remove file from the in progress list due to failure
+comment|// (cannot be in finally block due to GenericFileOnCompletion will remove it
+comment|// from in progress when it takes over and processes the file, which may happen
+comment|// by another thread at a later time. So its only safe to remove it if there was an exception)
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|absoluteFileName
+argument_list|)
+expr_stmt|;
 name|handleException
 argument_list|(
 name|e
