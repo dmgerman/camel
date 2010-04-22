@@ -240,7 +240,7 @@ specifier|final
 name|int
 name|SIZE
 init|=
-literal|5000
+literal|500
 decl_stmt|;
 annotation|@
 name|Before
