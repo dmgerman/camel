@@ -324,6 +324,13 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${file:name.ext}"
+argument_list|,
+literal|"txt"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${file:name}"
 argument_list|,
 literal|"test"
