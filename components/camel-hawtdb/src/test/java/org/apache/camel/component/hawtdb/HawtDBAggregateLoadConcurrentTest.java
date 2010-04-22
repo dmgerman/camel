@@ -412,6 +412,14 @@ operator|+
 name|id
 argument_list|)
 expr_stmt|;
+comment|// simulate a little delay
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;

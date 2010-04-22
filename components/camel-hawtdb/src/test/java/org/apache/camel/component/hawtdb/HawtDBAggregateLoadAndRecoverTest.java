@@ -217,7 +217,7 @@ specifier|final
 name|int
 name|SIZE
 init|=
-literal|1000
+literal|200
 decl_stmt|;
 DECL|field|counter
 specifier|private
@@ -385,6 +385,14 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+comment|// simulate a little delay
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 block|}
 name|LOG
 operator|.
@@ -438,11 +446,24 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+name|int
+name|expected
+init|=
+name|SIZE
+operator|/
+literal|10
+operator|/
+literal|10
+decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"There should be 5 recovered"
+literal|"There should be "
+operator|+
+name|expected
+operator|+
+literal|" recovered"
 argument_list|,
-literal|5
+name|expected
 argument_list|,
 name|recovered
 argument_list|)
@@ -528,7 +549,7 @@ name|to
 argument_list|(
 literal|"log:output?showHeaders=true"
 argument_list|)
-comment|// have every 20th exchange fail which should then be recovered
+comment|// have every 10th exchange fail which should then be recovered
 operator|.
 name|process
 argument_list|(
@@ -558,7 +579,7 @@ if|if
 condition|(
 name|num
 operator|%
-literal|20
+literal|10
 operator|==
 literal|0
 condition|)
