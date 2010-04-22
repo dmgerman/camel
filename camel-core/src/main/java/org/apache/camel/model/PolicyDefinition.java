@@ -106,6 +106,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|WrapProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Policy
@@ -349,8 +363,9 @@ name|boolean
 name|isAbstract
 parameter_list|()
 block|{
+comment|// policy should NOT be abstract
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|method|getRef ()
@@ -436,9 +451,13 @@ block|{
 name|Processor
 name|childProcessor
 init|=
-name|createOutputsProcessor
+name|this
+operator|.
+name|createChildProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Policy
@@ -460,7 +479,9 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-return|return
+name|Processor
+name|target
+init|=
 name|policy
 operator|.
 name|wrap
@@ -469,6 +490,21 @@ name|routeContext
 argument_list|,
 name|childProcessor
 argument_list|)
+decl_stmt|;
+comment|// wrap the target so it becomes a service and we can manage its lifecycle
+name|WrapProcessor
+name|wrap
+init|=
+operator|new
+name|WrapProcessor
+argument_list|(
+name|target
+argument_list|,
+name|childProcessor
+argument_list|)
+decl_stmt|;
+return|return
+name|wrap
 return|;
 block|}
 DECL|method|description ()

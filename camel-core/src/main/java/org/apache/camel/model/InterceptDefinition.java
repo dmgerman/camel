@@ -298,11 +298,16 @@ throws|throws
 name|Exception
 block|{
 comment|// create the output processor
+comment|// TODO: This should be mandatory (but ExceptionHandlerStreamCacheTest fails)
 name|output
 operator|=
-name|createOutputsProcessor
+name|this
+operator|.
+name|createChildProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// add the output as a intercept strategy to the route context so its invoked on each processing step

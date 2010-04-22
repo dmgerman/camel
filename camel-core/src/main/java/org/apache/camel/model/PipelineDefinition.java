@@ -137,9 +137,13 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|createOutputsProcessor
+name|this
+operator|.
+name|createChildProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

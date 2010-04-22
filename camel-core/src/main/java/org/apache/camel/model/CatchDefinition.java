@@ -502,14 +502,17 @@ literal|"At least one Exception must be configured to catch"
 argument_list|)
 throw|;
 block|}
+comment|// do catch does not mandate a child processor
 name|Processor
 name|childProcessor
 init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|Predicate

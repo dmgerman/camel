@@ -26,18 +26,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|xbean
 operator|.
 name|spring
@@ -84,19 +72,6 @@ name|XMLQueueToQueueTransactionTest
 extends|extends
 name|AbstractTransactionTest
 block|{
-DECL|field|log
-specifier|private
-name|Logger
-name|log
-init|=
-name|Logger
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -121,8 +96,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// routes should have been configured via xml and added to the camel
-comment|// context
+comment|// routes should have been configured via xml and added to the camel context
 name|assertResult
 argument_list|()
 expr_stmt|;

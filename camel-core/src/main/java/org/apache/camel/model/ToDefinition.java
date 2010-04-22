@@ -456,11 +456,13 @@ comment|// create the child processor which is the async route
 name|Processor
 name|childProcessor
 init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// wrap it in a unit of work so the route that comes next is also done in a unit of work

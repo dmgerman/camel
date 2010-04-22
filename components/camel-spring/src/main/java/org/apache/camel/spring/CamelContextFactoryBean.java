@@ -2745,8 +2745,8 @@ argument_list|,
 name|upper
 argument_list|)
 expr_stmt|;
-comment|// then polices
-name|initPolicies
+comment|// then transactions
+name|initTransacted
 argument_list|(
 name|abstracts
 argument_list|,
@@ -3457,10 +3457,10 @@ name|completions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|initPolicies (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> lower)
+DECL|method|initTransacted (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> lower)
 specifier|private
 name|void
-name|initPolicies
+name|initTransacted
 parameter_list|(
 name|List
 argument_list|<
@@ -3475,12 +3475,6 @@ argument_list|>
 name|lower
 parameter_list|)
 block|{
-comment|// we need two types as transacted cannot extend policy due JAXB limitations
-name|PolicyDefinition
-name|policy
-init|=
-literal|null
-decl_stmt|;
 name|TransactedDefinition
 name|transacted
 init|=
@@ -3499,23 +3493,14 @@ if|if
 condition|(
 name|type
 operator|instanceof
-name|PolicyDefinition
+name|TransactedDefinition
 condition|)
 block|{
-name|policy
-operator|=
-operator|(
-name|PolicyDefinition
-operator|)
-name|type
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
-name|type
-operator|instanceof
-name|TransactedDefinition
+name|transacted
+operator|==
+literal|null
 condition|)
 block|{
 name|transacted
@@ -3526,40 +3511,18 @@ operator|)
 name|type
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|policy
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
-comment|// the outputs should be moved to the policy
-name|policy
-operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-name|lower
+literal|"The route can only have one transacted defined"
 argument_list|)
-expr_stmt|;
-comment|// and add it as the single output
-name|lower
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|lower
-operator|.
-name|add
-argument_list|(
-name|policy
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
-elseif|else
+block|}
+block|}
 if|if
 condition|(
 name|transacted

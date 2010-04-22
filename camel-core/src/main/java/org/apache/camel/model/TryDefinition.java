@@ -376,6 +376,23 @@ name|getOutputsWithoutCatches
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|tryProcessor
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Definition has no children on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 name|Processor
 name|finallyProcessor
 init|=

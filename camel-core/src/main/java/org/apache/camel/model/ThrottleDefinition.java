@@ -305,11 +305,13 @@ block|{
 name|Processor
 name|childProcessor
 init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return

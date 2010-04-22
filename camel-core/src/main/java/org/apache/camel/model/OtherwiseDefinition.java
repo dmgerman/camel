@@ -170,11 +170,13 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}

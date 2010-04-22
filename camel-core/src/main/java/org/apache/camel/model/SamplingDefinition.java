@@ -22,26 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -87,20 +67,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElementRef
 import|;
 end_import
 
@@ -219,7 +185,7 @@ specifier|public
 class|class
 name|SamplingDefinition
 extends|extends
-name|ProcessorDefinition
+name|OutputDefinition
 argument_list|<
 name|ProcessorDefinition
 argument_list|>
@@ -253,23 +219,6 @@ init|=
 name|TimeUnit
 operator|.
 name|SECONDS
-decl_stmt|;
-annotation|@
-name|XmlElementRef
-DECL|field|outputs
-specifier|private
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|method|SamplingDefinition ()
 specifier|public
@@ -385,11 +334,13 @@ block|{
 name|Processor
 name|childProcessor
 init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return
@@ -446,38 +397,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|outputs
-return|;
-block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
-specifier|public
-name|void
-name|setOutputs
-parameter_list|(
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputs
-operator|=
-name|outputs
-expr_stmt|;
-block|}
 DECL|method|getSamplePeriod ()
 specifier|public
 name|long

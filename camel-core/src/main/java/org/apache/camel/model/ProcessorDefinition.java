@@ -796,6 +796,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Override this in definition class and implement logic to create the processor      * based on the definition model.      */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -821,6 +822,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+comment|/**      * Prefer to use {#link #createChildProcessor}.      */
 DECL|method|createOutputsProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -848,6 +850,54 @@ name|routeContext
 argument_list|,
 name|outputs
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates the child processor (outputs) from the current definition      *      * @param routeContext   the route context      * @param mandatory      whether or not children is mandatory (ie the definition should have outputs)      * @return the created children, or<tt>null</tt> if definition had no output      * @throws Exception is thrown if error creating the child or if it was mandatory and there was no output defined on definition      */
+DECL|method|createChildProcessor (RouteContext routeContext, boolean mandatory)
+specifier|public
+name|Processor
+name|createChildProcessor
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|boolean
+name|mandatory
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Processor
+name|children
+init|=
+name|routeContext
+operator|.
+name|createProcessor
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|children
+operator|==
+literal|null
+operator|&&
+name|mandatory
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Definition has no children on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
+return|return
+name|children
 return|;
 block|}
 DECL|method|addOutput (ProcessorDefinition processorType)

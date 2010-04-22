@@ -461,9 +461,13 @@ block|}
 name|Processor
 name|childProcessor
 init|=
-name|createOutputsProcessor
+name|this
+operator|.
+name|createChildProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// wrap the on completion route in a unit of work processor

@@ -345,11 +345,13 @@ specifier|final
 name|Processor
 name|detour
 init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// register endpoint callback so we can proxy the endpoint
