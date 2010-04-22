@@ -127,7 +127,7 @@ specifier|protected
 name|String
 name|componentName
 init|=
-literal|"activemq"
+literal|"activemq123"
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected
@@ -151,7 +151,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"activemq:queue:hello?requestTimeout=0"
+literal|"activemq123:queue:hello?requestTimeout=0"
 argument_list|,
 literal|"Hello World"
 argument_list|,
