@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExpressionIllegalSyntaxException
 import|;
 end_import
@@ -132,6 +144,22 @@ name|RuntimeBeanExpressionException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -157,6 +185,94 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBodyExpression ()
+specifier|public
+name|void
+name|testBodyExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Expression
+name|exp
+init|=
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"${body}"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBodyExpressionNotStringType ()
+specifier|public
+name|void
+name|testBodyExpressionNotStringType
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|123
+argument_list|)
+expr_stmt|;
+name|Expression
+name|exp
+init|=
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"${body}"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+name|Object
+name|val
+init|=
+name|exp
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|Integer
+operator|.
+name|class
+argument_list|,
+name|val
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|123
+argument_list|,
+name|val
 argument_list|)
 expr_stmt|;
 block|}
@@ -1011,7 +1127,7 @@ name|assertExpression
 argument_list|(
 literal|"${header.unknown[cool]}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1139,7 +1255,7 @@ name|assertExpression
 argument_list|(
 literal|"${header.unknown[cool]}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1215,7 +1331,7 @@ name|assertExpression
 argument_list|(
 literal|"${header.wicket[unknown]}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertExpression
@@ -1230,14 +1346,14 @@ name|assertExpression
 argument_list|(
 literal|"${header?.unknown[cool]}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"${header.unknown[cool]}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -2868,7 +2984,7 @@ name|assertExpression
 argument_list|(
 literal|"${in.body?.getLines[3].getId}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -2942,7 +3058,7 @@ name|assertExpression
 argument_list|(
 literal|"${in.body?.lines[3].id}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3180,10 +3296,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testBodyOGNLElvisToAvoidNPE ()
+DECL|method|testBodyOGNLNullSafeToAvoidNPE ()
 specifier|public
 name|void
-name|testBodyOGNLElvisToAvoidNPE
+name|testBodyOGNLNullSafeToAvoidNPE
 parameter_list|()
 throws|throws
 name|Exception
@@ -3255,17 +3371,17 @@ argument_list|,
 literal|"13"
 argument_list|)
 expr_stmt|;
-comment|// using elvis to avoid the NPE
+comment|// using null safe to avoid the NPE
 name|assertExpression
 argument_list|(
 literal|"${in.body.getFriend?.getFriend.getName}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// without elvis we get an NPE
+comment|// without null safe we get an NPE
 name|assertExpression
 argument_list|(
 literal|"${in.body.getFriend.getFriend.getName}"
@@ -3309,10 +3425,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testBodyOGNLElvisToAvoidNPEShorthand ()
+DECL|method|testBodyOGNLNullSafeToAvoidNPEShorthand ()
 specifier|public
 name|void
-name|testBodyOGNLElvisToAvoidNPEShorthand
+name|testBodyOGNLNullSafeToAvoidNPEShorthand
 parameter_list|()
 throws|throws
 name|Exception
@@ -3385,17 +3501,17 @@ argument_list|,
 literal|"13"
 argument_list|)
 expr_stmt|;
-comment|// using elvis to avoid the NPE
+comment|// using null safe to avoid the NPE
 name|assertExpression
 argument_list|(
 literal|"${in.body.friend?.friend.name}"
 argument_list|,
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// without elvis we get an NPE
+comment|// without null safe we get an NPE
 name|assertExpression
 argument_list|(
 literal|"${in.body.friend.friend.name}"
