@@ -648,7 +648,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getRepositoryIndex (Transaction tx, String name)
+DECL|method|getRepositoryIndex (Transaction tx, String name, boolean create)
 specifier|public
 name|Index
 argument_list|<
@@ -663,6 +663,9 @@ name|tx
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|boolean
+name|create
 parameter_list|)
 block|{
 name|Index
@@ -672,6 +675,8 @@ argument_list|,
 name|Buffer
 argument_list|>
 name|answer
+init|=
+literal|null
 decl_stmt|;
 name|Index
 argument_list|<
@@ -702,6 +707,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|create
+operator|&&
 name|location
 operator|==
 literal|null
@@ -775,7 +782,13 @@ operator|=
 name|created
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|location
+operator|!=
+literal|null
+condition|)
 block|{
 if|if
 condition|(
