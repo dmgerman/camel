@@ -377,17 +377,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|boolean
-name|initialize
-init|=
-operator|!
-name|getFile
-argument_list|()
-operator|.
-name|exists
-argument_list|()
-decl_stmt|;
 name|open
 argument_list|()
 expr_stmt|;
@@ -413,11 +402,6 @@ name|Transaction
 name|tx
 parameter_list|)
 block|{
-if|if
-condition|(
-name|initialize
-condition|)
-block|{
 name|int
 name|page
 init|=
@@ -431,12 +415,14 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// if we just created the file, first allocated page should be 0
-assert|assert
+if|if
+condition|(
 name|page
 operator|==
 literal|0
-assert|;
+condition|)
+block|{
+comment|// if we just created the file, first allocated page should be 0
 name|ROOT_INDEXES_FACTORY
 operator|.
 name|create
@@ -459,6 +445,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Was previously created.. so free up the test page
+name|tx
+operator|.
+name|allocator
+argument_list|()
+operator|.
+name|free
+argument_list|(
+name|page
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 name|Index
 argument_list|<
 name|String
@@ -595,6 +594,11 @@ expr_stmt|;
 name|tx
 operator|.
 name|commit
+argument_list|()
+expr_stmt|;
+name|pageFile
+operator|.
+name|flush
 argument_list|()
 expr_stmt|;
 block|}
