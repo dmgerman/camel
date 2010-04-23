@@ -701,8 +701,13 @@ argument_list|>
 name|authMethods
 parameter_list|)
 block|{
+comment|// no auth is in use
 if|if
 condition|(
+name|username
+operator|==
+literal|null
+operator|&&
 name|authMethod
 operator|==
 literal|null
@@ -712,11 +717,33 @@ return|return
 name|configurer
 return|;
 block|}
-name|authMethods
+comment|// validate mandatory options given
+if|if
+condition|(
+name|username
+operator|!=
+literal|null
+operator|&&
+name|authMethod
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option authMethod must be provided to use authentication"
+argument_list|)
+throw|;
+block|}
+name|ObjectHelper
 operator|.
-name|add
+name|notNull
 argument_list|(
 name|authMethod
+argument_list|,
+literal|"authMethod"
 argument_list|)
 expr_stmt|;
 name|ObjectHelper
@@ -735,6 +762,14 @@ argument_list|(
 name|password
 argument_list|,
 literal|"authPassword"
+argument_list|)
+expr_stmt|;
+comment|// add it as a auth method used
+name|authMethods
+operator|.
+name|add
+argument_list|(
+name|authMethod
 argument_list|)
 expr_stmt|;
 if|if
@@ -855,8 +890,13 @@ argument_list|>
 name|authMethods
 parameter_list|)
 block|{
+comment|// no proxy auth is in use
 if|if
 condition|(
+name|username
+operator|==
+literal|null
+operator|&&
 name|authMethod
 operator|==
 literal|null
@@ -866,11 +906,33 @@ return|return
 name|configurer
 return|;
 block|}
-name|authMethods
+comment|// validate mandatory options given
+if|if
+condition|(
+name|username
+operator|!=
+literal|null
+operator|&&
+name|authMethod
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option proxyAuthMethod must be provided to use proxy authentication"
+argument_list|)
+throw|;
+block|}
+name|ObjectHelper
 operator|.
-name|add
+name|notNull
 argument_list|(
 name|authMethod
+argument_list|,
+literal|"proxyAuthMethod"
 argument_list|)
 expr_stmt|;
 name|ObjectHelper
@@ -889,6 +951,14 @@ argument_list|(
 name|password
 argument_list|,
 literal|"proxyAuthPassword"
+argument_list|)
+expr_stmt|;
+comment|// add it as a auth method used
+name|authMethods
+operator|.
+name|add
+argument_list|(
+name|authMethod
 argument_list|)
 expr_stmt|;
 if|if
