@@ -209,6 +209,9 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+name|disableJMX
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -220,6 +223,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|enableJMX
+argument_list|()
+expr_stmt|;
 name|releaseMBeanServers
 argument_list|()
 expr_stmt|;
@@ -763,12 +769,6 @@ name|MBeanServer
 argument_list|>
 name|servers
 init|=
-operator|(
-name|List
-argument_list|<
-name|MBeanServer
-argument_list|>
-operator|)
 name|MBeanServerFactory
 operator|.
 name|findMBeanServer

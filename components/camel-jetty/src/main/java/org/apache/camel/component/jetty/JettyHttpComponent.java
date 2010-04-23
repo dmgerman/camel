@@ -1271,7 +1271,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"You use localhost interface! It means that no external connections will be available. Don't you want to use 0.0.0.0 instead (all network interfaces)?"
+literal|"You use localhost interface! It means that no external connections will be available."
+operator|+
+literal|" Don't you want to use 0.0.0.0 instead (all network interfaces)? "
+operator|+
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -1400,6 +1404,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Jetty JMX Extensions is enabled"
+argument_list|)
+expr_stmt|;
 name|server
 operator|.
 name|getContainer
@@ -1603,20 +1614,14 @@ argument_list|)
 expr_stmt|;
 comment|// Camel controls the lifecycle of these entities so remove the
 comment|// registered MBeans when Camel is done with the managed objects.
-name|MBeanContainer
-name|containerToClean
-init|=
-name|getMbContainer
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|containerToClean
+name|mbContainer
 operator|!=
 literal|null
 condition|)
 block|{
-name|containerToClean
+name|mbContainer
 operator|.
 name|removeBean
 argument_list|(
@@ -1625,7 +1630,7 @@ operator|.
 name|server
 argument_list|)
 expr_stmt|;
-name|containerToClean
+name|mbContainer
 operator|.
 name|removeBean
 argument_list|(
@@ -2336,7 +2341,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"JMX disabled in Camel Context.  The Camel Context takes precedent and JMX will not be enabled in Jetty."
+literal|"JMX disabled in CamelContext. Jetty JMX extensions will remain disabled."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2651,7 +2656,7 @@ return|return
 name|server
 return|;
 block|}
-comment|/**      * Starts {@link #mbContainer} and registers the      * container with itself as a managed bean logging an error      * if there is a problem starting the container.  Does nothing      * if {@link #mbContainer} is {@code null}.      */
+comment|/**      * Starts {@link #mbContainer} and registers the container with itself as a managed bean      * logging an error if there is a problem starting the container.      * Does nothing if {@link #mbContainer} is {@code null}.      */
 DECL|method|startMbContainer ()
 specifier|protected
 name|void
@@ -2690,7 +2695,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -2698,7 +2703,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not start Jetty MBeanContainer.  Jetty JMX extensions will remain disabled."
+literal|"Could not start Jetty MBeanContainer. Jetty JMX extensions will remain disabled."
 argument_list|,
 name|e
 argument_list|)
