@@ -1272,7 +1272,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notEmpty (String value, String name, Object on)
 specifier|public
 specifier|static
@@ -2352,7 +2352,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * A helper method to access a system property, catching any security      * exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
+comment|/**      * A helper method to access a system property, catching any security exceptions      *      * @param name         the name of the system property required      * @param defaultValue the default value to use if the property is not      *                     available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
 DECL|method|getSystemProperty (String name, String defaultValue)
 specifier|public
 specifier|static
@@ -2401,9 +2401,9 @@ literal|"Caught security exception accessing system property: "
 operator|+
 name|name
 operator|+
-literal|". Reason: "
+literal|". Will use default value: "
 operator|+
-name|e
+name|defaultValue
 argument_list|,
 name|e
 argument_list|)
@@ -2414,7 +2414,7 @@ name|defaultValue
 return|;
 block|}
 block|}
-comment|/**      * A helper method to access a boolean system property, catching any      * security exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the boolean representation of the system property value or the      *         default value if the property is not available or security does      *         not allow its access      */
+comment|/**      * A helper method to access a boolean system property, catching any      * security exceptions      *      * @param name         the name of the system property required      * @param defaultValue the default value to use if the property is not      *                     available or a security exception prevents access      * @return the boolean representation of the system property value or the      *         default value if the property is not available or security does      *         not allow its access      */
 DECL|method|getSystemProperty (String name, Boolean defaultValue)
 specifier|public
 specifier|static
@@ -2539,7 +2539,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or<tt>null</tt> if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public
 specifier|static
@@ -2567,7 +2567,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class loader      * @return the class or<tt>null</tt> if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|public
 specifier|static
@@ -2595,7 +2595,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @param needToWarn if it is true will use log a warning message for not loading the class                     * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class loader      * @param needToWarn when<tt>true</tt> logs a warning when a class with the given name could not be loaded      * @return the class or<tt>null</tt> if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader, boolean needToWarn)
 specifier|public
 specifier|static
@@ -2700,6 +2700,23 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"int"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|int
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"java.lang.Long"
 operator|.
 name|equals
@@ -2717,6 +2734,187 @@ condition|)
 block|{
 return|return
 name|Long
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"long"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|long
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"java.lang.Short"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"Short"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|Short
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"short"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|long
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"java.lang.Byte"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"Byte"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|Byte
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"byte"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|byte
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"java.lang.Float"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"Float"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|Float
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"float"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|byte
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"java.lang.Double"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"Double"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|Double
+operator|.
+name|class
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"double"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|byte
 operator|.
 name|class
 return|;

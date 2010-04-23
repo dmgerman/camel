@@ -1172,7 +1172,7 @@ operator|==
 name|NOT_REGEX
 condition|)
 block|{
-comment|// reg ex should use String pattern, so we evalute the right hand side as a String
+comment|// reg ex should use String pattern, so we evaluate the right hand side as a String
 name|predicate
 operator|=
 name|PredicateBuilder
@@ -1372,37 +1372,15 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// prefix class name with java.lang. so people can use String as shorthand
-name|rightType
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
-operator|.
-name|resolveClass
-argument_list|(
-literal|"java.lang."
-operator|+
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|rightType
-operator|==
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Syntax error in is operator: "
+literal|"Syntax error in "
+operator|+
+name|operatorText
+operator|+
+literal|" operator: "
 operator|+
 name|expression
 operator|+
@@ -1553,13 +1531,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Syntax error in range operator: "
+literal|"Syntax error in "
+operator|+
+name|operatorText
+operator|+
+literal|" operator: "
 operator|+
 name|expression
 operator|+
-literal|" is not valid."
-operator|+
-literal|" Valid syntax: from..to (where from and to are numbers)."
+literal|" is not valid. Valid syntax:from..to(where from and to are numbers)."
 argument_list|)
 throw|;
 block|}
@@ -1594,7 +1574,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unsupported operator: "
 operator|+
-name|operator
+name|operatorText
 operator|+
 literal|" for expression: "
 operator|+

@@ -3783,6 +3783,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|recoverService
+operator|!=
+literal|null
+condition|)
+block|{
 name|camelContext
 operator|.
 name|getExecutorServiceStrategy
@@ -3793,6 +3800,7 @@ argument_list|(
 name|recoverService
 argument_list|)
 expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|stopServices
