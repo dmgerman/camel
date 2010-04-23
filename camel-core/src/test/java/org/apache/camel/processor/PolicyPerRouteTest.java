@@ -194,11 +194,33 @@ argument_list|,
 literal|"was wrapped"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:response"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:response"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"policy finished excution"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:send"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -323,6 +345,21 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
+name|from
+argument_list|(
+literal|"direct:send"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:response"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
@@ -392,6 +429,7 @@ block|{
 name|invoked
 operator|++
 expr_stmt|;
+comment|// let the original processor continue routing
 name|exchange
 operator|.
 name|getIn
@@ -404,12 +442,23 @@ argument_list|,
 literal|"was wrapped"
 argument_list|)
 expr_stmt|;
-comment|// let the original processor continue routing
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|name
+argument_list|,
+literal|"policy finished excution"
 argument_list|)
 expr_stmt|;
 block|}

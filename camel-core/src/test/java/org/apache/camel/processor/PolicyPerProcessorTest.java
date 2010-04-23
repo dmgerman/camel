@@ -169,7 +169,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|"was wrapped"
+literal|"police finished excution"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -192,6 +192,30 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"police finished excution"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"bar"
+argument_list|,
+literal|"police finished excution"
 argument_list|)
 expr_stmt|;
 name|template
@@ -465,6 +489,18 @@ operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|name
+argument_list|,
+literal|"police finished excution"
 argument_list|)
 expr_stmt|;
 block|}
