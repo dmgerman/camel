@@ -151,11 +151,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Test manually as its aggressive on the file system with sync each write"
-argument_list|)
 DECL|class|HawtDBAggregateLoadTest
 specifier|public
 class|class
