@@ -1547,7 +1547,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// an exception occured so send it as response
+comment|// an exception occurred so send it as response
 if|if
 condition|(
 name|LOG
@@ -1566,7 +1566,7 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-comment|// create jms message containg the caused exception
+comment|// create jms message containing the caused exception
 name|answer
 operator|=
 name|createJmsMessage
