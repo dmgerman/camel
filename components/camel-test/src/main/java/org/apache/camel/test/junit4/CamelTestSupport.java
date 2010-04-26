@@ -60,6 +60,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -1398,6 +1410,33 @@ operator|.
 name|assertIsSatisfied
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+DECL|method|assertMockEndpointsSatisfied (long timeout, TimeUnit unit)
+specifier|protected
+name|void
+name|assertMockEndpointsSatisfied
+parameter_list|(
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|unit
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|context
+argument_list|,
+name|timeout
+argument_list|,
+name|unit
 argument_list|)
 expr_stmt|;
 block|}
