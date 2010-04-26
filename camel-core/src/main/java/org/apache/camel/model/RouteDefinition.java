@@ -1996,6 +1996,11 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
 specifier|protected
 name|RouteContext

@@ -244,11 +244,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onCompletedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
@@ -285,11 +280,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onFailedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void

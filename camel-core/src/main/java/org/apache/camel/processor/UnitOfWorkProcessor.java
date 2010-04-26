@@ -203,6 +203,16 @@ operator|+
 literal|")"
 return|;
 block|}
+DECL|method|getRouteContext ()
+specifier|public
+name|RouteContext
+name|getRouteContext
+parameter_list|()
+block|{
+return|return
+name|routeContext
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|processNext (Exchange exchange)

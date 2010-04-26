@@ -175,11 +175,6 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|SamplingDefinition
 specifier|public
 class|class

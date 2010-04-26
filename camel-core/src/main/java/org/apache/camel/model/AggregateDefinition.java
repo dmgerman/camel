@@ -746,11 +746,6 @@ return|return
 name|clause
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createAggregator (RouteContext routeContext)
 specifier|protected
 name|AggregateProcessor
@@ -2136,11 +2131,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -2159,11 +2149,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition

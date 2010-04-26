@@ -386,6 +386,16 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

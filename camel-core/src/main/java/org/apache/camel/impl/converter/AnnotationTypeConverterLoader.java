@@ -378,11 +378,6 @@ operator|=
 name|resolver
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void

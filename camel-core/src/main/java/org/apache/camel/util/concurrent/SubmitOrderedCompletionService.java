@@ -285,11 +285,6 @@ name|get
 argument_list|()
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|compareTo (Delayed o)
 specifier|public
 name|int
@@ -324,11 +319,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|done ()
 specifier|protected
 name|void
@@ -423,11 +413,6 @@ operator|)
 name|f
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|submit (Runnable task, Object result)
 specifier|public
 name|Future

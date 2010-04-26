@@ -273,11 +273,6 @@ name|name
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

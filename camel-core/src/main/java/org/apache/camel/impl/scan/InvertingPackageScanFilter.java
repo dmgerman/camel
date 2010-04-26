@@ -37,11 +37,6 @@ comment|/**  * Package scan filter for inverting the match result of a subfilter
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|InvertingPackageScanFilter
 specifier|public
 class|class

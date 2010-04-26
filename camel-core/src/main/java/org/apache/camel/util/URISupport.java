@@ -143,11 +143,6 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static

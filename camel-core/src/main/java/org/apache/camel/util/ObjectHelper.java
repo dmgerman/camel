@@ -1787,11 +1787,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns true if the collection contains the specified value      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|contains (Object collectionOrArray, Object value)
 specifier|public
 specifier|static

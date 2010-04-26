@@ -95,11 +95,6 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setExpressions (List<Expression> expressions)
 specifier|public
 name|void

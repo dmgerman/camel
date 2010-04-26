@@ -3272,11 +3272,6 @@ name|answer
 return|;
 block|}
 comment|/**      * Ends the current block      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|end ()
 specifier|public
 name|ProcessorDefinition
@@ -3797,11 +3792,6 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients.      *<p/>      * Will use comma as default delimiter.      *      * @param recipients expression to decide the destinations      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|recipientList (Expression recipients)
 specifier|public
 name|RecipientListDefinition
@@ -3839,11 +3829,6 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @param delimiter  a custom delimiter to use      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|recipientList (Expression recipients, String delimiter)
 specifier|public
 name|RecipientListDefinition
@@ -4768,11 +4753,6 @@ name|this
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only and sets an exception with a default message.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      * @see #markRollbackOnly()      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|rollback ()
 specifier|public
 name|Type
@@ -4966,11 +4946,6 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given expression      *      * @param uri  the destination      * @param body expression that creates the body to send      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|wireTap (String uri, Expression body)
 specifier|public
 name|Type
@@ -6868,11 +6843,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a onComplection {@link org.apache.camel.spi.Synchronization} hook that invoke this route as      * a callback when the {@link org.apache.camel.Exchange} has finished being processed.      * The hook invoke callbacks for either onComplete or onFailure.      *<p/>      * Will by default always trigger when the {@link org.apache.camel.Exchange} is complete      * (either with success or failed).      *<br/>      * You can limit the callback to either onComplete or onFailure but invoking the nested      * builder method.      *<p/>      * For onFailure the caused exception is stored as a property on the {@link org.apache.camel.Exchange}      * with the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}.      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onCompletion ()
 specifier|public
 name|OnCompletionDefinition

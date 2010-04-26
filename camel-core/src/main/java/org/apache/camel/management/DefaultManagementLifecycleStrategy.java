@@ -1310,11 +1310,6 @@ return|;
 block|}
 block|}
 comment|/**      * If the endpoint is an instance of ManagedResource then register it with the      * mbean server, if it is not then wrap the endpoint in a {@link ManagedEndpoint} and      * register that with the mbean server.      *      * @param endpoint the Endpoint attempted to be added      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void

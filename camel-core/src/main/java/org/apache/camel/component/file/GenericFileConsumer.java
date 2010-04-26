@@ -1270,11 +1270,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean

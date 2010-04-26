@@ -785,11 +785,6 @@ return|return
 name|clause
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|OnCompletionDefinition
@@ -808,11 +803,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|OnCompletionDefinition

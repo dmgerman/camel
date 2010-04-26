@@ -797,6 +797,16 @@ return|return
 literal|"multicast"
 return|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

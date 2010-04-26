@@ -2240,11 +2240,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|chooseMethodWithMatchingBody (Exchange exchange, Collection<MethodInfo> operationList)
 specifier|private
 name|MethodInfo
@@ -2454,11 +2449,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|chooseBestPossibleMethodInfo (Exchange exchange, Collection<MethodInfo> operationList, Object body, List<MethodInfo> possibles, List<MethodInfo> possiblesWithException)
 specifier|private
 name|MethodInfo

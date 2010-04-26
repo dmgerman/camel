@@ -437,11 +437,6 @@ name|method
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|createExpression (CamelContext camelContext)
 specifier|public
@@ -509,11 +504,6 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Override
 DECL|method|createPredicate (CamelContext camelContext)

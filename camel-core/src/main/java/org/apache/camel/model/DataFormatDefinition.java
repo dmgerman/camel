@@ -354,11 +354,6 @@ name|dataFormat
 return|;
 block|}
 comment|/**      * Factory method to create the data format instance      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createDataFormat (RouteContext routeContext)
 specifier|protected
 name|DataFormat

@@ -72,11 +72,6 @@ name|ProxyHelper
 parameter_list|()
 block|{     }
 comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createProxyObject (Endpoint endpoint, Producer producer, ClassLoader classLoader, Class[] interfaces, MethodInfoCache methodCache)
 specifier|public
 specifier|static
@@ -227,11 +222,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createProxy (Endpoint endpoint, Class<T>... interfaceClasses)
 specifier|public
 specifier|static

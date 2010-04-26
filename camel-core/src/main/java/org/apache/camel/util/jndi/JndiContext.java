@@ -1205,11 +1205,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|addToEnvironment (String propName, Object propVal)
 specifier|public
 name|Object

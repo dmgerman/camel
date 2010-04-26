@@ -441,6 +441,16 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 comment|/**      * Gets the source which uses this cache      *      * @return the source      */
 DECL|method|getSource ()
 specifier|public

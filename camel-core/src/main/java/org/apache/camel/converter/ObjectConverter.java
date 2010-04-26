@@ -164,11 +164,6 @@ return|;
 block|}
 comment|/**      * Creates an iterator over the value      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Converter
 DECL|method|iterator (Object value)
 specifier|public
