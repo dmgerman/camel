@@ -135,32 +135,6 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-name|hawtDBFile
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|public
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|hawtDBFile
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -206,6 +180,11 @@ name|setUseRecovery
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 comment|// Store it..
 name|Exchange
@@ -269,7 +248,7 @@ name|getExchangeId
 argument_list|()
 decl_stmt|;
 comment|// stop the repo
-name|hawtDBFile
+name|repo
 operator|.
 name|stop
 argument_list|()
@@ -282,7 +261,7 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// load the repo again
-name|hawtDBFile
+name|repo
 operator|.
 name|start
 argument_list|()
@@ -333,6 +312,11 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
