@@ -139,11 +139,6 @@ specifier|private
 name|AbstractApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|field|template
-specifier|private
-name|ProducerTemplate
-name|template
-decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUp ()

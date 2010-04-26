@@ -175,11 +175,6 @@ name|TutorialService
 name|service
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|RequestMapping
 argument_list|(
 name|method

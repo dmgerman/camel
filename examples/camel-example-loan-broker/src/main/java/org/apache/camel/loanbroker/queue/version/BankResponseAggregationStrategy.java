@@ -117,28 +117,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|aggregatingOutMessage
-specifier|private
-name|boolean
-name|aggregatingOutMessage
-decl_stmt|;
-DECL|method|setAggregatingOutMessage (boolean flag)
-specifier|public
-name|BankResponseAggregationStrategy
-name|setAggregatingOutMessage
-parameter_list|(
-name|boolean
-name|flag
-parameter_list|)
-block|{
-name|aggregatingOutMessage
-operator|=
-name|flag
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|// Here we put the bank response together
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
