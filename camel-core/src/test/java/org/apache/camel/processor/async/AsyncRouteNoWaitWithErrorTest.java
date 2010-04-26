@@ -225,9 +225,6 @@ expr_stmt|;
 comment|// get the response from the future
 try|try
 block|{
-name|String
-name|response
-init|=
 name|context
 operator|.
 name|getTypeConverter
@@ -241,7 +238,7 @@ name|class
 argument_list|,
 name|future
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown an exception"
@@ -309,9 +306,6 @@ comment|// send a request reply to the direct start endpoint, but will use
 comment|// future type converter that will wait for the response
 try|try
 block|{
-name|String
-name|response
-init|=
 name|template
 operator|.
 name|requestBody
@@ -324,7 +318,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown an exception"

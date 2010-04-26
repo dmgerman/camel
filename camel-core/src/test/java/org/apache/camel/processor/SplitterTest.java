@@ -287,6 +287,13 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The in message should not be null."
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
 name|assertProperty
 argument_list|(
 name|exchange

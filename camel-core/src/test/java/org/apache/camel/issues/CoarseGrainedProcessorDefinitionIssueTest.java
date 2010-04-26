@@ -130,6 +130,13 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The route should not be null"
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
 comment|// TODO: drill down the route and check that Channel have
 comment|// the fine grained processor definition assigned
 comment|// this also helps the tracer as it now can better pin point it exact location

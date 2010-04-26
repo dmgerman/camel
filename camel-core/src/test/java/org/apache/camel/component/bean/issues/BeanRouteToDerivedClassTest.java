@@ -171,11 +171,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testDerivedClassCalledWithNoCustomProcessor ()
 specifier|public
 name|void
@@ -322,11 +317,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testDerivedClassCalledWithCustomProcessor ()
 specifier|public
 name|void
@@ -372,7 +362,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// explict method name given so always call this
+comment|// Explicit method name given so always call this
 name|from
 argument_list|(
 literal|"direct:start"
@@ -383,7 +373,7 @@ argument_list|(
 literal|"bean:derived?method=process"
 argument_list|)
 expr_stmt|;
-comment|// no explicy method name then a custom processor can kick in
+comment|// no explicit method name then a custom processor can kick in
 name|from
 argument_list|(
 literal|"direct:other"

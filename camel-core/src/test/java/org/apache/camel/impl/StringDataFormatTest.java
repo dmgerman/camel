@@ -709,16 +709,6 @@ specifier|private
 name|String
 name|title
 decl_stmt|;
-DECL|method|getTitle ()
-specifier|public
-name|String
-name|getTitle
-parameter_list|()
-block|{
-return|return
-name|title
-return|;
-block|}
 DECL|method|setTitle (String title)
 specifier|public
 name|void

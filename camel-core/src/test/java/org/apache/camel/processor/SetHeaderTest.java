@@ -209,17 +209,6 @@ name|configure
 parameter_list|()
 block|{
 comment|// START SNIPPET: example
-name|Namespaces
-name|ns
-init|=
-operator|new
-name|Namespaces
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|"urn:cheese"
-argument_list|)
-decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

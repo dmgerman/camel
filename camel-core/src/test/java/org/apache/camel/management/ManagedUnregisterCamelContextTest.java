@@ -155,6 +155,11 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testUnregisterCamelContext ()
 specifier|public
 name|void

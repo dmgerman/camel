@@ -245,6 +245,11 @@ name|MyOrderTypeConverter
 implements|implements
 name|TypeConverter
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<

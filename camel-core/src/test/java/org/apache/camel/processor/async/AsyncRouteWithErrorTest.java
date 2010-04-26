@@ -151,9 +151,6 @@ expr_stmt|;
 comment|// send a request reply to the direct start endpoint
 try|try
 block|{
-name|Object
-name|out
-init|=
 name|template
 operator|.
 name|requestBody
@@ -162,7 +159,7 @@ literal|"direct:start"
 argument_list|,
 literal|"Hello"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -233,9 +230,6 @@ comment|// send a request reply to the direct start endpoint, but will use
 comment|// future type converter that will wait for the response
 try|try
 block|{
-name|String
-name|response
-init|=
 name|template
 operator|.
 name|requestBody
@@ -248,7 +242,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown an exception"

@@ -312,9 +312,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|input
-init|=
 name|exchange
 operator|.
 name|getIn
@@ -326,7 +323,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Message
 name|output
 init|=

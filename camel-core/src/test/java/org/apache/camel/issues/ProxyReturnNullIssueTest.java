@@ -70,6 +70,11 @@ name|ProxyReturnNullIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testEcho ()
 specifier|public
 name|void
@@ -110,6 +115,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testEchoNull ()
 specifier|public
 name|void

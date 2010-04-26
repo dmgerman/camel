@@ -72,6 +72,11 @@ return|return
 literal|"foo"
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<

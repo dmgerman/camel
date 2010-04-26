@@ -205,11 +205,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testUnregisterProducer ()
 specifier|public
 name|void
@@ -219,7 +214,7 @@ throws|throws
 name|Exception
 block|{
 comment|// send a message so the managed producer is started
-comment|// do this "manually" to avoid camel manageging the direct:start producer as well
+comment|// do this "manually" to avoid camel managing the direct:start producer as well
 comment|// this makes the unit test easier as we only have 1 managed producer = mock:result
 name|Endpoint
 name|endpoint

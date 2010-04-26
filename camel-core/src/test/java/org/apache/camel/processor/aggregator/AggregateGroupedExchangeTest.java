@@ -94,6 +94,11 @@ name|AggregateGroupedExchangeTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testGrouped ()
 specifier|public
 name|void

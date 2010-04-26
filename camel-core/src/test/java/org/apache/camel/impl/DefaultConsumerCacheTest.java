@@ -136,6 +136,13 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"the polling consumer should not be null"
+argument_list|,
+name|p
+argument_list|)
+expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(

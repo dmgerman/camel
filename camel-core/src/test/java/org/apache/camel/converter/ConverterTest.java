@@ -1634,7 +1634,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
-literal|null
+name|e
 argument_list|)
 expr_stmt|;
 name|fail

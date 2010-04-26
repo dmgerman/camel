@@ -1392,9 +1392,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|Exchange
-name|result
-init|=
 name|template
 operator|.
 name|extractFutureBody
@@ -1405,7 +1402,7 @@ name|Exchange
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown exception"
@@ -1511,9 +1508,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|String
-name|result
-init|=
 name|template
 operator|.
 name|extractFutureBody
@@ -1524,7 +1518,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown exception"

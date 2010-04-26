@@ -124,6 +124,11 @@ specifier|static
 name|int
 name|counter
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRedeliverWithDelay ()
 specifier|public
 name|void

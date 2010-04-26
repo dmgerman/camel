@@ -197,9 +197,6 @@ return|return
 literal|null
 return|;
 block|}
-name|String
-name|xml
-init|=
 name|converter
 operator|.
 name|convertTo
@@ -210,7 +207,7 @@ name|class
 argument_list|,
 name|doc
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Integer
 name|orderId
 init|=

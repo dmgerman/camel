@@ -397,12 +397,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|navigateDefinition (ProcessorDefinition def, StringBuilder sb)
+DECL|method|navigateDefinition (ProcessorDefinition<?> def, StringBuilder sb)
 specifier|private
 name|void
 name|navigateDefinition
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 parameter_list|,
 name|StringBuilder

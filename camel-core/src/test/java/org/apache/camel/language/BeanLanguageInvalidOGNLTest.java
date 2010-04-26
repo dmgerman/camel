@@ -124,9 +124,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|String
-name|reply
-init|=
 name|template
 operator|.
 name|requestBody
@@ -139,7 +136,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown exception"

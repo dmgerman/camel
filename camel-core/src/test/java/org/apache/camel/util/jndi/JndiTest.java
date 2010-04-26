@@ -107,6 +107,11 @@ specifier|protected
 name|Context
 name|context
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createInitialContext ()
 specifier|public
 specifier|static

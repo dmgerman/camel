@@ -368,16 +368,6 @@ operator|.
 name|toByteArray
 argument_list|(
 name|val
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-name|IOConverter
-operator|.
-name|toByteArray
-argument_list|(
-name|val
 argument_list|,
 literal|null
 argument_list|)
@@ -867,6 +857,8 @@ operator|.
 name|toByteArray
 argument_list|(
 name|br
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -914,6 +906,8 @@ operator|.
 name|toByteArray
 argument_list|(
 name|br
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1147,6 +1141,8 @@ operator|.
 name|toString
 argument_list|(
 name|url
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1230,6 +1226,8 @@ operator|.
 name|toByteArray
 argument_list|(
 name|reader
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull

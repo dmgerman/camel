@@ -173,11 +173,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testLookupByType ()
 specifier|public
 name|void
@@ -264,11 +259,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testLookupByWrongType ()
 specifier|public
 name|void

@@ -160,6 +160,11 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testConsumeSuspendAndResumeFile ()
 specifier|public
 name|void

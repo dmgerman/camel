@@ -1218,9 +1218,6 @@ literal|"producer"
 decl_stmt|;
 try|try
 block|{
-name|Object
-name|value
-init|=
 name|helper
 operator|.
 name|getInjectionValue
@@ -1243,7 +1240,7 @@ name|bean
 argument_list|,
 literal|"foo"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw exception"
@@ -1335,9 +1332,6 @@ literal|"producer"
 decl_stmt|;
 try|try
 block|{
-name|Object
-name|value
-init|=
 name|helper
 operator|.
 name|getInjectionValue
@@ -1360,7 +1354,7 @@ name|bean
 argument_list|,
 literal|"foo"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw exception"
@@ -1452,9 +1446,6 @@ literal|"producer"
 decl_stmt|;
 try|try
 block|{
-name|Object
-name|value
-init|=
 name|helper
 operator|.
 name|getInjectionValue
@@ -1477,7 +1468,7 @@ name|bean
 argument_list|,
 literal|"foo"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw exception"

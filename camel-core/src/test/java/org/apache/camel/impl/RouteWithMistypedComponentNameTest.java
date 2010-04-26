@@ -135,14 +135,11 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// unknown component
-name|Endpoint
-name|endpoint
-init|=
 name|endpoint
 argument_list|(
 literal|"mistyped:hello"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -207,9 +204,6 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// unknown component
-name|Endpoint
-name|endpoint
-init|=
 name|endpoint
 argument_list|(
 literal|"mistyped:hello"
@@ -218,7 +212,7 @@ name|Endpoint
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 argument_list|)

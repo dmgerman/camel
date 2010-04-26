@@ -368,6 +368,11 @@ class|class
 name|OrderService
 block|{
 comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|handleOrder (@eaders Map in, @Body String payload, @OutHeaders Map out)
 specifier|public
 name|Object
@@ -440,6 +445,11 @@ return|;
 block|}
 block|}
 comment|/**          * This method creates the response to the caller if the order could not be processed          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|orderFailed (@eaders Map in, @Body String payload, @OutHeaders Map out)
 specifier|public
 name|Object

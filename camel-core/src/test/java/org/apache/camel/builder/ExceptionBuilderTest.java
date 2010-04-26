@@ -802,11 +802,6 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 specifier|public
 name|void
 name|configure

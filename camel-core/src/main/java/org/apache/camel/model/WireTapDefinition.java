@@ -501,11 +501,6 @@ return|return
 literal|"wireTap"
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ProcessorDefinition
@@ -525,11 +520,6 @@ literal|"wireTap does not support these builder methods"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ProcessorDefinition
