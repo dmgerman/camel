@@ -1007,6 +1007,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isJavaVendor
+argument_list|(
+literal|"ibm"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+comment|// can only be run on SUN JDK
 name|MockEndpoint
 name|mock
 init|=
