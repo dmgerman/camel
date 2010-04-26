@@ -556,6 +556,10 @@ argument_list|,
 name|httpExchange
 argument_list|)
 expr_stmt|;
+comment|// we send synchronous so wait for it to be done
+comment|// must use our own lock detection as Jettys waitForDone will wait forever in case of connection issues
+try|try
+block|{
 if|if
 condition|(
 name|LOG
@@ -572,8 +576,6 @@ literal|"Waiting for HTTP exchange to be done"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we send synchronous so wait for it to be done
-comment|// must use our own lock detection as Jettys waitForDone will wait forever in case of connection issues
 name|int
 name|exchangeState
 init|=
@@ -683,6 +685,46 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// are we shutting down?
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Interrupted waiting for async reply, are we stopping? "
+operator|+
+operator|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|createHttpExchange (Exchange exchange)
