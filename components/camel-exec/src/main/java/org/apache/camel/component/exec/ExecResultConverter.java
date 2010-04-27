@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|FileInputStream
 import|;
 end_import
@@ -211,17 +221,35 @@ name|FileNotFoundException
 throws|,
 name|IOException
 block|{
+name|InputStream
+name|stream
+init|=
+name|toInputStream
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+try|try
+block|{
 return|return
 name|IOUtils
 operator|.
 name|toByteArray
 argument_list|(
-name|toInputStream
-argument_list|(
-name|result
-argument_list|)
+name|stream
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Converter
@@ -348,7 +376,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * If the ExecResult contains out file,      *<code>InputStream<code> with the output of the<code>execResult</code>.      * If there is {@link ExecCommand#getOutFile()}, its content is preferred to      * {@link ExecResult#getStdout()}. Returns<code>null</code> if the stdout      * is null, or if the<code>execResult</code> is<code>null</code>.      *       * @param execResult ExecResult object.      * @return InputStream object if the output of the executable.      * @throws FileNotFoundException if the {@link ExecCommand#getOutFile()} is      *             not<code>null</code>, but can not be found      */
+comment|/**      * Returns<code>InputStream</code> object with the<i>output</i> of the      * executable. If there is {@link ExecCommand#getOutFile()}, its content is      * preferred to {@link ExecResult#getStdout()}. If no out file is set, and      * the stdout of the exec result is<code>null</code> returns the stderr of      * the exec result.<br>      * If the output stream is of type<code>ByteArrayInputStream</code>, its      *<code>reset()</code> method is called.      *       * @param execResult ExecResult object to convert to InputStream.      * @return InputStream object with the<i>output</i> of the executable.      *         Returns<code>null</code> if both {@link ExecResult#getStdout()}      *         and {@link ExecResult#getStderr()} are<code>null</code> , or if      *         the<code>execResult</code> is<code>null</code>.      * @throws FileNotFoundException if the {@link ExecCommand#getOutFile()} can      *             not be opened. In this case the out file must have had a not      *<code>null</code> value      */
 DECL|method|toInputStream (ExecResult execResult)
 specifier|public
 specifier|static
@@ -379,7 +407,10 @@ return|return
 literal|null
 return|;
 block|}
-comment|// prefer generic file conversion
+comment|// prefer the out file for output
+name|InputStream
+name|result
+decl_stmt|;
 if|if
 condition|(
 name|execResult
@@ -393,7 +424,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|result
+operator|=
 operator|new
 name|FileInputStream
 argument_list|(
@@ -405,10 +437,11 @@ operator|.
 name|getOutFile
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if the stdout is null, return the stderr.
 if|if
 condition|(
 name|execResult
@@ -423,16 +456,84 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Received null stdout of the ExecResult for conversion!"
+literal|"ExecResult has no stdout, will fallback to use stderr."
 argument_list|)
 expr_stmt|;
+name|result
+operator|=
+name|execResult
+operator|.
+name|getStderr
+argument_list|()
+expr_stmt|;
 block|}
-return|return
+else|else
+block|{
+name|result
+operator|=
 name|execResult
 operator|.
 name|getStdout
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|// reset the stream if it was already read.
+name|resetIfByteArrayInputStream
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
+block|}
+comment|/**      * Resets the stream, only if it's a ByteArrayInputStream.      */
+DECL|method|resetIfByteArrayInputStream (InputStream stream)
+specifier|private
+specifier|static
+name|void
+name|resetIfByteArrayInputStream
+parameter_list|(
+name|InputStream
+name|stream
+parameter_list|)
+block|{
+if|if
+condition|(
+name|stream
+operator|!=
+literal|null
+operator|&&
+name|stream
+operator|instanceof
+name|ByteArrayInputStream
+condition|)
+block|{
+try|try
+block|{
+name|stream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Unable to reset the stream "
+argument_list|,
+name|ioe
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
