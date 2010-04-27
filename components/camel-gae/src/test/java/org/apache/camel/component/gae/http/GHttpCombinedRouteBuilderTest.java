@@ -346,13 +346,6 @@ name|config
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Autowired
-DECL|field|producerTemplate
-specifier|private
-name|ProducerTemplate
-name|producerTemplate
-decl_stmt|;
-annotation|@
 name|BeforeClass
 DECL|method|setUpBeforeClass ()
 specifier|public
