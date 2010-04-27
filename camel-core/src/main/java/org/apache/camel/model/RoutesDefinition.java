@@ -731,15 +731,6 @@ name|RouteDefinition
 name|route
 parameter_list|)
 block|{
-comment|// lets configure the route
-name|route
-operator|.
-name|setCamelContext
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// configure intercept
 for|for
 control|(

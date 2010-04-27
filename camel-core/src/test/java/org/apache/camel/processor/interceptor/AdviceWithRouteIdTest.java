@@ -61,6 +61,8 @@ argument_list|)
 operator|.
 name|adviceWith
 argument_list|(
+name|context
+argument_list|,
 operator|new
 name|RouteBuilder
 argument_list|()

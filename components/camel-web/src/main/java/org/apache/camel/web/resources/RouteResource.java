@@ -571,8 +571,6 @@ name|route
 operator|.
 name|idOrCreate
 argument_list|(
-name|route
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.

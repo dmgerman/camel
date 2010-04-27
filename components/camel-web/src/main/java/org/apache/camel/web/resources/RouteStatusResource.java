@@ -264,7 +264,10 @@ name|getRoute
 argument_list|()
 operator|.
 name|getStatus
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

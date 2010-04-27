@@ -3652,13 +3652,6 @@ range|:
 name|routeDefinitions
 control|)
 block|{
-name|routeDefinition
-operator|.
-name|setCamelContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|removeRouteDefinition
 argument_list|(
 name|routeDefinition

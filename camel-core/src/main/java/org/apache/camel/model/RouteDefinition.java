@@ -164,18 +164,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -412,6 +400,20 @@ name|CamelContextHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;route/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -451,8 +453,6 @@ name|ProcessorDefinition
 argument_list|<
 name|ProcessorDefinition
 argument_list|>
-implements|implements
-name|CamelContextAware
 block|{
 DECL|field|inputs
 specifier|private
@@ -483,11 +483,6 @@ argument_list|<
 name|ProcessorDefinition
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
 decl_stmt|;
 DECL|field|group
 specifier|private
@@ -614,11 +609,14 @@ literal|"route"
 return|;
 block|}
 comment|/**      * Returns the status of the route if it has been registered with a {@link CamelContext}      */
-DECL|method|getStatus ()
+DECL|method|getStatus (CamelContext camelContext)
 specifier|public
 name|ServiceStatus
 name|getStatus
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -662,17 +660,22 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|isStartable ()
+DECL|method|isStartable (CamelContext camelContext)
 specifier|public
 name|boolean
 name|isStartable
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 name|ServiceStatus
 name|status
 init|=
 name|getStatus
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -695,17 +698,22 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|isStoppable ()
+DECL|method|isStoppable (CamelContext camelContext)
 specifier|public
 name|boolean
 name|isStoppable
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 name|ServiceStatus
 name|status
 init|=
 name|getStatus
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -728,7 +736,7 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|addRoutes (CamelContext context, Collection<Route> routes)
+DECL|method|addRoutes (CamelContext camelContext, Collection<Route> routes)
 specifier|public
 name|List
 argument_list|<
@@ -737,7 +745,7 @@ argument_list|>
 name|addRoutes
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|,
 name|Collection
 argument_list|<
@@ -761,15 +769,10 @@ name|RouteContext
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|ErrorHandlerBuilder
 name|handler
 init|=
-name|context
+name|camelContext
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()
@@ -804,6 +807,8 @@ name|routeContext
 operator|=
 name|addRoutes
 argument_list|(
+name|camelContext
+argument_list|,
 name|routes
 argument_list|,
 name|fromType
@@ -853,82 +858,73 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|resolveEndpoint (String uri)
+DECL|method|resolveEndpoint (CamelContext camelContext, String uri)
 specifier|public
 name|Endpoint
 name|resolveEndpoint
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|uri
 parameter_list|)
 throws|throws
 name|NoSuchEndpointException
 block|{
-name|CamelContext
-name|context
-init|=
-name|getCamelContext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"CamelContext has not been injected!"
+name|camelContext
+argument_list|,
+literal|"CamelContext"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|CamelContextHelper
 operator|.
 name|getMandatoryEndpoint
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Advices this route with the route builder.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param builder the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
-DECL|method|adviceWith (RouteBuilder builder)
+comment|/**      * Advices this route with the route builder.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext  the camel context      * @param builder       the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
+DECL|method|adviceWith (CamelContext camelContext, RouteBuilder builder)
 specifier|public
 name|RouteDefinition
 name|adviceWith
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|RouteBuilder
 name|builder
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|context
-init|=
-name|getCamelContext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"CamelContext has not been injected!"
+name|camelContext
+argument_list|,
+literal|"CamelContext"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|builder
+argument_list|,
+literal|"RouteBuilder"
+argument_list|)
+expr_stmt|;
 comment|// configure and prepare the routes from the builder
 name|RoutesDefinition
 name|routes
@@ -937,7 +933,7 @@ name|builder
 operator|.
 name|configureRoutes
 argument_list|(
-name|context
+name|camelContext
 argument_list|)
 decl_stmt|;
 comment|// we can only advice with a route builder without any routes
@@ -975,7 +971,9 @@ name|ArrayList
 argument_list|<
 name|RouteDefinition
 argument_list|>
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 name|list
 operator|.
@@ -984,7 +982,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|context
+name|camelContext
 operator|.
 name|removeRouteDefinitions
 argument_list|(
@@ -1003,7 +1001,7 @@ name|this
 argument_list|)
 decl_stmt|;
 comment|// add the new merged route
-name|context
+name|camelContext
 operator|.
 name|getRouteDefinitions
 argument_list|()
@@ -1016,7 +1014,7 @@ name|merged
 argument_list|)
 expr_stmt|;
 comment|// and start it
-name|context
+name|camelContext
 operator|.
 name|startRoute
 argument_list|(
@@ -1238,7 +1236,7 @@ name|StreamCaching
 operator|.
 name|getStreamCaching
 argument_list|(
-name|getCamelContext
+name|getInterceptStrategies
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1590,34 +1588,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-annotation|@
-name|XmlTransient
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
 block|}
 comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *      * May be null.      */
 DECL|method|getGroup ()
@@ -2001,11 +1971,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|addRoutes (Collection<Route> routes, FromDefinition fromType)
+DECL|method|addRoutes (CamelContext camelContext, Collection<Route> routes, FromDefinition fromType)
 specifier|protected
 name|RouteContext
 name|addRoutes
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Collection
 argument_list|<
 name|Route
@@ -2024,8 +1997,7 @@ init|=
 operator|new
 name|DefaultRouteContext
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|this
 argument_list|,
@@ -2124,8 +2096,7 @@ name|StreamCaching
 operator|.
 name|getStreamCaching
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 operator|==
 literal|null
@@ -2188,8 +2159,7 @@ name|HandleFault
 operator|.
 name|getHandleFault
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 operator|==
 literal|null
@@ -2351,8 +2321,7 @@ name|CamelContextHelper
 operator|.
 name|mandatoryLookup
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|routePolicyRef
 argument_list|,

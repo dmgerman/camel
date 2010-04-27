@@ -521,22 +521,6 @@ operator|new
 name|RouteDefinition
 argument_list|()
 decl_stmt|;
-name|route
-operator|.
-name|setCamelContext
-argument_list|(
-name|first
-operator|.
-name|getBuilder
-argument_list|()
-operator|.
-name|getProcessBuilder
-argument_list|()
-operator|.
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|RouteContext
 name|routeContext
 init|=
@@ -828,7 +812,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the date in the future adding the given number of millis      *      * @param date      * @param millis      * @return the date in the future      */
+comment|/**      * Returns the date in the future adding the given number of millis      *      * @return the date in the future      */
 DECL|method|add (Date date, long millis)
 specifier|protected
 name|Date
