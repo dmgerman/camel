@@ -136,11 +136,6 @@ specifier|private
 name|Validator
 name|validator
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|field|group
 specifier|private
 name|Class
@@ -287,11 +282,6 @@ return|return
 name|validator
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getGroup ()
 specifier|public
 name|Class
@@ -302,11 +292,6 @@ return|return
 name|group
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setGroup (Class group)
 specifier|public
 name|void
