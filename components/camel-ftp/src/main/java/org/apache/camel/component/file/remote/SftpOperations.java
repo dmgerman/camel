@@ -1745,6 +1745,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|retrieveFileToStreamInBody (String name, Exchange exchange)
 specifier|private
 name|boolean
@@ -1867,6 +1872,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|retrieveFileToFileInLocalWorkDirectory (String name, Exchange exchange)
 specifier|private
 name|boolean
