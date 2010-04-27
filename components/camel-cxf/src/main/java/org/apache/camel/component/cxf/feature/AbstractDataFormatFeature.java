@@ -114,11 +114,6 @@ name|Logger
 name|getLogger
 parameter_list|()
 function_decl|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeInterceptorWhichIsInThePhases (List<Interceptor> interceptors, String[] phaseNames)
 specifier|protected
 name|void
@@ -202,11 +197,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeInterceptorWhichIsOutThePhases (List<Interceptor> interceptors, String[] phaseNames)
 specifier|protected
 name|void
@@ -306,11 +296,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|removeInterceptors (List<Interceptor> interceptors, Collection<Class> toBeRemovedInterceptors)
 specifier|protected
 name|void

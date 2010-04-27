@@ -165,6 +165,11 @@ init|=
 literal|"exchange property value should get passed through request context"
 decl_stmt|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testExchangePropertyPropagation ()
 specifier|public

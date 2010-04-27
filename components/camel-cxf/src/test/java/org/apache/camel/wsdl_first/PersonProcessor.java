@@ -139,6 +139,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

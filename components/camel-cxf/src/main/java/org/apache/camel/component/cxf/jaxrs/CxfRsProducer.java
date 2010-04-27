@@ -1068,11 +1068,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findRightMethod (List<Class<?>> resourceClasses, String methodName, Class[] parameterTypes)
 specifier|private
 name|Method

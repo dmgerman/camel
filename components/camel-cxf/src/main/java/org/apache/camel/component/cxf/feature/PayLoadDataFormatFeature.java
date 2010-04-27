@@ -209,11 +209,6 @@ comment|/**  * This feature just setting up the CXF endpoint interceptor for han
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|class|PayLoadDataFormatFeature
 specifier|public
 class|class

@@ -2147,6 +2147,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @param cxfMessage      * @param camelMessage      * @param exchange provides context for filtering      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|propagateHeadersFromCxfToCamel (Message cxfMessage, org.apache.camel.Message camelMessage, Exchange exchange)
 specifier|protected
 name|void
@@ -2394,6 +2399,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|propagateHeadersFromCamelToCxf (Exchange camelExchange, Map<String, Object> camelHeaders, org.apache.cxf.message.Exchange cxfExchange, Map<String, Object> cxfContext)
 specifier|protected
 name|void
@@ -2834,6 +2844,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getContentFromCxf (Message message, DataFormat dataFormat)
 specifier|protected
 specifier|static

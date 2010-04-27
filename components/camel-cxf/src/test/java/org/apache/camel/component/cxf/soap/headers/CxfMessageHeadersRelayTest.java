@@ -2040,11 +2040,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
+comment|// do nothing
 block|}
 name|assertTrue
 argument_list|(
@@ -2177,11 +2173,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
+comment|// do nothing
 block|}
 name|assertTrue
 argument_list|(
@@ -2308,11 +2300,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
+comment|// do nothing
 block|}
 name|assertTrue
 argument_list|(
@@ -4126,11 +4114,6 @@ operator|==
 literal|2
 argument_list|)
 expr_stmt|;
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
 if|if
 condition|(
 name|oobHdr
@@ -4463,6 +4446,11 @@ name|InsertRequestOutHeaderProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -4567,6 +4555,11 @@ name|InsertResponseOutHeaderProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
