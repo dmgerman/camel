@@ -73,6 +73,11 @@ extends|extends
 name|Assert
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testGuice ()
 specifier|public

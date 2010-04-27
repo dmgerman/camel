@@ -52,7 +52,7 @@ name|Exception
 block|{
 comment|// TODO we could register explicit endpoints here too if we want
 comment|// lets add some other route builders
-name|addRoutes
+name|includeRoutes
 argument_list|(
 operator|new
 name|MyConfigurableRoute
@@ -69,7 +69,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|addRoutes
+name|includeRoutes
 argument_list|(
 operator|new
 name|MyConfigurableRoute

@@ -80,6 +80,11 @@ name|MyModule
 extends|extends
 name|CamelModuleWithRouteTypes
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|MyModule ()
 specifier|public
 name|MyModule
