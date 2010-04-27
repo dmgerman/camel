@@ -397,6 +397,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|navigateDefinition (ProcessorDefinition<?> def, StringBuilder sb)
 specifier|private
 name|void
@@ -412,9 +417,18 @@ name|StringBuilder
 name|sb
 parameter_list|)
 block|{
+comment|// must do this ugly cast to avoid compiler error on HP-UX
+name|ProcessorDefinition
+name|defn
+init|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|def
+decl_stmt|;
 if|if
 condition|(
-name|def
+name|defn
 operator|instanceof
 name|LoadBalanceDefinition
 condition|)
@@ -432,7 +446,7 @@ init|=
 operator|(
 name|LoadBalanceDefinition
 operator|)
-name|def
+name|defn
 decl_stmt|;
 name|LoadBalancer
 name|balancer
@@ -465,7 +479,7 @@ block|}
 block|}
 if|if
 condition|(
-name|def
+name|defn
 operator|instanceof
 name|SendDefinition
 condition|)
@@ -476,7 +490,7 @@ init|=
 operator|(
 name|SendDefinition
 operator|)
-name|def
+name|defn
 decl_stmt|;
 name|sb
 operator|.
@@ -502,7 +516,7 @@ name|ProcessorDefinition
 argument_list|>
 name|children
 init|=
-name|def
+name|defn
 operator|.
 name|getOutputs
 argument_list|()
