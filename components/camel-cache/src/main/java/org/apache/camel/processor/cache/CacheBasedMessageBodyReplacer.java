@@ -78,8 +78,6 @@ name|component
 operator|.
 name|cache
 operator|.
-name|factory
-operator|.
 name|CacheManagerFactory
 import|;
 end_import

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cache.factory
+DECL|package|org.apache.camel.component.cache
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|cache
-operator|.
-name|factory
 package|;
 end_package
 
@@ -32,11 +30,27 @@ name|CacheManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_class
 DECL|class|CacheManagerFactory
 specifier|public
 class|class
 name|CacheManagerFactory
+extends|extends
+name|ServiceSupport
 block|{
 DECL|field|cacheManager
 specifier|private
@@ -68,6 +82,41 @@ block|}
 return|return
 name|cacheManager
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// shutdown cache manager when stopping
+if|if
+condition|(
+name|cacheManager
+operator|!=
+literal|null
+condition|)
+block|{
+name|cacheManager
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

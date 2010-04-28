@@ -138,25 +138,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|logging
+name|util
 operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|ObjectHelper
 import|;
 end_import
 
@@ -168,28 +154,22 @@ name|CacheEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|CacheEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|config
+specifier|private
 name|CacheConfiguration
 name|config
 decl_stmt|;
-DECL|method|CacheEndpoint (String endpointUri, Component component, CacheConfiguration config)
+DECL|field|cacheManagerFactory
+specifier|private
+name|CacheManagerFactory
+name|cacheManagerFactory
+decl_stmt|;
+DECL|method|CacheEndpoint ()
+specifier|public
+name|CacheEndpoint
+parameter_list|()
+block|{     }
+DECL|method|CacheEndpoint (String endpointUri, Component component, CacheConfiguration config, CacheManagerFactory cacheManagerFactory)
 specifier|public
 name|CacheEndpoint
 parameter_list|(
@@ -201,6 +181,9 @@ name|component
 parameter_list|,
 name|CacheConfiguration
 name|config
+parameter_list|,
+name|CacheManagerFactory
+name|cacheManagerFactory
 parameter_list|)
 block|{
 name|super
@@ -216,6 +199,12 @@ name|config
 operator|=
 name|config
 expr_stmt|;
+name|this
+operator|.
+name|cacheManagerFactory
+operator|=
+name|cacheManagerFactory
+expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
@@ -228,6 +217,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|config
+argument_list|,
+literal|"config"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|cacheManagerFactory
+argument_list|,
+literal|"cacheManagerFactory"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|CacheConsumer
@@ -248,6 +255,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|config
+argument_list|,
+literal|"config"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|cacheManagerFactory
+argument_list|,
+literal|"cacheManagerFactory"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|CacheProducer
@@ -265,7 +290,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getConfig ()
@@ -292,6 +317,32 @@ operator|.
 name|config
 operator|=
 name|config
+expr_stmt|;
+block|}
+DECL|method|getCacheManagerFactory ()
+specifier|public
+name|CacheManagerFactory
+name|getCacheManagerFactory
+parameter_list|()
+block|{
+return|return
+name|cacheManagerFactory
+return|;
+block|}
+DECL|method|setCacheManagerFactory (CacheManagerFactory cacheManagerFactory)
+specifier|public
+name|void
+name|setCacheManagerFactory
+parameter_list|(
+name|CacheManagerFactory
+name|cacheManagerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheManagerFactory
+operator|=
+name|cacheManagerFactory
 expr_stmt|;
 block|}
 DECL|method|createCacheExchange (String operation, String key, Object value)
