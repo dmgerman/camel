@@ -301,23 +301,6 @@ name|JaxbFallbackConverterTest
 extends|extends
 name|OSGiIntegrationTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JaxbFallbackConverterTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

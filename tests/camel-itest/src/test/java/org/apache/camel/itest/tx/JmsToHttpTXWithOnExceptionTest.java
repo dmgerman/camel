@@ -239,13 +239,6 @@ name|ok
 init|=
 literal|"<?xml version=\"1.0\"?><reply><status>ok</status></reply>"
 decl_stmt|;
-DECL|field|nok
-specifier|private
-name|String
-name|nok
-init|=
-literal|"<?xml version=\"1.0\"?><reply><status>nok</status></reply>"
-decl_stmt|;
 DECL|field|noAccess
 specifier|private
 name|String

@@ -344,10 +344,20 @@ decl_stmt|;
 comment|// register the hello world servlet
 specifier|final
 name|Dictionary
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|initParams
 init|=
 operator|new
 name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|initParams
