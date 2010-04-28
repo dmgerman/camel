@@ -114,6 +114,20 @@ name|IndexSearcher
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+
 begin_class
 DECL|class|LuceneQueryProcessor
 specifier|public
@@ -151,6 +165,11 @@ DECL|field|maxNumberOfHits
 specifier|private
 name|int
 name|maxNumberOfHits
+decl_stmt|;
+DECL|field|luceneVersion
+specifier|private
+name|Version
+name|luceneVersion
 decl_stmt|;
 DECL|method|LuceneQueryProcessor (String indexDirectoryPath, Analyzer analyzer, String defaultSearchPhrase, int maxNumberOfHits)
 specifier|public
@@ -264,6 +283,8 @@ argument_list|(
 name|phrase
 argument_list|,
 name|maxNumberOfHits
+argument_list|,
+name|luceneVersion
 argument_list|)
 expr_stmt|;
 block|}
@@ -417,6 +438,32 @@ name|maxNumberOfHits
 operator|=
 name|maxNumberOfHits
 expr_stmt|;
+block|}
+DECL|method|setLuceneVersion (Version luceneVersion)
+specifier|public
+name|void
+name|setLuceneVersion
+parameter_list|(
+name|Version
+name|luceneVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|luceneVersion
+operator|=
+name|luceneVersion
+expr_stmt|;
+block|}
+DECL|method|getLuceneVersion ()
+specifier|public
+name|Version
+name|getLuceneVersion
+parameter_list|()
+block|{
+return|return
+name|luceneVersion
+return|;
 block|}
 block|}
 end_class

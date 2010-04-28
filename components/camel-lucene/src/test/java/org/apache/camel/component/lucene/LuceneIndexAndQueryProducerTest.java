@@ -340,7 +340,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_CURRENT
+name|LUCENE_30
 argument_list|)
 argument_list|)
 expr_stmt|;

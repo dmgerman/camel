@@ -267,6 +267,11 @@ argument_list|(
 name|phrase
 argument_list|,
 name|maxNumberOfHits
+argument_list|,
+name|config
+operator|.
+name|getLuceneVersion
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
