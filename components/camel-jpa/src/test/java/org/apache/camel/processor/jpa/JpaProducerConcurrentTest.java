@@ -429,6 +429,11 @@ name|responses
 init|=
 operator|new
 name|ConcurrentHashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Future
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -681,6 +686,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|cleanupRepository ()
 specifier|protected
 name|void

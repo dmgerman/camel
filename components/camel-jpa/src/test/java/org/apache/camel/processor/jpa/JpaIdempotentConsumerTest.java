@@ -433,6 +433,11 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|cleanupRepository ()
 specifier|protected
 name|void
@@ -576,6 +581,11 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testDuplicateMessagesAreFilteredOut ()
@@ -796,6 +806,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testFailedExchangesNotAdded ()
 specifier|public
@@ -834,7 +849,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)

@@ -352,6 +352,11 @@ return|return
 name|transactionTemplate
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|add (final String messageId)
 specifier|public
 name|boolean
@@ -465,6 +470,11 @@ name|booleanValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|contains (final String messageId)
 specifier|public
 name|boolean
@@ -545,6 +555,11 @@ name|booleanValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|remove (final String messageId)
 specifier|public
 name|boolean

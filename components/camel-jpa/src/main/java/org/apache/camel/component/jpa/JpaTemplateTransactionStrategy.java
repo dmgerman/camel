@@ -309,6 +309,11 @@ name|tranasctionTemplate
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|execute (final JpaCallback callback)
 specifier|public
 name|Object
