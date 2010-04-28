@@ -544,11 +544,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+condition|)
+block|{
 name|cache
 operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
 comment|// store the method and query and other info in headers
 name|headers
 operator|.
