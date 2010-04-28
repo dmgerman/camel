@@ -179,7 +179,7 @@ name|assertNotNull
 argument_list|(
 literal|"MyService should not be null"
 argument_list|,
-name|myService
+name|service
 argument_list|)
 expr_stmt|;
 name|service
@@ -200,7 +200,7 @@ name|assertNotNull
 argument_list|(
 literal|"MyService should not be null"
 argument_list|,
-name|myService
+name|service
 argument_list|)
 expr_stmt|;
 name|context
@@ -314,7 +314,7 @@ name|assertNotNull
 argument_list|(
 literal|"MyService should not be null"
 argument_list|,
-name|myService
+name|service
 argument_list|)
 expr_stmt|;
 name|service
@@ -335,7 +335,7 @@ name|assertNotNull
 argument_list|(
 literal|"MyService should not be null"
 argument_list|,
-name|myService
+name|service
 argument_list|)
 expr_stmt|;
 name|context

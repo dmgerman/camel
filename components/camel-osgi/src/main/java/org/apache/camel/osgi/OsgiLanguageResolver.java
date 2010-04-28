@@ -112,6 +112,9 @@ name|Override
 DECL|method|findLanguage (String name, CamelContext context)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findLanguage
 parameter_list|(
 name|String
@@ -137,6 +140,9 @@ name|Override
 DECL|method|findLanguageResolver (String name, CamelContext context)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findLanguageResolver
 parameter_list|(
 name|String

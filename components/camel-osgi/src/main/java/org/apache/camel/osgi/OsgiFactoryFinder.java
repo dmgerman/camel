@@ -190,6 +190,9 @@ name|Override
 DECL|method|findClass (String key, String propertyPrefix)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findClass
 parameter_list|(
 name|String

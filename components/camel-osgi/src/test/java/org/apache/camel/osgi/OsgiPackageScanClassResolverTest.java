@@ -135,8 +135,7 @@ block|{
 name|BundleContext
 name|context
 init|=
-name|getActivator
-argument_list|()
+name|Activator
 operator|.
 name|getBundle
 argument_list|()
@@ -144,6 +143,13 @@ operator|.
 name|getBundleContext
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The BundleContext should not be null"
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 name|OsgiPackageScanClassResolver
 name|resolver
 init|=
@@ -219,8 +225,7 @@ block|{
 name|BundleContext
 name|context
 init|=
-name|getActivator
-argument_list|()
+name|Activator
 operator|.
 name|getBundle
 argument_list|()
@@ -228,6 +233,13 @@ operator|.
 name|getBundleContext
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The BundleContext should not be null"
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 name|OsgiPackageScanClassResolver
 name|resolver
 init|=

@@ -159,6 +159,11 @@ literal|false
 expr_stmt|;
 block|}
 comment|/**      * Set initial list of items into tracker before events begin to be      * received. This method must be called from Tracker's open method while      * synchronized on this object in the same synchronized block as the add      * listener call.      *       * @param list The initial list of items to be tracked.<code>null</code>      *            entries in the list are ignored.      * @GuardedBy this      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setInitial (Object[] list)
 name|void
 name|setInitial
@@ -244,6 +249,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Track the initial list of items. This is called after events can begin to      * be received. This method must be called from Tracker's open method while      * not synchronized on this object after the add listener call.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|trackInitial ()
 name|void
 name|trackInitial
@@ -402,6 +412,11 @@ literal|true
 expr_stmt|;
 block|}
 comment|/**      * Begin to track an item.      *       * @param item Item to be tracked.      * @param related Action related object.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|track (final Object item, final Object related)
 name|void
 name|track
@@ -547,6 +562,11 @@ comment|/*              * If the customizer throws an unchecked exception, it is
 block|}
 block|}
 comment|/**      * Common logic to add an item to the tracker used by track and      * trackInitial. The specified item must have been placed in the adding list      * before calling this method.      *       * @param item Item to be tracked.      * @param related Action related object.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|trackAdding (final Object item, final Object related)
 specifier|private
 name|void
@@ -877,6 +897,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Return the list of tracked items.      *       * @param list An array to contain the tracked items.      * @return The specified list if it is large enough to hold the tracked      *         items or a new array large enough to hold the tracked items.      * @GuardedBy this      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getTracked (final Object[] list)
 name|Object
 index|[]
