@@ -66,6 +66,22 @@ name|camel
 operator|.
 name|component
 operator|.
+name|http
+operator|.
+name|HttpMethods
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
 name|jetty
 operator|.
 name|HttpCharacterEncodingTest
@@ -125,7 +141,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:9080/myapp/myservice?query1=a&query2=b"
 argument_list|,
 operator|new
 name|Processor
@@ -161,6 +177,22 @@ argument_list|(
 literal|"content-type"
 argument_list|,
 literal|"application/x-www-form-urlencoded"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_METHOD
+argument_list|,
+name|HttpMethods
+operator|.
+name|POST
 argument_list|)
 expr_stmt|;
 block|}
@@ -261,7 +293,43 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Get a wrong message header"
+literal|"Get a wrong query parameter from the message header"
+argument_list|,
+literal|"a"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"query1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong query parameter from the message header"
+argument_list|,
+literal|"b"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"query2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong form parameter from the message header"
+argument_list|,
+literal|"x"
 argument_list|,
 name|exchange
 operator|.
@@ -272,13 +340,13 @@ name|getHeader
 argument_list|(
 literal|"b1"
 argument_list|)
-argument_list|,
-literal|"x"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Get a wrong message header"
+literal|"Get a wrong form parameter from the message header"
+argument_list|,
+literal|"y"
 argument_list|,
 name|exchange
 operator|.
@@ -289,8 +357,6 @@ name|getHeader
 argument_list|(
 literal|"b2"
 argument_list|)
-argument_list|,
-literal|"y"
 argument_list|)
 expr_stmt|;
 comment|// send a response
