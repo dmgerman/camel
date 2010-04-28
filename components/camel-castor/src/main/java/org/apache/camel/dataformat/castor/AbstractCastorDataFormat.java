@@ -303,10 +303,7 @@ argument_list|,
 name|encoding
 argument_list|)
 decl_stmt|;
-name|getMarshaller
-argument_list|(
-name|exchange
-argument_list|)
+name|Marshaller
 operator|.
 name|marshal
 argument_list|(

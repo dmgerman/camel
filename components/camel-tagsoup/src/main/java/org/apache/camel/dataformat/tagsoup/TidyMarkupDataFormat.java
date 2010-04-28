@@ -448,6 +448,11 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Unmarshal the data      *       * @throws Exception      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

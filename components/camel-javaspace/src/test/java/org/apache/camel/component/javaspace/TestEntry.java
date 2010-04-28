@@ -105,6 +105,8 @@ name|Integer
 name|id
 parameter_list|)
 block|{
+name|this
+operator|.
 name|id
 operator|=
 name|id

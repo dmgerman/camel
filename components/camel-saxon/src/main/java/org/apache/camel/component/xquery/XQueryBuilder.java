@@ -739,11 +739,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -787,6 +782,11 @@ name|result
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object

@@ -379,6 +379,11 @@ operator|=
 name|correlationKeyExpression
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void

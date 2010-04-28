@@ -618,6 +618,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|fireExpiredEvent (final ActivityState activityState)
 specifier|protected
 name|void

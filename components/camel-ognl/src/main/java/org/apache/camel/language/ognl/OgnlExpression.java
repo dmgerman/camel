@@ -293,6 +293,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String

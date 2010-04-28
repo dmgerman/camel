@@ -169,7 +169,7 @@ name|redeliverDelay
 init|=
 name|redelivery
 operator|.
-name|getRedeliverDelay
+name|getRedeliveryDelay
 argument_list|()
 decl_stmt|;
 if|if

@@ -326,6 +326,11 @@ name|responses
 init|=
 operator|new
 name|ConcurrentHashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Future
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for

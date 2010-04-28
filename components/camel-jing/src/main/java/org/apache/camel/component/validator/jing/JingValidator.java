@@ -330,23 +330,7 @@ name|JingValidator
 implements|implements
 name|Processor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JingValidator
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+comment|//private static final transient Log LOG = LogFactory.getLog(JingValidator.class);
 DECL|field|schema
 specifier|private
 name|Schema

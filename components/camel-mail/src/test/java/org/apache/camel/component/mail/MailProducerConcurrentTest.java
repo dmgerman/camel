@@ -311,10 +311,16 @@ argument_list|)
 expr_stmt|;
 comment|// as we use concurrent producers the mails can arrive out of order
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|bodies
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for

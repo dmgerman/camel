@@ -100,6 +100,11 @@ name|LdapRouteTest
 extends|extends
 name|LdapTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testLdapRoute ()
 specifier|public
 name|void

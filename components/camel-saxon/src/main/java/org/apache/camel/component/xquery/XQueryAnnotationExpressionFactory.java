@@ -125,6 +125,11 @@ extends|extends
 name|DefaultAnnotationExpressionFactory
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|createExpression (CamelContext camelContext, Annotation annotation, LanguageAnnotation languageAnnotation, Class expressionReturnType)
 specifier|public

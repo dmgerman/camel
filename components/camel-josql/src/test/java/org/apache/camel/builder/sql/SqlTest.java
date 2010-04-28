@@ -256,6 +256,11 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testExpressionWithHeaderVariable ()
 specifier|public

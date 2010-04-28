@@ -280,6 +280,11 @@ parameter_list|()
 block|{
 comment|// Utility class, no public or protected default constructor
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|render (StringBuilder buffer, ProcessorDefinition processor)
 specifier|public
 specifier|static

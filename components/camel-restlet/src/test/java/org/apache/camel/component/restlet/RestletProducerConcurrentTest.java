@@ -407,10 +407,16 @@ argument_list|)
 expr_stmt|;
 comment|// get all responses
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|unique
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for

@@ -129,10 +129,20 @@ argument_list|()
 expr_stmt|;
 comment|// START SNIPPET: e1
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map

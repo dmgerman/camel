@@ -194,6 +194,11 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|sortEntries ()
 specifier|protected
 name|void

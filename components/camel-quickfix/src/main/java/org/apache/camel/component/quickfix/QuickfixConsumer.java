@@ -56,34 +56,6 @@ name|DefaultConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * QuickfixConsumer is intended to consume the FIX messages  */
 end_comment
@@ -96,22 +68,7 @@ name|QuickfixConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|QuickfixConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+comment|//private static final Log LOG = LogFactory.getLog(QuickfixConsumer.class);
 DECL|method|QuickfixConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|QuickfixConsumer

@@ -132,6 +132,11 @@ argument_list|(
 literal|"in/headers/@foo = 'abc'"
 argument_list|)
 expr_stmt|;
+name|assertInvalidPredicate
+argument_list|(
+literal|"in/headders/@foo = 'abc'"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test exceptions being thrown appropriately      */
 DECL|method|testExceptions ()
@@ -210,7 +215,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ExpressionEvaluationException
+name|AssertionError
 name|e
 parameter_list|)
 block|{

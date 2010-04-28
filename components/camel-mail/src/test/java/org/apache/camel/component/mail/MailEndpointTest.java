@@ -373,14 +373,6 @@ name|getHeaderFilterStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MailBinding
-name|bnd
-init|=
-name|endpoint
-operator|.
-name|getBinding
-argument_list|()
-decl_stmt|;
 name|MyMailBinding
 name|myBnd
 init|=
