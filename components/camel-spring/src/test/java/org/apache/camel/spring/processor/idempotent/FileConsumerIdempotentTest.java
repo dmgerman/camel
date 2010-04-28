@@ -139,6 +139,9 @@ block|{
 DECL|field|repo
 specifier|private
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|repo
 decl_stmt|;
 DECL|method|createCamelContext ()
@@ -158,6 +161,11 @@ literal|"org/apache/camel/spring/processor/idempotent/fileConsumerIdempotentTest
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|setUp ()

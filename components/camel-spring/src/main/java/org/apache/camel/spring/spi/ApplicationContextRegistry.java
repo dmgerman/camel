@@ -207,11 +207,6 @@ literal|null
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<

@@ -150,11 +150,6 @@ specifier|private
 name|BeanPostProcessor
 name|beanPostProcessor
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor, PackageScanClassResolver resolver)
 specifier|public
 name|RouteBuilderFinder
@@ -321,12 +316,15 @@ block|}
 block|}
 block|}
 comment|/**      * Lets ignore beans that are not explicitly configured in the spring.xml      */
-DECL|method|shouldIgnoreBean (Class type)
+DECL|method|shouldIgnoreBean (Class<?> type)
 specifier|protected
 name|boolean
 name|shouldIgnoreBean
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

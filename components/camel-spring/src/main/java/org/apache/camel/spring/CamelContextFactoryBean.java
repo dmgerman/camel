@@ -1081,6 +1081,11 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|CamelContextFactoryBean
 specifier|public
 class|class
@@ -4040,11 +4045,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getBeanForType (Class<T> clazz)
 specifier|private
 parameter_list|<
@@ -5846,11 +5846,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Strategy to install all available routes into the context      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|installRoutes ()
 specifier|protected
 name|void

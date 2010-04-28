@@ -245,6 +245,9 @@ name|Override
 DECL|method|excludeRoute ()
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|excludeRoute
 parameter_list|()
 block|{

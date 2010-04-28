@@ -63,11 +63,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|ScanTestSupport
 specifier|public
 specifier|abstract

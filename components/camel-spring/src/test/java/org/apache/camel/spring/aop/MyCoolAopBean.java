@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|MyCoolAopBean
 block|{
-DECL|method|hello (@ody String body, @Header(R) String foo, @Headers Map headers)
+DECL|method|hello (@ody String body, @Header(R) String foo, @Headers Map<String, Object> headers)
 specifier|public
 name|String
 name|hello
@@ -95,6 +95,11 @@ parameter_list|,
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|)
 block|{

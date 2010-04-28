@@ -229,16 +229,13 @@ operator|+
 name|i
 argument_list|)
 decl_stmt|;
-name|Exchange
-name|ex
-init|=
 name|template
 operator|.
 name|receiveNoWait
 argument_list|(
 name|e
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(

@@ -145,6 +145,11 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|ErrorHandlerDefinition
 specifier|public
 class|class

@@ -80,10 +80,16 @@ DECL|field|exchanges
 specifier|private
 specifier|static
 name|List
+argument_list|<
+name|Exchange
+argument_list|>
 name|exchanges
 init|=
 operator|new
 name|CopyOnWriteArrayList
+argument_list|<
+name|Exchange
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|name
@@ -97,6 +103,9 @@ DECL|method|getExchanges ()
 specifier|public
 specifier|static
 name|List
+argument_list|<
+name|Exchange
+argument_list|>
 name|getExchanges
 parameter_list|()
 block|{
