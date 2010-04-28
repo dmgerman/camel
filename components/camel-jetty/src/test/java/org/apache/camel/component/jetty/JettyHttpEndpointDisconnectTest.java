@@ -92,26 +92,13 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|JettyHttpComponent
-name|component
-init|=
-operator|(
-name|JettyHttpComponent
-operator|)
-name|context
-operator|.
-name|getComponent
-argument_list|(
-literal|"jetty"
-argument_list|)
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Connector should have been removed"
 argument_list|,
 literal|0
 argument_list|,
-name|component
+name|JettyHttpComponent
 operator|.
 name|CONNECTORS
 operator|.
