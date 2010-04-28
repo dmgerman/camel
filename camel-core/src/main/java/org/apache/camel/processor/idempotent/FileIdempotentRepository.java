@@ -555,6 +555,9 @@ name|String
 name|key
 parameter_list|)
 block|{
+name|boolean
+name|answer
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|cache
@@ -577,7 +580,8 @@ name|loadStore
 argument_list|()
 expr_stmt|;
 block|}
-return|return
+name|answer
+operator|=
 name|cache
 operator|.
 name|remove
@@ -586,8 +590,15 @@ name|key
 argument_list|)
 operator|!=
 literal|null
-return|;
+expr_stmt|;
+comment|// trunk store and flush the cache on remove
+name|trunkStore
+argument_list|()
+expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|confirm (String key)
 specifier|public
