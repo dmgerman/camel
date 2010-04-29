@@ -509,6 +509,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// use a fair lock so timeout checker will have a chance to acquire the lock if
+comment|// a lot of new messages keep arriving
 DECL|field|lock
 specifier|private
 specifier|final
@@ -517,7 +519,9 @@ name|lock
 init|=
 operator|new
 name|ReentrantLock
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -1022,13 +1026,13 @@ block|}
 comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
 comment|// bound such as JPA etc then concurrent aggregation per correlation key could
 comment|// improve performance as we can run aggregation repository get/add in parallel
-try|try
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|doAggregation
 argument_list|(
 name|key
@@ -2590,13 +2594,6 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-name|lock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 comment|// double check that its not already in progress
 name|boolean
 name|inProgress
@@ -2660,6 +2657,13 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|onCompletion
 argument_list|(
 name|key
@@ -2741,13 +2745,6 @@ literal|"Starting completion interval task"
 argument_list|)
 expr_stmt|;
 comment|// trigger completion for all in the repository
-try|try
-block|{
-name|lock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -2759,6 +2756,26 @@ operator|.
 name|getKeys
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|keys
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|keys
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|String
@@ -2827,6 +2844,7 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|LOG
 operator|.
@@ -3305,13 +3323,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// not exhaust so resubmit the recovered exchange
-try|try
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|onSubmitCompletion
 argument_list|(
 name|key
