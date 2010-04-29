@@ -1881,6 +1881,18 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|is
+return|;
+block|}
+comment|// convert the input stream to StreamCache
 try|try
 block|{
 name|CachedOutputStream

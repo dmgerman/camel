@@ -1196,33 +1196,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|HttpServletRequest
-name|req
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|HttpServletRequest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+comment|// As the request input stream is cached by DefaultHttpBinding,
+comment|// HttpServletRequest can't get the parameters of post message
 name|String
 name|value
-init|=
-name|req
-operator|.
-name|getParameter
-argument_list|(
-literal|"request"
-argument_list|)
-decl_stmt|;
-name|String
-name|requestValue
 init|=
 name|exchange
 operator|.
@@ -1245,13 +1222,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|assertEquals
+name|assertNotNull
 argument_list|(
-literal|"We should get the same request header value from message"
+literal|"The value of the parameter should not be null"
 argument_list|,
 name|value
-argument_list|,
-name|requestValue
 argument_list|)
 expr_stmt|;
 name|exchange
