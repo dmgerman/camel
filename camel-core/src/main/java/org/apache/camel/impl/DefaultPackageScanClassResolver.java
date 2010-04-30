@@ -1276,7 +1276,7 @@ expr_stmt|;
 block|}
 name|url
 operator|=
-name|customerResourceLocator
+name|customResourceLocator
 argument_list|(
 name|url
 argument_list|)
