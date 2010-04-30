@@ -592,7 +592,6 @@ name|processors
 decl_stmt|;
 DECL|field|aggregationStrategy
 specifier|private
-specifier|final
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
@@ -1985,6 +1984,22 @@ block|{
 return|return
 name|aggregationStrategy
 return|;
+block|}
+DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
+specifier|public
+name|void
+name|setAggregationStrategy
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregationStrategy
+operator|=
+name|aggregationStrategy
+expr_stmt|;
 block|}
 DECL|method|isParallelProcessing ()
 specifier|public

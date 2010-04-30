@@ -194,7 +194,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|UseLatestAggregationStrategy
+name|UseOriginalAggregationStrategy
 import|;
 end_import
 
@@ -209,6 +209,20 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
 import|;
 end_import
 
@@ -555,10 +569,15 @@ condition|)
 block|{
 name|strategy
 operator|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
 name|routeContext
 operator|.
-name|lookup
-argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|strategyRef
 argument_list|,
 name|AggregationStrategy
@@ -574,12 +593,14 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to use latest
+comment|// fallback to keep the original exchange strategy
 name|strategy
 operator|=
 operator|new
-name|UseLatestAggregationStrategy
-argument_list|()
+name|UseOriginalAggregationStrategy
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 return|return

@@ -135,9 +135,10 @@ argument_list|(
 literal|"A,B"
 argument_list|)
 decl_stmt|;
+comment|// keeps the original message
 name|assertEquals
 argument_list|(
-literal|"Hello B"
+literal|"A,B"
 argument_list|,
 name|out
 argument_list|)
