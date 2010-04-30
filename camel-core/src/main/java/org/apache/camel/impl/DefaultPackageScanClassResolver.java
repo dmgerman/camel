@@ -1662,11 +1662,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// We can override this method to support the customer ResourceLocator
-DECL|method|customerResourceLocator (URL url)
+comment|// We can override this method to support the custom ResourceLocator
+DECL|method|customResourceLocator (URL url)
 specifier|protected
 name|URL
-name|customerResourceLocator
+name|customResourceLocator
 parameter_list|(
 name|URL
 name|url

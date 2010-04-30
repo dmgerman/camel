@@ -74,10 +74,10 @@ name|EclipsePackageScanClassResolver
 extends|extends
 name|DefaultPackageScanClassResolver
 block|{
-DECL|method|customerResourceLocator (URL url)
+DECL|method|customResourceLocator (URL url)
 specifier|protected
 name|URL
-name|customerResourceLocator
+name|customResourceLocator
 parameter_list|(
 name|URL
 name|url
