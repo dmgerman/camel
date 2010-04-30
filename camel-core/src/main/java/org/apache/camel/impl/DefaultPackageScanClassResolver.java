@@ -1274,6 +1274,13 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+name|url
+operator|=
+name|customerResourceLocator
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
 name|String
 name|urlPath
 init|=
@@ -1654,6 +1661,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// We can override this method to support the customer ResourceLocator
+DECL|method|customerResourceLocator (URL url)
+specifier|protected
+name|URL
+name|customerResourceLocator
+parameter_list|(
+name|URL
+name|url
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// Do nothing here
+return|return
+name|url
+return|;
 block|}
 comment|/**      * Strategy to get the resources by the given classloader.      *<p/>      * Notice that in WebSphere platforms there is a {@link WebSpherePackageScanClassResolver}      * to take care of WebSphere's odditiy of resource loading.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws IOException is thrown by the classloader      */
 DECL|method|getResources (ClassLoader loader, String packageName)
