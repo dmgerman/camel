@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to mark methods to indicate code capable of being a  * fallback converter which are then auto-discovered using  * the<a href="http://camel.apache.org/type-converter.html">Type  * Conversion Support</a>.  *<p/>  * The difference between a regular<tt>@Converter</tt> and a<tt>@FallbackConverter</tt>  * is that the fallback is resolved at last if no regular converter could be found.  * Also the method signautre is scoped to be generic to allow handling a broader range  * of types trying to be converted. The fallback converter can just return<tt>null</tt>  * if it can not handle the types to convert from/to.  *  * @see org.apache.camel.component.file.GenericFileConverter GenericFileConverter for an example.  *  * @version $Revision$  */
+comment|/**  * An annotation used to mark methods to indicate code capable of being a  * fallback converter which are then auto-discovered using  * the<a href="http://camel.apache.org/type-converter.html">Type  * Conversion Support</a>.  *<p/>  * The difference between a regular<tt>@Converter</tt> and a<tt>@FallbackConverter</tt>  * is that the fallback is resolved at last if no regular converter could be found.  * Also the method signature is scoped to be generic to allow handling a broader range  * of types trying to be converted. The fallback converter can just return<tt>null</tt>  * if it can not handle the types to convert from/to.  *  * @see org.apache.camel.component.file.GenericFileConverter GenericFileConverter for an example.  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn
@@ -105,7 +105,17 @@ DECL|annotation|FallbackConverter
 specifier|public
 annotation_defn|@interface
 name|FallbackConverter
-block|{ }
+block|{
+comment|/**      * Whether or not this fallback converter can be promoted to a first class type converter.      */
+DECL|method|canPromote ()
+DECL|field|false
+name|boolean
+name|canPromote
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+block|}
 end_annotation_defn
 
 end_unit

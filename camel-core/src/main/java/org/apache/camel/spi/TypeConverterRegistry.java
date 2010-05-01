@@ -59,13 +59,16 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 function_decl|;
-comment|/**      * Registers a new fallback type converter      *      * @param typeConverter the type converter to use      */
-DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
+comment|/**      * Registers a new fallback type converter      *      * @param typeConverter the type converter to use      * @param canPromote  whether or not the fallback type converter can be promoted to a first class type converter      */
+DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 name|void
 name|addFallbackTypeConverter
 parameter_list|(
 name|TypeConverter
 name|typeConverter
+parameter_list|,
+name|boolean
+name|canPromote
 parameter_list|)
 function_decl|;
 comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or<tt>null</tt> if not found.      */
@@ -86,7 +89,7 @@ argument_list|>
 name|fromType
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the injector to be used for creating new instances during type convertions.      */
+comment|/**      * Sets the injector to be used for creating new instances during type convertions.      *      * @param injector the injector      */
 DECL|method|setInjector (Injector injector)
 name|void
 name|setInjector
@@ -95,7 +98,7 @@ name|Injector
 name|injector
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the injector      */
+comment|/**      * Gets the injector      *      * @return the injector      */
 DECL|method|getInjector ()
 name|Injector
 name|getInjector

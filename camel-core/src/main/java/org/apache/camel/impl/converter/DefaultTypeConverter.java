@@ -406,14 +406,14 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|TypeConverter
+name|FallbackTypeConverter
 argument_list|>
 name|fallbackConverters
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|TypeConverter
+name|FallbackTypeConverter
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -474,6 +474,8 @@ argument_list|(
 operator|new
 name|ToStringTypeConverter
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addFallbackTypeConverter
@@ -481,6 +483,8 @@ argument_list|(
 operator|new
 name|EnumTypeConverter
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|addFallbackTypeConverter
@@ -488,6 +492,8 @@ argument_list|(
 operator|new
 name|ArrayTypeConverter
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|addFallbackTypeConverter
@@ -495,6 +501,8 @@ argument_list|(
 operator|new
 name|PropertyEditorTypeConverter
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|addFallbackTypeConverter
@@ -504,6 +512,8 @@ name|FutureTypeConverter
 argument_list|(
 name|this
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1028,7 +1038,7 @@ block|}
 comment|// fallback converters
 for|for
 control|(
-name|TypeConverter
+name|FallbackTypeConverter
 name|fallback
 range|:
 name|fallbackConverters
@@ -1038,6 +1048,9 @@ name|Object
 name|rc
 init|=
 name|fallback
+operator|.
+name|getFallbackTypeConverter
+argument_list|()
 operator|.
 name|convertTo
 argument_list|(
@@ -1074,6 +1087,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// if fallback can promote then let it be promoted to a first class type converter
+if|if
+condition|(
+name|fallback
+operator|.
+name|isCanPromote
+argument_list|()
+condition|)
+block|{
 comment|// add it as a known type converter since we found a fallback that could do it
 if|if
 condition|(
@@ -1087,7 +1109,68 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding fallback type converter as a known type converter to convert from: "
+literal|"Promoting fallback type converter as a known type converter to convert from: "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" to: "
+operator|+
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" for the fallback converter: "
+operator|+
+name|fallback
+operator|.
+name|getFallbackTypeConverter
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|addTypeConverter
+argument_list|(
+name|type
+argument_list|,
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|fallback
+operator|.
+name|getFallbackTypeConverter
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Fallback type converter "
+operator|+
+name|fallback
+operator|.
+name|getFallbackTypeConverter
+argument_list|()
+operator|+
+literal|" converted type from: "
 operator|+
 name|type
 operator|.
@@ -1106,23 +1189,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|addTypeConverter
-argument_list|(
-name|type
-argument_list|,
-name|value
-operator|.
-name|getClass
-argument_list|()
-argument_list|,
-name|fallback
-argument_list|)
-expr_stmt|;
+comment|// return converted value
 return|return
 name|rc
 return|;
 block|}
 block|}
+comment|// TODO: check before if its type/value is primitive/wrapper combo which we can convert asap then
 comment|// primitives
 if|if
 condition|(
@@ -1291,13 +1364,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
+DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void
 name|addFallbackTypeConverter
 parameter_list|(
 name|TypeConverter
 name|typeConverter
+parameter_list|,
+name|boolean
+name|canPromote
 parameter_list|)
 block|{
 if|if
@@ -1315,6 +1391,10 @@ argument_list|(
 literal|"Adding fallback type converter: "
 operator|+
 name|typeConverter
+operator|+
+literal|" which can promote: "
+operator|+
+name|canPromote
 argument_list|)
 expr_stmt|;
 block|}
@@ -1325,7 +1405,13 @@ name|add
 argument_list|(
 literal|0
 argument_list|,
+operator|new
+name|FallbackTypeConverter
+argument_list|(
 name|typeConverter
+argument_list|,
+name|canPromote
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2161,6 +2247,8 @@ block|{
 name|addFallbackTypeConverter
 argument_list|(
 name|converter
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2411,6 +2499,67 @@ name|isAssignableFrom
 argument_list|(
 name|fromClass
 argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Represents a fallback type converter      */
+DECL|class|FallbackTypeConverter
+specifier|protected
+specifier|static
+class|class
+name|FallbackTypeConverter
+block|{
+DECL|field|canPromote
+specifier|private
+name|boolean
+name|canPromote
+decl_stmt|;
+DECL|field|fallbackTypeConverter
+specifier|private
+name|TypeConverter
+name|fallbackTypeConverter
+decl_stmt|;
+DECL|method|FallbackTypeConverter (TypeConverter fallbackTypeConverter, boolean canPromote)
+name|FallbackTypeConverter
+parameter_list|(
+name|TypeConverter
+name|fallbackTypeConverter
+parameter_list|,
+name|boolean
+name|canPromote
+parameter_list|)
+block|{
+name|this
+operator|.
+name|canPromote
+operator|=
+name|canPromote
+expr_stmt|;
+name|this
+operator|.
+name|fallbackTypeConverter
+operator|=
+name|fallbackTypeConverter
+expr_stmt|;
+block|}
+DECL|method|isCanPromote ()
+specifier|public
+name|boolean
+name|isCanPromote
+parameter_list|()
+block|{
+return|return
+name|canPromote
+return|;
+block|}
+DECL|method|getFallbackTypeConverter ()
+specifier|public
+name|TypeConverter
+name|getFallbackTypeConverter
+parameter_list|()
+block|{
+return|return
+name|fallbackTypeConverter
 return|;
 block|}
 block|}

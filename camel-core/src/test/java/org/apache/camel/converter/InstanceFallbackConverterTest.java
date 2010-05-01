@@ -118,10 +118,10 @@ name|InstanceFallbackConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testIntanceFallbackConverter ()
+DECL|method|testInstanceFallbackConverter ()
 specifier|public
 name|void
-name|testIntanceFallbackConverter
+name|testInstanceFallbackConverter
 parameter_list|()
 throws|throws
 name|Exception
@@ -174,10 +174,10 @@ name|money
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testIntanceFallbackMandatoryConverter ()
+DECL|method|testInstanceFallbackMandatoryConverter ()
 specifier|public
 name|void
-name|testIntanceFallbackMandatoryConverter
+name|testInstanceFallbackMandatoryConverter
 parameter_list|()
 throws|throws
 name|Exception
@@ -230,10 +230,10 @@ name|money
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testIntanceFallbackMandatoryFailed ()
+DECL|method|testInstanceFallbackMandatoryFailed ()
 specifier|public
 name|void
-name|testIntanceFallbackMandatoryFailed
+name|testInstanceFallbackMandatoryFailed
 parameter_list|()
 throws|throws
 name|Exception
@@ -284,10 +284,10 @@ block|{
 comment|// expected
 block|}
 block|}
-DECL|method|testIntanceFallbackFailed ()
+DECL|method|testInstanceFallbackFailed ()
 specifier|public
 name|void
-name|testIntanceFallbackFailed
+name|testInstanceFallbackFailed
 parameter_list|()
 throws|throws
 name|Exception
