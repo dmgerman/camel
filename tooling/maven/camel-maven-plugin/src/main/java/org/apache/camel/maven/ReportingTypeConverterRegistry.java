@@ -161,13 +161,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
+DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void
 name|addFallbackTypeConverter
 parameter_list|(
 name|TypeConverter
 name|typeConverter
+parameter_list|,
+name|boolean
+name|canPromote
 parameter_list|)
 block|{
 if|if
