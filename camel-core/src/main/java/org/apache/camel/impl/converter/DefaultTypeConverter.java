@@ -469,6 +469,7 @@ argument_list|)
 expr_stmt|;
 comment|// add to string first as it will then be last in the last as to string can nearly
 comment|// always convert something to a string so we want it only as the last resort
+comment|// ToStringTypeConverter should NOT allow to be promoted
 name|addFallbackTypeConverter
 argument_list|(
 operator|new
@@ -478,6 +479,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// enum is okay to be promoted
 name|addFallbackTypeConverter
 argument_list|(
 operator|new
@@ -487,6 +489,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// arrays is okay to be promoted
 name|addFallbackTypeConverter
 argument_list|(
 operator|new
@@ -496,15 +499,17 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// do not assume property editor as it has a String converter
 name|addFallbackTypeConverter
 argument_list|(
 operator|new
 name|PropertyEditorTypeConverter
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
+comment|// and future should also not allowed to be promoted
 name|addFallbackTypeConverter
 argument_list|(
 operator|new
@@ -1195,8 +1200,7 @@ name|rc
 return|;
 block|}
 block|}
-comment|// TODO: check before if its type/value is primitive/wrapper combo which we can convert asap then
-comment|// primitives
+comment|// not found with that type then if it was a primitive type then try again with the wrapper type
 if|if
 condition|(
 name|type
