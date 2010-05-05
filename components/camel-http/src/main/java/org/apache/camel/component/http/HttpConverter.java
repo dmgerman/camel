@@ -272,7 +272,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (HttpMessage message)
+DECL|method|toInputStream (HttpMessage message, Exchange exchange)
 specifier|public
 specifier|static
 name|InputStream
@@ -280,6 +280,9 @@ name|toInputStream
 parameter_list|(
 name|HttpMessage
 name|message
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|Exception
@@ -291,6 +294,8 @@ name|toServletRequest
 argument_list|(
 name|message
 argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -336,7 +341,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (HttpServletRequest request)
+DECL|method|toInputStream (HttpServletRequest request, Exchange exchange)
 specifier|public
 specifier|static
 name|InputStream
@@ -344,6 +349,9 @@ name|toInputStream
 parameter_list|(
 name|HttpServletRequest
 name|request
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -359,6 +367,31 @@ return|return
 literal|null
 return|;
 block|}
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+operator|||
+operator|!
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SKIP_GZIP_ENCODING
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
 name|String
 name|contentEncoding
 init|=
@@ -374,7 +407,7 @@ decl_stmt|;
 return|return
 name|GZIPHelper
 operator|.
-name|toGZIPInputStream
+name|uncompressGzip
 argument_list|(
 name|contentEncoding
 argument_list|,
@@ -384,6 +417,16 @@ name|getInputStream
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|request
+operator|.
+name|getInputStream
+argument_list|()
+return|;
+block|}
 block|}
 block|}
 end_class

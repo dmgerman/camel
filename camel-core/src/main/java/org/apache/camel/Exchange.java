@@ -406,6 +406,12 @@ name|ROLLBACK_ONLY_LAST
 init|=
 literal|"CamelRollbackOnlyLast"
 decl_stmt|;
+DECL|field|SKIP_GZIP_ENCODING
+name|String
+name|SKIP_GZIP_ENCODING
+init|=
+literal|"CamelSkipGzipEncoding"
+decl_stmt|;
 DECL|field|SOAP_ACTION
 name|String
 name|SOAP_ACTION

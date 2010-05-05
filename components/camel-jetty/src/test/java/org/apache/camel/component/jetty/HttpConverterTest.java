@@ -676,6 +676,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|msg
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -721,6 +723,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|req
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
