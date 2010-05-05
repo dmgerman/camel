@@ -219,11 +219,31 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|nagios
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping NagiosNscaStub. This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
