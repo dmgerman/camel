@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -4074,7 +4074,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|asyncCallback (final Endpoint endpoint, final ExchangePattern pattern, final Object body, final Synchronization onCompletion)
-specifier|public
+specifier|private
 name|Future
 argument_list|<
 name|Object

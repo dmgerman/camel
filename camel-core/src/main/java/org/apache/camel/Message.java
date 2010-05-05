@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version $Revision$  */
+comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}.  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

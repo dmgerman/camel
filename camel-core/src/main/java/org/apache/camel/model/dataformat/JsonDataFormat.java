@@ -144,6 +144,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents the Json {@link DataFormat}  *  * @version $Revision$  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement

@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XML type for a collection of DataFormats.  */
+comment|/**  * Represents the XML type for&lt;properties&gt;.  */
 end_comment
 
 begin_class

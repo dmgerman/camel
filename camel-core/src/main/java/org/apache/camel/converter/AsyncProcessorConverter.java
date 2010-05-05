@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A type converter to convert a {@link Processor} to {@link org.apache.camel.AsyncProcessor}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -173,6 +173,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|callback
 operator|.
 name|onTaskCompleted
@@ -180,6 +182,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

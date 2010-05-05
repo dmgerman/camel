@@ -118,6 +118,10 @@ name|NamingEnumeration
 import|;
 end_import
 
+begin_comment
+comment|/**  * Utility methods for type casting.  */
+end_comment
+
 begin_class
 annotation|@
 name|SuppressWarnings

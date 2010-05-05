@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/rss.html">RSS</a> {@link org.apache.camel.spi.DataFormat}.  */
+comment|/**  * Represents the<a href="http://camel.apache.org/rss.html">RSS</a> {@link org.apache.camel.spi.DataFormat}.  */
 end_comment
 
 begin_class

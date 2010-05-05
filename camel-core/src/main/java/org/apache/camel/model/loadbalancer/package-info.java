@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * The LoadBalancer and the LoadBalancerStrategy JAXB Objects  */
+comment|/**  * The<a href="http://camel.apache.org/load-balancer.html">Load Balancer</a> EIP pattern  */
 end_comment
 
 begin_annotation

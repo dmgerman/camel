@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using the  *<a href="http://camel.apache.org/simple.html>simple language</a>  *  * @version $Revision$  */
+comment|/**  * For expressions and predicates using the  *<a href="http://camel.apache.org/simple.html">simple language</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

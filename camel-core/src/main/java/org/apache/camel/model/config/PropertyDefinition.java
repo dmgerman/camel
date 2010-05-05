@@ -74,6 +74,10 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents the XML type for&lt;property&gt;.  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement

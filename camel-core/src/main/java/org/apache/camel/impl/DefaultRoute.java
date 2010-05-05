@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link org.apache.camel.Endpoint} within a {@link org.apache.camel.CamelContext}  *  * @version $Revision$  */
+comment|/**  * Default implementation of {@link Route}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
