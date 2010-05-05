@@ -406,7 +406,16 @@ name|getConnectionString
 parameter_list|()
 block|{
 return|return
+operator|(
+name|configuration
+operator|.
+name|getUsingSSL
+argument_list|()
+condition|?
+literal|"smpps://"
+else|:
 literal|"smpp://"
+operator|)
 operator|+
 name|getConfiguration
 argument_list|()

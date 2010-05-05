@@ -291,6 +291,11 @@ operator|.
 name|value
 argument_list|()
 decl_stmt|;
+DECL|field|usingSSL
+specifier|private
+name|boolean
+name|usingSSL
+decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
@@ -325,6 +330,25 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|uri
+operator|.
+name|getScheme
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"smpps"
+argument_list|)
+condition|)
+block|{
+name|setUsingSSL
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|copy ()
 specifier|public
@@ -901,6 +925,32 @@ operator|.
 name|numberingPlanIndicator
 operator|=
 name|numberingPlanIndicator
+expr_stmt|;
+block|}
+DECL|method|getUsingSSL ()
+specifier|public
+name|boolean
+name|getUsingSSL
+parameter_list|()
+block|{
+return|return
+name|usingSSL
+return|;
+block|}
+DECL|method|setUsingSSL (boolean usingSSL)
+specifier|public
+name|void
+name|setUsingSSL
+parameter_list|(
+name|boolean
+name|usingSSL
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usingSSL
+operator|=
+name|usingSSL
 expr_stmt|;
 block|}
 annotation|@
