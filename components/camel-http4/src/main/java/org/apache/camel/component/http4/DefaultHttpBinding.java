@@ -1879,6 +1879,11 @@ operator|.
 name|toInputStream
 argument_list|(
 name|request
+argument_list|,
+name|httpMessage
+operator|.
+name|getExchange
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
