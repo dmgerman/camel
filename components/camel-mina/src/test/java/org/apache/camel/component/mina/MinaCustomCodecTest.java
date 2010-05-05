@@ -227,14 +227,14 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:11300?sync=true&codec=#myCodec"
+literal|"mina:tcp://localhost:5130?sync=true&codec=#myCodec"
 decl_stmt|;
 DECL|field|badUri
 specifier|protected
 name|String
 name|badUri
 init|=
-literal|"mina:tcp://localhost:11300?sync=true&codec=#XXX"
+literal|"mina:tcp://localhost:5130?sync=true&codec=#XXX"
 decl_stmt|;
 DECL|method|testMyCodec ()
 specifier|public
@@ -303,7 +303,7 @@ specifier|final
 name|String
 name|myUri
 init|=
-literal|"mina:tcp://localhost:9080?encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:9085?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.

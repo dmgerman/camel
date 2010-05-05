@@ -133,7 +133,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true&sync=false"
+literal|"mina:tcp://localhost:9200?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -202,7 +202,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true&sync=false"
+literal|"mina:tcp://localhost:9200?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -287,7 +287,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true&sync=false"
+literal|"mina:tcp://localhost:9200?textline=true&sync=false"
 argument_list|)
 operator|.
 name|to

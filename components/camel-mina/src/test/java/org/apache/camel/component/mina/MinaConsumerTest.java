@@ -153,7 +153,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://localhost:6201?textline=true&sync=true"
+literal|"mina:tcp://localhost:9201?textline=true&sync=true"
 argument_list|,
 literal|"World"
 argument_list|)
@@ -202,7 +202,7 @@ comment|// END SNIPPET: e1
 comment|// START SNIPPET: e3
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:6201?textline=true&sync=true"
+literal|"mina:tcp://localhost:9201?textline=true&sync=true"
 argument_list|)
 operator|.
 name|process
