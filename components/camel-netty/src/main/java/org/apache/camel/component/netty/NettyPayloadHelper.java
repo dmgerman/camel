@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mina
+DECL|package|org.apache.camel.component.netty
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mina
+name|netty
 package|;
 end_package
 
@@ -45,30 +45,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper to get and set the correct payload when transferring data using camel-mina.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  *  * @version $Revision$  */
+comment|/**  * Helper to get and set the correct payload when transferring data using camel-netty.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MinaPayloadHelper
+DECL|class|NettyPayloadHelper
 specifier|public
 specifier|final
 class|class
-name|MinaPayloadHelper
+name|NettyPayloadHelper
 block|{
-DECL|method|MinaPayloadHelper ()
-specifier|private
-name|MinaPayloadHelper
-parameter_list|()
-block|{
-comment|//Utility Class
-block|}
-DECL|method|getIn (MinaEndpoint endpoint, Exchange exchange)
+DECL|method|getIn (NettyEndpoint endpoint, Exchange exchange)
 specifier|public
 specifier|static
 name|Object
 name|getIn
 parameter_list|(
-name|MinaEndpoint
+name|NettyEndpoint
 name|endpoint
 parameter_list|,
 name|Exchange
@@ -110,13 +103,13 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|getOut (MinaEndpoint endpoint, Exchange exchange)
+DECL|method|getOut (NettyEndpoint endpoint, Exchange exchange)
 specifier|public
 specifier|static
 name|Object
 name|getOut
 parameter_list|(
-name|MinaEndpoint
+name|NettyEndpoint
 name|endpoint
 parameter_list|,
 name|Exchange

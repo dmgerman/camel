@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mina
+DECL|package|org.apache.camel.component.netty
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mina
+name|netty
 package|;
 end_package
 
@@ -37,18 +37,6 @@ operator|.
 name|framework
 operator|.
 name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
 import|;
 end_import
 
@@ -138,29 +126,57 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
-comment|/**  * Unit test for the<tt>transferExchange=true</tt> option.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MinaTransferExchangeOptionTest
+DECL|class|NettyTransferExchangeOptionTest
 specifier|public
 class|class
-name|MinaTransferExchangeOptionTest
+name|NettyTransferExchangeOptionTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6321?sync=true&encoding=UTF-8&transferExchange=true"
+literal|"netty:tcp://localhost:6321?transferExchange=true"
 decl_stmt|;
-DECL|method|testMinaTransferExchangeOptionWithoutException ()
+annotation|@
+name|Test
+DECL|method|testNettyTransferExchangeOptionWithoutException ()
 specifier|public
 name|void
-name|testMinaTransferExchangeOptionWithoutException
+name|testNettyTransferExchangeOptionWithoutException
 parameter_list|()
 throws|throws
 name|Exception
@@ -181,10 +197,12 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMinaTransferExchangeOptionWithException ()
+annotation|@
+name|Test
+DECL|method|testNettyTransferExchangeOptionWithException ()
 specifier|public
 name|void
-name|testMinaTransferExchangeOptionWithException
+name|testNettyTransferExchangeOptionWithException
 parameter_list|()
 throws|throws
 name|Exception

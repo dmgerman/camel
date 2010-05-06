@@ -1275,9 +1275,8 @@ if|if
 condition|(
 name|sync
 operator|&&
-name|message
-operator|==
-literal|null
+operator|!
+name|messageReceived
 condition|)
 block|{
 comment|// sync=true (InOut mode) so we expected a message as reply but did not get one before the session is closed
