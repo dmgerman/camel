@@ -834,7 +834,7 @@ name|await
 argument_list|(
 name|configuration
 operator|.
-name|getReceiveTimeoutMillis
+name|getTimeout
 argument_list|()
 argument_list|,
 name|TimeUnit
@@ -856,7 +856,7 @@ name|exchange
 argument_list|,
 name|configuration
 operator|.
-name|getReceiveTimeoutMillis
+name|getTimeout
 argument_list|()
 argument_list|)
 throw|;
@@ -1218,7 +1218,7 @@ literal|"child.connectTimeoutMillis"
 argument_list|,
 name|configuration
 operator|.
-name|getConnectTimeoutMillis
+name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1362,7 +1362,7 @@ literal|"child.connectTimeoutMillis"
 argument_list|,
 name|configuration
 operator|.
-name|getConnectTimeoutMillis
+name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -788,7 +788,7 @@ literal|"child.connectTimeoutMillis"
 argument_list|,
 name|configuration
 operator|.
-name|getConnectTimeoutMillis
+name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -926,7 +926,7 @@ literal|"child.connectTimeoutMillis"
 argument_list|,
 name|configuration
 operator|.
-name|getConnectTimeoutMillis
+name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

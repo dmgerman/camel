@@ -332,6 +332,35 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|channelClosed (ChannelHandlerContext ctx, ChannelStateEvent e)
+specifier|public
+name|void
+name|channelClosed
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|ChannelStateEvent
+name|e
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Channel closed: "
+operator|+
+name|e
+operator|.
+name|getChannel
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|exceptionCaught (ChannelHandlerContext ctx, ExceptionEvent exceptionEvent)
 specifier|public
 name|void
@@ -346,17 +375,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Closing channel as an exception was thrown from Netty"
 argument_list|,
@@ -366,7 +387,6 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// close channel in case an exception was thrown
 name|NettyHelper
 operator|.
@@ -378,17 +398,6 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// must wrap and rethrow since cause can be of Throwable and we must only throw Exception
-throw|throw
-operator|new
-name|CamelException
-argument_list|(
-name|exceptionEvent
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-throw|;
 block|}
 annotation|@
 name|Override
