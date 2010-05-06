@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|SocketAddress
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -134,7 +144,7 @@ block|{
 comment|// Utility class
 block|}
 comment|/**      * Writes the given body to Netty channel. Will wait until the body has been written.      *      * @param channel  the Netty channel      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
-DECL|method|writeBody (Channel channel, Object body, Exchange exchange)
+DECL|method|writeBody (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -142,6 +152,9 @@ name|writeBody
 parameter_list|(
 name|Channel
 name|channel
+parameter_list|,
+name|SocketAddress
+name|remoteAddress
 parameter_list|,
 name|Object
 name|body
@@ -155,15 +168,55 @@ block|{
 comment|// the write operation is asynchronous. Use future to wait until the session has been written
 name|ChannelFuture
 name|future
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|remoteAddress
+operator|!=
+literal|null
+condition|)
+block|{
+name|future
+operator|=
+name|channel
+operator|.
+name|write
+argument_list|(
+name|body
+argument_list|,
+name|remoteAddress
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|future
+operator|=
 name|channel
 operator|.
 name|write
 argument_list|(
 name|body
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// wait for the write
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for write to complete"
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|.
 name|awaitUninterruptibly
@@ -200,8 +253,58 @@ argument_list|(
 literal|"Cannot write body"
 argument_list|,
 name|exchange
+argument_list|,
+name|future
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 throw|;
+block|}
+block|}
+DECL|method|close (Channel channel)
+specifier|public
+specifier|static
+name|void
+name|close
+parameter_list|(
+name|Channel
+name|channel
+parameter_list|)
+block|{
+if|if
+condition|(
+name|channel
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Closing channel: "
+operator|+
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
+name|channel
+operator|.
+name|close
+argument_list|()
+operator|.
+name|awaitUninterruptibly
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

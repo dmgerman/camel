@@ -341,6 +341,11 @@ specifier|private
 name|String
 name|securityProvider
 decl_stmt|;
+DECL|field|disconnect
+specifier|private
+name|boolean
+name|disconnect
+decl_stmt|;
 DECL|method|NettyConfiguration ()
 specifier|public
 name|NettyConfiguration
@@ -1093,6 +1098,35 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|settings
+operator|.
+name|containsKey
+argument_list|(
+literal|"disconnect"
+argument_list|)
+condition|)
+block|{
+name|setDisconnect
+argument_list|(
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
+operator|(
+name|String
+operator|)
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"disconnect"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getProtocol ()
 specifier|public
@@ -1831,6 +1865,46 @@ name|securityProvider
 operator|=
 name|securityProvider
 expr_stmt|;
+block|}
+DECL|method|isDisconnect ()
+specifier|public
+name|boolean
+name|isDisconnect
+parameter_list|()
+block|{
+return|return
+name|disconnect
+return|;
+block|}
+DECL|method|setDisconnect (boolean disconnect)
+specifier|public
+name|void
+name|setDisconnect
+parameter_list|(
+name|boolean
+name|disconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnect
+operator|=
+name|disconnect
+expr_stmt|;
+block|}
+DECL|method|getAddress ()
+specifier|public
+name|String
+name|getAddress
+parameter_list|()
+block|{
+return|return
+name|host
+operator|+
+literal|":"
+operator|+
+name|port
+return|;
 block|}
 DECL|method|addToHandlersList (List configured, List handlers, Class<? extends T> handlerType)
 specifier|private

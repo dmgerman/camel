@@ -556,6 +556,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|getProcessor
 argument_list|()
 operator|.
@@ -564,6 +566,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if sync then we should return a response
 if|if
 condition|(

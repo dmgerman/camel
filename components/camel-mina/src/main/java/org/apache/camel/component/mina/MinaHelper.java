@@ -133,7 +133,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the mina exchange used for error reporting      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
 DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
 specifier|public
 specifier|static
@@ -165,6 +165,22 @@ argument_list|)
 decl_stmt|;
 comment|// must use a timeout (we use 10s) as in some very high performance scenarios a write can cause
 comment|// thread hanging forever
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for write to complete"
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|.
 name|join

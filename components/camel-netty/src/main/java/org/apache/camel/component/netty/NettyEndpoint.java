@@ -227,7 +227,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"NettyChannelHandlerContext"
+name|NettyConstants
+operator|.
+name|NETTY_CHANNEL_HANDLER_CONTEXT
 argument_list|,
 name|ctx
 argument_list|)
@@ -239,7 +241,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"NettyMessageEvent"
+name|NettyConstants
+operator|.
+name|NETTY_MESSAGE_EVENT
 argument_list|,
 name|messageEvent
 argument_list|)
@@ -255,7 +259,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getConfiguration ()
