@@ -357,14 +357,15 @@ operator|instanceof
 name|UnknownPersonFault
 argument_list|)
 expr_stmt|;
-comment|// Note: Since unmarshal phase has been removed in PAYLOAD mode,
-comment|// it is not able to validate against the schema.
+comment|// schema validation will throw a parse exception
 name|personId
 operator|.
 name|value
 operator|=
 literal|"Invoking getPerson with invalid length string, expecting exception...xxxxxxxxx"
 expr_stmt|;
+try|try
+block|{
 name|client
 operator|.
 name|getPerson
@@ -376,6 +377,29 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"We expect to get a message schema validation failure"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Could not parse the XML stream."
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|verifyJaxwsHandlers
 argument_list|(
 name|fromHandler
@@ -412,7 +436,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|fromHandler
 operator|.
@@ -422,7 +446,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|4
 argument_list|,
 name|fromHandler
 operator|.
@@ -434,7 +458,7 @@ comment|//From CXF 2.2.7 the soap handler's getHeader() method will not be calle
 comment|//assertEquals(8, toHandler.getGetHeadersCount());
 name|assertEquals
 argument_list|(
-literal|10
+literal|8
 argument_list|,
 name|toHandler
 operator|.
