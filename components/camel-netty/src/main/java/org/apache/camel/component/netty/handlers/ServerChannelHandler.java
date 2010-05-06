@@ -184,6 +184,20 @@ name|netty
 operator|.
 name|channel
 operator|.
+name|ChannelStateEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
 name|ExceptionEvent
 import|;
 end_import
@@ -267,6 +281,37 @@ operator|.
 name|consumer
 operator|=
 name|consumer
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|channelOpen (ChannelHandlerContext ctx, ChannelStateEvent channelStateEvent)
+specifier|public
+name|void
+name|channelOpen
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|ChannelStateEvent
+name|channelStateEvent
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// to keep track of open sockets
+name|consumer
+operator|.
+name|getAllChannels
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|channelStateEvent
+operator|.
+name|getChannel
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -637,7 +682,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body"
+literal|"Writing body: "
 operator|+
 name|body
 argument_list|)
