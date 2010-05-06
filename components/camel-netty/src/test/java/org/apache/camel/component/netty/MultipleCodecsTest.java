@@ -487,12 +487,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty:tcp://localhost:5150?encoders=#encoders"
+literal|"netty:tcp://localhost:5150?encoders=#encoders&sync=false"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5150?decoders=#length-decoder,#string-decoder"
+literal|"netty:tcp://localhost:5150?decoders=#length-decoder,#string-decoder&sync=false"
 argument_list|)
 operator|.
 name|to

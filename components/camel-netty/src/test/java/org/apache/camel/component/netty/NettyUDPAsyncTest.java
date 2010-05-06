@@ -403,7 +403,7 @@ argument_list|)
 expr_stmt|;
 name|sendFile
 argument_list|(
-literal|"netty:udp://localhost:5151"
+literal|"netty:udp://localhost:5151?sync=false"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -454,7 +454,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://localhost:5151"
+literal|"netty:udp://localhost:5151?sync=false"
 argument_list|)
 operator|.
 name|to

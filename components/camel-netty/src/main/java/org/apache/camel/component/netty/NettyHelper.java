@@ -225,12 +225,11 @@ expr_stmt|;
 comment|// if it was not a success then thrown an exception
 if|if
 condition|(
+operator|!
 name|future
 operator|.
 name|isSuccess
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|LOG

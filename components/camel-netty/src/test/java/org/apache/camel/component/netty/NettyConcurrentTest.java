@@ -298,7 +298,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:5150"
 argument_list|,
 name|index
 argument_list|,
