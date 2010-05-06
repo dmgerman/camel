@@ -483,6 +483,8 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
+comment|// the producer should not be singleton otherwise cannot use concurrent producers and safely
+comment|// use request/reply with correct correlation
 return|return
 literal|false
 return|;
@@ -515,6 +517,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// write the body
 name|Channel
 name|channel
 init|=
@@ -523,10 +526,12 @@ operator|.
 name|getChannel
 argument_list|()
 decl_stmt|;
-name|channel
+name|NettyHelper
 operator|.
-name|write
+name|writeBody
 argument_list|(
+name|channel
+argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -534,6 +539,8 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 if|if
@@ -611,7 +618,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|setupTCPCommunication ()
-specifier|public
+specifier|protected
 name|void
 name|setupTCPCommunication
 parameter_list|()
@@ -827,7 +834,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setupUDPCommunication ()
-specifier|public
+specifier|protected
 name|void
 name|setupUDPCommunication
 parameter_list|()
