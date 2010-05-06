@@ -329,6 +329,7 @@ operator|.
 name|getBindingOperationInfo
 argument_list|()
 decl_stmt|;
+comment|// make sure the "boi" is remained as wrapped in PAYLOAD mode
 if|if
 condition|(
 name|dataFormat
@@ -362,7 +363,6 @@ name|boi
 argument_list|)
 expr_stmt|;
 block|}
-comment|//BindingOperationInfo boi = cxfExchange.get(BindingOperationInfo.class);
 if|if
 condition|(
 name|boi
