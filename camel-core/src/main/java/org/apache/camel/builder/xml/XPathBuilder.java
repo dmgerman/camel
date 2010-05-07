@@ -3173,10 +3173,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|answer
-operator|==
-literal|null
-operator|&&
 name|type
 operator|!=
 literal|null

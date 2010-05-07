@@ -448,11 +448,6 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|matches (Exchange exchange, List list)
 specifier|protected
 name|boolean
