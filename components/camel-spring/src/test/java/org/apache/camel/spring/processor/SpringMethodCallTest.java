@@ -178,6 +178,53 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testToBeanType ()
+specifier|public
+name|void
+name|testToBeanType
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hi Camel"
+argument_list|,
+literal|"Hi World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:tobeantype"
+argument_list|,
+literal|"Camel"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:tobeantype"
+argument_list|,
+literal|"World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

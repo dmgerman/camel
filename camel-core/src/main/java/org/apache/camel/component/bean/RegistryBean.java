@@ -234,6 +234,27 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// maybe its a class
+name|value
+operator|=
+name|context
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no its not a class then we cannot find the bean
 throw|throw
 operator|new
 name|NoSuchBeanException
@@ -241,6 +262,7 @@ argument_list|(
 name|name
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
