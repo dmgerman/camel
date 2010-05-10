@@ -487,6 +487,9 @@ name|MyAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
+name|eagerCheckCompletion
+argument_list|()
+operator|.
 name|completionPredicate
 argument_list|(
 name|header
