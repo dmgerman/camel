@@ -195,28 +195,6 @@ literal|"/org/apache/camel/spring/processor/SpringMethodCallTest.xml"
 argument_list|)
 return|;
 block|}
-DECL|class|MyCoolBean
-specifier|public
-specifier|static
-class|class
-name|MyCoolBean
-block|{
-DECL|method|cool (String body)
-specifier|public
-name|String
-name|cool
-parameter_list|(
-name|String
-name|body
-parameter_list|)
-block|{
-return|return
-literal|"Hi "
-operator|+
-name|body
-return|;
-block|}
-block|}
 block|}
 end_class
 
