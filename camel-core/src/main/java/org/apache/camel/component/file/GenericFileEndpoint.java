@@ -2019,6 +2019,9 @@ argument_list|()
 operator|.
 name|getDirectory
 argument_list|()
+operator|+
+name|getFileSeparator
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2045,15 +2048,7 @@ name|after
 argument_list|(
 name|name
 argument_list|,
-name|getConfiguration
-argument_list|()
-operator|.
-name|getDirectory
-argument_list|()
-operator|+
-name|File
-operator|.
-name|separator
+name|endpointPath
 argument_list|)
 expr_stmt|;
 block|}

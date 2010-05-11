@@ -112,6 +112,14 @@ argument_list|(
 literal|"file:target/filestress?maxMessagesPerPoll=50&readLock=rename"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
+operator|.
 name|threads
 argument_list|(
 literal|10
