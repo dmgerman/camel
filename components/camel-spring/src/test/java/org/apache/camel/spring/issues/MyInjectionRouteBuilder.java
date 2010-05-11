@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -79,18 +91,16 @@ class|class
 name|MyInjectionRouteBuilder
 extends|extends
 name|RouteBuilder
-implements|implements
-name|CamelContextAware
 block|{
 DECL|field|startEndpointUri
 specifier|private
 name|String
 name|startEndpointUri
 decl_stmt|;
-DECL|field|camelContext
+DECL|field|myProcessor
 specifier|private
-name|CamelContext
-name|camelContext
+name|Processor
+name|myProcessor
 decl_stmt|;
 DECL|method|setStartEndpointUri (String startUri)
 specifier|public
@@ -116,19 +126,28 @@ return|return
 name|startEndpointUri
 return|;
 block|}
-DECL|method|getStartEndpoint ()
+DECL|method|setMyProcessor (Processor processor)
 specifier|public
-name|Endpoint
-name|getStartEndpoint
+name|void
+name|setMyProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|myProcessor
+operator|=
+name|processor
+expr_stmt|;
+block|}
+DECL|method|getMyProcessor ()
+specifier|public
+name|Processor
+name|getMyProcessor
 parameter_list|()
 block|{
 return|return
-name|camelContext
-operator|.
-name|getEndpoint
-argument_list|(
-name|startEndpointUri
-argument_list|)
+name|myProcessor
 return|;
 block|}
 DECL|method|configure ()
@@ -141,7 +160,13 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|getStartEndpoint
+name|getStartEndpointUri
+argument_list|()
+argument_list|)
+operator|.
+name|process
+argument_list|(
+name|getMyProcessor
 argument_list|()
 argument_list|)
 operator|.
@@ -149,30 +174,6 @@ name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext context)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|camelContext
-operator|=
-name|context
 expr_stmt|;
 block|}
 block|}
