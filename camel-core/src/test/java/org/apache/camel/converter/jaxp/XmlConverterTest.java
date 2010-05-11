@@ -2001,7 +2001,7 @@ name|is
 init|=
 name|conv
 operator|.
-name|toInputStrean
+name|toInputStream
 argument_list|(
 name|doc
 argument_list|)
@@ -2131,7 +2131,7 @@ name|out
 init|=
 name|conv
 operator|.
-name|toInputStrean
+name|toInputStream
 argument_list|(
 name|source
 argument_list|)

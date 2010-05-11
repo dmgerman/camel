@@ -1844,11 +1844,8 @@ name|IOException
 throws|,
 name|SAXException
 block|{
-name|DocumentBuilder
-name|builder
-init|=
-name|createDocumentBuilder
-argument_list|()
+name|Document
+name|document
 decl_stmt|;
 name|String
 name|systemId
@@ -1858,10 +1855,11 @@ operator|.
 name|getSystemId
 argument_list|()
 decl_stmt|;
-name|Document
-name|document
+name|DocumentBuilder
+name|builder
 init|=
-literal|null
+name|createDocumentBuilder
+argument_list|()
 decl_stmt|;
 name|Reader
 name|reader
@@ -1941,7 +1939,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"No input stream or reader available"
+literal|"No input stream or reader available on StreamSource: "
+operator|+
+name|source
 argument_list|)
 throw|;
 block|}
@@ -2518,14 +2518,15 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM document from the given Node.      * If the node is an document, just cast it,      * if the node is an root element, retrieve its      * owner element or create a new document and import      * the node.      */
+comment|/**      * Create a DOM document from the given Node.      *      * If the node is an document, just cast it, if the node is an root element, retrieve its      * owner element or create a new document and import the node.      */
 annotation|@
 name|Converter
-DECL|method|toDOMDocument (Node node)
+DECL|method|toDOMDocument (final Node node)
 specifier|public
 name|Document
 name|toDOMDocument
 parameter_list|(
+specifier|final
 name|Node
 name|node
 parameter_list|)
@@ -2534,6 +2535,15 @@ name|ParserConfigurationException
 throws|,
 name|TransformerException
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|node
+argument_list|,
+literal|"node"
+argument_list|)
+expr_stmt|;
 comment|// If the node is the document, just cast it
 if|if
 condition|(
@@ -2596,6 +2606,13 @@ init|=
 name|createDocument
 argument_list|()
 decl_stmt|;
+comment|// import node must no occur concurrent on the same node
+comment|// so we need to synchronize on it
+synchronized|synchronized
+init|(
+name|node
+init|)
+block|{
 name|doc
 operator|.
 name|appendChild
@@ -2610,6 +2627,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|doc
 return|;
@@ -2622,17 +2640,19 @@ throw|throw
 operator|new
 name|TransformerException
 argument_list|(
-literal|"Unable to convert DOM node to a Document"
+literal|"Unable to convert DOM node to a Document: "
+operator|+
+name|node
 argument_list|)
 throw|;
 block|}
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStrean (DOMSource source)
+DECL|method|toInputStream (DOMSource source)
 specifier|public
 name|InputStream
-name|toInputStrean
+name|toInputStream
 parameter_list|(
 name|DOMSource
 name|source
@@ -2663,10 +2683,10 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStrean (Document dom)
+DECL|method|toInputStream (Document dom)
 specifier|public
 name|InputStream
-name|toInputStrean
+name|toInputStream
 parameter_list|(
 name|Document
 name|dom
