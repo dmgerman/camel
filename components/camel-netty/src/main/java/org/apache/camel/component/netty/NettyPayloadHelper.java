@@ -55,6 +55,13 @@ specifier|final
 class|class
 name|NettyPayloadHelper
 block|{
+DECL|method|NettyPayloadHelper ()
+specifier|private
+name|NettyPayloadHelper
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 DECL|method|getIn (NettyEndpoint endpoint, Exchange exchange)
 specifier|public
 specifier|static
