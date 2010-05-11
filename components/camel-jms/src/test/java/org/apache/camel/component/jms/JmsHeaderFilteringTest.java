@@ -309,9 +309,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|Exchange
-name|exchange
-init|=
 name|template
 operator|.
 name|send
@@ -387,7 +384,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|latch
 operator|.
 name|await

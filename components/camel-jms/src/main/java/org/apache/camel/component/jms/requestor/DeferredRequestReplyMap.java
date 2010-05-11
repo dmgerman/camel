@@ -178,11 +178,21 @@ decl_stmt|;
 DECL|field|deferredRequestMap
 specifier|private
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|deferredRequestMap
 decl_stmt|;
 DECL|field|deferredReplyMap
 specifier|private
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|deferredReplyMap
 decl_stmt|;
 DECL|class|DeferredMessageSentCallback
@@ -306,7 +316,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|DeferredRequestReplyMap (Requestor requestor, JmsProducer producer, TimeoutMap deferredRequestMap, TimeoutMap deferredReplyMap)
+DECL|method|DeferredRequestReplyMap (Requestor requestor, JmsProducer producer, TimeoutMap<String, Object> deferredRequestMap, TimeoutMap<String, Object> deferredReplyMap)
 specifier|public
 name|DeferredRequestReplyMap
 parameter_list|(
@@ -317,9 +327,19 @@ name|JmsProducer
 name|producer
 parameter_list|,
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|deferredRequestMap
 parameter_list|,
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|deferredReplyMap
 parameter_list|)
 block|{
@@ -439,7 +459,7 @@ name|inMessage
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|processDeferredRequests (Object monitor, TimeoutMap requestMap, TimeoutMap replyMap, String correlationID, long timeout, Message inMessage)
+DECL|method|processDeferredRequests (Object monitor, TimeoutMap<String, Object> requestMap, TimeoutMap<String, Object> replyMap, String correlationID, long timeout, Message inMessage)
 specifier|public
 specifier|static
 name|void
@@ -449,9 +469,19 @@ name|Object
 name|monitor
 parameter_list|,
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|requestMap
 parameter_list|,
 name|TimeoutMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|replyMap
 parameter_list|,
 name|String

@@ -263,6 +263,8 @@ operator|.
 name|toString
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals

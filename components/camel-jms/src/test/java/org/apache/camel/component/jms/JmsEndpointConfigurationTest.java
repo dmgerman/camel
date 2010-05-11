@@ -404,17 +404,11 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|JmsEndpoint
-name|endpoint
-init|=
-operator|(
-name|JmsEndpoint
-operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
 literal|"jms:topic:Foo.Bar?username=James"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Expect the exception here"
@@ -431,17 +425,11 @@ comment|// Expect the exception here
 block|}
 try|try
 block|{
-name|JmsEndpoint
-name|endpoint
-init|=
-operator|(
-name|JmsEndpoint
-operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
 literal|"jms:topic:Foo.Bar?password=ABC"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Expect the exception here"
@@ -740,6 +728,13 @@ operator|.
 name|createProducer
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The producer should not be null"
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
 name|JmsConsumer
 name|consumer
 init|=
