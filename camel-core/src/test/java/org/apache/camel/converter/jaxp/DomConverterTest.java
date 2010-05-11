@@ -128,7 +128,9 @@ decl_stmt|;
 name|String
 name|s
 init|=
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toString
 argument_list|(
@@ -140,7 +142,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"world!"
+literal|"<hello>world!</hello>"
 argument_list|,
 name|s
 argument_list|)
@@ -175,7 +177,9 @@ name|byte
 index|[]
 name|bytes
 init|=
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toByteArray
 argument_list|(
@@ -193,7 +197,7 @@ name|ObjectHelper
 operator|.
 name|equalByteArray
 argument_list|(
-literal|"world!"
+literal|"<hello>world!</hello>"
 operator|.
 name|getBytes
 argument_list|()
@@ -231,7 +235,9 @@ decl_stmt|;
 name|Integer
 name|number
 init|=
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toInteger
 argument_list|(
@@ -280,7 +286,9 @@ decl_stmt|;
 name|Long
 name|number
 init|=
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toLong
 argument_list|(
@@ -392,9 +400,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"<hello>Hello World</hello>"
 argument_list|,
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toString
 argument_list|(
@@ -412,9 +422,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye Camel"
+literal|"<bye>Bye Camel</bye>"
 argument_list|,
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toString
 argument_list|(
@@ -459,7 +471,9 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
+operator|new
 name|DomConverter
+argument_list|()
 operator|.
 name|toInputStream
 argument_list|(
@@ -471,7 +485,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"world!"
+literal|"<hello>world!</hello>"
 argument_list|,
 name|context
 operator|.

@@ -185,7 +185,7 @@ parameter_list|(
 annotation|@
 name|XPath
 argument_list|(
-literal|"//a/b"
+literal|"//a/b/text()"
 argument_list|)
 name|String
 name|ab

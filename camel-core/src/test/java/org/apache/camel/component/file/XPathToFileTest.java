@@ -159,7 +159,9 @@ expr_stmt|;
 name|String
 name|xml
 init|=
-literal|"<foo><person>Claus</person><person>Jonathan</person></foo>"
+literal|"<foo><person id=\"1\">Claus<country>SE</country></person>"
+operator|+
+literal|"<person id=\"2\">Jonathan<country>CA</country></person></foo>"
 decl_stmt|;
 name|Document
 name|doc
@@ -214,7 +216,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Claus"
+literal|"<person id=\"1\">Claus<country>SE</country></person>"
 argument_list|,
 name|context
 operator|.
@@ -255,7 +257,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Jonathan"
+literal|"<person id=\"2\">Jonathan<country>CA</country></person>"
 argument_list|,
 name|context
 operator|.
@@ -308,6 +310,11 @@ name|xpath
 argument_list|(
 literal|"/foo/person"
 argument_list|)
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"${bodyAs(String)}"
 argument_list|)
 operator|.
 name|to
