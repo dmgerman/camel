@@ -50,7 +50,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|BeforeClass
 import|;
 end_import
 
@@ -63,9 +63,10 @@ extends|extends
 name|CXFWsdlOnlyPayloadModeNoSpringTest
 block|{
 annotation|@
-name|Before
+name|BeforeClass
 DECL|method|startService ()
 specifier|public
+specifier|static
 name|void
 name|startService
 parameter_list|()
