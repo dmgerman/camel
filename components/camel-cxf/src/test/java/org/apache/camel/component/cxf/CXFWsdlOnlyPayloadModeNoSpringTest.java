@@ -222,7 +222,27 @@ name|org
 operator|.
 name|junit
 operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
 import|;
 end_import
 
@@ -273,13 +293,15 @@ literal|"wsdlURL=classpath:person.wsdl"
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected
+specifier|static
 name|Endpoint
 name|endpoint
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeClass
 DECL|method|startService ()
 specifier|public
+specifier|static
 name|void
 name|startService
 parameter_list|()
@@ -299,9 +321,10 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|After
+name|AfterClass
 DECL|method|stopService ()
 specifier|public
+specifier|static
 name|void
 name|stopService
 parameter_list|()
