@@ -156,7 +156,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9085?encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:9083?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -246,7 +246,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9085?encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:9084?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.

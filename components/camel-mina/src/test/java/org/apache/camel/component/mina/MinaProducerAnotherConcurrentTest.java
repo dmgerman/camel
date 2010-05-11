@@ -416,12 +416,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true"
+literal|"mina:tcp://localhost:9080?sync=true"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true"
+literal|"mina:tcp://localhost:9080?sync=true"
 argument_list|)
 operator|.
 name|process
