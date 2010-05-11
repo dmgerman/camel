@@ -255,6 +255,50 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// http://docs.jboss.org/netty/3.1/api/org/jboss/netty/handler/ssl/SslHandler.html
+comment|// To restart the SSL session, you must remove the existing closed SslHandler
+comment|// from the ChannelPipeline, insert a new SslHandler with a new SSLEngine into
+comment|// the pipeline, and start the handshake process as described in the first section.
+if|if
+condition|(
+name|channelPipeline
+operator|.
+name|remove
+argument_list|(
+literal|"ssl"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// reinitialize and add SSL first
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Client SSL handler re-initialized on the ChannelPipeline"
+argument_list|)
+expr_stmt|;
+block|}
+name|channelPipeline
+operator|.
+name|addFirst
+argument_list|(
+literal|"ssl"
+argument_list|,
+name|configureClientSSLOnDemand
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|channelPipeline
 return|;
@@ -291,7 +335,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Client SSL handler configured and added as an interceptor against the ChannelPipeline"
+literal|"Client SSL handler configured and added to the ChannelPipeline"
 argument_list|)
 expr_stmt|;
 block|}
