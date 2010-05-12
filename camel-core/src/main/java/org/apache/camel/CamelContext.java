@@ -500,23 +500,6 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      * @deprecated will be removed in Camel 2.3.      */
-annotation|@
-name|Deprecated
-DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
-name|Component
-name|getOrCreateComponent
-parameter_list|(
-name|String
-name|componentName
-parameter_list|,
-name|Callable
-argument_list|<
-name|Component
-argument_list|>
-name|factory
-parameter_list|)
-function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri  the URI of the endpoint      * @return  the endpoint      */
@@ -577,31 +560,6 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      * @deprecated not used will be removed in Camel 2.3.      */
-annotation|@
-name|Deprecated
-DECL|method|getEndpoints (String uri)
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|>
-name|getEndpoints
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      * @deprecated not used will be removed in Camel 2.3.      */
-annotation|@
-name|Deprecated
-DECL|method|getSingletonEndpoints ()
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|>
-name|getSingletonEndpoints
-parameter_list|()
-function_decl|;
 comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
@@ -612,22 +570,6 @@ name|uri
 parameter_list|,
 name|Endpoint
 name|endpoint
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @deprecated not used will be removed in Camel 2.3.      */
-annotation|@
-name|Deprecated
-DECL|method|removeEndpoints (String uri)
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|>
-name|removeEndpoints
-parameter_list|(
-name|String
-name|uri
 parameter_list|)
 throws|throws
 name|Exception
@@ -797,17 +739,6 @@ name|getRouteStatus
 parameter_list|(
 name|String
 name|routeId
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the current status of the given route      *      * @param route the route      * @return the status for the route      * @deprecated will be removed in Camel 2.3.      */
-annotation|@
-name|Deprecated
-DECL|method|getRouteStatus (RouteDefinition route)
-name|ServiceStatus
-name|getRouteStatus
-parameter_list|(
-name|RouteDefinition
-name|route
 parameter_list|)
 function_decl|;
 comment|// Properties

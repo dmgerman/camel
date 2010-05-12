@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a resolver of FactoryFinder to  *  * @version $Revision$  */
+comment|/**  * Represents a resolver for {@link FactoryFinder}  *  * @version $Revision$  */
 end_comment
 
 begin_interface
