@@ -344,6 +344,18 @@ specifier|private
 name|Boolean
 name|stopOnException
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|ignoreInvalidEndpoints
+specifier|private
+name|Boolean
+name|ignoreInvalidEndpoints
+decl_stmt|;
 DECL|method|RecipientListDefinition ()
 specifier|public
 name|RecipientListDefinition
@@ -503,6 +515,21 @@ name|setStopOnException
 argument_list|(
 name|isStopOnException
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ignoreInvalidEndpoints
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setIgnoreInvalidEndpoints
+argument_list|(
+name|ignoreInvalidEndpoints
 argument_list|)
 expr_stmt|;
 block|}
@@ -725,6 +752,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+DECL|method|ignoreInvalidEndpoints ()
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|ignoreInvalidEndpoints
+parameter_list|()
+block|{
+name|setIgnoreInvalidEndpoints
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Doing the recipient list work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
@@ -913,6 +959,32 @@ operator|.
 name|executorServiceRef
 operator|=
 name|executorServiceRef
+expr_stmt|;
+block|}
+DECL|method|isIgnoreInvalidEndpoints ()
+specifier|public
+name|Boolean
+name|isIgnoreInvalidEndpoints
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidEndpoints
+return|;
+block|}
+DECL|method|setIgnoreInvalidEndpoints (Boolean ignoreInvalidEndpoints)
+specifier|public
+name|void
+name|setIgnoreInvalidEndpoints
+parameter_list|(
+name|Boolean
+name|ignoreInvalidEndpoints
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidEndpoints
+operator|=
+name|ignoreInvalidEndpoints
 expr_stmt|;
 block|}
 DECL|method|isStopOnException ()
