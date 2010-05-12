@@ -193,6 +193,35 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Helper method for test purposes that allows tests to start clean (made protected       *  to ensure that it is not called accidentally)      */
+DECL|method|resetAllCounters ()
+specifier|protected
+specifier|static
+specifier|synchronized
+name|void
+name|resetAllCounters
+parameter_list|()
+block|{
+for|for
+control|(
+name|AtomicInteger
+name|counter
+range|:
+name|nodeCounters
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|counter
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

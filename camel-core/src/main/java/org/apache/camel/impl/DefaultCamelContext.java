@@ -1144,11 +1144,11 @@ name|NAME_PREFIX
 init|=
 literal|"camel-"
 decl_stmt|;
-DECL|field|nameSuffix
+DECL|field|contextCounter
 specifier|private
 specifier|static
 name|AtomicInteger
-name|nameSuffix
+name|contextCounter
 init|=
 operator|new
 name|AtomicInteger
@@ -1690,7 +1690,7 @@ name|name
 operator|=
 name|NAME_PREFIX
 operator|+
-name|nameSuffix
+name|contextCounter
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -7067,6 +7067,11 @@ name|ManagementStrategy
 name|getManagementStrategy
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|managementStrategyInitialized
+init|)
+block|{
 if|if
 condition|(
 name|managementStrategyInitialized
@@ -7089,6 +7094,7 @@ return|return
 name|managementStrategy
 return|;
 block|}
+block|}
 DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
 specifier|public
 name|void
@@ -7098,13 +7104,36 @@ name|ManagementStrategy
 name|managementStrategy
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|managementStrategyInitialized
+init|)
+block|{
+if|if
+condition|(
+name|managementStrategyInitialized
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Resetting ManagementStrategy for context "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|managementStrategy
 operator|=
 name|managementStrategy
 expr_stmt|;
-comment|// should be considered initialized as we use a custom strategy
 name|managementStrategyInitialized
 operator|.
 name|set
@@ -7112,6 +7141,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getDefaultTracer ()
 specifier|public
@@ -7634,6 +7664,25 @@ argument_list|()
 operator|+
 literal|")"
 return|;
+block|}
+comment|/**      * Reset contextCounter to a preset value. Mostly used for tests to ensure a predictable getName()      *       * @param value new value for the contextCounter      */
+DECL|method|setContextCounter (int value)
+specifier|public
+specifier|static
+name|void
+name|setContextCounter
+parameter_list|(
+name|int
+name|value
+parameter_list|)
+block|{
+name|contextCounter
+operator|.
+name|set
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

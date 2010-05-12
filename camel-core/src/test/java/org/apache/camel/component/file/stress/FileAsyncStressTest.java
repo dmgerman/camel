@@ -204,7 +204,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|20000
+literal|30000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

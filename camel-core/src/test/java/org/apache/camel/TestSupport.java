@@ -142,6 +142,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|JmxSystemPropertyKeys
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -263,6 +277,36 @@ argument_list|)
 decl_stmt|;
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
+comment|/**      * Runs the bare test sequence.      * @exception Throwable if any exception is thrown      */
+annotation|@
+name|Override
+DECL|method|runBare ()
+specifier|public
+name|void
+name|runBare
+parameter_list|()
+throws|throws
+name|Throwable
+block|{
+comment|//start with a clean slate
+name|DefaultCamelContext
+operator|.
+name|setContextCounter
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|TestSupportNodeIdFactory
+operator|.
+name|resetCounters
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|runBare
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)
 specifier|public

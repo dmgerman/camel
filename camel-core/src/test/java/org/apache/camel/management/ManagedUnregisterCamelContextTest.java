@@ -66,7 +66,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServiceStatus
+name|ContextTestSupport
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|ServiceStatus
 import|;
 end_import
 
@@ -106,8 +106,20 @@ specifier|public
 class|class
 name|ManagedUnregisterCamelContextTest
 extends|extends
-name|TestSupport
+name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
