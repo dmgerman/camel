@@ -503,6 +503,25 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// only deal with the form if the content type is "application/x-www-form-urlencoded"
+if|if
+condition|(
+name|request
+operator|.
+name|getEntity
+argument_list|()
+operator|.
+name|getMediaType
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|MediaType
+operator|.
+name|APPLICATION_WWW_FORM
+argument_list|)
+condition|)
+block|{
 name|Form
 name|form
 init|=
@@ -536,7 +555,6 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// extract body added to the form as the key which has null value
 if|if
 condition|(
 name|entry
@@ -647,6 +665,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+block|}
+else|else
+block|{
+name|inMessage
+operator|.
+name|setBody
+argument_list|(
+name|request
+operator|.
+name|getEntity
+argument_list|()
+operator|.
+name|getStream
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|populateRestletRequestFromExchange (Request request, Exchange exchange)
