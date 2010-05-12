@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Currently not in use.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -146,7 +146,9 @@ name|CamelContinuationServlet
 extends|extends
 name|CamelServlet
 block|{
-comment|// TODO: should use the new Async API and allow end users to define if they want Jetty continuation support or not
+comment|// TODO: We should look into what we can do to introduce back Jetty Continuations
+comment|// and it should be documented how it works and to be used
+comment|// and end users should be able to decide if they want to leverage it or not
 DECL|field|serialVersionUID
 specifier|private
 specifier|static

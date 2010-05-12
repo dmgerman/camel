@@ -124,6 +124,34 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -145,6 +173,23 @@ name|serialVersionUID
 init|=
 operator|-
 literal|7061982839117697829L
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|CamelServlet
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|consumers
 specifier|private
@@ -232,8 +277,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// Have the camel process the HTTP exchange.
-name|DefaultExchange
+comment|// create exchange and set data on it
+name|Exchange
 name|exchange
 init|=
 operator|new
@@ -252,9 +297,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|(
-operator|(
-name|HttpEndpoint
-operator|)
 name|consumer
 operator|.
 name|getEndpoint
@@ -294,6 +336,7 @@ name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Have the camel process the HTTP exchange.
 name|consumer
 operator|.
 name|getProcessor
@@ -304,10 +347,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// HC: The getBinding() is interesting because it illustrates the
-comment|// impedance miss-match between
-comment|// HTTP's stream oriented protocol, and Camels more message oriented
-comment|// protocol exchanges.
 comment|// now lets output to the response
 name|consumer
 operator|.
@@ -328,10 +367,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Error processing request"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
