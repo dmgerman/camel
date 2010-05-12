@@ -130,6 +130,8 @@ argument_list|(
 name|fac
 argument_list|)
 decl_stmt|;
+comment|// will evaluate as XPathConstants.NODESET and have Camel convert that to String
+comment|// this should return the String incl. xml tags
 name|String
 name|name
 init|=
@@ -139,7 +141,7 @@ name|evaluate
 argument_list|(
 name|context
 argument_list|,
-literal|"<foo><bar>cheese</bar></foo>"
+literal|"<foo><bar id=\"1\">cheese</bar></foo>"
 argument_list|,
 name|String
 operator|.
@@ -148,11 +150,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"cheese"
+literal|"<bar id=\"1\">cheese</bar>"
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+comment|// will evaluate using XPathConstants.STRING which just return the text content (eg like text())
 name|name
 operator|=
 name|builder
@@ -161,7 +164,7 @@ name|evaluate
 argument_list|(
 name|context
 argument_list|,
-literal|"<foo><bar>cheese</bar></foo>"
+literal|"<foo><bar id=\"1\">cheese</bar></foo>"
 argument_list|)
 expr_stmt|;
 name|assertEquals

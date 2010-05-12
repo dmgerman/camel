@@ -184,6 +184,18 @@ name|xml
 operator|.
 name|xpath
 operator|.
+name|XPathFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|xpath
+operator|.
 name|XPathFunctionResolver
 import|;
 end_import
@@ -2847,6 +2859,69 @@ argument_list|(
 literal|"Claus"
 argument_list|,
 name|s
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testXPathString ()
+specifier|public
+name|void
+name|testXPathString
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|XPathBuilder
+name|builder
+init|=
+name|XPathBuilder
+operator|.
+name|xpath
+argument_list|(
+literal|"foo/bar"
+argument_list|)
+decl_stmt|;
+comment|// will evaluate as XPathConstants.NODESET and have Camel convert that to String
+comment|// this should return the String incl. xml tags
+name|String
+name|name
+init|=
+name|builder
+operator|.
+name|evaluate
+argument_list|(
+name|context
+argument_list|,
+literal|"<foo><bar id=\"1\">cheese</bar></foo>"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"<bar id=\"1\">cheese</bar>"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+comment|// will evaluate using XPathConstants.STRING which just return the text content (eg like text())
+name|name
+operator|=
+name|builder
+operator|.
+name|evaluate
+argument_list|(
+name|context
+argument_list|,
+literal|"<foo><bar id=\"1\">cheese</bar></foo>"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"cheese"
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
