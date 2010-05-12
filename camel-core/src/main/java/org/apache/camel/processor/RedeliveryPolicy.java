@@ -243,6 +243,11 @@ specifier|protected
 name|boolean
 name|logHandled
 decl_stmt|;
+DECL|field|logContinued
+specifier|protected
+name|boolean
+name|logContinued
+decl_stmt|;
 DECL|field|logExhausted
 specifier|protected
 name|boolean
@@ -311,6 +316,10 @@ operator|+
 literal|", logHandled="
 operator|+
 name|logHandled
+operator|+
+literal|", logContinued="
+operator|+
+name|logContinued
 operator|+
 literal|", logExhausted="
 operator|+
@@ -1506,6 +1515,33 @@ operator|.
 name|logHandled
 operator|=
 name|logHandled
+expr_stmt|;
+block|}
+DECL|method|isLogContinued ()
+specifier|public
+name|boolean
+name|isLogContinued
+parameter_list|()
+block|{
+return|return
+name|logContinued
+return|;
+block|}
+comment|/**      * Sets whether errors should be logged even if its continued      */
+DECL|method|setLogContinued (boolean logContinued)
+specifier|public
+name|void
+name|setLogContinued
+parameter_list|(
+name|boolean
+name|logContinued
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logContinued
+operator|=
+name|logContinued
 expr_stmt|;
 block|}
 DECL|method|isLogRetryAttempted ()

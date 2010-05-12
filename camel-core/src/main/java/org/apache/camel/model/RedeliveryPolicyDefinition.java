@@ -249,6 +249,13 @@ name|logHandled
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|logContinued
+specifier|private
+name|Boolean
+name|logContinued
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|logExhausted
 specifier|private
 name|Boolean
@@ -508,6 +515,21 @@ operator|.
 name|setLogHandled
 argument_list|(
 name|logHandled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|logContinued
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setLogContinued
+argument_list|(
+name|logContinued
 argument_list|)
 expr_stmt|;
 block|}
@@ -779,6 +801,25 @@ block|{
 name|setLogHandled
 argument_list|(
 name|logHandled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether continued exceptions should be logged or not      * Can be used to include or reduce verbose.      *      * @param logContinued  whether continued exceptions should be logged or not      * @return the builder      */
+DECL|method|logContinued (boolean logContinued)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|logContinued
+parameter_list|(
+name|boolean
+name|logContinued
+parameter_list|)
+block|{
+name|setLogContinued
+argument_list|(
+name|logContinued
 argument_list|)
 expr_stmt|;
 return|return
@@ -1280,6 +1321,32 @@ operator|.
 name|logHandled
 operator|=
 name|logHandled
+expr_stmt|;
+block|}
+DECL|method|getLogContinued ()
+specifier|public
+name|Boolean
+name|getLogContinued
+parameter_list|()
+block|{
+return|return
+name|logContinued
+return|;
+block|}
+DECL|method|setLogContinued (Boolean logContinued)
+specifier|public
+name|void
+name|setLogContinued
+parameter_list|(
+name|Boolean
+name|logContinued
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logContinued
+operator|=
+name|logContinued
 expr_stmt|;
 block|}
 DECL|method|isLogRetryAttempted ()

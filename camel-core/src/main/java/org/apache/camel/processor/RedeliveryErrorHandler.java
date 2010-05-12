@@ -267,6 +267,12 @@ name|handledPredicate
 init|=
 name|handledPolicy
 decl_stmt|;
+DECL|field|continuedPredicate
+name|Predicate
+name|continuedPredicate
+init|=
+literal|null
+decl_stmt|;
 DECL|field|useOriginalInMessage
 name|boolean
 name|useOriginalInMessage
@@ -531,10 +537,33 @@ name|deadLetterChannel
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|shouldContinue
+init|=
+name|shouldContinue
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|shouldContinue
+condition|)
+block|{
+comment|// okay we want to continue then prepare the exchange for that as well
+name|prepareExchangeForContinue
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and then return
 return|return;
 block|}
-comment|// if we are redelivering then sleep before trying again
 if|if
 condition|(
 name|shouldRedeliver
@@ -546,11 +575,13 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// prepare for redelivery
 name|prepareExchangeForRedelivery
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// if we are redelivering then sleep before trying again
 comment|// wait until we should redeliver
 try|try
 block|{
@@ -752,7 +783,7 @@ argument_list|)
 operator|||
 name|ExchangeHelper
 operator|.
-name|isRedelieryExhausted
+name|isRedeliveryExhausted
 argument_list|(
 name|exchange
 argument_list|)
@@ -819,6 +850,108 @@ block|{
 return|return
 name|logger
 return|;
+block|}
+DECL|method|prepareExchangeForContinue (Exchange exchange, RedeliveryData data)
+specifier|protected
+name|void
+name|prepareExchangeForContinue
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+name|Exception
+name|caught
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+comment|// continue is a kind of redelivery so reuse the logic to prepare
+name|prepareExchangeForRedelivery
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// its continued then remove traces of redelivery attempted and caught exception
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
+argument_list|)
+expr_stmt|;
+comment|// keep the Exchange.EXCEPTION_CAUGHT as property so end user knows the caused exception
+comment|// create log message
+name|String
+name|msg
+init|=
+literal|"Failed delivery for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+decl_stmt|;
+name|msg
+operator|=
+name|msg
+operator|+
+literal|". Exhausted after delivery attempt: "
+operator|+
+name|data
+operator|.
+name|redeliveryCounter
+operator|+
+literal|" caught: "
+operator|+
+name|caught
+expr_stmt|;
+name|msg
+operator|=
+name|msg
+operator|+
+literal|". Handled and continue routing."
+expr_stmt|;
+comment|// log that we failed but want to continue
+name|logFailedDelivery
+argument_list|(
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+name|exchange
+argument_list|,
+name|msg
+argument_list|,
+name|data
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|prepareExchangeForRedelivery (Exchange exchange)
 specifier|protected
@@ -951,6 +1084,15 @@ argument_list|()
 expr_stmt|;
 name|data
 operator|.
+name|continuedPredicate
+operator|=
+name|exceptionPolicy
+operator|.
+name|getContinuedPolicy
+argument_list|()
+expr_stmt|;
+name|data
+operator|.
 name|retryUntilPredicate
 operator|=
 name|exceptionPolicy
@@ -1036,6 +1178,8 @@ decl_stmt|;
 name|logFailedDelivery
 argument_list|(
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1427,6 +1571,8 @@ literal|false
 argument_list|,
 name|handled
 argument_list|,
+literal|false
+argument_list|,
 name|exchange
 argument_list|,
 name|msg
@@ -1697,7 +1843,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean handled, Exchange exchange, String message, RedeliveryData data, Throwable e)
+DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean handled, boolean continued, Exchange exchange, String message, RedeliveryData data, Throwable e)
 specifier|private
 name|void
 name|logFailedDelivery
@@ -1707,6 +1853,9 @@ name|shouldRedeliver
 parameter_list|,
 name|boolean
 name|handled
+parameter_list|,
+name|boolean
+name|continued
 parameter_list|,
 name|Exchange
 name|exchange
@@ -1740,6 +1889,22 @@ operator|.
 name|currentRedeliveryPolicy
 operator|.
 name|isLogHandled
+argument_list|()
+condition|)
+block|{
+comment|// do not log handled
+return|return;
+block|}
+if|if
+condition|(
+name|continued
+operator|&&
+operator|!
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogContinued
 argument_list|()
 condition|)
 block|{
@@ -1968,6 +2133,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Determines whether or not to we should try to redeliver      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to redeliver, or<tt>false</tt> to exhaust.      */
 DECL|method|shouldRedeliver (Exchange exchange, RedeliveryData data)
 specifier|private
 name|boolean
@@ -2043,6 +2209,44 @@ name|data
 operator|.
 name|retryUntilPredicate
 argument_list|)
+return|;
+block|}
+comment|/**      * Determines whether or not to continue if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to exhaust.      */
+DECL|method|shouldContinue (Exchange exchange, RedeliveryData data)
+specifier|private
+name|boolean
+name|shouldContinue
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+if|if
+condition|(
+name|data
+operator|.
+name|continuedPredicate
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|data
+operator|.
+name|continuedPredicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|// do not continue by default
+return|return
+literal|false
 return|;
 block|}
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */

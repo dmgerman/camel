@@ -1773,11 +1773,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isRedelieryExhausted (Exchange exchange)
+DECL|method|isRedeliveryExhausted (Exchange exchange)
 specifier|public
 specifier|static
 name|boolean
-name|isRedelieryExhausted
+name|isRedeliveryExhausted
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1800,7 +1800,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the exchange      * @param pattern    exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrieve the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the exchange      * @param pattern    exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|extractResultBody (Exchange exchange, ExchangePattern pattern)
 specifier|public
 specifier|static

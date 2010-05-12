@@ -659,6 +659,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+annotation|@
+name|Deprecated
 DECL|method|handled (boolean handled)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -691,6 +693,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+annotation|@
+name|Deprecated
 DECL|method|handled (Predicate handled)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -712,6 +716,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+annotation|@
+name|Deprecated
 DECL|method|handled (Expression handled)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -1059,6 +1065,8 @@ operator|=
 name|onRedelivery
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getHandledPolicy ()
 specifier|public
 name|Predicate
@@ -1082,6 +1090,8 @@ return|return
 name|handledPolicy
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setHandledPolicy (Predicate handled)
 specifier|public
 name|void
@@ -1099,6 +1109,8 @@ name|handled
 expr_stmt|;
 block|}
 comment|/**      * Sets the handled using a boolean and thus easier to use for Spring XML configuration as well      */
+annotation|@
+name|Deprecated
 DECL|method|setHandled (boolean handled)
 specifier|public
 name|void
