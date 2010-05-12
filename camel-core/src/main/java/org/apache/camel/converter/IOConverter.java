@@ -1763,13 +1763,7 @@ name|getDefaultCharsetName
 parameter_list|()
 block|{
 return|return
-name|Charset
-operator|.
-name|defaultCharset
-argument_list|()
-operator|.
-name|toString
-argument_list|()
+literal|"UTF-8"
 return|;
 block|}
 comment|/**      * Encoding-aware file reader.       */
