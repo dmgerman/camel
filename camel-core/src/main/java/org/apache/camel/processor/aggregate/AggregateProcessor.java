@@ -3853,6 +3853,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// it may be a service so stop it as well
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|closedCorrelationKeys
+argument_list|)
+expr_stmt|;
 name|closedCorrelationKeys
 operator|.
 name|clear
