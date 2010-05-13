@@ -140,6 +140,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+DECL|method|ignoreInvalidEndpoints ()
+DECL|field|false
+name|boolean
+name|ignoreInvalidEndpoints
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 DECL|method|strategyRef ()
 name|String
 name|strategyRef

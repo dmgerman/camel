@@ -599,6 +599,16 @@ argument_list|)
 expr_stmt|;
 name|recipientList
 operator|.
+name|setIgnoreInvalidEndpoints
+argument_list|(
+name|annotation
+operator|.
+name|ignoreInvalidEndpoints
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|recipientList
+operator|.
 name|setParallelProcessing
 argument_list|(
 name|annotation
