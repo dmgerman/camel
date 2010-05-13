@@ -524,8 +524,6 @@ control|)
 block|{
 name|Endpoint
 name|endpoint
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -545,7 +543,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
 if|if
@@ -558,11 +556,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot resolve the endpoint with "
+literal|"Endpoint uri is invalid: "
 operator|+
 name|nextRecipient
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
-name|ex
+name|e
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -570,7 +570,7 @@ block|}
 else|else
 block|{
 throw|throw
-name|ex
+name|e
 throw|;
 block|}
 block|}
@@ -684,9 +684,11 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"An Invalid endpoint with "
+literal|"Endpoint uri is invalid: "
 operator|+
 name|nextRecipient
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)

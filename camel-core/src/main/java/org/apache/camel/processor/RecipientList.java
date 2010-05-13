@@ -568,7 +568,7 @@ argument_list|)
 throw|;
 block|}
 name|Object
-name|receipientList
+name|recipientList
 init|=
 name|expression
 operator|.
@@ -585,12 +585,12 @@ name|sendToRecipientList
 argument_list|(
 name|exchange
 argument_list|,
-name|receipientList
+name|recipientList
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends the given exchange to the recipient list      */
-DECL|method|sendToRecipientList (Exchange exchange, Object receipientList)
+DECL|method|sendToRecipientList (Exchange exchange, Object recipientList)
 specifier|public
 name|void
 name|sendToRecipientList
@@ -599,7 +599,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|receipientList
+name|recipientList
 parameter_list|)
 throws|throws
 name|Exception
@@ -614,7 +614,7 @@ name|ObjectHelper
 operator|.
 name|createIterator
 argument_list|(
-name|receipientList
+name|recipientList
 argument_list|,
 name|delimiter
 argument_list|)
@@ -712,7 +712,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
 if|if
@@ -723,20 +723,22 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
-literal|"Get a invalid endpoint with "
+literal|"Endpoint uri is invalid: "
 operator|+
 name|recipient
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
-name|ex
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
 throw|throw
-name|ex
+name|e
 throw|;
 block|}
 block|}
