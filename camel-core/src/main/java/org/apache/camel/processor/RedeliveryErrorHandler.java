@@ -270,8 +270,6 @@ decl_stmt|;
 DECL|field|continuedPredicate
 name|Predicate
 name|continuedPredicate
-init|=
-literal|null
 decl_stmt|;
 DECL|field|useOriginalInMessage
 name|boolean
