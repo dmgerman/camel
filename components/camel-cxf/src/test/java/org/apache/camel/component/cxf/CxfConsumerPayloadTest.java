@@ -166,6 +166,28 @@ literal|"<return xmlns=\"http://cxf.component.camel.apache.org/\">true</return>"
 operator|+
 literal|"</ns1:echoBooleanResponse>"
 decl_stmt|;
+DECL|field|ECHO_REQUEST
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ECHO_REQUEST
+init|=
+literal|"<ns1:echo xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
+operator|+
+literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">Hello World!</arg0></ns1:echo>"
+decl_stmt|;
+DECL|field|ECHO_BOOLEAN_REQUEST
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ECHO_BOOLEAN_REQUEST
+init|=
+literal|"<ns1:echoBoolean xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
+operator|+
+literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">true</arg0></ns1:echoBoolean>"
+decl_stmt|;
 comment|// START SNIPPET: payload
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -259,6 +281,22 @@ name|Element
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// You can use a customer toStringConverter to turn a CxfPayLoad message into String as you want
+name|String
+name|request
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|XmlConverter
 name|converter
 init|=
@@ -292,6 +330,27 @@ block|{
 name|documentString
 operator|=
 name|ECHO_BOOLEAN_RESPONSE
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong request"
+argument_list|,
+name|ECHO_BOOLEAN_REQUEST
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+literal|"Get a wrong request"
+argument_list|,
+name|ECHO_REQUEST
+argument_list|,
+name|request
+argument_list|)
 expr_stmt|;
 block|}
 name|Document
