@@ -454,6 +454,9 @@ specifier|public
 class|class
 name|XmlConverter
 block|{
+annotation|@
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the Exchange.DEFAULT_CHARSET
 DECL|field|DEFAULT_CHARSET_PROPERTY
 specifier|public
 specifier|static
@@ -473,6 +476,8 @@ name|ObjectHelper
 operator|.
 name|getSystemProperty
 argument_list|(
+name|Exchange
+operator|.
 name|DEFAULT_CHARSET_PROPERTY
 argument_list|,
 literal|"UTF-8"

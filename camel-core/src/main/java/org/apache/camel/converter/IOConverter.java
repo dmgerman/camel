@@ -1763,7 +1763,16 @@ name|getDefaultCharsetName
 parameter_list|()
 block|{
 return|return
+name|ObjectHelper
+operator|.
+name|getSystemProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DEFAULT_CHARSET_PROPERTY
+argument_list|,
 literal|"UTF-8"
+argument_list|)
 return|;
 block|}
 comment|/**      * Encoding-aware file reader.       */

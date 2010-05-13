@@ -172,6 +172,12 @@ name|DATASET_INDEX
 init|=
 literal|"CamelDataSetIndex"
 decl_stmt|;
+DECL|field|DEFAULT_CHARSET_PROPERTY
+name|String
+name|DEFAULT_CHARSET_PROPERTY
+init|=
+literal|"org.apache.camel.default.charset"
+decl_stmt|;
 DECL|field|EXCEPTION_CAUGHT
 name|String
 name|EXCEPTION_CAUGHT
