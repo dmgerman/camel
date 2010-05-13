@@ -300,7 +300,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true"
+literal|"mina:tcp://localhost:9090?sync=true"
 argument_list|,
 name|index
 argument_list|,
@@ -414,7 +414,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true"
+literal|"mina:tcp://localhost:9090?sync=true"
 argument_list|)
 operator|.
 name|process
