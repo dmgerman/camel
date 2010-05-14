@@ -3519,6 +3519,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|routeService
+operator|.
+name|setRemovingRoutes
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|RouteStartupOrder
@@ -3616,6 +3623,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|routeService
+operator|.
+name|setRemovingRoutes
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|RouteStartupOrder

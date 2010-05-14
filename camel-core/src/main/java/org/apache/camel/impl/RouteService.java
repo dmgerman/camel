@@ -298,6 +298,11 @@ specifier|final
 name|String
 name|id
 decl_stmt|;
+DECL|field|removingRoutes
+specifier|private
+name|boolean
+name|removingRoutes
+decl_stmt|;
 DECL|field|startInputs
 specifier|private
 name|boolean
@@ -475,6 +480,32 @@ block|{
 return|return
 name|inputs
 return|;
+block|}
+DECL|method|isRemovingRoutes ()
+specifier|public
+name|boolean
+name|isRemovingRoutes
+parameter_list|()
+block|{
+return|return
+name|removingRoutes
+return|;
+block|}
+DECL|method|setRemovingRoutes (boolean removingRoutes)
+specifier|public
+name|void
+name|setRemovingRoutes
+parameter_list|(
+name|boolean
+name|removingRoutes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removingRoutes
+operator|=
+name|removingRoutes
+expr_stmt|;
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -731,6 +762,24 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// if we are stopping CamelContext then we are shutting down
+name|boolean
+name|isShutdownCamelContext
+init|=
+name|camelContext
+operator|.
+name|isStopping
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isShutdownCamelContext
+operator|||
+name|isRemovingRoutes
+argument_list|()
+condition|)
+block|{
+comment|// need to call onRoutesRemove when the CamelContext is shutting down or Route is shutdown
 for|for
 control|(
 name|LifecycleStrategy
@@ -750,15 +799,7 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we are stopping CamelContext then we are shutting down
-name|boolean
-name|isShutdownCamelContext
-init|=
-name|camelContext
-operator|.
-name|isStopping
-argument_list|()
-decl_stmt|;
+block|}
 for|for
 control|(
 name|Route
