@@ -466,6 +466,15 @@ name|DEFAULT_CHARSET_PROPERTY
 init|=
 literal|"org.apache.camel.default.charset"
 decl_stmt|;
+DECL|field|OUTPUT_PROPERTIES_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OUTPUT_PROPERTIES_PREFIX
+init|=
+literal|"org.apache.camel.xmlconverter.output."
+decl_stmt|;
 DECL|field|defaultCharset
 specifier|public
 specifier|static
@@ -804,7 +813,8 @@ return|;
 block|}
 comment|/**      * Converts the given input Source into text      */
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toString (Source source)
 specifier|public
 name|String
@@ -812,6 +822,32 @@ name|toString
 parameter_list|(
 name|Source
 name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+name|toString
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given input Source into text      */
+annotation|@
+name|Converter
+DECL|method|toString (Source source, Exchange exchange)
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|Source
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -880,6 +916,61 @@ operator|new
 name|StringWriter
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// check the camelContext properties first
+name|Properties
+name|properties
+init|=
+name|ObjectHelper
+operator|.
+name|getCamelPropertiesWithPrefix
+argument_list|(
+name|OUTPUT_PROPERTIES_PREFIX
+argument_list|,
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|properties
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|toResult
+argument_list|(
+name|source
+argument_list|,
+operator|new
+name|StreamResult
+argument_list|(
+name|buffer
+argument_list|)
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+block|}
+comment|// using the old way to deal with it
 name|toResult
 argument_list|(
 name|source
@@ -923,6 +1014,8 @@ init|=
 name|toString
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
@@ -966,7 +1059,8 @@ block|}
 block|}
 comment|/**      * Converts the given input Node into text      */
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toString (Node node)
 specifier|public
 name|String
@@ -981,11 +1075,39 @@ block|{
 return|return
 name|toString
 argument_list|(
+name|node
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given input Node into text      */
+annotation|@
+name|Converter
+DECL|method|toString (Node node, Exchange exchange)
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|Node
+name|node
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+name|toString
+argument_list|(
 operator|new
 name|DOMSource
 argument_list|(
 name|node
 argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1120,7 +1242,8 @@ block|}
 block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSource (String source)
 specifier|public
 name|SAXSource
@@ -1139,16 +1262,49 @@ block|{
 return|return
 name|toSAXSource
 argument_list|(
-name|toSource
-argument_list|(
 name|source
-argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
 name|Converter
+DECL|method|toSAXSource (String source, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|toSource
+argument_list|(
+name|source
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSource (InputStream source)
 specifier|public
 name|SAXSource
@@ -1167,14 +1323,49 @@ block|{
 return|return
 name|toSAXSource
 argument_list|(
-name|toStreamSource
-argument_list|(
 name|source
-argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toSAXSource (InputStream source, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|InputStream
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|toStreamSource
+argument_list|(
+name|source
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 annotation|@
 name|Converter
 DECL|method|toSAXSource (Source source)
@@ -1184,6 +1375,36 @@ name|toSAXSource
 parameter_list|(
 name|Source
 name|source
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toSAXSource (Source source, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|Source
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -1221,6 +1442,8 @@ operator|(
 name|DOMSource
 operator|)
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1250,7 +1473,8 @@ return|;
 block|}
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSource (Source source)
 specifier|public
 name|StreamSource
@@ -1258,6 +1482,31 @@ name|toStreamSource
 parameter_list|(
 name|Source
 name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+name|toStreamSource
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (Source source, Exchange exchange)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|Source
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -1291,6 +1540,8 @@ operator|(
 name|DOMSource
 operator|)
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1309,6 +1560,8 @@ operator|(
 name|SAXSource
 operator|)
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1527,7 +1780,8 @@ literal|null
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSourceFromSAX (SAXSource source)
 specifier|public
 name|StreamSource
@@ -1535,6 +1789,31 @@ name|toStreamSourceFromSAX
 parameter_list|(
 name|SAXSource
 name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+name|toStreamSourceFromSAX
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSourceFromSAX (SAXSource source, Exchange exchange)
+specifier|public
+name|StreamSource
+name|toStreamSourceFromSAX
+parameter_list|(
+name|SAXSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -1603,6 +1882,8 @@ init|=
 name|toString
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
@@ -1614,7 +1895,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSourceFromDOM (DOMSource source)
 specifier|public
 name|StreamSource
@@ -1626,12 +1908,39 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
+return|return
+name|toStreamSourceFromDOM
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSourceFromDOM (DOMSource source, Exchange exchange)
+specifier|public
+name|StreamSource
+name|toStreamSourceFromDOM
+parameter_list|(
+name|DOMSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
 name|String
 name|result
 init|=
 name|toString
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
@@ -1721,7 +2030,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toReaderFromSource (Source src)
 specifier|public
 name|Reader
@@ -1733,12 +2043,39 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
+return|return
+name|toReaderFromSource
+argument_list|(
+name|src
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toReaderFromSource (Source src, Exchange exchange)
+specifier|public
+name|Reader
+name|toReaderFromSource
+parameter_list|(
+name|Source
+name|src
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
 name|StreamSource
 name|stSrc
 init|=
 name|toStreamSource
 argument_list|(
 name|src
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|Reader
@@ -1962,7 +2299,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSourceFromDOM (DOMSource source)
 specifier|public
 name|SAXSource
@@ -1970,6 +2308,31 @@ name|toSAXSourceFromDOM
 parameter_list|(
 name|DOMSource
 name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+name|toSAXSourceFromDOM
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toSAXSourceFromDOM (DOMSource source, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSourceFromDOM
+parameter_list|(
+name|DOMSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -2049,6 +2412,8 @@ init|=
 name|toString
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|StringReader
@@ -2656,7 +3021,8 @@ throw|;
 block|}
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toInputStream (DOMSource source)
 specifier|public
 name|InputStream
@@ -2670,12 +3036,41 @@ name|TransformerException
 throws|,
 name|IOException
 block|{
+return|return
+name|toInputStream
+argument_list|(
+name|source
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toInputStream (DOMSource source, Exchange exchange)
+specifier|public
+name|InputStream
+name|toInputStream
+parameter_list|(
+name|DOMSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|TransformerException
+throws|,
+name|IOException
+block|{
 name|String
 name|s
 init|=
 name|toString
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
@@ -2690,7 +3085,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Converter
+name|Deprecated
+comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toInputStream (Document dom)
 specifier|public
 name|InputStream
@@ -2704,12 +3100,41 @@ name|TransformerException
 throws|,
 name|IOException
 block|{
+return|return
+name|toInputStream
+argument_list|(
+name|dom
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toInputStream (Document dom, Exchange exchange)
+specifier|public
+name|InputStream
+name|toInputStream
+parameter_list|(
+name|Document
+name|dom
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|TransformerException
+throws|,
+name|IOException
+block|{
 name|String
 name|s
 init|=
 name|toString
 argument_list|(
 name|dom
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
