@@ -91,6 +91,8 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|JettyHttpProducerGoogleAsynchronousTest
 specifier|public
 class|class
@@ -201,7 +203,7 @@ literal|"direct:start"
 argument_list|)
 comment|// to prevent redirect being thrown as an exception
 operator|.
-name|toAsync
+name|to
 argument_list|(
 literal|"jetty://http://www.google.com?throwExceptionOnFailure=false"
 argument_list|)
