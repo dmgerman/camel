@@ -180,17 +180,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|context
-init|=
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
+comment|// The camel context already started by ContextTestSupport in the startup method
 name|MBeanServer
 name|mbeanServer
 init|=
