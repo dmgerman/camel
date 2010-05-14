@@ -2542,7 +2542,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The route is already managed: "
+literal|"The route is not managed: "
 operator|+
 name|route
 argument_list|)
