@@ -1366,8 +1366,6 @@ comment|/**      * Converts the source instance to a {@link SAXSource} or return
 annotation|@
 name|Deprecated
 comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
-annotation|@
-name|Converter
 DECL|method|toSAXSource (Source source)
 specifier|public
 name|SAXSource
