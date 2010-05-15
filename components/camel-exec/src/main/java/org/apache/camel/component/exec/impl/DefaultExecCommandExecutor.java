@@ -486,11 +486,18 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"ExecuteExeption while executing "
+literal|"ExecException while executing command: "
 operator|+
 name|command
 operator|.
 name|toString
+argument_list|()
+operator|+
+literal|" - "
+operator|+
+name|ee
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -517,11 +524,18 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"IOException while executing "
+literal|"IOException while executing command: "
 operator|+
 name|command
 operator|.
 name|toString
+argument_list|()
+operator|+
+literal|" - "
+operator|+
+name|ioe
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

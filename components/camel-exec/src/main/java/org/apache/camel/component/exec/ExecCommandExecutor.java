@@ -28,20 +28,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|exec
-operator|.
-name|ExecuteException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Executes {@link ExecCommand} instances.  */
 end_comment
@@ -52,7 +38,7 @@ specifier|public
 interface|interface
 name|ExecCommandExecutor
 block|{
-comment|/**      * Executes the<code>command</code> and returns a not-<code>null</code>      * {@link ExecResult} instance.      *       * @param execCommand The command object, that describes the executable      *            application      * @throws ExecuteException if the execution failed      * @throws IOException if there is an invalid path in the working directory,      *             or if the absolute path of the command executable is invalid,      *             or if the executable does not exist      */
+comment|/**      * Executes the<code>command</code> and returns a not-<code>null</code>      * {@link ExecResult} instance.      *       * @param execCommand The command object, that describes the executable application      * @return the result      * @throws ExecException if the execution failed      * @throws IOException if there is an invalid path in the working directory,      *             or if the absolute path of the command executable is invalid,      *             or if the executable does not exist      */
 DECL|method|execute (ExecCommand execCommand)
 name|ExecResult
 name|execute

@@ -118,12 +118,14 @@ decl_stmt|;
 comment|/**      * @see ExecBinding#EXEC_COMMAND_EXECUTABLE      */
 DECL|field|executable
 specifier|private
+specifier|final
 name|String
 name|executable
 decl_stmt|;
 comment|/**      * @see ExecBinding#EXEC_COMMAND_ARGS      */
 DECL|field|args
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -133,28 +135,38 @@ decl_stmt|;
 comment|/**      * @see ExecBinding#EXEC_COMMAND_WORKING_DIR      */
 DECL|field|workingDir
 specifier|private
+specifier|final
 name|String
 name|workingDir
 decl_stmt|;
 comment|/**      * @see ExecBinding#EXEC_COMMAND_TIMEOUT      */
 DECL|field|timeout
 specifier|private
+specifier|final
 name|long
 name|timeout
 decl_stmt|;
 comment|/**      * @see ExecBinding#EXEC_COMMAND_OUT_FILE      */
 DECL|field|outFile
 specifier|private
+specifier|final
 name|File
 name|outFile
 decl_stmt|;
 comment|/**      * The input of the executable      */
 DECL|field|input
 specifier|private
+specifier|final
 name|InputStream
 name|input
 decl_stmt|;
-DECL|method|ExecCommand (String executable, List<String> args, String workingDir, Long timeout, InputStream input, File outFile)
+DECL|field|useStderrOnEmptyStdout
+specifier|private
+specifier|final
+name|boolean
+name|useStderrOnEmptyStdout
+decl_stmt|;
+DECL|method|ExecCommand (String executable, List<String> args, String workingDir, Long timeout, InputStream input, File outFile, boolean useStderrOnEmptyStdout)
 specifier|public
 name|ExecCommand
 parameter_list|(
@@ -178,6 +190,9 @@ name|input
 parameter_list|,
 name|File
 name|outFile
+parameter_list|,
+name|boolean
+name|useStderrOnEmptyStdout
 parameter_list|)
 block|{
 name|notNull
@@ -225,6 +240,12 @@ operator|.
 name|outFile
 operator|=
 name|outFile
+expr_stmt|;
+name|this
+operator|.
+name|useStderrOnEmptyStdout
+operator|=
+name|useStderrOnEmptyStdout
 expr_stmt|;
 block|}
 DECL|method|getArgs ()
@@ -290,6 +311,16 @@ return|return
 name|workingDir
 return|;
 block|}
+DECL|method|isUseStderrOnEmptyStdout ()
+specifier|public
+name|boolean
+name|isUseStderrOnEmptyStdout
+parameter_list|()
+block|{
+return|return
+name|useStderrOnEmptyStdout
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -343,6 +374,10 @@ operator|+
 literal|", workingDir="
 operator|+
 name|dirToPrint
+operator|+
+literal|", useStderrOnEmptyStdout="
+operator|+
+name|useStderrOnEmptyStdout
 operator|+
 literal|"]"
 return|;

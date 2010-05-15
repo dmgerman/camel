@@ -336,6 +336,21 @@ parameter_list|)
 throws|throws
 name|FileNotFoundException
 block|{
+name|InputStream
+name|is
+init|=
+name|toInputStream
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|exchange
 operator|.
@@ -351,12 +366,23 @@ name|type
 argument_list|,
 name|exchange
 argument_list|,
-name|toInputStream
-argument_list|(
-name|result
-argument_list|)
+name|is
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// use Void to indicate we cannot convert it
+comment|// (prevents Camel from using a fallback converter which may convert a String from the instance name)
+return|return
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
+return|;
+block|}
 block|}
 comment|/**      * Returns<code>InputStream</code> object with the<i>output</i> of the      * executable. If there is {@link ExecCommand#getOutFile()}, its content is      * preferred to {@link ExecResult#getStdout()}. If no out file is set, and      * the stdout of the exec result is<code>null</code> returns the stderr of      * the exec result.<br>      * If the output stream is of type<code>ByteArrayInputStream</code>, its      *<code>reset()</code> method is called.      *       * @param execResult ExecResult object to convert to InputStream.      * @return InputStream object with the<i>output</i> of the executable.      *         Returns<code>null</code> if both {@link ExecResult#getStdout()}      *         and {@link ExecResult#getStderr()} are<code>null</code> , or if      *         the<code>execResult</code> is<code>null</code>.      * @throws FileNotFoundException if the {@link ExecCommand#getOutFile()} can      *             not be opened. In this case the out file must have had a not      *<code>null</code> value      */
 DECL|method|toInputStream (ExecResult execResult)
@@ -432,6 +458,14 @@ name|getStdout
 argument_list|()
 operator|==
 literal|null
+operator|&&
+name|execResult
+operator|.
+name|getCommand
+argument_list|()
+operator|.
+name|isUseStderrOnEmptyStdout
+argument_list|()
 condition|)
 block|{
 name|LOG
@@ -457,6 +491,15 @@ name|execResult
 operator|.
 name|getStdout
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|execResult
+operator|.
+name|getStdout
+argument_list|()
+else|:
+literal|null
 expr_stmt|;
 block|}
 block|}

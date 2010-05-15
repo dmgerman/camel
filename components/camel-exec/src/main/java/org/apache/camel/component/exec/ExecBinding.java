@@ -99,6 +99,13 @@ name|EXEC_EXIT_VALUE
 init|=
 literal|"CamelExecExitValue"
 decl_stmt|;
+comment|/**      * The value of this header is a boolean which indicates whether or not      * to fallback and use stderr when stdout is empty.      */
+DECL|field|EXEC_USE_STDERR_ON_EMPTY_STDOUT
+name|String
+name|EXEC_USE_STDERR_ON_EMPTY_STDOUT
+init|=
+literal|"CamelExecUseStderrOnEmptyStdout"
+decl_stmt|;
 comment|/**      * Creates a {@link ExecCommand} from the headers in the      *<code>exchange</code> and the settings of the<code>endpoint</code>.      *       * @param exchange a Camel {@link Exchange}      * @param endpoint an {@link ExecEndpoint} instance      * @return an {@link ExecCommand} object      * @see ExecCommandExecutor      */
 DECL|method|readInput (Exchange exchange, ExecEndpoint endpoint)
 name|ExecCommand

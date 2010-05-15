@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -149,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The endpoint utilizes an {@link ExecCommandExecutor} to execute a system  * command when it receives message exchanges.  *   * @see Endpoint  * @see ExecBinding  * @see ExecCommandExecutor  * @see ExecCommand  * @see ExecResult  */
+comment|/**  * The endpoint utilizes an {@link ExecCommandExecutor} to execute a system  * command when it receives message exchanges.  *  * @see ExecBinding  * @see ExecCommandExecutor  * @see ExecCommand  * @see ExecResult  */
 end_comment
 
 begin_class
@@ -206,6 +194,11 @@ DECL|field|binding
 specifier|private
 name|ExecBinding
 name|binding
+decl_stmt|;
+DECL|field|useStderrOnEmptyStdout
+specifier|private
+name|boolean
+name|useStderrOnEmptyStdout
 decl_stmt|;
 DECL|method|ExecEndpoint (String uri, ExecComponent component)
 specifier|public
@@ -466,7 +459,7 @@ operator|=
 name|outFile
 expr_stmt|;
 block|}
-comment|/**      * @return The command executor used to execute commands. Defaults to      *         {@link DefaultExecCommandExecutror}      */
+comment|/**      * @return The command executor used to execute commands. Defaults to      *         {@link org.apache.camel.component.exec.impl.DefaultExecCommandExecutor}      */
 DECL|method|getCommandExecutor ()
 specifier|public
 name|ExecCommandExecutor
@@ -536,6 +529,32 @@ operator|.
 name|binding
 operator|=
 name|binding
+expr_stmt|;
+block|}
+DECL|method|isUseStderrOnEmptyStdout ()
+specifier|public
+name|boolean
+name|isUseStderrOnEmptyStdout
+parameter_list|()
+block|{
+return|return
+name|useStderrOnEmptyStdout
+return|;
+block|}
+DECL|method|setUseStderrOnEmptyStdout (boolean useStderrOnEmptyStdout)
+specifier|public
+name|void
+name|setUseStderrOnEmptyStdout
+parameter_list|(
+name|boolean
+name|useStderrOnEmptyStdout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useStderrOnEmptyStdout
+operator|=
+name|useStderrOnEmptyStdout
 expr_stmt|;
 block|}
 block|}
