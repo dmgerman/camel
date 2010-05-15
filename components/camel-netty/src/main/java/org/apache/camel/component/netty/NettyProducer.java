@@ -176,6 +176,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -477,6 +491,11 @@ specifier|private
 name|ChannelPipeline
 name|clientPipeline
 decl_stmt|;
+DECL|field|noReplyLogger
+specifier|private
+name|Logger
+name|noReplyLogger
+decl_stmt|;
 DECL|method|NettyProducer (NettyEndpoint nettyEndpoint, NettyConfiguration configuration)
 specifier|public
 name|NettyProducer
@@ -523,6 +542,21 @@ operator|+
 name|nettyEndpoint
 operator|.
 name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|noReplyLogger
+operator|=
+operator|new
+name|Logger
+argument_list|(
+name|LOG
+argument_list|,
+name|configuration
+operator|.
+name|getNoReplyLogLevel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -720,9 +754,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|noReplyLogger
 operator|.
-name|warn
+name|log
 argument_list|(
 literal|"No payload to send for exchange: "
 operator|+

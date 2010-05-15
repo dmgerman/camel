@@ -128,6 +128,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -281,6 +295,11 @@ specifier|private
 name|NettyConsumer
 name|consumer
 decl_stmt|;
+DECL|field|noReplyLogger
+specifier|private
+name|Logger
+name|noReplyLogger
+decl_stmt|;
 DECL|method|ServerChannelHandler (NettyConsumer consumer)
 specifier|public
 name|ServerChannelHandler
@@ -297,6 +316,24 @@ operator|.
 name|consumer
 operator|=
 name|consumer
+expr_stmt|;
+name|this
+operator|.
+name|noReplyLogger
+operator|=
+operator|new
+name|Logger
+argument_list|(
+name|LOG
+argument_list|,
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getNoReplyLogLevel
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -685,17 +722,49 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// must close session if no data to write otherwise client will never receive a response
-comment|// and wait forever (if not timing out)
-name|LOG
+name|noReplyLogger
 operator|.
-name|warn
+name|log
 argument_list|(
-literal|"Cannot write body since its null, closing channel: "
+literal|"No payload to send as reply for exchange: "
 operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isDisconnectOnNoReply
+argument_list|()
+condition|)
+block|{
+comment|// must close session if no data to write otherwise client will never receive a response
+comment|// and wait forever (if not timing out)
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Closing channel as no payload to send as reply at address: "
+operator|+
+name|messageEvent
+operator|.
+name|getRemoteAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|NettyHelper
 operator|.
 name|close
@@ -706,6 +775,7 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

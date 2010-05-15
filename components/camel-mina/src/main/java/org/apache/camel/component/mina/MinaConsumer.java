@@ -86,6 +86,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -228,6 +242,11 @@ specifier|private
 name|boolean
 name|sync
 decl_stmt|;
+DECL|field|noReplyLogger
+specifier|private
+name|Logger
+name|noReplyLogger
+decl_stmt|;
 DECL|method|MinaConsumer (final MinaEndpoint endpoint, Processor processor)
 specifier|public
 name|MinaConsumer
@@ -282,6 +301,24 @@ argument_list|()
 operator|.
 name|isSync
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|noReplyLogger
+operator|=
+operator|new
+name|Logger
+argument_list|(
+name|LOG
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getNoReplyLogLevel
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -689,22 +726,52 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// must close session if no data to write otherwise client will never receive a response
-comment|// and wait forever (if not timing out)
-name|LOG
+name|noReplyLogger
 operator|.
-name|warn
+name|log
 argument_list|(
-literal|"Cannot write body since its null, closing session: "
+literal|"No payload to send as reply for exchange: "
 operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isDisconnectOnNoReply
+argument_list|()
+condition|)
+block|{
+comment|// must close session if no data to write otherwise client will never receive a response
+comment|// and wait forever (if not timing out)
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Closing session as no payload to send as reply at address: "
+operator|+
+name|address
+argument_list|)
+expr_stmt|;
+block|}
 name|session
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
