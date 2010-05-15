@@ -2477,8 +2477,6 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// noop - keep the route in the mbean so its still there, it will still be unregistered
-comment|// when camel itself is shutting down
 comment|// the agent hasn't been started
 if|if
 condition|(
@@ -2563,22 +2561,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|JMException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not register Route MBean"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|e
 parameter_list|)
@@ -2587,7 +2569,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not create Route MBean"
+literal|"Could not unregister Route MBean"
 argument_list|,
 name|e
 argument_list|)

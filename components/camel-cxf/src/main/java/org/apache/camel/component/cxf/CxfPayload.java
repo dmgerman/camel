@@ -242,6 +242,8 @@ operator|.
 name|toString
 argument_list|(
 name|element
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

@@ -733,10 +733,10 @@ block|}
 comment|/**      * Converts the given byte[] to a Source      */
 annotation|@
 name|Converter
-DECL|method|toSource (byte[] data)
+DECL|method|toBytesSource (byte[] data)
 specifier|public
 name|BytesSource
-name|toSource
+name|toBytesSource
 parameter_list|(
 name|byte
 index|[]
@@ -754,10 +754,10 @@ block|}
 comment|/**      * Converts the given String to a Source      */
 annotation|@
 name|Converter
-DECL|method|toSource (String data)
+DECL|method|toStringSource (String data)
 specifier|public
 name|StringSource
-name|toSource
+name|toStringSource
 parameter_list|(
 name|String
 name|data
@@ -771,13 +771,34 @@ name|data
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Document to a Source      */
+comment|/**      * Converts the given Document to a Source      * @deprecated use toDOMSource instead      */
 annotation|@
 name|Converter
+annotation|@
+name|Deprecated
 DECL|method|toSource (Document document)
 specifier|public
 name|DOMSource
 name|toSource
+parameter_list|(
+name|Document
+name|document
+parameter_list|)
+block|{
+return|return
+name|toDOMSource
+argument_list|(
+name|document
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given Document to a Source      */
+annotation|@
+name|Converter
+DECL|method|toDOMSource (Document document)
+specifier|public
+name|DOMSource
+name|toDOMSource
 parameter_list|(
 name|Document
 name|document
@@ -808,6 +829,26 @@ operator|new
 name|DOMSource
 argument_list|(
 name|node
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given String to a Source      */
+annotation|@
+name|Converter
+DECL|method|toSource (String data)
+specifier|public
+name|Source
+name|toSource
+parameter_list|(
+name|String
+name|data
+parameter_list|)
+block|{
+return|return
+operator|new
+name|StringSource
+argument_list|(
+name|data
 argument_list|)
 return|;
 block|}

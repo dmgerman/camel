@@ -138,6 +138,8 @@ name|document
 operator|.
 name|getChildNodes
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -187,6 +189,8 @@ name|document
 operator|.
 name|getChildNodes
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -417,6 +421,8 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -439,6 +445,8 @@ name|get
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -481,6 +489,8 @@ name|document
 operator|.
 name|getChildNodes
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals

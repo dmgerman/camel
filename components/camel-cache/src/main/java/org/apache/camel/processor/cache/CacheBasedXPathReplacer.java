@@ -664,7 +664,7 @@ name|source
 operator|=
 name|xmlConverter
 operator|.
-name|toSource
+name|toDOMSource
 argument_list|(
 name|document
 argument_list|)

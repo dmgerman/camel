@@ -84,6 +84,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -199,13 +211,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toString (NodeList nodeList)
+DECL|method|toString (NodeList nodeList, Exchange exchange)
 specifier|public
 name|String
 name|toString
 parameter_list|(
 name|NodeList
 name|nodeList
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -249,6 +264,8 @@ operator|.
 name|toString
 argument_list|(
 name|node
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
@@ -318,6 +335,8 @@ operator|.
 name|toString
 argument_list|(
 name|node
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
@@ -510,13 +529,16 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (NodeList nodeList)
+DECL|method|toInputStream (NodeList nodeList, Exchange exchange)
 specifier|public
 name|InputStream
 name|toInputStream
 parameter_list|(
 name|NodeList
 name|nodeList
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -528,13 +550,15 @@ argument_list|(
 name|toByteArray
 argument_list|(
 name|nodeList
+argument_list|,
+name|exchange
 argument_list|)
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toByteArray (NodeList nodeList)
+DECL|method|toByteArray (NodeList nodeList, Exchange exchange)
 specifier|public
 name|byte
 index|[]
@@ -542,6 +566,9 @@ name|toByteArray
 parameter_list|(
 name|NodeList
 name|nodeList
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -552,6 +579,8 @@ init|=
 name|toString
 argument_list|(
 name|nodeList
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
