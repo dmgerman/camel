@@ -250,7 +250,7 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-comment|// stop
+comment|// calling the shutdown
 name|mbeanServer
 operator|.
 name|invoke
@@ -264,32 +264,17 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|state
-operator|=
-operator|(
-name|String
-operator|)
+comment|// the managed route object should be removed
+name|assertFalse
+argument_list|(
+literal|"The managed route should be removed"
+argument_list|,
 name|mbeanServer
 operator|.
-name|getAttribute
+name|isRegistered
 argument_list|(
 name|on
-argument_list|,
-literal|"State"
 argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should be stopped"
-argument_list|,
-name|ServiceStatus
-operator|.
-name|Stopped
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|state
 argument_list|)
 expr_stmt|;
 name|mock
@@ -331,67 +316,6 @@ comment|// route is stopped so we do not get the file
 name|mock
 operator|.
 name|assertIsNotSatisfied
-argument_list|()
-expr_stmt|;
-comment|// prepare mock for starting route
-name|mock
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-comment|// start
-name|mbeanServer
-operator|.
-name|invoke
-argument_list|(
-name|on
-argument_list|,
-literal|"start"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|state
-operator|=
-operator|(
-name|String
-operator|)
-name|mbeanServer
-operator|.
-name|getAttribute
-argument_list|(
-name|on
-argument_list|,
-literal|"State"
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should be started"
-argument_list|,
-name|ServiceStatus
-operator|.
-name|Started
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-comment|// this time the file is consumed
-name|mock
-operator|.
-name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
