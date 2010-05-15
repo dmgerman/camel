@@ -2358,7 +2358,25 @@ name|OutputKeys
 operator|.
 name|ENCODING
 argument_list|,
-literal|"US_ASCII"
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|XmlConverter
+operator|.
+name|OUTPUT_PROPERTIES_PREFIX
+operator|+
+name|OutputKeys
+operator|.
+name|STANDALONE
+argument_list|,
+literal|"no"
 argument_list|)
 expr_stmt|;
 name|XmlConverter
@@ -2399,7 +2417,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<?xml version=\"1.0\" encoding=\"US_ASCII\"?><foo>bar</foo>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><foo>bar</foo>"
 argument_list|,
 name|conv
 operator|.
