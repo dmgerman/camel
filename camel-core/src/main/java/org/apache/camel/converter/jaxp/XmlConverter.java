@@ -773,8 +773,6 @@ return|;
 block|}
 comment|/**      * Converts the given Document to a Source      * @deprecated use toDOMSource instead      */
 annotation|@
-name|Converter
-annotation|@
 name|Deprecated
 DECL|method|toSource (Document document)
 specifier|public
