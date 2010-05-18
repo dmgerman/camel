@@ -169,13 +169,13 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be faster than 3000 millis, was: "
+literal|"Should be faster than 4000 millis, was: "
 operator|+
 name|delta
 argument_list|,
 name|delta
 operator|<
-literal|3000
+literal|4000
 argument_list|)
 expr_stmt|;
 block|}
