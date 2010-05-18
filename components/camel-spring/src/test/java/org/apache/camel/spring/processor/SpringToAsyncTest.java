@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty.jettyproducer
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,11 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|jetty
-operator|.
-name|jettyproducer
+name|processor
 package|;
 end_package
 
@@ -28,34 +26,71 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|jetty
+name|apache
 operator|.
-name|JettyHandle404Test
+name|camel
+operator|.
+name|processor
+operator|.
+name|async
+operator|.
+name|ToAsyncTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JettyProducerHandle404Test
+DECL|class|SpringToAsyncTest
 specifier|public
 class|class
-name|JettyProducerHandle404Test
+name|SpringToAsyncTest
 extends|extends
-name|JettyHandle404Test
+name|ToAsyncTest
 block|{
-DECL|method|getProducerUrl ()
-specifier|public
-name|String
-name|getProducerUrl
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-literal|"jetty://http://localhost:8123/myserver?user=Camel"
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/SpringToAsyncTest.xml"
+argument_list|)
 return|;
 block|}
 block|}

@@ -72,16 +72,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -91,8 +81,6 @@ comment|/**  * Unit test with a simple route test.  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerContentBasedRouteTest
 specifier|public
 class|class

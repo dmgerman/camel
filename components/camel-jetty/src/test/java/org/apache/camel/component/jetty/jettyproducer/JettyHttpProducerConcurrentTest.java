@@ -146,16 +146,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -165,8 +155,6 @@ comment|/**  * Jetty HTTP producer concurrent test.  *  * @version $Revision$  *
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerConcurrentTest
 specifier|public
 class|class

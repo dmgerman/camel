@@ -264,7 +264,6 @@ name|JettyContentExchange
 extends|extends
 name|ContentExchange
 block|{
-comment|// TODO: Use the AsyncCallback API (CAMEL-2723)
 DECL|field|LOG
 specifier|private
 specifier|static

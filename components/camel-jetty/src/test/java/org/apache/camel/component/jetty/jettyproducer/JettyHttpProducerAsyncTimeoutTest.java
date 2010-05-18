@@ -68,16 +68,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -87,8 +77,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerAsyncTimeoutTest
 specifier|public
 class|class
@@ -238,7 +226,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|to
+name|toAsync
 argument_list|(
 name|url
 argument_list|)
