@@ -152,6 +152,13 @@ argument_list|,
 literal|"E"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|250
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop
@@ -159,18 +166,6 @@ argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should complete all messages"
-argument_list|,
-literal|5
-argument_list|,
-name|bar
-operator|.
-name|getReceivedCounter
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -219,7 +214,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|250
+literal|500
 argument_list|)
 operator|.
 name|to
