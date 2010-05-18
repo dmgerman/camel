@@ -143,7 +143,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:src/test/data?noop=true"
+literal|"file:src/test/data?noop=true&fileName=message1.txt"
 argument_list|)
 operator|.
 name|to
