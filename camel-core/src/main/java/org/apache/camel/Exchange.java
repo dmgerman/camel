@@ -178,11 +178,11 @@ name|DEFAULT_CHARSET_PROPERTY
 init|=
 literal|"org.apache.camel.default.charset"
 decl_stmt|;
-DECL|field|DISABLE_STREAM_CACHE
+DECL|field|DISABLE_HTTP_STREAM_CACHE
 name|String
-name|DISABLE_STREAM_CACHE
+name|DISABLE_HTTP_STREAM_CACHE
 init|=
-literal|"CamelDisableStreamCache"
+literal|"CamelDisableHttpStreamCache"
 decl_stmt|;
 DECL|field|EXCEPTION_CAUGHT
 name|String

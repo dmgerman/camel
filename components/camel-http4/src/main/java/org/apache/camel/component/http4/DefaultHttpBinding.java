@@ -1909,7 +1909,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|DISABLE_STREAM_CACHE
+name|DISABLE_HTTP_STREAM_CACHE
 argument_list|,
 name|Boolean
 operator|.
