@@ -1897,7 +1897,36 @@ return|return
 name|is
 return|;
 block|}
-comment|// convert the input stream to StreamCache
+comment|// convert the input stream to StreamCache if the stream cache is not disabled
+if|if
+condition|(
+name|httpMessage
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DISABLE_STREAM_CACHE
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+return|return
+name|is
+return|;
+block|}
+else|else
+block|{
 try|try
 block|{
 name|CachedOutputStream
@@ -1935,6 +1964,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

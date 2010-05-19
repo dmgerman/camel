@@ -330,6 +330,11 @@ name|chunked
 init|=
 literal|true
 decl_stmt|;
+DECL|field|disableStreamCache
+specifier|private
+name|boolean
+name|disableStreamCache
+decl_stmt|;
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -1267,6 +1272,34 @@ operator|.
 name|matchOnUriPrefix
 operator|=
 name|match
+expr_stmt|;
+block|}
+DECL|method|isDisableStreamCache ()
+specifier|public
+name|boolean
+name|isDisableStreamCache
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|disableStreamCache
+return|;
+block|}
+DECL|method|setDisableStreamCache (boolean disable)
+specifier|public
+name|void
+name|setDisableStreamCache
+parameter_list|(
+name|boolean
+name|disable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableStreamCache
+operator|=
+name|disable
 expr_stmt|;
 block|}
 DECL|method|isChunked ()
