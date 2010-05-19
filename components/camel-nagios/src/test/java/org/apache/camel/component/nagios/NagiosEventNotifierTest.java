@@ -381,6 +381,14 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|MessagePayload
@@ -452,6 +460,14 @@ name|context
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+comment|// sleep a little to let nagios stub process the payloads
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
