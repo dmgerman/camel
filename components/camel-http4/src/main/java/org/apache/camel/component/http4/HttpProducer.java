@@ -1425,6 +1425,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// As httpclient is using a AutoCloseInputStream, it will be closed when the connection is closed
+comment|// we need to cache the stream for it.
 try|try
 block|{
 name|CachedOutputStream
