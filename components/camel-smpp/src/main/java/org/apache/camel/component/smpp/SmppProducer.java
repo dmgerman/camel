@@ -631,7 +631,31 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: Add some DEBUG logging that we retry one more time
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Caught exception while trying to send short message for exchange id '"
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"', retrying..."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|doStop
 argument_list|()
 expr_stmt|;
@@ -646,9 +670,17 @@ name|submitSm
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Sent a short message for exchange id '"
 operator|+
@@ -664,6 +696,7 @@ operator|+
 literal|"'"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -675,6 +708,22 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exchange is out capable, setting headers on out exchange..."
+argument_list|)
+expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|getOut
@@ -692,6 +741,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exchange is not out capable, setting headers on in exchange..."
+argument_list|)
+expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|getIn
