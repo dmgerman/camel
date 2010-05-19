@@ -547,7 +547,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndProperty
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,

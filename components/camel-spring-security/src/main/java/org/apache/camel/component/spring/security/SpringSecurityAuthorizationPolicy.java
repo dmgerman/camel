@@ -52,6 +52,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -415,6 +427,9 @@ init|=
 name|getAuthentication
 argument_list|(
 name|exchange
+operator|.
+name|getIn
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -532,21 +547,21 @@ name|authorizationException
 throw|;
 block|}
 block|}
-DECL|method|getAuthentication (Exchange exchange)
+DECL|method|getAuthentication (Message message)
 specifier|protected
 name|Authentication
 name|getAuthentication
 parameter_list|(
-name|Exchange
-name|exchange
+name|Message
+name|message
 parameter_list|)
 block|{
 name|Authentication
 name|answer
 init|=
-name|exchange
+name|message
 operator|.
-name|getProperty
+name|getHeader
 argument_list|(
 name|Exchange
 operator|.
