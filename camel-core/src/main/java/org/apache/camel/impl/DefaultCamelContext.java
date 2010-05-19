@@ -1147,6 +1147,7 @@ decl_stmt|;
 DECL|field|contextCounter
 specifier|private
 specifier|static
+specifier|final
 name|AtomicInteger
 name|contextCounter
 init|=
