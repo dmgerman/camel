@@ -1144,12 +1144,12 @@ name|NAME_PREFIX
 init|=
 literal|"camel-"
 decl_stmt|;
-DECL|field|contextCounter
+DECL|field|CONTEXT_COUNTER
 specifier|private
 specifier|static
 specifier|final
 name|AtomicInteger
-name|contextCounter
+name|CONTEXT_COUNTER
 init|=
 operator|new
 name|AtomicInteger
@@ -1691,7 +1691,7 @@ name|name
 operator|=
 name|NAME_PREFIX
 operator|+
-name|contextCounter
+name|CONTEXT_COUNTER
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -7680,7 +7680,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**      * Reset contextCounter to a preset value. Mostly used for tests to ensure a predictable getName()      *       * @param value new value for the contextCounter      */
+comment|/**      * Reset CONTEXT_COUNTER to a preset value. Mostly used for tests to ensure a predictable getName()      *       * @param value new value for the CONTEXT_COUNTER      */
 DECL|method|setContextCounter (int value)
 specifier|public
 specifier|static
@@ -7691,7 +7691,7 @@ name|int
 name|value
 parameter_list|)
 block|{
-name|contextCounter
+name|CONTEXT_COUNTER
 operator|.
 name|set
 argument_list|(
