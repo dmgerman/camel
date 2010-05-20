@@ -364,6 +364,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ValueBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|language
@@ -3559,6 +3573,34 @@ argument_list|,
 name|expression
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination. Otherwise a       * PredicateExpValidationException is thrown.      *      * @param builder the value builder      * @return the validate definition      */
+DECL|method|validate (ValueBuilder builder)
+specifier|public
+name|ValidateDefinition
+name|validate
+parameter_list|(
+name|ValueBuilder
+name|builder
+parameter_list|)
+block|{
+name|ValidateDefinition
+name|validate
+init|=
+operator|new
+name|ValidateDefinition
+argument_list|(
+name|builder
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|validate
+argument_list|)
+expr_stmt|;
+return|return
+name|validate
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/load-balancer.html">Load Balancer EIP:</a>      * Creates a loadbalance      *      * @return  the builder      */
