@@ -1420,18 +1420,6 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|is
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"It should be a raw inputstream"
@@ -1447,6 +1435,30 @@ operator|.
 name|server
 operator|.
 name|HttpInput
+argument_list|)
+expr_stmt|;
+name|String
+name|request
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong request"
+argument_list|,
+literal|"This is a test"
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|exchange
