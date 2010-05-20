@@ -216,7 +216,7 @@ literal|"for "
 operator|+
 name|exchange
 operator|+
-literal|" and Predicate["
+literal|" with Predicate["
 operator|+
 name|predicate
 operator|+
@@ -259,11 +259,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"validate[if: "
+literal|"validate["
 operator|+
 name|predicate
 operator|+
-literal|" matches]"
+literal|"]"
 return|;
 block|}
 DECL|method|getTraceLabel ()
@@ -273,8 +273,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-name|toString
-argument_list|()
+literal|"validate"
 return|;
 block|}
 DECL|method|getPredicate ()

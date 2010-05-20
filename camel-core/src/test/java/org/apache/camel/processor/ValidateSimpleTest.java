@@ -103,10 +103,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ValidateRegExpTest
+DECL|class|ValidateSimpleTest
 specifier|public
 class|class
-name|ValidateRegExpTest
+name|ValidateSimpleTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -179,7 +179,7 @@ name|sendBody
 argument_list|(
 name|startEndpoint
 argument_list|,
-literal|"01.01.2010"
+literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -209,7 +209,7 @@ name|sendBody
 argument_list|(
 name|startEndpoint
 argument_list|,
-literal|"1.1.2010"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|fail
@@ -239,9 +239,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Validation failed for Predicate[bodyAs[java.lang.String].matches('^\\d{2}\\.\\d{2}\\.\\d{4}$')]."
+literal|"Validation failed for Predicate[body contains Camel]."
 operator|+
-literal|" Exchange[Message: 1.1.2010]"
+literal|" Exchange[Message: Bye World]"
 argument_list|,
 name|e
 operator|.
@@ -279,18 +279,11 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|validate
-argument_list|(
-name|body
-argument_list|(
-name|String
+argument_list|()
 operator|.
-name|class
-argument_list|)
-operator|.
-name|regex
+name|simple
 argument_list|(
-literal|"^\\d{2}\\.\\d{2}\\.\\d{4}$"
-argument_list|)
+literal|"${body} contains 'Camel'"
 argument_list|)
 operator|.
 name|to
