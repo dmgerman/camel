@@ -224,6 +224,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Handler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -1161,6 +1173,26 @@ expr_stmt|;
 block|}
 comment|// Testing API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Handles the incoming exchange.      *<p/>      * This method turns this mock endpoint into a bean which you can use      * in the Camel routes, which allows you to inject MockEndpoint as beans      * in your routes and use the features of the mock to control the bean.      *      * @param exchange  the exchange      * @throws Exception can be thrown      */
+annotation|@
+name|Handler
+DECL|method|handle (Exchange exchange)
+specifier|public
+name|void
+name|handle
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|onExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Set the processor that will be invoked when the index      * message is received.      */
 DECL|method|whenExchangeReceived (int index, Processor processor)
 specifier|public
