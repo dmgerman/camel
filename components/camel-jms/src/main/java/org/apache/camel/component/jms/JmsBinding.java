@@ -2057,10 +2057,13 @@ argument_list|(
 name|headerName
 argument_list|)
 decl_stmt|;
-name|jmsMessage
+comment|// set the property
+name|JmsMessageHelper
 operator|.
-name|setObjectProperty
+name|setProperty
 argument_list|(
+name|jmsMessage
+argument_list|,
 name|key
 argument_list|,
 name|value
@@ -2270,9 +2273,6 @@ condition|)
 block|{
 return|return
 name|headerValue
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 elseif|else
