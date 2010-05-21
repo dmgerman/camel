@@ -237,11 +237,10 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|// as the Expression could be different between the DSL and simple language, here we just check part of the message
+name|assertTrue
 argument_list|(
-literal|"Validation failed for Predicate[bodyAs[java.lang.String].matches('^\\d{2}\\.\\d{2}\\.\\d{4}$')]."
-operator|+
-literal|" Exchange[Message: 1.1.2010]"
+literal|"Get a wrong exception message"
 argument_list|,
 name|e
 operator|.
@@ -250,6 +249,29 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Validation failed for Predicate[bodyAs[java.lang.String]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Get a wrong exception message"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"Exchange[Message: 1.1.2010]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
