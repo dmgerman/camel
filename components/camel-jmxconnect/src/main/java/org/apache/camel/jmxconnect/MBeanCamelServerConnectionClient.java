@@ -240,8 +240,9 @@ specifier|private
 name|UuidGenerator
 name|idGenerator
 init|=
-operator|new
 name|UuidGenerator
+operator|.
+name|get
 argument_list|()
 decl_stmt|;
 DECL|field|localNotifier
@@ -368,7 +369,7 @@ block|{
 return|return
 name|idGenerator
 operator|.
-name|generateId
+name|generateUuid
 argument_list|()
 return|;
 block|}
