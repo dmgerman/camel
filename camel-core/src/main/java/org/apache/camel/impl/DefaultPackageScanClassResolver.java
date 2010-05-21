@@ -304,7 +304,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|IOHelper
 import|;
 end_import
 
@@ -2089,7 +2089,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(

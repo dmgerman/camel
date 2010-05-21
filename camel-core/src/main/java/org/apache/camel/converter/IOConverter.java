@@ -258,18 +258,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -969,7 +957,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -1120,7 +1108,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -1271,7 +1259,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -1597,7 +1585,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(

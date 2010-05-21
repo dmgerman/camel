@@ -2474,7 +2474,7 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method to access a camel context properties with a prefix      *      * @param name         the name of the system property required      * @param defaultValue the default value to use if the property is not      *                     available or a security exception prevents access      * @return the properties which holds the camel context properties with the prefix,      *         and the key omit the prefix part      */
+comment|/**      * A helper method to access a camel context properties with a prefix      *      * @param prefix       the prefix      * @param camelContext the camel context      * @return the properties which holds the camel context properties with the prefix,      *         and the key omit the prefix part      */
 DECL|method|getCamelPropertiesWithPrefix (String prefix, CamelContext camelContext)
 specifier|public
 specifier|static
@@ -4220,7 +4220,9 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
+comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      * @deprecated use {@link org.apache.camel.util.IOHelper#close(java.io.Closeable, String, org.apache.commons.logging.Log)}      */
+annotation|@
+name|Deprecated
 DECL|method|close (Closeable closeable, String name, Log log)
 specifier|public
 specifier|static
@@ -4237,52 +4239,17 @@ name|Log
 name|log
 parameter_list|)
 block|{
-if|if
-condition|(
-name|closeable
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|closeable
+name|IOHelper
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|warn
 argument_list|(
-literal|"Cannot close: "
-operator|+
-name|name
-operator|+
-literal|". Reason: "
-operator|+
-name|e
+name|closeable
 argument_list|,
-name|e
+name|name
+argument_list|,
+name|log
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-block|}
 block|}
 comment|/**      * Converts the given value to the required type or throw a meaningful exception      */
 annotation|@

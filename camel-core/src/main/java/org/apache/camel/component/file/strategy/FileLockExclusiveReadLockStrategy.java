@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|IOHelper
 import|;
 end_import
 
@@ -662,7 +662,7 @@ block|}
 finally|finally
 block|{
 comment|// must close channel first
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
