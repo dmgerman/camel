@@ -1062,6 +1062,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|CamelExchangeException
 block|{
 if|if
 condition|(
@@ -1200,6 +1202,27 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"AggregationStrategy "
+operator|+
+name|aggregationStrategy
+operator|+
+literal|" returned null which is not allowed"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 comment|// update the aggregated size
 name|answer
 operator|.
