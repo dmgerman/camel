@@ -94,10 +94,11 @@ name|MockAsBeanTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|bean
+comment|// create foo bean as a mock endpoint
+DECL|field|foo
 specifier|private
 name|MockEndpoint
-name|bean
+name|foo
 init|=
 operator|new
 name|MockEndpoint
@@ -127,13 +128,14 @@ name|bind
 argument_list|(
 literal|"foo"
 argument_list|,
-name|bean
+name|foo
 argument_list|)
 expr_stmt|;
 return|return
 name|jndi
 return|;
 block|}
+comment|// START SNIPPET: e1
 DECL|method|testMockAsBean ()
 specifier|public
 name|void
@@ -142,6 +144,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we should expect to receive the transformed message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -152,7 +155,9 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|bean
+comment|// the foo bean is a MockEndpoint which we use in this test to transform
+comment|// the message
+name|foo
 operator|.
 name|whenAnyExchangeReceived
 argument_list|(
@@ -214,8 +219,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// END SNIPPET: e1
 annotation|@
 name|Override
+comment|// START SNIPPET: e2
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -242,11 +249,13 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+comment|// send to foo bean
 operator|.
 name|beanRef
 argument_list|(
 literal|"foo"
 argument_list|)
+comment|// and then to result mock
 operator|.
 name|to
 argument_list|(
@@ -257,6 +266,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 
