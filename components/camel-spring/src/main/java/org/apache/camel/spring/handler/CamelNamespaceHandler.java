@@ -436,6 +436,20 @@ name|beans
 operator|.
 name|factory
 operator|.
+name|BeanCreationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
 name|BeanDefinitionStoreException
 import|;
 end_import
@@ -2769,11 +2783,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|template
+condition|)
+block|{
 comment|// either we have not used template before or we have auto registered it already and therefore we
 comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
 comment|// since we have multiple camel contexts
 name|boolean
-name|canDoTemplate
+name|existing
 init|=
 name|autoRegisterMap
 operator|.
@@ -2783,8 +2803,16 @@ literal|"template"
 argument_list|)
 operator|!=
 literal|null
-operator|||
-operator|!
+decl_stmt|;
+name|boolean
+name|inUse
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|inUse
+operator|=
 name|parserContext
 operator|.
 name|getRegistry
@@ -2794,13 +2822,32 @@ name|isBeanNameInUse
 argument_list|(
 literal|"template"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|BeanCreationException
+name|e
+parameter_list|)
+block|{
+comment|// Spring Eclipse Tooling may throw an exception when you edit the Spring XML online in Eclipse
+comment|// when the isBeanNameInUse method is invoked, so ignore this and continue (CAMEL-2739)
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error checking isBeanNameInUse(template). This exception will be ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
-name|template
-operator|&&
-name|canDoTemplate
+name|inUse
+operator|||
+name|existing
 condition|)
 block|{
 name|String
@@ -2866,11 +2913,18 @@ name|contextId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+operator|!
+name|consumerTemplate
+condition|)
+block|{
 comment|// either we have not used template before or we have auto registered it already and therefore we
 comment|// need it to allow to do it so it can remove the existing auto registered as there is now a clash id
 comment|// since we have multiple camel contexts
 name|boolean
-name|canDoConsumerTemplate
+name|existing
 init|=
 name|autoRegisterMap
 operator|.
@@ -2880,8 +2934,16 @@ literal|"consumerTemplate"
 argument_list|)
 operator|!=
 literal|null
-operator|||
-operator|!
+decl_stmt|;
+name|boolean
+name|inUse
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|inUse
+operator|=
 name|parserContext
 operator|.
 name|getRegistry
@@ -2891,13 +2953,32 @@ name|isBeanNameInUse
 argument_list|(
 literal|"consumerTemplate"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|BeanCreationException
+name|e
+parameter_list|)
+block|{
+comment|// Spring Eclipse Tooling may throw an exception when you edit the Spring XML online in Eclipse
+comment|// when the isBeanNameInUse method is invoked, so ignore this and continue (CAMEL-2739)
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error checking isBeanNameInUse(consumerTemplate). This exception will be ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
-name|consumerTemplate
-operator|&&
-name|canDoConsumerTemplate
+name|inUse
+operator|||
+name|existing
 condition|)
 block|{
 name|String
@@ -2962,6 +3043,7 @@ argument_list|,
 name|contextId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|autoRegisterBeanDefinition (String id, BeanDefinition definition, ParserContext parserContext, String contextId)
