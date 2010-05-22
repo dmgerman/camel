@@ -106,7 +106,7 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-block|{ 	}
+block|{     }
 DECL|method|updateReport (@ody Report report, @Header(R) String name)
 specifier|public
 name|Report

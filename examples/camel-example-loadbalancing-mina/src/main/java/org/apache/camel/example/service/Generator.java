@@ -45,8 +45,6 @@ specifier|private
 specifier|static
 name|int
 name|count
-init|=
-literal|0
 decl_stmt|;
 DECL|method|createReport ()
 specifier|public

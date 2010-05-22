@@ -28,18 +28,6 @@ name|Serializable
 import|;
 end_import
 
-begin_import
-import|import
-name|sun
-operator|.
-name|tools
-operator|.
-name|tree
-operator|.
-name|ThisExpression
-import|;
-end_import
-
 begin_class
 DECL|class|Report
 specifier|public
@@ -77,7 +65,7 @@ specifier|private
 name|String
 name|reply
 decl_stmt|;
-comment|/** 	 * @return the id 	 */
+comment|/**     * @return the id     */
 DECL|method|getId ()
 specifier|public
 name|Integer
@@ -88,7 +76,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/** 	 * @param id the id to set 	 */
+comment|/**     * @param id the id to set     */
 DECL|method|setId (Integer id)
 specifier|public
 name|void
@@ -105,7 +93,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-comment|/** 	 * @return the title 	 */
+comment|/**     * @return the title     */
 DECL|method|getTitle ()
 specifier|public
 name|String
@@ -116,7 +104,7 @@ return|return
 name|title
 return|;
 block|}
-comment|/** 	 * @param title the title to set 	 */
+comment|/**     * @param title the title to set     */
 DECL|method|setTitle (String title)
 specifier|public
 name|void
@@ -133,7 +121,7 @@ operator|=
 name|title
 expr_stmt|;
 block|}
-comment|/** 	 * @return the content 	 */
+comment|/**     * @return the content     */
 DECL|method|getContent ()
 specifier|public
 name|String
@@ -144,7 +132,7 @@ return|return
 name|content
 return|;
 block|}
-comment|/** 	 * @param content the content to set 	 */
+comment|/**     * @param content the content to set     */
 DECL|method|setContent (String content)
 specifier|public
 name|void
@@ -161,7 +149,7 @@ operator|=
 name|content
 expr_stmt|;
 block|}
-comment|/** 	 * @return the reply 	 */
+comment|/**     * @return the reply     */
 DECL|method|getReply ()
 specifier|public
 name|String
@@ -172,7 +160,7 @@ return|return
 name|reply
 return|;
 block|}
-comment|/** 	 * @param reply the reply to set 	 */
+comment|/**     * @param reply the reply to set     */
 DECL|method|setReply (String reply)
 specifier|public
 name|void
