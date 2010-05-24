@@ -158,6 +158,9 @@ name|MILLISECONDS
 argument_list|,
 operator|new
 name|LinkedBlockingQueue
+argument_list|<
+name|Runnable
+argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;

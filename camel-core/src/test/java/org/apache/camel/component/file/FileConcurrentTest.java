@@ -877,7 +877,7 @@ operator|new
 name|Random
 argument_list|()
 decl_stmt|;
-DECL|method|processData (@ody String data, @Header(value = R) int id, @Headers Map headers, TypeConverter converter)
+DECL|method|processData (@ody String data, @Header(value = R) int id, @Headers Map<String, Object> headers, TypeConverter converter)
 specifier|public
 name|String
 name|processData
@@ -900,6 +900,11 @@ parameter_list|,
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|,
 name|TypeConverter

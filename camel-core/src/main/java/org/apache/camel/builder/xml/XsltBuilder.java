@@ -1154,7 +1154,7 @@ name|source
 operator|=
 name|converter
 operator|.
-name|toSource
+name|toDOMSource
 argument_list|(
 name|converter
 operator|.
