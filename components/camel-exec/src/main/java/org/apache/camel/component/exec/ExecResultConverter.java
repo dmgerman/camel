@@ -312,6 +312,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Converts<code>ExecResult</code> to the type<code>T</code>.      *       * @param<T> The type to convert to      * @param type Class instance of the type to which to convert      * @param exchange a Camel exchange. If exchange is<code>null</code>, no      *            conversion will be made      * @param result the exec result      * @return the converted {@link ExecResult}      * @throws FileNotFoundException if there is a file in the execResult, and      *             the file can not be found      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, ExecResult result)
 specifier|public
 specifier|static

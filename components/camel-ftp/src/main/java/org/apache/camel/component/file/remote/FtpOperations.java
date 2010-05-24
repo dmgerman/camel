@@ -238,6 +238,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -1535,7 +1549,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -1870,7 +1884,7 @@ block|}
 finally|finally
 block|{
 comment|// need to close the stream before rename it
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -2180,7 +2194,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(

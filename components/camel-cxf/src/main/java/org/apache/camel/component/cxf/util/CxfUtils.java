@@ -338,7 +338,7 @@ name|toString
 argument_list|(
 name|converter
 operator|.
-name|toSource
+name|toDOMSource
 argument_list|(
 name|writer
 operator|.

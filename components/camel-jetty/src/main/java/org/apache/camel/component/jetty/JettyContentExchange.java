@@ -150,7 +150,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|IOHelper
 import|;
 end_import
 
@@ -457,7 +457,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(

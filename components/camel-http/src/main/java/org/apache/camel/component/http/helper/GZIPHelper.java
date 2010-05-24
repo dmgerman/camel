@@ -122,20 +122,6 @@ name|IOHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Helper class to help wrapping content into GZIP input and output streams.  */
 end_comment
@@ -258,7 +244,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -269,7 +255,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -364,7 +350,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
@@ -375,7 +361,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|IOHelper
 operator|.
 name|close
 argument_list|(
