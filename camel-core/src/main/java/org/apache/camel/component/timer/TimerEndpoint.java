@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -165,6 +177,8 @@ name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
 implements|implements
+name|Service
+implements|,
 name|ManagementAware
 argument_list|<
 name|TimerEndpoint
@@ -331,6 +345,30 @@ block|{
 return|return
 name|this
 return|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// do nothing, the timer will be set when the first consumer will request it
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|setTimer
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
@@ -594,6 +632,11 @@ name|Timer
 name|getTimer
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|timer
@@ -624,6 +667,7 @@ return|return
 name|timer
 return|;
 block|}
+block|}
 DECL|method|setTimer (Timer timer)
 specifier|public
 name|void
@@ -633,12 +677,18 @@ name|Timer
 name|timer
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|this
 operator|.
 name|timer
 operator|=
 name|timer
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|ManagedAttribute
