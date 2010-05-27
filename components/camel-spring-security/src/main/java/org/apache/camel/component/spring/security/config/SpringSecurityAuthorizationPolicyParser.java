@@ -216,6 +216,15 @@ argument_list|,
 literal|"authenticationManager"
 argument_list|)
 expr_stmt|;
+name|setReferenceIfAttributeDefine
+argument_list|(
+name|builder
+argument_list|,
+name|element
+argument_list|,
+literal|"authenticationConverter"
+argument_list|)
+expr_stmt|;
 name|BeanDefinitionBuilder
 name|accessPolicyBuilder
 init|=

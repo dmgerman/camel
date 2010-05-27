@@ -48,18 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Converter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|security
@@ -69,26 +57,15 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Converter
-DECL|class|SprintSecurityConverter
+DECL|class|DefaultAuthenticationConverter
 specifier|public
-specifier|final
 class|class
-name|SprintSecurityConverter
+name|DefaultAuthenticationConverter
+implements|implements
+name|AuthenticationConverter
 block|{
-DECL|method|SprintSecurityConverter ()
-specifier|private
-name|SprintSecurityConverter
-parameter_list|()
-block|{
-comment|// Helper class
-block|}
-annotation|@
-name|Converter
 DECL|method|toAuthentication (Subject subject)
 specifier|public
-specifier|static
 name|Authentication
 name|toAuthentication
 parameter_list|(
@@ -96,6 +73,27 @@ name|Subject
 name|subject
 parameter_list|)
 block|{
+if|if
+condition|(
+name|subject
+operator|==
+literal|null
+operator|||
+name|subject
+operator|.
+name|getPrincipals
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Set
 argument_list|<
 name|Authentication
@@ -117,15 +115,9 @@ name|authentications
 operator|.
 name|size
 argument_list|()
-operator|==
+operator|>
 literal|0
 condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
 block|{
 comment|// just return the first one
 return|return
@@ -138,6 +130,29 @@ name|next
 argument_list|()
 return|;
 block|}
+else|else
+block|{
+return|return
+name|convertToAuthentication
+argument_list|(
+name|subject
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * You can add the customer convert code here      */
+DECL|method|convertToAuthentication (Subject subject)
+specifier|protected
+name|Authentication
+name|convertToAuthentication
+parameter_list|(
+name|Subject
+name|subject
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class
