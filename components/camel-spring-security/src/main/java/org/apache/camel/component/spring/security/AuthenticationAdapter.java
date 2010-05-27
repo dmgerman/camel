@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.spring.security.converter
+DECL|package|org.apache.camel.component.spring.security
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|spring
 operator|.
 name|security
-operator|.
-name|converter
 package|;
 end_package
 
@@ -47,10 +45,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|AuthenticationConverter
+DECL|interface|AuthenticationAdapter
 specifier|public
 interface|interface
-name|AuthenticationConverter
+name|AuthenticationAdapter
 block|{
 DECL|method|toAuthentication (Subject subject)
 name|Authentication
