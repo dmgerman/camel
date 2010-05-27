@@ -112,6 +112,14 @@ name|SedaComponent
 extends|extends
 name|DefaultComponent
 block|{
+DECL|field|maxConcurrentConsumers
+specifier|protected
+specifier|final
+name|int
+name|maxConcurrentConsumers
+init|=
+literal|500
+decl_stmt|;
 DECL|field|queues
 specifier|private
 specifier|final
@@ -137,14 +145,6 @@ name|Exchange
 argument_list|>
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|maxConcurrentConsumers
-specifier|private
-specifier|final
-name|int
-name|maxConcurrentConsumers
-init|=
-literal|500
 decl_stmt|;
 DECL|method|createQueue (String uri, Map<String, Object> parameters)
 specifier|public
