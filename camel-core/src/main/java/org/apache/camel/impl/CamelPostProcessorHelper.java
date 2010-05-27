@@ -226,6 +226,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|UnitOfWorkProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -714,8 +728,13 @@ argument_list|(
 name|method
 argument_list|)
 expr_stmt|;
+comment|// must ensure the consumer is being executed in an unit of work so synchronization callbacks etc is invoked
 return|return
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
 name|answer
+argument_list|)
 return|;
 block|}
 DECL|method|getEndpointInjection (String uri, String name, String injectionPointName, boolean mandatory)
