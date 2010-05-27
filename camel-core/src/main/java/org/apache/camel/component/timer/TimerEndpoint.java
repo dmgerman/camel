@@ -628,14 +628,10 @@ return|;
 block|}
 DECL|method|getTimer ()
 specifier|public
+specifier|synchronized
 name|Timer
 name|getTimer
 parameter_list|()
-block|{
-synchronized|synchronized
-init|(
-name|this
-init|)
 block|{
 if|if
 condition|(
@@ -667,9 +663,9 @@ return|return
 name|timer
 return|;
 block|}
-block|}
 DECL|method|setTimer (Timer timer)
 specifier|public
+specifier|synchronized
 name|void
 name|setTimer
 parameter_list|(
@@ -677,18 +673,12 @@ name|Timer
 name|timer
 parameter_list|)
 block|{
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
 name|this
 operator|.
 name|timer
 operator|=
 name|timer
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|ManagedAttribute
