@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -253,20 +265,29 @@ name|executorService
 decl_stmt|;
 DECL|field|onCompleteOnly
 specifier|private
+specifier|final
 name|boolean
 name|onCompleteOnly
 decl_stmt|;
 DECL|field|onFailureOnly
 specifier|private
+specifier|final
 name|boolean
 name|onFailureOnly
 decl_stmt|;
 DECL|field|onWhen
 specifier|private
+specifier|final
 name|Predicate
 name|onWhen
 decl_stmt|;
-DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, ExecutorService executorService, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen)
+DECL|field|useOriginalBody
+specifier|private
+specifier|final
+name|boolean
+name|useOriginalBody
+decl_stmt|;
+DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, ExecutorService executorService, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen, boolean useOriginalBody)
 specifier|public
 name|OnCompletionProcessor
 parameter_list|(
@@ -287,6 +308,9 @@ name|onFailureOnly
 parameter_list|,
 name|Predicate
 name|onWhen
+parameter_list|,
+name|boolean
+name|useOriginalBody
 parameter_list|)
 block|{
 name|notNull
@@ -301,13 +325,6 @@ argument_list|(
 name|processor
 argument_list|,
 literal|"processor"
-argument_list|)
-expr_stmt|;
-name|notNull
-argument_list|(
-name|executorService
-argument_list|,
-literal|"executorService"
 argument_list|)
 expr_stmt|;
 name|this
@@ -350,6 +367,12 @@ operator|.
 name|onWhen
 operator|=
 name|onWhen
+expr_stmt|;
+name|this
+operator|.
+name|useOriginalBody
+operator|=
+name|useOriginalBody
 expr_stmt|;
 block|}
 DECL|method|doStart ()
@@ -434,6 +457,7 @@ specifier|public
 name|void
 name|onComplete
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -528,6 +552,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -620,7 +645,7 @@ name|copy
 argument_list|)
 expr_stmt|;
 return|return
-name|copy
+literal|null
 return|;
 block|}
 block|}
@@ -717,11 +742,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// must use a copy as we dont want it to cause side effects of the original exchange
-specifier|final
 name|Exchange
-name|copy
-init|=
+name|answer
+decl_stmt|;
+comment|// for asynchronous routing we must use a copy as we dont want it
+comment|// to cause side effects of the original exchange
+comment|// (the original thread will run in parallel)
+name|answer
+operator|=
 name|ExchangeHelper
 operator|.
 name|createCorrelatedCopy
@@ -730,9 +758,36 @@ name|exchange
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+comment|// move OUT to IN (pipes and filters)
+name|answer
+operator|.
+name|setIn
+argument_list|(
+name|answer
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set MEP to InOnly as this wire tap is a fire and forget
-name|copy
+name|answer
 operator|.
 name|setPattern
 argument_list|(
@@ -741,8 +796,48 @@ operator|.
 name|InOnly
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useOriginalBody
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using the original IN message instead of current"
+argument_list|)
+expr_stmt|;
+block|}
+name|Message
+name|original
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getOriginalInMessage
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setIn
+argument_list|(
+name|original
+argument_list|)
+expr_stmt|;
+block|}
 comment|// add a header flag to indicate its a on completion exchange
-name|copy
+name|answer
 operator|.
 name|setProperty
 argument_list|(
@@ -756,7 +851,7 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 return|return
-name|copy
+name|answer
 return|;
 block|}
 annotation|@

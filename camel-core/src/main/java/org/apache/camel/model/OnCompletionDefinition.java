@@ -370,6 +370,26 @@ specifier|private
 name|String
 name|executorServiceRef
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|name
+operator|=
+literal|"useOriginalMessage"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|useOriginalMessagePolicy
+specifier|private
+name|Boolean
+name|useOriginalMessagePolicy
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|method|OnCompletionDefinition ()
 specifier|public
 name|OnCompletionDefinition
@@ -564,6 +584,8 @@ argument_list|,
 name|onFailureOnly
 argument_list|,
 name|when
+argument_list|,
+name|useOriginalMessagePolicy
 argument_list|)
 decl_stmt|;
 return|return
@@ -785,6 +807,24 @@ return|return
 name|clause
 return|;
 block|}
+comment|/**      * Will use the original input body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+DECL|method|useOriginalBody ()
+specifier|public
+name|OnCompletionDefinition
+name|useOriginalBody
+parameter_list|()
+block|{
+name|setUseOriginalMessagePolicy
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|OnCompletionDefinition
@@ -981,6 +1021,32 @@ operator|.
 name|executorServiceRef
 operator|=
 name|executorServiceRef
+expr_stmt|;
+block|}
+DECL|method|getUseOriginalMessagePolicy ()
+specifier|public
+name|Boolean
+name|getUseOriginalMessagePolicy
+parameter_list|()
+block|{
+return|return
+name|useOriginalMessagePolicy
+return|;
+block|}
+DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
+specifier|public
+name|void
+name|setUseOriginalMessagePolicy
+parameter_list|(
+name|Boolean
+name|useOriginalMessagePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalMessagePolicy
+operator|=
+name|useOriginalMessagePolicy
 expr_stmt|;
 block|}
 block|}
