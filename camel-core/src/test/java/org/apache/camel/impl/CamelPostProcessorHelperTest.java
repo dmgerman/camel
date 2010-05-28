@@ -182,6 +182,10 @@ DECL|field|mySynchronization
 specifier|private
 name|MySynchronization
 name|mySynchronization
+init|=
+operator|new
+name|MySynchronization
+argument_list|()
 decl_stmt|;
 DECL|method|testConstructor ()
 specifier|public
@@ -371,12 +375,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|mySynchronization
-operator|=
-operator|new
-name|MySynchronization
-argument_list|()
-expr_stmt|;
 name|CamelPostProcessorHelper
 name|helper
 init|=
@@ -452,11 +450,17 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertEquals
+comment|// give UoW a bit of time
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|assertTrue
 argument_list|(
 literal|"Should have invoked onDone"
-argument_list|,
-literal|true
 argument_list|,
 name|mySynchronization
 operator|.
