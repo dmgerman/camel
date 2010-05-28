@@ -353,6 +353,9 @@ name|value
 operator|.
 name|toString
 argument_list|()
+operator|.
+name|trim
+argument_list|()
 decl_stmt|;
 name|endpoint
 operator|=
