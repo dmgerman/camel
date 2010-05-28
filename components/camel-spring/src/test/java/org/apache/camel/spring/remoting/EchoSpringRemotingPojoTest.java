@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -173,7 +185,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeCamelException
+name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
@@ -187,6 +199,9 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -194,6 +209,9 @@ argument_list|(
 literal|"Damn something went wrong"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
