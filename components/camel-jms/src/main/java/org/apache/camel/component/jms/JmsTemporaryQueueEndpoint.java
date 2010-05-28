@@ -59,11 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *  * @version $Revision$  */
-end_comment
-
-begin_comment
-comment|// TODO need to be really careful to always use the same Connection otherwise the destination goes stale
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *<p/>  *<b>Important:</b> Need to be really careful to always use the same Connection otherwise the destination goes stale  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -210,7 +206,6 @@ return|;
 block|}
 annotation|@
 name|Override
-comment|// We don't want to manage this temporary object
 DECL|method|getManagedObject (JmsEndpoint object)
 specifier|public
 name|Object
@@ -220,6 +215,7 @@ name|JmsEndpoint
 name|object
 parameter_list|)
 block|{
+comment|// We don't want to manage this temporary object, so return null
 return|return
 literal|null
 return|;

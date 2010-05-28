@@ -755,6 +755,7 @@ name|destination
 argument_list|)
 return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|destination
@@ -773,6 +774,7 @@ name|destination
 argument_list|)
 return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|destination
