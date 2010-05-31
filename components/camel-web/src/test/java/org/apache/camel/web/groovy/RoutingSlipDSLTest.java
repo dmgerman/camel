@@ -53,12 +53,12 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:a\").routingSlip(\"myHeader\").to(\"mock:end\")"
+literal|"from(\"direct:a\").routingSlip(header(\"myHeader\"))"
 decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"from(\"direct:a\").routingSlip(\"myHeader\", \",\").to(\"mock:end\")"
+literal|"from(\"direct:a\").routingSlip(header(\"myHeader\"), \",\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -84,38 +84,7 @@ block|{
 name|String
 name|dsl
 init|=
-literal|"from(\"direct:b\").routingSlip(\"aRoutingSlipHeader\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"from(\"direct:b\").routingSlip(\"aRoutingSlipHeader\", \",\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|expected
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testRoutingSlip2 ()
-specifier|public
-name|void
-name|testRoutingSlip2
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:c\").routingSlip(\"aRoutingSlipHeader\", \"#\")"
+literal|"from(\"direct:b\").routingSlip(header(\"aRoutingSlipHeader\"), \"#\")"
 decl_stmt|;
 name|assertEquals
 argument_list|(
