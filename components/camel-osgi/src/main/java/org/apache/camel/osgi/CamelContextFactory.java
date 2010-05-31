@@ -24,9 +24,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|core
 operator|.
-name|DefaultCamelContext
+name|osgi
+operator|.
+name|OsgiDefaultCamelContext
 import|;
 end_import
 
@@ -38,11 +40,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
+name|impl
 operator|.
-name|osgi
-operator|.
-name|OsgiDefaultCamelContext
+name|DefaultCamelContext
 import|;
 end_import
 
