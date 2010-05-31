@@ -72,6 +72,11 @@ name|EjbRegistryBean
 extends|extends
 name|RegistryBean
 block|{
+DECL|field|registry
+specifier|private
+name|Registry
+name|registry
+decl_stmt|;
 DECL|method|EjbRegistryBean (Registry registry, CamelContext context, String name)
 specifier|public
 name|EjbRegistryBean
@@ -88,12 +93,16 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|registry
-argument_list|,
 name|context
 argument_list|,
 name|name
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|registry
+operator|=
+name|registry
 expr_stmt|;
 block|}
 annotation|@
@@ -109,6 +118,23 @@ literal|"ejb: "
 operator|+
 name|getName
 argument_list|()
+return|;
+block|}
+DECL|method|lookupBean ()
+specifier|protected
+name|Object
+name|lookupBean
+parameter_list|()
+block|{
+comment|// TODO: override lookupBean to be backwards compatible with Camel 2.3.0
+return|return
+name|registry
+operator|.
+name|lookup
+argument_list|(
+name|getName
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
