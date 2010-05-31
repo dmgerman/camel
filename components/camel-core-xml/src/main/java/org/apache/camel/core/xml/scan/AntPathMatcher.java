@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright 2002-2007 the original author or authors.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PathMatcher implementation for Ant-style path patterns.  * Examples are provided below.  *  *<p>Part of this mapping code has been kindly borrowed from  *<a href="http://ant.apache.org">Apache Ant</a>.  *  *<p>The mapping matches URLs using the following rules:<br>  *<ul>  *<li>? matches one character</li>  *<li>* matches zero or more characters</li>  *<li>** matches zero or more 'directories' in a path</li>  *</ul>  *  *<p>Some examples:<br>  *<ul>  *<li><code>com/t?st.jsp</code> - matches<code>com/test.jsp</code> but also  *<code>com/tast.jsp</code> or<code>com/txst.jsp</code></li>  *<li><code>com/*.jsp</code> - matches all<code>.jsp</code> files in the  *<code>com</code> directory</li>  *<li><code>com/&#42;&#42;/test.jsp</code> - matches all<code>test.jsp</code>  * files underneath the<code>com</code> path</li>  *<li><code>org/springframework/&#42;&#42;/*.jsp</code> - matches all<code>.jsp</code>  * files underneath the<code>org/springframework</code> path</li>  *<li><code>org/&#42;&#42;/servlet/bla.jsp</code> - matches  *<code>org/springframework/servlet/bla.jsp</code> but also  *<code>org/springframework/testing/servlet/bla.jsp</code> and  *<code>org/servlet/bla.jsp</code></li>  *</ul>  *  * @author Alef Arendsen  * @author Juergen Hoeller  * @author Rob Harrop  * @since 16.07.2003  */
+comment|/**  * PathMatcher implementation for Ant-style path patterns. Examples are provided  * below.  *<p>  * Part of this mapping code has been kindly borrowed from<a  * href="http://ant.apache.org">Apache Ant</a>.  *<p>  * The mapping matches URLs using the following rules:<br>  *<ul>  *<li>? matches one character</li>  *<li>* matches zero or more characters</li>  *<li>** matches zero or more 'directories' in a path</li>  *</ul>  *<p>  * Some examples:<br>  *<ul>  *<li><code>com/t?st.jsp</code> - matches<code>com/test.jsp</code> but also  *<code>com/tast.jsp</code> or<code>com/txst.jsp</code></li>  *<li><code>com/*.jsp</code> - matches all<code>.jsp</code> files in the  *<code>com</code> directory</li>  *<li><code>com/&#42;&#42;/test.jsp</code> - matches all<code>test.jsp</code>  * files underneath the<code>com</code> path</li>  *<li><code>org/springframework/&#42;&#42;/*.jsp</code> - matches all  *<code>.jsp</code> files underneath the<code>org/springframework</code> path</li>  *<li><code>org/&#42;&#42;/servlet/bla.jsp</code> - matches  *<code>org/springframework/servlet/bla.jsp</code> but also  *<code>org/springframework/testing/servlet/bla.jsp</code> and  *<code>org/servlet/bla.jsp</code></li>  *</ul>  *   * @author Alef Arendsen  * @author Juergen Hoeller  * @author Rob Harrop  * @since 16.07.2003  */
 end_comment
 
 begin_class
@@ -77,7 +77,7 @@ name|pathSeparator
 init|=
 name|DEFAULT_PATH_SEPARATOR
 decl_stmt|;
-comment|/** 	 * Set the path separator to use for pattern parsing. 	 * Default is "/", as in Ant. 	 */
+comment|/**      * Set the path separator to use for pattern parsing. Default is "/", as in      * Ant.      */
 DECL|method|setPathSeparator (String pathSeparator)
 specifier|public
 name|void
@@ -91,7 +91,6 @@ name|this
 operator|.
 name|pathSeparator
 operator|=
-operator|(
 name|pathSeparator
 operator|!=
 literal|null
@@ -99,7 +98,6 @@ condition|?
 name|pathSeparator
 else|:
 name|DEFAULT_PATH_SEPARATOR
-operator|)
 expr_stmt|;
 block|}
 DECL|method|isPattern (String path)
@@ -112,7 +110,6 @@ name|path
 parameter_list|)
 block|{
 return|return
-operator|(
 name|path
 operator|.
 name|indexOf
@@ -132,7 +129,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-operator|)
 return|;
 block|}
 DECL|method|match (String pattern, String path)
@@ -181,7 +177,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Actually match the given<code>path</code> against the given<code>pattern</code>. 	 * @param pattern the pattern to match against 	 * @param path the path String to test 	 * @param fullMatch whether a full pattern match is required 	 * (else a pattern match as far as the given base path goes is sufficient) 	 * @return<code>true</code> if the supplied<code>path</code> matched, 	 *<code>false</code> if it didn't 	 */
+comment|/**      * Actually match the given<code>path</code> against the given      *<code>pattern</code>.      *       * @param pattern the pattern to match against      * @param path the path String to test      * @param fullMatch whether a full pattern match is required (else a pattern      *            match as far as the given base path goes is sufficient)      * @return<code>true</code> if the supplied<code>path</code> matched,      *<code>false</code> if it didn't      */
 DECL|method|doMatch (String pattern, String path, boolean fullMatch)
 specifier|protected
 name|boolean
@@ -349,7 +345,6 @@ name|pattIdxEnd
 condition|)
 block|{
 return|return
-operator|(
 name|pattern
 operator|.
 name|endsWith
@@ -377,7 +372,6 @@ name|this
 operator|.
 name|pathSeparator
 argument_list|)
-operator|)
 return|;
 block|}
 if|if
@@ -670,24 +664,20 @@ comment|// strIdxStart& strIdxEnd
 name|int
 name|patLength
 init|=
-operator|(
 name|patIdxTmp
 operator|-
 name|pattIdxStart
 operator|-
 literal|1
-operator|)
 decl_stmt|;
 name|int
 name|strLength
 init|=
-operator|(
 name|pathIdxEnd
 operator|-
 name|pathIdxStart
 operator|+
 literal|1
-operator|)
 decl_stmt|;
 name|int
 name|foundIdx
@@ -844,7 +834,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Tests whether or not a string matches against a pattern. 	 * The pattern may contain two special characters:<br> 	 * '*' means zero or more characters<br> 	 * '?' means one and only one character 	 * @param pattern pattern to match against. 	 * Must not be<code>null</code>. 	 * @param str string which must be matched against the pattern. 	 * Must not be<code>null</code>. 	 * @return<code>true</code> if the string matches against the 	 * pattern, or<code>false</code> otherwise. 	 */
+comment|/**      * Tests whether or not a string matches against a pattern. The pattern may      * contain two special characters:<br>      * '*' means zero or more characters<br>      * '?' means one and only one character      *       * @param pattern pattern to match against. Must not be<code>null</code>.      * @param str string which must be matched against the pattern. Must not be      *<code>null</code>.      * @return<code>true</code> if the string matches against the pattern, or      *<code>false</code> otherwise.      */
 DECL|method|matchStrings (String pattern, String str)
 specifier|private
 name|boolean
@@ -1284,24 +1274,20 @@ comment|// strIdxStart& strIdxEnd
 name|int
 name|patLength
 init|=
-operator|(
 name|patIdxTmp
 operator|-
 name|patIdxStart
 operator|-
 literal|1
-operator|)
 decl_stmt|;
 name|int
 name|strLength
 init|=
-operator|(
 name|strIdxEnd
 operator|-
 name|strIdxStart
 operator|+
 literal|1
-operator|)
 decl_stmt|;
 name|int
 name|foundIdx
@@ -1448,7 +1434,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Given a pattern and a full path, determine the pattern-mapped part. 	 *<p>For example: 	 *<ul> 	 *<li>'<code>/docs/cvs/commit.html</code>' and '<code>/docs/cvs/commit.html</code> -> ''</li> 	 *<li>'<code>/docs/*</code>' and '<code>/docs/cvs/commit</code> -> '<code>cvs/commit</code>'</li> 	 *<li>'<code>/docs/cvs/*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '<code>commit.html</code>'</li> 	 *<li>'<code>/docs/**</code>' and '<code>/docs/cvs/commit</code> -> '<code>cvs/commit</code>'</li> 	 *<li>'<code>/docs/**\/*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '<code>cvs/commit.html</code>'</li> 	 *<li>'<code>/*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '<code>docs/cvs/commit.html</code>'</li> 	 *<li>'<code>*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '<code>/docs/cvs/commit.html</code>'</li> 	 *<li>'<code>*</code>' and '<code>/docs/cvs/commit.html</code> -> '<code>/docs/cvs/commit.html</code>'</li> 	 *</ul> 	 *<p>Assumes that {@link #match} returns<code>true</code> for '<code>pattern</code>' 	 * and '<code>path</code>', but does<strong>not</strong> enforce this. 	 */
+comment|/**      * Given a pattern and a full path, determine the pattern-mapped part.      *<p>      * For example:      *<ul>      *<li>'<code>/docs/cvs/commit.html</code>' and '      *<code>/docs/cvs/commit.html</code> -> ''</li>      *<li>'<code>/docs/*</code>' and '<code>/docs/cvs/commit</code> -> '      *<code>cvs/commit</code>'</li>      *<li>'<code>/docs/cvs/*.html</code>' and '      *<code>/docs/cvs/commit.html</code> -> '<code>commit.html</code>'</li>      *<li>'<code>/docs/**</code>' and '<code>/docs/cvs/commit</code> -> '      *<code>cvs/commit</code>'</li>      *<li>'<code>/docs/**\/*.html</code>' and '      *<code>/docs/cvs/commit.html</code> -> '<code>cvs/commit.html</code>'</li>      *<li>'<code>/*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '      *<code>docs/cvs/commit.html</code>'</li>      *<li>'<code>*.html</code>' and '<code>/docs/cvs/commit.html</code> -> '      *<code>/docs/cvs/commit.html</code>'</li>      *<li>'<code>*</code>' and '<code>/docs/cvs/commit.html</code> -> '      *<code>/docs/cvs/commit.html</code>'</li>      *</ul>      *<p>      * Assumes that {@link #match} returns<code>true</code> for '      *<code>pattern</code>' and '<code>path</code>', but does      *<strong>not</strong> enforce this.      */
 DECL|method|extractPathWithinPattern (String pattern, String path)
 specifier|public
 name|String
@@ -1665,7 +1651,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Tokenize the given String into a String array via a StringTokenizer.      * Trims tokens and omits empty tokens.      *<p>The given delimiters string is supposed to consist of any number of      * delimiter characters. Each of those characters can be used to separate      * tokens. A delimiter is always a single character; for multi-character      * delimiters, consider using<code>delimitedListToStringArray</code>      * @param str the String to tokenize      * @param delimiters the delimiter characters, assembled as String      * (each of those characters is individually considered as delimiter).      * @return an array of the tokens      * @see java.util.StringTokenizer      * @see java.lang.String#trim()      */
+comment|/**      * Tokenize the given String into a String array via a StringTokenizer.      * Trims tokens and omits empty tokens.      *<p>      * The given delimiters string is supposed to consist of any number of      * delimiter characters. Each of those characters can be used to separate      * tokens. A delimiter is always a single character; for multi-character      * delimiters, consider using<code>delimitedListToStringArray</code>      *       * @param str the String to tokenize      * @param delimiters the delimiter characters, assembled as String (each of      *            those characters is individually considered as delimiter).      * @return an array of the tokens      * @see java.util.StringTokenizer      * @see java.lang.String#trim()      */
 DECL|method|tokenizeToStringArray (String str, String delimiters)
 specifier|public
 specifier|static
@@ -1703,10 +1689,16 @@ name|delimiters
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|tokens
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 while|while

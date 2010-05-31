@@ -78,9 +78,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|core
 operator|.
-name|DefaultPackageScanClassResolver
+name|osgi
+operator|.
+name|utils
+operator|.
+name|BundleDelegatingClassLoader
 import|;
 end_import
 
@@ -92,13 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
+name|impl
 operator|.
-name|osgi
-operator|.
-name|utils
-operator|.
-name|BundleDelegatingClassLoader
+name|DefaultPackageScanClassResolver
 import|;
 end_import
 
