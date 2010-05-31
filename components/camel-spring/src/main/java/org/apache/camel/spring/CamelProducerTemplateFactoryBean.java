@@ -92,11 +92,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|core
 operator|.
-name|util
+name|xml
 operator|.
-name|CamelContextResolverHelper
+name|AbstractCamelProducerTemplateFactoryBean
 import|;
 end_import
 
@@ -108,11 +108,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
+name|spring
 operator|.
-name|xml
+name|util
 operator|.
-name|AbstractCamelProducerTemplateFactoryBean
+name|CamelContextResolverHelper
 import|;
 end_import
 
