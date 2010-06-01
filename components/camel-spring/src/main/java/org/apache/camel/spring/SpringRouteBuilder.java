@@ -145,6 +145,11 @@ name|ApplicationContext
 name|applicationContext
 decl_stmt|;
 comment|/**      * Looks up the bean with the given name in the application context and      * returns it, or throws an exception if the bean is not present or is not      * of the given type      *      * @param beanName the name of the bean in the application context      * @param type the type of the bean      * @return the bean      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|lookup (String beanName, Class<T> type)
 specifier|public
 parameter_list|<

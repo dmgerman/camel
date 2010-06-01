@@ -193,6 +193,11 @@ return|return
 name|resource
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|findResources (String name)
 specifier|protected
 name|Enumeration

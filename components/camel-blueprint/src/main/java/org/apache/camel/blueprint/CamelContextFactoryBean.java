@@ -659,22 +659,6 @@ argument_list|<
 name|BlueprintCamelContext
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|CamelContextFactoryBean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -1490,12 +1474,18 @@ comment|//To change body of implemented methods use File | Settings | File Templ
 block|}
 annotation|@
 name|Override
-DECL|method|getBeanForType (Class clazz)
+DECL|method|getBeanForType (Class<S> clazz)
 specifier|protected
-name|Object
+parameter_list|<
+name|S
+parameter_list|>
+name|S
 name|getBeanForType
 parameter_list|(
 name|Class
+argument_list|<
+name|S
+argument_list|>
 name|clazz
 parameter_list|)
 block|{
