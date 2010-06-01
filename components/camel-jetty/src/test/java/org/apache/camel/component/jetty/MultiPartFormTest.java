@@ -447,6 +447,24 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"We should get the data from the DataHandle"
+argument_list|,
+name|data
+operator|.
+name|getDataSource
+argument_list|()
+operator|.
+name|getInputStream
+argument_list|()
+operator|.
+name|available
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
 comment|// The other form date can be get from the message header
 name|exchange
 operator|.
