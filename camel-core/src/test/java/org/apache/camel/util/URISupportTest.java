@@ -563,6 +563,38 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalizeEndpointWithEqualSignInParameter ()
+specifier|public
+name|void
+name|testNormalizeEndpointWithEqualSignInParameter
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"jms:queue:foo?selector=somekey='somevalue'&foo=bar"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+comment|// Camel will safe encode the URI
+name|assertEquals
+argument_list|(
+literal|"jms://queue:foo?foo=bar&selector=somekey%3D%27somevalue%27"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
