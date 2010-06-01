@@ -808,7 +808,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 DECL|method|parseUsingJaxb (Element element, ParserContext parserContext, Binder<Node> binder)
 specifier|protected

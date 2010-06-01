@@ -1469,9 +1469,7 @@ parameter_list|(
 name|BlueprintCamelContext
 name|context
 parameter_list|)
-block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getBeanForType (Class<S> clazz)
@@ -1492,7 +1490,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 annotation|@
 name|Override
@@ -1504,9 +1501,7 @@ parameter_list|(
 name|BlueprintCamelContext
 name|context
 parameter_list|)
-block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|postProcessBeforeInit (RouteBuilder builder)
@@ -1517,9 +1512,7 @@ parameter_list|(
 name|RouteBuilder
 name|builder
 parameter_list|)
-block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|findRouteBuilders (String[] normalized, List<RoutesBuilder> builders)
@@ -1539,9 +1532,7 @@ name|builders
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-comment|//To change body of implemented methods use File | Settings | File Templates.
-block|}
+block|{     }
 DECL|method|getDependsOn ()
 specifier|public
 name|String
