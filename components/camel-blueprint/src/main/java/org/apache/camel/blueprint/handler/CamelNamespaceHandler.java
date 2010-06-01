@@ -725,7 +725,7 @@ name|factory2
 operator|.
 name|setInitMethod
 argument_list|(
-literal|"init"
+literal|"afterPropertiesSet"
 argument_list|)
 expr_stmt|;
 name|factory2
