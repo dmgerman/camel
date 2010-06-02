@@ -216,6 +216,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|OrderedComparator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|UuidGenerator
 import|;
 end_import
@@ -744,6 +758,11 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|done (Exchange exchange)
 specifier|public
 name|void
@@ -834,6 +853,18 @@ operator|.
 name|reverse
 argument_list|(
 name|synchronizations
+argument_list|)
+expr_stmt|;
+comment|// and honor if any was ordered by sorting it accordingly
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|synchronizations
+argument_list|,
+operator|new
+name|OrderedComparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// invoke synchronization callbacks

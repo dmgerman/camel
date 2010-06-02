@@ -56,6 +56,20 @@ name|SynchronizationVetoable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|Ordered
+import|;
+end_import
+
 begin_comment
 comment|/**  * Simple {@link Synchronization} adapter with empty methods for easier overriding  * of single methods.  *  * @version $Revision$  */
 end_comment
@@ -67,6 +81,8 @@ class|class
 name|SynchronizationAdapter
 implements|implements
 name|SynchronizationVetoable
+implements|,
+name|Ordered
 block|{
 DECL|method|onComplete (Exchange exchange)
 specifier|public
@@ -118,6 +134,17 @@ block|{
 comment|// allow by default
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// no particular order by default
+return|return
+literal|0
 return|;
 block|}
 block|}
