@@ -674,6 +674,16 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
+DECL|field|operationName
+specifier|private
+name|String
+name|operationName
+decl_stmt|;
+DECL|field|operationNamespace
+specifier|private
+name|String
+name|operationNamespace
+decl_stmt|;
 DECL|field|dataFormat
 specifier|private
 name|DataFormat
@@ -2078,6 +2088,54 @@ block|{
 name|portName
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getOperationName ()
+specifier|public
+name|String
+name|getOperationName
+parameter_list|()
+block|{
+return|return
+name|operationName
+return|;
+block|}
+DECL|method|setOperationName (String name)
+specifier|public
+name|void
+name|setOperationName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|operationName
+operator|=
+name|name
+expr_stmt|;
+block|}
+DECL|method|getOperationNamespace ()
+specifier|public
+name|String
+name|getOperationNamespace
+parameter_list|()
+block|{
+return|return
+name|operationNamespace
+return|;
+block|}
+DECL|method|setOperationNamespace (String namespace)
+specifier|public
+name|void
+name|setOperationNamespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|operationNamespace
+operator|=
+name|namespace
 expr_stmt|;
 block|}
 DECL|method|isInOut ()

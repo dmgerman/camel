@@ -117,7 +117,7 @@ DECL|field|OPERATION_NAMESPACE
 name|String
 name|OPERATION_NAMESPACE
 init|=
-literal|"operationNameSpace"
+literal|"operationNamespace"
 decl_stmt|;
 DECL|field|SPRING_CONTEXT_ENDPOINT
 name|String
