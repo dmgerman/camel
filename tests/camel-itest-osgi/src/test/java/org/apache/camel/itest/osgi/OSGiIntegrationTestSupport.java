@@ -304,6 +304,26 @@ name|scanFeatures
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|workingDirectory
+import|;
+end_import
+
 begin_class
 DECL|class|OSGiIntegrationTestSupport
 specifier|public
@@ -483,6 +503,11 @@ argument_list|,
 literal|"camel-spring-osgi"
 argument_list|,
 literal|"camel-test"
+argument_list|)
+argument_list|,
+name|workingDirectory
+argument_list|(
+literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 name|knopflerfish

@@ -208,6 +208,26 @@ name|scanFeatures
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|workingDirectory
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -374,6 +394,11 @@ argument_list|,
 literal|"camel-http"
 argument_list|,
 literal|"camel-servlet"
+argument_list|)
+argument_list|,
+name|workingDirectory
+argument_list|(
+literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 name|felix
