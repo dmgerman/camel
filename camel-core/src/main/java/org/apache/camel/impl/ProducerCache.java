@@ -1034,7 +1034,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|doGetProducer (Endpoint endpoint, boolean pooled)
-specifier|protected
+specifier|public
 specifier|synchronized
 name|Producer
 name|doGetProducer
