@@ -213,6 +213,41 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Destination as Endpoint Uri"
+argument_list|)
+DECL|method|setDestination (String uri)
+specifier|public
+name|void
+name|setDestination
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|getContext
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|processor
+operator|.
+name|setDestination
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Message Exchange Pattern"
 argument_list|)
 DECL|method|getMessageExchangePattern ()
@@ -247,43 +282,6 @@ return|return
 literal|null
 return|;
 block|}
-block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Change Destination Endpoint Uri"
-argument_list|)
-DECL|method|changeDestination (String uri)
-specifier|public
-name|void
-name|changeDestination
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|getContext
-argument_list|()
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
-name|processor
-operator|.
-name|setDestination
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

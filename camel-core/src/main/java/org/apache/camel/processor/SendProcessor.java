@@ -252,11 +252,6 @@ specifier|protected
 name|ExchangePattern
 name|pattern
 decl_stmt|;
-DECL|field|init
-specifier|private
-name|boolean
-name|init
-decl_stmt|;
 DECL|method|SendProcessor (Endpoint destination)
 specifier|public
 name|SendProcessor
@@ -354,7 +349,6 @@ return|;
 block|}
 DECL|method|setDestination (Endpoint destination)
 specifier|public
-specifier|synchronized
 name|void
 name|setDestination
 parameter_list|(
@@ -367,12 +361,6 @@ operator|.
 name|destination
 operator|=
 name|destination
-expr_stmt|;
-name|this
-operator|.
-name|init
-operator|=
-literal|false
 expr_stmt|;
 block|}
 DECL|method|getTraceLabel ()
@@ -604,16 +592,6 @@ argument_list|)
 expr_stmt|;
 comment|// the destination could since have been intercepted by a interceptSendToEndpoint so we got to
 comment|// init this before we can use the destination
-if|if
-condition|(
-operator|!
-name|init
-condition|)
-block|{
-name|init
-operator|=
-literal|true
-expr_stmt|;
 name|Endpoint
 name|lookup
 init|=
@@ -660,37 +638,14 @@ operator|=
 name|lookup
 expr_stmt|;
 block|}
-block|}
-comment|// get the producer when the send processor is starting
-name|Producer
-name|producer
-init|=
+comment|// warm up the producer by starting it so we can fail fast if there was a problem
 name|producerCache
 operator|.
-name|doGetProducer
+name|startProducer
 argument_list|(
 name|destination
-argument_list|,
-literal|true
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|producer
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No producer, this processor has not been started: "
-operator|+
-name|this
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected

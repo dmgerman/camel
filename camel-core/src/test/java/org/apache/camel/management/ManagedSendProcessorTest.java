@@ -22,6 +22,16 @@ name|javax
 operator|.
 name|management
 operator|.
+name|Attribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
 name|MBeanServer
 import|;
 end_import
@@ -366,28 +376,48 @@ argument_list|(
 name|pattern
 argument_list|)
 expr_stmt|;
-comment|// send it somewhere else
+comment|// we must stop it to change the destination
 name|mbeanServer
 operator|.
 name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"changeDestination"
+literal|"stop"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// send it somewhere else
+name|mbeanServer
+operator|.
+name|setAttribute
+argument_list|(
+name|on
 argument_list|,
 operator|new
-name|Object
-index|[]
-block|{
+name|Attribute
+argument_list|(
+literal|"Destination"
+argument_list|,
 literal|"direct:foo"
-block|}
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// start it
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|on
 argument_list|,
-operator|new
-name|String
-index|[]
-block|{
-literal|"java.lang.String"
-block|}
+literal|"start"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// prepare mocks

@@ -573,6 +573,34 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Starts the {@link Producer} to be used for sending to the given endpoint      *<p/>      * This can be used to early start the {@link Producer} to ensure it can be created,      * such as when Camel is started. This allows to fail fast in case the {@link Producer}      * could not be started.      *      * @param endpoint the endpoint to send the exchange to      * @throws Exception is thrown if failed to create or start the {@link Producer}      */
+DECL|method|startProducer (Endpoint endpoint)
+specifier|public
+name|void
+name|startProducer
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Producer
+name|producer
+init|=
+name|acquireProducer
+argument_list|(
+name|endpoint
+argument_list|)
+decl_stmt|;
+name|releaseProducer
+argument_list|(
+name|endpoint
+argument_list|,
+name|producer
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * @return the exchange      */
 DECL|method|send (Endpoint endpoint, Processor processor)
 specifier|public
@@ -1034,7 +1062,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|doGetProducer (Endpoint endpoint, boolean pooled)
-specifier|public
+specifier|protected
 specifier|synchronized
 name|Producer
 name|doGetProducer
