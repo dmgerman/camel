@@ -298,6 +298,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ProcessorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -1233,6 +1247,55 @@ operator|.
 name|defaultProcessor
 operator|=
 name|processor
+expr_stmt|;
+block|}
+comment|/**      * Set the expression which value will be set to the message body      * @param expression which is use to set the message body       */
+DECL|method|returnReplyBody (Expression expression)
+specifier|public
+name|void
+name|returnReplyBody
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultProcessor
+operator|=
+name|ProcessorBuilder
+operator|.
+name|setBody
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the expression which value will be set to the message header      * @param headerName that will be set value      * @param expression which is use to set the message header       */
+DECL|method|returnReplyHeader (String headerName, Expression expression)
+specifier|public
+name|void
+name|returnReplyHeader
+parameter_list|(
+name|String
+name|headerName
+parameter_list|,
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultProcessor
+operator|=
+name|ProcessorBuilder
+operator|.
+name|setHeader
+argument_list|(
+name|headerName
+argument_list|,
+name|expression
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      */

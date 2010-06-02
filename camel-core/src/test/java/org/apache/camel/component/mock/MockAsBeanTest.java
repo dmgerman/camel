@@ -64,6 +64,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ExpressionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -136,10 +150,10 @@ name|jndi
 return|;
 block|}
 comment|// START SNIPPET: e1
-DECL|method|testMockAsBean ()
+DECL|method|testMockAsBeanWithWhenAnyExchangeReceived ()
 specifier|public
 name|void
-name|testMockAsBean
+name|testMockAsBeanWithWhenAnyExchangeReceived
 parameter_list|()
 throws|throws
 name|Exception
@@ -267,6 +281,102 @@ block|}
 return|;
 block|}
 comment|// END SNIPPET: e2
+comment|// START SNIPPET: e3
+DECL|method|testMockAsBeanWithReplyBody ()
+specifier|public
+name|void
+name|testMockAsBeanWithReplyBody
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// we should expect to receive the transformed message
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|foo
+operator|.
+name|returnReplyBody
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|simpleExpression
+argument_list|(
+literal|"Bye ${body}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+comment|// END SNIPPET: e3
+comment|// START SNIPPET: e4
+DECL|method|testMockAsBeanWithReplyHeader ()
+specifier|public
+name|void
+name|testMockAsBeanWithReplyHeader
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// we should expect to receive the transformed message
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"myHeader"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|foo
+operator|.
+name|returnReplyHeader
+argument_list|(
+literal|"myHeader"
+argument_list|,
+name|ExpressionBuilder
+operator|.
+name|simpleExpression
+argument_list|(
+literal|"Bye ${body}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+comment|// END SNIPPET: e4
 block|}
 end_class
 
