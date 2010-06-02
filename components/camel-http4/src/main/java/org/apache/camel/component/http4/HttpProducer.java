@@ -1565,7 +1565,7 @@ operator|.
 name|getHttpUri
 argument_list|()
 operator|.
-name|getQuery
+name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
@@ -1637,7 +1637,7 @@ name|append
 argument_list|(
 name|uri
 operator|.
-name|getPath
+name|getRawPath
 argument_list|()
 argument_list|)
 expr_stmt|;

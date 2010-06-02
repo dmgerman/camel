@@ -165,7 +165,7 @@ operator|.
 name|getHttpUri
 argument_list|()
 operator|.
-name|toString
+name|toASCIIString
 argument_list|()
 expr_stmt|;
 block|}
@@ -280,7 +280,7 @@ name|basePath
 init|=
 name|baseURI
 operator|.
-name|getPath
+name|getRawPath
 argument_list|()
 decl_stmt|;
 if|if
@@ -456,7 +456,7 @@ operator|.
 name|getHttpUri
 argument_list|()
 operator|.
-name|getQuery
+name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
