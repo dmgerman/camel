@@ -352,6 +352,21 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 decl_stmt|;
+DECL|field|SERVICE_URI
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|SERVICE_URI
+init|=
+literal|"cxf://"
+operator|+
+name|ROUTER_ADDRESS
+operator|+
+literal|"?"
+operator|+
+name|SERVICE_CLASS
+decl_stmt|;
 DECL|field|EXCEPTION_MESSAGE
 specifier|private
 specifier|static
@@ -577,7 +592,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-name|routerEndpointURI
+name|SERVICE_URI
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: onException
