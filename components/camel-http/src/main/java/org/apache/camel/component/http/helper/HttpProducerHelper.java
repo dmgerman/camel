@@ -175,7 +175,7 @@ operator|.
 name|getHttpUri
 argument_list|()
 operator|.
-name|toString
+name|toASCIIString
 argument_list|()
 expr_stmt|;
 block|}
@@ -290,7 +290,7 @@ name|basePath
 init|=
 name|baseURI
 operator|.
-name|getPath
+name|getRawPath
 argument_list|()
 decl_stmt|;
 if|if
@@ -410,6 +410,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The uri is "
+operator|+
+name|uri
+argument_list|)
+expr_stmt|;
 return|return
 name|uri
 return|;

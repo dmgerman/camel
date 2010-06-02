@@ -1482,7 +1482,7 @@ operator|.
 name|getHttpUri
 argument_list|()
 operator|.
-name|getQuery
+name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
@@ -1493,6 +1493,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// need to make sure the queryString is URI safe
 name|method
 operator|.
 name|setQueryString
