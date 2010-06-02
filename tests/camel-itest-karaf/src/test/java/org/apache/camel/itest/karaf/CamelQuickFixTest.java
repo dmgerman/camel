@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -94,10 +104,15 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelScriptTest
+annotation|@
+name|Ignore
+argument_list|(
+literal|"No quickfix feature exists"
+argument_list|)
+DECL|class|CamelQuickFixTest
 specifier|public
 class|class
-name|CamelScriptTest
+name|CamelQuickFixTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -110,7 +125,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelScriptTest
+name|CamelQuickFixTest
 operator|.
 name|class
 argument_list|)
@@ -125,7 +140,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testLanguage
+name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|)

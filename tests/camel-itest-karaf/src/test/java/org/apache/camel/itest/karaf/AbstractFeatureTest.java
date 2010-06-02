@@ -78,20 +78,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -584,33 +570,6 @@ throw|;
 block|}
 block|}
 block|}
-block|}
-DECL|method|testLanguageResolver (String lang)
-specifier|protected
-name|void
-name|testLanguageResolver
-parameter_list|(
-name|String
-name|lang
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// TODO: how to test language resolver ?
-comment|//        long max = System.currentTimeMillis() + 10000;
-comment|//        while (true) {
-comment|//            try {
-comment|//                assertNotNull(createCamelContext().resolveLanguage(lang));
-comment|//                return;
-comment|//            } catch (Exception t) {
-comment|//                if (System.currentTimeMillis()< max) {
-comment|//                    Thread.sleep(1000);
-comment|//                    continue;
-comment|//                } else {
-comment|//                    throw t;
-comment|//                }
-comment|//            }
-comment|//        }
 block|}
 DECL|method|createCamelContext ()
 specifier|protected

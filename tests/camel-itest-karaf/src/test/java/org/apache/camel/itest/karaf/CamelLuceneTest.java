@@ -94,10 +94,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelScriptTest
+DECL|class|CamelLuceneTest
 specifier|public
 class|class
-name|CamelScriptTest
+name|CamelLuceneTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -110,7 +110,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelScriptTest
+name|CamelLuceneTest
 operator|.
 name|class
 argument_list|)
@@ -125,7 +125,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testLanguage
+name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|)
