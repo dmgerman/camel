@@ -517,7 +517,7 @@ argument_list|)
 argument_list|,
 literal|"camel-core"
 argument_list|,
-literal|"camel-spring-osgi"
+literal|"camel-spring"
 argument_list|,
 literal|"camel-test"
 argument_list|,
