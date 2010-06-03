@@ -1249,7 +1249,7 @@ name|getInterceptStrategies
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// must do this ugly cast to avoid compiler error on HP-UX
+comment|// must do this ugly cast to avoid compiler error on AIX/HP-UX
 name|ProcessorDefinition
 name|defn
 init|=
@@ -3286,9 +3286,7 @@ name|ProcessorDefinition
 name|end
 parameter_list|()
 block|{
-comment|// when using doTry .. doCatch .. doFinally we should always
-comment|// end the try definition to avoid having to use 2 x end() in the route
-comment|// this is counter intuitive for end users
+comment|// must do this ugly cast to avoid compiler error on AIX/HP-UX
 name|ProcessorDefinition
 name|defn
 init|=
@@ -3297,6 +3295,9 @@ name|ProcessorDefinition
 operator|)
 name|this
 decl_stmt|;
+comment|// when using doTry .. doCatch .. doFinally we should always
+comment|// end the try definition to avoid having to use 2 x end() in the route
+comment|// this is counter intuitive for end users
 if|if
 condition|(
 name|defn
