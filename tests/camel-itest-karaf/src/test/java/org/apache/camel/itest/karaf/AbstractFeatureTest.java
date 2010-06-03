@@ -268,6 +268,26 @@ name|scanFeatures
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|workingDirectory
+import|;
+end_import
+
 begin_class
 DECL|class|AbstractFeatureTest
 specifier|public
@@ -800,14 +820,18 @@ argument_list|(
 literal|"xml/features"
 argument_list|)
 argument_list|,
-literal|"camel-spring-osgi"
+literal|"camel-spring"
 argument_list|,
 literal|"camel-"
 operator|+
 name|feature
 argument_list|)
 argument_list|,
-comment|//cleanCaches(),
+name|workingDirectory
+argument_list|(
+literal|"target/paxrunner/"
+argument_list|)
+argument_list|,
 name|felix
 argument_list|()
 argument_list|)
