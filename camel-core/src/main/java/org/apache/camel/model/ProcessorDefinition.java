@@ -3289,17 +3289,9 @@ block|{
 comment|// when using doTry .. doCatch .. doFinally we should always
 comment|// end the try definition to avoid having to use 2 x end() in the route
 comment|// this is counter intuitive for end users
-name|ProcessorDefinition
-name|defn
-init|=
-operator|(
-name|ProcessorDefinition
-operator|)
-name|this
-decl_stmt|;
 if|if
 condition|(
-name|defn
+name|this
 operator|instanceof
 name|TryDefinition
 condition|)
@@ -4202,7 +4194,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param expresion  to decide the destinations      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      *       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param expression  to decide the destinations      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      *       * @return the builder      */
 DECL|method|routingSlip (Expression expression, String uriDelimiter)
 specifier|public
 name|RoutingSlipDefinition
@@ -4244,7 +4236,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *      * @param expresion  to decide the destinations      *       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *      * @param expression  to decide the destinations      *       * @return the builder      */
 DECL|method|routingSlip (Expression expression)
 specifier|public
 name|RoutingSlipDefinition
@@ -6170,12 +6162,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
