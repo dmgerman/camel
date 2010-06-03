@@ -1837,6 +1837,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|serviceUrlPath
+argument_list|,
+literal|"serviceUrlPath"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|registryPort
+argument_list|,
+literal|"registryPort"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|LocateRegistry
@@ -1873,6 +1891,23 @@ parameter_list|)
 block|{
 comment|// The registry may had been created, we could get the registry instead
 block|}
+comment|// must start with leading slash
+name|String
+name|path
+init|=
+name|serviceUrlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|?
+name|serviceUrlPath
+else|:
+literal|"/"
+operator|+
+name|serviceUrlPath
+decl_stmt|;
 comment|// Create an RMI connector and start it
 specifier|final
 name|JMXServiceURL
@@ -1906,7 +1941,7 @@ literal|":"
 operator|+
 name|registryPort
 operator|+
-name|serviceUrlPath
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -1925,7 +1960,7 @@ literal|":"
 operator|+
 name|registryPort
 operator|+
-name|serviceUrlPath
+name|path
 argument_list|)
 expr_stmt|;
 block|}

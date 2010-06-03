@@ -142,6 +142,105 @@ name|String
 name|getMBeanObjectDomainName
 parameter_list|()
 function_decl|;
+DECL|method|setRegistryPort (Integer value)
+name|void
+name|setRegistryPort
+parameter_list|(
+name|Integer
+name|value
+parameter_list|)
+function_decl|;
+DECL|method|getRegistryPort ()
+name|Integer
+name|getRegistryPort
+parameter_list|()
+function_decl|;
+DECL|method|setConnectorPort (Integer value)
+name|void
+name|setConnectorPort
+parameter_list|(
+name|Integer
+name|value
+parameter_list|)
+function_decl|;
+DECL|method|getConnectorPort ()
+name|Integer
+name|getConnectorPort
+parameter_list|()
+function_decl|;
+DECL|method|setMBeanServerDefaultDomain (String value)
+name|void
+name|setMBeanServerDefaultDomain
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+function_decl|;
+DECL|method|getMBeanServerDefaultDomain ()
+name|String
+name|getMBeanServerDefaultDomain
+parameter_list|()
+function_decl|;
+DECL|method|setMBeanObjectDomainName (String value)
+name|void
+name|setMBeanObjectDomainName
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+function_decl|;
+DECL|method|setServiceUrlPath (String value)
+name|void
+name|setServiceUrlPath
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+function_decl|;
+DECL|method|getServiceUrlPath ()
+name|String
+name|getServiceUrlPath
+parameter_list|()
+function_decl|;
+DECL|method|setCreateConnector (Boolean flag)
+name|void
+name|setCreateConnector
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+function_decl|;
+DECL|method|getCreateConnector ()
+name|Boolean
+name|getCreateConnector
+parameter_list|()
+function_decl|;
+DECL|method|setUsePlatformMBeanServer (Boolean flag)
+name|void
+name|setUsePlatformMBeanServer
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+function_decl|;
+DECL|method|getUsePlatformMBeanServer ()
+name|Boolean
+name|getUsePlatformMBeanServer
+parameter_list|()
+function_decl|;
+DECL|method|getOnlyRegisterProcessorWithCustomId ()
+name|Boolean
+name|getOnlyRegisterProcessorWithCustomId
+parameter_list|()
+function_decl|;
+DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
+name|void
+name|setOnlyRegisterProcessorWithCustomId
+parameter_list|(
+name|Boolean
+name|onlyRegisterProcessorWithCustomId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
