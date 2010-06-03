@@ -3289,9 +3289,17 @@ block|{
 comment|// when using doTry .. doCatch .. doFinally we should always
 comment|// end the try definition to avoid having to use 2 x end() in the route
 comment|// this is counter intuitive for end users
+name|ProcessorDefinition
+name|defn
+init|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|this
+decl_stmt|;
 if|if
 condition|(
-name|this
+name|defn
 operator|instanceof
 name|TryDefinition
 condition|)
@@ -6162,6 +6170,12 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|Type
+argument_list|>
+operator|)
 name|this
 argument_list|)
 decl_stmt|;
