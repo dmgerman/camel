@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -144,6 +156,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -202,16 +228,6 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|Scheduler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|quartz
-operator|.
 name|SchedulerException
 import|;
 end_import
@@ -237,6 +253,8 @@ class|class
 name|QuartzEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -254,11 +272,6 @@ name|QuartzEndpoint
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|scheduler
-specifier|private
-name|Scheduler
-name|scheduler
 decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
@@ -285,12 +298,7 @@ specifier|private
 name|boolean
 name|stateful
 decl_stmt|;
-DECL|method|QuartzEndpoint ()
-specifier|public
-name|QuartzEndpoint
-parameter_list|()
-block|{     }
-DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component, final Scheduler scheduler)
+DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component)
 specifier|public
 name|QuartzEndpoint
 parameter_list|(
@@ -301,10 +309,6 @@ parameter_list|,
 specifier|final
 name|QuartzComponent
 name|component
-parameter_list|,
-specifier|final
-name|Scheduler
-name|scheduler
 parameter_list|)
 block|{
 name|super
@@ -313,37 +317,6 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|scheduler
-operator|=
-name|scheduler
-expr_stmt|;
-block|}
-DECL|method|QuartzEndpoint (final String endpointUri, final Scheduler scheduler)
-specifier|public
-name|QuartzEndpoint
-parameter_list|(
-specifier|final
-name|String
-name|endpointUri
-parameter_list|,
-specifier|final
-name|Scheduler
-name|scheduler
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|scheduler
-operator|=
-name|scheduler
 expr_stmt|;
 block|}
 DECL|method|addTrigger (final Trigger trigger, final JobDetail detail)
@@ -493,10 +466,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|getScheduler
+name|getComponent
 argument_list|()
 operator|.
-name|scheduleJob
+name|addJob
 argument_list|(
 name|detail
 argument_list|,
@@ -504,7 +477,7 @@ name|trigger
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeTrigger (final Trigger trigger, final JobDetail jobDetail)
+DECL|method|removeTrigger (final Trigger trigger)
 specifier|public
 name|void
 name|removeTrigger
@@ -512,28 +485,16 @@ parameter_list|(
 specifier|final
 name|Trigger
 name|trigger
-parameter_list|,
-specifier|final
-name|JobDetail
-name|jobDetail
 parameter_list|)
 throws|throws
 name|SchedulerException
 block|{
-name|getScheduler
+name|getComponent
 argument_list|()
 operator|.
-name|unscheduleJob
+name|removeJob
 argument_list|(
 name|trigger
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|trigger
-operator|.
-name|getGroup
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -782,16 +743,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getScheduler ()
-specifier|public
-name|Scheduler
-name|getScheduler
-parameter_list|()
-block|{
-return|return
-name|scheduler
-return|;
-block|}
 DECL|method|getLoadBalancer ()
 specifier|public
 name|LoadBalancer
@@ -928,22 +879,6 @@ operator|=
 name|stateful
 expr_stmt|;
 block|}
-DECL|method|setScheduler (Scheduler scheduler)
-specifier|public
-name|void
-name|setScheduler
-parameter_list|(
-name|Scheduler
-name|scheduler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|scheduler
-operator|=
-name|scheduler
-expr_stmt|;
-block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|consumerStarted (final QuartzConsumer consumer)
@@ -1052,9 +987,6 @@ name|removeTrigger
 argument_list|(
 name|getTrigger
 argument_list|()
-argument_list|,
-name|getJobDetail
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|started
@@ -1086,6 +1018,50 @@ operator|new
 name|JobDetail
 argument_list|()
 return|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getComponent
+argument_list|()
+argument_list|,
+literal|"QuartzComponent"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|loadBalancer
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|loadBalancer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
