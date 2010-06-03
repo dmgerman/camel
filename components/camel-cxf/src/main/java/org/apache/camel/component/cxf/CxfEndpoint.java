@@ -674,15 +674,15 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
-DECL|field|operationName
+DECL|field|defaultOperationName
 specifier|private
 name|String
-name|operationName
+name|defaultOperationName
 decl_stmt|;
-DECL|field|operationNamespace
+DECL|field|defaultOperationNamespace
 specifier|private
 name|String
-name|operationNamespace
+name|defaultOperationNamespace
 decl_stmt|;
 DECL|field|dataFormat
 specifier|private
@@ -2090,50 +2090,50 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-DECL|method|getOperationName ()
+DECL|method|getDefaultOperationName ()
 specifier|public
 name|String
-name|getOperationName
+name|getDefaultOperationName
 parameter_list|()
 block|{
 return|return
-name|operationName
+name|defaultOperationName
 return|;
 block|}
-DECL|method|setOperationName (String name)
+DECL|method|setDefaultOperationName (String name)
 specifier|public
 name|void
-name|setOperationName
+name|setDefaultOperationName
 parameter_list|(
 name|String
 name|name
 parameter_list|)
 block|{
-name|operationName
+name|defaultOperationName
 operator|=
 name|name
 expr_stmt|;
 block|}
-DECL|method|getOperationNamespace ()
+DECL|method|getDefaultOperationNamespace ()
 specifier|public
 name|String
-name|getOperationNamespace
+name|getDefaultOperationNamespace
 parameter_list|()
 block|{
 return|return
-name|operationNamespace
+name|defaultOperationNamespace
 return|;
 block|}
-DECL|method|setOperationNamespace (String namespace)
+DECL|method|setDefaultOperationNamespace (String namespace)
 specifier|public
 name|void
-name|setOperationNamespace
+name|setDefaultOperationNamespace
 parameter_list|(
 name|String
 name|namespace
 parameter_list|)
 block|{
-name|operationNamespace
+name|defaultOperationNamespace
 operator|=
 name|namespace
 expr_stmt|;

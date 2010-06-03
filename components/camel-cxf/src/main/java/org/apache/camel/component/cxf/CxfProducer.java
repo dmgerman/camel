@@ -1449,7 +1449,7 @@ name|lp
 operator|=
 name|endpoint
 operator|.
-name|getOperationName
+name|getDefaultOperationName
 argument_list|()
 expr_stmt|;
 block|}
@@ -1562,7 +1562,7 @@ name|ns
 operator|=
 name|endpoint
 operator|.
-name|getOperationNamespace
+name|getDefaultOperationNamespace
 argument_list|()
 expr_stmt|;
 block|}
