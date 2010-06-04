@@ -170,11 +170,13 @@ argument_list|,
 name|createSet
 argument_list|(
 name|expression
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions, boolean allowDuplicates)
 specifier|public
 name|Resequencer
 parameter_list|(
@@ -189,6 +191,9 @@ argument_list|<
 name|Expression
 argument_list|>
 name|expressions
+parameter_list|,
+name|boolean
+name|allowDuplicates
 parameter_list|)
 block|{
 name|this
@@ -200,6 +205,8 @@ argument_list|,
 name|createSet
 argument_list|(
 name|expressions
+argument_list|,
+name|allowDuplicates
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -260,7 +267,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|createSet (Expression expression)
+DECL|method|createSet (Expression expression, boolean allowDuplicates)
 specifier|protected
 specifier|static
 name|Set
@@ -271,6 +278,9 @@ name|createSet
 parameter_list|(
 name|Expression
 name|expression
+parameter_list|,
+name|boolean
+name|allowDuplicates
 parameter_list|)
 block|{
 return|return
@@ -281,10 +291,12 @@ name|ExpressionComparator
 argument_list|(
 name|expression
 argument_list|)
+argument_list|,
+name|allowDuplicates
 argument_list|)
 return|;
 block|}
-DECL|method|createSet (List<Expression> expressions)
+DECL|method|createSet (List<Expression> expressions, boolean allowDuplicates)
 specifier|protected
 specifier|static
 name|Set
@@ -298,6 +310,9 @@ argument_list|<
 name|Expression
 argument_list|>
 name|expressions
+parameter_list|,
+name|boolean
+name|allowDuplicates
 parameter_list|)
 block|{
 if|if
@@ -319,6 +334,8 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+name|allowDuplicates
 argument_list|)
 return|;
 block|}
@@ -330,10 +347,12 @@ name|ExpressionListComparator
 argument_list|(
 name|expressions
 argument_list|)
+argument_list|,
+name|allowDuplicates
 argument_list|)
 return|;
 block|}
-DECL|method|createSet (Comparator<? super Exchange> comparator)
+DECL|method|createSet (final Comparator<? super Exchange> comparator, boolean allowDuplicates)
 specifier|protected
 specifier|static
 name|Set
@@ -342,6 +361,7 @@ name|Exchange
 argument_list|>
 name|createSet
 parameter_list|(
+specifier|final
 name|Comparator
 argument_list|<
 name|?
@@ -349,8 +369,79 @@ super|super
 name|Exchange
 argument_list|>
 name|comparator
+parameter_list|,
+name|boolean
+name|allowDuplicates
 parameter_list|)
 block|{
+name|Comparator
+argument_list|<
+name|?
+super|super
+name|Exchange
+argument_list|>
+name|comp
+init|=
+name|comparator
+decl_stmt|;
+comment|// if we allow duplicates then we need to cater for that in the comparator
+if|if
+condition|(
+name|allowDuplicates
+condition|)
+block|{
+name|comp
+operator|=
+operator|new
+name|Comparator
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|int
+name|compare
+parameter_list|(
+name|Exchange
+name|o1
+parameter_list|,
+name|Exchange
+name|o2
+parameter_list|)
+block|{
+name|int
+name|answer
+init|=
+name|comparator
+operator|.
+name|compare
+argument_list|(
+name|o1
+argument_list|,
+name|o2
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|0
+condition|)
+block|{
+comment|// they are equal but we should allow duplicates so say that o2 is higher
+comment|// so it will come next
+return|return
+literal|1
+return|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+block|}
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|TreeSet
@@ -358,7 +449,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|(
-name|comparator
+name|comp
 argument_list|)
 return|;
 block|}

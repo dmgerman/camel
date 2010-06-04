@@ -44,7 +44,7 @@ name|Integer
 operator|.
 name|MAX_VALUE
 decl_stmt|;
-comment|/**      * Gets the order.      *<p/>      * Use low numbers for higher priority. Normally the sorting will start from 0 and move upwards.      * So if you want to be last then use {@link Integer#MAX_VALUE}.      *      * @return the order      */
+comment|/**      * Gets the order.      *<p/>      * Use low numbers for higher priority. Normally the sorting will start from 0 and move upwards.      * So if you want to be last then use {@link Integer#MAX_VALUE} or eg {@link #LOWEST}.      *      * @return the order      */
 DECL|method|getOrder ()
 name|int
 name|getOrder

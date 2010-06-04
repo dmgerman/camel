@@ -566,6 +566,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enables duplicates for the batch resequencer mode      * @return the builder      */
+DECL|method|allowDuplicates ()
+specifier|public
+name|ResequenceDefinition
+name|allowDuplicates
+parameter_list|()
+block|{
+if|if
+condition|(
+name|batchConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"allowDuplicates() only supported for batch resequencer"
+argument_list|)
+throw|;
+block|}
+name|batchConfig
+operator|.
+name|setAllowDuplicates
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator  the comparator      * @return the builder      */
 DECL|method|comparator (ExpressionResultComparator comparator)
 specifier|public
@@ -871,6 +904,11 @@ name|resolveExpressionList
 argument_list|(
 name|routeContext
 argument_list|)
+argument_list|,
+name|config
+operator|.
+name|getAllowDuplicates
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|resequencer

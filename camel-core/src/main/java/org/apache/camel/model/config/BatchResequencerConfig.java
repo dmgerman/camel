@@ -70,6 +70,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -109,6 +123,17 @@ name|Long
 name|batchTimeout
 decl_stmt|;
 comment|// optional XML attribute requires wrapper object
+annotation|@
+name|XmlAttribute
+DECL|field|allowDuplicates
+specifier|private
+name|Boolean
+name|allowDuplicates
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 comment|/**      * Creates a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      */
 DECL|method|BatchResequencerConfig ()
 specifier|public
@@ -212,6 +237,32 @@ operator|.
 name|batchTimeout
 operator|=
 name|batchTimeout
+expr_stmt|;
+block|}
+DECL|method|getAllowDuplicates ()
+specifier|public
+name|Boolean
+name|getAllowDuplicates
+parameter_list|()
+block|{
+return|return
+name|allowDuplicates
+return|;
+block|}
+DECL|method|setAllowDuplicates (Boolean allowDuplicates)
+specifier|public
+name|void
+name|setAllowDuplicates
+parameter_list|(
+name|Boolean
+name|allowDuplicates
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowDuplicates
+operator|=
+name|allowDuplicates
 expr_stmt|;
 block|}
 block|}
