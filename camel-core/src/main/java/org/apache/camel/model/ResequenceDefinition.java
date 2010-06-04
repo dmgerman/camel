@@ -599,6 +599,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enables reverse mode for the batch resequencer mode.      *<p/>      * This means the expression for determine the sequence order will be reversed.      * Can be used for Z..A or 9..0 ordering.      *      * @return the builder      */
+DECL|method|reverse ()
+specifier|public
+name|ResequenceDefinition
+name|reverse
+parameter_list|()
+block|{
+if|if
+condition|(
+name|batchConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"reverse() only supported for batch resequencer"
+argument_list|)
+throw|;
+block|}
+name|batchConfig
+operator|.
+name|setReverse
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator  the comparator      * @return the builder      */
 DECL|method|comparator (ExpressionResultComparator comparator)
 specifier|public
@@ -908,6 +941,11 @@ argument_list|,
 name|config
 operator|.
 name|getAllowDuplicates
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getReverse
 argument_list|()
 argument_list|)
 decl_stmt|;

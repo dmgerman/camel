@@ -172,11 +172,13 @@ argument_list|(
 name|expression
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions, boolean allowDuplicates)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions, boolean allowDuplicates, boolean reverse)
 specifier|public
 name|Resequencer
 parameter_list|(
@@ -194,6 +196,9 @@ name|expressions
 parameter_list|,
 name|boolean
 name|allowDuplicates
+parameter_list|,
+name|boolean
+name|reverse
 parameter_list|)
 block|{
 name|this
@@ -207,6 +212,8 @@ argument_list|(
 name|expressions
 argument_list|,
 name|allowDuplicates
+argument_list|,
+name|reverse
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -267,7 +274,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|createSet (Expression expression, boolean allowDuplicates)
+DECL|method|createSet (Expression expression, boolean allowDuplicates, boolean reverse)
 specifier|protected
 specifier|static
 name|Set
@@ -281,6 +288,9 @@ name|expression
 parameter_list|,
 name|boolean
 name|allowDuplicates
+parameter_list|,
+name|boolean
+name|reverse
 parameter_list|)
 block|{
 return|return
@@ -293,10 +303,12 @@ name|expression
 argument_list|)
 argument_list|,
 name|allowDuplicates
+argument_list|,
+name|reverse
 argument_list|)
 return|;
 block|}
-DECL|method|createSet (List<Expression> expressions, boolean allowDuplicates)
+DECL|method|createSet (List<Expression> expressions, boolean allowDuplicates, boolean reverse)
 specifier|protected
 specifier|static
 name|Set
@@ -313,6 +325,9 @@ name|expressions
 parameter_list|,
 name|boolean
 name|allowDuplicates
+parameter_list|,
+name|boolean
+name|reverse
 parameter_list|)
 block|{
 if|if
@@ -336,6 +351,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|allowDuplicates
+argument_list|,
+name|reverse
 argument_list|)
 return|;
 block|}
@@ -349,10 +366,12 @@ name|expressions
 argument_list|)
 argument_list|,
 name|allowDuplicates
+argument_list|,
+name|reverse
 argument_list|)
 return|;
 block|}
-DECL|method|createSet (final Comparator<? super Exchange> comparator, boolean allowDuplicates)
+DECL|method|createSet (final Comparator<? super Exchange> comparator, boolean allowDuplicates, boolean reverse)
 specifier|protected
 specifier|static
 name|Set
@@ -372,6 +391,9 @@ name|comparator
 parameter_list|,
 name|boolean
 name|allowDuplicates
+parameter_list|,
+name|boolean
+name|reverse
 parameter_list|)
 block|{
 name|Comparator
@@ -380,17 +402,16 @@ name|?
 super|super
 name|Exchange
 argument_list|>
-name|comp
+name|answer
 init|=
 name|comparator
 decl_stmt|;
-comment|// if we allow duplicates then we need to cater for that in the comparator
 if|if
 condition|(
-name|allowDuplicates
+name|reverse
 condition|)
 block|{
-name|comp
+name|answer
 operator|=
 operator|new
 name|Comparator
@@ -414,6 +435,66 @@ name|int
 name|answer
 init|=
 name|comparator
+operator|.
+name|compare
+argument_list|(
+name|o1
+argument_list|,
+name|o2
+argument_list|)
+decl_stmt|;
+comment|// reverse it
+return|return
+name|answer
+operator|*
+operator|-
+literal|1
+return|;
+block|}
+block|}
+expr_stmt|;
+block|}
+comment|// if we allow duplicates then we need to cater for that in the comparator
+specifier|final
+name|Comparator
+argument_list|<
+name|?
+super|super
+name|Exchange
+argument_list|>
+name|forAllowDuplicates
+init|=
+name|answer
+decl_stmt|;
+if|if
+condition|(
+name|allowDuplicates
+condition|)
+block|{
+name|answer
+operator|=
+operator|new
+name|Comparator
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|int
+name|compare
+parameter_list|(
+name|Exchange
+name|o1
+parameter_list|,
+name|Exchange
+name|o2
+parameter_list|)
+block|{
+name|int
+name|answer
+init|=
+name|forAllowDuplicates
 operator|.
 name|compare
 argument_list|(
@@ -449,7 +530,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|(
-name|comp
+name|answer
 argument_list|)
 return|;
 block|}

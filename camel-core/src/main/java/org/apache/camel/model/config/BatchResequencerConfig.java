@@ -134,6 +134,17 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|reverse
+specifier|private
+name|Boolean
+name|reverse
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 comment|/**      * Creates a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      */
 DECL|method|BatchResequencerConfig ()
 specifier|public
@@ -263,6 +274,32 @@ operator|.
 name|allowDuplicates
 operator|=
 name|allowDuplicates
+expr_stmt|;
+block|}
+DECL|method|getReverse ()
+specifier|public
+name|Boolean
+name|getReverse
+parameter_list|()
+block|{
+return|return
+name|reverse
+return|;
+block|}
+DECL|method|setReverse (Boolean reverse)
+specifier|public
+name|void
+name|setReverse
+parameter_list|(
+name|Boolean
+name|reverse
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reverse
+operator|=
+name|reverse
 expr_stmt|;
 block|}
 block|}
