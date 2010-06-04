@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -53,6 +53,23 @@ DECL|field|isImplicit
 specifier|private
 name|boolean
 name|isImplicit
+decl_stmt|;
+DECL|field|useSecureDataChannel
+specifier|private
+name|boolean
+name|useSecureDataChannel
+decl_stmt|;
+DECL|field|execProt
+specifier|private
+name|String
+name|execProt
+init|=
+literal|"P"
+decl_stmt|;
+DECL|field|execPbsz
+specifier|private
+name|long
+name|execPbsz
 decl_stmt|;
 DECL|method|FtpsConfiguration ()
 specifier|public
@@ -147,6 +164,87 @@ operator|.
 name|isImplicit
 operator|=
 name|isImplicit
+expr_stmt|;
+block|}
+DECL|method|isUseSecureDataChannel ()
+specifier|public
+name|boolean
+name|isUseSecureDataChannel
+parameter_list|()
+block|{
+return|return
+name|useSecureDataChannel
+return|;
+block|}
+comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>false</tt>      * @see #setExecPbsz(long)      * @see #setExecProt(String)      */
+DECL|method|setUseSecureDataChannel (boolean useSecureDataChannel)
+specifier|public
+name|void
+name|setUseSecureDataChannel
+parameter_list|(
+name|boolean
+name|useSecureDataChannel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useSecureDataChannel
+operator|=
+name|useSecureDataChannel
+expr_stmt|;
+block|}
+DECL|method|getExecProt ()
+specifier|public
+name|String
+name|getExecProt
+parameter_list|()
+block|{
+return|return
+name|execProt
+return|;
+block|}
+comment|/**      * When using secure data channel you can set the exec protection level      *<p/>      * PROT command. C - Clear S - Safe(SSL protocol only) E - Confidential(SSL protocol only) P - Private      *<p/>      * Default value is<tt>P</tt>      *       * @param execProt either C, S, E or P      */
+DECL|method|setExecProt (String execProt)
+specifier|public
+name|void
+name|setExecProt
+parameter_list|(
+name|String
+name|execProt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|execProt
+operator|=
+name|execProt
+expr_stmt|;
+block|}
+DECL|method|getExecPbsz ()
+specifier|public
+name|long
+name|getExecPbsz
+parameter_list|()
+block|{
+return|return
+name|execPbsz
+return|;
+block|}
+comment|/**      * When using secure data channel you can set the exec protection buffer size      *<p/>      * Default value is<tt>0</tt>      *      * @param execPbsz the buffer size      */
+DECL|method|setExecPbsz (long execPbsz)
+specifier|public
+name|void
+name|setExecPbsz
+parameter_list|(
+name|long
+name|execPbsz
+parameter_list|)
+block|{
+name|this
+operator|.
+name|execPbsz
+operator|=
+name|execPbsz
 expr_stmt|;
 block|}
 block|}

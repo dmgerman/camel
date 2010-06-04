@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -125,6 +125,22 @@ operator|.
 name|ftp
 operator|.
 name|FTPClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPClientConfig
 import|;
 end_import
 
@@ -161,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) endpoint  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * FTP Secure (FTP over SSL/TLS) endpoint  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -638,6 +654,115 @@ expr_stmt|;
 block|}
 return|return
 name|client
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRemoteFileOperations ()
+specifier|protected
+name|RemoteFileOperations
+argument_list|<
+name|FTPFile
+argument_list|>
+name|createRemoteFileOperations
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// configure ftp client
+name|FTPSClient
+name|client
+init|=
+name|getFtpsClient
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|client
+operator|==
+literal|null
+condition|)
+block|{
+comment|// must use a new client if not explicit configured to use a custom client
+name|client
+operator|=
+operator|(
+name|FTPSClient
+operator|)
+name|createFtpClient
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ftpClientParameters
+operator|!=
+literal|null
+condition|)
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|client
+argument_list|,
+name|ftpClientParameters
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ftpClientConfigParameters
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// client config is optional so create a new one if we have parameter for it
+if|if
+condition|(
+name|ftpClientConfig
+operator|==
+literal|null
+condition|)
+block|{
+name|ftpClientConfig
+operator|=
+operator|new
+name|FTPClientConfig
+argument_list|()
+expr_stmt|;
+block|}
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|ftpClientConfig
+argument_list|,
+name|ftpClientConfigParameters
+argument_list|)
+expr_stmt|;
+block|}
+name|FtpsOperations
+name|operations
+init|=
+operator|new
+name|FtpsOperations
+argument_list|(
+name|client
+argument_list|,
+name|getFtpClientConfig
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|operations
+operator|.
+name|setEndpoint
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|operations
 return|;
 block|}
 comment|/**      * Returns the FTPSClient. This method exists only for convenient.      *       * @return ftpsClient      */

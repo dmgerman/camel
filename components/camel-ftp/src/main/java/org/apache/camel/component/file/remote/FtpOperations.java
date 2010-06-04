@@ -2609,6 +2609,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getFtpClient ()
+specifier|protected
+name|FTPClient
+name|getFtpClient
+parameter_list|()
+block|{
+return|return
+name|client
+return|;
+block|}
 DECL|method|buildDirectoryChunks (String dirName)
 specifier|private
 name|boolean
