@@ -684,7 +684,11 @@ block|{
 comment|// use our authenticator that does no live user interaction but returns the already configured username and password
 name|Session
 name|session
-init|=
+decl_stmt|;
+try|try
+block|{
+name|session
+operator|=
 name|Session
 operator|.
 name|getDefaultInstance
@@ -697,7 +701,31 @@ argument_list|,
 name|getAuthenticator
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// fallback as default instance may not be allowed on some systems
+name|session
+operator|=
+name|Session
+operator|.
+name|getInstance
+argument_list|(
+name|answer
+operator|.
+name|getJavaMailProperties
+argument_list|()
+argument_list|,
+name|getAuthenticator
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setSession
