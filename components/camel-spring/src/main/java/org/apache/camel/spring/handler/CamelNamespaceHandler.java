@@ -942,7 +942,7 @@ name|Class
 operator|.
 name|forName
 argument_list|(
-literal|"org.apache.camel.core.osgi.Activator"
+literal|"org.apache.camel.osgi.Activator"
 argument_list|)
 decl_stmt|;
 name|Method
@@ -955,13 +955,6 @@ argument_list|(
 literal|"getBundle"
 argument_list|)
 decl_stmt|;
-name|mth
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|Object
 name|bundle
 init|=
@@ -1000,11 +993,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|t
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 comment|// not running with camel-osgi so we fallback to the regular factory bean
 name|LOG
 operator|.

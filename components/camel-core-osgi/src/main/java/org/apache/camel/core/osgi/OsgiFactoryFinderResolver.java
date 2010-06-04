@@ -60,6 +60,18 @@ name|FactoryFinderResolver
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|BundleContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 785599 $  */
 end_comment
@@ -72,6 +84,27 @@ name|OsgiFactoryFinderResolver
 implements|implements
 name|FactoryFinderResolver
 block|{
+DECL|field|bundleContext
+specifier|private
+specifier|final
+name|BundleContext
+name|bundleContext
+decl_stmt|;
+DECL|method|OsgiFactoryFinderResolver (BundleContext bundleContext)
+specifier|public
+name|OsgiFactoryFinderResolver
+parameter_list|(
+name|BundleContext
+name|bundleContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleContext
+operator|=
+name|bundleContext
+expr_stmt|;
+block|}
 DECL|method|resolveDefaultFactoryFinder (ClassResolver classResolver)
 specifier|public
 name|FactoryFinder
@@ -106,6 +139,8 @@ return|return
 operator|new
 name|OsgiFactoryFinder
 argument_list|(
+name|bundleContext
+argument_list|,
 name|classResolver
 argument_list|,
 name|resourcePath

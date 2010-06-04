@@ -342,7 +342,7 @@ name|PackageScanClassResolver
 name|resolver
 decl_stmt|;
 DECL|field|visitedClasses
-specifier|private
+specifier|protected
 name|Set
 argument_list|<
 name|Class
@@ -363,7 +363,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|visitedURLs
-specifier|private
+specifier|protected
 name|Set
 argument_list|<
 name|URL
