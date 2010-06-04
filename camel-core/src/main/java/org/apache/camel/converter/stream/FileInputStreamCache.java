@@ -200,7 +200,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// when close the FileInputStreamCache we should also close the cachedOutputStream
+comment|// Just remove the itself from cachedOutputStream
 if|if
 condition|(
 name|cachedOutputStream
@@ -210,8 +210,10 @@ condition|)
 block|{
 name|cachedOutputStream
 operator|.
-name|close
-argument_list|()
+name|releaseFileInputStream
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 block|}

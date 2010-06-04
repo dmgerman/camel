@@ -457,11 +457,32 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"we should have a temp file"
+argument_list|,
+name|files
+operator|.
+name|length
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"Cached a wrong file"
 argument_list|,
 name|temp
 argument_list|,
 name|TEST_STRING
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|done
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 try|try
@@ -505,10 +526,10 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testCacheStreamToFileAndNotCloseStream ()
+DECL|method|testCacheStreamToFileCloseStreamBeforeDone ()
 specifier|public
 name|void
-name|testCacheStreamToFileAndNotCloseStream
+name|testCacheStreamToFileCloseStreamBeforeDone
 parameter_list|()
 throws|throws
 name|IOException
@@ -637,6 +658,27 @@ argument_list|,
 name|temp
 argument_list|,
 name|TEST_STRING
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|done
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"we should have a temp file"
+argument_list|,
+name|files
+operator|.
+name|length
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 operator|(

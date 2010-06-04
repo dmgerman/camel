@@ -260,19 +260,10 @@ name|numMessages
 init|=
 literal|1000
 decl_stmt|;
-DECL|method|testDummy ()
+DECL|method|testSendStreamSource ()
 specifier|public
 name|void
-name|testDummy
-parameter_list|()
-block|{
-comment|// noop
-block|}
-comment|// TODO: Disabled due it fails
-DECL|method|xxxTestSendStreamSource ()
-specifier|public
-name|void
-name|xxxTestSendStreamSource
+name|testSendStreamSource
 parameter_list|()
 throws|throws
 name|Exception
