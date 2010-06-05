@@ -805,6 +805,7 @@ name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|BaseService
@@ -841,7 +842,6 @@ operator|.
 name|unregister
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2017,6 +2017,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void
@@ -2321,8 +2326,8 @@ block|}
 block|}
 DECL|class|BaseResolver
 specifier|protected
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseResolver
 parameter_list|<
@@ -2438,6 +2443,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createInstance (String name, URL url, Injector injector)
 specifier|protected
 name|T
@@ -2564,8 +2574,8 @@ block|}
 block|}
 DECL|class|BaseService
 specifier|protected
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseService
 block|{
@@ -2812,28 +2822,17 @@ throw|;
 block|}
 finally|finally
 block|{
-try|try
-block|{
-if|if
-condition|(
-name|reader
-operator|!=
-literal|null
-condition|)
-block|{
-name|reader
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|reader
+argument_list|,
+literal|"properties"
+argument_list|,
+name|LOG
+argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ignore
-parameter_list|)
-block|{             }
 block|}
 return|return
 name|properties
@@ -3053,13 +3052,6 @@ comment|// Do nothing here
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|reader
-operator|!=
-literal|null
-condition|)
-block|{
 name|IOHelper
 operator|.
 name|close
@@ -3071,7 +3063,6 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
