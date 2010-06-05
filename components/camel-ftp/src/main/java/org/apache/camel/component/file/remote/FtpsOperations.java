@@ -221,6 +221,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|config
+operator|.
+name|getExecPbsz
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|getFtpClient
 argument_list|()
 operator|.
@@ -232,6 +242,7 @@ name|getExecPbsz
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|getFtpClient
 argument_list|()
 operator|.

@@ -68,7 +68,7 @@ literal|"P"
 decl_stmt|;
 DECL|field|execPbsz
 specifier|private
-name|long
+name|Long
 name|execPbsz
 decl_stmt|;
 DECL|method|FtpsConfiguration ()
@@ -176,7 +176,7 @@ return|return
 name|useSecureDataChannel
 return|;
 block|}
-comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>false</tt>      * @see #setExecPbsz(long)      * @see #setExecProt(String)      */
+comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>false</tt>      * @see #setExecPbsz(Long)      * @see #setExecProt(String)      */
 DECL|method|setUseSecureDataChannel (boolean useSecureDataChannel)
 specifier|public
 name|void
@@ -222,7 +222,7 @@ expr_stmt|;
 block|}
 DECL|method|getExecPbsz ()
 specifier|public
-name|long
+name|Long
 name|getExecPbsz
 parameter_list|()
 block|{
@@ -231,12 +231,12 @@ name|execPbsz
 return|;
 block|}
 comment|/**      * When using secure data channel you can set the exec protection buffer size      *<p/>      * Default value is<tt>0</tt>      *      * @param execPbsz the buffer size      */
-DECL|method|setExecPbsz (long execPbsz)
+DECL|method|setExecPbsz (Long execPbsz)
 specifier|public
 name|void
 name|setExecPbsz
 parameter_list|(
-name|long
+name|Long
 name|execPbsz
 parameter_list|)
 block|{
