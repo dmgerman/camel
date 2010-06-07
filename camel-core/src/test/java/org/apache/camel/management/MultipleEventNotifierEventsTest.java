@@ -644,7 +644,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeCompletedEvent
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,
@@ -658,7 +658,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeSentEvent
+name|ExchangeCompletedEvent
 operator|.
 name|class
 argument_list|,
@@ -724,7 +724,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeCompletedEvent
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,
@@ -738,7 +738,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeSentEvent
+name|ExchangeCompletedEvent
 operator|.
 name|class
 argument_list|,
@@ -959,7 +959,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeFailureEvent
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,
@@ -973,7 +973,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeSentEvent
+name|ExchangeFailureEvent
 operator|.
 name|class
 argument_list|,
@@ -1016,7 +1016,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeFailureEvent
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,
@@ -1030,7 +1030,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeSentEvent
+name|ExchangeFailureEvent
 operator|.
 name|class
 argument_list|,
