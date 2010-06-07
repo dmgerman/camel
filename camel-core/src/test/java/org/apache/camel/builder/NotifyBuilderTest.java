@@ -1798,8 +1798,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// There are two done event, one for the exchange which is created by DefaultProducerTemplate
-comment|// the other is for the exchange which is created by route context
 name|NotifyBuilder
 name|notify
 init|=
@@ -1811,7 +1809,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|create
@@ -1924,8 +1922,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// There are two done event, one for the exchange which is created by DefaultProducerTemplate
-comment|// the other is for the exchange which is created by route context
 name|NotifyBuilder
 name|notify
 init|=
@@ -1937,7 +1933,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|create
