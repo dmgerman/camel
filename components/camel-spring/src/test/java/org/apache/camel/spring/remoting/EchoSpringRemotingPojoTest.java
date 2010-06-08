@@ -189,6 +189,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
+name|MyEchoRuntimeException
+name|cause
+init|=
 name|assertIsInstanceOf
 argument_list|(
 name|MyEchoRuntimeException
@@ -199,22 +202,13 @@ name|e
 operator|.
 name|getCause
 argument_list|()
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Damn something went wrong"
 argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
-argument_list|()
+name|cause
 operator|.
 name|getMessage
 argument_list|()

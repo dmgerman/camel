@@ -355,6 +355,7 @@ operator|new
 name|DefaultTracedRouteNodes
 argument_list|()
 expr_stmt|;
+comment|// TODO: the copy on facade strategy will help us here in the future
 comment|// TODO: optimize to only copy original message if enabled to do so in the route
 comment|// special for JmsMessage as it can cause it to loose headers later.
 comment|// This will be resolved when we get the message facade with copy on write implemented

@@ -92,18 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -300,25 +288,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
+name|Exchange
+name|reply
+init|=
 name|sendJaxWsMessage
 argument_list|(
 name|endpointUri
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expecting the exception here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
+decl_stmt|;
+name|Exception
 name|e
-parameter_list|)
-block|{
+init|=
+name|reply
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"We should get the exception cause here"
@@ -344,7 +329,6 @@ operator|instanceof
 name|SocketTimeoutException
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|sendJaxWsMessage (String endpointUri)
 specifier|protected

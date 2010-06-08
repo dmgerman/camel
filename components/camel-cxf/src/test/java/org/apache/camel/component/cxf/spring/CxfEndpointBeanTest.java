@@ -96,18 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|cxf
@@ -231,11 +219,12 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
-try|try
-block|{
+name|Exchange
+name|reply
+init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"cxf:bean:serviceEndpoint"
 argument_list|,
@@ -300,27 +289,20 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"should get the exception here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
+decl_stmt|;
+name|Exception
 name|ex
-parameter_list|)
-block|{
+init|=
+name|reply
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should get the fault here "
+literal|"Should get the fault here"
 argument_list|,
 name|ex
-operator|.
-name|getCause
-argument_list|()
 operator|instanceof
 name|org
 operator|.
@@ -333,8 +315,6 @@ operator|.
 name|Fault
 argument_list|)
 expr_stmt|;
-comment|// do nothing here;
-block|}
 block|}
 block|}
 end_class
