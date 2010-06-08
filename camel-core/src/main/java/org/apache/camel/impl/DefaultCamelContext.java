@@ -52,6 +52,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -103,18 +113,6 @@ operator|.
 name|util
 operator|.
 name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Callable
 import|;
 end_import
 
@@ -1072,6 +1070,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|TimeUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -1678,6 +1690,11 @@ name|StopWatch
 argument_list|(
 literal|false
 argument_list|)
+decl_stmt|;
+DECL|field|startDate
+specifier|private
+name|Date
+name|startDate
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -4905,6 +4922,48 @@ return|return
 name|producerServicePool
 return|;
 block|}
+DECL|method|getUptime ()
+specifier|public
+name|String
+name|getUptime
+parameter_list|()
+block|{
+comment|// compute and log uptime
+if|if
+condition|(
+name|startDate
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"not started"
+return|;
+block|}
+name|long
+name|delta
+init|=
+operator|new
+name|Date
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+operator|-
+name|startDate
+operator|.
+name|getTime
+argument_list|()
+decl_stmt|;
+return|return
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
+name|delta
+argument_list|)
+return|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
@@ -5602,6 +5661,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|startDate
+operator|=
+operator|new
+name|Date
+argument_list|()
+expr_stmt|;
 name|stopWatch
 operator|.
 name|restart
@@ -6116,6 +6181,21 @@ name|shutdownServices
 argument_list|(
 name|managementStrategy
 argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Uptime: "
+operator|+
+name|getUptime
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and clear start date
+name|startDate
+operator|=
+literal|null
 expr_stmt|;
 name|LOG
 operator|.

@@ -408,6 +408,12 @@ name|ServiceStatus
 name|getStatus
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the uptime in a human readable format      *      * @return the uptime in days/hours/minutes      */
+DECL|method|getUptime ()
+name|String
+name|getUptime
+parameter_list|()
+function_decl|;
 comment|// Service Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a service, starting it so that it will be stopped with this context      *<p/>      * The added service will also be enlisted in JMX for management (if JMX is enabled)      *      * @param object the service      * @throws Exception can be thrown when starting the service      */

@@ -304,6 +304,26 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Uptime"
+argument_list|)
+DECL|method|getUptime ()
+specifier|public
+name|String
+name|getUptime
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getUptime
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Camel Properties"
 argument_list|)
 DECL|method|getProperties ()

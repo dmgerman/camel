@@ -241,6 +241,26 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+name|String
+name|uptime
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"Uptime"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|uptime
+argument_list|)
+expr_stmt|;
 comment|// invoke operations
 name|MockEndpoint
 name|mock
