@@ -68,6 +68,12 @@ name|AUTHENTICATION
 init|=
 literal|"CamelAuthentication"
 decl_stmt|;
+DECL|field|AUTHENTICATION_FAILURE_POLICY_ID
+name|String
+name|AUTHENTICATION_FAILURE_POLICY_ID
+init|=
+literal|"CamelAuthenticationFailurePolicyId"
+decl_stmt|;
 DECL|field|ACCEPT_CONTENT_TYPE
 name|String
 name|ACCEPT_CONTENT_TYPE
