@@ -203,20 +203,6 @@ name|getBundle
 argument_list|()
 expr_stmt|;
 block|}
-DECL|class|BundleEntry
-specifier|private
-class|class
-name|BundleEntry
-block|{
-DECL|field|url
-name|URL
-name|url
-decl_stmt|;
-DECL|field|bundle
-name|Bundle
-name|bundle
-decl_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|findClass (String key, String propertyPrefix)

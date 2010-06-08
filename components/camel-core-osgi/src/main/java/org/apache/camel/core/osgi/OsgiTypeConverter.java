@@ -604,9 +604,15 @@ block|{
 if|if
 condition|(
 name|registry
-operator|==
+operator|!=
 literal|null
 condition|)
+block|{
+return|return
+name|registry
+return|;
+block|}
+else|else
 block|{
 name|registry
 operator|=
