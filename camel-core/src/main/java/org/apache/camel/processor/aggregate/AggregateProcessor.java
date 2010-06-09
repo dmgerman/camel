@@ -1331,6 +1331,19 @@ argument_list|,
 name|batchKey
 argument_list|)
 decl_stmt|;
+comment|// There is no aggregated exchange
+if|if
+condition|(
+name|batchAnswer
+operator|==
+literal|null
+condition|)
+block|{
+name|batchAnswer
+operator|=
+name|answer
+expr_stmt|;
+block|}
 name|batchAnswer
 operator|.
 name|setProperty
