@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|http4
@@ -170,8 +158,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
+name|Exchange
+name|reply
+init|=
 name|template
 operator|.
 name|request
@@ -201,24 +190,25 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-block|{                 }
+block|{             }
 block|}
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw a RuntimeCamelException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
+decl_stmt|;
+name|Exception
 name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
+init|=
+name|reply
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
