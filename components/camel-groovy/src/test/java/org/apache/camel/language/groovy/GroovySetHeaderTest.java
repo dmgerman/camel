@@ -158,6 +158,15 @@ argument_list|,
 literal|"Carlsberg"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"camelId"
+argument_list|,
+literal|"camel-1"
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -254,6 +263,17 @@ operator|.
 name|groovy
 argument_list|(
 literal|"request.headers.beer"
+argument_list|)
+comment|// shows how to access the camelContext value
+operator|.
+name|setHeader
+argument_list|(
+literal|"camelId"
+argument_list|)
+operator|.
+name|groovy
+argument_list|(
+literal|"camelContext.name"
 argument_list|)
 operator|.
 name|to
