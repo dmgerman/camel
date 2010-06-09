@@ -5603,6 +5603,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -5634,14 +5647,18 @@ argument_list|()
 operator|+
 literal|") started in "
 operator|+
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
-operator|+
-literal|" millis"
+argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|EventHelper
 operator|.
 name|notifyCamelContextStarted
@@ -6182,6 +6199,19 @@ argument_list|(
 name|managementStrategy
 argument_list|)
 expr_stmt|;
+name|stopWatch
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -6191,11 +6221,6 @@ operator|+
 name|getUptime
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// and clear start date
-name|startDate
-operator|=
-literal|null
 expr_stmt|;
 name|LOG
 operator|.
@@ -6213,13 +6238,22 @@ argument_list|()
 operator|+
 literal|") is shutdown in "
 operator|+
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
-operator|+
-literal|" millis"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// and clear start date
+name|startDate
+operator|=
+literal|null
 expr_stmt|;
 block|}
 DECL|method|shutdownServices (Object service)

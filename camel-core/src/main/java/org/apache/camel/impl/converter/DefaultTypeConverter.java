@@ -290,6 +290,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|TimeUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -2188,6 +2202,14 @@ literal|"Loading type converters done"
 argument_list|)
 expr_stmt|;
 comment|// report how long time it took to load
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -2201,14 +2223,18 @@ argument_list|()
 operator|+
 literal|" type converters in "
 operator|+
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
 name|watch
 operator|.
 name|stop
 argument_list|()
-operator|+
-literal|" millis"
+argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|loadFallbackTypeConverters ()
 specifier|protected
