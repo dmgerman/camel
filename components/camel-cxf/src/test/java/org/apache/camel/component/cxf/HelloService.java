@@ -18,6 +18,16 @@ name|cxf
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_interface
 DECL|interface|HelloService
 specifier|public
@@ -55,6 +65,23 @@ name|echoBoolean
 parameter_list|(
 name|Boolean
 name|bool
+parameter_list|)
+function_decl|;
+DECL|method|complexParameters (List<String> par1, List<String> par2)
+name|String
+name|complexParameters
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|par1
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|par2
 parameter_list|)
 function_decl|;
 block|}
