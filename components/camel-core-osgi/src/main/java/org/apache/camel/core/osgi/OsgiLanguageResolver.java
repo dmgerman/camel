@@ -295,7 +295,7 @@ decl_stmt|;
 if|if
 condition|(
 name|lang
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
