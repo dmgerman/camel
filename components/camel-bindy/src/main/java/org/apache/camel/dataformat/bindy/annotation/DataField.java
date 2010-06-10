@@ -138,6 +138,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Indicates if the value should be trimed      *       * @return boolean      */
+DECL|method|trim ()
+DECL|field|false
+name|boolean
+name|trim
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
