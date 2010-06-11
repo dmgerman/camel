@@ -184,16 +184,6 @@ specifier|private
 name|boolean
 name|enableJmx
 decl_stmt|;
-DECL|field|requestBufferSize
-specifier|private
-name|int
-name|requestBufferSize
-decl_stmt|;
-DECL|field|responseBufferSize
-specifier|private
-name|int
-name|responseBufferSize
-decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
 name|JettyHttpEndpoint
@@ -317,54 +307,6 @@ parameter_list|()
 block|{
 return|return
 name|sessionSupport
-return|;
-block|}
-DECL|method|setRequestBufferSize (int bufferSize)
-specifier|public
-name|void
-name|setRequestBufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|requestBufferSize
-operator|=
-name|bufferSize
-expr_stmt|;
-block|}
-DECL|method|getRequestBufferSize ()
-specifier|public
-name|int
-name|getRequestBufferSize
-parameter_list|()
-block|{
-return|return
-name|requestBufferSize
-return|;
-block|}
-DECL|method|setResponseBufferSize (int bufferSize)
-specifier|public
-name|void
-name|setResponseBufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|responseBufferSize
-operator|=
-name|bufferSize
-expr_stmt|;
-block|}
-DECL|method|getResponseBufferSize ()
-specifier|public
-name|int
-name|getResponseBufferSize
-parameter_list|()
-block|{
-return|return
-name|responseBufferSize
 return|;
 block|}
 DECL|method|getHandlers ()
