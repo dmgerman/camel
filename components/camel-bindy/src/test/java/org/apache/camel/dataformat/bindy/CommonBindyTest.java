@@ -158,6 +158,15 @@ name|URI_FILE_FIX
 init|=
 literal|"file://src/test/data/fix?noop=true"
 decl_stmt|;
+DECL|field|URI_FILE_FIX_SIMPLE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|URI_FILE_FIX_SIMPLE
+init|=
+literal|"file://src/test/data/fix_simple?noop=true"
+decl_stmt|;
 DECL|field|URI_FILE_FIX_TAB
 specifier|public
 specifier|static

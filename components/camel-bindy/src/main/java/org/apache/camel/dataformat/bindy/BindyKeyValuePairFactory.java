@@ -2286,6 +2286,28 @@ operator|.
 name|position
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Key of the section : "
+operator|+
+name|key1
+operator|+
+literal|", and the field  : "
+operator|+
+name|key2
+argument_list|)
+expr_stmt|;
+block|}
 name|Integer
 name|keyGenerated
 init|=
