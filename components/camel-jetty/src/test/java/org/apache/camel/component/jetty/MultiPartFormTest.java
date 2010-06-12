@@ -373,8 +373,9 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// Set the jetty temp directory which store the file
+comment|// Set the jetty temp directory which store the file for multi part form
 comment|// camel-jetty will clean up the file after it handled the request.
+comment|// The option works rightly from Camel 2.4.0
 name|getContext
 argument_list|()
 operator|.
