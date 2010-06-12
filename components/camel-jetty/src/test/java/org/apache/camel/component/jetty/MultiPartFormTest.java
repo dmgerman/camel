@@ -373,6 +373,21 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
+comment|// Set the jetty temp directory which store the file
+comment|// camel-jetty will clean up the file after it handled the request.
+name|getContext
+argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"CamelJettyTempDir"
+argument_list|,
+literal|"target"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"jetty://http://localhost:9080/test"
