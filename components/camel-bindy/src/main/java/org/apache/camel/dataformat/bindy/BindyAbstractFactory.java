@@ -46,16 +46,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -175,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BindyAbstractFactory implements what its common to all the formats  * supported by camel bindy  */
+comment|/**  * The {@link BindyAbstractFactory} implements what its common to all the formats  * supported by camel bindy  */
 end_comment
 
 begin_class
@@ -237,21 +227,6 @@ name|List
 argument_list|<
 name|Field
 argument_list|>
-argument_list|>
-argument_list|()
-decl_stmt|;
-DECL|field|linkFields
-specifier|protected
-name|List
-argument_list|<
-name|Field
-argument_list|>
-name|linkFields
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -334,7 +309,7 @@ name|initModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *       * @throws Exception      */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *      * @throws Exception      */
 DECL|method|initModel ()
 specifier|public
 name|void
@@ -375,7 +350,7 @@ name|packageNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find fields annoted in each class of the model      */
+comment|/**      * Find fields annotated in each class of the model      */
 DECL|method|initAnnotedFields ()
 specifier|public
 specifier|abstract
@@ -541,7 +516,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from      *         records, messages      * @throws Exception can be thrown      */
+comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *      * @return Map is a collection of the objects used to bind data from      *         records, messages      * @throws Exception can be thrown      */
 DECL|method|factory ()
 specifier|public
 name|Map
@@ -614,7 +589,7 @@ return|return
 name|mapModel
 return|;
 block|}
-comment|/**      * Generate a unique key      *       * @param key1 The key of the section number      * @param key2 The key of the position of the field      * @return the key generated      */
+comment|/**      * Generate a unique key      *      * @param key1 The key of the section number      * @param key2 The key of the position of the field      * @return the key generated      */
 DECL|method|generateKey (Integer key1, Integer key2)
 specifier|protected
 specifier|static
@@ -694,7 +669,6 @@ name|keyGenerated
 argument_list|)
 return|;
 block|}
-comment|/**      * @return NumberFormat      */
 DECL|method|getNumberFormat ()
 specifier|private
 specifier|static
@@ -730,12 +704,11 @@ return|return
 name|nf
 return|;
 block|}
-comment|/**      * Return Default value for primitive type      *       * @param clazz      * @return      * @throws Exception      */
-DECL|method|getDefaultValueforPrimitive (Class<?> clazz)
+DECL|method|getDefaultValueForPrimitive (Class<?> clazz)
 specifier|public
 specifier|static
 name|Object
-name|getDefaultValueforPrimitive
+name|getDefaultValueForPrimitive
 parameter_list|(
 name|Class
 argument_list|<

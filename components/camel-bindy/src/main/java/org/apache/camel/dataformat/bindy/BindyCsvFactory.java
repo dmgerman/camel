@@ -1065,7 +1065,7 @@ else|else
 block|{
 name|value
 operator|=
-name|getDefaultValueforPrimitive
+name|getDefaultValueForPrimitive
 argument_list|(
 name|field
 operator|.
