@@ -296,6 +296,20 @@ specifier|private
 name|boolean
 name|usingSSL
 decl_stmt|;
+DECL|field|initialReconnectDelay
+specifier|private
+name|long
+name|initialReconnectDelay
+init|=
+literal|5000
+decl_stmt|;
+DECL|field|reconnectDelay
+specifier|private
+name|long
+name|reconnectDelay
+init|=
+literal|5000
+decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
@@ -953,6 +967,58 @@ operator|=
 name|usingSSL
 expr_stmt|;
 block|}
+DECL|method|getInitialReconnectDelay ()
+specifier|public
+name|long
+name|getInitialReconnectDelay
+parameter_list|()
+block|{
+return|return
+name|initialReconnectDelay
+return|;
+block|}
+DECL|method|setInitialReconnectDelay (long initialReconnectDelay)
+specifier|public
+name|void
+name|setInitialReconnectDelay
+parameter_list|(
+name|long
+name|initialReconnectDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialReconnectDelay
+operator|=
+name|initialReconnectDelay
+expr_stmt|;
+block|}
+DECL|method|getReconnectDelay ()
+specifier|public
+name|long
+name|getReconnectDelay
+parameter_list|()
+block|{
+return|return
+name|reconnectDelay
+return|;
+block|}
+DECL|method|setReconnectDelay (long reconnectDelay)
+specifier|public
+name|void
+name|setReconnectDelay
+parameter_list|(
+name|long
+name|reconnectDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reconnectDelay
+operator|=
+name|reconnectDelay
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1045,6 +1111,14 @@ operator|+
 literal|", numberingPlanIndicator="
 operator|+
 name|numberingPlanIndicator
+operator|+
+literal|", initialReconnectDelay="
+operator|+
+name|initialReconnectDelay
+operator|+
+literal|", reconnectDelay="
+operator|+
+name|reconnectDelay
 operator|+
 literal|"]"
 return|;
