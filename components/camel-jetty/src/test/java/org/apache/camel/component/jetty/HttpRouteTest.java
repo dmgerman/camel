@@ -502,7 +502,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://localhost:9280/hello"
+literal|"http://localhost:9281/hello"
 argument_list|)
 operator|.
 name|openStream
@@ -1303,7 +1303,7 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9280/hello?sessionSupport=true"
+literal|"jetty:http://localhost:9281/hello?sessionSupport=true"
 argument_list|)
 operator|.
 name|process

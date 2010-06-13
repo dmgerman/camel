@@ -1352,6 +1352,25 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// must enable session before we start
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isSessionSupport
+argument_list|()
+condition|)
+block|{
+name|enableSessionSupport
+argument_list|(
+name|connectorRef
+operator|.
+name|server
+argument_list|,
+name|connectorKey
+argument_list|)
+expr_stmt|;
+block|}
 name|connectorRef
 operator|.
 name|server
@@ -1392,6 +1411,8 @@ argument_list|(
 name|connectorRef
 operator|.
 name|server
+argument_list|,
+name|connectorKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -1450,13 +1471,16 @@ comment|// to a Server lifecycle or we end up closing it while it is still in us
 comment|//server.addBean(mbContainer);
 block|}
 block|}
-DECL|method|enableSessionSupport (Server server)
+DECL|method|enableSessionSupport (Server server, String connectorKey)
 specifier|private
 name|void
 name|enableSessionSupport
 parameter_list|(
 name|Server
 name|server
+parameter_list|,
+name|String
+name|connectorKey
 parameter_list|)
 throws|throws
 name|Exception
@@ -1501,24 +1525,15 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// restart the context
-name|context
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
-name|setSessionHandler
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|sessionHandler
+literal|"Server has already been started. Cannot enabled sessionSupport on "
+operator|+
+name|connectorKey
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 else|else
 block|{
