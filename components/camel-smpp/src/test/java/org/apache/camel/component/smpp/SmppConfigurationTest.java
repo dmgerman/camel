@@ -987,6 +987,72 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|toStringShouldListAllInstanceVariables ()
+specifier|public
+name|void
+name|toStringShouldListAllInstanceVariables
+parameter_list|()
+block|{
+name|String
+name|expected
+init|=
+literal|"SmppConfiguration["
+operator|+
+literal|"usingSSL=false, "
+operator|+
+literal|"enquireLinkTimer=5000, "
+operator|+
+literal|"host=localhost, "
+operator|+
+literal|"password=password, "
+operator|+
+literal|"port=2775, "
+operator|+
+literal|"systemId=smppclient, "
+operator|+
+literal|"systemType=cp, "
+operator|+
+literal|"transactionTimer=10000, "
+operator|+
+literal|"registeredDelivery=1, "
+operator|+
+literal|"serviceType=CMT, "
+operator|+
+literal|"sourceAddrTon=0, "
+operator|+
+literal|"destAddrTon=0, "
+operator|+
+literal|"sourceAddrNpi=0, "
+operator|+
+literal|"destAddrNpi=0, "
+operator|+
+literal|"protocolId=0, "
+operator|+
+literal|"priorityFlag=1, "
+operator|+
+literal|"replaceIfPresentFlag=0, "
+operator|+
+literal|"sourceAddr=1616, "
+operator|+
+literal|"destAddr=1717, "
+operator|+
+literal|"typeOfNumber=0, "
+operator|+
+literal|"numberingPlanIndicator=0]"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|configuration
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setNoneDefaultValues (SmppConfiguration config)
 specifier|private
 name|void

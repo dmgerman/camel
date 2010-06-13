@@ -962,9 +962,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SmppConfiguration["
+literal|"SmppConfiguration[usingSSL="
 operator|+
-literal|"enquireLinkTimer="
+name|usingSSL
+operator|+
+literal|", enquireLinkTimer="
 operator|+
 name|enquireLinkTimer
 operator|+
@@ -1035,6 +1037,14 @@ operator|+
 literal|", destAddr="
 operator|+
 name|destAddr
+operator|+
+literal|", typeOfNumber="
+operator|+
+name|typeOfNumber
+operator|+
+literal|", numberingPlanIndicator="
+operator|+
+name|numberingPlanIndicator
 operator|+
 literal|"]"
 return|;
