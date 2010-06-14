@@ -755,8 +755,12 @@ argument_list|)
 expr_stmt|;
 name|scheduler
 operator|.
-name|standby
+name|shutdown
 argument_list|()
+expr_stmt|;
+name|scheduler
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}

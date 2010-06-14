@@ -989,15 +989,6 @@ name|getTrigger
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Remove the trigger"
-argument_list|)
-expr_stmt|;
 name|started
 operator|=
 literal|false
