@@ -801,6 +801,45 @@ operator|.
 name|factory
 argument_list|()
 expr_stmt|;
+comment|// Added for camel- jira ticket
+comment|// We will remove the first and last character  of the line
+comment|// when the separator contains quotes, double quotes
+comment|// e.g. ',' or "," ...
+comment|// REMARK : We take the assumption that the data fields are
+comment|// quoted or double quoted like that
+comment|// e.g : "1 ", "street 1, NY", "USA"
+if|if
+condition|(
+name|separator
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|1
+condition|)
+block|{
+name|String
+name|tempLine
+init|=
+name|line
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|,
+name|line
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+name|line
+operator|=
+name|tempLine
+expr_stmt|;
+block|}
 comment|// Split the CSV record according to the separator defined in
 comment|// annotated class @CSVRecord
 name|String
