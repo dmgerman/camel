@@ -58,13 +58,13 @@ DECL|field|useSecureDataChannel
 specifier|private
 name|boolean
 name|useSecureDataChannel
+init|=
+literal|true
 decl_stmt|;
 DECL|field|execProt
 specifier|private
 name|String
 name|execProt
-init|=
-literal|"P"
 decl_stmt|;
 DECL|field|execPbsz
 specifier|private
@@ -176,7 +176,7 @@ return|return
 name|useSecureDataChannel
 return|;
 block|}
-comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>false</tt>      * @see #setExecPbsz(Long)      * @see #setExecProt(String)      */
+comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>true</tt>      * @see #setExecPbsz(Long)      * @see #setExecProt(String)      */
 DECL|method|setUseSecureDataChannel (boolean useSecureDataChannel)
 specifier|public
 name|void
@@ -203,7 +203,7 @@ return|return
 name|execProt
 return|;
 block|}
-comment|/**      * When using secure data channel you can set the exec protection level      *<p/>      * PROT command. C - Clear S - Safe(SSL protocol only) E - Confidential(SSL protocol only) P - Private      *<p/>      * Default value is<tt>P</tt>      *       * @param execProt either C, S, E or P      */
+comment|/**      * The exec protection level      *<p/>      * PROT command. C - Clear S - Safe(SSL protocol only) E - Confidential(SSL protocol only) P - Private      *      * @param execProt either C, S, E or P      */
 DECL|method|setExecProt (String execProt)
 specifier|public
 name|void
@@ -230,7 +230,7 @@ return|return
 name|execPbsz
 return|;
 block|}
-comment|/**      * When using secure data channel you can set the exec protection buffer size      *<p/>      * Default value is<tt>0</tt>      *      * @param execPbsz the buffer size      */
+comment|/**      * When using secure data channel you can set the exec protection buffer size      *      * @param execPbsz the buffer size      */
 DECL|method|setExecPbsz (Long execPbsz)
 specifier|public
 name|void
