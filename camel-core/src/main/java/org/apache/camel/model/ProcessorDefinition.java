@@ -900,6 +900,42 @@ return|return
 name|children
 return|;
 block|}
+comment|/**      * A helper method to add an output node to this processor definition which can avoid the use of hairy generics      * when using Scala code      */
+DECL|method|addOutputObject (Object node)
+specifier|public
+name|boolean
+name|addOutputObject
+parameter_list|(
+name|Object
+name|node
+parameter_list|)
+block|{
+if|if
+condition|(
+name|node
+operator|instanceof
+name|ProcessorDefinition
+condition|)
+block|{
+name|addOutput
+argument_list|(
+operator|(
+name|ProcessorDefinition
+operator|)
+name|node
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 DECL|method|addOutput (ProcessorDefinition processorType)
 specifier|public
 name|void
