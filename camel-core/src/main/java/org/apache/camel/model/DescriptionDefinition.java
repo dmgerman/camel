@@ -124,10 +124,9 @@ name|lang
 decl_stmt|;
 annotation|@
 name|XmlValue
-argument_list|()
 DECL|field|text
 specifier|private
-name|Object
+name|String
 name|text
 decl_stmt|;
 DECL|method|getLang ()
@@ -158,7 +157,7 @@ expr_stmt|;
 block|}
 DECL|method|getText ()
 specifier|public
-name|Object
+name|String
 name|getText
 parameter_list|()
 block|{
@@ -166,12 +165,12 @@ return|return
 name|text
 return|;
 block|}
-DECL|method|setText (Object text)
+DECL|method|setText (String text)
 specifier|public
 name|void
 name|setText
 parameter_list|(
-name|Object
+name|String
 name|text
 parameter_list|)
 block|{
