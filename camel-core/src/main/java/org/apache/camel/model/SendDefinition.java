@@ -297,8 +297,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|endpoint
-operator|=
+return|return
 name|context
 operator|.
 name|resolveEndpoint
@@ -309,11 +308,14 @@ argument_list|,
 name|getRef
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
+else|else
+block|{
 return|return
 name|endpoint
 return|;
+block|}
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

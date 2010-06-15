@@ -298,10 +298,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getEndpointUri
+name|getUri
 argument_list|()
 operator|+
 literal|"\")"
@@ -500,10 +497,7 @@ literal|".to(\""
 operator|+
 name|send
 operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getEndpointUri
+name|getUri
 argument_list|()
 operator|+
 literal|"\")"
