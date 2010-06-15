@@ -189,12 +189,13 @@ operator|.
 name|getExecPbsz
 argument_list|()
 decl_stmt|;
-comment|// if using secure channel then ensure prot and pbsz have default values if unassigned
+comment|// use default values for prop and pbsz, unless told to not do so
 if|if
 condition|(
+operator|!
 name|config
 operator|.
-name|isUseSecureDataChannel
+name|isDisableSecureDataChannelDefaults
 argument_list|()
 condition|)
 block|{

@@ -114,7 +114,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000&ftpClient=#ftpsClient&useSecureDataChannel=false"
+literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000&ftpClient=#ftpsClient&disableSecureDataChannelDefaults=true"
 return|;
 block|}
 annotation|@

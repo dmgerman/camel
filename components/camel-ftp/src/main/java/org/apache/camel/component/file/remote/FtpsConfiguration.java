@@ -54,12 +54,10 @@ specifier|private
 name|boolean
 name|isImplicit
 decl_stmt|;
-DECL|field|useSecureDataChannel
+DECL|field|disableSecureDataChannelDefaults
 specifier|private
 name|boolean
-name|useSecureDataChannel
-init|=
-literal|true
+name|disableSecureDataChannelDefaults
 decl_stmt|;
 DECL|field|execProt
 specifier|private
@@ -166,31 +164,31 @@ operator|=
 name|isImplicit
 expr_stmt|;
 block|}
-DECL|method|isUseSecureDataChannel ()
+DECL|method|isDisableSecureDataChannelDefaults ()
 specifier|public
 name|boolean
-name|isUseSecureDataChannel
+name|isDisableSecureDataChannelDefaults
 parameter_list|()
 block|{
 return|return
-name|useSecureDataChannel
+name|disableSecureDataChannelDefaults
 return|;
 block|}
-comment|/**      * Sets whether to use secure data channel when transferring file content      *<p/>      * Default is<tt>true</tt>      * @see #setExecPbsz(Long)      * @see #setExecProt(String)      */
-DECL|method|setUseSecureDataChannel (boolean useSecureDataChannel)
+comment|/**      * Use this option to disable default options when using secure data channel.      *<p/>      * This allows you to be in full control what the execPbsz and execProt setting should be used.      *<p/>      * Default is<tt>false</tt>      * @see #setExecPbsz(Long)      * @see #setExecProt(String)      */
+DECL|method|setDisableSecureDataChannelDefaults (boolean disableSecureDataChannelDefaults)
 specifier|public
 name|void
-name|setUseSecureDataChannel
+name|setDisableSecureDataChannelDefaults
 parameter_list|(
 name|boolean
-name|useSecureDataChannel
+name|disableSecureDataChannelDefaults
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useSecureDataChannel
+name|disableSecureDataChannelDefaults
 operator|=
-name|useSecureDataChannel
+name|disableSecureDataChannelDefaults
 expr_stmt|;
 block|}
 DECL|method|getExecProt ()

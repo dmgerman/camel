@@ -84,7 +84,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000&useSecureDataChannel=false"
+literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000&disableSecureDataChannelDefaults=true"
 operator|+
 literal|"&securityProtocol=SSL&isImplicit=false"
 return|;
