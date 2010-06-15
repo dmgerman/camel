@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.issues.componentscan2
+DECL|package|org.apache.camel.spring.issues.contextscan
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|spring
 operator|.
 name|issues
 operator|.
-name|componentscan2
+name|contextscan
 package|;
 end_package
 
@@ -53,13 +53,10 @@ end_comment
 begin_class
 annotation|@
 name|Component
-argument_list|(
-literal|"coolRoute"
-argument_list|)
-DECL|class|MyOtherRoute
+DECL|class|MyRoute
 specifier|public
 class|class
-name|MyOtherRoute
+name|MyRoute
 extends|extends
 name|SpringRouteBuilder
 block|{

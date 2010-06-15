@@ -34,6 +34,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -301,6 +321,20 @@ operator|.
 name|management
 operator|.
 name|ManagedManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ContextScanDefinition
 import|;
 end_import
 
@@ -774,6 +808,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PackageScanFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ShutdownStrategy
 import|;
 end_import
@@ -905,68 +953,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//    @XmlAttribute(name = "depends-on", required = false)
-comment|//    private String dependsOn;
-comment|//    @XmlAttribute(required = false)
-comment|//    private String trace;
-comment|//    @XmlAttribute(required = false)
-comment|//    private String streamCache = "false";
-comment|//    @XmlAttribute(required = false)
-comment|//    private String delayer;
-comment|//    @XmlAttribute(required = false)
-comment|//    private String handleFault;
-comment|//    @XmlAttribute(required = false)
-comment|//    private String errorHandlerRef;
-comment|//    @XmlAttribute(required = false)
-comment|//    private String autoStartup = "true";
-comment|//    @XmlAttribute(required = false)
-comment|//    private ShutdownRoute shutdownRoute;
-comment|//    @XmlAttribute(required = false)
-comment|//    private ShutdownRunningTask shutdownRunningTask;
-comment|//    @XmlElement(name = "properties", required = false)
-comment|//    private PropertiesDefinition properties;
-comment|//    @XmlElement(name = "propertyPlaceholder", type = CamelPropertyPlaceholderDefinition.class, required = false)
-comment|//    private CamelPropertyPlaceholderDefinition camelPropertyPlaceholder;
-comment|//    @XmlElement(name = "package", required = false)
-comment|//    private String[] packages = {};
-comment|//    @XmlElement(name = "packageScan", type = PackageScanDefinition.class, required = false)
-comment|//    private PackageScanDefinition packageScan;
-comment|//    @XmlElement(name = "jmxAgent", type = CamelJMXAgentDefinition.class, required = false)
-comment|//    private CamelJMXAgentDefinition camelJMXAgent;
-comment|////    @XmlElements({
-comment|////        @XmlElement(name = "beanPostProcessor", type = CamelBeanPostProcessor.class, required = false),
-comment|////        @XmlElement(name = "template", type = CamelProducerTemplateFactoryBean.class, required = false),
-comment|////        @XmlElement(name = "consumerTemplate", type = CamelConsumerTemplateFactoryBean.class, required = false),
-comment|////        @XmlElement(name = "proxy", type = CamelProxyFactoryDefinition.class, required = false),
-comment|////        @XmlElement(name = "export", type = CamelServiceExporterDefinition.class, required = false),
-comment|////        @XmlElement(name = "errorHandler", type = ErrorHandlerDefinition.class, required = false)})
-comment|////    private List beans;
-comment|//    @XmlElement(name = "routeBuilder", required = false)
-comment|//    private List<RouteBuilderDefinition> builderRefs = new ArrayList<RouteBuilderDefinition>();
-comment|//    @XmlElement(name = "routeContextRef", required = false)
-comment|//    private List<RouteContextRefDefinition> routeRefs = new ArrayList<RouteContextRefDefinition>();
-comment|//    @XmlElement(name = "threadPoolProfile", required = false)
-comment|//    private List<ThreadPoolProfileDefinition> threadPoolProfiles;
-comment|////    @XmlElement(name = "threadPool", required = false)
-comment|////    private List<AbstractCamelThreadPoolFactoryBean> threadPools;
-comment|////    @XmlElement(name = "endpoint", required = false)
-comment|////    private List<AbstractCamelEndpointFactoryBean> endpoints;
-comment|//    @XmlElement(name = "dataFormats", required = false)
-comment|//    private DataFormatsDefinition dataFormats;
-comment|//    @XmlElement(name = "onException", required = false)
-comment|//    private List<OnExceptionDefinition> onExceptions = new ArrayList<OnExceptionDefinition>();
-comment|//    @XmlElement(name = "onCompletion", required = false)
-comment|//    private List<OnCompletionDefinition> onCompletions = new ArrayList<OnCompletionDefinition>();
-comment|//    @XmlElement(name = "intercept", required = false)
-comment|//    private List<InterceptDefinition> intercepts = new ArrayList<InterceptDefinition>();
-comment|//    @XmlElement(name = "interceptFrom", required = false)
-comment|//    private List<InterceptFromDefinition> interceptFroms = new ArrayList<InterceptFromDefinition>();
-comment|//    @XmlElement(name = "interceptSendToEndpoint", required = false)
-comment|//    private List<InterceptSendToEndpointDefinition> interceptSendToEndpoints = new ArrayList<InterceptSendToEndpointDefinition>();
-comment|//    @XmlElement(name = "route", required = false)
-comment|//    private List<RouteDefinition> routes = new ArrayList<RouteDefinition>();
-comment|//    @XmlTransient
-comment|//    private T context;
 annotation|@
 name|XmlTransient
 DECL|field|builders
@@ -3671,6 +3657,23 @@ name|PackageScanDefinition
 name|packageScan
 parameter_list|)
 function_decl|;
+DECL|method|getContextScan ()
+specifier|public
+specifier|abstract
+name|ContextScanDefinition
+name|getContextScan
+parameter_list|()
+function_decl|;
+DECL|method|setContextScan (ContextScanDefinition contextScan)
+specifier|public
+specifier|abstract
+name|void
+name|setContextScan
+parameter_list|(
+name|ContextScanDefinition
+name|contextScan
+parameter_list|)
+function_decl|;
 DECL|method|getCamelPropertyPlaceholder ()
 specifier|public
 specifier|abstract
@@ -4408,15 +4411,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|PackageScanClassResolver
-name|resolver
-init|=
-name|getContext
-argument_list|()
-operator|.
-name|getPackageScanClassResolver
-argument_list|()
-decl_stmt|;
+comment|// package scan
 name|addPackageElementContentsToScanDefinition
 argument_list|()
 expr_stmt|;
@@ -4510,13 +4505,6 @@ name|exclude
 argument_list|)
 expr_stmt|;
 block|}
-name|resolver
-operator|.
-name|addFilter
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
 name|String
 index|[]
 name|normalized
@@ -4532,24 +4520,136 @@ name|getPackages
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|findRouteBuilders
+name|findRouteBuildersByPackageScan
 argument_list|(
 name|normalized
+argument_list|,
+name|filter
+argument_list|,
+name|builders
+argument_list|)
+expr_stmt|;
+block|}
+comment|// context scan
+name|ContextScanDefinition
+name|contextScanDef
+init|=
+name|getContextScan
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|contextScanDef
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use package scan filter
+name|PatternBasedPackageScanFilter
+name|filter
+init|=
+operator|new
+name|PatternBasedPackageScanFilter
+argument_list|()
+decl_stmt|;
+comment|// support property placeholders in include and exclude
+for|for
+control|(
+name|String
+name|include
+range|:
+name|contextScanDef
+operator|.
+name|getIncludes
+argument_list|()
+control|)
+block|{
+name|include
+operator|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|include
+argument_list|)
+expr_stmt|;
+name|filter
+operator|.
+name|addIncludePattern
+argument_list|(
+name|include
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|String
+name|exclude
+range|:
+name|contextScanDef
+operator|.
+name|getExcludes
+argument_list|()
+control|)
+block|{
+name|exclude
+operator|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|exclude
+argument_list|)
+expr_stmt|;
+name|filter
+operator|.
+name|addExcludePattern
+argument_list|(
+name|exclude
+argument_list|)
+expr_stmt|;
+block|}
+name|findRouteBuildersByContextScan
+argument_list|(
+name|filter
 argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|findRouteBuilders (String[] normalized, List<RoutesBuilder> builders)
+DECL|method|findRouteBuildersByPackageScan (String[] packages, PackageScanFilter filter, List<RoutesBuilder> builders)
 specifier|protected
 specifier|abstract
 name|void
-name|findRouteBuilders
+name|findRouteBuildersByPackageScan
 parameter_list|(
 name|String
 index|[]
-name|normalized
+name|packages
+parameter_list|,
+name|PackageScanFilter
+name|filter
+parameter_list|,
+name|List
+argument_list|<
+name|RoutesBuilder
+argument_list|>
+name|builders
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, List<RoutesBuilder> builders)
+specifier|protected
+specifier|abstract
+name|void
+name|findRouteBuildersByContextScan
+parameter_list|(
+name|PackageScanFilter
+name|filter
 parameter_list|,
 name|List
 argument_list|<

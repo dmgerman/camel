@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>PackageScanDefinition</code> represents a&lt;packageScan/&gt element.  */
+comment|/**  *<code>ContextScanDefinition</code> represents a&lt;contextScan/&gt element.  */
 end_comment
 
 begin_class
@@ -102,7 +102,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"packageScan"
+literal|"contextScan"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -111,37 +111,11 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|PackageScanDefinition
+DECL|class|ContextScanDefinition
 specifier|public
 class|class
-name|PackageScanDefinition
+name|ContextScanDefinition
 block|{
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"package"
-argument_list|,
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|field|packages
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|packages
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 annotation|@
 name|XmlElement
 argument_list|(
@@ -220,38 +194,6 @@ return|return
 name|includes
 return|;
 block|}
-DECL|method|getPackages ()
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getPackages
-parameter_list|()
-block|{
-return|return
-name|packages
-return|;
-block|}
-DECL|method|setPackages (List<String> packages)
-specifier|public
-name|void
-name|setPackages
-parameter_list|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|packages
-parameter_list|)
-block|{
-name|this
-operator|.
-name|packages
-operator|=
-name|packages
-expr_stmt|;
-block|}
 DECL|method|setExcludes (List<String> excludes)
 specifier|public
 name|void
@@ -296,11 +238,6 @@ name|void
 name|clear
 parameter_list|()
 block|{
-name|packages
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|excludes
 operator|.
 name|clear

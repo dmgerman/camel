@@ -151,8 +151,8 @@ modifier|...
 name|packageNames
 parameter_list|)
 function_decl|;
-comment|/**      * Attemsp to discover classes filter by the provided filter      *      * @param fiter  filter to filter desired classes.      * @param packageNames one or more package names to scan (including subpackages) for classes      * @return the classes found, returns an empty set if none found      */
-DECL|method|findByFilter (PackageScanFilter fiter, String... packageNames)
+comment|/**      * Attempts to discover classes filter by the provided filter      *      * @param filter  filter to filter desired classes.      * @param packageNames one or more package names to scan (including subpackages) for classes      * @return the classes found, returns an empty set if none found      */
+DECL|method|findByFilter (PackageScanFilter filter, String... packageNames)
 name|Set
 argument_list|<
 name|Class
@@ -163,7 +163,7 @@ argument_list|>
 name|findByFilter
 parameter_list|(
 name|PackageScanFilter
-name|fiter
+name|filter
 parameter_list|,
 name|String
 modifier|...
@@ -174,6 +174,15 @@ comment|/**      * Add a filter that will be applied to all scan operations     
 DECL|method|addFilter (PackageScanFilter filter)
 name|void
 name|addFilter
+parameter_list|(
+name|PackageScanFilter
+name|filter
+parameter_list|)
+function_decl|;
+comment|/**      * Removes the filter      *      * @param filter filter to filter desired classes in all scan operations      */
+DECL|method|removeFilter (PackageScanFilter filter)
+name|void
+name|removeFilter
 parameter_list|(
 name|PackageScanFilter
 name|filter

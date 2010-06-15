@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.issues.componentscan
+DECL|package|org.apache.camel.spring.issues.contextscan
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|spring
 operator|.
 name|issues
 operator|.
-name|componentscan
+name|contextscan
 package|;
 end_package
 
@@ -30,7 +30,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|SpringRouteBuilder
+name|SpringTestSupport
 import|;
 end_import
 
@@ -40,9 +40,25 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|stereotype
+name|context
 operator|.
-name|Component
+name|support
+operator|.
+name|AbstractXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
@@ -51,34 +67,58 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Component
-DECL|class|MyRoute
+DECL|class|SpringRouteIsComponentAnnotatedTest
 specifier|public
 class|class
-name|MyRoute
+name|SpringRouteIsComponentAnnotatedTest
 extends|extends
-name|SpringRouteBuilder
+name|SpringTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|configure ()
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/spring/issues/contextscan/SpringRouteIsComponentAnnotatedTest.xml"
+argument_list|)
+return|;
+block|}
+DECL|method|testSpringRouteIsComponentAnnotated ()
 specifier|public
 name|void
-name|configure
+name|testSpringRouteIsComponentAnnotated
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|to
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 block|}

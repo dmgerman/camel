@@ -431,6 +431,31 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|removeFilter (PackageScanFilter filter)
+specifier|public
+name|void
+name|removeFilter
+parameter_list|(
+name|PackageScanFilter
+name|filter
+parameter_list|)
+block|{
+if|if
+condition|(
+name|scanFilters
+operator|!=
+literal|null
+condition|)
+block|{
+name|scanFilters
+operator|.
+name|remove
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getClassLoaders ()
 specifier|public
 name|Set

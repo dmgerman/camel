@@ -274,6 +274,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ContextScanDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|InterceptDefinition
 import|;
 end_import
@@ -433,6 +447,20 @@ operator|.
 name|dataformat
 operator|.
 name|DataFormatsDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PackageScanFilter
 import|;
 end_import
 
@@ -687,6 +715,28 @@ DECL|field|packageScan
 specifier|private
 name|PackageScanDefinition
 name|packageScan
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"contextScan"
+argument_list|,
+name|type
+operator|=
+name|ContextScanDefinition
+operator|.
+name|class
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|contextScan
+specifier|private
+name|ContextScanDefinition
+name|contextScan
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -1254,14 +1304,36 @@ parameter_list|)
 block|{     }
 annotation|@
 name|Override
-DECL|method|findRouteBuilders (String[] normalized, List<RoutesBuilder> builders)
+DECL|method|findRouteBuildersByPackageScan (String[] packages, PackageScanFilter filter, List<RoutesBuilder> builders)
 specifier|protected
 name|void
-name|findRouteBuilders
+name|findRouteBuildersByPackageScan
 parameter_list|(
 name|String
 index|[]
-name|normalized
+name|packages
+parameter_list|,
+name|PackageScanFilter
+name|filter
+parameter_list|,
+name|List
+argument_list|<
+name|RoutesBuilder
+argument_list|>
+name|builders
+parameter_list|)
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, List<RoutesBuilder> builders)
+specifier|protected
+name|void
+name|findRouteBuildersByContextScan
+parameter_list|(
+name|PackageScanFilter
+name|filter
 parameter_list|,
 name|List
 argument_list|<
@@ -1706,6 +1778,32 @@ operator|.
 name|packageScan
 operator|=
 name|packageScan
+expr_stmt|;
+block|}
+DECL|method|getContextScan ()
+specifier|public
+name|ContextScanDefinition
+name|getContextScan
+parameter_list|()
+block|{
+return|return
+name|contextScan
+return|;
+block|}
+DECL|method|setContextScan (ContextScanDefinition contextScan)
+specifier|public
+name|void
+name|setContextScan
+parameter_list|(
+name|ContextScanDefinition
+name|contextScan
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextScan
+operator|=
+name|contextScan
 expr_stmt|;
 block|}
 DECL|method|getCamelJMXAgent ()

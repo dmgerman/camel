@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.issues.componentscan2
+DECL|package|org.apache.camel.spring.issues.contextscan2
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|spring
 operator|.
 name|issues
 operator|.
-name|componentscan2
+name|contextscan2
 package|;
 end_package
 
@@ -86,7 +86,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/issues/componentscan2/SpringRouteIsComponentAnnotated2Test.xml"
+literal|"org/apache/camel/spring/issues/contextscan2/SpringRouteIsComponentAnnotated2Test.xml"
 argument_list|)
 return|;
 block|}
