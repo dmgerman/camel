@@ -52,6 +52,7 @@ name|LoadBalancer
 extends|extends
 name|Processor
 block|{
+comment|// TODO: Should leverage AsyncProcessor
 comment|/**      * Adds a new processor to the load balancer      *      * @param processor the processor to be added to the load balancer      */
 DECL|method|addProcessor (Processor processor)
 name|void

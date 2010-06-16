@@ -15,34 +15,35 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Callback for sending a exchange message to a endpoint using a producer.  *<p/>  * Using this callback as a template pattern ensures that Camel handles the resource handling and will  * start and stop the given producer, to avoid resource leaks.  *  * @version $Revision$  */
+comment|/**  * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.  *<p/>  * Using this callback as a template pattern ensures that Camel handles the resource handling and will  * start and stop the given producer, to avoid resource leaks.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|ProducerCallback
+DECL|interface|AsyncProducerCallback
 specifier|public
 interface|interface
-name|ProducerCallback
-parameter_list|<
-name|T
-parameter_list|>
+name|AsyncProducerCallback
 block|{
-comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is newer<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @return the response      * @throws Exception if an internal processing error has occurred.      */
-DECL|method|doInProducer (Producer producer, Exchange exchange, ExchangePattern exchangePattern)
-name|T
-name|doInProducer
+comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is newer<tt>null</tt>      * @param asyncProducer   the async producer, is newer<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @param callback        the async callback      * @return the response      */
+DECL|method|doInAsyncProducer (Producer producer, AsyncProcessor asyncProducer, Exchange exchange, ExchangePattern exchangePattern, AsyncCallback callback)
+name|boolean
+name|doInAsyncProducer
 parameter_list|(
 name|Producer
 name|producer
+parameter_list|,
+name|AsyncProcessor
+name|asyncProducer
 parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|,
 name|ExchangePattern
 name|exchangePattern
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

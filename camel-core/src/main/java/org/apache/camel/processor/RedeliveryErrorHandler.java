@@ -24,7 +24,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
 import|;
 end_import
 
@@ -96,9 +108,39 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|converter
+operator|.
+name|AsyncProcessorTypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|OnExceptionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -171,7 +213,7 @@ name|RedeliveryErrorHandler
 extends|extends
 name|ErrorHandlerSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 block|{
 DECL|field|deadLetter
 specifier|protected
@@ -190,6 +232,12 @@ specifier|protected
 specifier|final
 name|Processor
 name|output
+decl_stmt|;
+DECL|field|outputAsync
+specifier|protected
+specifier|final
+name|AsyncProcessor
+name|outputAsync
 decl_stmt|;
 DECL|field|redeliveryProcessor
 specifier|protected
@@ -226,6 +274,12 @@ specifier|protected
 class|class
 name|RedeliveryData
 block|{
+DECL|field|sync
+name|boolean
+name|sync
+init|=
+literal|true
+decl_stmt|;
 DECL|field|redeliveryCounter
 name|int
 name|redeliveryCounter
@@ -327,6 +381,17 @@ name|output
 expr_stmt|;
 name|this
 operator|.
+name|outputAsync
+operator|=
+name|AsyncProcessorTypeConverter
+operator|.
+name|convert
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
@@ -387,20 +452,46 @@ block|{
 comment|// no output then just return
 return|return;
 block|}
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|process (Exchange exchange, final AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+return|return
 name|processErrorHandler
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|,
 operator|new
 name|RedeliveryData
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Processes the exchange decorated with this dead letter channel.      */
-DECL|method|processErrorHandler (final Exchange exchange, final RedeliveryData data)
+DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
-name|void
+name|boolean
 name|processErrorHandler
 parameter_list|(
 specifier|final
@@ -408,11 +499,13 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
+name|AsyncCallback
+name|callback
+parameter_list|,
+specifier|final
 name|RedeliveryData
 name|data
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 while|while
 condition|(
@@ -560,7 +653,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// and then return
-return|return;
+return|return
+name|data
+operator|.
+name|sync
+return|;
 block|}
 if|if
 condition|(
@@ -646,50 +743,80 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// process the exchange (also redelivery)
-try|try
-block|{
-name|processExchange
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|exchange
+name|boolean
+name|sync
+init|=
+name|outputAsync
 operator|.
-name|setException
+name|process
 argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// let Camel error handle take care of all kind of exceptions now
 name|exchange
-operator|.
-name|setException
-argument_list|(
+argument_list|,
 operator|new
-name|CamelExchangeException
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|sync
+parameter_list|)
+block|{
+comment|// this callback should only handle the async case
+if|if
+condition|(
+name|sync
+condition|)
+block|{
+return|return;
+block|}
+comment|// mark we are in async mode now
+name|data
+operator|.
+name|sync
+operator|=
+literal|false
+expr_stmt|;
+comment|// only process if the exchange hasn't failed
+comment|// and it has not been handled by the error processor
+if|if
+condition|(
+operator|!
+name|isDone
 argument_list|(
-literal|"Error processing Exchange"
-argument_list|,
 name|exchange
-argument_list|,
-name|t
 argument_list|)
+condition|)
+block|{
+comment|// TODO: async process redelivery (eg duplicate the error handler logic)
+comment|// And have a timer task scheduled when redelivery should occur to avoid blocking thread
+block|}
+else|else
+block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+name|sync
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|sync
+condition|)
+block|{
+comment|// the remainder of the Exchange is being processed asynchronously so we should return
+return|return
+literal|false
+return|;
 block|}
 name|boolean
 name|done
@@ -704,7 +831,16 @@ condition|(
 name|done
 condition|)
 block|{
-return|return;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|// error occurred so loop back around.....
 block|}
@@ -728,27 +864,6 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Strategy to process the given exchange to the designated output.      *<p/>      * This happens when the exchange is processed the first time and also for redeliveries      * to the same destination.      */
-DECL|method|processExchange (Exchange exchange)
-specifier|protected
-name|void
-name|processExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// process the exchange (also redelivery)
-name|output
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Strategy to determine if the exchange is done so we can continue      */
 DECL|method|isDone (Exchange exchange)
 specifier|protected
@@ -758,8 +873,6 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// only done if the exchange hasn't failed
 comment|// and it has not been handled by the failure processor
@@ -1595,7 +1708,6 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
-comment|// TODO: setting failure handled should only be if we used a failure processor
 comment|// we could not process the exchange so we let the failure processor handled it
 name|ExchangeHelper
 operator|.
@@ -2458,6 +2570,8 @@ name|startServices
 argument_list|(
 name|output
 argument_list|,
+name|outputAsync
+argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
@@ -2479,6 +2593,8 @@ argument_list|(
 name|deadLetter
 argument_list|,
 name|output
+argument_list|,
+name|outputAsync
 argument_list|)
 expr_stmt|;
 block|}

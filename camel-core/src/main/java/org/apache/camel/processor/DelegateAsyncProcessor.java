@@ -44,6 +44,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -96,23 +120,37 @@ name|camel
 operator|.
 name|util
 operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates processing to a nested {@link Processor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *   * @version $Revision$  * @see org.apache.camel.processor.DelegateAsyncProcessor  */
+comment|/**  * A Delegate pattern which delegates processing to a nested {@link AsyncProcessor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *  * @version $Revision$  * @see org.apache.camel.processor.DelegateProcessor  */
 end_comment
 
 begin_class
-DECL|class|DelegateProcessor
+DECL|class|DelegateAsyncProcessor
 specifier|public
 class|class
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 implements|,
 name|Navigate
 argument_list|<
@@ -121,19 +159,19 @@ argument_list|>
 block|{
 DECL|field|processor
 specifier|protected
-name|Processor
+name|AsyncProcessor
 name|processor
 decl_stmt|;
-DECL|method|DelegateProcessor ()
+DECL|method|DelegateAsyncProcessor ()
 specifier|public
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 parameter_list|()
 block|{     }
-DECL|method|DelegateProcessor (Processor processor)
+DECL|method|DelegateAsyncProcessor (AsyncProcessor processor)
 specifier|public
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 parameter_list|(
-name|Processor
+name|AsyncProcessor
 name|processor
 parameter_list|)
 block|{
@@ -148,7 +186,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Recursive DelegateProcessor!"
+literal|"Recursive DelegateAsyncProcessor!"
 argument_list|)
 throw|;
 block|}
@@ -159,50 +197,6 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|processNext
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|processNext (Exchange exchange)
-specifier|protected
-name|void
-name|processNext
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|processor
-operator|!=
-literal|null
-condition|)
-block|{
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -212,7 +206,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delegate["
+literal|"DelegateAsync["
 operator|+
 name|processor
 operator|+
@@ -221,29 +215,13 @@ return|;
 block|}
 DECL|method|getProcessor ()
 specifier|public
-name|Processor
+name|AsyncProcessor
 name|getProcessor
 parameter_list|()
 block|{
 return|return
 name|processor
 return|;
-block|}
-DECL|method|setProcessor (Processor processor)
-specifier|public
-name|void
-name|setProcessor
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -277,11 +255,35 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Proceed with the underlying delegated processor      */
-DECL|method|proceed (Exchange exchange)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+return|return
+name|processor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|)
+return|;
+block|}
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|proceed
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
@@ -289,8 +291,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|processNext
+name|AsyncProcessorHelper
+operator|.
+name|process
 argument_list|(
+name|this
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

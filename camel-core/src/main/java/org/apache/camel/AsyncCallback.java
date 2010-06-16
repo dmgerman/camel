@@ -24,13 +24,12 @@ specifier|public
 interface|interface
 name|AsyncCallback
 block|{
-comment|/**      * Callback when the async task is completed and the provided {@link Exchange}      * is ready to be routed.      *      * @param exchange the exchange      */
-DECL|method|onTaskCompleted (Exchange exchange)
+DECL|method|done (boolean doneSync)
 name|void
-name|onTaskCompleted
+name|done
 parameter_list|(
-name|Exchange
-name|exchange
+name|boolean
+name|doneSync
 parameter_list|)
 function_decl|;
 block|}

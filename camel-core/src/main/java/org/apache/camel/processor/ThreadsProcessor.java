@@ -142,6 +142,7 @@ name|DelegateProcessor
 implements|implements
 name|Processor
 block|{
+comment|// TODO: Should leverage AsyncProcessor
 DECL|field|camelContext
 specifier|protected
 specifier|final

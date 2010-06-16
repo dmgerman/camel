@@ -129,8 +129,6 @@ operator|)
 name|endpoint
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -139,59 +137,52 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// only add as consumer if not already registered
+comment|// add consumer to endpoint
 if|if
 condition|(
-operator|!
 name|endpoint
 operator|.
-name|getConsumers
+name|getConsumer
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|endpoint
 operator|.
-name|contains
-argument_list|(
+name|getConsumer
+argument_list|()
+operator|!=
 name|this
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|endpoint
-operator|.
-name|getConsumers
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"Endpoint "
 operator|+
 name|endpoint
+operator|+
+literal|" only allows one consumer. Existing: "
+operator|+
+name|endpoint
 operator|.
-name|getEndpointUri
+name|getConsumer
 argument_list|()
 operator|+
-literal|" only allows 1 active consumer but you attempted to start a 2nd consumer."
+literal|" and this: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
 name|endpoint
 operator|.
-name|getConsumers
-argument_list|()
-operator|.
-name|add
+name|setConsumer
 argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|super
 operator|.
 name|start
@@ -208,20 +199,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|endpoint
+operator|.
+name|setConsumer
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|endpoint
-operator|.
-name|getConsumers
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|this
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)

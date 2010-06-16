@@ -181,9 +181,6 @@ comment|// JDK Future API to get hold of it, but you can also use that if you wa
 name|String
 name|response
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|extractFutureBody
@@ -233,7 +230,7 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// The mocks are here for unit test
-comment|// Some other service to return a name, this is invoked synhronously
+comment|// Some other service to return a name, this is invoked synchronously
 name|from
 argument_list|(
 literal|"direct:name"

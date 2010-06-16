@@ -24,6 +24,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -51,6 +75,22 @@ operator|.
 name|impl
 operator|.
 name|DefaultUnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|converter
+operator|.
+name|AsyncProcessorTypeConverter
 import|;
 end_import
 
@@ -113,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Handles calling the UnitOfWork.done() method when processing of an exchange  * is complete.  */
+comment|/**  * Handles calling the UnitOfWork.done() method when processing of an exchange  * is complete.  */
 end_comment
 
 begin_class
@@ -123,7 +163,7 @@ specifier|final
 class|class
 name|UnitOfWorkProcessor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
 DECL|field|LOG
 specifier|private
@@ -160,6 +200,27 @@ name|this
 argument_list|(
 literal|null
 argument_list|,
+name|AsyncProcessorTypeConverter
+operator|.
+name|convert
+argument_list|(
+name|processor
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|UnitOfWorkProcessor (AsyncProcessor processor)
+specifier|public
+name|UnitOfWorkProcessor
+parameter_list|(
+name|AsyncProcessor
+name|processor
+parameter_list|)
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
@@ -172,6 +233,30 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|routeContext
+argument_list|,
+name|AsyncProcessorTypeConverter
+operator|.
+name|convert
+argument_list|(
+name|processor
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|UnitOfWorkProcessor (RouteContext routeContext, AsyncProcessor processor)
+specifier|public
+name|UnitOfWorkProcessor
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|AsyncProcessor
 name|processor
 parameter_list|)
 block|{
@@ -215,16 +300,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processNext (Exchange exchange)
-specifier|protected
-name|void
-name|processNext
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -277,34 +365,35 @@ argument_list|)
 throw|;
 block|}
 comment|// process the exchange
-try|try
-block|{
+return|return
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
 parameter_list|(
-name|Exception
-name|e
+name|boolean
+name|doneSync
 parameter_list|)
 block|{
-name|exchange
+comment|// Order here matters. We need to complete the callbacks
+comment|// since they will likely update the exchange with some final results.
+name|callback
 operator|.
-name|setException
+name|done
 argument_list|(
-name|e
+name|doneSync
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// must always done unit of work
-name|done
+name|doneUow
 argument_list|(
 name|uow
 argument_list|,
@@ -313,23 +402,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+return|;
+block|}
 else|else
 block|{
 comment|// There was an existing UoW, so we should just pass through..
 comment|// so that the guy the initiated the UoW can terminate it.
+return|return
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
-DECL|method|done (DefaultUnitOfWork uow, Exchange exchange)
+DECL|method|doneUow (DefaultUnitOfWork uow, Exchange exchange)
 specifier|private
 name|void
-name|done
+name|doneUow
 parameter_list|(
 name|DefaultUnitOfWork
 name|uow

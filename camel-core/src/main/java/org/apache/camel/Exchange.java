@@ -723,6 +723,15 @@ name|Exception
 name|e
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the exception associated with this exchange      *      * @param t  the caused exception      */
+DECL|method|setException (Throwable t)
+name|void
+name|setException
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+function_decl|;
 comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      * @see Message#setFault(boolean)      * @see Message#isFault()      */
 DECL|method|isFailed ()
 name|boolean

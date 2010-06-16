@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.direct
+DECL|package|org.apache.camel.processor.async
 package|package
 name|org
 operator|.
@@ -12,11 +12,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|processor
 operator|.
-name|direct
+name|async
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
+import|;
+end_import
 
 begin_import
 import|import
@@ -69,57 +81,33 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a direct endpoint that synchronously invokes the consumer of the  * endpoint when a producer sends a message to it.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DirectEndpoint
+DECL|class|MyAsyncEndpoint
 specifier|public
 class|class
-name|DirectEndpoint
+name|MyAsyncEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|consumer
-specifier|private
-name|DirectConsumer
-name|consumer
-decl_stmt|;
-DECL|method|DirectEndpoint ()
+DECL|method|MyAsyncEndpoint (String endpointUri, Component component)
 specifier|public
-name|DirectEndpoint
-parameter_list|()
-block|{     }
-DECL|method|DirectEndpoint (String uri, DirectComponent component)
-specifier|public
-name|DirectEndpoint
+name|MyAsyncEndpoint
 parameter_list|(
 name|String
-name|uri
+name|endpointUri
 parameter_list|,
-name|DirectComponent
+name|Component
 name|component
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|uri
+name|endpointUri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DirectEndpoint (String endpointUri)
-specifier|public
-name|DirectEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
@@ -133,7 +121,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|DirectProducer
+name|MyAsyncProducer
 argument_list|(
 name|this
 argument_list|)
@@ -150,15 +138,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+throw|throw
 operator|new
-name|DirectConsumer
+name|UnsupportedOperationException
 argument_list|(
-name|this
-argument_list|,
-name|processor
+literal|"Consumer not supported"
 argument_list|)
-return|;
+throw|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
@@ -167,34 +153,8 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
-block|}
-DECL|method|getConsumer ()
-specifier|public
-name|DirectConsumer
-name|getConsumer
-parameter_list|()
-block|{
-return|return
-name|consumer
-return|;
-block|}
-DECL|method|setConsumer (DirectConsumer consumer)
-specifier|public
-name|void
-name|setConsumer
-parameter_list|(
-name|DirectConsumer
-name|consumer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
 block|}
 block|}
 end_class
