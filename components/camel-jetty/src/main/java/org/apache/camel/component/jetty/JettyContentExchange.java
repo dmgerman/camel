@@ -861,12 +861,12 @@ block|}
 block|}
 finally|finally
 block|{
-comment|// now invoke callback
+comment|// now invoke callback to indicate we are done async
 name|callback
 operator|.
-name|onTaskCompleted
+name|done
 argument_list|(
-name|exchange
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -920,11 +920,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// now invoke callback to indicate we are done async
 name|callback
 operator|.
-name|onTaskCompleted
+name|done
 argument_list|(
-name|exchange
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
