@@ -1157,6 +1157,10 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+comment|// retrieve the file and check it was a success
+name|boolean
+name|retrieved
+init|=
 name|operations
 operator|.
 name|retrieveFile
@@ -1165,7 +1169,30 @@ name|name
 argument_list|,
 name|exchange
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|retrieved
+condition|)
+block|{
+comment|// throw exception to handle the problem with retrieving the file
+comment|// then if the method return false or throws an exception is handled the same in here
+comment|// as in both cases an exception is being thrown
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot retrieve file: "
+operator|+
+name|file
+operator|+
+literal|" from: "
+operator|+
+name|endpoint
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|log
