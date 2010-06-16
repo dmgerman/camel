@@ -2593,6 +2593,23 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
+comment|// or an exception can be thrown with id 2 which means file does not exists
+if|if
+condition|(
+name|ChannelSftp
+operator|.
+name|SSH_FX_NO_SUCH_FILE
+operator|==
+name|e
+operator|.
+name|id
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// otherwise its a more serious error so rethrow
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
