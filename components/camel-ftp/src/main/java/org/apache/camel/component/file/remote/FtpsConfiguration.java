@@ -94,20 +94,6 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setDefaultPort ()
-specifier|protected
-name|void
-name|setDefaultPort
-parameter_list|()
-block|{
-name|setPort
-argument_list|(
-literal|2222
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Returns the underlying security protocol.      */
 DECL|method|getSecurityProtocol ()
 specifier|public
