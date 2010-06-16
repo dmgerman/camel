@@ -167,6 +167,25 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+if|if
+condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no processor then we are done
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 try|try
 block|{
 name|processor

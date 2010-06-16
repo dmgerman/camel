@@ -86,22 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -200,12 +184,7 @@ name|this
 argument_list|(
 literal|null
 argument_list|,
-name|AsyncProcessorTypeConverter
-operator|.
-name|convert
-argument_list|(
 name|processor
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -236,17 +215,16 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|this
-argument_list|(
-name|routeContext
-argument_list|,
-name|AsyncProcessorTypeConverter
-operator|.
-name|convert
+name|super
 argument_list|(
 name|processor
 argument_list|)
-argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
 expr_stmt|;
 block|}
 DECL|method|UnitOfWorkProcessor (RouteContext routeContext, AsyncProcessor processor)
@@ -386,6 +364,8 @@ parameter_list|)
 block|{
 comment|// Order here matters. We need to complete the callbacks
 comment|// since they will likely update the exchange with some final results.
+try|try
+block|{
 name|callback
 operator|.
 name|done
@@ -393,6 +373,9 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|doneUow
 argument_list|(
 name|uow
@@ -400,6 +383,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

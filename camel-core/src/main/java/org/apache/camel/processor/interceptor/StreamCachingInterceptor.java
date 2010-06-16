@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -64,7 +76,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 import|;
 end_import
 
@@ -83,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link DelegateProcessor} that converts a message into a re-readable format  */
+comment|/**  * An interceptor that converts streams messages into a re-readable format  * by wrapping the stream into a {@link StreamCache}.  */
 end_comment
 
 begin_class
@@ -92,7 +104,7 @@ specifier|public
 class|class
 name|StreamCachingInterceptor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
 DECL|method|StreamCachingInterceptor ()
 specifier|public
@@ -111,10 +123,7 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
-name|setProcessor
+name|super
 argument_list|(
 name|processor
 argument_list|)
@@ -138,16 +147,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|StreamCache
 name|newBody
@@ -192,14 +202,17 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
 name|getProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

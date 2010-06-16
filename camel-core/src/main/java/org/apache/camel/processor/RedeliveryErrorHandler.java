@@ -652,6 +652,16 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we are breaking out so invoke the callback
+name|callback
+operator|.
+name|done
+argument_list|(
+name|data
+operator|.
+name|sync
+argument_list|)
+expr_stmt|;
 comment|// and then return
 return|return
 name|data
