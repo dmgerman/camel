@@ -122,6 +122,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -131,6 +141,8 @@ comment|/**  * Unit test to verify that we can have URI options for external sys
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|JettyHttpProducerGetWithParamTest
 specifier|public
 class|class

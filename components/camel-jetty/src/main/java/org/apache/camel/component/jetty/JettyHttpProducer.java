@@ -449,7 +449,7 @@ expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
@@ -459,8 +459,6 @@ specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|HttpClient
 name|client
@@ -471,6 +469,8 @@ operator|.
 name|getClient
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|JettyContentExchange
 name|httpExchange
 init|=
@@ -490,6 +490,25 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// we should continue processing this asynchronously
+return|return
+literal|false
+return|;
 block|}
 DECL|method|sendAsynchronous (final Exchange exchange, final HttpClient client, final JettyContentExchange httpExchange, final AsyncCallback callback)
 specifier|protected
