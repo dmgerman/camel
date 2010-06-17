@@ -223,7 +223,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"async:foo"
+literal|"async:Bye Camel"
 argument_list|)
 operator|.
 name|createProducer

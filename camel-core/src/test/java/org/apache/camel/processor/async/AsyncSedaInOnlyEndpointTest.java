@@ -73,10 +73,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointWithStreamCachingTest
+DECL|class|AsyncSedaInOnlyEndpointTest
 specifier|public
 class|class
-name|AsyncEndpointWithStreamCachingTest
+name|AsyncSedaInOnlyEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -130,27 +130,13 @@ argument_list|(
 literal|"Bye Camel"
 argument_list|)
 expr_stmt|;
-name|String
-name|reply
-init|=
 name|template
 operator|.
-name|requestBody
+name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|,
 literal|"Hello Camel"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Bye Camel"
-argument_list|,
-name|reply
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -204,17 +190,10 @@ name|MyAsyncComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// enable stream caching to ensure it works using async API
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|)
-operator|.
-name|streamCaching
-argument_list|()
-operator|.
-name|tracing
-argument_list|()
 operator|.
 name|to
 argument_list|(

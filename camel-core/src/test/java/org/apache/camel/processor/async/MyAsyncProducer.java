@@ -86,18 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -311,6 +299,14 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
+name|String
+name|reply
+init|=
+name|endpoint
+operator|.
+name|getReply
+argument_list|()
+decl_stmt|;
 name|exchange
 operator|.
 name|getOut
@@ -318,7 +314,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Bye Camel"
+name|reply
 argument_list|)
 expr_stmt|;
 name|LOG

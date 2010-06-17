@@ -92,6 +92,11 @@ name|MyAsyncEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|reply
+specifier|private
+name|String
+name|reply
+decl_stmt|;
 DECL|method|MyAsyncEndpoint (String endpointUri, Component component)
 specifier|public
 name|MyAsyncEndpoint
@@ -155,6 +160,32 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+DECL|method|getReply ()
+specifier|public
+name|String
+name|getReply
+parameter_list|()
+block|{
+return|return
+name|reply
+return|;
+block|}
+DECL|method|setReply (String reply)
+specifier|public
+name|void
+name|setReply
+parameter_list|(
+name|String
+name|reply
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reply
+operator|=
+name|reply
+expr_stmt|;
 block|}
 block|}
 end_class
