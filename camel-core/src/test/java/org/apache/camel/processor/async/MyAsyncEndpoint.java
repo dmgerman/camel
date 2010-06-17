@@ -104,6 +104,11 @@ name|delay
 init|=
 literal|500
 decl_stmt|;
+DECL|field|failFirstAttempts
+specifier|private
+name|int
+name|failFirstAttempts
+decl_stmt|;
 DECL|method|MyAsyncEndpoint (String endpointUri, Component component)
 specifier|public
 name|MyAsyncEndpoint
@@ -218,6 +223,32 @@ operator|.
 name|delay
 operator|=
 name|delay
+expr_stmt|;
+block|}
+DECL|method|getFailFirstAttempts ()
+specifier|public
+name|int
+name|getFailFirstAttempts
+parameter_list|()
+block|{
+return|return
+name|failFirstAttempts
+return|;
+block|}
+DECL|method|setFailFirstAttempts (int failFirstAttempts)
+specifier|public
+name|void
+name|setFailFirstAttempts
+parameter_list|(
+name|int
+name|failFirstAttempts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failFirstAttempts
+operator|=
+name|failFirstAttempts
 expr_stmt|;
 block|}
 block|}

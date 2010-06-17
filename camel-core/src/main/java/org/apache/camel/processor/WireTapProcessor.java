@@ -320,12 +320,11 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|method|process (final Exchange exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -349,6 +348,18 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// must configure the wire tap beforehand
+specifier|final
+name|Exchange
+name|wireTapExchange
+init|=
+name|configureExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|pattern
+argument_list|)
+decl_stmt|;
 comment|// send the exchange to the destination using an executor service
 name|executorService
 operator|.
@@ -375,7 +386,7 @@ name|doInProducer
 argument_list|(
 name|destination
 argument_list|,
-name|exchange
+name|wireTapExchange
 argument_list|,
 name|pattern
 argument_list|,
@@ -402,15 +413,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|exchange
-operator|=
-name|configureExchange
-argument_list|(
-name|exchange
-argument_list|,
-name|pattern
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -453,12 +455,11 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (final Exchange exchange, final AsyncCallback callback)
+DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
 name|process
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
@@ -484,6 +485,18 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// must configure the wire tap beforehand
+specifier|final
+name|Exchange
+name|wireTapExchange
+init|=
+name|configureExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|pattern
+argument_list|)
+decl_stmt|;
 comment|// send the exchange to the destination using an executor service
 name|executorService
 operator|.
@@ -510,7 +523,7 @@ name|doInProducer
 argument_list|(
 name|destination
 argument_list|,
-name|exchange
+name|wireTapExchange
 argument_list|,
 name|pattern
 argument_list|,
@@ -537,15 +550,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|exchange
-operator|=
-name|configureExchange
-argument_list|(
-name|exchange
-argument_list|,
-name|pattern
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|log

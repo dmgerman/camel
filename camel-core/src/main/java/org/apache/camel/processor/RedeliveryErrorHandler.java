@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -512,6 +524,49 @@ condition|(
 literal|true
 condition|)
 block|{
+comment|// can we still run
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|RejectedExecutionException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+name|data
+operator|.
+name|sync
+argument_list|)
+expr_stmt|;
+return|return
+name|data
+operator|.
+name|sync
+return|;
+block|}
 comment|// did previous processing cause an exception?
 name|boolean
 name|handle
@@ -714,26 +769,11 @@ comment|// only process if the exchange hasn't failed
 comment|// and it has not been handled by the error processor
 if|if
 condition|(
-operator|!
 name|isDone
 argument_list|(
 name|exchange
 argument_list|)
 condition|)
-block|{
-comment|// TODO: async process redelivery (eg duplicate the error handler logic)
-comment|// And have a timer task scheduled when redelivery should occur to avoid blocking thread
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Not done continuing error handling asynchronously: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|callback
 operator|.
@@ -742,7 +782,18 @@ argument_list|(
 name|sync
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
+comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
+name|processAsyncErrorHandler
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -758,6 +809,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|// we route synchronously
 name|boolean
 name|done
 init|=
@@ -784,6 +836,289 @@ return|;
 block|}
 comment|// error occurred so loop back around.....
 block|}
+block|}
+DECL|method|processAsyncErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
+specifier|protected
+name|void
+name|processAsyncErrorHandler
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
+parameter_list|,
+specifier|final
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+comment|// can we still run
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|RejectedExecutionException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+name|data
+operator|.
+name|sync
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// did previous processing cause an exception?
+name|boolean
+name|handle
+init|=
+name|shouldHandleException
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|handle
+condition|)
+block|{
+name|handleException
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+comment|// compute if we should redeliver or not
+name|boolean
+name|shouldRedeliver
+init|=
+name|shouldRedeliver
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|shouldRedeliver
+condition|)
+block|{
+comment|// no we should not redeliver to the same output so either try an onException (if any given)
+comment|// or the dead letter queue
+name|Processor
+name|target
+init|=
+name|data
+operator|.
+name|failureProcessor
+operator|!=
+literal|null
+condition|?
+name|data
+operator|.
+name|failureProcessor
+else|:
+name|data
+operator|.
+name|deadLetterProcessor
+decl_stmt|;
+comment|// deliver to the failure processor (either an on exception or dead letter queue
+name|deliverToFailureProcessor
+argument_list|(
+name|target
+argument_list|,
+name|exchange
+argument_list|,
+name|data
+argument_list|,
+name|callback
+argument_list|)
+expr_stmt|;
+comment|// we are breaking out
+return|return;
+block|}
+comment|// TODO: Use a scheduler to schedule the redelivery delay
+comment|// which contains the outputAsync task being executed
+comment|// we can optimize and only use the scheduler if there is a delay
+if|if
+condition|(
+name|shouldRedeliver
+operator|&&
+name|data
+operator|.
+name|redeliveryCounter
+operator|>
+literal|0
+condition|)
+block|{
+comment|// prepare for redelivery
+name|prepareExchangeForRedelivery
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// if we are redelivering then sleep before trying again
+comment|// wait until we should redeliver
+try|try
+block|{
+name|data
+operator|.
+name|redeliveryDelay
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|sleep
+argument_list|(
+name|data
+operator|.
+name|redeliveryDelay
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sleep interrupted, are we stopping? "
+operator|+
+operator|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+comment|// letting onRedeliver be executed
+name|deliverToRedeliveryProcessor
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+comment|// process the exchange (also redelivery)
+name|outputAsync
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|sync
+parameter_list|)
+block|{
+comment|// this callback should only handle the async case
+if|if
+condition|(
+name|sync
+condition|)
+block|{
+return|return;
+block|}
+comment|// mark we are in async mode now
+name|data
+operator|.
+name|sync
+operator|=
+literal|false
+expr_stmt|;
+comment|// only process if the exchange hasn't failed
+comment|// and it has not been handled by the error processor
+if|if
+condition|(
+name|isDone
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+name|sync
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
+name|processAsyncErrorHandler
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Strategy whether the exchange has an exception that we should try to handle.      *<p/>      * Standard implementations should just look for an exception.      */
 DECL|method|shouldHandleException (Exchange exchange)
@@ -1687,13 +2022,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// indicate we are done synchronously
-name|data
-operator|.
-name|sync
-operator|=
-literal|true
-expr_stmt|;
+comment|// callback we are done
 name|callback
 operator|.
 name|done
