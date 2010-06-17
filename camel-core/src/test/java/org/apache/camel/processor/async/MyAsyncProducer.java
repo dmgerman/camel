@@ -289,14 +289,24 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Simulating a task which takes 2 sec to reply"
+literal|"Simulating a task which takes "
+operator|+
+name|endpoint
+operator|.
+name|getDelay
+argument_list|()
+operator|+
+literal|" millis to reply"
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+name|endpoint
+operator|.
+name|getDelay
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

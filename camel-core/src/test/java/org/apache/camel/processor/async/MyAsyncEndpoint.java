@@ -97,6 +97,13 @@ specifier|private
 name|String
 name|reply
 decl_stmt|;
+DECL|field|delay
+specifier|private
+name|long
+name|delay
+init|=
+literal|500
+decl_stmt|;
 DECL|method|MyAsyncEndpoint (String endpointUri, Component component)
 specifier|public
 name|MyAsyncEndpoint
@@ -185,6 +192,32 @@ operator|.
 name|reply
 operator|=
 name|reply
+expr_stmt|;
+block|}
+DECL|method|getDelay ()
+specifier|public
+name|long
+name|getDelay
+parameter_list|()
+block|{
+return|return
+name|delay
+return|;
+block|}
+DECL|method|setDelay (long delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
 expr_stmt|;
 block|}
 block|}

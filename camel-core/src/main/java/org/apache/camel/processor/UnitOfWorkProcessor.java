@@ -418,6 +418,8 @@ name|exchange
 parameter_list|)
 block|{
 comment|// unit of work is done
+try|try
+block|{
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -428,6 +430,25 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occurred during done UnitOfWork for Exchange: "
+operator|+
+name|exchange
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|uow
@@ -438,7 +459,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
