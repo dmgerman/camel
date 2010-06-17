@@ -168,22 +168,6 @@ name|XmlConverter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|HandleFault
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test cases for dealing with stream types in an exception handler  *   * @version $Revision$  */
 end_comment
@@ -500,6 +484,21 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// enable support for handling faults and stream caching
+name|context
+operator|.
+name|setHandleFault
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setStreamCaching
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|onException
 argument_list|(
 name|Exception
@@ -515,16 +514,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:exception"
-argument_list|)
-expr_stmt|;
-name|intercept
-argument_list|()
-operator|.
-name|addInterceptStrategy
-argument_list|(
-operator|new
-name|HandleFault
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
