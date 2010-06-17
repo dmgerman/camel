@@ -420,6 +420,16 @@ block|{
 comment|// unit of work is done
 try|try
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -430,6 +440,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -446,6 +457,8 @@ operator|+
 name|exchange
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,6 +485,8 @@ operator|+
 name|exchange
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -73,10 +73,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointFailedAfterOnExceptionTest
+DECL|class|AsyncEndpointFailedAfterOnExceptionHandledTest
 specifier|public
 class|class
-name|AsyncEndpointFailedAfterOnExceptionTest
+name|AsyncEndpointFailedAfterOnExceptionHandledTest
 extends|extends
 name|ContextTestSupport
 block|{
