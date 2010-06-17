@@ -105,13 +105,21 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * length of the data block (useful for the fixedlength record) (optional in      * this version)      *       * @return int      */
+comment|/**      * length of the data block (useful for the fixedlength record)       *       * @return int      */
 DECL|method|length ()
 name|int
 name|length
 parameter_list|()
 default|default
 literal|0
+function_decl|;
+comment|/**      * align the text to the RIGHT or to LEFT part       *       * @return String      */
+DECL|method|align ()
+name|String
+name|align
+parameter_list|()
+default|default
+literal|"R"
 function_decl|;
 comment|/**      * precision of the BigDecimal number to be created      *       * @return int      */
 DECL|method|precision ()
