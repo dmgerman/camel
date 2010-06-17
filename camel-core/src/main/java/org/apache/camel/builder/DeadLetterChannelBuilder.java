@@ -246,6 +246,11 @@ init|=
 operator|new
 name|DeadLetterChannel
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|processor
 argument_list|,
 name|getLogger

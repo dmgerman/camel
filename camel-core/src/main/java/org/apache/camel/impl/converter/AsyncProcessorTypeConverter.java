@@ -226,6 +226,35 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|processor
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"Processor is null"
+return|;
+block|}
+block|}
 block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public

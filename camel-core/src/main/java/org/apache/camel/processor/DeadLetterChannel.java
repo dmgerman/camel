@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -80,11 +92,14 @@ name|DeadLetterChannel
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      */
-DECL|method|DeadLetterChannel (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy)
+comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      */
+DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|output
 parameter_list|,
@@ -115,6 +130,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|output
 argument_list|,
 name|logger

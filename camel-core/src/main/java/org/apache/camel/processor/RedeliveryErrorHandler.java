@@ -24,7 +24,43 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Callable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -49,6 +85,18 @@ operator|.
 name|camel
 operator|.
 name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -227,6 +275,18 @@ name|ErrorHandlerSupport
 implements|implements
 name|AsyncProcessor
 block|{
+DECL|field|executorService
+specifier|private
+specifier|static
+name|ScheduledExecutorService
+name|executorService
+decl_stmt|;
+DECL|field|camelContext
+specifier|protected
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|deadLetter
 specifier|protected
 specifier|final
@@ -281,6 +341,7 @@ specifier|final
 name|boolean
 name|useOriginalMessagePolicy
 decl_stmt|;
+comment|/**      * Contains the current redelivery data      */
 DECL|class|RedeliveryData
 specifier|protected
 class|class
@@ -344,10 +405,224 @@ init|=
 name|useOriginalMessagePolicy
 decl_stmt|;
 block|}
-DECL|method|RedeliveryErrorHandler (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy)
+comment|/**      * Tasks which performs asynchronous redelivery attempts, and being triggered by a      * {@link java.util.concurrent.ScheduledExecutorService} to avoid having any threads blocking if a task      * has to be delayed before a redelivery attempt is performed.       */
+DECL|class|RedeliveryTask
+specifier|private
+class|class
+name|RedeliveryTask
+implements|implements
+name|Callable
+argument_list|<
+name|Boolean
+argument_list|>
+block|{
+DECL|field|exchange
+specifier|private
+specifier|final
+name|Exchange
+name|exchange
+decl_stmt|;
+DECL|field|callback
+specifier|private
+specifier|final
+name|AsyncCallback
+name|callback
+decl_stmt|;
+DECL|field|data
+specifier|private
+specifier|final
+name|RedeliveryData
+name|data
+decl_stmt|;
+DECL|method|RedeliveryTask (Exchange exchange, AsyncCallback callback, RedeliveryData data)
+specifier|public
+name|RedeliveryTask
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|callback
+operator|=
+name|callback
+expr_stmt|;
+name|this
+operator|.
+name|data
+operator|=
+name|data
+expr_stmt|;
+block|}
+DECL|method|call ()
+specifier|public
+name|Boolean
+name|call
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// prepare for redelivery
+name|prepareExchangeForRedelivery
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// letting onRedeliver be executed at first
+name|deliverToRedeliveryProcessor
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Redelivering exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|outputAsync
+operator|+
+literal|" for Exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|// process the exchange (also redelivery)
+name|boolean
+name|sync
+init|=
+name|outputAsync
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|sync
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Redelivering exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" done"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// this callback should only handle the async case
+if|if
+condition|(
+name|sync
+condition|)
+block|{
+return|return;
+block|}
+comment|// mark we are in async mode now
+name|data
+operator|.
+name|sync
+operator|=
+literal|false
+expr_stmt|;
+comment|// only process if the exchange hasn't failed
+comment|// and it has not been handled by the error processor
+if|if
+condition|(
+name|isDone
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+name|sync
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
+name|processAsyncErrorHandler
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+return|return
+name|sync
+return|;
+block|}
+block|}
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|output
 parameter_list|,
@@ -373,6 +648,12 @@ name|boolean
 name|useOriginalMessagePolicy
 parameter_list|)
 block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 name|this
 operator|.
 name|redeliveryProcessor
@@ -500,7 +781,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Processes the exchange decorated with this dead letter channel.      */
+comment|/**      * Process the exchange using redelivery error handling.      */
 DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
 name|boolean
@@ -519,6 +800,7 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// use looping to have redelivery attempts
 while|while
 condition|(
 literal|true
@@ -647,8 +929,6 @@ return|;
 block|}
 if|if
 condition|(
-name|shouldRedeliver
-operator|&&
 name|data
 operator|.
 name|redeliveryCounter
@@ -765,8 +1045,7 @@ name|sync
 operator|=
 literal|false
 expr_stmt|;
-comment|// only process if the exchange hasn't failed
-comment|// and it has not been handled by the error processor
+comment|// if we are done then notify callback and exit
 if|if
 condition|(
 name|isDone
@@ -785,6 +1064,7 @@ expr_stmt|;
 return|return;
 block|}
 comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
+comment|// method which takes care of this in a asynchronous manner
 name|processAsyncErrorHandler
 argument_list|(
 name|exchange
@@ -809,7 +1089,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|// we route synchronously
+comment|// we continue to route synchronously
+comment|// if we are done then notify callback and exit
 name|boolean
 name|done
 init|=
@@ -837,6 +1118,7 @@ block|}
 comment|// error occurred so loop back around.....
 block|}
 block|}
+comment|/**      * This logic is only executed if we have to retry redelivery asynchronously, which have to be done from the callback.      *<p/>      * And therefore the logic is a bit different than the synchronous<tt>processErrorHandler</tt> method which can use      * a loop based redelivery technique. However this means that these two methods in overall have to be in<b>sync</b>      * in terms of logic.      */
 DECL|method|processAsyncErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
 name|void
@@ -967,13 +1249,8 @@ expr_stmt|;
 comment|// we are breaking out
 return|return;
 block|}
-comment|// TODO: Use a scheduler to schedule the redelivery delay
-comment|// which contains the outputAsync task being executed
-comment|// we can optimize and only use the scheduler if there is a delay
 if|if
 condition|(
-name|shouldRedeliver
-operator|&&
 name|data
 operator|.
 name|redeliveryCounter
@@ -981,16 +1258,22 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// prepare for redelivery
-name|prepareExchangeForRedelivery
+comment|// let the RedeliverTask be the logic which tries to redeliver the Exchange which we can used a scheduler to
+comment|// have it being executed in the future, or immediately
+name|RedeliveryTask
+name|task
+init|=
+operator|new
+name|RedeliveryTask
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
 argument_list|)
-expr_stmt|;
-comment|// if we are redelivering then sleep before trying again
-comment|// wait until we should redeliver
-try|try
-block|{
+decl_stmt|;
+comment|// calculate the redelivery delay
 name|data
 operator|.
 name|redeliveryDelay
@@ -999,7 +1282,7 @@ name|data
 operator|.
 name|currentRedeliveryPolicy
 operator|.
-name|sleep
+name|calculateRedeliveryDelay
 argument_list|(
 name|data
 operator|.
@@ -1010,115 +1293,71 @@ operator|.
 name|redeliveryCounter
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
+if|if
+condition|(
+name|data
+operator|.
+name|redeliveryDelay
+operator|>
+literal|0
+condition|)
 block|{
+comment|// schedule the redelivery task
 if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Sleep interrupted, are we stopping? "
+literal|"Scheduling redelivery task to run in "
 operator|+
-operator|(
-name|isStopping
-argument_list|()
-operator|||
-name|isStopped
-argument_list|()
-operator|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return;
-block|}
-comment|// letting onRedeliver be executed
-name|deliverToRedeliveryProcessor
-argument_list|(
-name|exchange
-argument_list|,
-name|data
-argument_list|)
-expr_stmt|;
-block|}
-comment|// process the exchange (also redelivery)
-name|outputAsync
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|sync
-parameter_list|)
-block|{
-comment|// this callback should only handle the async case
-if|if
-condition|(
-name|sync
-condition|)
-block|{
-return|return;
-block|}
-comment|// mark we are in async mode now
 name|data
 operator|.
-name|sync
-operator|=
-literal|false
-expr_stmt|;
-comment|// only process if the exchange hasn't failed
-comment|// and it has not been handled by the error processor
-if|if
-condition|(
-name|isDone
-argument_list|(
+name|redeliveryDelay
+operator|+
+literal|" millis for exchangeId: "
+operator|+
 name|exchange
-argument_list|)
-condition|)
-block|{
-name|callback
 operator|.
-name|done
-argument_list|(
-name|sync
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
-comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
-name|processAsyncErrorHandler
+name|executorService
+operator|.
+name|schedule
 argument_list|(
-name|exchange
-argument_list|,
-name|callback
+name|task
 argument_list|,
 name|data
+operator|.
+name|redeliveryDelay
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// execute the task immediately
+name|executorService
+operator|.
+name|submit
+argument_list|(
+name|task
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Strategy whether the exchange has an exception that we should try to handle.      *<p/>      * Standard implementations should just look for an exception.      */
 DECL|method|shouldHandleException (Exchange exchange)
@@ -1152,7 +1391,9 @@ block|{
 comment|// only done if the exchange hasn't failed
 comment|// and it has not been handled by the failure processor
 comment|// or we are exhausted
-return|return
+name|boolean
+name|answer
+init|=
 name|exchange
 operator|.
 name|getException
@@ -1173,6 +1414,34 @@ name|isRedeliveryExhausted
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Is exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" done? "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Returns the output processor      */
@@ -1950,7 +2219,7 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// fire event as we had a failure processor to handle it
+comment|// fire event as we had a failure processor to handle it, which there is a event for
 name|boolean
 name|deadLetterChannel
 init|=
@@ -2159,13 +2428,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"This exchange has already been marked for handling: "
 operator|+
@@ -2243,13 +2512,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"This exchange is handled so its marked as not failed: "
 operator|+
@@ -2286,13 +2555,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"This exchange is continued: "
 operator|+
@@ -2315,13 +2584,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"This exchange is not handled or continued so its marked as failed: "
 operator|+
@@ -3042,6 +3311,58 @@ argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
+comment|// use pool size from default profile
+name|int
+name|poolSize
+init|=
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|getDefaultThreadPoolProfile
+argument_list|()
+operator|.
+name|getPoolSize
+argument_list|()
+decl_stmt|;
+comment|// use a shared scheduler
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+operator|||
+name|executorService
+operator|.
+name|isShutdown
+argument_list|()
+condition|)
+block|{
+comment|// camel context will shutdown the executor when it shutdown so no need to shut it down when stopping
+name|executorService
+operator|=
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|newScheduledThreadPool
+argument_list|(
+name|this
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"-AsyncRedeliveryTask"
+argument_list|,
+name|poolSize
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

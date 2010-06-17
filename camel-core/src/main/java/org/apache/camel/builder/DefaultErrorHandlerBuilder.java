@@ -293,6 +293,11 @@ init|=
 operator|new
 name|DefaultErrorHandler
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|processor
 argument_list|,
 name|getLogger
