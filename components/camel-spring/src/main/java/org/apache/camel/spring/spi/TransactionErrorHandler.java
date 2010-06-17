@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -208,11 +220,14 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
-comment|/**      * Creates the transaction error handler.      *      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param handledPolicy           policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      */
-DECL|method|TransactionErrorHandler (Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate)
+comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param handledPolicy           policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      */
+DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|output
 parameter_list|,
@@ -237,6 +252,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|output
 argument_list|,
 name|logger
