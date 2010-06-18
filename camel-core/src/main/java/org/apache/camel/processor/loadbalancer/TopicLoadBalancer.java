@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -53,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link LoadBalancer} implementations which sends to all destinations  * (rather like JMS Topics).    *   * @version $Revision$  */
+comment|/**  * A {@link LoadBalancer} implementations which sends to all destinations  * (rather like JMS Topics).  *<p/>  * The {@link org.apache.camel.processor.MulticastProcessor} is more powerful as it offers  * option to run in parallel and decide whether or not to stop on failure etc.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -64,16 +76,19 @@ name|TopicLoadBalancer
 extends|extends
 name|LoadBalancerSupport
 block|{
-DECL|method|process (Exchange exchange)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|List
 argument_list|<
@@ -84,6 +99,7 @@ init|=
 name|getProcessors
 argument_list|()
 decl_stmt|;
+comment|// too hard to do multiple async, so we do it sync
 for|for
 control|(
 name|Processor
@@ -91,6 +107,8 @@ name|processor
 range|:
 name|list
 control|)
+block|{
+try|try
 block|{
 name|Exchange
 name|copy
@@ -110,8 +128,35 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+comment|// stop on failure
+break|break;
 block|}
-comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link org.apache.camel.processor.Pipeline Pipeline}      * will not clone the exchange      *       * @param processor the processor that will send the exchange      * @param exchange  the exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link org.apache.camel.processor.Pipeline Pipeline}      * will not clone the exchange      *      * @param processor the processor that will send the exchange      * @param exchange  the exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
 DECL|method|copyExchangeStrategy (Processor processor, Exchange exchange)
 specifier|protected
 name|Exchange

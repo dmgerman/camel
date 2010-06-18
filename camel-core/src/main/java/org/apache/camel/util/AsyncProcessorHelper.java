@@ -131,15 +131,17 @@ block|{
 comment|// utility class
 block|}
 comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      */
-DECL|method|process (AsyncProcessor processor, Exchange exchange)
+DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
 specifier|public
 specifier|static
 name|void
 name|process
 parameter_list|(
+specifier|final
 name|AsyncProcessor
 name|processor
 parameter_list|,
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -189,6 +191,19 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Done "
+operator|+
+name|processor
+return|;
 block|}
 block|}
 argument_list|)

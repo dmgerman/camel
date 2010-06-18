@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -50,9 +62,8 @@ specifier|public
 interface|interface
 name|LoadBalancer
 extends|extends
-name|Processor
+name|AsyncProcessor
 block|{
-comment|// TODO: Should leverage AsyncProcessor
 comment|/**      * Adds a new processor to the load balancer      *      * @param processor the processor to be added to the load balancer      */
 DECL|method|addProcessor (Processor processor)
 name|void
