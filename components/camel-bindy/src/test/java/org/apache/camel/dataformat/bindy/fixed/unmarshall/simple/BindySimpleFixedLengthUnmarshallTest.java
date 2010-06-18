@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.fixed
+DECL|package|org.apache.camel.dataformat.bindy.fixed.unmarshall.simple
 package|package
 name|org
 operator|.
@@ -17,6 +17,10 @@ operator|.
 name|bindy
 operator|.
 name|fixed
+operator|.
+name|unmarshall
+operator|.
+name|simple
 package|;
 end_package
 
@@ -157,6 +161,48 @@ operator|.
 name|annotation
 operator|.
 name|FixedLengthRecord
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|fixed
+operator|.
+name|BindyFixedLengthDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|fixed
+operator|.
+name|marshall
+operator|.
+name|simple
+operator|.
+name|BindySimpleFixedLengthMarshallTest
+operator|.
+name|Order
 import|;
 end_import
 
@@ -379,7 +425,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"10A9PaulineMISINXD12345678BUYShare2500.45USD08-01-2009"
+literal|"10A9  PaulineM    ISINXD12345678BUYShare2500.45USD01-08-2009"
 expr_stmt|;
 name|template
 operator|.
@@ -416,7 +462,7 @@ init|=
 operator|new
 name|BindyFixedLengthDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.fixed"
+literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple"
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()
@@ -447,7 +493,7 @@ name|FixedLengthRecord
 argument_list|(
 name|length
 operator|=
-literal|55
+literal|60
 argument_list|,
 name|paddingChar
 operator|=
@@ -500,7 +546,7 @@ literal|5
 argument_list|,
 name|length
 operator|=
-literal|7
+literal|9
 argument_list|)
 DECL|field|firstName
 specifier|private
@@ -512,11 +558,15 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|12
+literal|14
 argument_list|,
 name|length
 operator|=
-literal|1
+literal|5
+argument_list|,
+name|align
+operator|=
+literal|"L"
 argument_list|)
 DECL|field|lastName
 specifier|private
@@ -528,7 +578,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|13
+literal|19
 argument_list|,
 name|length
 operator|=
@@ -544,7 +594,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|17
+literal|23
 argument_list|,
 name|length
 operator|=
@@ -560,7 +610,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|27
+literal|33
 argument_list|,
 name|length
 operator|=
@@ -576,7 +626,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|30
+literal|36
 argument_list|,
 name|length
 operator|=
@@ -592,7 +642,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|35
+literal|41
 argument_list|,
 name|precision
 operator|=
@@ -612,7 +662,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|42
+literal|48
 argument_list|,
 name|length
 operator|=
@@ -628,7 +678,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|45
+literal|51
 argument_list|,
 name|length
 operator|=

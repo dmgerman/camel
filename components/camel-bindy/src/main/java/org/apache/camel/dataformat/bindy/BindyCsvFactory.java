@@ -1885,6 +1885,7 @@ return|return
 name|product
 return|;
 block|}
+comment|/**      *       * Generate a table containing the data formated and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursivelu through this function      * The result is placed in the Map<Integer, List> results      *       * @param clazz      * @param obj      * @throws Exception      */
 DECL|method|generateCsvPositionMap (Class clazz, Object obj)
 specifier|private
 name|void
@@ -2291,68 +2292,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|formatString (Format format, Object value)
-specifier|private
-name|String
-name|formatString
-parameter_list|(
-name|Format
-name|format
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|String
-name|strValue
-init|=
-literal|""
-decl_stmt|;
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// Format field value
-try|try
-block|{
-name|strValue
-operator|=
-name|format
-operator|.
-name|format
-argument_list|(
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Formatting error detected for the value : "
-operator|+
-name|value
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-return|return
-name|strValue
-return|;
-block|}
+comment|/**      * Generate for the first line the headers of the columns      *       * @return the headers columns      */
 DECL|method|generateHeader ()
 specifier|public
 name|String
@@ -2505,7 +2445,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Get paramaters defined in @Csvrecord annotation      */
+comment|/**      * Get parameters defined in @Csvrecord annotation      */
 DECL|method|initCsvRecordParameters ()
 specifier|private
 name|void
