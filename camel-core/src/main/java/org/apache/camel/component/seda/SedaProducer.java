@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -196,17 +208,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (final Exchange exchange)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// use a new copy of the exchange to route async and handover the on completion to the new copy
 comment|// so its the new copy that performs the on completion callback when its done
@@ -506,6 +520,12 @@ comment|// lets see if we can get the task done before the timeout
 name|boolean
 name|done
 init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|done
+operator|=
 name|latch
 operator|.
 name|await
@@ -516,7 +536,16 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 if|if
 condition|(
 operator|!
@@ -570,11 +599,22 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// no timeout then wait until its done
+try|try
+block|{
 name|latch
 operator|.
 name|await
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 else|else
@@ -588,6 +628,18 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we use OnCompletion on the Exchange to callback and wait for the Exchange to be done
+comment|// so we should just signal the callback we are done synchronously
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 annotation|@
 name|Override

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper methods for AsyncProcessor objects.  */
+comment|/**  * Helper methods for {@link AsyncProcessor} objects.  */
 end_comment
 
 begin_class
@@ -174,13 +174,13 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|sync
+name|doneSync
 parameter_list|)
 block|{
 if|if
 condition|(
 operator|!
-name|sync
+name|doneSync
 condition|)
 block|{
 name|latch
@@ -206,7 +206,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Processes the exchange async.      *      * @param executor  executor service      * @param processor the processor      * @param exchange  the exchange      * @return a future handle for the task being executed asynchronously      */
+comment|/**      * Processes the exchange async.      *      * @param executor  executor service      * @param processor the processor      * @param exchange  the exchange      * @return a future handle for the task being executed asynchronously      * @deprecated will be removed in Camel 2.5      */
+annotation|@
+name|Deprecated
 DECL|method|asyncProcess (final ExecutorService executor, final Processor processor, final Exchange exchange)
 specifier|public
 specifier|static

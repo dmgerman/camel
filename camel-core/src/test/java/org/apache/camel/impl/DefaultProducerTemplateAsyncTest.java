@@ -1775,7 +1775,7 @@ operator|.
 name|createProducer
 argument_list|()
 decl_stmt|;
-comment|// normally you will use a shared exectutor service with pools
+comment|// normally you will use a shared executor service with pools
 name|ExecutorService
 name|executor
 init|=
