@@ -96,7 +96,7 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      * @throws ValidationException is thrown in case of validatation errors      */
+comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      * @throws ValidationException is thrown in case of validation errors      */
 DECL|method|handleErrors (Exchange exchange, Schema schema, Result result)
 name|void
 name|handleErrors

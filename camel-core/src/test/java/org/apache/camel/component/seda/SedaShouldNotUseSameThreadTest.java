@@ -252,7 +252,7 @@ argument_list|)
 expr_stmt|;
 name|assertNotSame
 argument_list|(
-literal|"Thead is should not be same"
+literal|"Thread is should not be same"
 argument_list|,
 name|id
 argument_list|,
