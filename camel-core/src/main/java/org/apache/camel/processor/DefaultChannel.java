@@ -332,8 +332,6 @@ name|DefaultChannel
 extends|extends
 name|ServiceSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Channel
 block|{
 DECL|field|LOG
@@ -1168,6 +1166,14 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+comment|// we should not continue routing so we are done
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;

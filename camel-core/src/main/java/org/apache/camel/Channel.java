@@ -76,7 +76,7 @@ specifier|public
 interface|interface
 name|Channel
 extends|extends
-name|Processor
+name|AsyncProcessor
 extends|,
 name|Navigate
 argument_list|<
