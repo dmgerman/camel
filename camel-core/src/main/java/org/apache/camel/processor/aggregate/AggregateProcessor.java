@@ -2693,13 +2693,11 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
-name|lock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-try|try
-block|{
+comment|// do not acquire locks as we already have a lock on the timeout map
+comment|// and we want to avoid a dead lock if another thread (currently aggregating)
+comment|// which wants to put into the timeout map as well (CAMEL-2824)
+comment|// and running the on completion logic can occur concurrently, its just the aggregation logic
+comment|// which is preferred to run non concurrent.
 name|onCompletion
 argument_list|(
 name|key
@@ -2709,15 +2707,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|lock
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Background task that triggers completion based on interval.      */
@@ -3359,13 +3348,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// not exhaust so resubmit the recovered exchange
-name|lock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -3373,15 +3355,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|lock
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
