@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The purpose of this interface is to allow an implementation to wrap  * processors in a route with interceptors.  For example, a possible  * usecase is to gather performance statistics at the processor's level.  *  * @version $Revision$  */
+comment|/**  * The purpose of this interface is to allow an implementation to wrap  * processors in a route with interceptors.  For example, a possible  * usecase is to gather performance statistics at the processor's level.  *<p/>  * Its<b>strongly</b> adviced to use an {@link org.apache.camel.AsyncProcessor} as the returned wrapped  * {@link Processor} which ensures the interceptor works well with the asynchronous routing engine.  * You can use the {@link org.apache.camel.processor.DelegateAsyncProcessor} to easily return an  * {@link org.apache.camel.AsyncProcessor} and override the  * {@link org.apache.camel.AsyncProcessor#process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} to  * implement your interceptor logic. And just invoke the super method to<b>continue</b> routing.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -64,8 +64,7 @@ specifier|public
 interface|interface
 name|InterceptStrategy
 block|{
-comment|// TODO: We should force this strategy to return AsyncProcessor so custom interceptors work nicely with async
-comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *<p/>      * Its adviced to use an {@link org.apache.camel.AsyncProcessor} as the returned wrapped      * {@link Processor} which ensures the interceptor works well with the asynchronous routing engine.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor    wrapped with an interceptor or not wrapped.      * @throws Exception can be thrown      */
+comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *<p/>      *<b>Important:</b> See the class javadoc for advice on letting interceptor be compatible with the      * asynchronous routing engine.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor    wrapped with an interceptor or not wrapped.      * @throws Exception can be thrown      */
 DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
 name|Processor
 name|wrapProcessorInInterceptors

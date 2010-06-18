@@ -904,6 +904,37 @@ argument_list|,
 name|next
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|target
+operator|instanceof
+name|AsyncProcessor
+operator|)
+condition|)
+block|{
+comment|// warn if interceptor is not async compatible
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Interceptor: "
+operator|+
+name|strategy
+operator|+
+literal|" at: "
+operator|+
+name|outputDefinition
+operator|+
+literal|" does not return an AsyncProcessor instance."
+operator|+
+literal|" This causes the asynchronous routing engine to not work as optimal as possible."
+operator|+
+literal|" See more details at the InterceptStrategy javadoc."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// sets the delegate to our wrapped output
 name|output
