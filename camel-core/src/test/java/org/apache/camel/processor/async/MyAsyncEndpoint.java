@@ -102,7 +102,7 @@ specifier|private
 name|long
 name|delay
 init|=
-literal|500
+literal|1000
 decl_stmt|;
 DECL|field|failFirstAttempts
 specifier|private
