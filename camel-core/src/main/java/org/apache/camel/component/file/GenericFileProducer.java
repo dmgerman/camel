@@ -1117,7 +1117,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 operator|+
-literal|" contains a FileLanguage expression: "
+literal|" contains a Simple expression: "
 operator|+
 name|name
 argument_list|)

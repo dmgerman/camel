@@ -497,7 +497,9 @@ argument_list|>
 name|getComponentNames
 parameter_list|()
 function_decl|;
-comment|/**      * Removes a previously added component.      *      * @param componentName the component name to remove      * @return the previously added component or null if it had not been previously added.      */
+comment|/**      * Removes a previously added component.      *      * @param componentName the component name to remove      * @return the previously added component or null if it had not been previously added.      * @deprecated will be removed in Camel 2.5      */
+annotation|@
+name|Deprecated
 DECL|method|removeComponent (String componentName)
 name|Component
 name|removeComponent

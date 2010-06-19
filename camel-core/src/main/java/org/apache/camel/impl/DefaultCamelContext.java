@@ -2099,8 +2099,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Deprecated
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component

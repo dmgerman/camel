@@ -123,6 +123,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -443,10 +457,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doStop ()
@@ -457,10 +473,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|class|CopyAggregationStrategy

@@ -381,7 +381,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|// This method will be replaced by the construction method with the expression
+comment|/**      * Will be removed in Camel 2.5      */
 annotation|@
 name|Deprecated
 DECL|method|RoutingSlip (CamelContext camelContext, String header)
@@ -407,7 +407,7 @@ name|DEFAULT_DELIMITER
 argument_list|)
 expr_stmt|;
 block|}
-comment|// This method will be replaced by the construction method with the expression
+comment|/**      * Will be removed in Camel 2.5      */
 annotation|@
 name|Deprecated
 DECL|method|RoutingSlip (CamelContext camelContext, String header, String uriDelimiter)

@@ -80,14 +80,6 @@ name|ACCEPT_CONTENT_TYPE
 init|=
 literal|"CamelAcceptContentType"
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|AGGREGATED_INDEX
-name|String
-name|AGGREGATED_INDEX
-init|=
-literal|"CamelAggregatedIndex"
-decl_stmt|;
 DECL|field|AGGREGATED_SIZE
 name|String
 name|AGGREGATED_SIZE

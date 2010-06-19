@@ -111,19 +111,6 @@ name|RouteContext
 name|getRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * This property map is used to associate information about      * the route. Gets all the services for this routes      *</p>      * This implementation is used for initialization      *      * @return the services      * @throws Exception is thrown in case of error      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
-DECL|method|getServicesForRoute ()
-name|List
-argument_list|<
-name|Service
-argument_list|>
-name|getServicesForRoute
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * A strategy callback allowing special initialization when services is starting.      *      * @param services the service      * @throws Exception is thrown in case of error      */
 DECL|method|onStartingServices (List<Service> services)
 name|void

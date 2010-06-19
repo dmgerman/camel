@@ -116,6 +116,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -315,7 +329,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|preChceckPoll
+name|preCheckPoll
 argument_list|(
 name|exchange
 argument_list|)
@@ -545,10 +559,10 @@ block|}
 block|}
 block|}
 comment|/**      * Strategy to pre check polling.      *<p/>      * Is currently used to prevent doing poll enrich from a file based endpoint when the current route also      * started from a file based endpoint as that is not currently supported.      *      * @param exchange the current exchange      */
-DECL|method|preChceckPoll (Exchange exchange)
+DECL|method|preCheckPoll (Exchange exchange)
 specifier|protected
 name|void
-name|preChceckPoll
+name|preCheckPoll
 parameter_list|(
 name|Exchange
 name|exchange
@@ -751,10 +765,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doStop ()
@@ -765,10 +781,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|class|CopyAggregationStrategy

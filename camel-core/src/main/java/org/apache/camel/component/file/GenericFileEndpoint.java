@@ -1074,7 +1074,7 @@ operator|=
 name|move
 expr_stmt|;
 block|}
-comment|/**      * Sets the move failure expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+comment|/**      * Sets the move failure expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setMoveFailed (String fileLanguageExpression)
 specifier|public
 name|void
@@ -1128,7 +1128,7 @@ operator|=
 name|moveFailed
 expr_stmt|;
 block|}
-comment|/**      * Sets the move expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+comment|/**      * Sets the move expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setMove (String fileLanguageExpression)
 specifier|public
 name|void
@@ -1182,7 +1182,7 @@ operator|=
 name|preMove
 expr_stmt|;
 block|}
-comment|/**      * Sets the pre move expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+comment|/**      * Sets the pre move expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setPreMove (String fileLanguageExpression)
 specifier|public
 name|void
@@ -1236,7 +1236,7 @@ operator|=
 name|fileName
 expr_stmt|;
 block|}
-comment|/**      * Sets the file expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+comment|/**      * Sets the file expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setFileName (String fileLanguageExpression)
 specifier|public
 name|void

@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with times in various units  *   * @version $Revision$  * @deprecated  */
+comment|/**  * A helper class for working with times in various units  *   * @version $Revision$  * @deprecated will be removed in Camel 2.5  */
 end_comment
 
 begin_class
