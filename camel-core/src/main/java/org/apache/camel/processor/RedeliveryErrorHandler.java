@@ -1618,16 +1618,6 @@ name|exchange
 parameter_list|)
 block|{
 comment|// okay we will give it another go so clear the exception so we can try again
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|exchange
 operator|.
 name|setException
@@ -1635,7 +1625,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 comment|// clear rollback flags
 name|exchange
 operator|.
@@ -1926,7 +1915,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -3351,13 +3340,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-operator|+
-literal|"-AsyncRedeliveryTask"
+literal|"RedeliveryErrorHandler-AsyncRedeliveryTask"
 argument_list|,
 name|poolSize
 argument_list|)

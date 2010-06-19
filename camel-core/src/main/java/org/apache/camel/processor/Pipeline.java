@@ -1238,10 +1238,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Pipeline"
+literal|"Pipeline["
 operator|+
 name|getProcessors
 argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

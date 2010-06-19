@@ -114,6 +114,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|Traceable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -131,6 +145,8 @@ class|class
 name|FailOverLoadBalancer
 extends|extends
 name|LoadBalancerSupport
+implements|implements
+name|Traceable
 block|{
 DECL|field|exceptions
 specifier|private
@@ -682,7 +698,7 @@ literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the remainder of the pipeline will be completed async
+comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
@@ -720,9 +736,6 @@ name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
-comment|// we are logging the completion if will be confusing if we log the original instead
-comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
 name|log
 operator|.
 name|trace
@@ -886,7 +899,7 @@ literal|"Processing failover at attempt "
 operator|+
 name|attempts
 operator|+
-literal|" for exchange: "
+literal|" for "
 operator|+
 name|exchange
 argument_list|)
@@ -1220,7 +1233,7 @@ literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the remainder of the pipeline will be completed async
+comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
 block|}
@@ -1243,7 +1256,22 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"FailoverLoadBalancer"
+literal|"FailoverLoadBalancer["
+operator|+
+name|getProcessors
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"failover"
 return|;
 block|}
 block|}

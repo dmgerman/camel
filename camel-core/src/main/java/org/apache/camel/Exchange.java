@@ -714,16 +714,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the exception associated with this exchange      *      * @param e  the caused exception      */
-DECL|method|setException (Exception e)
-name|void
-name|setException
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the exception associated with this exchange      *      * @param t  the caused exception      */
+comment|/**      * Sets the exception associated with this exchange      *<p/>      * Camel will wrap {@link Throwable} into {@link Exception} type to      * accommodate for the {@link #getException()} method returning a plain {@link Exception} type.      *      * @param t  the caused exception      */
 DECL|method|setException (Throwable t)
 name|void
 name|setException

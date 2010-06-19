@@ -1198,22 +1198,6 @@ name|exception
 argument_list|)
 return|;
 block|}
-DECL|method|setException (Exception exception)
-specifier|public
-name|void
-name|setException
-parameter_list|(
-name|Exception
-name|exception
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exception
-operator|=
-name|exception
-expr_stmt|;
-block|}
 DECL|method|setException (Throwable t)
 specifier|public
 name|void
@@ -1223,6 +1207,21 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+if|if
+condition|(
+name|t
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|exception
+operator|=
+literal|null
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|t
