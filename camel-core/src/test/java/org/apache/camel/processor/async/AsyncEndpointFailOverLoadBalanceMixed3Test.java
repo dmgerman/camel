@@ -73,10 +73,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointFailOverLoadBalanceMixed2Test
+DECL|class|AsyncEndpointFailOverLoadBalanceMixed3Test
 specifier|public
 class|class
-name|AsyncEndpointFailOverLoadBalanceMixed2Test
+name|AsyncEndpointFailOverLoadBalanceMixed3Test
 extends|extends
 name|ContextTestSupport
 block|{
@@ -112,7 +112,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:fail"
+literal|"mock:ok"
 argument_list|)
 operator|.
 name|expectedBodiesReceived
@@ -264,13 +264,13 @@ argument_list|()
 operator|.
 name|failover
 argument_list|()
-comment|// first is sync, the 2nd is async based
+comment|// first is async, the 2nd is sync based
 operator|.
 name|to
 argument_list|(
-literal|"direct:fail"
+literal|"async:Bye World?failFirstAttempts=5"
 argument_list|,
-literal|"async:Bye World"
+literal|"direct:ok"
 argument_list|)
 operator|.
 name|end
@@ -324,25 +324,24 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:fail"
+literal|"direct:ok"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:fail"
+literal|"log:pok"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:fail"
+literal|"mock:ok"
 argument_list|)
 operator|.
-name|throwException
+name|transform
 argument_list|(
-operator|new
-name|IllegalArgumentException
+name|constant
 argument_list|(
-literal|"Damn"
+literal|"Bye World"
 argument_list|)
 argument_list|)
 expr_stmt|;

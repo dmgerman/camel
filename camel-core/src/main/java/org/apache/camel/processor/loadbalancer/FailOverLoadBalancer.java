@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This FailOverLoadBalancer will failover to use next processor when an exception occurred  */
+comment|/**  * This FailOverLoadBalancer will failover to use next processor when an exception occurred  *<p/>  * This implementation mirrors the logic from the {@link org.apache.camel.processor.Pipeline} in the async variation  * as the failover load balancer is a specialized pipeline. So the trick is to keep doing the same as the  * pipeline to ensure it works the same and the async routing engine is flawless.  */
 end_comment
 
 begin_class
@@ -203,6 +203,7 @@ name|exceptions
 operator|=
 name|exceptions
 expr_stmt|;
+comment|// validate its all exception types
 for|for
 control|(
 name|Class
@@ -392,9 +393,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|boolean
-name|sync
-decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|Processor
@@ -404,24 +403,6 @@ init|=
 name|getProcessors
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|processors
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No processors available to process "
-operator|+
-name|exchange
-argument_list|)
-throw|;
-block|}
 specifier|final
 name|AtomicInteger
 name|index
@@ -438,7 +419,12 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-comment|// pick the first endpoint to use
+name|boolean
+name|first
+init|=
+literal|true
+decl_stmt|;
+comment|// get the next processor
 if|if
 condition|(
 name|isRoundRobin
@@ -495,6 +481,145 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+while|while
+condition|(
+name|first
+operator|||
+name|shouldFailOver
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|first
+condition|)
+block|{
+name|attempts
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+comment|// are we exhausted by attempts?
+if|if
+condition|(
+name|maximumFailoverAttempts
+operator|>
+operator|-
+literal|1
+operator|&&
+name|attempts
+operator|.
+name|get
+argument_list|()
+operator|>
+name|maximumFailoverAttempts
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Braking out of failover after "
+operator|+
+name|attempts
+operator|+
+literal|" failover attempts"
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
+name|index
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|counter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// flip first switch
+name|first
+operator|=
+literal|false
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|index
+operator|.
+name|get
+argument_list|()
+operator|>=
+name|processors
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+comment|// out of bounds
+if|if
+condition|(
+name|isRoundRobin
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failover is round robin enabled and therefore starting from the first endpoint"
+argument_list|)
+expr_stmt|;
+name|index
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|counter
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// no more processors to try
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Braking out of failover as we reach the end of endpoints to use for failover"
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
+block|}
+comment|// try again but prepare exchange before we failover
+name|prepareExchangeForFailover
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|Processor
 name|processor
 init|=
@@ -508,9 +633,10 @@ name|get
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// process the failover
+comment|// process the exchange
+name|boolean
 name|sync
-operator|=
+init|=
 name|processExchange
 argument_list|(
 name|processor
@@ -525,7 +651,7 @@ name|callback
 argument_list|,
 name|processors
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// continue as long its being processed synchronously
 if|if
 condition|(
@@ -556,11 +682,63 @@ literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the remainder of the failover will be completed async
+comment|// the remainder of the pipeline will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Processing exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" is continued being processed synchronously"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
+comment|// we are logging the completion if will be confusing if we log the original instead
+comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Failover complete for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|">>> "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 name|callback
 operator|.
@@ -724,9 +902,7 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
-name|boolean
-name|sync
-init|=
+return|return
 name|albp
 operator|.
 name|process
@@ -747,9 +923,6 @@ argument_list|,
 name|processors
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|sync
 return|;
 block|}
 comment|/**      * Failover logic to be executed asynchronously if one of the failover endpoints      * is a real {@link AsyncProcessor}.      */
@@ -857,8 +1030,15 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// should we failover?
+comment|// we only have to handle async completion of the pipeline
 if|if
+condition|(
+name|doneSync
+condition|)
+block|{
+return|return;
+block|}
+while|while
 condition|(
 name|shouldFailOver
 argument_list|(
@@ -907,14 +1087,7 @@ literal|" failover attempts"
 argument_list|)
 expr_stmt|;
 block|}
-name|callback
-operator|.
-name|done
-argument_list|(
-name|doneSync
-argument_list|)
-expr_stmt|;
-return|return;
+break|break;
 block|}
 name|index
 operator|.
@@ -978,14 +1151,7 @@ argument_list|(
 literal|"Braking out of failover as we reach the end of endpoints to use for failover"
 argument_list|)
 expr_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-name|doneSync
-argument_list|)
-expr_stmt|;
-return|return;
+break|break;
 block|}
 block|}
 comment|// try again but prepare exchange before we failover
@@ -1008,38 +1174,67 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// try to failover using the next processor
-name|AsyncProcessor
-name|albp
-init|=
-name|AsyncProcessorTypeConverter
-operator|.
-name|convert
+name|doneSync
+operator|=
+name|processExchange
 argument_list|(
 name|processor
-argument_list|)
-decl_stmt|;
-name|albp
-operator|.
-name|process
-argument_list|(
+argument_list|,
 name|exchange
 argument_list|,
-name|this
+name|attempts
+argument_list|,
+name|index
+argument_list|,
+name|callback
+argument_list|,
+name|processors
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|doneSync
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Processing exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// we are done doing failover
+comment|// the remainder of the pipeline will be completed async
+comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
+return|return;
+block|}
+block|}
+comment|// signal callback we are done
 name|callback
 operator|.
 name|done
 argument_list|(
-name|doneSync
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+empty_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public
