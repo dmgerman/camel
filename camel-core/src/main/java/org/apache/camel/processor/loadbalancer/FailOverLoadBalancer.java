@@ -985,6 +985,7 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 comment|// try again but prepare exchange before we failover
