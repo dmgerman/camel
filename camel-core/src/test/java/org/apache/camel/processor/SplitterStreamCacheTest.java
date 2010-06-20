@@ -140,7 +140,7 @@ specifier|protected
 name|int
 name|numMessages
 init|=
-literal|1000
+literal|200
 decl_stmt|;
 DECL|method|testSendStreamSource ()
 specifier|public
@@ -248,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:parallel?size=1000&concurrentConsumers=5"
+literal|"seda:parallel?concurrentConsumers=5"
 argument_list|)
 operator|.
 name|streamCaching
