@@ -178,9 +178,13 @@ comment|// We use the extract future body to get the response from the future
 comment|// (waiting if needed) and then return a string body response.
 comment|// This allows us to do this in a single code line instead of using the
 comment|// JDK Future API to get hold of it, but you can also use that if you want
+comment|// Adding the (String) To make the CS happy
 name|String
 name|response
 init|=
+operator|(
+name|String
+operator|)
 name|template
 operator|.
 name|extractFutureBody

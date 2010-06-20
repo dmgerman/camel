@@ -130,11 +130,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testManagementExample ()
 specifier|public
 name|void

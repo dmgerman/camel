@@ -1105,7 +1105,7 @@ name|sendBody
 argument_list|(
 literal|"direct:no-param-insert"
 argument_list|,
-literal|"GPL"
+literal|"XGPL"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -1177,7 +1177,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"GPL"
+literal|"XGPL"
 argument_list|,
 name|projectNameInserted
 operator|.

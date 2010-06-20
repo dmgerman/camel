@@ -296,6 +296,7 @@ name|Assert
 block|{
 DECL|field|LOG
 specifier|protected
+specifier|static
 specifier|final
 specifier|transient
 name|Log
@@ -305,10 +306,9 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|this
+name|JpaWithNamedQueryTest
 operator|.
-name|getClass
-argument_list|()
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|camelContext
