@@ -52,6 +52,10 @@ name|Expression
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: example
+end_comment
+
 begin_class
 DECL|class|MyFileNameExpression
 specifier|public
@@ -92,6 +96,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// parser the file name with YYYYMMDD-DNNN pattern
 name|String
 name|fileName
 init|=
@@ -185,6 +190,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: example
+end_comment
 
 end_unit
 
