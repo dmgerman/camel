@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|InvalidPayloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -131,6 +143,22 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFile
 import|;
 end_import
 
@@ -421,20 +449,6 @@ operator|.
 name|entity
 operator|.
 name|StringEntity
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|protocol
-operator|.
-name|HTTP
 import|;
 end_import
 
@@ -1523,7 +1537,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws URISyntaxException is thrown if the URI is invalid      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws URISyntaxException is thrown if the URI is invalid      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
 DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpRequestBase
@@ -1534,6 +1548,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|URISyntaxException
+throws|,
+name|InvalidPayloadException
 block|{
 name|String
 name|url
@@ -1791,7 +1807,7 @@ return|return
 name|httpRequest
 return|;
 block|}
-comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange the exchange with the IN message with data to send      * @return the data holder      */
+comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange the exchange with the IN message with data to send      * @return the data holder      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
 DECL|method|createRequestEntity (Exchange exchange)
 specifier|protected
 name|HttpEntity
@@ -1800,6 +1816,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|InvalidPayloadException
 block|{
 name|Message
 name|in
@@ -1869,11 +1887,35 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// file based (could potentially also be a FTP file etc)
 if|if
 condition|(
 name|data
 operator|instanceof
 name|File
+operator|||
+name|data
+operator|instanceof
+name|GenericFile
+condition|)
+block|{
+name|File
+name|file
+init|=
+name|in
+operator|.
+name|getBody
+argument_list|(
+name|File
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|file
+operator|!=
+literal|null
 condition|)
 block|{
 name|answer
@@ -1881,14 +1923,12 @@ operator|=
 operator|new
 name|FileEntity
 argument_list|(
-operator|(
-name|File
-operator|)
-name|data
+name|file
 argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1898,6 +1938,10 @@ operator|instanceof
 name|String
 condition|)
 block|{
+comment|// be a bit careful with String as any type can most likely be converted to String
+comment|// so we only do an instanceof check and accept String if the body is really a String
+comment|// do not fallback to use the default charset as it can influence the request
+comment|// (for example application/x-www-form-urlencoded forms being sent)
 name|String
 name|charset
 init|=
@@ -1906,6 +1950,8 @@ operator|.
 name|getCharsetName
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|answer
@@ -1918,18 +1964,6 @@ name|String
 operator|)
 name|data
 argument_list|,
-name|charset
-argument_list|)
-expr_stmt|;
-operator|(
-operator|(
-name|StringEntity
-operator|)
-name|answer
-operator|)
-operator|.
-name|setContentEncoding
-argument_list|(
 name|charset
 argument_list|)
 expr_stmt|;
@@ -1954,8 +1988,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+comment|// fallback as input stream
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
 block|{
+comment|// force the body as an input stream since this is the fallback
+name|InputStream
+name|is
+init|=
+name|in
+operator|.
+name|getMandatoryBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|answer
 operator|=
 operator|new

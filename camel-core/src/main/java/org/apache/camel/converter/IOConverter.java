@@ -1703,6 +1703,29 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+return|return
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Gets the charset name if set as property {@link Exchange#CHARSET_NAME}.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
+DECL|method|getCharsetName (Exchange exchange, boolean useDefault)
+specifier|public
+specifier|static
+name|String
+name|getCharsetName
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|useDefault
+parameter_list|)
+block|{
 if|if
 condition|(
 name|exchange
@@ -1738,10 +1761,22 @@ name|charsetName
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|useDefault
+condition|)
+block|{
 return|return
 name|getDefaultCharsetName
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|getDefaultCharsetName ()
 specifier|public
