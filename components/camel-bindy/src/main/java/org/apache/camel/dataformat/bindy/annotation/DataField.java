@@ -121,6 +121,14 @@ parameter_list|()
 default|default
 literal|"R"
 function_decl|;
+comment|/**      * The char to pad with.      * @return the char to pad with if the record is set to a fixed length;      *       * @return char      */
+DECL|method|paddingChar ()
+name|char
+name|paddingChar
+parameter_list|()
+default|default
+literal|' '
+function_decl|;
 comment|/**      * precision of the BigDecimal number to be created      *       * @return int      */
 DECL|method|precision ()
 name|int

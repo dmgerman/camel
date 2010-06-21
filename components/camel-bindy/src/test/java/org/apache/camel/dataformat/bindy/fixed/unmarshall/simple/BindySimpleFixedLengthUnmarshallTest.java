@@ -425,7 +425,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"10A9  PaulineM    ISINXD12345678BUYShare2500.45USD01-08-2009"
+literal|"10A9  PaulineM    ISINXD12345678BUYShare000002500.45USD01-08-2009"
 expr_stmt|;
 name|template
 operator|.
@@ -493,7 +493,7 @@ name|FixedLengthRecord
 argument_list|(
 name|length
 operator|=
-literal|60
+literal|65
 argument_list|,
 name|paddingChar
 operator|=
@@ -650,7 +650,11 @@ literal|2
 argument_list|,
 name|length
 operator|=
-literal|7
+literal|12
+argument_list|,
+name|paddingChar
+operator|=
+literal|'0'
 argument_list|)
 DECL|field|amount
 specifier|private
@@ -662,7 +666,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|48
+literal|53
 argument_list|,
 name|length
 operator|=
@@ -678,7 +682,7 @@ name|DataField
 argument_list|(
 name|pos
 operator|=
-literal|51
+literal|56
 argument_list|,
 name|length
 operator|=

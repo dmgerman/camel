@@ -1595,7 +1595,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-comment|// Get length of the field, alignment (LEFT or RIGHT)
+comment|// Get length of the field, alignment (LEFT or RIGHT), pad
 name|int
 name|fieldLength
 init|=
@@ -1611,6 +1611,17 @@ name|datafield
 operator|.
 name|align
 argument_list|()
+decl_stmt|;
+name|char
+name|paddCharField
+init|=
+name|datafield
+operator|.
+name|paddingChar
+argument_list|()
+decl_stmt|;
+name|char
+name|paddChar
 decl_stmt|;
 if|if
 condition|(
@@ -1637,6 +1648,27 @@ operator|<
 name|fieldLength
 condition|)
 block|{
+comment|// No padding defined for the field
+if|if
+condition|(
+name|paddCharField
+operator|==
+literal|0
+condition|)
+block|{
+comment|// We use the padding defined for the Record
+name|paddChar
+operator|=
+name|paddingChar
+expr_stmt|;
+block|}
+else|else
+block|{
+name|paddChar
+operator|=
+name|paddCharField
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|align
@@ -1653,7 +1685,7 @@ name|append
 argument_list|(
 name|generatePaddingChars
 argument_list|(
-name|paddingChar
+name|paddChar
 argument_list|,
 name|fieldLength
 argument_list|,
@@ -1696,7 +1728,7 @@ name|append
 argument_list|(
 name|generatePaddingChars
 argument_list|(
-name|paddingChar
+name|paddChar
 argument_list|,
 name|fieldLength
 argument_list|,
