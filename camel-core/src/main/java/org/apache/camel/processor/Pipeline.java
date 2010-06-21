@@ -763,13 +763,13 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|sync
+name|doneSync
 parameter_list|)
 block|{
 comment|// we only have to handle async completion of the pipeline
 if|if
 condition|(
-name|sync
+name|doneSync
 condition|)
 block|{
 return|return;
@@ -961,7 +961,7 @@ argument_list|(
 name|nextExchange
 argument_list|)
 expr_stmt|;
-name|sync
+name|doneSync
 operator|=
 name|process
 argument_list|(
@@ -979,7 +979,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|sync
+name|doneSync
 condition|)
 block|{
 if|if

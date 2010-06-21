@@ -329,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a<a href="http://camel.apache.org/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  */
+comment|/**  * Implements a<a href="http://camel.apache.org/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  *<p/>  * This implementation mirrors the logic from the {@link org.apache.camel.processor.Pipeline} in the async variation  * as the failover load balancer is a specialized pipeline. So the trick is to keep doing the same as the  * pipeline to ensure it works the same and the async routing engine is flawless.  */
 end_comment
 
 begin_class
@@ -884,7 +884,7 @@ literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the remainder of the pipeline will be completed async
+comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
@@ -1909,7 +1909,7 @@ name|Exchange
 name|current
 parameter_list|)
 block|{
-comment|// only update the header value which used as the routingslip
+comment|// only update the header value which used as the routing slip
 if|if
 condition|(
 name|header
