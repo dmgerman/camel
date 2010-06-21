@@ -1017,6 +1017,31 @@ argument_list|,
 name|nextExchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing complete for exchangeId: "
+operator|+
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|">>> "
+operator|+
+name|original
+argument_list|)
+expr_stmt|;
+block|}
 name|callback
 operator|.
 name|done
