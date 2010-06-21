@@ -940,6 +940,26 @@ argument_list|>
 name|fileList
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the operations to be used.      *<p/>      * Can be used to set a fresh operations in case of recovery attempts      *      * @param operations the operations      */
+DECL|method|setOperations (GenericFileOperations<T> operations)
+specifier|public
+name|void
+name|setOperations
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operations
+operator|=
+name|operations
+expr_stmt|;
+block|}
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
 DECL|method|processExchange (final Exchange exchange)
 specifier|protected

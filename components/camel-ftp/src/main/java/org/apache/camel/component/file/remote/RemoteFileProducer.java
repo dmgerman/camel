@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Remote file producer. Handles connecting and disconnecting if we are not.  * Generic type F is the remote system implementation of a file.  */
+comment|/**  * Generic remote file producer for all the FTP variations.  */
 end_comment
 
 begin_class
@@ -486,7 +486,7 @@ block|{
 comment|// ignore for now as we will reconnect below
 block|}
 block|}
-name|connectIfNecessary
+name|recoverableConnectIfNecessary
 argument_list|()
 expr_stmt|;
 if|if
@@ -655,6 +655,96 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|recoverableConnectIfNecessary ()
+specifier|protected
+name|void
+name|recoverableConnectIfNecessary
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Could not connect to: "
+operator|+
+name|getEndpoint
+argument_list|()
+operator|+
+literal|". Will try to recover."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
+block|}
+comment|// recover by re-creating operations which should most likely be able to recover
+if|if
+condition|(
+operator|!
+name|loggedIn
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Trying to recover connection to: "
+operator|+
+name|getEndpoint
+argument_list|()
+operator|+
+literal|" with a fresh client."
+argument_list|)
+expr_stmt|;
+block|}
+name|setOperations
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|createRemoteFileOperations
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|connectIfNecessary ()
 specifier|protected

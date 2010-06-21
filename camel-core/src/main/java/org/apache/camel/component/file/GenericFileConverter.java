@@ -289,7 +289,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// ensure the body is loaded as we do not want a toString of java.io.File handle returned, but the file content
+comment|// ensure the body is loaded as we want the input stream of the body
 name|file
 operator|.
 name|getBinding

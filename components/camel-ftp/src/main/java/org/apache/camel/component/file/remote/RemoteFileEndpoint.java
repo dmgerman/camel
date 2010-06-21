@@ -464,6 +464,19 @@ argument_list|>
 name|buildProducer
 parameter_list|()
 function_decl|;
+comment|/**      * Creates the operations to be used by the consumer or producer.      *      * @return a new created operations      * @throws Exception is thrown if error creating operations.      */
+DECL|method|createRemoteFileOperations ()
+specifier|protected
+specifier|abstract
+name|RemoteFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|createRemoteFileOperations
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns human readable server information for logging purpose      */
 DECL|method|remoteServerInformation ()
 specifier|public

@@ -215,7 +215,6 @@ name|endpoint
 decl_stmt|;
 DECL|field|operations
 specifier|protected
-specifier|final
 name|GenericFileOperations
 argument_list|<
 name|T
@@ -321,6 +320,26 @@ name|exchange
 argument_list|,
 name|fileExchange
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the operations to be used.      *<p/>      * Can be used to set a fresh operations in case of recovery attempts      *      * @param operations the operations      */
+DECL|method|setOperations (GenericFileOperations<T> operations)
+specifier|public
+name|void
+name|setOperations
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operations
+operator|=
+name|operations
 expr_stmt|;
 block|}
 comment|/**      * Perform the work to process the fileExchange      *      * @param exchange fileExchange      * @throws Exception is thrown if some error      */
