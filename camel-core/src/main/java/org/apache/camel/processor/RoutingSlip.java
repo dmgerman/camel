@@ -1429,7 +1429,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// we only have to handle async completion of the pipeline
+comment|// we only have to handle async completion of the routing slip
 if|if
 condition|(
 name|doneSync

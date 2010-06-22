@@ -439,11 +439,21 @@ name|void
 name|popBlock
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|routeNodes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|routeNodes
 operator|.
 name|pop
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|pushBlock ()
 specifier|public

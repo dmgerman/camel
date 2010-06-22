@@ -153,10 +153,9 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
-comment|// should use same threads (recipient list is not async supported yet)
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should use same threads"
+literal|"Should use different threads"
 argument_list|,
 name|beforeThreadName
 operator|.

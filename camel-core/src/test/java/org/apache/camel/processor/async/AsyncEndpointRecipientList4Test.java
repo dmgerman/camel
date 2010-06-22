@@ -73,10 +73,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointRecipientList3Test
+DECL|class|AsyncEndpointRecipientList4Test
 specifier|public
 class|class
-name|AsyncEndpointRecipientList3Test
+name|AsyncEndpointRecipientList4Test
 extends|extends
 name|ContextTestSupport
 block|{
@@ -253,7 +253,7 @@ name|recipientList
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Hi Camel,direct:foo"
+literal|"async:Hi Camel,async:Hi World,direct:foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
