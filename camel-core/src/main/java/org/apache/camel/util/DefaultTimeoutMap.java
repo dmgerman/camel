@@ -852,6 +852,24 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
+name|K
+argument_list|>
+name|evicts
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|K
+argument_list|>
+argument_list|(
+name|expired
+operator|.
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 comment|// now fire eviction notification
@@ -868,6 +886,9 @@ range|:
 name|expired
 control|)
 block|{
+name|boolean
+name|evict
+init|=
 name|onEviction
 argument_list|(
 name|entry
@@ -880,7 +901,24 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|evict
+condition|)
+block|{
+comment|// okay this entry should be evicted
+name|evicts
+operator|.
+name|add
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -888,25 +926,17 @@ block|{
 comment|// and must remove from list after we have fired the notifications
 for|for
 control|(
-name|TimeoutMapEntry
-argument_list|<
 name|K
-argument_list|,
-name|V
-argument_list|>
-name|entry
+name|key
 range|:
-name|expired
+name|evicts
 control|)
 block|{
 name|map
 operator|.
 name|remove
 argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 block|}
@@ -998,7 +1028,7 @@ return|;
 block|}
 DECL|method|onEviction (K key, V value)
 specifier|public
-name|void
+name|boolean
 name|onEviction
 parameter_list|(
 name|K
@@ -1008,7 +1038,9 @@ name|V
 name|value
 parameter_list|)
 block|{
-comment|// noop
+return|return
+literal|true
+return|;
 block|}
 DECL|method|updateExpireTime (TimeoutMapEntry entry)
 specifier|protected

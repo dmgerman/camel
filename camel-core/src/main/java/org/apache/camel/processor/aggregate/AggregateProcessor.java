@@ -509,8 +509,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// use a fair lock so timeout checker will have a chance to acquire the lock if
-comment|// a lot of new messages keep arriving
 DECL|field|lock
 specifier|private
 specifier|final
@@ -519,9 +517,7 @@ name|lock
 init|=
 operator|new
 name|ReentrantLock
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -607,6 +603,21 @@ argument_list|<
 name|String
 argument_list|>
 name|batchConsumerCorrelationKeys
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|arrivedCorrelationKeys
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|arrivedCorrelationKeys
 init|=
 operator|new
 name|LinkedHashSet
@@ -1033,6 +1044,14 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+comment|// keep track on the arrived keys
+name|arrivedCorrelationKeys
+operator|.
+name|add
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 name|doAggregation
 argument_list|(
 name|key
@@ -1043,6 +1062,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|arrivedCorrelationKeys
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 name|lock
 operator|.
 name|unlock
@@ -1050,7 +1076,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      */
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange exchange)
 specifier|private
 name|Exchange
@@ -1992,38 +2018,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Throwable
-name|t
+name|e
 parameter_list|)
 block|{
-comment|// must catch throwable so we will handle all exceptions as the executor service will by default ignore them
 name|exchange
 operator|.
 name|setException
 argument_list|(
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"Error processing aggregated exchange"
-argument_list|,
-name|exchange
-argument_list|,
-name|t
-argument_list|)
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2602,7 +2605,7 @@ annotation|@
 name|Override
 DECL|method|onEviction (String key, String exchangeId)
 specifier|public
-name|void
+name|boolean
 name|onEviction
 parameter_list|(
 name|String
@@ -2630,7 +2633,51 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-comment|// double check that its not already in progress
+comment|// double check that its not already arrived or in progress
+name|boolean
+name|arrived
+init|=
+name|arrivedCorrelationKeys
+operator|.
+name|contains
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|arrived
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"A new Exchange with correlation key: "
+operator|+
+name|key
+operator|+
+literal|" has just arrived,"
+operator|+
+literal|" which postpones the timeout condition for aggregated exchange id: "
+operator|+
+name|exchangeId
+argument_list|)
+expr_stmt|;
+block|}
+comment|// do not evict the entry as a new exchange has arrived with the same correlation key
+return|return
+literal|false
+return|;
+block|}
 name|boolean
 name|inProgress
 init|=
@@ -2666,7 +2713,9 @@ literal|" is already in progress."
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|true
+return|;
 block|}
 comment|// get the aggregated exchange
 name|Exchange
@@ -2707,6 +2756,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 block|}
 comment|/**      * Background task that triggers completion based on interval.      */
@@ -2839,6 +2891,13 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// indicate it was completed by interval
 name|exchange
 operator|.
@@ -2860,6 +2919,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -3213,7 +3273,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -3882,6 +3942,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|redeliveryState
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|arrivedCorrelationKeys
 operator|.
 name|clear
 argument_list|()

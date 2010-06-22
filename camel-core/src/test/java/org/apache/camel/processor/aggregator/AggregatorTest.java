@@ -502,12 +502,6 @@ argument_list|(
 literal|"viper bar"
 argument_list|)
 argument_list|)
-comment|// or complete with a timeout
-operator|.
-name|completionTimeout
-argument_list|(
-literal|1000L
-argument_list|)
 operator|.
 name|to
 argument_list|(

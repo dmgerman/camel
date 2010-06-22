@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a thread safe map of values which timeout after a period of  * inactivity.  *  * @version $Revision$  */
+comment|/**  * Represents a thread safe map of values which timeout after a period of inactivity.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -70,9 +70,9 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
-comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      */
+comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      * @return<tt>true</tt> to remove the evicted value, or<tt>false</tt> to veto the veto and thus keep the value.      */
 DECL|method|onEviction (K key, V value)
-name|void
+name|boolean
 name|onEviction
 parameter_list|(
 name|K
