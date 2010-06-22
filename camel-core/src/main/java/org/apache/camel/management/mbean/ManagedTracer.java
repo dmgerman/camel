@@ -182,10 +182,10 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-DECL|method|getCamelContext ()
+DECL|method|getContext ()
 specifier|public
 name|CamelContext
-name|getCamelContext
+name|getContext
 parameter_list|()
 block|{
 return|return

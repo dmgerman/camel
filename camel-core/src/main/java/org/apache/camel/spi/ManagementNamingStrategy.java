@@ -325,6 +325,19 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
+DECL|method|getObjectNameForEventNotifier (CamelContext context, EventNotifier eventNotifier)
+name|ObjectName
+name|getObjectNameForEventNotifier
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|EventNotifier
+name|eventNotifier
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 block|}
 end_interface
 
