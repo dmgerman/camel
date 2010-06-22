@@ -77,21 +77,31 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that aggregate by timeout only also works.  *   * @version $Revision$  */
+comment|/**  * To be run manually when testing the timeout aggregator  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AggregateTimeoutOnlyTest
+DECL|class|AggregateTimeoutManualTest
 specifier|public
 class|class
-name|AggregateTimeoutOnlyTest
+name|AggregateTimeoutManualTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testAggregateTimeoutOnly ()
+DECL|method|testDisabled ()
 specifier|public
 name|void
-name|testAggregateTimeoutOnly
+name|testDisabled
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|xxxtestAggregateTimeoutManual ()
+specifier|public
+name|void
+name|xxxtestAggregateTimeoutManual
 parameter_list|()
 throws|throws
 name|Exception
@@ -104,15 +114,15 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// by default the use latest aggregation strategy is used so we get message 9
+comment|// by default the use latest aggregation strategy
 name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Message 9"
+literal|"Message 1999"
 argument_list|)
 expr_stmt|;
-comment|// should take 3 seconds to complete this one
+comment|// should take at least 3 seconds to complete this one
 name|result
 operator|.
 name|setMinimumResultWaitTime
@@ -129,7 +139,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+literal|2000
 condition|;
 name|i
 operator|++
@@ -148,6 +158,13 @@ argument_list|,
 literal|"id"
 argument_list|,
 literal|"1"
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3
 argument_list|)
 expr_stmt|;
 block|}
@@ -184,7 +201,7 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// aggregate timeout after 3th seconds
+comment|// timeout after 3 seconds
 operator|.
 name|aggregate
 argument_list|(

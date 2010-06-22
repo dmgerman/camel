@@ -611,21 +611,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|arrivedCorrelationKeys
-specifier|private
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|arrivedCorrelationKeys
-init|=
-operator|new
-name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|field|inProgressCompleteExchanges
 specifier|private
 specifier|final
@@ -1044,14 +1029,6 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-comment|// keep track on the arrived keys
-name|arrivedCorrelationKeys
-operator|.
-name|add
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
 name|doAggregation
 argument_list|(
 name|key
@@ -1062,13 +1039,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|arrivedCorrelationKeys
-operator|.
-name|remove
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
 name|lock
 operator|.
 name|unlock
@@ -2593,13 +2563,47 @@ name|long
 name|requestMapPollTimeMillis
 parameter_list|)
 block|{
+comment|// do NOT use locking on the timeout map as this aggregator has its own shared lock we will use instead
 name|super
 argument_list|(
 name|executor
 argument_list|,
 name|requestMapPollTimeMillis
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|purge ()
+specifier|public
+name|void
+name|purge
+parameter_list|()
+block|{
+comment|// must acquire the shared aggregation lock to be able to purge
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+name|super
+operator|.
+name|purge
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2632,51 +2636,6 @@ operator|+
 name|key
 argument_list|)
 expr_stmt|;
-block|}
-comment|// double check that its not already arrived or in progress
-name|boolean
-name|arrived
-init|=
-name|arrivedCorrelationKeys
-operator|.
-name|contains
-argument_list|(
-name|key
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|arrived
-condition|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"A new Exchange with correlation key: "
-operator|+
-name|key
-operator|+
-literal|" has just arrived,"
-operator|+
-literal|" which postpones the timeout condition for aggregated exchange id: "
-operator|+
-name|exchangeId
-argument_list|)
-expr_stmt|;
-block|}
-comment|// do not evict the entry as a new exchange has arrived with the same correlation key
-return|return
-literal|false
-return|;
 block|}
 name|boolean
 name|inProgress
@@ -2730,6 +2689,13 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// indicate it was completed by timeout
 name|answer
 operator|.
@@ -2742,11 +2708,6 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
-comment|// do not acquire locks as we already have a lock on the timeout map
-comment|// and we want to avoid a dead lock if another thread (currently aggregating)
-comment|// which wants to put into the timeout map as well (CAMEL-2824)
-comment|// and running the on completion logic can occur concurrently, its just the aggregation logic
-comment|// which is preferred to run non concurrent.
 name|onCompletion
 argument_list|(
 name|key
@@ -2756,6 +2717,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -2846,6 +2808,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// must acquire the shared aggregation lock to be able to trigger interval completion
 name|lock
 operator|.
 name|lock
@@ -2861,24 +2824,6 @@ range|:
 name|keys
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Completion interval triggered for correlation key: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
-block|}
 name|Exchange
 name|exchange
 init|=
@@ -2898,6 +2843,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Completion interval triggered for correlation key: "
+operator|+
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 comment|// indicate it was completed by interval
 name|exchange
 operator|.
@@ -3942,11 +3905,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|redeliveryState
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|arrivedCorrelationKeys
 operator|.
 name|clear
 argument_list|()

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a thread safe map of values which timeout after a period of inactivity.  *  * @version $Revision$  */
+comment|/**  * Represents a map of values which timeout after a period of inactivity.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
