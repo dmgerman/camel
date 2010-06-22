@@ -278,7 +278,7 @@ name|OnCompletionDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|OnCompletionDefinition
 argument_list|>
 implements|implements
 name|ExecutorServiceAwareDefinition
