@@ -70,7 +70,7 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
-comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      * @return<tt>true</tt> to remove the evicted value, or<tt>false</tt> to veto the veto and thus keep the value.      */
+comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      * @return<tt>true</tt> to remove the evicted value,      *         or<tt>false</tt> to veto the eviction and thus keep the value.      */
 DECL|method|onEviction (K key, V value)
 name|boolean
 name|onEviction

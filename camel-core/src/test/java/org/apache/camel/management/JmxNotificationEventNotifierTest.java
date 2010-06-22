@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|management
@@ -118,20 +108,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CastUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -176,6 +152,13 @@ operator|=
 operator|new
 name|JmxNotificationEventNotifier
 argument_list|()
+expr_stmt|;
+name|notifier
+operator|.
+name|setSource
+argument_list|(
+literal|"MyCamel"
+argument_list|)
 expr_stmt|;
 name|notifier
 operator|.

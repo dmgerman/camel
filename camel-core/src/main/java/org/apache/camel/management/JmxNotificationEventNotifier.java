@@ -148,6 +148,13 @@ specifier|private
 name|NotificationBroadcasterSupport
 name|notificationBroadcaster
 decl_stmt|;
+DECL|field|source
+specifier|private
+name|String
+name|source
+init|=
+literal|"Camel"
+decl_stmt|;
 DECL|method|setNotificationBroadcaster (NotificationBroadcasterSupport broadcaster)
 specifier|public
 name|void
@@ -180,7 +187,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use simple class name as the type
+comment|// its recommended to send light weight events and we don't want to have the entire Exchange/CamelContext etc
+comment|// serialized as these are the typical source of the EventObject. So we use our own source which is just
+comment|// a human readable name, which can be configured.
 name|String
 name|type
 init|=
@@ -192,6 +201,14 @@ operator|.
 name|getSimpleName
 argument_list|()
 decl_stmt|;
+name|String
+name|message
+init|=
+name|event
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|Notification
 name|notification
 init|=
@@ -200,12 +217,14 @@ name|Notification
 argument_list|(
 name|type
 argument_list|,
-name|event
+name|source
 argument_list|,
 name|counter
 operator|.
 name|getAndIncrement
 argument_list|()
+argument_list|,
+name|message
 argument_list|)
 decl_stmt|;
 if|if
@@ -273,6 +292,33 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+DECL|method|getSource ()
+specifier|public
+name|String
+name|getSource
+parameter_list|()
+block|{
+return|return
+name|source
+return|;
+block|}
+comment|/**      * Sets the source to be used when broadcasting events.      * The source is just a readable identifier which helps the receiver see where the event is coming from.      * You can assign a value such a server or application name etc.      *<p/>      * By default<tt>Camel</tt> will be used as source.      *      * @param source  the source      */
+DECL|method|setSource (String source)
+specifier|public
+name|void
+name|setSource
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
 block|}
 block|}
 end_class
