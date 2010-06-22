@@ -147,6 +147,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
+comment|// Set up the JmxNotificationEventNotifier
 name|notifier
 operator|=
 operator|new
@@ -201,6 +203,7 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
+comment|// Set up the ManagementNamingStrategy
 name|DefaultManagementNamingStrategy
 name|naming
 init|=
@@ -229,6 +232,7 @@ argument_list|(
 literal|"org.apache.camel"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 return|return
 name|context
 return|;
@@ -241,6 +245,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
+comment|// register the NotificationListener
 name|ObjectName
 name|on
 init|=
@@ -288,7 +294,15 @@ name|notification
 parameter_list|)
 block|{
 return|return
-literal|true
+name|notification
+operator|.
+name|getSource
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"MyCamel"
+argument_list|)
 return|;
 block|}
 block|}
@@ -296,6 +310,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
