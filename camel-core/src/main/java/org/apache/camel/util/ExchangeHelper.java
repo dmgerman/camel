@@ -1325,12 +1325,25 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+comment|// if we are out capable then set out and response as well
+comment|// however only grab OUT if it exists, otherwise reuse IN
+comment|// this prevents side effects to alter the Exchange if we force creating an OUT message
 name|Message
-name|out
+name|msg
 init|=
 name|exchange
 operator|.
+name|hasOut
+argument_list|()
+condition|?
+name|exchange
+operator|.
 name|getOut
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getIn
 argument_list|()
 decl_stmt|;
 name|map
@@ -1339,7 +1352,7 @@ name|put
 argument_list|(
 literal|"out"
 argument_list|,
-name|out
+name|msg
 argument_list|)
 expr_stmt|;
 name|map
@@ -1348,7 +1361,7 @@ name|put
 argument_list|(
 literal|"response"
 argument_list|,
-name|out
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
