@@ -1126,6 +1126,16 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// cleanup any per exchange aggregation strategy
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -1321,6 +1331,8 @@ argument_list|,
 name|pair
 argument_list|,
 name|callback
+argument_list|,
+name|total
 argument_list|)
 expr_stmt|;
 comment|// should we stop in case of an exception occurred during processing?
@@ -1432,21 +1444,18 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|aggregationStrategy
-operator|!=
-literal|null
-condition|)
-block|{
 name|doAggregate
 argument_list|(
+name|getAggregationStrategy
+argument_list|(
+name|subExchange
+argument_list|)
+argument_list|,
 name|result
 argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1492,10 +1501,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|int
+name|AtomicInteger
 name|total
 init|=
-literal|0
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
@@ -1537,6 +1548,9 @@ argument_list|(
 name|subExchange
 argument_list|,
 name|total
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|pairs
 argument_list|)
@@ -1555,6 +1569,8 @@ argument_list|,
 name|pair
 argument_list|,
 name|callback
+argument_list|,
+name|total
 argument_list|)
 decl_stmt|;
 if|if
@@ -1641,6 +1657,9 @@ argument_list|(
 literal|"Sequential processing failed for number "
 operator|+
 name|total
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|subExchange
 argument_list|,
@@ -1673,23 +1692,22 @@ name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|aggregationStrategy
-operator|!=
-literal|null
-condition|)
-block|{
 name|doAggregate
 argument_list|(
+name|getAggregationStrategy
+argument_list|(
+name|subExchange
+argument_list|)
+argument_list|,
 name|result
 argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
-block|}
 name|total
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1716,7 +1734,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|doProcess (final Exchange original, final AtomicExchange result, final Iterator<ProcessorExchangePair> it, final ProcessorExchangePair pair, final AsyncCallback callback)
+DECL|method|doProcess (final Exchange original, final AtomicExchange result, final Iterator<ProcessorExchangePair> it, final ProcessorExchangePair pair, final AsyncCallback callback, final AtomicInteger total)
 specifier|private
 name|boolean
 name|doProcess
@@ -1743,6 +1761,10 @@ parameter_list|,
 specifier|final
 name|AsyncCallback
 name|callback
+parameter_list|,
+specifier|final
+name|AtomicInteger
+name|total
 parameter_list|)
 block|{
 name|boolean
@@ -1831,7 +1853,7 @@ name|pushBlock
 argument_list|()
 expr_stmt|;
 block|}
-comment|// let the prepared process it
+comment|// let the prepared process it, remember to begin the exchange pair
 name|AsyncProcessor
 name|async
 init|=
@@ -1867,6 +1889,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
+comment|// we are done with the exchange pair
 name|pair
 operator|.
 name|done
@@ -1880,31 +1903,18 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// TODO: total number
 comment|// continue processing the multicast asynchronously
 name|Exchange
 name|subExchange
 init|=
 name|exchange
 decl_stmt|;
-name|int
-name|total
-init|=
-literal|0
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+comment|// remember to test for stop on exception and aggregate before copying back results
 if|if
 condition|(
 name|stopOnException
 operator|&&
-name|exchange
+name|subExchange
 operator|.
 name|getException
 argument_list|()
@@ -1913,7 +1923,7 @@ literal|null
 condition|)
 block|{
 comment|// wrap in exception to explain where it failed
-name|exchange
+name|subExchange
 operator|.
 name|setException
 argument_list|(
@@ -1933,6 +1943,42 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// and copy the current result to original so it will contain this exception
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -1942,22 +1988,97 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|aggregationStrategy
-operator|!=
-literal|null
-condition|)
+try|try
 block|{
 name|doAggregate
 argument_list|(
+name|getAggregationStrategy
+argument_list|(
+name|subExchange
+argument_list|)
+argument_list|,
 name|result
 argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
-if|if
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// wrap in exception to explain where it failed
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Sequential processing failed for number "
+operator|+
+name|total
+argument_list|,
+name|subExchange
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+comment|// and copy the current result to original so it will contain this exception
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|total
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+comment|// maybe there are more processors to multicast
+while|while
 condition|(
 name|it
 operator|.
@@ -1986,6 +2107,9 @@ argument_list|(
 name|subExchange
 argument_list|,
 name|total
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -2004,6 +2128,8 @@ argument_list|,
 name|pair
 argument_list|,
 name|callback
+argument_list|,
+name|total
 argument_list|)
 decl_stmt|;
 if|if
@@ -2037,17 +2163,11 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|total
-operator|++
-expr_stmt|;
-block|}
-block|}
-comment|// remember to test for stop on exception and aggregate before copying back results
 if|if
 condition|(
 name|stopOnException
 operator|&&
-name|exchange
+name|subExchange
 operator|.
 name|getException
 argument_list|()
@@ -2056,7 +2176,7 @@ literal|null
 condition|)
 block|{
 comment|// wrap in exception to explain where it failed
-name|exchange
+name|subExchange
 operator|.
 name|setException
 argument_list|(
@@ -2076,6 +2196,42 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+comment|// and copy the current result to original so it will contain this exception
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -2085,22 +2241,107 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|aggregationStrategy
-operator|!=
-literal|null
-condition|)
+try|try
 block|{
 name|doAggregate
 argument_list|(
+name|getAggregationStrategy
+argument_list|(
+name|subExchange
+argument_list|)
+argument_list|,
 name|result
 argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// copy results back to the original exchange
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// wrap in exception to explain where it failed
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Sequential processing failed for number "
+operator|+
+name|total
+argument_list|,
+name|subExchange
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+comment|// and copy the current result to original so it will contain this exception
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|total
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+comment|// multicasting complete so copy results back to the original exchange
 if|if
 condition|(
 name|result
@@ -2198,13 +2439,16 @@ return|return
 name|sync
 return|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param result the current result      * @param exchange the exchange to be added to the result      */
-DECL|method|doAggregate (AtomicExchange result, Exchange exchange)
+comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param strategy the aggregation strategy to use      * @param result the current result      * @param exchange the exchange to be added to the result      */
+DECL|method|doAggregate (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
 specifier|protected
 specifier|synchronized
 name|void
 name|doAggregate
 parameter_list|(
+name|AggregationStrategy
+name|strategy
+parameter_list|,
 name|AtomicExchange
 name|result
 parameter_list|,
@@ -2214,7 +2458,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|aggregationStrategy
+name|strategy
 operator|!=
 literal|null
 condition|)
@@ -2241,7 +2485,7 @@ name|result
 operator|.
 name|set
 argument_list|(
-name|aggregationStrategy
+name|strategy
 operator|.
 name|aggregate
 argument_list|(
@@ -2575,6 +2819,50 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getAggregationStrategy (Exchange exhange)
+specifier|protected
+name|AggregationStrategy
+name|getAggregationStrategy
+parameter_list|(
+name|Exchange
+name|exhange
+parameter_list|)
+block|{
+comment|// prefer to use per Exchange aggregation strategy over a global strategy
+name|AggregationStrategy
+name|answer
+init|=
+name|exhange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|,
+name|AggregationStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to global strategy
+name|answer
+operator|=
+name|getAggregationStrategy
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()
 specifier|public
@@ -2611,6 +2899,7 @@ return|return
 name|processors
 return|;
 block|}
+comment|/**      * Use {@link #getAggregationStrategy(org.apache.camel.Exchange)} instead.      */
 DECL|method|getAggregationStrategy ()
 specifier|public
 name|AggregationStrategy

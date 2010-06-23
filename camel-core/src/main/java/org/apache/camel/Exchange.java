@@ -98,6 +98,12 @@ name|AGGREGATED_CORRELATION_KEY
 init|=
 literal|"CamelAggregatedCorrelationKey"
 decl_stmt|;
+DECL|field|AGGREGATION_STRATEGY
+name|String
+name|AGGREGATION_STRATEGY
+init|=
+literal|"CamelAggregationStrategy"
+decl_stmt|;
 DECL|field|ASYNC_WAIT
 name|String
 name|ASYNC_WAIT

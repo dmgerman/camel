@@ -175,7 +175,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      */
+comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      *      * @param processor the processor      * @param exchange  the exchange      * @throws Exception can be thrown if waiting is interrupted      */
 DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
 specifier|public
 specifier|static
@@ -234,13 +234,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isWarnEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|trace
 argument_list|(
 literal|"Asynchronous callback received for exchangeId: "
 operator|+
@@ -284,13 +284,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isWarnEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|trace
 argument_list|(
 literal|"Waiting for asynchronous callback before continuing for exchangeId: "
 operator|+
@@ -298,6 +298,10 @@ name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -306,6 +310,31 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Asynchronous callback received, will continue routing exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Processes the exchange async.      *      * @param executor  executor service      * @param processor the processor      * @param exchange  the exchange      * @return a future handle for the task being executed asynchronously      * @deprecated will be removed in Camel 2.5      */

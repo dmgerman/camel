@@ -182,7 +182,7 @@ name|executor
 init|=
 name|Executors
 operator|.
-name|newSingleThreadExecutor
+name|newCachedThreadPool
 argument_list|()
 decl_stmt|;
 DECL|field|counter

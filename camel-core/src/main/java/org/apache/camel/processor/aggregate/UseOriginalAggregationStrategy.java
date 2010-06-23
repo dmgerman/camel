@@ -30,8 +30,22 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an Exchange  * and then you may want to keep routing using the original Exchange.  *<p/>  * You must call {@link #setOriginal(org.apache.camel.Exchange)} before this aggregation strategy can be used,  * as it needs to have a reference to the original exchange.  *  * @see org.apache.camel.processor.Splitter  * @version $Revision$  */
+comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -42,22 +56,11 @@ name|UseOriginalAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
-comment|// must use a thread local to cater for concurrency
 DECL|field|original
 specifier|private
 specifier|final
-name|ThreadLocal
-argument_list|<
 name|Exchange
-argument_list|>
 name|original
-init|=
-operator|new
-name|ThreadLocal
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|field|propagateException
 specifier|private
@@ -65,58 +68,38 @@ specifier|final
 name|boolean
 name|propagateException
 decl_stmt|;
-DECL|method|UseOriginalAggregationStrategy (boolean propagateException)
+DECL|method|UseOriginalAggregationStrategy (Exchange original, boolean propagateException)
 specifier|public
 name|UseOriginalAggregationStrategy
 parameter_list|(
+name|Exchange
+name|original
+parameter_list|,
 name|boolean
 name|propagateException
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|original
+argument_list|,
+literal|"Original Exchange"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|original
+operator|=
+name|original
+expr_stmt|;
 name|this
 operator|.
 name|propagateException
 operator|=
 name|propagateException
 expr_stmt|;
-block|}
-DECL|method|setOriginal (Exchange exchange)
-specifier|public
-name|void
-name|setOriginal
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-if|if
-condition|(
-name|exchange
-operator|==
-literal|null
-condition|)
-block|{
-comment|// clear it
-name|this
-operator|.
-name|original
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|this
-operator|.
-name|original
-operator|.
-name|set
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
@@ -130,29 +113,6 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-name|Exchange
-name|answer
-init|=
-name|original
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Original Exchange has not been set"
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|propagateException
@@ -175,7 +135,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|answer
+name|original
 operator|.
 name|setException
 argument_list|(
@@ -185,7 +145,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|answer
+name|original
 return|;
 block|}
 DECL|method|checkException (Exchange oldExchange, Exchange newExchange)

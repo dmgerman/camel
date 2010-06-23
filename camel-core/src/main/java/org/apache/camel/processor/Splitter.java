@@ -439,38 +439,39 @@ init|=
 name|getAggregationStrategy
 argument_list|()
 decl_stmt|;
-comment|// if original aggregation strategy then store exchange
-comment|// on it as the original exchange
-name|UseOriginalAggregationStrategy
-name|original
-init|=
-literal|null
-decl_stmt|;
+comment|// if no custom aggregation strategy is being used then fallback to keep the original
+comment|// and propagate exceptions which is done by a per exchange specific aggregation strategy
+comment|// to ensure it supports async routing
 if|if
 condition|(
 name|strategy
-operator|instanceof
-name|UseOriginalAggregationStrategy
+operator|==
+literal|null
 condition|)
 block|{
-name|original
-operator|=
-operator|(
 name|UseOriginalAggregationStrategy
-operator|)
-name|strategy
-expr_stmt|;
 name|original
-operator|.
-name|setOriginal
+init|=
+operator|new
+name|UseOriginalAggregationStrategy
 argument_list|(
 name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|,
+name|original
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: we will lose the original in the async routing engine when it return false
-try|try
-block|{
 return|return
 name|super
 operator|.
@@ -481,26 +482,6 @@ argument_list|,
 name|callback
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|original
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// and remove the reference when we are done (due to thread local stuff)
-name|original
-operator|.
-name|setOriginal
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 annotation|@
 name|Override
