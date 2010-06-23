@@ -979,11 +979,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|boolean
-name|sync
-init|=
-literal|true
-decl_stmt|;
 specifier|final
 name|AtomicExchange
 name|result
@@ -1003,6 +998,11 @@ comment|// multicast uses fine grained error handling on the output processors
 comment|// so use try .. catch to cater for this
 try|try
 block|{
+name|boolean
+name|sync
+init|=
+literal|true
+decl_stmt|;
 name|pairs
 operator|=
 name|createProcessorExchangePairs
@@ -1071,30 +1071,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// copy results back to the original exchange
-if|if
-condition|(
-name|result
-operator|.
-name|get
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|ExchangeHelper
-operator|.
-name|copyResults
-argument_list|(
-name|exchange
-argument_list|,
-name|result
-operator|.
-name|get
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1102,22 +1078,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1125,21 +1085,49 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-comment|// cleanup any per exchange aggregation strategy
-name|exchange
-operator|.
-name|removeProperty
+comment|// and do the done work
+name|doDone
 argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
+name|exchange
+argument_list|,
+literal|null
+argument_list|,
+name|callback
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|callback
+return|return
+literal|true
+return|;
+block|}
+comment|// multicasting was processed successfully
+comment|// and do the done work
+name|Exchange
+name|subExchange
+init|=
+name|result
 operator|.
-name|done
+name|get
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|result
+operator|.
+name|get
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+name|doDone
 argument_list|(
+name|exchange
+argument_list|,
+name|subExchange
+argument_list|,
+name|callback
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -1943,46 +1931,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-comment|// and copy the current result to original so it will contain this exception
-comment|// cleanup any per exchange aggregation strategy
-name|original
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
-argument_list|)
-expr_stmt|;
-name|ExchangeHelper
-operator|.
-name|copyResults
+comment|// and do the done work
+name|doDone
 argument_list|(
 name|original
 argument_list|,
 name|subExchange
-argument_list|)
-expr_stmt|;
+argument_list|,
 name|callback
-operator|.
-name|done
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -2027,46 +1984,15 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|original
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-comment|// cleanup any per exchange aggregation strategy
-name|original
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
-argument_list|)
-expr_stmt|;
-comment|// and copy the current result to original so it will contain this exception
-name|ExchangeHelper
-operator|.
-name|copyResults
+comment|// and do the done work
+name|doDone
 argument_list|(
 name|original
 argument_list|,
 name|subExchange
-argument_list|)
-expr_stmt|;
+argument_list|,
 name|callback
-operator|.
-name|done
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -2196,46 +2122,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|original
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-comment|// cleanup any per exchange aggregation strategy
-name|original
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
-argument_list|)
-expr_stmt|;
-comment|// and copy the current result to original so it will contain this exception
-name|ExchangeHelper
-operator|.
-name|copyResults
+comment|// and do the done work
+name|doDone
 argument_list|(
 name|original
 argument_list|,
 name|subExchange
-argument_list|)
-expr_stmt|;
+argument_list|,
 name|callback
-operator|.
-name|done
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -2280,46 +2175,15 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|original
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-comment|// cleanup any per exchange aggregation strategy
-name|original
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
-argument_list|)
-expr_stmt|;
-comment|// and copy the current result to original so it will contain this exception
-name|ExchangeHelper
-operator|.
-name|copyResults
+comment|// and do the done work
+name|doDone
 argument_list|(
 name|original
 argument_list|,
 name|subExchange
-argument_list|)
-expr_stmt|;
+argument_list|,
 name|callback
-operator|.
-name|done
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -2331,44 +2195,31 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|// cleanup any per exchange aggregation strategy
-name|original
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
-argument_list|)
-expr_stmt|;
-comment|// multicasting complete so copy results back to the original exchange
-if|if
-condition|(
+comment|// do the done work
+name|subExchange
+operator|=
 name|result
 operator|.
 name|get
 argument_list|()
 operator|!=
 literal|null
-condition|)
-block|{
-name|ExchangeHelper
-operator|.
-name|copyResults
-argument_list|(
-name|original
-argument_list|,
+condition|?
 name|result
 operator|.
 name|get
 argument_list|()
-argument_list|)
+else|:
+literal|null
 expr_stmt|;
-block|}
-name|callback
-operator|.
-name|done
+name|doDone
 argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|,
+name|callback
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -2438,6 +2289,88 @@ block|}
 return|return
 name|sync
 return|;
+block|}
+comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original      the original exchange      * @param subExchange   the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback      the callback      * @param doneSync      the<tt>doneSync</tt> parameter to call on callback      */
+DECL|method|doDone (Exchange original, Exchange subExchange, AsyncCallback callback, boolean doneSync)
+specifier|protected
+name|void
+name|doDone
+parameter_list|(
+name|Exchange
+name|original
+parameter_list|,
+name|Exchange
+name|subExchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// cleanup any per exchange aggregation strategy
+name|original
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_STRATEGY
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|original
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|subExchange
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// and copy the current result to original so it will contain this exception
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param strategy the aggregation strategy to use      * @param result the current result      * @param exchange the exchange to be added to the result      */
 DECL|method|doAggregate (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
