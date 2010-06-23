@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|CxfConsumerPayloadTest
 extends|extends
-name|CxfConsumerTest
+name|CxfConsumerMessageTest
 block|{
 DECL|field|ECHO_RESPONSE
 specifier|private

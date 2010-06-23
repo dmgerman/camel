@@ -1703,17 +1703,6 @@ operator|.
 name|REQUESTOR_ROLE
 argument_list|)
 expr_stmt|;
-comment|// propagate contexts
-if|if
-condition|(
-name|dataFormat
-operator|!=
-name|DataFormat
-operator|.
-name|POJO
-condition|)
-block|{
-comment|// copying response context to out message seems to cause problem in POJO mode
 name|outMessage
 operator|.
 name|putAll
@@ -1721,7 +1710,7 @@ argument_list|(
 name|responseContext
 argument_list|)
 expr_stmt|;
-block|}
+comment|// Do we still need to put the response context back like this
 name|outMessage
 operator|.
 name|put
