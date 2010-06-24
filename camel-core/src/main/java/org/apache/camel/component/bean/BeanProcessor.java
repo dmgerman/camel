@@ -893,7 +893,7 @@ literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the remainder of the routing slip will be completed async
+comment|// the remainder of the routing will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
