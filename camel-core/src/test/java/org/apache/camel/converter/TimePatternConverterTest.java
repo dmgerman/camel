@@ -580,16 +580,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|long
-name|milliseconds
-init|=
 name|TimePatternConverter
 operator|.
 name|toMilliSeconds
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw IllegalArgumentException"
@@ -640,16 +637,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|long
-name|milliseconds
-init|=
 name|TimePatternConverter
 operator|.
 name|toMilliSeconds
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw IllegalArgumentException"
@@ -702,16 +696,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|long
-name|milliseconds
-init|=
 name|TimePatternConverter
 operator|.
 name|toMilliSeconds
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw IllegalArgumentException"
