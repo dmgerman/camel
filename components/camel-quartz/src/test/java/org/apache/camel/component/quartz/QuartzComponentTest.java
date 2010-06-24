@@ -90,10 +90,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testQuartzComponentCustomScheuduler ()
+DECL|method|testQuartzComponentCustomScheduler ()
 specifier|public
 name|void
-name|testQuartzComponentCustomScheuduler
+name|testQuartzComponentCustomScheduler
 parameter_list|()
 throws|throws
 name|Exception

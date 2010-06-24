@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -91,6 +101,8 @@ class|class
 name|StatefulCamelJob
 implements|implements
 name|StatefulJob
+implements|,
+name|Serializable
 block|{
 DECL|method|execute (final JobExecutionContext context)
 specifier|public

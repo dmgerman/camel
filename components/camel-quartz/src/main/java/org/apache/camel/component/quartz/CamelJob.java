@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|quartz
@@ -59,6 +69,8 @@ class|class
 name|CamelJob
 implements|implements
 name|Job
+implements|,
+name|Serializable
 block|{
 DECL|method|execute (JobExecutionContext context)
 specifier|public
