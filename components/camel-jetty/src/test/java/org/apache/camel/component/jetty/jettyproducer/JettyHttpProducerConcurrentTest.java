@@ -165,8 +165,6 @@ comment|/**  * Jetty HTTP producer concurrent test.  *  * @version $Revision$  *
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerConcurrentTest
 specifier|public
 class|class

@@ -85,8 +85,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyProducerHttpsRouteTest
 specifier|public
 class|class

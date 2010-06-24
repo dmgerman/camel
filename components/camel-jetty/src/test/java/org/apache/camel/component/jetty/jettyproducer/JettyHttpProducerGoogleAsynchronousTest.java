@@ -91,8 +91,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerGoogleAsynchronousTest
 specifier|public
 class|class

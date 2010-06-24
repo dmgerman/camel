@@ -2550,11 +2550,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// use Jetty continuations
 name|CamelServlet
 name|camelServlet
 init|=
 operator|new
-name|CamelServlet
+name|CamelContinuationServlet
 argument_list|()
 decl_stmt|;
 name|ServletHolder

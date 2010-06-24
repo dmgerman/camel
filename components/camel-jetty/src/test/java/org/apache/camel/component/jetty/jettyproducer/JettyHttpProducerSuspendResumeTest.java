@@ -107,8 +107,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerSuspendResumeTest
 specifier|public
 class|class

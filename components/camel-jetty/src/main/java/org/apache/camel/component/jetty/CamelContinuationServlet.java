@@ -70,7 +70,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
 import|;
 end_import
 
@@ -103,6 +127,36 @@ operator|.
 name|http
 operator|.
 name|HttpConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
@@ -146,9 +200,6 @@ name|CamelContinuationServlet
 extends|extends
 name|CamelServlet
 block|{
-comment|// TODO: We should look into what we can do to introduce back Jetty Continuations
-comment|// and it should be documented how it works and to be used
-comment|// and end users should be able to decide if they want to leverage it or not
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -205,6 +256,26 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// are we suspended?
+if|if
+condition|(
+name|consumer
+operator|.
+name|isSuspended
+argument_list|()
+condition|)
+block|{
+name|response
+operator|.
+name|sendError
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_SERVICE_UNAVAILABLE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 specifier|final
 name|Continuation
 name|continuation
@@ -224,31 +295,235 @@ name|isInitial
 argument_list|()
 condition|)
 block|{
-comment|// Have the camel process the HTTP exchange.
-comment|// final DefaultExchange exchange = new DefaultExchange(consumer.getEndpoint(), ExchangePattern.InOut);
-comment|// exchange.setProperty(HttpConstants.SERVLET_REQUEST, request);
-comment|// exchange.setProperty(HttpConstants.SERVLET_RESPONSE, response);
-comment|// exchange.setIn(new HttpMessage(exchange, request));
-comment|// boolean sync = consumer.getAsyncProcessor().process(exchange, new AsyncCallback() {
-comment|//     public void done(boolean sync) {
-comment|//        if (sync) {
-comment|//            return;
-comment|//        }
-comment|//        continuation.setObject(exchange);
-comment|//        continuation.resume();
-comment|//    }
-comment|//});
-comment|//if (!sync) {
-comment|// Wait for the exchange to get processed.
-comment|// This might block until it completes or it might return via an exception and
+comment|// a new request so create an exchange
+specifier|final
+name|Exchange
+name|exchange
+init|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|isBridgeEndpoint
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SKIP_GZIP_ENCODING
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDisableStreamCache
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DISABLE_HTTP_STREAM_CACHE
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+name|exchange
+operator|.
+name|setIn
+argument_list|(
+operator|new
+name|HttpMessage
+argument_list|(
+name|exchange
+argument_list|,
+name|request
+argument_list|,
+name|response
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// use the asynchronous API to process the exchange
+name|boolean
+name|sync
+init|=
+name|consumer
+operator|.
+name|getAsyncProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// we only have to handle async completion
+if|if
+condition|(
+name|doneSync
+condition|)
+block|{
+return|return;
+block|}
+comment|// we should resume the continuation now that we are done asynchronously
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Resuming continuation of exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|continuation
+operator|.
+name|setAttribute
+argument_list|(
+literal|"CamelExchange"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|continuation
+operator|.
+name|resume
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|sync
+condition|)
+block|{
+comment|// wait for the exchange to get processed.
+comment|// this might block until it completes or it might return via an exception and
 comment|// then this method is re-invoked once the the exchange has finished processing
-comment|//    continuation.suspend(0);
-comment|//}
-comment|// HC: The getBinding() is interesting because it illustrates the
-comment|// impedance miss-match between HTTP's stream oriented protocol, and
-comment|// Camels more message oriented protocol exchanges.
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Suspending continuation of exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|continuation
+operator|.
+name|suspend
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// now lets output to the response
-comment|//consumer.getBinding().writeResponse(exchange, response);
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Writing response of exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|consumer
+operator|.
+name|getBinding
+argument_list|()
+operator|.
+name|writeResponse
+argument_list|(
+name|exchange
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -269,10 +544,52 @@ name|continuation
 operator|.
 name|getAttribute
 argument_list|(
-literal|"result"
+literal|"CamelExchange"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Resuming continuation of exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// now lets output to the response
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Writing response of exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|consumer
 operator|.
 name|getBinding
@@ -294,6 +611,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error processing request"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ServletException

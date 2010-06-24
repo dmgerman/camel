@@ -115,8 +115,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerSimulate404ErrorTest
 specifier|public
 class|class

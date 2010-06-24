@@ -125,8 +125,6 @@ comment|/**  * Unit test to verify that we can have URI options for external sys
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerConnectionFailureTest
 specifier|public
 class|class

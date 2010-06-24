@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty.jettyproducer
+DECL|package|org.apache.camel.component.jetty.async
 package|package
 name|org
 operator|.
@@ -16,9 +16,19 @@ name|component
 operator|.
 name|jetty
 operator|.
-name|jettyproducer
+name|async
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 
 begin_import
 import|import
@@ -28,11 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jetty
-operator|.
-name|JettyHandle404Test
+name|Endpoint
 import|;
 end_import
 
@@ -40,32 +46,79 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Ignore
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultComponent
 import|;
 end_import
 
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JettyProducerHandle404Test
+DECL|class|MyAsyncComponent
 specifier|public
 class|class
-name|JettyProducerHandle404Test
+name|MyAsyncComponent
 extends|extends
-name|JettyHandle404Test
+name|DefaultComponent
 block|{
-DECL|method|getProducerUrl ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
+specifier|protected
+name|Endpoint
+name|createEndpoint
+parameter_list|(
 name|String
-name|getProducerUrl
-parameter_list|()
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
 block|{
+name|MyAsyncEndpoint
+name|answer
+init|=
+operator|new
+name|MyAsyncEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setReply
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
-literal|"jetty://http://localhost:8123/myserver?user=Camel"
+name|answer
 return|;
 block|}
 block|}

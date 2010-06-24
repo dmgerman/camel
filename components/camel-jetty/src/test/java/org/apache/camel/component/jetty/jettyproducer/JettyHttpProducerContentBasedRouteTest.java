@@ -91,8 +91,6 @@ comment|/**  * Unit test with a simple route test.  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpProducerContentBasedRouteTest
 specifier|public
 class|class
