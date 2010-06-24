@@ -271,7 +271,7 @@ specifier|private
 name|ExchangeHelper
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the Exchange.BINDING of the given type or null if not present      *      * @param exchange the message exchange      * @param type the expected binding type      * @return the binding object of the given type or null if it could not be found or converted      */
+comment|/**      * Extracts the Exchange.BINDING of the given type or null if not present      *      * @param exchange the message exchange      * @param type     the expected binding type      * @return the binding object of the given type or null if it could not be found or converted      */
 DECL|method|getBinding (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
@@ -310,7 +310,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Attempts to resolve the endpoint for the given value      *      * @param exchange the message exchange being processed      * @param value the value which can be an {@link Endpoint} or an object      *                which provides a String representation of an endpoint via      *                {@link #toString()}      *      * @return the endpoint      * @throws NoSuchEndpointException if the endpoint cannot be resolved      */
+comment|/**      * Attempts to resolve the endpoint for the given value      *      * @param exchange the message exchange being processed      * @param value    the value which can be an {@link Endpoint} or an object      *                 which provides a String representation of an endpoint via      *                 {@link #toString()}      * @return the endpoint      * @throws NoSuchEndpointException if the endpoint cannot be resolved      */
 DECL|method|resolveEndpoint (Exchange exchange, Object value)
 specifier|public
 specifier|static
@@ -973,7 +973,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.        *       * @param source source exchange.      * @param result target exchange.      */
+comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.      *      * @param source source exchange.      * @param result target exchange.      */
 DECL|method|copyResultsPreservePattern (Exchange result, Exchange source)
 specifier|public
 specifier|static
@@ -1091,7 +1091,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *       * @param exchange message exchange.      * @return result message.      */
+comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *      * @param exchange message exchange.      * @return result message.      */
 DECL|method|getResultMessage (Exchange exchange)
 specifier|public
 specifier|static
@@ -1130,7 +1130,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns true if the given exchange pattern (if defined) can support OUT messages      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * OUT messages      */
+comment|/**      * Returns true if the given exchange pattern (if defined) can support OUT messages      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      *         OUT messages      */
 DECL|method|isOutCapable (Exchange exchange)
 specifier|public
 specifier|static
@@ -1646,7 +1646,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Prepares the exchanges for aggregation.      *<p/>      * This implementation will copy the OUT body to the IN body so when you do      * aggregation the body is<b>only</b> in the IN body to avoid confusing end users.      *      * @param oldExchange  the old exchange      * @param newExchange  the new exchange      */
+comment|/**      * Prepares the exchanges for aggregation.      *<p/>      * This implementation will copy the OUT body to the IN body so when you do      * aggregation the body is<b>only</b> in the IN body to avoid confusing end users.      *      * @param oldExchange the old exchange      * @param newExchange the new exchange      */
 DECL|method|prepareAggregation (Exchange oldExchange, Exchange newExchange)
 specifier|public
 specifier|static
@@ -1816,7 +1816,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrieve the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the exchange      * @param pattern    exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrieve the body      * from either IN or OUT according to the pattern.      *      * @param exchange the exchange      * @param pattern  exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      */
 DECL|method|extractResultBody (Exchange exchange, ExchangePattern pattern)
 specifier|public
 specifier|static
@@ -1971,7 +1971,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Tests whether the exchange has a fault message set and that its not null.      *      * @param exchange  the exchange      * @return<tt>true</tt> if fault message exists      */
+comment|/**      * Tests whether the exchange has a fault message set and that its not null.      *      * @param exchange the exchange      * @return<tt>true</tt> if fault message exists      */
 DECL|method|hasFaultMessage (Exchange exchange)
 specifier|public
 specifier|static
@@ -2007,7 +2007,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future the future handle      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future  the future handle      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      */
 DECL|method|extractFutureBody (CamelContext context, Future<Object> future, Class<T> type)
 specifier|public
 specifier|static
@@ -2099,7 +2099,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
+comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future  the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException      *                                 is thrown if a timeout triggered      */
 DECL|method|extractFutureBody (CamelContext context, Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 specifier|static
@@ -2183,11 +2183,14 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+comment|// execution failed due interruption so rethrow the cause
 throw|throw
 name|ObjectHelper
 operator|.
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 argument_list|(
+literal|null
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -2340,7 +2343,7 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an exception message with the provided details.      *<p/>      * All fields is optional so you can pass in only an exception, or just a message etc. or any combination.      *      * @param message the message      * @param exchange the exchange      * @param cause the caused exception      * @return an error message (without stacktrace from exception)      */
+comment|/**      * Creates an exception message with the provided details.      *<p/>      * All fields is optional so you can pass in only an exception, or just a message etc. or any combination.      *      * @param message  the message      * @param exchange the exchange      * @param cause    the caused exception      * @return an error message (without stacktrace from exception)      */
 DECL|method|createExceptionMessage (String message, Exchange exchange, Throwable cause)
 specifier|public
 specifier|static

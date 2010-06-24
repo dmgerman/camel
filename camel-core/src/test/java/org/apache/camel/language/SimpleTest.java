@@ -1554,9 +1554,14 @@ argument_list|,
 literal|"myPolicy"
 argument_list|)
 expr_stmt|;
-name|Exception
-name|exception
-init|=
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
 operator|new
 name|CamelAuthorizationException
 argument_list|(
@@ -1564,12 +1569,6 @@ literal|"The camel authorization exception"
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|exception
 argument_list|)
 expr_stmt|;
 name|assertExpression
@@ -2996,10 +2995,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testBodyOGNLOrderListOutOfBoundsWithElvis ()
+DECL|method|testBodyOGNLOrderListOutOfBoundsWithNullSafe ()
 specifier|public
 name|void
-name|testBodyOGNLOrderListOutOfBoundsWithElvis
+name|testBodyOGNLOrderListOutOfBoundsWithNullSafe
 parameter_list|()
 throws|throws
 name|Exception
@@ -3070,10 +3069,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testBodyOGNLOrderListOutOfBoundsWithElvisShorthand ()
+DECL|method|testBodyOGNLOrderListOutOfBoundsWithNullSafeShorthand ()
 specifier|public
 name|void
-name|testBodyOGNLOrderListOutOfBoundsWithElvisShorthand
+name|testBodyOGNLOrderListOutOfBoundsWithNullSafeShorthand
 parameter_list|()
 throws|throws
 name|Exception
@@ -3144,10 +3143,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testBodyOGNLOrderListNoMethodNameWithElvis ()
+DECL|method|testBodyOGNLOrderListNoMethodNameWithNullSafe ()
 specifier|public
 name|void
-name|testBodyOGNLOrderListNoMethodNameWithElvis
+name|testBodyOGNLOrderListNoMethodNameWithNullSafe
 parameter_list|()
 throws|throws
 name|Exception
@@ -3261,10 +3260,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testBodyOGNLOrderListNoMethodNameWithElvisShorthand ()
+DECL|method|testBodyOGNLOrderListNoMethodNameWithNullSafeShorthand ()
 specifier|public
 name|void
-name|testBodyOGNLOrderListNoMethodNameWithElvisShorthand
+name|testBodyOGNLOrderListNoMethodNameWithNullSafeShorthand
 parameter_list|()
 throws|throws
 name|Exception

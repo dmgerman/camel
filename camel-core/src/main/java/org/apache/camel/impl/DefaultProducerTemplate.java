@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -660,6 +672,8 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|result
@@ -692,6 +706,8 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Endpoint
 name|endpoint
@@ -723,6 +739,8 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Endpoint
 name|endpoint
@@ -784,6 +802,8 @@ specifier|final
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|sendBodyAndHeader
 argument_list|(
@@ -820,6 +840,8 @@ specifier|final
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|result
@@ -868,6 +890,8 @@ specifier|final
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|exchange
@@ -941,6 +965,8 @@ specifier|final
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|exchange
@@ -1011,6 +1037,8 @@ specifier|final
 name|Object
 name|propertyValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|sendBodyAndProperty
 argument_list|(
@@ -1047,6 +1075,8 @@ specifier|final
 name|Object
 name|propertyValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|result
@@ -1095,6 +1125,8 @@ specifier|final
 name|Object
 name|propertyValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|exchange
@@ -1168,6 +1200,8 @@ specifier|final
 name|Object
 name|propertyValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|exchange
@@ -1239,6 +1273,8 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|sendBodyAndHeaders
 argument_list|(
@@ -1274,6 +1310,8 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|result
@@ -1376,6 +1414,8 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBodyAndHeaders
@@ -1417,6 +1457,8 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 name|Exchange
 name|exchange
@@ -1559,6 +1601,8 @@ parameter_list|(
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBody
@@ -1585,6 +1629,8 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBody
@@ -1613,6 +1659,8 @@ parameter_list|,
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBodyAndHeader
@@ -1649,6 +1697,8 @@ parameter_list|,
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBodyAndHeader
@@ -1678,6 +1728,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|send
@@ -1703,6 +1755,8 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBody
@@ -1734,6 +1788,8 @@ parameter_list|,
 name|Object
 name|headerValue
 parameter_list|)
+throws|throws
+name|CamelExecutionException
 block|{
 return|return
 name|sendBodyAndHeader

@@ -723,6 +723,28 @@ operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
+comment|// propagate exceptions
+if|if
+condition|(
+name|resultExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|resultExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -890,13 +912,13 @@ name|getContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// support the elvis operator
+comment|// support the null safe operator
 name|boolean
-name|elvis
+name|nullSafe
 init|=
 name|OgnlHelper
 operator|.
-name|isElvis
+name|isNullSafeOperator
 argument_list|(
 name|methodName
 argument_list|)
@@ -985,6 +1007,34 @@ argument_list|(
 name|resultExchange
 argument_list|)
 expr_stmt|;
+comment|// check for exception and rethrow if we failed
+if|if
+condition|(
+name|resultExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeBeanExpressionException
+argument_list|(
+name|exchange
+argument_list|,
+name|beanName
+argument_list|,
+name|methodName
+argument_list|,
+name|resultExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|result
 operator|=
 name|invoke
@@ -1011,7 +1061,7 @@ name|key
 argument_list|,
 name|result
 argument_list|,
-name|elvis
+name|nullSafe
 argument_list|,
 name|ognlPath
 argument_list|,
@@ -1022,14 +1072,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// check elvis for null results
+comment|// check null safe for null results
 if|if
 condition|(
 name|result
 operator|==
 literal|null
 operator|&&
-name|elvis
+name|nullSafe
 condition|)
 block|{
 return|return;
@@ -1041,7 +1091,7 @@ name|result
 expr_stmt|;
 block|}
 block|}
-DECL|method|lookupResult (Exchange exchange, String key, Object result, boolean elvis, String ognlPath, Object bean)
+DECL|method|lookupResult (Exchange exchange, String key, Object result, boolean nullSafe, String ognlPath, Object bean)
 specifier|private
 name|Object
 name|lookupResult
@@ -1056,7 +1106,7 @@ name|Object
 name|result
 parameter_list|,
 name|boolean
-name|elvis
+name|nullSafe
 parameter_list|,
 name|String
 name|ognlPath
@@ -1295,7 +1345,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|elvis
+name|nullSafe
 condition|)
 block|{
 comment|// not elvis then its mandatory so thrown out of bounds exception
@@ -1331,7 +1381,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|elvis
+name|nullSafe
 condition|)
 block|{
 throw|throw
@@ -1365,7 +1415,7 @@ throw|;
 block|}
 else|else
 block|{
-comment|// elvis so we can return null
+comment|// null safe so we can return null
 return|return
 literal|null
 return|;

@@ -104,7 +104,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Returns the exchange which caused the exception      */
+comment|/**      * Returns the exchange which caused the exception      *<p/>      * Can be<tt>null</tt>      */
 DECL|method|getExchange ()
 specifier|public
 name|Exchange

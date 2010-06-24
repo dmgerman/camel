@@ -285,11 +285,11 @@ literal|false
 return|;
 block|}
 comment|/**      * Tests whether or not the given Camel OGNL expression is using the elvis operator or not.      *      * @param ognlExpression the Camel OGNL expression      * @return<tt>true</tt> if the elvis operator is used, otherwise<tt>false</tt>.      */
-DECL|method|isElvis (String ognlExpression)
+DECL|method|isNullSafeOperator (String ognlExpression)
 specifier|public
 specifier|static
 name|boolean
-name|isElvis
+name|isNullSafeOperator
 parameter_list|(
 name|String
 name|ognlExpression

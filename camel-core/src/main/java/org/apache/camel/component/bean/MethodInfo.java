@@ -122,6 +122,32 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1017,7 +1043,13 @@ block|}
 specifier|public
 name|Object
 name|proceed
-parameter_list|()
+parameter_list|(
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|AtomicBoolean
+name|doneSync
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1093,6 +1125,9 @@ name|recipientList
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|sync
+init|=
 name|recipientList
 operator|.
 name|sendToRecipientList
@@ -1100,6 +1135,16 @@ argument_list|(
 name|exchange
 argument_list|,
 name|result
+argument_list|,
+name|callback
+argument_list|)
+decl_stmt|;
+comment|// must remember the done sync returned from the recipient list
+name|doneSync
+operator|.
+name|set
+argument_list|(
+name|sync
 argument_list|)
 expr_stmt|;
 comment|// we don't want to return the list of endpoints
@@ -1134,6 +1179,9 @@ name|routingSlip
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|sync
+init|=
 name|routingSlip
 operator|.
 name|doRoutingSlip
@@ -1141,6 +1189,16 @@ argument_list|(
 name|exchange
 argument_list|,
 name|result
+argument_list|,
+name|callback
+argument_list|)
+decl_stmt|;
+comment|// must remember the done sync returned from the routing slip
+name|doneSync
+operator|.
+name|set
+argument_list|(
+name|sync
 argument_list|)
 expr_stmt|;
 return|return

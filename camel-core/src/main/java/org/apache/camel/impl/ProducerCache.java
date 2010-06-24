@@ -324,7 +324,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 import|;
 end_import
 
@@ -624,6 +624,29 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// ensure that CamelExecutionException is always thrown
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|wrapCamelExecutionException
+argument_list|(
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -632,8 +655,10 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 argument_list|(
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -702,8 +727,10 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 argument_list|(
+literal|null
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -747,8 +774,10 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|wrapRuntimeCamelException
+name|wrapCamelExecutionException
 argument_list|(
+literal|null
+argument_list|,
 name|e
 argument_list|)
 throw|;

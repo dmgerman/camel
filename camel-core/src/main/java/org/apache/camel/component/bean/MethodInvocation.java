@@ -42,6 +42,32 @@ name|Method
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information used by Camel to perform method invocation.  *  * @version $Revision$  */
 end_comment
@@ -63,10 +89,16 @@ index|[]
 name|getArguments
 parameter_list|()
 function_decl|;
-DECL|method|proceed ()
+DECL|method|proceed (AsyncCallback callback, AtomicBoolean doneSync)
 name|Object
 name|proceed
-parameter_list|()
+parameter_list|(
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|AtomicBoolean
+name|doneSync
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;

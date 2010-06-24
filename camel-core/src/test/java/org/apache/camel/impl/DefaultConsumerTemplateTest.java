@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ConsumerTemplate
 import|;
 end_import
@@ -1396,6 +1408,8 @@ literal|"Damn"
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|send
@@ -1405,6 +1419,20 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 try|try
 block|{
 name|consumer

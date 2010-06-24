@@ -146,7 +146,7 @@ name|String
 name|getThreadNamePattern
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel Thread ${counter} - ${suffix}</tt>      *</br>      * Where<tt>${counter}</tt> is a unique incrementing counter.      * And<tt>${name}</tt> is the thread name.      *      * @param pattern  the pattern      * @throws IllegalArgumentException if the pattern is invalid.      */
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel Thread ${counter} - ${name}</tt>      *</br>      * Where<tt>${counter}</tt> is a unique incrementing counter.      * And<tt>${name}</tt> is the thread name.      *      * @param pattern  the pattern      * @throws IllegalArgumentException if the pattern is invalid.      */
 DECL|method|setThreadNamePattern (String pattern)
 name|void
 name|setThreadNamePattern
