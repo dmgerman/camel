@@ -1192,6 +1192,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -1202,6 +1210,7 @@ name|getPropertiesFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|InputStream
 name|is
 init|=
@@ -1261,7 +1270,7 @@ throw|throw
 operator|new
 name|SchedulerException
 argument_list|(
-literal|"Error loading Quartz properties file from: "
+literal|"Error loading Quartz properties file from classpath: "
 operator|+
 name|getPropertiesFile
 argument_list|()
@@ -1296,6 +1305,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating SchedulerFactory with properties: "
+operator|+
+name|prop
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|StdSchedulerFactory
