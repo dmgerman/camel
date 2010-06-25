@@ -477,7 +477,7 @@ name|trigger
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeTrigger (final Trigger trigger)
+DECL|method|removeTrigger (final Trigger trigger, final JobDetail detail)
 specifier|public
 name|void
 name|removeTrigger
@@ -485,6 +485,10 @@ parameter_list|(
 specifier|final
 name|Trigger
 name|trigger
+parameter_list|,
+specifier|final
+name|JobDetail
+name|detail
 parameter_list|)
 throws|throws
 name|SchedulerException
@@ -494,6 +498,8 @@ argument_list|()
 operator|.
 name|removeJob
 argument_list|(
+name|detail
+argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
@@ -986,6 +992,9 @@ block|{
 name|removeTrigger
 argument_list|(
 name|getTrigger
+argument_list|()
+argument_list|,
+name|getJobDetail
 argument_list|()
 argument_list|)
 expr_stmt|;

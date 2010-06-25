@@ -937,11 +937,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|removeJob (Trigger trigger)
+DECL|method|removeJob (JobDetail job, Trigger trigger)
 specifier|public
 name|void
 name|removeJob
 parameter_list|(
+name|JobDetail
+name|job
+parameter_list|,
 name|Trigger
 name|trigger
 parameter_list|)
@@ -953,6 +956,15 @@ operator|.
 name|decrementAndGet
 argument_list|()
 expr_stmt|;
+comment|// only un schedule volatile jobs
+if|if
+condition|(
+name|job
+operator|.
+name|isVolatile
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -997,6 +1009,38 @@ name|getGroup
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Keeping volatile job using trigger: "
+operator|+
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|trigger
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
