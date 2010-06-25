@@ -703,43 +703,6 @@ name|callback
 argument_list|)
 return|;
 block|}
-DECL|method|doRoutingSlip (Exchange exchange, Object routingSlip)
-specifier|public
-name|boolean
-name|doRoutingSlip
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Object
-name|routingSlip
-parameter_list|)
-block|{
-return|return
-name|doRoutingSlip
-argument_list|(
-name|exchange
-argument_list|,
-name|routingSlip
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|doneSync
-parameter_list|)
-block|{
-comment|// noop
-block|}
-block|}
-argument_list|)
-return|;
-block|}
 DECL|method|doRoutingSlip (Exchange exchange, Object routingSlip, AsyncCallback callback)
 specifier|public
 name|boolean

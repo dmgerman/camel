@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StartupListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -277,6 +289,8 @@ class|class
 name|QuartzComponent
 extends|extends
 name|DefaultComponent
+implements|implements
+name|StartupListener
 block|{
 DECL|field|LOG
 specifier|private
@@ -700,6 +714,85 @@ return|return
 name|cron
 return|;
 block|}
+DECL|method|onCamelContextStarted (CamelContext camelContext)
+specifier|public
+name|void
+name|onCamelContextStarted
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// only start scheduler when CamelContext have finished starting
+if|if
+condition|(
+operator|!
+name|scheduler
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|getStartDelayedSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+operator|+
+literal|" delayed: "
+operator|+
+name|getStartDelayedSeconds
+argument_list|()
+operator|+
+literal|" seconds."
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|startDelayed
+argument_list|(
+name|getStartDelayedSeconds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -765,16 +858,18 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"There are still "
-operator|+
-name|number
-operator|+
-literal|" jobs registered in the Quartz scheduler: "
+literal|"Cannot shutdown Quartz scheduler: "
 operator|+
 name|scheduler
 operator|.
 name|getSchedulerName
 argument_list|()
+operator|+
+literal|" as there are still "
+operator|+
+name|number
+operator|+
+literal|" jobs registered."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1130,72 +1225,6 @@ operator|=
 name|createScheduler
 argument_list|()
 expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|scheduler
-operator|.
-name|isStarted
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|getStartDelayedSeconds
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting Quartz scheduler: "
-operator|+
-name|scheduler
-operator|.
-name|getSchedulerName
-argument_list|()
-operator|+
-literal|" delayed: "
-operator|+
-name|getStartDelayedSeconds
-argument_list|()
-operator|+
-literal|" seconds."
-argument_list|)
-expr_stmt|;
-name|scheduler
-operator|.
-name|startDelayed
-argument_list|(
-name|getStartDelayedSeconds
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting Quartz scheduler: "
-operator|+
-name|scheduler
-operator|.
-name|getSchedulerName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|scheduler
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 return|return
 name|scheduler

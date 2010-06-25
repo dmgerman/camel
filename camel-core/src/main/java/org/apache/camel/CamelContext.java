@@ -436,6 +436,15 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
+comment|/**      * Adds the given listener to be invoked when {@link CamelContext} have just been started.      *<p/>      * This allows listeners to do any custom work after the routes and other services have been started and are running.      *      * @param listener the listener      */
+DECL|method|addStartupListener (StartupListener listener)
+name|void
+name|addStartupListener
+parameter_list|(
+name|StartupListener
+name|listener
+parameter_list|)
+function_decl|;
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a component to the context.      *      * @param componentName  the name the component is registered as      * @param component      the component      */

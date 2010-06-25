@@ -102,6 +102,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -113,6 +123,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -425,6 +445,18 @@ operator|.
 name|camel
 operator|.
 name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StartupListener
 import|;
 end_import
 
@@ -1309,6 +1341,22 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Service
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|startupListeners
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|StartupListener
+argument_list|>
+name|startupListeners
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|StartupListener
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3837,6 +3885,23 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|addStartupListener (StartupListener listener)
+specifier|public
+name|void
+name|addStartupListener
+parameter_list|(
+name|StartupListener
+name|listener
+parameter_list|)
+block|{
+name|startupListeners
+operator|.
+name|add
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
 DECL|method|resolveLanguage (String language)
@@ -4793,10 +4858,10 @@ expr_stmt|;
 comment|// start it so its ready to use
 try|try
 block|{
+name|startServices
+argument_list|(
 name|answer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -4869,10 +4934,10 @@ expr_stmt|;
 comment|// start it so its ready to use
 try|try
 block|{
+name|startServices
+argument_list|(
 name|answer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -5146,6 +5211,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// now notify any startup aware listeners as all the routes etc has been started.
+for|for
+control|(
+name|StartupListener
+name|startup
+range|:
+name|startupListeners
+control|)
+block|{
+name|startup
+operator|.
+name|onCamelContextStarted
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 name|stopWatch
 operator|.
@@ -5784,6 +5866,11 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|startupListeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// must notify that we are stopped before stopping the management strategy
 name|EventHelper
 operator|.
@@ -6035,6 +6122,53 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// it can be a collection so ensure we look inside it
+if|if
+condition|(
+name|service
+operator|instanceof
+name|Collection
+condition|)
+block|{
+for|for
+control|(
+name|Object
+name|element
+range|:
+operator|(
+name|Collection
+operator|)
+name|service
+control|)
+block|{
+name|startServices
+argument_list|(
+name|element
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// and register startup aware so they can be notified when
+comment|// camel context has been started
+if|if
+condition|(
+name|service
+operator|instanceof
+name|StartupListener
+condition|)
+block|{
+name|startupListeners
+operator|.
+name|add
+argument_list|(
+operator|(
+name|StartupListener
+operator|)
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+comment|// and then start the service
 name|ServiceHelper
 operator|.
 name|startService
@@ -6890,9 +7024,7 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-name|ServiceHelper
-operator|.
-name|startService
+name|startServices
 argument_list|(
 name|consumer
 argument_list|)
@@ -8211,7 +8343,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**      * Reset CONTEXT_COUNTER to a preset value. Mostly used for tests to ensure a predictable getName()      *       * @param value new value for the CONTEXT_COUNTER      */
+comment|/**      * Reset CONTEXT_COUNTER to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the CONTEXT_COUNTER      */
 DECL|method|setContextCounter (int value)
 specifier|public
 specifier|static
