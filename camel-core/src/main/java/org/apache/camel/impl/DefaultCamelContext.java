@@ -3872,12 +3872,20 @@ operator|instanceof
 name|Service
 condition|)
 block|{
+name|Service
+name|service
+init|=
+operator|(
+name|Service
+operator|)
+name|object
+decl_stmt|;
 return|return
 name|servicesToClose
 operator|.
 name|contains
 argument_list|(
-name|object
+name|service
 argument_list|)
 return|;
 block|}
@@ -3893,6 +3901,28 @@ parameter_list|(
 name|StartupListener
 name|listener
 parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// either add to listener so we can invoke then later when CamelContext has been started
+comment|// or invoke the callback right now
+if|if
+condition|(
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|onCamelContextStarted
+argument_list|(
+name|this
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|startupListeners
 operator|.
@@ -3901,6 +3931,7 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
@@ -5226,9 +5257,17 @@ operator|.
 name|onCamelContextStarted
 argument_list|(
 name|this
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// and then get rid of the list as we dont need it anymore
+name|startupListeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|stopWatch
 operator|.
 name|stop
@@ -6157,14 +6196,17 @@ operator|instanceof
 name|StartupListener
 condition|)
 block|{
-name|startupListeners
-operator|.
-name|add
-argument_list|(
+name|StartupListener
+name|listener
+init|=
 operator|(
 name|StartupListener
 operator|)
 name|service
+decl_stmt|;
+name|addStartupListener
+argument_list|(
+name|listener
 argument_list|)
 expr_stmt|;
 block|}

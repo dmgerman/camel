@@ -154,13 +154,16 @@ specifier|private
 name|int
 name|invoked
 decl_stmt|;
-DECL|method|onCamelContextStarted (CamelContext context)
+DECL|method|onCamelContextStarted (CamelContext context, boolean alreadyStarted)
 specifier|public
 name|void
 name|onCamelContextStarted
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|alreadyStarted
 parameter_list|)
 throws|throws
 name|Exception

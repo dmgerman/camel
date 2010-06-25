@@ -721,13 +721,16 @@ return|return
 name|cron
 return|;
 block|}
-DECL|method|onCamelContextStarted (CamelContext camelContext)
+DECL|method|onCamelContextStarted (CamelContext camelContext, boolean alreadyStarted)
 specifier|public
 name|void
 name|onCamelContextStarted
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|boolean
+name|alreadyStarted
 parameter_list|)
 throws|throws
 name|Exception
@@ -1224,6 +1227,10 @@ name|SchedulerException
 block|{
 if|if
 condition|(
+name|scheduler
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|scheduler
 operator|.
