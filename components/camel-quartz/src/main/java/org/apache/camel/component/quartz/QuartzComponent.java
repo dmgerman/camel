@@ -327,6 +327,11 @@ specifier|private
 name|String
 name|propertiesFile
 decl_stmt|;
+DECL|field|startDelayedSeconds
+specifier|private
+name|int
+name|startDelayedSeconds
+decl_stmt|;
 DECL|method|QuartzComponent ()
 specifier|public
 name|QuartzComponent
@@ -1117,6 +1122,44 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|getStartDelayedSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+operator|+
+literal|" delayed: "
+operator|+
+name|getStartDelayedSeconds
+argument_list|()
+operator|+
+literal|" seconds."
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|startDelayed
+argument_list|(
+name|getStartDelayedSeconds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|info
@@ -1134,6 +1177,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|scheduler
@@ -1206,6 +1250,32 @@ operator|.
 name|propertiesFile
 operator|=
 name|propertiesFile
+expr_stmt|;
+block|}
+DECL|method|getStartDelayedSeconds ()
+specifier|public
+name|int
+name|getStartDelayedSeconds
+parameter_list|()
+block|{
+return|return
+name|startDelayedSeconds
+return|;
+block|}
+DECL|method|setStartDelayedSeconds (int startDelayedSeconds)
+specifier|public
+name|void
+name|setStartDelayedSeconds
+parameter_list|(
+name|int
+name|startDelayedSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startDelayedSeconds
+operator|=
+name|startDelayedSeconds
 expr_stmt|;
 block|}
 comment|// Implementation methods
