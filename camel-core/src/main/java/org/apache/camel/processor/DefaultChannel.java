@@ -886,8 +886,9 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|target
-operator|=
+name|Processor
+name|wrapped
+init|=
 name|strategy
 operator|.
 name|wrapProcessorInInterceptors
@@ -903,18 +904,17 @@ name|target
 argument_list|,
 name|next
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
 operator|(
-name|target
+name|wrapped
 operator|instanceof
 name|AsyncProcessor
 operator|)
 condition|)
 block|{
-comment|// warn if interceptor is not async compatible
 name|LOG
 operator|.
 name|warn
@@ -932,9 +932,57 @@ operator|+
 literal|" This causes the asynchronous routing engine to not work as optimal as possible."
 operator|+
 literal|" See more details at the InterceptStrategy javadoc."
+operator|+
+literal|" Camel will use a bridge to adapt the interceptor to the asynchronous routing engine,"
+operator|+
+literal|" but its not the most optimal solution. Please consider changing your interceptor to comply."
 argument_list|)
 expr_stmt|;
+comment|// use a bridge and wrap again which allows us to adapt and leverage the asynchronous routing engine anyway
+comment|// however its not the most optimal solution, but we can still run.
+name|InterceptorToAsyncProcessorBridge
+name|bridge
+init|=
+operator|new
+name|InterceptorToAsyncProcessorBridge
+argument_list|(
+name|target
+argument_list|)
+decl_stmt|;
+name|wrapped
+operator|=
+name|strategy
+operator|.
+name|wrapProcessorInInterceptors
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|outputDefinition
+argument_list|,
+name|bridge
+argument_list|,
+name|next
+argument_list|)
+expr_stmt|;
+name|bridge
+operator|.
+name|setTarget
+argument_list|(
+name|wrapped
+argument_list|)
+expr_stmt|;
+name|wrapped
+operator|=
+name|bridge
+expr_stmt|;
 block|}
+name|target
+operator|=
+name|wrapped
+expr_stmt|;
 block|}
 comment|// sets the delegate to our wrapped output
 name|output

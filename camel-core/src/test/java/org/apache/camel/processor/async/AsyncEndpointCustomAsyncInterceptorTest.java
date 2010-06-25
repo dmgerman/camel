@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -116,6 +128,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|DelegateAsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|InterceptStrategy
@@ -123,14 +149,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using a custom interceptor which is not a {@link org.apache.camel.AsyncProcessor} which Camel  * detects and uses a bridge to adapt to so the asynchronous engine can still run. Albeit not  * the most optimal solution but it runs. Camel will log a WARN so user can see the issue  * and change his interceptor to comply.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointCustomInterceptorTest
+DECL|class|AsyncEndpointCustomAsyncInterceptorTest
 specifier|public
 class|class
-name|AsyncEndpointCustomInterceptorTest
+name|AsyncEndpointCustomAsyncInterceptorTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -427,20 +453,29 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// use DelegateAsyncProcessor to ensure the interceptor works well with the asynchronous routing
+comment|// engine in Camel.
+comment|// The target is the processor to continue routing to, which we must provide
+comment|// in the constructor of the DelegateAsyncProcessor
 return|return
 operator|new
-name|Processor
-argument_list|()
+name|DelegateAsyncProcessor
+argument_list|(
+name|target
+argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// we just want to count number of interceptions
 name|counter
@@ -448,14 +483,17 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-comment|// and continue processing the exchange
-name|target
+comment|// invoke super to continue routing the message
+return|return
+name|super
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 return|;
