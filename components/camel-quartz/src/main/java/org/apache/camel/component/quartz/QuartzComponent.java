@@ -346,6 +346,13 @@ specifier|private
 name|int
 name|startDelayedSeconds
 decl_stmt|;
+DECL|field|autoStartScheduler
+specifier|private
+name|boolean
+name|autoStartScheduler
+init|=
+literal|true
+decl_stmt|;
 DECL|method|QuartzComponent ()
 specifier|public
 name|QuartzComponent
@@ -725,73 +732,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// only start scheduler when CamelContext have finished starting
+comment|// if not configure to auto start then don't start it
 if|if
 condition|(
 operator|!
-name|scheduler
-operator|.
-name|isStarted
+name|isAutoStartScheduler
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|getStartDelayedSeconds
-argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting Quartz scheduler: "
-operator|+
-name|scheduler
-operator|.
-name|getSchedulerName
-argument_list|()
-operator|+
-literal|" delayed: "
-operator|+
-name|getStartDelayedSeconds
-argument_list|()
-operator|+
-literal|" seconds."
+literal|"QuartzComponent configured to not auto start Quartz scheduler."
 argument_list|)
 expr_stmt|;
-name|scheduler
-operator|.
-name|startDelayed
-argument_list|(
-name|getStartDelayedSeconds
-argument_list|()
-argument_list|)
-expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting Quartz scheduler: "
-operator|+
-name|scheduler
-operator|.
-name|getSchedulerName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|scheduler
-operator|.
-name|start
+comment|// only start scheduler when CamelContext have finished starting
+name|startScheduler
 argument_list|()
 expr_stmt|;
-block|}
-block|}
 block|}
 annotation|@
 name|Override
@@ -832,6 +793,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|scheduler
@@ -873,12 +839,7 @@ literal|" jobs registered."
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|number
-operator|==
-literal|0
-condition|)
+else|else
 block|{
 comment|// no more jobs then shutdown the scheduler
 name|LOG
@@ -904,11 +865,6 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|addJob (JobDetail job, Trigger trigger)
 specifier|public
@@ -1056,7 +1012,46 @@ operator|.
 name|decrementAndGet
 argument_list|()
 expr_stmt|;
-comment|// only un schedule volatile jobs
+if|if
+condition|(
+name|isClustered
+argument_list|()
+condition|)
+block|{
+comment|// do not remove jobs which are clustered, as we want the jobs to continue running on the other nodes
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot removing job using trigger: "
+operator|+
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|trigger
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" as the JobStore is clustered."
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+comment|// only unschedule volatile jobs
 if|if
 condition|(
 name|job
@@ -1112,8 +1107,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// but pause jobs so they wont trigger in case an application is being stopped or re-started
-comment|// while this component is still running (eg as it can do in OSGi)
+comment|// but pause jobs so we can resume them if the application restarts
 if|if
 condition|(
 name|LOG
@@ -1158,6 +1152,141 @@ name|getGroup
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|/**      * To force shutdown the quartz scheduler      *      * @throws SchedulerException can be thrown if error shutting down      */
+DECL|method|shutdownScheduler ()
+specifier|public
+name|void
+name|shutdownScheduler
+parameter_list|()
+throws|throws
+name|SchedulerException
+block|{
+if|if
+condition|(
+name|scheduler
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Forcing shutdown of Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|scheduler
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Is the quartz scheduler clustered?      */
+DECL|method|isClustered ()
+specifier|public
+name|boolean
+name|isClustered
+parameter_list|()
+throws|throws
+name|SchedulerException
+block|{
+return|return
+name|getScheduler
+argument_list|()
+operator|.
+name|getMetaData
+argument_list|()
+operator|.
+name|isJobStoreClustered
+argument_list|()
+return|;
+block|}
+comment|/**      * To force starting the quartz scheduler      *      * @throws SchedulerException can be thrown if error starting      */
+DECL|method|startScheduler ()
+specifier|public
+name|void
+name|startScheduler
+parameter_list|()
+throws|throws
+name|SchedulerException
+block|{
+if|if
+condition|(
+operator|!
+name|scheduler
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|getStartDelayedSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+operator|+
+literal|" delayed: "
+operator|+
+name|getStartDelayedSeconds
+argument_list|()
+operator|+
+literal|" seconds."
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|startDelayed
+argument_list|(
+name|getStartDelayedSeconds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting Quartz scheduler: "
+operator|+
+name|scheduler
+operator|.
+name|getSchedulerName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Properties
@@ -1323,6 +1452,32 @@ operator|.
 name|startDelayedSeconds
 operator|=
 name|startDelayedSeconds
+expr_stmt|;
+block|}
+DECL|method|isAutoStartScheduler ()
+specifier|public
+name|boolean
+name|isAutoStartScheduler
+parameter_list|()
+block|{
+return|return
+name|autoStartScheduler
+return|;
+block|}
+DECL|method|setAutoStartScheduler (boolean autoStartScheduler)
+specifier|public
+name|void
+name|setAutoStartScheduler
+parameter_list|(
+name|boolean
+name|autoStartScheduler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartScheduler
+operator|=
+name|autoStartScheduler
 expr_stmt|;
 block|}
 comment|// Implementation methods
