@@ -1017,6 +1017,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// but pause jobs so they wont trigger in case an application is being stopped or re-started
+comment|// while this component is still running (eg as it can do in OSGi)
 if|if
 condition|(
 name|LOG
@@ -1029,7 +1031,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Keeping volatile job using trigger: "
+literal|"Pausing job using trigger: "
 operator|+
 name|trigger
 operator|.
@@ -1045,6 +1047,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|getScheduler
+argument_list|()
+operator|.
+name|pauseTrigger
+argument_list|(
+name|trigger
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// Properties
