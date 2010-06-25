@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|ThreadsCorePoolTest
+name|ContextTestSupport
 import|;
 end_import
 
@@ -68,8 +66,70 @@ specifier|public
 class|class
 name|SpringThreadsCorePoolTest
 extends|extends
-name|ThreadsCorePoolTest
+name|ContextTestSupport
 block|{
+DECL|method|testThreadsCorePool ()
+specifier|public
+name|void
+name|testThreadsCorePool
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testThreadsCorePoolBuilder ()
+specifier|public
+name|void
+name|testThreadsCorePoolBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

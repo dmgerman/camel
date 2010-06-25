@@ -101,63 +101,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testThreadsAsyncRouteNoWait ()
-specifier|public
-name|void
-name|testThreadsAsyncRouteNoWait
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().waitForTaskToComplete(WaitForTaskToComplete.Never).to(\"mock:result\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|dsl
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testThreadsAsyncRouteWaitIfReplyExpected ()
-specifier|public
-name|void
-name|testThreadsAsyncRouteWaitIfReplyExpected
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|dsl
-init|=
-literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().waitForTaskToComplete(WaitForTaskToComplete.IfReplyExpected).to(\"mock:result\")"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"from(\"direct:start\").transform(body().append(\" World\")).threads().to(\"mock:result\")"
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|expected
-argument_list|,
-name|render
-argument_list|(
-name|dsl
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

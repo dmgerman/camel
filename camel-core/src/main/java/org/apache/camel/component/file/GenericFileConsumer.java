@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|BatchConsumer
 import|;
 end_import
@@ -1279,13 +1291,57 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// process the exchange
-name|getProcessor
+comment|// process the exchange using the async consumer to support async routing engine
+comment|// which can be supported by this file consumer as all the done work is
+comment|// provided in the GenericFileOnCompletion
+name|getAsyncProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Done processing file: "
+operator|+
+name|target
+operator|+
+operator|(
+name|doneSync
+condition|?
+literal|" synchronously"
+else|:
+literal|" asynchronously"
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}

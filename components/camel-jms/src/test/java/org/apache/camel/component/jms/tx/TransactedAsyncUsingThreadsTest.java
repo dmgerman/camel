@@ -52,18 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|WaitForTaskToComplete
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -412,20 +400,11 @@ comment|// use transacted routing
 operator|.
 name|transacted
 argument_list|()
-comment|// use async threads to process the exchange from this point forward
-comment|// but let the consumer wait until the async routing is complete
-comment|// so we can let the transaction commit or rollback depending how it went
+comment|// and route async from this point forward
 operator|.
 name|threads
 argument_list|(
 literal|5
-argument_list|)
-operator|.
-name|waitForTaskToComplete
-argument_list|(
-name|WaitForTaskToComplete
-operator|.
-name|Always
 argument_list|)
 comment|// send to mock for verification
 operator|.

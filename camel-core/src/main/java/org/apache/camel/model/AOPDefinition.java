@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;aop/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;aop/&gt; element  *  * @deprecated will be removed in the future  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -151,6 +151,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|AOPDefinition
 specifier|public
 class|class
