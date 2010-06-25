@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -245,7 +257,8 @@ argument_list|(
 literal|"route-test-james@localhost"
 argument_list|)
 expr_stmt|;
-comment|// lets sleep to check that the mail poll does not redeliver duplicate mails
+comment|// lets sleep to check that the mail poll does not redeliver duplicate
+comment|// mails
 name|Thread
 operator|.
 name|sleep
@@ -317,29 +330,18 @@ operator|.
 name|clearAll
 argument_list|()
 expr_stmt|;
+specifier|final
 name|String
 name|body
 init|=
 literal|"Hello Camel Riders!"
 decl_stmt|;
+specifier|final
 name|String
 name|subject
 init|=
 literal|"My Camel \u2122"
 decl_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|DEFAULT_CHARSET_PROPERTY
-argument_list|,
-literal|"US-ASCII"
-argument_list|)
-expr_stmt|;
-try|try
-block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -374,15 +376,59 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|send
 argument_list|(
 literal|"direct:a"
 argument_list|,
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
 name|body
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
 literal|"subject"
 argument_list|,
 name|subject
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+literal|"US-ASCII"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|mock
@@ -411,19 +457,6 @@ name|hasAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-name|Exchange
-operator|.
-name|DEFAULT_CHARSET_PROPERTY
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|assertMailboxReceivedMessages (String name)
 specifier|protected
@@ -584,9 +617,12 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 expr_stmt|;
-comment|// must use fixed to option to send the mail to the given reciever, as we have polled
-comment|// a mail from a mailbox where it already has the 'old' To as header value
-comment|// here we send the mail to 2 recievers. notice we can use a plain string with semi colon
+comment|// must use fixed to option to send the mail to the given
+comment|// reciever, as we have polled
+comment|// a mail from a mailbox where it already has the 'old' To as
+comment|// header value
+comment|// here we send the mail to 2 recievers. notice we can use a
+comment|// plain string with semi colon
 comment|// to seperate the mail addresses
 name|from
 argument_list|(

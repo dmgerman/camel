@@ -558,6 +558,8 @@ operator|.
 name|getCharsetName
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1968,6 +1970,8 @@ operator|.
 name|getCharsetName
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
