@@ -245,7 +245,7 @@ name|invoke
 argument_list|(
 name|name
 argument_list|,
-literal|"qeueSize"
+literal|"queueSize"
 argument_list|,
 literal|null
 argument_list|,

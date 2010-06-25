@@ -137,10 +137,10 @@ name|description
 operator|=
 literal|"Current number of Exchanges in Queue"
 argument_list|)
-DECL|method|qeueSize ()
+DECL|method|queueSize ()
 specifier|public
 name|long
-name|qeueSize
+name|queueSize
 parameter_list|()
 block|{
 return|return
