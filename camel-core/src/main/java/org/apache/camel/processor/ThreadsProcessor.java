@@ -182,6 +182,13 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+DECL|field|callerRunsWhenRejected
+specifier|private
+name|boolean
+name|callerRunsWhenRejected
+init|=
+literal|true
+decl_stmt|;
 DECL|class|ProcessCall
 specifier|private
 specifier|final
@@ -302,8 +309,6 @@ name|executorService
 operator|=
 name|executorService
 expr_stmt|;
-comment|// TODO: if rejection policy of executor service is caller runs then we need to tap into it
-comment|// so we can invoke the callback.done(true) to continue routing synchronously
 block|}
 DECL|method|process (final Exchange exchange)
 specifier|public
@@ -387,6 +392,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|isCallerRunsWhenRejected
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|shutdown
 operator|.
 name|get
@@ -399,13 +410,20 @@ name|setException
 argument_list|(
 operator|new
 name|RejectedExecutionException
-argument_list|(
-literal|"ThreadsProcessor is not running."
-argument_list|,
-name|e
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -417,10 +435,36 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
 literal|true
 return|;
+block|}
+block|}
+DECL|method|isCallerRunsWhenRejected ()
+specifier|public
+name|boolean
+name|isCallerRunsWhenRejected
+parameter_list|()
+block|{
+return|return
+name|callerRunsWhenRejected
+return|;
+block|}
+DECL|method|setCallerRunsWhenRejected (boolean callerRunsWhenRejected)
+specifier|public
+name|void
+name|setCallerRunsWhenRejected
+parameter_list|(
+name|boolean
+name|callerRunsWhenRejected
+parameter_list|)
+block|{
+name|this
+operator|.
+name|callerRunsWhenRejected
+operator|=
+name|callerRunsWhenRejected
+expr_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public

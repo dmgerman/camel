@@ -82,6 +82,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -159,6 +183,22 @@ operator|.
 name|impl
 operator|.
 name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|converter
+operator|.
+name|AsyncProcessorTypeConverter
 import|;
 end_import
 
@@ -288,7 +328,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|processor
 specifier|private
-name|Processor
+name|AsyncProcessor
 name|processor
 decl_stmt|;
 DECL|field|executor
@@ -298,7 +338,7 @@ name|executor
 decl_stmt|;
 DECL|field|multicast
 specifier|private
-name|Processor
+name|MulticastProcessor
 name|multicast
 decl_stmt|;
 DECL|field|exceptionHandler
@@ -327,7 +367,12 @@ name|this
 operator|.
 name|processor
 operator|=
+name|AsyncProcessorTypeConverter
+operator|.
+name|convert
+argument_list|(
 name|processor
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -717,28 +762,61 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// use a multicast processor to process it
-name|Processor
+name|MulticastProcessor
 name|mp
 init|=
 name|getMulticastProcessor
 argument_list|()
 decl_stmt|;
+comment|// and use the asynchronous routing engine to support it
 name|mp
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|// use the regular processor
+comment|// use the regular processor and use the asynchronous routing engine to support it
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -746,7 +824,7 @@ block|}
 DECL|method|getMulticastProcessor ()
 specifier|protected
 specifier|synchronized
-name|Processor
+name|MulticastProcessor
 name|getMulticastProcessor
 parameter_list|()
 block|{
