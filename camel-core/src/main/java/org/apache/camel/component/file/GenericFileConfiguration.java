@@ -80,7 +80,7 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-comment|// strip tailing slash which the uri path may append
+comment|// strip tailing slash which URI path always start with
 name|path
 operator|=
 name|FileUtil
