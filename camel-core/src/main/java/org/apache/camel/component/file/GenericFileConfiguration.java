@@ -49,7 +49,7 @@ class|class
 name|GenericFileConfiguration
 block|{
 DECL|field|directory
-specifier|private
+specifier|protected
 name|String
 name|directory
 decl_stmt|;
@@ -72,12 +72,27 @@ name|URI
 name|uri
 parameter_list|)
 block|{
-name|setDirectory
-argument_list|(
+name|String
+name|path
+init|=
 name|uri
 operator|.
 name|getPath
 argument_list|()
+decl_stmt|;
+comment|// strip tailing slash which the uri path may append
+name|path
+operator|=
+name|FileUtil
+operator|.
+name|stripFirstLeadingSeparator
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|setDirectory
+argument_list|(
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -135,20 +150,6 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
-comment|// strip tailing slash
-name|this
-operator|.
-name|directory
-operator|=
-name|FileUtil
-operator|.
-name|stripTrailingSeparator
-argument_list|(
-name|this
-operator|.
-name|directory
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public

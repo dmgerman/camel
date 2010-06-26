@@ -60,6 +60,20 @@ name|FileUtil
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Configuration of the FTP server  */
 end_comment
@@ -190,40 +204,6 @@ name|uri
 operator|.
 name|getPort
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setDirectory (String directory)
-specifier|public
-name|void
-name|setDirectory
-parameter_list|(
-name|String
-name|directory
-parameter_list|)
-block|{
-comment|// let super do its work first
-name|super
-operator|.
-name|setDirectory
-argument_list|(
-name|directory
-argument_list|)
-expr_stmt|;
-comment|// for FTP we must not start with a / root, so skip it if its there
-name|super
-operator|.
-name|setDirectory
-argument_list|(
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|getDirectory
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
