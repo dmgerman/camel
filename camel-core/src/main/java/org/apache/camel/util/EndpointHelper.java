@@ -535,6 +535,53 @@ return|return
 literal|true
 return|;
 block|}
+if|if
+condition|(
+name|matchWildcard
+argument_list|(
+name|name
+argument_list|,
+name|pattern
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|matchRegex
+argument_list|(
+name|name
+argument_list|,
+name|pattern
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// no match
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+DECL|method|matchWildcard (String name, String pattern)
+specifier|private
+specifier|static
+name|boolean
+name|matchWildcard
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|pattern
+parameter_list|)
+block|{
 comment|// we have wildcard support in that hence you can match with: file* to match any file endpoints
 if|if
 condition|(
@@ -569,6 +616,24 @@ return|return
 literal|true
 return|;
 block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+DECL|method|matchRegex (String name, String pattern)
+specifier|private
+specifier|static
+name|boolean
+name|matchRegex
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|pattern
+parameter_list|)
+block|{
 comment|// match by regular expression
 try|try
 block|{
@@ -595,7 +660,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-comment|// no match
 return|return
 literal|false
 return|;
