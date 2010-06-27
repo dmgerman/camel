@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -116,9 +128,8 @@ specifier|public
 class|class
 name|RoutePolicyProcessor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
-comment|// TODO: Support async routing engine
 DECL|field|routePolicy
 specifier|private
 specifier|final
@@ -171,16 +182,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processNext (Exchange exchange)
-specifier|protected
-name|void
-name|processNext
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// check whether the policy is enabled
 if|if
@@ -260,21 +272,16 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|processor
-operator|!=
-literal|null
-condition|)
-block|{
-name|processor
+return|return
+name|super
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
-block|}
+return|;
 block|}
 DECL|method|setRoute (Route route)
 specifier|public
