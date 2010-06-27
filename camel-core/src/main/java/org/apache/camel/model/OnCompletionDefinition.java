@@ -655,22 +655,9 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|end ()
 specifier|public
 name|ProcessorDefinition
-argument_list|<
-name|?
-extends|extends
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|end
 parameter_list|()
 block|{
