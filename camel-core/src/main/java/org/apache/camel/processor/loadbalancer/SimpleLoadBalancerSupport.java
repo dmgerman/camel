@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.processor.loadbalancer
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|loadbalancer
 package|;
 end_package
 
@@ -24,71 +26,92 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint intercept processor so we know the processor is supposed to intercept an endpoint.  *  * @version $Revision$  */
+comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for simple synchronous load balancers.  *<p/>  * Consider using the {@link LoadBalancerSupport} if you want to support  * the asynchronous routing engine in Camel.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|InterceptEndpointProcessor
+DECL|class|SimpleLoadBalancerSupport
 specifier|public
+specifier|abstract
 class|class
-name|InterceptEndpointProcessor
+name|SimpleLoadBalancerSupport
 extends|extends
-name|DelegateProcessor
+name|LoadBalancerSupport
 block|{
-DECL|field|uri
-specifier|private
-specifier|final
-name|String
-name|uri
-decl_stmt|;
-DECL|method|InterceptEndpointProcessor (String uri, Processor processor)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|InterceptEndpointProcessor
+name|boolean
+name|process
 parameter_list|(
-name|String
-name|uri
+name|Exchange
+name|exchange
 parameter_list|,
-name|Processor
-name|processor
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
-name|super
+try|try
+block|{
+name|process
 argument_list|(
-name|processor
+name|exchange
 argument_list|)
 expr_stmt|;
-name|this
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
 operator|.
-name|uri
-operator|=
-name|uri
+name|setException
+argument_list|(
+name|e
+argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
-literal|"InterceptEndpointProcessor["
-operator|+
-name|uri
-operator|+
-literal|" -> "
-operator|+
-name|processor
-operator|+
-literal|"]"
+literal|true
 return|;
 block|}
+DECL|method|process (Exchange exchange)
+specifier|public
+specifier|abstract
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 
