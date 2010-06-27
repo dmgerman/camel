@@ -90,20 +90,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|MyAggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|aggregate
 operator|.
 name|UseLatestAggregationStrategy
@@ -127,7 +113,7 @@ specifier|protected
 name|int
 name|messageCount
 init|=
-literal|50
+literal|100
 decl_stmt|;
 DECL|method|testSendingLotsOfMessagesGetAggregatedToTheLatestMessage ()
 specifier|public
@@ -469,7 +455,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// in this sample we aggregate using our own strategy with a completion predicate
+comment|// in this sample we aggregate with a completion predicate
 name|from
 argument_list|(
 literal|"direct:predicate"
@@ -483,23 +469,25 @@ literal|"cheese"
 argument_list|)
 argument_list|,
 operator|new
-name|MyAggregationStrategy
+name|UseLatestAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
-name|eagerCheckCompletion
-argument_list|()
+name|completionTimeout
+argument_list|(
+literal|1000L
+argument_list|)
 operator|.
 name|completionPredicate
 argument_list|(
 name|header
 argument_list|(
-literal|"bar"
+literal|"cheese"
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"viper bar"
+literal|123
 argument_list|)
 argument_list|)
 operator|.
