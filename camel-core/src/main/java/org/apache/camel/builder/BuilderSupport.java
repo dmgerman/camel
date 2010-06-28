@@ -114,6 +114,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XPathBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -425,7 +441,7 @@ block|}
 comment|/**      * Returns a xpath expression value builder      */
 DECL|method|xpath (String value)
 specifier|public
-name|ValueBuilder
+name|XPathBuilder
 name|xpath
 parameter_list|(
 name|String
@@ -433,7 +449,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|Builder
+name|XPathBuilder
 operator|.
 name|xpath
 argument_list|(
