@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Threads processor that leverage a thread pool for processing exchanges.  *<p/>  * The original caller thread will receive a<tt>Future&lt;Exchange&gt;</tt> in the OUT message body.  * It can then later use this handle to obtain the async response.  *<p/>  * Camel also provides type converters so you can just ask to get the desired object type and Camel  * will automatic wait for the async task to complete to return the response.  *  * @version $Revision$  */
+comment|/**  * Threads processor that leverage a thread pool for continue processing the {@link Exchange}s  * using the asynchronous routing engine.  *  * @version $Revision$  */
 end_comment
 
 begin_class
