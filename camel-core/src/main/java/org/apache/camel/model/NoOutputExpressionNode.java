@@ -116,25 +116,25 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|NoneOutputExpressionNode
+DECL|class|NoOutputExpressionNode
 specifier|public
 class|class
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 extends|extends
 name|ExpressionNode
 block|{
-DECL|method|NoneOutputExpressionNode ()
+DECL|method|NoOutputExpressionNode ()
 specifier|public
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|()
 block|{
 name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|NoneOutputExpressionNode (ExpressionDefinition expression)
+DECL|method|NoOutputExpressionNode (ExpressionDefinition expression)
 specifier|public
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|ExpressionDefinition
 name|expression
@@ -146,9 +146,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoneOutputExpressionNode (Expression expression)
+DECL|method|NoOutputExpressionNode (Expression expression)
 specifier|public
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|Expression
 name|expression
@@ -160,9 +160,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoneOutputExpressionNode (Predicate predicate)
+DECL|method|NoOutputExpressionNode (Predicate predicate)
 specifier|public
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|Predicate
 name|predicate

@@ -100,7 +100,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|outBody
+name|body
 argument_list|()
 operator|.
 name|isEqualTo
@@ -168,12 +168,12 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|outBody
+name|body
 argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"Kabom the World"
+literal|"Kaboom the World"
 argument_list|)
 expr_stmt|;
 try|try
@@ -184,7 +184,7 @@ name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Kabom"
+literal|"Kaboom"
 argument_list|,
 name|String
 operator|.
@@ -299,7 +299,7 @@ name|transform
 argument_list|(
 name|constant
 argument_list|(
-literal|"Kabom the World"
+literal|"Kaboom the World"
 argument_list|)
 argument_list|)
 operator|.

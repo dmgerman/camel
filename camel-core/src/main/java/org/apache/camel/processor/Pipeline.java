@@ -782,10 +782,12 @@ name|exchange
 decl_stmt|;
 while|while
 condition|(
+name|continueRouting
+argument_list|(
 name|processors
-operator|.
-name|hasNext
-argument_list|()
+argument_list|,
+name|nextExchange
+argument_list|)
 condition|)
 block|{
 name|AsyncProcessor

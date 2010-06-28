@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|ValidateDefinition
 extends|extends
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|method|ValidateDefinition ()
 specifier|public

@@ -582,18 +582,31 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|// If we handle CamelException it is what we should have as an exception caught
-name|assertTrue
-argument_list|(
-name|e
-operator|instanceof
 name|CamelException
+name|cause
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|CamelException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|cause
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Force to fail"
 argument_list|,
-name|e
+name|cause
 operator|.
 name|getMessage
 argument_list|()

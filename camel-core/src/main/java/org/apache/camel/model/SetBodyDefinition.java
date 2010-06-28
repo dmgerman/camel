@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|SetBodyDefinition
 extends|extends
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|method|SetBodyDefinition ()
 specifier|public

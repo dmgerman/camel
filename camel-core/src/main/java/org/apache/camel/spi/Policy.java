@@ -38,6 +38,8 @@ specifier|public
 interface|interface
 name|Policy
 block|{
+comment|// TODO: Should support async routing engine
+comment|// we may need the same bridge as we do with InterceptStrategy in DefaultChannel
 comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param routeContext the route context      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
 DECL|method|wrap (RouteContext routeContext, Processor processor)
 name|Processor

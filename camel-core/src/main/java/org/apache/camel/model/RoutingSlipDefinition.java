@@ -187,7 +187,7 @@ extends|extends
 name|ProcessorDefinition
 parameter_list|>
 extends|extends
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|field|DEFAULT_DELIMITER
 specifier|public

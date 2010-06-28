@@ -90,20 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|TransformProcessor
@@ -148,7 +134,7 @@ specifier|public
 class|class
 name|TransformDefinition
 extends|extends
-name|NoneOutputExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|method|TransformDefinition ()
 specifier|public

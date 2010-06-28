@@ -169,7 +169,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|"police finished excution"
+literal|"police finished execution"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -203,7 +203,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|"police finished excution"
+literal|"police finished execution"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -215,7 +215,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"bar"
 argument_list|,
-literal|"police finished excution"
+literal|"police finished execution"
 argument_list|)
 expr_stmt|;
 name|template
@@ -500,7 +500,7 @@ name|setHeader
 argument_list|(
 name|name
 argument_list|,
-literal|"police finished excution"
+literal|"police finished execution"
 argument_list|)
 expr_stmt|;
 block|}
