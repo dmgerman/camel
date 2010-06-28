@@ -857,7 +857,7 @@ name|eventDrivenProcessors
 argument_list|)
 decl_stmt|;
 comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
-name|Processor
+name|UnitOfWorkProcessor
 name|unitOfWorkProcessor
 init|=
 operator|new
@@ -983,6 +983,21 @@ argument_list|,
 name|wrapper
 argument_list|)
 decl_stmt|;
+comment|// create the route id
+name|String
+name|routeId
+init|=
+name|route
+operator|.
+name|idOrCreate
+argument_list|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|edcr
 operator|.
 name|getProperties
@@ -994,16 +1009,7 @@ name|Route
 operator|.
 name|ID_PROPERTY
 argument_list|,
-name|route
-operator|.
-name|idOrCreate
-argument_list|(
-name|getCamelContext
-argument_list|()
-operator|.
-name|getNodeIdFactory
-argument_list|()
-argument_list|)
+name|routeId
 argument_list|)
 expr_stmt|;
 name|edcr

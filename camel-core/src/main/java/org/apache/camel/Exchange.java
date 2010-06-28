@@ -751,7 +751,7 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the endpoint which originated this message exchange if a consumer on an endpoint created the message exchange      * otherwise this property will be null      */
+comment|/**      * Returns the endpoint which originated this message exchange if a consumer on an endpoint      * created the message exchange, otherwise this property will be<tt>null</tt>      */
 DECL|method|getFromEndpoint ()
 name|Endpoint
 name|getFromEndpoint
@@ -764,6 +764,21 @@ name|setFromEndpoint
 parameter_list|(
 name|Endpoint
 name|fromEndpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the route id which originated this message exchange if a route consumer on an endpoint      * created the message exchange, otherwise this property will be<tt>null</tt>      */
+DECL|method|getFromRouteId ()
+name|String
+name|getFromRouteId
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the route id which originated this message exchange. This method      * should typically only be called by the internal framework.      *      * @param fromRouteId the from route id      */
+DECL|method|setFromRouteId (String fromRouteId)
+name|void
+name|setFromRouteId
+parameter_list|(
+name|String
+name|fromRouteId
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the unit of work that this exchange belongs to; which may map to      * zero, one or more physical transactions      */

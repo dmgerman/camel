@@ -252,6 +252,11 @@ specifier|private
 name|Endpoint
 name|fromEndpoint
 decl_stmt|;
+DECL|field|fromRouteId
+specifier|private
+name|String
+name|fromRouteId
+decl_stmt|;
 DECL|field|onCompletions
 specifier|private
 name|List
@@ -330,6 +335,15 @@ operator|=
 name|parent
 operator|.
 name|getFromEndpoint
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|fromRouteId
+operator|=
+name|parent
+operator|.
+name|getFromRouteId
 argument_list|()
 expr_stmt|;
 name|this
@@ -1316,6 +1330,32 @@ operator|.
 name|fromEndpoint
 operator|=
 name|fromEndpoint
+expr_stmt|;
+block|}
+DECL|method|getFromRouteId ()
+specifier|public
+name|String
+name|getFromRouteId
+parameter_list|()
+block|{
+return|return
+name|fromRouteId
+return|;
+block|}
+DECL|method|setFromRouteId (String fromRouteId)
+specifier|public
+name|void
+name|setFromRouteId
+parameter_list|(
+name|String
+name|fromRouteId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fromRouteId
+operator|=
+name|fromRouteId
 expr_stmt|;
 block|}
 DECL|method|getExchangeId ()

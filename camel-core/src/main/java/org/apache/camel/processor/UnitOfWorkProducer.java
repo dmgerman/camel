@@ -76,6 +76,20 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Ensures a {@link Producer} is executed within an {@link org.apache.camel.spi.UnitOfWork}.  *  * @version $Revision$  */
 end_comment
@@ -95,6 +109,12 @@ specifier|final
 name|Producer
 name|producer
 decl_stmt|;
+DECL|field|processor
+specifier|private
+specifier|final
+name|Processor
+name|processor
+decl_stmt|;
 comment|/**      * The producer which should be executed within an {@link org.apache.camel.spi.UnitOfWork}.      *      * @param producer the producer      */
 DECL|method|UnitOfWorkProducer (Producer producer)
 specifier|public
@@ -109,6 +129,16 @@ operator|.
 name|producer
 operator|=
 name|producer
+expr_stmt|;
+name|this
+operator|.
+name|processor
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
@@ -184,15 +214,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Processor
-name|processor
-init|=
-operator|new
-name|UnitOfWorkProcessor
-argument_list|(
-name|producer
-argument_list|)
-decl_stmt|;
 name|processor
 operator|.
 name|process
@@ -209,10 +230,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|processor
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stop ()
@@ -223,10 +246,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|processor
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
