@@ -158,20 +158,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;routingSlip/&gt; element  */
 end_comment
@@ -201,7 +187,7 @@ extends|extends
 name|ProcessorDefinition
 parameter_list|>
 extends|extends
-name|ExpressionNode
+name|NoneOutputExpressionNode
 block|{
 DECL|field|DEFAULT_DELIMITER
 specifier|public

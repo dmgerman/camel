@@ -96,7 +96,7 @@ specifier|public
 class|class
 name|CatchProcessor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 implements|implements
 name|Traceable
 block|{

@@ -60,6 +60,7 @@ specifier|final
 name|Processor
 name|wrapped
 decl_stmt|;
+comment|// TODO: Should support async routing engine
 DECL|method|WrapProcessor (Processor processor, Processor wrapped)
 specifier|public
 name|WrapProcessor

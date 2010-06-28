@@ -148,7 +148,7 @@ specifier|public
 class|class
 name|TransformDefinition
 extends|extends
-name|ExpressionNode
+name|NoneOutputExpressionNode
 block|{
 DECL|method|TransformDefinition ()
 specifier|public
@@ -222,44 +222,11 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-name|Processor
-name|childProcessor
-init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|TransformProcessor
 argument_list|(
 name|expr
-argument_list|,
-name|childProcessor
-argument_list|)
-return|;
-block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression to be used      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|TransformDefinition
-argument_list|>
-name|expression
-parameter_list|()
-block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|this
 argument_list|)
 return|;
 block|}

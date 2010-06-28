@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|InterceptEndpointProcessor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
 DECL|field|uri
 specifier|private

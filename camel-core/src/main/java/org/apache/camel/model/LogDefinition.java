@@ -396,13 +396,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addOutput (ProcessorDefinition processorType)
+DECL|method|addOutput (ProcessorDefinition output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|output
 parameter_list|)
 block|{
 comment|// add outputs on parent as this log does not support outputs
@@ -411,7 +411,7 @@ argument_list|()
 operator|.
 name|addOutput
 argument_list|(
-name|processorType
+name|output
 argument_list|)
 expr_stmt|;
 block|}

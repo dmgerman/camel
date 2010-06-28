@@ -90,20 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|SetBodyProcessor
@@ -148,7 +134,7 @@ specifier|public
 class|class
 name|SetBodyDefinition
 extends|extends
-name|ExpressionNode
+name|NoneOutputExpressionNode
 block|{
 DECL|method|SetBodyDefinition ()
 specifier|public
@@ -239,44 +225,11 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-name|Processor
-name|childProcessor
-init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|SetBodyProcessor
 argument_list|(
 name|expr
-argument_list|,
-name|childProcessor
-argument_list|)
-return|;
-block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that SetBodyType class will use      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|SetBodyDefinition
-argument_list|>
-name|expression
-parameter_list|()
-block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|this
 argument_list|)
 return|;
 block|}

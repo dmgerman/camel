@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file by checking whether the file is being  * changed by scanning the file at different intervals (to detec changes).  */
+comment|/**  * Acquires exclusive read lock to the given file by checking whether the file is being  * changed by scanning the file at different intervals (to detect changes).  */
 end_comment
 
 begin_class

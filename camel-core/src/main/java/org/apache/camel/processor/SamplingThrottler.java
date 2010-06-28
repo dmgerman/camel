@@ -92,6 +92,7 @@ name|SamplingThrottler
 extends|extends
 name|DelegateProcessor
 block|{
+comment|// TODO: should support async routing engine
 DECL|field|log
 specifier|protected
 specifier|final
@@ -215,6 +216,8 @@ name|units
 operator|=
 name|units
 expr_stmt|;
+name|this
+operator|.
 name|periodInNanos
 operator|=
 name|units

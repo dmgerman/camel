@@ -219,6 +219,7 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
+comment|// TODO: should support async routing engine
 DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, Processor processor)
 specifier|public
 name|IdempotentConsumer

@@ -22,26 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ExecutorService
@@ -263,7 +243,7 @@ extends|extends
 name|ProcessorDefinition
 parameter_list|>
 extends|extends
-name|ExpressionNode
+name|NoneOutputExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
@@ -638,49 +618,6 @@ block|}
 return|return
 name|aggregationStrategy
 return|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|addOutput (ProcessorDefinition processorType)
-specifier|public
-name|void
-name|addOutput
-parameter_list|(
-name|ProcessorDefinition
-name|processorType
-parameter_list|)
-block|{
-comment|// add it to the parent as a recipient list does not support outputs
-name|getParent
-argument_list|()
-operator|.
-name|addOutput
-argument_list|(
-name|processorType
-argument_list|)
-expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------

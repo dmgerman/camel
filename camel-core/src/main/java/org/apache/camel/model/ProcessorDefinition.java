@@ -936,16 +936,16 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|addOutput (ProcessorDefinition processorType)
+DECL|method|addOutput (ProcessorDefinition output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|output
 parameter_list|)
 block|{
-name|processorType
+name|output
 operator|.
 name|setParent
 argument_list|(
@@ -954,7 +954,7 @@ argument_list|)
 expr_stmt|;
 name|configureChild
 argument_list|(
-name|processorType
+name|output
 argument_list|)
 expr_stmt|;
 if|if
@@ -970,7 +970,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|processorType
+name|output
 argument_list|)
 expr_stmt|;
 block|}
@@ -988,7 +988,7 @@ name|block
 operator|.
 name|addOutput
 argument_list|(
-name|processorType
+name|output
 argument_list|)
 expr_stmt|;
 block|}

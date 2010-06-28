@@ -64,20 +64,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|Traceable
 import|;
 end_import
@@ -119,9 +105,9 @@ DECL|class|PredicateValidatingProcessor
 specifier|public
 class|class
 name|PredicateValidatingProcessor
-extends|extends
-name|DelegateProcessor
 implements|implements
+name|Processor
+implements|,
 name|Traceable
 block|{
 DECL|field|LOG
@@ -146,22 +132,14 @@ specifier|final
 name|Predicate
 name|predicate
 decl_stmt|;
-DECL|method|PredicateValidatingProcessor (Predicate predicate, Processor processor)
+DECL|method|PredicateValidatingProcessor (Predicate predicate)
 specifier|public
 name|PredicateValidatingProcessor
 parameter_list|(
 name|Predicate
 name|predicate
-parameter_list|,
-name|Processor
-name|processor
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|predicate
@@ -226,18 +204,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|matches
 condition|)
-block|{
-name|super
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 throw|throw
 operator|new
@@ -250,6 +219,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Predicate
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -259,11 +238,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"validate["
+literal|"validate("
 operator|+
 name|predicate
 operator|+
-literal|"]"
+literal|")"
 return|;
 block|}
 DECL|method|getTraceLabel ()
@@ -273,17 +252,11 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"validate"
-return|;
-block|}
-DECL|method|getPredicate ()
-specifier|public
-name|Predicate
-name|getPredicate
-parameter_list|()
-block|{
-return|return
+literal|"validate["
+operator|+
 name|predicate
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
