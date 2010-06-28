@@ -302,7 +302,7 @@ comment|// stop() has no processor to execute, and thus we will end in a NPE
 return|return
 name|filterProcessor
 operator|.
-name|process
+name|processNext
 argument_list|(
 name|exchange
 argument_list|,

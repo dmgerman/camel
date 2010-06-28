@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates processing to a nested {@link AsyncProcessor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *  * @version $Revision$  * @see org.apache.camel.processor.DelegateProcessor  */
+comment|/**  * A Delegate pattern which delegates processing to a nested {@link AsyncProcessor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *<p/>  *<b>Important:</b> This implementation<b>does</b> support the asynchronous routing engine.  * If you are implementing a EIP pattern please use this as the delegate.  *  * @version $Revision$  * @see org.apache.camel.processor.DelegateProcessor  */
 end_comment
 
 begin_class
@@ -327,6 +327,27 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -337,6 +358,27 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+return|return
+name|processNext
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|)
+return|;
+block|}
+DECL|method|processNext (Exchange exchange, AsyncCallback callback)
+specifier|protected
+name|boolean
+name|processNext
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|AsyncCallback
 name|callback
 parameter_list|)
@@ -370,27 +412,6 @@ argument_list|,
 name|callback
 argument_list|)
 return|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|hasNext ()
 specifier|public

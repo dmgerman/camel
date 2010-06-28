@@ -277,7 +277,9 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Proceed with the underlying delegated processor      */
+comment|/**      * Proceed with the underlying delegated processor      *      * @deprecated will be removed in Camel 2.5      */
+annotation|@
+name|Deprecated
 DECL|method|proceed (Exchange exchange)
 specifier|public
 name|void

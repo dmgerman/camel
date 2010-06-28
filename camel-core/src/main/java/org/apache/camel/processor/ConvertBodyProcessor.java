@@ -187,6 +187,17 @@ name|charset
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only convert if the is a body
+if|if
+condition|(
+name|in
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|Object
 name|value
 init|=
@@ -240,6 +251,7 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getType ()
