@@ -403,6 +403,25 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a simple expression value builder      */
+DECL|method|simple (String value)
+specifier|public
+name|ValueBuilder
+name|simple
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|simple
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
 DECL|method|bean (Object beanOrBeanRef)
 specifier|public
