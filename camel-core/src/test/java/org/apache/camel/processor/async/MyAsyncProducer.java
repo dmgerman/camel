@@ -348,6 +348,23 @@ argument_list|(
 name|reply
 argument_list|)
 expr_stmt|;
+comment|// propagate headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info

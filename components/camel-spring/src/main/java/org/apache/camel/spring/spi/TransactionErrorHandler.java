@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -332,18 +344,21 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (final Exchange exchange)
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// we have to run this synchronously as Spring Transaction does *not* support
+comment|// using multiple threads to span a transaction
 if|if
 condition|(
 name|exchange
@@ -375,19 +390,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processByRegularErrorHandler (Exchange exchange)
-specifier|protected
-name|void
-name|processByRegularErrorHandler
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
+comment|// invoke ths synchronous method as Spring Transaction does *not* support
+comment|// using multiple threads to span a transaction
 try|try
 block|{
-name|super
-operator|.
 name|process
 argument_list|(
 name|exchange
@@ -396,7 +416,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -408,6 +428,54 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// notify callback we are done synchronously
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+DECL|method|processByRegularErrorHandler (Exchange exchange)
+specifier|protected
+name|void
+name|processByRegularErrorHandler
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// must invoke the async method and provide an empty callback
+comment|// to have it process by the error handler (because we invoke super)
+name|super
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processInTransaction (final Exchange exchange)
 specifier|protected
@@ -643,6 +711,22 @@ operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}

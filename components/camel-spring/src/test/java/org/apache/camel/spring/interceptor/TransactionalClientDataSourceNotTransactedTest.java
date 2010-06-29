@@ -96,7 +96,7 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expeced as we fail
+comment|// expected as we fail
 name|assertTrue
 argument_list|(
 name|e
