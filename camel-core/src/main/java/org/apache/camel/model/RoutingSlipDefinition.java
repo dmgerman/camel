@@ -199,7 +199,7 @@ init|=
 literal|","
 decl_stmt|;
 annotation|@
-name|XmlAttribute
+name|Deprecated
 DECL|field|headerName
 specifier|private
 name|String
@@ -466,6 +466,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void
@@ -482,6 +484,8 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getHeaderName ()
 specifier|public
 name|String
