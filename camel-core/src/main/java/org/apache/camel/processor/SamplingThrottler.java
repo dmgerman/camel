@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -90,9 +102,8 @@ specifier|public
 class|class
 name|SamplingThrottler
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
-comment|// TODO: should support async routing engine
 DECL|field|log
 specifier|protected
 specifier|final
@@ -283,16 +294,19 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (Exchange exchange)
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|boolean
 name|doSend
@@ -377,15 +391,23 @@ condition|(
 name|doSend
 condition|)
 block|{
+comment|// continue routing
+return|return
 name|super
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
+block|{
+comment|// okay to invoke this synchronously as the stopper
+comment|// will just set a property
+try|try
 block|{
 name|stopper
 operator|.
@@ -395,6 +417,32 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// we are done synchronously
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|class|SampleStats
 specifier|private
