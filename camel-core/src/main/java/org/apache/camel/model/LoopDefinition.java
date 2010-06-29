@@ -90,20 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|language
@@ -298,27 +284,6 @@ name|routeContext
 argument_list|)
 argument_list|,
 name|output
-argument_list|)
-return|;
-block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that LoopType will use      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|LoopDefinition
-argument_list|>
-name|expression
-parameter_list|()
-block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|this
 argument_list|)
 return|;
 block|}

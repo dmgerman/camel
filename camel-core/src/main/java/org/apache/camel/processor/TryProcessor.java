@@ -170,6 +170,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -423,7 +437,9 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)
@@ -511,7 +527,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)
@@ -645,7 +663,9 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)
@@ -706,7 +726,9 @@ comment|// so we break out now, then the callback will be invoked which then con
 return|return;
 block|}
 block|}
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)
@@ -853,48 +875,6 @@ operator|.
 name|hasNext
 argument_list|()
 return|;
-block|}
-comment|/**      * Strategy to prepare results before next iterator or when we are complete      *      * @param exchange the result exchange      */
-DECL|method|prepareResult (Exchange exchange)
-specifier|protected
-specifier|static
-name|void
-name|prepareResult
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// we are routing using pipes and filters so we need to manually copy OUT to IN
-if|if
-condition|(
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
-argument_list|(
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setOut
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -1545,7 +1525,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// signal callback to continue routing async
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)
@@ -1854,7 +1836,9 @@ expr_stmt|;
 block|}
 block|}
 comment|// signal callback to continue routing async
-name|prepareResult
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
 argument_list|(
 name|exchange
 argument_list|)

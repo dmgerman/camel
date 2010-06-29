@@ -2475,6 +2475,48 @@ name|trim
 argument_list|()
 return|;
 block|}
+comment|/**      * Strategy to prepare results before next iterator or when we are complete,      * which is done by copying OUT to IN, so there is only an IN as input      * for the next iteration.      *      * @param exchange the exchange to prepare      */
+DECL|method|prepareOutToIn (Exchange exchange)
+specifier|public
+specifier|static
+name|void
+name|prepareOutToIn
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// we are routing using pipes and filters so we need to manually copy OUT to IN
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 
