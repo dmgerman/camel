@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -54,6 +64,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link DirectEndpoint}. It holds the  * list of named direct endpoints.  *  * @version $Revision$  */
 end_comment
@@ -66,6 +90,29 @@ name|DirectComponent
 extends|extends
 name|DefaultComponent
 block|{
+comment|// must keep a map of consumers on the component to ensure endpoints can lookup old consumers
+comment|// later in case the DirectEndpoint was re-created due the old was evicted from the endpoints LRUCache
+comment|// on DefaultCamelContext
+DECL|field|consumers
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DirectConsumer
+argument_list|>
+name|consumers
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|DirectConsumer
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -97,6 +144,8 @@ argument_list|(
 name|uri
 argument_list|,
 name|this
+argument_list|,
+name|consumers
 argument_list|)
 decl_stmt|;
 name|setProperties
@@ -109,6 +158,37 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|consumers
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

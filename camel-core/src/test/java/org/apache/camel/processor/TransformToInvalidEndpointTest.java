@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.issues
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -12,9 +12,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|issues
+name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExecutionException
+import|;
+end_import
 
 begin_import
 import|import
@@ -36,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|NoSuchEndpointException
 import|;
 end_import
 
@@ -54,92 +66,62 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CoarseGrainedProcessorDefinitionIssueTest
+DECL|class|TransformToInvalidEndpointTest
 specifier|public
 class|class
-name|CoarseGrainedProcessorDefinitionIssueTest
+name|TransformToInvalidEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testCoarseGrainedProcessorDefinition ()
+DECL|method|testTransformToInvalidEndpoint ()
 specifier|public
 name|void
-name|testCoarseGrainedProcessorDefinition
+name|testTransformToInvalidEndpoint
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:bar"
 argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-name|Route
-name|route
-init|=
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-operator|.
-name|get
+name|fail
 argument_list|(
-literal|0
+literal|"Should thrown an exception"
 argument_list|)
-decl_stmt|;
-name|assertNotNull
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
 argument_list|(
-literal|"The route should not be null"
+name|NoSuchEndpointException
+operator|.
+name|class
 argument_list|,
-name|route
+name|e
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: drill down the route and check that Channel have
-comment|// the fine grained processor definition assigned
-comment|// this also helps the tracer as it now can better pin point it exact location
+block|}
 block|}
 annotation|@
 name|Override
@@ -167,22 +149,15 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"direct:bar"
 argument_list|)
 operator|.
-name|delay
+name|transform
 argument_list|(
-literal|500
+name|sendTo
+argument_list|(
+literal|"bar"
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:foo"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

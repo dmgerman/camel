@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.issues
+DECL|package|org.apache.camel.component.direct
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|issues
+name|component
+operator|.
+name|direct
 package|;
 end_package
 
@@ -36,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Endpoint
 import|;
 end_import
 
@@ -54,92 +56,92 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CoarseGrainedProcessorDefinitionIssueTest
+DECL|class|SendingToAlotOfDifferentDirectEndpointTest
 specifier|public
 class|class
-name|CoarseGrainedProcessorDefinitionIssueTest
+name|SendingToAlotOfDifferentDirectEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testCoarseGrainedProcessorDefinition ()
+DECL|method|testDirect ()
 specifier|public
 name|void
-name|testCoarseGrainedProcessorDefinition
+name|testDirect
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:result"
+literal|"mock:foo"
 argument_list|)
-decl_stmt|;
-name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+comment|// now create 1000 other endpoints to cause the first direct endpoint to vanish from the LRUCache
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|1200
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"direct:bar-"
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:foo"
+argument_list|,
+literal|"Bye Moon"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:start"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Route
-name|route
-init|=
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"The route should not be null"
-argument_list|,
-name|route
-argument_list|)
-expr_stmt|;
-comment|// TODO: drill down the route and check that Channel have
-comment|// the fine grained processor definition assigned
-comment|// this also helps the tracer as it now can better pin point it exact location
 block|}
 annotation|@
 name|Override
@@ -167,12 +169,17 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|)
 operator|.
-name|delay
+name|to
 argument_list|(
-literal|500
+literal|"direct:foo"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|to
@@ -182,7 +189,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"mock:foo"
 argument_list|)
 expr_stmt|;
 block|}

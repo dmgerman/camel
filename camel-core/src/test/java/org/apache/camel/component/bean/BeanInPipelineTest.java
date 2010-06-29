@@ -199,9 +199,9 @@ literal|"bean:one"
 argument_list|,
 literal|"bean:two"
 argument_list|,
-literal|"direct:x"
+literal|"log:x"
 argument_list|,
-literal|"direct:y"
+literal|"log:y"
 argument_list|,
 literal|"bean:three"
 argument_list|)

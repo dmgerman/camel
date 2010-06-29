@@ -1056,7 +1056,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"direct:queue:"
+literal|"seda:queue:"
 operator|+
 name|i
 argument_list|)
@@ -1155,7 +1155,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"direct:queue:"
+literal|"seda:queue:"
 operator|+
 name|i
 argument_list|)

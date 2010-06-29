@@ -435,7 +435,7 @@ comment|// this is a bit evil we let you set on OUT body even if the MEP is InOn
 comment|// however the result after the routing is correct using APIs to get the result
 comment|// however the exchange will carry body IN and OUT when the route completes, as
 comment|// we operate on the original exchange in this processor
-comment|// (= we are the first node in the route after the from conumer)
+comment|// (= we are the first node in the route after the from consumer)
 name|exchange
 operator|.
 name|getOut
@@ -472,9 +472,9 @@ comment|// this pipeline is not really needed by to have some more routing in th
 operator|.
 name|pipeline
 argument_list|(
-literal|"direct:x"
+literal|"log:x"
 argument_list|,
-literal|"direct:y"
+literal|"log:y"
 argument_list|)
 operator|.
 name|process

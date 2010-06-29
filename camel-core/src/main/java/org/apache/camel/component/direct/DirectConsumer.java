@@ -142,43 +142,27 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getConsumer
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|endpoint
-operator|.
-name|getConsumer
-argument_list|()
-operator|!=
+name|hasConsumer
+argument_list|(
 name|this
+argument_list|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Endpoint "
+literal|"Cannot add a 2nd consumer to the same endpoint. Endpoint "
 operator|+
 name|endpoint
 operator|+
-literal|" only allows one consumer. Existing: "
-operator|+
-name|endpoint
-operator|.
-name|getConsumer
-argument_list|()
-operator|+
-literal|" and this: "
-operator|+
-name|this
+literal|" only allows one consumer."
 argument_list|)
 throw|;
 block|}
 name|endpoint
 operator|.
-name|setConsumer
+name|addConsumer
 argument_list|(
 name|this
 argument_list|)
@@ -201,9 +185,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
-name|setConsumer
+name|removeConsumer
 argument_list|(
-literal|null
+name|this
 argument_list|)
 expr_stmt|;
 name|super

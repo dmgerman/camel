@@ -117,7 +117,7 @@ argument_list|)
 operator|.
 name|pipeline
 argument_list|(
-literal|"direct:a"
+literal|"log:a"
 argument_list|,
 literal|"mock:invalid"
 argument_list|)

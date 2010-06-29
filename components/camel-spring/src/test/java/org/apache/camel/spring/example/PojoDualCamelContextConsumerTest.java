@@ -270,7 +270,7 @@ name|body
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
-comment|// direct:foo has no consumer in camel-1 so we should not expect any messages to be routed to result/foo
+comment|// seda:foo has no consumer in camel-1 so we should not expect any messages to be routed to result/foo
 name|MockEndpoint
 name|result
 init|=
@@ -309,7 +309,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 name|body
 argument_list|)
