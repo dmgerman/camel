@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -202,6 +214,17 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"No consumers available on endpoint: "
+operator|+
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
 block|}
 else|else
 block|{
@@ -256,6 +279,21 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// indicate its done synchronously
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"No consumers available on endpoint: "
+operator|+
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
