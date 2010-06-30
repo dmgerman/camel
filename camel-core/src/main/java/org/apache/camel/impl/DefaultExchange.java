@@ -673,6 +673,17 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// eager same instance type test to avoid the overhead of invoking the type converter
 comment|// if already same type
 if|if
@@ -738,6 +749,17 @@ argument_list|,
 name|defaultValue
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// eager same instance type test to avoid the overhead of invoking the type converter
 comment|// if already same type
 if|if
