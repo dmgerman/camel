@@ -865,7 +865,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateNewExchange (Exchange exchange, int index, Iterator<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs, Iterator<ProcessorExchangePair> it)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -876,11 +876,17 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|Iterator
+name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
 name|allPairs
+parameter_list|,
+name|Iterator
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|it
 parameter_list|)
 block|{
 name|exchange
@@ -926,7 +932,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|allPairs
+name|it
 operator|.
 name|hasNext
 argument_list|()

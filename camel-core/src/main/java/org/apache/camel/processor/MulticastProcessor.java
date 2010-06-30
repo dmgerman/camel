@@ -1135,7 +1135,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|doProcessParallel (final Exchange original, final AtomicExchange result, Iterable<ProcessorExchangePair> pairs, boolean streaming, final AsyncCallback callback)
+DECL|method|doProcessParallel (final Exchange original, final AtomicExchange result, final Iterable<ProcessorExchangePair> pairs, boolean streaming, final AsyncCallback callback)
 specifier|protected
 name|void
 name|doProcessParallel
@@ -1148,6 +1148,7 @@ specifier|final
 name|AtomicExchange
 name|result
 parameter_list|,
+specifier|final
 name|Iterable
 argument_list|<
 name|ProcessorExchangePair
@@ -1273,6 +1274,8 @@ operator|.
 name|intValue
 argument_list|()
 argument_list|,
+name|pairs
+argument_list|,
 name|it
 argument_list|)
 expr_stmt|;
@@ -1313,6 +1316,8 @@ argument_list|(
 name|original
 argument_list|,
 name|result
+argument_list|,
+name|pairs
 argument_list|,
 name|it
 argument_list|,
@@ -1540,6 +1545,8 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
+name|pairs
+argument_list|,
 name|it
 argument_list|)
 expr_stmt|;
@@ -1551,6 +1558,8 @@ argument_list|(
 name|original
 argument_list|,
 name|result
+argument_list|,
+name|pairs
 argument_list|,
 name|it
 argument_list|,
@@ -1722,7 +1731,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|doProcess (final Exchange original, final AtomicExchange result, final Iterator<ProcessorExchangePair> it, final ProcessorExchangePair pair, final AsyncCallback callback, final AtomicInteger total)
+DECL|method|doProcess (final Exchange original, final AtomicExchange result, final Iterable<ProcessorExchangePair> pairs, final Iterator<ProcessorExchangePair> it, final ProcessorExchangePair pair, final AsyncCallback callback, final AtomicInteger total)
 specifier|private
 name|boolean
 name|doProcess
@@ -1734,6 +1743,13 @@ parameter_list|,
 specifier|final
 name|AtomicExchange
 name|result
+parameter_list|,
+specifier|final
+name|Iterable
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|pairs
 parameter_list|,
 specifier|final
 name|Iterator
@@ -2037,6 +2053,8 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
+name|pairs
+argument_list|,
 name|it
 argument_list|)
 expr_stmt|;
@@ -2048,6 +2066,8 @@ argument_list|(
 name|original
 argument_list|,
 name|result
+argument_list|,
+name|pairs
 argument_list|,
 name|it
 argument_list|,
@@ -2430,7 +2450,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|updateNewExchange (Exchange exchange, int index, Iterator<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs, Iterator<ProcessorExchangePair> it)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -2441,11 +2461,17 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|Iterator
+name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
 name|allPairs
+parameter_list|,
+name|Iterator
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|it
 parameter_list|)
 block|{
 name|exchange
@@ -2461,7 +2487,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|allPairs
+name|it
 operator|.
 name|hasNext
 argument_list|()
