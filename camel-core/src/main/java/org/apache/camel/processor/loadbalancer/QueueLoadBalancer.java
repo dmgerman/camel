@@ -204,10 +204,12 @@ argument_list|)
 decl_stmt|;
 name|sync
 operator|=
-name|albp
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|albp
+argument_list|,
 name|exchange
 argument_list|,
 operator|new

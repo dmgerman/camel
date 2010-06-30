@@ -1875,10 +1875,12 @@ argument_list|()
 expr_stmt|;
 name|sync
 operator|=
-name|async
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|async
+argument_list|,
 name|exchange
 argument_list|,
 operator|new

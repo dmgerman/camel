@@ -403,10 +403,12 @@ literal|true
 return|;
 block|}
 return|return
-name|processor
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|processor
+argument_list|,
 name|exchange
 argument_list|,
 name|callback

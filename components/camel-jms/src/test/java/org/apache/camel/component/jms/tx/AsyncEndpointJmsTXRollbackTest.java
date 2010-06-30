@@ -247,9 +247,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertFalse
+comment|// we are synchronous due to TX so the we are using same threads during the routing
+name|assertTrue
 argument_list|(
-literal|"Should use different threads"
+literal|"Should use same threads"
 argument_list|,
 name|beforeThreadName
 operator|.

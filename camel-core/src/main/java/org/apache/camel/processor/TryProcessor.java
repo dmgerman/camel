@@ -626,10 +626,12 @@ comment|// triggered and then continue routing where we left
 name|boolean
 name|sync
 init|=
-name|processor
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|processor
+argument_list|,
 name|exchange
 argument_list|,
 operator|new
@@ -1239,10 +1241,12 @@ name|processor
 argument_list|)
 decl_stmt|;
 return|return
-name|cool
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|cool
+argument_list|,
 name|exchange
 argument_list|,
 name|callback

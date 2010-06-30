@@ -659,10 +659,12 @@ argument_list|)
 expr_stmt|;
 comment|// now let the multicast process the exchange
 return|return
-name|rlp
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|rlp
+argument_list|,
 name|exchange
 argument_list|,
 name|callback

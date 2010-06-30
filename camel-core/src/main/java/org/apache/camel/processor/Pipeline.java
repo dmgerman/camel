@@ -426,6 +426,7 @@ argument_list|,
 name|async
 argument_list|)
 decl_stmt|;
+comment|// are we transacted
 comment|// continue as long its being processed synchronously
 if|if
 condition|(
@@ -748,10 +749,12 @@ comment|// triggered and then continue routing where we left
 name|boolean
 name|sync
 init|=
-name|asyncProcessor
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|asyncProcessor
+argument_list|,
 name|exchange
 argument_list|,
 operator|new

@@ -783,19 +783,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|boolean
-name|sync
-init|=
+comment|// must invoke the async method with empty callback to have it invoke the
+comment|// super.processErrorHandler
+comment|// we are transacted so we have to route synchronously so don't worry about returned
+comment|// value from the process method
+comment|// and the camel routing engine will detect this is an transacted Exchange and route
+comment|// it fully synchronously so we don't have to wait here if we hit an async endpoint
+comment|// all that is taken care of in the camel-core
 name|super
 operator|.
 name|process
@@ -814,168 +808,11 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|doneSync
-condition|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Asynchronous callback received for exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"Done TransactionErrorHandler"
-return|;
+comment|// noop
 block|}
 block|}
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|sync
-condition|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Waiting for asynchronous callback before continuing for exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-operator|+
-literal|" -> "
-operator|+
-name|exchange
-argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
-name|latch
-operator|.
-name|await
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Interrupted while waiting for asynchronous callback for exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-comment|// we may be shutting down etc., so set exception
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Asynchronous callback received, will continue routing exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-operator|+
-literal|" -> "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 DECL|method|propagationBehaviorToString (int propagationBehavior)
 specifier|private
