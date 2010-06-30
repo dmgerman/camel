@@ -644,6 +644,15 @@ operator|.
 name|getContext
 argument_list|()
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext of Exchange"
+argument_list|)
+expr_stmt|;
 name|TypeConverter
 name|converter
 init|=
@@ -713,6 +722,15 @@ operator|.
 name|getContext
 argument_list|()
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext of Exchange"
+argument_list|)
+expr_stmt|;
 name|TypeConverter
 name|converter
 init|=
