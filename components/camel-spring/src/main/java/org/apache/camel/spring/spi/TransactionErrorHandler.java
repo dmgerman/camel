@@ -98,18 +98,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|Logger
@@ -385,8 +373,8 @@ argument_list|)
 condition|)
 block|{
 comment|// already transacted by this transaction template
-comment|// so lets just let the regular default error handler process it
-name|processByRegularErrorHandler
+comment|// so lets just let the error handler process it
+name|processByErrorHandler
 argument_list|(
 name|exchange
 argument_list|)
@@ -395,6 +383,7 @@ block|}
 else|else
 block|{
 comment|// not yet wrapped in transaction so lets do that
+comment|// and then have it invoke the error handler from within that transaction
 name|processInTransaction
 argument_list|(
 name|exchange
@@ -451,43 +440,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
-DECL|method|processByRegularErrorHandler (Exchange exchange)
-specifier|protected
-name|void
-name|processByRegularErrorHandler
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// must invoke the async method and provide an empty callback
-comment|// to have it process by the error handler (because we invoke super)
-name|super
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|doneSync
-parameter_list|)
-block|{
-comment|// noop
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|processInTransaction (final Exchange exchange)
 specifier|protected
@@ -713,10 +665,124 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
-comment|// and now let process the exchange
-comment|// we have to wait if the async routing engine took over, because transactions have to be done in
-comment|// the same thread (Spring TransactionManager) so by waiting until the async routing is done
-comment|// will let us be able to continue routing thereafter in the same thread context
+comment|// and now let process the exchange by the error handler
+name|processByErrorHandler
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// after handling and still an exception or marked as rollback only then rollback
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+comment|// if it was a local rollback only then remove its marker so outer transaction
+comment|// wont rollback as well (Note: isRollbackOnly() also returns true for ROLLBACK_ONLY_LAST)
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY_LAST
+argument_list|)
+expr_stmt|;
+comment|// wrap exception in transacted exception
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|rce
+operator|=
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+comment|// create dummy exception to force spring transaction manager to rollback
+name|rce
+operator|=
+operator|new
+name|TransactionRollbackException
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|status
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+name|status
+operator|.
+name|setRollbackOnly
+argument_list|()
+expr_stmt|;
+block|}
+comment|// rethrow if an exception occurred
+if|if
+condition|(
+name|rce
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|rce
+throw|;
+block|}
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Processes the {@link Exchange} using the error handler.      *<p/>      * This implementation will invoke ensure this occurs synchronously, that means if the async routing engine      * did kick in, then this implementation will wait for the task to complete before it continues.      *      * @param exchange the exchange      */
+DECL|method|processByErrorHandler (final Exchange exchange)
+specifier|protected
+name|void
+name|processByErrorHandler
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 specifier|final
 name|CountDownLatch
 name|latch
@@ -730,8 +796,6 @@ decl_stmt|;
 name|boolean
 name|sync
 init|=
-name|TransactionErrorHandler
-operator|.
 name|super
 operator|.
 name|process
@@ -912,109 +976,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// after handling and still an exception or marked as rollback only then rollback
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-operator|||
-name|exchange
-operator|.
-name|isRollbackOnly
-argument_list|()
-condition|)
-block|{
-comment|// if it was a local rollback only then remove its marker so outer transaction
-comment|// wont rollback as well (Note: isRollbackOnly() also returns true for ROLLBACK_ONLY_LAST)
-name|exchange
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ROLLBACK_ONLY_LAST
-argument_list|)
-expr_stmt|;
-comment|// wrap exception in transacted exception
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|rce
-operator|=
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|exchange
-operator|.
-name|isRollbackOnly
-argument_list|()
-condition|)
-block|{
-comment|// create dummy exception to force spring transaction manager to rollback
-name|rce
-operator|=
-operator|new
-name|TransactionRollbackException
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|status
-operator|.
-name|isRollbackOnly
-argument_list|()
-condition|)
-block|{
-name|status
-operator|.
-name|setRollbackOnly
-argument_list|()
-expr_stmt|;
-block|}
-comment|// rethrow if an exception occurred
-if|if
-condition|(
-name|rce
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-name|rce
-throw|;
-block|}
-block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|propagationBehaviorToString (int propagationBehavior)
-specifier|protected
+specifier|private
+specifier|static
 name|String
 name|propagationBehaviorToString
 parameter_list|(
