@@ -310,17 +310,24 @@ condition|(
 name|isDelete
 argument_list|()
 operator|&&
+operator|(
 name|getMove
 argument_list|()
 operator|!=
 literal|null
+operator|||
+name|getMoveFailed
+argument_list|()
+operator|!=
+literal|null
+operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot both set delete=true and move options"
+literal|"You cannot both set delete=true and move or moveFailed options"
 argument_list|)
 throw|;
 block|}

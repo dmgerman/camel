@@ -89,10 +89,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerMoveFailureTest
+DECL|class|FileConsumerDeleteAndMoveFailureTest
 specifier|public
 class|class
-name|FileConsumerMoveFailureTest
+name|FileConsumerDeleteAndMoveFailureTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -117,10 +117,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testMoveFailedWithOnException ()
+DECL|method|testMoveFailed ()
 specifier|public
 name|void
-name|testMoveFailedWithOnException
+name|testMoveFailed
 parameter_list|()
 throws|throws
 name|Exception
@@ -182,70 +182,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|testDeletAndMoveFailedOption ()
-specifier|public
-name|void
-name|testDeletAndMoveFailedOption
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|context
-operator|.
-name|addRoutes
-argument_list|(
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"file://target/test?delete=true&moveFailed=target/failed/error"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:failed"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expect an exception here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|ex
-parameter_list|)
-block|{
-comment|// expect the error here
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"You cannot set both deleted=true and move"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
