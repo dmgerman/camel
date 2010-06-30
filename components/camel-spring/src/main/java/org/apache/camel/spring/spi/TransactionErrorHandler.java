@@ -695,7 +695,7 @@ parameter_list|)
 block|{
 comment|// wrapper exception to throw if the exchange failed
 comment|// IMPORTANT: Must be a runtime exception to let Spring regard it as to do "rollback"
-name|RuntimeCamelException
+name|RuntimeException
 name|rce
 init|=
 literal|null
@@ -963,6 +963,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+comment|// create dummy exception to force spring transaction manager to rollback
+name|rce
+operator|=
+operator|new
+name|TransactionRollbackException
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -988,15 +1005,6 @@ condition|)
 block|{
 throw|throw
 name|rce
-throw|;
-block|}
-else|else
-block|{
-comment|// create dummy exception to force spring transaction manager to rollback
-throw|throw
-operator|new
-name|TransactionRollbackException
-argument_list|()
 throw|;
 block|}
 block|}

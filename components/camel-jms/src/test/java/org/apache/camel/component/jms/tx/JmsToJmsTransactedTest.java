@@ -72,16 +72,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -478,11 +468,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"markRollbackOnly causes Spring TX to not let JMS redeliver!"
-argument_list|)
 DECL|method|testJmsToJmsTestRollbackDueToMarkRollbackOnly ()
 specifier|public
 name|void
@@ -568,7 +553,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// TODO: mark rollback only causes Spring TX to not rollback on JMS queue
 name|MockEndpoint
 name|start
 init|=
