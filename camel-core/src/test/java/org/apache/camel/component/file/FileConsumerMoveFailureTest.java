@@ -117,10 +117,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testMoveFailedWithOnException ()
+DECL|method|testMoveFailed ()
 specifier|public
 name|void
-name|testMoveFailedWithOnException
+name|testMoveFailed
 parameter_list|()
 throws|throws
 name|Exception
@@ -137,14 +137,23 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World IS processed!"
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/failed/error/bye.txt"
+literal|"target/failed/.camel/hello.txt"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/failed/error/bye-error.txt"
 argument_list|,
 literal|"Kabom"
 argument_list|)
@@ -183,70 +192,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDeletAndMoveFailedOption ()
-specifier|public
-name|void
-name|testDeletAndMoveFailedOption
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|context
-operator|.
-name|addRoutes
-argument_list|(
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"file://target/test?delete=true&moveFailed=target/failed/error"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:failed"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expect an exception here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|ex
-parameter_list|)
-block|{
-comment|// expect the error here
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"You cannot set both deleted=true and move"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -271,32 +216,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|onException
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|useOriginalMessage
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"file://target/failed/error"
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/failed?delete=true"
-argument_list|)
-operator|.
-name|setBody
-argument_list|(
-name|simple
-argument_list|(
-literal|"${body} IS processed!"
-argument_list|)
+literal|"file://target/failed?moveFailed=error/${file:name.noext}-error.txt"
 argument_list|)
 operator|.
 name|process
@@ -332,15 +254,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|body
-operator|!=
-literal|null
-operator|&&
-name|body
-operator|.
-name|startsWith
-argument_list|(
 literal|"Kabom"
+operator|.
+name|equals
+argument_list|(
+name|body
 argument_list|)
 condition|)
 block|{
@@ -354,6 +272,13 @@ throw|;
 block|}
 block|}
 block|}
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
