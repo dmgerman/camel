@@ -426,7 +426,6 @@ argument_list|,
 name|async
 argument_list|)
 decl_stmt|;
-comment|// are we transacted
 comment|// continue as long its being processed synchronously
 if|if
 condition|(
