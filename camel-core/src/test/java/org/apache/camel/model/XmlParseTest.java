@@ -983,7 +983,10 @@ literal|"destinations"
 argument_list|,
 name|node
 operator|.
-name|getHeaderName
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1041,7 +1044,10 @@ literal|"theRoutingSlipHeader"
 argument_list|,
 name|node
 operator|.
-name|getHeaderName
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1099,7 +1105,10 @@ literal|"theRoutingSlipHeader"
 argument_list|,
 name|node
 operator|.
-name|getHeaderName
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
