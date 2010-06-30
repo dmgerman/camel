@@ -1273,7 +1273,7 @@ operator|.
 name|intValue
 argument_list|()
 argument_list|,
-name|pairs
+name|it
 argument_list|)
 expr_stmt|;
 name|completion
@@ -1540,7 +1540,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|pairs
+name|it
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -2037,7 +2037,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|null
+name|it
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -2430,7 +2430,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterator<ProcessorExchangePair> allPairs)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -2441,7 +2441,7 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|Iterable
+name|Iterator
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
@@ -2459,6 +2459,44 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|allPairs
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|MULTICAST_COMPLETE
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|MULTICAST_COMPLETE
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
