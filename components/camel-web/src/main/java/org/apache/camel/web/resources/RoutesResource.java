@@ -644,7 +644,7 @@ comment|/**      * Looks up an individual route with specified language      */
 annotation|@
 name|Path
 argument_list|(
-literal|"{id}/{language}"
+literal|"{id}/lang/{language}"
 argument_list|)
 DECL|method|getRoute (@athParamR) String id, @PathParam(R) String language)
 specifier|public
