@@ -166,10 +166,16 @@ throws|throws
 name|Exception
 block|{
 comment|// failed first aggregation
-comment|// TODO Following assertion should be true while it is not. Instead
-comment|// exception handler set in BatchProcessor is used and it logs
-comment|// by default.
-comment|// getMockEndpoint("mock:handled").expectedMessageCount(1);
+name|getMockEndpoint
+argument_list|(
+literal|"mock:handled"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// second aggregated
 name|getMockEndpoint
 argument_list|(

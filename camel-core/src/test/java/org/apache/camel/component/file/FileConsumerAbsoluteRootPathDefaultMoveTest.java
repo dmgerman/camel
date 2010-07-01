@@ -84,6 +84,7 @@ name|FileConsumerAbsoluteRootPathDefaultMoveTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// run this test manually
 DECL|field|base
 specifier|private
 name|String
@@ -99,7 +100,6 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
-comment|// TODO: Enable to test locally
 DECL|method|xxxTestConsumeFromAbsolutePath ()
 specifier|public
 name|void

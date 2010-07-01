@@ -100,7 +100,7 @@ name|FileAbsoluteMoveDefaultIssueManual
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// TODO run this test manually
+comment|// run this test manually
 annotation|@
 name|Override
 DECL|method|setUp ()

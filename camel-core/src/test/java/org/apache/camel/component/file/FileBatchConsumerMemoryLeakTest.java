@@ -137,7 +137,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: Run this manually and browse the memory usage, eg in IDEA there is a Statistics tab
+comment|// run this manually and browse the memory usage, eg in IDEA there is a Statistics tab
 name|deleteDirectory
 argument_list|(
 literal|"target/filesorter/archiv"
