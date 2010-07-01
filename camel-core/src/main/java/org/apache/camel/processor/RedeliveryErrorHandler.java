@@ -361,9 +361,9 @@ DECL|field|redeliveryDelay
 name|long
 name|redeliveryDelay
 decl_stmt|;
-DECL|field|retryUntilPredicate
+DECL|field|retryWhilePredicate
 name|Predicate
-name|retryUntilPredicate
+name|retryWhilePredicate
 decl_stmt|;
 comment|// default behavior which can be overloaded on a per exception basis
 DECL|field|currentRedeliveryPolicy
@@ -1741,11 +1741,11 @@ argument_list|()
 expr_stmt|;
 name|data
 operator|.
-name|retryUntilPredicate
+name|retryWhilePredicate
 operator|=
 name|exceptionPolicy
 operator|.
-name|getRetryUntilPolicy
+name|getRetryWhilePolicy
 argument_list|()
 expr_stmt|;
 name|data
@@ -3010,7 +3010,7 @@ name|redeliveryCounter
 argument_list|,
 name|data
 operator|.
-name|retryUntilPredicate
+name|retryWhilePredicate
 argument_list|)
 return|;
 block|}

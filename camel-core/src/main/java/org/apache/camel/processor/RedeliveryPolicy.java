@@ -383,8 +383,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns true if the policy decides that the message exchange should be      * redelivered.      *      * @param exchange  the current exchange      * @param redeliveryCounter  the current retry counter      * @param retryUntil  an optional predicate to determine if we should redeliver or not      * @return true to redeliver, false to stop      */
-DECL|method|shouldRedeliver (Exchange exchange, int redeliveryCounter, Predicate retryUntil)
+comment|/**      * Returns true if the policy decides that the message exchange should be      * redelivered.      *      * @param exchange  the current exchange      * @param redeliveryCounter  the current retry counter      * @param retryWhile  an optional predicate to determine if we should redeliver or not      * @return true to redeliver, false to stop      */
+DECL|method|shouldRedeliver (Exchange exchange, int redeliveryCounter, Predicate retryWhile)
 specifier|public
 name|boolean
 name|shouldRedeliver
@@ -396,19 +396,19 @@ name|int
 name|redeliveryCounter
 parameter_list|,
 name|Predicate
-name|retryUntil
+name|retryWhile
 parameter_list|)
 block|{
 comment|// predicate is always used if provided
 if|if
 condition|(
-name|retryUntil
+name|retryWhile
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|retryUntil
+name|retryWhile
 operator|.
 name|matches
 argument_list|(

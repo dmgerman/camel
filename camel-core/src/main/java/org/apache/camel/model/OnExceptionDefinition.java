@@ -430,16 +430,16 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"retryUntil"
+literal|"retryWhile"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|retryUntil
+DECL|field|retryWhile
 specifier|private
 name|ExpressionSubElementDefinition
-name|retryUntil
+name|retryWhile
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -575,10 +575,10 @@ name|continuedPolicy
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|retryUntilPolicy
+DECL|field|retryWhilePolicy
 specifier|private
 name|Predicate
-name|retryUntilPolicy
+name|retryWhilePolicy
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -788,7 +788,7 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-name|setRetryUntilFromExpressionType
+name|setRetryWhileFromExpressionType
 argument_list|(
 name|routeContext
 argument_list|)
@@ -1206,40 +1206,40 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the retry until predicate.      *      * @param until predicate that determines when to stop retrying      * @return the builder      */
-DECL|method|retryUntil (Predicate until)
+comment|/**      * Sets the retry while predicate.      *<p/>      * Will continue retrying until predicate returns<tt>false</tt>.      *      * @param retryWhile predicate that determines when to stop retrying      * @return the builder      */
+DECL|method|retryWhile (Predicate retryWhile)
 specifier|public
 name|OnExceptionDefinition
-name|retryUntil
+name|retryWhile
 parameter_list|(
 name|Predicate
-name|until
+name|retryWhile
 parameter_list|)
 block|{
-name|setRetryUntilPolicy
+name|setRetryWhilePolicy
 argument_list|(
-name|until
+name|retryWhile
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the retry until expression.      *      * @param until expression that determines when to stop retrying      * @return the builder      */
-DECL|method|retryUntil (Expression until)
+comment|/**      * Sets the retry while expression.      *<p/>      * Will continue retrying until expression evaluates to<tt>false</tt>.      *      * @param retryWhile expression that determines when to stop retrying      * @return the builder      */
+DECL|method|retryWhile (Expression retryWhile)
 specifier|public
 name|OnExceptionDefinition
-name|retryUntil
+name|retryWhile
 parameter_list|(
 name|Expression
-name|until
+name|retryWhile
 parameter_list|)
 block|{
-name|setRetryUntilPolicy
+name|setRetryWhilePolicy
 argument_list|(
 name|toPredicate
 argument_list|(
-name|until
+name|retryWhile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1991,56 +1991,56 @@ operator|=
 name|onWhen
 expr_stmt|;
 block|}
-DECL|method|getRetryUntil ()
+DECL|method|getRetryWhile ()
 specifier|public
 name|ExpressionSubElementDefinition
-name|getRetryUntil
+name|getRetryWhile
 parameter_list|()
 block|{
 return|return
-name|retryUntil
+name|retryWhile
 return|;
 block|}
-DECL|method|setRetryUntil (ExpressionSubElementDefinition retryUntil)
+DECL|method|setRetryWhile (ExpressionSubElementDefinition retryWhile)
 specifier|public
 name|void
-name|setRetryUntil
+name|setRetryWhile
 parameter_list|(
 name|ExpressionSubElementDefinition
-name|retryUntil
+name|retryWhile
 parameter_list|)
 block|{
 name|this
 operator|.
-name|retryUntil
+name|retryWhile
 operator|=
-name|retryUntil
+name|retryWhile
 expr_stmt|;
 block|}
-DECL|method|getRetryUntilPolicy ()
+DECL|method|getRetryWhilePolicy ()
 specifier|public
 name|Predicate
-name|getRetryUntilPolicy
+name|getRetryWhilePolicy
 parameter_list|()
 block|{
 return|return
-name|retryUntilPolicy
+name|retryWhilePolicy
 return|;
 block|}
-DECL|method|setRetryUntilPolicy (Predicate retryUntilPolicy)
+DECL|method|setRetryWhilePolicy (Predicate retryWhilePolicy)
 specifier|public
 name|void
-name|setRetryUntilPolicy
+name|setRetryWhilePolicy
 parameter_list|(
 name|Predicate
-name|retryUntilPolicy
+name|retryWhilePolicy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|retryUntilPolicy
+name|retryWhilePolicy
 operator|=
-name|retryUntilPolicy
+name|retryWhilePolicy
 expr_stmt|;
 block|}
 DECL|method|getOnRedelivery ()
@@ -2307,10 +2307,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setRetryUntilFromExpressionType (RouteContext routeContext)
+DECL|method|setRetryWhileFromExpressionType (RouteContext routeContext)
 specifier|private
 name|void
-name|setRetryUntilFromExpressionType
+name|setRetryWhileFromExpressionType
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -2318,12 +2318,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|getRetryUntil
+name|getRetryWhile
 argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|retryUntilPolicy
+name|retryWhilePolicy
 operator|==
 literal|null
 operator|&&
@@ -2332,9 +2332,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|retryUntil
+name|retryWhile
 argument_list|(
-name|getRetryUntil
+name|getRetryWhile
 argument_list|()
 operator|.
 name|createPredicate

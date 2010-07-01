@@ -2357,7 +2357,7 @@ operator|)
 name|def
 operator|)
 operator|.
-name|getRetryUntil
+name|getRetryWhile
 argument_list|()
 argument_list|,
 name|languages

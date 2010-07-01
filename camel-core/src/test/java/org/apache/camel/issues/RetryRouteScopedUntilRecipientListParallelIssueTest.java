@@ -78,7 +78,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|retryUntil
+name|retryWhile
 argument_list|(
 name|bean
 argument_list|(
