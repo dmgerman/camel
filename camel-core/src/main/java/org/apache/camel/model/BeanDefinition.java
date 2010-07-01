@@ -578,6 +578,38 @@ name|beanType
 argument_list|)
 expr_stmt|;
 block|}
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|bean
+argument_list|,
+literal|"bean"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+comment|// validate the bean type is not from java so you by mistake think its a reference
+comment|// to a bean name but the String is being invoke instead
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|String
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The bean instance is a java.lang.String type: "
+operator|+
+name|bean
+operator|+
+literal|". We suppose you want to refer to a bean instance by its id instead. Please use beanRef."
+argument_list|)
+throw|;
+block|}
 name|answer
 operator|=
 operator|new
