@@ -194,7 +194,7 @@ name|PolicyDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|PolicyDefinition
 argument_list|>
 block|{
 comment|// TODO: Align this code with TransactedDefinition

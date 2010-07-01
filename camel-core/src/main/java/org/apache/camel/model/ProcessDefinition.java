@@ -152,7 +152,7 @@ name|ProcessDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|ProcessDefinition
 argument_list|>
 block|{
 annotation|@

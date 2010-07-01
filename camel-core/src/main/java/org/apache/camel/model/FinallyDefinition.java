@@ -110,7 +110,7 @@ name|FinallyDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|FinallyDefinition
 argument_list|>
 implements|implements
 name|Block

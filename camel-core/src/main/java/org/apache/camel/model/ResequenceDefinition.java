@@ -241,7 +241,7 @@ name|ResequenceDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|ResequenceDefinition
 argument_list|>
 block|{
 annotation|@

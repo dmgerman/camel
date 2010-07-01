@@ -134,7 +134,7 @@ name|OtherwiseDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|OtherwiseDefinition
 argument_list|>
 implements|implements
 name|Block

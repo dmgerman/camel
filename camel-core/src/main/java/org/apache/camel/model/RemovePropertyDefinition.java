@@ -152,7 +152,7 @@ name|RemovePropertyDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|RemovePropertyDefinition
 argument_list|>
 block|{
 annotation|@

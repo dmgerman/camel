@@ -182,7 +182,7 @@ name|SamplingDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|SamplingDefinition
 argument_list|>
 block|{
 comment|// use Long to let it be optional in JAXB so when using XML the default is 1 second

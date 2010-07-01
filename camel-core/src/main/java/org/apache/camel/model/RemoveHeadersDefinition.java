@@ -152,7 +152,7 @@ name|RemoveHeadersDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|RemoveHeadersDefinition
 argument_list|>
 block|{
 annotation|@

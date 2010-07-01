@@ -349,22 +349,10 @@ decl_stmt|;
 DECL|field|overdueProcessors
 specifier|private
 name|OutputDefinition
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|overdueProcessors
 init|=
 operator|new
 name|OutputDefinition
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|TemporalRule (TimeExpression first, TimeExpression second)
@@ -430,12 +418,6 @@ block|}
 DECL|method|errorIfOver (Time builder)
 specifier|public
 name|OutputDefinition
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|errorIfOver
 parameter_list|(
 name|Time
@@ -455,12 +437,6 @@ block|}
 DECL|method|errorIfOver (long millis)
 specifier|public
 name|OutputDefinition
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
 name|errorIfOver
 parameter_list|(
 name|long

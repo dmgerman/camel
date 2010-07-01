@@ -451,7 +451,7 @@ name|RouteDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|RouteDefinition
 argument_list|>
 block|{
 DECL|field|inputs

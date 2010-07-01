@@ -196,7 +196,7 @@ name|InterceptDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|InterceptDefinition
 argument_list|>
 block|{
 comment|// TODO: support stop later (its a bit hard as it needs to break entire processing of route)

@@ -160,7 +160,7 @@ name|AOPDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|AOPDefinition
 argument_list|>
 block|{
 annotation|@

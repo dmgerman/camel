@@ -270,7 +270,7 @@ name|TransactedDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|TransactedDefinition
 argument_list|>
 block|{
 comment|// TODO: Align this code with PolicyDefinition

@@ -184,7 +184,7 @@ name|ConvertBodyDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|ConvertBodyDefinition
 argument_list|>
 block|{
 annotation|@

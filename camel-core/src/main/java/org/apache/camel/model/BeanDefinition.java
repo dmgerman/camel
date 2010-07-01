@@ -198,7 +198,7 @@ name|BeanDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|BeanDefinition
 argument_list|>
 block|{
 annotation|@

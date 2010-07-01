@@ -384,7 +384,7 @@ name|OnExceptionDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ProcessorDefinition
+name|OnExceptionDefinition
 argument_list|>
 block|{
 annotation|@

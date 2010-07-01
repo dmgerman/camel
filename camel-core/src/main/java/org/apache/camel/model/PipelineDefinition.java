@@ -110,7 +110,7 @@ name|PipelineDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|PipelineDefinition
 argument_list|>
 block|{
 annotation|@

@@ -222,7 +222,7 @@ name|MulticastDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|MulticastDefinition
 argument_list|>
 implements|implements
 name|ExecutorServiceAwareDefinition

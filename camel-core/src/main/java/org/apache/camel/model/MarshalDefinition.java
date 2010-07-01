@@ -436,7 +436,7 @@ name|MarshalDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|MarshalDefinition
 argument_list|>
 block|{
 annotation|@

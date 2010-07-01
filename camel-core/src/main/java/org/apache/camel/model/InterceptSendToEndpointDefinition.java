@@ -214,7 +214,7 @@ name|InterceptSendToEndpointDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|>
 block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)

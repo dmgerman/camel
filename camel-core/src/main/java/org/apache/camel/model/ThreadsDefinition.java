@@ -296,7 +296,7 @@ name|ThreadsDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|ProcessorDefinition
+name|ThreadsDefinition
 argument_list|>
 implements|implements
 name|ExecutorServiceAwareDefinition
