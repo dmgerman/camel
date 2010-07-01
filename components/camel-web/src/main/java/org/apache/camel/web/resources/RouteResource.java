@@ -1877,6 +1877,16 @@ return|return
 name|error
 return|;
 block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
 block|}
 end_class
 
