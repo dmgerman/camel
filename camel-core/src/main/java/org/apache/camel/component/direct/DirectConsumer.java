@@ -138,8 +138,21 @@ throws|throws
 name|Exception
 block|{
 comment|// add consumer to endpoint
+name|boolean
+name|existing
+init|=
+name|this
+operator|==
+name|endpoint
+operator|.
+name|getConsumer
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|existing
+operator|&&
 name|endpoint
 operator|.
 name|hasConsumer
@@ -160,6 +173,12 @@ literal|" only allows one consumer."
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|!
+name|existing
+condition|)
+block|{
 name|endpoint
 operator|.
 name|addConsumer
@@ -167,6 +186,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|start
