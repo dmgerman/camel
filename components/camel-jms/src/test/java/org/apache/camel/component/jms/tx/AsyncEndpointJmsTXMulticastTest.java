@@ -133,10 +133,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointJmsTXTest
+DECL|class|AsyncEndpointJmsTXMulticastTest
 specifier|public
 class|class
-name|AsyncEndpointJmsTXTest
+name|AsyncEndpointJmsTXMulticastTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -339,6 +339,20 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+operator|.
+name|multicast
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"direct:foo"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:foo"
+argument_list|)
+comment|// tx should be conveyed to this route as well
 operator|.
 name|to
 argument_list|(

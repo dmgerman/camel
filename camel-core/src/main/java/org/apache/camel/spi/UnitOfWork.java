@@ -104,6 +104,12 @@ name|TracedRouteNodes
 name|getTracedRouteNodes
 parameter_list|()
 function_decl|;
+comment|/**      * Are we transacted?      *      * @return<tt>true</tt> if transacted,<tt>false</tt> otherwise      */
+DECL|method|isTransacted ()
+name|boolean
+name|isTransacted
+parameter_list|()
+function_decl|;
 comment|/**      * Are we already transacted by the given transaction definition      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *      * @param transactionDefinition the transaction definition      * @return<tt>true</tt> if already,<tt>false</tt> otherwise      */
 DECL|method|isTransactedBy (Object transactionDefinition)
 name|boolean

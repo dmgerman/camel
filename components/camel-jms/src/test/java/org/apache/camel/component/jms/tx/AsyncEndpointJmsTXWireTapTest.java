@@ -133,10 +133,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncEndpointJmsTXTest
+DECL|class|AsyncEndpointJmsTXWireTapTest
 specifier|public
 class|class
-name|AsyncEndpointJmsTXTest
+name|AsyncEndpointJmsTXWireTapTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -181,6 +181,20 @@ specifier|static
 name|String
 name|afterThreadName
 decl_stmt|;
+DECL|field|txA
+specifier|private
+specifier|static
+specifier|volatile
+name|boolean
+name|txA
+decl_stmt|;
+DECL|field|txB
+specifier|private
+specifier|static
+specifier|volatile
+name|boolean
+name|txB
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testAsyncEndpointOK ()
@@ -193,22 +207,12 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-literal|"mock:before"
+literal|"mock:tap"
 argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Camel"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:after"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye Camel"
+literal|"Hi Camel"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -233,10 +237,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we are synchronous due to TX so the we are using same threads during the routing
-name|assertTrue
+comment|// the tapped exchange is not transacted
+name|assertFalse
 argument_list|(
-literal|"Should use same threads"
+literal|"Should use different threads"
 argument_list|,
 name|beforeThreadName
 operator|.
@@ -290,14 +294,54 @@ operator|.
 name|transacted
 argument_list|()
 operator|.
-name|to
+name|process
 argument_list|(
-literal|"mock:before"
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|assertTrue
+argument_list|(
+literal|"Exchange should be transacted"
+argument_list|,
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:before"
+literal|"async:Bye Camel"
+argument_list|)
+operator|.
+name|wireTap
+argument_list|(
+literal|"direct:tap"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:tap"
 argument_list|)
 operator|.
 name|process
@@ -326,9 +370,9 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Exchange should be transacted"
+literal|"Exchange should NOT be transacted"
 argument_list|,
 name|exchange
 operator|.
@@ -342,7 +386,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:Hi Camel"
 argument_list|)
 operator|.
 name|process
@@ -371,33 +415,13 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Exchange should be transacted"
-argument_list|,
-name|exchange
-operator|.
-name|isTransacted
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:after"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:after"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
+literal|"mock:tap"
 argument_list|)
 expr_stmt|;
 block|}

@@ -458,12 +458,6 @@ name|SPLIT_SIZE
 init|=
 literal|"CamelSplitSize"
 decl_stmt|;
-DECL|field|TRANSACTED
-name|String
-name|TRANSACTED
-init|=
-literal|"CamelTransacted"
-decl_stmt|;
 DECL|field|TRANSFER_ENCODING
 name|String
 name|TRANSFER_ENCODING

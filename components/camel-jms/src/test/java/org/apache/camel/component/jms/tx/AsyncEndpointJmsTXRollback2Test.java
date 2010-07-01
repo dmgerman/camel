@@ -340,6 +340,16 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Exchange should be transacted"
+argument_list|,
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -374,6 +384,16 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Exchange should be transacted"
+argument_list|,
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -446,6 +466,16 @@ literal|"Damn"
 argument_list|)
 throw|;
 block|}
+name|assertTrue
+argument_list|(
+literal|"Exchange should be transacted"
+argument_list|,
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)

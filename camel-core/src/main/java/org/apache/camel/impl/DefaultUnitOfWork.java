@@ -996,6 +996,24 @@ return|return
 name|tracedRouteNodes
 return|;
 block|}
+DECL|method|isTransacted ()
+specifier|public
+name|boolean
+name|isTransacted
+parameter_list|()
+block|{
+return|return
+name|transactedBy
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|transactedBy
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 DECL|method|isTransactedBy (Object transactionDefinition)
 specifier|public
 name|boolean
