@@ -78,11 +78,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|itest
 operator|.
-name|junit4
+name|osgi
 operator|.
-name|TestSupport
+name|OSGiIntegrationTestSupport
 import|;
 end_import
 
@@ -235,7 +235,7 @@ specifier|abstract
 class|class
 name|AbstractIntegrationTest
 extends|extends
-name|TestSupport
+name|OSGiIntegrationTestSupport
 block|{
 DECL|field|DEFAULT_TIMEOUT
 specifier|public

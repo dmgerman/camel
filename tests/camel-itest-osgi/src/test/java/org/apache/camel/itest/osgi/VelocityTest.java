@@ -337,10 +337,10 @@ name|OSGiIntegrationTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testReceivesFooResponse ()
+DECL|method|testReceivesResponse ()
 specifier|public
 name|void
-name|testReceivesFooResponse
+name|testReceivesResponse
 parameter_list|()
 throws|throws
 name|Exception
@@ -352,17 +352,6 @@ argument_list|,
 literal|"<hello>foo</hello>"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testReceivesBarResponse ()
-specifier|public
-name|void
-name|testReceivesBarResponse
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|assertRespondsWith
 argument_list|(
 literal|"bar"
@@ -528,34 +517,8 @@ argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
-name|mavenBundle
+name|getCamelKarafFeatureUrl
 argument_list|()
-operator|.
-name|groupId
-argument_list|(
-literal|"org.apache.camel.karaf"
-argument_list|)
-operator|.
-name|artifactId
-argument_list|(
-literal|"apache-camel"
-argument_list|)
-operator|.
-name|versionAsInProject
-argument_list|()
-operator|.
-name|type
-argument_list|(
-literal|"xml/features"
-argument_list|)
-operator|.
-name|versionAsInProject
-argument_list|()
-operator|.
-name|type
-argument_list|(
-literal|"xml/features"
-argument_list|)
 argument_list|,
 literal|"camel-core"
 argument_list|,

@@ -853,17 +853,8 @@ argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
-name|mavenBundle
-argument_list|(
-literal|"org.apache.camel.karaf"
-argument_list|,
-literal|"apache-camel"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-literal|"xml/features"
-argument_list|)
+name|getCamelKarafFeatureUrl
+argument_list|()
 argument_list|,
 literal|"camel-core"
 argument_list|,
