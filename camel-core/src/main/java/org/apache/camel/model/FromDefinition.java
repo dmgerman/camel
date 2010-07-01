@@ -394,7 +394,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isEmpty
+name|isNotEmpty
 argument_list|(
 name|uri
 argument_list|)
