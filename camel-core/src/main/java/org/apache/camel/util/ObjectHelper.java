@@ -5349,6 +5349,7 @@ block|}
 DECL|class|ExceptionIterator
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|ExceptionIterator
 implements|implements

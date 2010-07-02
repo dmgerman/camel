@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,6 +78,7 @@ name|timePeriodMillis
 decl_stmt|;
 DECL|field|slot
 specifier|private
+specifier|volatile
 name|TimeSlot
 name|slot
 decl_stmt|;
@@ -87,10 +100,12 @@ argument_list|,
 name|maximumRequestsPerPeriod
 argument_list|,
 literal|1000
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Throttler (Processor processor, long maximumRequestsPerPeriod, long timePeriodMillis)
+DECL|method|Throttler (Processor processor, long maximumRequestsPerPeriod, long timePeriodMillis, ScheduledExecutorService executorService)
 specifier|public
 name|Throttler
 parameter_list|(
@@ -102,11 +117,16 @@ name|maximumRequestsPerPeriod
 parameter_list|,
 name|long
 name|timePeriodMillis
+parameter_list|,
+name|ScheduledExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|processor
+argument_list|,
+name|executorService
 argument_list|)
 expr_stmt|;
 name|this
@@ -223,16 +243,14 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-DECL|method|delay (Exchange exchange)
+DECL|method|calculateDelay (Exchange exchange)
 specifier|protected
-name|void
-name|delay
+name|long
+name|calculateDelay
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|TimeSlot
 name|slot
@@ -249,15 +267,25 @@ name|isActive
 argument_list|()
 condition|)
 block|{
-name|waitUntil
-argument_list|(
+name|long
+name|delay
+init|=
 name|slot
 operator|.
 name|startTime
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
+operator|-
+name|currentSystemTime
+argument_list|()
+decl_stmt|;
+return|return
+name|delay
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
 block|}
 block|}
 comment|/*      * Determine what the next available time slot is for handling an Exchange      */
@@ -315,6 +343,7 @@ name|TimeSlot
 block|{
 DECL|field|capacity
 specifier|private
+specifier|volatile
 name|long
 name|capacity
 init|=

@@ -172,6 +172,21 @@ name|String
 name|executorServiceRef
 parameter_list|)
 function_decl|;
+comment|/**      * Lookup a {@link java.util.concurrent.ScheduledExecutorService} from the {@link org.apache.camel.spi.Registry}      * and from known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.      *      * @param source               the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name                 name which is appended to the thread name      * @param executorServiceRef   reference to lookup      * @return the {@link java.util.concurrent.ScheduledExecutorService} or<tt>null</tt> if not found      */
+DECL|method|lookupScheduled (Object source, String name, String executorServiceRef)
+name|ScheduledExecutorService
+name|lookupScheduled
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|String
+name|executorServiceRef
+parameter_list|)
+function_decl|;
 comment|/**      * Creates a new thread pool using the default thread pool profile.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
 DECL|method|newDefaultThreadPool (Object source, String name)
 name|ExecutorService
@@ -211,7 +226,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new scheduled thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the created thread pool      */
+comment|/**      * Creates a new scheduled thread pool.      *<p/>      * Will use the pool size from the default thread pool profile      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the created thread pool      */
 DECL|method|newScheduledThreadPool (Object source, String name, int poolSize)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
@@ -224,6 +239,18 @@ name|name
 parameter_list|,
 name|int
 name|poolSize
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new scheduled thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
+DECL|method|newScheduledThreadPool (Object source, String name)
+name|ScheduledExecutorService
+name|newScheduledThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a new fixed thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param poolSize    the core pool size      * @return the created thread pool      */

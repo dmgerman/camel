@@ -380,6 +380,7 @@ argument_list|(
 name|call
 argument_list|)
 expr_stmt|;
+comment|// tell Camel routing engine we continue routing asynchronous
 return|return
 literal|false
 return|;

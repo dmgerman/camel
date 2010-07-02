@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -76,7 +88,7 @@ specifier|private
 name|long
 name|delayValue
 decl_stmt|;
-DECL|method|Delayer (Processor processor, Expression delay)
+DECL|method|Delayer (Processor processor, Expression delay, ScheduledExecutorService executorService)
 specifier|public
 name|Delayer
 parameter_list|(
@@ -85,11 +97,16 @@ name|processor
 parameter_list|,
 name|Expression
 name|delay
+parameter_list|,
+name|ScheduledExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|processor
+argument_list|,
+name|executorService
 argument_list|)
 expr_stmt|;
 name|this
@@ -172,17 +189,14 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Waits for an optional time period before continuing to process the      * exchange      */
-DECL|method|delay (Exchange exchange)
+DECL|method|calculateDelay (Exchange exchange)
 specifier|protected
-name|void
-name|delay
+name|long
+name|calculateDelay
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|long
 name|time
@@ -242,37 +256,12 @@ literal|0
 condition|)
 block|{
 comment|// no delay
-return|return;
-block|}
-comment|// now add the current time
-name|time
-operator|+=
-name|defaultProcessTime
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|waitUntil
-argument_list|(
-name|time
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * A Strategy Method to allow derived implementations to decide the current      * system time or some other default exchange property      */
-DECL|method|defaultProcessTime (Exchange exchange)
-specifier|protected
-name|long
-name|defaultProcessTime
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
 return|return
-name|currentSystemTime
-argument_list|()
+literal|0
+return|;
+block|}
+return|return
+name|time
 return|;
 block|}
 block|}
