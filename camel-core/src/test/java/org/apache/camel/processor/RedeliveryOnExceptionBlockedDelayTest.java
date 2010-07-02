@@ -234,7 +234,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// do block if this exception was thrown
+comment|// will by default block
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -251,9 +251,6 @@ name|redeliveryDelay
 argument_list|(
 literal|2000
 argument_list|)
-operator|.
-name|syncDelayedRedelivery
-argument_list|()
 expr_stmt|;
 name|from
 argument_list|(

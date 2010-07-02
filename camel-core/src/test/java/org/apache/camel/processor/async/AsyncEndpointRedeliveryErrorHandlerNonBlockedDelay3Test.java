@@ -220,6 +220,9 @@ name|redeliveryDelay
 argument_list|(
 literal|1000
 argument_list|)
+operator|.
+name|asyncDelayedRedelivery
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from

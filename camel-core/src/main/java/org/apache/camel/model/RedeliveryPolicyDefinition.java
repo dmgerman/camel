@@ -172,10 +172,10 @@ name|redeliveryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|syncDelayedRedelivery
+DECL|field|asyncDelayedRedelivery
 specifier|private
 name|Boolean
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -377,16 +377,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 operator|!=
 literal|null
 operator|&&
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 condition|)
 block|{
 name|answer
 operator|.
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 argument_list|()
 expr_stmt|;
 block|}
@@ -1059,30 +1059,30 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
-DECL|method|getSyncDelayedRedelivery ()
+DECL|method|getAsyncDelayedRedelivery ()
 specifier|public
 name|Boolean
-name|getSyncDelayedRedelivery
+name|getAsyncDelayedRedelivery
 parameter_list|()
 block|{
 return|return
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 return|;
 block|}
-DECL|method|setSyncDelayedRedelivery (Boolean syncDelayedRedelivery)
+DECL|method|setAsyncDelayedRedelivery (Boolean asyncDelayedRedelivery)
 specifier|public
 name|void
-name|setSyncDelayedRedelivery
+name|setAsyncDelayedRedelivery
 parameter_list|(
 name|Boolean
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 parameter_list|)
 block|{
 name|this
 operator|.
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 operator|=
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 expr_stmt|;
 block|}
 DECL|method|getMaximumRedeliveries ()

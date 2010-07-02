@@ -408,6 +408,15 @@ name|useOriginalInMessage
 init|=
 name|useOriginalMessagePolicy
 decl_stmt|;
+DECL|field|asyncDelayedRedelivery
+name|boolean
+name|asyncDelayedRedelivery
+init|=
+name|redeliveryPolicy
+operator|.
+name|isAsyncDelayedRedelivery
+argument_list|()
+decl_stmt|;
 block|}
 comment|/**      * Tasks which performs asynchronous redelivery attempts, and being triggered by a      * {@link java.util.concurrent.ScheduledExecutorService} to avoid having any threads blocking if a task      * has to be delayed before a redelivery attempt is performed.       */
 DECL|class|AsyncRedeliveryTask
@@ -1983,6 +1992,15 @@ operator|=
 name|exceptionPolicy
 operator|.
 name|getUseOriginalMessagePolicy
+argument_list|()
+expr_stmt|;
+name|data
+operator|.
+name|asyncDelayedRedelivery
+operator|=
+name|exceptionPolicy
+operator|.
+name|isAsyncDelayedRedelivery
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?

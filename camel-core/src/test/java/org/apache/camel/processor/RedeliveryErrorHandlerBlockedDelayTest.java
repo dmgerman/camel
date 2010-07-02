@@ -234,7 +234,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// do block redelivery attempts
+comment|// will by default block
 name|errorHandler
 argument_list|(
 name|defaultErrorHandler
@@ -249,9 +249,6 @@ name|redeliveryDelay
 argument_list|(
 literal|2000
 argument_list|)
-operator|.
-name|syncDelayedRedelivery
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|from

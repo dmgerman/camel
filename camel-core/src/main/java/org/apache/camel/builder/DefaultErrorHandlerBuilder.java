@@ -268,6 +268,11 @@ specifier|protected
 name|boolean
 name|useOriginalMessage
 decl_stmt|;
+DECL|field|asyncDelayedRedelivery
+specifier|protected
+name|boolean
+name|asyncDelayedRedelivery
+decl_stmt|;
 DECL|method|DefaultErrorHandlerBuilder ()
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -419,22 +424,6 @@ name|redeliveryDelay
 argument_list|(
 name|delay
 argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|syncDelayedRedelivery ()
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|syncDelayedRedelivery
-parameter_list|()
-block|{
-name|getRedeliveryPolicy
-argument_list|()
-operator|.
-name|syncDelayedRedelivery
-argument_list|()
 expr_stmt|;
 return|return
 name|this
@@ -673,6 +662,25 @@ operator|.
 name|setLogExhausted
 argument_list|(
 name|logExhausted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will allow asynchronous delayed redeliveries.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+DECL|method|asyncDelayedRedelivery ()
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|asyncDelayedRedelivery
+parameter_list|()
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setAsyncDelayedRedelivery
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1238,6 +1246,32 @@ operator|.
 name|useOriginalMessage
 operator|=
 name|useOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|isAsyncDelayedRedelivery ()
+specifier|public
+name|boolean
+name|isAsyncDelayedRedelivery
+parameter_list|()
+block|{
+return|return
+name|asyncDelayedRedelivery
+return|;
+block|}
+DECL|method|setAsyncDelayedRedelivery (boolean asyncDelayedRedelivery)
+specifier|public
+name|void
+name|setAsyncDelayedRedelivery
+parameter_list|(
+name|boolean
+name|asyncDelayedRedelivery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncDelayedRedelivery
+operator|=
+name|asyncDelayedRedelivery
 expr_stmt|;
 block|}
 DECL|method|createHandledPolicy ()

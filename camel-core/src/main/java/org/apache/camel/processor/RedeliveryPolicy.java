@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = true</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = false</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -271,8 +271,6 @@ DECL|field|asyncDelayedRedelivery
 specifier|protected
 name|boolean
 name|asyncDelayedRedelivery
-init|=
-literal|true
 decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
@@ -1082,16 +1080,16 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Only allow synchronous delayed redelivery.      *      * @see #setAsyncDelayedRedelivery(boolean)      */
-DECL|method|syncDelayedRedelivery ()
+comment|/**      * Allow asynchronous delayed redelivery.      *      * @see #setAsyncDelayedRedelivery(boolean)      */
+DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|RedeliveryPolicy
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 parameter_list|()
 block|{
 name|setAsyncDelayedRedelivery
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1653,7 +1651,7 @@ return|return
 name|asyncDelayedRedelivery
 return|;
 block|}
-comment|/**      * Sets whether asynchronous delayed redelivery is allowed.      *<p/>      * This is enabled by default, which allows Camel to schedule a future task for delayed      * redelivery which prevents current thread from blocking while waiting. You can use      * this option to turn it off to ensure current thread will block.      *<p/>      * Exchange which is transacted will however always use synchronous delayed redelivery      * because the transaction must execute in the same thread context.      *      * @param asyncDelayedRedelivery whether asynchronous delayed redelivery is allowed      */
+comment|/**      * Sets whether asynchronous delayed redelivery is allowed.      *<p/>      * This is disabled by default.      *<p/>      * When enabled it allows Camel to schedule a future task for delayed      * redelivery which prevents current thread from blocking while waiting.      *<p/>      * Exchange which is transacted will however always use synchronous delayed redelivery      * because the transaction must execute in the same thread context.      *      * @param asyncDelayedRedelivery whether asynchronous delayed redelivery is allowed      */
 DECL|method|setAsyncDelayedRedelivery (boolean asyncDelayedRedelivery)
 specifier|public
 name|void

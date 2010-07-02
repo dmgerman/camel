@@ -1359,17 +1359,17 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Only allow synchronous delayed redelivery.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
-DECL|method|syncDelayedRedelivery ()
+comment|/**      * Allow synchronous delayed redelivery.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|OnExceptionDefinition
-name|syncDelayedRedelivery
+name|asyncDelayedRedelivery
 parameter_list|()
 block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setSyncDelayedRedelivery
+name|setAsyncDelayedRedelivery
 argument_list|(
 literal|true
 argument_list|)
@@ -2139,6 +2139,40 @@ name|useOriginalMessagePolicy
 operator|=
 name|useOriginalMessagePolicy
 expr_stmt|;
+block|}
+DECL|method|isAsyncDelayedRedelivery ()
+specifier|public
+name|boolean
+name|isAsyncDelayedRedelivery
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getRedeliveryPolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|getAsyncDelayedRedelivery
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|getAsyncDelayedRedelivery
+argument_list|()
+return|;
+block|}
+return|return
+literal|false
+return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------

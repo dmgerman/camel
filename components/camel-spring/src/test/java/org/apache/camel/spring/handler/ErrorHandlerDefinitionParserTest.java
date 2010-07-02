@@ -494,6 +494,18 @@ name|isLogHandled
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Wrong asyncRedeliveryDelayed"
+argument_list|,
+literal|true
+argument_list|,
+name|policy
+operator|.
+name|isAsyncDelayedRedelivery
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testErrorHandlerInsideCamelContext ()
 specifier|public
