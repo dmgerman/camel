@@ -3534,21 +3534,6 @@ argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
-comment|// use pool size from default profile
-name|int
-name|poolSize
-init|=
-name|camelContext
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|getDefaultThreadPoolProfile
-argument_list|()
-operator|.
-name|getPoolSize
-argument_list|()
-decl_stmt|;
 comment|// use a shared scheduler
 if|if
 condition|(
@@ -3574,9 +3559,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"RedeliveryErrorHandler-RedeliveryTask"
-argument_list|,
-name|poolSize
+literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
 expr_stmt|;
 block|}
