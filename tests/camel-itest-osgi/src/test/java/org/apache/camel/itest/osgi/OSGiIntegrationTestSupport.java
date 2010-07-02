@@ -587,10 +587,10 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
-name|felix
+name|equinox
 argument_list|()
 argument_list|,
-name|equinox
+name|felix
 argument_list|()
 argument_list|)
 decl_stmt|;
