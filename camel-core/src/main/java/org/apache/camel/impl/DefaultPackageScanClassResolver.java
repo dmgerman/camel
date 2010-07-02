@@ -388,6 +388,8 @@ name|ClassLoader
 name|classLoader
 parameter_list|)
 block|{
+try|try
+block|{
 name|getClassLoaders
 argument_list|()
 operator|.
@@ -396,6 +398,16 @@ argument_list|(
 name|classLoader
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedOperationException
+name|ex
+parameter_list|)
+block|{
+comment|// Ignore this exception as the PackageScanClassResolver
+comment|// don't want use any other classloader
+block|}
 block|}
 DECL|method|addFilter (PackageScanFilter filter)
 specifier|public
