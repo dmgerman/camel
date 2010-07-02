@@ -411,7 +411,7 @@ name|path
 operator|.
 name|equals
 argument_list|(
-literal|"/org/apache/camel/osgi/test"
+literal|"/org/apache/camel/core/osgi/test"
 argument_list|)
 operator|&&
 name|filePattern
@@ -446,7 +446,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"org/apache/camel/osgi/test/MyTypeConverter.class"
+literal|"org/apache/camel/core/osgi/test/MyTypeConverter.class"
 argument_list|)
 decl_stmt|;
 name|urls
@@ -466,7 +466,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"org/apache/camel/osgi/test/MyRouteBuilder.class"
+literal|"org/apache/camel/core/osgi/test/MyRouteBuilder.class"
 argument_list|)
 expr_stmt|;
 name|urls
