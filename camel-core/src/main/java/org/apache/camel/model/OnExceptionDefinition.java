@@ -1359,6 +1359,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Only allow synchronous delayed redelivery.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+DECL|method|syncDelayedRedelivery ()
+specifier|public
+name|OnExceptionDefinition
+name|syncDelayedRedelivery
+parameter_list|()
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|setSyncDelayedRedelivery
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public

@@ -424,6 +424,22 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|syncDelayedRedelivery ()
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|syncDelayedRedelivery
+parameter_list|()
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|syncDelayedRedelivery
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|delayPattern (String delayPattern)
 specifier|public
 name|DefaultErrorHandlerBuilder

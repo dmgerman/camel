@@ -365,6 +365,10 @@ DECL|field|retryWhilePredicate
 name|Predicate
 name|retryWhilePredicate
 decl_stmt|;
+DECL|field|redeliverFromSync
+name|boolean
+name|redeliverFromSync
+decl_stmt|;
 comment|// default behavior which can be overloaded on a per exception basis
 DECL|field|currentRedeliveryPolicy
 name|RedeliveryPolicy
@@ -406,10 +410,10 @@ name|useOriginalMessagePolicy
 decl_stmt|;
 block|}
 comment|/**      * Tasks which performs asynchronous redelivery attempts, and being triggered by a      * {@link java.util.concurrent.ScheduledExecutorService} to avoid having any threads blocking if a task      * has to be delayed before a redelivery attempt is performed.       */
-DECL|class|RedeliveryTask
+DECL|class|AsyncRedeliveryTask
 specifier|private
 class|class
-name|RedeliveryTask
+name|AsyncRedeliveryTask
 implements|implements
 name|Callable
 argument_list|<
@@ -434,9 +438,9 @@ specifier|final
 name|RedeliveryData
 name|data
 decl_stmt|;
-DECL|method|RedeliveryTask (Exchange exchange, AsyncCallback callback, RedeliveryData data)
+DECL|method|AsyncRedeliveryTask (Exchange exchange, AsyncCallback callback, RedeliveryData data)
 specifier|public
-name|RedeliveryTask
+name|AsyncRedeliveryTask
 parameter_list|(
 name|Exchange
 name|exchange
@@ -482,7 +486,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// letting onRedeliver be executed at first
-name|deliverToRedeliveryProcessor
+name|deliverToOnRedeliveryProcessor
 argument_list|(
 name|exchange
 argument_list|,
@@ -521,7 +525,19 @@ block|}
 comment|// process the exchange (also redelivery)
 name|boolean
 name|sync
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|redeliverFromSync
+condition|)
+block|{
+comment|// this redelivery task was scheduled from synchronous, which we forced to be asynchronous from
+comment|// this error handler, which means we have to invoke the callback with false, to have the callback
+comment|// be notified when we are done
+name|sync
+operator|=
 name|AsyncProcessorHelper
 operator|.
 name|process
@@ -539,7 +555,7 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|sync
+name|doneSync
 parameter_list|)
 block|{
 if|if
@@ -561,14 +577,108 @@ operator|.
 name|getExchangeId
 argument_list|()
 operator|+
-literal|" done"
+literal|" done sync: "
+operator|+
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+comment|// mark we are in sync mode now
+name|data
+operator|.
+name|sync
+operator|=
+literal|false
+expr_stmt|;
+comment|// only process if the exchange hasn't failed
+comment|// and it has not been handled by the error processor
+if|if
+condition|(
+name|isDone
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
+name|processAsyncErrorHandler
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this redelivery task was scheduled from asynchronous, which means we should only
+comment|// handle when the asynchronous task was done
+name|sync
+operator|=
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|outputAsync
+argument_list|,
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Redelivering exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" done sync: "
+operator|+
+name|doneSync
 argument_list|)
 expr_stmt|;
 block|}
 comment|// this callback should only handle the async case
 if|if
 condition|(
-name|sync
+name|doneSync
 condition|)
 block|{
 return|return;
@@ -594,7 +704,7 @@ name|callback
 operator|.
 name|done
 argument_list|(
-name|sync
+name|doneSync
 argument_list|)
 expr_stmt|;
 return|return;
@@ -612,7 +722,8 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 return|return
 name|sync
 return|;
@@ -836,6 +947,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we cannot process so invoke callback
 name|callback
 operator|.
 name|done
@@ -938,16 +1050,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// prepare for redelivery
-name|prepareExchangeForRedelivery
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-comment|// if we are redelivering then sleep before trying again
-comment|// wait until we should redeliver
-try|try
-block|{
+comment|// calculate delay
 name|data
 operator|.
 name|redeliveryDelay
@@ -956,7 +1059,7 @@ name|data
 operator|.
 name|currentRedeliveryPolicy
 operator|.
-name|sleep
+name|calculateRedeliveryDelay
 argument_list|(
 name|data
 operator|.
@@ -967,6 +1070,125 @@ operator|.
 name|redeliveryCounter
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|redeliveryDelay
+operator|>
+literal|0
+condition|)
+block|{
+comment|// okay there is a delay so create a scheduled task to have it executed in the future
+if|if
+condition|(
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isAsyncDelayedRedelivery
+argument_list|()
+operator|&&
+operator|!
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+condition|)
+block|{
+comment|// let the RedeliverTask be the logic which tries to redeliver the Exchange which we can used a scheduler to
+comment|// have it being executed in the future, or immediately
+comment|// we are continuing asynchronously
+comment|// mark we are routing async from now and that this redelivery task came from a synchronous routing
+name|data
+operator|.
+name|sync
+operator|=
+literal|false
+expr_stmt|;
+name|data
+operator|.
+name|redeliverFromSync
+operator|=
+literal|true
+expr_stmt|;
+name|AsyncRedeliveryTask
+name|task
+init|=
+operator|new
+name|AsyncRedeliveryTask
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|data
+argument_list|)
+decl_stmt|;
+comment|// schedule the redelivery task
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Scheduling redelivery task to run in "
+operator|+
+name|data
+operator|.
+name|redeliveryDelay
+operator|+
+literal|" millis for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|executorService
+operator|.
+name|schedule
+argument_list|(
+name|task
+argument_list|,
+name|data
+operator|.
+name|redeliveryDelay
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
+comment|// async delayed redelivery was disabled or we are transacted so we must be synchronous
+comment|// as the transaction manager requires to execute in the same thread context
+try|try
+block|{
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|sleep
+argument_list|(
+name|data
+operator|.
+name|redeliveryDelay
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -974,35 +1196,39 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
+comment|// we was interrupted so break out
+name|exchange
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
+name|setException
 argument_list|(
-literal|"Sleep interrupted, are we stopping? "
-operator|+
-operator|(
-name|isStopping
-argument_list|()
-operator|||
-name|isStopped
-argument_list|()
-operator|)
+name|e
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+name|data
+operator|.
+name|sync
+argument_list|)
+expr_stmt|;
+return|return
+name|data
+operator|.
+name|sync
+return|;
 block|}
-comment|// continue from top
-continue|continue;
 block|}
+block|}
+comment|// prepare for redelivery
+name|prepareExchangeForRedelivery
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 comment|// letting onRedeliver be executed
-name|deliverToRedeliveryProcessor
+name|deliverToOnRedeliveryProcessor
 argument_list|(
 name|exchange
 argument_list|,
@@ -1264,11 +1490,13 @@ condition|)
 block|{
 comment|// let the RedeliverTask be the logic which tries to redeliver the Exchange which we can used a scheduler to
 comment|// have it being executed in the future, or immediately
-name|RedeliveryTask
+comment|// Note: the data.redeliverFromSync should be kept as is, in case it was enabled previously
+comment|// to ensure the callback will continue routing from where we left
+name|AsyncRedeliveryTask
 name|task
 init|=
 operator|new
-name|RedeliveryTask
+name|AsyncRedeliveryTask
 argument_list|(
 name|exchange
 argument_list|,
@@ -1853,10 +2081,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gives an optional configure redelivery processor a chance to process before the Exchange      * will be redelivered. This can be used to alter the Exchange.      */
-DECL|method|deliverToRedeliveryProcessor (final Exchange exchange, final RedeliveryData data)
+DECL|method|deliverToOnRedeliveryProcessor (final Exchange exchange, final RedeliveryData data)
 specifier|protected
 name|void
-name|deliverToRedeliveryProcessor
+name|deliverToOnRedeliveryProcessor
 parameter_list|(
 specifier|final
 name|Exchange
@@ -3346,7 +3574,7 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"RedeliveryErrorHandler-AsyncRedeliveryTask"
+literal|"RedeliveryErrorHandler-RedeliveryTask"
 argument_list|,
 name|poolSize
 argument_list|)

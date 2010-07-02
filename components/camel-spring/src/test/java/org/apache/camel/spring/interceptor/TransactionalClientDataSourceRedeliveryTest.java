@@ -287,6 +287,7 @@ throws|throws
 name|Exception
 block|{
 comment|// configure transacted error handler to use up till 4 redeliveries
+comment|// with 100 millis delay between each redelivery attempt
 comment|// we have not passed in any spring TX manager. Camel will automatic
 comment|// find it in the spring application context. You only need to help
 comment|// Camel in case you have multiple TX managers
@@ -298,6 +299,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|4
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|100
 argument_list|)
 argument_list|)
 expr_stmt|;
