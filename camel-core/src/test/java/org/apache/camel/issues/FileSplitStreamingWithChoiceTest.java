@@ -140,6 +140,14 @@ argument_list|,
 literal|"line3"
 argument_list|)
 expr_stmt|;
+comment|// should be moved to this directory after we are done
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/filesplit/.camel/splitme.txt"
+argument_list|)
+expr_stmt|;
 name|String
 name|body
 init|=
