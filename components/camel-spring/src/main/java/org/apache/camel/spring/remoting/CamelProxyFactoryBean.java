@@ -596,6 +596,22 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|setCamelContextId (String contextId)
+specifier|public
+name|void
+name|setCamelContextId
+parameter_list|(
+name|String
+name|contextId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContextId
+operator|=
+name|contextId
+expr_stmt|;
+block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

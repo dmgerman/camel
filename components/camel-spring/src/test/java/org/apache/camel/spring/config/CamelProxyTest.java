@@ -215,6 +215,44 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|result
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|// test sending inOnly message with other sender
+name|MyProxySender
+name|myProxySenderWithCamelContextId
+init|=
+operator|(
+name|MyProxySender
+operator|)
+name|ac
+operator|.
+name|getBean
+argument_list|(
+literal|"myProxySenderWithCamelContextId"
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello my friends again!"
+argument_list|)
+expr_stmt|;
+name|myProxySenderWithCamelContextId
+operator|.
+name|greeting
+argument_list|(
+literal|"Hello my friends again!"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
