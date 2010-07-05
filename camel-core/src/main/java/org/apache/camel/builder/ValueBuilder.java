@@ -170,9 +170,6 @@ return|;
 block|}
 comment|// Predicate builders
 comment|// -------------------------------------------------------------------------
-comment|// this method will be removed , please use PredicateBuilder.toPredicate(Expression)
-annotation|@
-name|Deprecated
 DECL|method|matches (Expression expression)
 specifier|public
 name|Predicate

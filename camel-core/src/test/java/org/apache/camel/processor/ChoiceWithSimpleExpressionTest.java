@@ -24,55 +24,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|expectsMessageCount
 import|;
 end_import
 
@@ -118,9 +72,6 @@ name|simple
 argument_list|(
 literal|"${header.foo} == 'bar'"
 argument_list|)
-operator|.
-name|matches
-argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -134,9 +85,6 @@ name|simple
 argument_list|(
 literal|"${in.header.foo} == 'cheese'"
 argument_list|)
-operator|.
-name|matches
-argument_list|()
 argument_list|)
 operator|.
 name|to

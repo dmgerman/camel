@@ -422,7 +422,7 @@ block|}
 comment|/**      * Returns a simple expression value builder      */
 DECL|method|simple (String value)
 specifier|public
-name|ValueBuilder
+name|SimpleBuilder
 name|simple
 parameter_list|(
 name|String
@@ -430,7 +430,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|Builder
+name|SimpleBuilder
 operator|.
 name|simple
 argument_list|(
