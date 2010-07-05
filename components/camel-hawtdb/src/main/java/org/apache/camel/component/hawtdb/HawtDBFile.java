@@ -136,7 +136,7 @@ name|hawtdb
 operator|.
 name|api
 operator|.
-name|SortedIndex
+name|OptimisticUpdateException
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|hawtdb
 operator|.
 name|api
 operator|.
-name|OptimisticUpdateException
+name|SortedIndex
 import|;
 end_import
 
