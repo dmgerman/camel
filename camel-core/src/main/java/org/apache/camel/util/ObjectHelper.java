@@ -4728,8 +4728,11 @@ if|if
 condition|(
 literal|"true"
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
+operator|(
+name|String
+operator|)
 name|value
 argument_list|)
 condition|)
@@ -4743,8 +4746,11 @@ if|if
 condition|(
 literal|"false"
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
+operator|(
+name|String
+operator|)
 name|value
 argument_list|)
 condition|)
