@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|AsyncProducerCallback
 block|{
-comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is newer<tt>null</tt>      * @param asyncProducer   the async producer, is newer<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @param callback        the async callback      * @return the response      */
+comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is newer<tt>null</tt>      * @param asyncProducer   the async producer, is newer<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @param callback        the async callback      * @return (doneSync)<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      */
 DECL|method|doInAsyncProducer (Producer producer, AsyncProcessor asyncProducer, Exchange exchange, ExchangePattern exchangePattern, AsyncCallback callback)
 name|boolean
 name|doInAsyncProducer
