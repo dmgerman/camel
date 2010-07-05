@@ -504,6 +504,13 @@ name|LoggingLevel
 operator|.
 name|WARN
 decl_stmt|;
+DECL|field|allowDefaultCodec
+specifier|private
+name|boolean
+name|allowDefaultCodec
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -864,6 +871,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|allowDefaultCodec
+condition|)
+block|{
 comment|// are we textline or object?
 if|if
 condition|(
@@ -966,6 +978,26 @@ operator|.
 name|debug
 argument_list|(
 literal|"Using object encoders and decoders"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No encoders and decoders will be used"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1941,6 +1973,32 @@ operator|.
 name|noReplyLogLevel
 operator|=
 name|noReplyLogLevel
+expr_stmt|;
+block|}
+DECL|method|isAllowDefaultCodec ()
+specifier|public
+name|boolean
+name|isAllowDefaultCodec
+parameter_list|()
+block|{
+return|return
+name|allowDefaultCodec
+return|;
+block|}
+DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
+specifier|public
+name|void
+name|setAllowDefaultCodec
+parameter_list|(
+name|boolean
+name|allowDefaultCodec
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowDefaultCodec
+operator|=
+name|allowDefaultCodec
 expr_stmt|;
 block|}
 DECL|method|getAddress ()
