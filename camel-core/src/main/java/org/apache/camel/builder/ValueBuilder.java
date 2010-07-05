@@ -170,6 +170,9 @@ return|;
 block|}
 comment|// Predicate builders
 comment|// -------------------------------------------------------------------------
+comment|// this method will be removed , please use PredicateBuilder.toPredicate(Expression)
+annotation|@
+name|Deprecated
 DECL|method|matches (Expression expression)
 specifier|public
 name|Predicate
@@ -178,6 +181,24 @@ parameter_list|(
 name|Expression
 name|expression
 parameter_list|)
+block|{
+return|return
+name|onNewPredicate
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|toPredicate
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|matches ()
+specifier|public
+name|Predicate
+name|matches
+parameter_list|()
 block|{
 return|return
 name|onNewPredicate
