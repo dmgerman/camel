@@ -411,6 +411,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Netty consumer binding to: "
+operator|+
+name|configuration
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStart
@@ -418,24 +439,17 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|configuration
-operator|.
-name|getProtocol
+name|isTcp
 argument_list|()
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"udp"
-argument_list|)
 condition|)
 block|{
-name|initializeUDPServerSocketCommunicationLayer
+name|initializeTCPServerSocketCommunicationLayer
 argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
-name|initializeTCPServerSocketCommunicationLayer
+name|initializeUDPServerSocketCommunicationLayer
 argument_list|()
 expr_stmt|;
 block|}
@@ -466,13 +480,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isInfoEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Netty consumer unbinding from: "
 operator|+
@@ -516,6 +530,28 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Netty consumer unbound from: "
+operator|+
+name|configuration
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getContext ()
+specifier|public
+name|CamelContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
 block|}
 DECL|method|getAllChannels ()
 specifier|public
@@ -656,6 +692,24 @@ name|connectionlessServerBootstrap
 operator|=
 name|connectionlessServerBootstrap
 expr_stmt|;
+block|}
+DECL|method|isTcp ()
+specifier|protected
+name|boolean
+name|isTcp
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getProtocol
+argument_list|()
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"tcp"
+argument_list|)
+return|;
 block|}
 DECL|method|initializeTCPServerSocketCommunicationLayer ()
 specifier|private

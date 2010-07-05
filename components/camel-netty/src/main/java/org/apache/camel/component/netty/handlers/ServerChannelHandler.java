@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -186,7 +174,7 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelHandlerContext
+name|ChannelHandler
 import|;
 end_import
 
@@ -200,7 +188,7 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipelineCoverage
+name|ChannelHandlerContext
 import|;
 end_import
 
@@ -260,12 +248,15 @@ name|SimpleChannelUpstreamHandler
 import|;
 end_import
 
+begin_comment
+comment|/**  * Server handler which is shared  */
+end_comment
+
 begin_class
 annotation|@
-name|ChannelPipelineCoverage
-argument_list|(
-literal|"all"
-argument_list|)
+name|ChannelHandler
+operator|.
+name|Sharable
 DECL|class|ServerChannelHandler
 specifier|public
 class|class
@@ -338,7 +329,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|channelOpen (ChannelHandlerContext ctx, ChannelStateEvent channelStateEvent)
+DECL|method|channelOpen (ChannelHandlerContext ctx, ChannelStateEvent e)
 specifier|public
 name|void
 name|channelOpen
@@ -347,11 +338,32 @@ name|ChannelHandlerContext
 name|ctx
 parameter_list|,
 name|ChannelStateEvent
-name|channelStateEvent
+name|e
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Channel open: "
+operator|+
+name|e
+operator|.
+name|getChannel
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// to keep track of open sockets
 name|consumer
 operator|.
@@ -360,7 +372,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|channelStateEvent
+name|e
 operator|.
 name|getChannel
 argument_list|()
@@ -383,9 +395,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Channel closed: "
 operator|+
@@ -395,6 +415,7 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -411,6 +432,15 @@ name|exceptionEvent
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+comment|// only close if we are still allowed to run
+if|if
+condition|(
+name|consumer
+operator|.
+name|isRunAllowed
+argument_list|()
+condition|)
 block|{
 name|LOG
 operator|.
@@ -435,6 +465,7 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -468,38 +499,6 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|in
-operator|instanceof
-name|byte
-index|[]
-condition|)
-block|{
-comment|// byte arrays is not readable so convert to string
-name|in
-operator|=
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|convertTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|,
-name|in
-argument_list|)
-expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|debug
@@ -544,6 +543,38 @@ argument_list|(
 name|ExchangePattern
 operator|.
 name|InOut
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set the exchange charset property for converting
+if|if
+condition|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCharsetName
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCharsetName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -779,6 +810,40 @@ block|}
 block|}
 else|else
 block|{
+comment|// if textline enabled then covert to a String which must be used for textline
+if|if
+condition|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isTextline
+argument_list|()
+condition|)
+block|{
+name|body
+operator|=
+name|consumer
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we got a body to write
 if|if
 condition|(
@@ -816,7 +881,7 @@ condition|)
 block|{
 name|NettyHelper
 operator|.
-name|writeBody
+name|writeBodySync
 argument_list|(
 name|messageEvent
 operator|.
@@ -838,7 +903,7 @@ else|else
 block|{
 name|NettyHelper
 operator|.
-name|writeBody
+name|writeBodySync
 argument_list|(
 name|messageEvent
 operator|.

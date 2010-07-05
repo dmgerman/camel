@@ -284,7 +284,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:4445?sync=true&disconnectOnNoReply=false&noReplyLogLevel=OFF"
+literal|"netty:tcp://localhost:4445?sync=true&disconnectOnNoReply=false&noReplyLogLevel=INFO"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:foo"
 argument_list|)
 operator|.
 name|choice

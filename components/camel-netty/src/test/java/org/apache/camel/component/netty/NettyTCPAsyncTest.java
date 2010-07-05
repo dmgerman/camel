@@ -459,6 +459,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:result"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;

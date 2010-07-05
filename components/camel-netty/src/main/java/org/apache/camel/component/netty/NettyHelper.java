@@ -144,11 +144,11 @@ block|{
 comment|// Utility class
 block|}
 comment|/**      * Writes the given body to Netty channel. Will wait until the body has been written.      *      * @param channel  the Netty channel      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
-DECL|method|writeBody (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange)
+DECL|method|writeBodySync (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange)
 specifier|public
 specifier|static
 name|void
-name|writeBody
+name|writeBodySync
 parameter_list|(
 name|Channel
 name|channel
