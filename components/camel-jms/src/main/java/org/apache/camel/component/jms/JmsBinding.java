@@ -1107,6 +1107,9 @@ name|getJMSRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// to work around OracleAQ not supporting the JMSReplyTo header (CAMEL-2909)
+try|try
+block|{
 name|map
 operator|.
 name|put
@@ -1119,6 +1122,23 @@ name|getJMSReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JMSException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot read JMSReplyTo header. Will ignore this exception."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|map
 operator|.
 name|put
