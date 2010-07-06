@@ -210,28 +210,36 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// the route is suspended by the policy so we should only receive one
-name|File
-name|file
+name|String
+index|[]
+name|files
 init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/suspended/hello.txt"
+literal|"target/suspended/"
 argument_list|)
 operator|.
 name|getAbsoluteFile
 argument_list|()
+operator|.
+name|list
+argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"The file should exists"
 argument_list|,
-literal|true
+literal|1
 argument_list|,
-name|file
+name|files
 operator|.
-name|exists
-argument_list|()
+name|length
 argument_list|)
 expr_stmt|;
 comment|// reset mock
@@ -263,17 +271,35 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-comment|// and the file is now moved
+comment|// and the file is now deleted
+name|files
+operator|=
+operator|new
+name|File
+argument_list|(
+literal|"target/suspended/"
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
+name|list
+argument_list|()
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The file should not exists"
+literal|"The file should exists"
 argument_list|,
-literal|false
+literal|0
 argument_list|,
-name|file
+name|files
 operator|.
-name|exists
-argument_list|()
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -303,7 +329,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/suspended?maxMessagesPerPoll=1&sortBy=file:name"
+literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true"
 argument_list|)
 operator|.
 name|routePolicy

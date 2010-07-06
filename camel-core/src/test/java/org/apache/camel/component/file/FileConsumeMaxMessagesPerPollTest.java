@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/poll/?initialDelay=2000&delay=5000&sortBy=file:name&maxMessagesPerPoll=2"
+literal|"file://target/poll/?initialDelay=2000&delay=5000&maxMessagesPerPoll=2"
 decl_stmt|;
 annotation|@
 name|Override
@@ -175,11 +175,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Bye World"
-argument_list|,
-literal|"Godday World"
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
@@ -210,9 +208,9 @@ argument_list|()
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World"
+literal|1
 argument_list|)
 expr_stmt|;
 name|mock

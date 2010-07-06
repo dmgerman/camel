@@ -954,27 +954,24 @@ block|{
 if|if
 condition|(
 name|maxMessagesPerPoll
-operator|>
+operator|<=
 literal|0
-operator|&&
-name|fileList
-operator|.
-name|size
-argument_list|()
-operator|>=
-name|maxMessagesPerPoll
 condition|)
 block|{
-return|return
-literal|false
-return|;
-block|}
-else|else
-block|{
+comment|// no limitation
 return|return
 literal|true
 return|;
 block|}
+comment|// then only poll if we haven't reached the max limit
+return|return
+name|fileList
+operator|.
+name|size
+argument_list|()
+operator|<
+name|maxMessagesPerPoll
+return|;
 block|}
 comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
 DECL|method|prePollCheck ()
