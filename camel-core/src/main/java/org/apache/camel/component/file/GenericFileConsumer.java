@@ -423,13 +423,44 @@ operator|.
 name|getDirectory
 argument_list|()
 decl_stmt|;
+name|boolean
+name|limitHit
+init|=
+operator|!
 name|pollDirectory
 argument_list|(
 name|name
 argument_list|,
 name|files
 argument_list|)
+decl_stmt|;
+comment|// log if we hit the limit
+if|if
+condition|(
+name|limitHit
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Limiting maximum messages to poll at "
+operator|+
+name|maxMessagesPerPoll
+operator|+
+literal|" files as there was more messages in this poll."
+argument_list|)
 expr_stmt|;
+block|}
+block|}
 comment|// sort files using file comparator if provided
 if|if
 condition|(
@@ -910,6 +941,41 @@ operator|==
 name|shutdownRunningTask
 return|;
 block|}
+comment|/**      * Whether or not we can continue polling for more files      *      * @param fileList  the current list of gathered files      * @return<tt>true</tt> to continue,<tt>false</tt> to stop due hitting maxMessagesPerPoll limit      */
+DECL|method|canPollMoreFiles (List fileList)
+specifier|public
+name|boolean
+name|canPollMoreFiles
+parameter_list|(
+name|List
+name|fileList
+parameter_list|)
+block|{
+if|if
+condition|(
+name|maxMessagesPerPoll
+operator|>
+literal|0
+operator|&&
+name|fileList
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|maxMessagesPerPoll
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
 comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
 DECL|method|prePollCheck ()
 specifier|protected
@@ -932,11 +998,11 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
-comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      */
+comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      */
 DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)
 specifier|protected
 specifier|abstract
-name|void
+name|boolean
 name|pollDirectory
 parameter_list|(
 name|String

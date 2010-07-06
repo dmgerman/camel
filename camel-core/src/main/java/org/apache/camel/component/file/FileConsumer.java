@@ -142,7 +142,7 @@ expr_stmt|;
 block|}
 DECL|method|pollDirectory (String fileName, List<GenericFile<File>> fileList)
 specifier|protected
-name|void
+name|boolean
 name|pollDirectory
 parameter_list|(
 name|String
@@ -218,7 +218,9 @@ name|directory
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|true
+return|;
 block|}
 if|if
 condition|(
@@ -285,7 +287,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|true
+return|;
 block|}
 else|else
 block|{
@@ -326,6 +330,20 @@ range|:
 name|files
 control|)
 block|{
+comment|// check if we can continue polling in files
+if|if
+condition|(
+operator|!
+name|canPollMoreFiles
+argument_list|(
+name|fileList
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// trace log as Windows/Unix can have different views what the file is?
 if|if
 condition|(
@@ -427,13 +445,26 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+name|boolean
+name|canPollMore
+init|=
 name|pollDirectory
 argument_list|(
 name|subDirectory
 argument_list|,
 name|fileList
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|canPollMore
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 else|else
@@ -511,6 +542,9 @@ block|}
 block|}
 block|}
 block|}
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configured with      * @param file the source file      * @return wrapped as a GenericFile      */
 DECL|method|asGenericFile (String endpointPath, File file)

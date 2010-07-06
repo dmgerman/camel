@@ -166,7 +166,7 @@ expr_stmt|;
 block|}
 DECL|method|pollDirectory (String fileName, List<GenericFile<FTPFile>> fileList)
 specifier|protected
-name|void
+name|boolean
 name|pollDirectory
 parameter_list|(
 name|String
@@ -184,12 +184,32 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"pollDirectory from fileName: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|fileName
 operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|true
+return|;
 block|}
 comment|// remove trailing /
 name|fileName
@@ -232,6 +252,70 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|files
+operator|==
+literal|null
+operator|||
+name|files
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// no files in this directory to poll
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"No files found in directory: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+comment|// we found some files
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Found "
+operator|+
+name|files
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" in directory: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 for|for
 control|(
 name|FTPFile
@@ -240,6 +324,20 @@ range|:
 name|files
 control|)
 block|{
+comment|// check if we can continue polling in files
+if|if
+condition|(
+operator|!
+name|canPollMoreFiles
+argument_list|(
+name|fileList
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|file
@@ -278,7 +376,7 @@ condition|)
 block|{
 comment|// recursive scan and add the sub files and folders
 name|String
-name|directory
+name|subDirectory
 init|=
 name|fileName
 operator|+
@@ -289,13 +387,26 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+name|boolean
+name|canPollMore
+init|=
 name|pollDirectory
 argument_list|(
-name|directory
+name|subDirectory
 argument_list|,
 name|fileList
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|canPollMore
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 elseif|else
@@ -386,6 +497,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|asRemoteFile (String directory, FTPFile file)
 specifier|private
