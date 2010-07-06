@@ -542,6 +542,13 @@ name|configuration
 operator|.
 name|remoteServerInformation
 argument_list|()
+operator|+
+literal|" using connection timeout: "
+operator|+
+name|client
+operator|.
+name|getConnectTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

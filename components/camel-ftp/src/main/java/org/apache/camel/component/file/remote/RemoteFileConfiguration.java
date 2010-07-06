@@ -94,6 +94,25 @@ specifier|private
 name|boolean
 name|passiveMode
 decl_stmt|;
+DECL|field|connectTimeout
+specifier|private
+name|int
+name|connectTimeout
+init|=
+literal|10000
+decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|int
+name|timeout
+init|=
+literal|30000
+decl_stmt|;
+DECL|field|soTimeout
+specifier|private
+name|int
+name|soTimeout
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -408,6 +427,87 @@ operator|.
 name|passiveMode
 operator|=
 name|passiveMode
+expr_stmt|;
+block|}
+DECL|method|getConnectTimeout ()
+specifier|public
+name|int
+name|getConnectTimeout
+parameter_list|()
+block|{
+return|return
+name|connectTimeout
+return|;
+block|}
+comment|/**      * Sets the connect timeout for waiting for a connection to be established      *<p/>      * Used by both FTPClient and JSCH      */
+DECL|method|setConnectTimeout (int connectTimeout)
+specifier|public
+name|void
+name|setConnectTimeout
+parameter_list|(
+name|int
+name|connectTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|int
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+comment|/**      * Sets the data timeout for waiting for reply      *<p/>      * Used only by FTPClient      */
+DECL|method|setTimeout (int timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+DECL|method|getSoTimeout ()
+specifier|public
+name|int
+name|getSoTimeout
+parameter_list|()
+block|{
+return|return
+name|soTimeout
+return|;
+block|}
+comment|/**      * Sets the so timeout      *<p/>      * Used only by FTPClient      */
+DECL|method|setSoTimeout (int soTimeout)
+specifier|public
+name|void
+name|setSoTimeout
+parameter_list|(
+name|int
+name|soTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|soTimeout
+operator|=
+name|soTimeout
 expr_stmt|;
 block|}
 block|}
