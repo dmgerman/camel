@@ -208,7 +208,11 @@ DECL|method|FtpEndpoint ()
 specifier|public
 name|FtpEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|FtpEndpoint (String uri, RemoteFileComponent<FTPFile> component, RemoteFileConfiguration configuration)
 specifier|public
 name|FtpEndpoint
@@ -246,24 +250,6 @@ parameter_list|()
 block|{
 return|return
 literal|"ftp"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getConfiguration ()
-specifier|public
-name|RemoteFileConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-operator|(
-name|RemoteFileConfiguration
-operator|)
-name|super
-operator|.
-name|getConfiguration
-argument_list|()
 return|;
 block|}
 annotation|@

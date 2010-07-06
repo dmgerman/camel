@@ -56,22 +56,6 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
 name|GenericFileProducer
 import|;
 end_import
@@ -97,7 +81,11 @@ DECL|method|SftpEndpoint ()
 specifier|public
 name|SftpEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|SftpEndpoint (String uri, SftpComponent component, RemoteFileConfiguration configuration)
 specifier|public
 name|SftpEndpoint
@@ -121,24 +109,6 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getConfiguration ()
-specifier|public
-name|RemoteFileConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-operator|(
-name|RemoteFileConfiguration
-operator|)
-name|super
-operator|.
-name|getConfiguration
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override
