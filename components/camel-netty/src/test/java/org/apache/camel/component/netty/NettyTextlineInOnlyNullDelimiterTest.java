@@ -63,54 +63,19 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|NettyTextlineInOnlyTest
+DECL|class|NettyTextlineInOnlyNullDelimiterTest
 specifier|public
 class|class
-name|NettyTextlineInOnlyTest
+name|NettyTextlineInOnlyNullDelimiterTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testTextlineInOnlyDual ()
+DECL|method|testTextlineInOnlyNull ()
 specifier|public
 name|void
-name|testTextlineInOnlyDual
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|,
-literal|"how are you?"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"netty:tcp://localhost:5149?textline=true&sync=false"
-argument_list|,
-literal|"Hello World\nhow are you?\n"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testTextlineInOnlyAutoAppend ()
-specifier|public
-name|void
-name|testTextlineInOnlyAutoAppend
+name|testTextlineInOnlyNull
 parameter_list|()
 throws|throws
 name|Exception
@@ -129,42 +94,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:tcp://localhost:5149?textline=true&sync=false"
+literal|"netty:tcp://localhost:5149?textline=true&delimiter=NULL&sync=false"
 argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testTextlineInOnly ()
-specifier|public
-name|void
-name|testTextlineInOnly
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"netty:tcp://localhost:5149?textline=true&sync=false"
-argument_list|,
-literal|"Hello World\n"
+literal|"Hello World\u0000"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -197,7 +129,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5149?textline=true&sync=false"
+literal|"netty:tcp://localhost:5149?textline=true&delimiter=NULL&sync=false"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

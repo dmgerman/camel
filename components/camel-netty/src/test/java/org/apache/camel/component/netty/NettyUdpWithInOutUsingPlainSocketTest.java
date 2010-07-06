@@ -205,7 +205,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Hello World\n"
 argument_list|,
 name|out
 argument_list|)
@@ -239,11 +239,16 @@ argument_list|(
 literal|"127.0.0.1"
 argument_list|)
 decl_stmt|;
+comment|// must append delimiter
 name|byte
 index|[]
 name|data
 init|=
+operator|(
 name|input
+operator|+
+literal|"\n"
+operator|)
 operator|.
 name|getBytes
 argument_list|()

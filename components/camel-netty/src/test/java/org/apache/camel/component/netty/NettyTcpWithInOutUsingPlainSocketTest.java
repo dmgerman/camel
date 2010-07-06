@@ -421,11 +421,16 @@ operator|.
 name|getOutputStream
 argument_list|()
 expr_stmt|;
+comment|// must append the line delimiter
 name|os
 operator|.
 name|write
 argument_list|(
+operator|(
 name|input
+operator|+
+literal|"\n"
+operator|)
 operator|.
 name|getBytes
 argument_list|()
