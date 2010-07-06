@@ -108,6 +108,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Required
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -308,6 +322,8 @@ name|uri
 return|;
 block|}
 comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
+annotation|@
+name|Required
 DECL|method|setUri (String uri)
 specifier|public
 name|void
