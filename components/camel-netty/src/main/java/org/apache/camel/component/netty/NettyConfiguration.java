@@ -425,10 +425,10 @@ name|autoAppendDelimiter
 init|=
 literal|true
 decl_stmt|;
-DECL|field|decorderMaxLineLength
+DECL|field|decoderMaxLineLength
 specifier|private
 name|int
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 init|=
 literal|1024
 decl_stmt|;
@@ -980,7 +980,7 @@ argument_list|(
 operator|new
 name|DelimiterBasedFrameDecoder
 argument_list|(
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 argument_list|,
 literal|true
 argument_list|,
@@ -1035,7 +1035,7 @@ name|delimiter
 operator|+
 literal|" and decoderMaxLineLength: "
 operator|+
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 argument_list|)
 expr_stmt|;
 block|}
@@ -1437,30 +1437,30 @@ operator|=
 name|textline
 expr_stmt|;
 block|}
-DECL|method|getDecorderMaxLineLength ()
+DECL|method|getDecoderMaxLineLength ()
 specifier|public
 name|int
-name|getDecorderMaxLineLength
+name|getDecoderMaxLineLength
 parameter_list|()
 block|{
 return|return
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 return|;
 block|}
-DECL|method|setDecorderMaxLineLength (int decorderMaxLineLength)
+DECL|method|setDecoderMaxLineLength (int decoderMaxLineLength)
 specifier|public
 name|void
-name|setDecorderMaxLineLength
+name|setDecoderMaxLineLength
 parameter_list|(
 name|int
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 parameter_list|)
 block|{
 name|this
 operator|.
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 operator|=
-name|decorderMaxLineLength
+name|decoderMaxLineLength
 expr_stmt|;
 block|}
 DECL|method|getDelimiter ()
