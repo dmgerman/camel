@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -43,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy capable of applying interceptors to a processor  *  * @version $Revision: 761894 $  */
+comment|/**  * A strategy capable of applying interceptors to a processor.  *<p/>  * This<i>aware</i> policy allows you to do any custom work before the processor is wrapped.  * For example to manipulate the {@link org.apache.camel.model.ProcessorDefinition definiton}.  *  *  * @see org.apache.camel.spi.Policy  * @version $Revision: 761894 $  */
 end_comment
 
 begin_interface
@@ -54,22 +42,19 @@ name|DefinitionAwarePolicy
 extends|extends
 name|Policy
 block|{
-comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param routeContext the route context      * @param  ProcessorDefinition<ProcessorDefinition>      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
-DECL|method|wrap (RouteContext routeContext, Processor processor, ProcessorDefinition<?> processorDefinition)
-name|Processor
-name|wrap
+comment|/**      * Callback invoked before the wrap.      *<p/>      * This allows you to do any custom logic before the processor is wrapped. For example to      * manipulate the {@link org.apache.camel.model.ProcessorDefinition definiton}      *      * @param routeContext   the route context      * @param definition     the processor definition      */
+DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+name|void
+name|beforeWrap
 parameter_list|(
 name|RouteContext
 name|routeContext
-parameter_list|,
-name|Processor
-name|processor
 parameter_list|,
 name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
-name|processorDefinition
+name|definition
 parameter_list|)
 function_decl|;
 block|}
