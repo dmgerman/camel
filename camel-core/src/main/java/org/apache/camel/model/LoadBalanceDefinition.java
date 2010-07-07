@@ -268,20 +268,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|SendProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|loadbalancer
 operator|.
 name|FailOverLoadBalancer
@@ -720,13 +706,9 @@ range|:
 name|outputs
 control|)
 block|{
-comment|// The outputs should be the SendProcessor
-name|SendProcessor
+name|Processor
 name|processor
 init|=
-operator|(
-name|SendProcessor
-operator|)
 name|processorType
 operator|.
 name|createProcessor

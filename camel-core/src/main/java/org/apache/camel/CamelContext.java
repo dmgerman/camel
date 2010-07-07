@@ -52,18 +52,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Callable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|TimeUnit
 import|;
 end_import
@@ -317,6 +305,20 @@ operator|.
 name|spi
 operator|.
 name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ProcessorFactory
 import|;
 end_import
 
@@ -1169,6 +1171,21 @@ name|setExecutorServiceStrategy
 parameter_list|(
 name|ExecutorServiceStrategy
 name|executorServiceStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current {@link org.apache.camel.spi.ProcessorFactory}      *      * @return the factory, can be<tt>null</tt> if no custom factory has been set      */
+DECL|method|getProcessorFactory ()
+name|ProcessorFactory
+name|getProcessorFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.ProcessorFactory}      *      * @param processorFactory the custom factory      */
+DECL|method|setProcessorFactory (ProcessorFactory processorFactory)
+name|void
+name|setProcessorFactory
+parameter_list|(
+name|ProcessorFactory
+name|processorFactory
 parameter_list|)
 function_decl|;
 block|}

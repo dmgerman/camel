@@ -942,6 +942,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ProcessorFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -1684,6 +1698,11 @@ init|=
 operator|new
 name|DefaultNodeIdFactory
 argument_list|()
+decl_stmt|;
+DECL|field|processorFactory
+specifier|private
+name|ProcessorFactory
+name|processorFactory
 decl_stmt|;
 DECL|field|defaultTracer
 specifier|private
@@ -8138,6 +8157,32 @@ operator|.
 name|executorServiceStrategy
 operator|=
 name|executorServiceStrategy
+expr_stmt|;
+block|}
+DECL|method|getProcessorFactory ()
+specifier|public
+name|ProcessorFactory
+name|getProcessorFactory
+parameter_list|()
+block|{
+return|return
+name|processorFactory
+return|;
+block|}
+DECL|method|setProcessorFactory (ProcessorFactory processorFactory)
+specifier|public
+name|void
+name|setProcessorFactory
+parameter_list|(
+name|ProcessorFactory
+name|processorFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processorFactory
+operator|=
+name|processorFactory
 expr_stmt|;
 block|}
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
