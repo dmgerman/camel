@@ -211,6 +211,7 @@ return|return
 name|context
 return|;
 block|}
+comment|// START SNIPPET: e1
 comment|// START SNIPPET: e2
 DECL|method|testAlterDefinitionUsingProcessorFactory ()
 specifier|public
@@ -315,7 +316,6 @@ argument_list|()
 block|{
 annotation|@
 name|Override
-comment|// START SNIPPET: e2
 specifier|public
 name|void
 name|configure
@@ -374,10 +374,10 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: e2
 block|}
 return|;
 block|}
+comment|// END SNIPPET: e2
 comment|// START SNIPPET: e3
 DECL|class|MyFactory
 specifier|public
