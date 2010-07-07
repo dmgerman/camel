@@ -71,17 +71,6 @@ name|String
 name|body
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"RouteBean called with body: "
-operator|+
-name|body
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|String
