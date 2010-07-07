@@ -403,6 +403,15 @@ block|}
 name|stopCamelContext
 argument_list|()
 expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|DISABLED
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Whether or not JMX should be used during testing.      *       * @return<tt>false</tt> by default.      */
 DECL|method|useJmx ()
