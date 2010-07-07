@@ -903,6 +903,11 @@ comment|/**  * Default JMX managed lifecycle strategy that registered objects us
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|DefaultManagementLifecycleStrategy
 specifier|public
 class|class

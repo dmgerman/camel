@@ -235,6 +235,9 @@ name|class
 argument_list|)
 expr_stmt|;
 name|Set
+argument_list|<
+name|ObjectName
+argument_list|>
 name|s
 init|=
 name|mbsc

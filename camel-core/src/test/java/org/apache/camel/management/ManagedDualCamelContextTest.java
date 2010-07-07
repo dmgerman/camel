@@ -207,6 +207,32 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// Ensure JMX is enabled for this test so the ManagedManagementStrategy.class
+comment|// If other tests cleaned up the environment properly the following assertions will be true with the default settings
+name|assertIsInstanceOf
+argument_list|(
+name|ManagedManagementStrategy
+operator|.
+name|class
+argument_list|,
+name|camel1
+operator|.
+name|getManagementStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|ManagedManagementStrategy
+operator|.
+name|class
+argument_list|,
+name|camel2
+operator|.
+name|getManagementStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|MBeanServer
 name|mbeanServer1
 init|=

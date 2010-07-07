@@ -6186,15 +6186,21 @@ condition|(
 name|service
 operator|instanceof
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 condition|)
 block|{
 for|for
 control|(
 name|Object
 name|element
-range|:
+operator|:
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|service
 control|)
@@ -6233,11 +6239,14 @@ comment|// and then start the service
 name|ServiceHelper
 operator|.
 name|startService
-argument_list|(
+parameter_list|(
 name|service
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
 block|}
+end_class
+
+begin_function
 DECL|method|stopServices (Object service)
 specifier|private
 name|void
@@ -6284,6 +6293,9 @@ name|e
 throw|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
 name|void
@@ -6321,7 +6333,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts the given route service      */
+end_comment
+
+begin_function
 DECL|method|startRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -6410,7 +6428,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param forceAutoStart whether to force auto starting the routes, despite they may be configured not do do so      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
+end_comment
+
+begin_function
 DECL|method|safelyStartRouteServices (boolean forceAutoStart, Collection<RouteService> routeServices)
 specifier|protected
 specifier|synchronized
@@ -6531,6 +6555,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|safelyStartRouteServices (boolean forceAutoStart, RouteService... routeServices)
 specifier|protected
 specifier|synchronized
@@ -6560,6 +6587,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|doPrepareRouteToBeStarted (RouteService routeService, boolean forceAutoStart)
 specifier|private
 name|DefaultRouteStartupOrder
@@ -6695,6 +6725,9 @@ return|return
 name|answer
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|doCheckStartupOrderClash (DefaultRouteStartupOrder answer, Map<Integer, DefaultRouteStartupOrder> inputs)
 specifier|private
 name|boolean
@@ -6842,6 +6875,9 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|doWarmUpRoutes (Map<Integer, DefaultRouteStartupOrder> inputs)
 specifier|private
 name|void
@@ -6920,6 +6956,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|doStartRoutes (Map<Integer, DefaultRouteStartupOrder> inputs, List<Endpoint> routeInputs)
 specifier|private
 name|void
@@ -7111,6 +7150,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|doCheckMultipleConsumerSupportClash (Endpoint endpoint, List<Endpoint> routeInputs)
 specifier|private
 name|boolean
@@ -7181,7 +7223,13 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */
+end_comment
+
+begin_function
 DECL|method|forceLazyInitialization ()
 specifier|protected
 name|void
@@ -7198,7 +7246,13 @@ name|getTypeConverter
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Lazily create a default implementation      */
+end_comment
+
+begin_function
 DECL|method|createTypeConverter ()
 specifier|protected
 name|TypeConverter
@@ -7229,7 +7283,13 @@ return|return
 name|answer
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Lazily create a default implementation      */
+end_comment
+
+begin_function
 DECL|method|createInjector ()
 specifier|protected
 name|Injector
@@ -7270,7 +7330,13 @@ argument_list|()
 return|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Lazily create a default implementation      */
+end_comment
+
+begin_function
 DECL|method|createComponentResolver ()
 specifier|protected
 name|ComponentResolver
@@ -7283,7 +7349,13 @@ name|DefaultComponentResolver
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Lazily create a default implementation      */
+end_comment
+
+begin_function
 DECL|method|createRegistry ()
 specifier|protected
 name|Registry
@@ -7296,7 +7368,13 @@ name|JndiRegistry
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *      * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
+end_comment
+
+begin_function
 DECL|method|createEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -7375,7 +7453,13 @@ return|return
 literal|null
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Strategy method for attempting to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
+end_comment
+
+begin_function
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint
@@ -7404,7 +7488,13 @@ literal|" could not be converted to an Endpoint"
 argument_list|)
 throw|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Should we start newly added routes?      */
+end_comment
+
+begin_function
 DECL|method|shouldStartRoutes ()
 specifier|protected
 name|boolean
@@ -7420,6 +7510,9 @@ name|isStarting
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 specifier|public
 name|void
@@ -7441,6 +7534,9 @@ operator|=
 name|dataFormats
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDataFormats ()
 specifier|public
 name|Map
@@ -7456,6 +7552,9 @@ return|return
 name|dataFormats
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -7471,6 +7570,9 @@ return|return
 name|properties
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setProperties (Map<String, String> properties)
 specifier|public
 name|void
@@ -7492,6 +7594,9 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDefaultFactoryFinder ()
 specifier|public
 name|FactoryFinder
@@ -7520,6 +7625,9 @@ return|return
 name|defaultFactoryFinder
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setFactoryFinderResolver (FactoryFinderResolver resolver)
 specifier|public
 name|void
@@ -7536,6 +7644,9 @@ operator|=
 name|resolver
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getFactoryFinder (String path)
 specifier|public
 name|FactoryFinder
@@ -7596,6 +7707,9 @@ name|answer
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getClassResolver ()
 specifier|public
 name|ClassResolver
@@ -7606,6 +7720,9 @@ return|return
 name|classResolver
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setClassResolver (ClassResolver classResolver)
 specifier|public
 name|void
@@ -7622,6 +7739,9 @@ operator|=
 name|classResolver
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPackageScanClassResolver ()
 specifier|public
 name|PackageScanClassResolver
@@ -7632,6 +7752,9 @@ return|return
 name|packageScanClassResolver
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setPackageScanClassResolver (PackageScanClassResolver packageScanClassResolver)
 specifier|public
 name|void
@@ -7648,6 +7771,9 @@ operator|=
 name|packageScanClassResolver
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getComponentNames ()
 specifier|public
 name|List
@@ -7699,6 +7825,9 @@ name|answer
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getLanguageNames ()
 specifier|public
 name|List
@@ -7750,6 +7879,9 @@ name|answer
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getNodeIdFactory ()
 specifier|public
 name|NodeIdFactory
@@ -7760,6 +7892,9 @@ return|return
 name|nodeIdFactory
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setNodeIdFactory (NodeIdFactory idFactory)
 specifier|public
 name|void
@@ -7776,6 +7911,9 @@ operator|=
 name|idFactory
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getManagementStrategy ()
 specifier|public
 name|ManagementStrategy
@@ -7810,6 +7948,9 @@ name|managementStrategy
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
 specifier|public
 name|void
@@ -7858,6 +7999,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getDefaultTracer ()
 specifier|public
 name|InterceptStrategy
@@ -7882,6 +8026,9 @@ return|return
 name|defaultTracer
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setDefaultTracer (InterceptStrategy defaultTracer)
 specifier|public
 name|void
@@ -7898,6 +8045,9 @@ operator|=
 name|defaultTracer
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|disableJMX ()
 specifier|public
 name|void
@@ -7909,6 +8059,9 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getInflightRepository ()
 specifier|public
 name|InflightRepository
@@ -7919,6 +8072,9 @@ return|return
 name|inflightRepository
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setInflightRepository (InflightRepository repository)
 specifier|public
 name|void
@@ -7935,6 +8091,9 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|setAutoStartup (Boolean autoStartup)
 specifier|public
 name|void
@@ -7951,6 +8110,9 @@ operator|=
 name|autoStartup
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isAutoStartup ()
 specifier|public
 name|Boolean
@@ -7965,6 +8127,9 @@ operator|&&
 name|autoStartup
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getApplicationContextClassLoader ()
 specifier|public
 name|ClassLoader
@@ -7975,6 +8140,9 @@ return|return
 name|applicationContextClassLoader
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
 specifier|public
 name|void
@@ -7989,6 +8157,9 @@ operator|=
 name|classLoader
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDataFormatResolver ()
 specifier|public
 name|DataFormatResolver
@@ -7999,6 +8170,9 @@ return|return
 name|dataFormatResolver
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setDataFormatResolver (DataFormatResolver dataFormatResolver)
 specifier|public
 name|void
@@ -8015,6 +8189,9 @@ operator|=
 name|dataFormatResolver
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|resolveDataFormat (String name)
 specifier|public
 name|DataFormat
@@ -8035,6 +8212,9 @@ name|this
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|resolveDataFormatDefinition (String name)
 specifier|public
 name|DataFormatDefinition
@@ -8055,6 +8235,9 @@ name|this
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getShutdownStrategy ()
 specifier|public
 name|ShutdownStrategy
@@ -8065,6 +8248,9 @@ return|return
 name|shutdownStrategy
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
 specifier|public
 name|void
@@ -8081,6 +8267,9 @@ operator|=
 name|shutdownStrategy
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -8091,6 +8280,9 @@ return|return
 name|shutdownRoute
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -8107,6 +8299,9 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -8117,6 +8312,9 @@ return|return
 name|shutdownRunningTask
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -8133,6 +8331,9 @@ operator|=
 name|shutdownRunningTask
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getExecutorServiceStrategy ()
 specifier|public
 name|ExecutorServiceStrategy
@@ -8143,6 +8344,9 @@ return|return
 name|executorServiceStrategy
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setExecutorServiceStrategy (ExecutorServiceStrategy executorServiceStrategy)
 specifier|public
 name|void
@@ -8159,6 +8363,9 @@ operator|=
 name|executorServiceStrategy
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getProcessorFactory ()
 specifier|public
 name|ProcessorFactory
@@ -8169,6 +8376,9 @@ return|return
 name|processorFactory
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setProcessorFactory (ProcessorFactory processorFactory)
 specifier|public
 name|void
@@ -8185,6 +8395,9 @@ operator|=
 name|processorFactory
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected
 name|String
@@ -8228,6 +8441,9 @@ name|counter
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getRouteServices ()
 specifier|protected
 name|Map
@@ -8243,6 +8459,9 @@ return|return
 name|routeServices
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|createManagementStrategy ()
 specifier|protected
 name|ManagementStrategy
@@ -8413,6 +8632,9 @@ return|return
 name|answer
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -8430,7 +8652,13 @@ operator|+
 literal|")"
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Reset CONTEXT_COUNTER to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the CONTEXT_COUNTER      */
+end_comment
+
+begin_function
 DECL|method|setContextCounter (int value)
 specifier|public
 specifier|static
@@ -8449,8 +8677,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
