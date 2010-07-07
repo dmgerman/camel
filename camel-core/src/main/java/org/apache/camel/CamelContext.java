@@ -150,6 +150,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Debugger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -1186,6 +1200,21 @@ name|setProcessorFactory
 parameter_list|(
 name|ProcessorFactory
 name|processorFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current {@link Debugger}      *      * @return the debugger      */
+DECL|method|getDebugger ()
+name|Debugger
+name|getDebugger
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link Debugger}      *      * @param debugger the debugger      */
+DECL|method|setDebugger (Debugger debugger)
+name|void
+name|setDebugger
+parameter_list|(
+name|Debugger
+name|debugger
 parameter_list|)
 function_decl|;
 block|}

@@ -445,7 +445,7 @@ block|}
 comment|/**      * Returns the endpoint URI or the name of the reference to it      */
 DECL|method|getUriOrRef ()
 specifier|public
-name|Object
+name|String
 name|getUriOrRef
 parameter_list|()
 block|{

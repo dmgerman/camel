@@ -628,6 +628,22 @@ name|processor
 operator|.
 name|interceptor
 operator|.
+name|Debug
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
 name|Delayer
 import|;
 end_import
@@ -733,6 +749,20 @@ operator|.
 name|spi
 operator|.
 name|DataFormatResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Debugger
 import|;
 end_import
 
@@ -1781,6 +1811,11 @@ name|DefaultExecutorServiceStrategy
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+DECL|field|debugger
+specifier|private
+name|Debugger
+name|debugger
 decl_stmt|;
 DECL|field|stopWatch
 specifier|private
@@ -5475,7 +5510,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Tracing is enabled on CamelContext"
+literal|"Tracing is enabled on CamelContext: "
 operator|+
 name|getName
 argument_list|()
@@ -5576,6 +5611,40 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|getDebugger
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Debugger: "
+operator|+
+name|getDebugger
+argument_list|()
+operator|+
+literal|" is enabled on CamelContext: "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addInterceptStrategy
+argument_list|(
+operator|new
+name|Debug
+argument_list|(
+name|getDebugger
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// start management strategy before lifecycles are started
 name|getManagementStrategy
@@ -8393,6 +8462,38 @@ operator|.
 name|processorFactory
 operator|=
 name|processorFactory
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|getDebugger ()
+specifier|public
+name|Debugger
+name|getDebugger
+parameter_list|()
+block|{
+return|return
+name|debugger
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|setDebugger (Debugger debugger)
+specifier|public
+name|void
+name|setDebugger
+parameter_list|(
+name|Debugger
+name|debugger
+parameter_list|)
+block|{
+name|this
+operator|.
+name|debugger
+operator|=
+name|debugger
 expr_stmt|;
 block|}
 end_function
