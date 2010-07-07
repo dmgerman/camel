@@ -211,7 +211,7 @@ return|return
 name|context
 return|;
 block|}
-comment|// START SNIPPET: e1
+comment|// END SNIPPET: e1
 comment|// START SNIPPET: e2
 DECL|method|testAlterDefinitionUsingProcessorFactory ()
 specifier|public
