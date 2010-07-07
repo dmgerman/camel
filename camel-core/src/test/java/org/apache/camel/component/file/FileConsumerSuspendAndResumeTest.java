@@ -164,9 +164,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Bye World"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -250,9 +250,9 @@ argument_list|()
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World"
+literal|1
 argument_list|)
 expr_stmt|;
 comment|// now resume it
