@@ -88,6 +88,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Policy
@@ -439,6 +453,23 @@ name|name
 operator|=
 name|name
 expr_stmt|;
+block|}
+DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+specifier|public
+name|void
+name|beforeWrap
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+parameter_list|)
+block|{
+comment|// no need to modify the route
 block|}
 DECL|method|wrap (RouteContext routeContext, final Processor processor)
 specifier|public

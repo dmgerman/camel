@@ -102,6 +102,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -412,6 +426,21 @@ name|useThreadSecurityContext
 init|=
 literal|true
 decl_stmt|;
+DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+specifier|public
+name|void
+name|beforeWrap
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+parameter_list|)
+block|{     }
 DECL|method|wrap (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor

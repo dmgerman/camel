@@ -28,6 +28,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * A strategy capable of applying interceptors to a processor  *<p/>  * Its<b>strongly</b> adviced to use an {@link org.apache.camel.AsyncProcessor} as the returned wrapped  * {@link Processor} which ensures the policy works well with the asynchronous routing engine.  * You can use the {@link org.apache.camel.processor.DelegateAsyncProcessor} to easily return an  * {@link org.apache.camel.AsyncProcessor} and override the  * {@link org.apache.camel.AsyncProcessor#process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} to  * implement your interceptor logic. And just invoke the super method to<b>continue</b> routing.  *<p/>  * Mind that not all frameworks supports asynchronous routing, for example some transaction managers, such as  * Spring Transaction uses the current thread to store state of the transaction, and thus can't transfer this  * state to other threads when routing continues asynchronously.  *  * @version $Revision$  */
 end_comment
@@ -38,6 +52,21 @@ specifier|public
 interface|interface
 name|Policy
 block|{
+comment|/**      * Hook invoked before the wrap.      *<p/>      * This allows you to do any custom logic before the processor is wrapped. For example to      * manipulate the {@link org.apache.camel.model.ProcessorDefinition definiton}      *      * @param routeContext   the route context      * @param definition     the processor definition      */
+DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+name|void
+name|beforeWrap
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+parameter_list|)
+function_decl|;
 comment|/**      * Wraps any applicable interceptors around the given processor.      *      * @param routeContext the route context      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more processors      */
 DECL|method|wrap (RouteContext routeContext, Processor processor)
 name|Processor

@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|DefinitionAwarePolicy
+name|Policy
 import|;
 end_import
 
@@ -346,7 +346,7 @@ specifier|static
 class|class
 name|MyPolicy
 implements|implements
-name|DefinitionAwarePolicy
+name|Policy
 block|{
 DECL|field|name
 specifier|private

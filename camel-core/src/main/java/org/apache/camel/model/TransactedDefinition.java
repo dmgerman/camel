@@ -156,20 +156,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|DefinitionAwarePolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|Policy
 import|;
 end_import
@@ -558,22 +544,7 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// before wrap
-if|if
-condition|(
 name|policy
-operator|instanceof
-name|DefinitionAwarePolicy
-condition|)
-block|{
-name|DefinitionAwarePolicy
-name|aware
-init|=
-operator|(
-name|DefinitionAwarePolicy
-operator|)
-name|policy
-decl_stmt|;
-name|aware
 operator|.
 name|beforeWrap
 argument_list|(
@@ -582,7 +553,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create processor after the before wrap
 name|Processor
 name|childProcessor
