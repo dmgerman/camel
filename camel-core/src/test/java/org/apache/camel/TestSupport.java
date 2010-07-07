@@ -142,20 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|JmxSystemPropertyKeys
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|DelegateAsyncProcessor
@@ -291,7 +277,7 @@ argument_list|)
 decl_stmt|;
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
-comment|/**      * Runs the bare test sequence.      * @exception Throwable if any exception is thrown      */
+comment|/**      * Runs the bare test sequence only if this platform is supported      * @exception Throwable if any exception is thrown      */
 annotation|@
 name|Override
 DECL|method|runBare ()
@@ -301,6 +287,12 @@ name|runBare
 parameter_list|()
 throws|throws
 name|Throwable
+block|{
+if|if
+condition|(
+name|canRunOnThisPlatform
+argument_list|()
+condition|)
 block|{
 comment|//start with a clean slate
 name|DefaultCamelContext
@@ -320,6 +312,17 @@ operator|.
 name|runBare
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+DECL|method|canRunOnThisPlatform ()
+specifier|protected
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)

@@ -129,15 +129,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-operator|!
-name|canRunOnThisPlatform
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 name|long
 name|start
 init|=
@@ -300,8 +291,10 @@ literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|canRunOnThisPlatform ()
-specifier|private
+specifier|protected
 name|boolean
 name|canRunOnThisPlatform
 parameter_list|()

@@ -137,15 +137,6 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canRunOnThisPlatform
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
-if|if
-condition|(
 name|System
 operator|.
 name|getProperty

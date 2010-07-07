@@ -194,6 +194,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TestSupportNodeIdFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|Builder
@@ -369,6 +381,53 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|/**      * Runs the bare test sequence only if this platform is supported      * @exception Throwable if any exception is thrown      */
+annotation|@
+name|Override
+DECL|method|runBare ()
+specifier|public
+name|void
+name|runBare
+parameter_list|()
+throws|throws
+name|Throwable
+block|{
+if|if
+condition|(
+name|canRunOnThisPlatform
+argument_list|()
+condition|)
+block|{
+comment|//start with a clean slate
+name|DefaultCamelContext
+operator|.
+name|setContextCounter
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|TestSupportNodeIdFactory
+operator|.
+name|resetCounters
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|runBare
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|canRunOnThisPlatform ()
+specifier|protected
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
