@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|camel
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -66,7 +68,7 @@ specifier|public
 class|class
 name|DefaultCamelContextAutoStartupTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|method|testAutoStartupFalse ()
 specifier|public
@@ -87,6 +89,11 @@ name|SimpleRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|camel
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|camel
 operator|.
 name|setAutoStartup
@@ -221,6 +228,11 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|camel
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testAutoStartupTrue ()
 specifier|public
@@ -241,6 +253,11 @@ name|SimpleRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|camel
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|camel
 operator|.
 name|setAutoStartup
@@ -343,6 +360,11 @@ expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|camel
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

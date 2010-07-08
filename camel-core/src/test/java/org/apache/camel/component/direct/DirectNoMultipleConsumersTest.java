@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +39,18 @@ operator|.
 name|camel
 operator|.
 name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -90,7 +92,7 @@ specifier|public
 class|class
 name|DirectNoMultipleConsumersTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|method|testNoMultipleConsumersTest ()
 specifier|public
@@ -107,6 +109,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|container
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|container
 operator|.
 name|addRoutes
@@ -166,6 +173,14 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
+block|}
+finally|finally
+block|{
+name|container
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

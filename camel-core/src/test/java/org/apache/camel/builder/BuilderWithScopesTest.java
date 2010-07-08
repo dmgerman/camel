@@ -505,6 +505,11 @@ argument_list|()
 decl_stmt|;
 name|container
 operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
+name|container
+operator|.
 name|addRoutes
 argument_list|(
 name|builder
@@ -583,6 +588,11 @@ name|expected
 argument_list|,
 name|order
 argument_list|)
+expr_stmt|;
+name|container
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testRouteWithFilterEnd ()

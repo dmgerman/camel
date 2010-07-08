@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -103,6 +93,18 @@ operator|.
 name|camel
 operator|.
 name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -208,7 +210,7 @@ specifier|public
 class|class
 name|DefaultCamelContextTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|method|testAutoCreateComponentsOn ()
 specifier|public
@@ -223,6 +225,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|Component
 name|component
 init|=
@@ -266,6 +273,11 @@ argument_list|()
 decl_stmt|;
 name|ctx
 operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
+name|ctx
+operator|.
 name|setAutoCreateComponents
 argument_list|(
 literal|false
@@ -302,6 +314,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|Component
 name|component
 init|=
@@ -366,6 +383,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|Endpoint
 name|endpoint
 init|=
@@ -420,6 +442,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|ctx
@@ -471,6 +498,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|CamelContextHelper
@@ -512,6 +544,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|ctx
 operator|.
 name|addRoutes
@@ -663,6 +700,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should have a default name"
@@ -720,6 +762,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should have a version"
@@ -744,6 +791,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|assertNull
 argument_list|(
 name|ctx
@@ -789,6 +841,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|ctx
 operator|.
 name|addComponent
@@ -875,6 +932,11 @@ argument_list|()
 decl_stmt|;
 name|ctx
 operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
+name|ctx
+operator|.
 name|addEndpoint
 argument_list|(
 literal|"mock://foo"
@@ -887,6 +949,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Endpoint
+argument_list|>
 name|map
 init|=
 name|ctx
@@ -920,6 +987,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|ctx
 operator|.
 name|addEndpoint
@@ -997,6 +1069,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|ctx
 operator|.
 name|addRoutes
@@ -1088,6 +1165,11 @@ argument_list|(
 literal|"unknown"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}

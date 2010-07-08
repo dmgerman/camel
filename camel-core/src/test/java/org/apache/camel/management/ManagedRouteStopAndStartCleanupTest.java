@@ -110,11 +110,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testStopAndStartRoute ()
 specifier|public
 name|void
