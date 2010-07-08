@@ -122,6 +122,20 @@ name|InterceptStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
 begin_comment
 comment|/**  * A debug interceptor to notify {@link Debugger} with {@link Exchange}s being processed.  *  * @version $Revision$  */
 end_comment
@@ -215,6 +229,14 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
+specifier|final
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
 return|return
 name|super
 operator|.
@@ -234,6 +256,14 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
+name|long
+name|diff
+init|=
+name|watch
+operator|.
+name|stop
+argument_list|()
+decl_stmt|;
 name|debugger
 operator|.
 name|afterProcess
@@ -243,6 +273,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|definition
+argument_list|,
+name|diff
 argument_list|)
 expr_stmt|;
 comment|// must notify original callback

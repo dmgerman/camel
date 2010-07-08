@@ -244,6 +244,9 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|)
 block|{
 name|Exception

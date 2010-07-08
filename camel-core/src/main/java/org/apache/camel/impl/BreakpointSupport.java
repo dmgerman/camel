@@ -153,7 +153,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
 specifier|public
 name|void
 name|afterProcess
@@ -166,6 +166,9 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|)
 block|{
 comment|// noop

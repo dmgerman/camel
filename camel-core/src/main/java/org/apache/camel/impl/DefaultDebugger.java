@@ -728,7 +728,7 @@ return|return
 name|match
 return|;
 block|}
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
 specifier|public
 name|boolean
 name|afterProcess
@@ -741,6 +741,9 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|)
 block|{
 name|boolean
@@ -803,6 +806,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|definition
+argument_list|,
+name|timeTaken
 argument_list|,
 name|breakpoint
 operator|.
@@ -952,7 +957,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|onAfterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, Breakpoint breakpoint)
+DECL|method|onAfterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken, Breakpoint breakpoint)
 specifier|protected
 name|void
 name|onAfterProcess
@@ -965,6 +970,9 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|,
 name|Breakpoint
 name|breakpoint
@@ -981,6 +989,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|definition
+argument_list|,
+name|timeTaken
 argument_list|)
 expr_stmt|;
 block|}

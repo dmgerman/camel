@@ -122,6 +122,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|TestSupportJmxCleanup ()
+specifier|private
+name|TestSupportJmxCleanup
+parameter_list|()
+block|{
+comment|// no instances
+block|}
 DECL|method|removeMBeans (String domain)
 specifier|public
 specifier|static
@@ -302,13 +309,6 @@ name|DEFAULT_DOMAIN
 else|:
 name|domain
 return|;
-block|}
-DECL|method|TestSupportJmxCleanup ()
-specifier|private
-name|TestSupportJmxCleanup
-parameter_list|()
-block|{
-comment|// no instances
 block|}
 block|}
 end_class

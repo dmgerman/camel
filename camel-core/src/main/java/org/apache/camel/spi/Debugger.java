@@ -179,8 +179,8 @@ name|ProcessorDefinition
 name|definition
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when an {@link Exchange} has been processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} which was processed      * @param definition the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+comment|/**      * Callback invoked when an {@link Exchange} has been processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} which was processed      * @param definition the definition of the processor      * @param timeTaken  time in millis it took to process the {@link Exchange} - time spend in breakpoint callbacks may affect this time      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
 name|boolean
 name|afterProcess
 parameter_list|(
@@ -192,6 +192,9 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|,
+name|long
+name|timeTaken
 parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} is being processed which allows implementators      * to notify breakpoints.      *      * @param exchange the exchange      * @param event    the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
