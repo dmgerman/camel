@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.spi.Breakpoint} are used by the {@link org.apache.camel.spi.Debugger} API.  *<p/>  * This allows you to register {@link org.apache.camel.spi.Breakpoint}s to the {@link org.apache.camel.spi.Debugger}  * and have those breakpoints activated when their {@link org.apache.camel.spi.Condition}s match.  *<p/>  * If any exceptions is thrown from the {@link #onExchange(org.apache.camel.Exchange, org.apache.camel.Processor, org.apache.camel.model.ProcessorDefinition)}  * method then the {@link org.apache.camel.spi.Debugger} will catch and log those at<tt>WARN</tt> level and continue.  *  * @see org.apache.camel.spi.Debugger  * @see org.apache.camel.spi.Condition  * @version $Revision$  */
+comment|/**  * {@link org.apache.camel.spi.Breakpoint} are used by the {@link org.apache.camel.spi.Debugger} API.  *<p/>  * This allows you to register {@link org.apache.camel.spi.Breakpoint}s to the {@link org.apache.camel.spi.Debugger}  * and have those breakpoints activated when their {@link org.apache.camel.spi.Condition}s match.  *<p/>  * If any exceptions is thrown from the callback methods then the {@link org.apache.camel.spi.Debugger}  * will catch and log those at<tt>WARN</tt> level and continue. This ensures Camel can continue to route  * the message without having breakpoints causing issues.  *  * @version $Revision$  * @see org.apache.camel.spi.Debugger  * @see org.apache.camel.spi.Condition  */
 end_comment
 
 begin_interface
@@ -64,15 +74,12 @@ specifier|public
 interface|interface
 name|Breakpoint
 block|{
-comment|// TODO: Hook into the EventNotifier so we can have breakpoints trigger on those conditions as well
-comment|// exceptions, create, done, etc. and a FollowMe condition to follow a single exchange
-comment|// while others are being routed so you can follow one only, eg need an API on Debugger for that
 DECL|enum|State
-DECL|enumConstant|Active
-DECL|enumConstant|Suspended
 enum|enum
 name|State
 block|{
+DECL|enumConstant|Active
+DECL|enumConstant|Suspended
 name|Active
 block|,
 name|Suspended
@@ -95,16 +102,46 @@ name|void
 name|activate
 parameter_list|()
 function_decl|;
-comment|/**      * Callback invoked when the breakpoint was hit.      *      * @param exchange    the {@link Exchange}      * @param processor   the {@link Processor} which is the next target      * @param definition  the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      */
-DECL|method|onExchange (Exchange exchange, Processor processor, ProcessorDefinition definition)
+comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} is about to be processed (before).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} about to be processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      */
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
 name|void
-name|onExchange
+name|beforeProcess
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} has been processed (after).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} which was processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      */
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+name|void
+name|afterProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when the breakpoint was hit and any of the {@link Exchange} {@link EventObject event}s occurred.      *      * @param exchange   the {@link Exchange}      * @param event      the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the last processor executed,      *                   may be<tt>null</tt> if not possible to resolve from tracing      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
+DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition definition)
+name|void
+name|onEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|EventObject
+name|event
 parameter_list|,
 name|ProcessorDefinition
 name|definition

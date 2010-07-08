@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -50,7 +40,7 @@ specifier|public
 class|class
 name|ExchangeCompletedEvent
 extends|extends
-name|EventObject
+name|AbstractExchangeEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -61,12 +51,6 @@ name|serialVersionUID
 init|=
 operator|-
 literal|3231801412021356098L
-decl_stmt|;
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
 decl_stmt|;
 DECL|method|ExchangeCompletedEvent (Exchange source)
 specifier|public
@@ -81,22 +65,6 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|exchange
-operator|=
-name|source
-expr_stmt|;
-block|}
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
 block|}
 annotation|@
 name|Override
@@ -107,14 +75,16 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|exchange
+name|getExchange
+argument_list|()
 operator|.
 name|getExchangeId
 argument_list|()
 operator|+
 literal|" exchange completed: "
 operator|+
-name|exchange
+name|getExchange
+argument_list|()
 return|;
 block|}
 block|}

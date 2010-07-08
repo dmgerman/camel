@@ -5612,6 +5612,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// register debugger
 if|if
 condition|(
 name|getDebugger
@@ -5632,6 +5633,21 @@ operator|+
 literal|" is enabled on CamelContext: "
 operator|+
 name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// register this camel context on the debugger
+name|getDebugger
+argument_list|()
+operator|.
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|startServices
+argument_list|(
+name|getDebugger
 argument_list|()
 argument_list|)
 expr_stmt|;

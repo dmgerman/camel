@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -25,6 +35,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -52,16 +74,31 @@ specifier|public
 interface|interface
 name|Condition
 block|{
-comment|/**      * Does the condition match      *      * @param exchange the exchange      * @param definition the current node in the route where the Exchange is at      * @return<tt>true</tt> to match,<tt>false</tt> otherwise      */
-DECL|method|match (Exchange exchange, ProcessorDefinition definition)
+comment|/**      * Does the condition match      *      * @param exchange the exchange      * @param processor  the {@link Processor}      * @param definition the present location in the route where the {@link Exchange} is located at      * @return<tt>true</tt> to match,<tt>false</tt> otherwise      */
+DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
 name|boolean
-name|match
+name|matchProcess
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|)
+function_decl|;
+comment|/**      * Does the condition match      *      * @param exchange the exchange      * @param event    the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @return<tt>true</tt> to match,<tt>false</tt> otherwise      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
+DECL|method|matchEvent (Exchange exchange, EventObject event)
+name|boolean
+name|matchEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|EventObject
+name|event
 parameter_list|)
 function_decl|;
 block|}

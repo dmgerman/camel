@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A debug interceptor to notify {@link Debugger} with {@link Exchange}s being processed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -195,16 +195,18 @@ specifier|public
 name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
 name|debugger
 operator|.
-name|onExchange
+name|beforeProcess
 argument_list|(
 name|exchange
 argument_list|,
@@ -220,7 +222,39 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+name|debugger
+operator|.
+name|afterProcess
+argument_list|(
+name|exchange
+argument_list|,
+name|processor
+argument_list|,
+name|definition
+argument_list|)
+expr_stmt|;
+comment|// must notify original callback
 name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 return|;
 block|}

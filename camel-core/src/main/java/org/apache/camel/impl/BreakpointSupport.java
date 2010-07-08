@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -36,6 +46,32 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Breakpoint
@@ -43,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for {@link Breakpoint} implementations to use as base class.  *<p/>  * Will be in active state and match any {@link Exchange}s.  *  * @version $Revision$  */
+comment|/**  * A support class for {@link Breakpoint} implementations to use as base class.  *<p/>  * Will be in active state.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -99,6 +135,57 @@ name|State
 operator|.
 name|Active
 expr_stmt|;
+block|}
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+specifier|public
+name|void
+name|beforeProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+specifier|public
+name|void
+name|afterProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition definition)
+specifier|public
+name|void
+name|onEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|EventObject
+name|event
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 end_class

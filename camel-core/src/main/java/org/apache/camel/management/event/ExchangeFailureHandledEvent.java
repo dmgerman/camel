@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -62,7 +52,7 @@ specifier|public
 class|class
 name|ExchangeFailureHandledEvent
 extends|extends
-name|EventObject
+name|AbstractExchangeEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -73,12 +63,6 @@ name|serialVersionUID
 init|=
 operator|-
 literal|7554809462006009547L
-decl_stmt|;
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
 decl_stmt|;
 DECL|field|failureHandler
 specifier|private
@@ -119,12 +103,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|exchange
-operator|=
-name|source
-expr_stmt|;
-name|this
-operator|.
 name|failureHandler
 operator|=
 name|failureHandler
@@ -139,7 +117,7 @@ name|this
 operator|.
 name|handled
 operator|=
-name|exchange
+name|source
 operator|.
 name|getProperty
 argument_list|(
@@ -154,16 +132,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
 block|}
 DECL|method|getFailureHandler ()
 specifier|public
@@ -210,14 +178,16 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|exchange
+name|getExchange
+argument_list|()
 operator|.
 name|getExchangeId
 argument_list|()
 operator|+
 literal|" exchange failed: "
 operator|+
-name|exchange
+name|getExchange
+argument_list|()
 operator|+
 literal|" but was handled by dead letter channel: "
 operator|+
@@ -227,14 +197,16 @@ block|}
 else|else
 block|{
 return|return
-name|exchange
+name|getExchange
+argument_list|()
 operator|.
 name|getExchangeId
 argument_list|()
 operator|+
 literal|" exchange failed: "
 operator|+
-name|exchange
+name|getExchange
+argument_list|()
 operator|+
 literal|" but was processed by: "
 operator|+

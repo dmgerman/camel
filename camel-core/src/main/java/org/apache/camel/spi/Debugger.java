@@ -22,7 +22,29 @@ name|java
 operator|.
 name|util
 operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
 import|;
 end_import
 
@@ -87,6 +109,8 @@ interface|interface
 name|Debugger
 extends|extends
 name|Service
+extends|,
+name|CamelContextAware
 block|{
 comment|/**      * Add the given breakpoint      *      * @param breakpoint the breakpoint      */
 DECL|method|addBreakpoint (Breakpoint breakpoint)
@@ -140,10 +164,10 @@ argument_list|>
 name|getBreakpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Callback invoked when an {@link Exchange} is being processed which allows implementators      * to notify breakpoints.      *      * @param exchange     the exchange      * @param processor    the target processor (to be processed next)      * @param definition   the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
-DECL|method|onExchange (Exchange exchange, Processor processor, ProcessorDefinition definition)
+comment|/**      * Callback invoked when an {@link Exchange} is about to be processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} about to be processed      * @param definition the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
 name|boolean
-name|onExchange
+name|beforeProcess
 parameter_list|(
 name|Exchange
 name|exchange
@@ -153,6 +177,33 @@ name|processor
 parameter_list|,
 name|ProcessorDefinition
 name|definition
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when an {@link Exchange} has been processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} which was processed      * @param definition the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+name|boolean
+name|afterProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+name|definition
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when an {@link Exchange} is being processed which allows implementators      * to notify breakpoints.      *      * @param exchange the exchange      * @param event    the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
+DECL|method|onEvent (Exchange exchange, EventObject event)
+name|boolean
+name|onEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|EventObject
+name|event
 parameter_list|)
 function_decl|;
 block|}

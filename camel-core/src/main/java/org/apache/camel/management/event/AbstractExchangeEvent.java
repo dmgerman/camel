@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Endpoint
+name|EventObject
 import|;
 end_import
 
@@ -43,51 +41,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Base class for {@link Exchange} events.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ExchangeSentEvent
+DECL|class|AbstractExchangeEvent
 specifier|public
+specifier|abstract
 class|class
-name|ExchangeSentEvent
-extends|extends
 name|AbstractExchangeEvent
+extends|extends
+name|EventObject
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|19248832613958123L
-decl_stmt|;
-DECL|field|endpoint
+DECL|field|exchange
 specifier|private
 specifier|final
-name|Endpoint
-name|endpoint
+name|Exchange
+name|exchange
 decl_stmt|;
-DECL|field|timeTaken
-specifier|private
-specifier|final
-name|long
-name|timeTaken
-decl_stmt|;
-DECL|method|ExchangeSentEvent (Exchange source, Endpoint endpoint, long timeTaken)
+DECL|method|AbstractExchangeEvent (Exchange source)
 specifier|public
-name|ExchangeSentEvent
+name|AbstractExchangeEvent
 parameter_list|(
 name|Exchange
 name|source
-parameter_list|,
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|long
-name|timeTaken
 parameter_list|)
 block|{
 name|super
@@ -97,69 +74,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpoint
+name|exchange
 operator|=
-name|endpoint
-expr_stmt|;
-name|this
-operator|.
-name|timeTaken
-operator|=
-name|timeTaken
+name|source
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
+DECL|method|getExchange ()
 specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|endpoint
-return|;
-block|}
-DECL|method|getTimeTaken ()
-specifier|public
-name|long
-name|getTimeTaken
-parameter_list|()
-block|{
-return|return
-name|timeTaken
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
+name|Exchange
 name|getExchange
-argument_list|()
-operator|.
-name|getExchangeId
-argument_list|()
-operator|+
-literal|" exchange "
-operator|+
-name|getExchange
-argument_list|()
-operator|+
-literal|" sent to: "
-operator|+
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|+
-literal|" took: "
-operator|+
-name|timeTaken
-operator|+
-literal|" ms."
+parameter_list|()
+block|{
+return|return
+name|exchange
 return|;
 block|}
 block|}
