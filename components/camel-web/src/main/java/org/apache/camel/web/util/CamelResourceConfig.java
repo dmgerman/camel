@@ -191,14 +191,30 @@ specifier|public
 name|CamelResourceConfig
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|createProperties
-argument_list|()
+literal|"org.apache.camel.web"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createProperties ()
+DECL|method|CamelResourceConfig (String packages)
+specifier|public
+name|CamelResourceConfig
+parameter_list|(
+name|String
+name|packages
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|createProperties
+argument_list|(
+name|packages
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|createProperties (String packages)
 specifier|protected
 specifier|static
 name|Map
@@ -208,7 +224,10 @@ argument_list|,
 name|Object
 argument_list|>
 name|createProperties
-parameter_list|()
+parameter_list|(
+name|String
+name|packages
+parameter_list|)
 block|{
 name|Map
 argument_list|<
@@ -235,8 +254,7 @@ name|PackagesResourceConfig
 operator|.
 name|PROPERTY_PACKAGES
 argument_list|,
-name|getResourcePackages
-argument_list|()
+name|packages
 argument_list|)
 expr_stmt|;
 name|WadlGeneratorConfig
@@ -383,17 +401,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|m
-return|;
-block|}
-DECL|method|getResourcePackages ()
-specifier|protected
-specifier|static
-name|String
-name|getResourcePackages
-parameter_list|()
-block|{
-return|return
-literal|"org.apache.camel.web"
 return|;
 block|}
 block|}
