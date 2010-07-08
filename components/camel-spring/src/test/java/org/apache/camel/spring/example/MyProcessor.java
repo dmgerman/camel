@@ -78,7 +78,6 @@ name|Processor
 block|{
 DECL|field|exchanges
 specifier|private
-specifier|static
 name|List
 argument_list|<
 name|Exchange
@@ -101,7 +100,6 @@ literal|"James"
 decl_stmt|;
 DECL|method|getExchanges ()
 specifier|public
-specifier|static
 name|List
 argument_list|<
 name|Exchange
