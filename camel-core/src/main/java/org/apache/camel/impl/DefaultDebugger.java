@@ -380,7 +380,14 @@ name|BreakpointConditions
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// TODO: Should we support multiple single steps?
+DECL|field|maxConcurrentSingleSteps
+specifier|private
+specifier|final
+name|int
+name|maxConcurrentSingleSteps
+init|=
+literal|1
+decl_stmt|;
 DECL|field|singleSteps
 specifier|private
 specifier|final
@@ -399,7 +406,9 @@ name|String
 argument_list|,
 name|Breakpoint
 argument_list|>
-argument_list|()
+argument_list|(
+name|maxConcurrentSingleSteps
+argument_list|)
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -548,15 +557,14 @@ name|Breakpoint
 name|breakpoint
 parameter_list|)
 block|{
-name|breakpoints
-operator|.
-name|add
-argument_list|(
-operator|new
-name|BreakpointConditions
+name|addBreakpoint
 argument_list|(
 name|breakpoint
-argument_list|)
+argument_list|,
+operator|(
+name|Condition
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -578,6 +586,12 @@ condition|(
 name|conditions
 operator|!=
 literal|null
+operator|&&
+name|conditions
+operator|.
+name|length
+operator|>
+literal|0
 condition|)
 block|{
 name|breakpoints
@@ -624,11 +638,15 @@ name|Breakpoint
 name|breakpoint
 parameter_list|)
 block|{
-name|addSingleStepBreakpoint
+name|breakpoints
+operator|.
+name|add
+argument_list|(
+operator|new
+name|BreakpointConditions
 argument_list|(
 name|breakpoint
-argument_list|,
-literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -968,7 +986,7 @@ return|;
 block|}
 DECL|method|startSingleStepExchange (String exchangeId, Breakpoint breakpoint)
 specifier|public
-name|void
+name|boolean
 name|startSingleStepExchange
 parameter_list|(
 name|String
@@ -978,6 +996,21 @@ name|Breakpoint
 name|breakpoint
 parameter_list|)
 block|{
+comment|// can we accept single stepping the given exchange?
+if|if
+condition|(
+name|singleSteps
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|maxConcurrentSingleSteps
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|singleSteps
 operator|.
 name|put
@@ -987,6 +1020,9 @@ argument_list|,
 name|breakpoint
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|stopSingleStepExchange (String exchangeId)
 specifier|public

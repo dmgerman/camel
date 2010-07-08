@@ -186,9 +186,9 @@ argument_list|>
 name|getBreakpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Starts the single step debug mode for the given exchange      *      * @param exchangeId the exchange id      * @param breakpoint the breakpoint      */
+comment|/**      * Starts the single step debug mode for the given exchange      *      * @param exchangeId the exchange id      * @param breakpoint the breakpoint      * @return<tt>true</tt> if the debugger will single step the given exchange,<tt>false</tt> if the debugger is already      * single stepping another, and thus cannot simultaneously single step another exchange      */
 DECL|method|startSingleStepExchange (String exchangeId, Breakpoint breakpoint)
-name|void
+name|boolean
 name|startSingleStepExchange
 parameter_list|(
 name|String
