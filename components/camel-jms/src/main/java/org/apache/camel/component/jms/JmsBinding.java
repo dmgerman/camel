@@ -1107,6 +1107,18 @@ name|getJMSRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"JMSTimestamp"
+argument_list|,
+name|jmsMessage
+operator|.
+name|getJMSTimestamp
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// to work around OracleAQ not supporting the JMSReplyTo header (CAMEL-2909)
 try|try
 block|{
@@ -1139,18 +1151,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|map
-operator|.
-name|put
-argument_list|(
-literal|"JMSTimestamp"
-argument_list|,
-name|jmsMessage
-operator|.
-name|getJMSTimestamp
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// to work around OracleAQ not supporting the JMSType header (CAMEL-2909)
+try|try
+block|{
 name|map
 operator|.
 name|put
@@ -1163,6 +1166,23 @@ name|getJMSType
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JMSException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot read JMSReplyTo header. Will ignore this exception."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// this works around a bug in the ActiveMQ property handling
 name|map
 operator|.
