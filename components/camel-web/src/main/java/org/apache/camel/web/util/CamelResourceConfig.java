@@ -235,7 +235,8 @@ name|PackagesResourceConfig
 operator|.
 name|PROPERTY_PACKAGES
 argument_list|,
-literal|"org.apache.camel.web"
+name|getResourcePackages
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|WadlGeneratorConfig
@@ -382,6 +383,17 @@ argument_list|)
 expr_stmt|;
 return|return
 name|m
+return|;
+block|}
+DECL|method|getResourcePackages ()
+specifier|protected
+specifier|static
+name|String
+name|getResourcePackages
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.web"
 return|;
 block|}
 block|}
