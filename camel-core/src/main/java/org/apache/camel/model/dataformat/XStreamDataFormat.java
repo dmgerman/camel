@@ -367,6 +367,16 @@ name|encoding
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -383,15 +393,31 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-DECL|method|getEncoding ()
+DECL|method|getDriver ()
 specifier|public
 name|String
-name|getEncoding
+name|getDriver
 parameter_list|()
 block|{
 return|return
-name|encoding
+name|driver
 return|;
+block|}
+DECL|method|setDriver (String driver)
+specifier|public
+name|void
+name|setDriver
+parameter_list|(
+name|String
+name|driver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|driver
+operator|=
+name|driver
+expr_stmt|;
 block|}
 DECL|method|getConverters ()
 specifier|public

@@ -184,6 +184,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|DataFormat
 import|;
 end_import
@@ -250,12 +264,15 @@ name|encoding
 return|;
 block|}
 comment|/**      * A factory method which takes a collection of types to be annotated      */
-DECL|method|processAnnotations (Iterable<Class<?>> types)
+DECL|method|processAnnotations (ClassResolver resolver, Iterable<Class<?>> types)
 specifier|public
 specifier|static
 name|XStreamDataFormat
 name|processAnnotations
 parameter_list|(
+name|ClassResolver
+name|resolver
+parameter_list|,
 name|Iterable
 argument_list|<
 name|Class
@@ -279,7 +296,9 @@ init|=
 name|answer
 operator|.
 name|getXStream
-argument_list|()
+argument_list|(
+name|resolver
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -305,12 +324,15 @@ name|answer
 return|;
 block|}
 comment|/**      * A factory method which takes a number of types to be annotated      */
-DECL|method|processAnnotations (Class<?>.... types)
+DECL|method|processAnnotations (ClassResolver resolver, Class<?>... types)
 specifier|public
 specifier|static
 name|XStreamDataFormat
 name|processAnnotations
 parameter_list|(
+name|ClassResolver
+name|resolver
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -332,7 +354,9 @@ init|=
 name|answer
 operator|.
 name|getXStream
-argument_list|()
+argument_list|(
+name|resolver
+argument_list|)
 decl_stmt|;
 for|for
 control|(
