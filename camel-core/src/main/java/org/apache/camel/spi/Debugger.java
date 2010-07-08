@@ -134,6 +134,28 @@ modifier|...
 name|conditions
 parameter_list|)
 function_decl|;
+comment|/**      * Add the given breakpoint which will be used in single step mode      *<p/>      * The debugger will single step the first message arriving.      *      * @param breakpoint the breakpoint      */
+DECL|method|addSingleStepBreakpoint (Breakpoint breakpoint)
+name|void
+name|addSingleStepBreakpoint
+parameter_list|(
+name|Breakpoint
+name|breakpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Add the given breakpoint which will be used in single step mode      *<p/>      * The debugger will single step the first message arriving.      *      * @param breakpoint the breakpoint      * @param conditions a number of {@link org.apache.camel.spi.Condition}s      */
+DECL|method|addSingleStepBreakpoint (Breakpoint breakpoint, Condition... conditions)
+name|void
+name|addSingleStepBreakpoint
+parameter_list|(
+name|Breakpoint
+name|breakpoint
+parameter_list|,
+name|Condition
+modifier|...
+name|conditions
+parameter_list|)
+function_decl|;
 comment|/**      * Removes the given breakpoint      *      * @param breakpoint the breakpoint      */
 DECL|method|removeBreakpoint (Breakpoint breakpoint)
 name|void
@@ -163,6 +185,27 @@ name|Breakpoint
 argument_list|>
 name|getBreakpoints
 parameter_list|()
+function_decl|;
+comment|/**      * Starts the single step debug mode for the given exchange      *      * @param exchangeId the exchange id      * @param breakpoint the breakpoint      */
+DECL|method|startSingleStepExchange (String exchangeId, Breakpoint breakpoint)
+name|void
+name|startSingleStepExchange
+parameter_list|(
+name|String
+name|exchangeId
+parameter_list|,
+name|Breakpoint
+name|breakpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Stops the single step debug mode for the given exchange.      *<p/>      *<b>Notice:</b> The default implementation of the debugger is capable of auto stopping when the exchange is complete.      *      * @param exchangeId the exchange id      */
+DECL|method|stopSingleStepExchange (String exchangeId)
+name|void
+name|stopSingleStepExchange
+parameter_list|(
+name|String
+name|exchangeId
+parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} is about to be processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} about to be processed      * @param definition the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
 DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
