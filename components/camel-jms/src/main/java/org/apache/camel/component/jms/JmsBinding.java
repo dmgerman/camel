@@ -1177,7 +1177,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot read JMSReplyTo header. Will ignore this exception."
+literal|"Cannot read JMSType header. Will ignore this exception."
 argument_list|,
 name|e
 argument_list|)
