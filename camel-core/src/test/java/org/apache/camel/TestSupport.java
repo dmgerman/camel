@@ -312,6 +312,14 @@ operator|.
 name|runBare
 argument_list|()
 expr_stmt|;
+comment|// make sure we cleanup the platform mbean server
+name|TestSupportJmxCleanup
+operator|.
+name|removeMBeans
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|canRunOnThisPlatform ()
