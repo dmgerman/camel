@@ -1855,6 +1855,14 @@ name|tracer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// make sure tracer is enabled so the debugger can leverage the tracer for debugging purposes
+name|tracer
+operator|.
+name|setEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|public
