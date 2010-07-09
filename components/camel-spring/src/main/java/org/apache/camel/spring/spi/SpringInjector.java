@@ -272,6 +272,16 @@ operator|=
 name|dependencyCheck
 expr_stmt|;
 block|}
+DECL|method|getApplicationContext ()
+specifier|public
+name|ConfigurableApplicationContext
+name|getApplicationContext
+parameter_list|()
+block|{
+return|return
+name|applicationContext
+return|;
+block|}
 block|}
 end_class
 
