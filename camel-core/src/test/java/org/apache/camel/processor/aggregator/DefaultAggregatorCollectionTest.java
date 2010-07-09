@@ -295,11 +295,11 @@ comment|// as we have not configured more on the aggregator it will default to a
 comment|// latest exchange only
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|header
 argument_list|(
 literal|"id"
+argument_list|)
 argument_list|)
 operator|.
 name|aggregationStrategy

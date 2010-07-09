@@ -420,11 +420,11 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|constant
 argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 operator|.
 name|groupExchanges

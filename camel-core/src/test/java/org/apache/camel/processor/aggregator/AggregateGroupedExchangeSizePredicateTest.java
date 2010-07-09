@@ -410,11 +410,11 @@ argument_list|)
 comment|// must use eagerCheckCompletion so we can check the groupSize header on the incoming exchange
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|constant
 argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 operator|.
 name|groupExchanges

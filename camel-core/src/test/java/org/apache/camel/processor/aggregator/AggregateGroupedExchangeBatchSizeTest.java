@@ -393,14 +393,19 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Aggregator received ${body}"
+argument_list|)
 comment|// aggregated all use same expression
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|constant
 argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 operator|.
 name|completionSize

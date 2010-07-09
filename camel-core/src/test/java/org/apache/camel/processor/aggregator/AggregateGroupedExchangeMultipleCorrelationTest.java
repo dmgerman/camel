@@ -459,11 +459,11 @@ argument_list|)
 comment|// aggregate all using the foo header
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|header
 argument_list|(
 literal|"foo"
+argument_list|)
 argument_list|)
 comment|// group the exchanges so we get one single exchange containing all the others
 operator|.

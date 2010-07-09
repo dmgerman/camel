@@ -358,11 +358,11 @@ argument_list|)
 comment|// aggregate all using same expression
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|constant
 argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 comment|// wait for 0.5 seconds to aggregate
 operator|.
