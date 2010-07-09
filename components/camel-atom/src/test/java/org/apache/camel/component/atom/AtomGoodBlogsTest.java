@@ -324,7 +324,7 @@ decl_stmt|;
 comment|// There should be two good blog entries from the feed
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|2
 argument_list|)
