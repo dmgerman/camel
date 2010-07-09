@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchBeanException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -87,10 +75,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MethodCallBeanRefNotFoundTest
+DECL|class|MethodCallBeanRefMethodNotFoundTest
 specifier|public
 class|class
-name|MethodCallBeanRefNotFoundTest
+name|MethodCallBeanRefMethodNotFoundTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -127,10 +115,10 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|testMethodCallBeanRefNotFound ()
+DECL|method|testMethodCallBeanRefMethodNotFound ()
 specifier|public
 name|void
-name|testMethodCallBeanRefNotFound
+name|testMethodCallBeanRefMethodNotFound
 parameter_list|()
 throws|throws
 name|Exception
@@ -192,9 +180,9 @@ argument_list|()
 operator|.
 name|method
 argument_list|(
-literal|"bar"
+literal|"foo"
 argument_list|,
-literal|"hello"
+literal|"bye"
 argument_list|)
 operator|.
 name|to
@@ -235,12 +223,12 @@ name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|NoSuchBeanException
+name|MethodNotFoundException
 name|cause
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|NoSuchBeanException
+name|MethodNotFoundException
 operator|.
 name|class
 argument_list|,
@@ -248,15 +236,18 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bar"
+literal|"bye"
 argument_list|,
 name|cause
 operator|.
-name|getName
+name|getMethodName
 argument_list|()
 argument_list|)
 expr_stmt|;

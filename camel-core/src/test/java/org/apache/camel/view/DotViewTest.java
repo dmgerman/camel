@@ -443,7 +443,7 @@ name|beanRef
 argument_list|(
 literal|"myBean"
 argument_list|,
-literal|"myMethod"
+literal|"hello"
 argument_list|)
 expr_stmt|;
 block|}
