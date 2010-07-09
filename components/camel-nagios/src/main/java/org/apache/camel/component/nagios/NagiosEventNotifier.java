@@ -142,7 +142,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 import|;
 end_import
 
@@ -159,6 +159,22 @@ operator|.
 name|event
 operator|.
 name|ExchangeFailureHandledEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|event
+operator|.
+name|ExchangeRedeliveryEvent
 import|;
 end_import
 
@@ -258,7 +274,7 @@ decl_stmt|;
 name|Level
 name|level
 init|=
-name|detemineLevel
+name|determineLevel
 argument_list|(
 name|eventObject
 argument_list|)
@@ -341,10 +357,10 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|detemineLevel (EventObject eventObject)
+DECL|method|determineLevel (EventObject eventObject)
 specifier|protected
 name|Level
-name|detemineLevel
+name|determineLevel
 parameter_list|(
 name|EventObject
 name|eventObject
@@ -355,7 +371,7 @@ if|if
 condition|(
 name|eventObject
 operator|instanceof
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 operator|||
 name|eventObject
 operator|instanceof
@@ -381,11 +397,16 @@ name|CRITICAL
 return|;
 block|}
 comment|// the failure was handled so its just a warning
+comment|// and warn when a redelivery attempt is done
 if|if
 condition|(
 name|eventObject
 operator|instanceof
 name|ExchangeFailureHandledEvent
+operator|||
+name|eventObject
+operator|instanceof
+name|ExchangeRedeliveryEvent
 condition|)
 block|{
 return|return
