@@ -928,7 +928,7 @@ name|ognlPath
 operator|+=
 name|methodName
 expr_stmt|;
-comment|// get rid of leading ?. or . as we only needed that to determine if elvis was enabled or not
+comment|// get rid of leading ?. or . as we only needed that to determine if null safe was enabled or not
 name|methodName
 operator|=
 name|OgnlHelper
@@ -1348,7 +1348,7 @@ operator|!
 name|nullSafe
 condition|)
 block|{
-comment|// not elvis then its mandatory so thrown out of bounds exception
+comment|// not null safe then its mandatory so thrown out of bounds exception
 throw|throw
 operator|new
 name|IndexOutOfBoundsException
