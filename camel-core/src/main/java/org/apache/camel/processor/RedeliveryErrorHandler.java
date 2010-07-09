@@ -531,6 +531,23 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// emmit event we are doing redelivery
+name|EventHelper
+operator|.
+name|notifyExchangeRedelivery
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
+argument_list|)
+expr_stmt|;
 comment|// process the exchange (also redelivery)
 name|boolean
 name|sync
@@ -1242,6 +1259,23 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|)
+expr_stmt|;
+comment|// emmit event we are doing redelivery
+name|EventHelper
+operator|.
+name|notifyExchangeRedelivery
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 block|}

@@ -156,7 +156,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 import|;
 end_import
 
@@ -344,7 +344,7 @@ block|{
 return|return
 name|event
 operator|instanceof
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 return|;
 block|}
 block|}

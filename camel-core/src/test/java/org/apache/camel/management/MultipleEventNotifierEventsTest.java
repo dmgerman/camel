@@ -206,7 +206,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 import|;
 end_import
 
@@ -959,7 +959,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 operator|.
 name|class
 argument_list|,
@@ -1016,7 +1016,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 operator|.
 name|class
 argument_list|,

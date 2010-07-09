@@ -35,10 +35,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ExchangeFailureEvent
+DECL|class|ExchangeFailedEvent
 specifier|public
 class|class
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 extends|extends
 name|AbstractExchangeEvent
 block|{
@@ -52,9 +52,9 @@ init|=
 operator|-
 literal|8484326904627268101L
 decl_stmt|;
-DECL|method|ExchangeFailureEvent (Exchange source)
+DECL|method|ExchangeFailedEvent (Exchange source)
 specifier|public
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 parameter_list|(
 name|Exchange
 name|source

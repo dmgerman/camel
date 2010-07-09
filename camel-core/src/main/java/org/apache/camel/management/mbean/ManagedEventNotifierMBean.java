@@ -102,17 +102,30 @@ name|boolean
 name|ignoreExchangeCompletedEvent
 parameter_list|)
 function_decl|;
-DECL|method|isIgnoreExchangeFailureEvents ()
+DECL|method|isIgnoreExchangeFailedEvents ()
 name|boolean
-name|isIgnoreExchangeFailureEvents
+name|isIgnoreExchangeFailedEvents
 parameter_list|()
 function_decl|;
-DECL|method|setIgnoreExchangeFailureEvents (boolean ignoreExchangeFailureEvents)
+DECL|method|setIgnoreExchangeFailedEvents (boolean ignoreExchangeFailedEvents)
 name|void
-name|setIgnoreExchangeFailureEvents
+name|setIgnoreExchangeFailedEvents
 parameter_list|(
 name|boolean
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
+parameter_list|)
+function_decl|;
+DECL|method|isIgnoreExchangeRedeliveryEvents ()
+name|boolean
+name|isIgnoreExchangeRedeliveryEvents
+parameter_list|()
+function_decl|;
+DECL|method|setIgnoreExchangeRedeliveryEvents (boolean ignoreExchangeRedeliveryEvents)
+name|void
+name|setIgnoreExchangeRedeliveryEvents
+parameter_list|(
+name|boolean
+name|ignoreExchangeRedeliveryEvents
 parameter_list|)
 function_decl|;
 DECL|method|isIgnoreExchangeSentEvents ()

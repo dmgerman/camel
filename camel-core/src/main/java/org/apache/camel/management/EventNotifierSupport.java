@@ -130,10 +130,15 @@ specifier|private
 name|boolean
 name|ignoreExchangeCompletedEvent
 decl_stmt|;
-DECL|field|ignoreExchangeFailureEvents
+DECL|field|ignoreExchangeFailedEvents
 specifier|private
 name|boolean
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
+decl_stmt|;
+DECL|field|ignoreExchangeRedeliveryEvents
+specifier|private
+name|boolean
+name|ignoreExchangeRedeliveryEvents
 decl_stmt|;
 DECL|field|ignoreExchangeSentEvents
 specifier|private
@@ -296,30 +301,56 @@ operator|=
 name|ignoreExchangeCompletedEvent
 expr_stmt|;
 block|}
-DECL|method|isIgnoreExchangeFailureEvents ()
+DECL|method|isIgnoreExchangeFailedEvents ()
 specifier|public
 name|boolean
-name|isIgnoreExchangeFailureEvents
+name|isIgnoreExchangeFailedEvents
 parameter_list|()
 block|{
 return|return
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
 return|;
 block|}
-DECL|method|setIgnoreExchangeFailureEvents (boolean ignoreExchangeFailureEvents)
+DECL|method|setIgnoreExchangeFailedEvents (boolean ignoreExchangeFailedEvents)
 specifier|public
 name|void
-name|setIgnoreExchangeFailureEvents
+name|setIgnoreExchangeFailedEvents
 parameter_list|(
 name|boolean
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
 operator|=
-name|ignoreExchangeFailureEvents
+name|ignoreExchangeFailedEvents
+expr_stmt|;
+block|}
+DECL|method|isIgnoreExchangeRedeliveryEvents ()
+specifier|public
+name|boolean
+name|isIgnoreExchangeRedeliveryEvents
+parameter_list|()
+block|{
+return|return
+name|ignoreExchangeRedeliveryEvents
+return|;
+block|}
+DECL|method|setIgnoreExchangeRedeliveryEvents (boolean ignoreExchangeRedeliveryEvents)
+specifier|public
+name|void
+name|setIgnoreExchangeRedeliveryEvents
+parameter_list|(
+name|boolean
+name|ignoreExchangeRedeliveryEvents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreExchangeRedeliveryEvents
+operator|=
+name|ignoreExchangeRedeliveryEvents
 expr_stmt|;
 block|}
 DECL|method|isIgnoreExchangeSentEvents ()

@@ -114,7 +114,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} for Camel failing to start      *      * @param context camel context      * @param cause the cause exception      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} for Camel failing to start      *      * @param context camel context      * @param cause   the cause exception      * @return the created event      */
 DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 name|EventObject
 name|createCamelContextStartupFailureEvent
@@ -126,7 +126,7 @@ name|Throwable
 name|cause
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} for Camel failing to stop cleanly      *      * @param context camel context      * @param cause the cause exception      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} for Camel failing to stop cleanly      *      * @param context camel context      * @param cause   the cause exception      * @return the created event      */
 DECL|method|createCamelContextStopFailureEvent (CamelContext context, Throwable cause)
 name|EventObject
 name|createCamelContextStopFailureEvent
@@ -156,7 +156,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} for a Service failed to start cleanly      *      * @param context camel context      * @param service the service      * @param cause the cause exception      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} for a Service failed to start cleanly      *      * @param context camel context      * @param service the service      * @param cause   the cause exception      * @return the created event      */
 DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 name|EventObject
 name|createServiceStartupFailureEvent
@@ -171,7 +171,7 @@ name|Throwable
 name|cause
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} for a Service failed to stop cleanly      *      * @param context camel context      * @param service the service      * @param cause the cause exception      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} for a Service failed to stop cleanly      *      * @param context camel context      * @param service the service      * @param cause   the cause exception      * @return the created event      */
 DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Throwable cause)
 name|EventObject
 name|createServiceStopFailureEvent
@@ -223,15 +223,15 @@ name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      *      * @param exchange the exchange      * @return the created event      */
-DECL|method|createExchangeFailureEvent (Exchange exchange)
+DECL|method|createExchangeFailedEvent (Exchange exchange)
 name|EventObject
-name|createExchangeFailureEvent
+name|createExchangeFailedEvent
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      * but was handled by the Camel error handlers such as an dead letter channel.      *      * @param exchange the exchange      * @param failureHandler the failure handler such as moving the message to a dead letter queue      * @param deadLetterChannel whether it was a dead letter channel or not handling the failure      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      * but was handled by the Camel error handlers such as an dead letter channel.      *      * @param exchange          the exchange      * @param failureHandler    the failure handler such as moving the message to a dead letter queue      * @param deadLetterChannel whether it was a dead letter channel or not handling the failure      * @return the created event      */
 DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
 name|EventObject
 name|createExchangeFailureHandledEvent
@@ -246,7 +246,19 @@ name|boolean
 name|deadLetterChannel
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has been sent to the endpoint.      *      * @param exchange the exchange      * @param endpoint the destination      * @param timeTaken time in millis taken      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} is about to be redelivered      *      * @param exchange the exchange      * @param attempt  the current redelivery attempt (starts from 1)      * @return the created event      */
+DECL|method|createExchangeRedeliveryEvent (Exchange exchange, int attempt)
+name|EventObject
+name|createExchangeRedeliveryEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|int
+name|attempt
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has completely been sent to the endpoint.      *      * @param exchange  the exchange      * @param endpoint  the destination      * @param timeTaken time in millis taken      * @return the created event      */
 DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
 name|EventObject
 name|createExchangeSentEvent

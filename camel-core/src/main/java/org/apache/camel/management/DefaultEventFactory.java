@@ -226,7 +226,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 import|;
 end_import
 
@@ -243,6 +243,22 @@ operator|.
 name|event
 operator|.
 name|ExchangeFailureHandledEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|event
+operator|.
+name|ExchangeRedeliveryEvent
 import|;
 end_import
 
@@ -586,10 +602,10 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createExchangeFailureEvent (Exchange exchange)
+DECL|method|createExchangeFailedEvent (Exchange exchange)
 specifier|public
 name|EventObject
-name|createExchangeFailureEvent
+name|createExchangeFailedEvent
 parameter_list|(
 name|Exchange
 name|exchange
@@ -597,7 +613,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 argument_list|(
 name|exchange
 argument_list|)
@@ -627,6 +643,28 @@ argument_list|,
 name|failureHandler
 argument_list|,
 name|deadLetterChannel
+argument_list|)
+return|;
+block|}
+DECL|method|createExchangeRedeliveryEvent (Exchange exchange, int attempt)
+specifier|public
+name|EventObject
+name|createExchangeRedeliveryEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|int
+name|attempt
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExchangeRedeliveryEvent
+argument_list|(
+name|exchange
+argument_list|,
+name|attempt
 argument_list|)
 return|;
 block|}

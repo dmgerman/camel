@@ -250,7 +250,7 @@ name|management
 operator|.
 name|event
 operator|.
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 import|;
 end_import
 
@@ -997,7 +997,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1167,7 +1167,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1269,7 +1269,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1439,7 +1439,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1600,7 +1600,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1824,7 +1824,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -2037,7 +2037,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -2317,7 +2317,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -2754,7 +2754,7 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -3347,13 +3347,13 @@ if|if
 condition|(
 name|event
 operator|instanceof
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 condition|)
 block|{
-name|onExchangeFailure
+name|onExchangeFailed
 argument_list|(
 operator|(
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 operator|)
 name|event
 argument_list|)
@@ -3441,12 +3441,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|onExchangeFailure (ExchangeFailureEvent event)
+DECL|method|onExchangeFailed (ExchangeFailedEvent event)
 specifier|private
 name|void
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
-name|ExchangeFailureEvent
+name|ExchangeFailedEvent
 name|event
 parameter_list|)
 block|{
@@ -3463,7 +3463,7 @@ operator|.
 name|getPredicate
 argument_list|()
 operator|.
-name|onExchangeFailure
+name|onExchangeFailed
 argument_list|(
 name|event
 operator|.
@@ -3715,9 +3715,9 @@ name|exchange
 parameter_list|)
 function_decl|;
 comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
-DECL|method|onExchangeFailure (Exchange exchange)
+DECL|method|onExchangeFailed (Exchange exchange)
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -3772,10 +3772,10 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|onExchangeFailure (Exchange exchange)
+DECL|method|onExchangeFailed (Exchange exchange)
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -4069,10 +4069,10 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|onExchangeFailure (Exchange exchange)
+DECL|method|onExchangeFailed (Exchange exchange)
 specifier|public
 name|boolean
-name|onExchangeFailure
+name|onExchangeFailed
 parameter_list|(
 name|Exchange
 name|exchange
@@ -4091,7 +4091,7 @@ condition|(
 operator|!
 name|predicate
 operator|.
-name|onExchangeFailure
+name|onExchangeFailed
 argument_list|(
 name|exchange
 argument_list|)

@@ -271,7 +271,12 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|setIgnoreExchangeFailureEvents
+name|setIgnoreExchangeFailedEvents
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|setIgnoreExchangeRedeliveryEvents
 argument_list|(
 literal|true
 argument_list|)
