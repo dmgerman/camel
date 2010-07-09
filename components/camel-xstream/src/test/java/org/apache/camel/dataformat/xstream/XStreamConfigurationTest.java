@@ -819,7 +819,7 @@ argument_list|)
 expr_stmt|;
 name|xstreamDefinition
 operator|.
-name|setImplicitCollection
+name|setImplicitCollections
 argument_list|(
 name|implicits
 argument_list|)

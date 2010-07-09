@@ -503,10 +503,10 @@ return|return
 name|implicitCollections
 return|;
 block|}
-DECL|method|setImplicitCollection (Map<String, String[]> implicitCollections)
+DECL|method|setImplicitCollections (Map<String, String[]> implicitCollections)
 specifier|public
 name|void
-name|setImplicitCollection
+name|setImplicitCollections
 parameter_list|(
 name|Map
 argument_list|<
