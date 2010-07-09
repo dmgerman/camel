@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Hashtable
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -118,11 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|impl
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|SimpleRegistry
 import|;
 end_import
 
@@ -134,31 +122,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|test
 operator|.
-name|jndi
+name|junit4
 operator|.
-name|CamelInitialContextFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
+name|CamelTestSupport
 import|;
 end_import
 
@@ -191,37 +159,26 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-comment|// We use a simple Hashtable for our bean registry. For more advanced usage Spring is supported out-of-the-box
-DECL|field|beans
-specifier|private
-name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|beans
-init|=
-operator|new
-name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// We initialize Camel
-DECL|method|setupCamel ()
-specifier|private
-name|void
-name|setupCamel
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// We initialize Camel
+name|SimpleRegistry
+name|registry
+init|=
+operator|new
+name|SimpleRegistry
+argument_list|()
+decl_stmt|;
 comment|// First we register a blog service in our bean registry
-name|beans
+name|registry
 operator|.
 name|put
 argument_list|(
@@ -238,14 +195,7 @@ operator|=
 operator|new
 name|DefaultCamelContext
 argument_list|(
-operator|new
-name|CamelInitialContextFactory
-argument_list|()
-operator|.
-name|getInitialContext
-argument_list|(
-name|beans
-argument_list|)
+name|registry
 argument_list|)
 expr_stmt|;
 comment|// Then we add all the routes we need using the route builder DSL syntax
@@ -263,6 +213,9 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+return|return
+name|context
+return|;
 block|}
 comment|/**      * This is the route builder where we create our routes in the advanced Camel DSL syntax      */
 DECL|method|createRouteBuilder ()
@@ -444,46 +397,6 @@ return|;
 block|}
 block|}
 comment|// END SNIPPET: e1
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|setupCamel
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|After
-DECL|method|tearDown ()
-specifier|public
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 
