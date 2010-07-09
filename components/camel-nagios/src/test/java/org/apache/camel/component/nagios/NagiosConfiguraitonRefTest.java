@@ -186,6 +186,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|canRun
+operator|=
+literal|true
+expr_stmt|;
 name|nagios
 operator|=
 operator|new
@@ -228,10 +232,6 @@ name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|canRun
-operator|=
-literal|true
 expr_stmt|;
 block|}
 annotation|@
