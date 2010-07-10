@@ -217,6 +217,14 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
+comment|// start route which will pickup the 5 files
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"route1"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -284,6 +292,14 @@ name|from
 argument_list|(
 name|url
 argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"route1"
+argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 comment|// let it complete all tasks during shutdown
 operator|.
 name|shutdownRunningTask

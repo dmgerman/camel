@@ -217,6 +217,14 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
+comment|// start route which will pickup the 5 files
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"route1"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -293,6 +301,9 @@ name|routeId
 argument_list|(
 literal|"route1"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 comment|// let it complete only current task so we shutdown faster
 operator|.
 name|shutdownRunningTask
