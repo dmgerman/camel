@@ -4316,23 +4316,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|answer
-init|=
+comment|// process the exchange, any exception occurring will be caught and set on the exchange
 name|send
 argument_list|(
 name|endpoint
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// invoke callback before returning answer
 comment|// as it allows callback to be used without UnitOfWorkProcessor invoking it
 comment|// and thus it works directly from a producer template as well, as opposed
 comment|// to the UnitOfWorkProcessor that is injected in routes
 if|if
 condition|(
-name|answer
+name|exchange
 operator|.
 name|isFailed
 argument_list|()
@@ -4342,7 +4340,7 @@ name|onCompletion
 operator|.
 name|onFailure
 argument_list|(
-name|answer
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -4352,12 +4350,12 @@ name|onCompletion
 operator|.
 name|onComplete
 argument_list|(
-name|answer
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|answer
+name|exchange
 return|;
 block|}
 block|}
@@ -4427,12 +4425,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// process the exchange, any exception occurring will be caught and set on the exchange
 name|Exchange
 name|answer
 init|=
-name|getProducerCache
-argument_list|()
-operator|.
 name|send
 argument_list|(
 name|endpoint

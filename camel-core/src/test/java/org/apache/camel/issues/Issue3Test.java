@@ -202,9 +202,6 @@ argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
-comment|// the following line throws an NPE due to null being converted to a boolean
-comment|//boolean isDebug = in.getHeader("someproperty", Boolean.class);
-comment|//assertFalse(isDebug);
 name|Boolean
 name|isDebug
 init|=

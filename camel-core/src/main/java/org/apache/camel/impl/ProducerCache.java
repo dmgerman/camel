@@ -312,22 +312,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapCamelExecutionException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Cache containing created {@link Producer}.  *  * @version $Revision$  */
 end_comment
@@ -598,72 +582,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
-DECL|method|send (Endpoint endpoint, Exchange exchange)
-specifier|public
-name|void
-name|send
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-try|try
-block|{
-name|sendExchange
-argument_list|(
-name|endpoint
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-comment|// ensure that CamelExecutionException is always thrown
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-name|wrapCamelExecutionException
-argument_list|(
-name|exchange
-argument_list|,
-name|exchange
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-throw|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapCamelExecutionException
-argument_list|(
-name|exchange
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Starts the {@link Producer} to be used for sending to the given endpoint      *<p/>      * This can be used to early start the {@link Producer} to ensure it can be created,      * such as when Camel is started. This allows to fail fast in case the {@link Producer}      * could not be started.      *      * @param endpoint the endpoint to send the exchange to      * @throws Exception is thrown if failed to create or start the {@link Producer}      */
 DECL|method|startProducer (Endpoint endpoint)
 specifier|public
@@ -692,7 +610,32 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * @return the exchange      */
+comment|/**      * Sends the exchange to the given endpoint.      *<p>      * This method will<b>not</b> throw an exception. If processing of the given      * Exchange failed then the exception is stored on the provided Exchange      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
+DECL|method|send (Endpoint endpoint, Exchange exchange)
+specifier|public
+name|void
+name|send
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|sendExchange
+argument_list|(
+name|endpoint
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *<p>      * This method will<b>not</b> throw an exception. If processing of the given      * Exchange failed then the exception is stored on the return Exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * @throws org.apache.camel.CamelExecutionException is thrown if sending failed      * @return the exchange      */
 DECL|method|send (Endpoint endpoint, Processor processor)
 specifier|public
 name|Exchange
@@ -704,8 +647,6 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-block|{
-try|try
 block|{
 return|return
 name|sendExchange
@@ -720,23 +661,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapCamelExecutionException
-argument_list|(
-literal|null
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * @return the exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *<p>      * This method will<b>not</b> throw an exception. If processing of the given      * Exchange failed then the exception is stored on the return Exchange      *      * @param endpoint the endpoint to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * @return the exchange      */
 DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
 specifier|public
 name|Exchange
@@ -752,8 +677,6 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-try|try
-block|{
 return|return
 name|sendExchange
 argument_list|(
@@ -767,23 +690,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapCamelExecutionException
-argument_list|(
-literal|null
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied callback      *      * @param endpoint  the endpoint to send the exchange to      * @param exchange  the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param pattern   the exchange pattern, can be<tt>null</tt>      * @param callback  the callback      * @return the response from the callback      * @throws Exception if an internal processing error has occurred.      */
+comment|/**      * Sends an exchange to an endpoint using a supplied callback      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint  the endpoint to send the exchange to      * @param exchange  the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param pattern   the exchange pattern, can be<tt>null</tt>      * @param callback  the callback      * @return the response from the callback      */
 DECL|method|doInProducer (Endpoint endpoint, Exchange exchange, ExchangePattern pattern, ProducerCallback<T> callback)
 specifier|public
 parameter_list|<
@@ -807,9 +714,12 @@ name|T
 argument_list|>
 name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
+name|T
+name|answer
+init|=
+literal|null
+decl_stmt|;
 comment|// get the producer and we do not mind if its pooled as we can handle returning it back to the pool
 name|Producer
 name|producer
@@ -883,7 +793,8 @@ block|}
 try|try
 block|{
 comment|// invoke the callback
-return|return
+name|answer
+operator|=
 name|callback
 operator|.
 name|doInProducer
@@ -894,7 +805,29 @@ name|exchange
 argument_list|,
 name|pattern
 argument_list|)
-return|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -991,7 +924,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+return|return
+name|answer
+return|;
 block|}
+comment|/**      * Sends an exchange to an endpoint using a supplied callback supporting the asynchronous routing engine.      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint         the endpoint to send the exchange to      * @param exchange         the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param pattern          the exchange pattern, can be<tt>null</tt>      * @param callback         the asynchronous callback      * @param producerCallback the producer template callback to be executed      * @return (doneSync)<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      */
 DECL|method|doInAsyncProducer (Endpoint endpoint, Exchange exchange, ExchangePattern pattern, AsyncCallback callback, AsyncProducerCallback producerCallback)
 specifier|public
 name|boolean
@@ -1013,6 +950,11 @@ name|AsyncProducerCallback
 name|producerCallback
 parameter_list|)
 block|{
+name|boolean
+name|sync
+init|=
+literal|true
+decl_stmt|;
 comment|// get the producer and we do not mind if its pooled as we can handle returning it back to the pool
 name|Producer
 name|producer
@@ -1096,7 +1038,8 @@ argument_list|(
 name|producer
 argument_list|)
 decl_stmt|;
-return|return
+name|sync
+operator|=
 name|producerCallback
 operator|.
 name|doInAsyncProducer
@@ -1111,7 +1054,30 @@ name|pattern
 argument_list|,
 name|callback
 argument_list|)
-return|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ensure exceptions is caught and set on the exchange
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -1208,6 +1174,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+return|return
+name|sync
+return|;
 block|}
 DECL|method|sendExchange (final Endpoint endpoint, ExchangePattern pattern, final Processor processor, Exchange exchange)
 specifier|protected
@@ -1228,8 +1197,6 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 return|return
 name|doInProducer
@@ -1260,8 +1227,6 @@ parameter_list|,
 name|ExchangePattern
 name|pattern
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -1297,6 +1262,8 @@ literal|null
 condition|)
 block|{
 comment|// lets populate using the processor callback
+try|try
+block|{
 name|processor
 operator|.
 name|process
@@ -1304,6 +1271,25 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// populate failed so return
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
 block|}
 comment|// now lets dispatch
 if|if
@@ -1368,6 +1354,21 @@ operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ensure exceptions is caught and set on the exchange
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1675,7 +1676,7 @@ return|return
 name|size
 return|;
 block|}
-comment|/**      * Gets the maximum cache size (capacity).      *<p/>      * Will return -1 if it cannot determine this if a custom cache was used.      *      * @return the capacity      */
+comment|/**      * Gets the maximum cache size (capacity).      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the capacity      */
 DECL|method|getCapacity ()
 specifier|public
 name|int

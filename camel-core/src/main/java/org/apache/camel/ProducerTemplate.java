@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<p/>  *<b>All</b> methods throws {@link CamelExecutionException} if processing of  * the {@link Exchange} failed and an {@link Exception} occurred. The<tt>getCause</tt>  * method on {@link CamelExecutionException} returns the wrapper original caused  * exception.  *<p/>  * All the send<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link org.apache.camel.CamelExecutionException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
+comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<br/><br/>  *<p/><b>Important:</b> Read the javadoc of each method carefully to ensure the behavior of the method is understood.  * Some methods is for<tt>InOnly</tt>, others for<tt>InOut</tt> MEP. And some methods throws  * {@link org.apache.camel.CamelExecutionException} while others stores any thrown exception on the returned  * {@link Exchange}.  *<br/><br/>  *<p/>All the methods which sends a message may throw {@link FailedToCreateProducerException} in  * case the {@link Producer} could not be created. Or a {@link NoSuchEndpointException} if the endpoint could  * not be resolved. There may be other related exceptions being thrown which occurs<i>before</i> the {@link Producer}  * has started sending the message.  *<br/><br/>  *<p/>All the sendBody or requestBody methods will return the content according to this strategy:  *<ul>  *<li>throws {@link org.apache.camel.CamelExecutionException} if processing failed<i>during</i> routing  *       with the caused exception wrapped</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<br/><br/>  *<p/><b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -123,7 +123,7 @@ parameter_list|()
 function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
-comment|/**      * Sends the exchange to the default endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param exchange the exchange to send      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the exchange to the default endpoint      *<br/><br/>      *<b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param exchange the exchange to send      * @return the returned exchange      */
 DECL|method|send (Exchange exchange)
 name|Exchange
 name|send
@@ -131,10 +131,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to the default endpoint using a supplied processor      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to the default endpoint using a supplied processor      *<br/><br/>      *<b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (Processor processor)
 name|Exchange
 name|send
@@ -142,10 +140,8 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (Object body)
 name|void
 name|sendBody
@@ -156,7 +152,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint with a specified header and header value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 name|void
 name|sendBodyAndHeader
@@ -173,7 +169,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified property and property      * value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body          the payload to send      * @param property      the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint with a specified property and property value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body          the payload to send      * @param property      the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndProperty (Object body, String property, Object propertyValue)
 name|void
 name|sendBodyAndProperty
@@ -190,7 +186,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param headers      the headers      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint with the specified headers and header values      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param headers      the headers      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 name|void
 name|sendBodyAndHeaders
@@ -211,7 +207,7 @@ name|CamelExecutionException
 function_decl|;
 comment|// Allow sending to arbitrary endpoints
 comment|// -----------------------------------------------------------------------
-comment|/**      * Sends the exchange to the given endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the exchange to the given endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|send (String endpointUri, Exchange exchange)
 name|Exchange
 name|send
@@ -222,10 +218,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|send (String endpointUri, Processor processor)
 name|Exchange
 name|send
@@ -236,10 +230,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param pattern     the message {@link ExchangePattern} such as      *                    {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param pattern     the message {@link ExchangePattern} such as      *                    {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
 name|Exchange
 name|send
@@ -253,10 +245,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the exchange to the given endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the exchange to the given endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      * @return the returned exchange      */
 DECL|method|send (Endpoint endpoint, Exchange exchange)
 name|Exchange
 name|send
@@ -267,10 +257,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (Endpoint endpoint, Processor processor)
 name|Exchange
 name|send
@@ -281,10 +269,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the endpoint to send the exchange to      * @param pattern   the message {@link ExchangePattern} such as      *                  {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the endpoint to send the exchange to      * @param pattern   the message {@link ExchangePattern} such as      *                  {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
 name|Exchange
 name|send
@@ -298,10 +284,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (Endpoint endpoint, Object body)
 name|void
 name|sendBody
@@ -315,7 +299,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the payload      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the payload      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (String endpointUri, Object body)
 name|void
 name|sendBody
@@ -329,7 +313,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the payload      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the payload      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (Endpoint endpoint, ExchangePattern pattern, Object body)
 name|Object
 name|sendBody
@@ -346,7 +330,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body          the payload      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body          the payload      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (String endpointUri, ExchangePattern pattern, Object body)
 name|Object
 name|sendBody
@@ -363,7 +347,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
 name|void
 name|sendBodyAndHeader
@@ -383,7 +367,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 name|void
 name|sendBodyAndHeader
@@ -403,7 +387,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeader (Endpoint endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader
@@ -426,7 +410,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeader (String endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader
@@ -449,7 +433,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndProperty (String endpointUri, Object body, String property, Object propertyValue)
 name|void
 name|sendBodyAndProperty
@@ -469,7 +453,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndProperty (Endpoint endpoint, Object body, String property, Object propertyValue)
 name|void
 name|sendBodyAndProperty
@@ -489,7 +473,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndProperty (Endpoint endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
 name|Object
 name|sendBodyAndProperty
@@ -512,7 +496,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndProperty (String endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
 name|Object
 name|sendBodyAndProperty
@@ -535,7 +519,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 name|void
 name|sendBodyAndHeaders
@@ -557,7 +541,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
 name|void
 name|sendBodyAndHeaders
@@ -579,7 +563,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeaders (String endpointUri, ExchangePattern pattern, Object body, Map<String, Object> headers)
 name|Object
 name|sendBodyAndHeaders
@@ -604,7 +588,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, ExchangePattern pattern, Object body, Map<String, Object> headers)
 name|Object
 name|sendBodyAndHeaders
@@ -631,7 +615,7 @@ name|CamelExecutionException
 function_decl|;
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the Endpoint to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the Endpoint to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
 DECL|method|request (Endpoint endpoint, Processor processor)
 name|Exchange
 name|request
@@ -642,10 +626,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpointUri the endpoint URI to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
 DECL|method|request (String endpointUri, Processor processor)
 name|Exchange
 name|request
@@ -656,10 +638,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (Object body)
 name|Object
 name|requestBody
@@ -670,7 +650,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (Object body, Class<T> type)
 parameter_list|<
 name|T
@@ -690,7 +670,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (Endpoint endpoint, Object body)
 name|Object
 name|requestBody
@@ -704,7 +684,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @param type     the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @param type     the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (Endpoint endpoint, Object body, Class<T> type)
 parameter_list|<
 name|T
@@ -727,7 +707,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (String endpointUri, Object body)
 name|Object
 name|requestBody
@@ -741,7 +721,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBody (String endpointUri, Object body, Class<T> type)
 parameter_list|<
 name|T
@@ -764,7 +744,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (Object body, String header, Object headerValue)
 name|Object
 name|requestBodyAndHeader
@@ -781,7 +761,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 name|Object
 name|requestBodyAndHeader
@@ -801,7 +781,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue, Class<T> type)
 parameter_list|<
 name|T
@@ -830,7 +810,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
 name|Object
 name|requestBodyAndHeader
@@ -850,7 +830,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue, Class<T> type)
 parameter_list|<
 name|T
@@ -879,7 +859,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 name|Object
 name|requestBodyAndHeaders
@@ -901,7 +881,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers, Class<T> type)
 parameter_list|<
 name|T
@@ -932,7 +912,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
 name|Object
 name|requestBodyAndHeaders
@@ -954,7 +934,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeaders (Object body, Map<String, Object> headers)
 name|Object
 name|requestBodyAndHeaders
@@ -973,7 +953,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers, Class<T> type)
 parameter_list|<
 name|T

@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -156,8 +144,9 @@ argument_list|(
 literal|"Hello Paris"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|Exchange
+name|out
+init|=
 name|template
 operator|.
 name|send
@@ -166,37 +155,12 @@ literal|"direct:input"
 argument_list|,
 name|exchange
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertIsInstanceOf
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should be failed"
 argument_list|,
-name|exchange
+name|out
 operator|.
 name|isFailed
 argument_list|()
@@ -206,7 +170,7 @@ name|assertTrue
 argument_list|(
 literal|"Should be IllegalArgumentException"
 argument_list|,
-name|exchange
+name|out
 operator|.
 name|getException
 argument_list|()
@@ -218,7 +182,7 @@ name|assertEquals
 argument_list|(
 literal|"Forced exception"
 argument_list|,
-name|exchange
+name|out
 operator|.
 name|getException
 argument_list|()
