@@ -328,11 +328,6 @@ name|Exception
 name|exception
 parameter_list|)
 block|{
-name|exception
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 comment|// the exception should be caused by CamelAuthorizationException
 name|assertTrue
 argument_list|(
