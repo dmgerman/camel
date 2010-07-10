@@ -50,6 +50,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|InvalidPayloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RoutesBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -144,6 +168,7 @@ name|ProtobufMarshalTest
 extends|extends
 name|CamelTestSupport
 block|{
+comment|/**      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testMarshalAndUnmarshalWithDataFormat ()
@@ -200,10 +225,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMarshalAndUnmarshalWithDSL3 ()
+DECL|method|testMarshalAndUnmashalWithDSL3 ()
 specifier|public
 name|void
-name|testMarshalAndUnmarshalWithDSL3
+name|testMarshalAndUnmashalWithDSL3
 parameter_list|()
 throws|throws
 name|Exception
