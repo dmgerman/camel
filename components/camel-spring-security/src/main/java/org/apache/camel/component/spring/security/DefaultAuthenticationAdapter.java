@@ -50,6 +50,8 @@ name|springframework
 operator|.
 name|security
 operator|.
+name|core
+operator|.
 name|Authentication
 import|;
 end_import
