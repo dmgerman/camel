@@ -200,11 +200,6 @@ name|AsyncEndpointTransacted2Test
 extends|extends
 name|CamelSpringTestSupport
 block|{
-DECL|field|table
-specifier|private
-name|DummyTable
-name|table
-decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -215,6 +210,11 @@ argument_list|)
 DECL|field|producer
 name|ProducerTemplate
 name|producer
+decl_stmt|;
+DECL|field|table
+specifier|private
+name|DummyTable
+name|table
 decl_stmt|;
 annotation|@
 name|EndpointInject
