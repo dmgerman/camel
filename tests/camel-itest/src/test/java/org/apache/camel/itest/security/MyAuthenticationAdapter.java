@@ -92,7 +92,9 @@ name|springframework
 operator|.
 name|security
 operator|.
-name|Authentication
+name|authentication
+operator|.
+name|UsernamePasswordAuthenticationToken
 import|;
 end_import
 
@@ -104,9 +106,9 @@ name|springframework
 operator|.
 name|security
 operator|.
-name|providers
+name|core
 operator|.
-name|UsernamePasswordAuthenticationToken
+name|Authentication
 import|;
 end_import
 

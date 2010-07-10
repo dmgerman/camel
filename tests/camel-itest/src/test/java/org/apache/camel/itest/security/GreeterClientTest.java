@@ -721,7 +721,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Caused by: [org.springframework.security.AccessDeniedException - Access is denied]"
+literal|"Caused by: [org.springframework.security.access.AccessDeniedException - Access is denied]"
 argument_list|)
 argument_list|)
 expr_stmt|;
