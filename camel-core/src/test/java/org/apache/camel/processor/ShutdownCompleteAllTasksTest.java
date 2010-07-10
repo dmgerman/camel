@@ -217,14 +217,6 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// start route which will pickup the 5 files
-name|context
-operator|.
-name|startRoute
-argument_list|(
-literal|"route1"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -243,6 +235,30 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|int
+name|batch
+init|=
+name|bar
+operator|.
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BATCH_SIZE
+argument_list|,
+name|int
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// shutdown during processing
 name|context
 operator|.
@@ -254,7 +270,7 @@ name|assertEquals
 argument_list|(
 literal|"Should complete all messages"
 argument_list|,
-literal|5
+name|batch
 argument_list|,
 name|bar
 operator|.
@@ -292,14 +308,6 @@ name|from
 argument_list|(
 name|url
 argument_list|)
-operator|.
-name|routeId
-argument_list|(
-literal|"route1"
-argument_list|)
-operator|.
-name|noAutoStartup
-argument_list|()
 comment|// let it complete all tasks during shutdown
 operator|.
 name|shutdownRunningTask
