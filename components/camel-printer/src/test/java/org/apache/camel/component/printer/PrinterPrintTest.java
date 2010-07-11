@@ -161,35 +161,14 @@ name|boolean
 name|isAwtHeadless
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|Boolean
 operator|.
 name|getBoolean
 argument_list|(
 literal|"java.awt.headless"
 argument_list|)
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Running headless. Skipping test as Images may not work."
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 DECL|method|sendFile ()
 specifier|private

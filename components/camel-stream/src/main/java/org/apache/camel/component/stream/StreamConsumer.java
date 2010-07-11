@@ -934,9 +934,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|LOG
+if|if
+condition|(
+name|inputStream
+operator|==
+name|System
 operator|.
-name|trace
+name|in
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|print
 argument_list|(
 name|endpoint
 operator|.
@@ -944,6 +955,7 @@ name|getPromptMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|resolveStreamFromUrl ()
 specifier|private
