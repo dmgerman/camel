@@ -818,13 +818,13 @@ name|springVersion
 operator|.
 name|startsWith
 argument_list|(
-literal|"3"
+literal|"2"
 argument_list|)
 condition|)
 block|{
 name|type
 operator|=
-literal|"xml/features-spring3"
+literal|"xml/features-spring2"
 expr_stmt|;
 block|}
 return|return
