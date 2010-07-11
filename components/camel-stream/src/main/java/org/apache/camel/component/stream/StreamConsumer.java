@@ -934,11 +934,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|print
+name|trace
 argument_list|(
 name|endpoint
 operator|.

@@ -302,6 +302,13 @@ name|System
 operator|.
 name|out
 decl_stmt|;
+DECL|field|isSystemStream
+specifier|private
+name|boolean
+name|isSystemStream
+init|=
+literal|false
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|StreamEndpoint
@@ -352,7 +359,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// important: do not close the stream as it will close the standard system.out etc.
+name|closeStream
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|doStop
@@ -378,6 +387,10 @@ name|getDelay
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|isSystemStream
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 literal|"out"
@@ -388,6 +401,10 @@ name|uri
 argument_list|)
 condition|)
 block|{
+name|isSystemStream
+operator|=
+literal|true
+expr_stmt|;
 name|outputStream
 operator|=
 name|System
@@ -406,6 +423,10 @@ name|uri
 argument_list|)
 condition|)
 block|{
+name|isSystemStream
+operator|=
+literal|true
+expr_stmt|;
 name|outputStream
 operator|=
 name|System
@@ -480,6 +501,9 @@ name|writeToStream
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+name|closeStream
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|resolveStreamFromUrl ()
@@ -876,7 +900,36 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-comment|// important: do not close the writer as it will close the standard system.out etc.
+block|}
+DECL|method|closeStream ()
+specifier|private
+name|void
+name|closeStream
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// important: do not close the writer on a standard system.out etc.
+if|if
+condition|(
+name|outputStream
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|isSystemStream
+condition|)
+block|{
+name|outputStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+name|outputStream
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|validateUri (String uri)
 specifier|private
