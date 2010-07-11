@@ -140,6 +140,18 @@ name|AsyncEndpointJmsTX2Test
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|beforeThreadName
+specifier|private
+specifier|static
+name|String
+name|beforeThreadName
+decl_stmt|;
+DECL|field|afterThreadName
+specifier|private
+specifier|static
+name|String
+name|afterThreadName
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getExpectedRouteCount ()
@@ -169,18 +181,6 @@ literal|"org/apache/camel/component/jms/tx/JmsTransacted-context.xml"
 argument_list|)
 return|;
 block|}
-DECL|field|beforeThreadName
-specifier|private
-specifier|static
-name|String
-name|beforeThreadName
-decl_stmt|;
-DECL|field|afterThreadName
-specifier|private
-specifier|static
-name|String
-name|afterThreadName
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testAsyncEndpointOK ()

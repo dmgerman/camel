@@ -146,6 +146,18 @@ specifier|static
 name|int
 name|invoked
 decl_stmt|;
+DECL|field|beforeThreadName
+specifier|private
+specifier|static
+name|String
+name|beforeThreadName
+decl_stmt|;
+DECL|field|afterThreadName
+specifier|private
+specifier|static
+name|String
+name|afterThreadName
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getExpectedRouteCount ()
@@ -175,18 +187,6 @@ literal|"org/apache/camel/component/jms/tx/JmsTransacted-context.xml"
 argument_list|)
 return|;
 block|}
-DECL|field|beforeThreadName
-specifier|private
-specifier|static
-name|String
-name|beforeThreadName
-decl_stmt|;
-DECL|field|afterThreadName
-specifier|private
-specifier|static
-name|String
-name|afterThreadName
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testAsyncEndpointRollback ()
