@@ -567,9 +567,6 @@ decl_stmt|;
 name|ObjectName
 name|pcob
 init|=
-operator|(
-name|ObjectName
-operator|)
 name|iter
 operator|.
 name|next
@@ -1026,12 +1023,6 @@ control|(
 name|MBeanServer
 name|server
 range|:
-operator|(
-name|List
-argument_list|<
-name|MBeanServer
-argument_list|>
-operator|)
 name|MBeanServerFactory
 operator|.
 name|findMBeanServer

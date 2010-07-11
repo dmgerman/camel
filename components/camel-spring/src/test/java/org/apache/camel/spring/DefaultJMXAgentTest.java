@@ -199,12 +199,6 @@ name|MBeanServer
 argument_list|>
 name|servers
 init|=
-operator|(
-name|List
-argument_list|<
-name|MBeanServer
-argument_list|>
-operator|)
 name|MBeanServerFactory
 operator|.
 name|findMBeanServer
@@ -237,10 +231,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
+name|int
+name|routes
+init|=
 name|mbsc
 operator|.
 name|queryNames
@@ -258,12 +251,10 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
+decl_stmt|;
+name|int
+name|processors
+init|=
 name|mbsc
 operator|.
 name|queryNames
@@ -281,6 +272,23 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should contain routes"
+argument_list|,
+name|routes
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should contain processors"
+argument_list|,
+name|processors
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
