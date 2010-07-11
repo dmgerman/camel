@@ -155,7 +155,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|4000
+literal|3800
 argument_list|)
 expr_stmt|;
 comment|// some OS boxes are slow

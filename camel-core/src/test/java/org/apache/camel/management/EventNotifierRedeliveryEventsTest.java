@@ -208,18 +208,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -388,6 +376,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|4
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|25
 argument_list|)
 argument_list|)
 expr_stmt|;
