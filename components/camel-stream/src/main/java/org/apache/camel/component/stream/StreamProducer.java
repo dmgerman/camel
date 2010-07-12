@@ -306,8 +306,6 @@ DECL|field|isSystemStream
 specifier|private
 name|boolean
 name|isSystemStream
-init|=
-literal|false
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
