@@ -229,12 +229,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:/myfile"
+literal|"file:myfile"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:/myfile"
+literal|"file:myfile"
 argument_list|)
 operator|.
 name|to
