@@ -1433,6 +1433,7 @@ comment|// As httpclient is using a AutoCloseInputStream, it will be closed when
 comment|// we need to cache the stream for it.
 try|try
 block|{
+comment|// This CachedOutputStream will not be closed when the exchange is onCompletion
 name|CachedOutputStream
 name|cos
 init|=
@@ -1440,6 +1441,8 @@ operator|new
 name|CachedOutputStream
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|IOHelper
@@ -1451,10 +1454,11 @@ argument_list|,
 name|cos
 argument_list|)
 expr_stmt|;
+comment|// When the InputStream is closed, the CachedOutputStream will be closed
 return|return
 name|cos
 operator|.
-name|getInputStream
+name|getWrappedInputStream
 argument_list|()
 return|;
 block|}
