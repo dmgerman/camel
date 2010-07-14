@@ -1016,7 +1016,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Found the OSGi environment, deloying the camel context into OSGi container"
+literal|"OSGi environment detected."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1026,7 +1026,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot find the OSGi environment, deploying the camel context into stand alone JVM"
+literal|"OSGi environment not detected."
 argument_list|)
 expr_stmt|;
 block|}
