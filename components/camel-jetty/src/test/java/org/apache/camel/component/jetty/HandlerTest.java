@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
+name|InputStream
 import|;
 end_import
 
@@ -225,11 +225,11 @@ name|getRequests
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ByteArrayInputStream
+name|InputStream
 name|html
 init|=
 operator|(
-name|ByteArrayInputStream
+name|InputStream
 operator|)
 name|template
 operator|.
@@ -335,11 +335,11 @@ name|getRequests
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ByteArrayInputStream
+name|InputStream
 name|html
 init|=
 operator|(
-name|ByteArrayInputStream
+name|InputStream
 operator|)
 name|template
 operator|.
