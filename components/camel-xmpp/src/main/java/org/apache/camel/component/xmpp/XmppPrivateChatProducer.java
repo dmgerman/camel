@@ -255,6 +255,14 @@ argument_list|,
 literal|"participant"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -264,6 +272,7 @@ operator|+
 name|participant
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -364,9 +373,17 @@ operator|.
 name|getChatManager
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Looking for existing chat instance with thread ID "
 operator|+
@@ -376,6 +393,7 @@ name|getChatId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Chat
 name|chat
 init|=
@@ -396,9 +414,17 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Creating new chat instance with thread ID "
 operator|+
@@ -408,6 +434,7 @@ name|getChatId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|chat
 operator|=
 name|chatManager
@@ -438,6 +465,14 @@ name|message
 parameter_list|)
 block|{
 comment|// not here to do conversation
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -455,6 +490,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

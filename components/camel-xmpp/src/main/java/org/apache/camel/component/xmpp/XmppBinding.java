@@ -406,9 +406,17 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Added property name: "
 operator|+
@@ -423,25 +431,35 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
 name|iae
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not adding property "
+literal|"Cannot add property "
 operator|+
 name|name
 operator|+
-literal|" to XMPP message due to "
-operator|+
+literal|" to XMPP message due: "
+argument_list|,
 name|iae
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

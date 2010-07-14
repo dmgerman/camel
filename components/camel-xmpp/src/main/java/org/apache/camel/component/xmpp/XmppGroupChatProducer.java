@@ -353,7 +353,7 @@ comment|// must invoke nextMessage to consume the response from the server
 comment|// otherwise the client local queue will fill up (CAMEL-1467)
 name|chat
 operator|.
-name|nextMessage
+name|pollMessage
 argument_list|()
 expr_stmt|;
 block|}

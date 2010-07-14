@@ -184,6 +184,14 @@ name|uri
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -193,6 +201,7 @@ operator|+
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|endpointCache
 operator|.
@@ -202,6 +211,14 @@ name|uri
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -211,6 +228,7 @@ operator|+
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
 name|XmppEndpoint
 name|endpoint
 init|=
@@ -378,6 +396,11 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
+name|endpointCache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

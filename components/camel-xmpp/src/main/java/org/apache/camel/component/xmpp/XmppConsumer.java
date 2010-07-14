@@ -486,7 +486,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// add the presence packet listener to the connection so we only get packets that concers us
+comment|// add the presence packet listener to the connection so we only get packets that concerns us
 comment|// we must add the listener before creating the muc
 specifier|final
 name|ToContainsFilter
@@ -829,6 +829,25 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// must remove message from muc to avoid messages stacking up and causing OutOfMemoryError
+comment|// pollMessage is a non blocking method
+comment|// (see http://issues.igniterealtime.org/browse/SMACK-129)
+if|if
+condition|(
+name|muc
+operator|!=
+literal|null
+condition|)
+block|{
+name|muc
+operator|.
+name|pollMessage
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
