@@ -279,13 +279,6 @@ name|void
 name|destroy
 parameter_list|()
 block|{
-name|CAMEL_SERVLET_MAP
-operator|.
-name|remove
-argument_list|(
-name|servletName
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|applicationContext
@@ -299,6 +292,15 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Need to remove the servlet from map after
+comment|// the ApplicationContext is removed
+name|CAMEL_SERVLET_MAP
+operator|.
+name|remove
+argument_list|(
+name|servletName
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getCamelServlet (String servletName)
 specifier|public
