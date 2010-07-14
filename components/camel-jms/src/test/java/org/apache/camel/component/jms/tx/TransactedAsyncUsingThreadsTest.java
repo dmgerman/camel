@@ -229,9 +229,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertNotSame
+comment|// transacted causes Camel to force sync routing
+name|assertEquals
 argument_list|(
-literal|"Should use a different thread when doing async routing"
+literal|"Should use a same thread when doing transacted async routing"
 argument_list|,
 name|thread1
 argument_list|,
@@ -328,9 +329,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertNotSame
+comment|// transacted causes Camel to force sync routing
+name|assertEquals
 argument_list|(
-literal|"Should use a different thread when doing async routing"
+literal|"Should use a same thread when doing transacted async routing"
 argument_list|,
 name|thread1
 argument_list|,
