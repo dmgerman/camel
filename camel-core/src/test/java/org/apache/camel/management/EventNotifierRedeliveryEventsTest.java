@@ -380,7 +380,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|25
+literal|100
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -428,6 +428,13 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(

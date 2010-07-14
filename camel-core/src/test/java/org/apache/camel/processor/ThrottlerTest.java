@@ -205,14 +205,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=
@@ -241,6 +233,14 @@ name|newFixedThreadPool
 argument_list|(
 name|messageCount
 argument_list|)
+decl_stmt|;
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -302,20 +302,30 @@ operator|)
 operator|*
 name|INTERVAL
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should take at least "
-operator|+
-name|minimumTime
-operator|+
-literal|"ms"
-argument_list|,
+comment|// add a little slack
+name|long
+name|delta
+init|=
 name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
+operator|+
+literal|200
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should take at least "
+operator|+
+name|minimumTime
+operator|+
+literal|"ms, was: "
+operator|+
+name|delta
+argument_list|,
+name|delta
 operator|>=
 name|minimumTime
 argument_list|)

@@ -241,6 +241,29 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|canRunOnThisPlatform ()
+specifier|protected
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+comment|// does not run on IBM/HP
+return|return
+operator|!
+name|isJavaVendor
+argument_list|(
+literal|"IBM"
+argument_list|)
+operator|&&
+operator|!
+name|isJavaVendor
+argument_list|(
+literal|"HP"
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|tearDown ()
 specifier|protected
 name|void

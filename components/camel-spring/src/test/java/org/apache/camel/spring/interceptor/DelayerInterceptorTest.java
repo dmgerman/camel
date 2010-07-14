@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for delayer interceptor configurd in spring XML.  */
+comment|/**  * Unit test for delayer interceptor configured in spring XML.  */
 end_comment
 
 begin_class
@@ -160,6 +160,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add a little slack
 name|long
 name|delta
 init|=
@@ -169,6 +170,8 @@ name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
+operator|+
+literal|200
 decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -180,7 +183,7 @@ operator|+
 name|delta
 argument_list|,
 name|delta
-operator|>
+operator|>=
 literal|2000
 argument_list|)
 expr_stmt|;
@@ -191,7 +194,7 @@ operator|+
 name|delta
 argument_list|,
 name|delta
-operator|<
+operator|<=
 literal|7000
 argument_list|)
 expr_stmt|;
