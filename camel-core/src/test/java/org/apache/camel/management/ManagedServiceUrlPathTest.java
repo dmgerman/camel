@@ -247,19 +247,9 @@ name|boolean
 name|canRunOnThisPlatform
 parameter_list|()
 block|{
-comment|// does not run on IBM/HP
+comment|// does not work well when maven surefire plugin is set to forkmode=once
 return|return
-operator|!
-name|isJavaVendor
-argument_list|(
-literal|"IBM"
-argument_list|)
-operator|&&
-operator|!
-name|isJavaVendor
-argument_list|(
-literal|"HP"
-argument_list|)
+literal|false
 return|;
 block|}
 annotation|@
