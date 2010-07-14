@@ -1016,7 +1016,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"camel-osgi.jar/camel-spring-osgi.jar detected in classpath"
+literal|"Found the OSGi environment, deloying the camel context into OSGi container"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1026,7 +1026,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"camel-osgi.jar/camel-spring-osgi.jar not detected in classpath"
+literal|"Cannot find the OSGi environment, deploying the camel context into stand alone JVM"
 argument_list|)
 expr_stmt|;
 block|}
