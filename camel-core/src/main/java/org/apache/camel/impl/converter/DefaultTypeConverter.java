@@ -1038,6 +1038,28 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using converter: "
+operator|+
+name|converter
+operator|+
+literal|" to convert "
+operator|+
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 name|Object
 name|rc
 init|=

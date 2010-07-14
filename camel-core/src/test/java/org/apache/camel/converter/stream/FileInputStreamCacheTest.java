@@ -114,15 +114,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|CachedOutputStream
-name|cos
-init|=
-operator|new
-name|CachedOutputStream
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 name|File
 name|file
 init|=
@@ -142,8 +133,6 @@ operator|new
 name|FileInputStreamCache
 argument_list|(
 name|file
-argument_list|,
-name|cos
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream
