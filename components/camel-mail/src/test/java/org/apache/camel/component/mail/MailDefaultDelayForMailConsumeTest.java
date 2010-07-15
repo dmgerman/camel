@@ -68,6 +68,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -96,15 +110,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"smtp://bond@localhost"
-argument_list|,
-literal|"Hello London"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -120,7 +125,16 @@ argument_list|(
 literal|"Hello London"
 argument_list|)
 expr_stmt|;
-comment|// first poll should happend immediately
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"smtp://bond@localhost"
+argument_list|,
+literal|"Hello London"
+argument_list|)
+expr_stmt|;
+comment|// first poll should happen immediately
 name|mock
 operator|.
 name|setResultWaitTime
@@ -133,27 +147,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|mock
 operator|.
 name|reset
 argument_list|()
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"smtp://bond@localhost"
-argument_list|,
-literal|"Hello Paris"
-argument_list|)
 expr_stmt|;
 name|mock
 operator|.
@@ -162,7 +159,6 @@ argument_list|(
 literal|"Hello Paris"
 argument_list|)
 expr_stmt|;
-comment|// poll next mail and that is should be done within the default delay (overrule to 5 sec) + 2 sec slack
 name|mock
 operator|.
 name|setResultWaitTime
@@ -172,6 +168,23 @@ operator|+
 literal|2000L
 argument_list|)
 expr_stmt|;
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"smtp://bond@localhost"
+argument_list|,
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
+comment|// poll next mail and that is should be done within the default delay (overrule to 5 sec) + 2 sec slack
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -180,12 +193,10 @@ expr_stmt|;
 name|long
 name|delta
 init|=
-name|System
+name|watch
 operator|.
-name|currentTimeMillis
+name|stop
 argument_list|()
-operator|-
-name|start
 decl_stmt|;
 name|assertTrue
 argument_list|(
