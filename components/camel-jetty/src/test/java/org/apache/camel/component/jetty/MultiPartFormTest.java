@@ -463,6 +463,18 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong name"
+argument_list|,
+literal|"NOTICE.txt"
+argument_list|,
+name|data
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"We should get the data from the DataHandle"

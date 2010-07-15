@@ -142,6 +142,33 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+if|if
+condition|(
+name|fileName
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|fileName
+return|;
+block|}
+else|else
+block|{
+return|return
+name|super
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+block|}
 block|}
 end_class
 
