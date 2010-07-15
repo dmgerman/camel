@@ -355,7 +355,7 @@ name|CamelContext
 name|createCamelContext
 parameter_list|()
 block|{
-comment|// disable stream cache otherwisw to much hazzle in this unit test to filter the stream cache
+comment|// disable stream cache otherwise to much hazzle in this unit test to filter the stream cache
 comment|// in all the assertion codes
 name|DefaultCamelContext
 name|ctx
@@ -1650,7 +1650,6 @@ name|DelegateProcessor
 argument_list|()
 block|{         }
 expr_stmt|;
-comment|// START SNIPPET: e7
 name|interceptor2
 operator|=
 operator|new
@@ -1700,7 +1699,6 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-comment|// END SNIPPET: e7
 return|return
 name|getRouteList
 argument_list|(
@@ -1997,7 +1995,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e8
+comment|// START SNIPPET: multicast
 name|RouteBuilder
 name|builder
 init|=
@@ -2038,7 +2036,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-comment|// END SNIPPET: e8
+comment|// END SNIPPET: multicast
 return|return
 name|getRouteList
 argument_list|(
