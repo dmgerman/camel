@@ -151,6 +151,15 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30
+operator|*
+literal|1000L
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"ABCD"
