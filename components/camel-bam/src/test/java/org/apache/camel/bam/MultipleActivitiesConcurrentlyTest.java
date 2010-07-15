@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|junit
@@ -137,18 +149,32 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// use a timeout to avoid test hang if something happens
 name|startLatch
 operator|.
 name|await
-argument_list|()
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|sendAMessages
 argument_list|()
 expr_stmt|;
+comment|// use a timeout to avoid test hang if something happens
 name|endLatch
 operator|.
 name|await
-argument_list|()
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|overdueEndpoint
 operator|.

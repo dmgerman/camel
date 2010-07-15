@@ -322,7 +322,7 @@ name|overdueEndpoint
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|8000
+literal|20000
 argument_list|)
 expr_stmt|;
 block|}
