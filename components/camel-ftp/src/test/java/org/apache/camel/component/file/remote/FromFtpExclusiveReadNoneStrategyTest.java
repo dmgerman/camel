@@ -211,6 +211,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// cannot test on windows due file system works differently with file locks
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes
