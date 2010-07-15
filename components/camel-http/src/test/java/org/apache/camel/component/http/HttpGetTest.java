@@ -357,6 +357,18 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|getContext
+argument_list|()
+operator|.
+name|addComponent
+argument_list|(
+literal|"http2"
+argument_list|,
+operator|new
+name|HttpComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -376,7 +388,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://www.google.com/search"
+literal|"http2://http://www.google.com/search"
 argument_list|)
 operator|.
 name|to
