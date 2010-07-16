@@ -163,7 +163,21 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http://www.google.com?test=parameter&proxyHost=myotherproxy&proxyPort=2345"
+literal|"http://www.google.com?proxyHost=myotherproxy&proxyPort=2345"
+argument_list|,
+name|HttpEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|HttpEndpoint
+name|http3
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"http://www.google.com?test=parameter"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -238,25 +252,48 @@ name|getProxyPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|//As the endpointUri is recreated, so the parameter could be in different place
+name|assertTrue
 argument_list|(
-literal|"Get a wrong endpoint uri"
-argument_list|,
-literal|"http://www.google.com?proxyHost=myproxy&proxyPort=1234"
+literal|"Get a wrong endpoint uri of http1"
 argument_list|,
 name|http1
 operator|.
 name|getEndpointUri
 argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"proxyPort=1234"
+argument_list|)
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Get a wrong endpoint uri of http2"
+argument_list|,
+name|http2
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"proxyHost=myotherproxy"
+argument_list|)
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri"
 argument_list|,
-literal|"http://www.google.com?test=parameter&proxyHost=myotherproxy&proxyPort=2345"
+literal|"http://www.google.com?test=parameter"
 argument_list|,
-name|http2
+name|http3
 operator|.
 name|getEndpointUri
 argument_list|()
