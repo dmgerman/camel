@@ -154,6 +154,13 @@ name|HttpBodyTest
 extends|extends
 name|BaseHttpTest
 block|{
+DECL|field|protocolString
+specifier|private
+name|String
+name|protocolString
+init|=
+literal|"http4://"
+decl_stmt|;
 comment|// default content encoding of the local test server
 DECL|field|charset
 specifier|private
@@ -162,6 +169,30 @@ name|charset
 init|=
 literal|"ISO-8859-1"
 decl_stmt|;
+DECL|method|getProtocolString ()
+specifier|public
+name|String
+name|getProtocolString
+parameter_list|()
+block|{
+return|return
+name|protocolString
+return|;
+block|}
+DECL|method|setProtocolString (String protocol)
+specifier|public
+name|void
+name|setProtocolString
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|protocolString
+operator|=
+name|protocol
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|httpPostWithStringBody ()
@@ -179,7 +210,8 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"http4://"
+name|getProtocolString
+argument_list|()
 operator|+
 name|getHostName
 argument_list|()
@@ -256,7 +288,8 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"http4://"
+name|getProtocolString
+argument_list|()
 operator|+
 name|getHostName
 argument_list|()
@@ -325,7 +358,8 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"http4://"
+name|getProtocolString
+argument_list|()
 operator|+
 name|getHostName
 argument_list|()
@@ -446,7 +480,8 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"http4://"
+name|getProtocolString
+argument_list|()
 operator|+
 name|getHostName
 argument_list|()
