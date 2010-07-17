@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A map that uses case insensitive keys, but preserves the original keys in the keySet.  *<p/>  * This map allows you to do lookup using case insensitive keys so you can retrieve the value without worrying about  * whether some transport protocol affects the keys such as Http and Mail protocols can do.  *<p/>  * When copying from this map to a regular Map such as {@link java.util.HashMap} then the original keys are  * copied over and you get the old behavior back using a regular Map with case sensitive keys.  *  * @version $Revision$  */
+comment|/**  * A map that uses case insensitive keys, but preserves the original keys in the keySet.  *<p/>  * This map allows you to do lookup using case insensitive keys so you can retrieve the value without worrying about  * whether some transport protocol affects the keys such as Http and Mail protocols can do.  *<p/>  * When copying from this map to a regular Map such as {@link java.util.HashMap} then the original keys are  * copied over and you get the old behavior back using a regular Map with case sensitive keys.  *<p/>  * This map is<b>not</b> designed to be thread safe as concurrent access to it is not supposed to be performed  * by the Camel routing engine.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -280,6 +280,7 @@ annotation|@
 name|Override
 DECL|method|put (String key, Object value)
 specifier|public
+specifier|synchronized
 name|Object
 name|put
 parameter_list|(
@@ -341,6 +342,19 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
+if|if
+condition|(
+name|map
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|map
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -376,10 +390,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|remove (Object key)
 specifier|public
+specifier|synchronized
 name|Object
 name|remove
 parameter_list|(
@@ -387,6 +403,17 @@ name|Object
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
+name|key
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// invalidate views as we mutate
 name|entrySetView
 operator|=
@@ -423,6 +450,7 @@ annotation|@
 name|Override
 DECL|method|clear ()
 specifier|public
+specifier|synchronized
 name|void
 name|clear
 parameter_list|()
@@ -454,6 +482,17 @@ name|Object
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
+name|key
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|String
 name|s
 init|=
@@ -478,6 +517,7 @@ annotation|@
 name|Override
 DECL|method|entrySet ()
 specifier|public
+specifier|synchronized
 name|Set
 argument_list|<
 name|Map
