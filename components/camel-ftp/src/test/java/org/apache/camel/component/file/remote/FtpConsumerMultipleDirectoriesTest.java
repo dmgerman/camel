@@ -172,7 +172,7 @@ literal|"Bye World"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-literal|"Godday World"
+literal|"Goodday World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -397,7 +397,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
-literal|"Godday World"
+literal|"Goodday World"
 argument_list|,
 literal|"sub/sub2/godday.txt"
 argument_list|)

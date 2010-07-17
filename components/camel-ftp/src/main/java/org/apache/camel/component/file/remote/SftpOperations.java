@@ -1819,6 +1819,24 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Changing current directory to: "
+operator|+
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|channel

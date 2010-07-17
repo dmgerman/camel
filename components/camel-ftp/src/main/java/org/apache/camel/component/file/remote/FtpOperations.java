@@ -2470,24 +2470,42 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|changeCurrentDirectory (String newDirectory)
+DECL|method|changeCurrentDirectory (String path)
 specifier|public
 name|void
 name|changeCurrentDirectory
 parameter_list|(
 name|String
-name|newDirectory
+name|path
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Changing current directory to: "
+operator|+
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|client
 operator|.
 name|changeWorkingDirectory
 argument_list|(
-name|newDirectory
+name|path
 argument_list|)
 expr_stmt|;
 block|}
