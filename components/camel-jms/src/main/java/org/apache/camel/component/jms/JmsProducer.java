@@ -897,6 +897,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|endpoint
+operator|.
+name|isDisableReplyTo
+argument_list|()
+operator|&&
 name|exchange
 operator|.
 name|getPattern
