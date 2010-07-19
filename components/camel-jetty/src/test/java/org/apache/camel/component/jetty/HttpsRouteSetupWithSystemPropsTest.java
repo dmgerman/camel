@@ -124,6 +124,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
 comment|// setup SSL using system properties
 name|setSystemProp
 argument_list|(
@@ -149,6 +150,7 @@ argument_list|,
 name|pwd
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|super
 operator|.
 name|setUp
