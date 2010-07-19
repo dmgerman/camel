@@ -406,24 +406,18 @@ name|Transaction
 name|tx
 parameter_list|)
 block|{
-name|int
-name|page
-init|=
+if|if
+condition|(
+operator|!
 name|tx
 operator|.
 name|allocator
 argument_list|()
 operator|.
-name|alloc
+name|isAllocated
 argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|page
-operator|==
 literal|0
+argument_list|)
 condition|)
 block|{
 comment|// if we just created the file, first allocated page should be 0
@@ -432,8 +426,6 @@ operator|.
 name|create
 argument_list|(
 name|tx
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -449,19 +441,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Was previously created.. so free up the test page
-name|tx
-operator|.
-name|allocator
-argument_list|()
-operator|.
-name|free
-argument_list|(
-name|page
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
 name|SortedIndex
 argument_list|<
 name|String
@@ -475,8 +454,6 @@ operator|.
 name|open
 argument_list|(
 name|tx
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|LOG
@@ -658,8 +635,6 @@ operator|.
 name|open
 argument_list|(
 name|tx
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|Integer
@@ -682,19 +657,6 @@ literal|null
 condition|)
 block|{
 comment|// create it..
-name|int
-name|page
-init|=
-name|tx
-operator|.
-name|allocator
-argument_list|()
-operator|.
-name|alloc
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 name|SortedIndex
 argument_list|<
 name|Buffer
@@ -708,9 +670,15 @@ operator|.
 name|create
 argument_list|(
 name|tx
-argument_list|,
-name|page
 argument_list|)
+decl_stmt|;
+name|int
+name|page
+init|=
+name|created
+operator|.
+name|getIndexLocation
+argument_list|()
 decl_stmt|;
 comment|// add it to indexes so we can find it the next time
 name|indexes
