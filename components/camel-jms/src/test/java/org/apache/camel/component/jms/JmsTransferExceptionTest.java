@@ -110,22 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -270,22 +254,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// should fail as we thrown an exception
-name|MockEndpoint
-name|dead
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-decl_stmt|;
-name|dead
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 comment|// we send something that causes a remote exception
 comment|// then we expect our producer template to thrown
 comment|// an exception with the remote exception as cause
@@ -340,9 +308,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
 comment|// we still try redeliver
 name|assertEquals
 argument_list|(
@@ -419,29 +384,12 @@ name|Exception
 block|{
 name|errorHandler
 argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:dead"
-argument_list|)
+name|defaultErrorHandler
+argument_list|()
 operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
-argument_list|)
-operator|.
-name|redeliveryDelay
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|logStackTrace
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

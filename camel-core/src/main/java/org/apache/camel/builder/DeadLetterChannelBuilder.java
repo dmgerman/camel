@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -313,12 +325,17 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// force MEP to be InOnly so when sending to DLQ we would not expect a reply if the MEP was InOut
 name|failureProcessor
 operator|=
 operator|new
 name|SendProcessor
 argument_list|(
 name|deadLetter
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOnly
 argument_list|)
 expr_stmt|;
 block|}
