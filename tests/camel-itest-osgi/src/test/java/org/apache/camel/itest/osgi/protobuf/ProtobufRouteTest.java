@@ -689,7 +689,7 @@ argument_list|()
 operator|.
 name|protobuf
 argument_list|(
-literal|"org.apache.camel.itest.osgi.protobuf.generated.AddressBookProtos$Person"
+literal|"org.apache.camel.dataformat.protobuf.generated.AddressBookProtos$Person"
 argument_list|)
 operator|.
 name|to
