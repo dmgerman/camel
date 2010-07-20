@@ -153,7 +153,7 @@ operator|.
 name|remoteServer
 argument_list|()
 operator|+
-literal|". This example will be ignored."
+literal|". This exception will be ignored."
 argument_list|,
 name|t
 argument_list|)
