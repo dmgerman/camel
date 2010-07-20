@@ -92,7 +92,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// disconnect from the server to force it to re login at next poll to recover
 name|RemoteFileConsumer
 name|rfc
 init|=
@@ -101,6 +100,21 @@ name|RemoteFileConsumer
 operator|)
 name|consumer
 decl_stmt|;
+comment|// only try to recover if we are allowed to run
+if|if
+condition|(
+operator|(
+operator|(
+name|RemoteFileConsumer
+operator|)
+name|consumer
+operator|)
+operator|.
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+comment|// disconnect from the server to force it to re login at next poll to recover
 name|log
 operator|.
 name|warn
@@ -113,11 +127,39 @@ name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|rfc
 operator|.
 name|disconnect
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// ignore the exception
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred during disconnect from: "
+operator|+
+name|rfc
+operator|.
+name|remoteServer
+argument_list|()
+operator|+
+literal|". This example will be ignored."
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|super
 operator|.

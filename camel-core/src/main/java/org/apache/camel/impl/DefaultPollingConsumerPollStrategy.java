@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *  * @version $Revision$  */
+comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *<p/>  * The implement will<b>not</b> log if the rollback occurred during shutdown.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -159,6 +159,37 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|runAllowed
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|consumer
+operator|instanceof
+name|ServiceSupport
+condition|)
+block|{
+name|runAllowed
+operator|=
+operator|(
+operator|(
+name|ServiceSupport
+operator|)
+name|consumer
+operator|)
+operator|.
+name|isRunAllowed
+argument_list|()
+expr_stmt|;
+block|}
+comment|// only log warn if we are running, otherwise we are just stopping which we should not log the issue in the logs
+if|if
+condition|(
+name|runAllowed
+condition|)
+block|{
 name|log
 operator|.
 name|warn
@@ -184,6 +215,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 comment|// we do not want to retry
 return|return
 literal|false
