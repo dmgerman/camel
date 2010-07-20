@@ -183,6 +183,15 @@ name|OUT_NAMESPACE
 init|=
 literal|"http://camel.apache.org/xml/out/"
 decl_stmt|;
+DECL|field|FUNCTION_NAMESPACE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FUNCTION_NAMESPACE
+init|=
+literal|"http://camel.apache.org/xml/function/"
+decl_stmt|;
 DECL|field|SYSTEM_PROPERTIES_NAMESPACE
 specifier|public
 specifier|static
