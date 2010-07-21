@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -288,7 +300,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -386,7 +398,7 @@ specifier|public
 class|class
 name|JmsProducer
 extends|extends
-name|DefaultProducer
+name|DefaultAsyncProducer
 block|{
 DECL|field|LOG
 specifier|private
@@ -680,7 +692,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getScheduledExecutorService
+name|getRequestorExecutorService
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -713,7 +725,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getScheduledExecutorService
+name|getRequestorExecutorService
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -885,14 +897,16 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|process (final Exchange exchange)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 if|if
@@ -913,30 +927,40 @@ argument_list|()
 condition|)
 block|{
 comment|// in out requires a bit more work than in only
+return|return
 name|processInOut
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
 comment|// in only
+return|return
 name|processInOnly
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
-DECL|method|processInOut (final Exchange exchange)
+DECL|method|processInOut (final Exchange exchange, final AsyncCallback callback)
 specifier|protected
-name|void
+name|boolean
 name|processInOut
 parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 specifier|final
@@ -1146,7 +1170,7 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|DeferredMessageSentCallback
-name|callback
+name|jmsCallback
 init|=
 name|msgIdAsCorrId
 condition|?
@@ -1241,7 +1265,7 @@ name|requestor
 operator|.
 name|getReceiveFuture
 argument_list|(
-name|callback
+name|jmsCallback
 argument_list|)
 expr_stmt|;
 name|futureHolder
@@ -1267,7 +1291,7 @@ name|destination
 argument_list|,
 name|messageCreator
 argument_list|,
-name|callback
+name|jmsCallback
 argument_list|)
 expr_stmt|;
 comment|// after sending then set the OUT message id to the JMSMessageID so its identical
@@ -1276,6 +1300,11 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// now we should routing asynchronously to not block while waiting for the reply
+comment|// TODO:
+comment|// we need a thread pool to use for continue routing messages, just like a seda consumer
+comment|// and we need options to configure it as well so you can indicate how many threads to use
+comment|// TODO: Also consider requestTimeout
 comment|// lets wait and return the response
 name|long
 name|requestTimeout
@@ -1579,15 +1608,30 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: should be async
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
-DECL|method|processInOnly (final Exchange exchange)
+DECL|method|processInOnly (final Exchange exchange, final AsyncCallback callback)
 specifier|protected
-name|void
+name|boolean
 name|processInOnly
 parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 specifier|final
@@ -1858,6 +1902,17 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// we are synchronous so return true
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Sends the message using the JmsTemplate.      *      * @param inOut  use inOut or inOnly template      * @param destinationName the destination name      * @param destination     the destination (if no name provided)      * @param messageCreator  the creator to create the javax.jms.Message to send      * @param callback        optional callback for inOut messages      */
 DECL|method|doSend (boolean inOut, String destinationName, Destination destination, MessageCreator messageCreator, DeferredMessageSentCallback callback)

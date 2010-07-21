@@ -234,20 +234,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|UuidGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -373,22 +359,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|uuidGenerator
-specifier|private
-specifier|static
-name|UuidGenerator
-name|uuidGenerator
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
 name|JmsConfiguration
 name|configuration
-decl_stmt|;
-DECL|field|executorService
-specifier|private
-name|ScheduledExecutorService
-name|executorService
 decl_stmt|;
 DECL|field|listenerContainer
 specifier|private
@@ -455,6 +430,8 @@ name|replyToResolverTimeout
 init|=
 literal|5000
 decl_stmt|;
+comment|// TODO: Use a Task queue to transfer replies arriving in onMessage
+comment|// instead of using the FutureHandle to support async routing
 DECL|method|Requestor (JmsConfiguration configuration, ScheduledExecutorService executorService)
 specifier|public
 name|Requestor
@@ -474,10 +451,6 @@ name|configuration
 expr_stmt|;
 name|this
 operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
 name|requestMap
 operator|=
 operator|new
@@ -496,6 +469,8 @@ name|getRequestMapPurgePollTimeMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|producerDeferredRequestReplyMap
 operator|=
 operator|new
@@ -507,6 +482,8 @@ name|DeferredRequestReplyMap
 argument_list|>
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|deferredRequestMap
 operator|=
 operator|new
@@ -525,6 +502,8 @@ name|getRequestMapPurgePollTimeMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|deferredReplyMap
 operator|=
 operator|new
@@ -1401,33 +1380,6 @@ expr_stmt|;
 block|}
 return|return
 name|answer
-return|;
-block|}
-DECL|method|getUuidGenerator ()
-specifier|public
-specifier|static
-specifier|synchronized
-name|UuidGenerator
-name|getUuidGenerator
-parameter_list|()
-block|{
-if|if
-condition|(
-name|uuidGenerator
-operator|==
-literal|null
-condition|)
-block|{
-name|uuidGenerator
-operator|=
-name|UuidGenerator
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|uuidGenerator
 return|;
 block|}
 DECL|method|getConfiguration ()
