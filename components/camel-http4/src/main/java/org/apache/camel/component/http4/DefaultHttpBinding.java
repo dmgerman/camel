@@ -788,7 +788,7 @@ operator|.
 name|getContentType
 argument_list|()
 operator|.
-name|equals
+name|startsWith
 argument_list|(
 literal|"application/x-www-form-urlencoded"
 argument_list|)
