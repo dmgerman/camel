@@ -284,9 +284,9 @@ block|{
 if|if
 condition|(
 name|exchange
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 operator|!
 name|exchange
 operator|.
@@ -371,9 +371,9 @@ block|{
 if|if
 condition|(
 name|exchange
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 operator|!
 name|exchange
 operator|.

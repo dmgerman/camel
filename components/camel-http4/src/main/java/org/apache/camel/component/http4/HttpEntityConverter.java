@@ -312,9 +312,9 @@ decl_stmt|;
 if|if
 condition|(
 name|exchange
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 operator|!
 name|exchange
 operator|.
@@ -437,9 +437,9 @@ decl_stmt|;
 if|if
 condition|(
 name|exchange
-operator|==
+operator|!=
 literal|null
-operator|||
+operator|&&
 operator|!
 name|exchange
 operator|.

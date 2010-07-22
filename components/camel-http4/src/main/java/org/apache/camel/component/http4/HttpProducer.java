@@ -1345,7 +1345,7 @@ block|}
 name|Header
 name|header
 init|=
-name|httpRequest
+name|httpResponse
 operator|.
 name|getFirstHeader
 argument_list|(

@@ -1283,7 +1283,7 @@ name|header
 init|=
 name|method
 operator|.
-name|getRequestHeader
+name|getResponseHeader
 argument_list|(
 name|Exchange
 operator|.
