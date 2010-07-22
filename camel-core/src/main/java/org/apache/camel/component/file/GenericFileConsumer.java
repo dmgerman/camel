@@ -419,6 +419,7 @@ literal|"Skipping pool as pre poll check returned false"
 argument_list|)
 expr_stmt|;
 block|}
+return|return;
 block|}
 comment|// gather list of files to process
 name|List
@@ -1044,7 +1045,7 @@ operator|<
 name|maxMessagesPerPoll
 return|;
 block|}
-comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
+comment|/**      * Override if required. Perform some checks (and perhaps actions) before we poll.      *      * @return<tt>true</tt> to poll,<tt>false</tt> to skip this poll.      */
 DECL|method|prePollCheck ()
 specifier|protected
 name|boolean
@@ -1057,7 +1058,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Override if required. Perform some checks (and perhaps actions) after we      * have polled.      */
+comment|/**      * Override if required. Perform some checks (and perhaps actions) after we have polled.      */
 DECL|method|postPollCheck ()
 specifier|protected
 name|void
