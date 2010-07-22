@@ -441,9 +441,6 @@ block|{
 name|RemoteFileConfiguration
 name|config
 init|=
-operator|(
-name|RemoteFileConfiguration
-operator|)
 name|getConfiguration
 argument_list|()
 decl_stmt|;
