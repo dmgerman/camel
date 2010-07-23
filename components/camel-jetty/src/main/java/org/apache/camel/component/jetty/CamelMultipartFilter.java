@@ -122,7 +122,7 @@ name|getAttribute
 argument_list|(
 name|CamelContinuationServlet
 operator|.
-name|EXCHANGE_ATRRIBUTE_NAME
+name|EXCHANGE_ATTRIBUTE_NAME
 argument_list|)
 operator|==
 literal|null

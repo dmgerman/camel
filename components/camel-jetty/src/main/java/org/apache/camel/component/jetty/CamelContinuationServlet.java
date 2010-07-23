@@ -200,11 +200,11 @@ name|CamelContinuationServlet
 extends|extends
 name|CamelServlet
 block|{
-DECL|field|EXCHANGE_ATRRIBUTE_NAME
+DECL|field|EXCHANGE_ATTRIBUTE_NAME
 specifier|static
 specifier|final
 name|String
-name|EXCHANGE_ATRRIBUTE_NAME
+name|EXCHANGE_ATTRIBUTE_NAME
 init|=
 literal|"CamelExchange"
 decl_stmt|;
@@ -465,7 +465,7 @@ name|continuation
 operator|.
 name|setAttribute
 argument_list|(
-name|EXCHANGE_ATRRIBUTE_NAME
+name|EXCHANGE_ATTRIBUTE_NAME
 argument_list|,
 name|exchange
 argument_list|)
@@ -500,7 +500,7 @@ name|continuation
 operator|.
 name|getAttribute
 argument_list|(
-name|EXCHANGE_ATRRIBUTE_NAME
+name|EXCHANGE_ATTRIBUTE_NAME
 argument_list|)
 decl_stmt|;
 if|if
