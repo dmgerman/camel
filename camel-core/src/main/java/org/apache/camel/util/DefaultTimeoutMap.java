@@ -548,13 +548,21 @@ block|}
 block|}
 DECL|method|remove (K id)
 specifier|public
-name|void
+name|V
 name|remove
 parameter_list|(
 name|K
 name|id
 parameter_list|)
 block|{
+name|TimeoutMapEntry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
+name|entry
+decl_stmt|;
 if|if
 condition|(
 name|useLock
@@ -568,6 +576,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
+name|entry
+operator|=
 name|map
 operator|.
 name|remove
@@ -590,6 +600,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+return|return
+name|entry
+operator|!=
+literal|null
+condition|?
+name|entry
+operator|.
+name|getValue
+argument_list|()
+else|:
+literal|null
+return|;
 block|}
 DECL|method|getKeys ()
 specifier|public

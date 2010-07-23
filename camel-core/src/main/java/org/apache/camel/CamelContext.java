@@ -465,7 +465,7 @@ name|Exception
 function_decl|;
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Adds a component to the context.      *      * @param componentName  the name the component is registered as      * @param component      the component      */
+comment|/**      * Adds a component to the context.      *      * @param componentName the name the component is registered as      * @param component     the component      */
 DECL|method|addComponent (String componentName, Component component)
 name|void
 name|addComponent
@@ -495,7 +495,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name and specifying the expected type of component.      *      * @param name  the name to lookup      * @param componentType  the expected type      * @return the component      */
+comment|/**      * Gets a component from the context by name and specifying the expected type of component.      *      * @param name          the name to lookup      * @param componentType the expected type      * @return the component      */
 DECL|method|getComponent (String name, Class<T> componentType)
 parameter_list|<
 name|T
@@ -537,7 +537,7 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri  the URI of the endpoint      * @return  the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri the URI of the endpoint      * @return the endpoint      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
 name|getEndpoint
@@ -546,7 +546,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param name  the name of the endpoint      * @param endpointType  the expected type      * @return the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param name         the name of the endpoint      * @param endpointType the expected type      * @return the endpoint      */
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 parameter_list|<
 name|T
@@ -566,7 +566,7 @@ argument_list|>
 name|endpointType
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints.      *      * @return  all endpoints      */
+comment|/**      * Returns the collection of all registered endpoints.      *      * @return all endpoints      */
 DECL|method|getEndpoints ()
 name|Collection
 argument_list|<
@@ -586,7 +586,7 @@ argument_list|>
 name|getEndpointMap
 parameter_list|()
 function_decl|;
-comment|/**      * Is the given endpoint already registered?      *      * @param uri  the URI of the endpoint      * @return the registered endpoint or<tt>null</tt> if not registered      */
+comment|/**      * Is the given endpoint already registered?      *      * @param uri the URI of the endpoint      * @return the registered endpoint or<tt>null</tt> if not registered      */
 DECL|method|hasEndpoint (String uri)
 name|Endpoint
 name|hasEndpoint
@@ -595,7 +595,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
+comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri      the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
 name|addEndpoint
@@ -609,7 +609,21 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Registers a {@link org.apache.camel.spi.EndpointStrategy callback} to allow you to do custom      * logic when an {@link Endpoint} is about to be registered to the {@link CamelContext} endpoint registry.      *<p/>      * When a callback is added it will be executed on the already registered endpoints allowing you to catch-up      *      * @param strategy  callback to be invoked      */
+comment|/**      * Removes all endpoints with the given URI.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @see {@link org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)} for pattern      */
+DECL|method|removeEndpoints (String pattern)
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|removeEndpoints
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Registers a {@link org.apache.camel.spi.EndpointStrategy callback} to allow you to do custom      * logic when an {@link Endpoint} is about to be registered to the {@link CamelContext} endpoint registry.      *<p/>      * When a callback is added it will be executed on the already registered endpoints allowing you to catch-up      *      * @param strategy callback to be invoked      */
 DECL|method|addRegisterEndpointCallback (EndpointStrategy strategy)
 name|void
 name|addRegisterEndpointCallback
@@ -750,7 +764,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId the route id      * @param timeout   timeout      * @param timeUnit  the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+comment|/**      * Shutdown the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      * It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
 DECL|method|shutdownRoute (String routeId, long timeout, TimeUnit timeUnit)
 name|void
 name|shutdownRoute
@@ -811,7 +825,7 @@ argument_list|>
 name|getLifecycleStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Adds the given lifecycle strategy to be used.      *      * @param lifecycleStrategy  the strategy      */
+comment|/**      * Adds the given lifecycle strategy to be used.      *      * @param lifecycleStrategy the strategy      */
 DECL|method|addLifecycleStrategy (LifecycleStrategy lifecycleStrategy)
 name|void
 name|addLifecycleStrategy
@@ -820,7 +834,7 @@ name|LifecycleStrategy
 name|lifecycleStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves a language for creating expressions      *      * @param language  name of the language      * @return the resolved language      */
+comment|/**      * Resolves a language for creating expressions      *      * @param language name of the language      * @return the resolved language      */
 DECL|method|resolveLanguage (String language)
 name|Language
 name|resolveLanguage
@@ -903,7 +917,7 @@ name|ErrorHandlerBuilder
 name|getErrorHandlerBuilder
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder  the builder      */
+comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder the builder      */
 DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
 name|void
 name|setErrorHandlerBuilder
@@ -961,7 +975,7 @@ name|DataFormatResolver
 name|getDataFormatResolver
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom data format resolver      *      * @param dataFormatResolver  the resolver      */
+comment|/**      * Sets a custom data format resolver      *      * @param dataFormatResolver the resolver      */
 DECL|method|setDataFormatResolver (DataFormatResolver dataFormatResolver)
 name|void
 name|setDataFormatResolver
@@ -1076,7 +1090,7 @@ argument_list|>
 name|getProducerServicePool
 parameter_list|()
 function_decl|;
-comment|/**      * Uses a custom node id factory when generating auto assigned ids to the nodes in the route definitions      *      * @param factory  custom factory to use      */
+comment|/**      * Uses a custom node id factory when generating auto assigned ids to the nodes in the route definitions      *      * @param factory custom factory to use      */
 DECL|method|setNodeIdFactory (NodeIdFactory factory)
 name|void
 name|setNodeIdFactory
@@ -1085,7 +1099,7 @@ name|NodeIdFactory
 name|factory
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the node id factory      *      * @return  the node id factory      */
+comment|/**      * Gets the node id factory      *      * @return the node id factory      */
 DECL|method|getNodeIdFactory ()
 name|NodeIdFactory
 name|getNodeIdFactory

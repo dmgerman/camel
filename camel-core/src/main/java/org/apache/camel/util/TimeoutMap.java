@@ -33,7 +33,7 @@ parameter_list|>
 extends|extends
 name|Runnable
 block|{
-comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or null if it is not present (or has timed out)      */
+comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or<tt>null</tt> if it is not present (or has timed out)      */
 DECL|method|get (K key)
 name|V
 name|get
@@ -82,9 +82,9 @@ name|V
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      */
+comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      * @return the value for the given key or<tt>null</tt> if it is not present (or has timed out)      */
 DECL|method|remove (K key)
-name|void
+name|V
 name|remove
 parameter_list|(
 name|K
