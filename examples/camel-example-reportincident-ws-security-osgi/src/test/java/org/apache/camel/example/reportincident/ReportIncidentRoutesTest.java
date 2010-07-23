@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -192,18 +182,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test of our routes  */
 end_comment
@@ -231,6 +209,22 @@ specifier|protected
 name|CamelContext
 name|camel
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"/META-INF/spring/camel-context.xml"
+argument_list|)
+return|;
+block|}
 DECL|method|createCXFClient ()
 specifier|protected
 specifier|static
@@ -381,18 +375,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|runTest
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|runTest ()
-specifier|protected
-name|void
-name|runTest
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 comment|// assert mailbox is empty before starting
 name|Mailbox
 name|inbox
@@ -534,22 +516,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createApplicationContext ()
-specifier|protected
-name|AbstractXmlApplicationContext
-name|createApplicationContext
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"/META-INF/spring/camel-context.xml"
-argument_list|)
-return|;
 block|}
 block|}
 end_class
