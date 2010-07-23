@@ -343,6 +343,11 @@ specifier|private
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
+DECL|field|usePersist
+specifier|private
+name|boolean
+name|usePersist
+decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -1005,6 +1010,32 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|isUsePersist ()
+specifier|public
+name|boolean
+name|isUsePersist
+parameter_list|()
+block|{
+return|return
+name|usePersist
+return|;
+block|}
+DECL|method|setUsePersist (boolean usePersist)
+specifier|public
+name|void
+name|setUsePersist
+parameter_list|(
+name|boolean
+name|usePersist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usePersist
+operator|=
+name|usePersist
 expr_stmt|;
 block|}
 comment|// Implementation methods
