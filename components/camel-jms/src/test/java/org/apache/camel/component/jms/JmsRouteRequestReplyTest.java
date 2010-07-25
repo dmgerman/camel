@@ -1826,10 +1826,10 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseMessageIDAsCorrelationID ()
+DECL|method|testUseMessageIDAsCorrelationID ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationID
+name|testUseMessageIDAsCorrelationID
 parameter_list|()
 throws|throws
 name|Exception
@@ -1840,10 +1840,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationID ()
+DECL|method|testUseCorrelationID ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationID
+name|testUseCorrelationID
 parameter_list|()
 throws|throws
 name|Exception
@@ -1854,10 +1854,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseMessageIDAsCorrelationIDMultiNode ()
+DECL|method|testUseMessageIDAsCorrelationIDMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationIDMultiNode
+name|testUseMessageIDAsCorrelationIDMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -1868,10 +1868,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationIDMultiNode ()
+DECL|method|testUseCorrelationIDMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDMultiNode
+name|testUseCorrelationIDMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -1882,7 +1882,6 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: A bit tricky test
 DECL|method|testUseMessageIDAsCorrelationIDPersistReplyToMultiNode ()
 specifier|public
 name|void
@@ -1897,10 +1896,10 @@ name|endpointReplyToUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationIDPersistReplyToMultiNode ()
+DECL|method|testUseCorrelationIDPersistReplyToMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDPersistReplyToMultiNode
+name|testUseCorrelationIDPersistReplyToMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -1919,10 +1918,10 @@ comment|// or testCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
 comment|// for a faster way to do this. Note however that in this case the message copy has to occur
 comment|// between consumer -> producer as the selector value needs to be propagated to the ultimate
 comment|// destination, which in turn will copy this value back into the reply message
-DECL|method|xxxtestUseMessageIDAsCorrelationIDPersistMultiReplyToMultiNode ()
+DECL|method|testUseMessageIDAsCorrelationIDPersistMultiReplyToMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationIDPersistMultiReplyToMultiNode
+name|testUseMessageIDAsCorrelationIDPersistMultiReplyToMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -1979,10 +1978,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// see (1)
-DECL|method|xxxtestUseCorrelationIDPersistMultiReplyToMultiNode ()
+DECL|method|testUseCorrelationIDPersistMultiReplyToMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDPersistMultiReplyToMultiNode
+name|testUseCorrelationIDPersistMultiReplyToMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -2038,10 +2037,10 @@ name|oldMaxCalls
 expr_stmt|;
 block|}
 block|}
-DECL|method|xxxtestUseMessageIDAsCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
+DECL|method|testUseMessageIDAsCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
+name|testUseMessageIDAsCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -2052,10 +2051,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
+DECL|method|testUseCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
+name|testUseCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
 parameter_list|()
 throws|throws
 name|Exception
@@ -2066,10 +2065,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationIDTimeout ()
+DECL|method|testUseCorrelationIDTimeout ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDTimeout
+name|testUseCorrelationIDTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -2093,16 +2092,6 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setRequestTimeout
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-name|c
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|setRequestMapPurgePollTimeMillis
 argument_list|(
 literal|1000
 argument_list|)
@@ -2158,10 +2147,10 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseMessageIDAsCorrelationIDTimeout ()
+DECL|method|testUseMessageIDAsCorrelationIDTimeout ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationIDTimeout
+name|testUseMessageIDAsCorrelationIDTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -2185,16 +2174,6 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setRequestTimeout
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-name|c
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|setRequestMapPurgePollTimeMillis
 argument_list|(
 literal|1000
 argument_list|)
@@ -2250,10 +2229,10 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseCorrelationIDMultiNodeDiffComponents ()
+DECL|method|testUseCorrelationIDMultiNodeDiffComponents ()
 specifier|public
 name|void
-name|xxxtestUseCorrelationIDMultiNodeDiffComponents
+name|testUseCorrelationIDMultiNodeDiffComponents
 parameter_list|()
 throws|throws
 name|Exception
@@ -2264,10 +2243,10 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestUseMessageIDAsCorrelationIDMultiNodeDiffComponents ()
+DECL|method|testUseMessageIDAsCorrelationIDMultiNodeDiffComponents ()
 specifier|public
 name|void
-name|xxxtestUseMessageIDAsCorrelationIDMultiNodeDiffComponents
+name|testUseMessageIDAsCorrelationIDMultiNodeDiffComponents
 parameter_list|()
 throws|throws
 name|Exception

@@ -359,16 +359,6 @@ name|getTransactionTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|endpoint
-operator|.
-name|isUseVersion102
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -536,13 +526,6 @@ operator|.
 name|setTransactionTimeout
 argument_list|(
 literal|15000
-argument_list|)
-expr_stmt|;
-name|comp
-operator|.
-name|setUseVersion102
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|camelContext

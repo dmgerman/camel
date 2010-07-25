@@ -2219,20 +2219,6 @@ name|getReplyToDestinationSelectorName
 argument_list|()
 return|;
 block|}
-DECL|method|getRequestMapPurgePollTimeMillis ()
-specifier|public
-name|long
-name|getRequestMapPurgePollTimeMillis
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getRequestMapPurgePollTimeMillis
-argument_list|()
-return|;
-block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|getRequestTimeout ()
@@ -2608,23 +2594,6 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|isUseMessageIDAsCorrelationID
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
-DECL|method|isUseVersion102 ()
-specifier|public
-name|boolean
-name|isUseVersion102
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|isUseVersion102
 argument_list|()
 return|;
 block|}
@@ -3350,24 +3319,6 @@ name|replyToDestinationSelectorName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setRequestMapPurgePollTimeMillis (long requestMapPurgePollTimeMillis)
-specifier|public
-name|void
-name|setRequestMapPurgePollTimeMillis
-parameter_list|(
-name|long
-name|requestMapPurgePollTimeMillis
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setRequestMapPurgePollTimeMillis
-argument_list|(
-name|requestMapPurgePollTimeMillis
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|setRequestTimeout (long requestTimeout)
@@ -3579,27 +3530,6 @@ operator|.
 name|setUseMessageIDAsCorrelationID
 argument_list|(
 name|useMessageIDAsCorrelationID
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
-DECL|method|setUseVersion102 (boolean useVersion102)
-specifier|public
-name|void
-name|setUseVersion102
-parameter_list|(
-name|boolean
-name|useVersion102
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setUseVersion102
-argument_list|(
-name|useVersion102
 argument_list|)
 expr_stmt|;
 block|}

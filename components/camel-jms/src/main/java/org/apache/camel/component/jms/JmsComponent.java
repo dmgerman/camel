@@ -1533,27 +1533,6 @@ name|transferException
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.2      */
-annotation|@
-name|Deprecated
-DECL|method|setUseVersion102 (boolean useVersion102)
-specifier|public
-name|void
-name|setUseVersion102
-parameter_list|(
-name|boolean
-name|useVersion102
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setUseVersion102
-argument_list|(
-name|useVersion102
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|setJmsOperations (JmsOperations jmsOperations)
 specifier|public
 name|void
