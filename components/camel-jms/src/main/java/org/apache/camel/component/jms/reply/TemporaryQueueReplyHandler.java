@@ -161,8 +161,7 @@ name|Message
 name|reply
 parameter_list|)
 block|{
-comment|// create holder object with the reply and add to task queue so we can process the reply and continue
-comment|// route the exchange using the async routing engine
+comment|// create holder object with the the reply
 name|ReplyHolder
 name|holder
 init|=
@@ -178,7 +177,7 @@ argument_list|,
 name|reply
 argument_list|)
 decl_stmt|;
-comment|// process reply
+comment|// process the reply
 name|replyManager
 operator|.
 name|processReply
