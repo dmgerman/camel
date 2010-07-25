@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.requestor
+DECL|package|org.apache.camel.component.jms.reply
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|requestor
+name|reply
 package|;
 end_package
 
@@ -40,11 +40,15 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * A creator which can build the JMS message selector query string to use  * with a shared persistent reply-to queue, so we can select the correct messages we expect as replies.  */
+end_comment
+
 begin_class
-DECL|class|MessageSelectorProvider
+DECL|class|MessageSelectorCreator
 specifier|public
 class|class
-name|MessageSelectorProvider
+name|MessageSelectorCreator
 block|{
 DECL|field|correlationIds
 specifier|protected
@@ -68,9 +72,9 @@ specifier|protected
 name|StringBuilder
 name|expression
 decl_stmt|;
-DECL|method|MessageSelectorProvider ()
+DECL|method|MessageSelectorCreator ()
 specifier|public
-name|MessageSelectorProvider
+name|MessageSelectorCreator
 parameter_list|()
 block|{
 name|correlationIds
@@ -159,6 +163,25 @@ argument_list|(
 literal|"JMSCorrelationID='"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|correlationIds
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// no id's so use a dummy to select nothing
+name|expression
+operator|.
+name|append
+argument_list|(
+literal|"CamelDummyJmsMessageSelector'"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|boolean
 name|first
 init|=
@@ -220,6 +243,7 @@ name|first
 operator|=
 literal|false
 expr_stmt|;
+block|}
 block|}
 block|}
 name|dirty

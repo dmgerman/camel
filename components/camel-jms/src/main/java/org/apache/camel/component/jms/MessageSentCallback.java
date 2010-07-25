@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.requestor
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|jms
-operator|.
-name|requestor
 package|;
 end_package
 
@@ -26,7 +24,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|JMSException
+name|Destination
 import|;
 end_import
 
@@ -40,80 +38,30 @@ name|Message
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
 begin_comment
-comment|/**  * An exception thrown if a response message from an InOut could not be processed  *  * @version $Revision$  */
+comment|/**  * Callback when a {@link Message} has been sent.  *  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|FailedToProcessResponse
+begin_interface
+DECL|interface|MessageSentCallback
 specifier|public
-class|class
-name|FailedToProcessResponse
-extends|extends
-name|RuntimeCamelException
+interface|interface
+name|MessageSentCallback
 block|{
-DECL|field|response
-specifier|private
-specifier|final
-name|Message
-name|response
-decl_stmt|;
-DECL|method|FailedToProcessResponse (Message response, JMSException e)
-specifier|public
-name|FailedToProcessResponse
+comment|/**      * Callback when the message has been sent.      *      * @param message     the message      * @param destination the destination      */
+DECL|method|sent (Message message, Destination destination)
+name|void
+name|sent
 parameter_list|(
 name|Message
-name|response
+name|message
 parameter_list|,
-name|JMSException
-name|e
+name|Destination
+name|destination
 parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"Failed to process response: "
-operator|+
-name|e
-operator|+
-literal|". Message: "
-operator|+
-name|response
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|response
-operator|=
-name|response
-expr_stmt|;
+function_decl|;
 block|}
-comment|/**      * The response message which caused the exception      */
-DECL|method|getResponse ()
-specifier|public
-name|Message
-name|getResponse
-parameter_list|()
-block|{
-return|return
-name|response
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

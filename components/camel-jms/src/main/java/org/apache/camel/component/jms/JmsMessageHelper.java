@@ -509,6 +509,39 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message  the JMS message      * @param correlationId the correlation id      */
+DECL|method|setCorrelationId (Message message, String correlationId)
+specifier|public
+specifier|static
+name|void
+name|setCorrelationId
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|String
+name|correlationId
+parameter_list|)
+block|{
+try|try
+block|{
+name|message
+operator|.
+name|setJMSCorrelationID
+argument_list|(
+name|correlationId
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JMSException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 end_class
 

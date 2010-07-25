@@ -872,18 +872,6 @@ specifier|private
 name|JmsOperations
 name|metadataJmsOperations
 decl_stmt|;
-comment|// defines the component created temporary replyTo destination sharing strategy:
-comment|// possible values are: "component", "endpoint", "producer"
-comment|// component - a single temp queue is shared among all producers for a given component instance
-comment|// endpoint - a single temp queue is shared among all producers for a given endpoint instance
-comment|// producer - a single temp queue is created per producer
-DECL|field|replyToTempDestinationAffinity
-specifier|private
-name|String
-name|replyToTempDestinationAffinity
-init|=
-name|REPLYTO_TEMP_DEST_AFFINITY_PER_ENDPOINT
-decl_stmt|;
 DECL|field|replyToDestination
 specifier|private
 name|String
@@ -970,21 +958,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-DECL|interface|MessageSentCallback
-specifier|public
-specifier|static
-interface|interface
-name|MessageSentCallback
-block|{
-DECL|method|sent (Message message)
-name|void
-name|sent
-parameter_list|(
-name|Message
-name|message
-parameter_list|)
-function_decl|;
 block|}
 DECL|class|CamelJmsTemplate
 specifier|public
@@ -1320,6 +1293,27 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+operator|&&
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
+name|callback
+operator|.
+name|sent
+argument_list|(
+name|message
+argument_list|,
+name|destination
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Check commit - avoid commit call within a JTA transaction.
 if|if
 condition|(
@@ -1351,25 +1345,6 @@ operator|.
 name|closeMessageProducer
 argument_list|(
 name|producer
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|message
-operator|!=
-literal|null
-operator|&&
-name|callback
-operator|!=
-literal|null
-condition|)
-block|{
-name|callback
-operator|.
-name|sent
-argument_list|(
-name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -1970,6 +1945,27 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+operator|&&
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
+name|callback
+operator|.
+name|sent
+argument_list|(
+name|message
+argument_list|,
+name|destination
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Check commit - avoid commit call within a JTA transaction.
 if|if
 condition|(
@@ -2001,25 +1997,6 @@ operator|.
 name|closeMessageProducer
 argument_list|(
 name|producer
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|message
-operator|!=
-literal|null
-operator|&&
-name|callback
-operator|!=
-literal|null
-condition|)
-block|{
-name|callback
-operator|.
-name|sent
-argument_list|(
-name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -3797,6 +3774,8 @@ name|consumerTransacted
 expr_stmt|;
 block|}
 comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *<p/>      * By default this is false as you need to commit the outgoing request before you can consume the input      */
+annotation|@
+name|Deprecated
 DECL|method|isTransactedInOut ()
 specifier|public
 name|boolean
@@ -3807,6 +3786,8 @@ return|return
 name|transactedInOut
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setTransactedInOut (boolean transactedInOut)
 specifier|public
 name|void
@@ -5029,32 +5010,6 @@ operator|.
 name|useMessageIDAsCorrelationID
 operator|=
 name|useMessageIDAsCorrelationID
-expr_stmt|;
-block|}
-DECL|method|getReplyToTempDestinationAffinity ()
-specifier|public
-name|String
-name|getReplyToTempDestinationAffinity
-parameter_list|()
-block|{
-return|return
-name|replyToTempDestinationAffinity
-return|;
-block|}
-DECL|method|setReplyToTempDestinationAffinity (String replyToTempDestinationAffinity)
-specifier|public
-name|void
-name|setReplyToTempDestinationAffinity
-parameter_list|(
-name|String
-name|replyToTempDestinationAffinity
-parameter_list|)
-block|{
-name|this
-operator|.
-name|replyToTempDestinationAffinity
-operator|=
-name|replyToTempDestinationAffinity
 expr_stmt|;
 block|}
 DECL|method|getRequestTimeout ()

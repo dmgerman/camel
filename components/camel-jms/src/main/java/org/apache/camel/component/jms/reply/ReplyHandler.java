@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.requestor
+DECL|package|org.apache.camel.component.jms.reply
 package|package
 name|org
 operator|.
@@ -16,19 +16,9 @@ name|component
 operator|.
 name|jms
 operator|.
-name|requestor
+name|reply
 package|;
 end_package
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
-import|;
-end_import
 
 begin_import
 import|import
@@ -41,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Handles a reply.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -50,16 +40,26 @@ specifier|public
 interface|interface
 name|ReplyHandler
 block|{
-comment|/**      * Processes the message, returning true if this is the last method of a lifecycle      * so that the handler can be discarded      */
-DECL|method|handle (Message message)
-name|boolean
-name|handle
+comment|/**      * The reply message was received      *      * @param correlationId  the correlation id      * @param reply  the reply message      */
+DECL|method|onReply (String correlationId, Message reply)
+name|void
+name|onReply
 parameter_list|(
+name|String
+name|correlationId
+parameter_list|,
 name|Message
-name|message
+name|reply
 parameter_list|)
-throws|throws
-name|JMSException
+function_decl|;
+comment|/**      * The reply message was not received and a timeout triggered      *      * @param correlationId  the correlation id      */
+DECL|method|onTimeout (String correlationId)
+name|void
+name|onTimeout
+parameter_list|(
+name|String
+name|correlationId
+parameter_list|)
 function_decl|;
 block|}
 end_interface
