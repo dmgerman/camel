@@ -657,7 +657,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * @return true if this service is      */
+comment|/**      * @return true if this service is being started      */
 DECL|method|isStarting ()
 specifier|public
 name|boolean
@@ -671,7 +671,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * @return true if this service is in the process of closing      */
+comment|/**      * @return true if this service is in the process of stopping      */
 DECL|method|isStopping ()
 specifier|public
 name|boolean
@@ -685,7 +685,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * @return true if this service is closed      */
+comment|/**      * @return true if this service is stopped      */
 DECL|method|isStopped ()
 specifier|public
 name|boolean
