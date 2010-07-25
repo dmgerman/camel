@@ -398,15 +398,12 @@ name|noop
 init|=
 literal|false
 decl_stmt|;
-try|try
-block|{
-name|connectIfNecessary
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|loggedIn
 condition|)
+block|{
+try|try
 block|{
 name|noop
 operator|=
@@ -416,7 +413,6 @@ operator|.
 name|sendNoop
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -430,17 +426,18 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"preWriteCheck send noop success: "
 operator|+
@@ -448,7 +445,7 @@ name|noop
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if not alive then force a disconnect so we reconnect again
+comment|// if not alive then reconnect
 if|if
 condition|(
 operator|!
@@ -459,23 +456,26 @@ try|try
 block|{
 if|if
 condition|(
-name|log
-operator|.
-name|isDebugEnabled
+name|getEndpoint
 argument_list|()
+operator|.
+name|getMaximumReconnectAttempts
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"preWriteCheck forcing a disconnect as noop failed"
-argument_list|)
-expr_stmt|;
-block|}
-name|disconnect
+comment|// only use recoverable if we are allowed any re-connect attempts
+name|recoverableConnectIfNecessary
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -483,37 +483,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore for now as we will reconnect below
-block|}
-block|}
-name|recoverableConnectIfNecessary
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
 name|loggedIn
-condition|)
-block|{
+operator|=
+literal|false
+expr_stmt|;
 comment|// must be logged in to be able to upload the file
-name|String
-name|message
-init|=
-literal|"Cannot connect/login to: "
-operator|+
-name|getEndpoint
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-decl_stmt|;
 throw|throw
-operator|new
-name|GenericFileOperationFailedException
-argument_list|(
-name|message
-argument_list|)
+name|e
 throw|;
+block|}
 block|}
 block|}
 annotation|@
@@ -782,9 +760,6 @@ block|}
 name|RemoteFileConfiguration
 name|config
 init|=
-operator|(
-name|RemoteFileConfiguration
-operator|)
 name|getEndpoint
 argument_list|()
 operator|.

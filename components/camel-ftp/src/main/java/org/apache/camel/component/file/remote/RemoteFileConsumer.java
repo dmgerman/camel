@@ -222,6 +222,23 @@ name|loggedIn
 operator|=
 literal|false
 expr_stmt|;
+comment|// login failed should we thrown exception
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isThrowExceptionOnConnectFailed
+argument_list|()
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -232,7 +249,7 @@ block|{
 name|String
 name|message
 init|=
-literal|"Could not connect/login to: "
+literal|"Cannot connect/login to: "
 operator|+
 name|remoteServer
 argument_list|()
