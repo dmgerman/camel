@@ -120,6 +120,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateConsumerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -196,9 +208,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|DefaultCamelContext
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -210,9 +222,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|HeaderFilterStrategy
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -714,6 +740,17 @@ argument_list|,
 literal|"CamelDestination activate().... "
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|getLogger
@@ -761,21 +798,15 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// TODO: Is it okay just to log severe errors such as this?
-name|getLogger
-argument_list|()
-operator|.
-name|log
+throw|throw
+operator|new
+name|FailedToCreateConsumerException
 argument_list|(
-name|Level
-operator|.
-name|SEVERE
-argument_list|,
-literal|"Camel connect failed with Exception : "
+name|destinationEndpoint
 argument_list|,
 name|ex
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|deactivate ()
@@ -786,10 +817,12 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -798,7 +831,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: Is it okay just to log severe errors such as this?
 name|getLogger
 argument_list|()
 operator|.
@@ -806,9 +838,9 @@ name|log
 argument_list|(
 name|Level
 operator|.
-name|SEVERE
+name|WARNING
 argument_list|,
-literal|"Camel stop failed with Exception : "
+literal|"Error stopping consumer"
 argument_list|,
 name|e
 argument_list|)
@@ -839,97 +871,31 @@ name|deactivate
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getCamelTemplate ()
-specifier|public
-name|ProducerTemplate
-name|getCamelTemplate
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|camelTemplate
-operator|==
-literal|null
-condition|)
-block|{
-name|camelTemplate
-operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|createProducerTemplate
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|camelTemplate
-return|;
-block|}
-DECL|method|setCamelTemplate (ProducerTemplate template)
-specifier|public
-name|void
-name|setCamelTemplate
-parameter_list|(
-name|ProducerTemplate
-name|template
-parameter_list|)
-block|{
-name|camelTemplate
-operator|=
-name|template
-expr_stmt|;
-block|}
-DECL|method|setCamelContext (CamelContext context)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|camelContext
-operator|=
-name|context
-expr_stmt|;
-block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
-if|if
-condition|(
-name|camelContext
-operator|==
-literal|null
-condition|)
-block|{
-name|getLogger
-argument_list|()
-operator|.
-name|log
-argument_list|(
-name|Level
-operator|.
-name|INFO
-argument_list|,
-literal|"No CamelContext injected, create a default one"
-argument_list|)
-expr_stmt|;
-name|camelContext
-operator|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|camelContext
 return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 block|}
 DECL|method|incoming (org.apache.camel.Exchange camelExchange)
 specifier|protected
@@ -1006,7 +972,7 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// Handling the incoming message
-comment|// The response message will be send back by the outgoingchain
+comment|// The response message will be send back by the outgoing chain
 name|incomingObserver
 operator|.
 name|onMessage
@@ -1317,7 +1283,6 @@ return|return
 name|conduitInitiator
 return|;
 block|}
-comment|/**      * @param outMessage      * @param camelExchange      */
 DECL|method|propagateResponseHeadersToCamel (Message outMessage, Exchange camelExchange)
 specifier|protected
 name|void

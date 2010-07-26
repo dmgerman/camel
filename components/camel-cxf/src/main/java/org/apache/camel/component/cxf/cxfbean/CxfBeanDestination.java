@@ -247,7 +247,10 @@ name|IOException
 block|{
 name|super
 argument_list|(
-literal|null
+name|cxfBeanComponent
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|bus
 argument_list|,

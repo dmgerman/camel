@@ -350,12 +350,7 @@ condition|)
 block|{
 name|exception
 operator|=
-operator|(
-operator|(
-name|RuntimeCamelException
-operator|)
 name|exception
-operator|)
 operator|.
 name|getCause
 argument_list|()

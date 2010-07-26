@@ -689,7 +689,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param cxfBeanComponent       *       */
 DECL|method|registerTransportFactory (CxfBeanComponent cxfBeanComponent)
 specifier|private
 name|void

@@ -1093,7 +1093,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * Create a client factory bean object.  Notice that the serviceClass<b>must</b> be      * an interface.      */
+comment|/**      * Create a client factory bean object.  Notice that the serviceClass<b>must</b> be      * an interface.      */
 DECL|method|createClientFactoryBean (Class<?> cls)
 specifier|protected
 name|ClientProxyFactoryBean
@@ -1187,7 +1187,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      *       * Create a client factory bean object without serviceClass interface.      */
+comment|/**      * Create a client factory bean object without serviceClass interface.      */
 DECL|method|createClientFactoryBean ()
 specifier|protected
 name|ClientFactoryBean
@@ -1313,7 +1313,7 @@ name|createBus
 argument_list|()
 return|;
 block|}
-comment|/**      *       * Populate a client factory bean      */
+comment|/**      * Populate a client factory bean      */
 DECL|method|setupClientFactoryBean (ClientProxyFactoryBean factoryBean, Class<?> cls)
 specifier|protected
 name|void
@@ -2572,7 +2572,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD}      * mode.      */
+comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD} mode.      */
 DECL|class|CamelCxfClientImpl
 class|class
 name|CamelCxfClientImpl

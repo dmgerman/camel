@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filter the wire message headers from one CXF endpoint to another CXF endpoint  *  */
+comment|/**  * Filter the wire message headers from one CXF endpoint to another CXF endpoint  */
 end_comment
 
 begin_interface

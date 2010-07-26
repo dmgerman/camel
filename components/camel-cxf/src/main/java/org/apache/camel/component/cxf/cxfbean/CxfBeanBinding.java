@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.   *   * @version $Revision$  */
+comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -70,7 +70,7 @@ specifier|public
 interface|interface
 name|CxfBeanBinding
 block|{
-comment|/**      * Create a CXF {@link Message} from a Camel exchange.      *       * @param camelExchange      * @param headerFilterStrategy      */
+comment|/**      * Create a CXF {@link Message} from a Camel exchange.      */
 DECL|method|createCxfMessageFromCamelExchange (Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
 name|Message
 name|createCxfMessageFromCamelExchange
@@ -82,7 +82,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Given a CXF out/response Message, this method propagates response headers to a       * Camel exchange.      *       * @param cxfMessage      * @param camelExchange      * @param headerFilterStrategy      */
+comment|/**      * Given a CXF out/response Message, this method propagates response headers to a      * Camel exchange.      */
 DECL|method|propagateResponseHeadersToCamel (Message cxfMessage, Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
 name|void
 name|propagateResponseHeadersToCamel

@@ -579,7 +579,7 @@ name|headerFilterStrategy
 decl_stmt|;
 comment|// CxfBinding Methods
 comment|// -------------------------------------------------------------------------
-comment|/**      *<p>      * This method is called by {@link CxfProducer#process(Exchange)}. It populates       * the CXF exchange and invocation context (i.e. request/response) contexts, it       * but does not create and populate a CXF message as a ClientImpl's invoke method      * will create a new CXF Message.  That method will put all properties from the       * CXF exchange and request context to the CXF message.      *</p>      */
+comment|/**      * This method is called by {@link CxfProducer#process(Exchange)}. It populates      * the CXF exchange and invocation context (i.e. request/response) contexts, it       * but does not create and populate a CXF message as a ClientImpl's invoke method      * will create a new CXF Message.  That method will put all properties from the       * CXF exchange and request context to the CXF message.      */
 DECL|method|populateCxfRequestFromExchange ( org.apache.cxf.message.Exchange cxfExchange, Exchange camelExchange, Map<String, Object> requestContext)
 specifier|public
 name|void
@@ -2254,7 +2254,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * @param camelExchange      * @param cxfContext Request or Response context      * @param camelHeaders       * @param contextKey       */
+comment|/**      * @param camelExchange      * @param cxfContext Request or Response context      * @param camelHeaders      * @param contextKey      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

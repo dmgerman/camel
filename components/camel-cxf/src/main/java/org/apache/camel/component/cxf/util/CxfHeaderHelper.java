@@ -145,7 +145,7 @@ specifier|private
 name|CxfHeaderHelper
 parameter_list|()
 block|{     }
-comment|/**      * Progagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      * @param exchange provides context for filtering      */
+comment|/**      * Propagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF message      * @param exchange provides context for filtering      */
 DECL|method|propagateCamelToCxf (HeaderFilterStrategy strategy, Map<String, Object> headers, Message message, Exchange exchange)
 specifier|public
 specifier|static

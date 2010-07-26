@@ -196,7 +196,6 @@ name|endpointInfo
 argument_list|)
 return|;
 block|}
-comment|/**      * @param cxfBeanComponent      */
 DECL|method|setCxfBeanComponent (CxfBeanComponent cxfBeanComponent)
 specifier|public
 name|void

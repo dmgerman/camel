@@ -120,18 +120,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Producer
 import|;
 end_import
@@ -1346,6 +1334,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Represented decoupled response endpoint.      */
+comment|// TODO: This class is not used
+annotation|@
+name|Deprecated
 DECL|class|DecoupledDestination
 specifier|protected
 class|class

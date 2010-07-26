@@ -1302,7 +1302,7 @@ name|request
 return|;
 block|}
 comment|/**      * We will return an empty Map unless the response parameter is a {@link Response} object.       */
-DECL|method|bindResponseHeadersToCamelHeaders (Object response, Exchange exchange)
+DECL|method|bindResponseHeadersToCamelHeaders (Object response, Exchange camelExchange)
 specifier|public
 name|Map
 argument_list|<
@@ -1316,7 +1316,7 @@ name|Object
 name|response
 parameter_list|,
 name|Exchange
-name|exchange
+name|camelExchange
 parameter_list|)
 throws|throws
 name|Exception
@@ -1391,7 +1391,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|exchange
+name|camelExchange
 argument_list|)
 condition|)
 block|{

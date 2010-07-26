@@ -357,6 +357,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|// TODO: This method is not used
+annotation|@
+name|Deprecated
 DECL|method|getCxfOutMessage (HeaderFilterStrategy headerFilterStrategy, org.apache.camel.Exchange exchange, boolean isClient)
 specifier|public
 specifier|static

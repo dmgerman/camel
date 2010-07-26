@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** This factoryBean which can help user to choice CXF components that he wants bus to load   *  without needing to import bunch of CXF packages in OSGi bundle, as the SpringBusFactory   *  will try to load the bus extensions with the CXF bundle classloader.  *  You can set the CXF extensions files with ; as the separator to create a bus.  * */
+comment|/**  * This factoryBean which can help user to choice CXF components that he wants bus to load  * without needing to import bunch of CXF packages in OSGi bundle, as the SpringBusFactory  * will try to load the bus extensions with the CXF bundle classloader.  * You can set the CXF extensions files with ; as the separator to create a bus.  */
 end_comment
 
 begin_class
