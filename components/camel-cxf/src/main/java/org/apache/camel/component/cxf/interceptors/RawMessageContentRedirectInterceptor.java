@@ -279,17 +279,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|os
-argument_list|,
-literal|"output stream"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
+comment|// Should not close the output stream as the interceptor chain will close it
 block|}
 block|}
 block|}

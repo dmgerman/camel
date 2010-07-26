@@ -249,13 +249,8 @@ index|[]
 name|res
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Handling response +++ START +++"
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|super
 operator|.
 name|handleResponse
@@ -313,14 +308,33 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: callback should be in finally to ensure its invoked
+block|}
+finally|finally
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|trace
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Handling response +++ DONE +++"
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"calling handleResponse"
 argument_list|)
 expr_stmt|;
+block|}
 name|camelAsyncCallback
 operator|.
 name|done
@@ -328,13 +342,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Handling response +++ END +++"
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 DECL|method|handleException (Map<String, Object> ctx, Throwable ex)
 specifier|public
@@ -353,13 +361,8 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Handling exception +++ START +++"
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|super
 operator|.
 name|handleException
@@ -376,14 +379,33 @@ argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
-comment|// TODO: callback should be in finally to ensure its invoked
+block|}
+finally|finally
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|trace
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Handling response +++ DONE +++"
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"calling handleException"
 argument_list|)
 expr_stmt|;
+block|}
 name|camelAsyncCallback
 operator|.
 name|done
@@ -391,13 +413,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Handling response +++ END +++"
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class
