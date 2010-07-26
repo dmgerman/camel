@@ -62,20 +62,6 @@ name|cxf
 operator|.
 name|endpoint
 operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|endpoint
-operator|.
 name|ClientCallback
 import|;
 end_import
@@ -219,6 +205,8 @@ index|[]
 name|res
 parameter_list|)
 block|{
+try|try
+block|{
 name|super
 operator|.
 name|handleResponse
@@ -276,6 +264,9 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|camelAsyncCallback
 operator|.
 name|done
@@ -283,6 +274,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|handleException (Map<String, Object> ctx, Throwable ex)
 specifier|public
@@ -301,6 +293,8 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
+try|try
+block|{
 name|super
 operator|.
 name|handleException
@@ -310,6 +304,9 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|camelExchange
 operator|.
 name|setException
@@ -324,6 +321,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

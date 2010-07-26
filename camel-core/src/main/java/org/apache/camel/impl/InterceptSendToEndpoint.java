@@ -920,6 +920,34 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|delegate
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|delegate
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

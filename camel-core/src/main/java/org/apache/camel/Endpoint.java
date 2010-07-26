@@ -35,6 +35,8 @@ interface|interface
 name|Endpoint
 extends|extends
 name|IsSingleton
+extends|,
+name|Service
 block|{
 comment|/**      * Returns the string representation of the endpoint URI      *      * @return the endpoint URI      */
 DECL|method|getEndpointUri ()

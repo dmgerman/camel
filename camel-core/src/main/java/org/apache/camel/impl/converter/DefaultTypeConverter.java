@@ -614,6 +614,23 @@ name|Object
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|this
+operator|+
+literal|" is not started"
+argument_list|)
+throw|;
+block|}
 name|Object
 name|answer
 decl_stmt|;
@@ -803,6 +820,23 @@ parameter_list|)
 throws|throws
 name|NoTypeConversionAvailableException
 block|{
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|this
+operator|+
+literal|" is not started"
+argument_list|)
+throw|;
+block|}
 name|Object
 name|answer
 decl_stmt|;
