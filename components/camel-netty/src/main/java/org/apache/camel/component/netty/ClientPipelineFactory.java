@@ -320,7 +320,6 @@ expr_stmt|;
 block|}
 DECL|method|getPipeline ()
 specifier|public
-specifier|synchronized
 name|ChannelPipeline
 name|getPipeline
 parameter_list|()
