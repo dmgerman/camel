@@ -480,6 +480,13 @@ name|context
 argument_list|)
 expr_stmt|;
 comment|// send Camel exchange to the target processor
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing +++ START +++"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|getProcessor
@@ -505,6 +512,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing +++ END +++"
+argument_list|)
+expr_stmt|;
 name|checkFailure
 argument_list|(
 name|camelExchange
