@@ -58,6 +58,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|endpoint
@@ -90,6 +118,22 @@ name|CxfClientCallback
 extends|extends
 name|ClientCallback
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|CxfClientCallback
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|camelAsyncCallback
 specifier|private
 specifier|final
@@ -205,8 +249,13 @@ index|[]
 name|res
 parameter_list|)
 block|{
-try|try
-block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling response +++ START +++"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|handleResponse
@@ -264,9 +313,14 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
+comment|// TODO: callback should be in finally to ensure its invoked
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling response +++ DONE +++"
+argument_list|)
+expr_stmt|;
 name|camelAsyncCallback
 operator|.
 name|done
@@ -274,7 +328,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling response +++ END +++"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|handleException (Map<String, Object> ctx, Throwable ex)
 specifier|public
@@ -293,8 +353,13 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
-try|try
-block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling exception +++ START +++"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|handleException
@@ -304,14 +369,19 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
 name|camelExchange
 operator|.
 name|setException
 argument_list|(
 name|ex
+argument_list|)
+expr_stmt|;
+comment|// TODO: callback should be in finally to ensure its invoked
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling response +++ DONE +++"
 argument_list|)
 expr_stmt|;
 name|camelAsyncCallback
@@ -321,7 +391,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Handling response +++ END +++"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
