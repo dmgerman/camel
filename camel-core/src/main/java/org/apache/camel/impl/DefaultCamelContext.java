@@ -6289,6 +6289,19 @@ comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
 argument_list|()
 expr_stmt|;
+comment|// reset values (mark routes as not initialized so they can be started again)
+name|routeDefinitionInitiated
+operator|=
+literal|false
+expr_stmt|;
+name|firstStartDone
+operator|=
+literal|false
+expr_stmt|;
+name|defaultRouteStartupOrder
+operator|=
+literal|1000
+expr_stmt|;
 name|stopWatch
 operator|.
 name|stop
