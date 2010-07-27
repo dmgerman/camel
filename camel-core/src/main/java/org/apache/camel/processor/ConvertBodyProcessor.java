@@ -52,6 +52,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|IOConverter
+import|;
+end_import
+
 begin_comment
 comment|/**  * A processor which converts the payload of the input message to be of the given type  *<p/>  * If the convertions fails an {@link org.apache.camel.InvalidPayloadException} is thrown.  *  * @version $Revision$  */
 end_comment
@@ -183,7 +197,12 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
+name|IOConverter
+operator|.
+name|normalizeCharset
+argument_list|(
 name|charset
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

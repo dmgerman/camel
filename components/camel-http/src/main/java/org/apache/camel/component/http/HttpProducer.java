@@ -1400,7 +1400,12 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
+name|IOConverter
+operator|.
+name|normalizeCharset
+argument_list|(
 name|charset
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -1049,6 +1049,10 @@ block|{
 name|String
 name|charset
 init|=
+name|IOConverter
+operator|.
+name|normalizeCharset
+argument_list|(
 name|ObjectHelper
 operator|.
 name|after
@@ -1056,6 +1060,7 @@ argument_list|(
 name|after
 argument_list|,
 literal|"="
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
