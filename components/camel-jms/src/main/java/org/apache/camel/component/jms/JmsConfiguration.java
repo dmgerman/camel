@@ -605,7 +605,7 @@ specifier|private
 name|int
 name|maxConcurrentConsumers
 init|=
-literal|1
+literal|0
 decl_stmt|;
 comment|// JmsTemplate only
 DECL|field|explicitQosEnabled
@@ -3573,10 +3573,31 @@ block|}
 if|if
 condition|(
 name|maxConcurrentConsumers
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|maxConcurrentConsumers
+operator|<
+name|concurrentConsumers
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property maxConcurrentConsumers: "
+operator|+
+name|maxConcurrentConsumers
+operator|+
+literal|" must be higher than concurrentConsumers: "
+operator|+
+name|concurrentConsumers
+argument_list|)
+throw|;
+block|}
 name|listenerContainer
 operator|.
 name|setMaxConcurrentConsumers

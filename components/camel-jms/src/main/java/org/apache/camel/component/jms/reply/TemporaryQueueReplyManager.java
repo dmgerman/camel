@@ -551,10 +551,7 @@ name|answer
 operator|.
 name|setConcurrentConsumers
 argument_list|(
-name|endpoint
-operator|.
-name|getConcurrentConsumers
-argument_list|()
+literal|1
 argument_list|)
 expr_stmt|;
 name|answer
@@ -565,6 +562,13 @@ name|endpoint
 operator|.
 name|getConnectionFactory
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setSessionTransacted
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|String
