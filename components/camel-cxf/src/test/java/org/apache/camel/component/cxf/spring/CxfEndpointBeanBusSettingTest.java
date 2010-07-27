@@ -132,6 +132,18 @@ argument_list|(
 literal|"cxf:bean:routerEndpoint"
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong endpoint uri"
+argument_list|,
+literal|"cxf://bean:routerEndpoint"
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Bus
 name|cxf1
 init|=
@@ -176,6 +188,18 @@ operator|.
 name|getEndpoint
 argument_list|(
 literal|"cxf:bean:serviceEndpoint"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong endpoint uri"
+argument_list|,
+literal|"cxf://bean:serviceEndpoint"
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Bus

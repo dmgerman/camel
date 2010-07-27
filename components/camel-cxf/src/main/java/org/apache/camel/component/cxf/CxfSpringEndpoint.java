@@ -363,6 +363,7 @@ name|bean
 argument_list|)
 expr_stmt|;
 block|}
+comment|// override the
 DECL|method|init (CxfEndpointBean bean)
 specifier|private
 name|void

@@ -748,6 +748,11 @@ specifier|private
 name|boolean
 name|loggingFeatureEnabled
 decl_stmt|;
+DECL|field|address
+specifier|private
+name|String
+name|address
+decl_stmt|;
 DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
@@ -764,6 +769,11 @@ argument_list|(
 name|remaining
 argument_list|,
 name|cxfComponent
+argument_list|)
+expr_stmt|;
+name|setAddress
+argument_list|(
+name|remaining
 argument_list|)
 expr_stmt|;
 block|}
@@ -783,6 +793,28 @@ argument_list|(
 name|remaining
 argument_list|,
 name|context
+argument_list|)
+expr_stmt|;
+name|setAddress
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+block|}
+comment|// This path is for CxfComponent setting the EndpointUri
+DECL|method|updateEndpointUri (String endpointUri)
+name|void
+name|updateEndpointUri
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setEndpointUri
+argument_list|(
+name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
@@ -854,7 +886,7 @@ name|sfb
 operator|.
 name|setAddress
 argument_list|(
-name|getEndpointUri
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1342,7 +1374,7 @@ name|factoryBean
 operator|.
 name|setAddress
 argument_list|(
-name|getEndpointUri
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1529,7 +1561,7 @@ name|factoryBean
 operator|.
 name|setAddress
 argument_list|(
-name|getEndpointUri
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2571,6 +2603,32 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+DECL|method|setAddress (String address)
+specifier|public
+name|void
+name|setAddress
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|this
+operator|.
+name|address
+operator|=
+name|address
+expr_stmt|;
+block|}
+DECL|method|getAddress ()
+specifier|public
+name|String
+name|getAddress
+parameter_list|()
+block|{
+return|return
+name|address
+return|;
 block|}
 comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD} mode.      */
 DECL|class|CamelCxfClientImpl
