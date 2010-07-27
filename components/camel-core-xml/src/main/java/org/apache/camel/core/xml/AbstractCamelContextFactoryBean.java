@@ -1911,6 +1911,12 @@ name|getRoutes
 argument_list|()
 control|)
 block|{
+comment|// at first init the parent
+name|initParent
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 comment|// abstracts is the cross cutting concerns
 name|List
 argument_list|<
@@ -2007,7 +2013,7 @@ argument_list|()
 operator|.
 name|addAll
 argument_list|(
-name|upper
+name|lower
 argument_list|)
 expr_stmt|;
 name|route
@@ -2017,13 +2023,9 @@ argument_list|()
 operator|.
 name|addAll
 argument_list|(
-name|lower
-argument_list|)
-expr_stmt|;
-comment|// configure parents
-name|initParent
-argument_list|(
-name|route
+literal|0
+argument_list|,
+name|upper
 argument_list|)
 expr_stmt|;
 block|}
@@ -2301,6 +2303,21 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// init the parent
+for|for
+control|(
+name|OnExceptionDefinition
+name|global
+range|:
+name|onExceptions
+control|)
+block|{
+name|initParent
+argument_list|(
+name|global
+argument_list|)
+expr_stmt|;
+block|}
 name|abstracts
 operator|.
 name|addAll
@@ -2368,6 +2385,12 @@ name|intercept
 operator|.
 name|afterPropertiesSet
 argument_list|()
+expr_stmt|;
+comment|// init the parent
+name|initParent
+argument_list|(
+name|intercept
+argument_list|)
 expr_stmt|;
 comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
@@ -2458,6 +2481,12 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+comment|// init the parent
+name|initParent
+argument_list|(
+name|intercept
+argument_list|)
+expr_stmt|;
 comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|upper
@@ -2485,6 +2514,12 @@ name|intercept
 operator|.
 name|afterPropertiesSet
 argument_list|()
+expr_stmt|;
+comment|// init the parent
+name|initParent
+argument_list|(
+name|intercept
+argument_list|)
 expr_stmt|;
 comment|// add as first output so intercept is handled before the actual route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
@@ -2572,6 +2607,21 @@ operator|=
 name|getOnCompletions
 argument_list|()
 expr_stmt|;
+comment|// init the parent
+for|for
+control|(
+name|OnCompletionDefinition
+name|global
+range|:
+name|completions
+control|)
+block|{
+name|initParent
+argument_list|(
+name|global
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// are there any completions to init at all?
 if|if

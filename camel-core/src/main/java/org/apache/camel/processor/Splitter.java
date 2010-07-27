@@ -238,6 +238,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IOHelper
 import|;
 end_import
@@ -1048,6 +1062,14 @@ argument_list|>
 name|it
 parameter_list|)
 block|{
+comment|// do not share unit of work
+name|exchange
+operator|.
+name|setUnitOfWork
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setProperty

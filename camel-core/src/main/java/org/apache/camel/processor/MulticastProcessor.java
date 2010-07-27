@@ -513,7 +513,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @see Pipeline  * @version $Revision$  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @version $Revision$  * @see Pipeline  */
 end_comment
 
 begin_class
@@ -2504,7 +2504,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original      the original exchange      * @param subExchange   the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback      the callback      * @param doneSync      the<tt>doneSync</tt> parameter to call on callback      */
+comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      */
 DECL|method|doDone (Exchange original, Exchange subExchange, AsyncCallback callback, boolean doneSync)
 specifier|protected
 name|void
@@ -2586,7 +2586,7 @@ name|doneSync
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param strategy the aggregation strategy to use      * @param result the current result      * @param exchange the exchange to be added to the result      */
+comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      */
 DECL|method|doAggregate (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -2763,14 +2763,6 @@ range|:
 name|processors
 control|)
 block|{
-name|Exchange
-name|copy
-init|=
-name|exchange
-operator|.
-name|copy
-argument_list|()
-decl_stmt|;
 name|result
 operator|.
 name|add
@@ -2782,7 +2774,7 @@ operator|++
 argument_list|,
 name|processor
 argument_list|,
-name|copy
+name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2791,7 +2783,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Creates the {@link ProcessorExchangePair} which holds the processor and exchange to be send out.      *<p/>      * You<b>must</b> use this method to create the instances of {@link ProcessorExchangePair} as they      * need to be specially prepared before use.      *      * @param processor  the processor      * @param exchange   the exchange      * @return prepared for use      */
+comment|/**      * Creates the {@link ProcessorExchangePair} which holds the processor and exchange to be send out.      *<p/>      * You<b>must</b> use this method to create the instances of {@link ProcessorExchangePair} as they      * need to be specially prepared before use.      *      * @param processor the processor      * @param exchange  the exchange      * @return prepared for use      */
 DECL|method|createProcessorExchangePair (int index, Processor processor, Exchange exchange)
 specifier|protected
 name|ProcessorExchangePair
@@ -2812,10 +2804,23 @@ name|prepared
 init|=
 name|processor
 decl_stmt|;
+comment|// copy exchange, and do not share the unit of work
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// set property which endpoint we send to
 name|setToEndpoint
 argument_list|(
-name|exchange
+name|copy
 argument_list|,
 name|prepared
 argument_list|)
@@ -2882,6 +2887,15 @@ argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
+comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
+name|prepared
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|prepared
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2909,7 +2923,7 @@ name|processor
 argument_list|,
 name|prepared
 argument_list|,
-name|exchange
+name|copy
 argument_list|)
 return|;
 block|}
@@ -3054,7 +3068,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
+comment|/**      * Is the multicast processor working in streaming mode?      *<p/>      * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()
 specifier|public
 name|boolean

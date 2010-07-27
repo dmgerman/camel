@@ -822,14 +822,6 @@ throw|;
 block|}
 block|}
 comment|// then create the exchange pair
-name|Exchange
-name|copy
-init|=
-name|exchange
-operator|.
-name|copy
-argument_list|()
-decl_stmt|;
 name|result
 operator|.
 name|add
@@ -843,7 +835,7 @@ name|endpoint
 argument_list|,
 name|producer
 argument_list|,
-name|copy
+name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -876,10 +868,23 @@ name|prepared
 init|=
 name|producer
 decl_stmt|;
+comment|// copy exchange, and do not share the unit of work
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// set property which endpoint we send to
 name|setToEndpoint
 argument_list|(
-name|exchange
+name|copy
 argument_list|,
 name|prepared
 argument_list|)
@@ -946,6 +951,15 @@ argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
+comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
+name|prepared
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|prepared
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -977,7 +991,7 @@ name|producer
 argument_list|,
 name|prepared
 argument_list|,
-name|exchange
+name|copy
 argument_list|)
 return|;
 block|}

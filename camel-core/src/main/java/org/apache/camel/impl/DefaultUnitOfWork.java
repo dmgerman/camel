@@ -349,6 +349,31 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"UnitOfWork created for ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" with "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|tracedRouteNodes
 operator|=
 operator|new
@@ -716,7 +741,7 @@ literal|"Handover synchronization "
 operator|+
 name|synchronization
 operator|+
-literal|" to Exchange: "
+literal|" to: "
 operator|+
 name|target
 argument_list|)
@@ -773,6 +798,31 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"UnitOfWork done for ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" with "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|failed
 init|=
@@ -884,6 +934,28 @@ condition|(
 name|failed
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Invoking synchronization.onFailure: "
+operator|+
+name|synchronization
+operator|+
+literal|" with "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|synchronization
 operator|.
 name|onFailure
@@ -894,6 +966,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Invoking synchronization.onComplete: "
+operator|+
+name|synchronization
+operator|+
+literal|" with "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|synchronization
 operator|.
 name|onComplete
