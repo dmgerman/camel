@@ -84,6 +84,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|endpointUri
+init|=
+literal|"cxfrs://http://localhost:9000"
+operator|+
+literal|"?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService, "
+operator|+
+literal|"java.lang.String ; org.apache.camel.component.cxf.jaxrs.testbean.Order"
+decl_stmt|;
 name|CxfRsComponent
 name|component
 init|=
@@ -103,11 +112,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"cxfrs://http://localhost:9000"
-operator|+
-literal|"?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService, "
-operator|+
-literal|"java.lang.String ; org.apache.camel.component.cxf.jaxrs.testbean.Order"
+name|endpointUri
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -121,7 +126,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong address "
 argument_list|,
-literal|"http://localhost:9000"
+name|endpointUri
 argument_list|,
 name|endpoint
 operator|.
@@ -202,7 +207,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong URI "
 argument_list|,
-literal|"http://localhost:9000/templatetest/TID/ranges/start=0;end=1"
+literal|"cxfrs://http://localhost:9000/templatetest/TID/ranges/start=0;end=1?httpClientAPI=true&q1=11&q2=12"
 argument_list|,
 name|endpoint
 operator|.

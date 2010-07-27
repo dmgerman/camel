@@ -801,8 +801,9 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
-comment|// This path is for CxfComponent setting the EndpointUri
+comment|// This method is for CxfComponent setting the EndpointUri
 DECL|method|updateEndpointUri (String endpointUri)
+specifier|protected
 name|void
 name|updateEndpointUri
 parameter_list|(

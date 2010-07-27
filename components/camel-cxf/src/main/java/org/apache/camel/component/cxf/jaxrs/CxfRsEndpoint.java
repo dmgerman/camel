@@ -342,6 +342,11 @@ name|httpClientAPI
 init|=
 literal|true
 decl_stmt|;
+DECL|field|address
+specifier|private
+name|String
+name|address
+decl_stmt|;
 DECL|field|bindingInitialized
 specifier|private
 name|AtomicBoolean
@@ -371,6 +376,11 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|setAddress
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|CxfRsEndpoint (String endpointUri, Component component)
 specifier|public
@@ -388,6 +398,29 @@ argument_list|(
 name|endpointUri
 argument_list|,
 name|component
+argument_list|)
+expr_stmt|;
+name|setAddress
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
+comment|// This method is for CxfRsComponent setting the EndpointUri
+DECL|method|updateEndpointUri (String endpointUri)
+specifier|protected
+name|void
+name|updateEndpointUri
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setEndpointUri
+argument_list|(
+name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,7 +725,7 @@ name|sfb
 operator|.
 name|setAddress
 argument_list|(
-name|getEndpointUri
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -735,7 +768,7 @@ name|cfb
 operator|.
 name|setAddress
 argument_list|(
-name|getEndpointUri
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -865,6 +898,32 @@ name|classes
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setAddress (String address)
+specifier|public
+name|void
+name|setAddress
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|this
+operator|.
+name|address
+operator|=
+name|address
+expr_stmt|;
+block|}
+DECL|method|getAddress ()
+specifier|public
+name|String
+name|getAddress
+parameter_list|()
+block|{
+return|return
+name|address
+return|;
 block|}
 block|}
 end_class
