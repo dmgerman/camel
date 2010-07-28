@@ -1701,6 +1701,16 @@ name|done
 init|=
 literal|false
 decl_stmt|;
+name|long
+name|loopDelaySeconds
+init|=
+literal|1
+decl_stmt|;
+name|long
+name|loopCount
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -1820,13 +1830,39 @@ literal|"Waiting as there are still "
 operator|+
 name|size
 operator|+
-literal|" inflight and pending exchanges to complete before we can shutdown"
+literal|" inflight and pending exchanges to complete, timeout in "
+operator|+
+operator|(
+name|TimeUnit
+operator|.
+name|SECONDS
+operator|.
+name|convert
+argument_list|(
+name|getTimeout
+argument_list|()
+argument_list|,
+name|getTimeUnit
+argument_list|()
+argument_list|)
+operator|-
+operator|(
+name|loopCount
+operator|++
+operator|*
+name|loopDelaySeconds
+operator|)
+operator|)
+operator|+
+literal|" seconds."
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
+name|loopDelaySeconds
+operator|*
 literal|1000
 argument_list|)
 expr_stmt|;
