@@ -293,6 +293,11 @@ specifier|private
 name|boolean
 name|ignoreInvalidEndpoints
 decl_stmt|;
+DECL|field|streaming
+specifier|private
+name|boolean
+name|streaming
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
@@ -598,7 +603,8 @@ argument_list|,
 name|getExecutorService
 argument_list|()
 argument_list|,
-literal|false
+name|isStreaming
+argument_list|()
 argument_list|,
 name|isStopOnException
 argument_list|()
@@ -726,6 +732,32 @@ name|stopService
 argument_list|(
 name|producerCache
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isStreaming ()
+specifier|public
+name|boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+return|;
+block|}
+DECL|method|setStreaming (boolean streaming)
+specifier|public
+name|void
+name|setStreaming
+parameter_list|(
+name|boolean
+name|streaming
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streaming
+operator|=
+name|streaming
 expr_stmt|;
 block|}
 DECL|method|isIgnoreInvalidEndpoints ()

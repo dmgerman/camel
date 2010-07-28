@@ -140,6 +140,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+DECL|method|streaming ()
+DECL|field|false
+name|boolean
+name|streaming
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 DECL|method|ignoreInvalidEndpoints ()
 DECL|field|false
 name|boolean

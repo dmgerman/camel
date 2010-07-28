@@ -782,6 +782,16 @@ name|parallelProcessing
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|recipientList
+operator|.
+name|setStreaming
+argument_list|(
+name|annotation
+operator|.
+name|streaming
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
