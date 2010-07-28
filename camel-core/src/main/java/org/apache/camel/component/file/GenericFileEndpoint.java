@@ -382,6 +382,16 @@ name|autoCreate
 init|=
 literal|true
 decl_stmt|;
+DECL|field|startingDirectoryMustExist
+specifier|protected
+name|boolean
+name|startingDirectoryMustExist
+decl_stmt|;
+DECL|field|directoryMustExist
+specifier|protected
+name|boolean
+name|directoryMustExist
+decl_stmt|;
 DECL|field|bufferSize
 specifier|protected
 name|int
@@ -1819,6 +1829,58 @@ operator|.
 name|autoCreate
 operator|=
 name|autoCreate
+expr_stmt|;
+block|}
+DECL|method|isStartingDirectoryMustExist ()
+specifier|public
+name|boolean
+name|isStartingDirectoryMustExist
+parameter_list|()
+block|{
+return|return
+name|startingDirectoryMustExist
+return|;
+block|}
+DECL|method|setStartingDirectoryMustExist (boolean startingDirectoryMustExist)
+specifier|public
+name|void
+name|setStartingDirectoryMustExist
+parameter_list|(
+name|boolean
+name|startingDirectoryMustExist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startingDirectoryMustExist
+operator|=
+name|startingDirectoryMustExist
+expr_stmt|;
+block|}
+DECL|method|isDirectoryMustExist ()
+specifier|public
+name|boolean
+name|isDirectoryMustExist
+parameter_list|()
+block|{
+return|return
+name|directoryMustExist
+return|;
+block|}
+DECL|method|setDirectoryMustExist (boolean directoryMustExist)
+specifier|public
+name|void
+name|setDirectoryMustExist
+parameter_list|(
+name|boolean
+name|directoryMustExist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|directoryMustExist
+operator|=
+name|directoryMustExist
 expr_stmt|;
 block|}
 DECL|method|getProcessStrategy ()

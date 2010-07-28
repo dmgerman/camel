@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +59,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|FailedToCreateConsumerException
 import|;
 end_import
 
@@ -307,6 +329,23 @@ argument_list|,
 name|absolute
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isStartingDirectoryMustExist
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"Starting directory does not exist: "
+operator|+
+name|file
+argument_list|)
+throw|;
 block|}
 block|}
 name|FileConsumer
