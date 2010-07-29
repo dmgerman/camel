@@ -84,20 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ManagementStrategy
@@ -268,9 +254,6 @@ name|ServiceStatus
 name|status
 init|=
 operator|(
-operator|(
-name|ServiceSupport
-operator|)
 name|context
 operator|)
 operator|.
@@ -296,6 +279,26 @@ return|return
 name|status
 operator|.
 name|name
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Is Camel suspended"
+argument_list|)
+DECL|method|getSuspended ()
+specifier|public
+name|Boolean
+name|getSuspended
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isSuspended
 argument_list|()
 return|;
 block|}
@@ -615,6 +618,48 @@ block|{
 name|context
 operator|.
 name|stop
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Suspend Camel"
+argument_list|)
+DECL|method|suspend ()
+specifier|public
+name|void
+name|suspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|suspend
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Resume Camel"
+argument_list|)
+DECL|method|resume ()
+specifier|public
+name|void
+name|resume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|resume
 argument_list|()
 expr_stmt|;
 block|}

@@ -393,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
+comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The context offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> that {@link #stop()} and {@link #suspend()} will graceful stop/suspend routs ensureing any in progress  * messages is given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then its adviced to use the suspend/resume methods which ensures a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -402,7 +402,7 @@ specifier|public
 interface|interface
 name|CamelContext
 extends|extends
-name|Service
+name|SuspendableService
 extends|,
 name|RuntimeConfiguration
 block|{

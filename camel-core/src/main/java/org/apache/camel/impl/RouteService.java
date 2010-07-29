@@ -756,12 +756,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// clear inputs
-name|inputs
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 comment|// if we are stopping CamelContext then we are shutting down
 name|boolean
 name|isShutdownCamelContext
@@ -918,6 +912,23 @@ name|removeRouteCollection
 argument_list|(
 name|routes
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear inputs on shutdown
+name|inputs
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|startChildService (Route route, Service... services)

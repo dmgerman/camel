@@ -100,6 +100,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// invoke start a 2nd time wont break stuff
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
