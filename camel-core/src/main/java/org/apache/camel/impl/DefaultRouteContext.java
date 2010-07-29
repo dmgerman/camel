@@ -734,7 +734,7 @@ literal|"ref:"
 operator|+
 name|ref
 argument_list|,
-literal|"check your camel registery with id "
+literal|"check your camel registry with id "
 operator|+
 name|ref
 argument_list|)

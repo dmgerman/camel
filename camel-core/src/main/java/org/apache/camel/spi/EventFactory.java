@@ -273,6 +273,54 @@ name|long
 name|timeTaken
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel is suspending.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextSuspendingEvent (CamelContext context)
+name|EventObject
+name|createCamelContextSuspendingEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel has been suspended successfully.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextSuspendedEvent (CamelContext context)
+name|EventObject
+name|createCamelContextSuspendedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel is resuming.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextResumingEvent (CamelContext context)
+name|EventObject
+name|createCamelContextResumingEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel has been resumed successfully.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextResumedEvent (CamelContext context)
+name|EventObject
+name|createCamelContextResumedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for Camel failing to resume      *      * @param context camel context      * @param cause   the cause exception      * @return the created event      */
+DECL|method|createCamelContextResumeFailureEvent (CamelContext context, Throwable cause)
+name|EventObject
+name|createCamelContextResumeFailureEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

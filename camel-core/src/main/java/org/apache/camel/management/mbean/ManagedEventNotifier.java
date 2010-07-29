@@ -524,6 +524,16 @@ literal|"CamelContextStoppedEvent"
 block|,
 literal|"CamelContextStoppingEvent"
 block|,
+literal|"CamelContextSuspendingEvent"
+block|,
+literal|"CamelContextSuspendedEvent"
+block|,
+literal|"CamelContextResumingEvent"
+block|,
+literal|"CamelContextResumedEvent"
+block|,
+literal|"CamelContextResumeFailureEvent"
+block|,
 literal|"ExchangeCompletedEvent"
 block|,
 literal|"ExchangeCreatedEvent"
