@@ -66,6 +66,35 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+DECL|method|NoSuchEndpointException (String uri, String resolveMethod)
+specifier|public
+name|NoSuchEndpointException
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|resolveMethod
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No endpoint could be found for: "
+operator|+
+name|uri
+operator|+
+literal|", please "
+operator|+
+name|resolveMethod
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
 DECL|method|getUri ()
 specifier|public
 name|String

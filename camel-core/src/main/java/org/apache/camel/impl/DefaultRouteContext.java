@@ -733,6 +733,40 @@ argument_list|(
 literal|"ref:"
 operator|+
 name|ref
+argument_list|,
+literal|"check your camel registery with id "
+operator|+
+name|ref
+argument_list|)
+throw|;
+block|}
+comment|// Check the endpoint has the right CamelContext
+if|if
+condition|(
+operator|!
+name|this
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchEndpointException
+argument_list|(
+literal|"ref:"
+operator|+
+name|ref
+argument_list|,
+literal|"make sure the endpoint has the same camel context as the route does."
 argument_list|)
 throw|;
 block|}

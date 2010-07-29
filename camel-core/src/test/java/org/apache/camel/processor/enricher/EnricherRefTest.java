@@ -187,13 +187,6 @@ name|Exception
 block|{
 name|cool
 operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|cool
-operator|.
 name|whenAnyExchangeReceived
 argument_list|(
 operator|new
@@ -289,6 +282,13 @@ operator|.
 name|setEndpointUriIfNotSpecified
 argument_list|(
 literal|"cool"
+argument_list|)
+expr_stmt|;
+name|cool
+operator|.
+name|setCamelContext
+argument_list|(
+name|context
 argument_list|)
 expr_stmt|;
 name|from
