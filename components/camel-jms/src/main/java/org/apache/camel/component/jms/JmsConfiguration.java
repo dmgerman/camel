@@ -604,8 +604,6 @@ DECL|field|maxConcurrentConsumers
 specifier|private
 name|int
 name|maxConcurrentConsumers
-init|=
-literal|0
 decl_stmt|;
 comment|// JmsTemplate only
 DECL|field|explicitQosEnabled

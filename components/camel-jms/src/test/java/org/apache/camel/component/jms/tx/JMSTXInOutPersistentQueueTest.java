@@ -129,8 +129,6 @@ specifier|private
 specifier|static
 name|int
 name|counter
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|Override
