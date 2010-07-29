@@ -1300,18 +1300,6 @@ specifier|private
 name|ClassLoader
 name|applicationContextClassLoader
 decl_stmt|;
-DECL|field|routeDefinitionInitiated
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|routeDefinitionInitiated
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -6502,26 +6490,12 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the route definitions is only started once, even if Camel is stopped
-if|if
-condition|(
-name|routeDefinitionInitiated
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-comment|// TODO: we should re-create route defs on start, people should use suspend/resume for hot restart
+comment|// start the route definitions before the routes is started
 name|startRouteDefinitions
 argument_list|(
 name|routeDefinitions
 argument_list|)
 expr_stmt|;
-block|}
 comment|// start routes
 name|doStartRoutes
 argument_list|(

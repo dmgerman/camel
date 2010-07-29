@@ -433,11 +433,6 @@ comment|// END SNIPPET: clientInvocation
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"There is a bug in CxfRsComponent when restarting using stop/start"
-argument_list|)
 DECL|method|testGetConsumerAfterReStartCamelContext ()
 specifier|public
 name|void
