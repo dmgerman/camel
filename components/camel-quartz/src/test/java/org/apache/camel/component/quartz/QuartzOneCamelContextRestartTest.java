@@ -154,6 +154,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:one"
+argument_list|,
 literal|"mock:one"
 argument_list|)
 expr_stmt|;
@@ -224,17 +226,26 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should resume triggers when we start camel 1 again
+comment|// fetch mock endpoint again because we have stopped camel context
 name|mock1
+operator|=
+name|camel1
 operator|.
-name|reset
-argument_list|()
+name|getEndpoint
+argument_list|(
+literal|"mock:one"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
+comment|// should resume triggers when we start camel 1 again
 name|mock1
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 name|camel1
