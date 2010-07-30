@@ -224,6 +224,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|start
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|start (boolean startChildren)
+specifier|public
+name|void
+name|start
+parameter_list|(
+name|boolean
+name|startChildren
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 operator|!
@@ -262,6 +279,8 @@ condition|(
 name|childServices
 operator|!=
 literal|null
+operator|&&
+name|startChildren
 condition|)
 block|{
 name|ServiceHelper

@@ -1565,10 +1565,18 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// special flags to control the first startup which can are special
 DECL|field|firstStartDone
 specifier|private
+specifier|volatile
 name|boolean
 name|firstStartDone
+decl_stmt|;
+DECL|field|doNotStartRoutesOnFirstStart
+specifier|private
+specifier|volatile
+name|boolean
+name|doNotStartRoutesOnFirstStart
 decl_stmt|;
 DECL|field|autoStartup
 specifier|private
@@ -3840,10 +3848,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|stopRouteService
+argument_list|(
 name|routeService
-operator|.
-name|stop
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3938,10 +3946,10 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well
+name|stopRouteService
+argument_list|(
 name|routeService
-operator|.
-name|stop
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -4046,10 +4054,10 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well
+name|stopRouteService
+argument_list|(
 name|routeService
-operator|.
-name|stop
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5792,12 +5800,14 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-comment|// start the suspended routes (do not check for route clashes, and indicate )
+comment|// start the suspended routes (do not check for route clashes, and indicate)
 name|doStartRoutes
 argument_list|(
 name|suspendedRouteServices
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|watch
@@ -5923,30 +5933,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|doNotStart
-init|=
-operator|!
-name|firstStartDone
-operator|&&
-operator|!
-name|isAutoStartup
-argument_list|()
-decl_stmt|;
-name|firstStartDone
+name|startDate
 operator|=
-literal|true
+operator|new
+name|Date
+argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|doNotStart
-condition|)
-block|{
+name|stopWatch
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot start Apache Camel "
+literal|"Apache Camel "
 operator|+
 name|getVersion
 argument_list|()
@@ -5956,12 +5958,23 @@ operator|+
 name|getName
 argument_list|()
 operator|+
-literal|") as it has been configured to not auto start"
+literal|") is starting"
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
-comment|// super will invoke doStart which will prepare internal services before we continue and start the routes below
+name|doNotStartRoutesOnFirstStart
+operator|=
+operator|!
+name|firstStartDone
+operator|&&
+operator|!
+name|isAutoStartup
+argument_list|()
+expr_stmt|;
+name|firstStartDone
+operator|=
+literal|true
+expr_stmt|;
+comment|// super will invoke doStart which will prepare internal services and start routes etc.
 name|super
 operator|.
 name|start
@@ -5980,11 +5993,45 @@ name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
+comment|// count how many routes are actually started
+name|int
+name|started
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|getRoutes
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|getRouteStatus
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|started
+operator|++
+expr_stmt|;
+block|}
+block|}
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Started "
+literal|"Total "
 operator|+
 name|getRoutes
 argument_list|()
@@ -5992,7 +6039,11 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" routes"
+literal|" routes, of which "
+operator|+
+name|started
+operator|+
+literal|" is started."
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -6033,8 +6084,8 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-comment|/**      * Starts the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @throws Exception is thrown if error starting routes      */
-DECL|method|doStartRoutes (Map<String, RouteService> routeServices, boolean checkClash)
+comment|/**      * Starts the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer      * @throws Exception is thrown if error starting routes      */
+DECL|method|doStartRoutes (Map<String, RouteService> routeServices, boolean checkClash, boolean startConsumer)
 specifier|protected
 name|void
 name|doStartRoutes
@@ -6049,6 +6100,9 @@ name|routeServices
 parameter_list|,
 name|boolean
 name|checkClash
+parameter_list|,
+name|boolean
+name|startConsumer
 parameter_list|)
 throws|throws
 name|Exception
@@ -6214,6 +6268,8 @@ literal|false
 argument_list|,
 name|checkClash
 argument_list|,
+name|startConsumer
+argument_list|,
 name|filtered
 operator|.
 name|values
@@ -6252,34 +6308,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startDate
-operator|=
-operator|new
-name|Date
-argument_list|()
-expr_stmt|;
-name|stopWatch
-operator|.
-name|restart
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Apache Camel "
-operator|+
-name|getVersion
-argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|") is starting"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|doStartCamel
@@ -6696,11 +6724,28 @@ name|routeDefinitions
 argument_list|)
 expr_stmt|;
 comment|// start routes
+if|if
+condition|(
+name|doNotStartRoutesOnFirstStart
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot start routes as CamelContext has been configured with autoStartup=false"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// invoke this logic to warmup the routes and if possible also start the routes
 name|doStartRoutes
 argument_list|(
 name|routeServices
 argument_list|,
 literal|true
+argument_list|,
+operator|!
+name|doNotStartRoutesOnFirstStart
 argument_list|)
 expr_stmt|;
 comment|// starting will continue in the start method
@@ -7373,6 +7418,8 @@ literal|true
 argument_list|,
 literal|true
 argument_list|,
+literal|true
+argument_list|,
 name|routeService
 argument_list|)
 expr_stmt|;
@@ -7381,12 +7428,128 @@ block|}
 block|}
 end_function
 
+begin_function
+DECL|method|stopRouteService (RouteService routeService)
+specifier|protected
+specifier|synchronized
+name|void
+name|stopRouteService
+parameter_list|(
+name|RouteService
+name|routeService
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|String
+name|key
+init|=
+name|routeService
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+name|ServiceStatus
+name|status
+init|=
+name|getRouteStatus
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+literal|null
+operator|&&
+name|status
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Route "
+operator|+
+name|key
+operator|+
+literal|" is already stopped"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routeService
+operator|.
+name|getRoutes
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|route
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" stopped, was consuming from: "
+operator|+
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|routeService
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_function
+
 begin_comment
-comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param forceAutoStart whether to force auto starting the routes, despite they may be configured not do do so      * @param checkClash whether to check for startup order clash      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
+comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param forceAutoStart whether to force auto starting the routes, despite they may be configured not do do so      * @param checkClash     whether to check for startup order clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
 end_comment
 
 begin_function
-DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, Collection<RouteService> routeServices)
+DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, boolean startConsumer, Collection<RouteService> routeServices)
 specifier|protected
 specifier|synchronized
 name|void
@@ -7397,6 +7560,9 @@ name|forceAutoStart
 parameter_list|,
 name|boolean
 name|checkClash
+parameter_list|,
+name|boolean
+name|startConsumer
 parameter_list|,
 name|Collection
 argument_list|<
@@ -7499,15 +7665,23 @@ comment|// warm up routes before we start them
 name|doWarmUpRoutes
 argument_list|(
 name|inputs
+argument_list|,
+name|startConsumer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|startConsumer
+condition|)
+block|{
 comment|// and now start the routes
 comment|// and check for clash with multiple consumers of the same endpoints which is not allowed
-name|doStartRoutes
+name|doStartRouteConsumers
 argument_list|(
 name|inputs
 argument_list|)
 expr_stmt|;
+block|}
 comment|// inputs no longer needed
 name|inputs
 operator|.
@@ -7517,8 +7691,12 @@ expr_stmt|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * @see #safelyStartRouteServices(boolean, boolean, boolean, java.util.Collection)      */
+end_comment
+
 begin_function
-DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, RouteService... routeServices)
+DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, boolean startConsumer, RouteService... routeServices)
 specifier|protected
 specifier|synchronized
 name|void
@@ -7529,6 +7707,9 @@ name|forceAutoStart
 parameter_list|,
 name|boolean
 name|checkClash
+parameter_list|,
+name|boolean
+name|startConsumer
 parameter_list|,
 name|RouteService
 modifier|...
@@ -7542,6 +7723,8 @@ argument_list|(
 name|forceAutoStart
 argument_list|,
 name|checkClash
+argument_list|,
+name|startConsumer
 argument_list|,
 name|Arrays
 operator|.
@@ -7863,7 +8046,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|doWarmUpRoutes (Map<Integer, DefaultRouteStartupOrder> inputs)
+DECL|method|doWarmUpRoutes (Map<Integer, DefaultRouteStartupOrder> inputs, boolean autoStartup)
 specifier|private
 name|void
 name|doWarmUpRoutes
@@ -7875,6 +8058,9 @@ argument_list|,
 name|DefaultRouteStartupOrder
 argument_list|>
 name|inputs
+parameter_list|,
+name|boolean
+name|autoStartup
 parameter_list|)
 throws|throws
 name|Exception
@@ -7914,40 +8100,45 @@ operator|.
 name|getRouteService
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Warming up route id: "
+operator|+
 name|routeService
 operator|.
-name|startInputs
-argument_list|(
-literal|false
+name|getId
+argument_list|()
+operator|+
+literal|" having autoStartup="
+operator|+
+name|autoStartup
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+block|}
 name|routeService
 operator|.
-name|start
+name|warmUp
 argument_list|()
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|routeService
-operator|.
-name|startInputs
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_function
 
 begin_function
-DECL|method|doStartRoutes (Map<Integer, DefaultRouteStartupOrder> inputs)
+DECL|method|doStartRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs)
 specifier|private
 name|void
-name|doStartRoutes
+name|doStartRouteConsumers
 parameter_list|(
 name|Map
 argument_list|<
@@ -8010,6 +8201,7 @@ operator|.
 name|getRoute
 argument_list|()
 decl_stmt|;
+comment|// start the service
 name|RouteService
 name|routeService
 init|=
@@ -8234,6 +8426,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// and start the route service (no need to start children as they are alredy warmed up)
+name|routeService
+operator|.
+name|start
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function

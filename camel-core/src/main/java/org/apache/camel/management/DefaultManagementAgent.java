@@ -1162,6 +1162,16 @@ parameter_list|)
 throws|throws
 name|JMException
 block|{
+if|if
+condition|(
+name|server
+operator|.
+name|isRegistered
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|server
 operator|.
 name|unregisterMBean
@@ -1169,6 +1179,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 name|mbeansRegistered
 operator|.
 name|remove
@@ -1176,24 +1187,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Unregistered MBean with objectname: "
-operator|+
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|isRegistered (ObjectName name)
 specifier|public
