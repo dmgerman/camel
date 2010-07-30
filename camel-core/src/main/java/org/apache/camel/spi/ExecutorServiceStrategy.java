@@ -214,7 +214,9 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new cached thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      */
+comment|/**      * Creates a new cached thread pool.      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @return the created thread pool      * @deprecated using cached thread pool is discouraged as they have no upper bound and can overload the JVM      */
+annotation|@
+name|Deprecated
 DECL|method|newCachedThreadPool (Object source, String name)
 name|ExecutorService
 name|newCachedThreadPool

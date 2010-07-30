@@ -91,10 +91,50 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Suspends the routes      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @throws Exception is thrown if error suspending the consumers, however its preferred to avoid this      */
+DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes)
+name|void
+name|suspend
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Shutdown the routes using a specified timeout instead of the default timeout values      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @param timeout   timeout      * @param timeUnit  the unit to use      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
 name|void
 name|shutdown
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Suspends the routes using a specified timeout instead of the default timeout values      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @param timeout   timeout      * @param timeUnit  the unit to use      * @throws Exception is thrown if error suspending the consumers, however its preferred to avoid this      */
+DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
+name|void
+name|suspend
 parameter_list|(
 name|CamelContext
 name|context

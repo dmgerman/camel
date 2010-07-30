@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -442,6 +452,39 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes)
+specifier|public
+name|void
+name|suspend
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|doShutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|getTimeout
+argument_list|()
+argument_list|,
+name|getTimeUnit
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -465,6 +508,83 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|doShutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|timeout
+argument_list|,
+name|timeUnit
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
+specifier|public
+name|void
+name|suspend
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|doShutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|timeout
+argument_list|,
+name|timeUnit
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly)
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|,
+name|boolean
+name|suspendOnly
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|StopWatch
 name|watch
 init|=
@@ -472,7 +592,7 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-comment|// should the order of routes be reversed?
+comment|// at first sort according to route startup order
 name|List
 argument_list|<
 name|RouteStartupOrder
@@ -488,6 +608,45 @@ argument_list|(
 name|routes
 argument_list|)
 decl_stmt|;
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|routesOrdered
+argument_list|,
+operator|new
+name|Comparator
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|int
+name|compare
+parameter_list|(
+name|RouteStartupOrder
+name|o1
+parameter_list|,
+name|RouteStartupOrder
+name|o2
+parameter_list|)
+block|{
+return|return
+name|o1
+operator|.
+name|getStartupOrder
+argument_list|()
+operator|-
+name|o2
+operator|.
+name|getStartupOrder
+argument_list|()
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|shutdownRoutesInReverseOrder
@@ -569,6 +728,8 @@ argument_list|(
 name|context
 argument_list|,
 name|routesOrdered
+argument_list|,
+name|suspendOnly
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1064,15 +1225,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Suspends the consumer immediately.      *      * @param service the suspendable consumer      * @param consumer the consumer to suspend      */
-DECL|method|suspendNow (SuspendableService service, Consumer consumer)
+comment|/**      * Suspends/stops the consumer immediately.      *      * @param consumer the consumer to suspend      */
+DECL|method|suspendNow (Consumer consumer)
 specifier|protected
 name|void
 name|suspendNow
 parameter_list|(
-name|SuspendableService
-name|service
-parameter_list|,
 name|Consumer
 name|consumer
 parameter_list|)
@@ -1095,12 +1253,15 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
-name|service
+name|ServiceHelper
 operator|.
-name|suspend
-argument_list|()
+name|suspendService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1338,7 +1499,13 @@ name|RouteStartupOrder
 argument_list|>
 name|routes
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes)
+DECL|field|suspendOnly
+specifier|private
+specifier|final
+name|boolean
+name|suspendOnly
+decl_stmt|;
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, boolean suspendOnly)
 specifier|public
 name|ShutdownTask
 parameter_list|(
@@ -1350,6 +1517,9 @@ argument_list|<
 name|RouteStartupOrder
 argument_list|>
 name|routes
+parameter_list|,
+name|boolean
+name|suspendOnly
 parameter_list|)
 block|{
 name|this
@@ -1363,6 +1533,12 @@ operator|.
 name|routes
 operator|=
 name|routes
+expr_stmt|;
+name|this
+operator|.
+name|suspendOnly
+operator|=
+name|suspendOnly
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -1396,7 +1572,15 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" routes to shutdown"
+literal|" routes to "
+operator|+
+operator|(
+name|suspendOnly
+condition|?
+literal|"suspend"
+else|:
+literal|"shutdown"
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1463,7 +1647,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
+operator|(
+name|suspendOnly
+condition|?
+literal|"Suspending route: "
+else|:
 literal|"Shutting down route: "
+operator|)
 operator|+
 name|order
 operator|.
@@ -1567,11 +1757,6 @@ block|{
 comment|// only suspend it and then later shutdown it
 name|suspendNow
 argument_list|(
-operator|(
-name|SuspendableService
-operator|)
-name|consumer
-argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
@@ -1689,7 +1874,13 @@ operator|.
 name|getId
 argument_list|()
 operator|+
+operator|(
+name|suspendOnly
+condition|?
 literal|" shutdown deferred."
+else|:
+literal|" suspension deferred."
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1908,6 +2099,39 @@ range|:
 name|deferredConsumers
 control|)
 block|{
+if|if
+condition|(
+name|suspendOnly
+condition|)
+block|{
+name|suspendNow
+argument_list|(
+name|deferred
+operator|.
+name|getConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Route: "
+operator|+
+name|deferred
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" suspend complete."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|shutdownNow
 argument_list|(
 name|deferred
@@ -1933,6 +2157,7 @@ operator|+
 literal|" shutdown complete."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
