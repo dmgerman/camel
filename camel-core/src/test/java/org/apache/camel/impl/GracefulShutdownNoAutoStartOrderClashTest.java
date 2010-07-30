@@ -66,6 +66,18 @@ name|GracefulShutdownNoAutoStartOrderClashTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testStartupOrderClash ()
 specifier|public
 name|void
@@ -74,74 +86,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:foo"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 name|context
 operator|.
-name|startRoute
+name|addRoutes
 argument_list|(
-literal|"bar"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|FailedToStartRouteException
-name|e
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Failed to start route bar because of startupOrder clash. Route foo already has startupOrder 5 configured"
-operator|+
-literal|" which this route have as well. Please correct startupOrder to be unique among all your routes."
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
 operator|new
 name|RouteBuilder
 argument_list|()
@@ -200,7 +148,40 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FailedToStartRouteException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Failed to start route bar because of startupOrder clash. Route foo already has startupOrder 5 configured"
+operator|+
+literal|" which this route have as well. Please correct startupOrder to be unique among all your routes."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

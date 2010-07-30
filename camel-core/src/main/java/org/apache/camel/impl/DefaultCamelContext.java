@@ -276,6 +276,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|FailedToStartRouteException
 import|;
 end_import
@@ -7607,8 +7619,6 @@ init|=
 name|doPrepareRouteToBeStarted
 argument_list|(
 name|routeService
-argument_list|,
-name|forceAutoStart
 argument_list|)
 decl_stmt|;
 comment|// check for clash before we add it as input
@@ -7738,48 +7748,14 @@ block|}
 end_function
 
 begin_function
-DECL|method|doPrepareRouteToBeStarted (RouteService routeService, boolean forceAutoStart)
+DECL|method|doPrepareRouteToBeStarted (RouteService routeService)
 specifier|private
 name|DefaultRouteStartupOrder
 name|doPrepareRouteToBeStarted
 parameter_list|(
 name|RouteService
 name|routeService
-parameter_list|,
-name|boolean
-name|forceAutoStart
 parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|DefaultRouteStartupOrder
-name|answer
-init|=
-literal|null
-decl_stmt|;
-name|Boolean
-name|autoStart
-init|=
-name|routeService
-operator|.
-name|getRouteDefinition
-argument_list|()
-operator|.
-name|isAutoStartup
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|autoStart
-operator|==
-literal|null
-operator|||
-name|autoStart
-operator|||
-name|forceAutoStart
-condition|)
-block|{
-try|try
 block|{
 comment|// add the inputs from this route service to the list to start afterwards
 comment|// should be ordered according to the startup number
@@ -7823,8 +7799,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|answer
-operator|=
+return|return
 operator|new
 name|DefaultRouteStartupOrder
 argument_list|(
@@ -7834,43 +7809,6 @@ name|route
 argument_list|,
 name|routeService
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|FailedToStartRouteException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-comment|// should not start on startup
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Cannot start route "
-operator|+
-name|routeService
-operator|.
-name|getId
-argument_list|()
-operator|+
-literal|" as it is configured with auto startup disabled."
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 end_function
@@ -8201,7 +8139,6 @@ operator|.
 name|getRoute
 argument_list|()
 decl_stmt|;
-comment|// start the service
 name|RouteService
 name|routeService
 init|=
@@ -8213,6 +8150,44 @@ operator|.
 name|getRouteService
 argument_list|()
 decl_stmt|;
+comment|// if we are starting camel, then skip routes which are configured to not be auto started
+name|boolean
+name|autoStartup
+init|=
+name|routeService
+operator|.
+name|getRouteDefinition
+argument_list|()
+operator|.
+name|isAutoStartup
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isStarting
+argument_list|()
+operator|&&
+operator|!
+name|autoStartup
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot start route "
+operator|+
+name|routeService
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" as its configured with autoStartup=false"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+comment|// start the service
 for|for
 control|(
 name|Consumer
@@ -8426,7 +8401,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// and start the route service (no need to start children as they are alredy warmed up)
+comment|// and start the route service (no need to start children as they are already warmed up)
 name|routeService
 operator|.
 name|start
