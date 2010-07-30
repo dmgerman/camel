@@ -290,6 +290,12 @@ name|HTTP_PATH
 init|=
 literal|"CamelHttpPath"
 decl_stmt|;
+DECL|field|HTTP_PROTOCOL_VERSION
+name|String
+name|HTTP_PROTOCOL_VERSION
+init|=
+literal|"CamelHttpProtocolVersion"
+decl_stmt|;
 DECL|field|HTTP_QUERY
 name|String
 name|HTTP_QUERY

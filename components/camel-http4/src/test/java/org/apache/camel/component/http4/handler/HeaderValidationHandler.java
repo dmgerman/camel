@@ -237,7 +237,7 @@ argument_list|()
 control|)
 block|{
 name|boolean
-name|haederExist
+name|headerExist
 init|=
 literal|false
 decl_stmt|;
@@ -279,7 +279,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|haederExist
+name|headerExist
 operator|=
 literal|true
 expr_stmt|;
@@ -289,7 +289,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|haederExist
+name|headerExist
 condition|)
 block|{
 name|response
