@@ -1168,6 +1168,14 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// give a bit tiem for consumer to delete after done
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertEntitiesInDatabase
 argument_list|(
 literal|0
