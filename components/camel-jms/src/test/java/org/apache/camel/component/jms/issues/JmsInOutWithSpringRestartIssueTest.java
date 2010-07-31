@@ -138,8 +138,10 @@ name|Exception
 block|{
 name|context
 operator|.
-name|start
-argument_list|()
+name|startRoute
+argument_list|(
+literal|"foo"
+argument_list|)
 expr_stmt|;
 name|ProducerTemplate
 name|producer
@@ -174,21 +176,38 @@ name|out
 argument_list|)
 expr_stmt|;
 comment|// on purpose forget to stop the producer and it should still work
-comment|//producer.stop();
 name|context
 operator|.
-name|stop
-argument_list|()
+name|stopRoute
+argument_list|(
+literal|"foo"
+argument_list|)
 expr_stmt|;
-comment|// TODO: Does not work properly with AMQ 5.3.1
-comment|// Thread.sleep(2000);
-comment|// context.start();
-comment|//producer = context.createProducerTemplate();
-comment|//producer.start();
-comment|// out = producer.requestBody("activemq:queue:foo", "Bar");
-comment|//assertEquals("Bye Bar", out);
-comment|//producer.stop();
-comment|//context.stop();
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
+name|out
+operator|=
+name|producer
+operator|.
+name|requestBody
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Bar"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye Bar"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
