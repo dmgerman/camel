@@ -276,18 +276,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|FailedToStartRouteException
 import|;
 end_import
@@ -1380,7 +1368,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|routes
 specifier|private
-name|List
+name|Set
 argument_list|<
 name|Route
 argument_list|>
@@ -3266,7 +3254,7 @@ block|{
 name|routes
 operator|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|Route
 argument_list|>
@@ -3325,6 +3313,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setRoutes (List<Route> routes)
 specifier|public
 name|void
@@ -3337,12 +3327,6 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-name|this
-operator|.
-name|routes
-operator|=
-name|routes
-expr_stmt|;
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -3411,7 +3395,7 @@ operator|.
 name|routes
 operator|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|Route
 argument_list|>

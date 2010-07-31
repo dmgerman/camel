@@ -517,26 +517,18 @@ argument_list|(
 literal|"camel4"
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"No context found!"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The context should not start yet"
-argument_list|,
 name|context
 operator|.
 name|isAutoStartup
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// there is 1 route but its not started
 name|assertEquals
 argument_list|(
-literal|"There should have not route"
+literal|1
 argument_list|,
 name|context
 operator|.
@@ -545,8 +537,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|context
@@ -563,17 +553,16 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The context should started"
-argument_list|,
 name|context
 operator|.
 name|isAutoStartup
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// there is 1 route but and its started
 name|assertEquals
 argument_list|(
-literal|"There should have one route"
+literal|1
 argument_list|,
 name|context
 operator|.
@@ -582,8 +571,6 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
