@@ -667,6 +667,87 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Suspend Route"
+argument_list|)
+DECL|method|suspend ()
+specifier|public
+name|void
+name|suspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|suspendRoute
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Graceful Suspend Route using timeout in seconds"
+argument_list|)
+DECL|method|suspend (long timeout)
+specifier|public
+name|void
+name|suspend
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|suspendRoute
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|,
+name|timeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Resume Route"
+argument_list|)
+DECL|method|resume ()
+specifier|public
+name|void
+name|resume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|resumeRoute
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Graceful Shutdown Route"
 argument_list|)
 DECL|method|shutdown ()
