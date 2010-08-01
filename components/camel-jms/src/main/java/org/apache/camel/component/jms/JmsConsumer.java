@@ -132,13 +132,9 @@ name|messageListener
 decl_stmt|;
 DECL|field|initialized
 specifier|private
+specifier|volatile
 name|boolean
 name|initialized
-decl_stmt|;
-DECL|field|suspended
-specifier|private
-name|boolean
-name|suspended
 decl_stmt|;
 DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
@@ -510,11 +506,15 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|suspend ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
 name|void
-name|suspend
+name|doSuspend
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -528,17 +528,17 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|suspended
-operator|=
-literal|true
-expr_stmt|;
 block|}
 block|}
-DECL|method|resume ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
 name|void
-name|resume
+name|doResume
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -550,21 +550,7 @@ block|{
 name|startListenerContainer
 argument_list|()
 expr_stmt|;
-name|suspended
-operator|=
-literal|false
-expr_stmt|;
 block|}
-block|}
-DECL|method|isSuspended ()
-specifier|public
-name|boolean
-name|isSuspended
-parameter_list|()
-block|{
-return|return
-name|suspended
-return|;
 block|}
 DECL|method|getDestinationName ()
 specifier|private

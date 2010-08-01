@@ -62,6 +62,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -73,6 +83,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -511,38 +531,25 @@ expr_stmt|;
 block|}
 DECL|method|warmUp ()
 specifier|public
+specifier|synchronized
 name|void
 name|warmUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|camelContext
+if|if
+condition|(
+name|warmUpDone
 operator|.
-name|addRouteCollection
+name|compareAndSet
 argument_list|(
-name|routes
+literal|false
+argument_list|,
+literal|true
 argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|LifecycleStrategy
-name|strategy
-range|:
-name|camelContext
-operator|.
-name|getLifecycleStrategies
-argument_list|()
-control|)
+condition|)
 block|{
-name|strategy
-operator|.
-name|onRoutesAdd
-argument_list|(
-name|routes
-argument_list|)
-expr_stmt|;
-block|}
 for|for
 control|(
 name|Route
@@ -569,8 +576,6 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: We should also consider processors which are not services then we can manage all processors as well
-comment|// otherwise its only the processors which is a Service
 name|List
 argument_list|<
 name|Service
@@ -591,14 +596,14 @@ name|services
 argument_list|)
 expr_stmt|;
 comment|// gather list of services to start as we need to start child services as well
-name|List
+name|Set
 argument_list|<
 name|Service
 argument_list|>
 name|list
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|Service
 argument_list|>
@@ -682,13 +687,35 @@ name|childServices
 argument_list|)
 expr_stmt|;
 block|}
-name|warmUpDone
+comment|// ensure lifecycle strategy is invoked which among others enlist the route in JMX
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|camelContext
 operator|.
-name|set
+name|getLifecycleStrategies
+argument_list|()
+control|)
+block|{
+name|strategy
+operator|.
+name|onRoutesAdd
 argument_list|(
-literal|true
+name|routes
 argument_list|)
 expr_stmt|;
+block|}
+comment|// add routes to camel context
+name|camelContext
+operator|.
+name|addRouteCollection
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -699,22 +726,9 @@ throws|throws
 name|Exception
 block|{
 comment|// ensure we are warmed up before starting the route
-if|if
-condition|(
-name|warmUpDone
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
 name|warmUp
 argument_list|()
 expr_stmt|;
-block|}
 for|for
 control|(
 name|Route
@@ -828,14 +842,14 @@ name|getServices
 argument_list|()
 decl_stmt|;
 comment|// gather list of services to stop as we need to start child services as well
-name|List
+name|Set
 argument_list|<
 name|Service
 argument_list|>
 name|list
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|Service
 argument_list|>
@@ -940,6 +954,44 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// we need to warm up when resuming
+name|warmUpDone
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
+comment|// to safely suspend and resume
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// ensure we are warmed up before resuming
+name|warmUp
+argument_list|()
+expr_stmt|;
+comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
+comment|// to safely suspend and resume
+block|}
 DECL|method|startChildService (Route route, List<Service> services)
 specifier|protected
 name|void
@@ -1002,7 +1054,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stopChildService (Route route, List<Service> services, boolean shutdown)
+DECL|method|stopChildService (Route route, Set<Service> services, boolean shutdown)
 specifier|protected
 name|void
 name|stopChildService
@@ -1010,7 +1062,7 @@ parameter_list|(
 name|Route
 name|route
 parameter_list|,
-name|List
+name|Set
 argument_list|<
 name|Service
 argument_list|>
@@ -1084,13 +1136,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Need to recursive start child services for routes      */
-DECL|method|doGetChildServices (List<Service> services, Service service)
+DECL|method|doGetChildServices (Set<Service> services, Service service)
 specifier|private
 specifier|static
 name|void
 name|doGetChildServices
 parameter_list|(
-name|List
+name|Set
 argument_list|<
 name|Service
 argument_list|>

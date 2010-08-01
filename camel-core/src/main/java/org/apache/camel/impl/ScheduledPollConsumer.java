@@ -230,12 +230,6 @@ operator|new
 name|DefaultPollingConsumerPollStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|suspended
-specifier|private
-specifier|volatile
-name|boolean
-name|suspended
-decl_stmt|;
 DECL|method|ScheduledPollConsumer (DefaultEndpoint endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
@@ -335,7 +329,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|suspended
+name|isSuspended
+argument_list|()
 condition|)
 block|{
 if|if
@@ -768,38 +763,6 @@ operator|=
 name|pollStrategy
 expr_stmt|;
 block|}
-DECL|method|suspend ()
-specifier|public
-name|void
-name|suspend
-parameter_list|()
-block|{
-name|suspended
-operator|=
-literal|true
-expr_stmt|;
-block|}
-DECL|method|resume ()
-specifier|public
-name|void
-name|resume
-parameter_list|()
-block|{
-name|suspended
-operator|=
-literal|false
-expr_stmt|;
-block|}
-DECL|method|isSuspended ()
-specifier|public
-name|boolean
-name|isSuspended
-parameter_list|()
-block|{
-return|return
-name|suspended
-return|;
-block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception can be thrown if an exception occurred during polling      */
@@ -904,6 +867,18 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// dont stop/cancel the future task since we just check in the run method
 block|}
 block|}
 end_class

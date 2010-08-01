@@ -159,6 +159,7 @@ decl_stmt|;
 DECL|field|event
 specifier|private
 specifier|static
+specifier|volatile
 name|String
 name|event
 init|=
@@ -264,15 +265,12 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// let it run for a little while and since it fails first time we should never get a message
-name|Thread
+name|mock
 operator|.
-name|sleep
+name|assertIsSatisfied
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(

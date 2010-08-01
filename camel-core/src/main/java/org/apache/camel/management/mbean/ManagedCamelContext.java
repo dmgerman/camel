@@ -287,26 +287,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Is Camel suspended"
-argument_list|)
-DECL|method|getSuspended ()
-specifier|public
-name|Boolean
-name|getSuspended
-parameter_list|()
-block|{
-return|return
-name|context
-operator|.
-name|isSuspended
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Uptime"
 argument_list|)
 DECL|method|getUptime ()
@@ -605,7 +585,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Stop Camel"
+literal|"Stop Camel (shutdown)"
 argument_list|)
 DECL|method|stop ()
 specifier|public

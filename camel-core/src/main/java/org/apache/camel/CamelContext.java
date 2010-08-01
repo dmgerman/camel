@@ -779,6 +779,45 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Resumes the given route if it has been previously suspended      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be resumed for whatever reason      */
+DECL|method|resumeRoute (String routeId)
+name|void
+name|resumeRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
+DECL|method|suspendRoute (String routeId)
+name|void
+name|suspendRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
+DECL|method|suspendRoute (String routeId, long timeout, TimeUnit timeUnit)
+name|void
+name|suspendRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns the current status of the given route      *      * @param routeId the route id      * @return the status for the route      */
 DECL|method|getRouteStatus (String routeId)
 name|ServiceStatus

@@ -194,11 +194,6 @@ name|isSuspended
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

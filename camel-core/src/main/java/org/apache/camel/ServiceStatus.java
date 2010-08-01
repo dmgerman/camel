@@ -40,6 +40,8 @@ DECL|enumConstant|Starting
 DECL|enumConstant|Started
 DECL|enumConstant|Stopping
 DECL|enumConstant|Stopped
+DECL|enumConstant|Suspending
+DECL|enumConstant|Suspended
 name|Starting
 block|,
 name|Started
@@ -47,6 +49,10 @@ block|,
 name|Stopping
 block|,
 name|Stopped
+block|,
+name|Suspending
+block|,
+name|Suspended
 block|;
 DECL|method|isStartable ()
 specifier|public
@@ -58,6 +64,10 @@ return|return
 name|this
 operator|==
 name|Stopped
+operator|||
+name|this
+operator|==
+name|Suspended
 return|;
 block|}
 DECL|method|isStoppable ()
@@ -69,8 +79,20 @@ block|{
 return|return
 name|this
 operator|==
-name|Starting
+name|Started
 operator|||
+name|this
+operator|==
+name|Suspended
+return|;
+block|}
+DECL|method|isSuspendable ()
+specifier|public
+name|boolean
+name|isSuspendable
+parameter_list|()
+block|{
+return|return
 name|this
 operator|==
 name|Started
@@ -98,6 +120,18 @@ return|return
 name|this
 operator|==
 name|Stopped
+return|;
+block|}
+DECL|method|isSuspended ()
+specifier|public
+name|boolean
+name|isSuspended
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Suspended
 return|;
 block|}
 block|}

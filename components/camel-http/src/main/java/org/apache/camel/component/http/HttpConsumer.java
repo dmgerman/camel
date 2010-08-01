@@ -161,6 +161,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|suspended
+operator|=
+literal|false
+expr_stmt|;
 name|super
 operator|.
 name|doStart
@@ -184,6 +188,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|suspended
+operator|=
+literal|false
+expr_stmt|;
 name|endpoint
 operator|.
 name|disconnect

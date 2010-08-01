@@ -1093,6 +1093,16 @@ name|assertFalse
 argument_list|(
 name|ServiceStatus
 operator|.
+name|Starting
+operator|.
+name|isStoppable
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|ServiceStatus
+operator|.
 name|Stopped
 operator|.
 name|isStarted
@@ -1199,7 +1209,7 @@ name|isStoppable
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|ServiceStatus
 operator|.

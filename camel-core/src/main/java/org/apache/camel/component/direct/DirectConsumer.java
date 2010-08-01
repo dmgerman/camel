@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|SuspendableService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -95,6 +107,8 @@ extends|extends
 name|DefaultConsumer
 implements|implements
 name|ShutdownAware
+implements|,
+name|SuspendableService
 block|{
 DECL|field|endpoint
 specifier|private
@@ -129,10 +143,12 @@ operator|)
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -187,18 +203,13 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
-specifier|public
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -210,10 +221,23 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|super
+block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|endpoint
 operator|.
-name|stop
-argument_list|()
+name|removeConsumer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
