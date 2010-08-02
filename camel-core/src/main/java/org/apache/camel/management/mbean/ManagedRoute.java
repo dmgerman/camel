@@ -629,6 +629,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|startRoute
@@ -653,6 +673,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|stopRoute
@@ -680,6 +720,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|stopRoute
@@ -702,6 +762,8 @@ name|description
 operator|=
 literal|"Shutdown and remove route"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|shutdown ()
 specifier|public
 name|void
@@ -710,6 +772,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|shutdownRoute
@@ -726,6 +808,8 @@ name|description
 operator|=
 literal|"Shutdown and remove route (using timeout in seconds)"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|shutdown (long timeout)
 specifier|public
 name|void
@@ -737,6 +821,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|shutdownRoute
@@ -751,6 +855,51 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove route (must be stopped)"
+argument_list|)
+DECL|method|remove ()
+specifier|public
+name|boolean
+name|remove
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+operator|!
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext is not started"
+argument_list|)
+throw|;
+block|}
+return|return
+name|context
+operator|.
+name|removeRoute
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class

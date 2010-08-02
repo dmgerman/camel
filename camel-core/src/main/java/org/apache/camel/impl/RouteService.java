@@ -493,6 +493,8 @@ return|return
 name|inputs
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isRemovingRoutes ()
 specifier|public
 name|boolean
@@ -503,6 +505,8 @@ return|return
 name|removingRoutes
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setRemovingRoutes (boolean removingRoutes)
 specifier|public
 name|void
@@ -931,6 +935,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// need to call onRoutesRemove when the CamelContext is shutting down or Route is shutdown
+for|for
+control|(
+name|LifecycleStrategy
+name|strategy
+range|:
+name|camelContext
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+control|)
+block|{
+name|strategy
+operator|.
+name|onRoutesRemove
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
+block|}
 comment|// clear inputs on shutdown
 name|inputs
 operator|.

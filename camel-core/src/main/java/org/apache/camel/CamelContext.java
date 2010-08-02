@@ -768,7 +768,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|shutdownRoute (String routeId)
 name|void
 name|shutdownRoute
@@ -779,7 +781,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String, long, java.util.concurrent.TimeUnit)}      */
+annotation|@
+name|Deprecated
 DECL|method|shutdownRoute (String routeId, long timeout, TimeUnit timeUnit)
 name|void
 name|shutdownRoute
@@ -792,6 +796,17 @@ name|timeout
 parameter_list|,
 name|TimeUnit
 name|timeUnit
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes the given route (the route<b>must</b> be stopped before it can be removed).      *<p/>      *<br/>A route which is removed will be unregistered from JMX, have its services stopped/shutdown and the route      * definition etc. will also be removed. All the resources related to the route will be stopped and cleared.      *<p/>      *<br/>End users can use this method to remove unwanted routes or temporary routes which no longer is in demand.      *      * @param routeId the route id      * @return<tt>true</tt> if the route was removed,<tt>false</tt> if the route could not be removed because its not stopped      * @throws Exception is thrown if the route could not be shutdown for whatever reason      */
+DECL|method|removeRoute (String routeId)
+name|boolean
+name|removeRoute
+parameter_list|(
+name|String
+name|routeId
 parameter_list|)
 throws|throws
 name|Exception
