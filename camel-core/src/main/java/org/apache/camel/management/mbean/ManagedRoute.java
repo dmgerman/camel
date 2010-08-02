@@ -191,17 +191,17 @@ init|=
 literal|"Unknown"
 decl_stmt|;
 DECL|field|route
-specifier|private
+specifier|protected
 name|Route
 name|route
 decl_stmt|;
 DECL|field|description
-specifier|private
+specifier|protected
 name|String
 name|description
 decl_stmt|;
 DECL|field|context
-specifier|private
+specifier|protected
 name|CamelContext
 name|context
 decl_stmt|;
@@ -619,7 +619,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Start Route"
+literal|"Start route"
 argument_list|)
 DECL|method|start ()
 specifier|public
@@ -643,7 +643,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Stop Route"
+literal|"Stop route"
 argument_list|)
 DECL|method|stop ()
 specifier|public
@@ -667,36 +667,12 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Suspend Route"
+literal|"Stop route (using timeout in seconds)"
 argument_list|)
-DECL|method|suspend ()
+DECL|method|stop (long timeout)
 specifier|public
 name|void
-name|suspend
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|context
-operator|.
-name|suspendRoute
-argument_list|(
-name|getRouteId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Graceful Suspend Route using timeout in seconds"
-argument_list|)
-DECL|method|suspend (long timeout)
-specifier|public
-name|void
-name|suspend
+name|stop
 parameter_list|(
 name|long
 name|timeout
@@ -706,7 +682,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|suspendRoute
+name|stopRoute
 argument_list|(
 name|getRouteId
 argument_list|()
@@ -724,31 +700,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Resume Route"
-argument_list|)
-DECL|method|resume ()
-specifier|public
-name|void
-name|resume
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|context
-operator|.
-name|resumeRoute
-argument_list|(
-name|getRouteId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Graceful Shutdown Route"
+literal|"Shutdown and remove route"
 argument_list|)
 DECL|method|shutdown ()
 specifier|public
@@ -772,7 +724,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Graceful Shutdown Route using timeout in seconds"
+literal|"Shutdown and remove route (using timeout in seconds)"
 argument_list|)
 DECL|method|shutdown (long timeout)
 specifier|public

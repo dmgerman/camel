@@ -240,6 +240,21 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// resume by using the start logic
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean

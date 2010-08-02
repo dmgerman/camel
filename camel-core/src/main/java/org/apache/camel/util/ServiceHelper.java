@@ -88,20 +88,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -933,13 +919,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Resumes the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>resume</tt>      * operation is<b>only</b> invoked if the service is suspended.      *<p/>      * If the service is a {@link org.apache.camel.impl.ServiceSupport} then the<tt>start</tt>      * operation is<b>only</b> invoked if the service is startable.      *<p/>      * Otherwise the service is started.      *      * @param service the service      * @return<tt>true</tt> if either<tt>resume</tt> or<tt>start</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
-DECL|method|resumeService (Service service)
+DECL|method|resumeService (Object service)
 specifier|public
 specifier|static
 name|boolean
 name|resumeService
 parameter_list|(
-name|Service
+name|Object
 name|service
 parameter_list|)
 throws|throws
@@ -1141,7 +1127,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Suspends the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>suspend</tt>      * operation is<b>only</b> invoked if the service is<b>not</b> suspended.      *<p/>      * If the service is a {@link org.apache.camel.impl.ServiceSupport} then the<tt>stop</tt>      * operation is<b>only</b> invoked if the service is stopable.      *<p/>      * Otherwise the service is stopped.      *      * @param service the service      * @return<tt>true</tt> if either<tt>suspend</tt> or<tt>stop</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
+comment|/**      * Suspends the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>suspend</tt>      * operation is<b>only</b> invoked if the service is<b>not</b> suspended.      *<p/>      * If the service is a {@link org.apache.camel.impl.ServiceSupport} then the<tt>stop</tt>      * operation is<b>only</b> invoked if the service is stoppable.      *<p/>      * Otherwise the service is stopped.      *      * @param service the service      * @return<tt>true</tt> if either<tt>suspend</tt> or<tt>stop</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
 DECL|method|suspendService (Service service)
 specifier|public
 specifier|static

@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -922,6 +912,7 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+comment|// need to warm up again
 name|warmUpDone
 operator|.
 name|set
@@ -964,14 +955,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we need to warm up when resuming
-name|warmUpDone
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
 block|}
@@ -985,10 +968,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// ensure we are warmed up before resuming
-name|warmUp
-argument_list|()
-expr_stmt|;
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
 block|}

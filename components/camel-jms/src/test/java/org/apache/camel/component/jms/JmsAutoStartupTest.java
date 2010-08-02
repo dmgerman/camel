@@ -323,6 +323,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"activemq-data"
+argument_list|)
+expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=

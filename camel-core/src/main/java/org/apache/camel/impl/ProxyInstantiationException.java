@@ -62,6 +62,7 @@ init|=
 operator|-
 literal|2050115486047385507L
 decl_stmt|;
+comment|// TODO: Move to org.apache.camel package
 DECL|field|type
 specifier|private
 specifier|final

@@ -94,6 +94,12 @@ name|Consumer
 name|getConsumer
 parameter_list|()
 function_decl|;
+comment|/**      * Whether or not the route supports suspension      */
+DECL|method|supportsSuspension ()
+name|boolean
+name|supportsSuspension
+parameter_list|()
+function_decl|;
 comment|/**      * This property map is used to associate information about the route.      *      * @return properties      */
 DECL|method|getProperties ()
 name|Map

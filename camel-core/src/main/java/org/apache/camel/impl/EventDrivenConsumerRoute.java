@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|SuspendableService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|InstrumentationProcessor
@@ -335,6 +347,18 @@ parameter_list|()
 block|{
 return|return
 name|consumer
+return|;
+block|}
+DECL|method|supportsSuspension ()
+specifier|public
+name|boolean
+name|supportsSuspension
+parameter_list|()
+block|{
+return|return
+name|consumer
+operator|instanceof
+name|SuspendableService
 return|;
 block|}
 block|}

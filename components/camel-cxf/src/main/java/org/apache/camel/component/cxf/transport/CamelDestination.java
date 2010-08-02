@@ -144,18 +144,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|cxf
@@ -512,11 +500,6 @@ DECL|field|camelDestinationUri
 name|String
 name|camelDestinationUri
 decl_stmt|;
-DECL|field|camelTemplate
-specifier|private
-name|ProducerTemplate
-name|camelTemplate
-decl_stmt|;
 DECL|field|destinationEndpoint
 specifier|private
 name|Endpoint
@@ -786,10 +769,12 @@ name|ConsumerProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|consumer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1111,7 +1096,7 @@ name|Level
 operator|.
 name|WARNING
 argument_list|,
-literal|"Failed to process incoming message : "
+literal|"Failed to process incoming message: "
 argument_list|,
 name|ex
 argument_list|)
