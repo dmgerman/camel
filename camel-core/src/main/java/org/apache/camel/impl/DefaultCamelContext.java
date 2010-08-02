@@ -7860,42 +7860,6 @@ block|}
 end_function
 
 begin_comment
-comment|// and register startup aware so they can be notified when
-end_comment
-
-begin_comment
-comment|// camel context has been started
-end_comment
-
-begin_if
-if|if
-condition|(
-name|service
-operator|instanceof
-name|StartupListener
-condition|)
-block|{
-name|StartupListener
-name|listener
-init|=
-operator|(
-name|StartupListener
-operator|)
-name|service
-decl_stmt|;
-name|addStartupListener
-argument_list|(
-name|listener
-argument_list|)
-expr_stmt|;
-block|}
-end_if
-
-begin_comment
-comment|// TODO: routes which doesnt support resume may have to leverage these callbacks
-end_comment
-
-begin_comment
 comment|// and then start the service
 end_comment
 
