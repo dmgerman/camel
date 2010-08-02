@@ -136,6 +136,22 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ShiroSecurityToken["
+operator|+
+name|username
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

@@ -184,6 +184,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -906,8 +920,6 @@ parameter_list|)
 block|{
 name|boolean
 name|sync
-init|=
-literal|false
 decl_stmt|;
 try|try
 block|{
@@ -923,6 +935,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// exception occurred so break out
 name|exchange
 operator|.
 name|setException
@@ -930,9 +943,19 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|// If here, then user is authenticated and authorized
-comment|// Now let the original processor continue routing
+comment|// Now let the original processor continue routing supporting the async routing engine
 name|AsyncProcessor
 name|ap
 init|=
@@ -945,10 +968,12 @@ argument_list|)
 decl_stmt|;
 name|sync
 operator|=
-name|ap
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|ap
+argument_list|,
 name|exchange
 argument_list|,
 operator|new
