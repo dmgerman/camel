@@ -4320,12 +4320,44 @@ name|JmsMessageType
 name|jmsMessageType
 parameter_list|)
 block|{
+if|if
+condition|(
+name|jmsMessageType
+operator|==
+name|JmsMessageType
+operator|.
+name|Blob
+operator|&&
+operator|!
+name|supportBlobMessage
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"BlobMessage is not supported by this implementation"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|jmsMessageType
 operator|=
 name|jmsMessageType
 expr_stmt|;
+block|}
+comment|/**      * Should get overridden by implementations which support BlobMessages      *      * @return false      */
+DECL|method|supportBlobMessage ()
+specifier|protected
+name|boolean
+name|supportBlobMessage
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 DECL|method|getJmsKeyFormatStrategy ()
 specifier|public

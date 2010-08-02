@@ -29,19 +29,23 @@ enum|enum
 name|JmsMessageType
 block|{
 DECL|enumConstant|Bytes
-DECL|enumConstant|Map
-DECL|enumConstant|Object
-DECL|enumConstant|Stream
-DECL|enumConstant|Text
 name|Bytes
 block|,
+DECL|enumConstant|Map
 name|Map
 block|,
+DECL|enumConstant|Object
 name|Object
 block|,
+DECL|enumConstant|Stream
 name|Stream
 block|,
+DECL|enumConstant|Text
 name|Text
+block|,
+comment|/**      * BlobMessage which is not supported by all JMS implementations      */
+DECL|enumConstant|Blob
+name|Blob
 block|}
 end_enum
 

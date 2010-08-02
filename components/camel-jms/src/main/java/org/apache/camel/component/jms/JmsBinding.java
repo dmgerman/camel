@@ -2579,6 +2579,141 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|type
+operator|=
+name|getJMSMessageTypeForBody
+argument_list|(
+name|exchange
+argument_list|,
+name|body
+argument_list|,
+name|headers
+argument_list|,
+name|session
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+comment|// create the JmsMessage based on the type
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using JmsMessageType: "
+operator|+
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|createJmsMessageForType
+argument_list|(
+name|exchange
+argument_list|,
+name|body
+argument_list|,
+name|headers
+argument_list|,
+name|session
+argument_list|,
+name|context
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+comment|// warn if the body could not be mapped
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+operator|&&
+name|LOG
+operator|.
+name|isWarnEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot determine specific JmsMessage type to use from body class."
+operator|+
+literal|" Will use generic JmsMessage."
+operator|+
+literal|" Body class: "
+operator|+
+name|ObjectHelper
+operator|.
+name|classCanonicalName
+argument_list|(
+name|body
+argument_list|)
+operator|+
+literal|". If you want to send a POJO then your class might need to implement java.io.Serializable"
+operator|+
+literal|", or you can force a specific type by setting the jmsMessageType option on the JMS endpoint."
+argument_list|)
+expr_stmt|;
+block|}
+comment|// return a default message
+return|return
+name|session
+operator|.
+name|createMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * Return the {@link JmsMessageType}       *       * @return type or null if no mapping was possible      */
+DECL|method|getJMSMessageTypeForBody (Exchange exchange, Object body, Map<String, Object> headers, Session session, CamelContext context)
+specifier|protected
+name|JmsMessageType
+name|getJMSMessageTypeForBody
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Session
+name|session
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|JmsMessageType
+name|type
+init|=
+literal|null
+decl_stmt|;
 comment|// let body determine the type
 if|if
 condition|(
@@ -2660,33 +2795,42 @@ operator|=
 name|Object
 expr_stmt|;
 block|}
-block|}
-comment|// create the JmsMessage based on the type
-if|if
-condition|(
+return|return
 name|type
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Using JmsMessageType: "
-operator|+
-name|type
-argument_list|)
-expr_stmt|;
+return|;
 block|}
+comment|/**      *       * Create the {@link Message}       *       * @return jmsMessage or null if the mapping was not successfully      */
+DECL|method|createJmsMessageForType (Exchange exchange, Object body, Map<String, Object> headers, Session session, CamelContext context, JmsMessageType type)
+specifier|protected
+name|Message
+name|createJmsMessageForType
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Session
+name|session
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|JmsMessageType
+name|type
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
 switch|switch
 condition|(
 name|type
@@ -2890,49 +3034,8 @@ return|;
 default|default:
 break|break;
 block|}
-block|}
-comment|// warn if the body could not be mapped
-if|if
-condition|(
-name|body
-operator|!=
-literal|null
-operator|&&
-name|LOG
-operator|.
-name|isWarnEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot determine specific JmsMessage type to use from body class."
-operator|+
-literal|" Will use generic JmsMessage."
-operator|+
-literal|" Body class: "
-operator|+
-name|ObjectHelper
-operator|.
-name|classCanonicalName
-argument_list|(
-name|body
-argument_list|)
-operator|+
-literal|". If you want to send a POJO then your class might need to implement java.io.Serializable"
-operator|+
-literal|", or you can force a specific type by setting the jmsMessageType option on the JMS endpoint."
-argument_list|)
-expr_stmt|;
-block|}
-comment|// return a default message
 return|return
-name|session
-operator|.
-name|createMessage
-argument_list|()
+literal|null
 return|;
 block|}
 comment|/**      * Populates a {@link MapMessage} from a {@link Map} instance.      */
