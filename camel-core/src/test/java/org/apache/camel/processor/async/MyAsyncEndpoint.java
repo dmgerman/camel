@@ -80,6 +80,20 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|SynchronousDelegateProducer
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -136,13 +150,36 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|Producer
+name|answer
+init|=
 operator|new
 name|MyAsyncProducer
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isSynchronous
+argument_list|()
+condition|)
+block|{
+comment|// force it to be synchronously
+return|return
+operator|new
+name|SynchronousDelegateProducer
+argument_list|(
+name|answer
+argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|answer
+return|;
+block|}
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public

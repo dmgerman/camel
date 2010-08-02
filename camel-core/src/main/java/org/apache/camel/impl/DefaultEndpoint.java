@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default endpoint useful for implementation inheritance  *  * @version $Revision$  */
+comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous processing model</a>  * should check the {@link #isSynchronous()} to determine if asynchronous processing is allowed.  * The<tt>synchronous</tt> option on the endpoint allows Camel end users to dictate whether they want the asynchronous model or not.  * The option is default<tt>false</tt> which means asynchronous processing is allowed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -186,6 +186,12 @@ init|=
 name|ExchangePattern
 operator|.
 name|InOnly
+decl_stmt|;
+comment|// option to allow end user to dictate whether async processing should be used or not (if possible)
+DECL|field|synchronous
+specifier|private
+name|boolean
+name|synchronous
 decl_stmt|;
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
@@ -699,6 +705,33 @@ operator|.
 name|exchangePattern
 operator|=
 name|exchangePattern
+expr_stmt|;
+block|}
+DECL|method|isSynchronous ()
+specifier|public
+name|boolean
+name|isSynchronous
+parameter_list|()
+block|{
+return|return
+name|synchronous
+return|;
+block|}
+comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is allowed to use      * asynchronous processing (if supported).      *<p/>      * The default value is<tt>null</tt> which means this option hasn't been specified      * and the component can decide.      *      * @param synchronous<tt>true</tt> to enforce synchronous processing      */
+DECL|method|setSynchronous (boolean synchronous)
+specifier|public
+name|void
+name|setSynchronous
+parameter_list|(
+name|boolean
+name|synchronous
+parameter_list|)
+block|{
+name|this
+operator|.
+name|synchronous
+operator|=
+name|synchronous
 expr_stmt|;
 block|}
 DECL|method|configureProperties (Map<String, Object> options)

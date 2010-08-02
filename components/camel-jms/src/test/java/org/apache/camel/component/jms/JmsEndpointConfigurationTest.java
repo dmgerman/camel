@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -734,7 +746,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|JmsProducer
+name|Producer
 name|producer
 init|=
 name|endpoint

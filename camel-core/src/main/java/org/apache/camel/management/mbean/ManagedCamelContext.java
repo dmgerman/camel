@@ -253,9 +253,7 @@ comment|// must use String type to be sure remote JMX can read the attribute wit
 name|ServiceStatus
 name|status
 init|=
-operator|(
 name|context
-operator|)
 operator|.
 name|getStatus
 argument_list|()
