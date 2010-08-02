@@ -219,6 +219,21 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|producer
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

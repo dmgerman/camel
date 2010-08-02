@@ -717,7 +717,7 @@ return|return
 name|synchronous
 return|;
 block|}
-comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is allowed to use      * asynchronous processing (if supported).      *<p/>      * The default value is<tt>null</tt> which means this option hasn't been specified      * and the component can decide.      *      * @param synchronous<tt>true</tt> to enforce synchronous processing      */
+comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is allowed to use      * asynchronous processing (if supported).      *      * @param synchronous<tt>true</tt> to enforce synchronous processing      */
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void
