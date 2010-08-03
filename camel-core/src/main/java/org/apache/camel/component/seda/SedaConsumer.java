@@ -1047,7 +1047,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdown
 argument_list|(
 name|executor
 argument_list|)
@@ -1065,10 +1065,14 @@ condition|)
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|multicast
 argument_list|)
+expr_stmt|;
+name|multicast
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
