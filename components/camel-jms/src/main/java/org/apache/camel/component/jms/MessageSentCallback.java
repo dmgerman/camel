@@ -38,6 +38,16 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
 begin_comment
 comment|/**  * Callback when a {@link Message} has been sent.  *  * @version $Revision$  */
 end_comment
@@ -48,11 +58,14 @@ specifier|public
 interface|interface
 name|MessageSentCallback
 block|{
-comment|/**      * Callback when the message has been sent.      *      * @param message     the message      * @param destination the destination      */
-DECL|method|sent (Message message, Destination destination)
+comment|/**      * Callback when the message has been sent.      *      * @param session     the session      * @param message     the message      * @param destination the destination      */
+DECL|method|sent (Session session, Message message, Destination destination)
 name|void
 name|sent
 parameter_list|(
+name|Session
+name|session
+parameter_list|,
 name|Message
 name|message
 parameter_list|,

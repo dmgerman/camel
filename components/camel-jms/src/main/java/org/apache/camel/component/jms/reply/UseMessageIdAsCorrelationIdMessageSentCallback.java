@@ -52,6 +52,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -126,11 +136,14 @@ operator|=
 name|requestTimeout
 expr_stmt|;
 block|}
-DECL|method|sent (Message message, Destination destination)
+DECL|method|sent (Session session, Message message, Destination destination)
 specifier|public
 name|void
 name|sent
 parameter_list|(
+name|Session
+name|session
+parameter_list|,
 name|Message
 name|message
 parameter_list|,

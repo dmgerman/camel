@@ -1177,6 +1177,8 @@ name|callback
 operator|.
 name|sent
 argument_list|(
+name|session
+argument_list|,
 name|message
 argument_list|,
 name|destination
