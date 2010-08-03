@@ -228,6 +228,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -237,6 +247,8 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|Netty2978IssueTest
 specifier|public
 class|class
