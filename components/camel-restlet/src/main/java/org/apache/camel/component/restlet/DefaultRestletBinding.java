@@ -250,6 +250,18 @@ name|restlet
 operator|.
 name|data
 operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|restlet
+operator|.
+name|data
+operator|.
 name|Request
 import|;
 end_import
@@ -1078,7 +1090,7 @@ literal|"Using Content Type: "
 operator|+
 name|mediaType
 operator|+
-literal|" for POST data:  "
+literal|" for POST data: "
 operator|+
 name|body
 argument_list|)
