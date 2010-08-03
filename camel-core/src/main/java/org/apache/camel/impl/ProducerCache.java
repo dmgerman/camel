@@ -1086,6 +1086,13 @@ condition|(
 name|exchange
 operator|!=
 literal|null
+operator|&&
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|long
