@@ -456,14 +456,17 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Starting directory does not exist: target/file/foo"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Starting directory does not exist"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
