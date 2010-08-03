@@ -1143,8 +1143,6 @@ argument_list|)
 decl_stmt|;
 name|Message
 name|message
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1446,6 +1444,31 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Sent JMS message to: "
+operator|+
+name|producer
+operator|.
+name|getDestination
+argument_list|()
+operator|+
+literal|" with message: "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
