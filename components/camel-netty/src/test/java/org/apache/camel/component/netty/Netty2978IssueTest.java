@@ -108,6 +108,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -249,6 +261,8 @@ operator|new
 name|CamelClient
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|int
@@ -258,7 +272,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|2000
+literal|1000
 condition|;
 name|i
 operator|++
@@ -284,11 +298,15 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|client
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -308,6 +326,8 @@ operator|new
 name|CamelClient
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 specifier|final
 name|List
 argument_list|<
@@ -337,7 +357,7 @@ literal|0
 init|;
 name|count
 operator|<
-literal|2000
+literal|1000
 condition|;
 name|count
 operator|++
@@ -386,7 +406,7 @@ name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
-literal|20
+literal|10
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -431,13 +451,20 @@ range|:
 name|results
 control|)
 block|{
+comment|// wait at most 60 sec to not hang test
 name|String
 name|reply
 init|=
 name|future
 operator|.
 name|get
-argument_list|()
+argument_list|(
+literal|60
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -457,15 +484,10 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-name|client
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-comment|// should be 2000 unique replies
+comment|// should be 1000 unique replies
 name|assertEquals
 argument_list|(
-literal|2000
+literal|1000
 argument_list|,
 name|replies
 operator|.
@@ -473,6 +495,15 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|client
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -500,7 +531,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:2048?sync=true"
+literal|"netty:tcp://localhost:22048?sync=true"
 argument_list|)
 operator|.
 name|process
@@ -598,7 +629,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"netty:tcp://localhost:2048?sync=true"
+literal|"netty:tcp://localhost:22048?sync=true"
 argument_list|)
 expr_stmt|;
 name|this
