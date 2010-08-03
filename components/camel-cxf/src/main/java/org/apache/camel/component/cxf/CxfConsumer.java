@@ -480,6 +480,14 @@ name|context
 argument_list|)
 expr_stmt|;
 comment|// send Camel exchange to the target processor
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -487,6 +495,7 @@ argument_list|(
 literal|"Processing +++ START +++"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|getProcessor
@@ -512,6 +521,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -519,6 +536,7 @@ argument_list|(
 literal|"Processing +++ END +++"
 argument_list|)
 expr_stmt|;
+block|}
 name|checkFailure
 argument_list|(
 name|camelExchange
@@ -610,22 +628,31 @@ name|isFault
 argument_list|()
 operator|)
 condition|?
-operator|(
-name|Throwable
-operator|)
 name|camelExchange
 operator|.
 name|getOut
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|Throwable
+operator|.
+name|class
+argument_list|)
 else|:
 name|camelExchange
 operator|.
 name|getException
 argument_list|()
 decl_stmt|;
+comment|// There is no exception and the Fault message is set to the out message
+if|if
+condition|(
+name|t
+operator|!=
+literal|null
+condition|)
+block|{
 throw|throw
 operator|(
 name|t
@@ -644,6 +671,7 @@ argument_list|(
 name|t
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
