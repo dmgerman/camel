@@ -151,7 +151,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"activemq123:queue:hello?requestTimeout=0"
+literal|"activemq123:queue:hello?requestTimeout=5000"
 argument_list|,
 literal|"Hello World"
 argument_list|,
