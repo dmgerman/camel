@@ -380,6 +380,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"route1"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|bar
 init|=
@@ -453,6 +460,9 @@ name|from
 argument_list|(
 literal|"ibatis:selectAllAccounts?statementType=QueryForList"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|routeId
 argument_list|(
