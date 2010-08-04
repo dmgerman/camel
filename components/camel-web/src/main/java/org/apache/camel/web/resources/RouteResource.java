@@ -884,7 +884,7 @@ argument_list|)
 expr_stmt|;
 name|defaultCamelContext
 operator|.
-name|removeRouteDefinition
+name|removeRoute
 argument_list|(
 name|id
 argument_list|)
