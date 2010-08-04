@@ -941,6 +941,26 @@ block|}
 name|configure
 argument_list|()
 expr_stmt|;
+comment|// mark all route definitions as custom prepared because
+comment|// a route builder prepares the route definitions correctly already
+for|for
+control|(
+name|RouteDefinition
+name|route
+range|:
+name|getRouteCollection
+argument_list|()
+operator|.
+name|getRoutes
+argument_list|()
+control|)
+block|{
+name|route
+operator|.
+name|customPrepared
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|populateRoutes ()

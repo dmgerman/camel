@@ -3763,6 +3763,12 @@ argument_list|,
 name|routes
 argument_list|)
 decl_stmt|;
+comment|// must ensure route is prepared, before we can start it
+name|route
+operator|.
+name|prepare
+argument_list|()
+expr_stmt|;
 name|startRouteService
 argument_list|(
 name|routeService
