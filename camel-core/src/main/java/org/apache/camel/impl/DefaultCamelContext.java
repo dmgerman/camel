@@ -3508,9 +3508,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
+specifier|public
+name|void
+name|addRouteDefinition
+parameter_list|(
+name|RouteDefinition
+name|routeDefinition
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|addRouteDefinitions
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|routeDefinition
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Removes the route definition with the given key.      *      * @return true if one or more routes was removed      */
 DECL|method|removeRouteDefinition (String key)
-specifier|public
+specifier|protected
 name|boolean
 name|removeRouteDefinition
 parameter_list|(
@@ -3630,7 +3652,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|key
+name|id
 init|=
 name|routeDefinition
 operator|.
@@ -3639,24 +3661,14 @@ argument_list|(
 name|nodeIdFactory
 argument_list|)
 decl_stmt|;
-comment|// stop and remove the route
 name|stopRoute
 argument_list|(
-name|key
+name|id
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|routeServices
-operator|.
-name|remove
+name|removeRoute
 argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
-name|removeRouteDefinition
-argument_list|(
-name|key
+name|id
 argument_list|)
 expr_stmt|;
 block|}
@@ -3754,6 +3766,8 @@ decl_stmt|;
 name|startRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3811,6 +3825,8 @@ block|{
 name|startRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -6318,6 +6334,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// mark the route services as resumed (will be marked as started) as well
@@ -7055,6 +7073,8 @@ operator|!
 name|doNotStartRoutesOnFirstStart
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// starting will continue in the start method
@@ -7322,8 +7342,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Starts or resumes the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @throws Exception is thrown if error starting routes      */
-DECL|method|doStartOrResumeRoutes (Map<String, RouteService> routeServices, boolean checkClash, boolean startConsumer, boolean resumeConsumer)
+comment|/**      * Starts or resumes the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
+DECL|method|doStartOrResumeRoutes (Map<String, RouteService> routeServices, boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes)
 specifier|protected
 name|void
 name|doStartOrResumeRoutes
@@ -7344,6 +7364,9 @@ name|startConsumer
 parameter_list|,
 name|boolean
 name|resumeConsumer
+parameter_list|,
+name|boolean
+name|addingRoutes
 parameter_list|)
 throws|throws
 name|Exception
@@ -7510,6 +7533,8 @@ argument_list|,
 name|startConsumer
 argument_list|,
 name|resumeConsumer
+argument_list|,
+name|addingRoutes
 argument_list|,
 name|filtered
 operator|.
@@ -7967,7 +7992,7 @@ comment|/**      * Starts the given route service      */
 end_comment
 
 begin_function
-DECL|method|startRouteService (RouteService routeService)
+DECL|method|startRouteService (RouteService routeService, boolean addingRoutes)
 specifier|protected
 specifier|synchronized
 name|void
@@ -7975,6 +8000,9 @@ name|startRouteService
 parameter_list|(
 name|RouteService
 name|routeService
+parameter_list|,
+name|boolean
+name|addingRoutes
 parameter_list|)
 throws|throws
 name|Exception
@@ -8029,15 +8057,38 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
+name|addingRoutes
+argument_list|,
 name|routeService
 argument_list|)
 expr_stmt|;
-comment|// must resume route service as well
+comment|// start route services if it was configured to auto startup and we are not adding routes
+name|boolean
+name|autoStartup
+init|=
+name|routeService
+operator|.
+name|getRouteDefinition
+argument_list|()
+operator|.
+name|isAutoStartup
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|addingRoutes
+operator|||
+name|autoStartup
+condition|)
+block|{
+comment|// start the route since auto start is enabled or we are starting a route (not adding new routes)
 name|routeService
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -8076,6 +8127,8 @@ block|{
 name|startRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -8098,6 +8151,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|routeService
 argument_list|)
@@ -8306,11 +8361,11 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param checkClash     whether to check for startup order clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
+comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param checkClash     whether to check for startup order clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
 end_comment
 
 begin_function
-DECL|method|safelyStartRouteServices (boolean checkClash, boolean startConsumer, boolean resumeConsumer, Collection<RouteService> routeServices)
+DECL|method|safelyStartRouteServices (boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes, Collection<RouteService> routeServices)
 specifier|protected
 specifier|synchronized
 name|void
@@ -8324,6 +8379,9 @@ name|startConsumer
 parameter_list|,
 name|boolean
 name|resumeConsumer
+parameter_list|,
+name|boolean
+name|addingRoutes
 parameter_list|,
 name|Collection
 argument_list|<
@@ -8442,6 +8500,8 @@ comment|// and now resume the routes
 name|doResumeRouteConsumers
 argument_list|(
 name|inputs
+argument_list|,
+name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
@@ -8452,6 +8512,8 @@ comment|// and check for clash with multiple consumers of the same endpoints whi
 name|doStartRouteConsumers
 argument_list|(
 name|inputs
+argument_list|,
+name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
@@ -8466,11 +8528,11 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * @see #safelyStartRouteServices(boolean,boolean,boolean,java.util.Collection      */
+comment|/**      * @see #safelyStartRouteServices(boolean,boolean,boolean,boolean,java.util.Collection      */
 end_comment
 
 begin_function
-DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, boolean startConsumer, boolean resumeConsumer, RouteService... routeServices)
+DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes, RouteService... routeServices)
 specifier|protected
 specifier|synchronized
 name|void
@@ -8488,6 +8550,9 @@ parameter_list|,
 name|boolean
 name|resumeConsumer
 parameter_list|,
+name|boolean
+name|addingRoutes
+parameter_list|,
 name|RouteService
 modifier|...
 name|routeServices
@@ -8502,6 +8567,8 @@ argument_list|,
 name|startConsumer
 argument_list|,
 name|resumeConsumer
+argument_list|,
+name|addingRoutes
 argument_list|,
 name|Arrays
 operator|.
@@ -8840,7 +8907,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|doResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs)
+DECL|method|doResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean addingRoutes)
 specifier|private
 name|void
 name|doResumeRouteConsumers
@@ -8852,6 +8919,9 @@ argument_list|,
 name|DefaultRouteStartupOrder
 argument_list|>
 name|inputs
+parameter_list|,
+name|boolean
+name|addingRoutes
 parameter_list|)
 throws|throws
 name|Exception
@@ -8861,13 +8931,15 @@ argument_list|(
 name|inputs
 argument_list|,
 literal|true
+argument_list|,
+name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|method|doStartRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs)
+DECL|method|doStartRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean addingRoutes)
 specifier|private
 name|void
 name|doStartRouteConsumers
@@ -8879,6 +8951,9 @@ argument_list|,
 name|DefaultRouteStartupOrder
 argument_list|>
 name|inputs
+parameter_list|,
+name|boolean
+name|addingRoutes
 parameter_list|)
 throws|throws
 name|Exception
@@ -8888,13 +8963,15 @@ argument_list|(
 name|inputs
 argument_list|,
 literal|false
+argument_list|,
+name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|method|doStartOrResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean resumeOnly)
+DECL|method|doStartOrResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean resumeOnly, boolean addingRoute)
 specifier|private
 name|void
 name|doStartOrResumeRouteConsumers
@@ -8909,6 +8986,9 @@ name|inputs
 parameter_list|,
 name|boolean
 name|resumeOnly
+parameter_list|,
+name|boolean
+name|addingRoute
 parameter_list|)
 throws|throws
 name|Exception
@@ -8988,8 +9068,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isStarting
-argument_list|()
+name|addingRoute
 operator|&&
 operator|!
 name|autoStartup

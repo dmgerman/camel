@@ -960,33 +960,11 @@ argument_list|)
 throw|;
 block|}
 comment|// stop and remove this existing route
-name|List
-argument_list|<
-name|RouteDefinition
-argument_list|>
-name|list
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|add
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|camelContext
 operator|.
-name|removeRouteDefinitions
+name|removeRouteDefinition
 argument_list|(
-name|list
+name|this
 argument_list|)
 expr_stmt|;
 comment|// now merge which also ensures that interceptors and the likes get mixed in correctly as well

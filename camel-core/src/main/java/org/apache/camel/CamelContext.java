@@ -679,7 +679,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route definitions to add      * @throws Exception if the route definition could not be created for whatever reason      */
+comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|addRouteDefinitions
@@ -693,7 +693,18 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route definitions      * @throws Exception if the route definition could not be removed for whatever reason      */
+comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
+DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
+name|void
+name|addRouteDefinition
+parameter_list|(
+name|RouteDefinition
+name|routeDefinition
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|removeRouteDefinitions
@@ -703,6 +714,17 @@ argument_list|<
 name|RouteDefinition
 argument_list|>
 name|routeDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes a route definition from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
+DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
+name|void
+name|removeRouteDefinition
+parameter_list|(
+name|RouteDefinition
+name|routeDefinition
 parameter_list|)
 throws|throws
 name|Exception
