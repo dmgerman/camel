@@ -298,6 +298,11 @@ specifier|private
 name|boolean
 name|streaming
 decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
@@ -608,6 +613,9 @@ argument_list|()
 argument_list|,
 name|isStopOnException
 argument_list|()
+argument_list|,
+name|getTimeout
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|rlp
@@ -888,6 +896,32 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|setTimeout (long timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
 block|}

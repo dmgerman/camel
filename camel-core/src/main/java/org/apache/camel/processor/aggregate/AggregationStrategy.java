@@ -40,6 +40,7 @@ specifier|public
 interface|interface
 name|AggregationStrategy
 block|{
+comment|// TODO: In Camel 3.0 we should move this to org.apache.camel package
 comment|/**      * Aggregates an old and new exchange together to create a single combined exchange      *      * @param oldExchange the oldest exchange (is<tt>null</tt> on first aggregation as we only have the new exchange)      * @param newExchange the newest exchange (can be<tt>null</tt> if there was no data possible to acquire)      * @return a combined composite of the two exchanges      */
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 name|Exchange

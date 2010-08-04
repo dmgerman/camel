@@ -170,6 +170,13 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|timeout ()
+name|long
+name|timeout
+parameter_list|()
+default|default
+literal|0
+function_decl|;
 block|}
 end_annotation_defn
 
