@@ -627,6 +627,21 @@ name|t
 operator|=
 name|e
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get the wrong fault detail"
+argument_list|,
+literal|""
+argument_list|,
+name|e
+operator|.
+name|getFaultInfo
+argument_list|()
+operator|.
+name|getPersonId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|assertNotNull
 argument_list|(
