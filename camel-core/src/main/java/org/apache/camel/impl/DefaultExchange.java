@@ -174,20 +174,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|UuidGenerator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default implementation of {@link Exchange}  *  * @version $Revision$  */
 end_comment
@@ -1724,9 +1710,9 @@ condition|)
 block|{
 name|answer
 operator|=
-name|UuidGenerator
+name|context
 operator|.
-name|get
+name|getUuidGenerator
 argument_list|()
 operator|.
 name|generateUuid

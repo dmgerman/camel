@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,82 +12,24 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_comment
-comment|/**  * Unit test for UuidGenerator  */
-end_comment
-
-begin_class
-DECL|class|UuidGeneratorTest
+begin_interface
+DECL|interface|UuidGenerator
 specifier|public
-class|class
-name|UuidGeneratorTest
-extends|extends
-name|TestCase
-block|{
-DECL|method|testSanitized ()
-specifier|public
-name|void
-name|testSanitized
-parameter_list|()
-block|{
-name|String
-name|out
-init|=
+interface|interface
 name|UuidGenerator
-operator|.
-name|get
-argument_list|()
-operator|.
+block|{
+comment|/**      * Generates a UUID string representation.        *       * @return a UUID string.      */
+DECL|method|generateUuid ()
+name|String
 name|generateUuid
-argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should not contain : "
-argument_list|,
-name|out
-operator|.
-name|indexOf
-argument_list|(
-literal|':'
-argument_list|)
-operator|==
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should not contain . "
-argument_list|,
-name|out
-operator|.
-name|indexOf
-argument_list|(
-literal|'.'
-argument_list|)
-operator|==
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
+parameter_list|()
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
