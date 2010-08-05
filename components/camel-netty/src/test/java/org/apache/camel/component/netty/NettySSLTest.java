@@ -306,6 +306,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// ibm jdks dont have sun security algorithms
+if|if
+condition|(
+name|isJavaVendor
+argument_list|(
+literal|"ibm"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes
