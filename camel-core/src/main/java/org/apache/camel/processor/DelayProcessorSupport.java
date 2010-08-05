@@ -549,6 +549,8 @@ block|}
 else|else
 block|{
 comment|// let caller run by processing
+try|try
+block|{
 name|delay
 argument_list|(
 name|delay
@@ -556,6 +558,21 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ie
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|ie
+argument_list|)
+expr_stmt|;
+block|}
 comment|// then continue routing
 return|return
 name|super
@@ -667,6 +684,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 comment|// only run is we are started
 if|if
@@ -706,20 +725,27 @@ block|{
 name|handleSleepInterruptedException
 argument_list|(
 name|e
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Called when a sleep is interrupted; allows derived classes to handle this      * case differently      */
-DECL|method|handleSleepInterruptedException (InterruptedException e)
+comment|/**      * Called when a sleep is interrupted; allows derived classes to handle this case differently      */
+DECL|method|handleSleepInterruptedException (InterruptedException e, Exchange exchange)
 specifier|protected
 name|void
 name|handleSleepInterruptedException
 parameter_list|(
 name|InterruptedException
 name|e
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 if|if
 condition|(
@@ -745,6 +771,17 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 DECL|method|currentSystemTime ()
 specifier|protected

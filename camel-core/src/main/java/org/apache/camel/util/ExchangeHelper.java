@@ -1834,6 +1834,29 @@ name|class
 argument_list|)
 return|;
 block|}
+DECL|method|isInterrupted (Exchange exchange)
+specifier|public
+specifier|static
+name|boolean
+name|isInterrupted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getException
+argument_list|(
+name|InterruptedException
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrieve the body      * from either IN or OUT according to the pattern.      *      * @param exchange the exchange      * @param pattern  exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      */
 DECL|method|extractResultBody (Exchange exchange, ExchangePattern pattern)
 specifier|public

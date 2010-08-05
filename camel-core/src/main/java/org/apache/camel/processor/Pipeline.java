@@ -1244,7 +1244,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Exchange is marked to stop routing: "
+literal|"ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" is marked to stop routing: "
 operator|+
 name|exchange
 argument_list|)
@@ -1279,7 +1286,14 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Continue routing: "
+literal|"ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" should continue routing: "
 operator|+
 name|answer
 argument_list|)

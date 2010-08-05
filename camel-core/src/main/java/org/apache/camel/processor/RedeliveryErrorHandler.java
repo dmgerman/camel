@@ -1230,6 +1230,21 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// mark the exchange to stop continue routing when interrupted
+comment|// as we do not want to continue routing (for example a task has been cancelled)
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROUTE_STOP
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -1663,12 +1678,25 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// only done if the exchange hasn't failed
-comment|// and it has not been handled by the failure processor
-comment|// or we are exhausted
 name|boolean
 name|answer
 init|=
+name|isCancelledOrInterrupted
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+comment|// only done if the exchange hasn't failed
+comment|// and it has not been handled by the failure processor
+comment|// or we are exhausted
+if|if
+condition|(
+operator|!
+name|answer
+condition|)
+block|{
+name|answer
+operator|=
 name|exchange
 operator|.
 name|getException
@@ -1689,7 +1717,8 @@ name|isRedeliveryExhausted
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|log
@@ -1710,6 +1739,80 @@ name|getExchangeId
 argument_list|()
 operator|+
 literal|" done? "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Strategy to determine if the exchange was cancelled or interrupted      */
+DECL|method|isCancelledOrInterrupted (Exchange exchange)
+specifier|protected
+name|boolean
+name|isCancelledOrInterrupted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|ExchangeHelper
+operator|.
+name|isInterrupted
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+comment|// mark the exchange to stop continue routing when interrupted
+comment|// as we do not want to continue routing (for example a task has been cancelled)
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROUTE_STOP
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+name|answer
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Is exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" interrupted? "
 operator|+
 name|answer
 argument_list|)

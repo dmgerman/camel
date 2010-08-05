@@ -1536,6 +1536,7 @@ expr_stmt|;
 block|}
 comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
 comment|// and have it pickup the replies and do the aggregation
+comment|// TODO: use a stopwatch to keep track of timeout left
 name|boolean
 name|timedOut
 init|=
