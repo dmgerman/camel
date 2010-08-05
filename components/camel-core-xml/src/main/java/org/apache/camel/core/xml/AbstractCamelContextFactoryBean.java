@@ -856,6 +856,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UuidGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -1306,6 +1320,9 @@ name|debugger
 argument_list|)
 expr_stmt|;
 block|}
+name|lookupUuidGenerator
+argument_list|()
+expr_stmt|;
 comment|// set the custom registry if defined
 name|initCustomRegistry
 argument_list|(
@@ -2109,6 +2126,50 @@ expr_stmt|;
 name|installRoutes
 argument_list|()
 expr_stmt|;
+block|}
+comment|// TODO: workaround for source check failure in the afterPropertiesSet() method:
+comment|// Executable statement count is 101 (max allowed is 100)
+DECL|method|lookupUuidGenerator ()
+specifier|private
+name|void
+name|lookupUuidGenerator
+parameter_list|()
+block|{
+name|UuidGenerator
+name|uuidGenerator
+init|=
+name|getBeanForType
+argument_list|(
+name|UuidGenerator
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|uuidGenerator
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using custom UuidGenerator: "
+operator|+
+name|uuidGenerator
+argument_list|)
+expr_stmt|;
+name|getContext
+argument_list|()
+operator|.
+name|setUuidGenerator
+argument_list|(
+name|uuidGenerator
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|initCustomRegistry (T context)
 specifier|protected

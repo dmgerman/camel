@@ -196,9 +196,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|ObjectHelper
+name|DefaultUuidGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UuidGenerator
 import|;
 end_import
 
@@ -212,7 +226,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UuidGenerator
+name|ObjectHelper
 import|;
 end_import
 
@@ -1729,9 +1743,8 @@ block|{
 comment|// use the default generator
 name|uuidGenerator
 operator|=
-name|UuidGenerator
-operator|.
-name|get
+operator|new
+name|DefaultUuidGenerator
 argument_list|()
 expr_stmt|;
 block|}
