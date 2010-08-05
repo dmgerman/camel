@@ -18,49 +18,28 @@ name|bean
 package|;
 end_package
 
-begin_class
-DECL|class|MyCustomException
+begin_comment
+comment|/**  * @version $Revision$  */
+end_comment
+
+begin_interface
+DECL|interface|MyService
 specifier|public
-class|class
-name|MyCustomException
-extends|extends
-name|Exception
+interface|interface
+name|MyService
 block|{
-DECL|method|MyCustomException (String message)
-specifier|public
-name|MyCustomException
+DECL|method|method (String in)
+name|String
+name|method
 parameter_list|(
 name|String
-name|message
+name|in
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
+throws|throws
+name|MyApplicationException
+function_decl|;
 block|}
-DECL|method|MyCustomException (String message, Throwable cause)
-specifier|public
-name|MyCustomException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
