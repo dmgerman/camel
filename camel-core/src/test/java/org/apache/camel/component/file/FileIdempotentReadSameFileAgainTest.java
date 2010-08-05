@@ -91,7 +91,7 @@ name|uri
 init|=
 literal|"file://target/inbox?idempotent=false&move=../done&moveFailed=../error"
 operator|+
-literal|"&preMove=working/${date:now:yyyyMMddHHmmssSSS}-${file:name}&readLock=rename"
+literal|"&preMove=working/${date:now:yyyyMMddHHmmssSSS}-${file:name}&readLock=none"
 decl_stmt|;
 annotation|@
 name|Override
@@ -130,15 +130,14 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+comment|// some file systems may read files in different order
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Foo"
-argument_list|,
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -156,13 +155,6 @@ argument_list|,
 literal|"foo.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -178,11 +170,19 @@ argument_list|,
 literal|"bar.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|mock
 operator|.
-name|sleep
+name|reset
+argument_list|()
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
 argument_list|(
-literal|1000
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
