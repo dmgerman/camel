@@ -80,7 +80,7 @@ name|response
 operator|.
 name|contains
 argument_list|(
-literal|"<html>"
+literal|"<html"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -125,7 +125,7 @@ name|response
 operator|.
 name|contains
 argument_list|(
-literal|"<html>"
+literal|"<html"
 argument_list|)
 argument_list|)
 expr_stmt|;
