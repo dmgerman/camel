@@ -1536,11 +1536,18 @@ expr_stmt|;
 block|}
 comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
 comment|// and have it pickup the replies and do the aggregation
-comment|// TODO: use a stopwatch to keep track of timeout left
 name|boolean
 name|timedOut
 init|=
 literal|false
+decl_stmt|;
+specifier|final
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1589,13 +1596,59 @@ operator|>
 literal|0
 condition|)
 block|{
+name|long
+name|left
+init|=
+name|timeout
+operator|-
+name|watch
+operator|.
+name|taken
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|left
+operator|<
+literal|0
+condition|)
+block|{
+name|left
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling completion task #"
+operator|+
+name|i
+operator|+
+literal|" using timeout "
+operator|+
+name|left
+operator|+
+literal|" millis."
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|=
 name|completion
 operator|.
 name|poll
 argument_list|(
-name|timeout
+name|left
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1606,6 +1659,24 @@ block|}
 else|else
 block|{
 comment|// take will wait until the task is complete
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling completion task #"
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|=
 name|completion
@@ -1678,6 +1749,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// log a WARN we timed out since it will not be aggregated and the Exchange will be lost
 name|LOG
 operator|.
 name|warn
@@ -1690,7 +1762,7 @@ literal|" millis for number "
 operator|+
 name|i
 operator|+
-literal|". Cannot aggregate"
+literal|". This task will be cancelled and will not be aggregated."
 argument_list|)
 expr_stmt|;
 block|}
