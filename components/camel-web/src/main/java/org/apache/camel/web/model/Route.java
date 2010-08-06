@@ -163,6 +163,33 @@ name|getDescription
 argument_list|()
 return|;
 block|}
+DECL|method|getDescriptionText ()
+specifier|public
+name|String
+name|getDescriptionText
+parameter_list|()
+block|{
+name|DescriptionDefinition
+name|definition
+init|=
+name|getDescription
+argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|definition
+operator|!=
+literal|null
+operator|)
+condition|?
+name|definition
+operator|.
+name|getText
+argument_list|()
+else|:
+literal|""
+return|;
+block|}
 DECL|method|getStatus ()
 specifier|public
 name|ServiceStatus
