@@ -132,6 +132,24 @@ name|getId
 argument_list|()
 return|;
 block|}
+DECL|method|idOrCreate ()
+specifier|public
+name|String
+name|idOrCreate
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|idOrCreate
+argument_list|(
+name|camelContext
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|getDescription ()
 specifier|public
 name|DescriptionDefinition
