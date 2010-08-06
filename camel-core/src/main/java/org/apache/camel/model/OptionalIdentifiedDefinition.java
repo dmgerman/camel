@@ -473,6 +473,28 @@ return|return
 name|customId
 return|;
 block|}
+comment|/**      * Returns the description text or null if there is no description text associated with this node      */
+DECL|method|getDescriptionText ()
+specifier|public
+name|String
+name|getDescriptionText
+parameter_list|()
+block|{
+return|return
+operator|(
+name|description
+operator|!=
+literal|null
+operator|)
+condition|?
+name|description
+operator|.
+name|getText
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 block|}
