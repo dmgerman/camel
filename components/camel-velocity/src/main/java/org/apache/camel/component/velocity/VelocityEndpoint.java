@@ -469,6 +469,35 @@ name|setProperty
 argument_list|(
 name|Velocity
 operator|.
+name|RESOURCE_LOADER
+argument_list|,
+literal|"file, class"
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setProperty
+argument_list|(
+literal|"class.resource.loader.description"
+argument_list|,
+literal|"Velocity Classpath Resource Loader"
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setProperty
+argument_list|(
+literal|"class.resource.loader.class"
+argument_list|,
+literal|"org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader"
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setProperty
+argument_list|(
+name|Velocity
+operator|.
 name|RUNTIME_LOG_LOGSYSTEM_CLASS
 argument_list|,
 name|CommonsLogLogChute
