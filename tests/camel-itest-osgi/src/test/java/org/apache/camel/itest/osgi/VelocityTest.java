@@ -349,14 +349,14 @@ name|assertRespondsWith
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|"<hello>foo</hello>"
+literal|"<header>foo</header><hello>foo</hello>"
 argument_list|)
 expr_stmt|;
 name|assertRespondsWith
 argument_list|(
 literal|"bar"
 argument_list|,
-literal|"<hello>bar</hello>"
+literal|"<header>bar</header><hello>bar</hello>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,6 +450,23 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// need to update the CCL to current bundle's as it could be no defined
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: example
 name|from
 argument_list|(
