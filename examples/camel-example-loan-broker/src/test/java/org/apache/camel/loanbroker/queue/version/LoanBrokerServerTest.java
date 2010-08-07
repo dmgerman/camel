@@ -122,7 +122,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"camelContext"
+literal|"myCamel"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
