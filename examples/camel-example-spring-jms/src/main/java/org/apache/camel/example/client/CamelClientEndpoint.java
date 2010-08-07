@@ -165,7 +165,7 @@ name|context
 operator|.
 name|getBean
 argument_list|(
-literal|"camel"
+literal|"camel-client"
 argument_list|)
 decl_stmt|;
 comment|// get the endpoint from the camel context
