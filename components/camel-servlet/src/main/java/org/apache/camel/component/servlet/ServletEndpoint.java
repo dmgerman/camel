@@ -174,7 +174,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params , HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|ServletEndpoint
 parameter_list|(

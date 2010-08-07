@@ -234,6 +234,11 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+name|sr
+operator|.
+name|shutDown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|loadServlets ()
 specifier|protected
