@@ -34,6 +34,15 @@ name|ActiveMQUuidGeneratorTest
 extends|extends
 name|TestCase
 block|{
+DECL|field|PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PATTERN
+init|=
+literal|"^ID-.*/\\d{4,5}-\\d{13}/\\d{1}-\\d{1}$"
+decl_stmt|;
 DECL|field|uuidGenerator
 specifier|private
 name|ActiveMQUuidGenerator
@@ -82,7 +91,7 @@ name|firstUUID
 operator|.
 name|matches
 argument_list|(
-literal|"^ID-.*/\\d{5}-\\d{13}/\\d{1}-\\d{1}$"
+name|PATTERN
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -92,7 +101,7 @@ name|secondUUID
 operator|.
 name|matches
 argument_list|(
-literal|"^ID-.*/\\d{5}-\\d{13}/\\d{1}-\\d{1}$"
+name|PATTERN
 argument_list|)
 argument_list|)
 expr_stmt|;
