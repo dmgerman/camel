@@ -110,6 +110,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContextNameStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1744,9 +1758,13 @@ name|contextId
 argument_list|)
 condition|)
 block|{
+comment|// if no explicit id was set then use a default auto generated name
 name|contextId
 operator|=
-literal|"camelContext"
+name|DefaultCamelContextNameStrategy
+operator|.
+name|getNextName
+argument_list|()
 expr_stmt|;
 name|element
 operator|.

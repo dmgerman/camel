@@ -492,6 +492,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|VetoCamelContextStartException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -705,6 +717,20 @@ operator|.
 name|interceptor
 operator|.
 name|Tracer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelContextNameStrategy
 import|;
 end_import
 
@@ -1287,37 +1313,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|NAME_PREFIX
+DECL|field|nameStrategy
 specifier|private
-specifier|static
-specifier|final
-name|String
-name|NAME_PREFIX
-init|=
-literal|"camel-"
-decl_stmt|;
-DECL|field|CONTEXT_COUNTER
-specifier|private
-specifier|static
-specifier|final
-name|AtomicInteger
-name|CONTEXT_COUNTER
+name|CamelContextNameStrategy
+name|nameStrategy
 init|=
 operator|new
-name|AtomicInteger
-argument_list|(
-literal|0
-argument_list|)
+name|DefaultCamelContextNameStrategy
+argument_list|()
 decl_stmt|;
 DECL|field|applicationContextClassLoader
 specifier|private
 name|ClassLoader
 name|applicationContextClassLoader
-decl_stmt|;
-DECL|field|name
-specifier|private
-name|String
-name|name
 decl_stmt|;
 DECL|field|endpoints
 specifier|private
@@ -1542,42 +1550,6 @@ argument_list|<
 name|InterceptStrategy
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|suspending
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|suspending
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-DECL|field|suspended
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|suspended
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-DECL|field|resuming
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|resuming
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 comment|// special flags to control the first startup which can are special
 DECL|field|firstStartDone
@@ -1931,15 +1903,6 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|name
-operator|=
-name|NAME_PREFIX
-operator|+
-name|CONTEXT_COUNTER
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 comment|// use WebSphere specific resolver if running on WebSphere
 if|if
 condition|(
@@ -2026,7 +1989,11 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
+name|getNameStrategy
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 comment|/**      * Sets the name of the this context.      *      * @param name the name      */
@@ -2039,11 +2006,42 @@ name|String
 name|name
 parameter_list|)
 block|{
+comment|// use an explicit name strategy since an explicit name was provided to be used
 name|this
 operator|.
-name|name
+name|nameStrategy
 operator|=
+operator|new
+name|ExplicitCamelContextNameStrategy
+argument_list|(
 name|name
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getNameStrategy ()
+specifier|public
+name|CamelContextNameStrategy
+name|getNameStrategy
+parameter_list|()
+block|{
+return|return
+name|nameStrategy
+return|;
+block|}
+DECL|method|setNameStrategy (CamelContextNameStrategy nameStrategy)
+specifier|public
+name|void
+name|setNameStrategy
+parameter_list|(
+name|CamelContextNameStrategy
+name|nameStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nameStrategy
+operator|=
+name|nameStrategy
 expr_stmt|;
 block|}
 DECL|method|hasComponent (String componentName)
@@ -6946,6 +6944,31 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|VetoCamelContextStartException
+name|e
+parameter_list|)
+block|{
+comment|// okay we should not start Camel since it was vetoed
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Lifecycle strategy vetoed starting CamelContext ("
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|")"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|e
 parameter_list|)
@@ -7196,13 +7219,6 @@ name|suspendedRouteServices
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|suspended
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 comment|// the stop order is important
 name|shutdownServices
@@ -10989,7 +11005,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Reset CONTEXT_COUNTER to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the CONTEXT_COUNTER      */
+comment|/**      * Reset conext counter to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the context counter      */
 end_comment
 
 begin_function
@@ -11003,9 +11019,9 @@ name|int
 name|value
 parameter_list|)
 block|{
-name|CONTEXT_COUNTER
+name|DefaultCamelContextNameStrategy
 operator|.
-name|set
+name|setCounter
 argument_list|(
 name|value
 argument_list|)

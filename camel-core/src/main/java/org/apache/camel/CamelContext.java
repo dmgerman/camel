@@ -108,6 +108,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelContextNameStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ClassResolver
 import|;
 end_import
@@ -425,6 +439,19 @@ DECL|method|getName ()
 name|String
 name|getName
 parameter_list|()
+function_decl|;
+DECL|method|getNameStrategy ()
+name|CamelContextNameStrategy
+name|getNameStrategy
+parameter_list|()
+function_decl|;
+DECL|method|setNameStrategy (CamelContextNameStrategy nameStrategy)
+name|void
+name|setNameStrategy
+parameter_list|(
+name|CamelContextNameStrategy
+name|nameStrategy
+parameter_list|)
 function_decl|;
 comment|/**      * Gets the version of the this context.      *      * @return the version      */
 DECL|method|getVersion ()

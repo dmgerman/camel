@@ -373,7 +373,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"camel1"
+literal|"camel-A"
 argument_list|,
 name|id
 argument_list|)
@@ -407,7 +407,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"camel2"
+literal|"camel-B"
 argument_list|,
 name|id
 argument_list|)
@@ -441,7 +441,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"camel1"
+literal|"camel-A"
 argument_list|,
 name|id
 argument_list|)
@@ -475,7 +475,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"camel2"
+literal|"camel-B"
 argument_list|,
 name|id
 argument_list|)

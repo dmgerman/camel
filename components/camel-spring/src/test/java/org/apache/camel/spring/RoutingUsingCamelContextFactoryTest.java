@@ -189,7 +189,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"camel"
+literal|"camel-A"
 argument_list|)
 decl_stmt|;
 name|assertValidContext

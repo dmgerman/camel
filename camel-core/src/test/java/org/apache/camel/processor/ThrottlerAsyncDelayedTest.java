@@ -286,20 +286,27 @@ operator|)
 operator|*
 name|INTERVAL
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should take at least "
-operator|+
-name|minimumTime
-operator|+
-literal|"ms"
-argument_list|,
+name|long
+name|delta
+init|=
 name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should take at least "
+operator|+
+name|minimumTime
+operator|+
+literal|"ms, was: "
+operator|+
+name|delta
+argument_list|,
+name|delta
 operator|>=
 name|minimumTime
 argument_list|)

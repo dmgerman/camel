@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|VetoCamelContextStartException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -134,7 +146,7 @@ specifier|public
 interface|interface
 name|LifecycleStrategy
 block|{
-comment|/**      * Notification on starting a {@link CamelContext}.      *      * @param context the camel context      */
+comment|/**      * Notification on starting a {@link CamelContext}.      *      * @param context the camel context      * @throws VetoCamelContextStartException can be thrown to veto starting {@link CamelContext}.      * Any other runtime exceptions will be logged at<tt>WARN</tt> level by Camel will continue starting itself.      */
 DECL|method|onContextStart (CamelContext context)
 name|void
 name|onContextStart
@@ -142,6 +154,8 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
+throws|throws
+name|VetoCamelContextStartException
 function_decl|;
 comment|/**      * Notification on stopping a {@link CamelContext}.      *      * @param context the camel context      */
 DECL|method|onContextStop (CamelContext context)

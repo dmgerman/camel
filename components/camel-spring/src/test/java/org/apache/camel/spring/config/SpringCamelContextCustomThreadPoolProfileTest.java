@@ -137,7 +137,7 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-literal|"camel"
+literal|"camel-D"
 argument_list|)
 decl_stmt|;
 name|ThreadPoolProfile

@@ -173,7 +173,7 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-literal|"camel"
+literal|"camel-C"
 argument_list|)
 decl_stmt|;
 name|ThreadPoolProfile
@@ -342,7 +342,7 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-literal|"camel"
+literal|"camel-C"
 argument_list|)
 decl_stmt|;
 name|ThreadPoolProfile
