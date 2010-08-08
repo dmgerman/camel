@@ -661,6 +661,32 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// check if we are interrupted so we can break out
+if|if
+condition|(
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|isInterrupted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Interrupted during connecting"
+argument_list|,
+operator|new
+name|InterruptedException
+argument_list|(
+literal|"Interrupted during connecting"
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|GenericFileOperationFailedException
 name|failed
 decl_stmt|;
@@ -772,7 +798,24 @@ name|InterruptedException
 name|ie
 parameter_list|)
 block|{
-comment|// ignore
+comment|// we could potentially also be interrupted during sleep
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Interrupted during sleeping"
+argument_list|,
+name|ie
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
