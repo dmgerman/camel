@@ -142,6 +142,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|HasId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -160,6 +188,8 @@ class|class
 name|DefaultEndpoint
 implements|implements
 name|Endpoint
+implements|,
+name|HasId
 implements|,
 name|CamelContextAware
 block|{
@@ -192,6 +222,17 @@ DECL|field|synchronous
 specifier|private
 name|boolean
 name|synchronous
+decl_stmt|;
+DECL|field|id
+specifier|private
+specifier|final
+name|String
+name|id
+init|=
+name|EndpointHelper
+operator|.
+name|createEndpointId
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
@@ -349,6 +390,17 @@ name|getEndpointUri
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+comment|/**      * Returns a unique String ID which can be used for aliasing without having to use the whole URI which      * is not unique       */
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
 return|;
 block|}
 DECL|method|getEndpointUri ()

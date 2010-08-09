@@ -82,6 +82,20 @@ name|java
 operator|.
 name|util
 operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|PatternSyntaxException
@@ -226,6 +240,19 @@ argument_list|(
 name|EndpointHelper
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+DECL|field|endpointCounter
+specifier|private
+specifier|static
+specifier|final
+name|AtomicLong
+name|endpointCounter
+init|=
+operator|new
+name|AtomicLong
+argument_list|(
+literal|0
 argument_list|)
 decl_stmt|;
 DECL|method|EndpointHelper ()
@@ -1330,6 +1357,23 @@ block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+comment|/**      * A helper method for Endpoint implementations to create new Ids for Endpoints which also implement {@link HasId}      */
+DECL|method|createEndpointId ()
+specifier|public
+specifier|static
+name|String
+name|createEndpointId
+parameter_list|()
+block|{
+return|return
+literal|"endpoint"
+operator|+
+name|endpointCounter
+operator|.
+name|incrementAndGet
+argument_list|()
 return|;
 block|}
 block|}
