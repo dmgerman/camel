@@ -823,23 +823,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// need to update the CCL as it could be no defined
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
-expr_stmt|;
 specifier|final
 name|ShiroSecurityPolicy
 name|securityPolicy

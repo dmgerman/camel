@@ -380,6 +380,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|setThreadContextClassLoader
+argument_list|()
+expr_stmt|;
 name|CamelContextFactory
 name|factory
 init|=
@@ -409,6 +412,30 @@ operator|.
 name|createContext
 argument_list|()
 return|;
+block|}
+DECL|method|setThreadContextClassLoader ()
+specifier|protected
+name|void
+name|setThreadContextClassLoader
+parameter_list|()
+block|{
+comment|// set the thread context classloader current bundle classloader
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getCamelKarafFeatureUrl ()
 specifier|public

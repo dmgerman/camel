@@ -450,23 +450,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// need to update the CCL to current bundle's as it could be no defined
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// START SNIPPET: example
 name|from
 argument_list|(
