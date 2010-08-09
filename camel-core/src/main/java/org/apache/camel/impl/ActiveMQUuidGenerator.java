@@ -319,7 +319,7 @@ name|hostName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * As we have to find the hostname as a side-affect of generating a unique      * stub, we allow it's easy retrevial here      *       * @return the local host name      */
+comment|/**      * As we have to find the hostname as a side-affect of generating a unique      * stub, we allow it's easy retrieval here      *       * @return the local host name      */
 DECL|method|getHostName ()
 specifier|public
 specifier|static

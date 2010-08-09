@@ -125,7 +125,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//Timer test
 DECL|method|testTimerInvocation ()
 specifier|public
 name|void
@@ -206,7 +205,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Should take approx 5000 milliseconds, was: "
+literal|"Should take approx 2000 milliseconds, was: "
 operator|+
 name|interval
 argument_list|)
@@ -214,13 +213,13 @@ expr_stmt|;
 block|}
 name|assertTrue
 argument_list|(
-literal|"Should take approx 5000 milliseconds, was: "
+literal|"Should take approx 2000 milliseconds, was: "
 operator|+
 name|interval
 argument_list|,
 name|interval
 operator|>=
-literal|4995
+literal|1700
 argument_list|)
 expr_stmt|;
 block|}
@@ -246,7 +245,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=5s"
+literal|"timer://foo?fixedRate=true&delay=0&period=2s"
 argument_list|)
 operator|.
 name|to
