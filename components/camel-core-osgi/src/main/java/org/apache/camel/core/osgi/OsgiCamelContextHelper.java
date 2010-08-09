@@ -232,6 +232,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"Using the OsgiCamelContextNameStrategy"
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
+name|setNameStrategy
+argument_list|(
+operator|new
+name|OsgiCamelContextNameStrategy
+argument_list|(
+name|bundleContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
 literal|"Using the OsgiClassResolver"
 argument_list|)
 expr_stmt|;
