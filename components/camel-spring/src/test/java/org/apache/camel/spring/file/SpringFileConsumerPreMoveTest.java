@@ -88,24 +88,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
