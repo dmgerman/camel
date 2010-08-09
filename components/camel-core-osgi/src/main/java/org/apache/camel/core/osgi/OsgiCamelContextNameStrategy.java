@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|DefaultCamelContextNameStrategy
+name|CamelContextNameStrategy
 import|;
 end_import
 
@@ -49,9 +49,15 @@ DECL|class|OsgiCamelContextNameStrategy
 specifier|public
 class|class
 name|OsgiCamelContextNameStrategy
-extends|extends
-name|DefaultCamelContextNameStrategy
+implements|implements
+name|CamelContextNameStrategy
 block|{
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
 DECL|method|OsgiCamelContextNameStrategy (BundleContext context)
 specifier|public
 name|OsgiCamelContextNameStrategy
@@ -62,7 +68,7 @@ parameter_list|)
 block|{
 name|name
 operator|=
-literal|"Bundle:"
+literal|"camel-"
 operator|+
 name|context
 operator|.
@@ -71,12 +77,17 @@ argument_list|()
 operator|.
 name|getBundleId
 argument_list|()
-operator|+
-literal|":"
-operator|+
-name|getNextName
-argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 block|}
 end_class
