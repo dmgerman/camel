@@ -94,6 +94,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|HasId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|web
 operator|.
 name|util
@@ -224,6 +238,8 @@ operator|=
 name|createHref
 argument_list|(
 name|uri
+argument_list|,
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -255,6 +271,8 @@ operator|=
 name|createHref
 argument_list|(
 name|key
+argument_list|,
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -310,14 +328,48 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-DECL|method|createHref (String uri)
+DECL|method|createHref (String uri, Endpoint endpoint)
 specifier|protected
 name|String
 name|createHref
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|Endpoint
+name|endpoint
 parameter_list|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|HasId
+condition|)
+block|{
+name|HasId
+name|hasId
+init|=
+operator|(
+name|HasId
+operator|)
+name|endpoint
+decl_stmt|;
+name|String
+name|id
+init|=
+name|hasId
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+return|return
+literal|"/endpoints/"
+operator|+
+name|id
+return|;
+block|}
+else|else
 block|{
 comment|// must not include :// in endpoint link
 comment|// TODO: might need to use org.apache.camel.util.UnsafeUriCharactersEncoder to safely encode URI for the web
@@ -331,6 +383,7 @@ argument_list|(
 name|uri
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class
