@@ -92,26 +92,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|ops4j
 operator|.
 name|pax
@@ -224,22 +204,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|knopflerfish
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|mavenBundle
 import|;
 end_import
@@ -257,26 +221,6 @@ operator|.
 name|CoreOptions
 operator|.
 name|options
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|logProfile
 import|;
 end_import
 
@@ -349,7 +293,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 specifier|transient
@@ -404,6 +348,21 @@ argument_list|(
 literal|"Get the bundleContext is "
 operator|+
 name|bundleContext
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Application installed as bundle id: "
+operator|+
+name|bundleContext
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|getBundleId
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

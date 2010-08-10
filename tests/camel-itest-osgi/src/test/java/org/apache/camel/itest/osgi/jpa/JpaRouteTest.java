@@ -50,20 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|mock
@@ -99,20 +85,6 @@ operator|.
 name|spring
 operator|.
 name|SpringCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|SpringRouteBuilder
 import|;
 end_import
 
@@ -361,22 +333,6 @@ operator|.
 name|CoreOptions
 operator|.
 name|options
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|wrappedBundle
 import|;
 end_import
 
@@ -651,9 +607,6 @@ name|Exception
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean
@@ -708,9 +661,6 @@ parameter_list|()
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean

@@ -164,22 +164,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|mavenBundle
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|options
 import|;
 end_import

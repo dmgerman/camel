@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for PersonType complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="PersonType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for PersonType complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="PersonType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *  */
 end_comment
 
 begin_class
@@ -167,7 +167,6 @@ specifier|protected
 name|String
 name|lastName
 decl_stmt|;
-comment|/**      * Gets the value of the firstName property.      *       * @return      *     possible object is      *     {@link String }      *           */
 DECL|method|getFirstName ()
 specifier|public
 name|String
@@ -178,7 +177,6 @@ return|return
 name|firstName
 return|;
 block|}
-comment|/**      * Sets the value of the firstName property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
 DECL|method|setFirstName (String value)
 specifier|public
 name|void
@@ -195,7 +193,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the lastName property.      *       * @return      *     possible object is      *     {@link String }      *           */
 DECL|method|getLastName ()
 specifier|public
 name|String
@@ -206,7 +203,6 @@ return|return
 name|lastName
 return|;
 block|}
-comment|/**      * Sets the value of the lastName property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
 DECL|method|setLastName (String value)
 specifier|public
 name|void
