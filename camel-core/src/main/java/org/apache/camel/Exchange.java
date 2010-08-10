@@ -260,6 +260,12 @@ name|FILE_LAST_MODIFIED
 init|=
 literal|"CamelFileLastModified"
 decl_stmt|;
+DECL|field|FILTER_MATCHED
+name|String
+name|FILTER_MATCHED
+init|=
+literal|"CamelFilterMatched"
+decl_stmt|;
 DECL|field|GROUPED_EXCHANGE
 name|String
 name|GROUPED_EXCHANGE

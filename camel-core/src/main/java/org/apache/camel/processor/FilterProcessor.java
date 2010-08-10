@@ -232,6 +232,18 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set property whether the filter matches or not
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FILTER_MATCHED
+argument_list|,
+name|matches
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|matches
