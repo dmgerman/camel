@@ -66,11 +66,12 @@ name|OsgiCamelContextNameStrategy
 implements|implements
 name|CamelContextNameStrategy
 block|{
-DECL|field|counter
+DECL|field|COUNTER
 specifier|private
+specifier|static
 specifier|final
 name|AtomicInteger
-name|counter
+name|COUNTER
 init|=
 operator|new
 name|AtomicInteger
@@ -106,7 +107,7 @@ argument_list|()
 operator|+
 literal|"-"
 operator|+
-name|counter
+name|COUNTER
 operator|.
 name|incrementAndGet
 argument_list|()
