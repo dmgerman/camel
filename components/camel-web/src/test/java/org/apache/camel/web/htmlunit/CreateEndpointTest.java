@@ -108,18 +108,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -149,6 +137,18 @@ operator|.
 name|Matchers
 operator|.
 name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
 import|;
 end_import
 

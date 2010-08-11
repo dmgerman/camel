@@ -242,12 +242,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpointCounter
+DECL|field|ENDPOINT_COUNTER
 specifier|private
 specifier|static
 specifier|final
 name|AtomicLong
-name|endpointCounter
+name|ENDPOINT_COUNTER
 init|=
 operator|new
 name|AtomicLong
@@ -1370,7 +1370,7 @@ block|{
 return|return
 literal|"endpoint"
 operator|+
-name|endpointCounter
+name|ENDPOINT_COUNTER
 operator|.
 name|incrementAndGet
 argument_list|()

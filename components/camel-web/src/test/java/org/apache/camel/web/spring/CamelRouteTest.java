@@ -331,16 +331,20 @@ argument_list|()
 expr_stmt|;
 name|camelContext
 operator|=
+operator|(
+name|CamelContext
+operator|)
 name|applicationContext
 operator|.
 name|getBean
 argument_list|(
+literal|"camelContext"
+argument_list|,
 name|CamelContext
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|//applicationContext.getBean("camelContext", CamelContext.class);
 name|assertNotNull
 argument_list|(
 literal|"camelContext"
