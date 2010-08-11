@@ -23,23 +23,10 @@ DECL|interface|Component
 specifier|public
 interface|interface
 name|Component
+extends|extends
+name|CamelContextAware
 block|{
-comment|/**      * Returns the context      *       * @return the context of this component      */
-DECL|method|getCamelContext ()
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-function_decl|;
-comment|/**      * The {@link CamelContext} is injected into the component when it is added      * to it      */
-DECL|method|setCamelContext (CamelContext context)
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-function_decl|;
-comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create      *         instances of the given uri      */
+comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create      *         instances of the given uri      * @throws Exception is thrown if error creating the endpoint      */
 DECL|method|createEndpoint (String uri)
 name|Endpoint
 name|createEndpoint
