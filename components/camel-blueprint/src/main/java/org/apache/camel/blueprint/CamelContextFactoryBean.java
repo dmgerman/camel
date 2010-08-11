@@ -1158,6 +1158,13 @@ specifier|private
 name|BundleContext
 name|bundleContext
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|implicitId
+specifier|private
+name|boolean
+name|implicitId
+decl_stmt|;
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -1195,6 +1202,22 @@ operator|=
 name|createContext
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isImplicitId
+argument_list|()
+condition|)
+block|{
+name|context
+operator|.
+name|setName
+argument_list|(
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|context
@@ -2149,6 +2172,30 @@ block|{
 return|return
 name|contextClassLoaderOnStart
 return|;
+block|}
+DECL|method|isImplicitId ()
+specifier|public
+name|boolean
+name|isImplicitId
+parameter_list|()
+block|{
+return|return
+name|implicitId
+return|;
+block|}
+DECL|method|setImplicitId (boolean flag)
+specifier|public
+name|void
+name|setImplicitId
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|implicitId
+operator|=
+name|flag
+expr_stmt|;
 block|}
 block|}
 end_class

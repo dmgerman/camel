@@ -316,6 +316,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultCamelContextNameStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|AggregateDefinition
@@ -960,6 +974,12 @@ argument_list|(
 literal|"id"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|implicitId
+init|=
+literal|false
+decl_stmt|;
+comment|// lets avoid folks having to explicitly give an ID to a camel context
 if|if
 condition|(
 name|ObjectHelper
@@ -970,9 +990,13 @@ name|contextId
 argument_list|)
 condition|)
 block|{
+comment|// if no explicit id was set then use a default auto generated name
 name|contextId
 operator|=
-literal|"camelContext"
+name|DefaultCamelContextNameStrategy
+operator|.
+name|getNextName
+argument_list|()
 expr_stmt|;
 name|element
 operator|.
@@ -982,6 +1006,10 @@ literal|"id"
 argument_list|,
 name|contextId
 argument_list|)
+expr_stmt|;
+name|implicitId
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|// now lets parse the routes with JAXB
@@ -1119,6 +1147,13 @@ name|ptm
 operator|.
 name|getObject
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|ccfb
+operator|.
+name|setImplicitId
+argument_list|(
+name|implicitId
 argument_list|)
 expr_stmt|;
 name|ccfb
