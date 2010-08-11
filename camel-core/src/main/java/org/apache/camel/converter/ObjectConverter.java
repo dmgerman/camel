@@ -283,6 +283,53 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toChar (String value)
+specifier|public
+specifier|static
+name|char
+name|toChar
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+comment|// must be 1 length string
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+operator|||
+name|value
+operator|.
+name|length
+argument_list|()
+operator|!=
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"String must have exactly a length of 1: "
+operator|+
+name|value
+argument_list|)
+throw|;
+block|}
+return|return
+name|value
+operator|.
+name|toCharArray
+argument_list|()
+index|[
+literal|0
+index|]
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|fromCharArray (char[] value)
 specifier|public
 specifier|static
