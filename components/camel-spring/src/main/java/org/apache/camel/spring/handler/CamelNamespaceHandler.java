@@ -110,20 +110,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContextNameStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -213,6 +199,20 @@ operator|.
 name|xml
 operator|.
 name|CamelPropertyPlaceholderDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContextNameStrategy
 import|;
 end_import
 
@@ -1747,6 +1747,11 @@ argument_list|(
 literal|"id"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|implicitId
+init|=
+literal|false
+decl_stmt|;
 comment|// lets avoid folks having to explicitly give an ID to a camel context
 if|if
 condition|(
@@ -1774,6 +1779,10 @@ literal|"id"
 argument_list|,
 name|contextId
 argument_list|)
+expr_stmt|;
+name|implicitId
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|// now lets parse the routes with JAXB
@@ -1845,6 +1854,15 @@ argument_list|(
 literal|"id"
 argument_list|,
 name|contextId
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|addPropertyValue
+argument_list|(
+literal|"implicitId"
+argument_list|,
+name|implicitId
 argument_list|)
 expr_stmt|;
 name|builder

@@ -240,6 +240,39 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+DECL|method|createContext ()
+specifier|protected
+name|SpringCamelContext
+name|createContext
+parameter_list|()
+block|{
+name|SpringCamelContext
+name|ctx
+init|=
+name|newCamelContext
+argument_list|()
+decl_stmt|;
+comment|// we don't the the ImplicitId as it will override the OsgiCamelContextNameStratgy
+if|if
+condition|(
+operator|!
+name|isImplicitId
+argument_list|()
+condition|)
+block|{
+name|ctx
+operator|.
+name|setName
+argument_list|(
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|ctx
+return|;
+block|}
 DECL|method|newCamelContext ()
 specifier|protected
 name|SpringCamelContext
