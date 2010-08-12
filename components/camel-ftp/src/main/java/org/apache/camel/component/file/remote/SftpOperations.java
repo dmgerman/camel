@@ -2972,6 +2972,22 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|sendSiteCommand (String command)
+specifier|public
+name|boolean
+name|sendSiteCommand
+parameter_list|(
+name|String
+name|command
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+comment|// is not implemented
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

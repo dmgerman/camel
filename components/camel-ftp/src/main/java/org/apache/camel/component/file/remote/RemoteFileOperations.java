@@ -70,7 +70,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Connects to the remote server      *      * @param configuration configuration      * @return true if connected      * @throws GenericFileOperationFailedException can be thrown      */
+comment|/**      * Connects to the remote server      *      * @param configuration configuration      * @return<tt>true</tt> if connected      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|connect (RemoteFileConfiguration configuration)
 name|boolean
 name|connect
@@ -81,7 +81,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Returns whether we are connected to the remote server or not      *      * @return true if connected, false if not      * @throws GenericFileOperationFailedException can be thrown      */
+comment|/**      * Returns whether we are connected to the remote server or not      *      * @return<tt>true</tt> if connected,<tt>false</tt> if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|isConnected ()
 name|boolean
 name|isConnected
@@ -97,11 +97,22 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Sends a noop command to the remote server      *      * @throws GenericFileOperationFailedException can be thrown      * @return<tt>true</tt> if the noop was a success,<tt>false</tt> otherwise      */
+comment|/**      * Sends a noop command to the remote server      *      * @return<tt>true</tt> if the noop was a success,<tt>false</tt> otherwise      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|sendNoop ()
 name|boolean
 name|sendNoop
 parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
+comment|/**      * Sends a site command to the remote server      *      * @param command  the command      * @return<tt>true</tt> if the command was a success,<tt>false</tt> otherwise      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|sendSiteCommand (String command)
+name|boolean
+name|sendSiteCommand
+parameter_list|(
+name|String
+name|command
+parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;

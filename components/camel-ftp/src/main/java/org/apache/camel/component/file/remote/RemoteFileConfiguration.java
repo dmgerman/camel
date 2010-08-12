@@ -118,6 +118,11 @@ specifier|private
 name|boolean
 name|throwExceptionOnConnectFailed
 decl_stmt|;
+DECL|field|siteCommand
+specifier|private
+name|String
+name|siteCommand
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -540,6 +545,33 @@ operator|.
 name|throwExceptionOnConnectFailed
 operator|=
 name|throwExceptionOnConnectFailed
+expr_stmt|;
+block|}
+DECL|method|getSiteCommand ()
+specifier|public
+name|String
+name|getSiteCommand
+parameter_list|()
+block|{
+return|return
+name|siteCommand
+return|;
+block|}
+comment|/**      * Sets optional site command(s) to be executed after successful login.      *<p/>      * Multiple site commands can be separated using a new line character (\n).      *      * @param siteCommand the site command(s).      */
+DECL|method|setSiteCommand (String siteCommand)
+specifier|public
+name|void
+name|setSiteCommand
+parameter_list|(
+name|String
+name|siteCommand
+parameter_list|)
+block|{
+name|this
+operator|.
+name|siteCommand
+operator|=
+name|siteCommand
 expr_stmt|;
 block|}
 block|}
