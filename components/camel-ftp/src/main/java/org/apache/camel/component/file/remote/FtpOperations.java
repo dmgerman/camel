@@ -1188,7 +1188,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Site command to sent: "
+literal|"Site command to send: "
 operator|+
 name|command
 argument_list|)
