@@ -208,7 +208,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// should get the context name here
+comment|// should get the context name with osgi bundle id
 name|assertTrue
 argument_list|(
 literal|"Get the wrong camel context name."
