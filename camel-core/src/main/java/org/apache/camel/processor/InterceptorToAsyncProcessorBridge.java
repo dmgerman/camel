@@ -108,6 +108,20 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A bridge to have regular interceptors implemented as {@link org.apache.camel.Processor}  * work with the asynchronous routing engine without causing side effects.  *  * @version $Revision$  */
 end_comment
@@ -381,7 +395,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|target
+argument_list|,
+name|interceptor
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -402,6 +424,15 @@ name|interceptorDone
 operator|.
 name|remove
 argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|interceptor
+argument_list|,
+name|target
+argument_list|)
 expr_stmt|;
 block|}
 block|}
