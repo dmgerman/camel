@@ -401,7 +401,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar} == '123'"
@@ -482,7 +482,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar} != '123'"
@@ -519,10 +519,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testGreatherThanOperator ()
+DECL|method|testGreaterThanOperator ()
 specifier|public
 name|void
-name|testGreatherThanOperator
+name|testGreaterThanOperator
 parameter_list|()
 throws|throws
 name|Exception
@@ -556,7 +556,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar}> '100'"
@@ -593,10 +593,210 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testGreatherThanOrEqualOperator ()
+DECL|method|testGreaterThanStringToInt ()
 specifier|public
 name|void
-name|testGreatherThanOrEqualOperator
+name|testGreaterThanStringToInt
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// set a String value
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"num"
+argument_list|,
+literal|"70"
+argument_list|)
+expr_stmt|;
+comment|// string to int comparison
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 80"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 800"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 1"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 8"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 48"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 69"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 71"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 88"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}> 777"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLessThanStringToInt ()
+specifier|public
+name|void
+name|testLessThanStringToInt
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// set a String value
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"num"
+argument_list|,
+literal|"70"
+argument_list|)
+expr_stmt|;
+comment|// string to int comparison
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 80"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 800"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 1"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 8"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 48"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 69"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 71"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 88"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.num}< 777"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGreaterThanOrEqualOperator ()
+specifier|public
+name|void
+name|testGreaterThanOrEqualOperator
 parameter_list|()
 throws|throws
 name|Exception
@@ -637,7 +837,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar}>= '100'"
@@ -711,7 +911,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar}< '100'"
@@ -792,7 +992,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// integer to string comparioson
+comment|// integer to string comparison
 name|assertExpression
 argument_list|(
 literal|"${in.header.bar}<= '100'"

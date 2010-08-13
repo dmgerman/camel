@@ -579,6 +579,55 @@ name|Object
 name|rightValue
 parameter_list|)
 block|{
+comment|// if both values is numeric then compare using numeric
+name|Long
+name|leftNum
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Long
+operator|.
+name|class
+argument_list|,
+name|leftValue
+argument_list|)
+decl_stmt|;
+name|Long
+name|rightNum
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Long
+operator|.
+name|class
+argument_list|,
+name|rightValue
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|leftNum
+operator|!=
+literal|null
+operator|&&
+name|rightNum
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|leftNum
+operator|.
+name|compareTo
+argument_list|(
+name|rightNum
+argument_list|)
+return|;
+block|}
 comment|// prefer to NOT coerce to String so use the type which is not String
 comment|// for example if we are comparing String vs Integer then prefer to coerce to Integer
 comment|// as all types can be converted to String which does not work well for comparison
