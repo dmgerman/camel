@@ -33,7 +33,7 @@ specifier|private
 name|StringHelper
 parameter_list|()
 block|{     }
-comment|/**      * Ensures that<code>s</code> is friendly for a URL or file system.      *       * @param s      *            String to be sanitized.      * @return sanitized version of<code>s</code>.      * @throws NullPointerException      *             if<code>s</code> is<code>null</code>.      */
+comment|/**      * Ensures that<code>s</code> is friendly for a URL or file system.      *       * @param s String to be sanitized.      * @return sanitized version of<code>s</code>.      * @throws NullPointerException if<code>s</code> is<code>null</code>.      */
 DECL|method|sanitize (String s)
 specifier|public
 specifier|static
@@ -158,6 +158,56 @@ block|}
 block|}
 return|return
 name|matches
+return|;
+block|}
+DECL|method|removeQuotes (String s)
+specifier|public
+specifier|static
+name|String
+name|removeQuotes
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|s
+argument_list|)
+condition|)
+block|{
+return|return
+name|s
+return|;
+block|}
+name|s
+operator|=
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"'"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|s
+operator|=
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\""
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+return|return
+name|s
 return|;
 block|}
 block|}
