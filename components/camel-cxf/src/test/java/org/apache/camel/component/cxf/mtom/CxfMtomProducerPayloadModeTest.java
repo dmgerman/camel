@@ -394,7 +394,7 @@ name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|endpoint
-specifier|private
+specifier|protected
 name|Endpoint
 name|endpoint
 decl_stmt|;
@@ -416,8 +416,7 @@ name|publish
 argument_list|(
 literal|"http://localhost:9092/jaxws-mtom/hello"
 argument_list|,
-operator|new
-name|HelloImpl
+name|getServiceImpl
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -436,7 +435,8 @@ name|binding
 operator|.
 name|setMTOMEnabled
 argument_list|(
-literal|true
+name|isMtomEnabled
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -955,6 +955,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: producer
+block|}
+DECL|method|isMtomEnabled ()
+specifier|protected
+name|boolean
+name|isMtomEnabled
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+DECL|method|getServiceImpl ()
+specifier|protected
+name|Object
+name|getServiceImpl
+parameter_list|()
+block|{
+return|return
+operator|new
+name|HelloImpl
+argument_list|()
+return|;
 block|}
 block|}
 end_class

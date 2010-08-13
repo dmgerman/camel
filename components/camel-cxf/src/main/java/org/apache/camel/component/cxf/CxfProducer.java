@@ -811,6 +811,25 @@ operator|.
 name|APPLICATION
 argument_list|)
 decl_stmt|;
+name|camelExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Message
+operator|.
+name|MTOM_ENABLED
+argument_list|,
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|endpoint
+operator|.
+name|isMtomEnabled
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// set data format mode in exchange
 name|DataFormat
 name|dataFormat

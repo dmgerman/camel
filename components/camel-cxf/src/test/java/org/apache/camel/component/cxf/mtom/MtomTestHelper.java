@@ -188,6 +188,28 @@ name|REQ_IMAGE_CID
 operator|+
 literal|"\"/></image></Detail>"
 decl_stmt|;
+DECL|field|MTOM_DISABLED_REQ_MESSAGE
+specifier|static
+specifier|final
+name|String
+name|MTOM_DISABLED_REQ_MESSAGE
+init|=
+literal|"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+operator|+
+literal|"<Detail xmlns=\"http://apache.org/camel/cxf/mtom_feature/types\">"
+operator|+
+literal|"<photo>cid:"
+operator|+
+name|REQ_PHOTO_CID
+operator|+
+literal|"</photo>"
+operator|+
+literal|"<image>cid:"
+operator|+
+name|REQ_IMAGE_CID
+operator|+
+literal|"</image></Detail>"
+decl_stmt|;
 DECL|field|RESP_PHOTO_CID
 specifier|static
 specifier|final
@@ -229,6 +251,28 @@ operator|+
 name|RESP_IMAGE_CID
 operator|+
 literal|"\"/></image></DetailResponse>"
+decl_stmt|;
+DECL|field|MTOM_DISABLED_RESP_MESSAGE
+specifier|static
+specifier|final
+name|String
+name|MTOM_DISABLED_RESP_MESSAGE
+init|=
+literal|"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+operator|+
+literal|"<DetailResponse xmlns=\"http://apache.org/camel/cxf/mtom_feature/types\">"
+operator|+
+literal|"<photo>cid:"
+operator|+
+name|RESP_PHOTO_CID
+operator|+
+literal|"</photo>"
+operator|+
+literal|"<image>cid:"
+operator|+
+name|RESP_IMAGE_CID
+operator|+
+literal|"</image></DetailResponse>"
 decl_stmt|;
 DECL|field|requestJpeg
 specifier|static

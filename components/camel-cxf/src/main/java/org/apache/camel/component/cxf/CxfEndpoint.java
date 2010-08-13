@@ -767,6 +767,11 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
+DECL|field|mtomEnabled
+specifier|private
+name|boolean
+name|mtomEnabled
+decl_stmt|;
 DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
@@ -2665,6 +2670,32 @@ parameter_list|()
 block|{
 return|return
 name|address
+return|;
+block|}
+DECL|method|setMtomEnabled (boolean mtomEnabled)
+specifier|public
+name|void
+name|setMtomEnabled
+parameter_list|(
+name|boolean
+name|mtomEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mtomEnabled
+operator|=
+name|mtomEnabled
+expr_stmt|;
+block|}
+DECL|method|isMtomEnabled ()
+specifier|public
+name|boolean
+name|isMtomEnabled
+parameter_list|()
+block|{
+return|return
+name|mtomEnabled
 return|;
 block|}
 comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD} mode.      */
