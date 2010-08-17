@@ -60,6 +60,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|application
+operator|.
+name|ApplicationContext
+import|;
+end_import
+
 begin_class
 DECL|class|ServiceRegistryTest
 specifier|public
@@ -78,46 +90,101 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//        CamelContextFactory factory = new CamelContextFactory();
-comment|//        factory.setBundleContext(getBundleContext());
-comment|//        DefaultCamelContext context = factory.createContext();
-comment|//        context.start();
-comment|//        MyService myService = context.getRegistry().lookup(MyService.class.getName(), MyService.class);
-comment|//        assertNotNull("MyService should not be null", myService);
-comment|//
-comment|//        Object service = context.getRegistry().lookup(MyService.class.getName());
-comment|//        assertNotNull("MyService should not be null", service);
-comment|//
-comment|//        service = context.getRegistry().lookupByType(MyService.class);
-comment|//        assertNotNull("MyService should not be null", service);
-comment|//        context.stop();
-block|}
-annotation|@
-name|Test
-DECL|method|camelContextFactoryBeanServiceRegistryTest ()
-specifier|public
-name|void
-name|camelContextFactoryBeanServiceRegistryTest
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|//        CamelContextFactoryBean factoryBean = new CamelContextFactoryBean();
-comment|//        factoryBean.setBundleContext(getBundleContext());
-comment|//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("org/apache/camel/osgi/camelContext.xml");
-comment|//        factoryBean.setApplicationContext(applicationContext);
-comment|//        DefaultCamelContext context = factoryBean.getContext();
-comment|//        context.start();
-comment|//        MyService myService = context.getRegistry().lookup(MyService.class.getName(), MyService.class);
-comment|//        assertNotNull("MyService should not be null", myService);
-comment|//
-comment|//        Object service = context.getRegistry().lookup(MyService.class.getName());
-comment|//        assertNotNull("MyService should not be null", service);
-comment|//
-comment|//        service = context.getRegistry().lookupByType(MyService.class);
-comment|//        assertNotNull("MyService should not be null", service);
-comment|//
-comment|//        context.stop();
+name|DefaultCamelContext
+name|context
+init|=
+operator|new
+name|OsgiDefaultCamelContext
+argument_list|(
+name|getBundleContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|MyService
+name|myService
+init|=
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|MyService
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|MyService
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"MyService should not be null"
+argument_list|,
+name|myService
+argument_list|)
+expr_stmt|;
+name|Object
+name|service
+init|=
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|MyService
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"MyService should not be null"
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
+name|service
+operator|=
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookupByType
+argument_list|(
+name|MyService
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"MyService should not be null"
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

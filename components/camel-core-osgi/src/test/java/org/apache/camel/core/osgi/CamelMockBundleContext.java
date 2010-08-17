@@ -257,7 +257,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"org.apache.camel.osgi.test.MyService"
+literal|"org.apache.camel.core.osgi.test.MyService"
 argument_list|)
 condition|)
 block|{
