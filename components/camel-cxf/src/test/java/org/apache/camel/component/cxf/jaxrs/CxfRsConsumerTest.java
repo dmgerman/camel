@@ -560,6 +560,20 @@ name|operationName
 argument_list|)
 condition|)
 block|{
+name|assertEquals
+argument_list|(
+literal|"Get a wrong customer message header"
+argument_list|,
+literal|"header1;header2"
+argument_list|,
+name|inMessage
+operator|.
+name|getHeader
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|httpMethod
 init|=
@@ -760,6 +774,15 @@ operator|.
 name|setContentType
 argument_list|(
 literal|"text/xml; charset=ISO-8859-1"
+argument_list|)
+expr_stmt|;
+name|put
+operator|.
+name|addHeader
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"header1;header2"
 argument_list|)
 expr_stmt|;
 name|put
