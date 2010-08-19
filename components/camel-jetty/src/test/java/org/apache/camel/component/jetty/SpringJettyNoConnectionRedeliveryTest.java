@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -178,25 +190,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// stop Jetty so there should not be a connection
-name|JettyHttpComponent
-name|jetty
-init|=
+comment|// stop Jetty route so there should not be a connection
 name|context
 operator|.
-name|getComponent
+name|stopRoute
 argument_list|(
 literal|"jetty"
-argument_list|,
-name|JettyHttpComponent
-operator|.
-name|class
 argument_list|)
-decl_stmt|;
-name|jetty
-operator|.
-name|stop
-argument_list|()
 expr_stmt|;
 name|Exchange
 name|exchange
