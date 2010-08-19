@@ -244,8 +244,19 @@ literal|"file"
 argument_list|)
 expr_stmt|;
 comment|// we assume its a file if the name has a dot in it (eg foo.txt)
+name|boolean
+name|isDirectory
+init|=
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|isDirectory
+operator|&&
 name|file
 operator|.
 name|getName
@@ -277,10 +288,7 @@ name|exists
 argument_list|()
 operator|&&
 operator|!
-name|file
-operator|.
 name|isDirectory
-argument_list|()
 condition|)
 block|{
 if|if
