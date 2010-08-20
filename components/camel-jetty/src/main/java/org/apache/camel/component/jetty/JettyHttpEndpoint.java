@@ -198,6 +198,11 @@ specifier|private
 name|boolean
 name|enableJmx
 decl_stmt|;
+DECL|field|enableMultipartFilter
+specifier|private
+name|boolean
+name|enableMultipartFilter
+decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
 name|JettyHttpEndpoint
@@ -496,6 +501,32 @@ operator|.
 name|enableJmx
 operator|=
 name|enableJmx
+expr_stmt|;
+block|}
+DECL|method|isEnableMultipartFilter ()
+specifier|public
+name|boolean
+name|isEnableMultipartFilter
+parameter_list|()
+block|{
+return|return
+name|enableMultipartFilter
+return|;
+block|}
+DECL|method|setEnableMultipartFilter (boolean enableMultipartFilter)
+specifier|public
+name|void
+name|setEnableMultipartFilter
+parameter_list|(
+name|boolean
+name|enableMultipartFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableMultipartFilter
+operator|=
+name|enableMultipartFilter
 expr_stmt|;
 block|}
 block|}
