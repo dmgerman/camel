@@ -52,14 +52,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link DirectEndpoint}. It holds the  * list of named direct endpoints.  *  * @version $Revision$  */
+comment|/**  * Represents the component that manages {@link HelloWorldEndpoint}.  */
 end_comment
 
 begin_class
-DECL|class|DirectComponent
+DECL|class|HelloWorldComponent
 specifier|public
 class|class
-name|DirectComponent
+name|HelloWorldComponent
 extends|extends
 name|DefaultComponent
 block|{
@@ -89,7 +89,7 @@ name|Endpoint
 name|endpoint
 init|=
 operator|new
-name|DirectEndpoint
+name|HelloWorldEndpoint
 argument_list|(
 name|uri
 argument_list|,

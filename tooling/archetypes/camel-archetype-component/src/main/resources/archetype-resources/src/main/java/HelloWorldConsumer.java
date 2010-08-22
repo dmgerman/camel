@@ -17,13 +17,23 @@ end_empty_stmt
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Exchange
 import|;
 end_import
 
@@ -47,62 +57,35 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ShutdownRunningTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
-name|DefaultConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ShutdownAware
+name|ScheduledPollConsumer
 import|;
 end_import
 
 begin_comment
-comment|/**  * The direct consumer.  *  * @version $Revision$  */
+comment|/**  * The HelloWorld consumer.  */
 end_comment
 
 begin_class
-DECL|class|DirectConsumer
+DECL|class|HelloWorldConsumer
 specifier|public
 class|class
-name|DirectConsumer
+name|HelloWorldConsumer
 extends|extends
-name|DefaultConsumer
-implements|implements
-name|ShutdownAware
+name|ScheduledPollConsumer
 block|{
 DECL|field|endpoint
 specifier|private
-name|DirectEndpoint
+specifier|final
+name|HelloWorldEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|DirectConsumer (Endpoint endpoint, Processor processor)
+DECL|method|HelloWorldConsumer (HelloWorldEndpoint endpoint, Processor processor)
 specifier|public
-name|DirectConsumer
+name|HelloWorldConsumer
 parameter_list|(
-name|Endpoint
+name|HelloWorldEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
@@ -120,133 +103,90 @@ name|this
 operator|.
 name|endpoint
 operator|=
-operator|(
-name|DirectEndpoint
-operator|)
 name|endpoint
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
-specifier|public
+comment|// poll method will fire every 500 ms by default
+DECL|method|poll ()
+specifier|protected
 name|void
-name|start
+name|poll
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// only add as consumer if not already registered
-if|if
-condition|(
-operator|!
+name|Exchange
+name|exchange
+init|=
 name|endpoint
 operator|.
-name|getConsumers
+name|createExchange
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-name|this
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|endpoint
-operator|.
-name|getConsumers
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
+decl_stmt|;
+comment|// create a message body
+name|Date
+name|now
+init|=
 operator|new
-name|IllegalStateException
+name|Date
+argument_list|()
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
 argument_list|(
-literal|"Endpoint "
+literal|"Hello World! The time is "
 operator|+
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|+
-literal|" only allows 1 active consumer but you attempted to start a 2nd consumer."
+name|now
 argument_list|)
-throw|;
-block|}
-name|endpoint
-operator|.
-name|getConsumers
+expr_stmt|;
+try|try
+block|{
+comment|// send message to next processor in the route
+name|getProcessor
 argument_list|()
 operator|.
-name|add
+name|process
 argument_list|(
-name|this
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
+finally|finally
 block|{
-name|super
+comment|// log exception if an exception occurred and was not handled
+if|if
+condition|(
+name|exchange
 operator|.
-name|stop
+name|getException
 argument_list|()
-expr_stmt|;
-name|endpoint
-operator|.
-name|getConsumers
+operator|!=
+literal|null
+condition|)
+block|{
+name|getExceptionHandler
 argument_list|()
 operator|.
-name|remove
+name|handleException
 argument_list|(
-name|this
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
-specifier|public
-name|boolean
-name|deferShutdown
-parameter_list|(
-name|ShutdownRunningTask
-name|shutdownRunningTask
-parameter_list|)
-block|{
-comment|// deny stopping on shutdown as we want direct consumers to run in case some other queues
-comment|// depend on this consumer to run, so it can complete its exchanges
-return|return
-literal|true
-return|;
 block|}
-DECL|method|getPendingExchangesSize ()
-specifier|public
-name|int
-name|getPendingExchangesSize
-parameter_list|()
-block|{
-comment|// return 0 as we do not have an internal memory queue with a variable size
-comment|// of inflight messages.
-return|return
-literal|0
-return|;
 block|}
 block|}
 end_class
