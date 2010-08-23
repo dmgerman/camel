@@ -65,7 +65,6 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("Received: " + body);
 block|}
 annotation|@
 name|Override
