@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?move=.done&readLock=none"
+literal|"file://target/enrich?move=.done"
 argument_list|)
 operator|.
 name|to
@@ -236,7 +236,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file://target/enrichdata?move=.done&readLock=none"
+literal|"file://target/enrichdata?move=.done"
 argument_list|)
 operator|.
 name|to

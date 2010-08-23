@@ -172,20 +172,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|IOHelper
 import|;
 end_import
@@ -268,6 +254,16 @@ DECL|field|timeout
 specifier|private
 name|long
 name|timeout
+decl_stmt|;
+DECL|field|lock
+specifier|private
+name|FileLock
+name|lock
+decl_stmt|;
+DECL|field|lockFileName
+specifier|private
+name|String
+name|lockFileName
 decl_stmt|;
 DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
 specifier|public
@@ -420,11 +416,6 @@ return|;
 block|}
 block|}
 comment|// get the lock using either try lock or not depending on if we are using timeout or not
-name|FileLock
-name|lock
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|lock
@@ -481,27 +472,12 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-comment|// store lock so we can release it later
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-literal|"CamelFileLock"
-argument_list|,
-name|lock
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-literal|"CamelFileLockName"
-argument_list|,
+name|lockFileName
+operator|=
 name|target
 operator|.
 name|getName
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|exclusive
 operator|=
@@ -611,38 +587,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|FileLock
+if|if
+condition|(
 name|lock
-init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryProperty
-argument_list|(
-name|exchange
-argument_list|,
-literal|"CamelFileLock"
-argument_list|,
-name|FileLock
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|String
-name|lockFileName
-init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryProperty
-argument_list|(
-name|exchange
-argument_list|,
-literal|"CamelFileLockName"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
 name|Channel
 name|channel
 init|=
@@ -675,6 +626,7 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|sleep ()
@@ -749,7 +701,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      * acquireReadLock returns<tt>false</tt>.      *      * @param timeout period in millis      */
+comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the time period then the wait is stopped and the      * acquireReadLock returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
