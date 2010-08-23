@@ -551,16 +551,6 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setFileName
-argument_list|(
-name|file
-operator|.
-name|getFilename
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
 name|setFileNameOnly
 argument_list|(
 name|file
@@ -682,6 +672,17 @@ operator|.
 name|setRelativeFilePath
 argument_list|(
 name|relativePath
+argument_list|)
+expr_stmt|;
+comment|// the file name should be the relative path
+name|answer
+operator|.
+name|setFileName
+argument_list|(
+name|answer
+operator|.
+name|getRelativeFilePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

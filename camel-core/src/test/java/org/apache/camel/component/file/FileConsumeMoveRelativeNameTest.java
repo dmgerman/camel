@@ -149,13 +149,13 @@ name|sendBodyAndHeader
 argument_list|(
 name|fileUrl
 argument_list|,
-literal|"Godday World"
+literal|"Goodday World"
 argument_list|,
 name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"sub/sub2/godday.txt"
+literal|"sub/sub2/goodday.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -183,7 +183,7 @@ literal|"Bye World"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-literal|"Godday World"
+literal|"Goodday World"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -204,7 +204,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multidir/.done/sub/sub2/godday.txt.old"
+literal|"target/multidir/.done/sub/sub2/goodday.txt.old"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

@@ -110,11 +110,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TODO: CAMEL-1895
-DECL|method|xxxTestPollEnrich ()
+DECL|method|testPollEnrich ()
 specifier|public
 name|void
-name|xxxTestPollEnrich
+name|testPollEnrich
 parameter_list|()
 throws|throws
 name|Exception
@@ -149,6 +148,8 @@ operator|.
 name|expectedFileExists
 argument_list|(
 literal|"target/enrich/.done/AAA.fin"
+argument_list|,
+literal|"Start"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -156,6 +157,8 @@ operator|.
 name|expectedFileExists
 argument_list|(
 literal|"target/enrichdata/.done/AAA.dat"
+argument_list|,
+literal|"Big file"
 argument_list|)
 expr_stmt|;
 name|template
@@ -191,14 +194,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|testNothing ()
-specifier|public
-name|void
-name|testNothing
-parameter_list|()
-block|{
-comment|//
 block|}
 annotation|@
 name|Override
