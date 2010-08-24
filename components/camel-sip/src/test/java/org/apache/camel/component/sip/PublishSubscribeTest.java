@@ -244,6 +244,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// we get a header and a body hence 2 messages
 name|resultEndpoint
 operator|.
 name|expectedMessageCount
@@ -266,21 +267,7 @@ operator|.
 name|PUBLISH
 argument_list|)
 expr_stmt|;
-name|unreachableEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|15000
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 if|if
@@ -342,7 +329,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:ReceivedEvent?level=DEBUG"
+literal|"log:ReceivedEvent"
 argument_list|)
 operator|.
 name|to

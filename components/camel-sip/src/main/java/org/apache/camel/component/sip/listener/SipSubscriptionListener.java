@@ -768,9 +768,6 @@ block|}
 name|Response
 name|response
 init|=
-operator|(
-name|Response
-operator|)
 name|responseReceivedEvent
 operator|.
 name|getResponse
@@ -828,7 +825,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Stray response -- dropping "
+literal|"Stray response -- dropping"
 argument_list|)
 expr_stmt|;
 block|}

@@ -72,11 +72,6 @@ name|SipComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|config
-specifier|private
-name|SipConfiguration
-name|config
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -101,12 +96,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|SipConfiguration
 name|config
-operator|=
+init|=
 operator|new
 name|SipConfiguration
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|config
 operator|.
 name|initialize

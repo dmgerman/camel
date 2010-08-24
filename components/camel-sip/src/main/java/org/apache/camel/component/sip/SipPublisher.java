@@ -78,7 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelExchangeException
 import|;
 end_import
 
@@ -476,9 +476,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
-literal|"Missing mandatory Header in REQUEST_HEADER in exchange"
+literal|"Missing mandatory Header: REQUEST_HEADER"
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}

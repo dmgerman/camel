@@ -192,10 +192,7 @@ name|this
 operator|.
 name|configuration
 operator|=
-name|sipEndpoint
-operator|.
-name|getConfiguration
-argument_list|()
+name|configuration
 expr_stmt|;
 name|this
 operator|.
