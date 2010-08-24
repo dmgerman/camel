@@ -440,11 +440,13 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the current name strategy      *      * @return name strategy      */
 DECL|method|getNameStrategy ()
 name|CamelContextNameStrategy
 name|getNameStrategy
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a custom name strategy      *      * @param nameStrategy name strategy      */
 DECL|method|setNameStrategy (CamelContextNameStrategy nameStrategy)
 name|void
 name|setNameStrategy
