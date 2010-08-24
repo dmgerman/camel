@@ -153,6 +153,13 @@ specifier|private
 name|boolean
 name|sortEntries
 decl_stmt|;
+DECL|field|throttleEntries
+specifier|private
+name|boolean
+name|throttleEntries
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FeedEndpoint ()
 specifier|public
 name|FeedEndpoint
@@ -289,6 +296,8 @@ argument_list|,
 name|filter
 argument_list|,
 name|lastUpdate
+argument_list|,
+name|throttleEntries
 argument_list|)
 expr_stmt|;
 block|}
@@ -337,7 +346,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate)
+DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|protected
 specifier|abstract
 name|FeedPollingConsumer
@@ -354,6 +363,9 @@ name|filter
 parameter_list|,
 name|Date
 name|lastUpdate
+parameter_list|,
+name|boolean
+name|throttleEntries
 parameter_list|)
 function_decl|;
 DECL|method|createExchangeWithFeedHeader (Object feed, String header)
@@ -622,6 +634,35 @@ block|{
 comment|// true to allow dynamic URI options to be configured and passed to external system for eg. the HttpProducer
 return|return
 literal|true
+return|;
+block|}
+comment|/**      * Sets whether all entries identified in a single feed poll should be delivered immediately. If true, only one      * entry is processed per consumer.delay. Only applicable when splitEntries = true.      */
+DECL|method|setThrottleEntries (boolean throttleEntries)
+specifier|public
+name|void
+name|setThrottleEntries
+parameter_list|(
+name|boolean
+name|throttleEntries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throttleEntries
+operator|=
+name|throttleEntries
+expr_stmt|;
+block|}
+DECL|method|isThrottleEntries ()
+specifier|public
+name|boolean
+name|isThrottleEntries
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|throttleEntries
 return|;
 block|}
 comment|// Implementation methods

@@ -144,7 +144,7 @@ name|Feed
 argument_list|>
 name|document
 decl_stmt|;
-DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate)
+DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|public
 name|AtomEntryPollingConsumer
 parameter_list|(
@@ -159,6 +159,9 @@ name|filter
 parameter_list|,
 name|Date
 name|lastUpdate
+parameter_list|,
+name|boolean
+name|throttleEntries
 parameter_list|)
 block|{
 name|super
@@ -170,6 +173,8 @@ argument_list|,
 name|filter
 argument_list|,
 name|lastUpdate
+argument_list|,
+name|throttleEntries
 argument_list|)
 expr_stmt|;
 block|}

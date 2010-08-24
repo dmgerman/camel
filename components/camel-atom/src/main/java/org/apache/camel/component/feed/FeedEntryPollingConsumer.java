@@ -90,7 +90,12 @@ specifier|protected
 name|List
 name|list
 decl_stmt|;
-DECL|method|FeedEntryPollingConsumer (FeedEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate)
+DECL|field|throttleEntries
+specifier|protected
+name|boolean
+name|throttleEntries
+decl_stmt|;
+DECL|method|FeedEntryPollingConsumer (FeedEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|public
 name|FeedEntryPollingConsumer
 parameter_list|(
@@ -105,6 +110,9 @@ name|filter
 parameter_list|,
 name|Date
 name|lastUpdate
+parameter_list|,
+name|boolean
+name|throttleEntries
 parameter_list|)
 block|{
 name|super
@@ -127,6 +135,12 @@ name|lastUpdate
 argument_list|)
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|throttleEntries
+operator|=
+name|throttleEntries
+expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|public
@@ -215,8 +229,16 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|throttleEntries
+condition|)
+block|{
 comment|// return and wait for the next poll to continue from last time (this consumer is stateful)
 return|return;
+block|}
 block|}
 block|}
 comment|// reset list to be able to poll again
