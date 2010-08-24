@@ -194,7 +194,7 @@ literal|1
 init|;
 name|i
 operator|<
-literal|1000
+literal|10000
 condition|;
 name|i
 operator|++
