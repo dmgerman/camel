@@ -286,6 +286,7 @@ operator|)
 operator|*
 name|INTERVAL
 decl_stmt|;
+comment|// add a little slack
 name|long
 name|delta
 init|=
@@ -295,6 +296,8 @@ name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
+operator|+
+literal|200
 decl_stmt|;
 name|assertTrue
 argument_list|(
