@@ -5438,7 +5438,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class exceptionType)
 specifier|public
 name|OnExceptionDefinition
@@ -5455,6 +5455,40 @@ operator|new
 name|OnExceptionDefinition
 argument_list|(
 name|exceptionType
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the exception builder to configure      */
+DECL|method|onException (Class... exceptions)
+specifier|public
+name|OnExceptionDefinition
+name|onException
+parameter_list|(
+name|Class
+modifier|...
+name|exceptions
+parameter_list|)
+block|{
+name|OnExceptionDefinition
+name|answer
+init|=
+operator|new
+name|OnExceptionDefinition
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|exceptions
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|addOutput
