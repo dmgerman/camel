@@ -26,6 +26,7 @@ specifier|public
 interface|interface
 name|HasId
 block|{
+comment|/**      * Returns the id      *      * @return the id      */
 DECL|method|getId ()
 name|String
 name|getId
