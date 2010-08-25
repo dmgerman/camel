@@ -872,6 +872,15 @@ name|isKeyInCache
 argument_list|(
 name|key
 argument_list|)
+operator|&&
+name|cache
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|exchange
