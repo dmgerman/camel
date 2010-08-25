@@ -168,9 +168,9 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|MinaEndpoint
+name|MinaConstants
 operator|.
-name|HEADER_MINA_IOSESSION
+name|MINA_IOSESSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -234,9 +234,9 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|MinaEndpoint
+name|MinaConstants
 operator|.
-name|HEADER_LOCAL_ADDRESS
+name|MINA_LOCAL_ADDRESS
 argument_list|,
 name|SocketAddress
 operator|.
@@ -250,9 +250,9 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|MinaEndpoint
+name|MinaConstants
 operator|.
-name|HEADER_REMOTE_ADDRESS
+name|MINA_REMOTE_ADDRESS
 argument_list|,
 name|SocketAddress
 operator|.

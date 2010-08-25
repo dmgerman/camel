@@ -201,6 +201,8 @@ implements|implements
 name|MultipleConsumersSupport
 block|{
 comment|/** The key of the IoSession which is stored in the message header*/
+annotation|@
+name|Deprecated
 DECL|field|HEADER_MINA_IOSESSION
 specifier|public
 specifier|static
@@ -212,6 +214,8 @@ init|=
 literal|"CamelMinaIoSession"
 decl_stmt|;
 comment|/** The socket address of local machine that received the message. */
+annotation|@
+name|Deprecated
 DECL|field|HEADER_LOCAL_ADDRESS
 specifier|public
 specifier|static
@@ -223,6 +227,8 @@ init|=
 literal|"CamelMinaLocalAddress"
 decl_stmt|;
 comment|/** The socket address of the remote machine that send the message. */
+annotation|@
+name|Deprecated
 DECL|field|HEADER_REMOTE_ADDRESS
 specifier|public
 specifier|static
@@ -453,7 +459,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HEADER_MINA_IOSESSION
+name|MinaConstants
+operator|.
+name|MINA_IOSESSION
 argument_list|,
 name|session
 argument_list|)
@@ -465,7 +473,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HEADER_LOCAL_ADDRESS
+name|MinaConstants
+operator|.
+name|MINA_LOCAL_ADDRESS
 argument_list|,
 name|session
 operator|.
@@ -480,7 +490,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HEADER_REMOTE_ADDRESS
+name|MinaConstants
+operator|.
+name|MINA_REMOTE_ADDRESS
 argument_list|,
 name|session
 operator|.

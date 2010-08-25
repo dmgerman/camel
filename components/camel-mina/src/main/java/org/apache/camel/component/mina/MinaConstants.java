@@ -39,6 +39,39 @@ name|MINA_CLOSE_SESSION_WHEN_COMPLETE
 init|=
 literal|"CamelMinaCloseSessionWhenComplete"
 decl_stmt|;
+comment|/** The key of the IoSession which is stored in the message header*/
+DECL|field|MINA_IOSESSION
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|MINA_IOSESSION
+init|=
+literal|"CamelMinaIoSession"
+decl_stmt|;
+comment|/** The socket address of local machine that received the message. */
+DECL|field|MINA_LOCAL_ADDRESS
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|MINA_LOCAL_ADDRESS
+init|=
+literal|"CamelMinaLocalAddress"
+decl_stmt|;
+comment|/** The socket address of the remote machine that send the message. */
+DECL|field|MINA_REMOTE_ADDRESS
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|MINA_REMOTE_ADDRESS
+init|=
+literal|"CamelMinaRemoteAddress"
+decl_stmt|;
 DECL|method|MinaConstants ()
 specifier|private
 name|MinaConstants
