@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Endpoint</a>.  *   */
+comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Endpoint</a>.  */
 end_comment
 
 begin_class
@@ -377,7 +377,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate)
+DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|protected
 name|FeedPollingConsumer
 name|createEntryPollingConsumer
@@ -393,6 +393,9 @@ name|filter
 parameter_list|,
 name|Date
 name|lastUpdate
+parameter_list|,
+name|boolean
+name|throttleEntries
 parameter_list|)
 block|{
 return|return
@@ -406,6 +409,8 @@ argument_list|,
 name|filter
 argument_list|,
 name|lastUpdate
+argument_list|,
+name|throttleEntries
 argument_list|)
 return|;
 block|}
