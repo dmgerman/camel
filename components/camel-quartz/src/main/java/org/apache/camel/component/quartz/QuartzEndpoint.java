@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *   * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -490,7 +490,7 @@ name|detail
 operator|.
 name|setName
 argument_list|(
-name|getEndpointUri
+name|getJobName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -533,7 +533,7 @@ name|trigger
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked when a Quartz job is fired.      *       * @param jobExecutionContext the Quartz Job context      */
+comment|/**      * This method is invoked when a Quartz job is fired.      *      * @param jobExecutionContext the Quartz Job context      */
 DECL|method|onJobExecute (final JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
@@ -798,6 +798,44 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+return|;
+block|}
+DECL|method|getJobName ()
+specifier|protected
+name|String
+name|getJobName
+parameter_list|()
+block|{
+name|String
+name|jobName
+init|=
+name|getEndpointUri
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|jobName
+operator|.
+name|contains
+argument_list|(
+literal|"?"
+argument_list|)
+condition|)
+block|{
+name|jobName
+operator|=
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|jobName
+argument_list|,
+literal|"?"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|jobName
 return|;
 block|}
 comment|// Properties

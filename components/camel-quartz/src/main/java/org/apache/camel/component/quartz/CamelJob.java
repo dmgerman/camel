@@ -104,6 +104,15 @@ name|Job
 implements|,
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|26L
+decl_stmt|;
 DECL|method|execute (JobExecutionContext context)
 specifier|public
 name|void
