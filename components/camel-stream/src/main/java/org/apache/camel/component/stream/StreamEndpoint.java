@@ -192,6 +192,11 @@ name|initialPromptDelay
 init|=
 literal|2000
 decl_stmt|;
+DECL|field|groupLines
+specifier|private
+name|int
+name|groupLines
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -514,6 +519,32 @@ operator|.
 name|scanStreamDelay
 operator|=
 name|scanStreamDelay
+expr_stmt|;
+block|}
+DECL|method|getGroupLines ()
+specifier|public
+name|int
+name|getGroupLines
+parameter_list|()
+block|{
+return|return
+name|groupLines
+return|;
+block|}
+DECL|method|setGroupLines (int groupLines)
+specifier|public
+name|void
+name|setGroupLines
+parameter_list|(
+name|int
+name|groupLines
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupLines
+operator|=
+name|groupLines
 expr_stmt|;
 block|}
 comment|// Implementations
