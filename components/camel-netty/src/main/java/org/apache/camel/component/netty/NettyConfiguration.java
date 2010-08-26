@@ -383,13 +383,6 @@ name|connectTimeout
 init|=
 literal|10000
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|long
-name|timeout
-init|=
-literal|30000
-decl_stmt|;
 DECL|field|reuseAddress
 specifier|private
 name|boolean
@@ -1775,32 +1768,6 @@ operator|.
 name|decoders
 operator|=
 name|decoders
-expr_stmt|;
-block|}
-DECL|method|getTimeout ()
-specifier|public
-name|long
-name|getTimeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-DECL|method|setTimeout (long timeout)
-specifier|public
-name|void
-name|setTimeout
-parameter_list|(
-name|long
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
 expr_stmt|;
 block|}
 DECL|method|getSendBufferSize ()
