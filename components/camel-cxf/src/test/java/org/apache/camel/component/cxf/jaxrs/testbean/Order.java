@@ -220,17 +220,6 @@ name|int
 name|productId
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"----invoking getProduct with id: "
-operator|+
-name|productId
-argument_list|)
-expr_stmt|;
 name|Product
 name|p
 init|=
