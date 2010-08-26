@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -115,13 +125,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Consume
-argument_list|(
-name|uri
-operator|=
-literal|"direct:myService"
-argument_list|)
 DECL|method|sayHello (String name)
 specifier|public
 name|String
@@ -142,6 +145,41 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|"Hello "
+operator|+
+name|name
+return|;
+block|}
+annotation|@
+name|Consume
+argument_list|(
+name|uri
+operator|=
+literal|"direct:end"
+argument_list|)
+DECL|method|greet (Map<String, Object> headers, String name)
+specifier|public
+name|String
+name|greet
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|headers
+operator|.
+name|get
+argument_list|(
+literal|"greeter"
+argument_list|)
 operator|+
 name|name
 return|;
