@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -87,37 +107,60 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|RestletProducerTest
+DECL|class|RestletProducerGet2Test
 specifier|public
 class|class
-name|RestletProducerTest
+name|RestletProducerGet2Test
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testRestletProducer ()
+DECL|method|testRestletProducerGet2 ()
 specifier|public
 name|void
-name|testRestletProducer
+name|testRestletProducerGet2
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Map
+name|headers
+init|=
+operator|new
+name|HashMap
+argument_list|()
+decl_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"id"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"beverage.beer"
+argument_list|,
+literal|"Carlsberg"
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
 name|template
 operator|.
-name|requestBodyAndHeader
+name|requestBodyAndHeaders
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+literal|null
 argument_list|,
-literal|"id"
-argument_list|,
-literal|123
+name|headers
 argument_list|,
 name|String
 operator|.
@@ -126,7 +169,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"123;Donald Duck;Hello World"
+literal|"123;Donald Duck;Carlsberg"
 argument_list|,
 name|out
 argument_list|)
@@ -156,8 +199,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: CAMEL-3021: Should support the {id} uri
-comment|// from("direct:start").to("restlet:http://localhost:9080/users/{id}/basic?restletMethod=post");
 name|from
 argument_list|(
 literal|"direct:start"
@@ -165,12 +206,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"restlet:http://localhost:9080/users/123/basic?restletMethod=post"
+literal|"restlet:http://localhost:9080/users/{id}/like/{beverage.beer}"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080/users/{id}/basic?restletMethod=post"
+literal|"restlet:http://localhost:9080/users/{id}/like/{beer}"
 argument_list|)
 operator|.
 name|process
@@ -207,15 +248,17 @@ name|class
 argument_list|)
 decl_stmt|;
 name|String
-name|body
+name|beer
 init|=
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getHeader
 argument_list|(
+literal|"beer"
+argument_list|,
 name|String
 operator|.
 name|class
@@ -232,7 +275,7 @@ name|id
 operator|+
 literal|";Donald Duck;"
 operator|+
-name|body
+name|beer
 argument_list|)
 expr_stmt|;
 block|}
