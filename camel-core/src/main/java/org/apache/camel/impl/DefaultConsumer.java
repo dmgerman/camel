@@ -179,6 +179,7 @@ name|processor
 decl_stmt|;
 DECL|field|asyncProcessor
 specifier|private
+specifier|volatile
 name|AsyncProcessor
 name|asyncProcessor
 decl_stmt|;
@@ -253,6 +254,7 @@ block|}
 comment|/**      * Provides an {@link org.apache.camel.AsyncProcessor} interface to the configured      * processor on the consumer. If the processor does not implement the interface,      * it will be adapted so that it does.      */
 DECL|method|getAsyncProcessor ()
 specifier|public
+specifier|synchronized
 name|AsyncProcessor
 name|getAsyncProcessor
 parameter_list|()
