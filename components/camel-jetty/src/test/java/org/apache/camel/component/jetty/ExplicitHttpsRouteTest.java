@@ -108,6 +108,22 @@ name|server
 operator|.
 name|ssl
 operator|.
+name|SslSelectChannelConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|ssl
+operator|.
 name|SslSocketConnector
 import|;
 end_import
@@ -123,17 +139,18 @@ block|{
 comment|// START SNIPPET: e2
 DECL|method|createSslSocketConnector ()
 specifier|private
-name|SslSocketConnector
+name|SslSelectChannelConnector
 name|createSslSocketConnector
 parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|SslSocketConnector
+comment|// From Camel 2.5.0 Camel-Jetty is using SslSelectChannelConnector instead of SslSocketConnector
+name|SslSelectChannelConnector
 name|sslSocketConnector
 init|=
 operator|new
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|()
 decl_stmt|;
 name|sslSocketConnector
@@ -214,12 +231,12 @@ throws|throws
 name|URISyntaxException
 block|{
 comment|// START SNIPPET: e1
-comment|// create SSL socket connectors for port 9080 and 9090
+comment|// create SSL select channel connectors for port 9080 and 9090
 name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|>
 name|connectors
 init|=
@@ -228,7 +245,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|>
 argument_list|()
 decl_stmt|;

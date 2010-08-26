@@ -482,7 +482,7 @@ name|server
 operator|.
 name|ssl
 operator|.
-name|SslSocketConnector
+name|SslSelectChannelConnector
 import|;
 end_import
 
@@ -683,7 +683,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|>
 name|sslSocketConnectors
 decl_stmt|;
@@ -2164,7 +2164,7 @@ return|;
 block|}
 DECL|method|getSslSocketConnector (int port)
 specifier|protected
-name|SslSocketConnector
+name|SslSelectChannelConnector
 name|getSslSocketConnector
 parameter_list|(
 name|int
@@ -2173,7 +2173,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|SslSocketConnector
+name|SslSelectChannelConnector
 name|answer
 init|=
 literal|null
@@ -2214,17 +2214,17 @@ return|;
 block|}
 DECL|method|createSslSocketConnector ()
 specifier|protected
-name|SslSocketConnector
+name|SslSelectChannelConnector
 name|createSslSocketConnector
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SslSocketConnector
+name|SslSelectChannelConnector
 name|answer
 init|=
 operator|new
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|()
 decl_stmt|;
 comment|// with default null values, jetty ssl system properties
@@ -2434,7 +2434,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|>
 name|getSslSocketConnectors
 parameter_list|()
@@ -2443,7 +2443,7 @@ return|return
 name|sslSocketConnectors
 return|;
 block|}
-DECL|method|setSslSocketConnectors (Map <Integer, SslSocketConnector> connectors)
+DECL|method|setSslSocketConnectors (Map <Integer, SslSelectChannelConnector> connectors)
 specifier|public
 name|void
 name|setSslSocketConnectors
@@ -2452,7 +2452,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSocketConnector
+name|SslSelectChannelConnector
 argument_list|>
 name|connectors
 parameter_list|)
