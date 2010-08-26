@@ -207,11 +207,11 @@ decl_stmt|;
 comment|// maybe from is already the type we want
 if|if
 condition|(
-name|from
+name|type
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|type
+name|from
 argument_list|)
 condition|)
 block|{
