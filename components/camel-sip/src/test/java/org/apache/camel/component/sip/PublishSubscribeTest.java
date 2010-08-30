@@ -244,12 +244,11 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we get a header and a body hence 2 messages
 name|resultEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|producerTemplate
