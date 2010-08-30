@@ -105,7 +105,7 @@ name|append
 argument_list|(
 name|routingSlip
 operator|.
-name|getHeaderName
+name|getExpression
 argument_list|()
 argument_list|)
 operator|.
