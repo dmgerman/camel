@@ -422,7 +422,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|useOriginalBody
+name|useOriginalMessage
 argument_list|()
 operator|.
 name|maximumRedeliveries

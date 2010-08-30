@@ -152,20 +152,6 @@ specifier|static
 name|String
 name|afterThreadName
 decl_stmt|;
-DECL|field|txA
-specifier|private
-specifier|static
-specifier|volatile
-name|boolean
-name|txA
-decl_stmt|;
-DECL|field|txB
-specifier|private
-specifier|static
-specifier|volatile
-name|boolean
-name|txB
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getExpectedRouteCount ()
