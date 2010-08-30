@@ -282,16 +282,6 @@ end_import
 
 begin_import
 import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|GroovyClassLoader
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -299,20 +289,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
 import|;
 end_import
 
@@ -417,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The active routes in Camel which are used to implement one or more<a  * href="http://camel.apache.org/enterprise-integration-patterns.html"  *>Enterprise Integration Paterns</a>  *  * @version $Revision$  */
+comment|/**  * The active routes in Camel which are used to implement one or more<a  * href="http://camel.apache.org/enterprise-integration-patterns.html"  *>Enterprise Integration Patterns</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -778,7 +754,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"new Route is: "
+literal|"New Route is: "
 operator|+
 name|body
 argument_list|)
@@ -818,26 +794,6 @@ condition|)
 block|{
 return|return
 name|parseXml
-argument_list|(
-name|body
-argument_list|)
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|language
-operator|.
-name|equals
-argument_list|(
-name|RouteResource
-operator|.
-name|LANGUAGE_GROOVY
-argument_list|)
-condition|)
-block|{
-return|return
-name|parseGroovy
 argument_list|(
 name|body
 argument_list|)
@@ -1066,171 +1022,6 @@ block|{
 name|error
 operator|=
 literal|"Failed to install route: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-expr_stmt|;
-block|}
-comment|// lets re-render the form
-return|return
-name|Response
-operator|.
-name|ok
-argument_list|(
-operator|new
-name|Viewable
-argument_list|(
-literal|"create"
-argument_list|,
-name|this
-argument_list|)
-argument_list|)
-operator|.
-name|build
-argument_list|()
-return|;
-block|}
-comment|/**      * process the route configuration defined in Groovy class      */
-DECL|method|parseGroovy (String route)
-specifier|private
-name|Response
-name|parseGroovy
-parameter_list|(
-name|String
-name|route
-parameter_list|)
-block|{
-try|try
-block|{
-comment|// load the definition class into a RouteBuilder instance
-name|GroovyClassLoader
-name|classLoader
-init|=
-operator|new
-name|GroovyClassLoader
-argument_list|()
-decl_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-init|=
-name|classLoader
-operator|.
-name|parseClass
-argument_list|(
-name|route
-argument_list|)
-decl_stmt|;
-name|RouteBuilder
-name|builder
-init|=
-operator|(
-name|RouteBuilder
-operator|)
-name|clazz
-operator|.
-name|newInstance
-argument_list|()
-decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Loaded builder: "
-operator|+
-name|builder
-argument_list|)
-expr_stmt|;
-comment|// add the route builder
-name|getCamelContext
-argument_list|()
-operator|.
-name|addRoutes
-argument_list|(
-name|builder
-argument_list|)
-expr_stmt|;
-return|return
-name|Response
-operator|.
-name|seeOther
-argument_list|(
-operator|new
-name|URI
-argument_list|(
-literal|"/routes"
-argument_list|)
-argument_list|)
-operator|.
-name|build
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// e.printStackTrace();
-name|error
-operator|=
-literal|"Failed to store the route: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InstantiationException
-name|e
-parameter_list|)
-block|{
-comment|// e.printStackTrace();
-name|error
-operator|=
-literal|"Failed to instantiate the route: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalAccessException
-name|e
-parameter_list|)
-block|{
-comment|// e.printStackTrace();
-name|error
-operator|=
-literal|"Failed to instantiate the route: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// e.printStackTrace();
-name|error
-operator|=
-literal|"Failed to edit the route: "
 operator|+
 name|e
 operator|.
