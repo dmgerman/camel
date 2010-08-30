@@ -446,6 +446,12 @@ name|SKIP_GZIP_ENCODING
 init|=
 literal|"CamelSkipGzipEncoding"
 decl_stmt|;
+DECL|field|SLIP_ENDPOINT
+name|String
+name|SLIP_ENDPOINT
+init|=
+literal|"CamelSlipEndpoint"
+decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
 name|SPLIT_INDEX

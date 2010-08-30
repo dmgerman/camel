@@ -124,23 +124,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|Builder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
-name|RoutingSlip
+name|DynamicRouter
 import|;
 end_import
 
@@ -159,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;routingSlip/&gt; element  */
+comment|/**  * Represents an XML&lt;dynamicRouter/&gt; element  */
 end_comment
 
 begin_class
@@ -168,7 +154,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"routingSlip"
+literal|"dynamicRouter"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -177,10 +163,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RoutingSlipDefinition
+DECL|class|DynamicRouterDefinition
 specifier|public
 class|class
-name|RoutingSlipDefinition
+name|DynamicRouterDefinition
 parameter_list|<
 name|Type
 extends|extends
@@ -204,6 +190,8 @@ DECL|field|uriDelimiter
 specifier|private
 name|String
 name|uriDelimiter
+init|=
+name|DEFAULT_DELIMITER
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -212,100 +200,22 @@ specifier|private
 name|Boolean
 name|ignoreInvalidEndpoints
 decl_stmt|;
-DECL|method|RoutingSlipDefinition ()
+DECL|method|DynamicRouterDefinition ()
 specifier|public
-name|RoutingSlipDefinition
+name|DynamicRouterDefinition
 parameter_list|()
-block|{
-name|this
-argument_list|(
-operator|(
-name|String
-operator|)
-literal|null
-argument_list|,
-name|DEFAULT_DELIMITER
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RoutingSlipDefinition (String headerName)
+block|{     }
+DECL|method|DynamicRouterDefinition (Expression expression)
 specifier|public
-name|RoutingSlipDefinition
-parameter_list|(
-name|String
-name|headerName
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|headerName
-argument_list|,
-name|DEFAULT_DELIMITER
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RoutingSlipDefinition (String headerName, String uriDelimiter)
-specifier|public
-name|RoutingSlipDefinition
-parameter_list|(
-name|String
-name|headerName
-parameter_list|,
-name|String
-name|uriDelimiter
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|Builder
-operator|.
-name|header
-argument_list|(
-name|headerName
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|setUriDelimiter
-argument_list|(
-name|uriDelimiter
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RoutingSlipDefinition (Expression expression, String uriDelimiter)
-specifier|public
-name|RoutingSlipDefinition
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|,
-name|String
-name|uriDelimiter
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|expression
-argument_list|)
-expr_stmt|;
-name|setUriDelimiter
-argument_list|(
-name|uriDelimiter
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RoutingSlipDefinition (Expression expression)
-specifier|public
-name|RoutingSlipDefinition
+name|DynamicRouterDefinition
 parameter_list|(
 name|Expression
 name|expression
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
 name|expression
-argument_list|,
-name|DEFAULT_DELIMITER
 argument_list|)
 expr_stmt|;
 block|}
@@ -318,7 +228,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RoutingSlip["
+literal|"DynamicRouter["
 operator|+
 name|getExpression
 argument_list|()
@@ -335,7 +245,25 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"routingSlip"
+literal|"dynamicRouter"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getOutputs ()
+specifier|public
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|getOutputs
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -362,11 +290,11 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-name|RoutingSlip
-name|routingSlip
+name|DynamicRouter
+name|dynamicRouter
 init|=
 operator|new
-name|RoutingSlip
+name|DynamicRouter
 argument_list|(
 name|routeContext
 operator|.
@@ -387,7 +315,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|routingSlip
+name|dynamicRouter
 operator|.
 name|setIgnoreInvalidEndpoints
 argument_list|(
@@ -397,25 +325,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|routingSlip
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
+name|dynamicRouter
 return|;
 block|}
 DECL|method|setUriDelimiter (String uriDelimiter)
@@ -499,7 +409,7 @@ block|}
 comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
 DECL|method|ignoreInvalidEndpoints ()
 specifier|public
-name|RoutingSlipDefinition
+name|DynamicRouterDefinition
 argument_list|<
 name|Type
 argument_list|>
@@ -518,7 +428,7 @@ block|}
 comment|/**      * Sets the uri delimiter to use      *      * @param uriDelimiter the delimiter      * @return the builder      */
 DECL|method|uriDelimiter (String uriDelimiter)
 specifier|public
-name|RoutingSlipDefinition
+name|DynamicRouterDefinition
 argument_list|<
 name|Type
 argument_list|>
