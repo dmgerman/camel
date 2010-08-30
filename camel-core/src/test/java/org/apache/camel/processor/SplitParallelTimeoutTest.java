@@ -350,6 +350,11 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|oldExchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public

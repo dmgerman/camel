@@ -1722,6 +1722,27 @@ name|TimeoutAwareAggregationStrategy
 condition|)
 block|{
 comment|// notify the strategy we timed out
+name|Exchange
+name|oldExchange
+init|=
+name|result
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if they all timed out the result may not have been set yet, so use the original exchange
+name|oldExchange
+operator|=
+name|original
+expr_stmt|;
+block|}
 operator|(
 operator|(
 name|TimeoutAwareAggregationStrategy
@@ -1731,10 +1752,7 @@ operator|)
 operator|.
 name|timeout
 argument_list|(
-name|result
-operator|.
-name|get
-argument_list|()
+name|oldExchange
 argument_list|,
 name|i
 argument_list|,
