@@ -820,7 +820,7 @@ name|Alphabet
 operator|.
 name|valueOf
 argument_list|(
-name|configuration
+name|submitSm
 operator|.
 name|getDataCoding
 argument_list|()
