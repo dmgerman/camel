@@ -190,43 +190,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertSame
+name|*
 import|;
 end_import
 
@@ -504,6 +468,73 @@ comment|// not relevant
 comment|//assertEquals(0, submitSm.getCommandId());
 comment|//assertEquals(0, submitSm.getCommandStatus());
 comment|//assertEquals(0, submitSm.getSequenceNumber());
+block|}
+annotation|@
+name|Test
+DECL|method|createSubmitSmWithDifferentEncoding ()
+specifier|public
+name|void
+name|createSubmitSmWithDifferentEncoding
+parameter_list|()
+throws|throws
+name|UnsupportedEncodingException
+block|{
+name|binding
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setEncoding
+argument_list|(
+literal|"UTF-16"
+argument_list|)
+expr_stmt|;
+name|Exchange
+name|exchange
+init|=
+operator|new
+name|DefaultExchange
+argument_list|(
+operator|new
+name|DefaultCamelContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello SMPP world!"
+argument_list|)
+expr_stmt|;
+name|SubmitSm
+name|submitSm
+init|=
+name|binding
+operator|.
+name|createSubmitSm
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|assertArrayEquals
+argument_list|(
+literal|"Hello SMPP world!"
+operator|.
+name|getBytes
+argument_list|(
+literal|"UTF-16"
+argument_list|)
+argument_list|,
+name|submitSm
+operator|.
+name|getShortMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
