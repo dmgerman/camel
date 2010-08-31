@@ -1080,6 +1080,10 @@ literal|"systemId=smppclient, "
 operator|+
 literal|"systemType=cp, "
 operator|+
+literal|"dataCoding=0, "
+operator|+
+literal|"encoding=ISO-8859-1, "
+operator|+
 literal|"transactionTimer=10000, "
 operator|+
 literal|"registeredDelivery=1, "

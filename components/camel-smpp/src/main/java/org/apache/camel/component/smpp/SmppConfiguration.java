@@ -127,6 +127,16 @@ name|systemType
 init|=
 literal|"cp"
 decl_stmt|;
+DECL|field|dataCoding
+specifier|private
+name|byte
+name|dataCoding
+init|=
+operator|(
+name|byte
+operator|)
+literal|0
+decl_stmt|;
 DECL|field|encoding
 specifier|private
 name|String
@@ -482,6 +492,32 @@ block|{
 return|return
 name|password
 return|;
+block|}
+DECL|method|getDataCoding ()
+specifier|public
+name|byte
+name|getDataCoding
+parameter_list|()
+block|{
+return|return
+name|dataCoding
+return|;
+block|}
+DECL|method|setDataCoding (byte dataCoding)
+specifier|public
+name|void
+name|setDataCoding
+parameter_list|(
+name|byte
+name|dataCoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataCoding
+operator|=
+name|dataCoding
+expr_stmt|;
 block|}
 DECL|method|getEncoding ()
 specifier|public
@@ -1055,6 +1091,14 @@ operator|+
 literal|", systemType="
 operator|+
 name|systemType
+operator|+
+literal|", dataCoding="
+operator|+
+name|dataCoding
+operator|+
+literal|", encoding="
+operator|+
+name|encoding
 operator|+
 literal|", transactionTimer="
 operator|+

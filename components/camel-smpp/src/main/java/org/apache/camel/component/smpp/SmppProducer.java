@@ -818,7 +818,13 @@ name|CLASS1
 argument_list|,
 name|Alphabet
 operator|.
-name|ALPHA_DEFAULT
+name|valueOf
+argument_list|(
+name|configuration
+operator|.
+name|getDataCoding
+argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 operator|(
