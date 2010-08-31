@@ -569,7 +569,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// FIXME (CAMEL-3091): @Test
+annotation|@
+name|Test
 DECL|method|testConfigureNoDoubleSlashQuestionCron ()
 specifier|public
 name|void

@@ -393,7 +393,7 @@ name|idx
 init|=
 name|schemeSpecificPart
 operator|.
-name|lastIndexOf
+name|indexOf
 argument_list|(
 literal|'?'
 argument_list|)
