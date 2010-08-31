@@ -400,23 +400,6 @@ name|sql
 argument_list|)
 expr_stmt|;
 block|}
-comment|// preserve headers, but allow overwriting
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setHeaders
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|stmt
@@ -531,6 +514,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// preserve headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Sets the result from the ResultSet to the Exchange as its OUT body.      */
 DECL|method|setResultSet (Exchange exchange, ResultSet rs)

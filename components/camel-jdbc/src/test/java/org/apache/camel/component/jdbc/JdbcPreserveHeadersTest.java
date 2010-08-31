@@ -225,17 +225,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// windows may fail this test
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"windows"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|MockEndpoint
 name|mock
 init|=
@@ -356,7 +345,7 @@ name|setBody
 argument_list|(
 name|constant
 argument_list|(
-literal|"select * from customer"
+literal|"select name from customer where id = 'cust1'"
 argument_list|)
 argument_list|)
 operator|.

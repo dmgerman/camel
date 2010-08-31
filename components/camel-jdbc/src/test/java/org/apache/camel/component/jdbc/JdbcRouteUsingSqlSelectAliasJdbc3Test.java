@@ -71,7 +71,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jdbc:testdb?readSize=100?useJDBC4ColumnNameAndLabelSemantics=false"
+literal|"jdbc:testdb?readSize=100&useJDBC4ColumnNameAndLabelSemantics=false"
 argument_list|)
 expr_stmt|;
 block|}
