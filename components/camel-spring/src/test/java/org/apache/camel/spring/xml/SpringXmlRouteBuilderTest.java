@@ -389,31 +389,30 @@ argument_list|(
 name|classpathConfigFile
 argument_list|)
 expr_stmt|;
-name|String
-name|name
-init|=
-literal|"camel"
-decl_stmt|;
 name|SpringCamelContext
 name|context
 init|=
-operator|(
-name|SpringCamelContext
-operator|)
 name|applicationContext
 operator|.
-name|getBean
+name|getBeansOfType
 argument_list|(
-name|name
+name|SpringCamelContext
+operator|.
+name|class
 argument_list|)
+operator|.
+name|values
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"No Camel Context for name: "
-operator|+
-name|name
-operator|+
-literal|" in file: "
+literal|"No Camel Context in file: "
 operator|+
 name|classpathConfigFile
 argument_list|,
@@ -435,7 +434,10 @@ name|assertNotNull
 argument_list|(
 literal|"No routes available for context: "
 operator|+
-name|name
+name|context
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" in file: "
 operator|+
