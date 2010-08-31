@@ -114,12 +114,26 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// A will timeout so we only get B and C
+comment|// A will timeout so we only get B and/or C
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"BC"
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|not
+argument_list|(
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"A"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -281,7 +295,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 operator|.
 name|to

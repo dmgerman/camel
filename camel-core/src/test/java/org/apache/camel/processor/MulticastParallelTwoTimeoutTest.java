@@ -241,7 +241,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 operator|.
 name|to
