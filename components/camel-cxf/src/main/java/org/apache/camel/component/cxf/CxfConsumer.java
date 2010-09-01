@@ -303,10 +303,11 @@ specifier|private
 name|Server
 name|server
 decl_stmt|;
-DECL|method|CxfConsumer (CxfEndpoint endpoint, Processor processor)
+DECL|method|CxfConsumer (final CxfEndpoint endpoint, Processor processor)
 specifier|public
 name|CxfConsumer
 parameter_list|(
+specifier|final
 name|CxfEndpoint
 name|endpoint
 parameter_list|,
@@ -383,6 +384,12 @@ condition|(
 name|continuation
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|endpoint
+operator|.
+name|isSynchronous
+argument_list|()
 condition|)
 block|{
 return|return
@@ -464,13 +471,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -518,13 +525,13 @@ block|{
 comment|// Now we don't set up the timeout value
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -553,13 +560,13 @@ comment|// just set the response back, as the invoking thread is
 comment|// not changed
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
