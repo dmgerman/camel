@@ -1387,6 +1387,15 @@ name|remainder
 argument_list|,
 literal|"length"
 argument_list|)
+operator|||
+name|ObjectHelper
+operator|.
+name|equal
+argument_list|(
+name|remainder
+argument_list|,
+literal|"size"
+argument_list|)
 condition|)
 block|{
 return|return

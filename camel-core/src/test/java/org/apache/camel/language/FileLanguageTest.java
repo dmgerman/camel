@@ -427,6 +427,16 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${file:size}"
+argument_list|,
+name|file
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// modified is a Date object
 name|Date
 name|modified
