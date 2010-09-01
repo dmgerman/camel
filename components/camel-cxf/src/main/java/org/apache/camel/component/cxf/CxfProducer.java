@@ -429,6 +429,8 @@ argument_list|(
 literal|"Process exchange: "
 operator|+
 name|camelExchange
+operator|+
+literal|" in an async way."
 argument_list|)
 expr_stmt|;
 block|}
@@ -610,6 +612,8 @@ argument_list|(
 literal|"Process exchange: "
 operator|+
 name|camelExchange
+operator|+
+literal|"in sync way."
 argument_list|)
 expr_stmt|;
 block|}

@@ -131,6 +131,12 @@ name|CAMEL_TRANSPORT_PREFIX
 init|=
 literal|"camel:"
 decl_stmt|;
+DECL|field|JAXWS_CONTEXT
+name|String
+name|JAXWS_CONTEXT
+init|=
+literal|"jaxwsContext"
+decl_stmt|;
 DECL|field|CXF_EXCHANGE
 name|String
 name|CXF_EXCHANGE
