@@ -117,7 +117,7 @@ name|CxfRsInvoker
 argument_list|(
 name|endpoint
 argument_list|,
-name|processor
+name|this
 argument_list|)
 decl_stmt|;
 name|JAXRSServerFactoryBean
