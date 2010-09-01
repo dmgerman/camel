@@ -954,7 +954,7 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|"1.4.2_4-SNAPSHOT"
+literal|"1.4.2_4"
 argument_list|)
 argument_list|,
 name|scanFeatures
