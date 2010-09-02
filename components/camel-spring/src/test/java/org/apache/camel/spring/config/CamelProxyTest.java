@@ -169,9 +169,13 @@ argument_list|(
 literal|"myAnotherProxySender"
 argument_list|)
 decl_stmt|;
+comment|// must type cast to work with Spring 2.5.x
 name|SpringCamelContext
 name|context
 init|=
+operator|(
+name|SpringCamelContext
+operator|)
 name|ac
 operator|.
 name|getBeansOfType
