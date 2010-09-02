@@ -84,10 +84,10 @@ name|FileConsumerIntercepEmptyFileTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExludePreAndPostfixes ()
+DECL|method|testExludeZeroLengthFiles ()
 specifier|public
 name|void
-name|testExludePreAndPostfixes
+name|testExludeZeroLengthFiles
 parameter_list|()
 throws|throws
 name|Exception
@@ -109,7 +109,16 @@ name|mock1
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|2
+argument_list|)
+expr_stmt|;
+name|mock1
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -243,6 +252,9 @@ name|to
 argument_list|(
 literal|"mock:skip"
 argument_list|)
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
