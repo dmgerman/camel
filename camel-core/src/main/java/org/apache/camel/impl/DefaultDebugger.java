@@ -88,6 +88,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -374,7 +386,7 @@ argument_list|>
 name|breakpoints
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|BreakpointConditions
 argument_list|>
@@ -557,14 +569,15 @@ name|Breakpoint
 name|breakpoint
 parameter_list|)
 block|{
-name|addBreakpoint
+name|breakpoints
+operator|.
+name|add
+argument_list|(
+operator|new
+name|BreakpointConditions
 argument_list|(
 name|breakpoint
-argument_list|,
-operator|(
-name|Condition
-operator|)
-literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -873,13 +886,36 @@ name|Breakpoint
 name|breakpoint
 parameter_list|)
 block|{
+for|for
+control|(
+name|BreakpointConditions
+name|condition
+range|:
+name|breakpoints
+control|)
+block|{
+if|if
+condition|(
+name|condition
+operator|.
+name|getBreakpoint
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|breakpoint
+argument_list|)
+condition|)
+block|{
 name|breakpoints
 operator|.
 name|remove
 argument_list|(
-name|breakpoint
+name|condition
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|suspendAllBreakpoints ()
 specifier|public
@@ -1960,7 +1996,7 @@ operator|instanceof
 name|ExchangeCompletedEvent
 condition|)
 block|{
-comment|// failsafe to ensure we remote single steps when the Exchange is complete
+comment|// fail safe to ensure we remove single steps when the Exchange is complete
 name|singleSteps
 operator|.
 name|remove
@@ -1988,8 +2024,6 @@ operator|instanceof
 name|AbstractExchangeEvent
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -2000,8 +2034,6 @@ name|Exception
 block|{
 comment|// noop
 block|}
-annotation|@
-name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
