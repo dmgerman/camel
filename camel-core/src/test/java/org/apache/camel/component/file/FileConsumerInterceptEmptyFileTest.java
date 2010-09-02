@@ -73,21 +73,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that file consumer will exclude pre and postfixes  */
+comment|/**  * Unit test for empty files  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerIntercepEmptyFileTest
+DECL|class|FileConsumerInterceptEmptyFileTest
 specifier|public
 class|class
-name|FileConsumerIntercepEmptyFileTest
+name|FileConsumerInterceptEmptyFileTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExludeZeroLengthFiles ()
+DECL|method|testExcludeZeroLengthFiles ()
 specifier|public
 name|void
-name|testExludeZeroLengthFiles
+name|testExcludeZeroLengthFiles
 parameter_list|()
 throws|throws
 name|Exception
