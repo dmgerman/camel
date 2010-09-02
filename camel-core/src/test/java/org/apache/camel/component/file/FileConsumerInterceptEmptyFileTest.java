@@ -107,14 +107,7 @@ argument_list|)
 decl_stmt|;
 name|mock1
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-name|mock1
-operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World"
 argument_list|,
