@@ -587,10 +587,22 @@ if|if
 condition|(
 name|getFileLength
 argument_list|()
-operator|>
+operator|>=
 literal|0
 condition|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The file length is "
+operator|+
+name|getFileLength
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|message
 operator|.
 name|setHeader
