@@ -232,6 +232,8 @@ operator|.
 name|pollEnrich
 argument_list|(
 literal|"file://target/enrichdata?move=.done"
+argument_list|,
+literal|5000
 argument_list|)
 operator|.
 name|to

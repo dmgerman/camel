@@ -255,14 +255,21 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|7
+literal|"Size should be 7 or higher, was: "
+operator|+
+name|set
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|set
 operator|.
 name|size
 argument_list|()
+operator|>=
+literal|7
 argument_list|)
 expr_stmt|;
 for|for

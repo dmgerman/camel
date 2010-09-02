@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -114,15 +102,8 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
-name|AbstractXmlApplicationContext
-name|answer
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|answer
-operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
@@ -159,16 +140,12 @@ expr_stmt|;
 comment|// expected
 block|}
 comment|// fallback to load another file that works
-name|answer
-operator|=
+return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/management/SpringManagedErrorHandlerTest.xml"
+literal|"/org/apache/camel/spring/disableJmxConfig.xml"
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 DECL|method|testReady ()
