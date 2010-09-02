@@ -472,7 +472,7 @@ name|threads
 argument_list|(
 literal|20
 argument_list|)
-comment|// do some CPU heavy processing of the message (we simulate and delay just 100 ms)
+comment|// do some CPU heavy processing of the message (we simulate and delay just 500 ms)
 operator|.
 name|unmarshal
 argument_list|(
@@ -481,7 +481,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 operator|.
 name|to
