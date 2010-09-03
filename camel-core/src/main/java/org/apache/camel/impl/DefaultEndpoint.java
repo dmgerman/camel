@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -193,6 +205,26 @@ name|HasId
 implements|,
 name|CamelContextAware
 block|{
+comment|//Match any key-value pair in the URI query string whose key contains "passphrase" or "password" (case-insensitive).
+comment|//First capture group is the key, second is the value.
+DECL|field|SECRETS
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|SECRETS
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"([?&][^=]*(?:passphrase|password)[^=]*)=([^&]*)"
+argument_list|,
+name|Pattern
+operator|.
+name|CASE_INSENSITIVE
+argument_list|)
+decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -384,15 +416,21 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Endpoint["
-operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Endpoint[%s]"
+argument_list|,
+name|sanitizeUri
+argument_list|(
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|"]"
+argument_list|)
+argument_list|)
 return|;
 block|}
-comment|/**      * Returns a unique String ID which can be used for aliasing without having to use the whole URI which      * is not unique       */
+comment|/**      * Returns a unique String ID which can be used for aliasing without having to use the whole URI which      * is not unique      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -802,7 +840,7 @@ parameter_list|)
 block|{
 comment|// do nothing by default
 block|}
-comment|/**      * A factory method to lazily create the endpointUri if none is specified       */
+comment|/**      * A factory method to lazily create the endpointUri if none is specified      */
 DECL|method|createEndpointUri ()
 specifier|protected
 name|String
@@ -883,6 +921,36 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+DECL|method|sanitizeUri (String uri)
+specifier|public
+specifier|static
+name|String
+name|sanitizeUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|uri
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|SECRETS
+operator|.
+name|matcher
+argument_list|(
+name|uri
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"$1=******"
+argument_list|)
+return|;
 block|}
 block|}
 end_class
