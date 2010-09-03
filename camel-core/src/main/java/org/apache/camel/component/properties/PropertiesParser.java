@@ -534,6 +534,13 @@ block|{
 name|String
 name|propertyValue
 decl_stmt|;
+name|replaced
+operator|.
+name|add
+argument_list|(
+name|placeholderPart
+argument_list|)
+expr_stmt|;
 name|propertyValue
 operator|=
 name|System
@@ -564,13 +571,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|replaced
-operator|.
-name|add
-argument_list|(
-name|placeholderPart
-argument_list|)
-expr_stmt|;
 name|propertyValue
 operator|=
 name|properties
