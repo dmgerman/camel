@@ -1335,6 +1335,8 @@ name|recoveryInterval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
 specifier|public
 name|void

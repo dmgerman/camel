@@ -2174,6 +2174,8 @@ operator|=
 name|exceptionListener
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isSubscriptionDurable ()
 specifier|public
 name|boolean
@@ -2184,6 +2186,8 @@ return|return
 name|subscriptionDurable
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
 specifier|public
 name|void
@@ -3330,28 +3334,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|clientId
-operator|!=
-literal|null
-condition|)
-block|{
-name|container
-operator|.
-name|setClientId
-argument_list|(
-name|clientId
-argument_list|)
-expr_stmt|;
-block|}
-name|container
-operator|.
-name|setSubscriptionDurable
-argument_list|(
-name|subscriptionDurable
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
 name|durableSubscriptionName
 operator|!=
 literal|null
@@ -3364,10 +3346,14 @@ argument_list|(
 name|durableSubscriptionName
 argument_list|)
 expr_stmt|;
+name|container
+operator|.
+name|setSubscriptionDurable
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
-comment|// lets default to durable subscription if the subscriber name and
-comment|// client ID are specified (as there's
-comment|// no reason to specify them if not! :)
 if|if
 condition|(
 name|durableSubscriptionName
@@ -3375,15 +3361,32 @@ operator|!=
 literal|null
 operator|&&
 name|clientId
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ClientId must be configured when subscription is durable for "
+operator|+
+name|endpoint
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|clientId
 operator|!=
 literal|null
 condition|)
 block|{
 name|container
 operator|.
-name|setSubscriptionDurable
+name|setClientId
 argument_list|(
-literal|true
+name|clientId
 argument_list|)
 expr_stmt|;
 block|}
