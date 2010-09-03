@@ -144,12 +144,12 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// exhaust after at most 3 attempts
+comment|// exhaust after at most 2 attempts
 name|repo
 operator|.
 name|setMaximumRedeliveries
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// and move to this dead letter channel
@@ -206,10 +206,10 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
-comment|// it should keep sending to DLC if it failed, so test for min 3 attempts
+comment|// it should keep sending to DLC if it failed, so test for min 2 attempts
 name|getMockEndpoint
 argument_list|(
 literal|"mock:dead"
@@ -217,10 +217,10 @@ argument_list|)
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
-comment|// all the details should be the same about redelivered and redelivered 3 times
+comment|// all the details should be the same about redelivered and redelivered 2 times
 name|getMockEndpoint
 argument_list|(
 literal|"mock:dead"
@@ -240,7 +240,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -286,7 +286,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -297,52 +297,6 @@ operator|.
 name|message
 argument_list|(
 literal|1
-argument_list|)
-operator|.
-name|header
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERED
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-operator|.
-name|message
-argument_list|(
-literal|2
-argument_list|)
-operator|.
-name|header
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_COUNTER
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-operator|.
-name|message
-argument_list|(
-literal|2
 argument_list|)
 operator|.
 name|header
