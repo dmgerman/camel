@@ -133,6 +133,13 @@ specifier|private
 name|String
 name|propertiesResolverRef
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|propertiesParserRef
+specifier|private
+name|String
+name|propertiesParserRef
+decl_stmt|;
 DECL|method|getLocation ()
 specifier|public
 name|String
@@ -183,6 +190,32 @@ operator|.
 name|propertiesResolverRef
 operator|=
 name|propertiesResolverRef
+expr_stmt|;
+block|}
+DECL|method|getPropertiesParserRef ()
+specifier|public
+name|String
+name|getPropertiesParserRef
+parameter_list|()
+block|{
+return|return
+name|propertiesParserRef
+return|;
+block|}
+DECL|method|setPropertiesParserRef (String propertiesParserRef)
+specifier|public
+name|void
+name|setPropertiesParserRef
+parameter_list|(
+name|String
+name|propertiesParserRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesParserRef
+operator|=
+name|propertiesParserRef
 expr_stmt|;
 block|}
 block|}
