@@ -200,6 +200,15 @@ operator|new
 name|DefaultPropertiesResolver
 argument_list|()
 decl_stmt|;
+DECL|field|propertiesParser
+specifier|private
+name|PropertiesParser
+name|propertiesParser
+init|=
+operator|new
+name|DefaultPropertiesParser
+argument_list|()
+decl_stmt|;
 DECL|field|locations
 specifier|private
 name|String
@@ -501,7 +510,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|PropertiesParser
+name|propertiesParser
 operator|.
 name|parseUri
 argument_list|(
@@ -587,6 +596,32 @@ operator|.
 name|propertiesResolver
 operator|=
 name|propertiesResolver
+expr_stmt|;
+block|}
+DECL|method|getPropertiesParser ()
+specifier|public
+name|PropertiesParser
+name|getPropertiesParser
+parameter_list|()
+block|{
+return|return
+name|propertiesParser
+return|;
+block|}
+DECL|method|setPropertiesParser (PropertiesParser propertiesParser)
+specifier|public
+name|void
+name|setPropertiesParser
+parameter_list|(
+name|PropertiesParser
+name|propertiesParser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesParser
+operator|=
+name|propertiesParser
 expr_stmt|;
 block|}
 DECL|method|isCache ()
