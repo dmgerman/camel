@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using Jasypt  * to decrypt any encrypted values.  *<p/>  * The values must be enclosed in the prefix and suffix token.  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using  *<a href="http://www.jasypt.org/">Jasypt</a> to decrypt any encrypted values.  *<p/>  * The values must be enclosed in the prefix and suffix token.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -74,21 +74,21 @@ name|JasyptPropertiesParser
 extends|extends
 name|DefaultPropertiesParser
 block|{
-DECL|field|JASYPT_PREFIX_TOEKN
+DECL|field|JASYPT_PREFIX_TOKEN
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|JASYPT_PREFIX_TOEKN
+name|JASYPT_PREFIX_TOKEN
 init|=
 literal|"ENC("
 decl_stmt|;
-DECL|field|JASYPT_SUFFIX_TOEKN
+DECL|field|JASYPT_SUFFIX_TOKEN
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|JASYPT_SUFFIX_TOEKN
+name|JASYPT_SUFFIX_TOKEN
 init|=
 literal|")"
 decl_stmt|;
@@ -296,9 +296,9 @@ name|between
 argument_list|(
 name|value
 argument_list|,
-name|JASYPT_PREFIX_TOEKN
+name|JASYPT_PREFIX_TOKEN
 argument_list|,
-name|JASYPT_SUFFIX_TOEKN
+name|JASYPT_SUFFIX_TOKEN
 argument_list|)
 decl_stmt|;
 if|if
