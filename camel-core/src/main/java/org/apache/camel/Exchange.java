@@ -350,6 +350,12 @@ name|INTERCEPTED_ENDPOINT
 init|=
 literal|"CamelInterceptedEndpoint"
 decl_stmt|;
+DECL|field|LANGUAGE_SCRIPT
+name|String
+name|LANGUAGE_SCRIPT
+init|=
+literal|"CamelLanguageScript"
+decl_stmt|;
 DECL|field|LOG_DEBUG_BODY_MAX_CHARS
 name|String
 name|LOG_DEBUG_BODY_MAX_CHARS

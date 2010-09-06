@@ -28,6 +28,18 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchLanguageException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A pluggable strategy for resolving different languages in a loosely coupled manner  *   * @version $Revision$  */
 end_comment
@@ -38,7 +50,7 @@ specifier|public
 interface|interface
 name|LanguageResolver
 block|{
-comment|/**      * Resolves the given language.      *      * @param name    the name of the langauge      * @param context the camel context      * @return the resolved language      */
+comment|/**      * Resolves the given language.      *      * @param name    the name of the language      * @param context the camel context      * @return the resolved language      * @throws NoSuchLanguageException is thrown if language could not be resolved      */
 DECL|method|resolveLanguage (String name, CamelContext context)
 name|Language
 name|resolveLanguage
@@ -49,6 +61,8 @@ parameter_list|,
 name|CamelContext
 name|context
 parameter_list|)
+throws|throws
+name|NoSuchLanguageException
 function_decl|;
 block|}
 end_interface
