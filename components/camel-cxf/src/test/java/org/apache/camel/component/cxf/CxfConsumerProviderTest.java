@@ -213,16 +213,25 @@ literal|"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envel
 operator|+
 literal|"<soapenv:Header/><soapenv:Body><ser:ping/></soapenv:Body></soapenv:Envelope>"
 decl_stmt|;
-DECL|field|RESPONSE_MESSAGE
+DECL|field|RESPONSE_MESSAGE_BEGINE
 specifier|protected
 specifier|static
 specifier|final
 name|String
-name|RESPONSE_MESSAGE
+name|RESPONSE_MESSAGE_BEGINE
 init|=
 literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
 operator|+
-literal|"<soap:Body><pong xmlns=\"test/service\" /></soap:Body></soap:Envelope>"
+literal|"<soap:Body><pong xmlns=\"test/service\""
+decl_stmt|;
+DECL|field|RESPONSE_MESSAGE_END
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|RESPONSE_MESSAGE_END
+init|=
+literal|"/></soap:Body></soap:Envelope>"
 decl_stmt|;
 DECL|field|RESPONSE
 specifier|protected
@@ -359,13 +368,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Get a wrong response "
 argument_list|,
-name|RESPONSE_MESSAGE
+name|response
+operator|.
+name|startsWith
+argument_list|(
+name|RESPONSE_MESSAGE_BEGINE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Get a wrong response "
 argument_list|,
 name|response
+operator|.
+name|endsWith
+argument_list|(
+name|RESPONSE_MESSAGE_END
+argument_list|)
 argument_list|)
 expr_stmt|;
 try|try
@@ -414,13 +438,28 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Get a wrong response "
 argument_list|,
-name|RESPONSE_MESSAGE
+name|response
+operator|.
+name|startsWith
+argument_list|(
+name|RESPONSE_MESSAGE_BEGINE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Get a wrong response "
 argument_list|,
 name|response
+operator|.
+name|endsWith
+argument_list|(
+name|RESPONSE_MESSAGE_END
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

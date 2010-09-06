@@ -269,7 +269,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should get the content type"
+literal|"Should get a right content type"
 argument_list|,
 name|protocalHeaders
 operator|.
@@ -283,8 +283,30 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"[text/xml; charset="
+literal|"[text/xml;"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should get a right context type with a charset"
+argument_list|,
+name|protocalHeaders
+operator|.
+name|get
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"charset="
+argument_list|)
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -328,8 +350,41 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"text/xml; charset="
+literal|"text/xml;"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should get the content type"
+argument_list|,
+name|result
+operator|.
+name|assertExchangeReceived
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"content-type"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"charset="
+argument_list|)
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
