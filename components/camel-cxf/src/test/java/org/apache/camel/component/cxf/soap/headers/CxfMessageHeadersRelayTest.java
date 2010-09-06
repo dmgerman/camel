@@ -2341,8 +2341,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testInoutHeaderCXFClientNoServiceClassNoRelay ()
 specifier|public
 name|void
@@ -4004,7 +4002,7 @@ name|hdr
 operator|.
 name|setMustUnderstand
 argument_list|(
-literal|true
+name|invalid
 argument_list|)
 expr_stmt|;
 name|List
