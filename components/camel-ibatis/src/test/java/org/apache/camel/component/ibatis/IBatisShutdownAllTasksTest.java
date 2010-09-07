@@ -418,6 +418,14 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+comment|// sleep a little
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 comment|// should route all 8
 name|assertEquals
 argument_list|(
