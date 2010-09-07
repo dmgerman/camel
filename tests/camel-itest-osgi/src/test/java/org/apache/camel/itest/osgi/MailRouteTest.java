@@ -801,6 +801,7 @@ name|versionAsInProject
 argument_list|()
 argument_list|,
 comment|// Added the mock_java_mail bundle for testing
+comment|// just using the mock_java_mail version for testing
 name|mavenBundle
 argument_list|()
 operator|.
@@ -814,8 +815,10 @@ argument_list|(
 literal|"org.apache.camel.tests.mock-javamail_1.7"
 argument_list|)
 operator|.
-name|versionAsInProject
-argument_list|()
+name|version
+argument_list|(
+literal|"2.4.0"
+argument_list|)
 argument_list|,
 name|workingDirectory
 argument_list|(
