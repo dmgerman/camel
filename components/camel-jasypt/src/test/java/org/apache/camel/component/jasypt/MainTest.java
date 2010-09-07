@@ -131,6 +131,96 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testUnknownOption ()
+specifier|public
+name|void
+name|testUnknownOption
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Main
+name|main
+init|=
+operator|new
+name|Main
+argument_list|()
+decl_stmt|;
+name|main
+operator|.
+name|run
+argument_list|(
+literal|"-c encrypt -xxx foo"
+operator|.
+name|split
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testMissingPassword ()
+specifier|public
+name|void
+name|testMissingPassword
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Main
+name|main
+init|=
+operator|new
+name|Main
+argument_list|()
+decl_stmt|;
+name|main
+operator|.
+name|run
+argument_list|(
+literal|"-c encrypt -i tiger"
+operator|.
+name|split
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testMissingInput ()
+specifier|public
+name|void
+name|testMissingInput
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Main
+name|main
+init|=
+operator|new
+name|Main
+argument_list|()
+decl_stmt|;
+name|main
+operator|.
+name|run
+argument_list|(
+literal|"-c encrypt -p secret"
+operator|.
+name|split
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
