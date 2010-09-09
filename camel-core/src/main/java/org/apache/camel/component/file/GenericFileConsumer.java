@@ -415,7 +415,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping pool as pre poll check returned false"
+literal|"Skipping poll as pre poll check returned false"
 argument_list|)
 expr_stmt|;
 block|}
@@ -500,7 +500,7 @@ argument_list|(
 name|delta
 argument_list|)
 operator|+
-literal|" to pool: "
+literal|" to poll: "
 operator|+
 name|name
 argument_list|)
