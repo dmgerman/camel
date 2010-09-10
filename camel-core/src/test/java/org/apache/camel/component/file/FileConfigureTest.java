@@ -326,6 +326,40 @@ name|getCharset
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"file://target/foo/bar?charset=ASSI"
+argument_list|,
+name|FileEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// The charset is wrong
+name|fail
+argument_list|(
+literal|"Expect a configure exception here"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Get the wrong exception type here"
+argument_list|,
+name|ex
+operator|instanceof
+name|ResolveEndpointFailedException
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testConsumerConfigurations ()
 specifier|public
