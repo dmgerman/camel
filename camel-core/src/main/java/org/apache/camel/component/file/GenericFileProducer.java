@@ -307,6 +307,13 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|configureExchange
+argument_list|(
+name|fileExchange
+argument_list|)
+expr_stmt|;
 name|processExchange
 argument_list|(
 name|fileExchange

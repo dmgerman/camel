@@ -594,6 +594,13 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
+name|configureExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
 name|configureMessage
 argument_list|(
 name|file

@@ -287,6 +287,46 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testUriWithCharset ()
+specifier|public
+name|void
+name|testUriWithCharset
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|FileEndpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"file://target/foo/bar?charset=UTF-8"
+argument_list|,
+name|FileEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find endpoint: file://target/foo/bar?charset=UTF-8"
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong charset"
+argument_list|,
+literal|"UTF-8"
+argument_list|,
+name|endpoint
+operator|.
+name|getCharset
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testConsumerConfigurations ()
 specifier|public
 name|void

@@ -462,6 +462,11 @@ specifier|protected
 name|String
 name|exclude
 decl_stmt|;
+DECL|field|charset
+specifier|protected
+name|String
+name|charset
+decl_stmt|;
 DECL|field|fileName
 specifier|protected
 name|Expression
@@ -1299,6 +1304,32 @@ name|idempotent
 else|:
 literal|false
 return|;
+block|}
+DECL|method|getCharset ()
+specifier|public
+name|String
+name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
+DECL|method|setCharset (String charset)
+specifier|public
+name|void
+name|setCharset
+parameter_list|(
+name|String
+name|charset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|charset
+operator|=
+name|charset
+expr_stmt|;
 block|}
 DECL|method|isIdempotentSet ()
 name|boolean
@@ -2142,6 +2173,39 @@ operator|.
 name|FILE_NAME
 argument_list|,
 name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Set up the exchange properties with the options of the file endpoint      * @param exchange      */
+DECL|method|configureExchange (Exchange exchange)
+specifier|public
+name|void
+name|configureExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// Now we just set the charset property here
+if|if
+condition|(
+name|getCharset
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|getCharset
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
