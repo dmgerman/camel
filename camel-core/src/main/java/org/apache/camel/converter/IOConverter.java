@@ -2004,11 +2004,11 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|isValidateCharset (String charset)
+DECL|method|validateCharset (String charset)
 specifier|public
 specifier|static
 name|void
-name|isValidateCharset
+name|validateCharset
 parameter_list|(
 name|String
 name|charset

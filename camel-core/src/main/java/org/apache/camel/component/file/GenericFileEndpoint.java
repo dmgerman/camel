@@ -1340,7 +1340,7 @@ parameter_list|)
 block|{
 name|IOConverter
 operator|.
-name|isValidateCharset
+name|validateCharset
 argument_list|(
 name|charset
 argument_list|)
