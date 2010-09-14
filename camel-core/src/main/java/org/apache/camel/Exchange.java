@@ -20,6 +20,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -858,6 +868,15 @@ parameter_list|(
 name|Exchange
 name|target
 parameter_list|)
+function_decl|;
+comment|/**      * Handover all the on completions from this exchange      *      * @return the on completions      */
+DECL|method|handoverCompletions ()
+name|List
+argument_list|<
+name|Synchronization
+argument_list|>
+name|handoverCompletions
+parameter_list|()
 function_decl|;
 block|}
 end_interface
