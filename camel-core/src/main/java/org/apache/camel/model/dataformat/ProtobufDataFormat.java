@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -154,6 +168,8 @@ specifier|private
 name|String
 name|instanceClass
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|defaultInstance
 specifier|private
 name|Object

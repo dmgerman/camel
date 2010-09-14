@@ -137,10 +137,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ProtobufMarshalTest
+DECL|class|ProtobufMarshalAndUnmarshallTest
 specifier|public
 class|class
-name|ProtobufMarshalTest
+name|ProtobufMarshalAndUnmarshallTest
 extends|extends
 name|CamelTestSupport
 block|{
