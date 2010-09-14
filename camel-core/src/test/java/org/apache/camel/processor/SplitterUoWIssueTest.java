@@ -71,10 +71,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SplitterStreamingUoWIssueTest
+DECL|class|SplitterUoWIssueTest
 specifier|public
 class|class
-name|SplitterStreamingUoWIssueTest
+name|SplitterUoWIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -99,10 +99,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSplitterStreamingUoWIssue ()
+DECL|method|testSplitterUoWIssue ()
 specifier|public
 name|void
-name|testSplitterStreamingUoWIssue
+name|testSplitterUoWIssue
 parameter_list|()
 throws|throws
 name|Exception
@@ -154,10 +154,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSplitterTwoFilesStreamingUoWIssue ()
+DECL|method|testSplitterTwoFilesUoWIssue ()
 specifier|public
 name|void
-name|testSplitterTwoFilesStreamingUoWIssue
+name|testSplitterTwoFilesUoWIssue
 parameter_list|()
 throws|throws
 name|Exception
@@ -273,9 +273,6 @@ argument_list|(
 literal|","
 argument_list|)
 argument_list|)
-operator|.
-name|streaming
-argument_list|()
 operator|.
 name|to
 argument_list|(
