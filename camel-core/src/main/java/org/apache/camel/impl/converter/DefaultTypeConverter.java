@@ -280,6 +280,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StopWatch
 import|;
 end_import
@@ -442,6 +456,16 @@ specifier|final
 name|FactoryFinder
 name|factoryFinder
 decl_stmt|;
+DECL|field|propertyEditorTypeConverter
+specifier|private
+specifier|final
+name|PropertyEditorTypeConverter
+name|propertyEditorTypeConverter
+init|=
+operator|new
+name|PropertyEditorTypeConverter
+argument_list|()
+decl_stmt|;
 DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder)
 specifier|public
 name|DefaultTypeConverter
@@ -496,9 +520,7 @@ expr_stmt|;
 comment|// do not assume property editor as it has a String converter
 name|addFallbackTypeConverter
 argument_list|(
-operator|new
-name|PropertyEditorTypeConverter
-argument_list|()
+name|propertyEditorTypeConverter
 argument_list|,
 literal|false
 argument_list|)
@@ -2359,6 +2381,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|propertyEditorTypeConverter
+argument_list|)
+expr_stmt|;
 name|loadTypeConverters
 argument_list|()
 expr_stmt|;
@@ -2382,6 +2411,14 @@ name|misses
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+comment|// let property editor type converter stop and cleanup resources
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|propertyEditorTypeConverter
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Represents a mapping from one type (which can be null) to another      */
