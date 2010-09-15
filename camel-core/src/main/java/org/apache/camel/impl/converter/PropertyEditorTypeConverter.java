@@ -402,14 +402,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|Class
-name|key
-init|=
-name|value
-operator|.
-name|getClass
-argument_list|()
-decl_stmt|;
 comment|// check misses first
 if|if
 condition|(
@@ -417,7 +409,7 @@ name|misses
 operator|.
 name|containsKey
 argument_list|(
-name|key
+name|type
 argument_list|)
 condition|)
 block|{
@@ -456,7 +448,7 @@ name|cache
 operator|.
 name|get
 argument_list|(
-name|key
+name|type
 argument_list|)
 decl_stmt|;
 if|if
@@ -474,7 +466,7 @@ name|PropertyEditorManager
 operator|.
 name|findEditor
 argument_list|(
-name|key
+name|type
 argument_list|)
 expr_stmt|;
 comment|// either we found an editor, or if not then register it as a miss
@@ -511,7 +503,7 @@ name|cache
 operator|.
 name|put
 argument_list|(
-name|key
+name|type
 argument_list|,
 name|editor
 argument_list|)
@@ -541,9 +533,9 @@ name|misses
 operator|.
 name|put
 argument_list|(
-name|key
+name|type
 argument_list|,
-name|key
+name|type
 argument_list|)
 expr_stmt|;
 block|}
