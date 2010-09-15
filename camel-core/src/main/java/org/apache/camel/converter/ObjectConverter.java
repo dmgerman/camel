@@ -791,6 +791,44 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|toString (StringBuffer value)
+specifier|public
+specifier|static
+name|String
+name|toString
+parameter_list|(
+name|StringBuffer
+name|value
+parameter_list|)
+block|{
+return|return
+name|value
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toString (StringBuilder value)
+specifier|public
+specifier|static
+name|String
+name|toString
+parameter_list|(
+name|StringBuilder
+name|value
+parameter_list|)
+block|{
+return|return
+name|value
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

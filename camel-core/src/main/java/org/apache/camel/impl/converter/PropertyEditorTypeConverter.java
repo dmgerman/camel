@@ -76,6 +76,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Uses the {@link java.beans.PropertyEditor} conversion system to convert Objects to  * and from String values.  *  * @version $Revision$  */
 end_comment
@@ -88,6 +116,22 @@ name|PropertyEditorTypeConverter
 implements|implements
 name|TypeConverter
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PropertyEditorTypeConverter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -152,6 +196,8 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|// TODO: findEditor is synchronized so we want to avoid calling it
+comment|// we should have a local hit cache
 name|PropertyEditor
 name|editor
 init|=
@@ -162,6 +208,28 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding property editor for type: "
+operator|+
+name|type
+operator|+
+literal|" -> "
+operator|+
+name|editor
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|editor
@@ -217,6 +285,28 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finding property editor for type: "
+operator|+
+name|type
+operator|+
+literal|" -> "
+operator|+
+name|editor
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|editor

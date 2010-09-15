@@ -493,6 +493,16 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// do not assume property editor as it has a String converter
+name|addFallbackTypeConverter
+argument_list|(
+operator|new
+name|PropertyEditorTypeConverter
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// enum is okay to be promoted
 name|addFallbackTypeConverter
 argument_list|(
@@ -511,16 +521,6 @@ name|ArrayTypeConverter
 argument_list|()
 argument_list|,
 literal|true
-argument_list|)
-expr_stmt|;
-comment|// do not assume property editor as it has a String converter
-name|addFallbackTypeConverter
-argument_list|(
-operator|new
-name|PropertyEditorTypeConverter
-argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// and future should also not allowed to be promoted
