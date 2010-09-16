@@ -616,13 +616,23 @@ condition|(
 name|size
 operator|==
 literal|0
+operator|&&
+name|multicastExecutor
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// stop the multicastExecutor
-name|multicastExecutor
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
 operator|.
 name|shutdown
-argument_list|()
+argument_list|(
+name|multicastExecutor
+argument_list|)
 expr_stmt|;
 name|multicastExecutor
 operator|=
