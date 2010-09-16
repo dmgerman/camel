@@ -262,6 +262,45 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testGetThreadNameCustomPatternWithDollar ()
+specifier|public
+name|void
+name|testGetThreadNameCustomPatternWithDollar
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|setThreadNamePattern
+argument_list|(
+literal|"Hello - ${name}"
+argument_list|)
+expr_stmt|;
+name|String
+name|foo
+init|=
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|getThreadName
+argument_list|(
+literal|"foo$bar"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello - foo$bar"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testGetThreadNameCustomPatternLongName ()
 specifier|public
 name|void
