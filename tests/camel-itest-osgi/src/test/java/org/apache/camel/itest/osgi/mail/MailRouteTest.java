@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi
+DECL|package|org.apache.camel.itest.osgi.mail
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|osgi
+operator|.
+name|mail
 package|;
 end_package
 
@@ -123,6 +125,22 @@ operator|.
 name|converter
 operator|.
 name|IOConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|itest
+operator|.
+name|osgi
+operator|.
+name|OSGiIntegrationTestSupport
 import|;
 end_import
 
@@ -623,7 +641,7 @@ block|}
 block|}
 name|assertTrue
 argument_list|(
-literal|"Should have found the recpient to in the mail: "
+literal|"Should have found the recipient to in the mail: "
 operator|+
 name|name
 argument_list|,
@@ -825,6 +843,7 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
+comment|// does not work in felix
 name|equinox
 argument_list|()
 argument_list|)

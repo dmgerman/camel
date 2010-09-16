@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi
+DECL|package|org.apache.camel.itest.osgi.groovy
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|osgi
+operator|.
+name|groovy
 package|;
 end_package
 
@@ -45,6 +47,22 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|itest
+operator|.
+name|osgi
+operator|.
+name|OSGiIntegrationTestSupport
 import|;
 end_import
 
@@ -113,6 +131,22 @@ operator|.
 name|junit
 operator|.
 name|JUnit4TestRunner
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|equinox
 import|;
 end_import
 
@@ -216,10 +250,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|LanguageTest
+DECL|class|GroovyTest
 specifier|public
 class|class
-name|LanguageTest
+name|GroovyTest
 extends|extends
 name|OSGiIntegrationTestSupport
 block|{
@@ -430,6 +464,9 @@ literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 name|felix
+argument_list|()
+argument_list|,
+name|equinox
 argument_list|()
 argument_list|)
 decl_stmt|;

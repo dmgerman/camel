@@ -276,6 +276,22 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
+name|equinox
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
 name|felix
 import|;
 end_import
@@ -734,6 +750,9 @@ literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 name|felix
+argument_list|()
+argument_list|,
+name|equinox
 argument_list|()
 argument_list|)
 decl_stmt|;

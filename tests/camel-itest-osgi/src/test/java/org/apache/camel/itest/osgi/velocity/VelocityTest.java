@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi
+DECL|package|org.apache.camel.itest.osgi.velocity
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|osgi
+operator|.
+name|velocity
 package|;
 end_package
 
@@ -77,6 +79,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|itest
+operator|.
+name|osgi
+operator|.
+name|OSGiIntegrationTestSupport
 import|;
 end_import
 
@@ -161,6 +179,22 @@ operator|.
 name|CoreOptions
 operator|.
 name|equinox
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|felix
 import|;
 end_import
 
@@ -370,7 +404,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:a"
@@ -378,10 +411,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"velocity:org/apache/camel/itest/osgi/example.vm"
+literal|"velocity:org/apache/camel/itest/osgi/velocity/example.vm"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: example
 block|}
 block|}
 return|;
@@ -453,6 +485,9 @@ name|workingDirectory
 argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
+argument_list|,
+name|felix
+argument_list|()
 argument_list|,
 name|equinox
 argument_list|()
