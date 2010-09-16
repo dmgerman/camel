@@ -796,6 +796,46 @@ name|isUseFixedDelay
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Scheduling poll (fixed delay) with initialDelay: "
+operator|+
+name|getInitialDelay
+argument_list|()
+operator|+
+literal|", delay: "
+operator|+
+name|getDelay
+argument_list|()
+operator|+
+literal|" ("
+operator|+
+name|getTimeUnit
+argument_list|()
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+operator|+
+literal|") for: "
+operator|+
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|=
 name|executor
@@ -817,6 +857,46 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Scheduling poll (fixed rate) with initialDelay: "
+operator|+
+name|getInitialDelay
+argument_list|()
+operator|+
+literal|", delay: "
+operator|+
+name|getDelay
+argument_list|()
+operator|+
+literal|" ("
+operator|+
+name|getTimeUnit
+argument_list|()
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+operator|+
+literal|") for: "
+operator|+
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|future
 operator|=
 name|executor
