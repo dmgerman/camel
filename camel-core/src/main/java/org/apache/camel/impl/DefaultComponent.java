@@ -447,6 +447,12 @@ condition|(
 name|parameters
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|parameters
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|endpoint
