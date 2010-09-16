@@ -490,7 +490,8 @@ argument_list|()
 operator|.
 name|setTimeout
 argument_list|(
-literal|10
+name|getShutdownTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|template
@@ -633,6 +634,17 @@ block|}
 name|stopCamelContext
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Returns the timeout to use when shutting down (unit in seconds).      *<p/>      * Will default use 10 seconds.      *      * @return the timeout to use      */
+DECL|method|getShutdownTimeout ()
+specifier|protected
+name|int
+name|getShutdownTimeout
+parameter_list|()
+block|{
+return|return
+literal|10
+return|;
 block|}
 comment|/**      * Whether or not JMX should be used during testing.      *      * @return<tt>false</tt> by default.      */
 DECL|method|useJmx ()
