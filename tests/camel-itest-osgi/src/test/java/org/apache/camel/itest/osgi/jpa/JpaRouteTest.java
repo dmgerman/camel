@@ -605,17 +605,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must type cast with Spring 2.x
 name|jpaTemplate
 operator|=
+operator|(
+name|JpaTemplate
+operator|)
 name|applicationContext
 operator|.
 name|getBean
 argument_list|(
 literal|"jpaTemplate"
-argument_list|,
-name|JpaTemplate
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|List
@@ -659,17 +659,17 @@ name|void
 name|cleanupRepository
 parameter_list|()
 block|{
+comment|// must type cast with Spring 2.x
 name|jpaTemplate
 operator|=
+operator|(
+name|JpaTemplate
+operator|)
 name|applicationContext
 operator|.
 name|getBean
 argument_list|(
 literal|"jpaTemplate"
-argument_list|,
-name|JpaTemplate
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|TransactionTemplate
