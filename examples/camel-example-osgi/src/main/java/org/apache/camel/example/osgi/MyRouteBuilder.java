@@ -58,7 +58,7 @@ name|MyRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
-comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception       */
+comment|/**      * Allow this route to be run as an application      */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
