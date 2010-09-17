@@ -96,13 +96,19 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
-name|ex
+name|System
 operator|.
-name|printStackTrace
-argument_list|()
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Get the exception "
+operator|+
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally

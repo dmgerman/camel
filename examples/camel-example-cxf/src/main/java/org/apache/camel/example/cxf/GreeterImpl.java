@@ -125,7 +125,6 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#greetMe(java.lang.String)      */
 DECL|method|greetMe (String me)
 specifier|public
 name|String
@@ -170,7 +169,6 @@ operator|+
 name|me
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#greetMeOneWay(java.lang.String)      */
 DECL|method|greetMeOneWay (String me)
 specifier|public
 name|void
@@ -208,7 +206,6 @@ name|me
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#sayHi()      */
 DECL|method|sayHi ()
 specifier|public
 name|String

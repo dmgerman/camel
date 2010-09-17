@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example for demonstrating how Camel works as a Router.  * This example shows how Camel can route a SOAP client's HTTP request  * to a SOAP over JMS Service.  *  */
+comment|/**  * An example for demonstrating how Camel works as a Router.  * This example shows how Camel can route a SOAP client's HTTP request  * to a SOAP over JMS Service.  */
 end_comment
 
 begin_class

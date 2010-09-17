@@ -246,7 +246,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|//ContainerWapper container;
 name|BrokerService
 name|broker
 init|=

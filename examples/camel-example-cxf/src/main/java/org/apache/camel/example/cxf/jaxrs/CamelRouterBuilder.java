@@ -214,7 +214,7 @@ literal|"cxfrs://http://localhost:9002/rest"
 operator|+
 literal|"?resourceClasses=org.apache.camel.example.cxf.jaxrs.resources.BookStoreImpl"
 decl_stmt|;
-comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception       */
+comment|/**      * Allow this route to be run as an application      */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -433,9 +433,6 @@ argument_list|(
 literal|"Get the exception "
 operator|+
 name|exception
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

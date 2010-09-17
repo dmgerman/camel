@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple bean demonstrating the processing of a SOAPMessage routed by Camel  *  */
+comment|/**  * A simple bean demonstrating the processing of a SOAPMessage routed by Camel  */
 end_comment
 
 begin_comment
