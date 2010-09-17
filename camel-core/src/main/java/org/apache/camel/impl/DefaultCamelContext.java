@@ -2739,6 +2739,24 @@ argument_list|,
 literal|"uri"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Getting endpoint with uri: "
+operator|+
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
 comment|// in case path has property placeholders then try to let property component resolve those
 try|try
 block|{
@@ -2807,7 +2825,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Getting endpoint with uri: "
+literal|"Getting endpoint with normalized uri: "
 operator|+
 name|uri
 argument_list|)
