@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to poll feeds and return each entry from the feed step by step.  *  */
+comment|/**  * Consumer to poll feeds and return each entry from the feed step by step.  */
 end_comment
 
 begin_class
@@ -94,6 +94,11 @@ DECL|field|throttleEntries
 specifier|protected
 name|boolean
 name|throttleEntries
+decl_stmt|;
+DECL|field|feed
+specifier|protected
+name|Object
+name|feed
 decl_stmt|;
 DECL|method|FeedEntryPollingConsumer (FeedEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|public
@@ -150,17 +155,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
+if|if
+condition|(
 name|feed
-init|=
+operator|==
+literal|null
+condition|)
+block|{
+comment|// populate new feed
+name|feed
+operator|=
 name|createFeed
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|populateList
 argument_list|(
 name|feed
 argument_list|)
 expr_stmt|;
+block|}
 while|while
 condition|(
 name|hasNextEntry
@@ -241,7 +254,11 @@ return|return;
 block|}
 block|}
 block|}
-comment|// reset list to be able to poll again
+comment|// reset feed and list to be able to poll again
+name|feed
+operator|=
+literal|null
+expr_stmt|;
 name|resetList
 argument_list|()
 expr_stmt|;
