@@ -139,8 +139,6 @@ literal|"http://localhost:9001/SoapContext/SoapPort"
 decl_stmt|;
 annotation|@
 name|Test
-comment|//@Ignore("Due to the Spring 3.0.0 doesn't call the JMS listener container's start method by default"
-comment|//        + "This test will be fix in the next released CXF")
 DECL|method|testClientInvocation ()
 specifier|public
 name|void
