@@ -1595,7 +1595,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from jar using http/https: "
+literal|"Loading from jar using url: "
 operator|+
 name|urlPath
 argument_list|)
