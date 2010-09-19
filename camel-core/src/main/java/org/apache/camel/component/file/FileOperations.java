@@ -847,29 +847,7 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|instanceof
-name|File
-operator|||
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|instanceof
-name|GenericFile
-condition|)
-block|{
+comment|// get the File Object from in message
 name|source
 operator|=
 name|exchange
@@ -884,7 +862,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|source
@@ -894,7 +871,7 @@ condition|)
 block|{
 comment|// okay we know the body is a file type
 comment|// so try to see if we can optimize by renaming the local work path file instead of doing
-comment|// a full file to file copy, as the local work copy is to be deleted afterwords anyway
+comment|// a full file to file copy, as the local work copy is to be deleted afterwards anyway
 comment|// local work path
 name|File
 name|local
@@ -1538,7 +1515,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates and prepares the output file channel. Will position itself in correct position if eg. it should append      * or override any existing content.      */
+comment|/**      * Creates and prepares the output file channel. Will position itself in correct position if the file is writable      *  eg. it should append or override any existing content.      */
 DECL|method|prepareOutputFileChannel (File target, FileChannel out)
 specifier|private
 name|FileChannel
