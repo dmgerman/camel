@@ -2488,6 +2488,73 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Error occurred during retrieving file: "
+operator|+
+name|name
+operator|+
+literal|" to local directory. Deleting local work file: "
+operator|+
+name|temp
+argument_list|)
+expr_stmt|;
+block|}
+comment|// failed to retrieve the file so we need to close streams and delete in progress file
+comment|// must close stream before deleting file
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|os
+argument_list|,
+literal|"retrieve: "
+operator|+
+name|name
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+name|boolean
+name|deleted
+init|=
+name|FileUtil
+operator|.
+name|deleteFile
+argument_list|(
+name|temp
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|deleted
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred during retrieving file: "
+operator|+
+name|name
+operator|+
+literal|" to local directory. Cannot delete local work file: "
+operator|+
+name|temp
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
