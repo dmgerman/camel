@@ -65,6 +65,13 @@ name|PersonImplWithWsdl
 implements|implements
 name|Person
 block|{
+DECL|field|reply
+specifier|private
+name|String
+name|reply
+init|=
+literal|"Bonjour"
+decl_stmt|;
 DECL|method|getPerson (Holder<String> personId, Holder<String> ssn, Holder<String> name)
 specifier|public
 name|void
@@ -159,13 +166,39 @@ name|name
 operator|.
 name|value
 operator|=
-literal|"Bonjour"
+name|reply
 expr_stmt|;
 name|ssn
 operator|.
 name|value
 operator|=
 literal|"000-000-0000"
+expr_stmt|;
+block|}
+DECL|method|getReply ()
+specifier|public
+name|String
+name|getReply
+parameter_list|()
+block|{
+return|return
+name|reply
+return|;
+block|}
+DECL|method|setReply (String reply)
+specifier|public
+name|void
+name|setReply
+parameter_list|(
+name|String
+name|reply
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reply
+operator|=
+name|reply
 expr_stmt|;
 block|}
 block|}

@@ -551,6 +551,19 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// set the bean instance as well, otherwise CXF will re-create a new instance of the class
+name|bean
+operator|.
+name|setServiceBean
+argument_list|(
+name|serviceBeans
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|bean
