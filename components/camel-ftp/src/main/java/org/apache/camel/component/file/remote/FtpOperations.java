@@ -1003,7 +1003,7 @@ name|login
 argument_list|(
 literal|"anonymous"
 argument_list|,
-literal|null
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
