@@ -833,7 +833,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String)}      */
+comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String)} and {@link #removeRoute(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|shutdownRoute (String routeId)
@@ -846,7 +846,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String, long, java.util.concurrent.TimeUnit)}      */
+comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String, long, java.util.concurrent.TimeUnit)} and {@link #removeRoute(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|shutdownRoute (String routeId, long timeout, TimeUnit timeUnit)
