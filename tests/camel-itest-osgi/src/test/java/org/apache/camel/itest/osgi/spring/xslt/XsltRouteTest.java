@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi.xslt
+DECL|package|org.apache.camel.itest.osgi.spring.xslt
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|osgi
+operator|.
+name|spring
 operator|.
 name|xslt
 package|;
@@ -205,7 +207,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/itest/osgi/xslt/example.xsl"
+literal|"xslt:org/apache/camel/itest/osgi/spring/xslt/example.xsl"
 argument_list|)
 operator|.
 name|to

@@ -383,8 +383,6 @@ literal|"http://localhost:9010/context1/"
 expr_stmt|;
 try|try
 block|{
-name|response
-operator|=
 name|template
 operator|.
 name|requestBody

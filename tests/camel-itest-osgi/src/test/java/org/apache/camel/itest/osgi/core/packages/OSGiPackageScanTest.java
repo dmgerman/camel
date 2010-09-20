@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi.packages
+DECL|package|org.apache.camel.itest.osgi.core.packages
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|osgi
+operator|.
+name|core
 operator|.
 name|packages
 package|;
@@ -186,7 +188,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org/apache/camel/itest/osgi/packages/CamelContext.xml"
+literal|"org/apache/camel/itest/osgi/core/packages/CamelContext.xml"
 block|}
 argument_list|)
 return|;

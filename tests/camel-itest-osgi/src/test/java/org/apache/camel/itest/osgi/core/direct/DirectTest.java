@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi.file
+DECL|package|org.apache.camel.itest.osgi.core.direct
 package|package
 name|org
 operator|.
@@ -16,21 +16,11 @@ name|itest
 operator|.
 name|osgi
 operator|.
-name|file
+name|core
+operator|.
+name|direct
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
 
 begin_import
 import|import
@@ -124,19 +114,19 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|FileRouteTest
+DECL|class|DirectTest
 specifier|public
 class|class
-name|FileRouteTest
+name|DirectTest
 extends|extends
 name|OSGiIntegrationTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testFileRoute ()
+DECL|method|testSendMessage ()
 specifier|public
 name|void
-name|testFileRoute
+name|testSendMessage
 parameter_list|()
 throws|throws
 name|Exception
@@ -144,11 +134,22 @@ block|{
 name|MockEndpoint
 name|mock
 init|=
-name|getMockEndpoint
+name|getMandatoryEndpoint
 argument_list|(
 literal|"mock:result"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The mock endpoint should not be null"
+argument_list|,
+name|mock
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -156,27 +157,13 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|// should be moved to .camel when done
-name|mock
-operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/data/.camel/hello.txt"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
-literal|"file:target/data"
+literal|"direct:start"
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -190,6 +177,8 @@ specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
@@ -205,22 +194,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// delete the data directory
-name|deleteDirectory
-argument_list|(
-literal|"target/data"
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/data"
-argument_list|)
-operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
+literal|"direct:start"
 argument_list|)
 operator|.
 name|to
