@@ -8135,7 +8135,9 @@ name|getRouteDefinition
 argument_list|()
 operator|.
 name|isAutoStartup
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -9127,7 +9129,9 @@ name|getRouteDefinition
 argument_list|()
 operator|.
 name|isAutoStartup
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

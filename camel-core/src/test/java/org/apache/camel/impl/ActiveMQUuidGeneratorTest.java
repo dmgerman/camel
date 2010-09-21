@@ -113,7 +113,7 @@ specifier|final
 name|String
 name|PATTERN
 init|=
-literal|"^ID-.*/\\d{4,5}-\\d{13}/\\d{1}-\\d{1}$"
+literal|"^ID-.*/\\d{4,5}-\\d{13}/\\d{1}-\\d{1,10}$"
 decl_stmt|;
 DECL|method|testGenerateUUID ()
 specifier|public

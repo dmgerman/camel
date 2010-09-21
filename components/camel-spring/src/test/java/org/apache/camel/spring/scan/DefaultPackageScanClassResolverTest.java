@@ -257,7 +257,7 @@ name|void
 name|testAccepableSchema
 parameter_list|()
 block|{
-name|assertTrue
+name|assertFalse
 argument_list|(
 literal|"We should not accept the test by default!"
 argument_list|,

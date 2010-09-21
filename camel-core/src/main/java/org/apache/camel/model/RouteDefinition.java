@@ -517,32 +517,30 @@ name|group
 decl_stmt|;
 DECL|field|streamCache
 specifier|private
-name|Boolean
+name|String
 name|streamCache
 decl_stmt|;
 DECL|field|trace
 specifier|private
-name|Boolean
+name|String
 name|trace
 decl_stmt|;
 DECL|field|handleFault
 specifier|private
-name|Boolean
+name|String
 name|handleFault
 decl_stmt|;
 DECL|field|delayer
 specifier|private
-name|Long
+name|String
 name|delayer
 decl_stmt|;
 DECL|field|autoStartup
 specifier|private
-name|Boolean
+name|String
 name|autoStartup
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|"true"
 decl_stmt|;
 DECL|field|startupOrder
 specifier|private
@@ -1327,9 +1325,7 @@ parameter_list|()
 block|{
 name|setStreamCache
 argument_list|(
-name|Boolean
-operator|.
-name|FALSE
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|StreamCaching
@@ -1353,9 +1349,7 @@ parameter_list|()
 block|{
 name|setStreamCache
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|"true"
 argument_list|)
 expr_stmt|;
 name|StreamCaching
@@ -1404,7 +1398,7 @@ parameter_list|()
 block|{
 name|setTrace
 argument_list|(
-literal|false
+literal|"false"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1420,7 +1414,7 @@ parameter_list|()
 block|{
 name|setTrace
 argument_list|(
-literal|true
+literal|"true"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1436,7 +1430,7 @@ parameter_list|()
 block|{
 name|setHandleFault
 argument_list|(
-literal|false
+literal|"false"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1452,7 +1446,7 @@ parameter_list|()
 block|{
 name|setHandleFault
 argument_list|(
-literal|true
+literal|"true"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1468,7 +1462,7 @@ parameter_list|()
 block|{
 name|setDelayer
 argument_list|(
-literal|0L
+literal|"0"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1487,6 +1481,8 @@ parameter_list|)
 block|{
 name|setDelayer
 argument_list|(
+literal|""
+operator|+
 name|delay
 argument_list|)
 expr_stmt|;
@@ -1522,9 +1518,7 @@ parameter_list|()
 block|{
 name|setAutoStartup
 argument_list|(
-name|Boolean
-operator|.
-name|FALSE
+literal|"false"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1747,10 +1741,10 @@ operator|=
 name|group
 expr_stmt|;
 block|}
-DECL|method|isStreamCache ()
+DECL|method|getStreamCache ()
 specifier|public
-name|Boolean
-name|isStreamCache
+name|String
+name|getStreamCache
 parameter_list|()
 block|{
 return|return
@@ -1759,12 +1753,12 @@ return|;
 block|}
 annotation|@
 name|XmlAttribute
-DECL|method|setStreamCache (Boolean streamCache)
+DECL|method|setStreamCache (String streamCache)
 specifier|public
 name|void
 name|setStreamCache
 parameter_list|(
-name|Boolean
+name|String
 name|streamCache
 parameter_list|)
 block|{
@@ -1775,10 +1769,10 @@ operator|=
 name|streamCache
 expr_stmt|;
 block|}
-DECL|method|isTrace ()
+DECL|method|getTrace ()
 specifier|public
-name|Boolean
-name|isTrace
+name|String
+name|getTrace
 parameter_list|()
 block|{
 return|return
@@ -1787,12 +1781,12 @@ return|;
 block|}
 annotation|@
 name|XmlAttribute
-DECL|method|setTrace (Boolean trace)
+DECL|method|setTrace (String trace)
 specifier|public
 name|void
 name|setTrace
 parameter_list|(
-name|Boolean
+name|String
 name|trace
 parameter_list|)
 block|{
@@ -1803,10 +1797,10 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
-DECL|method|isHandleFault ()
+DECL|method|getHandleFault ()
 specifier|public
-name|Boolean
-name|isHandleFault
+name|String
+name|getHandleFault
 parameter_list|()
 block|{
 return|return
@@ -1815,12 +1809,12 @@ return|;
 block|}
 annotation|@
 name|XmlAttribute
-DECL|method|setHandleFault (Boolean handleFault)
+DECL|method|setHandleFault (String handleFault)
 specifier|public
 name|void
 name|setHandleFault
 parameter_list|(
-name|Boolean
+name|String
 name|handleFault
 parameter_list|)
 block|{
@@ -1833,7 +1827,7 @@ expr_stmt|;
 block|}
 DECL|method|getDelayer ()
 specifier|public
-name|Long
+name|String
 name|getDelayer
 parameter_list|()
 block|{
@@ -1843,12 +1837,12 @@ return|;
 block|}
 annotation|@
 name|XmlAttribute
-DECL|method|setDelayer (Long delayer)
+DECL|method|setDelayer (String delayer)
 specifier|public
 name|void
 name|setDelayer
 parameter_list|(
-name|Long
+name|String
 name|delayer
 parameter_list|)
 block|{
@@ -1859,24 +1853,56 @@ operator|=
 name|delayer
 expr_stmt|;
 block|}
-DECL|method|isAutoStartup ()
+DECL|method|getAutoStartup ()
 specifier|public
-name|Boolean
-name|isAutoStartup
+name|String
+name|getAutoStartup
 parameter_list|()
 block|{
 return|return
 name|autoStartup
 return|;
 block|}
+DECL|method|isAutoStartup (CamelContext camelContext)
+specifier|public
+name|boolean
+name|isAutoStartup
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Boolean
+name|isAutoStartup
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getAutoStartup
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|isAutoStartup
+operator|!=
+literal|null
+operator|&&
+name|isAutoStartup
+return|;
+block|}
 annotation|@
 name|XmlAttribute
-DECL|method|setAutoStartup (Boolean autoStartup)
+DECL|method|setAutoStartup (String autoStartup)
 specifier|public
 name|void
 name|setAutoStartup
 parameter_list|(
-name|Boolean
+name|String
 name|autoStartup
 parameter_list|)
 block|{
@@ -2143,18 +2169,36 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|Boolean
+name|isTrace
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getTrace
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isTrace
+operator|!=
+literal|null
+condition|)
+block|{
 name|routeContext
 operator|.
 name|setTracing
 argument_list|(
 name|isTrace
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|isTrace
-argument_list|()
 condition|)
 block|{
 if|if
@@ -2178,10 +2222,31 @@ block|}
 comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 block|}
 block|}
+block|}
 comment|// configure stream caching
 if|if
 condition|(
 name|streamCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|Boolean
+name|isStreamCache
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getStreamCache
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isStreamCache
 operator|!=
 literal|null
 condition|)
@@ -2191,13 +2256,11 @@ operator|.
 name|setStreamCaching
 argument_list|(
 name|isStreamCache
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|isStreamCache
-argument_list|()
 condition|)
 block|{
 if|if
@@ -2241,10 +2304,31 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 comment|// configure handle fault
 if|if
 condition|(
 name|handleFault
+operator|!=
+literal|null
+condition|)
+block|{
+name|Boolean
+name|isHandleFault
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getHandleFault
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isHandleFault
 operator|!=
 literal|null
 condition|)
@@ -2254,13 +2338,11 @@ operator|.
 name|setHandleFault
 argument_list|(
 name|isHandleFault
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|isHandleFault
-argument_list|()
 condition|)
 block|{
 if|if
@@ -2304,7 +2386,28 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 comment|// configure delayer
+if|if
+condition|(
+name|delayer
+operator|!=
+literal|null
+condition|)
+block|{
+name|Long
+name|delayer
+init|=
+name|CamelContextHelper
+operator|.
+name|parseLong
+argument_list|(
+name|camelContext
+argument_list|,
+name|getDelayer
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|delayer
@@ -2316,27 +2419,12 @@ name|routeContext
 operator|.
 name|setDelayer
 argument_list|(
-name|getDelayer
-argument_list|()
+name|delayer
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getDelayer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|long
-name|millis
-init|=
-name|getDelayer
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|millis
+name|delayer
 operator|>
 literal|0
 condition|)
@@ -2355,7 +2443,7 @@ name|debug
 argument_list|(
 literal|"Delayer is enabled with: "
 operator|+
-name|millis
+name|delayer
 operator|+
 literal|" ms. on route: "
 operator|+
@@ -2368,7 +2456,7 @@ argument_list|(
 operator|new
 name|Delayer
 argument_list|(
-name|millis
+name|delayer
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2490,9 +2578,22 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// configure auto startup
+name|Boolean
+name|isAutoStartup
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getAutoStartup
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|autoStartup
+name|isAutoStartup
 operator|!=
 literal|null
 condition|)
@@ -2512,7 +2613,6 @@ argument_list|(
 literal|"Using AutoStartup "
 operator|+
 name|isAutoStartup
-argument_list|()
 operator|+
 literal|" on route: "
 operator|+
@@ -2525,7 +2625,6 @@ operator|.
 name|setAutoStartup
 argument_list|(
 name|isAutoStartup
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
