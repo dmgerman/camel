@@ -16,13 +16,17 @@ name|spi
 package|;
 end_package
 
+begin_comment
+comment|/**  * Generator to generate UUID strings.  */
+end_comment
+
 begin_interface
 DECL|interface|UuidGenerator
 specifier|public
 interface|interface
 name|UuidGenerator
 block|{
-comment|/**      * Generates a UUID string representation.        *       * @return a UUID string.      */
+comment|/**      * Generates a UUID string representation.        *       * @return the unique id.      */
 DECL|method|generateUuid ()
 name|String
 name|generateUuid

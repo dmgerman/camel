@@ -38,6 +38,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -77,6 +91,10 @@ operator|.
 name|LogFactory
 import|;
 end_import
+
+begin_comment
+comment|/**  * {@link org.apache.camel.spi.UuidGenerator} which is a fast implementation based on  * how<a href="http://activemq.apache.org/>Apache ActiveMQ</a> generates its UUID.  *<p/>  * This implementation is not synchronized but it leverages API which may not be accessible  * in the cloud (such as Google App Engine).  */
+end_comment
 
 begin_class
 DECL|class|ActiveMQUuidGenerator
@@ -129,8 +147,15 @@ name|seed
 decl_stmt|;
 DECL|field|sequence
 specifier|private
-name|long
+specifier|final
+name|AtomicLong
 name|sequence
+init|=
+operator|new
+name|AtomicLong
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 static|static
 block|{
@@ -246,7 +271,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not generate unique stub"
+literal|"Cannot generate unique stub"
 argument_list|,
 name|ioe
 argument_list|)
@@ -342,12 +367,10 @@ name|this
 operator|.
 name|seed
 operator|+
-operator|(
-name|this
-operator|.
 name|sequence
-operator|++
-operator|)
+operator|.
+name|getAndIncrement
+argument_list|()
 return|;
 block|}
 comment|/**      * Generate a unique ID - that is friendly for a URL or file system      *       * @return a unique id      */

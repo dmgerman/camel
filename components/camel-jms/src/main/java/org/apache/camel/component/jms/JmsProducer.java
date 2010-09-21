@@ -196,20 +196,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultUuidGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UuidGenerator
@@ -1922,11 +1908,16 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use the default generator
+comment|// use the generator configured on the camel context
 name|uuidGenerator
 operator|=
-operator|new
-name|DefaultUuidGenerator
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getUuidGenerator
 argument_list|()
 expr_stmt|;
 block|}

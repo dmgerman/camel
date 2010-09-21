@@ -1875,7 +1875,7 @@ name|UuidGenerator
 name|uuidGenerator
 init|=
 operator|new
-name|DefaultUuidGenerator
+name|JavaUuidGenerator
 argument_list|()
 decl_stmt|;
 DECL|field|stopWatch

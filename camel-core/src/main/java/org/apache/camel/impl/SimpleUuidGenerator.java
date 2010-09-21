@@ -44,6 +44,10 @@ name|UuidGenerator
 import|;
 end_import
 
+begin_comment
+comment|/**  * This implementation uses a counter which increments by one  */
+end_comment
+
 begin_class
 DECL|class|SimpleUuidGenerator
 specifier|public
@@ -54,6 +58,7 @@ name|UuidGenerator
 block|{
 DECL|field|id
 specifier|private
+specifier|final
 name|AtomicLong
 name|id
 init|=

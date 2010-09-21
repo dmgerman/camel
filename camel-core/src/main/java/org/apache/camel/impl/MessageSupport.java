@@ -757,7 +757,7 @@ block|{
 name|uuid
 operator|=
 operator|new
-name|DefaultUuidGenerator
+name|JavaUuidGenerator
 argument_list|()
 operator|.
 name|generateUuid
