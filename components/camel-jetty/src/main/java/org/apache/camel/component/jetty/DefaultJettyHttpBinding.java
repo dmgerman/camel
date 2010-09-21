@@ -412,6 +412,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// propagate HTTP response headers
+comment|// must use entrySet to ensure case of keys is preserved
 for|for
 control|(
 name|Map
