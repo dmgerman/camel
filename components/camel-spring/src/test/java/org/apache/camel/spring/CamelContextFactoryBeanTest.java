@@ -36,7 +36,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|JavaUuidGenerator
+name|ActiveMQUuidGenerator
 import|;
 end_import
 
@@ -163,7 +163,7 @@ name|assertTrue
 argument_list|(
 name|uuidGenerator
 operator|instanceof
-name|JavaUuidGenerator
+name|ActiveMQUuidGenerator
 argument_list|)
 expr_stmt|;
 block|}

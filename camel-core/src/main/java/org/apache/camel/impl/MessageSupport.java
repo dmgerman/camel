@@ -746,7 +746,7 @@ name|generateUuid
 argument_list|()
 expr_stmt|;
 block|}
-comment|// fall back to the default UUID generator
+comment|// fall back to the simple UUID generator
 if|if
 condition|(
 name|uuid
@@ -757,7 +757,7 @@ block|{
 name|uuid
 operator|=
 operator|new
-name|JavaUuidGenerator
+name|SimpleUuidGenerator
 argument_list|()
 operator|.
 name|generateUuid

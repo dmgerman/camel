@@ -241,10 +241,7 @@ name|exchange
 argument_list|,
 name|httpExchange
 argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|in
 argument_list|,
 name|getHeaderFilterStrategy
 argument_list|()
