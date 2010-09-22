@@ -2909,9 +2909,11 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-literal|false
-return|;
+comment|// assume current dir if no path could be extracted
+name|directory
+operator|=
+literal|""
+expr_stmt|;
 block|}
 name|String
 name|onlyName

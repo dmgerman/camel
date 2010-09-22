@@ -156,10 +156,9 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getFileSeparator ()
 specifier|public
+specifier|static
 name|char
 name|getFileSeparator
 parameter_list|()
