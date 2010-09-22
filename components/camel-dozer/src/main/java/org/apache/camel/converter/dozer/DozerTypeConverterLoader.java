@@ -22,9 +22,39 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -154,9 +184,9 @@ name|org
 operator|.
 name|dozer
 operator|.
-name|loader
+name|classmap
 operator|.
-name|CustomMappingsLoader
+name|MappingFileData
 import|;
 end_import
 
@@ -168,12 +198,28 @@ name|dozer
 operator|.
 name|loader
 operator|.
-name|LoadMappingsResult
+name|xml
+operator|.
+name|MappingFileReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|dozer
+operator|.
+name|loader
+operator|.
+name|xml
+operator|.
+name|XMLParserFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  *<code>DozerTypeConverterLoader</code> provides the mechanism for registering  * a Dozer {@link Mapper} as {@link TypeConverter} for a {@link CamelContext}.  *<p>  * While a mapper can be explicitly supplied as a parameter the  * {@link CamelContext}'s registry will also be searched for {@link Mapper}  * instances. A {@link DozerTypeConverter} is created to wrap each  * {@link Mapper} instance and the mapper is queried for the types it converts.  * The queried types are used to register the {@link TypeConverter} with the  * context via its {@link TypeConverterRegistry}.  */
+comment|/**  *<code>DozerTypeConverterLoader</code> provides the mechanism for registering  * a Dozer {@link Mapper} as {@link TypeConverter} for a {@link CamelContext}.  *<p/>  * While a mapper can be explicitly supplied as a parameter the  * {@link CamelContext}'s registry will also be searched for {@link Mapper}  * instances. A {@link DozerTypeConverter} is created to wrap each  * {@link Mapper} instance and the mapper is queried for the types it converts.  * The queried types are used to register the {@link TypeConverter} with the  * context via its {@link TypeConverterRegistry}.  */
 end_comment
 
 begin_class
@@ -209,7 +255,7 @@ specifier|public
 name|DozerTypeConverterLoader
 parameter_list|()
 block|{     }
-comment|/**      * Creates a<code>DozerTypeConverter</code> that will search the given      * {@link CamelContext} for instances of {@link DozerBeanMapper}. Each      * discovered instance will be wrapped as a {@link DozerTypeConverter} and      * register as a {@link TypeConverter} with the context      *      * @param camelContext the context to register the      *            {@link DozerTypeConverter} in      */
+comment|/**      * Creates a<code>DozerTypeConverter</code> that will search the given      * {@link CamelContext} for instances of {@link DozerBeanMapper}. Each      * discovered instance will be wrapped as a {@link DozerTypeConverter} and      * register as a {@link TypeConverter} with the context      *      * @param camelContext the context to register the      *                     {@link DozerTypeConverter} in      */
 DECL|method|DozerTypeConverterLoader (CamelContext camelContext)
 specifier|public
 name|DozerTypeConverterLoader
@@ -226,7 +272,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a<code>DozerTypeConverter</code> that will wrap the the given      * {@link DozerBeanMapper} as a {@link DozerTypeConverter} and register it      * with the given context. It will also search the context for      *      * @param camelContext the context to register the      *            {@link DozerTypeConverter} in      * @param mapper the DozerMapperBean to be wrapped as a type converter.      */
+comment|/**      * Creates a<code>DozerTypeConverter</code> that will wrap the the given      * {@link DozerBeanMapper} as a {@link DozerTypeConverter} and register it      * with the given context. It will also search the context for      *      * @param camelContext the context to register the      *                     {@link DozerTypeConverter} in      * @param mapper       the DozerMapperBean to be wrapped as a type converter.      */
 DECL|method|DozerTypeConverterLoader (CamelContext camelContext, DozerBeanMapper mapper)
 specifier|public
 name|DozerTypeConverterLoader
@@ -246,7 +292,7 @@ name|mapper
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Doses the actual querying and registration of {@link DozerTypeConverter}s      * with the {@link CamelContext}.      *      * @param camelContext the context to register the      *            {@link DozerTypeConverter} in      * @param mapper the DozerMapperBean to be wrapped as a type converter.      */
+comment|/**      * Doses the actual querying and registration of {@link DozerTypeConverter}s      * with the {@link CamelContext}.      *      * @param camelContext the context to register the      *                     {@link DozerTypeConverter} in      * @param mapper       the DozerMapperBean to be wrapped as a type converter.      */
 DECL|method|init (CamelContext camelContext, DozerBeanMapper mapper)
 specifier|public
 name|void
@@ -318,6 +364,34 @@ operator|.
 name|size
 argument_list|()
 operator|>
+literal|1
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Loaded "
+operator|+
+name|mappers
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" Dozer mappers from Camel registry."
+operator|+
+literal|" Dozer is most efficient when there is a single mapper instance. Consider amalgamating instances."
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|mappers
+operator|.
+name|size
+argument_list|()
+operator|==
 literal|0
 condition|)
 block|{
@@ -325,7 +399,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Loaded %d dozer mappers from Camel's registry. Dozer is most efficient when there is a single mapper instance. Consider amalgamating instances."
+literal|"No Dozer mappers found in Camel registry. You should add Dozer mappers as beans to the registry of the type: "
+operator|+
+name|DozerBeanMapper
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -348,16 +429,16 @@ name|values
 argument_list|()
 control|)
 block|{
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|ClassMap
 argument_list|>
 name|all
 init|=
 name|loadMappings
 argument_list|(
+name|camelContext
+argument_list|,
 name|dozer
 argument_list|)
 decl_stmt|;
@@ -376,11 +457,40 @@ name|ClassMap
 name|map
 range|:
 name|all
-operator|.
-name|values
-argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Added "
+operator|+
+name|map
+operator|.
+name|getSrcClassName
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|map
+operator|.
+name|getDestClassName
+argument_list|()
+operator|+
+literal|" as type converter to: "
+operator|+
+name|registry
+argument_list|)
+expr_stmt|;
+block|}
 name|registry
 operator|.
 name|addTypeConverter
@@ -418,61 +528,94 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|loadMappings (DozerBeanMapper mapper)
+DECL|method|loadMappings (CamelContext camelContext, DozerBeanMapper mapper)
 specifier|private
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|ClassMap
 argument_list|>
 name|loadMappings
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|DozerBeanMapper
 name|mapper
 parameter_list|)
 block|{
-comment|// TODO: This is a little wasteful as dozer has already parsed this
-comment|// information, if does not expose it though so it must be done again.
-comment|// Create a patch for Dozer to expose this.
-name|CustomMappingsLoader
-name|customMappingsLoader
+name|List
+argument_list|<
+name|ClassMap
+argument_list|>
+name|answer
 init|=
 operator|new
-name|CustomMappingsLoader
+name|ArrayList
+argument_list|<
+name|ClassMap
+argument_list|>
 argument_list|()
 decl_stmt|;
-name|LoadMappingsResult
-name|loadMappingsResult
+comment|// load the class map using the class resolver so we can load from classpath in OSGi
+name|MappingFileReader
+name|reader
 init|=
-name|customMappingsLoader
-operator|.
-name|load
+operator|new
+name|MappingFileReader
 argument_list|(
+name|XMLParserFactory
+operator|.
+name|getInstance
+argument_list|()
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|name
+range|:
 name|mapper
 operator|.
 name|getMappingFiles
 argument_list|()
+control|)
+block|{
+name|URL
+name|url
+init|=
+name|camelContext
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|loadResourceAsURL
+argument_list|(
+name|name
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|ClassMap
-argument_list|>
-name|all
+name|MappingFileData
+name|data
 init|=
-name|loadMappingsResult
+name|reader
 operator|.
-name|getCustomMappings
-argument_list|()
-operator|.
-name|getAll
-argument_list|()
+name|read
+argument_list|(
+name|url
+argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|addAll
+argument_list|(
+name|data
+operator|.
+name|getClassMaps
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|all
+name|answer
 return|;
 block|}
 DECL|method|getCamelContext ()

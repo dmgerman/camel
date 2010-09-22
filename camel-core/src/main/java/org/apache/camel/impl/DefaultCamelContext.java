@@ -5194,18 +5194,17 @@ name|getTypeConverter
 argument_list|()
 expr_stmt|;
 block|}
-comment|// type converter is usually the default one that also is the registry
 if|if
 condition|(
 name|typeConverter
 operator|instanceof
-name|DefaultTypeConverter
+name|TypeConverterRegistry
 condition|)
 block|{
 name|typeConverterRegistry
 operator|=
 operator|(
-name|DefaultTypeConverter
+name|TypeConverterRegistry
 operator|)
 name|typeConverter
 expr_stmt|;
