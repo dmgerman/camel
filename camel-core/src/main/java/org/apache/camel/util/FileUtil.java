@@ -689,6 +689,26 @@ decl_stmt|;
 if|if
 condition|(
 name|pos
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|pos
+operator|=
+name|name
+operator|.
+name|lastIndexOf
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pos
 operator|>
 literal|0
 condition|)
@@ -712,26 +732,19 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// name is actually the root path
+comment|// name is in the root path, so extract the path as the first char
 return|return
 name|name
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
 return|;
 block|}
-else|else
-block|{
-name|pos
-operator|=
-name|name
-operator|.
-name|lastIndexOf
-argument_list|(
-name|File
-operator|.
-name|separator
-argument_list|)
-expr_stmt|;
-block|}
-comment|// no path
+comment|// no path in name
 return|return
 literal|null
 return|;

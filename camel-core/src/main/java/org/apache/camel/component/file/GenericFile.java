@@ -191,6 +191,7 @@ name|absolute
 decl_stmt|;
 DECL|method|getFileSeparator ()
 specifier|public
+specifier|static
 name|char
 name|getFileSeparator
 parameter_list|()
