@@ -1874,8 +1874,7 @@ specifier|private
 name|UuidGenerator
 name|uuidGenerator
 init|=
-operator|new
-name|ActiveMQUuidGenerator
+name|createDefaultUuidGenerator
 argument_list|()
 decl_stmt|;
 DECL|field|stopWatch
@@ -11047,6 +11046,44 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|createDefaultUuidGenerator ()
+specifier|private
+specifier|static
+name|UuidGenerator
+name|createDefaultUuidGenerator
+parameter_list|()
+block|{
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"com.google.appengine.runtime.environment"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// either "Production" or "Development"
+return|return
+operator|new
+name|JavaUuidGenerator
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|ActiveMQUuidGenerator
+argument_list|()
+return|;
+block|}
 block|}
 end_function
 
