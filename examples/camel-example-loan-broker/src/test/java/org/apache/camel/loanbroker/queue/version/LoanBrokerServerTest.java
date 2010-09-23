@@ -36,9 +36,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Assert
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -86,7 +92,7 @@ specifier|public
 class|class
 name|LoanBrokerServerTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 annotation|@
 name|Test
@@ -98,6 +104,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"activemq-data"
+argument_list|)
+expr_stmt|;
 name|AbstractApplicationContext
 name|applicationContext
 init|=
