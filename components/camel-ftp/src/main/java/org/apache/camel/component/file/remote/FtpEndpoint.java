@@ -357,7 +357,7 @@ throw|;
 block|}
 block|}
 DECL|method|createRemoteFileOperations ()
-specifier|protected
+specifier|public
 name|RemoteFileOperations
 argument_list|<
 name|FTPFile

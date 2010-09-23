@@ -167,7 +167,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|createRemoteFileOperations ()
-specifier|protected
+specifier|public
 name|RemoteFileOperations
 argument_list|<
 name|ChannelSftp

@@ -257,7 +257,7 @@ name|operations
 expr_stmt|;
 block|}
 DECL|method|getFileSeparator ()
-specifier|protected
+specifier|public
 name|String
 name|getFileSeparator
 parameter_list|()
@@ -269,7 +269,7 @@ name|separator
 return|;
 block|}
 DECL|method|normalizePath (String name)
-specifier|protected
+specifier|public
 name|String
 name|normalizePath
 parameter_list|(
@@ -816,7 +816,7 @@ expr_stmt|;
 block|}
 comment|/**      * If we fail writing out a file, we will call this method. This hook is      * provided to disconnect from servers or clean up files we created (if needed).      */
 DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
-specifier|protected
+specifier|public
 name|void
 name|handleFailedWrite
 parameter_list|(
@@ -835,7 +835,7 @@ throw|;
 block|}
 comment|/**      * Perform any actions that need to occur before we write such as connecting to an FTP server etc.      */
 DECL|method|preWriteCheck ()
-specifier|protected
+specifier|public
 name|void
 name|preWriteCheck
 parameter_list|()
@@ -846,7 +846,7 @@ comment|// nothing needed to check
 block|}
 comment|/**      * Perform any actions that need to occur after we are done such as disconnecting.      */
 DECL|method|postWriteCheck ()
-specifier|protected
+specifier|public
 name|void
 name|postWriteCheck
 parameter_list|()
@@ -854,7 +854,7 @@ block|{
 comment|// nothing needed to check
 block|}
 DECL|method|writeFile (Exchange exchange, String fileName)
-specifier|protected
+specifier|public
 name|void
 name|writeFile
 parameter_list|(
@@ -1066,7 +1066,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createFileName (Exchange exchange)
-specifier|protected
+specifier|public
 name|String
 name|createFileName
 parameter_list|(
@@ -1370,7 +1370,7 @@ name|answer
 return|;
 block|}
 DECL|method|createTempFileName (Exchange exchange, String fileName)
-specifier|protected
+specifier|public
 name|String
 name|createTempFileName
 parameter_list|(

@@ -480,7 +480,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Creates the operations to be used by the consumer or producer.      *      * @return a new created operations      * @throws Exception is thrown if error creating operations.      */
 DECL|method|createRemoteFileOperations ()
-specifier|protected
+specifier|public
 specifier|abstract
 name|RemoteFileOperations
 argument_list|<

@@ -157,7 +157,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getFileSeparator ()
-specifier|protected
+specifier|public
 name|String
 name|getFileSeparator
 parameter_list|()
@@ -169,7 +169,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|normalizePath (String name)
-specifier|protected
+specifier|public
 name|String
 name|normalizePath
 parameter_list|(
@@ -262,7 +262,7 @@ return|;
 block|}
 comment|/**      * The file could not be written. We need to disconnect from the remote server.      */
 DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
-specifier|protected
+specifier|public
 name|void
 name|handleFailedWrite
 parameter_list|(
@@ -399,7 +399,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|preWriteCheck ()
-specifier|protected
+specifier|public
 name|void
 name|preWriteCheck
 parameter_list|()
@@ -511,7 +511,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|postWriteCheck ()
-specifier|protected
+specifier|public
 name|void
 name|postWriteCheck
 parameter_list|()
