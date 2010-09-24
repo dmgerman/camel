@@ -58,6 +58,18 @@ name|JAXBContext
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|JAXBException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A resolver of the JAXB context primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version $Revision$  */
 end_comment
@@ -67,7 +79,6 @@ annotation|@
 name|Provider
 DECL|class|JAXBContextResolver
 specifier|public
-specifier|final
 class|class
 name|JAXBContextResolver
 implements|implements
@@ -95,9 +106,7 @@ throws|throws
 name|Exception
 block|{
 name|this
-operator|.
-name|packages
-operator|=
+argument_list|(
 name|org
 operator|.
 name|apache
@@ -111,6 +120,24 @@ operator|.
 name|Constants
 operator|.
 name|JAXB_PACKAGES
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|JAXBContextResolver (String packages)
+specifier|public
+name|JAXBContextResolver
+parameter_list|(
+name|String
+name|packages
+parameter_list|)
+throws|throws
+name|JAXBException
+block|{
+name|this
+operator|.
+name|packages
+operator|=
+name|packages
 expr_stmt|;
 name|this
 operator|.
