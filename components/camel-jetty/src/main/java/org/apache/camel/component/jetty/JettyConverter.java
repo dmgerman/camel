@@ -109,6 +109,13 @@ specifier|final
 class|class
 name|JettyConverter
 block|{
+DECL|method|JettyConverter ()
+specifier|private
+name|JettyConverter
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 annotation|@
 name|Converter
 DECL|method|toString (Response response)
