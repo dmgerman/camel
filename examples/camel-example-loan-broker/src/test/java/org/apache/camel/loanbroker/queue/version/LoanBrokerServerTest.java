@@ -40,6 +40,10 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
 name|TestSupport
 import|;
 end_import
