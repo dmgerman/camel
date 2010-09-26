@@ -260,6 +260,30 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyExpressionUsingAlternativeStartToken ()
+specifier|public
+name|void
+name|testBodyExpressionUsingAlternativeStartToken
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Expression
+name|exp
+init|=
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"$simple{body}"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testBodyExpressionNotStringType ()
 specifier|public
 name|void
@@ -818,6 +842,64 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"${in.header.foo}!"
+argument_list|,
+literal|"abc!"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testComplexExpressionsUsingAlternativeStartToken ()
+specifier|public
+name|void
+name|testComplexExpressionsUsingAlternativeStartToken
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header.foo}"
+argument_list|,
+literal|"hey abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header.foo}!"
+argument_list|,
+literal|"hey abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header.foo}-$simple{in.header.foo}!"
+argument_list|,
+literal|"hey abc-abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header.foo}$simple{in.header.foo}"
+argument_list|,
+literal|"hey abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"$simple{in.header.foo}$simple{in.header.foo}"
+argument_list|,
+literal|"abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"$simple{in.header.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"$simple{in.header.foo}!"
 argument_list|,
 literal|"abc!"
 argument_list|)

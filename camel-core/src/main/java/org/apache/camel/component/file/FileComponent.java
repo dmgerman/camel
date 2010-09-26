@@ -38,6 +38,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+import|;
+end_import
+
 begin_comment
 comment|/**  * File component.  */
 end_comment
@@ -101,15 +117,12 @@ block|{
 comment|// the starting directory must be a static (not containing dynamic expressions)
 if|if
 condition|(
-name|remaining
+name|SimpleLanguage
 operator|.
-name|indexOf
+name|hasStartToken
 argument_list|(
-literal|"${"
+name|remaining
 argument_list|)
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 throw|throw
