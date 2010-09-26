@@ -533,6 +533,13 @@ specifier|private
 name|Integer
 name|closeCorrelationKeyOnCompletion
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|discardOnCompletionTimeout
+specifier|private
+name|Boolean
+name|discardOnCompletionTimeout
+decl_stmt|;
 DECL|method|AggregateDefinition ()
 specifier|public
 name|AggregateDefinition
@@ -1115,6 +1122,23 @@ operator|.
 name|setCloseCorrelationKeyOnCompletion
 argument_list|(
 name|getCloseCorrelationKeyOnCompletion
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isDiscardOnCompletionTimeout
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setDiscardOnCompletionTimeout
+argument_list|(
+name|isDiscardOnCompletionTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1781,6 +1805,32 @@ operator|=
 name|aggregationRepositoryRef
 expr_stmt|;
 block|}
+DECL|method|isDiscardOnCompletionTimeout ()
+specifier|public
+name|Boolean
+name|isDiscardOnCompletionTimeout
+parameter_list|()
+block|{
+return|return
+name|discardOnCompletionTimeout
+return|;
+block|}
+DECL|method|setDiscardOnCompletionTimeout (Boolean discardOnCompletionTimeout)
+specifier|public
+name|void
+name|setDiscardOnCompletionTimeout
+parameter_list|(
+name|Boolean
+name|discardOnCompletionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardOnCompletionTimeout
+operator|=
+name|discardOnCompletionTimeout
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Use eager completion checking which means that the {{completionPredicate}} will use the incoming Exchange.      * At opposed to without eager completion checking the {{completionPredicate}} will use the aggregated Exchange.      *      * @return builder      */
@@ -1828,6 +1878,22 @@ block|{
 name|setCloseCorrelationKeyOnCompletion
 argument_list|(
 name|capacity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Discards the aggregated message on completion timeout.      *<p/>      * This means on timeout the aggregated message is dropped and not sent out of the aggregator.      *      * @return builder      */
+DECL|method|discardOnCompletionTimeout ()
+specifier|public
+name|AggregateDefinition
+name|discardOnCompletionTimeout
+parameter_list|()
+block|{
+name|setDiscardOnCompletionTimeout
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

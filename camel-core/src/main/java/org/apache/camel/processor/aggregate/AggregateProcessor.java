@@ -784,6 +784,11 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+DECL|field|discardOnCompletionTimeout
+specifier|private
+name|boolean
+name|discardOnCompletionTimeout
+decl_stmt|;
 DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService)
 specifier|public
 name|AggregateProcessor
@@ -1924,6 +1929,39 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|fromTimeout
+operator|&&
+name|isDiscardOnCompletionTimeout
+argument_list|()
+condition|)
+block|{
+comment|// discard due timeout
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Aggregation for correlation key "
+operator|+
+name|key
+operator|+
+literal|" discarding aggregated exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -2442,6 +2480,32 @@ operator|.
 name|aggregationRepository
 operator|=
 name|aggregationRepository
+expr_stmt|;
+block|}
+DECL|method|isDiscardOnCompletionTimeout ()
+specifier|public
+name|boolean
+name|isDiscardOnCompletionTimeout
+parameter_list|()
+block|{
+return|return
+name|discardOnCompletionTimeout
+return|;
+block|}
+DECL|method|setDiscardOnCompletionTimeout (boolean discardOnCompletionTimeout)
+specifier|public
+name|void
+name|setDiscardOnCompletionTimeout
+parameter_list|(
+name|boolean
+name|discardOnCompletionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardOnCompletionTimeout
+operator|=
+name|discardOnCompletionTimeout
 expr_stmt|;
 block|}
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
