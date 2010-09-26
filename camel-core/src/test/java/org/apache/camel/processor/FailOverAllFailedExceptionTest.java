@@ -20,16 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|SocketException
@@ -115,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FailOverNotCatchedExceptionTest
+DECL|class|FailOverAllFailedExceptionTest
 specifier|public
 class|class
-name|FailOverNotCatchedExceptionTest
+name|FailOverAllFailedExceptionTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -190,24 +180,21 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// here we will load balance if IOException was thrown
-comment|// any other kind of exception will result in the Exchange as failed
-comment|// to failover over any kind of exception we can just omit the exception
-comment|// in the failOver DSL
 operator|.
 name|loadBalance
 argument_list|()
 operator|.
 name|failover
 argument_list|(
-name|IOException
-operator|.
-name|class
+literal|2
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|to
@@ -219,7 +206,6 @@ argument_list|,
 literal|"direct:z"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:x"
@@ -303,15 +289,42 @@ name|to
 argument_list|(
 literal|"mock:z"
 argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|SocketException
+argument_list|(
+literal|"Not Again"
+argument_list|)
+throw|;
+block|}
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 block|}
 return|;
 block|}
-DECL|method|testExceptionNotCatched ()
+DECL|method|testAllFailed ()
 specifier|public
 name|void
-name|testExceptionNotCatched
+name|testAllFailed
 parameter_list|()
 throws|throws
 name|Exception
@@ -334,11 +347,9 @@ name|z
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// to test that if a processor throw an exception that the failover loadbalancer
-comment|// do not catch then the exception is propagated back
 try|try
 block|{
 name|template
@@ -364,7 +375,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Illegal"
+literal|"Not Again"
 argument_list|,
 name|e
 operator|.
@@ -377,7 +388,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|IllegalArgumentException
+name|SocketException
 operator|.
 name|class
 argument_list|,
