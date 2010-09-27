@@ -810,6 +810,16 @@ operator|.
 name|getInMessage
 argument_list|()
 decl_stmt|;
+comment|// Need to check if the inMessage is set
+if|if
+condition|(
+name|cxfMessage
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|LOG
@@ -3450,6 +3460,17 @@ argument_list|(
 name|message
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|inObjects
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|org
 operator|.
 name|apache

@@ -697,6 +697,8 @@ name|cxfExchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 comment|// send the CXF request
 name|client
 operator|.
@@ -716,6 +718,9 @@ argument_list|,
 name|cxfExchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// bind the CXF response to Camel exchange
 if|if
 condition|(
@@ -763,6 +768,7 @@ argument_list|,
 name|responseContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|prepareRequest (Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange)
