@@ -1987,8 +1987,10 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+else|else
+block|{
+comment|// the aggregated exchange should be published (sent out)
 name|onSubmitCompletion
 argument_list|(
 name|key
@@ -1996,6 +1998,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|onSubmitCompletion (final Object key, final Exchange exchange)
 specifier|private
