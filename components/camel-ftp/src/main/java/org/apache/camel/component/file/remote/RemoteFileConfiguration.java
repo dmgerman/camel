@@ -197,7 +197,7 @@ expr_stmt|;
 name|setDefaultPort
 argument_list|()
 expr_stmt|;
-comment|// UserInfo can contain both username and password as: pwd:user@ftpserver
+comment|// UserInfo can contain both username and password as: user:pwd@ftpserver
 comment|// see: http://en.wikipedia.org/wiki/URI_scheme
 name|String
 name|username
@@ -230,7 +230,7 @@ name|pw
 operator|=
 name|ObjectHelper
 operator|.
-name|before
+name|after
 argument_list|(
 name|username
 argument_list|,
@@ -241,7 +241,7 @@ name|username
 operator|=
 name|ObjectHelper
 operator|.
-name|after
+name|before
 argument_list|(
 name|username
 argument_list|,

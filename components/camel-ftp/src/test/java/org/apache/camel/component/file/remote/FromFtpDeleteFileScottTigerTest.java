@@ -41,7 +41,7 @@ name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-literal|"ftp://tiger:scott@localhost:"
+literal|"ftp://scott:tiger@localhost:"
 operator|+
 name|getPort
 argument_list|()
