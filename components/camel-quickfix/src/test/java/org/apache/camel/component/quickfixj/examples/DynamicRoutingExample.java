@@ -390,7 +390,7 @@ comment|// Release latch when session logon events are received
 comment|// We expect four logon events (four sessions)
 name|from
 argument_list|(
-literal|"quickfixj:examples/gateway.cfg"
+literal|"quickfix:examples/gateway.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -424,7 +424,7 @@ expr_stmt|;
 comment|// Dynamic router -- Uses FIX DeliverTo tags
 name|from
 argument_list|(
-literal|"quickfixj:examples/gateway.cfg"
+literal|"quickfix:examples/gateway.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -451,7 +451,7 @@ argument_list|(
 operator|new
 name|FixMessageRouter
 argument_list|(
-literal|"quickfixj:examples/gateway.cfg"
+literal|"quickfix:examples/gateway.cfg"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -459,7 +459,7 @@ expr_stmt|;
 comment|// Log app messages as JSON
 name|from
 argument_list|(
-literal|"quickfixj:examples/gateway.cfg"
+literal|"quickfix:examples/gateway.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -508,7 +508,7 @@ expr_stmt|;
 comment|// If the trader@2 session receives an email then release the latch
 name|from
 argument_list|(
-literal|"quickfixj:examples/gateway.cfg?sessionID=FIX.4.2:TRADER@2->GATEWAY"
+literal|"quickfix:examples/gateway.cfg?sessionID=FIX.4.2:TRADER@2->GATEWAY"
 argument_list|)
 operator|.
 name|filter
@@ -608,7 +608,7 @@ block|}
 name|String
 name|gatewayUri
 init|=
-literal|"quickfixj:examples/gateway.cfg?sessionID=FIX.4.2:TRADER@1->GATEWAY"
+literal|"quickfix:examples/gateway.cfg?sessionID=FIX.4.2:TRADER@1->GATEWAY"
 decl_stmt|;
 name|Endpoint
 name|gatewayEndpoint

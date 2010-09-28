@@ -583,7 +583,7 @@ block|{
 name|String
 name|uri
 init|=
-literal|"quickfixj:"
+literal|"quickfix:"
 operator|+
 name|configFilename
 decl_stmt|;

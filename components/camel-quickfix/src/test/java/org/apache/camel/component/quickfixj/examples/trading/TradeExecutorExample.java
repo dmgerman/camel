@@ -447,7 +447,7 @@ comment|// Release latch when session logon events are received
 comment|// We expect four logon events (four sessions)
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg"
+literal|"quickfix:examples/inprocess.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -480,7 +480,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
 argument_list|)
 operator|.
 name|filter
@@ -512,13 +512,13 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg"
+literal|"quickfix:examples/inprocess.cfg"
 argument_list|)
 expr_stmt|;
 comment|// Log app messages as JSON
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg"
+literal|"quickfix:examples/inprocess.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -567,7 +567,7 @@ expr_stmt|;
 comment|// Release latch when trader receives execution report
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
 argument_list|)
 operator|.
 name|filter
@@ -667,7 +667,7 @@ block|}
 name|String
 name|gatewayUri
 init|=
-literal|"quickfixj:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
 decl_stmt|;
 name|Endpoint
 name|gatewayEndpoint

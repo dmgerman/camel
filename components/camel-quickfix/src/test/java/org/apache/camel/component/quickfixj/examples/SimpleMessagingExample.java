@@ -352,7 +352,7 @@ comment|// Release latch when session logon events are received
 comment|// We expect two events, one for the trader session and one for the market session
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg"
+literal|"quickfix:examples/inprocess.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -386,7 +386,7 @@ expr_stmt|;
 comment|// For all received messages, print the JSON-formatted message to stdout
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg"
+literal|"quickfix:examples/inprocess.cfg"
 argument_list|)
 operator|.
 name|filter
@@ -435,7 +435,7 @@ expr_stmt|;
 comment|// If the market session receives an email then release the latch
 name|from
 argument_list|(
-literal|"quickfixj:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
 argument_list|)
 operator|.
 name|filter
@@ -514,7 +514,7 @@ block|}
 name|String
 name|marketUri
 init|=
-literal|"quickfixj:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:TRADER->MARKET"
 decl_stmt|;
 name|Producer
 name|producer
