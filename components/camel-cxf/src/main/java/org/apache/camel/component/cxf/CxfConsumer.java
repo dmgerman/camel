@@ -423,6 +423,11 @@ name|Continuation
 name|continuation
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|continuation
+init|)
+block|{
 if|if
 condition|(
 name|continuation
@@ -469,6 +474,12 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
+comment|// make sure the continuation resume will not be called before the suspend method in other thread
+synchronized|synchronized
+init|(
+name|continuation
+init|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -503,6 +514,7 @@ operator|.
 name|resume
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -544,7 +556,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The continuation could be called before the suspend
+comment|// The continuation could be called before the
+comment|// suspend
 comment|// is called
 name|continuation
 operator|.
@@ -556,7 +569,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// just set the response back, as the invoking thread is
+comment|// just set the response back, as the invoking
+comment|// thread is
 comment|// not changed
 if|if
 condition|(
@@ -626,6 +640,7 @@ argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|null
