@@ -1960,6 +1960,33 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must confirm the discarded exchange
+name|aggregationRepository
+operator|.
+name|confirm
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and remove redelivery state as well
+name|redeliveryState
+operator|.
+name|remove
+argument_list|(
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|onSubmitCompletion
