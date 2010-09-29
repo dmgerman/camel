@@ -341,11 +341,6 @@ parameter_list|)
 throws|throws
 name|ConfigError
 block|{
-name|DataDictionary
-name|dataDictionary
-init|=
-literal|null
-decl_stmt|;
 name|Object
 name|dictionaryValue
 init|=
@@ -360,6 +355,9 @@ name|QuickfixjEndpoint
 operator|.
 name|DATA_DICTIONARY_KEY
 argument_list|)
+decl_stmt|;
+name|DataDictionary
+name|dataDictionary
 decl_stmt|;
 if|if
 condition|(
