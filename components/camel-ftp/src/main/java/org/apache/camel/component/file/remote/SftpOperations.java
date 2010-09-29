@@ -1864,6 +1864,77 @@ name|GenericFileOperationFailedException
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+comment|// split into multiple dirs
+specifier|final
+name|String
+index|[]
+name|dirs
+init|=
+name|path
+operator|.
+name|split
+argument_list|(
+literal|"/|\\\\"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|dirs
+operator|==
+literal|null
+operator|||
+name|dirs
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+comment|// this is the root path
+name|doChangeDirectory
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// there are multiple dirs so do this in chunks
+for|for
+control|(
+name|String
+name|dir
+range|:
+name|dirs
+control|)
+block|{
+name|doChangeDirectory
+argument_list|(
+name|dir
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doChangeDirectory (String path)
+specifier|private
+name|void
+name|doChangeDirectory
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
 name|isTraceEnabled
@@ -1874,7 +1945,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Changing current directory to: "
+literal|"Changing directory: "
 operator|+
 name|path
 argument_list|)
@@ -1900,7 +1971,7 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Cannot change current directory to: "
+literal|"Cannot change directory to: "
 operator|+
 name|path
 argument_list|,

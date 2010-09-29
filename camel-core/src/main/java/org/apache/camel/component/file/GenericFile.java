@@ -767,6 +767,33 @@ argument_list|)
 condition|)
 block|{
 comment|// clip starting endpoint in case it was added
+if|if
+condition|(
+name|endpointPath
+operator|.
+name|endsWith
+argument_list|(
+literal|""
+operator|+
+name|getFileSeparator
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|newFileName
+operator|=
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+name|newFileName
+argument_list|,
+name|endpointPath
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|newFileName
 operator|=
 name|ObjectHelper
@@ -781,6 +808,7 @@ name|getFileSeparator
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// reconstruct file with clipped name
 name|file
 operator|=
