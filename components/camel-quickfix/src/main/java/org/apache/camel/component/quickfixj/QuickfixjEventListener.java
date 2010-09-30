@@ -57,6 +57,8 @@ parameter_list|,
 name|Message
 name|message
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface
