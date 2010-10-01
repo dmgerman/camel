@@ -836,8 +836,24 @@ name|required
 operator|=
 literal|false
 argument_list|)
-comment|//,
-comment|//        @XmlElement(name = "errorHandler", type = ErrorHandlerDefinition.class, required = false)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"errorHandler"
+argument_list|,
+name|type
+operator|=
+name|ErrorHandlerDefinition
+operator|.
+name|class
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
 block|}
 argument_list|)
 DECL|field|beans
