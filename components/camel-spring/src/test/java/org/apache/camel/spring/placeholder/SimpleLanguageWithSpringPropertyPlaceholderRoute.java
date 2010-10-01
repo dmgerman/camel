@@ -33,10 +33,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleLanguageWithSprinPropertyPlaceholderRoute
+DECL|class|SimpleLanguageWithSpringPropertyPlaceholderRoute
 specifier|public
 class|class
-name|SimpleLanguageWithSprinPropertyPlaceholderRoute
+name|SimpleLanguageWithSpringPropertyPlaceholderRoute
 extends|extends
 name|RouteBuilder
 block|{
