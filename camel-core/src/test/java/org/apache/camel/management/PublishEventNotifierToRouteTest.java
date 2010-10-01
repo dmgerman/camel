@@ -73,10 +73,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|PublishEventNotifierTest
+DECL|class|PublishEventNotifierToRouteTest
 specifier|public
 class|class
-name|PublishEventNotifierTest
+name|PublishEventNotifierToRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -130,7 +130,7 @@ name|notifier
 operator|.
 name|setEndpointUri
 argument_list|(
-literal|"mock:event"
+literal|"seda:event"
 argument_list|)
 expr_stmt|;
 name|context
@@ -170,7 +170,7 @@ argument_list|(
 literal|"mock:event"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|6
 argument_list|)
@@ -298,6 +298,21 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Damn"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"seda:event"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Event ${body}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:event"
 argument_list|)
 expr_stmt|;
 block|}

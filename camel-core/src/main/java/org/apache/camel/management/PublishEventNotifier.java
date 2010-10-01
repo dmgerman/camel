@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.spi.EventNotifier} which publishes the {@link EventObject} to some  * {@link org.apache.camel.Endpoint}.  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.spi.EventNotifier} which publishes the {@link EventObject} to some  * {@link org.apache.camel.Endpoint}.  *<p/>  * This notifier is only enabled when {@link CamelContext} is started. This avoids problems when  * sending notifications during start/shutdown of {@link CamelContext} which causes problems by  * sending those events to Camel routes by this notifier.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -159,6 +159,67 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// only notify when we are started
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot publish event as notifier is not started: "
+operator|+
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+comment|// only notify when camel context is running
+if|if
+condition|(
+operator|!
+name|camelContext
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot publish event as CamelContext is not started: "
+operator|+
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
 name|Exchange
 name|exchange
 init|=
@@ -177,6 +238,24 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+comment|// make sure we don't send out events for this as well
+comment|// mark exchange as being published to event, to prevent creating new events
+comment|// for this as well (causing a endless flood of events)
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|NOTIFY_EVENT
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 name|producer
 operator|.
 name|process
@@ -184,6 +263,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// and remove it when its done
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|NOTIFY_EVENT
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|isEnabled (EventObject event)
 specifier|public

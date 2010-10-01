@@ -408,6 +408,12 @@ name|MULTICAST_COMPLETE
 init|=
 literal|"CamelMulticastComplete"
 decl_stmt|;
+DECL|field|NOTIFY_EVENT
+name|String
+name|NOTIFY_EVENT
+init|=
+literal|"CamelNotifyEvent"
+decl_stmt|;
 DECL|field|ON_COMPLETION
 name|String
 name|ON_COMPLETION
