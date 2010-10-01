@@ -193,11 +193,20 @@ return|;
 block|}
 DECL|method|matches ()
 specifier|public
+name|ExpressionClause
+argument_list|<
 name|Predicate
+argument_list|>
 name|matches
 parameter_list|()
 block|{
 return|return
+operator|new
+name|ExpressionClause
+argument_list|<
+name|Predicate
+argument_list|>
+argument_list|(
 name|onNewPredicate
 argument_list|(
 name|PredicateBuilder
@@ -205,6 +214,7 @@ operator|.
 name|toPredicate
 argument_list|(
 name|expression
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
