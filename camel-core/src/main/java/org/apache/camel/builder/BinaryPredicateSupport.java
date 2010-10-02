@@ -105,15 +105,15 @@ specifier|final
 name|Expression
 name|right
 decl_stmt|;
-DECL|field|leftValue
+DECL|field|lastLeftValue
 specifier|private
 name|Object
-name|leftValue
+name|lastLeftValue
 decl_stmt|;
-DECL|field|rightValue
+DECL|field|lastRightValue
 specifier|private
 name|Object
-name|rightValue
+name|lastRightValue
 decl_stmt|;
 DECL|method|BinaryPredicateSupport (Expression left, Expression right)
 specifier|protected
@@ -183,8 +183,10 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// must be thread safe and store result in local objects
+name|Object
 name|leftValue
-operator|=
+init|=
 name|left
 operator|.
 name|evaluate
@@ -195,9 +197,10 @@ name|Object
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|Object
 name|rightValue
-operator|=
+init|=
 name|right
 operator|.
 name|evaluate
@@ -208,6 +211,15 @@ name|Object
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// remember last result (may not be thread safe)
+name|lastRightValue
+operator|=
+name|rightValue
+expr_stmt|;
+name|lastLeftValue
+operator|=
+name|leftValue
 expr_stmt|;
 return|return
 name|matches
@@ -281,7 +293,7 @@ name|getRightValue
 parameter_list|()
 block|{
 return|return
-name|rightValue
+name|lastRightValue
 return|;
 block|}
 DECL|method|getLeftValue ()
@@ -291,7 +303,7 @@ name|getLeftValue
 parameter_list|()
 block|{
 return|return
-name|leftValue
+name|lastLeftValue
 return|;
 block|}
 block|}

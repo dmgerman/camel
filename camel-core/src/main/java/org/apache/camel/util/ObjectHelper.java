@@ -52,16 +52,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -412,7 +402,7 @@ specifier|private
 name|ObjectHelper
 parameter_list|()
 block|{     }
-comment|/**      * A helper method for comparing objects for equality in which it uses type coerce to coerce      * types between the left and right values. This allows you to equal test eg String and Integer as      * Camel will be able to coerce the types      */
+comment|/**      * A helper method for comparing objects for equality in which it uses type coerce to coerce      * types between the left and right values. This allows you to equal test eg String and Integer as      * Camel will be able to coerce the types.      */
 DECL|method|typeCoerceEquals (TypeConverter converter, Object leftValue, Object rightValue)
 specifier|public
 specifier|static
@@ -429,6 +419,40 @@ name|Object
 name|rightValue
 parameter_list|)
 block|{
+comment|// sanity check
+if|if
+condition|(
+name|leftValue
+operator|==
+literal|null
+operator|&&
+name|rightValue
+operator|==
+literal|null
+condition|)
+block|{
+comment|// they are equal
+return|return
+literal|true
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|leftValue
+operator|==
+literal|null
+operator|||
+name|rightValue
+operator|==
+literal|null
+condition|)
+block|{
+comment|// only one of them is null so they are not equal
+return|return
+literal|false
+return|;
+block|}
 comment|// try without type coerce
 name|boolean
 name|answer
@@ -449,19 +473,20 @@ return|return
 literal|true
 return|;
 block|}
+comment|// are they same type, if so return false as the equals returned false
 if|if
 condition|(
 name|leftValue
-operator|==
-literal|null
-operator|||
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isInstance
+argument_list|(
 name|rightValue
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
-comment|// no reason to continue as the first equal did not match and now one of the values is null
-comment|// so it wont help to type coerce to a null type
 return|return
 literal|false
 return|;

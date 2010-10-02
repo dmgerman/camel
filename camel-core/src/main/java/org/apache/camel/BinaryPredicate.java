@@ -44,13 +44,13 @@ name|Expression
 name|getRight
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the evaluated left hand side value      *      * @return the left value, may be<tt>null</tt> if predicate has not been matched yet.      */
+comment|/**      * Gets the evaluated left hand side value.      *<p/>      * Beware of thread safety that the result of the {@link #getRightValue()} may in fact be from another evaluation.      *      * @return the left value, may be<tt>null</tt> if predicate has not been matched yet.      */
 DECL|method|getLeftValue ()
 name|Object
 name|getLeftValue
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the evaluated right hand side value      *      * @return the right value, may be<tt>null</tt> if predicate has not been matched yet.      */
+comment|/**      * Gets the evaluated right hand side value.      *<p/>      * Beware of thread safety that the result of the {@link #getLeftValue()} may in fact be from another evaluation.      *      * @return the right value, may be<tt>null</tt> if predicate has not been matched yet.      */
 DECL|method|getRightValue ()
 name|Object
 name|getRightValue
