@@ -761,8 +761,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// 24 max char is what IBM WebSphereMQ supports in CorrelationIDs
-comment|// use a fixed selector name so we can select the replies which is intended for us
+comment|// create a random selector value we will use for the persistent reply queue
 name|replyToSelectorValue
 operator|=
 literal|"ID:"
