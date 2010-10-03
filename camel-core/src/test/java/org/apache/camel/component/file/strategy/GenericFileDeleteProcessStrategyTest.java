@@ -332,6 +332,14 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{         }
+DECL|method|changeToParentDirectory ()
+specifier|public
+name|void
+name|changeToParentDirectory
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+block|{         }
 DECL|method|listFiles ()
 specifier|public
 name|List

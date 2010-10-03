@@ -158,6 +158,14 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
+comment|/**      * Change the current remote directory to the parent      *      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|changeToParentDirectory ()
+name|void
+name|changeToParentDirectory
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
 comment|/**      * List the files in the current directory      *      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|listFiles ()
 name|List

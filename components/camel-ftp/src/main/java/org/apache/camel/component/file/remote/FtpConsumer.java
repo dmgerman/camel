@@ -182,6 +182,15 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
+comment|// must remember current dir so we stay in that directory after the poll
+name|String
+name|currentDir
+init|=
+name|operations
+operator|.
+name|getCurrentDirectory
+argument_list|()
+decl_stmt|;
 comment|// strip trailing slash
 name|fileName
 operator|=
@@ -192,8 +201,10 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-return|return
-name|pollDirectory
+name|boolean
+name|answer
+init|=
+name|doPollDirectory
 argument_list|(
 name|fileName
 argument_list|,
@@ -201,12 +212,22 @@ literal|null
 argument_list|,
 name|fileList
 argument_list|)
+decl_stmt|;
+name|operations
+operator|.
+name|changeCurrentDirectory
+argument_list|(
+name|currentDir
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
-DECL|method|pollDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList)
+DECL|method|pollSubDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList)
 specifier|protected
 name|boolean
-name|pollDirectory
+name|pollSubDirectory
 parameter_list|(
 name|String
 name|absolutePath
@@ -224,15 +245,6 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
-comment|// must remember current dir so we stay in that directory after the poll
-name|String
-name|currentDir
-init|=
-name|operations
-operator|.
-name|getCurrentDirectory
-argument_list|()
-decl_stmt|;
 name|boolean
 name|answer
 init|=
@@ -245,12 +257,11 @@ argument_list|,
 name|fileList
 argument_list|)
 decl_stmt|;
+comment|// change back to parent directory when finished polling sub directory
 name|operations
 operator|.
-name|changeCurrentDirectory
-argument_list|(
-name|currentDir
-argument_list|)
+name|changeToParentDirectory
+argument_list|()
 expr_stmt|;
 return|return
 name|answer
@@ -503,7 +514,7 @@ decl_stmt|;
 name|boolean
 name|canPollMore
 init|=
-name|pollDirectory
+name|pollSubDirectory
 argument_list|(
 name|path
 argument_list|,
