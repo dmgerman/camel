@@ -154,7 +154,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *      * @param timeout timeout      */
+comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @param timeout timeout      */
 DECL|method|setTimeout (long timeout)
 name|void
 name|setTimeout
@@ -163,7 +163,7 @@ name|long
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the timeout.      *<p/>      * Use 0 or a negative value to disable timeout      *      * @return the timeout      */
+comment|/**      * Gets the timeout.      *<p/>      * Use 0 or a negative value to disable timeout      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @return the timeout      */
 DECL|method|getTimeout ()
 name|long
 name|getTimeout
