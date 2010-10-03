@@ -162,6 +162,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|InvalidPayloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -1201,10 +1213,6 @@ name|endpoint
 operator|.
 name|isWrapped
 argument_list|()
-operator|&&
-name|boi
-operator|!=
-literal|null
 condition|)
 block|{
 if|if
@@ -1400,6 +1408,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|InvalidPayloadException
 block|{
 name|Object
 index|[]
@@ -1549,6 +1559,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// make sure we have the right number of parameters
 name|checkParameterSize
 argument_list|(
 name|endpoint
@@ -1580,7 +1591,6 @@ index|[
 literal|1
 index|]
 expr_stmt|;
-comment|// TODO: maybe it should be mandatory body?
 name|params
 index|[
 literal|0
@@ -1591,7 +1601,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|CxfPayload
 operator|.
@@ -1620,7 +1630,6 @@ index|[
 literal|1
 index|]
 expr_stmt|;
-comment|// TODO: maybe it should be mandatory body?
 name|params
 index|[
 literal|0
@@ -1631,7 +1640,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|InputStream
 operator|.
@@ -1650,9 +1659,8 @@ block|{
 if|if
 condition|(
 name|params
-operator|instanceof
-name|Object
-index|[]
+operator|!=
+literal|null
 condition|)
 block|{
 for|for
@@ -1689,18 +1697,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"params = "
-operator|+
-name|params
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 return|return
