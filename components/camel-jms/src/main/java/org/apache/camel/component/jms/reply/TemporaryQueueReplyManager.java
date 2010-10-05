@@ -142,7 +142,7 @@ name|jms
 operator|.
 name|listener
 operator|.
-name|SimpleMessageListenerContainer
+name|DefaultMessageListenerContainer
 import|;
 end_import
 
@@ -435,11 +435,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SimpleMessageListenerContainer
+comment|// Use DefaultMessageListenerContainer as it supports reconnects (see CAMEL-3193)
+name|DefaultMessageListenerContainer
 name|answer
 init|=
 operator|new
-name|SimpleMessageListenerContainer
+name|DefaultMessageListenerContainer
 argument_list|()
 decl_stmt|;
 name|answer
