@@ -1903,7 +1903,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method will take off the quotes and double quotes of the charset      * @param charset      * @return      */
+comment|/**      * This method will take off the quotes and double quotes of the charset      */
 DECL|method|normalizeCharset (String charset)
 specifier|public
 specifier|static

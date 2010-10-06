@@ -411,7 +411,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|useOriginalBody
+name|useOriginalMessage
 argument_list|()
 operator|.
 name|maximumRedeliveries
@@ -436,7 +436,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|useOriginalBody
+name|useOriginalMessage
 argument_list|()
 operator|.
 name|maximumRedeliveries

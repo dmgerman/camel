@@ -8591,7 +8591,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * @see #safelyStartRouteServices(boolean,boolean,boolean,boolean,java.util.Collection      */
+comment|/**      * @see #safelyStartRouteServices(boolean,boolean,boolean,boolean,java.util.Collection)      */
 end_comment
 
 begin_function

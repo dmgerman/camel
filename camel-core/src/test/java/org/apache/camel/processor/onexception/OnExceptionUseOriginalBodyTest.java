@@ -287,7 +287,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|useOriginalBody
+name|useOriginalMessage
 argument_list|()
 operator|.
 name|handled
