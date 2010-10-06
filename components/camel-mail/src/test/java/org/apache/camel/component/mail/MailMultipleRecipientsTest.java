@@ -158,7 +158,7 @@ name|put
 argument_list|(
 literal|"to"
 argument_list|,
-literal|"claus@localhost, willem@localhost ; hadrian@localhost"
+literal|"claus@localhost, willem@localhost ; hadrian@localhost, \"Snell, Tracy\"<tracy@localhost>"
 argument_list|)
 expr_stmt|;
 name|headers
@@ -183,6 +183,11 @@ expr_stmt|;
 name|assertMailbox
 argument_list|(
 literal|"hadrian"
+argument_list|)
+expr_stmt|;
+name|assertMailbox
+argument_list|(
+literal|"tracy"
 argument_list|)
 expr_stmt|;
 name|template
@@ -336,6 +341,16 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:hadrian"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"pop3://tracy@localhost?consumer.delay=1000"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:tracy"
 argument_list|)
 expr_stmt|;
 block|}

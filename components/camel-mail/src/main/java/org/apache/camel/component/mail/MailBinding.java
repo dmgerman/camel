@@ -3300,6 +3300,7 @@ throws|throws
 name|MessagingException
 block|{
 comment|// we support that multi recipient can be given as a string separated by comma or semicolon
+comment|// regex ignores comma and semicolon inside of double quotes
 name|String
 index|[]
 name|lines
@@ -3308,7 +3309,7 @@ name|recipient
 operator|.
 name|split
 argument_list|(
-literal|"[,;]"
+literal|"[,;]++(?=(?:(?:[^\\\"]*+\\\"){2})*+[^\\\"]*+$)"
 argument_list|)
 decl_stmt|;
 for|for
