@@ -335,6 +335,18 @@ operator|)
 operator|+
 literal|"-"
 expr_stmt|;
+comment|// let the ID be friendly for URL and file systems
+name|this
+operator|.
+name|seed
+operator|=
+name|generateSanitizedId
+argument_list|(
+name|this
+operator|.
+name|seed
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|length
@@ -476,6 +488,17 @@ operator|.
 name|replace
 argument_list|(
 literal|'.'
+argument_list|,
+literal|'-'
+argument_list|)
+expr_stmt|;
+name|id
+operator|=
+name|id
+operator|.
+name|replace
+argument_list|(
+literal|'/'
 argument_list|,
 literal|'-'
 argument_list|)
