@@ -1937,18 +1937,11 @@ block|}
 comment|// if it starts with the root path then a little special handling for that
 if|if
 condition|(
-name|path
+name|FileUtil
 operator|.
-name|startsWith
+name|hasLeadingSeparator
 argument_list|(
-literal|"/"
-argument_list|)
-operator|||
 name|path
-operator|.
-name|startsWith
-argument_list|(
-literal|"\\"
 argument_list|)
 condition|)
 block|{

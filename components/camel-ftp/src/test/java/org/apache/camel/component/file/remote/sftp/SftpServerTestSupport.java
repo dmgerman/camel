@@ -201,7 +201,7 @@ specifier|final
 name|String
 name|FTP_ROOT_DIR
 init|=
-literal|"res/home/"
+literal|"res/home"
 decl_stmt|;
 DECL|field|sshd
 specifier|protected

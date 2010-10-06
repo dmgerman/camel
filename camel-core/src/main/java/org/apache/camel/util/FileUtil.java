@@ -408,6 +408,55 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Does the name start with a leading separator      */
+DECL|method|hasLeadingSeparator (String name)
+specifier|public
+specifier|static
+name|boolean
+name|hasLeadingSeparator
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|name
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|||
+name|name
+operator|.
+name|startsWith
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Strip first leading separator      */
 DECL|method|stripFirstLeadingSeparator (String name)
 specifier|public

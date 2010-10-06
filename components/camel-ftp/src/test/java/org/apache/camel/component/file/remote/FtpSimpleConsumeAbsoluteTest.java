@@ -68,16 +68,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -87,11 +77,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Absolute do not work with Apache FTP Server"
-argument_list|)
 DECL|class|FtpSimpleConsumeAbsoluteTest
 specifier|public
 class|class
@@ -124,11 +109,21 @@ init|=
 literal|"Hello World"
 decl_stmt|;
 comment|// create file using regular file
+comment|// FTP Server does not support absolute path, so lets simulate it
+name|String
+name|path
+init|=
+name|FTP_ROOT_DIR
+operator|+
+literal|"/tmp/mytemp"
+decl_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:///tmp/mytemp"
+literal|"file:"
+operator|+
+name|path
 argument_list|,
 name|expected
 argument_list|,
@@ -200,6 +195,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// notice we use an absolute starting path: /tmp/mytemp
+comment|// - we must remember to use // slash because of the url separator
 name|from
 argument_list|(
 literal|"ftp://localhost:"

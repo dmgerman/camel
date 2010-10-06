@@ -735,12 +735,22 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// all ftp files is considered as relative
+comment|// absolute or relative path
+name|boolean
+name|absolute
+init|=
+name|FileUtil
+operator|.
+name|hasLeadingSeparator
+argument_list|(
+name|absolutePath
+argument_list|)
+decl_stmt|;
 name|answer
 operator|.
 name|setAbsolute
 argument_list|(
-literal|false
+name|absolute
 argument_list|)
 expr_stmt|;
 comment|// create a pseudo absolute name
@@ -757,6 +767,10 @@ decl_stmt|;
 name|String
 name|absoluteFileName
 init|=
+name|FileUtil
+operator|.
+name|stripLeadingSeparator
+argument_list|(
 name|dir
 operator|+
 literal|"/"
@@ -765,7 +779,21 @@ name|file
 operator|.
 name|getFilename
 argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// if absolute start with a leading separator otherwise let it be relative
+if|if
+condition|(
+name|absolute
+condition|)
+block|{
+name|absoluteFileName
+operator|=
+literal|"/"
+operator|+
+name|absoluteFileName
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setAbsoluteFilePath

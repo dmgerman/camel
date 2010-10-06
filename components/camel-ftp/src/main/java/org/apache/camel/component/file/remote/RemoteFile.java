@@ -52,20 +52,6 @@ name|GenericFileMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|FileUtil
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a remote file of some sort of backing object  *  * @param<T> the type of file that these remote endpoints provide  */
 end_comment
@@ -247,34 +233,6 @@ name|getHostname
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|normalizePathToProtocol (String path)
-specifier|protected
-name|String
-name|normalizePathToProtocol
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|path
-operator|=
-name|super
-operator|.
-name|normalizePathToProtocol
-argument_list|(
-name|path
-argument_list|)
-expr_stmt|;
-comment|// strip leading / for FTP protocol to avoid files with absolute paths
-return|return
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|path
-argument_list|)
-return|;
 block|}
 block|}
 end_class

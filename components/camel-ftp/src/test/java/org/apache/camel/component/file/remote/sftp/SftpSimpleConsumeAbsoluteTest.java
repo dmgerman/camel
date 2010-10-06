@@ -70,16 +70,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -89,11 +79,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Absolute do not work with Apache SSHD"
-argument_list|)
 DECL|class|SftpSimpleConsumeAbsoluteTest
 specifier|public
 class|class
@@ -125,12 +110,21 @@ name|expected
 init|=
 literal|"Hello World"
 decl_stmt|;
-comment|// create file using regular file
+comment|// FTP Server does not support absolute path, so lets simulate it
+name|String
+name|path
+init|=
+name|FTP_ROOT_DIR
+operator|+
+literal|"/tmp/mytemp"
+decl_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:///tmp/mytemp"
+literal|"file:"
+operator|+
+name|path
 argument_list|,
 name|expected
 argument_list|,
@@ -202,6 +196,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// notice we use an absolute starting path: /res/home/tmp/mytemp
+comment|// - we must remember to use // slash because of the url separator
 name|from
 argument_list|(
 literal|"sftp://localhost:"
@@ -209,7 +205,11 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"//tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true"
+literal|"//"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"/tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true"
 argument_list|)
 operator|.
 name|routeId
