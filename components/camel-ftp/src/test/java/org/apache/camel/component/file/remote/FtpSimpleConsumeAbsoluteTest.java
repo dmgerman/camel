@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote.sftp
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|file
 operator|.
 name|remote
-operator|.
-name|sftp
 package|;
 end_package
 
@@ -92,21 +90,21 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Absolute do not work with Apache SSHD"
+literal|"Absolute do not work with Apache FTP Server"
 argument_list|)
-DECL|class|SftpSimpleConsumeAbsoluteTest
+DECL|class|FtpSimpleConsumeAbsoluteTest
 specifier|public
 class|class
-name|SftpSimpleConsumeAbsoluteTest
+name|FtpSimpleConsumeAbsoluteTest
 extends|extends
-name|SftpServerTestSupport
+name|FtpServerTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testSftpSimpleConsumeAbsolute ()
+DECL|method|testFtpSimpleConsumeAbsolute ()
 specifier|public
 name|void
-name|testSftpSimpleConsumeAbsolute
+name|testFtpSimpleConsumeAbsolute
 parameter_list|()
 throws|throws
 name|Exception
@@ -204,7 +202,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sftp://localhost:"
+literal|"ftp://localhost:"
 operator|+
 name|getPort
 argument_list|()
