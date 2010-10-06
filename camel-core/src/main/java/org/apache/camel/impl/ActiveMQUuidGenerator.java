@@ -238,7 +238,7 @@ argument_list|)
 decl_stmt|;
 name|stub
 operator|=
-literal|"/"
+literal|"-"
 operator|+
 name|ss
 operator|.
@@ -252,7 +252,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 operator|+
-literal|"/"
+literal|"-"
 expr_stmt|;
 name|Thread
 operator|.
