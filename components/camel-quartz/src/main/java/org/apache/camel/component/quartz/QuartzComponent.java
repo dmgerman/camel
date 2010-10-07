@@ -1011,6 +1011,15 @@ parameter_list|,
 name|Trigger
 name|trigger
 parameter_list|)
+throws|throws
+name|SchedulerException
+block|{
+if|if
+condition|(
+name|scheduler
+operator|==
+literal|null
+condition|)
 block|{
 comment|// add job to internal list because we will defer adding to the scheduler when camel context has been fully started
 name|jobsToAdd
@@ -1026,6 +1035,18 @@ name|trigger
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// add job directly to scheduler
+name|doAddJob
+argument_list|(
+name|job
+argument_list|,
+name|trigger
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doAddJob (JobDetail job, Trigger trigger)
 specifier|private
