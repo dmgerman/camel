@@ -557,7 +557,7 @@ operator|.
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-name|addServerIfNeccessary
+name|addServerIfNecessary
 argument_list|(
 name|endpoint
 argument_list|)
@@ -895,10 +895,10 @@ name|result
 return|;
 block|}
 block|}
-DECL|method|addServerIfNeccessary (RestletEndpoint endpoint)
+DECL|method|addServerIfNecessary (RestletEndpoint endpoint)
 specifier|private
 name|void
-name|addServerIfNeccessary
+name|addServerIfNecessary
 parameter_list|(
 name|RestletEndpoint
 name|endpoint

@@ -168,7 +168,6 @@ name|HeaderFilterStrategyAware
 implements|,
 name|Service
 block|{
-comment|//private static final Log LOG = LogFactory.getLog(RestletEndpoint.class);
 DECL|field|DEFAULT_PORT
 specifier|private
 specifier|static
