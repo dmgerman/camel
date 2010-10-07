@@ -186,15 +186,18 @@ block|{
 return|return
 literal|"Customer[userName: "
 operator|+
-name|userName
+name|getUserName
+argument_list|()
 operator|+
 literal|" firstName: "
 operator|+
-name|firstName
+name|getFirstName
+argument_list|()
 operator|+
 literal|" surname: "
 operator|+
-name|surname
+name|getSurname
+argument_list|()
 operator|+
 literal|"]"
 return|;
