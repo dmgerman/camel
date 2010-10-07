@@ -677,6 +677,12 @@ argument_list|)
 decl_stmt|;
 return|return
 name|provider
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|provider
 operator|.
 name|getContinuation
 argument_list|()
