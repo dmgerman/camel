@@ -3326,7 +3326,8 @@ control|(
 name|Route
 name|route
 range|:
-name|routes
+name|getRoutes
+argument_list|()
 control|)
 block|{
 if|if
