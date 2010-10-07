@@ -144,7 +144,7 @@ argument_list|)
 expr_stmt|;
 comment|// endpoint to our CXF webservice
 comment|// We should use the related path to publish the service, when using the ServletTransport
-comment|// so we need to configure set the bus which is configured to use the ServletTranspot
+comment|// so we need to configure set the bus which is configured to use the ServletTransport
 name|String
 name|cxfEndpointAddress
 init|=
