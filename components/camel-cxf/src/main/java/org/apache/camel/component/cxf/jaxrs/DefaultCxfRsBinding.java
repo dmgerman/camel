@@ -1288,6 +1288,10 @@ elseif|else
 if|if
 condition|(
 name|request
+operator|!=
+literal|null
+operator|&&
+name|request
 operator|.
 name|getClass
 argument_list|()
