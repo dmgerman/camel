@@ -172,9 +172,15 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalStateException
 argument_list|(
-literal|"can't create a right camel context from the application context"
+literal|"Exactly 1 bean of type SpringCamelContext expected but found "
+operator|+
+name|names
+operator|.
+name|length
+operator|+
+literal|" beans."
 argument_list|)
 throw|;
 block|}
