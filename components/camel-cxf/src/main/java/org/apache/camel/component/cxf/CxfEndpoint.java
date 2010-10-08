@@ -719,6 +719,11 @@ specifier|private
 name|Boolean
 name|wrappedStyle
 decl_stmt|;
+DECL|field|publishedEndpointUrl
+specifier|private
+name|String
+name|publishedEndpointUrl
+decl_stmt|;
 DECL|field|inOut
 specifier|private
 name|boolean
@@ -2114,6 +2119,30 @@ block|{
 name|dataFormat
 operator|=
 name|format
+expr_stmt|;
+block|}
+DECL|method|getPublishedEndpointUrl ()
+specifier|public
+name|String
+name|getPublishedEndpointUrl
+parameter_list|()
+block|{
+return|return
+name|publishedEndpointUrl
+return|;
+block|}
+DECL|method|setPublishedEndpointUrl (String url)
+specifier|public
+name|void
+name|setPublishedEndpointUrl
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|publishedEndpointUrl
+operator|=
+name|url
 expr_stmt|;
 block|}
 DECL|method|getWsdlURL ()
