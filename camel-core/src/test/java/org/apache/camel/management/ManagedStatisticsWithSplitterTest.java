@@ -158,11 +158,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testManageStatistics ()
 specifier|public
 name|void
@@ -171,7 +166,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// get the stats for the route
+comment|// get the status for the route
 name|MBeanServer
 name|mbeanServer
 init|=
