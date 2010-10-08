@@ -1686,6 +1686,16 @@ argument_list|,
 name|responseCode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|response
+operator|.
+name|getEntity
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// get content type
 name|MediaType
 name|mediaType
@@ -1723,6 +1733,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// get content text
 name|String
 name|text
 init|=
@@ -1762,6 +1773,7 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
