@@ -102,11 +102,6 @@ comment|// Helper Class
 block|}
 annotation|@
 name|FallbackConverter
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
