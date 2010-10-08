@@ -617,6 +617,47 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|Test
+DECL|method|testPublishEndpointUrl ()
+specifier|public
+name|void
+name|testPublishEndpointUrl
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|response
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"http://localhost:9003/CamelContext/RouterPort?wsdl"
+argument_list|,
+literal|null
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Can't find the right service location."
+argument_list|,
+name|response
+operator|.
+name|indexOf
+argument_list|(
+literal|"http://www.simple.com/services/test"
+argument_list|)
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createCamelContext ()
 specifier|protected

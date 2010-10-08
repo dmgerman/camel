@@ -78,7 +78,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"cxf:bean:routerEndpoint?dataFormat=PAYLOAD"
+literal|"cxf:bean:routerEndpoint?dataFormat=PAYLOAD&publishedEndpointUrl=http://www.simple.com/services/test"
 argument_list|)
 operator|.
 name|to
