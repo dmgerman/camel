@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Date
@@ -128,6 +138,8 @@ class|class
 name|JpaTraceEventMessage
 implements|implements
 name|TraceEventMessage
+implements|,
+name|Serializable
 block|{
 DECL|field|id
 specifier|protected

@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|persistence
@@ -102,6 +112,8 @@ DECL|class|MessageProcessed
 specifier|public
 class|class
 name|MessageProcessed
+implements|implements
+name|Serializable
 block|{
 DECL|field|id
 specifier|private
