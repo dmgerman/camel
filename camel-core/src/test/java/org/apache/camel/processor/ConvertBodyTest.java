@@ -124,20 +124,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_class
 DECL|class|ConvertBodyTest
 specifier|public
@@ -193,23 +179,26 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Except an exception here "
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertIsInstanceOf
 argument_list|(
-literal|"Get a wrong exception"
-argument_list|,
-name|ex
-operator|instanceof
 name|UnsupportedCharsetException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

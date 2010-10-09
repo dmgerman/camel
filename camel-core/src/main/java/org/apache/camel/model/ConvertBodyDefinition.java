@@ -395,6 +395,22 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// validate charset
+if|if
+condition|(
+name|charset
+operator|!=
+literal|null
+condition|)
+block|{
+name|IOConverter
+operator|.
+name|validateCharset
+argument_list|(
+name|charset
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|ConvertBodyProcessor
@@ -506,13 +522,6 @@ name|String
 name|charset
 parameter_list|)
 block|{
-name|IOConverter
-operator|.
-name|validateCharset
-argument_list|(
-name|charset
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|charset

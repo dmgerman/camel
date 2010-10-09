@@ -345,7 +345,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"PropertiesComponent with name properties must be defined in CamelContext to support property placeholders in endpoint URIs"
+literal|"PropertiesComponent with name properties must be defined in CamelContext to support property placeholders."
 argument_list|,
 name|iae
 operator|.

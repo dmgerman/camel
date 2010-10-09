@@ -4958,13 +4958,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|resolvePropertyPlaceholders (String uri)
+DECL|method|resolvePropertyPlaceholders (String text)
 specifier|public
 name|String
 name|resolvePropertyPlaceholders
 parameter_list|(
 name|String
-name|uri
+name|text
 parameter_list|)
 throws|throws
 name|Exception
@@ -4972,19 +4972,19 @@ block|{
 comment|// do not parse uris that are designated for the properties component as it will handle that itself
 if|if
 condition|(
-name|uri
+name|text
 operator|!=
 literal|null
 operator|&&
 operator|!
-name|uri
+name|text
 operator|.
 name|startsWith
 argument_list|(
 literal|"properties:"
 argument_list|)
 operator|&&
-name|uri
+name|text
 operator|.
 name|contains
 argument_list|(
@@ -5039,7 +5039,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"PropertiesComponent with name properties must be defined"
 operator|+
-literal|" in CamelContext to support property placeholders in endpoint URIs"
+literal|" in CamelContext to support property placeholders."
 argument_list|)
 throw|;
 block|}
@@ -5064,7 +5064,7 @@ name|pc
 operator|.
 name|parseUri
 argument_list|(
-name|uri
+name|text
 argument_list|)
 decl_stmt|;
 if|if
@@ -5079,11 +5079,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved uri: "
+literal|"Resolved text: "
 operator|+
-name|uri
+name|text
 operator|+
-literal|" --> "
+literal|" -> "
 operator|+
 name|answer
 argument_list|)
@@ -5093,8 +5093,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|// return original text as is
 return|return
-name|uri
+name|text
 return|;
 block|}
 comment|// Properties
