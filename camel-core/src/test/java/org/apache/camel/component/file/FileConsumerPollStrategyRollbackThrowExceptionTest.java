@@ -257,8 +257,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// let it run for a little while since we rethrow the exception the consumer
-comment|// will stop scheduling and not poll anymore
+comment|// let it run for a little, but it fails all the time
 name|Thread
 operator|.
 name|sleep
@@ -269,11 +268,15 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertEquals
+comment|// and we should rollback X number of times
+name|assertTrue
+argument_list|(
+name|event
+operator|.
+name|startsWith
 argument_list|(
 literal|"rollback"
-argument_list|,
-name|event
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

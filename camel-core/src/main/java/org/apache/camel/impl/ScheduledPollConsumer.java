@@ -563,26 +563,11 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|re
+name|Throwable
+name|t
 parameter_list|)
 block|{
-throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|re
-argument_list|)
-throw|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Error
-name|e
-parameter_list|)
-block|{
+comment|// catch throwable to not let the thread die
 comment|// log the fatal error as the JDK itself may not log it for us
 name|log
 operator|.
@@ -602,19 +587,63 @@ argument_list|()
 operator|+
 literal|" caused by: "
 operator|+
-name|e
+name|t
 operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|e
+name|t
 argument_list|)
 expr_stmt|;
-throw|throw
-name|e
-throw|;
+comment|// we are done due this fatal error
+name|done
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// catch throwable to not let the thread die
+comment|// log the fatal error as the JDK itself may not log it for us
+name|log
+operator|.
+name|fatal
+argument_list|(
+literal|"Consumer "
+operator|+
+name|this
+operator|+
+literal|" could not poll endpoint: "
+operator|+
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" caused by: "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+comment|// we are done due this fatal error
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+comment|// avoid this thread to throw exceptions because the thread pool wont re-schedule a new thread
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
