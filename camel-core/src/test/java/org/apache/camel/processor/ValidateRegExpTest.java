@@ -111,12 +111,12 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|startEndpoint
-specifier|private
+specifier|protected
 name|Endpoint
 name|startEndpoint
 decl_stmt|;
 DECL|field|resultEndpoint
-specifier|private
+specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
