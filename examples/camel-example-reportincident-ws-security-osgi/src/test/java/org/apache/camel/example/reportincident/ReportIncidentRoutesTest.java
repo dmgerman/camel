@@ -96,6 +96,20 @@ name|cxf
 operator|.
 name|interceptor
 operator|.
+name|Interceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|interceptor
+operator|.
 name|LoggingOutInterceptor
 import|;
 end_import
@@ -233,10 +247,16 @@ name|createCXFClient
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|Interceptor
+argument_list|>
 name|outInterceptors
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Interceptor
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// Define WSS4j properties for flow outgoing
