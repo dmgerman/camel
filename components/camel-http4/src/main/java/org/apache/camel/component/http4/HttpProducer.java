@@ -2064,9 +2064,6 @@ literal|null
 condition|)
 block|{
 comment|// force the body as an input stream since this is the fallback
-name|InputStream
-name|is
-init|=
 name|in
 operator|.
 name|getMandatoryBody
@@ -2075,7 +2072,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|answer
 operator|=
 operator|new

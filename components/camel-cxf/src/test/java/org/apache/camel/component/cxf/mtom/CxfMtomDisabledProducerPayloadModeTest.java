@@ -762,11 +762,7 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
-block|{
-literal|"rawtypes"
-block|,
 literal|"unchecked"
-block|}
 argument_list|)
 annotation|@
 name|Override
