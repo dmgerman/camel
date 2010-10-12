@@ -568,16 +568,16 @@ name|t
 parameter_list|)
 block|{
 comment|// catch throwable to not let the thread die
-comment|// log the fatal error as the JDK itself may not log it for us
-name|log
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|fatal
+name|handleException
 argument_list|(
 literal|"Consumer "
 operator|+
 name|this
 operator|+
-literal|" could not poll endpoint: "
+literal|" failed polling endpoint: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -585,12 +585,7 @@ operator|.
 name|getEndpointUri
 argument_list|()
 operator|+
-literal|" caused by: "
-operator|+
-name|t
-operator|.
-name|getMessage
-argument_list|()
+literal|". Will try again at next poll"
 argument_list|,
 name|t
 argument_list|)
@@ -609,16 +604,16 @@ name|t
 parameter_list|)
 block|{
 comment|// catch throwable to not let the thread die
-comment|// log the fatal error as the JDK itself may not log it for us
-name|log
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|fatal
+name|handleException
 argument_list|(
 literal|"Consumer "
 operator|+
 name|this
 operator|+
-literal|" could not poll endpoint: "
+literal|" failed polling endpoint: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -626,12 +621,7 @@ operator|.
 name|getEndpointUri
 argument_list|()
 operator|+
-literal|" caused by: "
-operator|+
-name|t
-operator|.
-name|getMessage
-argument_list|()
+literal|". Will try again at next poll"
 argument_list|,
 name|t
 argument_list|)
