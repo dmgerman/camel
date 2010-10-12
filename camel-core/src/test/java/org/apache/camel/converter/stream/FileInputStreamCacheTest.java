@@ -105,15 +105,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|exchange
-init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
 name|File
 name|file
 init|=

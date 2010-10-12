@@ -3370,7 +3370,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Overriding existing routes is not supported yet, use addRoutes instead"
+literal|"Overriding existing routes is not supported yet, use addRouteCollection instead"
 argument_list|)
 throw|;
 block|}
