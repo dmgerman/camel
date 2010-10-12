@@ -539,8 +539,6 @@ DECL|field|autoStartup
 specifier|private
 name|String
 name|autoStartup
-init|=
-literal|"true"
 decl_stmt|;
 DECL|field|startupOrder
 specifier|private
@@ -1874,6 +1872,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|getAutoStartup
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// should auto startup by default
+return|return
+literal|true
+return|;
+block|}
 name|Boolean
 name|isAutoStartup
 init|=

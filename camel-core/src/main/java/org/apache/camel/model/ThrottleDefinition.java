@@ -209,11 +209,6 @@ name|executorService
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|executorServiceRef
 specifier|private
 name|String
@@ -230,10 +225,8 @@ annotation|@
 name|XmlAttribute
 DECL|field|timePeriodMillis
 specifier|private
-name|long
+name|Long
 name|timePeriodMillis
-init|=
-literal|1000
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -248,10 +241,6 @@ DECL|field|callerRunsWhenRejected
 specifier|private
 name|Boolean
 name|callerRunsWhenRejected
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 DECL|method|ThrottleDefinition ()
 specifier|public
@@ -414,6 +403,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// should be default 1000 millis
+name|long
+name|period
+init|=
+name|getTimePeriodMillis
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getTimePeriodMillis
+argument_list|()
+else|:
+literal|1000L
+decl_stmt|;
 name|Throttler
 name|answer
 init|=
@@ -422,9 +425,10 @@ name|Throttler
 argument_list|(
 name|childProcessor
 argument_list|,
-name|maximumRequestsPerPeriod
+name|getMaximumRequestsPerPeriod
+argument_list|()
 argument_list|,
-name|timePeriodMillis
+name|period
 argument_list|,
 name|scheduled
 argument_list|)
@@ -450,9 +454,20 @@ if|if
 condition|(
 name|getCallerRunsWhenRejected
 argument_list|()
-operator|!=
+operator|==
 literal|null
 condition|)
+block|{
+comment|// should be true by default
+name|answer
+operator|.
+name|setCallerRunsWhenRejected
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|answer
 operator|.
@@ -608,7 +623,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimePeriodMillis ()
 specifier|public
-name|long
+name|Long
 name|getTimePeriodMillis
 parameter_list|()
 block|{
@@ -616,12 +631,12 @@ return|return
 name|timePeriodMillis
 return|;
 block|}
-DECL|method|setTimePeriodMillis (long timePeriodMillis)
+DECL|method|setTimePeriodMillis (Long timePeriodMillis)
 specifier|public
 name|void
 name|setTimePeriodMillis
 parameter_list|(
-name|long
+name|Long
 name|timePeriodMillis
 parameter_list|)
 block|{

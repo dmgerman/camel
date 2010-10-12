@@ -193,8 +193,6 @@ DECL|field|samplePeriod
 specifier|private
 name|Long
 name|samplePeriod
-init|=
-literal|1L
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -210,10 +208,6 @@ DECL|field|units
 specifier|private
 name|TimeUnit
 name|units
-init|=
-name|TimeUnit
-operator|.
-name|SECONDS
 decl_stmt|;
 DECL|method|SamplingDefinition ()
 specifier|public
@@ -255,11 +249,13 @@ block|{
 return|return
 literal|"Sample[1 Exchange per "
 operator|+
-name|samplePeriod
+name|getSamplePeriod
+argument_list|()
 operator|+
 literal|" "
 operator|+
-name|units
+name|getUnits
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -298,11 +294,13 @@ block|{
 return|return
 literal|"sample[1 Exchange per "
 operator|+
-name|samplePeriod
+name|getSamplePeriod
+argument_list|()
 operator|+
 literal|" "
 operator|+
-name|units
+name|getUnits
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -338,15 +336,45 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// should default be 1 sample period
+name|long
+name|time
+init|=
+name|getSamplePeriod
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getSamplePeriod
+argument_list|()
+else|:
+literal|1L
+decl_stmt|;
+comment|// should default be in seconds
+name|TimeUnit
+name|tu
+init|=
+name|getUnits
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getUnits
+argument_list|()
+else|:
+name|TimeUnit
+operator|.
+name|SECONDS
+decl_stmt|;
 return|return
 operator|new
 name|SamplingThrottler
 argument_list|(
 name|childProcessor
 argument_list|,
-name|samplePeriod
+name|time
 argument_list|,
-name|units
+name|tu
 argument_list|)
 return|;
 block|}
@@ -394,7 +422,7 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getSamplePeriod ()
 specifier|public
-name|long
+name|Long
 name|getSamplePeriod
 parameter_list|()
 block|{
@@ -402,12 +430,12 @@ return|return
 name|samplePeriod
 return|;
 block|}
-DECL|method|setSamplePeriod (long samplePeriod)
+DECL|method|setSamplePeriod (Long samplePeriod)
 specifier|public
 name|void
 name|setSamplePeriod
 parameter_list|(
-name|long
+name|Long
 name|samplePeriod
 parameter_list|)
 block|{
@@ -454,6 +482,16 @@ name|units
 operator|=
 name|units
 expr_stmt|;
+block|}
+DECL|method|getUnits ()
+specifier|public
+name|TimeUnit
+name|getUnits
+parameter_list|()
+block|{
+return|return
+name|units
+return|;
 block|}
 block|}
 end_class

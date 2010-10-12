@@ -189,8 +189,6 @@ DECL|field|defaultProfile
 specifier|private
 name|Boolean
 name|defaultProfile
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|XmlAttribute

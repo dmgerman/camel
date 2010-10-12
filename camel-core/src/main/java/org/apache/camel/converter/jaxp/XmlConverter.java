@@ -3013,7 +3013,7 @@ init|=
 name|createDocument
 argument_list|()
 decl_stmt|;
-comment|// import node must no occur concurrent on the same node (must be its owner)
+comment|// import node must not occur concurrent on the same node (must be its owner)
 comment|// so we need to synchronize on it
 synchronized|synchronized
 init|(

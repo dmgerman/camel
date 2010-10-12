@@ -223,10 +223,6 @@ DECL|field|loggingLevel
 specifier|private
 name|LoggingLevel
 name|loggingLevel
-init|=
-name|LoggingLevel
-operator|.
-name|INFO
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -372,6 +368,22 @@ name|getId
 argument_list|()
 expr_stmt|;
 block|}
+comment|// should be INFO by default
+name|LoggingLevel
+name|level
+init|=
+name|getLoggingLevel
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getLoggingLevel
+argument_list|()
+else|:
+name|LoggingLevel
+operator|.
+name|INFO
+decl_stmt|;
 name|Logger
 name|logger
 init|=
@@ -380,8 +392,7 @@ name|Logger
 argument_list|(
 name|name
 argument_list|,
-name|getLoggingLevel
-argument_list|()
+name|level
 argument_list|)
 decl_stmt|;
 return|return

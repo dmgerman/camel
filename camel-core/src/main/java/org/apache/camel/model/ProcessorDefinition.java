@@ -761,10 +761,6 @@ DECL|field|inheritErrorHandler
 specifier|protected
 name|Boolean
 name|inheritErrorHandler
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 DECL|field|nodeFactory
 specifier|private
@@ -1418,9 +1414,16 @@ comment|// do not use error handler for multicast or recipient list based as it 
 block|}
 else|else
 block|{
+comment|// use error handler by default or if configured to do so
 if|if
 condition|(
-name|inheritErrorHandler
+name|isInheritErrorHandler
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|isInheritErrorHandler
+argument_list|()
 condition|)
 block|{
 if|if

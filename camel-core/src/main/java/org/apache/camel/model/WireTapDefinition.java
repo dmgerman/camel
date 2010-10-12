@@ -289,10 +289,6 @@ DECL|field|copy
 specifier|private
 name|Boolean
 name|copy
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 DECL|method|WireTapDefinition ()
 specifier|public
@@ -400,6 +396,25 @@ argument_list|,
 name|executorService
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isCopy
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// should default be true
+name|answer
+operator|.
+name|setCopy
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|.
 name|setCopy
@@ -408,6 +423,7 @@ name|isCopy
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|newExchangeProcessorRef
@@ -696,10 +712,6 @@ name|isCopy
 parameter_list|()
 block|{
 return|return
-name|copy
-operator|!=
-literal|null
-operator|&&
 name|copy
 return|;
 block|}

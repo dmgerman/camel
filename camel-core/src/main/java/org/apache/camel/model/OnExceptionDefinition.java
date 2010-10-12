@@ -520,10 +520,6 @@ DECL|field|useOriginalMessagePolicy
 specifier|private
 name|Boolean
 name|useOriginalMessagePolicy
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -2122,6 +2118,25 @@ parameter_list|()
 block|{
 return|return
 name|useOriginalMessagePolicy
+return|;
+block|}
+annotation|@
+name|XmlTransient
+DECL|method|isUseOriginalMessage ()
+specifier|public
+name|boolean
+name|isUseOriginalMessage
+parameter_list|()
+block|{
+comment|// should be false by default
+return|return
+name|useOriginalMessagePolicy
+operator|!=
+literal|null
+condition|?
+name|useOriginalMessagePolicy
+else|:
+literal|false
 return|;
 block|}
 DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)

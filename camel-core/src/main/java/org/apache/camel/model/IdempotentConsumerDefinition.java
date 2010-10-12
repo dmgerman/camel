@@ -207,10 +207,6 @@ DECL|field|eager
 specifier|private
 name|Boolean
 name|eager
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -510,6 +506,20 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+comment|// should be eager by default
+name|boolean
+name|isEager
+init|=
+name|isEager
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|isEager
+argument_list|()
+else|:
+literal|true
+decl_stmt|;
 return|return
 operator|new
 name|IdempotentConsumer
@@ -518,7 +528,7 @@ name|expression
 argument_list|,
 name|idempotentRepository
 argument_list|,
-name|eager
+name|isEager
 argument_list|,
 name|childProcessor
 argument_list|)

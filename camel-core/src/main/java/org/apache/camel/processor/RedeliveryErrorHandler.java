@@ -2164,7 +2164,7 @@ name|useOriginalInMessage
 operator|=
 name|exceptionPolicy
 operator|.
-name|getUseOriginalMessagePolicy
+name|isUseOriginalMessage
 argument_list|()
 expr_stmt|;
 name|data

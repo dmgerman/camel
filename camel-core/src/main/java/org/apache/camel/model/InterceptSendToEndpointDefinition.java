@@ -245,10 +245,6 @@ DECL|field|skipSendToOriginalEndpoint
 specifier|private
 name|Boolean
 name|skipSendToOriginalEndpoint
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 DECL|method|InterceptSendToEndpointDefinition ()
 specifier|public
@@ -409,14 +405,17 @@ argument_list|)
 condition|)
 block|{
 comment|// only proxy if the uri is matched decorate endpoint with our proxy
+comment|// should be false by default
 name|boolean
 name|skip
 init|=
-name|skipSendToOriginalEndpoint
+name|getSkipSendToOriginalEndpoint
+argument_list|()
 operator|!=
 literal|null
 condition|?
-name|skipSendToOriginalEndpoint
+name|getSkipSendToOriginalEndpoint
+argument_list|()
 else|:
 literal|false
 decl_stmt|;

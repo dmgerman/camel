@@ -285,10 +285,6 @@ DECL|field|callerRunsWhenRejected
 specifier|private
 name|Boolean
 name|callerRunsWhenRejected
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 DECL|method|DelayDefinition ()
 specifier|public
@@ -477,9 +473,20 @@ if|if
 condition|(
 name|getCallerRunsWhenRejected
 argument_list|()
-operator|!=
+operator|==
 literal|null
 condition|)
+block|{
+comment|// should be default true
+name|answer
+operator|.
+name|setCallerRunsWhenRejected
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|answer
 operator|.

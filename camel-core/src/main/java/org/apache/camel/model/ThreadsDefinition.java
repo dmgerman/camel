@@ -381,10 +381,6 @@ DECL|field|callerRunsWhenRejected
 specifier|private
 name|Boolean
 name|callerRunsWhenRejected
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 annotation|@
 name|Override
@@ -604,9 +600,20 @@ if|if
 condition|(
 name|getCallerRunsWhenRejected
 argument_list|()
-operator|!=
+operator|==
 literal|null
 condition|)
+block|{
+comment|// should be true by default
+name|thread
+operator|.
+name|setCallerRunsWhenRejected
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|thread
 operator|.

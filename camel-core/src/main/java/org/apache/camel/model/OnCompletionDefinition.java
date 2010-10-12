@@ -385,10 +385,6 @@ DECL|field|useOriginalMessagePolicy
 specifier|private
 name|Boolean
 name|useOriginalMessagePolicy
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 DECL|method|OnCompletionDefinition ()
 specifier|public
@@ -564,6 +560,20 @@ literal|"OnCompletion"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// should be false by default
+name|boolean
+name|original
+init|=
+name|getUseOriginalMessagePolicy
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getUseOriginalMessagePolicy
+argument_list|()
+else|:
+literal|false
+decl_stmt|;
 name|OnCompletionProcessor
 name|answer
 init|=
@@ -585,7 +595,7 @@ name|onFailureOnly
 argument_list|,
 name|when
 argument_list|,
-name|useOriginalMessagePolicy
+name|original
 argument_list|)
 decl_stmt|;
 return|return
@@ -1018,6 +1028,8 @@ parameter_list|()
 block|{
 return|return
 name|useOriginalMessagePolicy
+operator|!=
+literal|null
 return|;
 block|}
 DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
