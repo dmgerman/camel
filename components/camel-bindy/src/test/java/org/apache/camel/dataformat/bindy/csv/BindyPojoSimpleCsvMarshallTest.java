@@ -517,7 +517,7 @@ argument_list|(
 name|URI_MOCK_ERROR
 argument_list|)
 operator|.
-name|redeliverDelay
+name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
