@@ -399,7 +399,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// The threads name
+comment|// the threads name
 name|String
 name|name
 init|=
@@ -427,45 +427,13 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+comment|// if no explicit then create from the options
 if|if
 condition|(
 name|executorService
 operator|==
 literal|null
 condition|)
-block|{
-comment|// none was configured so create an executor based on the other parameters
-if|if
-condition|(
-name|poolSize
-operator|==
-literal|null
-operator|||
-name|poolSize
-operator|<=
-literal|0
-condition|)
-block|{
-comment|// use the cached thread pool
-name|executorService
-operator|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|ThreadPoolProfile
 name|profile
@@ -483,6 +451,22 @@ argument_list|()
 decl_stmt|;
 comment|// use the default thread pool profile as base and then override with values
 comment|// use a custom pool based on the settings
+name|int
+name|core
+init|=
+name|getPoolSize
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getPoolSize
+argument_list|()
+else|:
+name|profile
+operator|.
+name|getPoolSize
+argument_list|()
+decl_stmt|;
 name|int
 name|max
 init|=
@@ -586,7 +570,7 @@ name|this
 argument_list|,
 name|name
 argument_list|,
-name|poolSize
+name|core
 argument_list|,
 name|max
 argument_list|,
@@ -601,7 +585,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|ThreadsProcessor
 name|thread
