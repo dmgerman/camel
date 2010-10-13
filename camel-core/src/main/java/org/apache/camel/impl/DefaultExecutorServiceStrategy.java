@@ -1732,6 +1732,20 @@ argument_list|,
 literal|"ThreadName"
 argument_list|)
 expr_stmt|;
+comment|// If we set the corePoolSize to be 0, the whole camel application will hang in JDK5
+comment|// just add a check here to set the corePoolSize to be 1
+if|if
+condition|(
+name|corePoolSize
+operator|==
+literal|0
+condition|)
+block|{
+name|corePoolSize
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|ExecutorService
 name|answer
 init|=
