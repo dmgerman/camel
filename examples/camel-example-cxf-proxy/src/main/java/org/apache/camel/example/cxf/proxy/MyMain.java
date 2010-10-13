@@ -76,7 +76,7 @@ name|main
 operator|.
 name|setApplicationContextUri
 argument_list|(
-literal|"camel-config.xml"
+literal|"META-INF/spring/camel-config.xml"
 argument_list|)
 expr_stmt|;
 name|main
