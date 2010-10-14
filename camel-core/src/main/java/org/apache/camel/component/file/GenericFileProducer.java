@@ -883,23 +883,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-name|InputStream
-name|payload
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-try|try
-block|{
 comment|// build directory if auto create is enabled
 if|if
 condition|(
@@ -1062,21 +1045,6 @@ name|getEndpoint
 argument_list|()
 operator|+
 literal|"]"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|payload
-argument_list|,
-literal|"Closing payload"
-argument_list|,
-name|log
 argument_list|)
 expr_stmt|;
 block|}
