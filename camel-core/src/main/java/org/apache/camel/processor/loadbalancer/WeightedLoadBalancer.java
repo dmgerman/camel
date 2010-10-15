@@ -106,7 +106,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|distributionRatioList
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -134,11 +134,11 @@ name|DistributionRatio
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|WeightedLoadBalancer (ArrayList<Integer> distributionRatios)
+DECL|method|WeightedLoadBalancer (List<Integer> distributionRatios)
 specifier|public
 name|WeightedLoadBalancer
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -156,12 +156,12 @@ name|distributionRatios
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deepCloneDistributionRatios (ArrayList<Integer> distributionRatios)
+DECL|method|deepCloneDistributionRatios (List<Integer> distributionRatios)
 specifier|protected
 name|void
 name|deepCloneDistributionRatios
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -187,12 +187,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|loadRuntimeRatios (ArrayList<Integer> distributionRatios)
+DECL|method|loadRuntimeRatios (List<Integer> distributionRatios)
 specifier|protected
 name|void
 name|loadRuntimeRatios
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -455,7 +455,7 @@ block|}
 block|}
 DECL|method|getDistributionRatioList ()
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -466,12 +466,12 @@ return|return
 name|distributionRatioList
 return|;
 block|}
-DECL|method|setDistributionRatioList (ArrayList<Integer> distributionRatioList)
+DECL|method|setDistributionRatioList (List<Integer> distributionRatioList)
 specifier|public
 name|void
 name|setDistributionRatioList
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>

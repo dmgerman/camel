@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -75,11 +65,11 @@ specifier|private
 name|int
 name|counter
 decl_stmt|;
-DECL|method|WeightedRoundRobinLoadBalancer (ArrayList<Integer> distributionRatios)
+DECL|method|WeightedRoundRobinLoadBalancer (List<Integer> distributionRatios)
 specifier|public
 name|WeightedRoundRobinLoadBalancer
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>

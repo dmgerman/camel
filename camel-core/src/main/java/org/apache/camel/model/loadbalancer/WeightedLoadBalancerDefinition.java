@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -66,7 +76,35 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementWrapper
 import|;
 end_import
 
@@ -203,7 +241,7 @@ extends|extends
 name|LoadBalancerDefinition
 block|{
 annotation|@
-name|XmlElement
+name|XmlAttribute
 argument_list|(
 name|name
 operator|=
@@ -211,19 +249,23 @@ literal|"roundRobin"
 argument_list|,
 name|required
 operator|=
-literal|true
+literal|false
 argument_list|)
 DECL|field|roundRobin
 specifier|private
-name|boolean
+name|Boolean
 name|roundRobin
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 annotation|@
-name|XmlElement
+name|XmlAttribute
 argument_list|(
 name|name
 operator|=
-literal|"distributionRatios"
+literal|"distributionRatio"
 argument_list|,
 name|required
 operator|=
@@ -231,11 +273,18 @@ literal|true
 argument_list|)
 DECL|field|distributionRatioList
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
 name|distributionRatioList
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Integer
+argument_list|>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -294,7 +343,7 @@ return|;
 block|}
 DECL|method|isRoundRobin ()
 specifier|public
-name|boolean
+name|Boolean
 name|isRoundRobin
 parameter_list|()
 block|{
@@ -302,12 +351,12 @@ return|return
 name|roundRobin
 return|;
 block|}
-DECL|method|setRoundRobin (boolean roundRobin)
+DECL|method|setRoundRobin (Boolean roundRobin)
 specifier|public
 name|void
 name|setRoundRobin
 parameter_list|(
-name|boolean
+name|Boolean
 name|roundRobin
 parameter_list|)
 block|{
@@ -320,7 +369,7 @@ expr_stmt|;
 block|}
 DECL|method|getDistributionRatioList ()
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
@@ -331,12 +380,12 @@ return|return
 name|distributionRatioList
 return|;
 block|}
-DECL|method|setDistributionRatioList (ArrayList<Integer> distributionRatioList)
+DECL|method|setDistributionRatioList (List<Integer> distributionRatioList)
 specifier|public
 name|void
 name|setDistributionRatioList
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>

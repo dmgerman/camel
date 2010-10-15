@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -85,20 +75,20 @@ specifier|private
 name|int
 name|randomCounter
 decl_stmt|;
-DECL|method|WeightedRandomLoadBalancer (ArrayList<Integer> distributionRatios)
+DECL|method|WeightedRandomLoadBalancer (List<Integer> distributionRatioList)
 specifier|public
 name|WeightedRandomLoadBalancer
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Integer
 argument_list|>
-name|distributionRatios
+name|distributionRatioList
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|distributionRatios
+name|distributionRatioList
 argument_list|)
 expr_stmt|;
 block|}
