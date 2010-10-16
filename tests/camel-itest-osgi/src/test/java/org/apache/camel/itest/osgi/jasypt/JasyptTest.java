@@ -88,6 +88,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -265,6 +275,11 @@ argument_list|(
 name|JUnit4TestRunner
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Does not work on JDK 1.5"
 argument_list|)
 DECL|class|JasyptTest
 specifier|public
