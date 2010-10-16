@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -100,7 +112,7 @@ specifier|static
 name|String
 name|url
 init|=
-literal|"file:target/pending?initialDelay=3000"
+literal|"file:target/pending"
 decl_stmt|;
 annotation|@
 name|Override
@@ -206,7 +218,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// give it 20 seconds to shutdown
+comment|// give it 30 seconds to shutdown
 name|context
 operator|.
 name|getShutdownStrategy
@@ -214,7 +226,15 @@ argument_list|()
 operator|.
 name|setTimeout
 argument_list|(
-literal|20
+literal|30
+argument_list|)
+expr_stmt|;
+comment|// start route
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"foo"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -232,8 +252,17 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
+comment|// wait 20 seconds to give more time for slowe servers
+name|bar
+operator|.
+name|await
+argument_list|(
+literal|20
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|int
 name|batch
@@ -308,6 +337,14 @@ name|from
 argument_list|(
 name|url
 argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 comment|// let it complete all tasks during shutdown
 operator|.
 name|shutdownRunningTask
