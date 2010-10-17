@@ -324,6 +324,12 @@ name|LdapRouteTest
 extends|extends
 name|AbstractLdapTestUnit
 block|{
+DECL|field|ldapServer
+specifier|public
+specifier|static
+name|LdapServer
+name|ldapServer
+decl_stmt|;
 DECL|field|camel
 specifier|private
 name|CamelContext
@@ -338,12 +344,6 @@ DECL|field|port
 specifier|private
 name|int
 name|port
-decl_stmt|;
-DECL|field|ldapServer
-specifier|public
-specifier|static
-name|LdapServer
-name|ldapServer
 decl_stmt|;
 annotation|@
 name|ApplyLdifFiles
