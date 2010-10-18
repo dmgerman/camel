@@ -361,8 +361,7 @@ name|Integer
 name|maxQueueSize
 decl_stmt|;
 annotation|@
-name|XmlTransient
-argument_list|()
+name|XmlAttribute
 DECL|field|threadName
 specifier|private
 name|String
