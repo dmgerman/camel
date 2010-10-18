@@ -151,6 +151,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|task
 specifier|private
+specifier|volatile
 name|TimerTask
 name|task
 decl_stmt|;
@@ -234,11 +235,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|task
+operator|!=
+literal|null
+condition|)
+block|{
 name|task
 operator|.
 name|cancel
 argument_list|()
 expr_stmt|;
+block|}
 name|task
 operator|=
 literal|null
