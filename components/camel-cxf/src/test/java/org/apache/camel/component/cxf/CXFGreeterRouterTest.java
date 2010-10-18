@@ -422,6 +422,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|330000
+argument_list|)
+expr_stmt|;
 name|Service
 name|service
 init|=
