@@ -215,6 +215,13 @@ name|String
 name|onRedeliveryRef
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|retryWhileRef
+specifier|private
+name|String
+name|retryWhileRef
+decl_stmt|;
+annotation|@
 name|XmlElement
 DECL|field|redeliveryPolicy
 specifier|private

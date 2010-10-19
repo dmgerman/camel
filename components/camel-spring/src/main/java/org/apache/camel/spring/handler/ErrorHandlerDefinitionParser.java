@@ -347,6 +347,14 @@ name|attributeName
 operator|.
 name|equals
 argument_list|(
+literal|"onRetryWhileRef"
+argument_list|)
+operator|&&
+operator|!
+name|attributeName
+operator|.
+name|equals
+argument_list|(
 literal|"transactionTemplateRef"
 argument_list|)
 operator|&&
@@ -577,7 +585,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// deal with onRedeliveryRef
 name|parserRefAttribute
 argument_list|(
 name|element

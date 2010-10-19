@@ -343,6 +343,12 @@ specifier|final
 name|Predicate
 name|handledPolicy
 decl_stmt|;
+DECL|field|retryWhilePolicy
+specifier|protected
+specifier|final
+name|Predicate
+name|retryWhilePolicy
+decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|final
@@ -378,6 +384,8 @@ decl_stmt|;
 DECL|field|retryWhilePredicate
 name|Predicate
 name|retryWhilePredicate
+init|=
+name|retryWhilePolicy
 decl_stmt|;
 DECL|field|redeliverFromSync
 name|boolean
@@ -769,7 +777,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -799,6 +807,9 @@ name|deadLetterUri
 parameter_list|,
 name|boolean
 name|useOriginalMessagePolicy
+parameter_list|,
+name|Predicate
+name|retryWhile
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -887,6 +898,12 @@ operator|.
 name|useOriginalMessagePolicy
 operator|=
 name|useOriginalMessagePolicy
+expr_stmt|;
+name|this
+operator|.
+name|retryWhilePolicy
+operator|=
+name|retryWhile
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()

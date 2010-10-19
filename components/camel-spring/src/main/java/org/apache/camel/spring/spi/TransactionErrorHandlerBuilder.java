@@ -665,6 +665,14 @@ name|getExceptionPolicyStrategy
 argument_list|()
 argument_list|,
 name|transactionTemplate
+argument_list|,
+name|getRetryWhilePolicy
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it

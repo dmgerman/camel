@@ -288,6 +288,14 @@ argument_list|()
 argument_list|,
 name|isUseOriginalMessage
 argument_list|()
+argument_list|,
+name|getRetryWhilePolicy
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it

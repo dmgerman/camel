@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spring
 operator|.
 name|processor
 package|;
@@ -36,92 +38,59 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|processor
+operator|.
+name|onexception
+operator|.
+name|DefaultErrorHandlerRetryWhileTest
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
 name|processor
 operator|.
-name|exceptionpolicy
+name|SpringTestHelper
 operator|.
-name|ExceptionPolicyStrategy
+name|createSpringCamelContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link ErrorHandler} which uses commons-logging to dump the error  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|LoggingErrorHandler
+DECL|class|SpringDefaultErrorHandlerRetryWhileTest
 specifier|public
 class|class
-name|LoggingErrorHandler
+name|SpringDefaultErrorHandlerRetryWhileTest
 extends|extends
-name|DefaultErrorHandler
+name|DefaultErrorHandlerRetryWhileTest
 block|{
-comment|/**      * Creates the logging error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this logging error handler      * @param logger                  logger to use for logging failures      * @param exceptionPolicyStrategy strategy for onException handling      */
-DECL|method|LoggingErrorHandler (CamelContext camelContext, Processor output, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
-specifier|public
-name|LoggingErrorHandler
-parameter_list|(
+DECL|method|createCamelContext ()
+specifier|protected
 name|CamelContext
-name|camelContext
-parameter_list|,
-name|Processor
-name|output
-parameter_list|,
-name|Logger
-name|logger
-parameter_list|,
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|camelContext
-argument_list|,
-name|output
-argument_list|,
-name|logger
-argument_list|,
-literal|null
-argument_list|,
-operator|new
-name|RedeliveryPolicy
-argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-name|exceptionPolicyStrategy
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-literal|"LoggingErrorHandler["
-operator|+
-name|output
-operator|+
-literal|"]"
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/DefaultErrorHandlerRetryWhileTest.xml"
+argument_list|)
 return|;
 block|}
 block|}
