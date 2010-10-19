@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +63,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -114,6 +140,16 @@ name|url
 init|=
 literal|"file:target/pending"
 decl_stmt|;
+DECL|field|counter
+specifier|private
+specifier|static
+name|AtomicInteger
+name|counter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -124,15 +160,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/pending"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
 expr_stmt|;
 name|template
 operator|.
@@ -252,7 +288,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// wait 20 seconds to give more time for slowe servers
+comment|// wait 20 seconds to give more time for slow servers
 name|bar
 operator|.
 name|await
@@ -294,16 +330,16 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should route all 5
+comment|// should route all
 name|assertEquals
 argument_list|(
 literal|"Should complete all messages"
 argument_list|,
 name|batch
 argument_list|,
-name|bar
+name|counter
 operator|.
-name|getReceivedCounter
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -359,14 +395,11 @@ argument_list|(
 literal|1000
 argument_list|)
 operator|.
-name|to
+name|process
 argument_list|(
-literal|"seda:foo"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"seda:foo"
+operator|new
+name|MyProcessor
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -378,6 +411,32 @@ block|}
 comment|// END SNIPPET: e1
 block|}
 return|;
+block|}
+DECL|class|MyProcessor
+specifier|public
+specifier|static
+class|class
+name|MyProcessor
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|counter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
