@@ -222,6 +222,27 @@ name|cache
 init|=
 literal|true
 decl_stmt|;
+DECL|method|PropertiesComponent ()
+specifier|public
+name|PropertiesComponent
+parameter_list|()
+block|{     }
+DECL|method|PropertiesComponent (String... locations)
+specifier|public
+name|PropertiesComponent
+parameter_list|(
+name|String
+modifier|...
+name|locations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locations
+operator|=
+name|locations
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
