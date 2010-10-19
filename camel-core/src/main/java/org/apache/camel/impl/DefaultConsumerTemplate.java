@@ -1083,6 +1083,16 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// The receiveBody method will get a null exchange
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|exchange
