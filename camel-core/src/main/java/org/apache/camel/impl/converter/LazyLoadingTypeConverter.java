@@ -412,6 +412,30 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+comment|// reset loaded flag
+name|loaded
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
