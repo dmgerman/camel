@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface for an object which is interested in being injected with the root {@link TypeConverter}  * such as for implementing a fallback type converter  *  * @see org.apache.camel.impl.converter.DefaultTypeConverter#addFallbackTypeConverter(org.apache.camel.TypeConverter, boolean)  * @version $Revision$  */
+comment|/**  * An interface for an object which is interested in being injected with the root {@link TypeConverter}  * such as for implementing a fallback type converter  *  * @see TypeConverterRegistry  * @version $Revision$  */
 end_comment
 
 begin_interface

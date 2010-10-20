@@ -638,6 +638,22 @@ name|ShutdownRunningTask
 name|shutdownRunningTask
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|lazyLoadTypeConverters
+specifier|private
+name|Boolean
+name|lazyLoadTypeConverters
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -1433,6 +1449,32 @@ operator|.
 name|autoStartup
 operator|=
 name|autoStartup
+expr_stmt|;
+block|}
+DECL|method|getLazyLoadTypeConverters ()
+specifier|public
+name|Boolean
+name|getLazyLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|lazyLoadTypeConverters
+return|;
+block|}
+DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
+specifier|public
+name|void
+name|setLazyLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|lazyLoadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyLoadTypeConverters
+operator|=
+name|lazyLoadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|getShutdownRoute ()

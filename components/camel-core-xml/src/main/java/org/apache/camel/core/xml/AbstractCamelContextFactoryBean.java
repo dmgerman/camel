@@ -1125,7 +1125,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// set the resolvers first
+comment|// set the type converter mode first
+if|if
+condition|(
+name|getLazyLoadTypeConverters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|setLazyLoadTypeConverters
+argument_list|(
+name|getLazyLoadTypeConverters
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|PackageScanClassResolver
 name|packageResolver
 init|=
@@ -3381,6 +3399,13 @@ specifier|public
 specifier|abstract
 name|String
 name|getAutoStartup
+parameter_list|()
+function_decl|;
+DECL|method|getLazyLoadTypeConverters ()
+specifier|public
+specifier|abstract
+name|Boolean
+name|getLazyLoadTypeConverters
 parameter_list|()
 function_decl|;
 DECL|method|getCamelJMXAgent ()

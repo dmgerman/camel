@@ -1380,6 +1380,21 @@ name|UuidGenerator
 name|uuidGenerator
 parameter_list|)
 function_decl|;
+comment|/**      * Whether or not type converters should be loaded lazy      *      * @return<tt>true</tt> to load lazy,<tt>false</tt> to load on startup      */
+DECL|method|isLazyLoadTypeConverters ()
+name|Boolean
+name|isLazyLoadTypeConverters
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether type converters should be loaded lazy      *      * @param lazyLoadTypeConverters<tt>true</tt> to load lazy,<tt>false</tt> to load on startup      */
+DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
+name|void
+name|setLazyLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|lazyLoadTypeConverters
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
