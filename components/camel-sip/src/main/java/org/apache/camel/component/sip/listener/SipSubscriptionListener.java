@@ -26,16 +26,6 @@ name|javax
 operator|.
 name|sip
 operator|.
-name|ClientTransaction
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|sip
-operator|.
 name|Dialog
 import|;
 end_import
@@ -297,11 +287,6 @@ DECL|field|forkedDialog
 specifier|private
 name|Dialog
 name|forkedDialog
-decl_stmt|;
-DECL|field|subscriberTransactionId
-specifier|private
-name|ClientTransaction
-name|subscriberTransactionId
 decl_stmt|;
 DECL|method|SipSubscriptionListener (SipSubscriber sipSubscriber)
 specifier|public
@@ -964,6 +949,16 @@ parameter_list|()
 block|{
 return|return
 name|sipSubscriber
+return|;
+block|}
+DECL|method|getForkedDialog ()
+specifier|public
+name|Dialog
+name|getForkedDialog
+parameter_list|()
+block|{
+return|return
+name|forkedDialog
 return|;
 block|}
 block|}

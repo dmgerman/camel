@@ -516,6 +516,16 @@ operator|=
 name|provider
 expr_stmt|;
 block|}
+DECL|method|getSubscriberDialog ()
+specifier|public
+name|Dialog
+name|getSubscriberDialog
+parameter_list|()
+block|{
+return|return
+name|subscriberDialog
+return|;
+block|}
 block|}
 end_class
 
