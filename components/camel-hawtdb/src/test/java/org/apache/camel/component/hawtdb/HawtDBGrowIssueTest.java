@@ -90,16 +90,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -109,11 +99,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"See CAMEL-3249"
-argument_list|)
 DECL|class|HawtDBGrowIssueTest
 specifier|public
 class|class
@@ -321,11 +306,9 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Updating "
 operator|+
@@ -449,13 +432,33 @@ argument_list|(
 name|out
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 name|data
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be 1023"
+argument_list|,
+name|data
+operator|.
+name|startsWith
+argument_list|(
+literal|"1023"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1029
+argument_list|,
+name|data
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
