@@ -1445,11 +1445,6 @@ operator|.
 name|class
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getBeanForType (Class<S> clazz)
 specifier|protected
 parameter_list|<

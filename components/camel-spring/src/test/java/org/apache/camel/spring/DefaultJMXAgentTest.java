@@ -182,11 +182,6 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|releaseMBeanServers ()
 specifier|protected
 name|void

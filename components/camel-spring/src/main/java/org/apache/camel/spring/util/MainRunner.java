@@ -155,6 +155,9 @@ decl_stmt|;
 DECL|field|main
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|main
 decl_stmt|;
 DECL|field|args

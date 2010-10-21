@@ -945,11 +945,6 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getCamelContextMap ()
 specifier|protected
 name|Map

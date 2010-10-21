@@ -172,11 +172,6 @@ literal|"org/apache/camel/spring/management/dualCamelContextManagedTest.xml"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testDualCamelContextManaged ()
 specifier|public
 name|void

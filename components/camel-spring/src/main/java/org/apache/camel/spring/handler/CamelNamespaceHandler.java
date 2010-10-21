@@ -960,6 +960,9 @@ decl_stmt|;
 try|try
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|c
 init|=
 name|Class

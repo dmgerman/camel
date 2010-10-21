@@ -83,6 +83,17 @@ return|return
 name|bundle
 return|;
 block|}
+DECL|method|getBundleContext ()
+specifier|public
+specifier|static
+name|BundleContext
+name|getBundleContext
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
+block|}
 DECL|method|start (BundleContext context)
 specifier|public
 name|void
