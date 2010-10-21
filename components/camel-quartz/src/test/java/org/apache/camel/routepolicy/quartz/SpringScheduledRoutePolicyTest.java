@@ -249,9 +249,6 @@ argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
-name|currentThread
-argument_list|()
-operator|.
 name|sleep
 argument_list|(
 literal|4000
@@ -316,9 +313,6 @@ literal|"stopPolicy"
 argument_list|)
 decl_stmt|;
 name|Thread
-operator|.
-name|currentThread
-argument_list|()
 operator|.
 name|sleep
 argument_list|(
@@ -398,9 +392,6 @@ literal|"suspendPolicy"
 argument_list|)
 decl_stmt|;
 name|Thread
-operator|.
-name|currentThread
-argument_list|()
 operator|.
 name|sleep
 argument_list|(
@@ -497,9 +488,6 @@ argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
-name|currentThread
-argument_list|()
-operator|.
 name|sleep
 argument_list|(
 literal|4000
@@ -528,6 +516,11 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|startRouteWithPolicy (String policyBeanName)
 specifier|private
 name|CamelContext
