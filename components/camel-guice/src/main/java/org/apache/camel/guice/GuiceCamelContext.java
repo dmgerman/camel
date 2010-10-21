@@ -423,35 +423,6 @@ name|optional
 operator|=
 literal|true
 argument_list|)
-DECL|method|setRoutes (List<Route> routes)
-specifier|public
-name|void
-name|setRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setRoutes
-argument_list|(
-name|routes
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|Inject
-argument_list|(
-name|optional
-operator|=
-literal|true
-argument_list|)
 DECL|method|setRegistry (Registry registry)
 specifier|public
 name|void
