@@ -181,12 +181,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// these tests does not run well on AIX
+comment|// these tests does not run well on AIX or Windows
 if|if
 condition|(
 name|isPlatform
 argument_list|(
 literal|"aix"
+argument_list|)
+operator|||
+name|isPlatform
+argument_list|(
+literal|"windows"
 argument_list|)
 condition|)
 block|{
