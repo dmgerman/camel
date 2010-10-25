@@ -110,11 +110,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|normalizeDistributionListAgainstProcessors
-argument_list|(
-name|processors
-argument_list|)
-expr_stmt|;
 name|boolean
 name|found
 init|=
