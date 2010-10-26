@@ -375,7 +375,7 @@ literal|"Hello World"
 argument_list|,
 name|result
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -501,7 +501,7 @@ literal|"Hello World"
 argument_list|,
 name|result
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody

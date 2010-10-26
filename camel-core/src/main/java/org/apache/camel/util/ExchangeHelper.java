@@ -934,7 +934,7 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-comment|// only set OUT if its OUT capable
+comment|// only set OUT if its OUT capable or already has OUT
 name|result
 operator|.
 name|getOut
@@ -965,6 +965,23 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// clear any existing OUT as the result is on the IN
+if|if
+condition|(
+name|result
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|result
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 if|if

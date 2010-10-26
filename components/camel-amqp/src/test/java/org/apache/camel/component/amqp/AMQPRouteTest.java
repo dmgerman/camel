@@ -179,6 +179,11 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"AMQP testing is a bit unstable"
+argument_list|)
 DECL|class|AMQPRouteTest
 specifier|public
 class|class
@@ -248,11 +253,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"AMQP testing is a bit unstable"
-argument_list|)
 DECL|method|testJmsRouteWithTextMessage ()
 specifier|public
 name|void
@@ -347,11 +347,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"AMQP testing is a bit unstable"
-argument_list|)
 DECL|method|testJmsRouteWithObjectMessage ()
 specifier|public
 name|void
@@ -408,11 +403,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"AMQP testing is a bit unstable"
-argument_list|)
 DECL|method|testJmsRouteWithByteArrayMessage ()
 specifier|public
 name|void

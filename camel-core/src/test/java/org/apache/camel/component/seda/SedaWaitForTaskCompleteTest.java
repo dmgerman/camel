@@ -209,7 +209,7 @@ literal|"Bye World"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody
