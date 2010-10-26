@@ -92,22 +92,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|eclipse
 operator|.
 name|jetty
@@ -140,7 +124,7 @@ specifier|public
 class|class
 name|ExplicitJettyRouteTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -159,7 +143,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 literal|"bookid=123"
 argument_list|)
@@ -273,7 +257,8 @@ name|connectors
 operator|.
 name|put
 argument_list|(
-literal|9080
+name|getPort
+argument_list|()
 argument_list|,
 name|createSocketConnector
 argument_list|()
@@ -308,7 +293,7 @@ expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process

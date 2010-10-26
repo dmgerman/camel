@@ -66,11 +66,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|jetty
 operator|.
-name|CamelTestSupport
+name|BaseJettyTest
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|JettyHttpProducerSynchronousTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|field|beforeThreadName
 specifier|private
@@ -113,7 +113,12 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"jetty://http://0.0.0.0:9123/sync?synchronous=true"
+literal|"jetty://http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/sync?synchronous=true"
 decl_stmt|;
 annotation|@
 name|Test

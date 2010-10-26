@@ -132,6 +132,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|jetty
+operator|.
+name|BaseJettyTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -170,7 +186,7 @@ specifier|public
 class|class
 name|JettyHttpProducerConcurrentTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -355,7 +371,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty://http://localhost:9080/echo"
+literal|"jetty://http://localhost:{{port}}/echo"
 argument_list|,
 literal|""
 operator|+
@@ -470,7 +486,7 @@ block|{
 comment|// expose a echo service
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/echo"
+literal|"jetty:http://localhost:{{port}}/echo"
 argument_list|)
 operator|.
 name|convertBodyTo

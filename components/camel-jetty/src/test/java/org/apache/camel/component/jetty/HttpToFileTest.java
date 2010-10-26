@@ -88,22 +88,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -121,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit testing demonstrating how to store incoming requests as files and serving a reponse back.  */
+comment|/**  * Unit testing demonstrating how to store incoming requests as files and serving a response back.  */
 end_comment
 
 begin_class
@@ -130,7 +114,7 @@ specifier|public
 class|class
 name|HttpToFileTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -164,7 +148,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myworld"
+literal|"http://localhost:{{port}}/myworld"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -300,7 +284,7 @@ block|{
 comment|// put the incoming data on the seda queue and return a fixed response that we got the file
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myworld"
+literal|"jetty:http://localhost:{{port}}/myworld"
 argument_list|)
 operator|.
 name|convertBodyTo

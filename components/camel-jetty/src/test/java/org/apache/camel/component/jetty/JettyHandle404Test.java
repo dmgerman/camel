@@ -108,22 +108,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -140,7 +124,7 @@ specifier|public
 class|class
 name|JettyHandle404Test
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|method|getProducerUrl ()
 specifier|public
@@ -149,7 +133,7 @@ name|getProducerUrl
 parameter_list|()
 block|{
 return|return
-literal|"http://localhost:8123/myserver?user=Camel"
+literal|"http://localhost:{{port}}/myserver?user=Camel"
 return|;
 block|}
 annotation|@
@@ -393,7 +377,7 @@ expr_stmt|;
 comment|// this is our jetty server where we simulate the 404
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8123/myserver"
+literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
 operator|.
 name|process

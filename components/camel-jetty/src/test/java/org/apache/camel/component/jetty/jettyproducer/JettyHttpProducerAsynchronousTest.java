@@ -80,9 +80,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|jetty
 operator|.
-name|MockEndpoint
+name|BaseJettyTest
 import|;
 end_import
 
@@ -94,21 +94,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|mock
 operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|MockEndpoint
 import|;
 end_import
 
@@ -132,7 +122,7 @@ specifier|public
 class|class
 name|JettyHttpProducerAsynchronousTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|field|thread1
 specifier|private
@@ -151,7 +141,12 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"jetty://http://0.0.0.0:9123/foo"
+literal|"jetty://http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/foo"
 decl_stmt|;
 annotation|@
 name|Test

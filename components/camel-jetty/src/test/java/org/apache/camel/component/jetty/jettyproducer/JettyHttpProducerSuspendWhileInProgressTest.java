@@ -106,21 +106,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|jetty
 operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|BaseJettyTest
 import|;
 end_import
 
@@ -134,24 +124,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-operator|.
-name|simple
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -162,14 +134,19 @@ specifier|public
 class|class
 name|JettyHttpProducerSuspendWhileInProgressTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|field|serverUri
 specifier|private
 name|String
 name|serverUri
 init|=
-literal|"jetty://http://localhost:9285/cool"
+literal|"jetty://http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/cool"
 decl_stmt|;
 annotation|@
 name|Test

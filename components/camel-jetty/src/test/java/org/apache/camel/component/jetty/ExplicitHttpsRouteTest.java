@@ -112,22 +112,6 @@ name|SslSelectChannelConnector
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|ssl
-operator|.
-name|SslSocketConnector
-import|;
-end_import
-
 begin_class
 DECL|class|ExplicitHttpsRouteTest
 specifier|public
@@ -230,6 +214,16 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
+name|port1
+operator|=
+name|getPort
+argument_list|()
+expr_stmt|;
+name|port2
+operator|=
+name|getNextPort
+argument_list|()
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// create SSL select channel connectors for port 9080 and 9090
 name|Map
@@ -253,7 +247,7 @@ name|connectors
 operator|.
 name|put
 argument_list|(
-literal|9080
+name|port1
 argument_list|,
 name|createSslSocketConnector
 argument_list|()
@@ -263,7 +257,7 @@ name|connectors
 operator|.
 name|put
 argument_list|(
-literal|9090
+name|port2
 argument_list|,
 name|createSslSocketConnector
 argument_list|()
@@ -298,7 +292,11 @@ expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"jetty:https://localhost:9080/test"
+literal|"jetty:https://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"/test"
 argument_list|)
 operator|.
 name|to
@@ -338,7 +336,11 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"jetty:https://localhost:9080/hello"
+literal|"jetty:https://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"/hello"
 argument_list|)
 operator|.
 name|process
@@ -348,7 +350,11 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:https://localhost:9090/test"
+literal|"jetty:https://localhost:"
+operator|+
+name|port2
+operator|+
+literal|"/test"
 argument_list|)
 operator|.
 name|to

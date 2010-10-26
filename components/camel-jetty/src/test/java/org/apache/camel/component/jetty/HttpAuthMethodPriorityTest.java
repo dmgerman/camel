@@ -68,18 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -161,22 +149,6 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
 import|;
 end_import
 
@@ -288,7 +260,7 @@ specifier|public
 class|class
 name|HttpAuthMethodPriorityTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Override
@@ -460,7 +432,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authMethodPriority=Basic,Digest&authUsername=donald&authPassword=duck"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authMethodPriority=Basic,Digest&authUsername=donald&authPassword=duck"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -494,7 +466,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authMethodPriority=NTLM,Basic&authUsername=donald&authPassword=duck"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authMethodPriority=NTLM,Basic&authUsername=donald&authPassword=duck"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -527,7 +499,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authMethodPriority=Basic,foo&authUsername=donald&authPassword=duck"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authMethodPriority=Basic,foo&authUsername=donald&authPassword=duck"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -591,7 +563,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authMethodPriority=NTLM&authUsername=donald&authPassword=duck"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authMethodPriority=NTLM&authUsername=donald&authPassword=duck"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -660,7 +632,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test?handlers=myAuthHandler"
+literal|"jetty://http://localhost:{{port}}/test?handlers=myAuthHandler"
 argument_list|)
 operator|.
 name|process

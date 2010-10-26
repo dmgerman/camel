@@ -42,11 +42,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|jetty
 operator|.
-name|CamelTestSupport
+name|BaseJettyTest
 import|;
 end_import
 
@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|JettyAsyncCBRTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -99,7 +99,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8876/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -156,7 +156,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8876/myservice"
+literal|"jetty:http://localhost:{{port}}/myservice"
 argument_list|)
 operator|.
 name|convertBodyTo

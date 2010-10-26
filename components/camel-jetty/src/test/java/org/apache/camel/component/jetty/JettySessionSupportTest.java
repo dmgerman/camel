@@ -36,43 +36,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-operator|.
-name|simple
 import|;
 end_import
 
@@ -86,7 +52,7 @@ specifier|public
 class|class
 name|JettySessionSupportTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Override
@@ -129,7 +95,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9282/hello"
+literal|"jetty:http://localhost:{{port}}/hello"
 argument_list|)
 operator|.
 name|to
@@ -139,7 +105,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9282/bye?sessionSupport=true"
+literal|"jetty:http://localhost:{{port}}/bye?sessionSupport=true"
 argument_list|)
 operator|.
 name|to
@@ -172,7 +138,10 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Server has already been started. Cannot enabled sessionSupport on http:localhost:9282"
+literal|"Server has already been started. Cannot enabled sessionSupport on http:localhost:"
+operator|+
+name|getPort
+argument_list|()
 argument_list|,
 name|e
 operator|.
@@ -211,7 +180,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9283/hello?sessionSupport=true"
+literal|"jetty:http://localhost:{{port}}/hello?sessionSupport=true"
 argument_list|)
 operator|.
 name|transform
@@ -240,7 +209,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9283/hello"
+literal|"http://localhost:{{port}}/hello"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -262,7 +231,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9283/hello"
+literal|"http://localhost:{{port}}/hello"
 argument_list|,
 literal|"Moon"
 argument_list|,

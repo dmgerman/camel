@@ -264,7 +264,7 @@ specifier|public
 class|class
 name|HttpBasicAuthTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Override
@@ -436,7 +436,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authUsername=donald&authPassword=duck"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authUsername=donald&authPassword=duck"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -469,7 +469,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test?authMethod=Basic&authUsername=donald&authPassword=sorry"
+literal|"http://localhost:{{port}}/test?authMethod=Basic&authUsername=donald&authPassword=sorry"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -538,7 +538,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test?handlers=myAuthHandler"
+literal|"jetty://http://localhost:{{port}}/test?handlers=myAuthHandler"
 argument_list|)
 operator|.
 name|process

@@ -68,22 +68,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -100,7 +84,7 @@ specifier|public
 class|class
 name|JettyHttpClientOptionsTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -120,7 +104,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http://localhost:8080/myapp/myservice?httpClient.soTimeout=5555"
+literal|"http://localhost:{{port}}/myapp/myservice?httpClient.soTimeout=5555"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -171,7 +155,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -222,7 +206,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice?httpClient.soTimeout=5555"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice?httpClient.soTimeout=5555"
 argument_list|)
 operator|.
 name|transform

@@ -88,22 +88,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -120,7 +104,7 @@ specifier|public
 class|class
 name|HttpRedirectTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -138,7 +122,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -206,7 +190,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://localhost:9080/newtest"
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/newtest"
 argument_list|,
 name|cause
 operator|.
@@ -242,7 +231,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test"
+literal|"jetty://http://localhost:{{port}}/test"
 argument_list|)
 operator|.
 name|process
@@ -284,7 +273,12 @@ name|setHeader
 argument_list|(
 literal|"location"
 argument_list|,
-literal|"http://localhost:9080/newtest"
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/newtest"
 argument_list|)
 expr_stmt|;
 block|}

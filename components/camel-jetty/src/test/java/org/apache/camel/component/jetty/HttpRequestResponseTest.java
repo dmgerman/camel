@@ -100,22 +100,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -132,7 +116,7 @@ specifier|public
 class|class
 name|HttpRequestResponseTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -151,7 +135,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 literal|"bookid=123"
 argument_list|)
@@ -207,7 +191,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process

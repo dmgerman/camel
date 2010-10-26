@@ -86,22 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|MessageHelper
@@ -128,7 +112,7 @@ specifier|public
 class|class
 name|JettyImageFileTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|method|sendImageContent (boolean usingGZip)
 specifier|private
@@ -148,7 +132,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -273,7 +257,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process

@@ -65,7 +65,7 @@ name|getProducerUrl
 parameter_list|()
 block|{
 return|return
-literal|"jetty://http://localhost:8123/myserver?user=Camel"
+literal|"jetty://http://localhost:{{port}}/myserver?user=Camel"
 return|;
 block|}
 block|}

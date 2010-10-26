@@ -92,22 +92,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -124,7 +108,7 @@ specifier|public
 class|class
 name|JettySimplifiedHandle404Test
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -218,7 +202,7 @@ argument_list|)
 operator|.
 name|enrich
 argument_list|(
-literal|"http://localhost:8222/myserver?throwExceptionOnFailure=false&user=Camel"
+literal|"http://localhost:{{port}}/myserver?throwExceptionOnFailure=false&user=Camel"
 argument_list|,
 operator|new
 name|AggregationStrategy
@@ -280,7 +264,7 @@ expr_stmt|;
 comment|// this is our jetty server where we simulate the 404
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8222/myserver"
+literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
 operator|.
 name|process

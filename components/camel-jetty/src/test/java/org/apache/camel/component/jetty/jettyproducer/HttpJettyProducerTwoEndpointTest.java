@@ -66,21 +66,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|jetty
 operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|BaseJettyTest
 import|;
 end_import
 
@@ -104,7 +94,7 @@ specifier|public
 class|class
 name|HttpJettyProducerTwoEndpointTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -292,7 +282,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty://http://localhost:9888/myapp?foo=123&bar=cheese"
+literal|"jetty://http://localhost:{{port}}/myapp?foo=123&bar=cheese"
 argument_list|)
 expr_stmt|;
 name|from
@@ -302,12 +292,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty://http://localhost:9888/myapp?foo=456&bar=cake"
+literal|"jetty://http://localhost:{{port}}/myapp?foo=456&bar=cake"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9888/myapp"
+literal|"jetty://http://localhost:{{port}}/myapp"
 argument_list|)
 operator|.
 name|process

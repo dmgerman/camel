@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -92,7 +76,7 @@ specifier|public
 class|class
 name|JettyCallHttpThenExceptionTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -131,7 +115,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"http://localhost:8234/myserver?throwExceptionOnFailure=false"
+literal|"http://localhost:{{port}}/myserver?throwExceptionOnFailure=false"
 argument_list|,
 operator|new
 name|Processor
@@ -233,7 +217,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8234/myserver"
+literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
 operator|.
 name|to
@@ -249,7 +233,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:8234/other"
+literal|"http://localhost:{{port}}/other"
 argument_list|)
 operator|.
 name|removeHeaders
@@ -274,7 +258,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8234/other"
+literal|"jetty://http://localhost:{{port}}/other"
 argument_list|)
 operator|.
 name|convertBodyTo

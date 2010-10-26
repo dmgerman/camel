@@ -103,7 +103,7 @@ name|Test
 annotation|@
 name|Ignore
 argument_list|(
-literal|"ignore online tests, will be improved in Camel 2.3"
+literal|"ignore online tests"
 argument_list|)
 DECL|method|testGoogleFrontPageAsync ()
 specifier|public

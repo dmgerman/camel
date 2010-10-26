@@ -58,22 +58,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -90,7 +74,7 @@ specifier|public
 class|class
 name|HttpPollingConsumerTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -109,7 +93,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9444/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 name|String
 operator|.
@@ -141,7 +125,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9444/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 literal|5000
 argument_list|,
@@ -174,7 +158,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"http://localhost:9444/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 literal|250
 argument_list|,
@@ -235,7 +219,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9444/test"
+literal|"jetty://http://localhost:{{port}}/test"
 argument_list|)
 operator|.
 name|delay

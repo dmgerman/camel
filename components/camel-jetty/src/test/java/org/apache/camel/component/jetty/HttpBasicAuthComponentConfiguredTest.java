@@ -164,22 +164,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|eclipse
 operator|.
 name|jetty
@@ -284,7 +268,7 @@ specifier|public
 class|class
 name|HttpBasicAuthComponentConfiguredTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Override
@@ -456,7 +440,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -550,7 +534,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test?handlers=myAuthHandler"
+literal|"jetty://http://localhost:{{port}}/test?handlers=myAuthHandler"
 argument_list|)
 operator|.
 name|process

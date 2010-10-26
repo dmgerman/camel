@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -108,7 +92,7 @@ specifier|public
 class|class
 name|JettyWithXPathChoiceTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|field|x
 specifier|protected
@@ -207,7 +191,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"http://localhost:9080/myworld"
+literal|"http://localhost:{{port}}/myworld"
 argument_list|,
 name|body
 argument_list|)
@@ -270,7 +254,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myworld"
+literal|"jetty:http://localhost:{{port}}/myworld"
 argument_list|)
 comment|// use stream caching
 operator|.

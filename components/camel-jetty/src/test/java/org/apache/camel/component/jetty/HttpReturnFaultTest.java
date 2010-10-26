@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|HttpReturnFaultTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -111,7 +111,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -154,7 +154,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test"
+literal|"jetty://http://localhost:{{port}}/test"
 argument_list|)
 operator|.
 name|process

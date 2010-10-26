@@ -74,11 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|jetty
 operator|.
-name|CamelTestSupport
+name|BaseJettyTest
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|JettyFileConsumerTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Override
@@ -170,7 +170,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 name|fis
 argument_list|,
@@ -304,7 +304,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice2"
+literal|"http://localhost:{{port}}/myapp/myservice2"
 argument_list|,
 name|jpg
 argument_list|,
@@ -470,7 +470,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|to
@@ -488,7 +488,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice2"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice2"
 argument_list|)
 operator|.
 name|to
@@ -516,7 +516,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:9080/myapp/myservice2"
+literal|"http://localhost:{{port}}/myapp/myservice2"
 argument_list|)
 operator|.
 name|to

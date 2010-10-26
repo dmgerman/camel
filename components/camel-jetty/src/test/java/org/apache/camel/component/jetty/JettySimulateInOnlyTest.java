@@ -76,22 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -108,7 +92,7 @@ specifier|public
 class|class
 name|JettySimulateInOnlyTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|field|route
 specifier|private
@@ -160,7 +144,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8333/myserver"
+literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
 comment|// turn the route to in only as we do not want jetty to wait for the response
 comment|// we can do this using the wiretap EIP pattern
@@ -263,7 +247,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8333/myserver?foo=bar"
+literal|"http://localhost:{{port}}/myserver?foo=bar"
 argument_list|,
 literal|null
 argument_list|,
@@ -323,7 +307,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty://http://localhost:8333/myserver"
+literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
 comment|// turn the route to in only as we do not want jetty to wait for the response
 comment|// we can do this by changing the MEP and sending to a seda endpoint to spin off
@@ -429,7 +413,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8333/myserver?foo=bar"
+literal|"http://localhost:{{port}}/myserver?foo=bar"
 argument_list|,
 literal|null
 argument_list|,
