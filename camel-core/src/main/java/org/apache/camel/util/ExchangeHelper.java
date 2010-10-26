@@ -934,7 +934,7 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-comment|// only set OUT if its OUT capable or already has OUT
+comment|// only set OUT if its OUT capable
 name|result
 operator|.
 name|getOut
