@@ -92,7 +92,6 @@ name|distributionRatioList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.processor.loadbalancer.QueueLoadBalancer#chooseProcessor(java.util.List, org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
@@ -214,7 +213,6 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
-break|break;
 block|}
 else|else
 block|{
