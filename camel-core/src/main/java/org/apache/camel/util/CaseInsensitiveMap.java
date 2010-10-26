@@ -328,6 +328,7 @@ annotation|@
 name|Override
 DECL|method|putAll (Map<? extends String, ?> map)
 specifier|public
+specifier|synchronized
 name|void
 name|putAll
 parameter_list|(
