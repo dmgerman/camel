@@ -197,7 +197,7 @@ name|weighted
 argument_list|(
 literal|true
 argument_list|,
-literal|"4:2:1"
+literal|"4,2,1"
 argument_list|)
 operator|.
 name|to
@@ -531,7 +531,7 @@ name|weighted
 argument_list|(
 literal|true
 argument_list|,
-literal|"2:3"
+literal|"2,3"
 argument_list|)
 operator|.
 name|to

@@ -332,7 +332,7 @@ condition|)
 block|{
 name|distributionRatioDelimiter
 operator|=
-literal|":"
+literal|","
 expr_stmt|;
 block|}
 name|String
