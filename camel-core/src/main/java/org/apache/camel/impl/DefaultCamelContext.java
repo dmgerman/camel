@@ -7280,6 +7280,15 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// the stop order is important
+comment|// shutdown debugger
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|getDebugger
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|shutdownServices
 argument_list|(
 name|endpoints
