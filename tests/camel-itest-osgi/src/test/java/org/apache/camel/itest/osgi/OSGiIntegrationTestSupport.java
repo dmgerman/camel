@@ -569,6 +569,43 @@ name|type
 argument_list|)
 return|;
 block|}
+DECL|method|getKarafFeatureUrl ()
+specifier|public
+specifier|static
+name|UrlReference
+name|getKarafFeatureUrl
+parameter_list|()
+block|{
+name|String
+name|type
+init|=
+literal|"xml/features"
+decl_stmt|;
+return|return
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.karaf"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
+literal|"apache-karaf"
+argument_list|)
+operator|.
+name|version
+argument_list|(
+literal|"2.1.0"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Configuration
 DECL|method|configure ()
@@ -617,6 +654,15 @@ operator|.
 name|value
 argument_list|(
 literal|"INFO"
+argument_list|)
+argument_list|,
+comment|// need to install some karaf features
+name|scanFeatures
+argument_list|(
+name|getKarafFeatureUrl
+argument_list|()
+argument_list|,
+literal|"http"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components

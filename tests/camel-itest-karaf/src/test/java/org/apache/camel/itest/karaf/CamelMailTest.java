@@ -270,21 +270,10 @@ name|configure
 argument_list|(
 name|COMPONENT
 argument_list|,
-name|getFramework
-argument_list|()
+literal|false
+argument_list|,
+literal|true
 argument_list|)
-return|;
-block|}
-DECL|method|getFramework ()
-specifier|public
-specifier|static
-name|FrameworkOption
-name|getFramework
-parameter_list|()
-block|{
-return|return
-name|equinox
-argument_list|()
 return|;
 block|}
 block|}
