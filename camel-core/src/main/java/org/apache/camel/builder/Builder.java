@@ -533,6 +533,30 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a predicate and value builder for the exception stacktrace on an exchange      */
+DECL|method|exceptionStackTrace ()
+specifier|public
+specifier|static
+name|ValueBuilder
+name|exceptionStackTrace
+parameter_list|()
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|exchangeExceptionStackTraceExpression
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns an expression that replaces all occurrences of the regular       * expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, String replacement)
 specifier|public
