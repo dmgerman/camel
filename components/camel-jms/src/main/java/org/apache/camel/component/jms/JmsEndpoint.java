@@ -2255,6 +2255,20 @@ name|getTaskExecutor
 argument_list|()
 return|;
 block|}
+DECL|method|getTaskExecutorSpring2 ()
+specifier|public
+name|Object
+name|getTaskExecutorSpring2
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getTaskExecutorSpring2
+argument_list|()
+return|;
+block|}
 DECL|method|getTemplateConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -3378,6 +3392,24 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setTaskExecutor
+argument_list|(
+name|taskExecutor
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setTaskExecutorSpring2 (Object taskExecutor)
+specifier|public
+name|void
+name|setTaskExecutorSpring2
+parameter_list|(
+name|Object
+name|taskExecutor
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTaskExecutorSpring2
 argument_list|(
 name|taskExecutor
 argument_list|)

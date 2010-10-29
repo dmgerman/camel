@@ -537,6 +537,12 @@ specifier|private
 name|TaskExecutor
 name|taskExecutor
 decl_stmt|;
+comment|// TODO: remove in Camel 3.0 when Spring 3.0+ is required
+DECL|field|taskExecutorSpring2
+specifier|private
+name|Object
+name|taskExecutorSpring2
+decl_stmt|;
 DECL|field|pubSubNoLocal
 specifier|private
 name|boolean
@@ -2287,6 +2293,32 @@ operator|.
 name|taskExecutor
 operator|=
 name|taskExecutor
+expr_stmt|;
+block|}
+DECL|method|getTaskExecutorSpring2 ()
+specifier|public
+name|Object
+name|getTaskExecutorSpring2
+parameter_list|()
+block|{
+return|return
+name|taskExecutorSpring2
+return|;
+block|}
+DECL|method|setTaskExecutorSpring2 (Object taskExecutorSpring2)
+specifier|public
+name|void
+name|setTaskExecutorSpring2
+parameter_list|(
+name|Object
+name|taskExecutorSpring2
+parameter_list|)
+block|{
+name|this
+operator|.
+name|taskExecutorSpring2
+operator|=
+name|taskExecutorSpring2
 expr_stmt|;
 block|}
 DECL|method|isPubSubNoLocal ()

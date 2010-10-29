@@ -1373,6 +1373,24 @@ name|taskExecutor
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setTaskExecutorSpring2 (Object taskExecutor)
+specifier|public
+name|void
+name|setTaskExecutorSpring2
+parameter_list|(
+name|Object
+name|taskExecutor
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTaskExecutorSpring2
+argument_list|(
+name|taskExecutor
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setTimeToLive (long timeToLive)
 specifier|public
 name|void
