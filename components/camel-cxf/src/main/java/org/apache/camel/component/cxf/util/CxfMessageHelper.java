@@ -207,6 +207,11 @@ decl_stmt|;
 if|if
 condition|(
 name|isClient
+operator|&&
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 name|message
