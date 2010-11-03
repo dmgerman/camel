@@ -362,7 +362,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|// TODO: This method is not used
+comment|//This method is not used, and will be removed in Camel 3.0
 annotation|@
 name|Deprecated
 DECL|method|getCxfOutMessage (HeaderFilterStrategy headerFilterStrategy, org.apache.camel.Exchange exchange, boolean isClient)
@@ -507,6 +507,11 @@ decl_stmt|;
 if|if
 condition|(
 name|isClient
+operator|&&
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 name|message
