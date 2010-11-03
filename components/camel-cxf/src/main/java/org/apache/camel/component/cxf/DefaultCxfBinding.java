@@ -962,9 +962,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: workaround for CXF-2503
-try|try
-block|{
 name|cxfMessage
 operator|.
 name|getAttachments
@@ -973,20 +970,6 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|java
-operator|.
-name|util
-operator|.
-name|ConcurrentModificationException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-comment|// end of workaround
 comment|// propagate attachments
 for|for
 control|(
