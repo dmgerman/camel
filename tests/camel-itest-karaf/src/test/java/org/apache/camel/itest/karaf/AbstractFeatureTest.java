@@ -391,6 +391,10 @@ try|try
 block|{
 name|assertNotNull
 argument_list|(
+literal|"Cannot get component with name: "
+operator|+
+name|component
+argument_list|,
 name|createCamelContext
 argument_list|()
 operator|.
