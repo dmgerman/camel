@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -92,6 +112,45 @@ return|return
 literal|"Bye "
 operator|+
 name|s
+return|;
+block|}
+DECL|method|bar (String s)
+specifier|public
+name|String
+name|bar
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+literal|"String"
+return|;
+block|}
+DECL|method|bar (Reader s)
+specifier|public
+name|String
+name|bar
+parameter_list|(
+name|Reader
+name|s
+parameter_list|)
+block|{
+return|return
+literal|"Reader"
+return|;
+block|}
+DECL|method|bar (InputStream s)
+specifier|public
+name|String
+name|bar
+parameter_list|(
+name|InputStream
+name|s
+parameter_list|)
+block|{
+return|return
+literal|"InputStream"
 return|;
 block|}
 block|}
