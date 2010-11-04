@@ -930,7 +930,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"No CamelEndpointMapping found in Spring ApplicationContext."
 operator|+
-literal|" This bean is required for Spring-WS consumer support (unless the 'springws:beanname:' URI scheme is used)"
+literal|" This bean is required for Spring-WS consumer support (unless the 'spring-ws:beanname:' URI scheme is used)"
 argument_list|)
 throw|;
 block|}

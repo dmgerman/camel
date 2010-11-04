@@ -509,7 +509,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"springws:http://localhost/?soapAction=http://www.stockquotes.edu/GetQuote&webServiceTemplate=#webServiceTemplate"
+literal|"spring-ws:http://localhost/?soapAction=http://www.stockquotes.edu/GetQuote&webServiceTemplate=#webServiceTemplate"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -532,7 +532,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"springws:http://localhost/?soapAction=http://www.stockquotes.edu/GetQuote&webServiceTemplate=#webServiceTemplate"
+literal|"spring-ws:http://localhost/?soapAction=http://www.stockquotes.edu/GetQuote&webServiceTemplate=#webServiceTemplate"
 argument_list|)
 operator|.
 name|unmarshal
@@ -543,7 +543,7 @@ expr_stmt|;
 comment|// provide web service
 name|from
 argument_list|(
-literal|"springws:soapaction:http://www.stockquotes.edu/GetQuote?endpointMapping=#endpointMapping"
+literal|"spring-ws:soapaction:http://www.stockquotes.edu/GetQuote?endpointMapping=#endpointMapping"
 argument_list|)
 operator|.
 name|process
