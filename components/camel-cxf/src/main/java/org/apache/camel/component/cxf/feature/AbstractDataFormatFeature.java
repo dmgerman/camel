@@ -88,6 +88,20 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|message
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|phase
 operator|.
 name|PhaseInterceptor
@@ -114,7 +128,7 @@ name|Logger
 name|getLogger
 parameter_list|()
 function_decl|;
-DECL|method|removeInterceptorWhichIsInThePhases (List<Interceptor> interceptors, String[] phaseNames)
+DECL|method|removeInterceptorWhichIsInThePhases (List<Interceptor<? extends Message>> interceptors, String[] phaseNames)
 specifier|protected
 name|void
 name|removeInterceptorWhichIsInThePhases
@@ -122,6 +136,11 @@ parameter_list|(
 name|List
 argument_list|<
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 argument_list|>
 name|interceptors
 parameter_list|,
@@ -197,7 +216,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|removeInterceptorWhichIsOutThePhases (List<Interceptor> interceptors, String[] phaseNames)
+DECL|method|removeInterceptorWhichIsOutThePhases (List<Interceptor<? extends Message>> interceptors, String[] phaseNames)
 specifier|protected
 name|void
 name|removeInterceptorWhichIsOutThePhases
@@ -205,6 +224,11 @@ parameter_list|(
 name|List
 argument_list|<
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 argument_list|>
 name|interceptors
 parameter_list|,
@@ -296,7 +320,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|removeInterceptors (List<Interceptor> interceptors, Collection<Class> toBeRemovedInterceptors)
+DECL|method|removeInterceptors (List<Interceptor<? extends Message>> interceptors, Collection<Class> toBeRemovedInterceptors)
 specifier|protected
 name|void
 name|removeInterceptors
@@ -304,6 +328,11 @@ parameter_list|(
 name|List
 argument_list|<
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 argument_list|>
 name|interceptors
 parameter_list|,
