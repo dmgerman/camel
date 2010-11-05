@@ -36,6 +36,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|TransformerConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|TransformerFactory
 import|;
 end_import
@@ -61,6 +73,18 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -638,6 +662,8 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|xslt
 operator|.
 name|setTransformerInputStream
@@ -648,6 +674,35 @@ name|getInputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// include information about the resource in the caused exception, so its easier for
+comment|// end users to know which resource failed
+throw|throw
+operator|new
+name|TransformerConfigurationException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|resource
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|configureXslt
 argument_list|(
 name|xslt
