@@ -814,7 +814,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-literal|"INFO"
+literal|"TRACE"
 argument_list|)
 argument_list|,
 comment|// install blueprint requirements

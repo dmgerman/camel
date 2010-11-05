@@ -108,9 +108,9 @@ name|jersey
 operator|.
 name|api
 operator|.
-name|core
+name|view
 operator|.
-name|InjectParam
+name|ImplicitProduces
 import|;
 end_import
 
@@ -122,11 +122,11 @@ name|sun
 operator|.
 name|jersey
 operator|.
-name|api
+name|spi
 operator|.
-name|view
+name|inject
 operator|.
-name|ImplicitProduces
+name|Inject
 import|;
 end_import
 
@@ -234,12 +234,12 @@ specifier|private
 name|ProducerTemplate
 name|template
 decl_stmt|;
-DECL|method|CamelContextResource (@njectParam CamelContext camelContext)
+DECL|method|CamelContextResource (@nject CamelContext camelContext)
 specifier|public
 name|CamelContextResource
 parameter_list|(
 annotation|@
-name|InjectParam
+name|Inject
 name|CamelContext
 name|camelContext
 parameter_list|)
