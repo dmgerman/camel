@@ -465,37 +465,12 @@ argument_list|(
 name|cxfExchange
 argument_list|)
 decl_stmt|;
-comment|// Now we don't set up the timeout value
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Suspending continuation of exchangeId: "
-operator|+
-name|camelExchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|// The continuation could be called before the suspend is called
-name|continuation
-operator|.
-name|suspend
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
+comment|// TODO we need to use the CXF 2.3.0 new Continuation API in CAMEL 3.0.0
+comment|// The below code should work for CXF 2.2.x and CXF 2.3.x at the same time
 comment|// use the asynchronous API to process the exchange
+name|boolean
+name|sync
+init|=
 name|getAsyncProcessor
 argument_list|()
 operator|.
@@ -559,7 +534,87 @@ block|}
 block|}
 block|}
 argument_list|)
+decl_stmt|;
+comment|// just need to avoid the continuation.resume is called
+comment|// before the continuation.suspend is called
+if|if
+condition|(
+name|continuation
+operator|.
+name|getObject
+argument_list|()
+operator|!=
+name|camelExchange
+operator|&&
+operator|!
+name|sync
+condition|)
+block|{
+comment|// Now we don't set up the timeout value
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Suspending continuation of exchangeId: "
+operator|+
+name|camelExchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
+comment|// The continuation could be called before the
+comment|// suspend is called
+name|continuation
+operator|.
+name|suspend
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// just set the response back, as the invoking
+comment|// thread is not changed
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processed the Exchange : "
+operator|+
+name|camelExchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|setResponseBack
+argument_list|(
+name|cxfExchange
+argument_list|,
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
