@@ -292,8 +292,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
 DECL|class|CxfProxyExampleTest
 specifier|public
 class|class
@@ -466,8 +464,6 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|// TODO: CxfConsumer should use OSGi http service (no embedded Jetty)
-comment|// TODO: Make this test work with OSGi
 annotation|@
 name|Configuration
 DECL|method|configure ()

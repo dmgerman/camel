@@ -679,7 +679,24 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|//the endpoint will clean up the connection
+if|if
+condition|(
+name|connection
+operator|!=
+literal|null
+operator|&&
+name|connection
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|connection
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|chatCreated (Chat chat, boolean createdLocally)
 specifier|public

@@ -780,7 +780,24 @@ annotation|@
 name|XmlElements
 argument_list|(
 block|{
-comment|//        @XmlElement(name = "beanPostProcessor", type = CamelBeanPostProcessor.class, required = false),
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"beanPostProcessor"
+argument_list|,
+name|type
+operator|=
+name|CamelBeanPostProcessor
+operator|.
+name|class
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+block|,
 annotation|@
 name|XmlElement
 argument_list|(
@@ -1316,6 +1333,7 @@ parameter_list|)
 block|{     }
 annotation|@
 name|Override
+comment|// TODO this method is need for looking up the customer configure component
 DECL|method|getBeanForType (Class<S> clazz)
 specifier|protected
 parameter_list|<

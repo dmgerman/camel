@@ -346,6 +346,11 @@ name|int
 name|port
 decl_stmt|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|ApplyLdifFiles
 argument_list|(
 literal|"org/apache/camel/component/ldap/LdapRouteTest.ldif"
