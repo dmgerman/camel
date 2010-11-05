@@ -1828,6 +1828,14 @@ range|:
 name|outputs
 control|)
 block|{
+comment|// resolve properties before we create the processor
+name|resolvePropertyPlaceholders
+argument_list|(
+name|routeContext
+argument_list|,
+name|output
+argument_list|)
+expr_stmt|;
 name|Processor
 name|processor
 init|=
@@ -1989,6 +1997,8 @@ comment|// resolve properties before we create the processor
 name|resolvePropertyPlaceholders
 argument_list|(
 name|routeContext
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 comment|// at first use custom factory
@@ -2060,14 +2070,17 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Inspects this processor definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
-DECL|method|resolvePropertyPlaceholders (RouteContext routeContext)
+comment|/**      * Inspects the given processor definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the processor definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+DECL|method|resolvePropertyPlaceholders (RouteContext routeContext, ProcessorDefinition definition)
 specifier|protected
 name|void
 name|resolvePropertyPlaceholders
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|ProcessorDefinition
+name|definition
 parameter_list|)
 throws|throws
 name|Exception
@@ -2086,7 +2099,7 @@ name|trace
 argument_list|(
 literal|"Resolving property placeholders for: "
 operator|+
-name|this
+name|definition
 argument_list|)
 expr_stmt|;
 block|}
@@ -2112,7 +2125,7 @@ name|IntrospectionSupport
 operator|.
 name|getProperties
 argument_list|(
-name|this
+name|definition
 argument_list|,
 name|properties
 argument_list|,
@@ -2149,7 +2162,7 @@ argument_list|()
 operator|+
 literal|" properties on: "
 operator|+
-name|this
+name|definition
 argument_list|)
 expr_stmt|;
 block|}
@@ -2227,7 +2240,7 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
-name|this
+name|definition
 argument_list|,
 name|name
 argument_list|,
