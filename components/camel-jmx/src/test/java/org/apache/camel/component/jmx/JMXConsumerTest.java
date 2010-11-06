@@ -81,11 +81,6 @@ comment|/**  * Tests that trigger notification events on our simple bean without
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: Fails with timestamp diff error"
-argument_list|)
 DECL|class|JMXConsumerTest
 specifier|public
 class|class
