@@ -25,62 +25,10 @@ DECL|interface|ISimpleMXBean
 specifier|public
 interface|interface
 name|ISimpleMXBean
+extends|extends
+name|SimpleBeanMBean
 block|{
-DECL|method|getStringValue ()
-name|String
-name|getStringValue
-parameter_list|()
-function_decl|;
-DECL|method|setStringValue (String aValue)
-name|void
-name|setStringValue
-parameter_list|(
-name|String
-name|aValue
-parameter_list|)
-function_decl|;
-DECL|method|touch ()
-name|void
-name|touch
-parameter_list|()
-function_decl|;
-DECL|method|userData (String aUserData)
-name|void
-name|userData
-parameter_list|(
-name|String
-name|aUserData
-parameter_list|)
-function_decl|;
-DECL|method|triggerConnectionNotification ()
-name|void
-name|triggerConnectionNotification
-parameter_list|()
-function_decl|;
-DECL|method|triggerMBeanServerNotification ()
-name|void
-name|triggerMBeanServerNotification
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-DECL|method|triggerRelationNotification ()
-name|void
-name|triggerRelationNotification
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-DECL|method|triggerTimerNotification ()
-name|void
-name|triggerTimerNotification
-parameter_list|()
-function_decl|;
-DECL|method|getMonitorNumber ()
-name|int
-name|getMonitorNumber
-parameter_list|()
-function_decl|;
+comment|// moved the implementation to SimpleBeanMBean to better support JDK 1.5
 block|}
 end_interface
 

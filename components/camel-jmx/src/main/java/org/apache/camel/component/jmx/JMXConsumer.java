@@ -198,34 +198,6 @@ name|DefaultConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Consumer will add itself as a NotificationListener on the object  * specified by the objectName param.  */
 end_comment
@@ -240,22 +212,6 @@ name|DefaultConsumer
 implements|implements
 name|NotificationListener
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JMXConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * connection to the mbean server (local or remote)      */
 DECL|field|mServerConnection
 specifier|private

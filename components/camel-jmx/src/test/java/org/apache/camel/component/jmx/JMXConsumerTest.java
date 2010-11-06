@@ -277,7 +277,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
+name|Ignore
 DECL|method|relationNotification ()
 specifier|public
 name|void
