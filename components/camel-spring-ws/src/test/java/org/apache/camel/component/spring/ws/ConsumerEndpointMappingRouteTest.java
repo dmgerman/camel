@@ -489,6 +489,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isJava15
+argument_list|()
+condition|)
+block|{
+comment|// does not work on JDK 1.5 due net.javacrumbs.spring-ws-test is not JDK 1.5 compatible
+throw|throw
+operator|new
+name|WebServiceIOException
+argument_list|(
+literal|"Forced by JDK 1.5"
+argument_list|)
+throw|;
+block|}
 name|StreamSource
 name|source
 init|=
@@ -632,6 +647,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isJava15
+argument_list|()
+condition|)
+block|{
+comment|// does not work on JDK 1.5 due net.javacrumbs.spring-ws-test is not JDK 1.5 compatible
+throw|throw
+operator|new
+name|WebServiceIOException
+argument_list|(
+literal|"Forced by JDK 1.5"
+argument_list|)
+throw|;
+block|}
 name|StreamSource
 name|source
 init|=
