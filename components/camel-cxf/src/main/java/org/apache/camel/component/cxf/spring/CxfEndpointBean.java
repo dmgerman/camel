@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
+name|handler
+operator|.
+name|Handler
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -159,7 +173,18 @@ block|{
 DECL|field|handlers
 specifier|private
 name|List
+argument_list|<
+name|Handler
+argument_list|>
 name|handlers
+decl_stmt|;
+DECL|field|schemaLocations
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|schemaLocations
 decl_stmt|;
 DECL|field|beanName
 specifier|private
@@ -196,6 +221,9 @@ block|}
 DECL|method|getHandlers ()
 specifier|public
 name|List
+argument_list|<
+name|Handler
+argument_list|>
 name|getHandlers
 parameter_list|()
 block|{
@@ -203,12 +231,15 @@ return|return
 name|handlers
 return|;
 block|}
-DECL|method|setHandlers (List handlers)
+DECL|method|setHandlers (List<Handler> handlers)
 specifier|public
 name|void
 name|setHandlers
 parameter_list|(
 name|List
+argument_list|<
+name|Handler
+argument_list|>
 name|handlers
 parameter_list|)
 block|{
@@ -265,6 +296,38 @@ parameter_list|()
 block|{
 return|return
 name|beanName
+return|;
+block|}
+DECL|method|setSchemaLocations (List<String> schemaLocations)
+specifier|public
+name|void
+name|setSchemaLocations
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|schemaLocations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaLocations
+operator|=
+name|schemaLocations
+expr_stmt|;
+block|}
+DECL|method|getSchemaLocations ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getSchemaLocations
+parameter_list|()
+block|{
+return|return
+name|schemaLocations
 return|;
 block|}
 block|}

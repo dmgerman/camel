@@ -211,6 +211,55 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testCxfEndpointBeanDefinitionParser ()
+specifier|public
+name|void
+name|testCxfEndpointBeanDefinitionParser
+parameter_list|()
+block|{
+name|CxfEndpointBean
+name|routerEndpoint
+init|=
+operator|(
+name|CxfEndpointBean
+operator|)
+name|ctx
+operator|.
+name|getBean
+argument_list|(
+literal|"routerEndpoint"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong endpoint address"
+argument_list|,
+literal|"http://localhost:9000/router"
+argument_list|,
+name|routerEndpoint
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong endpont service class"
+argument_list|,
+literal|"org.apache.camel.component.cxf.HelloService"
+argument_list|,
+name|routerEndpoint
+operator|.
+name|getServiceClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
