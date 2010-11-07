@@ -137,6 +137,13 @@ specifier|private
 name|String
 name|siteCommand
 decl_stmt|;
+DECL|field|stepwise
+specifier|private
+name|boolean
+name|stepwise
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -656,6 +663,33 @@ operator|.
 name|siteCommand
 operator|=
 name|siteCommand
+expr_stmt|;
+block|}
+DECL|method|isStepwise ()
+specifier|public
+name|boolean
+name|isStepwise
+parameter_list|()
+block|{
+return|return
+name|stepwise
+return|;
+block|}
+comment|/**      * Sets whether we should stepwise change directories while traversing file structures      * when downloading files, or as well when uploading a file to a directory.      *<p/>      * You can disable this if you for example are in a situation where you cannot change directory      * on the FTP server due security reasons.      *      * @param stepwise whether to use change directory or not      */
+DECL|method|setStepwise (boolean stepwise)
+specifier|public
+name|void
+name|setStepwise
+parameter_list|(
+name|boolean
+name|stepwise
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stepwise
+operator|=
+name|stepwise
 expr_stmt|;
 block|}
 block|}

@@ -2468,13 +2468,33 @@ argument_list|(
 name|os
 argument_list|)
 expr_stmt|;
-comment|// remember current directory
+name|String
+name|remoteName
+init|=
+name|name
+decl_stmt|;
 name|String
 name|currentDir
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStepwise
+argument_list|()
+condition|)
+block|{
+comment|// remember current directory
+name|currentDir
+operator|=
 name|getCurrentDirectory
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// change directory to path where the file is to be retrieved
 comment|// (must do this as some FTP servers cannot retrieve using absolute path)
 name|String
@@ -2500,16 +2520,17 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-name|String
-name|onlyName
-init|=
+comment|// remote name is now only the file name as we just changed directory
+name|remoteName
+operator|=
 name|FileUtil
 operator|.
 name|stripPath
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// use input stream which works with Apache SSHD used for testing
 name|InputStream
 name|is
@@ -2518,7 +2539,7 @@ name|channel
 operator|.
 name|get
 argument_list|(
-name|onlyName
+name|remoteName
 argument_list|)
 decl_stmt|;
 name|IOHelper
@@ -2531,11 +2552,23 @@ name|os
 argument_list|)
 expr_stmt|;
 comment|// change back to current directory
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStepwise
+argument_list|()
+condition|)
+block|{
 name|changeCurrentDirectory
 argument_list|(
 name|currentDir
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -2844,13 +2877,33 @@ argument_list|(
 name|local
 argument_list|)
 expr_stmt|;
-comment|// remember current directory
+name|String
+name|remoteName
+init|=
+name|name
+decl_stmt|;
 name|String
 name|currentDir
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStepwise
+argument_list|()
+condition|)
+block|{
+comment|// remember current directory
+name|currentDir
+operator|=
 name|getCurrentDirectory
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// change directory to path where the file is to be retrieved
 comment|// (must do this as some FTP servers cannot retrieve using absolute path)
 name|String
@@ -2876,31 +2929,44 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-name|String
-name|onlyName
-init|=
+comment|// remote name is now only the file name as we just changed directory
+name|remoteName
+operator|=
 name|FileUtil
 operator|.
 name|stripPath
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|channel
 operator|.
 name|get
 argument_list|(
-name|onlyName
+name|remoteName
 argument_list|,
 name|os
 argument_list|)
 expr_stmt|;
 comment|// change back to current directory
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStepwise
+argument_list|()
+condition|)
+block|{
 name|changeCurrentDirectory
 argument_list|(
 name|currentDir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

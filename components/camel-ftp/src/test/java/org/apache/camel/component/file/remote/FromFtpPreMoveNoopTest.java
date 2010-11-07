@@ -141,7 +141,7 @@ extends|extends
 name|FtpServerTestSupport
 block|{
 DECL|method|getFtpUrl ()
-specifier|private
+specifier|protected
 name|String
 name|getFtpUrl
 parameter_list|()
