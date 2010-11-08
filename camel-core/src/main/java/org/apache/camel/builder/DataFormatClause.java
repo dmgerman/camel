@@ -32,6 +32,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|SyslogDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1028,7 +1044,23 @@ name|sdf
 argument_list|)
 return|;
 block|}
-comment|/**      * Return WellFormed HTML (an XML Document) either       * {@link java.lang.String} or {@link org.w3c.dom.Node}      */
+comment|/**      * Uses the Syslog data format      */
+DECL|method|syslog ()
+specifier|public
+name|T
+name|syslog
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|SyslogDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Return WellFormed HTML (an XML Document) either      * {@link java.lang.String} or {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup (Class<?> dataObjectType)
 specifier|public
 name|T
