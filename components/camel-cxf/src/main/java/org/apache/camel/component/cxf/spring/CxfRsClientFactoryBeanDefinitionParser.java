@@ -674,6 +674,19 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+comment|// add this mothod for testing
+DECL|method|getSchemaLocations ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getSchemaLocations
+parameter_list|()
+block|{
+return|return
+name|schemaLocations
+return|;
+block|}
 block|}
 block|}
 end_class
