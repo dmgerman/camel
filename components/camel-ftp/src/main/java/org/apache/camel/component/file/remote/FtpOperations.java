@@ -3028,6 +3028,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// if it starts with the root path then a little special handling for that
 if|if

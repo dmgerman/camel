@@ -74,10 +74,10 @@ name|Ignore
 argument_list|(
 literal|"Disabled due CI servers fails on full build running with these tests"
 argument_list|)
-DECL|class|SftpSimpleProduceTest
+DECL|class|SftpSimpleProduceNotStepwiseTest
 specifier|public
 class|class
-name|SftpSimpleProduceTest
+name|SftpSimpleProduceNotStepwiseTest
 extends|extends
 name|SftpServerTestSupport
 block|{
@@ -125,7 +125,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&password=admin"
+literal|"?username=admin&password=admin&stepwise=false"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -214,7 +214,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"/mysub?username=admin&password=admin"
+literal|"/mysub?username=admin&password=admin&stepwise=false"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -303,7 +303,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"/mysub/myother?username=admin&password=admin"
+literal|"/mysub/myother?username=admin&password=admin&stepwise=false"
 argument_list|,
 literal|"Farewell World"
 argument_list|,
