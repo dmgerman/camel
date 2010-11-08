@@ -306,8 +306,6 @@ DECL|field|threadNamePattern
 specifier|private
 name|String
 name|threadNamePattern
-init|=
-literal|"Camel Thread ${counter} - ${name}"
 decl_stmt|;
 DECL|field|defaultThreadPoolProfileId
 specifier|private
@@ -797,11 +795,27 @@ name|String
 name|threadNamePattern
 parameter_list|)
 block|{
+comment|// must set camel id here in the pattern and let the other placeholders be resolved by ExecutorServiceHelper
+name|String
+name|name
+init|=
+name|threadNamePattern
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\\$\\{camelId\\}"
+argument_list|,
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
 name|threadNamePattern
 operator|=
-name|threadNamePattern
+name|name
 expr_stmt|;
 block|}
 DECL|method|lookup (Object source, String name, String executorServiceRef)
@@ -2080,7 +2094,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+if|if
+condition|(
+name|threadNamePattern
+operator|==
+literal|null
+condition|)
+block|{
+comment|// set default name pattern which includes the camel context name
+name|threadNamePattern
+operator|=
+literal|"Camel ("
+operator|+
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|") thread #${counter} - ${name}"
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

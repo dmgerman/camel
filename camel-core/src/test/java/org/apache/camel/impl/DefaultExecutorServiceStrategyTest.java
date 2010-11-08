@@ -88,10 +88,10 @@ name|DefaultExecutorServiceStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testGetThreadName ()
+DECL|method|testGetThreadNameDefaultPattern ()
 specifier|public
 name|void
-name|testGetThreadName
+name|testGetThreadNameDefaultPattern
 parameter_list|()
 throws|throws
 name|Exception
@@ -135,7 +135,14 @@ name|foo
 operator|.
 name|startsWith
 argument_list|(
-literal|"Camel Thread "
+literal|"Camel ("
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|") thread "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -155,7 +162,14 @@ name|bar
 operator|.
 name|startsWith
 argument_list|(
-literal|"Camel Thread "
+literal|"Camel ("
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|") thread "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -248,6 +262,112 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"#"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|bar
+operator|.
+name|endsWith
+argument_list|(
+literal|" - bar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGetThreadNameCustomPatternCamelId ()
+specifier|public
+name|void
+name|testGetThreadNameCustomPatternCamelId
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|setThreadNamePattern
+argument_list|(
+literal|"#${camelId} - #${counter} - ${name}"
+argument_list|)
+expr_stmt|;
+name|String
+name|foo
+init|=
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|getThreadName
+argument_list|(
+literal|"foo"
+argument_list|)
+decl_stmt|;
+name|String
+name|bar
+init|=
+name|context
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|getThreadName
+argument_list|(
+literal|"bar"
+argument_list|)
+decl_stmt|;
+name|assertNotSame
+argument_list|(
+name|foo
+argument_list|,
+name|bar
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|foo
+operator|.
+name|startsWith
+argument_list|(
+literal|"#"
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" - #"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|foo
+operator|.
+name|endsWith
+argument_list|(
+literal|" - foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|bar
+operator|.
+name|startsWith
+argument_list|(
+literal|"#"
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" - #"
 argument_list|)
 argument_list|)
 expr_stmt|;

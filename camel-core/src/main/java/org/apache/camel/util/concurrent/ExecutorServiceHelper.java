@@ -246,7 +246,6 @@ block|{     }
 DECL|method|nextThreadCounter ()
 specifier|private
 specifier|static
-specifier|synchronized
 name|int
 name|nextThreadCounter
 parameter_list|()
@@ -662,7 +661,9 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new cached thread pool      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      * @deprecated using cached thread pool is discouraged as they have no upper bound and can overload the JVM      */
+annotation|@
+name|Deprecated
 DECL|method|newCachedThreadPool (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
