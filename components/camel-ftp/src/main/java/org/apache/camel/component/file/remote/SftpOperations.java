@@ -1934,6 +1934,25 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// not stepwise should change directory in one operation
+if|if
+condition|(
+operator|!
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStepwise
+argument_list|()
+condition|)
+block|{
+name|doChangeDirectory
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if it starts with the root path then a little special handling for that
 if|if
 condition|(
