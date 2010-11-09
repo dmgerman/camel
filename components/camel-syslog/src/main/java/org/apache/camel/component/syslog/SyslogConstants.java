@@ -21,6 +21,7 @@ end_package
 begin_class
 DECL|class|SyslogConstants
 specifier|public
+specifier|final
 class|class
 name|SyslogConstants
 block|{

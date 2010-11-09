@@ -32,22 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|SyslogDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -320,6 +304,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|SyslogDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|TidyMarkupDataFormat
 import|;
 end_import
@@ -454,7 +454,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * Uses the Bindy data format      *      * @param type the type of bindy data format to use      * @param packages packages to scan for Bindy annotated POJO classes      */
+comment|/**      * Uses the Bindy data format      *      * @param type     the type of bindy data format to use      * @param packages packages to scan for Bindy annotated POJO classes      */
 DECL|method|bindy (BindyType type, String... packages)
 specifier|public
 name|T
@@ -559,7 +559,7 @@ name|castor
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Castor data format      *      * @param mappingFile name of mapping file to locate in classpath      * @param validation whether validation is enabled or not      */
+comment|/**      * Uses the Castor data format      *      * @param mappingFile name of mapping file to locate in classpath      * @param validation  whether validation is enabled or not      */
 DECL|method|castor (String mappingFile, boolean validation)
 specifier|public
 name|T
@@ -773,7 +773,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
+comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
 DECL|method|json (JsonLibrary type, Class<?> unmarshalType)
 specifier|public
 name|T
@@ -1084,7 +1084,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Return TidyMarkup in the default format       *  as {@link org.w3c.dom.Node}      */
+comment|/**      * Return TidyMarkup in the default format      * as {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup ()
 specifier|public
 name|T

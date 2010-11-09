@@ -95,7 +95,7 @@ name|LOCAL6
 block|,
 DECL|enumConstant|LOCAL7
 name|LOCAL7
-block|,;  }
+block|, }
 end_enum
 
 end_unit

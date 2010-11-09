@@ -47,7 +47,7 @@ name|INFO
 block|,
 DECL|enumConstant|DEBUG
 name|DEBUG
-block|,; }
+block|, }
 end_enum
 
 end_unit

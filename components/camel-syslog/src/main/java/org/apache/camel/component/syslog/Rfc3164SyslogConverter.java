@@ -141,6 +141,7 @@ end_import
 begin_class
 DECL|class|Rfc3164SyslogConverter
 specifier|public
+specifier|final
 class|class
 name|Rfc3164SyslogConverter
 block|{
@@ -203,9 +204,8 @@ name|nov
 block|,
 name|dec
 block|}
-DECL|field|MONTH_VALUE_MAP
+DECL|field|monthValueMap
 specifier|private
-specifier|final
 specifier|static
 name|Map
 argument_list|<
@@ -213,7 +213,7 @@ name|String
 argument_list|,
 name|MONTHS
 argument_list|>
-name|MONTH_VALUE_MAP
+name|monthValueMap
 init|=
 operator|new
 name|HashMap
@@ -336,6 +336,13 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+DECL|method|Rfc3164SyslogConverter ()
+specifier|private
+name|Rfc3164SyslogConverter
+parameter_list|()
+block|{
+comment|//Utility class
+block|}
 annotation|@
 name|Converter
 DECL|method|toString (SyslogMessage message)
@@ -886,7 +893,6 @@ return|;
 block|}
 DECL|method|parseMessage (byte[] bytes)
 specifier|public
-specifier|final
 specifier|static
 name|SyslogMessage
 name|parseMessage
@@ -1445,11 +1451,10 @@ name|Calendar
 operator|.
 name|MONTH
 argument_list|,
-name|MONTH_VALUE_MAP
+name|monthValueMap
 operator|.
 name|get
 argument_list|(
-operator|(
 name|String
 operator|.
 name|valueOf
@@ -1459,7 +1464,6 @@ argument_list|)
 operator|.
 name|toLowerCase
 argument_list|()
-operator|)
 argument_list|)
 operator|.
 name|ordinal
