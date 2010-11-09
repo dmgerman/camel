@@ -168,16 +168,31 @@ name|Exception
 block|{
 name|assertNull
 argument_list|(
-literal|"We should not get the this header"
+literal|"We should not get this header"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getHeader
 argument_list|(
 literal|"CamelCxfTest"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"We should not get this header"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"Transfer-Encoding"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -314,6 +329,18 @@ argument_list|(
 literal|"CamelCxfTest"
 argument_list|,
 literal|"test"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"Transfer-Encoding"
+argument_list|,
+literal|"chunked"
 argument_list|)
 expr_stmt|;
 block|}

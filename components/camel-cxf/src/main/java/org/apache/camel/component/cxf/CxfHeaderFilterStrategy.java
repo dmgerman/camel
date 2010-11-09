@@ -254,6 +254,7 @@ name|void
 name|initialize
 parameter_list|()
 block|{
+comment|//filter the operationName and operationName
 name|getOutFilter
 argument_list|()
 operator|.
@@ -262,6 +263,9 @@ argument_list|(
 name|CxfConstants
 operator|.
 name|OPERATION_NAME
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -272,6 +276,9 @@ argument_list|(
 name|CxfConstants
 operator|.
 name|OPERATION_NAMESPACE
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Request and response context Maps will be passed to CXF Client APIs
@@ -283,6 +290,9 @@ argument_list|(
 name|Client
 operator|.
 name|REQUEST_CONTEXT
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -293,6 +303,9 @@ argument_list|(
 name|Client
 operator|.
 name|RESPONSE_CONTEXT
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// protocol headers are stored as a Map.  DefaultCxfBinding
@@ -306,6 +319,9 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getInFilter
@@ -316,6 +332,83 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Add the filter for the Generic Message header
+comment|// http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"cache-control"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"connection"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"date"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"pragma"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"trailer"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"transfer-encoding"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"upgrade"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"via"
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"warning"
 argument_list|)
 expr_stmt|;
 comment|// Since CXF can take the content-type from the protocol header
@@ -325,15 +418,10 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"content-type"
-argument_list|)
-expr_stmt|;
-name|getOutFilter
-argument_list|()
-operator|.
-name|add
-argument_list|(
 literal|"Content-Type"
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Filter out Content-Length since it can fool Jetty (HttpGenerator) to
@@ -346,6 +434,9 @@ operator|.
 name|add
 argument_list|(
 literal|"Content-Length"
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Filter Content-Length as it will cause some trouble when the message
@@ -355,7 +446,15 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"Content-Length"
+literal|"content-length"
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setLowerCase
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// initialize message header filter map with default SOAP filter
