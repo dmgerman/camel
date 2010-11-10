@@ -219,15 +219,12 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// in OSGi append the bundle id to the management name so it will be unique in the JVM
+comment|// in OSGi prefix the bundle id to the management name so it will be unique in the JVM
+comment|// and also nicely sorted based on bundle id
 name|super
 operator|.
 name|setManagementName
 argument_list|(
-name|name
-operator|+
-literal|"-"
-operator|+
 name|bundleContext
 operator|.
 name|getBundle
@@ -235,6 +232,10 @@ argument_list|()
 operator|.
 name|getBundleId
 argument_list|()
+operator|+
+literal|"-"
+operator|+
+name|name
 argument_list|)
 expr_stmt|;
 block|}

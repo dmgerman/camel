@@ -60,11 +60,10 @@ name|BundleContext
 name|context
 parameter_list|)
 block|{
-comment|// use bundle id in auto assigned names to make it unique
+comment|// use bundle id in auto assigned names to make it unique and have the bundle id as prefix
+comment|// which makes the ordering of the camel apps in JMX nicely sorted
 name|super
 argument_list|(
-literal|"camel-"
-operator|+
 name|context
 operator|.
 name|getBundle
@@ -73,7 +72,7 @@ operator|.
 name|getBundleId
 argument_list|()
 operator|+
-literal|"-"
+literal|"-camel"
 argument_list|)
 expr_stmt|;
 block|}
