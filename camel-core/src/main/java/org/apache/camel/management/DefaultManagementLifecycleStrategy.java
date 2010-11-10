@@ -70,6 +70,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -858,6 +872,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelContextNameStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EventNotifier
 import|;
 end_import
@@ -1011,6 +1039,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|CONTEXT_COUNTER
+specifier|private
+specifier|static
+specifier|final
+name|AtomicInteger
+name|CONTEXT_COUNTER
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 DECL|field|wrappedProcessors
 specifier|private
 specifier|final
@@ -1127,6 +1168,26 @@ name|getManagementStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|managementName
+init|=
+name|context
+operator|.
+name|getManagementName
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|context
+operator|.
+name|getManagementName
+argument_list|()
+else|:
+name|context
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|boolean
@@ -1180,12 +1241,81 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// okay there exists already a CamelContext with this name, we can try to fix it
+comment|// okay there exists already a CamelContext with this name, we can try to fix it by finding a free name
 name|boolean
 name|fixed
 init|=
 literal|false
 decl_stmt|;
+comment|// if we use the default name strategy we can find a free name to use
+name|String
+name|name
+init|=
+name|findFreeName
+argument_list|(
+name|mc
+argument_list|,
+name|context
+operator|.
+name|getNameStrategy
+argument_list|()
+argument_list|,
+name|managementName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use this as the fixed name
+name|fixed
+operator|=
+literal|true
+expr_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
+name|managementName
+operator|=
+name|name
+expr_stmt|;
+block|}
+comment|// we could not fix it so veto starting camel
+if|if
+condition|(
+operator|!
+name|fixed
+condition|)
+block|{
+throw|throw
+operator|new
+name|VetoCamelContextStartException
+argument_list|(
+literal|"CamelContext ("
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|") with ObjectName["
+operator|+
+name|on
+operator|+
+literal|"] is already registered."
+operator|+
+literal|" Make sure to use unique names on CamelContext when using multiple CamelContexts in the same MBeanServer."
+argument_list|,
+name|context
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|context
@@ -1194,22 +1324,6 @@ name|getNameStrategy
 argument_list|()
 operator|instanceof
 name|DefaultCamelContextNameStrategy
-condition|)
-block|{
-comment|// if we use the default name strategy we can find a free name to use
-name|String
-name|name
-init|=
-name|findFreeName
-argument_list|(
-name|mc
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|name
-operator|!=
-literal|null
 condition|)
 block|{
 comment|// use this as the fixed name
@@ -1243,45 +1357,28 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fixed
-operator|=
-literal|true
-expr_stmt|;
-name|done
-operator|=
-literal|true
-expr_stmt|;
 block|}
-block|}
-comment|// we could not fix it so veto starting camel
-if|if
-condition|(
-operator|!
-name|fixed
-condition|)
+else|else
 block|{
-throw|throw
-operator|new
-name|VetoCamelContextStartException
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|"CamelContext ("
+literal|"This CamelContext("
 operator|+
 name|context
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|") with ObjectName["
+literal|") will be registered using the name: "
 operator|+
-name|on
+name|managementName
 operator|+
-literal|"] is already registered."
-operator|+
-literal|" Make sure to use unique names on CamelContext when using multiple CamelContexts in the same MBeanServer."
-argument_list|,
-name|context
+literal|" due to clash with an existing name already registered in MBeanServer."
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1314,6 +1411,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// set the name we are going to use
+name|context
+operator|.
+name|setManagementName
+argument_list|(
+name|managementName
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|getManagementStrategy
@@ -1348,13 +1453,19 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-DECL|method|findFreeName (ManagedCamelContext mc)
+DECL|method|findFreeName (ManagedCamelContext mc, CamelContextNameStrategy strategy, String managementName)
 specifier|private
 name|String
 name|findFreeName
 parameter_list|(
 name|ManagedCamelContext
 name|mc
+parameter_list|,
+name|CamelContextNameStrategy
+name|strategy
+parameter_list|,
+name|String
+name|managementName
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException
@@ -1369,20 +1480,53 @@ name|name
 init|=
 literal|null
 decl_stmt|;
+comment|// start from 2 as the existing name is considered the 1st
+name|int
+name|counter
+init|=
+literal|2
+decl_stmt|;
 while|while
 condition|(
 operator|!
 name|done
 condition|)
 block|{
-comment|// try next name
+comment|// compute the next name
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|DefaultCamelContextNameStrategy
+condition|)
+block|{
+comment|// prefer to use the default naming strategy to compute the next free name
 name|name
 operator|=
+operator|(
+operator|(
 name|DefaultCamelContextNameStrategy
+operator|)
+name|strategy
+operator|)
 operator|.
 name|getNextName
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if explict name then use a counter prefix
+name|name
+operator|=
+name|managementName
+operator|+
+literal|"-"
+operator|+
+name|counter
+operator|++
+expr_stmt|;
+block|}
 name|ObjectName
 name|on
 init|=

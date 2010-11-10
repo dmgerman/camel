@@ -252,7 +252,7 @@ init|=
 name|newCamelContext
 argument_list|()
 decl_stmt|;
-comment|// we don't the the ImplicitId as it will override the OsgiCamelContextNameStratgy
+comment|// we don't the the ImplicitId as it will override the OsgiCamelContextNameStrategy
 if|if
 condition|(
 operator|!

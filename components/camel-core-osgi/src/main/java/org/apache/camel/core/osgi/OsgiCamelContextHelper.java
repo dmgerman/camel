@@ -170,11 +170,20 @@ name|BundleContext
 name|bundleContext
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|bundleContext
+argument_list|,
+literal|"BundleContext"
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using the OsgiCamelContextNameStrategy"
+literal|"Using OsgiCamelContextNameStrategy"
 argument_list|)
 expr_stmt|;
 name|camelContext
@@ -192,7 +201,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using the OsgiClassResolver"
+literal|"Using OsgiClassResolver"
 argument_list|)
 expr_stmt|;
 name|camelContext
@@ -326,7 +335,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting the OSGi ServiceRegistry"
+literal|"Setting up OSGi ServiceRegistry"
 argument_list|)
 expr_stmt|;
 name|OsgiServiceRegistry

@@ -1354,6 +1354,11 @@ operator|new
 name|DefaultCamelContextNameStrategy
 argument_list|()
 decl_stmt|;
+DECL|field|managementName
+specifier|private
+name|String
+name|managementName
+decl_stmt|;
 DECL|field|applicationContextClassLoader
 specifier|private
 name|ClassLoader
@@ -2082,6 +2087,32 @@ operator|.
 name|nameStrategy
 operator|=
 name|nameStrategy
+expr_stmt|;
+block|}
+DECL|method|getManagementName ()
+specifier|public
+name|String
+name|getManagementName
+parameter_list|()
+block|{
+return|return
+name|managementName
+return|;
+block|}
+DECL|method|setManagementName (String managementName)
+specifier|public
+name|void
+name|setManagementName
+parameter_list|(
+name|String
+name|managementName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|managementName
+operator|=
+name|managementName
 expr_stmt|;
 block|}
 DECL|method|hasComponent (String componentName)

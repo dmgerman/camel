@@ -455,6 +455,21 @@ name|CamelContextNameStrategy
 name|nameStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the name this {@link CamelContext} was registered in JMX.      *<p/>      * The reason that a {@link CamelContext} can have a different name in JMX is the fact to remedy for name clash      * in JMX when having multiple {@link CamelContext}s in the same JVM. Camel will automatic reassign and use      * a free name to avoid failing to start.      *      * @return the management name      */
+DECL|method|getManagementName ()
+name|String
+name|getManagementName
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the name this {@link CamelContext} was registered in JMX.      *      * @param name  the actual name used when registering this {@link CamelContext} in JMX      */
+DECL|method|setManagementName (String name)
+name|void
+name|setManagementName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the version of the this context.      *      * @return the version      */
 DECL|method|getVersion ()
 name|String
