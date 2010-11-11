@@ -830,8 +830,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|login
-operator|&&
 operator|!
 name|connection
 operator|.
@@ -921,6 +919,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|login
+condition|)
+block|{
+if|if
+condition|(
 name|resource
 operator|!=
 literal|null
@@ -949,6 +952,7 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
