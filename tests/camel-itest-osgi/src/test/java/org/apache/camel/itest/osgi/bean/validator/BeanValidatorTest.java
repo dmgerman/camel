@@ -525,7 +525,11 @@ argument_list|,
 literal|"camel-bean-validator"
 argument_list|)
 argument_list|,
-comment|//workingDirectory("target/paxrunner/"),
+name|workingDirectory
+argument_list|(
+literal|"target/paxrunner/"
+argument_list|)
+argument_list|,
 comment|//provision(newBundle()
 comment|//        .add("META-INF/validation.xml", BeanValidatorTest.class.getClassLoader().getResource("META-INF/validation.xml"))
 comment|//        .add("constraints-car.xml", BeanValidatorTest.class.getClassLoader().getResource("constraints-car.xml"))
