@@ -171,9 +171,19 @@ end_import
 begin_class
 DECL|class|FtpServerBean
 specifier|public
+specifier|final
 class|class
 name|FtpServerBean
 block|{
+DECL|field|FTP_ROOT_DIR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FTP_ROOT_DIR
+init|=
+literal|"./res/home/"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -191,17 +201,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|FTP_ROOT_DIR
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FTP_ROOT_DIR
-init|=
-literal|"./res/home/"
-decl_stmt|;
 DECL|field|ftpServer
-specifier|protected
+specifier|private
 specifier|static
 name|FtpServer
 name|ftpServer
@@ -212,6 +213,13 @@ specifier|static
 name|int
 name|port
 decl_stmt|;
+DECL|method|FtpServerBean ()
+specifier|private
+name|FtpServerBean
+parameter_list|()
+block|{
+comment|// utility class
+block|}
 DECL|method|getPort ()
 specifier|public
 specifier|static
