@@ -1547,6 +1547,8 @@ parameter_list|()
 throws|throws
 name|SchedulerException
 block|{
+try|try
+block|{
 return|return
 name|getScheduler
 argument_list|()
@@ -1557,6 +1559,24 @@ operator|.
 name|isJobStoreClustered
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodError
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Job clustering is only supported since Quartz 1.7, isClustered returning false"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 block|}
 comment|/**      * To force starting the quartz scheduler      *      * @throws SchedulerException can be thrown if error starting      */
 DECL|method|startScheduler ()
@@ -1632,6 +1652,8 @@ operator|+
 literal|" seconds."
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|getScheduler
 argument_list|()
 operator|.
@@ -1641,6 +1663,35 @@ name|getStartDelayedSeconds
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodError
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Your version of Quartz is too old to support delayed startup! "
+operator|+
+literal|"Starting Quartz scheduler immediately : "
+operator|+
+name|getScheduler
+argument_list|()
+operator|.
+name|getSchedulerName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getScheduler
+argument_list|()
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
