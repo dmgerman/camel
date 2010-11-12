@@ -1373,6 +1373,10 @@ decl_stmt|;
 comment|// Check if the property name has been defined for Entity annotation
 if|if
 condition|(
+name|entity
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|entity
 operator|.
