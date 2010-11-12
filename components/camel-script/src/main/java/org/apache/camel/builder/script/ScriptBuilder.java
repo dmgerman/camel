@@ -1379,11 +1379,16 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// BeanShell implements Compilable but throws an exception if you call compile
 if|if
 condition|(
 name|engine
 operator|instanceof
 name|Compilable
+operator|&&
+operator|!
+name|isBeanShell
+argument_list|()
 condition|)
 block|{
 name|compileScript
@@ -1453,7 +1458,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Can't load the scriptEngine for "
+literal|"Cannot load the scriptEngine for "
 operator|+
 name|scriptEngineName
 operator|+
@@ -1461,7 +1466,7 @@ literal|", the exception is "
 operator|+
 name|ex
 operator|+
-literal|", please check the scriptEngine needs jars."
+literal|", please ensure correct JARs is provided on classpath."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2027,6 +2032,28 @@ name|scriptEngineName
 argument_list|)
 operator|||
 literal|"jython"
+operator|.
+name|equals
+argument_list|(
+name|scriptEngineName
+argument_list|)
+return|;
+block|}
+DECL|method|isBeanShell ()
+specifier|protected
+name|boolean
+name|isBeanShell
+parameter_list|()
+block|{
+return|return
+literal|"beanshell"
+operator|.
+name|equals
+argument_list|(
+name|scriptEngineName
+argument_list|)
+operator|||
+literal|"bsh"
 operator|.
 name|equals
 argument_list|(

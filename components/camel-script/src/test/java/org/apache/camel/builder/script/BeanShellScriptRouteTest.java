@@ -296,7 +296,7 @@ name|script
 argument_list|(
 literal|"beanshell"
 argument_list|,
-literal|"request.headers['foo'] = 'bar'"
+literal|"request.getHeaders().get(\"foo\").equals(\"bar\")"
 argument_list|)
 argument_list|)
 operator|.
