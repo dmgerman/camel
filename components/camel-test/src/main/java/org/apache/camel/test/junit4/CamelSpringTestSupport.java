@@ -238,7 +238,7 @@ name|context
 operator|.
 name|support
 operator|.
-name|AbstractXmlApplicationContext
+name|AbstractApplicationContext
 import|;
 end_import
 
@@ -271,13 +271,13 @@ name|CamelTestSupport
 block|{
 DECL|field|applicationContext
 specifier|protected
-name|AbstractXmlApplicationContext
+name|AbstractApplicationContext
 name|applicationContext
 decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
 specifier|abstract
-name|AbstractXmlApplicationContext
+name|AbstractApplicationContext
 name|createApplicationContext
 parameter_list|()
 function_decl|;
@@ -397,7 +397,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a parent context that initializes a      * {@link org.apache.camel.spi.PackageScanClassResolver} to exclude a set of given classes from      * being resolved. Typically this is used at test time to exclude certain routes,      * which might otherwise be just noisy, from being discovered and initialized.      *<p/>      * To use this filtering mechanism it is necessary to provide the      * {@link ApplicationContext} returned from here as the parent context to      * your test context e.g.      *      *<pre>      * protected AbstractXmlApplicationContext createApplicationContext() {      *     return new ClassPathXmlApplicationContext(new String[] {&quot;test-context.xml&quot;}, getRouteExcludingApplicationContext());      * }      *</pre>      *      * This will, in turn, call the template methods<code>excludedRoutes</code>      * and<code>excludedRoute</code> to determine the classes to be excluded from scanning.      *      * @see org.apache.camel.spring.config.scan.SpringComponentScanTest for an example.      * @return ApplicationContext a parent {@link ApplicationContext} configured      *         to exclude certain classes from package scanning      */
+comment|/**      * Create a parent context that initializes a      * {@link org.apache.camel.spi.PackageScanClassResolver} to exclude a set of given classes from      * being resolved. Typically this is used at test time to exclude certain routes,      * which might otherwise be just noisy, from being discovered and initialized.      *<p/>      * To use this filtering mechanism it is necessary to provide the      * {@link ApplicationContext} returned from here as the parent context to      * your test context e.g.      *      *<pre>      * protected AbstractXmlApplicationContext createApplicationContext() {      *     return new ClassPathXmlApplicationContext(new String[] {&quot;test-context.xml&quot;}, getRouteExcludingApplicationContext());      * }      *</pre>      *      * This will, in turn, call the template methods<code>excludedRoutes</code>      * and<code>excludedRoute</code> to determine the classes to be excluded from scanning.      *      * @return ApplicationContext a parent {@link ApplicationContext} configured      *         to exclude certain classes from package scanning      */
 DECL|method|getRouteExcludingApplicationContext ()
 specifier|protected
 name|ApplicationContext
