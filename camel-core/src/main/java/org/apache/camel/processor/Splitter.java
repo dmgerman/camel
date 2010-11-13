@@ -560,13 +560,9 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|exchange
-operator|.
-name|setProperty
+name|setAggregationStrategyOnExchange
 argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_STRATEGY
+name|exchange
 argument_list|,
 name|original
 argument_list|)
