@@ -2374,13 +2374,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The component is not of type: "
-operator|+
-name|componentType
-operator|+
-literal|" but is: "
+literal|"Found component of type: "
 operator|+
 name|component
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" instead of expected: "
+operator|+
+name|componentType
 argument_list|)
 throw|;
 block|}
