@@ -171,12 +171,9 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopServices
 argument_list|(
 name|consumers
-operator|.
-name|values
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|consumers
