@@ -854,7 +854,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// use a single threaded if we are not running in parallel
+comment|// use a synchronous thread pool if we are not running in parallel (will always use caller thread)
 name|executorService
 operator|=
 name|routeContext
@@ -865,7 +865,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newSingleThreadExecutor
+name|newSynchronousThreadPool
 argument_list|(
 name|this
 argument_list|,

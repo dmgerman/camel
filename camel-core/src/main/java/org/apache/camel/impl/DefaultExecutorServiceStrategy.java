@@ -1644,11 +1644,7 @@ init|=
 name|ExecutorServiceHelper
 operator|.
 name|newSynchronousThreadPool
-argument_list|(
-name|threadNamePattern
-argument_list|,
-name|name
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|onThreadPoolCreated
 argument_list|(

@@ -731,51 +731,18 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new synchronous thread pool which executes the task in the caller thread (no task queue)      *<p/>      * Uses a {@link java.util.concurrent.SynchronousQueue} queue as task queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @return the created pool      */
-DECL|method|newSynchronousThreadPool (final String pattern, final String name)
+comment|/**      * Creates a new synchronous executor service which always executes the task in the call thread      * (its just a thread pool facade)      *      * @return the created pool      * @see org.apache.camel.util.concurrent.SynchronousExecutorService      */
+DECL|method|newSynchronousThreadPool ()
 specifier|public
 specifier|static
 name|ExecutorService
 name|newSynchronousThreadPool
-parameter_list|(
-specifier|final
-name|String
-name|pattern
-parameter_list|,
-specifier|final
-name|String
-name|name
-parameter_list|)
+parameter_list|()
 block|{
 return|return
-name|ExecutorServiceHelper
-operator|.
-name|newThreadPool
-argument_list|(
-name|pattern
-argument_list|,
-name|name
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|60
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|,
-literal|0
-argument_list|,
 operator|new
-name|ThreadPoolExecutor
-operator|.
-name|CallerRunsPolicy
+name|SynchronousExecutorService
 argument_list|()
-argument_list|,
-literal|true
-argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @return the created pool      */

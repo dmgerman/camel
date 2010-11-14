@@ -307,11 +307,7 @@ init|=
 name|ExecutorServiceHelper
 operator|.
 name|newSynchronousThreadPool
-argument_list|(
-literal|"MyPool ${name}"
-argument_list|,
-literal|"foo"
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
