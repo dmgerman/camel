@@ -1626,6 +1626,65 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|newSynchronousThreadPool (Object source, String name)
+specifier|public
+name|ExecutorService
+name|newSynchronousThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+name|ExecutorService
+name|answer
+init|=
+name|ExecutorServiceHelper
+operator|.
+name|newSynchronousThreadPool
+argument_list|(
+name|threadNamePattern
+argument_list|,
+name|name
+argument_list|)
+decl_stmt|;
+name|onThreadPoolCreated
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new synchronous thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
 DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize)
 specifier|public
 name|ExecutorService
@@ -1692,6 +1751,92 @@ operator|+
 literal|", maxPoolSize="
 operator|+
 name|maxPoolSize
+operator|+
+literal|"] -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize, int maxQueueSize)
+specifier|public
+name|ExecutorService
+name|newThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|int
+name|corePoolSize
+parameter_list|,
+name|int
+name|maxPoolSize
+parameter_list|,
+name|int
+name|maxQueueSize
+parameter_list|)
+block|{
+name|ExecutorService
+name|answer
+init|=
+name|ExecutorServiceHelper
+operator|.
+name|newThreadPool
+argument_list|(
+name|threadNamePattern
+argument_list|,
+name|name
+argument_list|,
+name|corePoolSize
+argument_list|,
+name|maxPoolSize
+argument_list|,
+name|maxQueueSize
+argument_list|)
+decl_stmt|;
+name|onThreadPoolCreated
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new thread pool for source: "
+operator|+
+name|source
+operator|+
+literal|" with name: "
+operator|+
+name|name
+operator|+
+literal|". [poolSize="
+operator|+
+name|corePoolSize
+operator|+
+literal|", maxPoolSize="
+operator|+
+name|maxPoolSize
+operator|+
+literal|", maxQueueSize="
+operator|+
+name|maxQueueSize
 operator|+
 literal|"] -> "
 operator|+

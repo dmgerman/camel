@@ -519,7 +519,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new fixed thread pool      *      * @param poolSize the fixed pool size      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
+comment|/**      * Creates a new fixed thread pool.      *<p/>      * Beware that the task queue is unbounded      *      * @param poolSize the fixed pool size      * @param pattern  pattern of the thread name      * @param name     ${name} in the pattern name      * @param daemon   whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newFixedThreadPool (final int poolSize, final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -731,6 +731,53 @@ block|}
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new synchronous thread pool which executes the task in the caller thread (no task queue)      *<p/>      * Uses a {@link java.util.concurrent.SynchronousQueue} queue as task queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @return the created pool      */
+DECL|method|newSynchronousThreadPool (final String pattern, final String name)
+specifier|public
+specifier|static
+name|ExecutorService
+name|newSynchronousThreadPool
+parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|ExecutorServiceHelper
+operator|.
+name|newThreadPool
+argument_list|(
+name|pattern
+argument_list|,
+name|name
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|60
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|,
+literal|0
+argument_list|,
+operator|new
+name|ThreadPoolExecutor
+operator|.
+name|CallerRunsPolicy
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @return the created pool      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize)
 specifier|public
@@ -774,6 +821,62 @@ name|SECONDS
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+operator|new
+name|ThreadPoolExecutor
+operator|.
+name|CallerRunsPolicy
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with bounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @param maxQueueSize the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @return the created pool      */
+DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, int maxQueueSize)
+specifier|public
+specifier|static
+name|ExecutorService
+name|newThreadPool
+parameter_list|(
+specifier|final
+name|String
+name|pattern
+parameter_list|,
+specifier|final
+name|String
+name|name
+parameter_list|,
+name|int
+name|corePoolSize
+parameter_list|,
+name|int
+name|maxPoolSize
+parameter_list|,
+name|int
+name|maxQueueSize
+parameter_list|)
+block|{
+return|return
+name|ExecutorServiceHelper
+operator|.
+name|newThreadPool
+argument_list|(
+name|pattern
+argument_list|,
+name|name
+argument_list|,
+name|corePoolSize
+argument_list|,
+name|maxPoolSize
+argument_list|,
+literal|60
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|,
+name|maxQueueSize
 argument_list|,
 operator|new
 name|ThreadPoolExecutor
@@ -862,7 +965,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// use a synchronous so we can act like the cached thread pool
+comment|// use a synchronous queue
 name|queue
 operator|=
 operator|new
@@ -871,6 +974,15 @@ argument_list|<
 name|Runnable
 argument_list|>
 argument_list|()
+expr_stmt|;
+comment|// and force 1 as pool size to be able to create the thread pool by the JDK
+name|corePoolSize
+operator|=
+literal|1
+expr_stmt|;
+name|maxPoolSize
+operator|=
+literal|1
 expr_stmt|;
 block|}
 elseif|else
