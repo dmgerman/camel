@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an endpoint that synchronously invokes an LDAP server when a producer sends a message to it.  *  * @version  */
+comment|/**  * Represents an endpoint that synchronously invokes an LDAP server when a producer sends a message to it.  */
 end_comment
 
 begin_class
@@ -168,6 +168,16 @@ name|String
 name|scope
 init|=
 name|SUBTREE_SCOPE
+decl_stmt|;
+DECL|field|pageSize
+specifier|private
+name|Integer
+name|pageSize
+decl_stmt|;
+DECL|field|returnedAttributes
+specifier|private
+name|String
+name|returnedAttributes
 decl_stmt|;
 DECL|method|LdapEndpoint (String endpointUri, String remaining, LdapComponent component)
 specifier|protected
@@ -265,6 +275,10 @@ name|toSearchControlScope
 argument_list|(
 name|scope
 argument_list|)
+argument_list|,
+name|pageSize
+argument_list|,
+name|returnedAttributes
 argument_list|)
 return|;
 block|}
@@ -328,6 +342,58 @@ operator|.
 name|scope
 operator|=
 name|scope
+expr_stmt|;
+block|}
+DECL|method|getPageSize ()
+specifier|public
+name|int
+name|getPageSize
+parameter_list|()
+block|{
+return|return
+name|pageSize
+return|;
+block|}
+DECL|method|setPageSize (int pageSize)
+specifier|public
+name|void
+name|setPageSize
+parameter_list|(
+name|int
+name|pageSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pageSize
+operator|=
+name|pageSize
+expr_stmt|;
+block|}
+DECL|method|getReturnedAttributes ()
+specifier|public
+name|String
+name|getReturnedAttributes
+parameter_list|()
+block|{
+return|return
+name|returnedAttributes
+return|;
+block|}
+DECL|method|setReturnedAttributes (String returnedAttributes)
+specifier|public
+name|void
+name|setReturnedAttributes
+parameter_list|(
+name|String
+name|returnedAttributes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|returnedAttributes
+operator|=
+name|returnedAttributes
 expr_stmt|;
 block|}
 DECL|method|toSearchControlScope (String scope)
