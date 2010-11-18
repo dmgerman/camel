@@ -644,13 +644,14 @@ operator|*
 name|variance
 expr_stmt|;
 block|}
+comment|// ensure the calculated result is not bigger than the max delay (if configured)
 if|if
 condition|(
 name|maximumRedeliveryDelay
 operator|>
 literal|0
 operator|&&
-name|redeliveryDelay
+name|redeliveryDelayResult
 operator|>
 name|maximumRedeliveryDelay
 condition|)
