@@ -28,6 +28,10 @@ name|Serializable
 import|;
 end_import
 
+begin_comment
+comment|/**  * Interface defining the POJO  */
+end_comment
+
 begin_interface
 DECL|interface|ISimpleMXBean
 specifier|public

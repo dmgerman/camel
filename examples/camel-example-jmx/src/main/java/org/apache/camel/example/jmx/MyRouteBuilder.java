@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
+name|management
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ManagementFactory
 import|;
 end_import
 
@@ -54,23 +52,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|management
+name|camel
 operator|.
-name|ManagementFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|builder
 operator|.
-name|util
-operator|.
-name|Vector
+name|RouteBuilder
 import|;
 end_import
 
@@ -86,21 +76,6 @@ name|MyRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
-DECL|field|strings
-specifier|static
-name|Vector
-argument_list|<
-name|String
-argument_list|>
-name|strings
-init|=
-operator|new
-name|Vector
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|field|bean
 specifier|private
 name|SimpleBean
@@ -111,28 +86,6 @@ specifier|private
 name|MBeanServer
 name|server
 decl_stmt|;
-comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception      */
-DECL|method|main (String[] args)
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|MyRouteBuilder
-name|mrb
-init|=
-operator|new
-name|MyRouteBuilder
-argument_list|()
-decl_stmt|;
-block|}
 DECL|method|MyRouteBuilder ()
 specifier|public
 name|MyRouteBuilder

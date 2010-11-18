@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Our business logic which also is capable of broadcasting JMX notifications,  * such as an attribute being changed.  */
 end_comment
 
 begin_class
@@ -81,11 +81,6 @@ DECL|field|tick
 specifier|private
 name|int
 name|tick
-decl_stmt|;
-DECL|field|mStringValue
-specifier|private
-name|String
-name|mStringValue
 decl_stmt|;
 DECL|method|tick ()
 specifier|public
