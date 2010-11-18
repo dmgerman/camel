@@ -54,6 +54,20 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for creating proxies which delegate to Camel  *  * @version $Revision$  */
 end_comment
@@ -150,6 +164,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Producer
+name|producer
+init|=
+name|endpoint
+operator|.
+name|createProducer
+argument_list|()
+decl_stmt|;
+comment|// ensure the producer is started
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
 return|return
 operator|(
 name|T
@@ -158,10 +188,7 @@ name|createProxyObject
 argument_list|(
 name|endpoint
 argument_list|,
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
+name|producer
 argument_list|,
 name|cl
 argument_list|,
