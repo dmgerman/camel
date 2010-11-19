@@ -584,14 +584,6 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|setThreadContextClassLoader ()
-specifier|protected
-name|void
-name|setThreadContextClassLoader
-parameter_list|()
-block|{
-comment|// do nothing here
-block|}
 comment|// TODO: CxfConsumer should use OSGi http service (no embedded Jetty)
 comment|// TODO: Make this test work with OSGi
 annotation|@
