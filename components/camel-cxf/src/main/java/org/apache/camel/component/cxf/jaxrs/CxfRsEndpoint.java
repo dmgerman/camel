@@ -642,6 +642,7 @@ expr_stmt|;
 block|}
 DECL|method|getBinding ()
 specifier|public
+specifier|synchronized
 name|CxfRsBinding
 name|getBinding
 parameter_list|()
