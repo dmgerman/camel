@@ -434,7 +434,7 @@ name|SuspendableService
 extends|,
 name|RuntimeConfiguration
 block|{
-comment|/**      * Gets the name of the this context.      *      * @return the name      */
+comment|/**      * Gets the name (id) of the this context.      *      * @return the name      */
 DECL|method|getName ()
 name|String
 name|getName

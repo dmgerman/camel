@@ -7066,31 +7066,27 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// not all containers allow access to its MBeanServer (such as OC4j)
-comment|// so here we remove the troublesome strategy to be able to continue
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot start lifecycle strategy: "
+literal|"Lifecycle strategy "
 operator|+
 name|strategy
 operator|+
-literal|". This strategy will be removed. Cause: "
+literal|" failed starting CamelContext ("
 operator|+
-name|e
-operator|.
-name|getMessage
+name|getName
 argument_list|()
+operator|+
+literal|")"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|it
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 comment|// start notifiers as services
