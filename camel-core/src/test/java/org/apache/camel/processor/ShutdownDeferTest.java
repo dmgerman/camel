@@ -192,22 +192,15 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// should route about 4 - 5 (in some rare cases it will only route 4)
-name|assertTrue
+comment|// should route all 5
+name|assertEquals
 argument_list|(
-literal|"Should complete all messages, was "
-operator|+
-name|bar
-operator|.
-name|getReceivedCounter
-argument_list|()
+literal|5
 argument_list|,
 name|bar
 operator|.
 name|getReceivedCounter
 argument_list|()
-operator|>=
-literal|4
 argument_list|)
 expr_stmt|;
 block|}

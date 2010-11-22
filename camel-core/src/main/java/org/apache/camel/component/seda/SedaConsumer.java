@@ -24,26 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
@@ -71,6 +51,20 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
 import|;
 end_import
 
@@ -264,20 +258,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -334,6 +314,19 @@ name|SedaConsumer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// use a task counter to help ensure we can graceful shutdown the seda consumers without
+comment|// causing any exchanges to be lost due a tiny loophole between the exchange is polled
+comment|// and when its registered as in flight exchange
+DECL|field|tasks
+specifier|private
+specifier|final
+name|AtomicInteger
+name|tasks
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -488,7 +481,9 @@ name|getPendingExchangesSize
 parameter_list|()
 block|{
 comment|// number of pending messages on the queue
-return|return
+name|int
+name|answer
+init|=
 name|endpoint
 operator|.
 name|getQueue
@@ -496,6 +491,50 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|0
+condition|)
+block|{
+comment|// if there are no pending exchanges we at first must ensure that
+comment|// all tasks has been completed and the thread is stopped, to avoid
+comment|// any condition which otherwise would cause an exchange to be lost
+comment|// we think there are 0 pending exchanges but we are only 100% sure
+comment|// when all the running tasks has been shutdown, so they do not
+comment|// somehow have polled an Exchange which we otherwise may loose
+comment|// due the Exchange takes a little while before its enlisted in the
+comment|// in flight registry (to let Camel know there is an Exchange in progress)
+name|answer
+operator|=
+name|tasks
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Pending exchanges "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 DECL|method|run ()
@@ -525,9 +564,10 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
-specifier|final
 name|Exchange
 name|exchange
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -544,39 +584,6 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Sleep interrupted, are we stopping? "
-operator|+
-operator|(
-name|isStopping
-argument_list|()
-operator|||
-name|isStopped
-argument_list|()
-operator|)
-argument_list|)
-expr_stmt|;
-block|}
-continue|continue;
-block|}
 if|if
 condition|(
 name|exchange
@@ -584,14 +591,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|isRunAllowed
-argument_list|()
-condition|)
-block|{
 try|try
 block|{
+name|tasks
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|sendToConsumers
 argument_list|(
 name|exchange
@@ -644,36 +650,15 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
+finally|finally
 block|{
-if|if
-condition|(
-name|LOG
+name|tasks
 operator|.
-name|isWarnEnabled
+name|decrementAndGet
 argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"This consumer is stopped during polling an exchange, so putting it back on the seda queue: "
-operator|+
-name|exchange
-argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-name|queue
-operator|.
-name|put
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -707,8 +692,67 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Ending this polling consumer thread, there are still "
+operator|+
+name|tasks
+operator|.
+name|get
+argument_list|()
+operator|+
+literal|" threads left."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Send the given {@link Exchange} to the consumer(s).      *<p/>      * If multiple consumers then they will each receive a copy of the Exchange.      * A multicast processor will send the exchange in parallel to the multiple consumers.      *<p/>      * If there is only a single consumer then its dispatched directly to it using same thread.      *       * @param exchange the exchange      * @throws Exception can be thrown if processing of the exchange failed      */
@@ -844,6 +888,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|tasks
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|int
 name|poolSize
 init|=
@@ -921,6 +972,8 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// must shutdown executor on stop to avoid overhead of having them running
+comment|// use shutdown now to force the tasks which are polling for new exchanges
+comment|// to stop immediately to avoid them picking up new exchanges arriving in the mean time
 name|endpoint
 operator|.
 name|getCamelContext
@@ -929,7 +982,7 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|executor
 argument_list|)
