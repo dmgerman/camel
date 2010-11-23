@@ -328,6 +328,12 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+DECL|field|pendingStop
+specifier|private
+specifier|volatile
+name|boolean
+name|pendingStop
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|SedaEndpoint
@@ -499,6 +505,11 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|// signal we want to stop
+name|pendingStop
+operator|=
+literal|true
+expr_stmt|;
 comment|// if there are no pending exchanges we at first must ensure that
 comment|// all tasks has been completed and the thread is stopped, to avoid
 comment|// any condition which otherwise would cause an exchange to be lost
@@ -543,6 +554,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|tasks
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -564,6 +580,25 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+comment|// we are done if there are no pending exchanges and we want to stop
+if|if
+condition|(
+name|pendingStop
+operator|&&
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no more pending exchanges and we want to stop so break out
+break|break;
+block|}
 name|Exchange
 name|exchange
 init|=
@@ -593,11 +628,6 @@ condition|)
 block|{
 try|try
 block|{
-name|tasks
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|sendToConsumers
 argument_list|(
 name|exchange
@@ -648,14 +678,6 @@ name|exchange
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|tasks
-operator|.
-name|decrementAndGet
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -731,6 +753,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|tasks
+operator|.
+name|decrementAndGet
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -888,6 +915,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// reset state
+name|pendingStop
+operator|=
+literal|false
+expr_stmt|;
 name|tasks
 operator|.
 name|set
