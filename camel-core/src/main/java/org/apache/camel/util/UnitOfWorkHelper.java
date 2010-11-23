@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -137,12 +147,28 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// work on a copy of the list to avoid any modification which may cause ConcurrentModificationException
+name|List
+argument_list|<
+name|Synchronization
+argument_list|>
+name|copy
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Synchronization
+argument_list|>
+argument_list|(
+name|synchronizations
+argument_list|)
+decl_stmt|;
 comment|// reverse so we invoke it FILO style instead of FIFO
 name|Collections
 operator|.
 name|reverse
 argument_list|(
-name|synchronizations
+name|copy
 argument_list|)
 expr_stmt|;
 comment|// and honor if any was ordered by sorting it accordingly
@@ -150,7 +176,7 @@ name|Collections
 operator|.
 name|sort
 argument_list|(
-name|synchronizations
+name|copy
 argument_list|,
 operator|new
 name|OrderedComparator
@@ -163,7 +189,7 @@ control|(
 name|Synchronization
 name|synchronization
 range|:
-name|synchronizations
+name|copy
 control|)
 block|{
 try|try
