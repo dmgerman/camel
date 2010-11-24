@@ -1024,6 +1024,14 @@ literal|0
 return|;
 block|}
 block|}
+DECL|method|prepareShutdown ()
+specifier|public
+name|void
+name|prepareShutdown
+parameter_list|()
+block|{
+comment|// noop
+block|}
 DECL|method|isBatchAllowed ()
 specifier|public
 name|boolean

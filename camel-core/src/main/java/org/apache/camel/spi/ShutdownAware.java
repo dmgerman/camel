@@ -53,6 +53,12 @@ name|int
 name|getPendingExchangesSize
 parameter_list|()
 function_decl|;
+comment|/**      * Prepares the consumer for shutdown.      *<p/>      * For example by graceful stopping any threads or the likes.      */
+DECL|method|prepareShutdown ()
+name|void
+name|prepareShutdown
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

@@ -282,6 +282,14 @@ return|return
 literal|0
 return|;
 block|}
+DECL|method|prepareShutdown ()
+specifier|public
+name|void
+name|prepareShutdown
+parameter_list|()
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 

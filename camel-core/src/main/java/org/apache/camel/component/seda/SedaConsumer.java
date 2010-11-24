@@ -38,6 +38,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ExecutorService
 import|;
 end_import
@@ -51,20 +63,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
 import|;
 end_import
 
@@ -315,24 +313,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// use a task counter to help ensure we can graceful shutdown the seda consumers without
-comment|// causing any exchanges to be lost due a tiny loophole between the exchange is polled
-comment|// and when its registered as in flight exchange
-DECL|field|tasks
+DECL|field|latch
 specifier|private
-specifier|final
-name|AtomicInteger
-name|tasks
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
+name|CountDownLatch
+name|latch
 decl_stmt|;
-DECL|field|pendingStop
+DECL|field|shutdownPending
 specifier|private
 specifier|volatile
 name|boolean
-name|pendingStop
+name|shutdownPending
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -487,9 +477,7 @@ name|getPendingExchangesSize
 parameter_list|()
 block|{
 comment|// number of pending messages on the queue
-name|int
-name|answer
-init|=
+return|return
 name|endpoint
 operator|.
 name|getQueue
@@ -497,56 +485,59 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|0
-condition|)
+return|;
+block|}
+DECL|method|prepareShutdown ()
+specifier|public
+name|void
+name|prepareShutdown
+parameter_list|()
 block|{
-comment|// signal we want to stop
-name|pendingStop
+comment|// signal we want to shutdown
+name|shutdownPending
 operator|=
 literal|true
 expr_stmt|;
-comment|// if there are no pending exchanges we at first must ensure that
-comment|// all tasks has been completed and the thread is stopped, to avoid
-comment|// any condition which otherwise would cause an exchange to be lost
-comment|// we think there are 0 pending exchanges but we are only 100% sure
-comment|// when all the running tasks has been shutdown, so they do not
-comment|// somehow have polled an Exchange which we otherwise may loose
-comment|// due the Exchange takes a little while before its enlisted in the
-comment|// in flight registry (to let Camel know there is an Exchange in progress)
-name|answer
-operator|=
-name|tasks
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Pending exchanges "
+literal|"Preparing to shutdown, waiting for "
 operator|+
-name|answer
+name|latch
+operator|.
+name|getCount
+argument_list|()
+operator|+
+literal|" consumer threads to complete."
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|answer
-return|;
+comment|// wait for all threads to end
+try|try
+block|{
+name|latch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 DECL|method|run ()
 specifier|public
@@ -554,11 +545,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|tasks
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -570,35 +556,19 @@ operator|.
 name|getQueue
 argument_list|()
 decl_stmt|;
+comment|// loop while we are allowed, or if we are stopping loop until the queue is empty
 while|while
 condition|(
 name|queue
 operator|!=
 literal|null
 operator|&&
+operator|(
 name|isRunAllowed
 argument_list|()
+operator|)
 condition|)
 block|{
-comment|// we are done if there are no pending exchanges and we want to stop
-if|if
-condition|(
-name|pendingStop
-operator|&&
-name|endpoint
-operator|.
-name|getQueue
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-comment|// no more pending exchanges and we want to stop so break out
-break|break;
-block|}
 name|Exchange
 name|exchange
 init|=
@@ -681,6 +651,36 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|shutdownPending
+operator|&&
+name|queue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Shutdown is pending, so this consumer thread is breaking out because the task queue is empty."
+argument_list|)
+expr_stmt|;
+block|}
+comment|// we want to shutdown so break out if there queue is empty
+break|break;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -753,9 +753,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|tasks
+name|latch
 operator|.
-name|decrementAndGet
+name|countDown
 argument_list|()
 expr_stmt|;
 if|if
@@ -772,12 +772,12 @@ name|debug
 argument_list|(
 literal|"Ending this polling consumer thread, there are still "
 operator|+
-name|tasks
+name|latch
 operator|.
-name|get
+name|getCount
 argument_list|()
 operator|+
-literal|" threads left."
+literal|" consumer threads left."
 argument_list|)
 expr_stmt|;
 block|}
@@ -915,17 +915,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// reset state
-name|pendingStop
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|shutdownPending
 operator|=
 literal|false
-expr_stmt|;
-name|tasks
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
 name|int
 name|poolSize

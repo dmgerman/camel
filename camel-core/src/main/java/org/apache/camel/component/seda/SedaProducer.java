@@ -475,6 +475,24 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Adding Exchange to queue: "
+operator|+
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
 name|queue
 operator|.
 name|add
@@ -620,6 +638,24 @@ block|}
 else|else
 block|{
 comment|// no wait, eg its a InOnly then just add to queue and return
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Adding Exchange to queue: "
+operator|+
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
 name|queue
 operator|.
 name|add
