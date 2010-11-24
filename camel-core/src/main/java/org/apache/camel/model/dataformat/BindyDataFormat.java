@@ -167,6 +167,18 @@ name|String
 index|[]
 name|packages
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|locale
+specifier|private
+name|String
+name|locale
+decl_stmt|;
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -259,6 +271,15 @@ argument_list|,
 literal|"packages"
 argument_list|,
 name|packages
+argument_list|)
+expr_stmt|;
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"locale"
+argument_list|,
+name|locale
 argument_list|)
 expr_stmt|;
 block|}
