@@ -1311,6 +1311,9 @@ argument_list|()
 argument_list|,
 name|pattern
 argument_list|,
+name|getLocale
+argument_list|()
+argument_list|,
 name|keyValuePairField
 operator|.
 name|precision
@@ -1522,6 +1525,9 @@ name|getType
 argument_list|()
 argument_list|,
 name|pattern
+argument_list|,
+name|getLocale
+argument_list|()
 argument_list|,
 name|keyValuePairField
 operator|.
@@ -2177,6 +2183,9 @@ argument_list|(
 name|type
 argument_list|,
 name|pattern
+argument_list|,
+name|getLocale
+argument_list|()
 argument_list|,
 name|precision
 argument_list|)

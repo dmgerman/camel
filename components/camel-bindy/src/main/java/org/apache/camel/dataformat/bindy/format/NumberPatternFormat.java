@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -90,22 +100,30 @@ specifier|private
 name|String
 name|pattern
 decl_stmt|;
-DECL|field|df
+DECL|field|locale
 specifier|private
-name|DecimalFormat
-name|df
+name|Locale
+name|locale
+init|=
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
 decl_stmt|;
 DECL|method|NumberPatternFormat ()
 specifier|public
 name|NumberPatternFormat
 parameter_list|()
 block|{     }
-DECL|method|NumberPatternFormat (String pattern)
+DECL|method|NumberPatternFormat (String pattern, Locale locale)
 specifier|public
 name|NumberPatternFormat
 parameter_list|(
 name|String
 name|pattern
+parameter_list|,
+name|Locale
+name|locale
 parameter_list|)
 block|{
 name|this
@@ -113,6 +131,21 @@ operator|.
 name|pattern
 operator|=
 name|pattern
+expr_stmt|;
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
+operator|!=
+literal|null
+condition|?
+name|locale
+else|:
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|format (T object)
@@ -197,12 +230,38 @@ name|NumberFormat
 name|getNumberFormat
 parameter_list|()
 block|{
-return|return
-operator|new
+name|NumberFormat
+name|format
+init|=
+name|NumberFormat
+operator|.
+name|getNumberInstance
+argument_list|(
+name|locale
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|format
+operator|instanceof
 name|DecimalFormat
+condition|)
+block|{
+operator|(
+operator|(
+name|DecimalFormat
+operator|)
+name|format
+operator|)
+operator|.
+name|applyLocalizedPattern
 argument_list|(
 name|pattern
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|format
 return|;
 block|}
 DECL|method|getPattern ()

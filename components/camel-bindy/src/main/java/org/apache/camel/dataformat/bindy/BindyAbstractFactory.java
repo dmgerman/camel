@@ -246,6 +246,11 @@ name|String
 index|[]
 name|packageNames
 decl_stmt|;
+DECL|field|locale
+specifier|private
+name|String
+name|locale
+decl_stmt|;
 DECL|method|BindyAbstractFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyAbstractFactory
@@ -924,6 +929,32 @@ block|}
 return|return
 name|strValue
 return|;
+block|}
+DECL|method|getLocale ()
+specifier|public
+name|String
+name|getLocale
+parameter_list|()
+block|{
+return|return
+name|locale
+return|;
+block|}
+DECL|method|setLocale (String locale)
+specifier|public
+name|void
+name|setLocale
+parameter_list|(
+name|String
+name|locale
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
+expr_stmt|;
 block|}
 block|}
 end_class

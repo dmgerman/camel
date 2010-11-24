@@ -959,6 +959,9 @@ argument_list|()
 argument_list|,
 name|pattern
 argument_list|,
+name|getLocale
+argument_list|()
+argument_list|,
 name|dataField
 operator|.
 name|precision
@@ -1986,6 +1989,9 @@ argument_list|(
 name|type
 argument_list|,
 name|pattern
+argument_list|,
+name|getLocale
+argument_list|()
 argument_list|,
 name|precision
 argument_list|)

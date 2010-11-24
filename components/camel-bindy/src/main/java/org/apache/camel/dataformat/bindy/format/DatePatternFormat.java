@@ -129,39 +129,35 @@ argument_list|<
 name|Date
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|DatePatternFormat
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|pattern
 specifier|private
 name|String
 name|pattern
+decl_stmt|;
+DECL|field|locale
+specifier|private
+name|Locale
+name|locale
+init|=
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
 decl_stmt|;
 DECL|method|DatePatternFormat ()
 specifier|public
 name|DatePatternFormat
 parameter_list|()
 block|{     }
-DECL|method|DatePatternFormat (String pattern)
+DECL|method|DatePatternFormat (String pattern, Locale locale)
 specifier|public
 name|DatePatternFormat
 parameter_list|(
 name|String
 name|pattern
+parameter_list|,
+name|Locale
+name|locale
 parameter_list|)
 block|{
 name|this
@@ -169,6 +165,21 @@ operator|.
 name|pattern
 operator|=
 name|pattern
+expr_stmt|;
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
+operator|!=
+literal|null
+condition|?
+name|locale
+else|:
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|format (Date object)
@@ -307,9 +318,7 @@ name|this
 operator|.
 name|pattern
 argument_list|,
-name|Locale
-operator|.
-name|FRANCE
+name|locale
 argument_list|)
 return|;
 block|}

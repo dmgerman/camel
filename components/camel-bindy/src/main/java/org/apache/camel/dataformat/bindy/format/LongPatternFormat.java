@@ -20,6 +20,16 @@ name|format
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_class
 DECL|class|LongPatternFormat
 specifier|public
@@ -36,17 +46,22 @@ specifier|public
 name|LongPatternFormat
 parameter_list|()
 block|{     }
-DECL|method|LongPatternFormat (String pattern)
+DECL|method|LongPatternFormat (String pattern, Locale locale)
 specifier|public
 name|LongPatternFormat
 parameter_list|(
 name|String
 name|pattern
+parameter_list|,
+name|Locale
+name|locale
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|pattern
+argument_list|,
+name|locale
 argument_list|)
 expr_stmt|;
 block|}
