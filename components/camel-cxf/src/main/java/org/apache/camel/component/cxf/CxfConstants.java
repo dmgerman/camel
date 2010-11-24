@@ -197,6 +197,12 @@ name|CAMEL_CXF_ATTACHMENTS
 init|=
 literal|"CamelAttachments"
 decl_stmt|;
+DECL|field|CAMEL_CXF_RS_THROW_EXCEPTION_ON_FAILURE
+name|String
+name|CAMEL_CXF_RS_THROW_EXCEPTION_ON_FAILURE
+init|=
+literal|"CamelCxfRsThrowExceptionOnFailure"
+decl_stmt|;
 block|}
 end_interface
 

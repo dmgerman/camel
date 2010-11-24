@@ -347,6 +347,13 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
+DECL|field|throwExceptionOnFailure
+specifier|private
+name|boolean
+name|throwExceptionOnFailure
+init|=
+literal|true
+decl_stmt|;
 DECL|field|bindingInitialized
 specifier|private
 name|AtomicBoolean
@@ -925,6 +932,32 @@ block|{
 return|return
 name|address
 return|;
+block|}
+DECL|method|isThrowExceptionOnFailure ()
+specifier|public
+name|boolean
+name|isThrowExceptionOnFailure
+parameter_list|()
+block|{
+return|return
+name|throwExceptionOnFailure
+return|;
+block|}
+DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
+specifier|public
+name|void
+name|setThrowExceptionOnFailure
+parameter_list|(
+name|boolean
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwExceptionOnFailure
+operator|=
+name|throwExceptionOnFailure
+expr_stmt|;
 block|}
 block|}
 end_class
