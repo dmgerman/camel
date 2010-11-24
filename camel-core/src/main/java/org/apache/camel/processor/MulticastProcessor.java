@@ -1427,7 +1427,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1439,11 +1439,36 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should we stop in case of an exception occurred during processing?
+comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+name|boolean
+name|continueProcessing
+init|=
+name|PipelineHelper
+operator|.
+name|continueProcessing
+argument_list|(
+name|subExchange
+argument_list|,
+literal|"Parallel processing failed for number "
+operator|+
+name|total
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|stopOnException
 operator|&&
+operator|!
+name|continueProcessing
+condition|)
+block|{
+if|if
+condition|(
 name|subExchange
 operator|.
 name|getException
@@ -1452,14 +1477,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// signal to stop running
-name|running
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
+comment|// wrap in exception to explain where it failed
 throw|throw
 operator|new
 name|CamelExchangeException
@@ -1468,7 +1486,7 @@ literal|"Parallel processing failed for number "
 operator|+
 name|total
 operator|.
-name|intValue
+name|get
 argument_list|()
 argument_list|,
 name|subExchange
@@ -1479,6 +1497,15 @@ name|getException
 argument_list|()
 argument_list|)
 throw|;
+block|}
+comment|// signal to stop running
+name|running
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1522,6 +1549,11 @@ comment|// its to hard to do parallel async routing so we let the caller thread 
 comment|// and have it pickup the replies and do the aggregation
 name|boolean
 name|timedOut
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|stoppedOnException
 init|=
 literal|false
 decl_stmt|;
@@ -1775,7 +1807,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we got a result so aggregate it
+comment|// there is a result to aggregate
 name|Exchange
 name|subExchange
 init|=
@@ -1784,6 +1816,51 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+name|boolean
+name|continueProcessing
+init|=
+name|PipelineHelper
+operator|.
+name|continueProcessing
+argument_list|(
+name|subExchange
+argument_list|,
+literal|"Parallel processing failed for number "
+operator|+
+name|total
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|stopOnException
+operator|&&
+operator|!
+name|continueProcessing
+condition|)
+block|{
+comment|// we want to stop on exception and an exception or failure occurred
+comment|// this is similar to what the pipeline does, so we should do the same to not surprise end users
+comment|// so we should set the failed exchange as the result and break out
+name|result
+operator|.
+name|set
+argument_list|(
+name|subExchange
+argument_list|)
+expr_stmt|;
+name|stoppedOnException
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+comment|// we got a result so aggregate it
 name|AggregationStrategy
 name|strategy
 init|=
@@ -1806,10 +1883,14 @@ block|}
 if|if
 condition|(
 name|timedOut
+operator|||
+name|stoppedOnException
 condition|)
 block|{
 if|if
 condition|(
+name|timedOut
+operator|&&
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -1825,6 +1906,24 @@ operator|+
 name|timeout
 operator|+
 literal|" millis."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|stoppedOnException
+operator|&&
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cancelling future tasks due stopOnException."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2030,11 +2129,37 @@ literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should we stop in case of an exception occurred during processing?
+comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+comment|// remember to test for stop on exception and aggregate before copying back results
+name|boolean
+name|continueProcessing
+init|=
+name|PipelineHelper
+operator|.
+name|continueProcessing
+argument_list|(
+name|subExchange
+argument_list|,
+literal|"Sequential processing failed for number "
+operator|+
+name|total
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|stopOnException
 operator|&&
+operator|!
+name|continueProcessing
+condition|)
+block|{
+if|if
+condition|(
 name|subExchange
 operator|.
 name|getException
@@ -2043,6 +2168,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// wrap in exception to explain where it failed
 throw|throw
 operator|new
 name|CamelExchangeException
@@ -2062,6 +2188,23 @@ name|getException
 argument_list|()
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// we want to stop on exception, and the exception was handled by the error handler
+comment|// this is similar to what the pipeline does, so we should do the same to not surprise end users
+comment|// so we should set the failed exchange as the result and be done
+name|result
+operator|.
+name|set
+argument_list|(
+name|subExchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 block|}
 if|if
 condition|(
@@ -2311,11 +2454,37 @@ name|subExchange
 init|=
 name|exchange
 decl_stmt|;
+comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
 comment|// remember to test for stop on exception and aggregate before copying back results
+name|boolean
+name|continueProcessing
+init|=
+name|PipelineHelper
+operator|.
+name|continueProcessing
+argument_list|(
+name|subExchange
+argument_list|,
+literal|"Sequential processing failed for number "
+operator|+
+name|total
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|stopOnException
 operator|&&
+operator|!
+name|continueProcessing
+condition|)
+block|{
+if|if
+condition|(
 name|subExchange
 operator|.
 name|getException
@@ -2345,6 +2514,20 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we want to stop on exception, and the exception was handled by the error handler
+comment|// this is similar to what the pipeline does, so we should do the same to not surprise end users
+comment|// so we should set the failed exchange as the result and be done
+name|result
+operator|.
+name|set
+argument_list|(
+name|subExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and do the done work
 name|doDone
 argument_list|(
@@ -2507,10 +2690,36 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+comment|// remember to test for stop on exception and aggregate before copying back results
+name|continueProcessing
+operator|=
+name|PipelineHelper
+operator|.
+name|continueProcessing
+argument_list|(
+name|subExchange
+argument_list|,
+literal|"Sequential processing failed for number "
+operator|+
+name|total
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|stopOnException
 operator|&&
+operator|!
+name|continueProcessing
+condition|)
+block|{
+if|if
+condition|(
 name|subExchange
 operator|.
 name|getException
@@ -2540,6 +2749,20 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we want to stop on exception, and the exception was handled by the error handler
+comment|// this is similar to what the pipeline does, so we should do the same to not surprise end users
+comment|// so we should set the failed exchange as the result and be done
+name|result
+operator|.
+name|set
+argument_list|(
+name|subExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and do the done work
 name|doDone
 argument_list|(

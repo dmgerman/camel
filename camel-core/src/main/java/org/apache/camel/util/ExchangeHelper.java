@@ -2065,6 +2065,35 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**      * Tests whether the exchange has already been handled by the error handler      *      * @param exchange the exchange      * @return<tt>true</tt> if handled already by error handler,<tt>false</tt> otherwise      */
+DECL|method|hasExceptionBeenHandledByErrorHandler (Exchange exchange)
+specifier|public
+specifier|static
+name|boolean
+name|hasExceptionBeenHandledByErrorHandler
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ERRORHANDLER_HANDLED
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future  the future handle      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      */
 DECL|method|extractFutureBody (CamelContext context, Future<Object> future, Class<T> type)
 specifier|public

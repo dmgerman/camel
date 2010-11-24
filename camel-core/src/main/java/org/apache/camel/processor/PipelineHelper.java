@@ -42,6 +42,22 @@ name|Log
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|hasExceptionBeenHandledByErrorHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for processing {@link org.apache.camel.Exchange} in a  *<a href="http://camel.apache.org/pipes-and-filters.html">pipeline</a>.  *  * @version $Revision$  */
 end_comment
@@ -58,34 +74,6 @@ specifier|private
 name|PipelineHelper
 parameter_list|()
 block|{     }
-DECL|method|hasExceptionBeenHandledByErrorHandler (Exchange nextExchange)
-specifier|private
-specifier|static
-name|boolean
-name|hasExceptionBeenHandledByErrorHandler
-parameter_list|(
-name|Exchange
-name|nextExchange
-parameter_list|)
-block|{
-return|return
-name|Boolean
-operator|.
-name|TRUE
-operator|.
-name|equals
-argument_list|(
-name|nextExchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ERRORHANDLER_HANDLED
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Should we continue processing the next exchange?      *      * @param nextExchange the next exchange      * @param message a message to use when logging that we should not continue processing      * @param log a logger      * @return<tt>true</tt> to continue processing,<tt>false</tt> to break out, for example if an exception occurred.      */
 DECL|method|continueProcessing (Exchange nextExchange, String message, Log log)
 specifier|public
