@@ -226,8 +226,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isStepwise
-argument_list|()
+name|currentDir
+operator|!=
+literal|null
 condition|)
 block|{
 name|operations
