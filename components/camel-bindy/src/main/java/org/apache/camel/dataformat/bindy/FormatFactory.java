@@ -757,10 +757,14 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+operator|(
 name|locale
 operator|.
-name|isEmpty
+name|length
 argument_list|()
+operator|==
+literal|0
+operator|)
 condition|)
 block|{
 name|String
