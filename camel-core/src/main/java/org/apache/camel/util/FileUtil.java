@@ -163,7 +163,6 @@ name|String
 name|path
 parameter_list|)
 block|{
-comment|// special handling for Windows where we need to convert / to \\
 if|if
 condition|(
 name|path
@@ -183,6 +182,7 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|// special handling for Windows where we need to convert / to \\
 return|return
 name|path
 operator|.
@@ -191,6 +191,35 @@ argument_list|(
 literal|'/'
 argument_list|,
 literal|'\\'
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|path
+operator|!=
+literal|null
+operator|&&
+name|path
+operator|.
+name|indexOf
+argument_list|(
+literal|'\\'
+argument_list|)
+operator|>=
+literal|0
+condition|)
+block|{
+comment|// for other systems make sure we use / as separators
+return|return
+name|path
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
 argument_list|)
 return|;
 block|}

@@ -2511,6 +2511,19 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// must normalize name first
+name|name
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|log

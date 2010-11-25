@@ -892,6 +892,17 @@ name|isAutoCreate
 argument_list|()
 condition|)
 block|{
+comment|// we must normalize it (to avoid having both \ and / in the name which confuses java.io.File)
+name|String
+name|name
+init|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|fileName
+argument_list|)
+decl_stmt|;
 comment|// use java.io.File to compute the file path
 name|File
 name|file
@@ -899,7 +910,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|fileName
+name|name
 argument_list|)
 decl_stmt|;
 name|String
@@ -1338,6 +1349,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|needToNormalize
+argument_list|()
+condition|)
+block|{
 comment|// must normalize path to cater for Windows and other OS
 name|answer
 operator|=
@@ -1346,6 +1368,7 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
