@@ -1693,6 +1693,23 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// template must be started
+try|try
+block|{
+name|template
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 for|for
 control|(
 name|int
