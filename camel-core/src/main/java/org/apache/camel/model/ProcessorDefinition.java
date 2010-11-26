@@ -2403,7 +2403,7 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lookup and resolve properties for String based properties
+comment|// lookup and resolve known constant fields for String based properties
 for|for
 control|(
 name|Map
@@ -2453,7 +2453,7 @@ name|String
 operator|)
 name|value
 decl_stmt|;
-comment|// is the value a known field
+comment|// is the value a known field (currently we only support constants from Exchange.class)
 if|if
 condition|(
 name|text
