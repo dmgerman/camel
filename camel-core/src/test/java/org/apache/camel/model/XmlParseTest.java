@@ -1694,6 +1694,30 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testParseJibxDataFormat ()
+specifier|public
+name|void
+name|testParseJibxDataFormat
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteDefinition
+name|route
+init|=
+name|assertOneRoute
+argument_list|(
+literal|"routeWithJibxDataFormat.xml"
+argument_list|)
+decl_stmt|;
+name|assertFrom
+argument_list|(
+name|route
+argument_list|,
+literal|"seda:a"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testParseXMLBeansDataFormat ()
 specifier|public
 name|void

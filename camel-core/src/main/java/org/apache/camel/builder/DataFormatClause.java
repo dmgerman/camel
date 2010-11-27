@@ -192,6 +192,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|JibxDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|JsonDataFormat
 import|;
 end_import
@@ -732,6 +748,43 @@ operator|new
 name|JaxbDataFormat
 argument_list|(
 name|prettyPrint
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JiBX data format.      */
+DECL|method|jibx ()
+specifier|public
+name|T
+name|jibx
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JibxDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JiBX data format with unmarshall class.      */
+DECL|method|jibx (Class unmarshallClass)
+specifier|public
+name|T
+name|jibx
+parameter_list|(
+name|Class
+name|unmarshallClass
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JibxDataFormat
+argument_list|(
+name|unmarshallClass
 argument_list|)
 argument_list|)
 return|;
