@@ -705,6 +705,35 @@ block|}
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|loadBalancer
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|loadBalancer
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+name|loadBalancerTypeName
+return|;
+block|}
+block|}
 block|}
 end_class
 
