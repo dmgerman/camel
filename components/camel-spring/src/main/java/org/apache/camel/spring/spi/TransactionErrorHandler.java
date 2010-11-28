@@ -184,6 +184,20 @@ name|transaction
 operator|.
 name|support
 operator|.
+name|TransactionCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|support
+operator|.
 name|TransactionCallbackWithoutResult
 import|;
 end_import
@@ -554,6 +568,8 @@ name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
+operator|+
+literal|" due exchange was marked for rollbackOnly"
 argument_list|)
 expr_stmt|;
 block|}
@@ -609,6 +625,108 @@ name|transactionTemplate
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if it was a local rollback only then remove its marker so outer transaction wont see the marker
+name|Boolean
+name|onlyLast
+init|=
+operator|(
+name|Boolean
+operator|)
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY_LAST
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|onlyLast
+operator|!=
+literal|null
+operator|&&
+name|onlyLast
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+comment|// log exception if there was a cause exception so we have the stacktrace
+name|Exception
+name|cause
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Transaction rollback ("
+operator|+
+name|id
+operator|+
+literal|") for ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" due exchange was marked for rollbackOnlyLast and due exception: "
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Transaction rollback ("
+operator|+
+name|id
+operator|+
+literal|") for ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|" due exchange was marked for rollbackOnlyLast"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// remove caused exception due we was marked as rollback only last
+comment|// so by removing the exception, any outer transaction will not be affected
+name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doInTransactionTemplate (final Exchange exchange)
 specifier|protected
@@ -642,8 +760,6 @@ comment|// wrapper exception to throw if the exchange failed
 comment|// IMPORTANT: Must be a runtime exception to let Spring regard it as to do "rollback"
 name|RuntimeException
 name|rce
-init|=
-literal|null
 decl_stmt|;
 comment|// and now let process the exchange by the error handler
 name|processByErrorHandler
@@ -667,17 +783,6 @@ name|isRollbackOnly
 argument_list|()
 condition|)
 block|{
-comment|// if it was a local rollback only then remove its marker so outer transaction
-comment|// wont rollback as well (Note: isRollbackOnly() also returns true for ROLLBACK_ONLY_LAST)
-name|exchange
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ROLLBACK_ONLY_LAST
-argument_list|)
-expr_stmt|;
 comment|// wrap exception in transacted exception
 if|if
 condition|(
@@ -702,14 +807,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|exchange
-operator|.
-name|isRollbackOnly
-argument_list|()
-condition|)
+else|else
 block|{
 comment|// create dummy exception to force spring transaction manager to rollback
 name|rce
@@ -734,18 +832,10 @@ name|setRollbackOnly
 argument_list|()
 expr_stmt|;
 block|}
-comment|// rethrow if an exception occurred
-if|if
-condition|(
-name|rce
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// throw runtime exception to force rollback (which works best to rollback with Spring transaction manager)
 throw|throw
 name|rce
 throw|;
-block|}
 block|}
 block|}
 block|}

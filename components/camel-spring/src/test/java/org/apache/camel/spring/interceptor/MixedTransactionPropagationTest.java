@@ -382,10 +382,10 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMixed ()
+DECL|method|testMixedRollbackOnlyLast ()
 specifier|public
 name|void
-name|testMixed
+name|testMixedRollbackOnlyLast
 parameter_list|()
 throws|throws
 name|Exception
@@ -413,9 +413,168 @@ name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|4
+literal|3
 argument_list|,
 name|count
+argument_list|)
+expr_stmt|;
+comment|// assert correct books in database
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Camel in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Tiger in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Elephant in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Lion in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Donkey in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMixedCommit ()
+specifier|public
+name|void
+name|testMixedCommit
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:mixed3"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|5
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+comment|// assert correct books in database
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Camel in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Tiger in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Elephant in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Lion in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Crocodile in Action'"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -549,19 +708,6 @@ name|beanRef
 argument_list|(
 literal|"bookService"
 argument_list|)
-operator|.
-name|setBody
-argument_list|(
-name|constant
-argument_list|(
-literal|"Lion in Action"
-argument_list|)
-argument_list|)
-operator|.
-name|beanRef
-argument_list|(
-literal|"bookService"
-argument_list|)
 comment|// continue on route 2
 operator|.
 name|to
@@ -572,12 +718,6 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:mixed2"
-argument_list|)
-comment|// using a different propagation which is requires new
-operator|.
-name|transacted
-argument_list|(
-literal|"PROPAGATION_REQUIRES_NEW"
 argument_list|)
 comment|// tell Camel that if this route fails then only rollback this last route
 comment|// by using (rollback only *last*)
@@ -594,13 +734,19 @@ argument_list|()
 operator|.
 name|end
 argument_list|()
+comment|// using a different propagation which is requires new
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRES_NEW"
+argument_list|)
 comment|// this step will be okay
 operator|.
 name|setBody
 argument_list|(
 name|constant
 argument_list|(
-literal|"Giraffe in Action"
+literal|"Lion in Action"
 argument_list|)
 argument_list|)
 operator|.
@@ -624,6 +770,104 @@ literal|"bookService"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
+name|from
+argument_list|(
+literal|"direct:mixed3"
+argument_list|)
+comment|// using required
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|)
+comment|// all these steps will be okay
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Elephant in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+comment|// continue on route 4
+operator|.
+name|to
+argument_list|(
+literal|"direct:mixed4"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:mixed4"
+argument_list|)
+comment|// tell Camel that if this route fails then only rollback this last route
+comment|// by using (rollback only *last*)
+operator|.
+name|onException
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
+operator|.
+name|markRollbackOnlyLast
+argument_list|()
+operator|.
+name|end
+argument_list|()
+comment|// using a different propagation which is requires new
+operator|.
+name|transacted
+argument_list|(
+literal|"PROPAGATION_REQUIRES_NEW"
+argument_list|)
+comment|// this step will be okay
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Lion in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+comment|// this step will be okay
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Crocodile in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
