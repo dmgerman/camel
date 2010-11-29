@@ -219,6 +219,8 @@ name|MessageChannel
 name|channel
 parameter_list|)
 block|{
+name|this
+operator|.
 name|replyChannel
 operator|=
 name|channel
@@ -262,6 +264,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// TODO: This doesnt look good to create a new CamelContext out of the blue
 name|ctx
 operator|=
 operator|new
@@ -295,13 +298,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ExchangePattern
-name|pattern
-decl_stmt|;
 name|boolean
 name|result
 init|=
 literal|false
+decl_stmt|;
+name|ExchangePattern
+name|pattern
 decl_stmt|;
 if|if
 condition|(
@@ -388,8 +391,6 @@ expr_stmt|;
 block|}
 name|Message
 name|response
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -460,7 +461,9 @@ name|MessageDeliveryException
 argument_list|(
 name|response
 argument_list|,
-literal|"Can't find reply channel from the CamelTargetAdapter or MessageHeaders"
+literal|"Cannot resolve ReplyChannel from message: "
+operator|+
+name|message
 argument_list|)
 throw|;
 block|}

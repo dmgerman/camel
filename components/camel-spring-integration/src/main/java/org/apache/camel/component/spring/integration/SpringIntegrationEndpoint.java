@@ -78,7 +78,21 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ScheduledPollEndpoint
+name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringCamelContext
 import|;
 end_import
 
@@ -97,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/springIntergration.html">Spring Intergration Endpoint</a>  *  * @version $Revision$  */
+comment|/**  * Defines the<a href="http://camel.apache.org/springIntergration.html">Spring Integration Endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -106,7 +120,7 @@ specifier|public
 class|class
 name|SpringIntegrationEndpoint
 extends|extends
-name|ScheduledPollEndpoint
+name|DefaultEndpoint
 block|{
 DECL|field|inputChannel
 specifier|private
@@ -154,6 +168,8 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|defaultChannel
 operator|=
 name|channel
@@ -180,6 +196,8 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|messageChannel
 operator|=
 name|channel
@@ -220,6 +238,12 @@ return|return
 operator|new
 name|SpringIntegrationProducer
 argument_list|(
+operator|(
+name|SpringCamelContext
+operator|)
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|this
 argument_list|)
 return|;

@@ -144,7 +144,6 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * @param Spring Integration MessageChannel      * @return an Camel Endpoint      * @throws Exception      */
 annotation|@
 name|Converter
 DECL|method|toEndpoint (final MessageChannel channel)
@@ -160,35 +159,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|channel
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The MessageChannel is null"
-argument_list|)
-throw|;
-block|}
 name|Endpoint
 name|answer
 init|=
 operator|new
 name|SpringIntegrationEndpoint
 argument_list|(
-literal|"URL"
+literal|"spring-integration://"
+operator|+
+name|channel
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|channel
 argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// check the channel
 return|return
 name|answer
 return|;

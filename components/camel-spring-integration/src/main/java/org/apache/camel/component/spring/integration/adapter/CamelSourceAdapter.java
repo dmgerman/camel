@@ -282,6 +282,7 @@ name|replyChannel
 decl_stmt|;
 DECL|field|initialized
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|initialized
 init|=
@@ -392,6 +393,24 @@ argument_list|,
 name|replyChannel
 argument_list|)
 expr_stmt|;
+comment|// we want to do in-out so the inputChannel is mandatory (used to receive reply from spring integration)
+if|if
+condition|(
+name|replyChannel
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ReplyChannel has not been configured on: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 name|replyChannel
 operator|.
 name|subscribe
@@ -423,7 +442,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"set the out message with the SI response message"
+literal|"Received "
+operator|+
+name|message
+operator|+
+literal|" from ReplyChannel: "
+operator|+
+name|replyChannel
 argument_list|)
 expr_stmt|;
 block|}

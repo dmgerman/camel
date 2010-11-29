@@ -63,7 +63,7 @@ argument_list|(
 literal|"camelSource"
 argument_list|,
 operator|new
-name|CamelSourceAdpaterParser
+name|CamelSourceAdapterParser
 argument_list|()
 argument_list|)
 expr_stmt|;

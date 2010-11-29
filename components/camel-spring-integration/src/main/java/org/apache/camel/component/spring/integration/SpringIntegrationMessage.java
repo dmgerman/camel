@@ -69,6 +69,11 @@ operator|.
 name|Message
 name|siMessage
 decl_stmt|;
+DECL|method|SpringIntegrationMessage ()
+specifier|public
+name|SpringIntegrationMessage
+parameter_list|()
+block|{     }
 DECL|method|SpringIntegrationMessage (org.springframework.integration.core.Message message)
 specifier|public
 name|SpringIntegrationMessage
@@ -85,16 +90,13 @@ name|Message
 name|message
 parameter_list|)
 block|{
+name|this
+operator|.
 name|siMessage
 operator|=
 name|message
 expr_stmt|;
 block|}
-DECL|method|SpringIntegrationMessage ()
-specifier|public
-name|SpringIntegrationMessage
-parameter_list|()
-block|{      }
 DECL|method|setMessage (org.springframework.integration.core.Message message)
 specifier|public
 name|void
@@ -112,6 +114,8 @@ name|Message
 name|message
 parameter_list|)
 block|{
+name|this
+operator|.
 name|siMessage
 operator|=
 name|message
