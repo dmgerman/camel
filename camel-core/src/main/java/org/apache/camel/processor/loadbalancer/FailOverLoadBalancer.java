@@ -350,6 +350,11 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -373,10 +378,13 @@ argument_list|()
 condition|)
 block|{
 comment|// always failover if no exceptions defined
-return|return
+name|answer
+operator|=
 literal|true
-return|;
+expr_stmt|;
 block|}
+else|else
+block|{
 for|for
 control|(
 name|Class
@@ -401,14 +409,42 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 literal|true
-return|;
+expr_stmt|;
+break|break;
 block|}
 block|}
+block|}
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Should failover: "
+operator|+
+name|answer
+operator|+
+literal|" for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
-literal|false
+name|answer
 return|;
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
@@ -497,13 +533,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Failover starting with endpoint index "
 operator|+
@@ -611,7 +647,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Failover is round robin enabled and therefore starting from the first endpoint"
 argument_list|)
@@ -636,7 +672,7 @@ block|{
 comment|// no more processors to try
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Braking out of failover as we reach the end of endpoints to use for failover"
 argument_list|)
@@ -746,13 +782,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Failover complete for exchangeId: "
 operator|+
@@ -788,6 +824,48 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failover due "
+operator|+
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// clear exception so we can try failover
 name|exchange
 operator|.
 name|setException
@@ -795,6 +873,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|setProperty
@@ -1100,13 +1179,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Braking out of failover after "
 operator|+
@@ -1150,7 +1229,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Failover is round robin enabled and therefore starting from the first endpoint"
 argument_list|)
@@ -1175,7 +1254,7 @@ block|{
 comment|// no more processors to try
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Braking out of failover as we reach the end of endpoints to use for failover"
 argument_list|)
@@ -1253,6 +1332,31 @@ comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
 block|}
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failover complete for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|">>> "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 comment|// signal callback we are done
 name|callback
