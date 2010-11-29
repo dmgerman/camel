@@ -692,6 +692,21 @@ name|OnCompletionDefinition
 name|onCompleteOnly
 parameter_list|()
 block|{
+if|if
+condition|(
+name|onFailureOnly
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Both onCompleteOnly and onFailureOnly cannot be true. Only one of them can be true. On node: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 comment|// must define return type as OutputDefinition and not this type to avoid end user being able
 comment|// to invoke onFailureOnly/onCompleteOnly more than once
 name|setOnCompleteOnly
@@ -719,6 +734,21 @@ name|OnCompletionDefinition
 name|onFailureOnly
 parameter_list|()
 block|{
+if|if
+condition|(
+name|onCompleteOnly
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Both onCompleteOnly and onFailureOnly cannot be true. Only one of them can be true. On node: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 comment|// must define return type as OutputDefinition and not this type to avoid end user being able
 comment|// to invoke onFailureOnly/onCompleteOnly more than once
 name|setOnCompleteOnly
