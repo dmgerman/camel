@@ -143,7 +143,8 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// load route from XML
+comment|// START SNIPPET: e1
+comment|// load route from XML and add them to the existing camel context
 name|InputStream
 name|is
 init|=
@@ -175,6 +176,7 @@ name|getRoutes
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|assertNotNull
 argument_list|(
 literal|"Loaded bar route should be there"
