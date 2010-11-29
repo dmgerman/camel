@@ -701,11 +701,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -744,6 +739,11 @@ name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 specifier|public
 name|void
@@ -898,7 +898,7 @@ name|OrderedComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// then reverse list so the first will be wrapped last, as it would then be first being invoced
+comment|// then reverse list so the first will be wrapped last, as it would then be first being invoked
 name|Collections
 operator|.
 name|reverse
