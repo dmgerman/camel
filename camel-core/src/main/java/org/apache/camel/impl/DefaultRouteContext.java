@@ -432,10 +432,10 @@ specifier|private
 name|Boolean
 name|trace
 decl_stmt|;
-DECL|field|stramCache
+DECL|field|streamCache
 specifier|private
 name|Boolean
-name|stramCache
+name|streamCache
 decl_stmt|;
 DECL|field|handleFault
 specifier|private
@@ -1312,7 +1312,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|stramCache
+name|streamCache
 operator|=
 name|cache
 expr_stmt|;
@@ -1325,13 +1325,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|stramCache
+name|streamCache
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|stramCache
+name|streamCache
 return|;
 block|}
 else|else

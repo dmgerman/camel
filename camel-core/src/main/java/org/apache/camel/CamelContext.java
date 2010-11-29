@@ -18,6 +18,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -95,6 +105,20 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RoutesDefinition
 import|;
 end_import
 
@@ -733,6 +757,17 @@ name|addRoutes
 parameter_list|(
 name|RoutesBuilder
 name|builder
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      */
+DECL|method|loadRoutesDefinition (InputStream is)
+name|RoutesDefinition
+name|loadRoutesDefinition
+parameter_list|(
+name|InputStream
+name|is
 parameter_list|)
 throws|throws
 name|Exception
