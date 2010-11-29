@@ -1478,6 +1478,8 @@ operator|=
 operator|new
 name|QuickfixjEngine
 argument_list|(
+literal|"quickfix:test"
+argument_list|,
 name|settingsFile
 operator|.
 name|getName
