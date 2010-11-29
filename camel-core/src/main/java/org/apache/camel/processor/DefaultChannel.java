@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -275,6 +285,20 @@ operator|.
 name|util
 operator|.
 name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|OrderedComparator
 import|;
 end_import
 
@@ -677,6 +701,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -856,6 +885,26 @@ expr_stmt|;
 name|target
 operator|=
 name|trace
+expr_stmt|;
+comment|// sort interceptors according to ordered
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|interceptors
+argument_list|,
+operator|new
+name|OrderedComparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// then reverse list so the first will be wrapped last, as it would then be first being invoced
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|interceptors
+argument_list|)
 expr_stmt|;
 comment|// wrap the output with the configured interceptors
 for|for

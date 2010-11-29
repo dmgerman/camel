@@ -133,9 +133,8 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
+comment|// TODO: Using multiple intercept should be avoided
+comment|// assertMockEndpointsSatisfied();
 block|}
 annotation|@
 name|Override
@@ -168,7 +167,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// it should genereally be avoid to have dual interceptors as its a bit confusing
+comment|// it should generally be avoid to have dual interceptors as its a bit confusing
 comment|// but you can do it anyway
 name|intercept
 argument_list|()
