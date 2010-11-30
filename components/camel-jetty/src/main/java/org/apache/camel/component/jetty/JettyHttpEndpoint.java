@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|Filter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -202,6 +212,11 @@ DECL|field|enableMultipartFilter
 specifier|private
 name|boolean
 name|enableMultipartFilter
+decl_stmt|;
+DECL|field|multipartFilter
+specifier|private
+name|Filter
+name|multipartFilter
 decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
@@ -528,6 +543,32 @@ name|enableMultipartFilter
 operator|=
 name|enableMultipartFilter
 expr_stmt|;
+block|}
+DECL|method|setMultipartFilter (Filter filter)
+specifier|public
+name|void
+name|setMultipartFilter
+parameter_list|(
+name|Filter
+name|filter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|multipartFilter
+operator|=
+name|filter
+expr_stmt|;
+block|}
+DECL|method|getMultipartFilter ()
+specifier|public
+name|Filter
+name|getMultipartFilter
+parameter_list|()
+block|{
+return|return
+name|multipartFilter
+return|;
 block|}
 block|}
 end_class
