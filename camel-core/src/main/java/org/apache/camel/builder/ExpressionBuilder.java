@@ -1035,7 +1035,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the outbound message headers      *      * @return an expression object which will return the headers      */
+comment|/**      * Returns an expression for the outbound message headers      *      * @return an expression object which will return the headers, will be<tt>null</tt> if the      * exchange is not out capable.      */
 DECL|method|outHeadersExpression ()
 specifier|public
 specifier|static
@@ -1056,6 +1056,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// only get out headers if the MEP is out capable
+if|if
+condition|(
+name|ExchangeHelper
+operator|.
+name|isOutCapable
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
 return|return
 name|exchange
 operator|.
@@ -1065,6 +1076,13 @@ operator|.
 name|getHeaders
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 annotation|@
 name|Override
