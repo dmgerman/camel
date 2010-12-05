@@ -222,6 +222,16 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
 name|double
 name|number
 init|=
@@ -238,6 +248,19 @@ operator|>=
 name|minimumVersion
 return|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to find out version from package: "
+operator|+
+name|packageName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 catch|catch
@@ -246,21 +269,26 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to find out "
+literal|"Failed to find out version from package: "
 operator|+
 name|packageName
-operator|+
-literal|" version: "
-operator|+
-name|e
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|true
