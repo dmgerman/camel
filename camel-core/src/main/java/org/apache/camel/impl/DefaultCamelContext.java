@@ -11207,8 +11207,6 @@ parameter_list|()
 block|{
 name|ManagementStrategy
 name|answer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -11261,6 +11259,12 @@ name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// must start it to ensure JMX works and can load needed Spring JARs
+name|startServices
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 comment|// prefer to have it at first strategy
 name|lifecycleStrategies
 operator|.
@@ -11282,13 +11286,17 @@ name|NoClassDefFoundError
 name|e
 parameter_list|)
 block|{
+name|answer
+operator|=
+literal|null
+expr_stmt|;
 comment|// if we can't instantiate the JMX enabled strategy then fallback to default
 comment|// could be because of missing .jars on the classpath
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not find needed classes for JMX lifecycle strategy."
+literal|"Cannot find needed classes for JMX lifecycle strategy."
 operator|+
 literal|" Needed class is in spring-context.jar using Spring 2.5 or newer"
 operator|+
@@ -11309,11 +11317,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|answer
+operator|=
+literal|null
+expr_stmt|;
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create JMX lifecycle strategy. Will fallback to use non JMX and this exception will be ignored."
+literal|"Cannot create JMX lifecycle strategy. Fallback to using DefaultManagementStrategy (non JMX)."
 argument_list|,
 name|e
 argument_list|)
