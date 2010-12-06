@@ -60,18 +60,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|application
-operator|.
-name|ApplicationContext
-import|;
-end_import
-
 begin_class
 DECL|class|ServiceRegistryTest
 specifier|public
