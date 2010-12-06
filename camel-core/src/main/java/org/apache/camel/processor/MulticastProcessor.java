@@ -1075,6 +1075,11 @@ name|pairs
 decl_stmt|;
 comment|// multicast uses fine grained error handling on the output processors
 comment|// so use try .. catch to cater for this
+name|boolean
+name|exhaust
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|boolean
@@ -1088,6 +1093,12 @@ name|createProcessorExchangePairs
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+comment|// after we have created the processors we consider the exchange as exhausted if an unhandled
+comment|// exception was thrown, (used in the catch block)
+name|exhaust
+operator|=
+literal|true
 expr_stmt|;
 if|if
 condition|(
@@ -1174,6 +1185,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|true
+argument_list|,
+name|exhaust
 argument_list|)
 expr_stmt|;
 return|return
@@ -1208,6 +1221,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|true
+argument_list|,
+name|exhaust
 argument_list|)
 expr_stmt|;
 return|return
@@ -2538,6 +2553,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2591,6 +2608,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2773,6 +2792,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2826,6 +2847,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2862,6 +2885,8 @@ argument_list|,
 name|callback
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3115,8 +3140,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      */
-DECL|method|doDone (Exchange original, Exchange subExchange, AsyncCallback callback, boolean doneSync)
+comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      * @param exhaust     whether or not error handling is exhausted      */
+DECL|method|doDone (Exchange original, Exchange subExchange, AsyncCallback callback, boolean doneSync, boolean exhaust)
 specifier|protected
 name|void
 name|doDone
@@ -3132,6 +3157,9 @@ name|callback
 parameter_list|,
 name|boolean
 name|doneSync
+parameter_list|,
+name|boolean
+name|exhaust
 parameter_list|)
 block|{
 comment|// cleanup any per exchange aggregation strategy
@@ -3161,9 +3189,7 @@ name|Exchange
 operator|.
 name|REDELIVERY_EXHAUSTED
 argument_list|,
-name|Boolean
-operator|.
-name|TRUE
+name|exhaust
 argument_list|)
 expr_stmt|;
 block|}
