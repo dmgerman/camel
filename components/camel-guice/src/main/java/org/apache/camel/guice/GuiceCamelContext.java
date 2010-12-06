@@ -340,6 +340,9 @@ name|Injector
 name|injector
 parameter_list|)
 block|{
+name|disableJMX
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|injector
