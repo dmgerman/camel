@@ -793,10 +793,14 @@ decl_stmt|;
 name|Exchange
 name|newExchange
 init|=
-name|exchange
+name|ExchangeHelper
 operator|.
-name|copy
-argument_list|()
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
