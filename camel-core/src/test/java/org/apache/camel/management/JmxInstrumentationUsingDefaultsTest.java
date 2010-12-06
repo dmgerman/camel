@@ -351,11 +351,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Could not find 2 processors: "
+literal|"Could not find 1 processors: "
 operator|+
 name|s
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|s
 operator|.
