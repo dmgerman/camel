@@ -198,6 +198,12 @@ name|DEFAULT_CHARSET_PROPERTY
 init|=
 literal|"org.apache.camel.default.charset"
 decl_stmt|;
+DECL|field|DESTINATION_OVERRIDE_URL
+name|String
+name|DESTINATION_OVERRIDE_URL
+init|=
+literal|"CamelDestinationOverrideUrl"
+decl_stmt|;
 DECL|field|DISABLE_HTTP_STREAM_CACHE
 name|String
 name|DISABLE_HTTP_STREAM_CACHE

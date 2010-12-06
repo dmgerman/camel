@@ -343,6 +343,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setupJAXRSServerFactoryBean (JAXRSServerFactoryBean sfb)
 specifier|protected
 name|void
@@ -365,13 +367,18 @@ name|sfb
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setupJAXRSClientFactoryBean (JAXRSClientFactoryBean cfb)
+annotation|@
+name|Override
+DECL|method|setupJAXRSClientFactoryBean (JAXRSClientFactoryBean cfb, String address)
 specifier|protected
 name|void
 name|setupJAXRSClientFactoryBean
 parameter_list|(
 name|JAXRSClientFactoryBean
 name|cfb
+parameter_list|,
+name|String
+name|address
 parameter_list|)
 block|{
 name|checkBeanType
@@ -384,6 +391,13 @@ expr_stmt|;
 name|configure
 argument_list|(
 name|cfb
+argument_list|)
+expr_stmt|;
+name|cfb
+operator|.
+name|setAddress
+argument_list|(
+name|address
 argument_list|)
 expr_stmt|;
 block|}

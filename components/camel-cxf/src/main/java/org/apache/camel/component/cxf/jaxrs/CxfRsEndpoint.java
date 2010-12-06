@@ -354,6 +354,13 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
+DECL|field|maxClientCacheSize
+specifier|private
+name|int
+name|maxClientCacheSize
+init|=
+literal|10
+decl_stmt|;
 DECL|field|bindingInitialized
 specifier|private
 name|AtomicBoolean
@@ -762,13 +769,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setupJAXRSClientFactoryBean (JAXRSClientFactoryBean cfb)
+DECL|method|setupJAXRSClientFactoryBean (JAXRSClientFactoryBean cfb, String address)
 specifier|protected
 name|void
 name|setupJAXRSClientFactoryBean
 parameter_list|(
 name|JAXRSClientFactoryBean
 name|cfb
+parameter_list|,
+name|String
+name|address
 parameter_list|)
 block|{
 comment|// address
@@ -776,8 +786,7 @@ name|cfb
 operator|.
 name|setAddress
 argument_list|(
-name|getAddress
-argument_list|()
+name|address
 argument_list|)
 expr_stmt|;
 if|if
@@ -831,6 +840,23 @@ name|JAXRSClientFactoryBean
 name|createJAXRSClientFactoryBean
 parameter_list|()
 block|{
+return|return
+name|createJAXRSClientFactoryBean
+argument_list|(
+name|getAddress
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|createJAXRSClientFactoryBean (String address)
+specifier|public
+name|JAXRSClientFactoryBean
+name|createJAXRSClientFactoryBean
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
 name|JAXRSClientFactoryBean
 name|answer
 init|=
@@ -841,6 +867,8 @@ decl_stmt|;
 name|setupJAXRSClientFactoryBean
 argument_list|(
 name|answer
+argument_list|,
+name|address
 argument_list|)
 expr_stmt|;
 return|return
@@ -958,6 +986,34 @@ name|throwExceptionOnFailure
 operator|=
 name|throwExceptionOnFailure
 expr_stmt|;
+block|}
+comment|/**      * @param maxClientCacheSize the maxClientCacheSize to set      */
+DECL|method|setMaxClientCacheSize (int maxClientCacheSize)
+specifier|public
+name|void
+name|setMaxClientCacheSize
+parameter_list|(
+name|int
+name|maxClientCacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxClientCacheSize
+operator|=
+name|maxClientCacheSize
+expr_stmt|;
+block|}
+comment|/**      * @return the maxClientCacheSize      */
+DECL|method|getMaxClientCacheSize ()
+specifier|public
+name|int
+name|getMaxClientCacheSize
+parameter_list|()
+block|{
+return|return
+name|maxClientCacheSize
+return|;
 block|}
 block|}
 end_class

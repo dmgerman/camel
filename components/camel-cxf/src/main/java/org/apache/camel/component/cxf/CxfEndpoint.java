@@ -777,6 +777,13 @@ specifier|private
 name|boolean
 name|mtomEnabled
 decl_stmt|;
+DECL|field|maxClientCacheSize
+specifier|private
+name|int
+name|maxClientCacheSize
+init|=
+literal|10
+decl_stmt|;
 DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
@@ -1393,7 +1400,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Populate a client factory bean      */
-DECL|method|setupClientFactoryBean (ClientProxyFactoryBean factoryBean, Class<?> cls)
+DECL|method|setupClientFactoryBean (ClientProxyFactoryBean factoryBean, Class<?> cls, String serviceAddress)
 specifier|protected
 name|void
 name|setupClientFactoryBean
@@ -1406,6 +1413,9 @@ argument_list|<
 name|?
 argument_list|>
 name|cls
+parameter_list|,
+name|String
+name|serviceAddress
 parameter_list|)
 block|{
 comment|// service class
@@ -1421,8 +1431,7 @@ name|factoryBean
 operator|.
 name|setAddress
 argument_list|(
-name|getAddress
-argument_list|()
+name|serviceAddress
 argument_list|)
 expr_stmt|;
 comment|// wsdl url
@@ -1594,13 +1603,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setupClientFactoryBean (ClientFactoryBean factoryBean)
+DECL|method|setupClientFactoryBean (ClientFactoryBean factoryBean, String serviceAddress)
 specifier|protected
 name|void
 name|setupClientFactoryBean
 parameter_list|(
 name|ClientFactoryBean
 name|factoryBean
+parameter_list|,
+name|String
+name|serviceAddress
 parameter_list|)
 block|{
 comment|// address
@@ -1608,8 +1620,7 @@ name|factoryBean
 operator|.
 name|setAddress
 argument_list|(
-name|getAddress
-argument_list|()
+name|serviceAddress
 argument_list|)
 expr_stmt|;
 comment|// wsdl url
@@ -1791,6 +1802,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+return|return
+name|createClient
+argument_list|(
+name|getAddress
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Create a CXF client object      */
+DECL|method|createClient (String serviceAddress)
+name|Client
+name|createClient
+parameter_list|(
+name|String
+name|serviceAddress
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// get service class
 if|if
 condition|(
@@ -1862,6 +1892,8 @@ argument_list|(
 name|factoryBean
 argument_list|,
 name|cls
+argument_list|,
+name|serviceAddress
 argument_list|)
 expr_stmt|;
 return|return
@@ -1910,6 +1942,8 @@ comment|// setup client factory bean
 name|setupClientFactoryBean
 argument_list|(
 name|factoryBean
+argument_list|,
+name|serviceAddress
 argument_list|)
 expr_stmt|;
 return|return
@@ -2725,6 +2759,34 @@ parameter_list|()
 block|{
 return|return
 name|mtomEnabled
+return|;
+block|}
+comment|/**      * @param maxClientCacheSize the maxClientCacheSize to set      */
+DECL|method|setMaxClientCacheSize (int maxClientCacheSize)
+specifier|public
+name|void
+name|setMaxClientCacheSize
+parameter_list|(
+name|int
+name|maxClientCacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxClientCacheSize
+operator|=
+name|maxClientCacheSize
+expr_stmt|;
+block|}
+comment|/**      * @return the maxClientCacheSize      */
+DECL|method|getMaxClientCacheSize ()
+specifier|public
+name|int
+name|getMaxClientCacheSize
+parameter_list|()
+block|{
+return|return
+name|maxClientCacheSize
 return|;
 block|}
 comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD} mode.      */
