@@ -1501,6 +1501,19 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// must normalize directory first
+name|directory
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|normalizePath
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|log
@@ -3906,24 +3919,42 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
+comment|// must normalize the directory name
 name|String
 name|directory
 init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|normalizePath
+argument_list|(
 name|sb
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 decl_stmt|;
-comment|// do not try to build root / folder
+comment|// do not try to build root folder (/ or \)
 if|if
 condition|(
 operator|!
+operator|(
 name|directory
 operator|.
 name|equals
 argument_list|(
 literal|"/"
 argument_list|)
+operator|||
+name|directory
+operator|.
+name|equals
+argument_list|(
+literal|"\\"
+argument_list|)
+operator|)
 condition|)
 block|{
 if|if
