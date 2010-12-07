@@ -486,13 +486,10 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Create a CXF Client      */
 annotation|@
 name|Override
-DECL|method|createClient (String serviceAddress)
+DECL|method|createClient ()
 name|Client
 name|createClient
-parameter_list|(
-name|String
-name|serviceAddress
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -559,8 +556,6 @@ argument_list|(
 name|factoryBean
 argument_list|,
 name|cls
-argument_list|,
-name|serviceAddress
 argument_list|)
 expr_stmt|;
 comment|// fill in values that have not been filled.
@@ -684,8 +679,6 @@ comment|// setup client factory bean
 name|setupClientFactoryBean
 argument_list|(
 name|factoryBean
-argument_list|,
-name|serviceAddress
 argument_list|)
 expr_stmt|;
 comment|// fill in values that have not been filled.
