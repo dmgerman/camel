@@ -200,8 +200,8 @@ name|JmxMBeanAssembler
 block|{
 DECL|field|LOG
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Log
 name|LOG
 init|=
@@ -302,6 +302,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|custom
+operator|!=
+literal|null
+operator|&&
 name|ObjectHelper
 operator|.
 name|hasAnnotation
@@ -324,13 +328,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Assembling MBeanInfo for: "
 operator|+
@@ -379,13 +383,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Assembling MBeanInfo for: "
 operator|+

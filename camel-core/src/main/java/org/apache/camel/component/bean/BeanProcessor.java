@@ -1139,6 +1139,19 @@ name|getProcessor
 argument_list|()
 return|;
 block|}
+DECL|method|getBean ()
+specifier|public
+name|Object
+name|getBean
+parameter_list|()
+block|{
+return|return
+name|beanHolder
+operator|.
+name|getBean
+argument_list|()
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getMethodObject ()
