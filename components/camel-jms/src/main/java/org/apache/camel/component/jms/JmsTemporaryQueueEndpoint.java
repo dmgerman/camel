@@ -204,22 +204,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getManagedObject (JmsEndpoint object)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|JmsEndpoint
-name|object
-parameter_list|)
-block|{
-comment|// We don't want to manage this temporary object, so return null
-return|return
-literal|null
-return|;
-block|}
 DECL|method|getJmsDestination (Session session)
 specifier|public
 specifier|synchronized

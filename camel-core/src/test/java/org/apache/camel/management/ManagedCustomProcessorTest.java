@@ -112,20 +112,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|jmx
@@ -428,17 +414,15 @@ block|}
 comment|// START SNIPPET: e1
 annotation|@
 name|ManagedResource
+argument_list|(
+literal|"My Managed Component"
+argument_list|)
 DECL|class|MyCustomProcessor
 specifier|public
 specifier|static
 class|class
 name|MyCustomProcessor
 implements|implements
-name|ManagementAware
-argument_list|<
-name|Processor
-argument_list|>
-implements|,
 name|Processor
 block|{
 DECL|field|foo
@@ -448,21 +432,6 @@ name|foo
 init|=
 literal|"hey"
 decl_stmt|;
-DECL|method|getManagedObject (Processor object)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|Processor
-name|object
-parameter_list|)
-block|{
-comment|// just return this as we use Spring JMX annotations to define which attributes/operations
-comment|// to be enlisted in JMX
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|getFoo ()

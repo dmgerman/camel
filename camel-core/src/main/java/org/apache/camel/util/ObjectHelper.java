@@ -4325,7 +4325,7 @@ return|return
 name|propertyName
 return|;
 block|}
-comment|/**      * Returns true if the given collection of annotations matches the given      * type      */
+comment|/**      * Returns true if the given collection of annotations matches the given type      */
 DECL|method|hasAnnotation (Annotation[] annotations, Class<?> type)
 specifier|public
 specifier|static

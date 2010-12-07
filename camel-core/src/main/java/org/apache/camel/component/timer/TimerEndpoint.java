@@ -116,20 +116,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|jmx
@@ -178,11 +164,6 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|Service
-implements|,
-name|ManagementAware
-argument_list|<
-name|TimerEndpoint
-argument_list|>
 block|{
 DECL|field|timerName
 specifier|private
@@ -331,19 +312,6 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
-return|;
-block|}
-DECL|method|getManagedObject (TimerEndpoint object)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|TimerEndpoint
-name|object
-parameter_list|)
-block|{
-return|return
-name|this
 return|;
 block|}
 DECL|method|start ()

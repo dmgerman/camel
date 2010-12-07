@@ -128,11 +128,13 @@ name|ManagedEventNotifierMBean
 block|{
 DECL|field|context
 specifier|private
+specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|eventNotifier
 specifier|private
+specifier|final
 name|EventNotifier
 name|eventNotifier
 decl_stmt|;

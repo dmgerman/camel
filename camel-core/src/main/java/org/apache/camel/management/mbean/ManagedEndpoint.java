@@ -88,9 +88,12 @@ DECL|class|ManagedEndpoint
 specifier|public
 class|class
 name|ManagedEndpoint
+implements|implements
+name|ManagedInstance
 block|{
 DECL|field|endpoint
 specifier|private
+specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
@@ -191,6 +194,16 @@ name|endpoint
 operator|.
 name|isSingleton
 argument_list|()
+return|;
+block|}
+DECL|method|getInstance ()
+specifier|public
+name|Object
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|endpoint
 return|;
 block|}
 block|}

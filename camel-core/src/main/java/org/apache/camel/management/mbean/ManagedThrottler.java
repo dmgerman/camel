@@ -111,6 +111,7 @@ name|ManagedProcessor
 block|{
 DECL|field|throttler
 specifier|private
+specifier|final
 name|Throttler
 name|throttler
 decl_stmt|;

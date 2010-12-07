@@ -95,6 +95,7 @@ name|ManagedService
 block|{
 DECL|field|producer
 specifier|private
+specifier|final
 name|Producer
 name|producer
 decl_stmt|;

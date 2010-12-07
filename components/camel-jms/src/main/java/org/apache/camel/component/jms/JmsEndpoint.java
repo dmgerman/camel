@@ -356,20 +356,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ManagementAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -514,11 +500,6 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
-implements|,
-name|ManagementAware
-argument_list|<
-name|JmsEndpoint
-argument_list|>
 implements|,
 name|MultipleConsumersSupport
 implements|,
@@ -1269,19 +1250,6 @@ operator|.
 name|getRequestTimeout
 argument_list|()
 argument_list|)
-return|;
-block|}
-DECL|method|getManagedObject (JmsEndpoint endpoint)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|JmsEndpoint
-name|endpoint
-parameter_list|)
-block|{
-return|return
-name|this
 return|;
 block|}
 DECL|method|isMultipleConsumersSupported ()

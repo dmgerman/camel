@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,33 +12,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|management
+operator|.
+name|mbean
 package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object being managed.  *<p/>  * This allows you to gain fine grained control of managing objects with Camel.  * For example various Camel components will implement this interface to provide  * management to their endpoints and consumers.  *<p/>  * A popular choice is to use Spring JMX annotations to decorate your object to pinpoint  * the JMX attributes and operations. If you do this then you do<b>not</b> need to use  * this interface. This interface is only if you need to be in full control of the MBean  * and therefore can return a {@link javax.management.MBeanInfo} object.  *  * @version $Revision$  * @deprecated use Spring JMX annotations  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_interface
-annotation|@
-name|Deprecated
-DECL|interface|ManagementAware
+DECL|interface|ManagedInstance
 specifier|public
 interface|interface
-name|ManagementAware
-parameter_list|<
-name|T
-parameter_list|>
+name|ManagedInstance
 block|{
-comment|/**      * Gets the managed object      *      * @param object the object to be managed      * @return the managed object      */
-DECL|method|getManagedObject (T object)
+comment|/**      * Gets the resource which is being managed.      *      * @return the resource, such as a {@link org.apache.camel.Processor}, {@link org.apache.camel.Consumer} etc.      */
+DECL|method|getInstance ()
 name|Object
-name|getManagedObject
-parameter_list|(
-name|T
-name|object
-parameter_list|)
+name|getInstance
+parameter_list|()
 function_decl|;
 block|}
 end_interface

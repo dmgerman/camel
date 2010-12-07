@@ -153,6 +153,7 @@ name|ManagedProcessor
 block|{
 DECL|field|delayer
 specifier|private
+specifier|final
 name|Delayer
 name|delayer
 decl_stmt|;

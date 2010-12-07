@@ -166,14 +166,18 @@ DECL|class|ManagedService
 specifier|public
 class|class
 name|ManagedService
+implements|implements
+name|ManagedInstance
 block|{
 DECL|field|context
 specifier|private
+specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|service
 specifier|private
+specifier|final
 name|Service
 name|service
 decl_stmt|;
@@ -656,6 +660,16 @@ literal|"resume() is not a supported operation"
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getInstance ()
+specifier|public
+name|Object
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|service
+return|;
 block|}
 block|}
 end_class

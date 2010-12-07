@@ -109,6 +109,7 @@ name|ManagedConsumer
 block|{
 DECL|field|consumer
 specifier|private
+specifier|final
 name|ScheduledPollConsumer
 name|consumer
 decl_stmt|;

@@ -118,14 +118,18 @@ DECL|class|ManagedComponent
 specifier|public
 class|class
 name|ManagedComponent
+implements|implements
+name|ManagedInstance
 block|{
 DECL|field|component
 specifier|private
+specifier|final
 name|Component
 name|component
 decl_stmt|;
 DECL|field|name
 specifier|private
+specifier|final
 name|String
 name|name
 decl_stmt|;
@@ -278,6 +282,16 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+return|;
+block|}
+DECL|method|getInstance ()
+specifier|public
+name|Object
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|component
 return|;
 block|}
 block|}

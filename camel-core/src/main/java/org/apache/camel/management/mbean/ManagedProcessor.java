@@ -186,6 +186,8 @@ class|class
 name|ManagedProcessor
 extends|extends
 name|ManagedPerformanceCounter
+implements|implements
+name|ManagedInstance
 block|{
 DECL|field|context
 specifier|private
@@ -569,6 +571,16 @@ name|getProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getInstance ()
+specifier|public
+name|Object
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|processor
+return|;
 block|}
 block|}
 end_class

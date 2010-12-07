@@ -139,6 +139,7 @@ name|ManagedProcessor
 block|{
 DECL|field|processor
 specifier|private
+specifier|final
 name|SendProcessor
 name|processor
 decl_stmt|;
