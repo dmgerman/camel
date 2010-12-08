@@ -198,9 +198,10 @@ specifier|abstract
 class|class
 name|AbstractCamelConsumerTemplateFactoryBean
 extends|extends
-name|IdentifiedType
-implements|implements
-name|CamelContextAware
+name|AbstractCamelFactoryBean
+argument_list|<
+name|ConsumerTemplate
+argument_list|>
 block|{
 annotation|@
 name|XmlTransient
@@ -211,81 +212,14 @@ name|template
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|camelContextId
-specifier|private
-name|String
-name|camelContextId
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|maximumCacheSize
 specifier|private
 name|Integer
 name|maximumCacheSize
 decl_stmt|;
-DECL|method|afterPropertiesSet ()
-specifier|public
-name|void
-name|afterPropertiesSet
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|camelContext
-operator|==
-literal|null
-operator|&&
-name|camelContextId
-operator|!=
-literal|null
-condition|)
-block|{
-name|camelContext
-operator|=
-name|getCamelContextWithId
-argument_list|(
-name|camelContextId
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|camelContext
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"A CamelContext or a CamelContextId must be injected!"
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|getCamelContextWithId (String camelContextId)
-specifier|protected
-specifier|abstract
-name|CamelContext
-name|getCamelContextWithId
-parameter_list|(
-name|String
-name|camelContextId
-parameter_list|)
-function_decl|;
 DECL|method|getObject ()
 specifier|public
-name|Object
+name|ConsumerTemplate
 name|getObject
 parameter_list|()
 throws|throws
@@ -296,7 +230,8 @@ operator|=
 operator|new
 name|DefaultConsumerTemplate
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// set custom cache size if provided
@@ -330,6 +265,9 @@ block|}
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|DefaultConsumerTemplate
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
@@ -337,16 +275,6 @@ return|return
 name|DefaultConsumerTemplate
 operator|.
 name|class
-return|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 DECL|method|destroy ()
@@ -367,58 +295,6 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
-DECL|method|getCamelContextId ()
-specifier|public
-name|String
-name|getCamelContextId
-parameter_list|()
-block|{
-return|return
-name|camelContextId
-return|;
-block|}
-DECL|method|setCamelContextId (String camelContextId)
-specifier|public
-name|void
-name|setCamelContextId
-parameter_list|(
-name|String
-name|camelContextId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContextId
-operator|=
-name|camelContextId
-expr_stmt|;
-block|}
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|Integer
