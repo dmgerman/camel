@@ -1062,6 +1062,17 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+comment|// silently skip any values which is null
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|Serializable
 name|converted
 init|=
@@ -1132,6 +1143,7 @@ operator|+
 literal|" cannot be serialized, it will be excluded by the holder."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
