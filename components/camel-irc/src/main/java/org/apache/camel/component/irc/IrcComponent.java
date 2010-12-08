@@ -177,11 +177,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|configuration
-specifier|private
-name|IrcConfiguration
-name|configuration
-decl_stmt|;
 DECL|field|connectionCache
 specifier|private
 specifier|final
@@ -202,38 +197,6 @@ name|IRCConnection
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|ircLogger
-specifier|private
-name|IRCEventListener
-name|ircLogger
-decl_stmt|;
-DECL|method|IrcComponent ()
-specifier|public
-name|IrcComponent
-parameter_list|()
-block|{
-name|configuration
-operator|=
-operator|new
-name|IrcConfiguration
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|IrcComponent (IrcConfiguration configuration)
-specifier|public
-name|IrcComponent
-parameter_list|(
-name|IrcConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
-block|}
 DECL|method|IrcComponent (CamelContext context)
 specifier|public
 name|IrcComponent
@@ -246,12 +209,6 @@ name|super
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|configuration
-operator|=
-operator|new
-name|IrcConfiguration
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -276,14 +233,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// lets make sure we copy the configuration as each endpoint can customize its own version
+comment|// every endpoint gets it's own configuration
 name|IrcConfiguration
 name|config
 init|=
-name|getConfiguration
-argument_list|()
-operator|.
-name|copy
+operator|new
+name|IrcConfiguration
 argument_list|()
 decl_stmt|;
 name|config
@@ -427,6 +382,9 @@ name|IRCConnection
 name|conn
 init|=
 literal|null
+decl_stmt|;
+name|IRCEventListener
+name|ircLogger
 decl_stmt|;
 if|if
 condition|(
@@ -828,32 +786,6 @@ argument_list|,
 name|hostname
 argument_list|)
 return|;
-block|}
-DECL|method|getConfiguration ()
-specifier|public
-name|IrcConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
-DECL|method|setConfiguration (IrcConfiguration configuration)
-specifier|public
-name|void
-name|setConfiguration
-parameter_list|(
-name|IrcConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
 block|}
 block|}
 end_class
