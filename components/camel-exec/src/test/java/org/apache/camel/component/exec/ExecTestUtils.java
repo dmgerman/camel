@@ -202,9 +202,6 @@ block|{
 name|String
 name|javaHome
 init|=
-operator|(
-name|String
-operator|)
 name|System
 operator|.
 name|getenv
@@ -219,6 +216,15 @@ operator|==
 literal|null
 condition|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The Exec component tests will fail, because the environment variable JAVA_HOME is not set!"
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|IllegalStateException
