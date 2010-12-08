@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object being managed.  *<p/>  * This allows you to gain fine grained control of managing objects with Camel.  * For example various Camel components will implement this interface to provide  * management to their endpoints and consumers.  *<p/>  * A popular choice is to use Spring JMX annotations to decorate your object to pinpoint  * the JMX attributes and operations. If you do this then you do<b>not</b> need to use  * this interface. This interface is only if you need to be in full control of the MBean  * and therefore can return a {@link javax.management.MBeanInfo} object.  *  * @version $Revision$  * @deprecated use Spring JMX annotations  */
+comment|/**  * An interface to represent an object being managed.  *<p/>  * This allows you to gain fine grained control of managing objects with Camel.  * For example various Camel components will implement this interface to provide  * management to their endpoints and consumers.  *<p/>  * A popular choice is to use Spring JMX annotations to decorate your object to pinpoint  * the JMX attributes and operations. If you do this then you do<b>not</b> need to use  * this interface. This interface is only if you need to be in full control of the MBean  * and therefore can return a {@link javax.management.MBeanInfo} object.  *  * @version $Revision$  * @deprecated use Spring JMX annotations,  *             see this<a href="http://camel.apache.org/why-is-my-processor-not-showing-up-in-jconsole.html">FAQ entry</a>  */
 end_comment
 
 begin_interface
