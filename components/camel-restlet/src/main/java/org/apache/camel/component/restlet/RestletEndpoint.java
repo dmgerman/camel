@@ -268,6 +268,13 @@ specifier|private
 name|RestletBinding
 name|restletBinding
 decl_stmt|;
+DECL|field|throwExceptionOnFailure
+specifier|private
+name|boolean
+name|throwExceptionOnFailure
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining)
 specifier|public
 name|RestletEndpoint
@@ -779,6 +786,32 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+DECL|method|isThrowExceptionOnFailure ()
+specifier|public
+name|boolean
+name|isThrowExceptionOnFailure
+parameter_list|()
+block|{
+return|return
+name|throwExceptionOnFailure
+return|;
+block|}
+DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
+specifier|public
+name|void
+name|setThrowExceptionOnFailure
+parameter_list|(
+name|boolean
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwExceptionOnFailure
+operator|=
+name|throwExceptionOnFailure
+expr_stmt|;
 block|}
 block|}
 end_class

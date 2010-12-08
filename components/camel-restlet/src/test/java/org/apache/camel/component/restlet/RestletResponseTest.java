@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -277,6 +289,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+argument_list|(
+name|expected
+operator|=
+name|CamelExecutionException
+operator|.
+name|class
+argument_list|)
 DECL|method|testRestletProducer ()
 specifier|public
 name|void
