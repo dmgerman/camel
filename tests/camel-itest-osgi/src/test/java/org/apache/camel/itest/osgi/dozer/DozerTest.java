@@ -289,7 +289,7 @@ argument_list|)
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Dozer does not work in OSGi"
+literal|"DozerBeanMapper can't load the configure from OSGi in Dozer 5.3.1"
 argument_list|)
 DECL|class|DozerTest
 specifier|public
@@ -519,6 +519,15 @@ operator|.
 name|value
 argument_list|(
 literal|"INFO"
+argument_list|)
+argument_list|,
+comment|// need to install some karaf features
+name|scanFeatures
+argument_list|(
+name|getKarafFeatureUrl
+argument_list|()
+argument_list|,
+literal|"http"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
