@@ -1000,7 +1000,6 @@ annotation|@
 name|XmlElements
 argument_list|(
 block|{
-comment|//        @XmlElement(name = "beanPostProcessor", type = CamelBeanPostProcessor.class, required = false),
 annotation|@
 name|XmlElement
 argument_list|(
@@ -1046,7 +1045,7 @@ literal|"proxy"
 argument_list|,
 name|type
 operator|=
-name|CamelProxyFactoryDefinition
+name|CamelProxyFactoryBean
 operator|.
 name|class
 argument_list|,
@@ -1385,17 +1384,6 @@ specifier|private
 name|BlueprintCamelContext
 name|context
 decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|contextClassLoaderOnStart
-specifier|private
-name|ClassLoader
-name|contextClassLoaderOnStart
-decl_stmt|;
-comment|//    @XmlTransient
-comment|//    private ApplicationContext applicationContext;
-comment|//    @XmlTransient
-comment|//    private BeanPostProcessor beanPostProcessor;
 annotation|@
 name|XmlTransient
 DECL|field|blueprintContainer
@@ -2681,16 +2669,6 @@ name|routes
 operator|=
 name|routes
 expr_stmt|;
-block|}
-DECL|method|getContextClassLoaderOnStart ()
-specifier|public
-name|ClassLoader
-name|getContextClassLoaderOnStart
-parameter_list|()
-block|{
-return|return
-name|contextClassLoaderOnStart
-return|;
 block|}
 DECL|method|isImplicitId ()
 specifier|public
