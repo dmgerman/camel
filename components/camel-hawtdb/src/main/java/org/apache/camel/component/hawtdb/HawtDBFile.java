@@ -480,6 +480,20 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Allocation repository file: "
+operator|+
+name|getFile
+argument_list|()
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -860,6 +874,7 @@ block|}
 name|attempt
 operator|++
 expr_stmt|;
+comment|// execute and get answer
 name|answer
 operator|=
 name|work
@@ -869,6 +884,31 @@ argument_list|(
 name|tx
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"TX is read only: "
+operator|+
+name|tx
+operator|.
+name|isReadOnly
+argument_list|()
+operator|+
+literal|" for executed work: "
+operator|+
+name|work
+argument_list|)
+expr_stmt|;
+block|}
 comment|// commit work
 name|tx
 operator|.
@@ -906,7 +946,7 @@ literal|" executing work "
 operator|+
 name|work
 operator|+
-literal|" will do rollback and retry."
+literal|". Will do rollback and retry."
 argument_list|)
 expr_stmt|;
 comment|// no harm doing rollback before retry and no wait is needed
@@ -930,7 +970,7 @@ literal|"Error executing work "
 operator|+
 name|work
 operator|+
-literal|" will do rollback."
+literal|". Will do rollback."
 argument_list|,
 name|e
 argument_list|)
