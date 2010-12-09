@@ -865,7 +865,19 @@ operator|.
 name|isFailed
 argument_list|()
 decl_stmt|;
-comment|// fire event to signal the exchange is done
+comment|// at first done the synchronizations
+name|UnitOfWorkHelper
+operator|.
+name|doneSynchronizations
+argument_list|(
+name|exchange
+argument_list|,
+name|synchronizations
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+comment|// then fire event to signal the exchange is done
 try|try
 block|{
 if|if
@@ -904,7 +916,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -919,18 +931,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// done the synchronizations
-name|UnitOfWorkHelper
-operator|.
-name|doneSynchronizations
-argument_list|(
-name|exchange
-argument_list|,
-name|synchronizations
-argument_list|,
-name|LOG
-argument_list|)
-expr_stmt|;
+finally|finally
+block|{
 comment|// unregister from inflight registry
 if|if
 condition|(
@@ -955,6 +957,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getId ()
