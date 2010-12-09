@@ -380,7 +380,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|100
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -657,7 +657,7 @@ argument_list|()
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -710,7 +710,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertEquals

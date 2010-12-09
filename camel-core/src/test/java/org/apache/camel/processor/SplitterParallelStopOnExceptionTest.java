@@ -210,6 +210,13 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|expectedMinimumMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|allMessages
 argument_list|()
 operator|.
@@ -429,14 +436,6 @@ literal|"Forced"
 argument_list|)
 throw|;
 block|}
-comment|// need to let ok body sleep so when we fail we do not have all tasks running
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)

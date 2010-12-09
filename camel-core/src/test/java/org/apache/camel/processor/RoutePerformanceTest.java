@@ -104,6 +104,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
 begin_comment
 comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of concept.  */
 end_comment
@@ -149,12 +163,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 name|MockEndpoint
@@ -198,16 +211,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|long
-name|delta
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-decl_stmt|;
 name|System
 operator|.
 name|out
@@ -220,7 +223,10 @@ name|size
 operator|+
 literal|" Took: "
 operator|+
-name|delta
+name|watch
+operator|.
+name|taken
+argument_list|()
 operator|+
 literal|" ms"
 argument_list|)

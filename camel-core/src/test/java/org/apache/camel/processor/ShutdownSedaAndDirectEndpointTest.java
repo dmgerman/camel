@@ -156,7 +156,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|10
 argument_list|)
 expr_stmt|;
 name|context
@@ -214,7 +214,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|25
 argument_list|)
 operator|.
 name|to

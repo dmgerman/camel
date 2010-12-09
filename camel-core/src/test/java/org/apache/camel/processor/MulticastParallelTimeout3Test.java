@@ -114,12 +114,26 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// C will timeout so we only get A and B
+comment|// C will timeout so we only get A and/or B
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"AB"
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|not
+argument_list|(
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"C"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -159,15 +173,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello"
-argument_list|)
-expr_stmt|;
-comment|// wait at least longer than the delay in C so we can ensure its being cancelled
-comment|// and wont continue routing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -281,7 +286,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|4000
+literal|250
 argument_list|)
 operator|.
 name|to
@@ -307,11 +312,6 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-literal|2000
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"mock:A"
@@ -328,11 +328,6 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:b"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-literal|3000
 argument_list|)
 operator|.
 name|to
@@ -355,7 +350,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|6000
+literal|500
 argument_list|)
 operator|.
 name|to

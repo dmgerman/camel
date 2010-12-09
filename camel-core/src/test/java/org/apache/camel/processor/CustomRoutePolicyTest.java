@@ -261,7 +261,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -286,21 +286,13 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"stop"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// give time for slow boxes
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -339,7 +331,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|routeId

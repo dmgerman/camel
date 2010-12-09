@@ -155,7 +155,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true"
+literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -257,7 +257,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertTrue

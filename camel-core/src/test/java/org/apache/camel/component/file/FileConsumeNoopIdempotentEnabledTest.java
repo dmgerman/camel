@@ -149,7 +149,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -182,7 +182,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/noop?noop=true&idempotent=true"
+literal|"file://target/noop?noop=true&idempotent=true&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -160,7 +160,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"seda:foo?timeout=1000"
+literal|"seda:foo?timeout=100"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -253,7 +253,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|250
 argument_list|)
 operator|.
 name|transform

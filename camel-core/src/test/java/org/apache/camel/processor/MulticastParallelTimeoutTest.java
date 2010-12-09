@@ -175,15 +175,6 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 expr_stmt|;
-comment|// wait at least longer than the delay in A so we can ensure its being cancelled
-comment|// and wont continue routing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|4000
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -295,7 +286,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 operator|.
 name|to
@@ -323,7 +314,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 operator|.
 name|to
@@ -360,11 +351,6 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:c"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-literal|500
 argument_list|)
 operator|.
 name|to

@@ -296,12 +296,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// there should be 2 completed events
 comment|// one for the producer template, and another for the Camel route
@@ -347,12 +345,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// there should be 1 completed events as direct endpoint will be like a direct method call
 comment|// and the UoW will be re-used
@@ -396,11 +392,6 @@ argument_list|(
 literal|"seda:foo"
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-literal|500
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"mock:result"
@@ -409,11 +400,6 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:bar"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-literal|500
 argument_list|)
 operator|.
 name|to

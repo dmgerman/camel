@@ -145,6 +145,7 @@ decl_stmt|;
 DECL|field|event
 specifier|private
 specifier|static
+specifier|volatile
 name|String
 name|event
 init|=
@@ -252,12 +253,17 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give file consumer a bit time
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+comment|// the poll strategy commit is executed after the exchange is done
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertTrue

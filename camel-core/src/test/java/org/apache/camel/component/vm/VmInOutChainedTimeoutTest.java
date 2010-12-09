@@ -102,7 +102,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// time timeout after 2 sec should trigger a immediately reply
 name|StopWatch
 name|watch
 init|=
@@ -116,7 +115,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"vm:a?timeout=5000"
+literal|"vm:a?timeout=1000"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -133,6 +132,7 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
+comment|// the chained vm caused the timeout
 name|ExchangeTimedOutException
 name|cause
 init|=
@@ -150,7 +150,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2000
+literal|200
 argument_list|,
 name|cause
 operator|.
@@ -169,20 +169,13 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be faster than 4000 millis, was: "
+literal|"Should be faster than 1 sec, was: "
 operator|+
 name|delta
 argument_list|,
 name|delta
 operator|<
-literal|4000
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
+literal|1100
 argument_list|)
 expr_stmt|;
 block|}
@@ -229,7 +222,7 @@ comment|// this timeout will trigger an exception to occur
 operator|.
 name|to
 argument_list|(
-literal|"vm:b?timeout=2000"
+literal|"vm:b?timeout=200"
 argument_list|)
 operator|.
 name|to
@@ -249,7 +242,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 operator|.
 name|transform

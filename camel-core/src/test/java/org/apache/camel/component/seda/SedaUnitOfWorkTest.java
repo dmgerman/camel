@@ -113,12 +113,14 @@ block|{
 DECL|field|sync
 specifier|private
 specifier|static
+specifier|volatile
 name|String
 name|sync
 decl_stmt|;
 DECL|field|lastOne
 specifier|private
 specifier|static
+specifier|volatile
 name|String
 name|lastOne
 decl_stmt|;
@@ -157,13 +159,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for on completiom to run
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(

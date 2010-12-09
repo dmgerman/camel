@@ -133,13 +133,11 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|//give a bit time
-name|Thread
+comment|// wait till the exchange is done which means the file should then have been deleted
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|File
 name|in

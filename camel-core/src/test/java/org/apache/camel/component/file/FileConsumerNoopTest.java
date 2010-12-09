@@ -176,7 +176,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|File
@@ -236,7 +236,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filenoop?noop=true"
+literal|"file://target/filenoop?noop=true&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

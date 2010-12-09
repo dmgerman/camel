@@ -269,7 +269,7 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-comment|// use another thread to send it after 2 seconds
+comment|// use another thread to send it a bit later
 name|Thread
 name|t
 init|=
@@ -291,7 +291,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 block|}
@@ -363,13 +363,13 @@ name|start
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take approx 1 sec: was "
+literal|"Should take approx 0.25 sec: was "
 operator|+
 name|delta
 argument_list|,
 name|delta
 operator|>
-literal|900
+literal|150
 argument_list|)
 expr_stmt|;
 block|}

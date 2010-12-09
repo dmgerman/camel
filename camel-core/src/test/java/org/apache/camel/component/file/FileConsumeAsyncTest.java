@@ -158,14 +158,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give a little extra time for consumer to stop
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 comment|// file should still exist as its the async done that will complete it
 name|assertTrue
 argument_list|(
@@ -204,13 +196,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give a little time for on completion to delete the file
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -274,7 +263,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|1000
 argument_list|)
 operator|.
 name|to

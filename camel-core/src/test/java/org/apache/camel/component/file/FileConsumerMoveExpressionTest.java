@@ -276,13 +276,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for consumer to rename file
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|String
 name|id
@@ -420,13 +417,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for consumer to rename file
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|String
 name|id

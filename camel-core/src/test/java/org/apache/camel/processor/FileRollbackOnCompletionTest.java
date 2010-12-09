@@ -257,7 +257,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 block|}
@@ -404,13 +404,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// give time for onCompletion to execute
-comment|// as its being executed asynchronously in another thread
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+comment|// onCompletion is async so we gotta wait a bit for the file to be deleted
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 name|File

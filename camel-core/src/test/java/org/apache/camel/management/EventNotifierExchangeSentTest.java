@@ -430,13 +430,13 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take about 1 sec, was: "
+literal|"Should take about 0.5 sec, was: "
 operator|+
 name|time
 argument_list|,
 name|time
 operator|>
-literal|900
+literal|400
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -474,13 +474,13 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take about 1 sec, was: "
+literal|"Should take about 0.5 sec, was: "
 operator|+
 name|time
 argument_list|,
 name|time
 operator|>
-literal|900
+literal|400
 argument_list|)
 expr_stmt|;
 block|}
@@ -523,7 +523,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -768,7 +768,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|from
@@ -791,7 +791,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
