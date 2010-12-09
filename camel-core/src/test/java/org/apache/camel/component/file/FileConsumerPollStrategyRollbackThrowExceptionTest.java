@@ -134,7 +134,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?pollStrategy=#myPoll"
+literal|"file://target/pollstrategy/?pollStrategy=#myPoll&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -218,7 +218,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|20
 argument_list|)
 expr_stmt|;
 comment|// and we should rollback X number of times

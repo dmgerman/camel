@@ -196,13 +196,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time to NOT delete file
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// assert the file is not moved
 name|File

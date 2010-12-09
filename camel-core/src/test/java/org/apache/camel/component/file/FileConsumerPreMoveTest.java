@@ -214,7 +214,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|template
@@ -263,7 +263,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?preMove=work/work-${file:name}"
+literal|"file://target/premove?preMove=work/work-${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process

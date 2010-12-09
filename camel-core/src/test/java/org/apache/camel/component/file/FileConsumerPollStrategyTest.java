@@ -155,7 +155,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true&delay=10"
+literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -252,12 +252,17 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
 comment|// give file consumer a bit time
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|20
 argument_list|)
 expr_stmt|;
 name|assertTrue

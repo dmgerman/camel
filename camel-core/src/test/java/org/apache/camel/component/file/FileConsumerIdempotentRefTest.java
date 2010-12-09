@@ -125,6 +125,7 @@ block|{
 DECL|field|invoked
 specifier|private
 specifier|static
+specifier|volatile
 name|boolean
 name|invoked
 decl_stmt|;
@@ -221,7 +222,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&move=done/${file:name}"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&move=done/${file:name}&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -274,12 +275,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// reset mock and set new expectations
 name|mock
@@ -330,12 +329,12 @@ name|getAbsoluteFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not
+comment|// should NOT consume the file again, let a bit time go
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

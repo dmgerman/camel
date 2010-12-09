@@ -120,10 +120,12 @@ name|FileConsumerSuspendTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testConsumeSuspendFile ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testConsumeSuspendFile
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -133,6 +135,20 @@ argument_list|(
 literal|"target/suspended"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testConsumeSuspendFile ()
+specifier|public
+name|void
+name|testConsumeSuspendFile
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -181,12 +197,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// the route is suspended by the policy so we should only receive one
 name|String
@@ -255,7 +269,7 @@ argument_list|()
 decl_stmt|;
 name|from
 argument_list|(
-literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true"
+literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routePolicy

@@ -187,14 +187,12 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// file should be moved
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
+comment|// file should be moved
 name|File
 name|file
 init|=

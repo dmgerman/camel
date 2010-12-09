@@ -194,13 +194,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep otherwise the file assertions below could fail
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|assertFiles
 argument_list|(
@@ -254,13 +251,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep otherwise the file assertions below could fail
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// london should be deleted as we have failure handled it
 name|assertFiles
@@ -315,13 +309,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep otherwise the file assertions below could fail
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// dublin should NOT be deleted, but should be retired on next consumer
 name|assertFiles
@@ -376,13 +367,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep otherwise the file assertions below could fail
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// madrid should NOT be deleted, but should be retired on next consumer
 name|assertFiles

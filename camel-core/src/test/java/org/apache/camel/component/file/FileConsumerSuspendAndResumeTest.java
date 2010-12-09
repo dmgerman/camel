@@ -141,10 +141,12 @@ operator|new
 name|MyPolicy
 argument_list|()
 decl_stmt|;
-DECL|method|testConsumeSuspendAndResumeFile ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testConsumeSuspendAndResumeFile
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -154,6 +156,20 @@ argument_list|(
 literal|"target/suspended"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testConsumeSuspendAndResumeFile ()
+specifier|public
+name|void
+name|testConsumeSuspendAndResumeFile
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -206,7 +222,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 comment|// the route is suspended by the policy so we should only receive one
@@ -243,6 +259,11 @@ name|length
 argument_list|)
 expr_stmt|;
 comment|// reset mock
+name|oneExchangeDone
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -264,12 +285,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// and the file is now deleted
 name|files
@@ -329,7 +348,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true"
+literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routePolicy

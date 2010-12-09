@@ -187,13 +187,6 @@ argument_list|,
 literal|"paris.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -313,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?preMove=../inprogress/${file:name.noext}.bak&consumer.delay=5000"
+literal|"file://target/reports?preMove=../inprogress/${file:name.noext}.bak"
 argument_list|)
 operator|.
 name|process

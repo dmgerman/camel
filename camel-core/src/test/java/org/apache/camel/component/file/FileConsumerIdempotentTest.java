@@ -154,7 +154,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}"
+literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -254,12 +254,12 @@ name|getAbsoluteFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not
+comment|// should NOT consume the file again, let a bit time pass to let the consumer try to consume it but it should not
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
