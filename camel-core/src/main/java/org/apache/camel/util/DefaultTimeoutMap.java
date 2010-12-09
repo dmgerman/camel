@@ -160,7 +160,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|impl
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -193,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *  * @version $Revision$  */
+comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *<p/>  * You must provide a {@link java.util.concurrent.ScheduledExecutorService} in the constructor which is used  * to schedule a background task which check for old entries to purge. This implementation will shutdown the scheduler  * if its being stopped.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -206,6 +208,8 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
+extends|extends
+name|ServiceSupport
 implements|implements
 name|TimeoutMap
 argument_list|<
@@ -215,8 +219,6 @@ name|V
 argument_list|>
 implements|,
 name|Runnable
-implements|,
-name|Service
 block|{
 DECL|field|log
 specifier|protected
@@ -300,34 +302,19 @@ name|useLock
 init|=
 literal|true
 decl_stmt|;
-DECL|method|DefaultTimeoutMap ()
-specifier|public
-name|DefaultTimeoutMap
-parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-literal|1000L
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DefaultTimeoutMap (boolean useLock)
+DECL|method|DefaultTimeoutMap (ScheduledExecutorService executor)
 specifier|public
 name|DefaultTimeoutMap
 parameter_list|(
-name|boolean
-name|useLock
+name|ScheduledExecutorService
+name|executor
 parameter_list|)
 block|{
 name|this
 argument_list|(
-literal|null
+name|executor
 argument_list|,
-literal|1000L
-argument_list|,
-name|useLock
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
@@ -366,6 +353,15 @@ name|boolean
 name|useLock
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executor
+argument_list|,
+literal|"ScheduledExecutorService"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|executor
@@ -705,11 +701,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// only run if allowed
 if|if
 condition|(
-name|log
-operator|.
-name|isTraceEnabled
+operator|!
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{
@@ -717,10 +713,18 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"Purge task not allowed to run"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
 literal|"Running purge task to see if any entries has been timed out"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|purge
@@ -736,9 +740,9 @@ block|{
 comment|// must catch and log exception otherwise the executor will now schedule next run
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Exception occurred during purge task"
+literal|"Exception occurred during purge task. This exception will be ignored."
 argument_list|,
 name|t
 argument_list|)
@@ -876,9 +880,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Evicting inactive request for correlationID: "
+literal|"Evicting inactive entry ID: "
 operator|+
 name|entry
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1120,13 +1127,6 @@ name|void
 name|schedulePoll
 parameter_list|()
 block|{
-if|if
-condition|(
-name|executor
-operator|!=
-literal|null
-condition|)
-block|{
 name|executor
 operator|.
 name|scheduleWithFixedDelay
@@ -1142,7 +1142,6 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * A hook to allow derivations to avoid evicting the current entry      */
 DECL|method|isValidForEviction (TimeoutMapEntry<K, V> entry)
@@ -1220,18 +1219,12 @@ name|currentTimeMillis
 argument_list|()
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -1239,16 +1232,31 @@ block|{
 if|if
 condition|(
 name|executor
-operator|!=
-literal|null
+operator|.
+name|isShutdown
+argument_list|()
 condition|)
 block|{
-name|executor
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The ScheduledExecutorService is shutdown"
+argument_list|)
+throw|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear map if we stop
 name|map
 operator|.
 name|clear

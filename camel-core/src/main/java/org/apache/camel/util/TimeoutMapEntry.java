@@ -324,9 +324,13 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Entry for key: "
-operator|+
 name|key
+operator|+
+literal|" (times out after "
+operator|+
+name|timeout
+operator|+
+literal|" millis)"
 return|;
 block|}
 block|}
