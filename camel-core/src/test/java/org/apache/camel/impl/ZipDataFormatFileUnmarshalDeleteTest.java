@@ -121,13 +121,10 @@ name|Exception
 block|{
 comment|// there are 2 exchanges
 name|NotifyBuilder
-name|notify
+name|event
 init|=
-operator|new
-name|NotifyBuilder
-argument_list|(
-name|context
-argument_list|)
+name|event
+argument_list|()
 operator|.
 name|whenDone
 argument_list|(
@@ -165,7 +162,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|notify
+name|event
 operator|.
 name|matchesMockWaitTime
 argument_list|()

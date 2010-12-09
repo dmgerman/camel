@@ -252,6 +252,21 @@ operator|=
 name|camelContextService
 expr_stmt|;
 block|}
+comment|/**      * Convenient api to create a NotifyBuilder to be notified of a specific event      */
+DECL|method|event ()
+specifier|protected
+name|NotifyBuilder
+name|event
+parameter_list|()
+block|{
+return|return
+operator|new
+name|NotifyBuilder
+argument_list|(
+name|context
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -327,11 +342,8 @@ expr_stmt|;
 comment|// create a default notifier when 1 exchange is done which is the most common caase
 name|oneExchangeDone
 operator|=
-operator|new
-name|NotifyBuilder
-argument_list|(
-name|context
-argument_list|)
+name|event
+argument_list|()
 operator|.
 name|whenDone
 argument_list|(
