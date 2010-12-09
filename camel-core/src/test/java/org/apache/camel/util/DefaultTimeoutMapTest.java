@@ -170,6 +170,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -200,7 +202,7 @@ literal|"A"
 argument_list|,
 literal|123
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -217,7 +219,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -256,6 +258,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -286,7 +290,7 @@ literal|"A"
 argument_list|,
 literal|123
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -303,7 +307,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// will purge and remove old entries
@@ -348,6 +352,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -378,7 +384,7 @@ literal|"A"
 argument_list|,
 literal|123
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -471,6 +477,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -501,7 +509,7 @@ literal|"A"
 argument_list|,
 literal|123
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|map
@@ -512,7 +520,7 @@ literal|"B"
 argument_list|,
 literal|456
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -591,12 +599,12 @@ argument_list|>
 argument_list|(
 name|e
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|500
+literal|50
 argument_list|,
 name|map
 operator|.
@@ -612,7 +620,7 @@ literal|"A"
 argument_list|,
 literal|123
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -629,7 +637,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// should have been timed out now
@@ -707,6 +715,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 block|{
 annotation|@
@@ -760,7 +770,7 @@ literal|"A"
 argument_list|,
 literal|1
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|map
@@ -771,7 +781,7 @@ literal|"B"
 argument_list|,
 literal|2
 argument_list|,
-literal|300
+literal|30
 argument_list|)
 expr_stmt|;
 name|map
@@ -782,7 +792,7 @@ literal|"C"
 argument_list|,
 literal|3
 argument_list|,
-literal|400
+literal|40
 argument_list|)
 expr_stmt|;
 name|map
@@ -793,7 +803,7 @@ literal|"D"
 argument_list|,
 literal|4
 argument_list|,
-literal|200
+literal|20
 argument_list|)
 expr_stmt|;
 name|map
@@ -804,7 +814,7 @@ literal|"E"
 argument_list|,
 literal|5
 argument_list|,
-literal|400
+literal|40
 argument_list|)
 expr_stmt|;
 comment|// is not expired
@@ -816,14 +826,14 @@ literal|"F"
 argument_list|,
 literal|6
 argument_list|,
-literal|8000
+literal|800
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// force purge
@@ -1031,6 +1041,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 block|{
 annotation|@
@@ -1099,7 +1111,7 @@ literal|"A"
 argument_list|,
 literal|1
 argument_list|,
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 name|map
@@ -1110,7 +1122,7 @@ literal|"B"
 argument_list|,
 literal|2
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|map
@@ -1121,7 +1133,7 @@ literal|"gold"
 argument_list|,
 literal|9
 argument_list|,
-literal|1100
+literal|110
 argument_list|)
 expr_stmt|;
 name|map
@@ -1132,14 +1144,14 @@ literal|"C"
 argument_list|,
 literal|3
 argument_list|,
-literal|1200
+literal|120
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// force purge
@@ -1283,6 +1295,8 @@ name|Integer
 argument_list|>
 argument_list|(
 name|executor
+argument_list|,
+literal|100
 argument_list|)
 decl_stmt|;
 name|map
@@ -1293,7 +1307,7 @@ literal|"A"
 argument_list|,
 literal|1
 argument_list|,
-literal|5000
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1329,7 +1343,7 @@ literal|"A"
 argument_list|,
 literal|1
 argument_list|,
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 comment|// should not timeout as the scheduler doesn't run
@@ -1337,7 +1351,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1361,7 +1375,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// now it should be gone

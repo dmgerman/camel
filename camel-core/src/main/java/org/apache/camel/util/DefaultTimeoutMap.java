@@ -277,14 +277,6 @@ specifier|final
 name|long
 name|purgePollTime
 decl_stmt|;
-DECL|field|initialDelay
-specifier|private
-specifier|final
-name|long
-name|initialDelay
-init|=
-literal|1000L
-decl_stmt|;
 DECL|field|lock
 specifier|private
 specifier|final
@@ -1133,7 +1125,7 @@ name|scheduleWithFixedDelay
 argument_list|(
 name|this
 argument_list|,
-name|initialDelay
+literal|0
 argument_list|,
 name|purgePollTime
 argument_list|,
