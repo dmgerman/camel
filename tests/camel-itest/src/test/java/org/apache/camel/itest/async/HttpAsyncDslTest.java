@@ -167,6 +167,7 @@ block|{
 DECL|field|order
 specifier|private
 specifier|static
+specifier|volatile
 name|String
 name|order
 init|=
@@ -219,11 +220,25 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// B should be last (either ABC or BAC depending on threading)
 name|assertEquals
 argument_list|(
-literal|"CAB"
+literal|3
 argument_list|,
 name|order
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|order
+operator|.
+name|endsWith
+argument_list|(
+literal|"B"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -281,6 +296,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// should be in strict ABC order as we do request/reply
 name|assertEquals
 argument_list|(
 literal|"ABC"
