@@ -207,21 +207,6 @@ name|camelContextId
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|camelContext
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"A CamelContext or a CamelContextId must be injected!"
-argument_list|)
-throw|;
-block|}
 return|return
 name|camelContext
 return|;

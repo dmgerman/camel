@@ -585,9 +585,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No CamelContext defined yet so cannot inject into: "
+literal|"No CamelContext defined yet so cannot inject into bean: "
 operator|+
-name|bean
+name|beanName
 argument_list|)
 expr_stmt|;
 block|}
@@ -969,11 +969,6 @@ name|String
 name|beanName
 parameter_list|)
 block|{
-name|boolean
-name|answer
-init|=
-literal|true
-decl_stmt|;
 if|if
 condition|(
 name|bean
@@ -1016,29 +1011,21 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The camel context of "
+literal|"CamelContext already set on bean with id ["
 operator|+
 name|beanName
 operator|+
-literal|" is set, so we skip inject the camel context of it."
+literal|"]. Will keep existing CamelContext on bean."
 argument_list|)
 expr_stmt|;
 block|}
-name|answer
-operator|=
+return|return
 literal|false
-expr_stmt|;
+return|;
 block|}
-block|}
-else|else
-block|{
-name|answer
-operator|=
-literal|false
-expr_stmt|;
 block|}
 return|return
-name|answer
+literal|true
 return|;
 block|}
 comment|/**      * A strategy method to allow implementations to perform some custom JBI      * based injection of the POJO      *      * @param bean the bean to be injected      */
