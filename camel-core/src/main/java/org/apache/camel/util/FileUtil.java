@@ -166,20 +166,18 @@ block|{
 if|if
 condition|(
 name|path
-operator|!=
+operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|isWindows
 argument_list|()
-operator|&&
-name|path
-operator|.
-name|indexOf
-argument_list|(
-literal|'/'
-argument_list|)
-operator|>=
-literal|0
 condition|)
 block|{
 comment|// special handling for Windows where we need to convert / to \\
@@ -194,22 +192,7 @@ literal|'\\'
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|path
-operator|!=
-literal|null
-operator|&&
-name|path
-operator|.
-name|indexOf
-argument_list|(
-literal|'\\'
-argument_list|)
-operator|>=
-literal|0
-condition|)
+else|else
 block|{
 comment|// for other systems make sure we use / as separators
 return|return
@@ -223,9 +206,6 @@ literal|'/'
 argument_list|)
 return|;
 block|}
-return|return
-name|path
-return|;
 block|}
 DECL|method|isWindows ()
 specifier|public
