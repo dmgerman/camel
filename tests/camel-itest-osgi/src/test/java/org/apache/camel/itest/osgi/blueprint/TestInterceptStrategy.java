@@ -106,7 +106,6 @@ block|{
 return|return
 literal|null
 return|;
-comment|//To change body of implemented methods use File | Settings | File Templates.
 block|}
 block|}
 end_class
