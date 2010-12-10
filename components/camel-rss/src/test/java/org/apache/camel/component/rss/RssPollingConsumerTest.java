@@ -142,7 +142,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
@@ -279,7 +279,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&consumer.delay=100"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=false"
 argument_list|)
 operator|.
 name|to
