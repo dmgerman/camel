@@ -252,11 +252,13 @@ name|LifecycleStrategy
 block|{
 DECL|field|bundleContext
 specifier|private
+specifier|final
 name|BundleContext
 name|bundleContext
 decl_stmt|;
 DECL|field|serviceCacheMap
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -276,6 +278,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|serviceReferenceQueue
 specifier|private
+specifier|final
 name|ConcurrentLinkedQueue
 argument_list|<
 name|ServiceReference

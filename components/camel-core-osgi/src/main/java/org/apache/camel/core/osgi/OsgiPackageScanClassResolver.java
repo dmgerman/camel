@@ -160,6 +160,7 @@ name|DefaultPackageScanClassResolver
 block|{
 DECL|field|bundle
 specifier|private
+specifier|final
 name|Bundle
 name|bundle
 decl_stmt|;

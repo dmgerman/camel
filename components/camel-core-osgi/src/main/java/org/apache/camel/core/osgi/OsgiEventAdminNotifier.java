@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Dictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Hashtable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -122,38 +152,8 @@ name|ServiceTracker
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Dictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Hashtable
-import|;
-end_import
-
 begin_comment
-comment|/**  * This EventNotifier is in charge of propagating events to EventAdmin if present.  */
+comment|/**  * This {@link org.apache.camel.spi.EventNotifier} is in charge of propagating events  * to OSGi {@link EventAdmin} if present.  */
 end_comment
 
 begin_class
