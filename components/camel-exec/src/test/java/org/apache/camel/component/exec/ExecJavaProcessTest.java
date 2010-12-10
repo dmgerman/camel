@@ -404,7 +404,7 @@ name|exec
 operator|.
 name|ExecutableJavaProgram
 operator|.
-name|PRINT_IN_STDERR
+name|PRINT_ARGS_STDOUT
 import|;
 end_import
 
@@ -422,7 +422,7 @@ name|exec
 operator|.
 name|ExecutableJavaProgram
 operator|.
-name|PRINT_ARGS_STDOUT
+name|PRINT_IN_STDERR
 import|;
 end_import
 

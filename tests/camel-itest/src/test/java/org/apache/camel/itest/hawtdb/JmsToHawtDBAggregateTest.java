@@ -207,7 +207,6 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
