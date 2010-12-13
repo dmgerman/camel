@@ -58,9 +58,71 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -149,10 +211,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+literal|"JpaMessageIdRepository"
+argument_list|)
 DECL|class|JpaMessageIdRepository
 specifier|public
 class|class
 name|JpaMessageIdRepository
+extends|extends
+name|ServiceSupport
 implements|implements
 name|IdempotentRepository
 argument_list|<
@@ -179,16 +248,19 @@ literal|" x where x.processorName = ?1 and x.messageId = ?2"
 decl_stmt|;
 DECL|field|jpaTemplate
 specifier|private
+specifier|final
 name|JpaTemplate
 name|jpaTemplate
 decl_stmt|;
 DECL|field|processorName
 specifier|private
+specifier|final
 name|String
 name|processorName
 decl_stmt|;
 DECL|field|transactionTemplate
 specifier|private
+specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
@@ -353,6 +425,13 @@ name|transactionTemplate
 return|;
 block|}
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Adds the key to the store"
+argument_list|)
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -471,6 +550,13 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Does the store contain the given key"
+argument_list|)
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -555,6 +641,13 @@ name|booleanValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove the key from the store"
+argument_list|)
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -678,6 +771,43 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The processor name"
+argument_list|)
+DECL|method|getProcessorName ()
+specifier|public
+name|String
+name|getProcessorName
+parameter_list|()
+block|{
+return|return
+name|processorName
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

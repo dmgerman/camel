@@ -16,6 +16,18 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *  * @version $Revision$  */
 end_comment
@@ -28,6 +40,8 @@ name|IdempotentRepository
 parameter_list|<
 name|E
 parameter_list|>
+extends|extends
+name|Service
 block|{
 comment|/**      * Adds the key to the repository.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if this repository did<b>not</b> already contain the specified element      */
 DECL|method|add (E key)

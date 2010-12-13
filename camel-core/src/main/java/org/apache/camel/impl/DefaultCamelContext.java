@@ -5009,7 +5009,7 @@ operator|instanceof
 name|Endpoint
 condition|)
 block|{
-comment|// use specialized endpint add
+comment|// use specialized endpoint add
 name|strategy
 operator|.
 name|onEndpointAdd
@@ -5037,7 +5037,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// only add to services to close if its a singleton
-comment|// otherwise we could end up with a lot of endpoints (prototype scoped)
+comment|// otherwise we could for example end up with a lot of prototype scope endpoints
 name|boolean
 name|singleton
 init|=

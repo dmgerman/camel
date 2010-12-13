@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -56,15 +70,70 @@ name|LRUCache
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
 begin_comment
 comment|/**  * A memory based implementation of {@link org.apache.camel.spi.IdempotentRepository}.   *<p/>  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak.  *  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+literal|"MemoryIdempotentRepository"
+argument_list|)
 DECL|class|MemoryIdempotentRepository
 specifier|public
 class|class
 name|MemoryIdempotentRepository
+extends|extends
+name|ServiceSupport
 implements|implements
 name|IdempotentRepository
 argument_list|<
@@ -73,6 +142,7 @@ argument_list|>
 block|{
 DECL|field|cache
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -196,13 +266,20 @@ name|cache
 argument_list|)
 return|;
 block|}
-DECL|method|add (String messageId)
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Adds the key to the store"
+argument_list|)
+DECL|method|add (String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
 name|String
-name|messageId
+name|key
 parameter_list|)
 block|{
 synchronized|synchronized
@@ -216,7 +293,7 @@ name|cache
 operator|.
 name|containsKey
 argument_list|(
-name|messageId
+name|key
 argument_list|)
 condition|)
 block|{
@@ -230,9 +307,9 @@ name|cache
 operator|.
 name|put
 argument_list|(
-name|messageId
+name|key
 argument_list|,
-name|messageId
+name|key
 argument_list|)
 expr_stmt|;
 return|return
@@ -241,6 +318,13 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Does the store contain the given key"
+argument_list|)
 DECL|method|contains (String key)
 specifier|public
 name|boolean
@@ -265,6 +349,13 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove the key from the store"
+argument_list|)
 DECL|method|remove (String key)
 specifier|public
 name|boolean
@@ -320,25 +411,50 @@ return|return
 name|cache
 return|;
 block|}
-DECL|method|setCache (Map<String, Object> cache)
-specifier|public
-name|void
-name|setCache
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|cache
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cache
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
 operator|=
+literal|"The current cache size"
+argument_list|)
+DECL|method|getCacheSize ()
+specifier|public
+name|int
+name|getCacheSize
+parameter_list|()
+block|{
+return|return
 name|cache
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|cache
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -429,7 +429,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// check if we alrady have the key
+comment|// check if we already have the key
 name|newKey
 operator|=
 operator|!

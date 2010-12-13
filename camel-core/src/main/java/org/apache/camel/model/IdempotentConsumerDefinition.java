@@ -168,6 +168,20 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;idempotentConsumer/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -285,7 +299,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that IdempotentConsumerType will use      * @return the builder      */
+comment|/**      * Set the expression that the idempotent consumer will use      * @return the builder      */
 DECL|method|expression ()
 specifier|public
 name|ExpressionClause
@@ -323,7 +337,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the the message id repository for the IdempotentConsumerType      *      * @param idempotentRepository  the repository instance of idempotent      * @return builder      */
+comment|/**      * Sets the the message id repository for the idempotent consumer      *      * @param idempotentRepository  the repository instance of idempotent      * @return builder      */
 DECL|method|messageIdRepository (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -495,6 +509,28 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|idempotentRepository
+argument_list|,
+literal|"idempotentRepository"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+comment|// add as service to CamelContext so we can managed it and it ensures it will be shutdown when camel shutdowns
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|idempotentRepository
+argument_list|)
+expr_stmt|;
 name|Expression
 name|expression
 init|=
@@ -551,6 +587,10 @@ if|if
 condition|(
 name|idempotentRepository
 operator|==
+literal|null
+operator|&&
+name|messageIdRepositoryRef
+operator|!=
 literal|null
 condition|)
 block|{

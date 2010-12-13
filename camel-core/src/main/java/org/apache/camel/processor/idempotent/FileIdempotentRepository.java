@@ -90,6 +90,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -166,15 +180,70 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jmx
+operator|.
+name|export
+operator|.
+name|annotation
+operator|.
+name|ManagedResource
+import|;
+end_import
+
 begin_comment
 comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a  * memory leak.  *  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+literal|"FileIdempotentRepository"
+argument_list|)
 DECL|class|FileIdempotentRepository
 specifier|public
 class|class
 name|FileIdempotentRepository
+extends|extends
+name|ServiceSupport
 implements|implements
 name|IdempotentRepository
 argument_list|<
@@ -433,13 +502,20 @@ name|cache
 argument_list|)
 return|;
 block|}
-DECL|method|add (String messageId)
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Adds the key to the store"
+argument_list|)
+DECL|method|add (String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
 name|String
-name|messageId
+name|key
 parameter_list|)
 block|{
 synchronized|synchronized
@@ -447,30 +523,13 @@ init|(
 name|cache
 init|)
 block|{
-comment|// init store if not loaded before
-if|if
-condition|(
-name|init
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|loadStore
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|cache
 operator|.
 name|containsKey
 argument_list|(
-name|messageId
+name|key
 argument_list|)
 condition|)
 block|{
@@ -484,9 +543,9 @@ name|cache
 operator|.
 name|put
 argument_list|(
-name|messageId
+name|key
 argument_list|,
-name|messageId
+name|key
 argument_list|)
 expr_stmt|;
 if|if
@@ -502,7 +561,7 @@ block|{
 comment|// just append to store
 name|appendToStore
 argument_list|(
-name|messageId
+name|key
 argument_list|)
 expr_stmt|;
 block|}
@@ -519,6 +578,13 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Does the store contain the given key"
+argument_list|)
 DECL|method|contains (String key)
 specifier|public
 name|boolean
@@ -533,23 +599,6 @@ init|(
 name|cache
 init|)
 block|{
-comment|// init store if not loaded before
-if|if
-condition|(
-name|init
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|loadStore
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|cache
 operator|.
@@ -560,6 +609,13 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove the key from the store"
+argument_list|)
 DECL|method|remove (String key)
 specifier|public
 name|boolean
@@ -577,23 +633,6 @@ init|(
 name|cache
 init|)
 block|{
-comment|// init store if not loaded before
-if|if
-condition|(
-name|init
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|loadStore
-argument_list|()
-expr_stmt|;
-block|}
 name|answer
 operator|=
 name|cache
@@ -654,6 +693,26 @@ operator|=
 name|fileStore
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The file path for the store"
+argument_list|)
+DECL|method|getFilePath ()
+specifier|public
+name|String
+name|getFilePath
+parameter_list|()
+block|{
+return|return
+name|fileStore
+operator|.
+name|getPath
+argument_list|()
+return|;
+block|}
 DECL|method|getCache ()
 specifier|public
 name|Map
@@ -690,6 +749,13 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The maximum file size for the file store in bytes"
+argument_list|)
 DECL|method|getMaxFileStoreSize ()
 specifier|public
 name|long
@@ -700,7 +766,14 @@ return|return
 name|maxFileStoreSize
 return|;
 block|}
-comment|/**      * Sets the maximum filesize for the file store in bytes.      *<p/>      * The default is 1mb.      */
+comment|/**      * Sets the maximum file size for the file store in bytes.      *<p/>      * The default is 1mb.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The maximum file size for the file store in bytes"
+argument_list|)
 DECL|method|setMaxFileStoreSize (long maxFileStoreSize)
 specifier|public
 name|void
@@ -753,6 +826,71 @@ argument_list|(
 name|size
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The current cache size"
+argument_list|)
+DECL|method|getCacheSize ()
+specifier|public
+name|int
+name|getCacheSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|cache
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+return|return
+literal|0
+return|;
+block|}
+comment|/**      * Reset and clears the store to force it to reload from file      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset and reloads the file store"
+argument_list|)
+DECL|method|reset ()
+specifier|public
+specifier|synchronized
+name|void
+name|reset
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|cache
+init|)
+block|{
+comment|// trunk and clear, before we reload the store
+name|trunkStore
+argument_list|()
+expr_stmt|;
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|loadStore
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Appends the given message id to the file store      *      * @param messageId  the message id      */
 DECL|method|appendToStore (final String messageId)
@@ -1121,6 +1259,61 @@ name|fileStore
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// init store if not loaded before
+if|if
+condition|(
+name|init
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|loadStore
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// reset will trunk and clear the cache
+name|trunkStore
+argument_list|()
+expr_stmt|;
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|init
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
