@@ -17,6 +17,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -3213,6 +3225,23 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No endpoint found with name: "
+operator|+
+name|name
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|endpoint

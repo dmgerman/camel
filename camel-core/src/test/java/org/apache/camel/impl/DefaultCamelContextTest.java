@@ -505,6 +505,43 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testGetEndPointByTypeUnknown ()
+specifier|public
+name|void
+name|testGetEndPointByTypeUnknown
+parameter_list|()
+block|{
+name|DefaultCamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|camelContext
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"unknown"
+argument_list|,
+name|Endpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{ 		}
+block|}
 DECL|method|testRemoveEndpoint ()
 specifier|public
 name|void
