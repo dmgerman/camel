@@ -1400,21 +1400,19 @@ name|CamelContext
 implements|,
 name|SuspendableService
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|private
-specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|LOG
+name|log
 init|=
 name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultCamelContext
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|jaxbContext
@@ -2042,7 +2040,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2892,13 +2890,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2966,13 +2964,13 @@ throw|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3078,13 +3076,13 @@ name|answer
 operator|!=
 literal|null
 operator|&&
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3624,13 +3622,13 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5367,13 +5365,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -6353,7 +6351,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6582,13 +6580,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6643,7 +6641,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6726,13 +6724,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6746,7 +6744,7 @@ operator|+
 literal|" routes"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6827,7 +6825,7 @@ operator|.
 name|restart
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6870,7 +6868,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
@@ -6910,7 +6908,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6929,7 +6927,7 @@ operator|+
 literal|" is started."
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7031,7 +7029,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7057,7 +7055,7 @@ argument_list|()
 condition|)
 block|{
 comment|// tracing is added in the DefaultChannel so we can enable it on the fly
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7087,7 +7085,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7138,7 +7136,7 @@ init|=
 name|getDelayer
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7172,7 +7170,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7265,7 +7263,7 @@ name|e
 parameter_list|)
 block|{
 comment|// okay we should not start Camel since it was vetoed
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7289,7 +7287,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7418,7 +7416,7 @@ condition|(
 name|doNotStartRoutesOnFirstStart
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7457,7 +7455,7 @@ operator|.
 name|restart
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7501,7 +7499,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7593,7 +7591,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7658,13 +7656,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7674,7 +7672,7 @@ name|getUptime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -8004,7 +8002,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -8567,13 +8565,13 @@ control|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -8631,13 +8629,13 @@ control|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -8695,13 +8693,13 @@ control|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -9242,13 +9240,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -9444,7 +9442,7 @@ operator|!
 name|autoStartup
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -9513,13 +9511,13 @@ block|}
 comment|// start the consumer on the route
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -9540,7 +9538,7 @@ condition|(
 name|resumeOnly
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -9559,7 +9557,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -9593,7 +9591,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -9638,7 +9636,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -10610,7 +10608,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -11222,7 +11220,7 @@ name|DISABLED
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -11240,7 +11238,7 @@ else|else
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -11292,7 +11290,7 @@ literal|null
 expr_stmt|;
 comment|// if we can't instantiate the JMX enabled strategy then fallback to default
 comment|// could be because of missing .jars on the classpath
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -11321,7 +11319,7 @@ name|answer
 operator|=
 literal|null
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -11339,7 +11337,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

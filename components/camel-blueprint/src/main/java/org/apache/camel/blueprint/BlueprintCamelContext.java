@@ -418,14 +418,6 @@ name|isStarting
 argument_list|()
 condition|)
 block|{
-comment|// Make sure we will not get into the endless loop of calling star
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting Apache Camel as property ShouldStartContext is true"
-argument_list|)
-expr_stmt|;
 name|start
 argument_list|()
 expr_stmt|;
