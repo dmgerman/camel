@@ -145,6 +145,10 @@ return|return
 name|configure
 argument_list|(
 name|COMPONENT
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
