@@ -197,22 +197,8 @@ name|IRCConnection
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|IrcComponent (CamelContext context)
-specifier|public
-name|IrcComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
-specifier|protected
+specifier|public
 name|IrcEndpoint
 name|createEndpoint
 parameter_list|(
@@ -698,7 +684,6 @@ annotation|@
 name|Override
 DECL|method|doStop ()
 specifier|protected
-specifier|synchronized
 name|void
 name|doStop
 parameter_list|()
