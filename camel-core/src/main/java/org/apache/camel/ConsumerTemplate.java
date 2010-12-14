@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and consuming {@link Message} instances in an  * {@link Exchange} from an {@link Endpoint}.  *<p/>  * This template is an implementation of the  *<a href="http://camel.apache.org/polling-consumer.html">Polling Consumer EIP</a>.  * This is<b>not</b> the<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer EIP</a>.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if consuming of  * the {@link Exchange} failed and an Exception occured. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the receive<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>The<tt>out.body<tt> if there is a out message set and its not<tt>null<tt></li>  *<li>The<tt>in.body<tt></li>  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using, it applies to ConsumerTemplate as well.  *  * @version $Revision$  */
+comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and consuming {@link Message} instances in an  * {@link Exchange} from an {@link Endpoint}.  *<p/>  * This template is an implementation of the  *<a href="http://camel.apache.org/polling-consumer.html">Polling Consumer EIP</a>.  * This is<b>not</b> the<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer EIP</a>.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if consuming of  * the {@link Exchange} failed and an Exception occurred. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the receive<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>The<tt>out.body<tt> if there is a out message set and its not<tt>null<tt></li>  *<li>The<tt>in.body<tt></li>  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using, it applies to ConsumerTemplate as well.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -51,7 +51,7 @@ parameter_list|()
 function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
-comment|/**      * Receives from the endpoint, waiting until there is a response      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange      */
+comment|/**      * Receives from the endpoint, waiting until there is a response      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange      */
 DECL|method|receive (String endpointUri)
 name|Exchange
 name|receive
@@ -60,7 +60,7 @@ name|String
 name|endpointUri
 parameter_list|)
 function_decl|;
-comment|/**      * Receives from the endpoint, waiting until there is a response      *      * @param endpoint the endpoint to receive from      * @return the returned exchange      */
+comment|/**      * Receives from the endpoint, waiting until there is a response.      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpoint the endpoint to receive from      * @return the returned exchange      * @see #doneUoW(Exchange)      */
 DECL|method|receive (Endpoint endpoint)
 name|Exchange
 name|receive
@@ -69,7 +69,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Receives from the endpoint, waiting until there is a response      * or the timeout occurs      *      * @param endpointUri the endpoint to receive from      * @param timeout     timeout in millis to wait for a response      * @return the returned exchange, or<tt>null</tt> if no response      */
+comment|/**      * Receives from the endpoint, waiting until there is a response      * or the timeout occurs      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpointUri the endpoint to receive from      * @param timeout     timeout in millis to wait for a response      * @return the returned exchange, or<tt>null</tt> if no response      * @see #doneUoW(Exchange)      */
 DECL|method|receive (String endpointUri, long timeout)
 name|Exchange
 name|receive
@@ -81,7 +81,7 @@ name|long
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Receives from the endpoint, waiting until there is a response      * or the timeout occurs      *      * @param endpoint the endpoint to receive from      * @param timeout  timeout in millis to wait for a response      * @return the returned exchange, or<tt>null</tt> if no response      */
+comment|/**      * Receives from the endpoint, waiting until there is a response      * or the timeout occurs      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpoint the endpoint to receive from      * @param timeout  timeout in millis to wait for a response      * @return the returned exchange, or<tt>null</tt> if no response      * @see #doneUoW(Exchange)      */
 DECL|method|receive (Endpoint endpoint, long timeout)
 name|Exchange
 name|receive
@@ -93,7 +93,7 @@ name|long
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Receives from the endpoint, not waiting for a response if non exists.      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange, or<tt>null</tt> if no response      */
+comment|/**      * Receives from the endpoint, not waiting for a response if non exists.      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange, or<tt>null</tt> if no response      */
 DECL|method|receiveNoWait (String endpointUri)
 name|Exchange
 name|receiveNoWait
@@ -102,7 +102,7 @@ name|String
 name|endpointUri
 parameter_list|)
 function_decl|;
-comment|/**      * Receives from the endpoint, not waiting for a response if non exists.      *      * @param endpoint the endpoint to receive from      * @return the returned exchange, or<tt>null</tt> if no response      */
+comment|/**      * Receives from the endpoint, not waiting for a response if non exists.      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpoint the endpoint to receive from      * @return the returned exchange, or<tt>null</tt> if no response      */
 DECL|method|receiveNoWait (Endpoint endpoint)
 name|Exchange
 name|receiveNoWait
@@ -283,6 +283,15 @@ argument_list|<
 name|T
 argument_list|>
 name|type
+parameter_list|)
+function_decl|;
+comment|/**      * If you have used any of the<tt>receive</tt> methods which returns a {@link Exchange} type      * then you need to invoke this method when you are done using the returned {@link Exchange}.      *<p/>      * This is needed to ensure any {@link org.apache.camel.spi.Synchronization} works is being executed.      * For example if you consumed from a file endpoint, then the consumed file is only moved/delete when      * you done the {@link Exchange}.      *<p/>      * Note for all the other<tt>receive</tt> methods which does<b>not</b> return a {@link Exchange} type,      * the done has been executed automatic by Camel itself.      *      * @param exchange  the exchange      */
+DECL|method|doneUoW (Exchange exchange)
+name|void
+name|doneUoW
+parameter_list|(
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 block|}
