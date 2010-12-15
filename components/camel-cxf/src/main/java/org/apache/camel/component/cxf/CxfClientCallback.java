@@ -331,7 +331,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"calling handleResponse"
+literal|" calling handleResponse"
 argument_list|)
 expr_stmt|;
 block|}
@@ -415,18 +415,25 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
+comment|// set the camelExchange outbody with the exception
+name|camelExchange
 operator|.
-name|getCxfBinding
+name|getOut
 argument_list|()
 operator|.
-name|populateExchangeFromCxfResponse
+name|setFault
 argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|camelExchange
-argument_list|,
-name|cxfExchange
-argument_list|,
-name|ctx
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,7 +457,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"calling handleException"
+literal|" calling handleException"
 argument_list|)
 expr_stmt|;
 block|}
