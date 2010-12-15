@@ -524,7 +524,7 @@ name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"unknown"
+literal|"xxx"
 argument_list|,
 name|Endpoint
 operator|.
@@ -537,10 +537,21 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|NoSuchEndpointException
 name|e
 parameter_list|)
-block|{         }
+block|{
+name|assertEquals
+argument_list|(
+literal|"No endpoint could be found for: xxx, please check your classpath contains the needed Camel component jar."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testRemoveEndpoint ()
 specifier|public

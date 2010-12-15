@@ -56,7 +56,7 @@ literal|"No endpoint could be found for: "
 operator|+
 name|uri
 operator|+
-literal|", please check your classpath contains the needed camel component jar."
+literal|", please check your classpath contains the needed Camel component jar."
 argument_list|)
 expr_stmt|;
 name|this
