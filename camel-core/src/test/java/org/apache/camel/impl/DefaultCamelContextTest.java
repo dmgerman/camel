@@ -540,7 +540,7 @@ parameter_list|(
 name|IllegalArgumentException
 name|e
 parameter_list|)
-block|{ 		}
+block|{         }
 block|}
 DECL|method|testRemoveEndpoint ()
 specifier|public
