@@ -204,22 +204,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|bootClasspathLibrary
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|equinox
 import|;
 end_import
@@ -237,22 +221,6 @@ operator|.
 name|CoreOptions
 operator|.
 name|felix
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|mavenBundle
 import|;
 end_import
 
@@ -462,6 +430,11 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This test doens't work in OSGi"
+argument_list|)
 DECL|method|testCxfProxy ()
 specifier|public
 name|void
@@ -782,6 +755,9 @@ literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 name|felix
+argument_list|()
+argument_list|,
+name|equinox
 argument_list|()
 argument_list|)
 decl_stmt|;
