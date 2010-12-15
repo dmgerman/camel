@@ -125,6 +125,11 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|oneWayCounter
+specifier|private
+name|int
+name|oneWayCounter
+decl_stmt|;
 DECL|method|greetMe (String me)
 specifier|public
 name|String
@@ -196,6 +201,9 @@ literal|"Hello there "
 operator|+
 name|me
 argument_list|)
+expr_stmt|;
+name|oneWayCounter
+operator|++
 expr_stmt|;
 block|}
 DECL|method|sayHi ()
@@ -285,6 +293,27 @@ argument_list|,
 name|faultDetail
 argument_list|)
 throw|;
+block|}
+DECL|method|getOneWayCounter ()
+specifier|public
+name|int
+name|getOneWayCounter
+parameter_list|()
+block|{
+return|return
+name|oneWayCounter
+return|;
+block|}
+DECL|method|resetOneWayCounter ()
+specifier|public
+name|void
+name|resetOneWayCounter
+parameter_list|()
+block|{
+name|oneWayCounter
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 end_class
