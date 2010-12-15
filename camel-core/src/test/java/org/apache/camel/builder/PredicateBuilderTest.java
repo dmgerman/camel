@@ -592,6 +592,35 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testEmptyHeaderValueIn ()
+specifier|public
+name|void
+name|testEmptyHeaderValueIn
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// there is no header with xxx
+name|assertDoesNotMatch
+argument_list|(
+name|header
+argument_list|(
+literal|"xxx"
+argument_list|)
+operator|.
+name|in
+argument_list|(
+literal|"Hiram"
+argument_list|,
+literal|"Jonathan"
+argument_list|,
+literal|"James"
+argument_list|,
+literal|"Claus"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testStartsWith ()
 specifier|public
 name|void
