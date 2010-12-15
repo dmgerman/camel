@@ -24,7 +24,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -38,38 +40,65 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|ValueHolder
 import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}  * to keep the last 1000 in an internal cache.  *  * @version $Revision$  */
+comment|/**  * Key used in {@link EndpointRegistry} in {@link DefaultCamelContext},  * to ensure a consistent lookup.  */
 end_comment
 
 begin_class
-DECL|class|EndpointRegistry
-specifier|public
+DECL|class|EndpointKey
+specifier|final
 class|class
-name|EndpointRegistry
-extends|extends
-name|LRUCache
-argument_list|<
 name|EndpointKey
-argument_list|,
-name|Endpoint
+extends|extends
+name|ValueHolder
+argument_list|<
+name|String
 argument_list|>
 block|{
-DECL|method|EndpointRegistry ()
-specifier|public
-name|EndpointRegistry
-parameter_list|()
+DECL|method|EndpointKey (String uri)
+name|EndpointKey
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 block|{
-comment|// use a cache size of 1000
+comment|// must normalize key
 name|super
 argument_list|(
-literal|1000
+name|DefaultCamelContext
+operator|.
+name|normalizeEndpointUri
+argument_list|(
+name|uri
+argument_list|)
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|get
+argument_list|()
+return|;
 block|}
 block|}
 end_class
