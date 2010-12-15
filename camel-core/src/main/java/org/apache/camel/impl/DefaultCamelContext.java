@@ -2698,8 +2698,6 @@ expr_stmt|;
 block|}
 name|addEndpointToRegistry
 argument_list|(
-name|uri
-argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -3144,8 +3142,6 @@ name|answer
 operator|=
 name|addEndpointToRegistry
 argument_list|(
-name|uri
-argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -3358,7 +3354,7 @@ if|if
 condition|(
 name|newEndpoint
 operator|!=
-name|endpoint
+literal|null
 condition|)
 block|{
 name|endpoints
@@ -3382,15 +3378,12 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Strategy to add the given endpoint to the internal endpoint registry      *      * @param uri      uri of endpoint      * @param endpoint the endpoint to add      * @return the added endpoint      */
-DECL|method|addEndpointToRegistry (String uri, Endpoint endpoint)
+comment|/**      * Strategy to add the given endpoint to the internal endpoint registry      *      * @param endpoint the endpoint to add      * @return the added endpoint      */
+DECL|method|addEndpointToRegistry (Endpoint endpoint)
 specifier|protected
 name|Endpoint
 name|addEndpointToRegistry
 parameter_list|(
-name|String
-name|uri
-parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|)
@@ -3409,7 +3402,10 @@ name|strategy
 operator|.
 name|registerEndpoint
 argument_list|(
-name|uri
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|,
 name|endpoint
 argument_list|)
@@ -3421,7 +3417,10 @@ name|put
 argument_list|(
 name|getEndpointKey
 argument_list|(
-name|uri
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|,
 name|endpoint
 argument_list|)

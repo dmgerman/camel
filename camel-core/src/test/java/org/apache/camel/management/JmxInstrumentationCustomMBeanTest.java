@@ -700,7 +700,7 @@ return|return
 operator|new
 name|CustomEndpoint
 argument_list|(
-literal|"custom"
+name|uri
 argument_list|,
 name|this
 argument_list|)
