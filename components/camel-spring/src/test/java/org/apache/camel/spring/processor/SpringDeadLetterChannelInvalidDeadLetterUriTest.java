@@ -157,7 +157,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"No endpoint could be found for: xxx, please check your classpath contains the needed camel component jar."
+literal|"No endpoint could be found for: xxx, please check your classpath contains the needed Camel component jar."
 argument_list|,
 name|cause
 operator|.
