@@ -187,11 +187,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceivedInAnyOrder
+name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
-argument_list|,
-literal|"Hello Again World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -209,12 +207,25 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// give time for consumer to process this file before we drop the next file
-name|Thread
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|oneExchangeDone
 operator|.
-name|sleep
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+comment|// reset and drop the same file again
+name|mock
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
 argument_list|(
-literal|100
+literal|"Hello Again World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -232,7 +243,6 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// give time for consumer to process this file before we drop the next file
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

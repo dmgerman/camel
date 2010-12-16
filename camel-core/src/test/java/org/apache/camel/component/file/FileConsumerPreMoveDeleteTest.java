@@ -214,11 +214,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceivedInAnyOrder
+name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
-argument_list|,
-literal|"Hello Again World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -236,40 +234,54 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// give time for consumer to process this file before we drop the next file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/premove"
-argument_list|,
-literal|"Hello Again World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-comment|// give time for consumer to process this file before we drop the next file
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// and file should still be deleted
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+comment|// reset and drop the same file again
+name|mock
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|oneExchangeDone
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
 argument_list|(
-literal|250
+literal|"Hello Again World"
 argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/premove"
+argument_list|,
+literal|"Hello Again World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 name|File
 name|pre
