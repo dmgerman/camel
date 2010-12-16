@@ -415,6 +415,20 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|getCxfBinding
+argument_list|()
+operator|.
+name|populateExchangeFromCxfResponse
+argument_list|(
+name|camelExchange
+argument_list|,
+name|cxfExchange
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
 comment|// set the camelExchange outbody with the exception
 name|camelExchange
 operator|.
