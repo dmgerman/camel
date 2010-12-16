@@ -107,12 +107,12 @@ argument_list|)
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Requires Karaf 2.2 which has slf4j logger improved"
+literal|"Fails with some javax.xml.stream issue"
 argument_list|)
-DECL|class|CamelQuickFixTest
+DECL|class|CamelSpringWebServiceTest
 specifier|public
 class|class
-name|CamelQuickFixTest
+name|CamelSpringWebServiceTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -123,7 +123,7 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-literal|"quickfix"
+literal|"spring-ws"
 decl_stmt|;
 annotation|@
 name|Test
