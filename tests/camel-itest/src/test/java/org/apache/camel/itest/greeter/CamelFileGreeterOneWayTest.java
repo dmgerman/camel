@@ -277,10 +277,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testMocksAreValid ()
+DECL|method|testFileWithOnewayOperation ()
 specifier|public
 name|void
-name|testMocksAreValid
+name|testFileWithOnewayOperation
 parameter_list|()
 throws|throws
 name|Exception
