@@ -30,13 +30,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|servlet
 operator|.
-name|camel
+name|http
 operator|.
-name|CamelExecutionException
+name|HttpServletResponse
 import|;
 end_import
 
@@ -49,18 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
 import|;
 end_import
 
@@ -102,7 +90,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpOperationFailedException
+name|DefaultHttpBinding
 import|;
 end_import
 
@@ -124,20 +112,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -145,23 +119,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for jetty http binding ref option.  */
+comment|/**  * Unit test for http binding ref option.  */
 end_comment
 
 begin_class
-DECL|class|JettyHttpBindingRefTest
+DECL|class|HttpBindingRefTest
 specifier|public
 class|class
-name|JettyHttpBindingRefTest
+name|HttpBindingRefTest
 extends|extends
 name|BaseJettyTest
 block|{
 annotation|@
 name|Test
-DECL|method|testDefaultJettyHttpBinding ()
+DECL|method|testDefaultHttpBinding ()
 specifier|public
 name|void
-name|testDefaultJettyHttpBinding
+name|testDefaultHttpBinding
 parameter_list|()
 throws|throws
 name|Exception
@@ -173,7 +147,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice?jettyHttpBindingRef=default"
+literal|"http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -197,74 +171,13 @@ name|out
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|template
-operator|.
-name|requestBody
-argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myotherservice"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|HttpOperationFailedException
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Not exactly the message the server returned."
-operator|.
-name|equals
-argument_list|(
-operator|(
-operator|(
-name|HttpOperationFailedException
-operator|)
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|)
-operator|.
-name|getResponseBody
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testCustomJettyHttpBinding ()
+DECL|method|testCustomHttpBinding ()
 specifier|public
 name|void
-name|testCustomJettyHttpBinding
+name|testCustomHttpBinding
 parameter_list|()
 throws|throws
 name|Exception
@@ -276,14 +189,14 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myotherservice?jettyHttpBindingRef=myownbinder"
+literal|"http://localhost:{{port}}/myapp/myotherservice"
 argument_list|,
 literal|"Hello World"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Not exactly the message the server returned."
+literal|"Something went wrong but we dont care"
 argument_list|,
 name|context
 operator|.
@@ -326,7 +239,7 @@ argument_list|(
 literal|"default"
 argument_list|,
 operator|new
-name|DefaultJettyHttpBinding
+name|DefaultHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -337,7 +250,7 @@ argument_list|(
 literal|"myownbinder"
 argument_list|,
 operator|new
-name|MyJettyHttpBinding
+name|MyHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -377,7 +290,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice?httpBindingRef=default"
 argument_list|)
 operator|.
 name|transform
@@ -390,7 +303,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myotherservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myotherservice?httpBindingRef=myownbinder"
 argument_list|)
 operator|.
 name|process
@@ -425,72 +338,48 @@ block|}
 return|;
 block|}
 comment|// START SNIPPET: e1
-DECL|class|MyJettyHttpBinding
+DECL|class|MyHttpBinding
 specifier|public
 class|class
-name|MyJettyHttpBinding
+name|MyHttpBinding
 extends|extends
-name|DefaultJettyHttpBinding
+name|DefaultHttpBinding
 block|{
 annotation|@
 name|Override
-DECL|method|populateResponse (Exchange exchange, JettyContentExchange httpExchange, Message in, HeaderFilterStrategy strategy, int responseCode)
-specifier|protected
+DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response)
+specifier|public
 name|void
-name|populateResponse
+name|doWriteExceptionResponse
 parameter_list|(
-name|Exchange
-name|exchange
+name|Throwable
+name|exception
 parameter_list|,
-name|JettyContentExchange
-name|httpExchange
-parameter_list|,
-name|Message
-name|in
-parameter_list|,
-name|HeaderFilterStrategy
-name|strategy
-parameter_list|,
-name|int
-name|responseCode
+name|HttpServletResponse
+name|response
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Message
-name|answer
-init|=
-name|exchange
+comment|// we override the doWriteExceptionResponse as we only want to alter the binding how exceptions is
+comment|// written back to the client.
+comment|// we just return HTTP 200 so the client thinks its okay
+name|response
 operator|.
-name|getOut
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setHeaders
+name|setStatus
 argument_list|(
-name|in
-operator|.
-name|getHeaders
-argument_list|()
+literal|200
 argument_list|)
 expr_stmt|;
-name|answer
+comment|// and we return this fixed text
+name|response
 operator|.
-name|setHeader
+name|getWriter
+argument_list|()
+operator|.
+name|write
 argument_list|(
-name|Exchange
-operator|.
-name|HTTP_RESPONSE_CODE
-argument_list|,
-name|responseCode
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setBody
-argument_list|(
-literal|"Not exactly the message the server returned."
+literal|"Something went wrong but we dont care"
 argument_list|)
 expr_stmt|;
 block|}
