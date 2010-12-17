@@ -1297,7 +1297,7 @@ return|;
 block|}
 block|}
 DECL|method|createSimpleFileExpression (String remainder)
-specifier|public
+specifier|protected
 name|Expression
 name|createSimpleFileExpression
 parameter_list|(
@@ -1553,9 +1553,15 @@ name|fileLastModifiedExpression
 argument_list|()
 return|;
 block|}
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|ExpressionIllegalSyntaxException
+argument_list|(
+literal|"File language syntax: "
+operator|+
+name|remainder
+argument_list|)
+throw|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
