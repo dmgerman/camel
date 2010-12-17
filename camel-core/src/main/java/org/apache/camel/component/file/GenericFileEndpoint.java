@@ -584,6 +584,11 @@ specifier|protected
 name|boolean
 name|keepLastModified
 decl_stmt|;
+DECL|field|doneFileName
+specifier|protected
+name|String
+name|doneFileName
+decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
 name|GenericFileEndpoint
@@ -1317,6 +1322,33 @@ name|createFileLanguageExpression
 argument_list|(
 name|fileLanguageExpression
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDoneFileName ()
+specifier|public
+name|String
+name|getDoneFileName
+parameter_list|()
+block|{
+return|return
+name|doneFileName
+return|;
+block|}
+comment|/**      * Sets the done file name.      *<p/>      * Only ${file.name} and ${file.name.noext} is supported as dynamic placeholders.      */
+DECL|method|setDoneFileName (String doneFileName)
+specifier|public
+name|void
+name|setDoneFileName
+parameter_list|(
+name|String
+name|doneFileName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|doneFileName
+operator|=
+name|doneFileName
 expr_stmt|;
 block|}
 DECL|method|isIdempotent ()
