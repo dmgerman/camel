@@ -272,6 +272,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -306,6 +320,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * using JAXB2 to marshal to and from XML  *  * @version $Revision$  */
 end_comment
@@ -315,11 +357,29 @@ DECL|class|JaxbDataFormat
 specifier|public
 class|class
 name|JaxbDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|LOG
+specifier|private
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|JaxbDataFormat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -583,8 +643,7 @@ name|graph
 decl_stmt|;
 if|if
 condition|(
-name|getPartClass
-argument_list|()
+name|partialClass
 operator|!=
 literal|null
 operator|&&
@@ -602,10 +661,7 @@ argument_list|(
 name|getPartNamespace
 argument_list|()
 argument_list|,
-name|getPartialClass
-argument_list|(
-name|exchange
-argument_list|)
+name|partialClass
 argument_list|,
 name|graph
 argument_list|)
@@ -720,8 +776,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|getPartClass
-argument_list|()
+name|partialClass
 operator|!=
 literal|null
 condition|)
@@ -771,10 +826,7 @@ name|unmarshal
 argument_list|(
 name|source
 argument_list|,
-name|getPartialClass
-argument_list|(
-name|exchange
-argument_list|)
+name|partialClass
 argument_list|)
 expr_stmt|;
 block|}
@@ -933,44 +985,6 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|getPartialClass (Exchange exchange)
-specifier|private
-specifier|synchronized
-name|Class
-name|getPartialClass
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-if|if
-condition|(
-name|partialClass
-operator|==
-literal|null
-condition|)
-block|{
-name|partialClass
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
-operator|.
-name|resolveClass
-argument_list|(
-name|getPartClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|partialClass
-return|;
-block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|isIgnoreJAXBElement ()
@@ -999,26 +1013,10 @@ expr_stmt|;
 block|}
 DECL|method|getContext ()
 specifier|public
-specifier|synchronized
 name|JAXBContext
 name|getContext
 parameter_list|()
-throws|throws
-name|JAXBException
 block|{
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-name|context
-operator|=
-name|createContext
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|context
 return|;
@@ -1145,7 +1143,6 @@ expr_stmt|;
 block|}
 DECL|method|getPartNamespace ()
 specifier|public
-specifier|final
 name|QName
 name|getPartNamespace
 parameter_list|()
@@ -1156,7 +1153,6 @@ return|;
 block|}
 DECL|method|setPartNamespace (QName partNamespace)
 specifier|public
-specifier|final
 name|void
 name|setPartNamespace
 parameter_list|(
@@ -1173,7 +1169,6 @@ expr_stmt|;
 block|}
 DECL|method|getPartClass ()
 specifier|public
-specifier|final
 name|String
 name|getPartClass
 parameter_list|()
@@ -1184,7 +1179,6 @@ return|;
 block|}
 DECL|method|setPartClass (String partClass)
 specifier|public
-specifier|final
 name|void
 name|setPartClass
 parameter_list|(
@@ -1225,6 +1219,63 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
+comment|// create context and resolve partial class up front so they are ready to be used
+name|context
+operator|=
+name|createContext
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|partClass
+operator|!=
+literal|null
+condition|)
+block|{
+name|partialClass
+operator|=
+name|camelContext
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveMandatoryClass
+argument_list|(
+name|partClass
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+comment|/**      * Strategy to create JAXB context      */
 DECL|method|createContext ()
 specifier|protected
 name|JAXBContext
@@ -1240,18 +1291,36 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+comment|// prefer to use application class loader which is most likely to be able to
+comment|// load the the class which has been JAXB annotated
+name|ClassLoader
+name|cl
+init|=
 name|camelContext
-argument_list|,
-literal|"CamelContext"
-argument_list|,
-name|this
+operator|.
+name|getApplicationContextClassLoader
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cl
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating JAXBContext with contextPath: "
+operator|+
+name|contextPath
+operator|+
+literal|" and ApplicationContextClassLoader: "
+operator|+
+name|cl
 argument_list|)
 expr_stmt|;
-comment|// use class loader from CamelContext to ensure the JAXB class loading works in various runtimes
 return|return
 name|JAXBContext
 operator|.
@@ -1259,18 +1328,40 @@ name|newInstance
 argument_list|(
 name|contextPath
 argument_list|,
-name|camelContext
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
+name|cl
 argument_list|)
 return|;
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating JAXBContext with contextPath: "
+operator|+
+name|contextPath
+argument_list|)
+expr_stmt|;
+return|return
+name|JAXBContext
+operator|.
+name|newInstance
+argument_list|(
+name|contextPath
+argument_list|)
+return|;
+block|}
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating JAXBContext"
+argument_list|)
+expr_stmt|;
 return|return
 name|JAXBContext
 operator|.
