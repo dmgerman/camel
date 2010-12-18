@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Channel
 import|;
 end_import
@@ -790,6 +802,27 @@ decl_stmt|;
 name|Processor
 name|next
 decl_stmt|;
+comment|// init CamelContextAware as early as possible on target
+if|if
+condition|(
+name|target
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelContextAware
+operator|)
+name|target
+operator|)
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 comment|// first wrap the output with the managed strategy if any
 name|InterceptStrategy
 name|managed
