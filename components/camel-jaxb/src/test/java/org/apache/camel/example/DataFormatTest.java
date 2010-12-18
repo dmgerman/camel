@@ -431,11 +431,13 @@ literal|"direct:marshalled"
 argument_list|)
 operator|.
 name|unmarshal
+argument_list|()
+operator|.
+name|jaxb
 argument_list|(
-name|example
+literal|"org.apache.camel.example"
 argument_list|)
 operator|.
-comment|//.jaxb("org.apache.camel.example").
 name|to
 argument_list|(
 literal|"mock:result"
