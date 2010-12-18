@@ -3517,7 +3517,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// use a String representation of source
 name|ManagedThreadPool
 name|mtp
 init|=

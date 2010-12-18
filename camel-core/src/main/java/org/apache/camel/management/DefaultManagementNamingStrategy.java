@@ -2107,7 +2107,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if no id then use class name as source id
+comment|// if no id then use class name as id
 name|buffer
 operator|.
 name|append
@@ -2143,7 +2143,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if we dont really know the id or source id then use hashcode so its unique
+comment|// if we don't really know the id or source id then use instance hashcode so the name is unique
+comment|// for this particular thread pool
 name|buffer
 operator|.
 name|append
@@ -2175,6 +2176,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// provide source if we know it, this helps end user to know where the pool is used
 name|buffer
 operator|.
 name|append
