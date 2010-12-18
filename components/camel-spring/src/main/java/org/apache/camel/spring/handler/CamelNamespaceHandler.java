@@ -630,6 +630,8 @@ argument_list|(
 name|CamelEndpointFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|beanPostProcessorParser
@@ -643,6 +645,8 @@ argument_list|(
 name|CamelBeanPostProcessor
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|parserElementNames
@@ -844,6 +848,8 @@ operator|.
 name|class
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -855,6 +861,8 @@ operator|.
 name|class
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -866,6 +874,8 @@ operator|.
 name|class
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -877,6 +887,8 @@ operator|.
 name|class
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -888,6 +900,8 @@ operator|.
 name|class
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -897,6 +911,8 @@ argument_list|,
 name|CamelThreadPoolFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -911,6 +927,8 @@ operator|.
 name|class
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addBeanDefinitionParser
@@ -920,6 +938,8 @@ argument_list|,
 name|CamelPropertyPlaceholderDefinition
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1096,7 +1116,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addBeanDefinitionParser (String elementName, Class<?> type, boolean register)
+DECL|method|addBeanDefinitionParser (String elementName, Class<?> type, boolean register, boolean assignId)
 specifier|private
 name|void
 name|addBeanDefinitionParser
@@ -1112,6 +1132,9 @@ name|type
 parameter_list|,
 name|boolean
 name|register
+parameter_list|,
+name|boolean
+name|assignId
 parameter_list|)
 block|{
 name|BeanDefinitionParser
@@ -1121,6 +1144,8 @@ operator|new
 name|BeanDefinitionParser
 argument_list|(
 name|type
+argument_list|,
+name|assignId
 argument_list|)
 decl_stmt|;
 if|if
@@ -1588,6 +1613,8 @@ argument_list|(
 name|CamelRouteContextFactoryBean
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1718,6 +1745,8 @@ block|{
 name|super
 argument_list|(
 name|type
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

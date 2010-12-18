@@ -129,7 +129,31 @@ specifier|final
 name|ThreadPoolExecutor
 name|threadPool
 decl_stmt|;
-DECL|method|ManagedThreadPool (CamelContext camelContext, ThreadPoolExecutor threadPool)
+DECL|field|id
+specifier|private
+specifier|final
+name|String
+name|id
+decl_stmt|;
+DECL|field|sourceId
+specifier|private
+specifier|final
+name|String
+name|sourceId
+decl_stmt|;
+DECL|field|routeId
+specifier|private
+specifier|final
+name|String
+name|routeId
+decl_stmt|;
+DECL|field|threadPoolProfileId
+specifier|private
+specifier|final
+name|String
+name|threadPoolProfileId
+decl_stmt|;
+DECL|method|ManagedThreadPool (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|ManagedThreadPool
 parameter_list|(
@@ -138,6 +162,18 @@ name|camelContext
 parameter_list|,
 name|ThreadPoolExecutor
 name|threadPool
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|String
+name|sourceId
+parameter_list|,
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|threadPoolProfileId
 parameter_list|)
 block|{
 name|this
@@ -151,6 +187,30 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
+expr_stmt|;
+name|this
+operator|.
+name|sourceId
+operator|=
+name|sourceId
+expr_stmt|;
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
+expr_stmt|;
+name|this
+operator|.
+name|threadPoolProfileId
+operator|=
+name|threadPoolProfileId
 expr_stmt|;
 block|}
 DECL|method|init (ManagementStrategy strategy)
@@ -182,6 +242,74 @@ parameter_list|()
 block|{
 return|return
 name|threadPool
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Thread Pool id"
+argument_list|)
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Id of source for creating Thread Pool"
+argument_list|)
+DECL|method|getSourceId ()
+specifier|public
+name|String
+name|getSourceId
+parameter_list|()
+block|{
+return|return
+name|sourceId
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Route id for the source, which created the Thread Pool"
+argument_list|)
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Id of the thread pool profile which this pool is based upon"
+argument_list|)
+DECL|method|getThreadPoolProfileId ()
+specifier|public
+name|String
+name|getThreadPoolProfileId
+parameter_list|()
+block|{
+return|return
+name|threadPoolProfileId
 return|;
 block|}
 annotation|@

@@ -468,7 +468,7 @@ name|Component
 name|component
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onComponentRemove (String name, Component component)
 specifier|public
@@ -482,7 +482,7 @@ name|Component
 name|component
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onContextStart (CamelContext context)
 specifier|public
@@ -493,7 +493,7 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onContextStop (CamelContext context)
 specifier|public
@@ -551,7 +551,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onEndpointRemove (Endpoint endpoint)
 specifier|public
@@ -562,7 +562,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
@@ -573,7 +573,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
@@ -587,7 +587,7 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
@@ -601,7 +601,7 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 specifier|public
@@ -618,7 +618,7 @@ name|Route
 name|route
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 specifier|public
@@ -635,7 +635,7 @@ name|Route
 name|route
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
@@ -652,9 +652,9 @@ name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
-DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void
 name|onThreadPoolAdd
@@ -663,10 +663,22 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|ThreadPoolExecutor
-name|threadPool
+name|threadPoolExecutor
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|String
+name|sourceId
+parameter_list|,
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|threadPoolProfileId
 parameter_list|)
 block|{
-comment|// Do nothing here
+comment|// noop
 block|}
 block|}
 end_class

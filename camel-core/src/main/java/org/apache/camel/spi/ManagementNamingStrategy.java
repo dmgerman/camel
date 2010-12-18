@@ -322,7 +322,7 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectNameForThreadPool (CamelContext context, ThreadPoolExecutor threadPool)
+DECL|method|getObjectNameForThreadPool (CamelContext context, ThreadPoolExecutor threadPool, String id, String sourceId)
 name|ObjectName
 name|getObjectNameForThreadPool
 parameter_list|(
@@ -331,6 +331,12 @@ name|context
 parameter_list|,
 name|ThreadPoolExecutor
 name|threadPool
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|String
+name|sourceId
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException

@@ -302,7 +302,7 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{     }
-DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void
 name|onThreadPoolAdd
@@ -312,6 +312,18 @@ name|camelContext
 parameter_list|,
 name|ThreadPoolExecutor
 name|threadPool
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|String
+name|sourceId
+parameter_list|,
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|threadPoolProfileId
 parameter_list|)
 block|{     }
 block|}

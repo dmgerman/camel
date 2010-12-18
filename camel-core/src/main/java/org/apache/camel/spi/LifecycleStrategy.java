@@ -146,7 +146,7 @@ specifier|public
 interface|interface
 name|LifecycleStrategy
 block|{
-comment|/**      * Notification on starting a {@link CamelContext}.      *      * @param context the camel context      * @throws VetoCamelContextStartException can be thrown to veto starting {@link CamelContext}.      * Any other runtime exceptions will be logged at<tt>WARN</tt> level by Camel will continue starting itself.      */
+comment|/**      * Notification on starting a {@link CamelContext}.      *      * @param context the camel context      * @throws VetoCamelContextStartException can be thrown to veto starting {@link CamelContext}.      *                                        Any other runtime exceptions will be logged at<tt>WARN</tt> level by Camel will continue starting itself.      */
 DECL|method|onContextStart (CamelContext context)
 name|void
 name|onContextStart
@@ -166,7 +166,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding an {@link org.apache.camel.Component}.      *      * @param name the unique name of this component      * @param component the added component      */
+comment|/**      * Notification on adding an {@link org.apache.camel.Component}.      *      * @param name      the unique name of this component      * @param component the added component      */
 DECL|method|onComponentAdd (String name, Component component)
 name|void
 name|onComponentAdd
@@ -178,7 +178,7 @@ name|Component
 name|component
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on removing an {@link org.apache.camel.Component}.      *      * @param name the unique name of this component      * @param component the removed component      */
+comment|/**      * Notification on removing an {@link org.apache.camel.Component}.      *      * @param name      the unique name of this component      * @param component the removed component      */
 DECL|method|onComponentRemove (String name, Component component)
 name|void
 name|onComponentRemove
@@ -286,8 +286,8 @@ name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding a thread pool.      *      * @param camelContext  the camel context      * @param threadPool    the thread pool      */
-DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool)
+comment|/**      * Notification on adding a thread pool.      *      * @param camelContext        the camel context      * @param threadPool          the thread pool      * @param id                  id of the thread pool (can be null in special cases)      * @param sourceId            id of the source creating the thread pool (can be null in special cases)      * @param routeId             id of the route for the source (is null if no source)      * @param threadPoolProfileId id of the thread pool profile, if used for creating this thread pool (can be null)      */
+DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 name|void
 name|onThreadPoolAdd
 parameter_list|(
@@ -296,6 +296,18 @@ name|camelContext
 parameter_list|,
 name|ThreadPoolExecutor
 name|threadPool
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|String
+name|sourceId
+parameter_list|,
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|threadPoolProfileId
 parameter_list|)
 function_decl|;
 block|}
