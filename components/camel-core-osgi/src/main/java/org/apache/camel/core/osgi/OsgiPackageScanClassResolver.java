@@ -164,21 +164,6 @@ specifier|final
 name|Bundle
 name|bundle
 decl_stmt|;
-DECL|method|OsgiPackageScanClassResolver (Bundle bundle)
-specifier|public
-name|OsgiPackageScanClassResolver
-parameter_list|(
-name|Bundle
-name|bundle
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bundle
-operator|=
-name|bundle
-expr_stmt|;
-block|}
 DECL|method|OsgiPackageScanClassResolver (BundleContext context)
 specifier|public
 name|OsgiPackageScanClassResolver
@@ -187,54 +172,42 @@ name|BundleContext
 name|context
 parameter_list|)
 block|{
-name|bundle
-operator|=
+name|this
+argument_list|(
 name|context
 operator|.
 name|getBundle
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getClassLoaders ()
+DECL|method|OsgiPackageScanClassResolver (Bundle bundle)
 specifier|public
-name|Set
-argument_list|<
-name|ClassLoader
-argument_list|>
-name|getClassLoaders
-parameter_list|()
+name|OsgiPackageScanClassResolver
+parameter_list|(
+name|Bundle
+name|bundle
+parameter_list|)
 block|{
-comment|// Added the BundleDelegatingClassLoader to load the class
-name|Set
-argument_list|<
-name|ClassLoader
-argument_list|>
-name|classLoaders
-init|=
 name|super
-operator|.
-name|getClassLoaders
 argument_list|()
-decl_stmt|;
-name|ClassLoader
-name|osgiLoader
-init|=
+expr_stmt|;
+name|this
+operator|.
+name|bundle
+operator|=
+name|bundle
+expr_stmt|;
+comment|// add the BundleDelegatingClassLoader to the class loaders
+name|addClassLoader
+argument_list|(
 operator|new
 name|BundleDelegatingClassLoader
 argument_list|(
 name|bundle
 argument_list|)
-decl_stmt|;
-name|classLoaders
-operator|.
-name|add
-argument_list|(
-name|osgiLoader
 argument_list|)
 expr_stmt|;
-return|return
-name|classLoaders
-return|;
 block|}
 DECL|method|find (PackageScanFilter test, String packageName, Set<Class<?>> classes)
 specifier|public
@@ -268,6 +241,7 @@ argument_list|,
 literal|'/'
 argument_list|)
 expr_stmt|;
+comment|// remember the number of classes found so far
 name|int
 name|classesSize
 init|=
@@ -276,6 +250,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// look in osgi bundles
 name|loadImplementationsInBundle
 argument_list|(
 name|test
@@ -285,6 +260,7 @@ argument_list|,
 name|classes
 argument_list|)
 expr_stmt|;
+comment|// if we did not find any new, then fallback to use regular non bundle class loading
 if|if
 condition|(
 name|classes
@@ -310,7 +286,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using only regular classloaders"
+literal|"Cannot find any classes in bundles, not trying regular classloaders scanning: "
+operator|+
+name|packageName
 argument_list|)
 expr_stmt|;
 block|}
@@ -664,18 +642,22 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Could not search osgi bundles for classes matching criteria: "
+literal|"Cannot search bundles for classes matching criteria: "
 operator|+
 name|test
 operator|+
-literal|"due to an Exception: "
+literal|" due: "
 operator|+
 name|t
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 return|return

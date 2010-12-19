@@ -48,7 +48,9 @@ specifier|public
 interface|interface
 name|PackageScanClassResolver
 block|{
-comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders loaders to use when scanning for classes      */
+comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders loaders to use when scanning for classes      * @deprecated use {@link #addClassLoader(ClassLoader)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)
 name|void
 name|setClassLoaders
@@ -60,7 +62,7 @@ argument_list|>
 name|classLoaders
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the ClassLoader instances that should be used when scanning for classes.      *      * @return the class loaders to use      */
+comment|/**      * Gets the ClassLoader instances that should be used when scanning for classes.      *<p/>      * This implementation will return a new unmodifiable set containing the classloaders.      * Use the {@link #addClassLoader(ClassLoader)} method if you want to add new classloaders      * to the class loaders list.      *      * @return the class loaders to use      */
 DECL|method|getClassLoaders ()
 name|Set
 argument_list|<
