@@ -333,14 +333,14 @@ name|String
 name|uri
 parameter_list|)
 block|{
+name|clear
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|uri
 operator|=
 name|uri
-expr_stmt|;
-name|clear
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getRef ()
@@ -363,16 +363,17 @@ name|String
 name|ref
 parameter_list|)
 block|{
+name|clear
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|ref
 operator|=
 name|ref
 expr_stmt|;
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
+comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getRef()} or {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -513,6 +514,18 @@ block|{
 name|this
 operator|.
 name|endpoint
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|ref
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|uri
 operator|=
 literal|null
 expr_stmt|;
