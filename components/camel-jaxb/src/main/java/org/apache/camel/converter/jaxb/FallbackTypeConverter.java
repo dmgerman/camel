@@ -804,7 +804,7 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
-comment|// must create a new instance of unmarshaller as its not thred safe
+comment|// must create a new instance of unmarshaller as its not thread safe
 name|Unmarshaller
 name|unmarshaller
 init|=
