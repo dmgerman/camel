@@ -58,7 +58,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a0"
+literal|"iso_a0"
 argument_list|)
 condition|)
 block|{
@@ -76,7 +76,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a1"
+literal|"iso_a1"
 argument_list|)
 condition|)
 block|{
@@ -94,7 +94,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a2"
+literal|"iso_a2"
 argument_list|)
 condition|)
 block|{
@@ -112,7 +112,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a3"
+literal|"iso_a3"
 argument_list|)
 condition|)
 block|{
@@ -130,7 +130,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a4"
+literal|"iso_a4"
 argument_list|)
 condition|)
 block|{
@@ -148,7 +148,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a5"
+literal|"iso_a5"
 argument_list|)
 condition|)
 block|{
@@ -166,7 +166,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a6"
+literal|"iso_a6"
 argument_list|)
 condition|)
 block|{
@@ -184,7 +184,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a7"
+literal|"iso_a7"
 argument_list|)
 condition|)
 block|{
@@ -202,7 +202,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a8"
+literal|"iso_a8"
 argument_list|)
 condition|)
 block|{
@@ -220,7 +220,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a9"
+literal|"iso_a9"
 argument_list|)
 condition|)
 block|{
@@ -238,7 +238,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-a10"
+literal|"iso_a10"
 argument_list|)
 condition|)
 block|{
@@ -256,7 +256,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b0"
+literal|"iso_b0"
 argument_list|)
 condition|)
 block|{
@@ -274,7 +274,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b1"
+literal|"iso_b1"
 argument_list|)
 condition|)
 block|{
@@ -292,7 +292,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b2"
+literal|"iso_b2"
 argument_list|)
 condition|)
 block|{
@@ -310,7 +310,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b3"
+literal|"iso_b3"
 argument_list|)
 condition|)
 block|{
@@ -328,7 +328,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b4"
+literal|"iso_b4"
 argument_list|)
 condition|)
 block|{
@@ -346,7 +346,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b5"
+literal|"iso_b5"
 argument_list|)
 condition|)
 block|{
@@ -364,7 +364,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b6"
+literal|"iso_b6"
 argument_list|)
 condition|)
 block|{
@@ -382,7 +382,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b7"
+literal|"iso_b7"
 argument_list|)
 condition|)
 block|{
@@ -400,7 +400,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b8"
+literal|"iso_b8"
 argument_list|)
 condition|)
 block|{
@@ -418,7 +418,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b9"
+literal|"iso_b9"
 argument_list|)
 condition|)
 block|{
@@ -436,7 +436,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-b10"
+literal|"iso_b10"
 argument_list|)
 condition|)
 block|{
@@ -454,7 +454,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c0"
+literal|"iso_c0"
 argument_list|)
 condition|)
 block|{
@@ -472,7 +472,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c1"
+literal|"iso_c1"
 argument_list|)
 condition|)
 block|{
@@ -490,7 +490,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c2"
+literal|"iso_c2"
 argument_list|)
 condition|)
 block|{
@@ -508,7 +508,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c3"
+literal|"iso_c3"
 argument_list|)
 condition|)
 block|{
@@ -526,7 +526,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c4"
+literal|"iso_c4"
 argument_list|)
 condition|)
 block|{
@@ -544,7 +544,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c5"
+literal|"iso_c5"
 argument_list|)
 condition|)
 block|{
@@ -562,7 +562,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-c6"
+literal|"iso_c6"
 argument_list|)
 condition|)
 block|{
@@ -592,7 +592,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b0"
+literal|"jis_b0"
 argument_list|)
 condition|)
 block|{
@@ -610,7 +610,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b1"
+literal|"jis_b1"
 argument_list|)
 condition|)
 block|{
@@ -628,7 +628,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b2"
+literal|"jis_b2"
 argument_list|)
 condition|)
 block|{
@@ -646,7 +646,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b3"
+literal|"jis_b3"
 argument_list|)
 condition|)
 block|{
@@ -664,7 +664,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b4"
+literal|"jis_b4"
 argument_list|)
 condition|)
 block|{
@@ -682,7 +682,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b5"
+literal|"jis_b5"
 argument_list|)
 condition|)
 block|{
@@ -700,7 +700,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b6"
+literal|"jis_b6"
 argument_list|)
 condition|)
 block|{
@@ -718,7 +718,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b7"
+literal|"jis_b7"
 argument_list|)
 condition|)
 block|{
@@ -736,7 +736,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b8"
+literal|"jis_b8"
 argument_list|)
 condition|)
 block|{
@@ -754,7 +754,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b9"
+literal|"jis_b9"
 argument_list|)
 condition|)
 block|{
@@ -772,7 +772,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"jis-b10"
+literal|"jis_b10"
 argument_list|)
 condition|)
 block|{
@@ -802,7 +802,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-letter"
+literal|"na_letter"
 argument_list|)
 condition|)
 block|{
@@ -820,7 +820,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-legal"
+literal|"na_legal"
 argument_list|)
 condition|)
 block|{
@@ -946,7 +946,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"japanese-postcard"
+literal|"japanese_postcard"
 argument_list|)
 condition|)
 block|{
@@ -964,7 +964,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"oufuko-postcard"
+literal|"oufuko_postcard"
 argument_list|)
 condition|)
 block|{
@@ -1072,7 +1072,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-designated-long"
+literal|"iso_designated_long"
 argument_list|)
 condition|)
 block|{
@@ -1090,7 +1090,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"italian-envelope"
+literal|"italian_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1108,7 +1108,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"monarch-envelope"
+literal|"monarch_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1126,7 +1126,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"personal-envelope"
+literal|"personal_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1144,7 +1144,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-number-9-envelope"
+literal|"na_number_9_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1162,7 +1162,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-number-10-envelope"
+literal|"na_number_10_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1180,7 +1180,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-number-11-envelope"
+literal|"na_number_11_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1198,7 +1198,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-number-12-envelope"
+literal|"na_number_12_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1216,7 +1216,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-number-14-envelope"
+literal|"na_number_14_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1234,7 +1234,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-6x9-envelope"
+literal|"na_6x9_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1252,7 +1252,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-7x9-envelope"
+literal|"na_7x9_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1270,7 +1270,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-9x11-envelope"
+literal|"na_9x11_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1288,7 +1288,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-9x12-envelope"
+literal|"na_9x12_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1306,7 +1306,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-10x13-envelope"
+literal|"na_10x13_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1324,7 +1324,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-10x14-envelope"
+literal|"na_10x14_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1342,7 +1342,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-10x15-envelope"
+literal|"na_10x15_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1360,7 +1360,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-5x7"
+literal|"na_5x7"
 argument_list|)
 condition|)
 block|{
@@ -1378,7 +1378,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"na-8x10"
+literal|"na_8x10"
 argument_list|)
 condition|)
 block|{
@@ -1525,7 +1525,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"japanese-postcard"
+literal|"japanese_postcard"
 argument_list|)
 condition|)
 block|{
@@ -1543,7 +1543,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"oufuko-postcard"
+literal|"oufuko_postcard"
 argument_list|)
 condition|)
 block|{
@@ -1651,7 +1651,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"iso-designated-long"
+literal|"iso_designated_long"
 argument_list|)
 condition|)
 block|{
@@ -1669,7 +1669,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"italian-envelope"
+literal|"italian_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1687,7 +1687,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"monarch-envelope"
+literal|"monarch_envelope"
 argument_list|)
 condition|)
 block|{
@@ -1705,7 +1705,7 @@ name|size
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"personal-envelope"
+literal|"personal_envelope"
 argument_list|)
 condition|)
 block|{
