@@ -982,6 +982,13 @@ argument_list|(
 name|classLoader
 argument_list|)
 expr_stmt|;
+comment|// recreate resolver since we mess with context class loader
+name|resolver
+operator|=
+operator|new
+name|DefaultPackageScanClassResolver
+argument_list|()
+expr_stmt|;
 name|filter
 operator|.
 name|addIncludePattern
@@ -1138,6 +1145,13 @@ name|setContextClassLoader
 argument_list|(
 name|classLoader
 argument_list|)
+expr_stmt|;
+comment|// recreate resolver since we mess with context class loader
+name|resolver
+operator|=
+operator|new
+name|DefaultPackageScanClassResolver
+argument_list|()
 expr_stmt|;
 name|filter
 operator|.

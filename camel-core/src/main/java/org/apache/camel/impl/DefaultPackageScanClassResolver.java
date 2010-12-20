@@ -422,11 +422,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"The thread context class loader: "
+literal|"Adding ContextClassLoader from current thread: "
 operator|+
 name|ccl
-operator|+
-literal|"  is used to load the class"
 argument_list|)
 expr_stmt|;
 block|}
@@ -441,12 +439,25 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|UnsupportedOperationException
-name|ex
+name|Exception
+name|e
 parameter_list|)
 block|{
-comment|// Ignore this exception as the PackageScanClassResolver
-comment|// don't want use any other classloader
+comment|// Ignore this exception
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot add ContextClassLoader from current thread due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
 block|}
 name|classLoaders
 operator|.
