@@ -545,6 +545,7 @@ argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
+comment|// assert camel http header
 name|String
 name|charsetEncoding
 init|=
@@ -566,11 +567,28 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Get a wrong charset name"
+literal|"Get a wrong charset name from the message heaer"
 argument_list|,
 literal|"UTF-8"
 argument_list|,
 name|charsetEncoding
+argument_list|)
+expr_stmt|;
+comment|// assert exchange charset
+name|assertEquals
+argument_list|(
+literal|"Get a wrong charset naem from the exchange property"
+argument_list|,
+literal|"UTF-8"
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange
