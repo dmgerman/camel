@@ -573,7 +573,7 @@ return|return
 name|strategy
 return|;
 block|}
-comment|// no explicit stategy set then fallback to readLock option
+comment|// no explicit strategy set then fallback to readLock option
 name|String
 name|readLock
 init|=
