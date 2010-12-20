@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception policy key is a compound key for storing:  *<b>exception class</b> +<b>when</b> =><b>exception type</b>.  *<p/>  * This is used by Camel to store the onException types configured that has or has not predicates attached (when).  */
+comment|/**  * Exception policy key is a compound key for storing:  *<b>route id</b> +<b>exception class</b> +<b>when</b> =><b>exception type</b>.  *<p/>  * This is used by Camel to store the onException types configured that has or has not predicates attached (when).  */
 end_comment
 
 begin_class
@@ -43,6 +43,12 @@ specifier|final
 class|class
 name|ExceptionPolicyKey
 block|{
+DECL|field|routeId
+specifier|private
+specifier|final
+name|String
+name|routeId
+decl_stmt|;
 DECL|field|exceptionClass
 specifier|private
 specifier|final
@@ -55,6 +61,8 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
@@ -66,6 +74,37 @@ name|WhenDefinition
 name|when
 parameter_list|)
 block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+name|exceptionClass
+argument_list|,
+name|when
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Key for exception clause      *      * @param routeId          the route, or use<tt>null</tt> for a global scoped      * @param exceptionClass   the exception class      * @param when             optional predicate when the exception clause should trigger      */
+DECL|method|ExceptionPolicyKey (String routeId, Class exceptionClass, WhenDefinition when)
+specifier|public
+name|ExceptionPolicyKey
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|Class
+name|exceptionClass
+parameter_list|,
+name|WhenDefinition
+name|when
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
+expr_stmt|;
 name|this
 operator|.
 name|exceptionClass
@@ -102,6 +141,18 @@ return|return
 name|when
 return|;
 block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|newInstance (Class exceptionClass)
 specifier|public
 specifier|static
@@ -122,6 +173,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|newInstance (Class exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
@@ -196,6 +249,10 @@ name|o
 decl_stmt|;
 if|if
 condition|(
+name|exceptionClass
+operator|!=
+literal|null
+condition|?
 operator|!
 name|exceptionClass
 operator|.
@@ -205,6 +262,39 @@ name|that
 operator|.
 name|exceptionClass
 argument_list|)
+else|:
+name|that
+operator|.
+name|exceptionClass
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|routeId
+operator|!=
+literal|null
+condition|?
+operator|!
+name|routeId
+operator|.
+name|equals
+argument_list|(
+name|that
+operator|.
+name|routeId
+argument_list|)
+else|:
+name|that
+operator|.
+name|routeId
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -253,11 +343,36 @@ block|{
 name|int
 name|result
 init|=
+name|routeId
+operator|!=
+literal|null
+condition|?
+name|routeId
+operator|.
+name|hashCode
+argument_list|()
+else|:
+literal|0
+decl_stmt|;
+name|result
+operator|=
+literal|31
+operator|*
+name|result
+operator|+
+operator|(
+name|exceptionClass
+operator|!=
+literal|null
+condition|?
 name|exceptionClass
 operator|.
 name|hashCode
 argument_list|()
-decl_stmt|;
+else|:
+literal|0
+operator|)
+expr_stmt|;
 name|result
 operator|=
 literal|31
@@ -290,7 +405,19 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ExceptionPolicyKey["
+literal|"ExceptionPolicyKey[route: "
+operator|+
+operator|(
+name|routeId
+operator|!=
+literal|null
+condition|?
+name|routeId
+else|:
+literal|"<global>"
+operator|)
+operator|+
+literal|", "
 operator|+
 name|exceptionClass
 operator|+
