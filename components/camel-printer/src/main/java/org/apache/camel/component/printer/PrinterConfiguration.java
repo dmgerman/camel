@@ -220,11 +220,6 @@ name|sendToPrinter
 init|=
 literal|true
 decl_stmt|;
-DECL|field|printSettings
-specifier|private
-name|Map
-name|printSettings
-decl_stmt|;
 DECL|method|PrinterConfiguration ()
 specifier|public
 name|PrinterConfiguration
@@ -312,18 +307,6 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"URI Path = "
-operator|+
-name|uri
-operator|.
-name|getPath
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|setPrintername
 argument_list|(
 name|uri
@@ -332,15 +315,16 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Map
 name|printSettings
-operator|=
+init|=
 name|URISupport
 operator|.
 name|parseParameters
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|setFlavor
 argument_list|(
 operator|(
@@ -501,15 +485,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DocFlavor
-name|d
-init|=
-name|DocFlavor
-operator|.
-name|BYTE_ARRAY
-operator|.
-name|AUTOSENSE
-decl_stmt|;
+comment|// defaults
 if|if
 condition|(
 name|mimeType
@@ -534,6 +510,15 @@ operator|=
 literal|"DocFlavor.BYTE_ARRAY"
 expr_stmt|;
 block|}
+name|DocFlavor
+name|d
+init|=
+name|DocFlavor
+operator|.
+name|BYTE_ARRAY
+operator|.
+name|AUTOSENSE
+decl_stmt|;
 name|DocFlavorAssigner
 name|docFlavorAssigner
 init|=
@@ -1064,11 +1049,6 @@ name|String
 name|size
 parameter_list|)
 block|{
-name|MediaSizeName
-name|mediaSizeName
-init|=
-literal|null
-decl_stmt|;
 name|MediaSizeAssigner
 name|mediaSizeAssigner
 init|=
@@ -1076,9 +1056,31 @@ operator|new
 name|MediaSizeAssigner
 argument_list|()
 decl_stmt|;
+name|MediaSizeName
+name|answer
+decl_stmt|;
 if|if
 condition|(
 name|size
+operator|==
+literal|null
+condition|)
+block|{
+comment|// default to NA letter if no size configured
+name|answer
+operator|=
+name|MediaSizeName
+operator|.
+name|NA_LETTER
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|size
+operator|.
+name|toLowerCase
+argument_list|()
 operator|.
 name|startsWith
 argument_list|(
@@ -1086,7 +1088,7 @@ literal|"iso"
 argument_list|)
 condition|)
 block|{
-name|mediaSizeName
+name|answer
 operator|=
 name|mediaSizeAssigner
 operator|.
@@ -1107,7 +1109,7 @@ literal|"jis"
 argument_list|)
 condition|)
 block|{
-name|mediaSizeName
+name|answer
 operator|=
 name|mediaSizeAssigner
 operator|.
@@ -1128,7 +1130,7 @@ literal|"na"
 argument_list|)
 condition|)
 block|{
-name|mediaSizeName
+name|answer
 operator|=
 name|mediaSizeAssigner
 operator|.
@@ -1140,7 +1142,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|mediaSizeName
+name|answer
 operator|=
 name|mediaSizeAssigner
 operator|.
@@ -1151,7 +1153,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|mediaSizeName
+name|answer
 return|;
 block|}
 DECL|method|assignSides (String sidesString)
@@ -1164,10 +1166,24 @@ name|sidesString
 parameter_list|)
 block|{
 name|Sides
-name|ret
-init|=
-literal|null
+name|answer
 decl_stmt|;
+if|if
+condition|(
+name|sidesString
+operator|==
+literal|null
+condition|)
+block|{
+comment|// default to one side if no slides configured
+name|answer
+operator|=
+name|Sides
+operator|.
+name|ONE_SIDED
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|sidesString
@@ -1178,7 +1194,7 @@ literal|"one-sided"
 argument_list|)
 condition|)
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1196,7 +1212,7 @@ literal|"duplex"
 argument_list|)
 condition|)
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1214,7 +1230,7 @@ literal|"tumble"
 argument_list|)
 condition|)
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1232,7 +1248,7 @@ literal|"two-sided-short-edge"
 argument_list|)
 condition|)
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1250,7 +1266,7 @@ literal|"two-sided-long-edge"
 argument_list|)
 condition|)
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1259,7 +1275,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ret
+name|answer
 operator|=
 name|Sides
 operator|.
@@ -1267,7 +1283,7 @@ name|ONE_SIDED
 expr_stmt|;
 block|}
 return|return
-name|ret
+name|answer
 return|;
 block|}
 DECL|method|getUri ()
