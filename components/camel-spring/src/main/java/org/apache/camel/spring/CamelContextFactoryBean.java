@@ -781,8 +781,6 @@ DECL|field|streamCache
 specifier|private
 name|String
 name|streamCache
-init|=
-literal|"false"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -831,8 +829,6 @@ DECL|field|autoStartup
 specifier|private
 name|String
 name|autoStartup
-init|=
-literal|"true"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -869,10 +865,6 @@ DECL|field|lazyLoadTypeConverters
 specifier|private
 name|Boolean
 name|lazyLoadTypeConverters
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlElement
