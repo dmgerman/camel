@@ -263,8 +263,6 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
