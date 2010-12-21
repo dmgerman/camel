@@ -914,6 +914,7 @@ block|}
 else|else
 block|{
 comment|// we have an existing candidate already which we should prefer to use
+comment|// for example we check route scope before context scope (preferring route scopes)
 if|if
 condition|(
 name|LOG
