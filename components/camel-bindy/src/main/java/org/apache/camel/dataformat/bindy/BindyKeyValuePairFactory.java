@@ -432,7 +432,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Find annotated KeyValuePairfields declared in the Model classes
-name|initAnnotedFields
+name|initAnnotatedFields
 argument_list|()
 expr_stmt|;
 comment|// Initialize key value pair parameter(s)
@@ -440,10 +440,10 @@ name|initMessageParameters
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|initAnnotedFields ()
+DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
-name|initAnnotedFields
+name|initAnnotatedFields
 parameter_list|()
 block|{
 for|for
@@ -625,7 +625,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|annotedLinkFields
+name|annotatedLinkFields
 operator|.
 name|put
 argument_list|(

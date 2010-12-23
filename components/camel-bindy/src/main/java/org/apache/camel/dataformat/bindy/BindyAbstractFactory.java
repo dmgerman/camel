@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link BindyAbstractFactory} implements what its common to all the formats  * supported by camel bindy  */
+comment|/**  * The {@link BindyAbstractFactory} implements what its common to all the formats  * supported by Camel Bindy  */
 end_comment
 
 begin_class
@@ -194,19 +194,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|models
+DECL|field|annotatedLinkFields
 specifier|protected
-name|Set
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|models
-decl_stmt|;
-DECL|field|annotedLinkFields
-specifier|protected
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -216,7 +206,7 @@ argument_list|<
 name|Field
 argument_list|>
 argument_list|>
-name|annotedLinkFields
+name|annotatedLinkFields
 init|=
 operator|new
 name|LinkedHashMap
@@ -229,6 +219,17 @@ name|Field
 argument_list|>
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|models
+specifier|protected
+name|Set
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|models
 decl_stmt|;
 DECL|field|crlf
 specifier|protected
@@ -303,7 +304,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Package name : "
+literal|"Package name: "
 operator|+
 name|str
 argument_list|)
@@ -356,11 +357,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Find fields annotated in each class of the model      */
-DECL|method|initAnnotedFields ()
+DECL|method|initAnnotatedFields ()
 specifier|public
 specifier|abstract
 name|void
-name|initAnnotedFields
+name|initAnnotatedFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -431,7 +432,7 @@ control|(
 name|String
 name|link
 range|:
-name|annotedLinkFields
+name|annotatedLinkFields
 operator|.
 name|keySet
 argument_list|()
@@ -443,7 +444,7 @@ name|Field
 argument_list|>
 name|linkFields
 init|=
-name|annotedLinkFields
+name|annotatedLinkFields
 operator|.
 name|get
 argument_list|(
@@ -661,7 +662,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"@Section and/or @KeyValuePairDataField have not been defined !"
+literal|"@Section and/or @KeyValuePairDataField have not been defined!"
 argument_list|)
 throw|;
 block|}
@@ -867,7 +868,12 @@ return|return
 name|crlf
 return|;
 block|}
-comment|/**      * Format the object into a string according to the format rue defined      *       * @param format      * @param value      * @return String      * @throws Exception      */
+comment|/**      * Format the object into a string according to the format rue defined      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|formatString (Format format, Object value)
 specifier|public
 name|String
@@ -894,7 +900,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Format field value
 try|try
 block|{
 name|strValue
@@ -917,7 +922,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Formatting error detected for the value : "
+literal|"Formatting error detected for the value: "
 operator|+
 name|value
 argument_list|,

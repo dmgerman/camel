@@ -465,7 +465,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Find annotated Datafields declared in the Model classes
-name|initAnnotedFields
+name|initAnnotatedFields
 argument_list|()
 expr_stmt|;
 comment|// initialize Csv parameter(s)
@@ -474,10 +474,10 @@ name|initCsvRecordParameters
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|initAnnotedFields ()
+DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
-name|initAnnotedFields
+name|initAnnotatedFields
 parameter_list|()
 block|{
 for|for
@@ -698,7 +698,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|annotedLinkFields
+name|annotatedLinkFields
 operator|.
 name|put
 argument_list|(

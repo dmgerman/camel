@@ -134,24 +134,6 @@ name|bindy
 operator|.
 name|annotation
 operator|.
-name|CsvRecord
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
-name|annotation
-operator|.
 name|DataField
 import|;
 end_import
@@ -204,63 +186,9 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
-name|annotation
-operator|.
-name|OneToMany
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
-name|annotation
-operator|.
-name|Section
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
 name|format
 operator|.
 name|FormatException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
-name|util
-operator|.
-name|Converter
 import|;
 end_import
 
@@ -374,7 +302,7 @@ name|DataField
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|annotedFields
+DECL|field|annotatedFields
 specifier|private
 name|Map
 argument_list|<
@@ -382,7 +310,7 @@ name|Integer
 argument_list|,
 name|Field
 argument_list|>
-name|annotedFields
+name|annotatedFields
 init|=
 operator|new
 name|LinkedHashMap
@@ -464,7 +392,7 @@ name|initFixedLengthModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields      *       * @throws Exception      */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields      */
 DECL|method|initFixedLengthModel ()
 specifier|public
 name|void
@@ -474,7 +402,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Find annotated fields declared in the Model classes
-name|initAnnotedFields
+name|initAnnotatedFields
 argument_list|()
 expr_stmt|;
 comment|// initialize Fixed length parameter(s)
@@ -483,10 +411,10 @@ name|initFixedLengthRecordParameters
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|initAnnotedFields ()
+DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
-name|initAnnotedFields
+name|initAnnotatedFields
 parameter_list|()
 block|{
 for|for
@@ -525,7 +453,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class retrieved : "
+literal|"Class retrieved: "
 operator|+
 name|cl
 operator|.
@@ -576,21 +504,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Position defined in the class : "
+literal|"Position defined in the class: "
 operator|+
 name|cl
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", position : "
+literal|", position: "
 operator|+
 name|dataField
 operator|.
 name|pos
 argument_list|()
 operator|+
-literal|", Field : "
+literal|", Field: "
 operator|+
 name|dataField
 operator|.
@@ -629,7 +557,7 @@ argument_list|,
 name|dataField
 argument_list|)
 expr_stmt|;
-name|annotedFields
+name|annotatedFields
 operator|.
 name|put
 argument_list|(
@@ -673,14 +601,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class linked  : "
+literal|"Class linked: "
 operator|+
 name|cl
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", Field"
+literal|", Field: "
 operator|+
 name|field
 operator|.
@@ -707,7 +635,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|annotedLinkFields
+name|annotatedLinkFields
 operator|.
 name|put
 argument_list|(
@@ -738,7 +666,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of optional fields : "
+literal|"Number of optional fields: "
 operator|+
 name|numberOptionalFields
 argument_list|)
@@ -747,7 +675,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of mandatory fields : "
+literal|"Number of mandatory fields: "
 operator|+
 name|numberMandatoryFields
 argument_list|)
@@ -756,7 +684,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Total : "
+literal|"Total: "
 operator|+
 name|totalFields
 argument_list|)
@@ -794,7 +722,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
+comment|// noop
 block|}
 DECL|method|bind (String record, Map<String, Object> model, int line)
 specifier|public
@@ -854,7 +782,7 @@ name|String
 name|pattern
 decl_stmt|;
 comment|// Iterate through the list of positions
-comment|// defined in the @DataFieldf
+comment|// defined in the @DataField
 comment|// and grab the data from the line
 name|Collection
 name|c
@@ -910,7 +838,7 @@ name|notNull
 argument_list|(
 name|offset
 argument_list|,
-literal|"Position/offset is not defined for  the  field "
+literal|"Position/offset is not defined for the field: "
 operator|+
 name|dataField
 operator|.
@@ -924,7 +852,7 @@ name|notNull
 argument_list|(
 name|offset
 argument_list|,
-literal|"Length is not defined for the  field "
+literal|"Length is not defined for the field: "
 operator|+
 name|dataField
 operator|.
@@ -946,14 +874,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Offset / Position of the field "
+literal|"Offset/Position of the field "
 operator|+
 name|dataField
 operator|.
 name|toString
 argument_list|()
 operator|+
-literal|" cannot be negative !"
+literal|" cannot be negative!"
 argument_list|)
 throw|;
 block|}
@@ -1007,7 +935,7 @@ literal|"The mandatory field defined at the position "
 operator|+
 name|pos
 operator|+
-literal|" is empty for the line : "
+literal|" is empty for the line: "
 operator|+
 name|line
 argument_list|)
@@ -1017,7 +945,7 @@ block|}
 comment|// Get Field to be setted
 name|field
 operator|=
-name|annotedFields
+name|annotatedFields
 operator|.
 name|get
 argument_list|(
@@ -1043,15 +971,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pos/Offset : "
+literal|"Pos/Offset: "
 operator|+
 name|offset
 operator|+
-literal|", Data : "
+literal|", Data: "
 operator|+
 name|token
 operator|+
-literal|", Field type : "
+literal|", Field type: "
 operator|+
 name|field
 operator|.
@@ -1158,11 +1086,11 @@ operator|.
 name|getMessage
 argument_list|()
 operator|+
-literal|", position : "
+literal|", position: "
 operator|+
 name|offset
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|,
@@ -1180,11 +1108,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parsing error detected for field defined at the position/offset : "
+literal|"Parsing error detected for field defined at the position/offset: "
 operator|+
 name|offset
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|,
@@ -1231,7 +1159,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Counter mandatory fields : "
+literal|"Counter mandatory fields: "
 operator|+
 name|counterMandatoryFields
 argument_list|)
@@ -1248,7 +1176,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some fields are missing (optional or mandatory), line : "
+literal|"Some fields are missing (optional or mandatory), line: "
 operator|+
 name|line
 argument_list|)
@@ -1265,7 +1193,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some mandatory fields are missing, line : "
+literal|"Some mandatory fields are missing, line: "
 operator|+
 name|line
 argument_list|)
@@ -1352,11 +1280,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Model object : "
+literal|"Model object: "
 operator|+
 name|obj
 operator|+
-literal|", class : "
+literal|", class: "
 operator|+
 name|obj
 operator|.
@@ -1407,19 +1335,6 @@ argument_list|(
 name|results
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|temp
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|Integer
@@ -1448,9 +1363,6 @@ decl_stmt|;
 name|String
 name|value
 init|=
-operator|(
-name|String
-operator|)
 name|val
 operator|.
 name|get
@@ -1473,7 +1385,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      *       * Generate a table containing the data formated and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      *       * @param clazz      * @param obj      * @throws Exception      */
+comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      */
 DECL|method|generateFixedLengthPositionMap (Class clazz, Object obj)
 specifier|private
 name|void
@@ -1601,6 +1513,23 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+comment|// trim if enabled
+if|if
+condition|(
+name|datafield
+operator|.
+name|trim
+argument_list|()
+condition|)
+block|{
+name|result
+operator|=
+name|result
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Get length of the field, alignment (LEFT or RIGHT), pad
 name|int
 name|fieldLength
@@ -1619,7 +1548,7 @@ name|align
 argument_list|()
 decl_stmt|;
 name|char
-name|paddCharField
+name|padCharField
 init|=
 name|datafield
 operator|.
@@ -1627,7 +1556,7 @@ name|paddingChar
 argument_list|()
 decl_stmt|;
 name|char
-name|paddChar
+name|padChar
 decl_stmt|;
 if|if
 condition|(
@@ -1643,7 +1572,7 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
-comment|// Check if we must padd
+comment|// Check if we must pad
 if|if
 condition|(
 name|result
@@ -1657,22 +1586,22 @@ block|{
 comment|// No padding defined for the field
 if|if
 condition|(
-name|paddCharField
+name|padCharField
 operator|==
 literal|0
 condition|)
 block|{
 comment|// We use the padding defined for the Record
-name|paddChar
+name|padChar
 operator|=
 name|paddingChar
 expr_stmt|;
 block|}
 else|else
 block|{
-name|paddChar
+name|padChar
 operator|=
-name|paddCharField
+name|padCharField
 expr_stmt|;
 block|}
 if|if
@@ -1691,7 +1620,7 @@ name|append
 argument_list|(
 name|generatePaddingChars
 argument_list|(
-name|paddChar
+name|padChar
 argument_list|,
 name|fieldLength
 argument_list|,
@@ -1734,7 +1663,7 @@ name|append
 argument_list|(
 name|generatePaddingChars
 argument_list|(
-name|paddChar
+name|padChar
 argument_list|,
 name|fieldLength
 argument_list|,
@@ -1752,7 +1681,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Alignement for the "
+literal|"Alignment for the field: "
 operator|+
 name|field
 operator|.
@@ -1771,6 +1700,38 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|result
+operator|.
+name|length
+argument_list|()
+operator|>
+name|fieldLength
+condition|)
+block|{
+comment|// we are bigger than allowed
+comment|// is clipped enabled? if so clip the field
+if|if
+condition|(
+name|datafield
+operator|.
+name|clip
+argument_list|()
+condition|)
+block|{
+name|result
+operator|=
+name|result
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|fieldLength
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1778,7 +1739,35 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Lenght of the field : "
+literal|"Length for the "
+operator|+
+name|field
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" must not be larger than allowed, was: "
+operator|+
+name|result
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|", allowed: "
+operator|+
+name|fieldLength
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Length of the field: "
 operator|+
 name|field
 operator|.
@@ -1801,18 +1790,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted : "
+literal|"Value to be formatted: "
 operator|+
 name|value
 operator|+
-literal|", position : "
+literal|", position: "
 operator|+
 name|datafield
 operator|.
 name|pos
 argument_list|()
 operator|+
-literal|", and its formated value : "
+literal|", and its formatted value: "
 operator|+
 name|result
 argument_list|)
@@ -1876,9 +1865,6 @@ block|{
 name|List
 name|list
 init|=
-operator|(
-name|LinkedList
-operator|)
 name|results
 operator|.
 name|get

@@ -75,13 +75,13 @@ specifier|public
 annotation_defn|@interface
 name|DataField
 block|{
-comment|/**      * position of the data in the record (mandatory)      *       * @return int      */
+comment|/**      * Position of the data in the record, must start from 1 (mandatory).      */
 DECL|method|pos ()
 name|int
 name|pos
 parameter_list|()
 function_decl|;
-comment|/**      * name of the field (optional)      *       * @return String      */
+comment|/**      * Name of the field (optional)      */
 DECL|method|name ()
 name|String
 name|name
@@ -89,7 +89,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * name of the header column (optional)      *       * @return String      */
+comment|/**      * Name of the header column (optional)      */
 DECL|method|columnName ()
 name|String
 name|columnName
@@ -97,7 +97,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * pattern that the formater will use to transform the data (optional)      *       * @return String      */
+comment|/**      * Pattern that the formatter will use to transform the data (optional)      */
 DECL|method|pattern ()
 name|String
 name|pattern
@@ -105,7 +105,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * length of the data block (useful for the fixedlength record)       *       * @return int      */
+comment|/**      * Length of the data block if the record is set to a fixed length      */
 DECL|method|length ()
 name|int
 name|length
@@ -113,7 +113,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      * align the text to the RIGHT or to LEFT part       *       * @return String      */
+comment|/**      * Align the text to the right or left. Use values<tt>R</tt> or<tt>L</tt>.      */
 DECL|method|align ()
 name|String
 name|align
@@ -121,7 +121,7 @@ parameter_list|()
 default|default
 literal|"R"
 function_decl|;
-comment|/**      * The char to pad with.      * @return the char to pad with if the record is set to a fixed length;      *       * @return char      */
+comment|/**      * The char to pad with if the record is set to a fixed length      */
 DECL|method|paddingChar ()
 name|char
 name|paddingChar
@@ -129,7 +129,7 @@ parameter_list|()
 default|default
 literal|' '
 function_decl|;
-comment|/**      * precision of the BigDecimal number to be created      *       * @return int      */
+comment|/**      * precision of the {@link java.math.BigDecimal} number to be created      */
 DECL|method|precision ()
 name|int
 name|precision
@@ -137,7 +137,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      * Position of the field in the message generated      *       * @return int      */
+comment|/**      * Position of the field in the message generated (should start from 1)      */
 DECL|method|position ()
 name|int
 name|position
@@ -145,7 +145,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      * Indicates if the field is mandatory      *       * @return boolean      */
+comment|/**      * Indicates if the field is mandatory      */
 DECL|method|required ()
 DECL|field|false
 name|boolean
@@ -154,11 +154,20 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-comment|/**      * Indicates if the value should be trimed      *       * @return boolean      */
+comment|/**      * Indicates if the value should be trimmed      */
 DECL|method|trim ()
 DECL|field|false
 name|boolean
 name|trim
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Indicates to clip data in the field if it exceeds the allowed length when using fixed length.      */
+DECL|method|clip ()
+DECL|field|false
+name|boolean
+name|clip
 parameter_list|()
 default|default
 literal|false
