@@ -931,6 +931,18 @@ operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processExchange (Processor processor, Exchange exchange, AtomicInteger attempts, AtomicInteger index, AsyncCallback callback, List<Processor> processors)
 specifier|private

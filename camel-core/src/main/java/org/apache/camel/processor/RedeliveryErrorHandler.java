@@ -1988,6 +1988,18 @@ operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|)
+expr_stmt|;
 comment|// keep the Exchange.EXCEPTION_CAUGHT as property so end user knows the caused exception
 comment|// create log message
 name|String
@@ -2285,6 +2297,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|e
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -2466,6 +2480,18 @@ argument_list|(
 name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
 argument_list|)
 expr_stmt|;
 name|handled
@@ -3527,7 +3553,7 @@ literal|false
 return|;
 block|}
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */
-DECL|method|incrementRedeliveryCounter (Exchange exchange, Throwable e)
+DECL|method|incrementRedeliveryCounter (Exchange exchange, Throwable e, RedeliveryData data)
 specifier|private
 name|int
 name|incrementRedeliveryCounter
@@ -3537,6 +3563,9 @@ name|exchange
 parameter_list|,
 name|Throwable
 name|e
+parameter_list|,
+name|RedeliveryData
+name|data
 parameter_list|)
 block|{
 name|Message
@@ -3606,6 +3635,36 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+comment|// if maximum redeliveries is used, then provide that information as well
+if|if
+condition|(
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|,
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|next
 return|;

@@ -247,10 +247,10 @@ operator|.
 name|onRedelivery
 argument_list|(
 operator|new
-name|MyRedeliverPrcessor
+name|MyRedeliverProcessor
 argument_list|()
 argument_list|)
-comment|// setting delay to zero is just to make unit teting faster
+comment|// setting delay to zero is just to make unit testing faster
 operator|.
 name|redeliveryDelay
 argument_list|(
@@ -313,10 +313,10 @@ block|}
 comment|// START SNIPPET: e2
 comment|// This is our processor that is executed before every redelivery attempt
 comment|// here we can do what we want in the java code, such as altering the message
-DECL|class|MyRedeliverPrcessor
+DECL|class|MyRedeliverProcessor
 specifier|public
 class|class
-name|MyRedeliverPrcessor
+name|MyRedeliverProcessor
 implements|implements
 name|Processor
 block|{
@@ -359,7 +359,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelRedeliveryCounter"
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
 argument_list|,
 name|Integer
 operator|.
@@ -376,6 +378,33 @@ argument_list|(
 name|body
 operator|+
 name|count
+argument_list|)
+expr_stmt|;
+comment|// the maximum redelivery was set to 5
+name|int
+name|max
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|max
 argument_list|)
 expr_stmt|;
 block|}

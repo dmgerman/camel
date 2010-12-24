@@ -444,6 +444,12 @@ name|REDELIVERY_COUNTER
 init|=
 literal|"CamelRedeliveryCounter"
 decl_stmt|;
+DECL|field|REDELIVERY_MAX_COUNTER
+name|String
+name|REDELIVERY_MAX_COUNTER
+init|=
+literal|"CamelRedeliveryMaxCounter"
+decl_stmt|;
 DECL|field|REDELIVERY_EXHAUSTED
 name|String
 name|REDELIVERY_EXHAUSTED
