@@ -149,6 +149,12 @@ name|CAMEL_EXCHANGE
 init|=
 literal|"org.apache.camel.exchange"
 decl_stmt|;
+DECL|field|CAMEL_CXF_MESSAGE
+name|String
+name|CAMEL_CXF_MESSAGE
+init|=
+literal|"CamelCxfMessage"
+decl_stmt|;
 DECL|field|CAMEL_CXF_RS_USING_HTTP_API
 name|String
 name|CAMEL_CXF_RS_USING_HTTP_API
