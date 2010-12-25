@@ -89,9 +89,15 @@ extends|extends
 name|DefaultEndpoint
 block|{
 DECL|field|config
+specifier|private
 name|PrinterConfiguration
 name|config
 decl_stmt|;
+DECL|method|PrinterEndpoint ()
+specifier|public
+name|PrinterEndpoint
+parameter_list|()
+block|{     }
 DECL|method|PrinterEndpoint (String endpointUri, Component component, PrinterConfiguration config)
 specifier|public
 name|PrinterEndpoint

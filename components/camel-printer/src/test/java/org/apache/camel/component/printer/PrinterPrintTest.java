@@ -730,6 +730,8 @@ block|}
 comment|/**      * Test for resolution of bug CAMEL-3446.      * Not specifying mediaSize nor sides attributes make it use      * default values when starting the route.      */
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testDefaultPrinterConfiguration ()
 specifier|public
 name|void
