@@ -298,6 +298,24 @@ name|MessageCreator
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsMessageHelper
+operator|.
+name|normalizeDestinationName
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -1270,8 +1288,8 @@ condition|)
 block|{
 comment|// we are routing an existing JmsMessage, origin from another JMS endpoint
 comment|// then we need to remove the existing JMSReplyTo
-comment|// as we are not out capable and thus do not expect a reply, and therefore
-comment|// the consumer of this message we send should not return a reply
+comment|// as we are not OUT capable and thus do not expect a reply, and therefore
+comment|// the consumer of this message should not return a reply
 name|String
 name|to
 init|=
@@ -1297,9 +1315,7 @@ literal|" for destination: "
 operator|+
 name|to
 operator|+
-literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo."
-operator|+
-literal|" Exchange: "
+literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on: "
 operator|+
 name|exchange
 argument_list|)
@@ -1354,7 +1370,55 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isDisableReplyTo
+argument_list|()
+condition|)
+block|{
+comment|// honor disable reply to configuration
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"ReplyTo is disabled on endpoint: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+name|answer
+operator|.
+name|setJMSReplyTo
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// if the binding did not create the reply to then we have to try to create it here
+if|if
+condition|(
+name|answer
+operator|.
+name|getJMSReplyTo
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// prefer reply to from header over endpoint configured
 name|String
 name|replyTo
 init|=
@@ -1375,17 +1439,33 @@ decl_stmt|;
 if|if
 condition|(
 name|replyTo
-operator|!=
-literal|null
-operator|&&
-name|answer
-operator|.
-name|getJMSReplyTo
-argument_list|()
 operator|==
 literal|null
 condition|)
 block|{
+name|replyTo
+operator|=
+name|endpoint
+operator|.
+name|getReplyTo
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|replyTo
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// must normalize the destination name
+name|replyTo
+operator|=
+name|normalizeDestinationName
+argument_list|(
+name|replyTo
+argument_list|)
+expr_stmt|;
 name|Destination
 name|destination
 init|=
@@ -1529,6 +1609,8 @@ argument_list|(
 name|destination
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 return|return
