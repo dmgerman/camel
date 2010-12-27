@@ -54,6 +54,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ObjectInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|UnsupportedEncodingException
 import|;
 end_import
@@ -501,6 +511,11 @@ specifier|private
 name|boolean
 name|throwException
 decl_stmt|;
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+decl_stmt|;
 DECL|method|HttpProducer (HttpEndpoint endpoint)
 specifier|public
 name|HttpProducer
@@ -530,6 +545,15 @@ operator|=
 name|endpoint
 operator|.
 name|isThrowExceptionOnFailure
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|transferException
+operator|=
+name|endpoint
+operator|.
+name|isTransferException
 argument_list|()
 expr_stmt|;
 block|}
@@ -891,6 +915,8 @@ name|responseCode
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
 name|Message
 name|answer
@@ -1020,7 +1046,7 @@ block|}
 block|}
 DECL|method|populateHttpOperationFailedException (Exchange exchange, HttpMethod method, int responseCode)
 specifier|protected
-name|HttpOperationFailedException
+name|Exception
 name|populateHttpOperationFailedException
 parameter_list|(
 name|Exchange
@@ -1034,9 +1060,11 @@ name|responseCode
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
-name|HttpOperationFailedException
-name|exception
+name|Exception
+name|answer
 decl_stmt|;
 name|String
 name|uri
@@ -1085,8 +1113,8 @@ name|getResponseHeaders
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|InputStream
-name|is
+name|Object
+name|responseBody
 init|=
 name|extractResponseBody
 argument_list|(
@@ -1095,6 +1123,27 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|transferException
+operator|&&
+name|responseBody
+operator|!=
+literal|null
+operator|&&
+name|responseBody
+operator|instanceof
+name|Exception
+condition|)
+block|{
+comment|// if the response was a serialized exception then use that
+return|return
+operator|(
+name|Exception
+operator|)
+name|responseBody
+return|;
+block|}
 comment|// make a defensive copy of the response body in the exception so its detached from the cache
 name|String
 name|copy
@@ -1103,7 +1152,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|is
+name|responseBody
 operator|!=
 literal|null
 condition|)
@@ -1126,7 +1175,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|is
+name|responseBody
 argument_list|)
 expr_stmt|;
 block|}
@@ -1168,7 +1217,7 @@ operator|.
 name|getValue
 argument_list|()
 expr_stmt|;
-name|exception
+name|answer
 operator|=
 operator|new
 name|HttpOperationFailedException
@@ -1190,7 +1239,7 @@ block|}
 else|else
 block|{
 comment|// no redirect location
-name|exception
+name|answer
 operator|=
 operator|new
 name|HttpOperationFailedException
@@ -1213,7 +1262,7 @@ block|}
 else|else
 block|{
 comment|// internal server error (error code 500)
-name|exception
+name|answer
 operator|=
 operator|new
 name|HttpOperationFailedException
@@ -1233,7 +1282,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|exception
+name|answer
 return|;
 block|}
 comment|/**      * Strategy when executing the method (calling the remote server).      *      * @param method    the method to execute      * @return the response code      * @throws IOException can be thrown      */
@@ -1336,11 +1385,11 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method  the method that was executed      * @return  the response as a stream      * @throws IOException can be thrown      */
+comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method  the method that was executed      * @return  the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpMethod method, Exchange exchange)
 specifier|protected
 specifier|static
-name|InputStream
+name|Object
 name|extractResponseBody
 parameter_list|(
 name|HttpMethod
@@ -1351,6 +1400,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
 name|InputStream
 name|is
@@ -1431,6 +1482,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Honor the character encoding
+name|String
+name|contentType
+init|=
+literal|null
+decl_stmt|;
 name|header
 operator|=
 name|method
@@ -1447,14 +1503,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|String
 name|contentType
-init|=
+operator|=
 name|header
 operator|.
 name|getValue
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// find the charset and set it to the Exchange
 name|HttpHelper
 operator|.
@@ -1466,20 +1521,121 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|doExtractResponseBody
+name|InputStream
+name|response
+init|=
+name|doExtractResponseBodyAsStream
 argument_list|(
 name|is
 argument_list|,
 name|exchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|contentType
+operator|!=
+literal|null
+operator|&&
+name|contentType
+operator|.
+name|equals
+argument_list|(
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+argument_list|)
+condition|)
+block|{
+return|return
+name|doDeserializeJavaObjectFromResponse
+argument_list|(
+name|response
+argument_list|)
 return|;
 block|}
-DECL|method|doExtractResponseBody (InputStream is, Exchange exchange)
+else|else
+block|{
+return|return
+name|response
+return|;
+block|}
+block|}
+DECL|method|doDeserializeJavaObjectFromResponse (InputStream response)
+specifier|private
+specifier|static
+name|Object
+name|doDeserializeJavaObjectFromResponse
+parameter_list|(
+name|InputStream
+name|response
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+throws|,
+name|IOException
+block|{
+if|if
+condition|(
+name|response
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot deserialize transferred exception due no response body."
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+name|Object
+name|answer
+init|=
+literal|null
+decl_stmt|;
+name|ObjectInputStream
+name|ois
+init|=
+operator|new
+name|ObjectInputStream
+argument_list|(
+name|response
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|answer
+operator|=
+name|ois
+operator|.
+name|readObject
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|ois
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|doExtractResponseBodyAsStream (InputStream is, Exchange exchange)
 specifier|private
 specifier|static
 name|InputStream
-name|doExtractResponseBody
+name|doExtractResponseBodyAsStream
 parameter_list|(
 name|InputStream
 name|is

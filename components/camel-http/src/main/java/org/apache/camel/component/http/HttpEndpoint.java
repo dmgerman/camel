@@ -350,6 +350,11 @@ specifier|private
 name|String
 name|authMethodPriority
 decl_stmt|;
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1021,8 +1026,7 @@ operator|=
 operator|new
 name|DefaultHttpBinding
 argument_list|(
-name|getHeaderFilterStrategy
-argument_list|()
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1406,6 +1410,32 @@ operator|.
 name|authMethodPriority
 operator|=
 name|authMethodPriority
+expr_stmt|;
+block|}
+DECL|method|isTransferException ()
+specifier|public
+name|boolean
+name|isTransferException
+parameter_list|()
+block|{
+return|return
+name|transferException
+return|;
+block|}
+DECL|method|setTransferException (boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferException
+operator|=
+name|transferException
 expr_stmt|;
 block|}
 block|}
