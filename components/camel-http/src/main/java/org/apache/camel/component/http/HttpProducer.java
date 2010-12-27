@@ -1586,7 +1586,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot deserialize transferred exception due no response body."
+literal|"Cannot deserialize response body as java object as there are no response body."
 argument_list|)
 expr_stmt|;
 return|return
