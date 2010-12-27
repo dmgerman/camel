@@ -72,6 +72,7 @@ name|HttpClientConfigurer
 block|{
 DECL|field|configurers
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|HttpClientConfigurer

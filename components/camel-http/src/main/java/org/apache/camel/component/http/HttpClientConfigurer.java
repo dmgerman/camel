@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugable strategy for configuring the HttpClient used by this component  *  * @version $Revision$  */
+comment|/**  * A pluggable strategy for configuring the HttpClient used by this component  *  * @version $Revision$  */
 end_comment
 
 begin_interface
