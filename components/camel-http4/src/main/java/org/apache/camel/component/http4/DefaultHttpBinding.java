@@ -54,6 +54,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ObjectOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|PrintWriter
 import|;
 end_import
@@ -105,26 +115,6 @@ operator|.
 name|activation
 operator|.
 name|DataHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|activation
-operator|.
-name|FileDataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|activation
-operator|.
-name|FileTypeMap
 import|;
 end_import
 
@@ -356,11 +346,20 @@ operator|new
 name|HttpHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|HttpEndpoint
+name|endpoint
+decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|DefaultHttpBinding ()
 specifier|public
 name|DefaultHttpBinding
 parameter_list|()
 block|{     }
+annotation|@
+name|Deprecated
 DECL|method|DefaultHttpBinding (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|DefaultHttpBinding
@@ -374,6 +373,30 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|DefaultHttpBinding (HttpEndpoint endpoint)
+specifier|public
+name|DefaultHttpBinding
+parameter_list|(
+name|HttpEndpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|endpoint
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
@@ -542,7 +565,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|popluateRequestParameters
+name|populateRequestParameters
 argument_list|(
 name|request
 argument_list|,
@@ -660,7 +683,7 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|popluateAttachments
+name|populateAttachments
 argument_list|(
 name|request
 argument_list|,
@@ -668,10 +691,10 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|popluateRequestParameters (HttpServletRequest request, HttpMessage message)
+DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
-name|popluateRequestParameters
+name|populateRequestParameters
 parameter_list|(
 name|HttpServletRequest
 name|request
@@ -790,7 +813,9 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"application/x-www-form-urlencoded"
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_WWW_FORM_URLENCODED
 argument_list|)
 condition|)
 block|{
@@ -935,10 +960,10 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|popluateAttachments (HttpServletRequest request, HttpMessage message)
+DECL|method|populateAttachments (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
-name|popluateAttachments
+name|populateAttachments
 parameter_list|(
 name|HttpServletRequest
 name|request
@@ -1224,6 +1249,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// 500 for internal server error
 name|response
 operator|.
 name|setStatus
@@ -1231,7 +1257,63 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-comment|// 500 for internal server error
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+operator|&&
+name|endpoint
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
+comment|// transfer the exception as a serialized java object
+name|response
+operator|.
+name|setContentType
+argument_list|(
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+argument_list|)
+expr_stmt|;
+name|ObjectOutputStream
+name|oos
+init|=
+operator|new
+name|ObjectOutputStream
+argument_list|(
+name|response
+operator|.
+name|getOutputStream
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|oos
+operator|.
+name|writeObject
+argument_list|(
+name|exception
+argument_list|)
+expr_stmt|;
+name|oos
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|oos
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// write stacktrace as plain text
 name|response
 operator|.
 name|setContentType
@@ -1239,7 +1321,6 @@ argument_list|(
 literal|"text/plain"
 argument_list|)
 expr_stmt|;
-comment|// append the stacktrace as response
 name|PrintWriter
 name|pw
 init|=
@@ -1260,6 +1341,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response, Exchange exchange)
 specifier|public

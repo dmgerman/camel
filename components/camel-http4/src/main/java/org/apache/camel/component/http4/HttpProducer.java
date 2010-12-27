@@ -54,6 +54,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ObjectInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|UnsupportedEncodingException
 import|;
 end_import
@@ -523,6 +533,11 @@ specifier|private
 name|boolean
 name|throwException
 decl_stmt|;
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+decl_stmt|;
 DECL|method|HttpProducer (HttpEndpoint endpoint)
 specifier|public
 name|HttpProducer
@@ -568,13 +583,8 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|(
-operator|(
-name|HttpEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|isBridgeEndpoint
 argument_list|()
@@ -941,6 +951,8 @@ name|responseCode
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
 name|Message
 name|answer
@@ -1072,7 +1084,7 @@ block|}
 block|}
 DECL|method|populateHttpOperationFailedException (Exchange exchange, HttpRequestBase httpRequest, HttpResponse httpResponse, int responseCode)
 specifier|protected
-name|HttpOperationFailedException
+name|Exception
 name|populateHttpOperationFailedException
 parameter_list|(
 name|Exchange
@@ -1089,9 +1101,11 @@ name|responseCode
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
-name|HttpOperationFailedException
-name|exception
+name|Exception
+name|answer
 decl_stmt|;
 name|String
 name|uri
@@ -1140,8 +1154,8 @@ name|getAllHeaders
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|InputStream
-name|is
+name|Object
+name|responseBody
 init|=
 name|extractResponseBody
 argument_list|(
@@ -1152,6 +1166,27 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|transferException
+operator|&&
+name|responseBody
+operator|!=
+literal|null
+operator|&&
+name|responseBody
+operator|instanceof
+name|Exception
+condition|)
+block|{
+comment|// if the response was a serialized exception then use that
+return|return
+operator|(
+name|Exception
+operator|)
+name|responseBody
+return|;
+block|}
 comment|// make a defensive copy of the response body in the exception so its detached from the cache
 name|String
 name|copy
@@ -1160,7 +1195,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|is
+name|responseBody
 operator|!=
 literal|null
 condition|)
@@ -1183,7 +1218,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|is
+name|responseBody
 argument_list|)
 expr_stmt|;
 block|}
@@ -1214,7 +1249,7 @@ literal|400
 operator|)
 condition|)
 block|{
-name|exception
+name|answer
 operator|=
 operator|new
 name|HttpOperationFailedException
@@ -1238,7 +1273,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|exception
+name|answer
 operator|=
 operator|new
 name|HttpOperationFailedException
@@ -1258,7 +1293,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|exception
+name|answer
 return|;
 block|}
 comment|/**      * Strategy when executing the method (calling the remote server).      *      * @param httpRequest the http Request to execute      * @return the response      * @throws IOException can be thrown      */
@@ -1361,11 +1396,11 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Extracts the response from the method as a InputStream.      *      * @param httpRequest the method that was executed      * @return the response as a stream      * @throws IOException can be thrown      */
+comment|/**      * Extracts the response from the method as a InputStream.      *      * @param httpRequest the method that was executed      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpRequestBase httpRequest, HttpResponse httpResponse, Exchange exchange)
 specifier|protected
 specifier|static
-name|InputStream
+name|Object
 name|extractResponseBody
 parameter_list|(
 name|HttpRequestBase
@@ -1379,6 +1414,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 block|{
 name|HttpEntity
 name|entity
@@ -1478,6 +1515,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Honor the character encoding
+name|String
+name|contentType
+init|=
+literal|null
+decl_stmt|;
 name|header
 operator|=
 name|httpRequest
@@ -1494,14 +1536,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|String
 name|contentType
-init|=
+operator|=
 name|header
 operator|.
 name|getValue
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// find the charset and set it to the Exchange
 name|HttpHelper
 operator|.
@@ -1513,20 +1554,121 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|doExtractResponseBody
+name|InputStream
+name|response
+init|=
+name|doExtractResponseBodyAsStream
 argument_list|(
 name|is
 argument_list|,
 name|exchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|contentType
+operator|!=
+literal|null
+operator|&&
+name|contentType
+operator|.
+name|equals
+argument_list|(
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+argument_list|)
+condition|)
+block|{
+return|return
+name|doDeserializeJavaObjectFromResponse
+argument_list|(
+name|response
+argument_list|)
 return|;
 block|}
-DECL|method|doExtractResponseBody (InputStream is, Exchange exchange)
+else|else
+block|{
+return|return
+name|response
+return|;
+block|}
+block|}
+DECL|method|doDeserializeJavaObjectFromResponse (InputStream response)
+specifier|private
+specifier|static
+name|Object
+name|doDeserializeJavaObjectFromResponse
+parameter_list|(
+name|InputStream
+name|response
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+throws|,
+name|IOException
+block|{
+if|if
+condition|(
+name|response
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot deserialize response body as java object as there are no response body."
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+name|Object
+name|answer
+init|=
+literal|null
+decl_stmt|;
+name|ObjectInputStream
+name|ois
+init|=
+operator|new
+name|ObjectInputStream
+argument_list|(
+name|response
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|answer
+operator|=
+name|ois
+operator|.
+name|readObject
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|ois
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|doExtractResponseBodyAsStream (InputStream is, Exchange exchange)
 specifier|private
 specifier|static
 name|InputStream
-name|doExtractResponseBody
+name|doExtractResponseBodyAsStream
 parameter_list|(
 name|InputStream
 name|is
@@ -1585,7 +1727,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws URISyntaxException is thrown if the URI is invalid      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws URISyntaxException is thrown if the URI is invalid      * @throws org.apache.camel.InvalidPayloadException      *                            is thrown if message body cannot      *                            be converted to a type supported by HttpClient      */
 DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpRequestBase
@@ -1855,7 +1997,7 @@ return|return
 name|httpRequest
 return|;
 block|}
-comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange the exchange with the IN message with data to send      * @return the data holder      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
+comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange the exchange with the IN message with data to send      * @return the data holder      * @throws org.apache.camel.InvalidPayloadException      *          is thrown if message body cannot      *          be converted to a type supported by HttpClient      */
 DECL|method|createRequestEntity (Exchange exchange)
 specifier|protected
 name|HttpEntity
