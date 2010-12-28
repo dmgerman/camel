@@ -54,8 +54,6 @@ name|appengine
 operator|.
 name|api
 operator|.
-name|labs
-operator|.
 name|taskqueue
 operator|.
 name|TaskOptions
@@ -276,7 +274,7 @@ name|TaskOptions
 operator|.
 name|Builder
 operator|.
-name|url
+name|withUrl
 argument_list|(
 name|getWorkerRoot
 argument_list|(

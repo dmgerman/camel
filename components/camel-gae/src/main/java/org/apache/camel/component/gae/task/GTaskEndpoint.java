@@ -86,8 +86,6 @@ name|appengine
 operator|.
 name|api
 operator|.
-name|labs
-operator|.
 name|taskqueue
 operator|.
 name|Queue
@@ -103,8 +101,6 @@ operator|.
 name|appengine
 operator|.
 name|api
-operator|.
-name|labs
 operator|.
 name|taskqueue
 operator|.
