@@ -319,16 +319,6 @@ specifier|protected
 name|ProducerTemplate
 name|producer
 decl_stmt|;
-DECL|field|pendingExchanges
-specifier|private
-name|int
-name|pendingExchanges
-decl_stmt|;
-DECL|field|exceptionHandler
-specifier|private
-name|ExceptionHandler
-name|exceptionHandler
-decl_stmt|;
 DECL|method|RouteboxSedaConsumer (RouteboxSedaEndpoint endpoint, Processor processor)
 specifier|public
 name|RouteboxSedaConsumer
@@ -357,6 +347,8 @@ name|processor
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|producer
 operator|=
 name|endpoint
@@ -367,38 +359,7 @@ operator|.
 name|getInnerProducerTemplate
 argument_list|()
 expr_stmt|;
-name|producer
-operator|.
-name|setMaximumCacheSize
-argument_list|(
-name|endpoint
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getThreads
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|exceptionHandler
-operator|==
-literal|null
-condition|)
-block|{
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
-block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.impl.ServiceSupport#doStart()      */
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -440,13 +401,8 @@ argument_list|()
 decl_stmt|;
 name|setExecutor
 argument_list|(
-operator|(
-operator|(
-name|RouteboxSedaEndpoint
-operator|)
 name|getRouteboxEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getCamelContext
 argument_list|()
@@ -458,13 +414,8 @@ name|newFixedThreadPool
 argument_list|(
 name|this
 argument_list|,
-operator|(
-operator|(
-name|RouteboxSedaEndpoint
-operator|)
 name|getRouteboxEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getEndpointUri
 argument_list|()
@@ -493,15 +444,11 @@ argument_list|()
 operator|.
 name|execute
 argument_list|(
-operator|(
-name|Runnable
-operator|)
 name|this
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.impl.ServiceSupport#doStop()      */
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -526,13 +473,8 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// Shutdown the executor
-operator|(
-operator|(
-name|RouteboxSedaEndpoint
-operator|)
 name|getRouteboxEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getCamelContext
 argument_list|()
@@ -555,7 +497,6 @@ name|doStopInnerContext
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see java.lang.Runnable#run()      */
 DECL|method|run ()
 specifier|public
 name|void
@@ -675,8 +616,6 @@ name|InterruptedException
 block|{
 name|Exchange
 name|result
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -705,7 +644,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"**** Dispatching to Inner Route ****"
+literal|"Dispatching to inner route: "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -806,7 +747,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Consumer#getEndpoint()      */
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -814,14 +754,10 @@ name|getEndpoint
 parameter_list|()
 block|{
 return|return
-operator|(
-name|Endpoint
-operator|)
 name|getRouteboxEndpoint
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#deferShutdown(org.apache.camel.ShutdownRunningTask)      */
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean
@@ -835,25 +771,23 @@ return|return
 literal|false
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#getPendingExchangesSize()      */
 DECL|method|getPendingExchangesSize ()
 specifier|public
 name|int
 name|getPendingExchangesSize
 parameter_list|()
 block|{
+comment|// TODO: Get size of queue
 return|return
-name|getPendingExchanges
-argument_list|()
+literal|0
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#prepareShutdown()      */
 DECL|method|prepareShutdown ()
 specifier|public
 name|void
 name|prepareShutdown
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|setProcessor (AsyncProcessor processor)
 specifier|public
 name|void
@@ -878,58 +812,6 @@ parameter_list|()
 block|{
 return|return
 name|processor
-return|;
-block|}
-DECL|method|setPendingExchanges (int pendingExchanges)
-specifier|public
-name|void
-name|setPendingExchanges
-parameter_list|(
-name|int
-name|pendingExchanges
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pendingExchanges
-operator|=
-name|pendingExchanges
-expr_stmt|;
-block|}
-DECL|method|getPendingExchanges ()
-specifier|public
-name|int
-name|getPendingExchanges
-parameter_list|()
-block|{
-return|return
-name|pendingExchanges
-return|;
-block|}
-DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
-specifier|public
-name|void
-name|setExceptionHandler
-parameter_list|(
-name|ExceptionHandler
-name|exceptionHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exceptionHandler
-operator|=
-name|exceptionHandler
-expr_stmt|;
-block|}
-DECL|method|getExceptionHandler ()
-specifier|public
-name|ExceptionHandler
-name|getExceptionHandler
-parameter_list|()
-block|{
-return|return
-name|exceptionHandler
 return|;
 block|}
 block|}

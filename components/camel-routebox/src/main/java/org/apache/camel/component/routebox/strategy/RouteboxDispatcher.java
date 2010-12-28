@@ -114,7 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelExchangeException
 import|;
 end_import
 
@@ -350,13 +350,9 @@ name|Exception
 block|{
 name|URI
 name|dispatchUri
-init|=
-literal|null
 decl_stmt|;
 name|Exchange
 name|reply
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -370,11 +366,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching exchange"
+literal|"Dispatching exchange "
 operator|+
 name|exchange
 operator|+
-literal|"to endpoint "
+literal|" to endpoint "
 operator|+
 name|endpoint
 operator|.
@@ -423,9 +419,6 @@ else|else
 block|{
 name|reply
 operator|=
-operator|(
-name|Exchange
-operator|)
 name|issueRequest
 argument_list|(
 name|endpoint
@@ -472,13 +465,9 @@ name|Exception
 block|{
 name|URI
 name|dispatchUri
-init|=
-literal|null
 decl_stmt|;
 name|Exchange
 name|reply
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -492,11 +481,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching exchange"
+literal|"Dispatching exchange "
 operator|+
 name|exchange
 operator|+
-literal|"to endpoint "
+literal|" to endpoint "
 operator|+
 name|endpoint
 operator|.
@@ -607,8 +596,6 @@ name|Exception
 block|{
 name|URI
 name|dispatchUri
-init|=
-literal|null
 decl_stmt|;
 name|List
 argument_list|<
@@ -637,9 +624,13 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
-literal|"No routes found for dispatch in Routebox"
+literal|"No routes found to dispatch in Routebox at "
+operator|+
+name|endpoint
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -681,7 +672,24 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//apply URI string found in dispatch Map
+comment|// apply URI string found in dispatch Map
+name|String
+name|key
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"ROUTE_DISPATCH_KEY"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -694,15 +702,7 @@ argument_list|()
 operator|.
 name|containsKey
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"ROUTE_DISPATCH_KEY"
-argument_list|)
+name|key
 argument_list|)
 condition|)
 block|{
@@ -721,15 +721,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"ROUTE_DISPATCH_KEY"
-argument_list|)
+name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -738,26 +730,20 @@ else|else
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"No matching entry found in Dispatch Map for ROUTE_DISPATCH_KEY: "
 operator|+
+name|key
+argument_list|,
 name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"ROUTE_DISPATCH_KEY"
-argument_list|)
 argument_list|)
 throw|;
 block|}
 block|}
 else|else
 block|{
-comment|//apply dispatch strategy
+comment|// apply dispatch strategy
 name|dispatchUri
 operator|=
 name|endpoint
@@ -784,9 +770,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"No matching inner routes found for Operation"
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -962,40 +950,16 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|header
-range|:
-name|headers
-operator|.
-name|entrySet
-argument_list|()
-control|)
-block|{
 name|in
 operator|.
-name|setHeader
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
 argument_list|(
-name|header
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|header
-operator|.
-name|getValue
-argument_list|()
+name|headers
 argument_list|)
 expr_stmt|;
-block|}
 name|in
 operator|.
 name|setBody

@@ -40,30 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -132,7 +108,7 @@ name|component
 operator|.
 name|routebox
 operator|.
-name|RouteboxServiceSupport
+name|RouteboxEndpoint
 import|;
 end_import
 
@@ -144,9 +120,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|LoggingExceptionHandler
+name|routebox
+operator|.
+name|RouteboxServiceSupport
 import|;
 end_import
 
@@ -163,20 +141,6 @@ operator|.
 name|converter
 operator|.
 name|AsyncProcessorTypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ExceptionHandler
 import|;
 end_import
 
@@ -225,11 +189,6 @@ specifier|volatile
 name|AsyncProcessor
 name|asyncProcessor
 decl_stmt|;
-DECL|field|exceptionHandler
-specifier|private
-name|ExceptionHandler
-name|exceptionHandler
-decl_stmt|;
 DECL|method|RouteboxDirectConsumer (RouteboxDirectEndpoint endpoint, Processor processor)
 specifier|public
 name|RouteboxDirectConsumer
@@ -277,13 +236,8 @@ name|existing
 init|=
 name|this
 operator|==
-operator|(
-operator|(
-name|RouteboxDirectEndpoint
-operator|)
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getConsumer
 argument_list|()
@@ -293,13 +247,8 @@ condition|(
 operator|!
 name|existing
 operator|&&
-operator|(
-operator|(
-name|RouteboxDirectEndpoint
-operator|)
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|hasConsumer
 argument_list|(
@@ -313,7 +262,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Cannot add a 2nd consumer to the same endpoint. Endpoint "
 operator|+
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
 operator|+
 literal|" only allows one consumer."
@@ -326,13 +275,8 @@ operator|!
 name|existing
 condition|)
 block|{
-operator|(
-operator|(
-name|RouteboxDirectEndpoint
-operator|)
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|addConsumer
 argument_list|(
@@ -361,13 +305,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-operator|(
-operator|(
-name|RouteboxDirectEndpoint
-operator|)
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|removeConsumer
 argument_list|(
@@ -394,13 +333,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-operator|(
-operator|(
-name|RouteboxDirectEndpoint
-operator|)
-name|getRouteboxEndpoint
+name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|removeConsumer
 argument_list|(
@@ -420,19 +354,6 @@ comment|// resume by using the start logic
 name|doStart
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|processRequest (Exchange exchange)
-specifier|public
-name|Exchange
-name|processRequest
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|exchange
-return|;
 block|}
 comment|/**      * Provides an {@link org.apache.camel.AsyncProcessor} interface to the configured      * processor on the consumer. If the processor does not implement the interface,      * it will be adapted so that it does.      */
 DECL|method|getAsyncProcessor ()
@@ -463,86 +384,6 @@ return|return
 name|asyncProcessor
 return|;
 block|}
-DECL|method|getExceptionHandler ()
-specifier|public
-name|ExceptionHandler
-name|getExceptionHandler
-parameter_list|()
-block|{
-if|if
-condition|(
-name|exceptionHandler
-operator|==
-literal|null
-condition|)
-block|{
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|exceptionHandler
-return|;
-block|}
-DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
-specifier|public
-name|void
-name|setExceptionHandler
-parameter_list|(
-name|ExceptionHandler
-name|exceptionHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exceptionHandler
-operator|=
-name|exceptionHandler
-expr_stmt|;
-block|}
-comment|/**      * Handles the given exception using the {@link #getExceptionHandler()}      *       * @param t the exception to handle      */
-DECL|method|handleException (Throwable t)
-specifier|protected
-name|void
-name|handleException
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|Throwable
-name|newt
-init|=
-operator|(
-name|t
-operator|==
-literal|null
-operator|)
-condition|?
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Handling [null] exception"
-argument_list|)
-else|:
-name|t
-decl_stmt|;
-name|getExceptionHandler
-argument_list|()
-operator|.
-name|handleException
-argument_list|(
-name|newt
-argument_list|)
-expr_stmt|;
-block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#deferShutdown(org.apache.camel.ShutdownRunningTask)      */
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean
@@ -558,7 +399,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#getPendingExchangesSize()      */
 DECL|method|getPendingExchangesSize ()
 specifier|public
 name|int
@@ -571,22 +411,23 @@ return|return
 literal|0
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.ShutdownAware#prepareShutdown()      */
 DECL|method|prepareShutdown ()
 specifier|public
 name|void
 name|prepareShutdown
 parameter_list|()
-block|{              }
+block|{
+comment|// noop
+block|}
 DECL|method|getEndpoint ()
 specifier|public
-name|Endpoint
+name|RouteboxDirectEndpoint
 name|getEndpoint
 parameter_list|()
 block|{
 return|return
 operator|(
-name|Endpoint
+name|RouteboxDirectEndpoint
 operator|)
 name|getRouteboxEndpoint
 argument_list|()

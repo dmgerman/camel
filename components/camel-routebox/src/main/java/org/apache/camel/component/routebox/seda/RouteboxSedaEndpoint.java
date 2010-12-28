@@ -659,7 +659,6 @@ return|return
 name|queue
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.MultipleConsumersSupport#isMultipleConsumersSupported()      */
 DECL|method|isMultipleConsumersSupported ()
 specifier|public
 name|boolean
@@ -670,7 +669,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.spi.BrowsableEndpoint#getExchanges()      */
 DECL|method|getExchanges ()
 specifier|public
 name|List

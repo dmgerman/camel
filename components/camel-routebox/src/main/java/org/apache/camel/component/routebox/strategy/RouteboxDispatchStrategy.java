@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|RouteboxDispatchStrategy
 block|{
-comment|/**      * Receives an incoming exchange and consumer list and identifies the inner route consumer for dispatching the exchange      *      * @param innerRouteConsumers the list of possible real-time inner route consumers available       *        to where the exchange can be dispatched in the routebox      * @param exchange the incoming exchange      * @return a selected consumer to whom the exchange can be directed      */
+comment|/**      * Receives an incoming exchange and consumer list and identifies the inner route consumer for dispatching the exchange      *      * @param destinations the list of possible real-time inner route consumers available      *        to where the exchange can be dispatched in the routebox      * @param exchange the incoming exchange      * @return a selected consumer to whom the exchange can be directed      * @throws Exception is thrown if error      */
 DECL|method|selectDestinationUri (List<URI> destinations, Exchange exchange)
 name|URI
 name|selectDestinationUri

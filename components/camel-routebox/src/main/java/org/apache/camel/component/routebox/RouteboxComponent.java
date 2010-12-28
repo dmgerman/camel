@@ -167,6 +167,7 @@ extends|extends
 name|DefaultComponent
 block|{
 DECL|field|config
+specifier|final
 name|RouteboxConfiguration
 name|config
 decl_stmt|;

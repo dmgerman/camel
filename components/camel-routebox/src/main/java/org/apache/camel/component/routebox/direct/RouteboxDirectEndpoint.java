@@ -130,7 +130,7 @@ name|RouteboxEndpoint
 block|{
 DECL|field|consumers
 specifier|private
-specifier|volatile
+specifier|final
 name|Map
 argument_list|<
 name|String
