@@ -251,8 +251,6 @@ argument_list|(
 name|gzip
 argument_list|,
 literal|"gzip"
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|IOHelper
@@ -262,8 +260,6 @@ argument_list|(
 name|os
 argument_list|,
 literal|"byte array output stream"
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -357,8 +353,6 @@ argument_list|(
 name|gzip
 argument_list|,
 literal|"gzip"
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|IOHelper
@@ -367,9 +361,7 @@ name|close
 argument_list|(
 name|os
 argument_list|,
-literal|"byte array"
-argument_list|,
-literal|null
+literal|"byte array output stream"
 argument_list|)
 expr_stmt|;
 block|}
@@ -438,15 +430,23 @@ return|;
 block|}
 finally|finally
 block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|gzip
-operator|.
-name|close
-argument_list|()
+argument_list|,
+literal|"gzip"
+argument_list|)
 expr_stmt|;
-name|os
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|os
+argument_list|,
+literal|"byte array output stream"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

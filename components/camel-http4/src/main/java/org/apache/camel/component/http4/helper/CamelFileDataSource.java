@@ -60,6 +60,7 @@ name|FileDataSource
 block|{
 DECL|field|fileName
 specifier|private
+specifier|final
 name|String
 name|fileName
 decl_stmt|;
