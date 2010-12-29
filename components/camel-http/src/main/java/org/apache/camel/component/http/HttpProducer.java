@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -55,6 +65,26 @@ operator|.
 name|io
 operator|.
 name|ObjectInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ObjectOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 import|;
 end_import
 
@@ -96,6 +126,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -108,31 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 
@@ -185,24 +203,6 @@ operator|.
 name|helper
 operator|.
 name|HttpHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|helper
-operator|.
-name|HttpProducerHelper
 import|;
 end_import
 
@@ -345,6 +345,22 @@ operator|.
 name|httpclient
 operator|.
 name|HttpVersion
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|methods
+operator|.
+name|ByteArrayRequestEntity
 import|;
 end_import
 
@@ -570,13 +586,8 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|(
-operator|(
-name|HttpEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|isBridgeEndpoint
 argument_list|()
@@ -1285,7 +1296,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Strategy when executing the method (calling the remote server).      *      * @param method    the method to execute      * @return the response code      * @throws IOException can be thrown      */
+comment|/**      * Strategy when executing the method (calling the remote server).      *      * @param method the method to execute      * @return the response code      * @throws IOException can be thrown      */
 DECL|method|executeMethod (HttpMethod method)
 specifier|protected
 name|int
@@ -1385,7 +1396,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method  the method that was executed      * @return  the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
+comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method the method that was executed      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpMethod method, Exchange exchange)
 specifier|protected
 specifier|static
@@ -1531,6 +1542,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// if content type is a serialized java object then de-serialize it back to a Java object
 if|if
 condition|(
 name|contentType
@@ -1548,7 +1560,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|doDeserializeJavaObjectFromResponse
+name|HttpHelper
+operator|.
+name|deserializeJavaObjectFromStream
 argument_list|(
 name|response
 argument_list|)
@@ -1560,76 +1574,6 @@ return|return
 name|response
 return|;
 block|}
-block|}
-DECL|method|doDeserializeJavaObjectFromResponse (InputStream response)
-specifier|private
-specifier|static
-name|Object
-name|doDeserializeJavaObjectFromResponse
-parameter_list|(
-name|InputStream
-name|response
-parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
-block|{
-if|if
-condition|(
-name|response
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot deserialize response body as java object as there are no response body."
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-name|Object
-name|answer
-init|=
-literal|null
-decl_stmt|;
-name|ObjectInputStream
-name|ois
-init|=
-operator|new
-name|ObjectInputStream
-argument_list|(
-name|response
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|answer
-operator|=
-name|ois
-operator|.
-name|readObject
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|ois
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
-return|;
 block|}
 DECL|method|doExtractResponseBodyAsStream (InputStream is, Exchange exchange)
 specifier|private
@@ -1694,7 +1638,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange  the exchange      * @return the created method as either GET or POST      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws CamelExchangeException is thrown if error creating RequestEntity      */
 DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpMethod
@@ -1704,12 +1648,12 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|InvalidPayloadException
+name|CamelExchangeException
 block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -1730,7 +1674,7 @@ decl_stmt|;
 name|HttpMethods
 name|methodToUse
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -1871,7 +1815,7 @@ return|return
 name|method
 return|;
 block|}
-comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange  the exchange with the IN message with data to send      * @return the data holder      * @throws org.apache.camel.InvalidPayloadException is thrown if message body cannot      * be converted to a type supported by HttpClient      */
+comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange the exchange with the IN message with data to send      * @return the data holder      * @throws CamelExchangeException is thrown if error creating RequestEntity      */
 DECL|method|createRequestEntity (Exchange exchange)
 specifier|protected
 name|RequestEntity
@@ -1881,7 +1825,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|InvalidPayloadException
+name|CamelExchangeException
 block|{
 name|Message
 name|in
@@ -1951,7 +1895,76 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// file based (could potentially also be a FTP file etc)
+if|if
+condition|(
+name|contentType
+operator|!=
+literal|null
+operator|&&
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|.
+name|equals
+argument_list|(
+name|contentType
+argument_list|)
+condition|)
+block|{
+comment|// serialized java object
+name|Serializable
+name|obj
+init|=
+name|in
+operator|.
+name|getMandatoryBody
+argument_list|(
+name|Serializable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// write object to output stream
+name|ByteArrayOutputStream
+name|bos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|HttpHelper
+operator|.
+name|writeObjectToStream
+argument_list|(
+name|bos
+argument_list|,
+name|obj
+argument_list|)
+expr_stmt|;
+name|answer
+operator|=
+operator|new
+name|ByteArrayRequestEntity
+argument_list|(
+name|bos
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|,
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|bos
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|data
@@ -1963,6 +1976,7 @@ operator|instanceof
 name|GenericFile
 condition|)
 block|{
+comment|// file based (could potentially also be a FTP file etc)
 name|File
 name|file
 init|=
@@ -2076,8 +2090,30 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|CamelExchangeException
 argument_list|(
+literal|"Error creating RequestEntity from message body"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error serializing message body"
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 throw|;

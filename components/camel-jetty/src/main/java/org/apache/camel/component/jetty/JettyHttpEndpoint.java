@@ -469,6 +469,14 @@ name|isThrowExceptionOnFailure
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|jettyBinding
+operator|.
+name|setTransferException
+argument_list|(
+name|isTransferException
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|jettyBinding

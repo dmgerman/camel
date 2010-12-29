@@ -98,6 +98,21 @@ name|boolean
 name|isThrowExceptionOnFailure
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *      * @param transferException<tt>true</tt> to transfer exception      */
+DECL|method|setTransferException (boolean transferException)
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *      * @return<tt>true</tt> to transfer exception      */
+DECL|method|isTransferException ()
+name|boolean
+name|isTransferException
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

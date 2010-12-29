@@ -159,10 +159,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|HttpProducerHelperTest
+DECL|class|HttpHelperTest
 specifier|public
 class|class
-name|HttpProducerHelperTest
+name|HttpHelperTest
 block|{
 annotation|@
 name|Test
@@ -177,7 +177,7 @@ block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -217,7 +217,7 @@ block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -257,7 +257,7 @@ block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -297,7 +297,7 @@ block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -337,7 +337,7 @@ block|{
 name|String
 name|url
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createURL
 argument_list|(
@@ -377,7 +377,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -423,7 +423,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -467,7 +467,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -511,7 +511,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -555,7 +555,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpProducerHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(

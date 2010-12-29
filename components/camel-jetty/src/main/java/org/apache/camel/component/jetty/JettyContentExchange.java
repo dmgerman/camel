@@ -578,60 +578,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|waitForDoneOrFailure ()
-specifier|protected
-name|int
-name|waitForDoneOrFailure
-parameter_list|()
-throws|throws
-name|InterruptedException
-block|{
-comment|// just wait a little longer than Jetty itself to be safe
-comment|// as this timeout is a failsafe in case for some reason Jetty does not callback
-name|long
-name|timeout
-init|=
-name|client
-operator|.
-name|getTimeout
-argument_list|()
-operator|+
-literal|5000
-decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Waiting for done or failure with timeout: "
-operator|+
-name|timeout
-argument_list|)
-expr_stmt|;
-block|}
-name|done
-operator|.
-name|await
-argument_list|(
-name|timeout
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-return|return
-name|getStatus
-argument_list|()
-return|;
-block|}
 DECL|method|getHeaders ()
 specifier|public
 name|Map
