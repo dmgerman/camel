@@ -239,6 +239,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// log at debug level for singletons, for prototype scoped log at trace level to not spam logs
+if|if
+condition|(
+name|isSingleton
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|log
@@ -258,6 +265,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Starting producer: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -265,6 +294,13 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+comment|// log at debug level for singletons, for prototype scoped log at trace level to not spam logs
+if|if
+condition|(
+name|isSingleton
+argument_list|()
+condition|)
 block|{
 if|if
 condition|(
@@ -283,6 +319,28 @@ operator|+
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Stopping producer: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
