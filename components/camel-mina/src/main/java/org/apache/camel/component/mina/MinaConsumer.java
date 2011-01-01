@@ -233,12 +233,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|MinaEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|address
 specifier|private
 specifier|final
@@ -279,12 +273,6 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -387,7 +375,8 @@ name|address
 argument_list|,
 name|handler
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getAcceptorConfig
 argument_list|()
@@ -438,6 +427,24 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|MinaEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|MinaEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 comment|/**      * Handles consuming messages and replying if the exchange is out capable.      */
 DECL|class|ReceiveHandler
@@ -535,7 +542,8 @@ block|{
 comment|// byte arrays is not readable so convert to string
 name|in
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -566,7 +574,8 @@ block|}
 name|Exchange
 name|exchange
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExchange
 argument_list|(
@@ -578,7 +587,8 @@ decl_stmt|;
 comment|//Set the exchange charset property for converting
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -601,7 +611,8 @@ name|IOConverter
 operator|.
 name|normalizeCharset
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -663,7 +674,8 @@ name|MinaPayloadHelper
 operator|.
 name|getOut
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|,
 name|exchange
 argument_list|)
@@ -677,7 +689,8 @@ name|MinaPayloadHelper
 operator|.
 name|getIn
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|,
 name|exchange
 argument_list|)
@@ -696,7 +709,8 @@ condition|(
 name|failed
 operator|&&
 operator|!
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -756,7 +770,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -884,7 +899,8 @@ comment|// should we disconnect, the header can override the configuration
 name|boolean
 name|disconnect
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()

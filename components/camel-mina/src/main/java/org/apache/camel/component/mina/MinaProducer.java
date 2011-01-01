@@ -308,11 +308,6 @@ specifier|private
 name|IoSession
 name|session
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|MinaEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|latch
 specifier|private
 name|CountDownLatch
@@ -355,12 +350,6 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -416,6 +405,24 @@ name|getNoReplyLogLevel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|MinaEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|MinaEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -480,7 +487,8 @@ block|}
 comment|// set the exchange encoding property
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -503,7 +511,8 @@ name|IOConverter
 operator|.
 name|normalizeCharset
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -521,7 +530,8 @@ name|MinaPayloadHelper
 operator|.
 name|getIn
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|,
 name|exchange
 argument_list|)
@@ -548,7 +558,8 @@ block|}
 comment|// if textline enabled then covert to a String which must be used for textline
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -559,7 +570,8 @@ condition|)
 block|{
 name|body
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -787,7 +799,8 @@ name|CamelExchangeException
 argument_list|(
 literal|"No response received from remote server: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
@@ -897,7 +910,8 @@ comment|// should we disconnect, the header can override the configuration
 name|boolean
 name|disconnect
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -936,7 +950,8 @@ name|debug
 argument_list|(
 literal|"Closing session when complete at address: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getAddress
 argument_list|()
@@ -1004,7 +1019,8 @@ name|connector
 operator|+
 literal|" at address: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getAddress
 argument_list|()
@@ -1088,14 +1104,16 @@ block|{
 name|SocketAddress
 name|address
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getAddress
 argument_list|()
 decl_stmt|;
 name|connector
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConnector
 argument_list|()
@@ -1134,7 +1152,8 @@ init|=
 operator|new
 name|ResponseHandler
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// connect and wait until the connection is established
@@ -1149,7 +1168,8 @@ name|address
 argument_list|,
 name|ioHandler
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConnectorConfig
 argument_list|()
