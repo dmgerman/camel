@@ -7187,6 +7187,48 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Adds a processor which removes the headers on the IN message      *      * @param pattern  a pattern to match header names to be removed      * @param excludePatterns one or more pattern of header names that should be excluded (= preserved)      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|removeHeaders (String pattern, String... excludePatterns)
+specifier|public
+name|Type
+name|removeHeaders
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+modifier|...
+name|excludePatterns
+parameter_list|)
+block|{
+name|RemoveHeadersDefinition
+name|answer
+init|=
+operator|new
+name|RemoveHeadersDefinition
+argument_list|(
+name|pattern
+argument_list|,
+name|excludePatterns
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      */
 DECL|method|removeFaultHeader (String name)
 specifier|public

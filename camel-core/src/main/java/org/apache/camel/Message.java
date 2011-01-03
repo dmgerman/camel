@@ -180,6 +180,19 @@ name|String
 name|pattern
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the headers from this message that match the given<tt>pattern</tt>,       * except for the ones matching one ore more<tt>exceptionPatterns</tt>      *       * @param pattern pattern of names that should be removed      * @param excludePatterns one or more pattern of header names that should be excluded (= preserved)      * @return boolean whether any headers matched      */
+DECL|method|removeHeaders (String pattern, String... excludePatterns)
+name|boolean
+name|removeHeaders
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+modifier|...
+name|excludePatterns
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all of the headers associated with the message.      *<p/>      * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers      * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.      *<p/>      *<b>Important:</b> If you want to walk the returned {@link Map} and fetch all the keys and values, you should use      * the {@link java.util.Map#entrySet()} method, which ensure you get the keys in the original case.      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
