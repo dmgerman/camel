@@ -154,24 +154,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|helper
-operator|.
-name|HttpHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -207,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Currently not in use.  *  * @version $Revision$  */
+comment|/**  * Servlet which leverage<a href="http://wiki.eclipse.org/Jetty/Feature/Continuations">Jetty Continuations</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -225,6 +207,14 @@ name|String
 name|EXCHANGE_ATTRIBUTE_NAME
 init|=
 literal|"CamelExchange"
+decl_stmt|;
+DECL|field|EXCHANGE_ATTRIBUTE_ID
+specifier|static
+specifier|final
+name|String
+name|EXCHANGE_ATTRIBUTE_ID
+init|=
+literal|"CamelExchangeId"
 decl_stmt|;
 DECL|field|serialVersionUID
 specifier|private
@@ -253,9 +243,7 @@ name|ServletException
 throws|,
 name|IOException
 block|{
-try|try
-block|{
-comment|// Is there a consumer registered for the request.
+comment|// is there a consumer registered for the request.
 name|HttpConsumer
 name|consumer
 init|=
@@ -282,6 +270,28 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+specifier|final
+name|Exchange
+name|result
+init|=
+operator|(
+name|Exchange
+operator|)
+name|request
+operator|.
+name|getAttribute
+argument_list|(
+name|EXCHANGE_ATTRIBUTE_NAME
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no asynchronous result so leverage continuation
 specifier|final
 name|Continuation
 name|continuation
@@ -322,10 +332,43 @@ if|if
 condition|(
 name|continuation
 operator|.
-name|isInitial
+name|isExpired
 argument_list|()
 condition|)
 block|{
+name|String
+name|id
+init|=
+operator|(
+name|String
+operator|)
+name|continuation
+operator|.
+name|getAttribute
+argument_list|(
+name|EXCHANGE_ATTRIBUTE_ID
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Continuation expired of exchangeId: "
+operator|+
+name|id
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|sendError
+argument_list|(
+name|HttpServletResponse
+operator|.
+name|SC_SERVICE_UNAVAILABLE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// a new request so create an exchange
 specifier|final
 name|Exchange
@@ -394,18 +437,6 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-name|HttpHelper
-operator|.
-name|setCharsetFromContentType
-argument_list|(
-name|request
-operator|.
-name|getContentType
-argument_list|()
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setIn
@@ -442,6 +473,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|continuation
+operator|.
+name|setAttribute
+argument_list|(
+name|EXCHANGE_ATTRIBUTE_ID
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// must suspend before we process the exchange
 name|continuation
 operator|.
 name|suspend
@@ -509,30 +553,12 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// return to let Jetty continuation to work as it will resubmit and invoke the service
+comment|// method again when its resumed
 return|return;
 block|}
-if|if
-condition|(
-name|continuation
-operator|.
-name|isResumed
-argument_list|()
-condition|)
+try|try
 block|{
-comment|// a re-dispatched request containing the processing result
-name|Exchange
-name|exchange
-init|=
-operator|(
-name|Exchange
-operator|)
-name|continuation
-operator|.
-name|getAttribute
-argument_list|(
-name|EXCHANGE_ATTRIBUTE_NAME
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|log
@@ -547,7 +573,7 @@ name|trace
 argument_list|(
 literal|"Resuming continuation of exchangeId: "
 operator|+
-name|exchange
+name|result
 operator|.
 name|getExchangeId
 argument_list|()
@@ -555,27 +581,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now lets output to the response
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Writing response of exchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|consumer
 operator|.
 name|getBinding
@@ -583,12 +588,11 @@ argument_list|()
 operator|.
 name|writeResponse
 argument_list|(
-name|exchange
+name|result
 argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -607,29 +611,6 @@ argument_list|)
 expr_stmt|;
 throw|throw
 name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Error processing request"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|ServletException
-argument_list|(
-name|e
-argument_list|)
 throw|;
 block|}
 block|}
