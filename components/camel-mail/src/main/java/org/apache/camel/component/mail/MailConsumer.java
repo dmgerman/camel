@@ -314,12 +314,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|MailEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|sender
 specifier|private
 specifier|final
@@ -373,12 +367,6 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -494,7 +482,8 @@ name|IllegalStateException
 argument_list|(
 literal|"MailConsumer did not connect properly to the MailStore: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -518,7 +507,8 @@ name|debug
 argument_list|(
 literal|"Polling mailfolder: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -530,7 +520,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -594,7 +585,8 @@ decl_stmt|;
 comment|// should we process all messages or only unseen messages
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1107,7 +1099,8 @@ decl_stmt|;
 name|int
 name|fetchSize
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1208,7 +1201,8 @@ block|{
 name|Exchange
 name|exchange
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExchange
 argument_list|(
@@ -1329,7 +1323,8 @@ try|try
 block|{
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1471,7 +1466,8 @@ block|{
 name|MailConfiguration
 name|config
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1513,7 +1509,8 @@ name|debug
 argument_list|(
 literal|"Exception while testing for is connected to MailStore: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1561,7 +1558,8 @@ name|debug
 argument_list|(
 literal|"Connecting to MailStore: "
 operator|+
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -1681,6 +1679,24 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|MailEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|MailEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 block|}
 end_class
