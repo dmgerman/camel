@@ -149,6 +149,8 @@ class|class
 name|CamelHttpTransportServlet
 extends|extends
 name|CamelServlet
+implements|implements
+name|CamelServletService
 block|{
 DECL|field|LOG
 specifier|private

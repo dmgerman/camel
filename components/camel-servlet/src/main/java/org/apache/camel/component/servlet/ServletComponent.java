@@ -279,6 +279,11 @@ specifier|private
 name|CamelServlet
 name|camelServlet
 decl_stmt|;
+DECL|field|camelServletService
+specifier|private
+name|CamelServletService
+name|camelServletService
+decl_stmt|;
 DECL|method|setCamelServlet (CamelServlet servlet)
 specifier|public
 name|void
@@ -291,6 +296,20 @@ block|{
 name|camelServlet
 operator|=
 name|servlet
+expr_stmt|;
+block|}
+DECL|method|setCamelServletService (CamelServletService service)
+specifier|public
+name|void
+name|setCamelServletService
+parameter_list|(
+name|CamelServletService
+name|service
+parameter_list|)
+block|{
+name|camelServletService
+operator|=
+name|service
 expr_stmt|;
 block|}
 DECL|method|getCamelServlet (String servletName)
@@ -348,6 +367,16 @@ throw|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|getCamelServletService ()
+specifier|public
+name|CamelServletService
+name|getCamelServletService
+parameter_list|()
+block|{
+return|return
+name|camelServletService
 return|;
 block|}
 annotation|@
@@ -717,6 +746,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|getCamelServletService
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelServletService
+argument_list|()
+operator|.
+name|connect
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ServletEndpoint
 name|endpoint
 init|=
@@ -756,6 +804,7 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -766,6 +815,25 @@ name|consumer
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|getCamelServletService
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelServletService
+argument_list|()
+operator|.
+name|disconnect
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|ServletEndpoint
 name|endpoint
@@ -805,6 +873,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
