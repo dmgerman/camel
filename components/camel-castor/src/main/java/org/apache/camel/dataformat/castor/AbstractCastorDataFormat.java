@@ -334,6 +334,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|inputStream
+argument_list|,
+name|encoding
 argument_list|)
 decl_stmt|;
 return|return
