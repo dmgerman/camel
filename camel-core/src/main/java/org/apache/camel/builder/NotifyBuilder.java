@@ -396,6 +396,11 @@ specifier|private
 name|EventOperation
 name|operation
 decl_stmt|;
+DECL|field|created
+specifier|private
+name|boolean
+name|created
+decl_stmt|;
 comment|// computed value whether all the predicates matched
 DECL|field|matches
 specifier|private
@@ -3058,6 +3063,10 @@ operator|.
 name|and
 argument_list|)
 expr_stmt|;
+name|created
+operator|=
+literal|true
+expr_stmt|;
 return|return
 name|this
 return|;
@@ -3069,6 +3078,20 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|created
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"NotifyBuilder has not been created. Invoke the create() method before matching."
+argument_list|)
+throw|;
+block|}
 return|return
 name|matches
 return|;
@@ -3086,6 +3109,20 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|created
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"NotifyBuilder has not been created. Invoke the create() method before matching."
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|latch
@@ -3125,6 +3162,20 @@ name|boolean
 name|matchesMockWaitTime
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|created
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"NotifyBuilder has not been created. Invoke the create() method before matching."
+argument_list|)
+throw|;
+block|}
 name|long
 name|timeout
 init|=
