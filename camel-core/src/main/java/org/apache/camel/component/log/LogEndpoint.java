@@ -58,6 +58,20 @@ name|Logger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Log endpoint.  */
 end_comment
@@ -135,6 +149,42 @@ block|{
 return|return
 name|logger
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|logger
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|logger
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setLogger (Logger logger)
 specifier|public
