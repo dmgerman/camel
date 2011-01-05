@@ -3967,6 +3967,7 @@ return|;
 block|}
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
+specifier|synchronized
 name|void
 name|addRouteDefinitions
 parameter_list|(
@@ -4111,6 +4112,7 @@ return|;
 block|}
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
+specifier|synchronized
 name|void
 name|removeRouteDefinitions
 parameter_list|(
@@ -4149,6 +4151,7 @@ block|}
 block|}
 DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
 specifier|public
+specifier|synchronized
 name|void
 name|removeRouteDefinition
 parameter_list|(
