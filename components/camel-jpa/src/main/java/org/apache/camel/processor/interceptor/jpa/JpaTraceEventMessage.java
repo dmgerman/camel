@@ -76,6 +76,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Lob
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|Table
 import|;
 end_import
@@ -465,6 +475,8 @@ operator|=
 name|exchangePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getProperties ()
 specifier|public
 name|String
@@ -491,6 +503,8 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getHeaders ()
 specifier|public
 name|String
@@ -517,6 +531,8 @@ operator|=
 name|headers
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getBody ()
 specifier|public
 name|String
@@ -569,6 +585,8 @@ operator|=
 name|bodyType
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getOutBody ()
 specifier|public
 name|String
@@ -621,6 +639,8 @@ operator|=
 name|outBodyType
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getOutHeaders ()
 specifier|public
 name|String
@@ -647,6 +667,8 @@ operator|=
 name|outHeaders
 expr_stmt|;
 block|}
+annotation|@
+name|Lob
 DECL|method|getCausedByException ()
 specifier|public
 name|String
