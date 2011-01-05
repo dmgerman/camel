@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that uses a dynamic proxy for CustomerService to send a request as SOAP and  * work with a static return SOAP message.   */
+comment|/**  * Test that uses a dynamic proxy for CustomerService to send a request as SOAP  * and work with a static return SOAP message.  */
 end_comment
 
 begin_class
@@ -199,10 +199,10 @@ name|customerService
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testRoundTrip ()
+DECL|method|testRoundTripGetCustomersByName ()
 specifier|public
 name|void
-name|testRoundTrip
+name|testRoundTripGetCustomersByName
 parameter_list|()
 throws|throws
 name|Exception

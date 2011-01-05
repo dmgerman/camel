@@ -104,24 +104,6 @@ name|soap
 operator|.
 name|name
 operator|.
-name|ElementNameStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|soap
-operator|.
-name|name
-operator|.
 name|ServiceInterfaceStrategy
 import|;
 end_import
@@ -283,6 +265,26 @@ name|getLocalPart
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Tests the case where the soap action is found but the in type is null
+name|QName
+name|elName3
+init|=
+name|strategy
+operator|.
+name|findQNameForSoapActionOrType
+argument_list|(
+literal|"http://customerservice.example.com/getAllCustomers"
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|Assert
+operator|.
+name|assertNull
+argument_list|(
+name|elName3
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|elName
@@ -345,6 +347,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// Tests the case where the action is not found but the type is
 name|QName
 name|elName
 init|=
@@ -383,6 +386,7 @@ name|getLocalPart
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Tests the case where the soap action is found
 name|QName
 name|elName2
 init|=
@@ -390,7 +394,7 @@ name|strategy
 operator|.
 name|findQNameForSoapActionOrType
 argument_list|(
-literal|"getCustomersByName"
+literal|"http://customerservice.example.com/getCustomersByName"
 argument_list|,
 name|GetCustomersByName
 operator|.
@@ -421,6 +425,8 @@ name|getLocalPart
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// this tests the case that the soap action as well as the type are not
+comment|// found
 try|try
 block|{
 name|elName
@@ -587,7 +593,7 @@ block|{
 operator|new
 name|ServiceInterfaceStrategy
 argument_list|(
-name|ElementNameStrategy
+name|Object
 operator|.
 name|class
 argument_list|,
@@ -597,12 +603,14 @@ expr_stmt|;
 name|Assert
 operator|.
 name|fail
-argument_list|()
+argument_list|(
+literal|"Should throw an exception for a class that is no webservice"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeCamelException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

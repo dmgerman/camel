@@ -26,10 +26,16 @@ end_comment
 
 begin_class
 DECL|class|MethodInfo
+specifier|public
 specifier|final
 class|class
 name|MethodInfo
 block|{
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 DECL|field|soapAction
 specifier|private
 name|String
@@ -45,11 +51,14 @@ specifier|private
 name|TypeInfo
 name|out
 decl_stmt|;
-comment|/**      * Initialize       *       * @param soapAction      * @param in input parameter (document style so only one parameter)      * @param out return type      */
-DECL|method|MethodInfo (String soapAction, TypeInfo in, TypeInfo out)
+comment|/**      * Initialize       *       * @param name method name      * @param soapAction      * @param in input parameter (document style so only one parameter)      * @param out return type      */
+DECL|method|MethodInfo (String name, String soapAction, TypeInfo in, TypeInfo out)
 specifier|public
 name|MethodInfo
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|String
 name|soapAction
 parameter_list|,
@@ -65,6 +74,12 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+name|this
+operator|.
 name|soapAction
 operator|=
 name|soapAction
@@ -81,6 +96,16 @@ name|out
 operator|=
 name|out
 expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 DECL|method|getSoapAction ()
 specifier|public

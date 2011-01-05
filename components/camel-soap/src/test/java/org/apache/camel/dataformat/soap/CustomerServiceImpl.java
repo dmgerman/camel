@@ -50,6 +50,18 @@ name|example
 operator|.
 name|customerservice
 operator|.
+name|GetAllCustomersResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|example
+operator|.
+name|customerservice
+operator|.
 name|GetCustomersByName
 import|;
 end_import
@@ -90,8 +102,20 @@ name|NoSuchCustomerException
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|example
+operator|.
+name|customerservice
+operator|.
+name|SaveCustomer
+import|;
+end_import
+
 begin_comment
-comment|/**  * Simple implementation of CustomerService that supports  * returning a customer or a NoSuchCustomerException depending on input  */
+comment|/**  * Simple implementation of CustomerService that supports returning a customer  * or a NoSuchCustomerException depending on input  */
 end_comment
 
 begin_class
@@ -102,7 +126,38 @@ name|CustomerServiceImpl
 implements|implements
 name|CustomerService
 block|{
-comment|/**      * If the request.name is "none" a NoSuchCustomerException is thrown in any other case      * a dummy customer is returned that has the same name as the request      */
+DECL|field|lastSavedCustomer
+specifier|private
+name|Customer
+name|lastSavedCustomer
+decl_stmt|;
+DECL|method|getLastSavedCustomer ()
+specifier|public
+name|Customer
+name|getLastSavedCustomer
+parameter_list|()
+block|{
+return|return
+name|lastSavedCustomer
+return|;
+block|}
+DECL|method|setLastSavedCustomer (Customer lastSavedCustomer)
+specifier|public
+name|void
+name|setLastSavedCustomer
+parameter_list|(
+name|Customer
+name|lastSavedCustomer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lastSavedCustomer
+operator|=
+name|lastSavedCustomer
+expr_stmt|;
+block|}
+comment|/**      * If the request.name is "none" a NoSuchCustomerException is thrown in any      * other case a dummy customer is returned that has the same name as the      * request      */
 DECL|method|getCustomersByName (GetCustomersByName request)
 specifier|public
 name|GetCustomersByNameResponse
@@ -198,6 +253,72 @@ expr_stmt|;
 return|return
 name|response
 return|;
+block|}
+comment|/**      * This method is to test a call without input parameter      */
+DECL|method|getAllCustomers ()
+specifier|public
+name|GetAllCustomersResponse
+name|getAllCustomers
+parameter_list|()
+block|{
+name|GetAllCustomersResponse
+name|response
+init|=
+operator|new
+name|GetAllCustomersResponse
+argument_list|()
+decl_stmt|;
+name|Customer
+name|customer
+init|=
+operator|new
+name|Customer
+argument_list|()
+decl_stmt|;
+name|customer
+operator|.
+name|setName
+argument_list|(
+literal|"Smith"
+argument_list|)
+expr_stmt|;
+name|customer
+operator|.
+name|setRevenue
+argument_list|(
+literal|100000
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|getReturn
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|customer
+argument_list|)
+expr_stmt|;
+return|return
+name|response
+return|;
+block|}
+DECL|method|saveCustomer (SaveCustomer request)
+specifier|public
+name|void
+name|saveCustomer
+parameter_list|(
+name|SaveCustomer
+name|request
+parameter_list|)
+block|{
+name|lastSavedCustomer
+operator|=
+name|request
+operator|.
+name|getCustomer
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
