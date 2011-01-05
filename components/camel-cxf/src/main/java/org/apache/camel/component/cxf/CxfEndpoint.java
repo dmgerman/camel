@@ -1920,11 +1920,11 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|checkName (String value, String name)
+DECL|method|checkName (Object value, String name)
 name|void
 name|checkName
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|String
@@ -1949,7 +1949,14 @@ literal|"The "
 operator|+
 name|name
 operator|+
-literal|"is empty, cxf will try to load the first one in wsdl for you"
+literal|" of "
+operator|+
+name|this
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" is empty, cxf will try to load the first one in wsdl for you."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2027,22 +2034,18 @@ operator|==
 literal|null
 condition|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|portName
 argument_list|,
-literal|"Please provide endpoint/port name"
+literal|" endpoint/port name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|serviceName
 argument_list|,
-literal|"Please provide service name"
+literal|" service name"
 argument_list|)
 expr_stmt|;
 name|answer

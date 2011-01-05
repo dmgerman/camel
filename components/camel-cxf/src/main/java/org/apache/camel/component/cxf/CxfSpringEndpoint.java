@@ -764,28 +764,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|factoryBean
 operator|.
 name|getEndpointName
 argument_list|()
 argument_list|,
-literal|"Please provide endpoint/port name"
+literal|"endpoint/port name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|factoryBean
 operator|.
 name|getServiceName
 argument_list|()
 argument_list|,
-literal|"Please provide service name"
+literal|"service name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -985,28 +981,24 @@ operator|==
 literal|null
 condition|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|answer
 operator|.
 name|getEndpointName
 argument_list|()
 argument_list|,
-literal|"Please provide endpoint/port name"
+literal|"endpoint/port name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
+name|checkName
 argument_list|(
 name|answer
 operator|.
 name|getServiceName
 argument_list|()
 argument_list|,
-literal|"Please provide service name"
+literal|"service name"
 argument_list|)
 expr_stmt|;
 block|}

@@ -20,6 +20,42 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|service
+operator|.
+name|factory
+operator|.
+name|AbstractServiceConfiguration
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -51,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service factory bean class that create a service factory without requiring a service class  * (SEI).  *  * @version $Revision$  */
+comment|/**  * A service factory bean class that create a service factory without requiring a service class  * (SEI).  * It will pick the first one service name and first one port/endpoint name in the WSDL, if   * there is service name or port/endpoint name setted.  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -62,6 +98,49 @@ name|WSDLServiceFactoryBean
 extends|extends
 name|ReflectionServiceFactoryBean
 block|{
+DECL|method|WSDLServiceFactoryBean ()
+specifier|public
+name|WSDLServiceFactoryBean
+parameter_list|()
+block|{
+comment|// set up the service configure to help us find the service name and endpoint name from WSDL
+name|WSDLServiceConfiguration
+name|configuration
+init|=
+operator|new
+name|WSDLServiceConfiguration
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|AbstractServiceConfiguration
+argument_list|>
+name|list
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|AbstractServiceConfiguration
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|list
+operator|.
+name|add
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|setServiceConfigurations
+argument_list|(
+name|list
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|initializeWSDLOperations ()
