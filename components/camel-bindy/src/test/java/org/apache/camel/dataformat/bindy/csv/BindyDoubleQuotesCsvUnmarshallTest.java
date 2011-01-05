@@ -148,22 +148,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -237,18 +221,6 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
 import|;
 end_import
 
@@ -429,7 +401,7 @@ name|CsvRecord
 argument_list|(
 name|separator
 operator|=
-literal|"\",\""
+literal|","
 argument_list|)
 DECL|class|Order
 specifier|public
