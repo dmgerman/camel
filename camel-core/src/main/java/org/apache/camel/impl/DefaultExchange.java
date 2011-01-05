@@ -584,6 +584,8 @@ name|hasProperties
 argument_list|()
 condition|)
 block|{
+comment|// use intern String for properties which is Camel* properties
+comment|// this reduces memory allocations needed for those common properties
 if|if
 condition|(
 name|name
