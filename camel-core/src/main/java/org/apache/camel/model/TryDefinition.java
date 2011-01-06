@@ -709,7 +709,9 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|handled (boolean handled)
 specifier|public
 name|TryDefinition
@@ -741,7 +743,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|handled (Predicate handled)
 specifier|public
 name|TryDefinition
@@ -800,7 +804,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|handled (Expression handled)
 specifier|public
 name|TryDefinition
