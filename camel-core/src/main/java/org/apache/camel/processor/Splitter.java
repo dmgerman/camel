@@ -672,6 +672,22 @@ operator|new
 name|Iterable
 argument_list|()
 block|{
+comment|// create a copy which we use as master to copy during splitting
+comment|// this avoids any side effect reflected upon the incoming exchange
+specifier|private
+specifier|final
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 specifier|public
 name|Iterator
 name|iterator
@@ -790,6 +806,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// create a copy as the new exchange to be routed in the splitter from the copy
 name|Exchange
 name|newExchange
 init|=
@@ -797,7 +814,7 @@ name|ExchangeHelper
 operator|.
 name|createCopy
 argument_list|(
-name|exchange
+name|copy
 argument_list|,
 literal|true
 argument_list|)

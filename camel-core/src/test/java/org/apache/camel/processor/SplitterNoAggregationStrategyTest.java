@@ -141,6 +141,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -155,7 +157,7 @@ name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World,Bye World"
+literal|"Hello World,Bye World,Hi World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -164,7 +166,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Bye World"
+literal|"Hello World,Bye World,Hi World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -194,6 +196,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -219,7 +223,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Kaboom,Bye World"
+literal|"Hello World,Kaboom,Bye World,Hi World"
 argument_list|)
 expr_stmt|;
 name|fail

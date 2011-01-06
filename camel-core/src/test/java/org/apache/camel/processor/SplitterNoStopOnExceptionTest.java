@@ -129,6 +129,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -137,7 +139,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Bye World"
+literal|"Hello World,Bye World,Hi World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -160,7 +162,7 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we do not stop so we split to completion and thus we receive 2 messages
+comment|// we do not stop so we split to completion and thus we receive 3 messages
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -168,6 +170,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 try|try
@@ -178,7 +182,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Kaboom,Bye World"
+literal|"Hello World,Kaboom,Bye World,Hi World"
 argument_list|)
 expr_stmt|;
 name|fail

@@ -18,30 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -102,59 +78,70 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SplitterParallelNoStopOnExceptionTest
+DECL|class|SplitterStreamingErrorHandlingTest
 specifier|public
 class|class
-name|SplitterParallelNoStopOnExceptionTest
+name|SplitterStreamingErrorHandlingTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSplitParallelNoStopOnExceptionOk ()
+DECL|method|testSplitterStreamingNoError ()
 specifier|public
 name|void
-name|testSplitParallelNoStopOnExceptionOk
+name|testSplitterStreamingNoError
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:split"
+literal|"mock:a"
 argument_list|)
-decl_stmt|;
-name|mock
 operator|.
-name|expectedBodiesReceivedInAnyOrder
+name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"A"
 argument_list|,
-literal|"Bye World"
+literal|"B"
 argument_list|,
-literal|"Hi World"
+literal|"C"
+argument_list|,
+literal|"D"
+argument_list|,
+literal|"E"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:b"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"A"
+argument_list|,
+literal|"B"
+argument_list|,
+literal|"C"
+argument_list|,
+literal|"D"
+argument_list|,
+literal|"E"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"A,B,C,D,E"
 argument_list|)
 expr_stmt|;
 name|template
@@ -163,63 +150,68 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Bye World,Hi World"
+literal|"A,B,C,D,E"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSplitParallelNoStopOnExceptionStop ()
+DECL|method|testSplitterStreamingWithError ()
 specifier|public
 name|void
-name|testSplitParallelNoStopOnExceptionStop
+name|testSplitterStreamingWithError
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:split"
+literal|"mock:a"
 argument_list|)
-decl_stmt|;
-name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedBodiesReceived
+argument_list|(
+literal|"A"
+argument_list|,
+literal|"B"
+argument_list|,
+literal|"Kaboom"
+argument_list|,
+literal|"D"
+argument_list|,
+literal|"E"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:b"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"A"
+argument_list|,
+literal|"B"
+argument_list|,
+literal|"D"
+argument_list|,
+literal|"E"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we do NOT stop so we receive all messages except the one that goes kaboom
-name|mock
-operator|.
-name|allMessages
-argument_list|()
-operator|.
-name|body
-argument_list|()
-operator|.
-name|isNotEqualTo
-argument_list|(
-literal|"Kaboom"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceivedInAnyOrder
-argument_list|(
-literal|"Hello World"
-argument_list|,
-literal|"Goodday World"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-literal|"Hi World"
-argument_list|)
-expr_stmt|;
+comment|// we do not stop on exception and thus the splitted message which failed
+comment|// would be silently ignored so we can continue routing
+comment|// you can always use a custom aggregation strategy to deal with errors your-self
 try|try
 block|{
 name|template
@@ -228,12 +220,12 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World,Goodday World,Kaboom,Bye World,Hi World"
+literal|"A,B,Kaboom,D,E"
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should thrown an exception"
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -243,9 +235,6 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|IllegalArgumentException
-name|cause
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|IllegalArgumentException
@@ -257,12 +246,15 @@ operator|.
 name|getCause
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Forced"
+literal|"Cannot do this"
 argument_list|,
-name|cause
+name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
@@ -297,17 +289,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a pool with 2 concurrent tasks so we cannot run to fast
-name|ExecutorService
-name|service
-init|=
-name|Executors
-operator|.
-name|newFixedThreadPool
-argument_list|(
-literal|2
-argument_list|)
-decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -324,12 +305,12 @@ literal|","
 argument_list|)
 argument_list|)
 operator|.
-name|parallelProcessing
+name|streaming
 argument_list|()
 operator|.
-name|executorService
+name|to
 argument_list|(
-name|service
+literal|"mock:a"
 argument_list|)
 operator|.
 name|process
@@ -377,7 +358,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Forced"
+literal|"Cannot do this"
 argument_list|)
 throw|;
 block|}
@@ -387,7 +368,15 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:split"
+literal|"mock:b"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
