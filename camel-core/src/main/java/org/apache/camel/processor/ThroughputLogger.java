@@ -377,22 +377,6 @@ argument_list|,
 name|level
 argument_list|)
 expr_stmt|;
-comment|//initialize the startTime (since no messages may be received before a timer log event)
-if|if
-condition|(
-name|startTime
-operator|==
-literal|0
-condition|)
-block|{
-name|startTime
-operator|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-expr_stmt|;
-block|}
 name|this
 operator|.
 name|camelContext
@@ -1003,22 +987,8 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"ThroughputLogger started"
-argument_list|)
-expr_stmt|;
 name|createGroupIntervalLogMessage
 argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"ThroughputLogger complete"
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1028,6 +998,16 @@ name|void
 name|createGroupIntervalLogMessage
 parameter_list|()
 block|{
+comment|// this indicates that no messages have been received yet...don't log yet
+if|if
+condition|(
+name|startTime
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|int
 name|receivedCount
 init|=
@@ -1122,9 +1102,13 @@ argument_list|()
 operator|+
 literal|": "
 operator|+
+name|currentCount
+operator|+
+literal|" new messages, with total "
+operator|+
 name|receivedCount
 operator|+
-literal|" messages so far. Last group took: "
+literal|" so far. Last group took: "
 operator|+
 name|duration
 operator|+

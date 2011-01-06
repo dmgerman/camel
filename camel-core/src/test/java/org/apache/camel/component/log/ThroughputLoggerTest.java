@@ -217,7 +217,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:hello?groupInterval=200&groupDelay=100&groupActiveOnly=false"
+literal|"log:hello?groupInterval=200&groupDelay=400&groupActiveOnly=false"
 argument_list|)
 operator|.
 name|delay
