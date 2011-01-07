@@ -1327,7 +1327,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Get the wrong parameter size to invoke the out service, Experct size "
+literal|"Get the wrong parameter size to invoke the out service, Expect size "
 operator|+
 name|experctMessagePartsSize
 operator|+
@@ -1443,7 +1443,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Get the wrong parameter size to invoke the out service, Experct size "
+literal|"Get the wrong parameter size to invoke the out service, Expect size "
 operator|+
 operator|(
 name|experctMessagePartsSize
