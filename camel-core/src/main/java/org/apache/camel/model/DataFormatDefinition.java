@@ -357,7 +357,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Data format could not be created. Ensure that the dataformat is valid and the associated camel component is present on the classpath"
+literal|"Data format could not be created. Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
 argument_list|)
 throw|;
 block|}
