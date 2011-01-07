@@ -1323,26 +1323,6 @@ literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
-name|List
-argument_list|<
-name|Future
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|>
-name|tasks
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Future
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|>
-argument_list|()
-decl_stmt|;
-specifier|final
 name|Iterator
 argument_list|<
 name|ProcessorExchangePair
@@ -1547,13 +1527,6 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|tasks
-operator|.
-name|add
-argument_list|(
-name|task
-argument_list|)
-expr_stmt|;
 name|total
 operator|.
 name|incrementAndGet
@@ -1916,7 +1889,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cancelling future tasks due timeout after "
+literal|"Cancelling tasks due timeout after "
 operator|+
 name|timeout
 operator|+
@@ -1938,27 +1911,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cancelling future tasks due stopOnException."
+literal|"Cancelling tasks due stopOnException."
 argument_list|)
 expr_stmt|;
 block|}
 comment|// cancel tasks as we timed out (its safe to cancel done tasks)
-for|for
-control|(
-name|Future
-name|future
-range|:
-name|tasks
-control|)
-block|{
-name|future
+name|running
 operator|.
-name|cancel
+name|set
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
