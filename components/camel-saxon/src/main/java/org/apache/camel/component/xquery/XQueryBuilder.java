@@ -338,6 +338,20 @@ end_import
 
 begin_import
 import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|value
+operator|.
+name|Whitespace
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -672,6 +686,13 @@ name|AtomicBoolean
 argument_list|(
 literal|false
 argument_list|)
+decl_stmt|;
+DECL|field|stripsAllWhiteSpace
+specifier|private
+name|boolean
+name|stripsAllWhiteSpace
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|Override
@@ -1819,6 +1840,36 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|stripsAllWhiteSpace ()
+specifier|public
+name|XQueryBuilder
+name|stripsAllWhiteSpace
+parameter_list|()
+block|{
+name|setStripsAllWhiteSpace
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|stripsIgnorableWhiteSpace ()
+specifier|public
+name|XQueryBuilder
+name|stripsIgnorableWhiteSpace
+parameter_list|()
+block|{
+name|setStripsAllWhiteSpace
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 comment|/**      * Configures the namespace context from the given DOM element      */
@@ -1891,7 +1942,7 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
-comment|// change configuration, we must re intialize
+comment|// change configuration, we must re initialize
 name|initialized
 operator|.
 name|set
@@ -1925,7 +1976,7 @@ name|staticQueryContext
 operator|=
 name|staticQueryContext
 expr_stmt|;
-comment|// change context, we must re intialize
+comment|// change context, we must re initialize
 name|initialized
 operator|.
 name|set
@@ -2046,6 +2097,32 @@ operator|.
 name|resultType
 operator|=
 name|resultType
+expr_stmt|;
+block|}
+DECL|method|isStripsAllWhiteSpace ()
+specifier|public
+name|boolean
+name|isStripsAllWhiteSpace
+parameter_list|()
+block|{
+return|return
+name|stripsAllWhiteSpace
+return|;
+block|}
+DECL|method|setStripsAllWhiteSpace (boolean stripsAllWhiteSpace)
+specifier|public
+name|void
+name|setStripsAllWhiteSpace
+parameter_list|(
+name|boolean
+name|stripsAllWhiteSpace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stripsAllWhiteSpace
+operator|=
+name|stripsAllWhiteSpace
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -2498,6 +2575,22 @@ argument_list|(
 name|Configuration
 operator|.
 name|XQUERY
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|setStripsWhiteSpace
+argument_list|(
+name|isStripsAllWhiteSpace
+argument_list|()
+condition|?
+name|Whitespace
+operator|.
+name|ALL
+else|:
+name|Whitespace
+operator|.
+name|IGNORABLE
 argument_list|)
 expr_stmt|;
 name|staticQueryContext

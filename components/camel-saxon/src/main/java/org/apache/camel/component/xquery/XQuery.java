@@ -160,13 +160,21 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
+DECL|method|stripsAllWhiteSpace ()
+DECL|field|true
+name|boolean
+name|stripsAllWhiteSpace
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 DECL|method|namespaces ()
 name|NamespacePrefix
 index|[]
 name|namespaces
 argument_list|()
 expr|default
-block|{     @
+block|{         @
 name|NamespacePrefix
 argument_list|(
 name|prefix
@@ -177,7 +185,7 @@ name|uri
 operator|=
 literal|"http://www.w3.org/2003/05/soap-envelope"
 argument_list|)
-block|,     @
+block|,         @
 name|NamespacePrefix
 argument_list|(
 name|prefix
