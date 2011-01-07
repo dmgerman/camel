@@ -1069,6 +1069,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getExchangeIndex (Exchange exchange)
+specifier|protected
+name|Integer
+name|getExchangeIndex
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SPLIT_INDEX
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|getExpression ()
 specifier|public
 name|Expression

@@ -1374,12 +1374,6 @@ argument_list|,
 name|it
 argument_list|)
 expr_stmt|;
-name|Future
-argument_list|<
-name|Exchange
-argument_list|>
-name|task
-init|=
 name|completion
 operator|.
 name|submit
@@ -1435,6 +1429,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+name|Integer
+name|number
+init|=
+name|getExchangeIndex
+argument_list|(
+name|subExchange
+argument_list|)
+decl_stmt|;
 name|boolean
 name|continueProcessing
 init|=
@@ -1446,10 +1448,7 @@ name|subExchange
 argument_list|,
 literal|"Parallel processing failed for number "
 operator|+
-name|total
-operator|.
-name|get
-argument_list|()
+name|number
 argument_list|,
 name|LOG
 argument_list|)
@@ -1462,6 +1461,15 @@ operator|!
 name|continueProcessing
 condition|)
 block|{
+comment|// signal to stop running
+name|running
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// throw caused exception
 if|if
 condition|(
 name|subExchange
@@ -1479,10 +1487,7 @@ name|CamelExchangeException
 argument_list|(
 literal|"Parallel processing failed for number "
 operator|+
-name|total
-operator|.
-name|get
-argument_list|()
+name|number
 argument_list|,
 name|subExchange
 argument_list|,
@@ -1493,14 +1498,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|// signal to stop running
-name|running
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1526,7 +1523,7 @@ return|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|total
 operator|.
 name|incrementAndGet
@@ -1805,6 +1802,14 @@ name|get
 argument_list|()
 decl_stmt|;
 comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
+name|Integer
+name|number
+init|=
+name|getExchangeIndex
+argument_list|(
+name|subExchange
+argument_list|)
+decl_stmt|;
 name|boolean
 name|continueProcessing
 init|=
@@ -1816,10 +1821,7 @@ name|subExchange
 argument_list|,
 literal|"Parallel processing failed for number "
 operator|+
-name|total
-operator|.
-name|get
-argument_list|()
+name|number
 argument_list|,
 name|LOG
 argument_list|)
@@ -3315,6 +3317,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getExchangeIndex (Exchange exchange)
+specifier|protected
+name|Integer
+name|getExchangeIndex
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|MULTICAST_INDEX
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
 name|Iterable
@@ -3422,6 +3448,7 @@ argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
+comment|// TODO: optimize to reuse error handlers instead of re-building for each exchange pair
 comment|// rework error handling to support fine grained error handling
 if|if
 condition|(
