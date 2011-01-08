@@ -222,9 +222,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|CollectionHelper
+name|RouteContext
 import|;
 end_import
 
@@ -688,6 +688,28 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+specifier|private
+specifier|final
+name|RouteContext
+name|routeContext
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 specifier|public
 name|Iterator
 name|iterator
@@ -806,17 +828,18 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|// create a copy as the new exchange to be routed in the splitter from the copy
+comment|// create a correlated copy as the new exchange to be routed in the splitter from the copy
+comment|// and do not share the unit of work
 name|Exchange
 name|newExchange
 init|=
 name|ExchangeHelper
 operator|.
-name|createCopy
+name|createCorrelatedCopy
 argument_list|(
 name|copy
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -871,6 +894,8 @@ name|next
 argument_list|()
 argument_list|,
 name|newExchange
+argument_list|,
+name|routeContext
 argument_list|)
 return|;
 block|}

@@ -1622,6 +1622,7 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO: in streaming mode we need to aggregate on-the-fly
 comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
 comment|// and have it pickup the replies and do the aggregation
 name|boolean
@@ -3478,47 +3479,6 @@ range|:
 name|processors
 control|)
 block|{
-name|result
-operator|.
-name|add
-argument_list|(
-name|createProcessorExchangePair
-argument_list|(
-name|index
-operator|++
-argument_list|,
-name|processor
-argument_list|,
-name|exchange
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|result
-return|;
-block|}
-comment|/**      * Creates the {@link ProcessorExchangePair} which holds the processor and exchange to be send out.      *<p/>      * You<b>must</b> use this method to create the instances of {@link ProcessorExchangePair} as they      * need to be specially prepared before use.      *      * @param processor the processor      * @param exchange  the exchange      * @return prepared for use      */
-DECL|method|createProcessorExchangePair (int index, Processor processor, Exchange exchange)
-specifier|protected
-name|ProcessorExchangePair
-name|createProcessorExchangePair
-parameter_list|(
-name|int
-name|index
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|Processor
-name|prepared
-init|=
-name|processor
-decl_stmt|;
 comment|// copy exchange, and do not share the unit of work
 name|Exchange
 name|copy
@@ -3532,10 +3492,77 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// and add the pair
+name|RouteContext
+name|routeContext
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getRouteContext
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+name|createProcessorExchangePair
+argument_list|(
+name|index
+operator|++
+argument_list|,
+name|processor
+argument_list|,
+name|copy
+argument_list|,
+name|routeContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|result
+return|;
+block|}
+comment|/**      * Creates the {@link ProcessorExchangePair} which holds the processor and exchange to be send out.      *<p/>      * You<b>must</b> use this method to create the instances of {@link ProcessorExchangePair} as they      * need to be specially prepared before use.      *      * @param index        the index      * @param processor    the processor      * @param exchange     the exchange      * @param routeContext the route context      * @return prepared for use      */
+DECL|method|createProcessorExchangePair (int index, Processor processor, Exchange exchange, RouteContext routeContext)
+specifier|protected
+name|ProcessorExchangePair
+name|createProcessorExchangePair
+parameter_list|(
+name|int
+name|index
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+name|Processor
+name|prepared
+init|=
+name|processor
+decl_stmt|;
 comment|// set property which endpoint we send to
 name|setToEndpoint
 argument_list|(
-name|copy
+name|exchange
 argument_list|,
 name|prepared
 argument_list|)
@@ -3545,7 +3572,7 @@ name|prepared
 operator|=
 name|createErrorHandler
 argument_list|(
-name|exchange
+name|routeContext
 argument_list|,
 name|prepared
 argument_list|)
@@ -3560,17 +3587,17 @@ name|processor
 argument_list|,
 name|prepared
 argument_list|,
-name|copy
+name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createErrorHandler (Exchange exchange, Processor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|protected
 name|Processor
 name|createErrorHandler
 parameter_list|(
-name|Exchange
-name|exchange
+name|RouteContext
+name|routeContext
 parameter_list|,
 name|Processor
 name|processor
@@ -3578,25 +3605,10 @@ parameter_list|)
 block|{
 name|Processor
 name|answer
-init|=
-name|processor
 decl_stmt|;
 if|if
 condition|(
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|getRouteContext
-argument_list|()
+name|routeContext
 operator|!=
 literal|null
 condition|)
@@ -3605,17 +3617,6 @@ comment|// wrap the producer in error handler so we have fine grained error hand
 comment|// the output side instead of the input side
 comment|// this is needed to support redelivery on that output alone and not doing redelivery
 comment|// for the entire multicast block again which will start from scratch again
-name|RouteContext
-name|routeContext
-init|=
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|getRouteContext
-argument_list|()
-decl_stmt|;
 comment|// create key for cache
 specifier|final
 name|PreparedErrorHandler
@@ -3712,15 +3713,6 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
-name|answer
-operator|=
-operator|new
-name|UnitOfWorkProcessor
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3737,6 +3729,15 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
+name|answer
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 comment|// add to cache
 name|errorHandlers
 operator|.
@@ -3745,6 +3746,18 @@ argument_list|(
 name|key
 argument_list|,
 name|answer
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
+name|answer
+operator|=
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|processor
 argument_list|)
 expr_stmt|;
 block|}
@@ -3962,7 +3975,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sets the given {@link org.apache.camel.processor.aggregate.AggregationStrategy} on the {@link Exchange}.      *      * @param exchange  the exchange      * @param aggregationStrategy  the strategy      */
+comment|/**      * Sets the given {@link org.apache.camel.processor.aggregate.AggregationStrategy} on the {@link Exchange}.      *      * @param exchange            the exchange      * @param aggregationStrategy the strategy      */
 DECL|method|setAggregationStrategyOnExchange (Exchange exchange, AggregationStrategy aggregationStrategy)
 specifier|protected
 name|void

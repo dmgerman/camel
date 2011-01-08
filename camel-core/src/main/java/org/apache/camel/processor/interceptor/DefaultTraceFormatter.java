@@ -1292,6 +1292,16 @@ operator|||
 name|showRouteId
 condition|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|TracedRouteNodes
 name|traced
 init|=
@@ -1420,6 +1430,7 @@ name|getProcessorDefinition
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
