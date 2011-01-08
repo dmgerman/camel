@@ -402,6 +402,14 @@ name|to
 argument_list|(
 literal|"log:split?groupSize=1000"
 argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|log
+argument_list|(
+literal|"Done splitting ${file:name}"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
