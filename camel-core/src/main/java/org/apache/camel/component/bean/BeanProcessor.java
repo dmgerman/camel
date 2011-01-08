@@ -268,6 +268,16 @@ specifier|private
 name|boolean
 name|shorthandMethod
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+DECL|field|type
+specifier|private
+name|Class
+name|type
+decl_stmt|;
 DECL|method|BeanProcessor (Object pojo, BeanInfo beanInfo)
 specifier|public
 name|BeanProcessor
@@ -417,6 +427,15 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unused"
+block|,
+literal|"rawtypes"
+block|}
+argument_list|)
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -438,6 +457,18 @@ operator|.
 name|isNotEmpty
 argument_list|(
 name|method
+argument_list|)
+decl_stmt|;
+comment|// do we have an explicit parameter type we should invoke if we have multiple possible
+comment|// methods
+name|boolean
+name|isExplicitType
+init|=
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|type
 argument_list|)
 decl_stmt|;
 name|Object
@@ -709,6 +740,11 @@ name|prevMethod
 init|=
 literal|null
 decl_stmt|;
+name|Class
+name|prevType
+init|=
+literal|null
+decl_stmt|;
 name|MethodInvocation
 name|invocation
 decl_stmt|;
@@ -765,6 +801,38 @@ operator|.
 name|BEAN_METHOD_NAME
 argument_list|,
 name|method
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isExplicitType
+condition|)
+block|{
+name|prevType
+operator|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_TYPE_NAME
+argument_list|,
+name|Class
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_TYPE_NAME
+argument_list|,
+name|type
 argument_list|)
 expr_stmt|;
 block|}
@@ -1256,6 +1324,43 @@ operator|.
 name|shorthandMethod
 operator|=
 name|shorthandMethod
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+DECL|method|getType ()
+specifier|public
+name|Class
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+comment|/**      * Sets the type/class name to which the body should converted before the suitable method is      * determined.      * @param type      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+DECL|method|setType (Class type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|Class
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 comment|// Implementation methods

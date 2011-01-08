@@ -150,6 +150,12 @@ name|BEAN_MULTI_PARAMETER_ARRAY
 init|=
 literal|"CamelBeanMultiParameterArray"
 decl_stmt|;
+DECL|field|BEAN_TYPE_NAME
+name|String
+name|BEAN_TYPE_NAME
+init|=
+literal|"CamelBeanTypeName"
+decl_stmt|;
 DECL|field|BINDING
 name|String
 name|BINDING

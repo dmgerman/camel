@@ -164,6 +164,11 @@ return|;
 block|}
 comment|/**      * Creates an iterator over the value      */
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+annotation|@
 name|Converter
 DECL|method|iterator (Object value)
 specifier|public
@@ -348,6 +353,65 @@ argument_list|(
 name|value
 argument_list|)
 return|;
+block|}
+comment|/**      * Returns the converted value, or null if the value is null      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+annotation|@
+name|Converter
+DECL|method|toClass (Object value)
+specifier|public
+specifier|static
+name|Class
+name|toClass
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Class
+condition|)
+block|{
+return|return
+operator|(
+name|Class
+operator|)
+name|value
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|loadClass
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|/**      * Returns the converted value, or null if the value is null      */
 annotation|@
