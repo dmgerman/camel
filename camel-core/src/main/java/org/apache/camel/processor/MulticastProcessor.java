@@ -1761,6 +1761,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
+comment|// and have it pickup the replies and do the aggregation (eg we use a latch to wait)
 comment|// wait for aggregation to be done
 if|if
 condition|(
@@ -2085,8 +2087,6 @@ name|InterruptedException
 throws|,
 name|ExecutionException
 block|{
-comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
-comment|// and have it pickup the replies and do the aggregation
 name|boolean
 name|timedOut
 init|=
