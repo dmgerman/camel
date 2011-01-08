@@ -309,11 +309,11 @@ name|builder
 operator|.
 name|matches
 argument_list|(
-literal|5
+literal|120
 argument_list|,
 name|TimeUnit
 operator|.
-name|MINUTES
+name|SECONDS
 argument_list|)
 decl_stmt|;
 name|log
@@ -343,7 +343,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Could not split file in 5 minutes"
+literal|"Could not split file in 2 minutes"
 argument_list|)
 throw|;
 block|}
@@ -391,6 +391,9 @@ argument_list|(
 literal|"\n"
 argument_list|)
 argument_list|)
+operator|.
+name|streaming
+argument_list|()
 operator|.
 name|parallelProcessing
 argument_list|()
