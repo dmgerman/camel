@@ -1062,6 +1062,23 @@ name|prevMethod
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isExplicitType
+condition|)
+block|{
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_TYPE_NAME
+argument_list|,
+name|prevType
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// if the method returns something then set the value returned on the Exchange
 if|if

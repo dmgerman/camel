@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -362,7 +374,7 @@ literal|"rawtypes"
 argument_list|)
 annotation|@
 name|Converter
-DECL|method|toClass (Object value)
+DECL|method|toClass (Object value, Exchange exchange)
 specifier|public
 specifier|static
 name|Class
@@ -370,6 +382,9 @@ name|toClass
 parameter_list|(
 name|Object
 name|value
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 if|if
@@ -394,6 +409,34 @@ operator|instanceof
 name|String
 condition|)
 block|{
+comment|// prefer to use class resolver API
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|ObjectHelper
 operator|.
@@ -405,6 +448,7 @@ operator|)
 name|value
 argument_list|)
 return|;
+block|}
 block|}
 else|else
 block|{

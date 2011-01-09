@@ -283,6 +283,8 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -297,6 +299,8 @@ operator|.
 name|toClass
 argument_list|(
 literal|"java.lang.String"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -313,6 +317,8 @@ name|Integer
 argument_list|(
 literal|4
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -325,6 +331,8 @@ operator|.
 name|toClass
 argument_list|(
 literal|"foo.Bar"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

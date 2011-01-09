@@ -2056,6 +2056,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
 comment|// must signal we are done so the latch can open and let the other thread continue processing
 name|LOG
 operator|.
@@ -2069,6 +2071,7 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -2136,8 +2139,6 @@ name|total
 operator|.
 name|get
 argument_list|()
-operator|||
-name|stoppedOnException
 condition|)
 block|{
 if|if

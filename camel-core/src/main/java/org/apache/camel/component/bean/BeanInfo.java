@@ -1089,6 +1089,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no name or type
 name|methodInfo
 operator|=
 name|chooseMethod
@@ -1097,7 +1098,7 @@ name|pojo
 argument_list|,
 name|exchange
 argument_list|,
-name|name
+literal|null
 argument_list|,
 literal|null
 argument_list|)
