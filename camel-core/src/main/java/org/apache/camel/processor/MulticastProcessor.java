@@ -928,11 +928,6 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
-DECL|field|aggregationExecutorService
-specifier|private
-name|ExecutorService
-name|aggregationExecutorService
-decl_stmt|;
 DECL|field|timeout
 specifier|private
 specifier|final
@@ -1385,6 +1380,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"ExecutorService"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 specifier|final
 name|CompletionService
 argument_list|<
@@ -1518,8 +1524,8 @@ argument_list|,
 name|executionException
 argument_list|)
 decl_stmt|;
-comment|// and start the task using the aggregation execution service
-name|aggregationExecutorService
+comment|// and start the aggregation task so we can aggregate on-the-fly
+name|executorService
 operator|.
 name|submit
 argument_list|(
@@ -2254,7 +2260,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// take will wait until the task is complete
 if|if
 condition|(
 name|LOG
@@ -2273,13 +2278,30 @@ name|aggregated
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we must not block so poll every second
 name|future
 operator|=
 name|completion
 operator|.
-name|take
-argument_list|()
+name|poll
+argument_list|(
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|future
+operator|==
+literal|null
+condition|)
+block|{
+comment|// and continue loop which will recheck if we are done
+continue|continue;
+block|}
 block|}
 if|if
 condition|(
@@ -4295,28 +4317,6 @@ argument_list|(
 literal|"Timeout is used but ParallelProcessing has not been enabled"
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|isParallelProcessing
-argument_list|()
-condition|)
-block|{
-name|aggregationExecutorService
-operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceStrategy
-argument_list|()
-operator|.
-name|newCachedThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"AggregationTask"
-argument_list|)
-expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
