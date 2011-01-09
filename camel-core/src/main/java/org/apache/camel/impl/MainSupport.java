@@ -412,6 +412,85 @@ specifier|protected
 name|ProducerTemplate
 name|camelTemplate
 decl_stmt|;
+comment|/**      * A class for intercepting the hang up signal and do a graceful shutdown of the Camel.      */
+DECL|class|HangupInterceptor
+specifier|private
+specifier|final
+class|class
+name|HangupInterceptor
+extends|extends
+name|Thread
+block|{
+DECL|field|log
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
+DECL|field|mainInstance
+name|MainSupport
+name|mainInstance
+decl_stmt|;
+DECL|method|HangupInterceptor (MainSupport main)
+specifier|public
+name|HangupInterceptor
+parameter_list|(
+name|MainSupport
+name|main
+parameter_list|)
+block|{
+name|mainInstance
+operator|=
+name|main
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|run ()
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Received hang up - stopping the main instance."
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|mainInstance
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 DECL|method|MainSupport ()
 specifier|protected
 name|MainSupport
@@ -699,7 +778,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Runs this process with the given arguments      */
+comment|/**      * Runs this process with the given arguments, and will wait until completed, or the JVM terminates.      */
 DECL|method|run ()
 specifier|public
 name|void
@@ -756,6 +835,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Enables the hangup support. Gracefully stops by calling stop() on a      * Hangup signal.      */
+DECL|method|enableHangupSupport ()
+specifier|public
+name|void
+name|enableHangupSupport
+parameter_list|()
+block|{
+name|HangupInterceptor
+name|interceptor
+init|=
+operator|new
+name|HangupInterceptor
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|addShutdownHook
+argument_list|(
+name|interceptor
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Callback to run custom logic after CamelContext has been started      */
 DECL|method|afterStart ()
