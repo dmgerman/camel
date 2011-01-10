@@ -4389,9 +4389,22 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use cached thread pool so we ensure the aggregate on-the-fly task always will have assigned a thread
+comment|// use unbounded thread pool so we ensure the aggregate on-the-fly task always will have assigned a thread
 comment|// and run the tasks when the task is submitted. If not then the aggregate task may not be able to run
 comment|// and signal completion during processing, which would lead to a dead-lock
+comment|// keep at least one thread in the pool so we re-use the thread avoiding to create new threads because
+comment|// the pool shrank to zero.
+name|String
+name|name
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"-AggregateTask"
+decl_stmt|;
 name|aggregateExecutorService
 operator|=
 name|camelContext
@@ -4399,11 +4412,17 @@ operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newCachedThreadPool
+name|newThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"AggregateTask"
+name|name
+argument_list|,
+literal|1
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
