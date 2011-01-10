@@ -119,6 +119,16 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|messageFrequency
+specifier|private
+name|long
+name|messageFrequency
+decl_stmt|;
+DECL|field|currentMessageCount
+specifier|private
+name|long
+name|currentMessageCount
+decl_stmt|;
 DECL|field|samplePeriod
 specifier|private
 name|long
@@ -166,6 +176,44 @@ operator|new
 name|SampleStats
 argument_list|()
 decl_stmt|;
+DECL|method|SamplingThrottler (Processor processor, long messageFrequency)
+specifier|public
+name|SamplingThrottler
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|long
+name|messageFrequency
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|messageFrequency
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"A positive value is required for the sampling message frequency"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|messageFrequency
+operator|=
+name|messageFrequency
+expr_stmt|;
+block|}
 DECL|method|SamplingThrottler (Processor processor, long samplePeriod, TimeUnit units)
 specifier|public
 name|SamplingThrottler
@@ -247,6 +295,28 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|messageFrequency
+operator|>
+literal|0
+condition|)
+block|{
+return|return
+literal|"SamplingThrottler[1 exchange per: "
+operator|+
+name|messageFrequency
+operator|+
+literal|" messages received -> "
+operator|+
+name|getProcessor
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"SamplingThrottler[1 exchange per: "
 operator|+
@@ -270,11 +340,29 @@ operator|+
 literal|"]"
 return|;
 block|}
+block|}
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
 name|getTraceLabel
 parameter_list|()
+block|{
+if|if
+condition|(
+name|messageFrequency
+operator|>
+literal|0
+condition|)
+block|{
+return|return
+literal|"samplingThrottler[1 exchange per: "
+operator|+
+name|messageFrequency
+operator|+
+literal|" messages received]"
+return|;
+block|}
+else|else
 block|{
 return|return
 literal|"samplingThrottler[1 exchange per: "
@@ -293,6 +381,7 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -317,6 +406,33 @@ synchronized|synchronized
 init|(
 name|calculationLock
 init|)
+block|{
+if|if
+condition|(
+name|messageFrequency
+operator|>
+literal|0
+condition|)
+block|{
+name|currentMessageCount
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|currentMessageCount
+operator|%
+name|messageFrequency
+operator|==
+literal|0
+condition|)
+block|{
+name|doSend
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 name|long
 name|now
@@ -383,6 +499,7 @@ name|drop
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

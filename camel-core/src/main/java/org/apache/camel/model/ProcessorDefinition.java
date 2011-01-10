@@ -4913,6 +4913,34 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/sampling.html">Sampling Throttler</a>      * Creates a sampling throttler allowing you to extract a sample of exchanges      * from the traffic through a route. It is configured with a sampling message frequency      * during which only a single exchange is allowed to pass through.      * All other exchanges will be stopped.      *      * @param messageFrequency this is the sample message frequency, only one exchange is       *              allowed through for this many messages received      * @return the builder      */
+DECL|method|sample (long messageFrequency)
+specifier|public
+name|SamplingDefinition
+name|sample
+parameter_list|(
+name|long
+name|messageFrequency
+parameter_list|)
+block|{
+name|SamplingDefinition
+name|answer
+init|=
+operator|new
+name|SamplingDefinition
+argument_list|(
+name|messageFrequency
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
 DECL|method|split ()
 specifier|public

@@ -197,6 +197,14 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|()
+DECL|field|messageFrequency
+specifier|private
+name|Long
+name|messageFrequency
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|()
 annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
@@ -238,6 +246,21 @@ operator|=
 name|units
 expr_stmt|;
 block|}
+DECL|method|SamplingDefinition (long messageFrequency)
+specifier|public
+name|SamplingDefinition
+parameter_list|(
+name|long
+name|messageFrequency
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageFrequency
+operator|=
+name|messageFrequency
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -245,6 +268,29 @@ specifier|public
 name|String
 name|toString
 parameter_list|()
+block|{
+if|if
+condition|(
+name|messageFrequency
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Sample[1 Exchange per "
+operator|+
+name|getMessageFrequency
+argument_list|()
+operator|+
+literal|" messages received -> "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
 block|{
 return|return
 literal|"Sample[1 Exchange per "
@@ -271,6 +317,7 @@ operator|+
 literal|"]"
 return|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()
@@ -291,6 +338,24 @@ name|String
 name|getLabel
 parameter_list|()
 block|{
+if|if
+condition|(
+name|messageFrequency
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"sample[1 Exchange per "
+operator|+
+name|getMessageFrequency
+argument_list|()
+operator|+
+literal|" messages received]"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"sample[1 Exchange per "
 operator|+
@@ -310,6 +375,7 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -336,6 +402,25 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|messageFrequency
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|SamplingThrottler
+argument_list|(
+name|childProcessor
+argument_list|,
+name|messageFrequency
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 comment|// should default be 1 sample period
 name|long
 name|time
@@ -378,8 +463,28 @@ name|tu
 argument_list|)
 return|;
 block|}
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the sample message count which only a single {@link org.apache.camel.Exchange} will pass through after this many received.      *      * @param messageFrequency       * @return the builder      */
+DECL|method|sampleMessageFrequency (long messageFrequency)
+specifier|public
+name|SamplingDefinition
+name|sampleMessageFrequency
+parameter_list|(
+name|long
+name|messageFrequency
+parameter_list|)
+block|{
+name|setMessageFrequency
+argument_list|(
+name|messageFrequency
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the sample period during which only a single {@link org.apache.camel.Exchange} will pass through.      *      * @param samplePeriod the period      * @return the builder      */
 DECL|method|samplePeriod (long samplePeriod)
 specifier|public
@@ -444,6 +549,32 @@ operator|.
 name|samplePeriod
 operator|=
 name|samplePeriod
+expr_stmt|;
+block|}
+DECL|method|getMessageFrequency ()
+specifier|public
+name|Long
+name|getMessageFrequency
+parameter_list|()
+block|{
+return|return
+name|messageFrequency
+return|;
+block|}
+DECL|method|setMessageFrequency (Long messageFrequency)
+specifier|public
+name|void
+name|setMessageFrequency
+parameter_list|(
+name|Long
+name|messageFrequency
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageFrequency
+operator|=
+name|messageFrequency
 expr_stmt|;
 block|}
 DECL|method|setUnits (String units)
