@@ -342,11 +342,17 @@ name|SedaConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|conumserMulticastProcessor
+DECL|field|consumerMulticastProcessor
 specifier|private
 specifier|volatile
 name|MulticastProcessor
-name|conumserMulticastProcessor
+name|consumerMulticastProcessor
+decl_stmt|;
+DECL|field|multicastStarted
+specifier|private
+specifier|volatile
+name|boolean
+name|multicastStarted
 decl_stmt|;
 DECL|method|SedaEndpoint ()
 specifier|public
@@ -598,15 +604,40 @@ return|return
 name|queue
 return|;
 block|}
-DECL|method|getConumserMulticastProcessor ()
+DECL|method|getConsumerMulticastProcessor ()
 specifier|protected
 specifier|synchronized
 name|MulticastProcessor
-name|getConumserMulticastProcessor
+name|getConsumerMulticastProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|multicastStarted
+operator|&&
+name|consumerMulticastProcessor
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// only start it on-demand to avoid starting it during stopping
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|consumerMulticastProcessor
+argument_list|)
+expr_stmt|;
+name|multicastStarted
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
-name|conumserMulticastProcessor
+name|consumerMulticastProcessor
 return|;
 block|}
 DECL|method|updateMulticastProcessor ()
@@ -620,7 +651,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|conumserMulticastProcessor
+name|consumerMulticastProcessor
 operator|!=
 literal|null
 condition|)
@@ -629,7 +660,7 @@ name|ServiceHelper
 operator|.
 name|stopService
 argument_list|(
-name|conumserMulticastProcessor
+name|consumerMulticastProcessor
 argument_list|)
 expr_stmt|;
 block|}
@@ -653,7 +684,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// stop the multicastExecutor
+comment|// stop the multicast executor as its not needed anymore when size is zero
 name|getCamelContext
 argument_list|()
 operator|.
@@ -673,14 +704,18 @@ block|}
 if|if
 condition|(
 name|size
-operator|==
+operator|>
 literal|1
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|multicastExecutor
 operator|==
 literal|null
 condition|)
 block|{
+comment|// create multicast executor as we need it when we have more than 1 processor
 name|multicastExecutor
 operator|=
 name|getCamelContext
@@ -700,6 +735,7 @@ literal|"(multicast)"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// create list of consumers to multicast to
 name|List
 argument_list|<
 name|Processor
@@ -735,7 +771,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|conumserMulticastProcessor
+comment|// create multicast processor
+name|multicastStarted
+operator|=
+literal|false
+expr_stmt|;
+name|consumerMulticastProcessor
 operator|=
 operator|new
 name|MulticastProcessor
@@ -758,13 +799,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|conumserMulticastProcessor
-argument_list|)
+block|}
+else|else
+block|{
+comment|// not needed
+name|consumerMulticastProcessor
+operator|=
+literal|null
 expr_stmt|;
+block|}
 block|}
 DECL|method|setQueue (BlockingQueue<Exchange> queue)
 specifier|public
@@ -1058,9 +1101,16 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isMultipleConsumers
+argument_list|()
+condition|)
+block|{
 name|updateMulticastProcessor
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|onStopped (SedaConsumer consumer)
 name|void
@@ -1079,9 +1129,16 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isMultipleConsumers
+argument_list|()
+condition|)
+block|{
 name|updateMulticastProcessor
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

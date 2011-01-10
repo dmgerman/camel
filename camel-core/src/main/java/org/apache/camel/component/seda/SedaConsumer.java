@@ -847,7 +847,7 @@ name|mp
 init|=
 name|endpoint
 operator|.
-name|getConumserMulticastProcessor
+name|getConsumerMulticastProcessor
 argument_list|()
 decl_stmt|;
 comment|// and use the asynchronous routing engine to support it
