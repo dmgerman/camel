@@ -592,6 +592,22 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|SubmitOrderedCompletionService
 import|;
 end_import
@@ -814,19 +830,6 @@ name|begin
 parameter_list|()
 block|{
 comment|// noop
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"ProcessorExchangePair #"
-operator|+
-name|index
-operator|+
-literal|" begin: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|done ()
 specifier|public
@@ -835,19 +838,6 @@ name|done
 parameter_list|()
 block|{
 comment|// noop
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"ProcessorExchangePair #"
-operator|+
-name|index
-operator|+
-literal|" done: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Class that represents prepared fine grained error handlers when processing multicasted/splitted exchanges      *<p/>      * See the<tt>createProcessorExchangePair</tt> and<tt>createErrorHandler</tt> methods.      */
@@ -2189,6 +2179,28 @@ operator|.
 name|poll
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polled completion task #"
+operator|+
+name|aggregated
+operator|+
+literal|" after timeout to grab already completed tasks: "
+operator|+
+name|future
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -2402,9 +2414,42 @@ literal|". This task will be cancelled and will not be aggregated."
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Timeout occurred after "
+operator|+
+name|timeout
+operator|+
+literal|" millis for number "
+operator|+
+name|aggregated
+operator|+
+literal|" task."
+argument_list|)
+expr_stmt|;
+block|}
 name|timedOut
 operator|=
 literal|true
+expr_stmt|;
+comment|// mark that index as timed out, which allows us to try to retrieve
+comment|// any already completed tasks in the next loop
+name|ExecutorServiceHelper
+operator|.
+name|timeoutTask
+argument_list|(
+name|completion
+argument_list|)
 expr_stmt|;
 block|}
 else|else

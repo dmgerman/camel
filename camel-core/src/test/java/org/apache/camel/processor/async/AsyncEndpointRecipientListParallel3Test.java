@@ -253,7 +253,7 @@ name|recipientList
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Hi Camel,direct:foo"
+literal|"async:Hi Camel?delay=2000,direct:foo"
 argument_list|)
 argument_list|)
 operator|.
