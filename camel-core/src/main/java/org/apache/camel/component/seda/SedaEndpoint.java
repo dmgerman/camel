@@ -232,6 +232,20 @@ name|BrowsableEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version $Revision$  */
 end_comment
@@ -601,7 +615,24 @@ specifier|synchronized
 name|void
 name|updateMulticastProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+if|if
+condition|(
+name|conumserMulticastProcessor
+operator|!=
+literal|null
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|conumserMulticastProcessor
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|size
 init|=
@@ -725,6 +756,13 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|conumserMulticastProcessor
 argument_list|)
 expr_stmt|;
 block|}
@@ -1010,6 +1048,8 @@ parameter_list|(
 name|SedaConsumer
 name|consumer
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|consumers
 operator|.
@@ -1029,6 +1069,8 @@ parameter_list|(
 name|SedaConsumer
 name|consumer
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|consumers
 operator|.

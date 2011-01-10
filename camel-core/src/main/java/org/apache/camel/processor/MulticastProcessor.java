@@ -918,6 +918,11 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|aggregateExecutorService
+specifier|private
+name|ExecutorService
+name|aggregateExecutorService
+decl_stmt|;
 DECL|field|timeout
 specifier|private
 specifier|final
@@ -1381,6 +1386,17 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|aggregateExecutorService
+argument_list|,
+literal|"AggregateExecutorService"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 specifier|final
 name|CompletionService
 argument_list|<
@@ -1515,7 +1531,7 @@ name|executionException
 argument_list|)
 decl_stmt|;
 comment|// and start the aggregation task so we can aggregate on-the-fly
-name|executorService
+name|aggregateExecutorService
 operator|.
 name|submit
 argument_list|(
@@ -2057,9 +2073,16 @@ block|{
 comment|// must signal we are done so the latch can open and let the other thread continue processing
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Signaling we are done aggregating on the fly"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Aggregate on the fly task +++ done +++"
 argument_list|)
 expr_stmt|;
 name|aggregationOnTheFlyDone
@@ -2068,13 +2091,6 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Aggregate on the fly task +++ done +++"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|aggregateOnTheFly ()
 specifier|private
@@ -4362,6 +4378,34 @@ argument_list|(
 literal|"Timeout is used but ParallelProcessing has not been enabled"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|isParallelProcessing
+argument_list|()
+operator|&&
+name|aggregateExecutorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use cached thread pool so we ensure the aggregate on-the-fly task always will have assigned a thread
+comment|// and run the tasks when the task is submitted. If not then the aggregate task may not be able to run
+comment|// and signal completion during processing, which would lead to a dead-lock
+name|aggregateExecutorService
+operator|=
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|newCachedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"AggregateTask"
+argument_list|)
+expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.

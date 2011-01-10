@@ -160,7 +160,7 @@ name|concurrent
 operator|.
 name|atomic
 operator|.
-name|AtomicInteger
+name|AtomicLong
 import|;
 end_import
 
@@ -243,11 +243,11 @@ decl_stmt|;
 DECL|field|threadCounter
 specifier|private
 specifier|static
-name|AtomicInteger
+name|AtomicLong
 name|threadCounter
 init|=
 operator|new
-name|AtomicInteger
+name|AtomicLong
 argument_list|()
 decl_stmt|;
 DECL|method|ExecutorServiceHelper ()
@@ -258,7 +258,7 @@ block|{     }
 DECL|method|nextThreadCounter ()
 specifier|private
 specifier|static
-name|int
+name|long
 name|nextThreadCounter
 parameter_list|()
 block|{
@@ -673,9 +673,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new cached thread pool      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      * @deprecated using cached thread pool is discouraged as they have no upper bound and can overload the JVM      */
-annotation|@
-name|Deprecated
+comment|/**      * Creates a new cached thread pool.      *<p/>      *<b>Important:</b> Using cached thread pool is discouraged as they have no upper bound and can overload the JVM.      *      * @param pattern pattern of the thread name      * @param name    ${name} in the pattern name      * @param daemon  whether the threads is daemon or not      * @return the created pool      */
 DECL|method|newCachedThreadPool (final String pattern, final String name, final boolean daemon)
 specifier|public
 specifier|static
@@ -757,7 +755,7 @@ name|SynchronousExecutorService
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with an unbounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core pool size      * @param maxPoolSize  the maximum pool size      * @return the created pool      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize)
 specifier|public
 specifier|static
@@ -811,7 +809,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with bounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core size      * @param maxPoolSize  the maximum pool size      * @param maxQueueSize the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @return the created pool      */
+comment|/**      * Creates a new custom thread pool using 60 seconds as keep alive and with bounded queue.      *      * @param pattern      pattern of the thread name      * @param name         ${name} in the pattern name      * @param corePoolSize the core pool size      * @param maxPoolSize  the maximum pool size      * @param maxQueueSize the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @return the created pool      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, int maxQueueSize)
 specifier|public
 specifier|static
@@ -867,7 +865,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param pattern                  pattern of the thread name      * @param name                     ${name} in the pattern name      * @param corePoolSize             the core size      * @param maxPoolSize              the maximum pool size      * @param keepAliveTime            keep alive time      * @param timeUnit                 keep alive time unit      * @param maxQueueSize             the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param rejectedExecutionHandler the handler for tasks which cannot be executed by the thread pool.      *                                 If<tt>null</tt> is provided then {@link java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy CallerRunsPolicy} is used.      * @param daemon                   whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
+comment|/**      * Creates a new custom thread pool      *      * @param pattern                  pattern of the thread name      * @param name                     ${name} in the pattern name      * @param corePoolSize             the core pool size      * @param maxPoolSize              the maximum pool size      * @param keepAliveTime            keep alive time      * @param timeUnit                 keep alive time unit      * @param maxQueueSize             the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param rejectedExecutionHandler the handler for tasks which cannot be executed by the thread pool.      *                                 If<tt>null</tt> is provided then {@link java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy CallerRunsPolicy} is used.      * @param daemon                   whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
 DECL|method|newThreadPool (final String pattern, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, final boolean daemon)
 specifier|public
 specifier|static
