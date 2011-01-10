@@ -98,16 +98,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -185,8 +175,6 @@ end_import
 begin_class
 annotation|@
 name|ContextConfiguration
-annotation|@
-name|Ignore
 DECL|class|JettyJmsTest
 specifier|public
 class|class
@@ -194,7 +182,6 @@ name|JettyJmsTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
-comment|// TODO: Jetty async producer needs to be implemented before this test can pass
 annotation|@
 name|Autowired
 DECL|field|camelContext

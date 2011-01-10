@@ -40,16 +40,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -87,8 +77,6 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettySpringFailoverRoundRobinTest
 specifier|public
 class|class
@@ -96,7 +84,6 @@ name|JettySpringFailoverRoundRobinTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-comment|// TODO: Jetty async producer needs to be implemented before this test can pass
 annotation|@
 name|Override
 DECL|method|createApplicationContext ()
