@@ -94,10 +94,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelExecTest
+DECL|class|CamelRouteboxTest
 specifier|public
 class|class
-name|CamelExecTest
+name|CamelRouteboxTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -110,7 +110,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelExecTest
+name|CamelRouteboxTest
 operator|.
 name|class
 argument_list|)
