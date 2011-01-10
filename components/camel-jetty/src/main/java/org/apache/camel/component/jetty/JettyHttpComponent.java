@@ -791,6 +791,11 @@ specifier|protected
 name|JettyHttpBinding
 name|jettyHttpBinding
 decl_stmt|;
+DECL|field|continuationTimeout
+specifier|protected
+name|Long
+name|continuationTimeout
+decl_stmt|;
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -1079,6 +1084,20 @@ argument_list|,
 literal|"multipartFilterRef"
 argument_list|,
 name|Filter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Long
+name|continuationTimeout
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"continuationTimeout"
+argument_list|,
+name|Long
 operator|.
 name|class
 argument_list|)
@@ -1427,6 +1446,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|continuationTimeout
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setContinuationTimeout
+argument_list|(
+name|continuationTimeout
+argument_list|)
+expr_stmt|;
+block|}
 name|setProperties
 argument_list|(
 name|endpoint
@@ -1631,6 +1665,8 @@ name|endpoint
 operator|.
 name|getHandlers
 argument_list|()
+argument_list|,
+name|endpoint
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3506,9 +3542,35 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getContinuationTimeout ()
+specifier|public
+name|Long
+name|getContinuationTimeout
+parameter_list|()
+block|{
+return|return
+name|continuationTimeout
+return|;
+block|}
+DECL|method|setContinuationTimeout (Long continuationTimeout)
+specifier|public
+name|void
+name|setContinuationTimeout
+parameter_list|(
+name|Long
+name|continuationTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|continuationTimeout
+operator|=
+name|continuationTimeout
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|createServletForConnector (Server server, Connector connector, List<Handler> handlers)
+DECL|method|createServletForConnector (Server server, Connector connector, List<Handler> handlers, JettyHttpEndpoint endpoint)
 specifier|protected
 name|CamelServlet
 name|createServletForConnector
@@ -3524,6 +3586,9 @@ argument_list|<
 name|Handler
 argument_list|>
 name|handlers
+parameter_list|,
+name|JettyHttpEndpoint
+name|endpoint
 parameter_list|)
 throws|throws
 name|Exception
@@ -3650,13 +3715,72 @@ block|}
 block|}
 block|}
 comment|// use Jetty continuations
-name|CamelServlet
+name|CamelContinuationServlet
 name|camelServlet
 init|=
 operator|new
 name|CamelContinuationServlet
 argument_list|()
 decl_stmt|;
+comment|// configure timeout and log it so end user know what we are using
+name|Long
+name|timeout
+init|=
+name|endpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|endpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
+else|:
+name|getContinuationTimeout
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|timeout
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using Jetty continuation timeout: "
+operator|+
+name|timeout
+operator|+
+literal|" millis for: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|camelServlet
+operator|.
+name|setContinuationTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using default Jetty continuation timeout for: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 name|ServletHolder
 name|holder
 init|=

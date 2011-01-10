@@ -225,6 +225,12 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
+comment|// jetty will by default use 30000 millis as default timeout
+DECL|field|continuationTimeout
+specifier|private
+name|Long
+name|continuationTimeout
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|service (HttpServletRequest request, HttpServletResponse response)
@@ -243,6 +249,24 @@ name|ServletException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Service: "
+operator|+
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|// is there a consumer registered for the request.
 name|HttpConsumer
 name|consumer
@@ -303,6 +327,21 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|continuationTimeout
+operator|!=
+literal|null
+condition|)
+block|{
+name|continuation
+operator|.
+name|setTimeout
+argument_list|(
+name|continuationTimeout
+argument_list|)
+expr_stmt|;
+block|}
 comment|// are we suspended and a request is dispatched initially?
 if|if
 condition|(
@@ -571,7 +610,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resuming continuation of exchangeId: "
+literal|"Resumed continuation and writing response for exchangeId: "
 operator|+
 name|result
 operator|.
@@ -613,6 +652,32 @@ throw|throw
 name|e
 throw|;
 block|}
+block|}
+DECL|method|getContinuationTimeout ()
+specifier|public
+name|Long
+name|getContinuationTimeout
+parameter_list|()
+block|{
+return|return
+name|continuationTimeout
+return|;
+block|}
+DECL|method|setContinuationTimeout (Long continuationTimeout)
+specifier|public
+name|void
+name|setContinuationTimeout
+parameter_list|(
+name|Long
+name|continuationTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|continuationTimeout
+operator|=
+name|continuationTimeout
+expr_stmt|;
 block|}
 block|}
 end_class

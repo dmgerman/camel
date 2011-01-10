@@ -218,6 +218,11 @@ specifier|private
 name|Filter
 name|multipartFilter
 decl_stmt|;
+DECL|field|continuationTimeout
+specifier|private
+name|Long
+name|continuationTimeout
+decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
 name|JettyHttpEndpoint
@@ -577,6 +582,32 @@ block|{
 return|return
 name|multipartFilter
 return|;
+block|}
+DECL|method|getContinuationTimeout ()
+specifier|public
+name|Long
+name|getContinuationTimeout
+parameter_list|()
+block|{
+return|return
+name|continuationTimeout
+return|;
+block|}
+DECL|method|setContinuationTimeout (Long continuationTimeout)
+specifier|public
+name|void
+name|setContinuationTimeout
+parameter_list|(
+name|Long
+name|continuationTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|continuationTimeout
+operator|=
+name|continuationTimeout
+expr_stmt|;
 block|}
 block|}
 end_class
