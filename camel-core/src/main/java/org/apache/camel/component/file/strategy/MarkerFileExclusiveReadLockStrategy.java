@@ -454,6 +454,17 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+DECL|method|setCheckInterval (long checkInterval)
+specifier|public
+name|void
+name|setCheckInterval
+parameter_list|(
+name|long
+name|checkInterval
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|deleteLockFiles (File dir, boolean recursive)
 specifier|private
 specifier|static

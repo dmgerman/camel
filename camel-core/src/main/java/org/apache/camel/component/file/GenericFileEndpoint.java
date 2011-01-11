@@ -576,6 +576,13 @@ name|readLock
 init|=
 literal|"none"
 decl_stmt|;
+DECL|field|readLockCheckInterval
+specifier|protected
+name|long
+name|readLockCheckInterval
+init|=
+literal|1000
+decl_stmt|;
 DECL|field|readLockTimeout
 specifier|protected
 name|long
@@ -1822,6 +1829,32 @@ operator|=
 name|readLock
 expr_stmt|;
 block|}
+DECL|method|getReadLockCheckInterval ()
+specifier|public
+name|long
+name|getReadLockCheckInterval
+parameter_list|()
+block|{
+return|return
+name|readLockCheckInterval
+return|;
+block|}
+DECL|method|setReadLockCheckInterval (long readLockCheckInterval)
+specifier|public
+name|void
+name|setReadLockCheckInterval
+parameter_list|(
+name|long
+name|readLockCheckInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockCheckInterval
+operator|=
+name|readLockCheckInterval
+expr_stmt|;
+block|}
 DECL|method|getReadLockTimeout ()
 specifier|public
 name|long
@@ -2258,7 +2291,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set up the exchange properties with the options of the file endpoint      * @param exchange      */
+comment|/**      * Set up the exchange properties with the options of the file endpoint      *      * @param exchange      */
 DECL|method|configureExchange (Exchange exchange)
 specifier|public
 name|void
@@ -2291,7 +2324,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy to configure the move or premove option based on a String input.      *<p/>      * @param expression the original string input      * @return configured string or the original if no modifications is needed      */
+comment|/**      * Strategy to configure the move or premove option based on a String input.      *<p/>      *      * @param expression the original string input      * @return configured string or the original if no modifications is needed      */
 DECL|method|configureMoveOrPreMoveExpression (String expression)
 specifier|protected
 name|String
@@ -2547,6 +2580,23 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|readLockCheckInterval
+operator|>
+literal|0
+condition|)
+block|{
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockCheckInterval"
+argument_list|,
+name|readLockCheckInterval
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|readLockTimeout
 operator|>
 literal|0
@@ -2622,7 +2672,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the associated name of the done file based on the given file name.      *<p/>      * This method should only be invoked if a done filename property has been set on this endpoint.      *      * @param fileName  the file name      * @return name of the associated done file name      */
+comment|/**      * Creates the associated name of the done file based on the given file name.      *<p/>      * This method should only be invoked if a done filename property has been set on this endpoint.      *      * @param fileName the file name      * @return name of the associated done file name      */
 DECL|method|createDoneFileName (String fileName)
 specifier|protected
 name|String
@@ -2805,7 +2855,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Is the given file a done file?      *<p/>      * This method should only be invoked if a done filename property has been set on this endpoint.      *      * @param fileName  the file name      * @return<tt>true</tt> if its a done file,<tt>false</tt> otherwise      */
+comment|/**      * Is the given file a done file?      *<p/>      * This method should only be invoked if a done filename property has been set on this endpoint.      *      * @param fileName the file name      * @return<tt>true</tt> if its a done file,<tt>false</tt> otherwise      */
 DECL|method|isDoneFile (String fileName)
 specifier|protected
 name|boolean

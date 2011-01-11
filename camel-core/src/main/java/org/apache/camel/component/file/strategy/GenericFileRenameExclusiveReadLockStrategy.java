@@ -178,6 +178,11 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+DECL|field|checkInterval
+specifier|private
+name|long
+name|checkInterval
+decl_stmt|;
 DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
 specifier|public
 name|void
@@ -458,7 +463,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for 1000 millis."
+literal|"Exclusive read lock not granted. Sleeping for "
+operator|+
+name|checkInterval
+operator|+
+literal|" millis."
 argument_list|)
 expr_stmt|;
 block|}
@@ -468,7 +477,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+name|checkInterval
 argument_list|)
 expr_stmt|;
 return|return
@@ -517,6 +526,22 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|setCheckInterval (long checkInterval)
+specifier|public
+name|void
+name|setCheckInterval
+parameter_list|(
+name|long
+name|checkInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|checkInterval
+operator|=
+name|checkInterval
 expr_stmt|;
 block|}
 block|}

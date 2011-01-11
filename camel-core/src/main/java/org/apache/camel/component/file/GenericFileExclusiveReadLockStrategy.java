@@ -43,7 +43,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Allows custom logic to be run on startup preparing the strategy, such as removing old lock files etc.      *      * @param operations generic file operations      * @param endpoint the endpoint      * @throws Exception can be thrown in case of errors      */
+comment|/**      * Allows custom logic to be run on startup preparing the strategy, such as removing old lock files etc.      *      * @param operations generic file operations      * @param endpoint   the endpoint      * @throws Exception can be thrown in case of errors      */
 DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
 name|void
 name|prepareOnStartup
@@ -116,6 +116,15 @@ name|setTimeout
 parameter_list|(
 name|long
 name|timeout
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the check interval period.      *<p/>      * The check interval is used for sleeping between attempts to acquire read lock.      * Setting a high value allows to cater for<i>slow writes</i> in case the producer      * of the file is slow.      *<p/>      * The default period is 1000 millis.      *      * @param checkInterval interval in millis      */
+DECL|method|setCheckInterval (long checkInterval)
+name|void
+name|setCheckInterval
+parameter_list|(
+name|long
+name|checkInterval
 parameter_list|)
 function_decl|;
 block|}
