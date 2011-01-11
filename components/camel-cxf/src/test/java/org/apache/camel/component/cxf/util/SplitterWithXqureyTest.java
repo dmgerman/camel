@@ -22,21 +22,13 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
 name|org
 operator|.
-name|apache
-operator|.
-name|xerces
-operator|.
-name|internal
+name|w3c
 operator|.
 name|dom
 operator|.
-name|ElementImpl
+name|Element
 import|;
 end_import
 
@@ -263,11 +255,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ElementImpl
+name|Element
 name|element
 init|=
 operator|(
-name|ElementImpl
+name|Element
 operator|)
 name|exchange
 operator|.
@@ -368,11 +360,11 @@ name|getExchanges
 argument_list|()
 control|)
 block|{
-name|ElementImpl
+name|Element
 name|element
 init|=
 operator|(
-name|ElementImpl
+name|Element
 operator|)
 name|exchange
 operator|.
