@@ -338,7 +338,7 @@ name|HtmlToPdfMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The URL to the confluence page to convert.      *      * @parameter expression="${page}"      *            default-value="http://cwiki.apache.org/confluence/display/CAMEL/Index"      * @required      */
+comment|/**      * The URL to the confluence page to convert.      *      * @parameter expression="${page}"      * @required      */
 DECL|field|page
 specifier|private
 name|String
