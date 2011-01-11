@@ -834,6 +834,10 @@ argument_list|(
 name|logSchedulerService
 argument_list|)
 expr_stmt|;
+name|logSchedulerService
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 DECL|method|createLogMessage (Exchange exchange, int receivedCount)

@@ -1009,6 +1009,13 @@ expr_stmt|;
 comment|// must shutdown executor on stop to avoid overhead of having them running
 comment|// use shutdown now to force the tasks which are polling for new exchanges
 comment|// to stop immediately to avoid them picking up new exchanges arriving in the mean time
+if|if
+condition|(
+name|executor
+operator|!=
+literal|null
+condition|)
+block|{
 name|endpoint
 operator|.
 name|getCamelContext
@@ -1026,6 +1033,7 @@ name|executor
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
