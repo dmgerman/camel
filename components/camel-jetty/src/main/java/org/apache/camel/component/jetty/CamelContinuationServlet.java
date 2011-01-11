@@ -530,6 +530,27 @@ operator|.
 name|suspend
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Processing request for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use the asynchronous API to process the exchange
 name|consumer
 operator|.
@@ -650,6 +671,29 @@ argument_list|)
 expr_stmt|;
 throw|throw
 name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error processing request"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ServletException
+argument_list|(
+name|e
+argument_list|)
 throw|;
 block|}
 block|}

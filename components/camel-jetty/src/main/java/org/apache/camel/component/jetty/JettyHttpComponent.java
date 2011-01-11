@@ -796,6 +796,13 @@ specifier|protected
 name|Long
 name|continuationTimeout
 decl_stmt|;
+DECL|field|useContinuation
+specifier|protected
+name|boolean
+name|useContinuation
+init|=
+literal|true
+decl_stmt|;
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -1098,6 +1105,20 @@ argument_list|,
 literal|"continuationTimeout"
 argument_list|,
 name|Long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Boolean
+name|useContinuation
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"useContinuation"
+argument_list|,
+name|Boolean
 operator|.
 name|class
 argument_list|)
@@ -1458,6 +1479,21 @@ operator|.
 name|setContinuationTimeout
 argument_list|(
 name|continuationTimeout
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useContinuation
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setUseContinuation
+argument_list|(
+name|useContinuation
 argument_list|)
 expr_stmt|;
 block|}
@@ -3568,6 +3604,32 @@ operator|=
 name|continuationTimeout
 expr_stmt|;
 block|}
+DECL|method|isUseContinuation ()
+specifier|public
+name|boolean
+name|isUseContinuation
+parameter_list|()
+block|{
+return|return
+name|useContinuation
+return|;
+block|}
+DECL|method|setUseContinuation (boolean useContinuation)
+specifier|public
+name|void
+name|setUseContinuation
+parameter_list|(
+name|boolean
+name|useContinuation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useContinuation
+operator|=
+name|useContinuation
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|createServletForConnector (Server server, Connector connector, List<Handler> handlers, JettyHttpEndpoint endpoint)
@@ -3714,9 +3776,35 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|CamelServlet
+name|camelServlet
+decl_stmt|;
+name|boolean
+name|jetty
+init|=
+name|endpoint
+operator|.
+name|getUseContinuation
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|endpoint
+operator|.
+name|getUseContinuation
+argument_list|()
+else|:
+name|isUseContinuation
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|jetty
+condition|)
+block|{
 comment|// use Jetty continuations
 name|CamelContinuationServlet
-name|camelServlet
+name|jettyServlet
 init|=
 operator|new
 name|CamelContinuationServlet
@@ -3761,7 +3849,7 @@ operator|+
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|camelServlet
+name|jettyServlet
 operator|.
 name|setContinuationTimeout
 argument_list|(
@@ -3776,6 +3864,31 @@ operator|.
 name|info
 argument_list|(
 literal|"Using default Jetty continuation timeout for: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+comment|// use the jetty servlet
+name|camelServlet
+operator|=
+name|jettyServlet
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// do not use jetty so use a plain servlet
+name|camelServlet
+operator|=
+operator|new
+name|CamelServlet
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Jetty continuation is disabled for: "
 operator|+
 name|endpoint
 argument_list|)

@@ -223,6 +223,11 @@ specifier|private
 name|Long
 name|continuationTimeout
 decl_stmt|;
+DECL|field|useContinuation
+specifier|private
+name|Boolean
+name|useContinuation
+decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
 name|JettyHttpEndpoint
@@ -607,6 +612,32 @@ operator|.
 name|continuationTimeout
 operator|=
 name|continuationTimeout
+expr_stmt|;
+block|}
+DECL|method|getUseContinuation ()
+specifier|public
+name|Boolean
+name|getUseContinuation
+parameter_list|()
+block|{
+return|return
+name|useContinuation
+return|;
+block|}
+DECL|method|setUseContinuation (Boolean useContinuation)
+specifier|public
+name|void
+name|setUseContinuation
+parameter_list|(
+name|Boolean
+name|useContinuation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useContinuation
+operator|=
+name|useContinuation
 expr_stmt|;
 block|}
 block|}
