@@ -24,16 +24,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -104,15 +94,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Somehow camel-spring-ws bundle doesnt register the component"
-argument_list|)
-DECL|class|CamelSpringWsTest
+DECL|class|CamelSyslogTest
 specifier|public
 class|class
-name|CamelSpringWsTest
+name|CamelSyslogTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -125,7 +110,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelSpringWsTest
+name|CamelSyslogTest
 operator|.
 name|class
 argument_list|)
@@ -156,15 +141,10 @@ index|[]
 name|configure
 parameter_list|()
 block|{
-comment|// does not work with felix
 return|return
 name|configure
 argument_list|(
 name|COMPONENT
-argument_list|,
-literal|false
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

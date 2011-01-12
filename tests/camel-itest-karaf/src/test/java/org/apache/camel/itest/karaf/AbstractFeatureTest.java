@@ -862,6 +862,24 @@ name|getKarafFeatureUrl
 parameter_list|()
 block|{
 name|String
+name|karafVersion
+init|=
+literal|"2.1.3"
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"*** The karaf version is "
+operator|+
+name|karafVersion
+operator|+
+literal|" ***"
+argument_list|)
+expr_stmt|;
+name|String
 name|type
 init|=
 literal|"xml/features"
@@ -882,7 +900,7 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|"2.1.0"
+name|karafVersion
 argument_list|)
 operator|.
 name|type

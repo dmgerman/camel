@@ -104,11 +104,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fails with some javax.xml.stream issue"
-argument_list|)
 DECL|class|CamelSpringWebServiceTest
 specifier|public
 class|class
@@ -155,6 +150,10 @@ return|return
 name|configure
 argument_list|(
 name|COMPONENT
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
