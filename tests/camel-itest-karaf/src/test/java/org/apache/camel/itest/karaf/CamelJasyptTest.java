@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -94,6 +104,11 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Does not work on JDK 1.5"
+argument_list|)
 DECL|class|CamelJasyptTest
 specifier|public
 class|class
@@ -125,7 +140,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: how to actually test ?
+comment|// not a component
 block|}
 annotation|@
 name|Configuration

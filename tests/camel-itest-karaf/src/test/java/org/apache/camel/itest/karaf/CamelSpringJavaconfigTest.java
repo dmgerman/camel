@@ -140,7 +140,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: how to test that ?
+comment|// TODO: spring javaconfig is being removed in Camel 3.0
 block|}
 annotation|@
 name|Configuration

@@ -125,11 +125,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testComponent
-argument_list|(
-name|COMPONENT
-argument_list|)
-expr_stmt|;
+comment|// its not a component
 block|}
 annotation|@
 name|Configuration
