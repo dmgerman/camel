@@ -126,7 +126,7 @@ name|test
 operator|.
 name|junit4
 operator|.
-name|CamelTestSupport
+name|TestSupport
 import|;
 end_import
 
@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test with good sample for the wiki documentation  */
+comment|/**  * Example for wiki documentation  */
 end_comment
 
 begin_class
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|AtomGoodBlogsTest
 extends|extends
-name|CamelTestSupport
+name|TestSupport
 block|{
 comment|// START SNIPPET: e1
 comment|// This is the CamelContext that is the heart of Camel
@@ -159,8 +159,6 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-annotation|@
-name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -169,7 +167,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We initialize Camel
+comment|// First we register a blog service in our bean registry
 name|SimpleRegistry
 name|registry
 init|=
@@ -177,7 +175,6 @@ operator|new
 name|SimpleRegistry
 argument_list|()
 decl_stmt|;
-comment|// First we register a blog service in our bean registry
 name|registry
 operator|.
 name|put
@@ -203,25 +200,19 @@ name|context
 operator|.
 name|addRoutes
 argument_list|(
-name|createRouteBuilder
+name|createMyRoutes
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// And finally we must start Camel to let the magic routing begins
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 return|return
 name|context
 return|;
 block|}
-comment|/**      * This is the route builder where we create our routes in the advanced Camel DSL syntax      */
-DECL|method|createRouteBuilder ()
+comment|/**      * This is the route builder where we create our routes using the Camel DSL      */
+DECL|method|createMyRoutes ()
 specifier|protected
 name|RouteBuilder
-name|createRouteBuilder
+name|createMyRoutes
 parameter_list|()
 throws|throws
 name|Exception
@@ -295,7 +286,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * This is the actual junit test method that does the assertion that our routes is working      * as expected      */
+comment|/**      * This is the actual junit test method that does the assertion that our routes is working as expected      */
 annotation|@
 name|Test
 DECL|method|testFiltering ()
@@ -306,6 +297,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// create and start Camel
+name|context
+operator|=
+name|createCamelContext
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// Get the mock endpoint
 name|MockEndpoint
 name|mock
@@ -321,7 +323,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// There should be two good blog entries from the feed
+comment|// There should be at least two good blog entries from the feed
 name|mock
 operator|.
 name|expectedMinimumMessageCount
@@ -335,6 +337,12 @@ comment|// is true sooner Camel will continue
 name|mock
 operator|.
 name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+comment|// stop Camel after use
+name|context
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}
