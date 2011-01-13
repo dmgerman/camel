@@ -149,7 +149,7 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|public
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -174,6 +174,11 @@ name|feed
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|polledMessages
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|hasNextEntry
@@ -191,6 +196,9 @@ name|entryIndex
 operator|--
 argument_list|)
 decl_stmt|;
+name|polledMessages
+operator|++
+expr_stmt|;
 name|boolean
 name|valid
 init|=
@@ -250,7 +258,9 @@ name|throttleEntries
 condition|)
 block|{
 comment|// return and wait for the next poll to continue from last time (this consumer is stateful)
-return|return;
+return|return
+name|polledMessages
+return|;
 block|}
 block|}
 block|}
@@ -262,6 +272,9 @@ expr_stmt|;
 name|resetList
 argument_list|()
 expr_stmt|;
+return|return
+name|polledMessages
+return|;
 block|}
 DECL|method|createEntryFilter (Date lastUpdate)
 specifier|protected

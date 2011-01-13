@@ -302,7 +302,7 @@ literal|"Damn I cannot do this"
 argument_list|)
 throw|;
 block|}
-DECL|method|commit (Consumer consumer, Endpoint endpoint)
+DECL|method|commit (Consumer consumer, Endpoint endpoint, int polledMessages)
 specifier|public
 name|void
 name|commit
@@ -312,6 +312,9 @@ name|consumer
 parameter_list|,
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|int
+name|polledMessages
 parameter_list|)
 block|{
 name|event

@@ -366,7 +366,7 @@ annotation|@
 name|Override
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -473,6 +473,7 @@ name|getMessages
 argument_list|()
 argument_list|)
 decl_stmt|;
+return|return
 name|processBatch
 argument_list|(
 name|CastUtils
@@ -482,7 +483,7 @@ argument_list|(
 name|exchanges
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|createExchanges (List<Message> messages)
 specifier|protected
@@ -568,7 +569,7 @@ return|;
 block|}
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue
@@ -751,6 +752,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|total
+return|;
 block|}
 comment|/**      * Strategy to delete the message after being processed.      *      * @param exchange the exchange      */
 DECL|method|processCommit (Exchange exchange)

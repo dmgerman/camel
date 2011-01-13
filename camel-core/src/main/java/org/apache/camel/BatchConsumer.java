@@ -45,9 +45,9 @@ name|int
 name|maxMessagesPerPoll
 parameter_list|)
 function_decl|;
-comment|/**      * Processes the list of {@link org.apache.camel.Exchange} in a batch.       *<p/>      * Each message exchange will be processed individually but the batch      * consumer will add properties with the current index and total in the batch.      * The items in the Queue may actually be Holder objects that store other       * data alongside the Exchange.      *      * @param exchanges list of items in this batch      * @throws Exception if an internal processing error has occurred.      */
+comment|/**      * Processes the list of {@link org.apache.camel.Exchange} in a batch.       *<p/>      * Each message exchange will be processed individually but the batch      * consumer will add properties with the current index and total in the batch.      * The items in the Queue may actually be Holder objects that store other       * data alongside the Exchange.      *      * @param exchanges list of items in this batch      * @return number of messages actually processed      * @throws Exception if an internal processing error has occurred.      */
 DECL|method|processBatch (Queue<Object> exchanges)
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue

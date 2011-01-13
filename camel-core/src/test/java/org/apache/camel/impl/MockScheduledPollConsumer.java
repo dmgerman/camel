@@ -105,7 +105,7 @@ annotation|@
 name|Override
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -122,6 +122,9 @@ throw|throw
 name|exceptionToThrowOnPoll
 throw|;
 block|}
+return|return
+literal|0
+return|;
 block|}
 DECL|method|setExceptionToThrowOnPoll (Exception exceptionToThrowOnPoll)
 specifier|public

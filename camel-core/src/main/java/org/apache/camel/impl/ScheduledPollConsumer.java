@@ -467,9 +467,12 @@ block|{
 name|retryCounter
 operator|++
 expr_stmt|;
+name|int
+name|polledMessages
+init|=
 name|poll
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|pollStrategy
 operator|.
 name|commit
@@ -478,6 +481,8 @@ name|this
 argument_list|,
 name|getEndpoint
 argument_list|()
+argument_list|,
+name|polledMessages
 argument_list|)
 expr_stmt|;
 block|}
@@ -784,11 +789,11 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception can be thrown if an exception occurred during polling      */
+comment|/**      * The polling method which is invoked periodically to poll this consumer      *      * @return number of messages polled, will be<tt>0</tt> if no message was polled at all.      * @throws Exception can be thrown if an exception occurred during polling      */
 DECL|method|poll ()
 specifier|protected
 specifier|abstract
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws

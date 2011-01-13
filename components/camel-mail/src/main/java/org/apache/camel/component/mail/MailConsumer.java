@@ -447,7 +447,7 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -462,6 +462,11 @@ name|pendingExchanges
 operator|=
 literal|0
 expr_stmt|;
+name|int
+name|polledMessages
+init|=
+literal|0
+decl_stmt|;
 name|ensureIsConnected
 argument_list|()
 expr_stmt|;
@@ -539,7 +544,9 @@ argument_list|(
 literal|"Fetch size is 0 meaning the configuration is set to poll no new messages at all. Camel will skip this poll."
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|0
+return|;
 block|}
 comment|// ensure folder is open
 if|if
@@ -629,6 +636,8 @@ name|getMessages
 argument_list|()
 expr_stmt|;
 block|}
+name|polledMessages
+operator|=
 name|processBatch
 argument_list|(
 name|CastUtils
@@ -725,6 +734,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|polledMessages
+return|;
 block|}
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
@@ -744,7 +756,7 @@ expr_stmt|;
 block|}
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue
@@ -967,6 +979,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|total
+return|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public

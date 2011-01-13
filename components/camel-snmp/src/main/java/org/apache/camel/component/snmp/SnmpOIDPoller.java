@@ -723,7 +723,7 @@ annotation|@
 name|Override
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -789,6 +789,9 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
 block|}
 DECL|method|onResponse (ResponseEvent event)
 specifier|public

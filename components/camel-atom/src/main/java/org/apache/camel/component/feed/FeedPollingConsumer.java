@@ -113,11 +113,24 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+name|Object
+name|feed
+init|=
+name|createFeed
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|feed
+operator|!=
+literal|null
+condition|)
 block|{
 name|Exchange
 name|exchange
@@ -126,8 +139,7 @@ name|endpoint
 operator|.
 name|createExchange
 argument_list|(
-name|createFeed
-argument_list|()
+name|feed
 argument_list|)
 decl_stmt|;
 name|getProcessor
@@ -138,6 +150,16 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 DECL|method|createFeed ()
 specifier|protected

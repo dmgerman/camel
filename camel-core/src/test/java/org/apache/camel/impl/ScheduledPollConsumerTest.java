@@ -153,6 +153,9 @@ name|consumer
 parameter_list|,
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|int
+name|polledMessages
 parameter_list|)
 block|{             }
 specifier|public
@@ -324,6 +327,9 @@ name|consumer
 parameter_list|,
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|int
+name|polledMessages
 parameter_list|)
 block|{
 name|event

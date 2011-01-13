@@ -337,7 +337,7 @@ annotation|@
 name|Override
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -514,6 +514,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// process all the exchanges in this batch
+return|return
 name|processBatch
 argument_list|(
 name|CastUtils
@@ -523,7 +524,7 @@ argument_list|(
 name|answer
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
@@ -543,7 +544,7 @@ expr_stmt|;
 block|}
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue
@@ -766,6 +767,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|total
+return|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public

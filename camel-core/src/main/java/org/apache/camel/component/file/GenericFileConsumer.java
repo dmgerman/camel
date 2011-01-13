@@ -375,7 +375,7 @@ block|}
 comment|/**      * Poll for files      */
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -419,7 +419,9 @@ literal|"Skipping poll as pre poll check returned false"
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|0
+return|;
 block|}
 comment|// gather list of files to process
 name|List
@@ -684,6 +686,9 @@ name|q
 init|=
 name|exchanges
 decl_stmt|;
+name|int
+name|polledMessages
+init|=
 name|processBatch
 argument_list|(
 name|CastUtils
@@ -693,10 +698,13 @@ argument_list|(
 name|q
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|postPollCheck
 argument_list|()
 expr_stmt|;
+return|return
+name|polledMessages
+return|;
 block|}
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
@@ -721,7 +729,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue
@@ -927,6 +935,9 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|total
+return|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public

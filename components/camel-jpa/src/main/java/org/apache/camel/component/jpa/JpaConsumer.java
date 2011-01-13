@@ -411,7 +411,7 @@ annotation|@
 name|Override
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -426,6 +426,9 @@ name|pendingExchanges
 operator|=
 literal|0
 expr_stmt|;
+name|Object
+name|messagePolled
+init|=
 name|template
 operator|.
 name|execute
@@ -533,8 +536,13 @@ name|holder
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|messagePolled
+decl_stmt|;
 try|try
 block|{
+name|messagePolled
+operator|=
 name|processBatch
 argument_list|(
 name|CastUtils
@@ -566,12 +574,30 @@ name|flush
 argument_list|()
 expr_stmt|;
 return|return
-literal|null
+name|messagePolled
 return|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+return|return
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|int
+operator|.
+name|class
+argument_list|,
+name|messagePolled
+argument_list|)
+return|;
 block|}
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
@@ -591,7 +617,7 @@ expr_stmt|;
 block|}
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
-name|void
+name|int
 name|processBatch
 parameter_list|(
 name|Queue
@@ -603,16 +629,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|exchanges
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 name|int
 name|total
 init|=
@@ -823,6 +839,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|total
+return|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public

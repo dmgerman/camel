@@ -152,12 +152,17 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|int
+name|messagesPolled
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|isPollAllowed
@@ -180,6 +185,31 @@ literal|null
 condition|)
 block|{
 break|break;
+block|}
+name|messagesPolled
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Polled "
+operator|+
+name|messagesPolled
+operator|+
+literal|" "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 comment|// if the result of the polled exchange has output we should create a new exchange and
 comment|// use the output as input to the next processor
@@ -228,6 +258,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|messagesPolled
+return|;
 block|}
 annotation|@
 name|Override
