@@ -297,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   * @version $Revision: $  */
+comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/aws-sqs/">AWS SQS</a>  *   * @version $Revision: $  */
 end_comment
 
 begin_class

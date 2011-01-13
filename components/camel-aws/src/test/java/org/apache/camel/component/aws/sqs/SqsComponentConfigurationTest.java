@@ -131,7 +131,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx&secretKey=yyy"
+literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -279,7 +279,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
+literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -445,7 +445,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx&secretKey=yyy&attributeNames=#attributeNames"
+literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy&attributeNames=#attributeNames"
 operator|+
 literal|"&DefaultVisibilityTimeout=1000&visibilityTimeout=2000"
 argument_list|)
@@ -577,7 +577,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx&secretKey=yyy&initialDelay=300&delay=400&maxMessagesPerPoll=50"
+literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy&initialDelay=300&delay=400&maxMessagesPerPoll=50"
 argument_list|)
 decl_stmt|;
 name|SqsConsumer
@@ -654,7 +654,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?secretKey=yyy"
+literal|"aws-sqs://MyQueue?secretKey=yyy"
 argument_list|)
 expr_stmt|;
 block|}
@@ -688,7 +688,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx"
+literal|"aws-sqs://MyQueue?accessKey=xxx"
 argument_list|)
 expr_stmt|;
 block|}

@@ -518,7 +518,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sqs://MyQueue?amazonSQSClient=#amazonSQSClient&delay=5000&maxMessagesPerPoll=5"
+literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient&delay=5000&maxMessagesPerPoll=5"
 argument_list|)
 operator|.
 name|to

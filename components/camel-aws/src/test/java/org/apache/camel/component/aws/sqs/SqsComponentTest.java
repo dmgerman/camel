@@ -636,12 +636,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
+literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
+literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
 argument_list|)
 operator|.
 name|to

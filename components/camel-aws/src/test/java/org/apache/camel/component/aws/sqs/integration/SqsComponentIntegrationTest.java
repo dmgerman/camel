@@ -601,12 +601,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx&secretKey=yyy"
+literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sqs://MyQueue?accessKey=xxx&secretKey=yyy"
+literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy"
 argument_list|)
 operator|.
 name|to
