@@ -264,6 +264,18 @@ name|snmp4j
 operator|.
 name|transport
 operator|.
+name|DefaultTcpTransportMapping
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|snmp4j
+operator|.
+name|transport
+operator|.
 name|DefaultUdpTransportMapping
 import|;
 end_import
@@ -381,13 +393,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Activating oid poller"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|targetAddress
@@ -404,6 +409,43 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// either tcp or udp
+if|if
+condition|(
+literal|"tcp"
+operator|.
+name|equals
+argument_list|(
+name|endpoint
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|transport
+operator|=
+operator|new
+name|DefaultTcpTransportMapping
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"udp"
+operator|.
+name|equals
+argument_list|(
+name|endpoint
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|this
 operator|.
 name|transport
@@ -412,6 +454,22 @@ operator|new
 name|DefaultUdpTransportMapping
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown protocol: "
+operator|+
+name|endpoint
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|snmp
@@ -534,12 +592,63 @@ name|PDU
 argument_list|()
 expr_stmt|;
 comment|// listen to the transport
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting OID poller on "
+operator|+
+name|endpoint
+operator|.
+name|getAddress
+argument_list|()
+operator|+
+literal|" using "
+operator|+
+name|endpoint
+operator|.
+name|getProtocol
+argument_list|()
+operator|+
+literal|" protocol"
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|transport
 operator|.
 name|listen
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started OID poller on "
+operator|+
+name|endpoint
+operator|.
+name|getAddress
+argument_list|()
+operator|+
+literal|" using "
+operator|+
+name|endpoint
+operator|.
+name|getProtocol
+argument_list|()
+operator|+
+literal|" protocol"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -558,17 +667,50 @@ condition|(
 name|this
 operator|.
 name|transport
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|transport
 operator|.
 name|isListening
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopping OID poller on "
+operator|+
+name|targetAddress
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|transport
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopped OID poller on "
+operator|+
+name|targetAddress
+argument_list|)
 expr_stmt|;
 block|}
 name|super
@@ -659,8 +801,7 @@ parameter_list|)
 block|{
 comment|// Always cancel async request when response has been received
 comment|// otherwise a memory leak is created! Not canceling a request
-comment|// immediately can be useful when sending a request to a broadcast
-comment|// address.
+comment|// immediately can be useful when sending a request to a broadcast address.
 operator|(
 operator|(
 name|Snmp
@@ -704,7 +845,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received invalid snmp event. Request: "
+literal|"Received invalid SNMP event. Request: "
 operator|+
 name|event
 operator|.
@@ -796,14 +937,15 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
-name|exchange
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|setException
+name|handleException
 argument_list|(
-name|ex
+name|e
 argument_list|)
 expr_stmt|;
 block|}

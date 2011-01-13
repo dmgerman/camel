@@ -246,6 +246,8 @@ DECL|field|protocol
 specifier|private
 name|String
 name|protocol
+init|=
+literal|"udp"
 decl_stmt|;
 DECL|field|retries
 specifier|private
