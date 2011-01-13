@@ -241,7 +241,7 @@ name|configure
 parameter_list|()
 block|{
 name|Response
-name|OK
+name|ok
 init|=
 name|Response
 operator|.
@@ -274,7 +274,7 @@ name|transform
 argument_list|(
 name|constant
 argument_list|(
-name|OK
+name|ok
 argument_list|)
 argument_list|)
 expr_stmt|;
