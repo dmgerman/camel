@@ -234,6 +234,15 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Connecting to "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|endpoint
 operator|.
 name|getSystem
@@ -269,6 +278,15 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Disconnecting from "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|endpoint
 operator|.
 name|getSystem

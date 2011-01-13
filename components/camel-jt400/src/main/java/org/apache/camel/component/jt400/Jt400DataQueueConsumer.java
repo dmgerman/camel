@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|ibm
@@ -197,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link PollingConsumer} that polls a data queue for data  */
+comment|/**  * {@link org.apache.camel.PollingConsumer} that polls a data queue for data  */
 end_comment
 
 begin_class
@@ -257,6 +269,15 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Connecting to "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|endpoint
 operator|.
 name|getSystem
@@ -292,6 +313,15 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Disconnecting from "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|endpoint
 operator|.
 name|getSystem
@@ -302,7 +332,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@link Jt400DataQueueConsumer#receive(long)}      */
 DECL|method|receive ()
 specifier|public
 name|Exchange
@@ -318,7 +347,6 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * {@link Jt400DataQueueConsumer#receive(long)}      */
 DECL|method|receiveNoWait ()
 specifier|public
 name|Exchange
@@ -362,27 +390,87 @@ operator|>=
 literal|0
 condition|)
 block|{
+name|int
+name|seconds
+init|=
+operator|(
+name|int
+operator|)
+name|timeout
+operator|/
+literal|1000
+decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Reading from data queue: "
+operator|+
+name|queue
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" with "
+operator|+
+name|seconds
+operator|+
+literal|" seconds timeout"
+argument_list|)
+expr_stmt|;
+block|}
 name|entry
 operator|=
 name|queue
 operator|.
 name|read
 argument_list|(
-operator|(
-name|int
-operator|)
-name|timeout
+name|seconds
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Reading from data queue: "
+operator|+
+name|queue
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" with no timeout"
+argument_list|)
+expr_stmt|;
+block|}
 name|entry
 operator|=
 name|queue
 operator|.
 name|read
-argument_list|()
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
 name|Exchange
@@ -463,9 +551,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
@@ -484,9 +572,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
@@ -505,9 +593,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
@@ -526,9 +614,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
@@ -547,9 +635,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
@@ -568,9 +656,9 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Unable to read from data queue: "
 operator|+
-name|e
+name|queue
 operator|.
-name|getMessage
+name|getName
 argument_list|()
 argument_list|,
 name|e
