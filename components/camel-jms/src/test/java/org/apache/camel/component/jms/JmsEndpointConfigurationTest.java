@@ -270,7 +270,7 @@ name|jms
 operator|.
 name|JmsComponent
 operator|.
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -1105,7 +1105,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|endpoint
 operator|.
@@ -2592,7 +2592,7 @@ name|addComponent
 argument_list|(
 literal|"jms"
 argument_list|,
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)

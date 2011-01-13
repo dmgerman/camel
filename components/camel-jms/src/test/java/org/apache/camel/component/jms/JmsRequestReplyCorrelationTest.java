@@ -170,7 +170,7 @@ name|jms
 operator|.
 name|JmsComponent
 operator|.
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -744,7 +744,7 @@ decl_stmt|;
 name|JmsComponent
 name|jmsComponent
 init|=
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)
@@ -768,7 +768,7 @@ expr_stmt|;
 name|JmsComponent
 name|jmsComponent2
 init|=
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)

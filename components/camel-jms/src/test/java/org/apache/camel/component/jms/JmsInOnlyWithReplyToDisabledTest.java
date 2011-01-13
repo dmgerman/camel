@@ -106,7 +106,7 @@ name|jms
 operator|.
 name|JmsComponent
 operator|.
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -206,7 +206,7 @@ name|addComponent
 argument_list|(
 literal|"activemq"
 argument_list|,
-name|jmsComponentClientAcknowledge
+name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)
