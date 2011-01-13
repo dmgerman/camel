@@ -95,7 +95,7 @@ name|useJmx
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 annotation|@
@@ -135,9 +135,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertDefaultDomain
-argument_list|()
-expr_stmt|;
 name|resolveMandatoryEndpoint
 argument_list|(
 literal|"mock:end"
