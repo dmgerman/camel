@@ -957,7 +957,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// DozerClassLoader as a fallback
+comment|// using the classloader of DozerClassLoader as a fallback
 name|url
 operator|=
 name|DozerClassLoader
