@@ -54,18 +54,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ServiceStatus
 import|;
 end_import
@@ -94,20 +82,8 @@ specifier|public
 class|class
 name|ManagedRegisterRouteTest
 extends|extends
-name|ContextTestSupport
+name|ManagementTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|testRoutes ()
 specifier|public
 name|void
@@ -119,14 +95,6 @@ block|{
 name|MBeanServer
 name|mbeanServer
 init|=
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementAgent
-argument_list|()
-operator|.
 name|getMBeanServer
 argument_list|()
 decl_stmt|;

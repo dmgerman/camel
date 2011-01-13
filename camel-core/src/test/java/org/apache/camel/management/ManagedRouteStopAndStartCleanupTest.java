@@ -98,18 +98,6 @@ name|ManagedRouteStopAndStartCleanupTest
 extends|extends
 name|ManagedRouteStopAndStartTest
 block|{
-annotation|@
-name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|testStopAndStartRoute ()
 specifier|public
 name|void
@@ -121,14 +109,6 @@ block|{
 name|MBeanServer
 name|mbeanServer
 init|=
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementAgent
-argument_list|()
-operator|.
 name|getMBeanServer
 argument_list|()
 decl_stmt|;

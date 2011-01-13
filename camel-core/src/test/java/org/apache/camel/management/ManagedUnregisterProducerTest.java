@@ -18,60 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|MBeanServer
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|ObjectName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -120,20 +66,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -144,67 +76,8 @@ specifier|public
 class|class
 name|ManagedUnregisterProducerTest
 extends|extends
-name|ContextTestSupport
+name|ManagementTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-name|DefaultManagementNamingStrategy
-name|naming
-init|=
-operator|(
-name|DefaultManagementNamingStrategy
-operator|)
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementNamingStrategy
-argument_list|()
-decl_stmt|;
-name|naming
-operator|.
-name|setHostName
-argument_list|(
-literal|"localhost"
-argument_list|)
-expr_stmt|;
-name|naming
-operator|.
-name|setDomainName
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
 DECL|method|testUnregisterProducer ()
 specifier|public
 name|void
@@ -270,7 +143,7 @@ name|stop
 argument_list|()
 expr_stmt|;
 comment|// TODO: producers are not managed due they can lead to memory leak CAMEL-2484
-comment|//        MBeanServer mbeanServer = context.getManagementStrategy().getManagementAgent().getMBeanServer();
+comment|//        MBeanServer mbeanServer = getMBeanServer();
 comment|//        Set<ObjectName> set = mbeanServer.queryNames(new ObjectName("*:type=producers,*"), null);
 comment|//        assertEquals(0, set.size());
 comment|//        ObjectName on = set.iterator().next();
