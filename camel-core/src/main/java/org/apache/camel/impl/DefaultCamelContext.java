@@ -4403,7 +4403,7 @@ block|}
 DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean giveUp)
 specifier|public
 specifier|synchronized
-name|void
+name|boolean
 name|stopRoute
 parameter_list|(
 name|String
@@ -4520,6 +4520,9 @@ name|routeService
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|completed
+return|;
 block|}
 block|}
 DECL|method|stopRoute (String routeId)

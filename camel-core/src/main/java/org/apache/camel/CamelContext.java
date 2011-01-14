@@ -883,8 +883,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @param giveUp should give up after timeout      * @return<tt>true</tt> if the route is stopped before the timeout      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String, long, java.util.concurrent.TimeUnit)      */
 DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean giveUp)
-name|void
+name|boolean
 name|stopRoute
 parameter_list|(
 name|String
