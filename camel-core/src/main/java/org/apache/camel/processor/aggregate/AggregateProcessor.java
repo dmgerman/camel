@@ -1074,6 +1074,20 @@ name|exchange
 argument_list|)
 throw|;
 block|}
+comment|// copy exchange, and do not share the unit of work
+comment|// the aggregated output runs in another unit of work
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
 comment|// bound such as JPA etc then concurrent aggregation per correlation key could
 comment|// improve performance as we can run aggregation repository get/add in parallel
@@ -1088,7 +1102,7 @@ name|doAggregation
 argument_list|(
 name|key
 argument_list|,
-name|exchange
+name|copy
 argument_list|)
 expr_stmt|;
 block|}
