@@ -617,102 +617,20 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// at first init the parent
 name|RouteDefinitionHelper
 operator|.
-name|initParent
+name|prepareRoute
 argument_list|(
 name|this
-argument_list|)
-expr_stmt|;
-comment|// abstracts is the cross cutting concerns
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|abstracts
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// upper is the cross cutting concerns such as interceptors, error handlers etc
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|upper
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// lower is the regular route
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|lower
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|RouteDefinitionHelper
-operator|.
-name|prepareRouteForInit
-argument_list|(
-name|this
-argument_list|,
-name|abstracts
-argument_list|,
-name|lower
-argument_list|)
-expr_stmt|;
-comment|// rebuild route as upper + lower
-name|this
-operator|.
-name|clearOutput
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
-argument_list|(
-name|lower
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
-argument_list|(
-literal|0
-argument_list|,
-name|upper
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Marks the route definition as already prepared, for example using custom logic      * such as a {@link RouteBuilder} or from<tt>camel-core-xml</tt> component.      */
-DECL|method|customPrepared ()
+comment|/**      * Marks the route definition as prepared.      *<p/>      * This is needed if routes have been created by components such as      *<tt>camel-spring</tt> or<tt>camel-blueprint</tt>.      * Usually they share logic in the<tt>camel-core-xml</tt> module which prepares the routes.      */
+DECL|method|markPrepared ()
 specifier|public
 name|void
-name|customPrepared
+name|markPrepared
 parameter_list|()
 block|{
 name|prepared
