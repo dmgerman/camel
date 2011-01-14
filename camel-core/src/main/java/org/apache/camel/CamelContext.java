@@ -883,6 +883,25 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean giveUp)
+name|void
+name|stopRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|,
+name|boolean
+name|giveUp
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String)} and {@link #removeRoute(String)}      */
 annotation|@
 name|Deprecated

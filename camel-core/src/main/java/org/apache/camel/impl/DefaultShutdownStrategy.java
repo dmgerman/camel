@@ -482,6 +482,8 @@ name|getTimeUnit
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -519,8 +521,53 @@ argument_list|,
 name|timeUnit
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean giveUp)
+specifier|public
+name|boolean
+name|shutdown
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
+parameter_list|,
+name|boolean
+name|giveUp
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|doShutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|timeout
+argument_list|,
+name|timeUnit
+argument_list|,
+literal|false
+argument_list|,
+name|giveUp
+argument_list|)
+return|;
 block|}
 DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
 specifier|public
@@ -556,12 +603,14 @@ argument_list|,
 name|timeUnit
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly)
+DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean giveUp)
 specifier|protected
-name|void
+name|boolean
 name|doShutdown
 parameter_list|(
 name|CamelContext
@@ -581,6 +630,9 @@ name|timeUnit
 parameter_list|,
 name|boolean
 name|suspendOnly
+parameter_list|,
+name|boolean
+name|giveUp
 parameter_list|)
 throws|throws
 name|Exception
@@ -775,6 +827,25 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|//if set, stop processing and return false to indicate that the shutdown is giving up
+if|if
+condition|(
+name|giveUp
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout occurred. Giving up now."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|shutdownNowOnTimeout
@@ -803,6 +874,7 @@ argument_list|(
 literal|"Timeout occurred. Will ignore shutting down the remainder routes."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -862,6 +934,9 @@ operator|+
 literal|" seconds"
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|setTimeout (long timeout)
 specifier|public
