@@ -457,14 +457,6 @@ name|getReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -479,18 +471,8 @@ name|endpoint
 operator|.
 name|getReplyTo
 argument_list|()
-operator|+
-literal|" queue with "
-operator|+
-name|endpoint
-operator|.
-name|getConcurrentConsumers
-argument_list|()
-operator|+
-literal|" concurrent consumers."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -501,14 +483,6 @@ operator|.
 name|getReplyManager
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -517,17 +491,9 @@ literal|"Using JmsReplyManager: "
 operator|+
 name|replyManager
 operator|+
-literal|" to process replies from temporary queue with "
-operator|+
-name|endpoint
-operator|.
-name|getConcurrentConsumers
-argument_list|()
-operator|+
-literal|" concurrent consumers."
+literal|" to process replies from temporary queue"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch

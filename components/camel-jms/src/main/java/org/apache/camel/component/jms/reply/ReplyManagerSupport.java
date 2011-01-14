@@ -941,6 +941,15 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Starting reply listener container on endpoint: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|listenerContainer
 operator|.
 name|start
@@ -971,6 +980,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Stopping reply listener container on endpoint: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|listenerContainer
 operator|.
 name|stop
