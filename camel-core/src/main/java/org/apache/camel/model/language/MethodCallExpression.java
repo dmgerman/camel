@@ -651,9 +651,6 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-name|Expression
-name|answer
-decl_stmt|;
 if|if
 condition|(
 name|beanType
@@ -670,8 +667,6 @@ argument_list|(
 name|beanType
 argument_list|)
 expr_stmt|;
-comment|// TODO: correct not to validate?
-comment|// answer = new BeanExpression(instance, getMethod(), parameterType);
 return|return
 operator|new
 name|BeanExpression
@@ -693,8 +688,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: correct not to validate?
-comment|// answer = new BeanExpression(instance, getMethod(), parameterType);
 return|return
 operator|new
 name|BeanExpression
@@ -736,21 +729,8 @@ operator|.
 name|getBean
 argument_list|()
 expr_stmt|;
-name|answer
-operator|=
-operator|new
-name|BeanExpression
-argument_list|(
-name|ref
-argument_list|,
-name|getMethod
-argument_list|()
-argument_list|,
-name|parameterType
-argument_list|)
-expr_stmt|;
-block|}
-comment|// validate method
+comment|// only validate when it was a ref for a bean, so we can eager check
+comment|// this on startup of Camel
 name|validateHasMethod
 argument_list|(
 name|camelContext
@@ -764,8 +744,18 @@ name|parameterType
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
+operator|new
+name|BeanExpression
+argument_list|(
+name|ref
+argument_list|,
+name|getMethod
+argument_list|()
+argument_list|,
+name|parameterType
+argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
