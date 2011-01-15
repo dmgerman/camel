@@ -273,10 +273,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|field|type
+DECL|field|parameterType
 specifier|private
 name|Class
-name|type
+name|parameterType
 decl_stmt|;
 DECL|method|BeanProcessor (Object pojo, BeanInfo beanInfo)
 specifier|public
@@ -431,8 +431,6 @@ annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
-literal|"unused"
-block|,
 literal|"rawtypes"
 block|}
 argument_list|)
@@ -462,13 +460,13 @@ decl_stmt|;
 comment|// do we have an explicit parameter type we should invoke if we have multiple possible
 comment|// methods
 name|boolean
-name|isExplicitType
+name|isExplicitParameterType
 init|=
 name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|type
+name|parameterType
 argument_list|)
 decl_stmt|;
 name|Object
@@ -806,7 +804,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isExplicitType
+name|isExplicitParameterType
 condition|)
 block|{
 name|prevType
@@ -832,7 +830,7 @@ name|Exchange
 operator|.
 name|BEAN_TYPE_NAME
 argument_list|,
-name|type
+name|parameterType
 argument_list|)
 expr_stmt|;
 block|}
@@ -1064,7 +1062,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isExplicitType
+name|isExplicitParameterType
 condition|)
 block|{
 name|in
@@ -1348,36 +1346,36 @@ name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|method|getType ()
+DECL|method|getParameterType ()
 specifier|public
 name|Class
-name|getType
+name|getParameterType
 parameter_list|()
 block|{
 return|return
-name|type
+name|parameterType
 return|;
 block|}
-comment|/**      * Sets the type/class name to which the body should converted before the suitable method is      * determined.      * @param type      */
+comment|/**      * Sets the parameter type/class name to which the body should converted before the suitable method is      * determined.      * @param parameterType      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|method|setType (Class type)
+DECL|method|setParameterType (Class parameterType)
 specifier|public
 name|void
-name|setType
+name|setParameterType
 parameter_list|(
 name|Class
-name|type
+name|parameterType
 parameter_list|)
 block|{
 name|this
 operator|.
-name|type
+name|parameterType
 operator|=
-name|type
+name|parameterType
 expr_stmt|;
 block|}
 comment|// Implementation methods

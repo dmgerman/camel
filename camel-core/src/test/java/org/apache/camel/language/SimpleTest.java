@@ -4170,7 +4170,9 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to invoke method: .getFriend.getFriend.getName on null due to: java.lang.NullPointerException"
+literal|"Failed to invoke method: .getFriend.getFriend.getName with "
+operator|+
+literal|"parameter type: null on null due to: java.lang.NullPointerException"
 argument_list|,
 name|e
 operator|.
@@ -4300,7 +4302,9 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to invoke method: .friend.friend.name on null due to: java.lang.NullPointerException"
+literal|"Failed to invoke method: .friend.friend.name with "
+operator|+
+literal|"parameter type: null on null due to: java.lang.NullPointerException"
 argument_list|,
 name|e
 operator|.

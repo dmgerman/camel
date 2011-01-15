@@ -38,20 +38,8 @@ name|Reader
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Handler
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision: 1031258 $  */
 end_comment
 
 begin_class
@@ -60,60 +48,6 @@ specifier|public
 class|class
 name|MyDummyBean
 block|{
-DECL|method|hello (String s)
-specifier|public
-name|String
-name|hello
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-return|return
-literal|"Hello "
-operator|+
-name|s
-return|;
-block|}
-DECL|method|hello (String s, String t)
-specifier|public
-name|String
-name|hello
-parameter_list|(
-name|String
-name|s
-parameter_list|,
-name|String
-name|t
-parameter_list|)
-block|{
-return|return
-literal|"Hello "
-operator|+
-name|s
-operator|+
-literal|" and "
-operator|+
-name|t
-return|;
-block|}
-annotation|@
-name|Handler
-DECL|method|bye (String s)
-specifier|public
-name|String
-name|bye
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-return|return
-literal|"Bye "
-operator|+
-name|s
-return|;
-block|}
 DECL|method|bar (String s)
 specifier|public
 name|String
@@ -190,34 +124,6 @@ parameter_list|)
 block|{
 return|return
 literal|false
-return|;
-block|}
-DECL|method|test ()
-specifier|public
-name|String
-name|test
-parameter_list|()
-block|{
-return|return
-literal|"test"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 return|;
 block|}
 block|}
