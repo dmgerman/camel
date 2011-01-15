@@ -93,7 +93,6 @@ literal|"rawtypes"
 argument_list|)
 DECL|field|parameterTypes
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|Class
@@ -114,16 +113,30 @@ name|String
 name|methodName
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
-name|exchange
-argument_list|,
+literal|"Method with name: "
+operator|+
+name|methodName
+operator|+
+literal|" not found on bean: "
+operator|+
 name|pojo
 argument_list|,
-name|methodName
-argument_list|,
-literal|null
+name|exchange
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|methodName
+operator|=
+name|methodName
+expr_stmt|;
+name|this
+operator|.
+name|bean
+operator|=
+name|pojo
 expr_stmt|;
 block|}
 annotation|@
@@ -185,6 +198,48 @@ operator|.
 name|parameterTypes
 operator|=
 name|parameterTypes
+expr_stmt|;
+block|}
+DECL|method|MethodNotFoundException (Object pojo, String methodName, Throwable cause)
+specifier|public
+name|MethodNotFoundException
+parameter_list|(
+name|Object
+name|pojo
+parameter_list|,
+name|String
+name|methodName
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Method with name: "
+operator|+
+name|methodName
+operator|+
+literal|" not found on bean: "
+operator|+
+name|pojo
+argument_list|,
+literal|null
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|methodName
+operator|=
+name|methodName
+expr_stmt|;
+name|this
+operator|.
+name|bean
+operator|=
+name|pojo
 expr_stmt|;
 block|}
 DECL|method|getMethodName ()
