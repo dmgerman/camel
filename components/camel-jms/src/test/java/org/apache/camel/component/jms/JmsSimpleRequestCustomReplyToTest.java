@@ -580,7 +580,7 @@ name|ActiveMQComponent
 operator|.
 name|activeMQComponent
 argument_list|(
-literal|"vm://localhost?broker.persistent=false"
+literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 decl_stmt|;
 comment|// as this is a unit test I dont want to wait 20 sec before timeout occurs, so we use 10

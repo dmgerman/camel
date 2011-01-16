@@ -469,7 +469,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://localhost?broker.persistent=false"
+literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 decl_stmt|;
 name|camelContext

@@ -260,7 +260,7 @@ literal|"activemq"
 argument_list|,
 name|activeMQComponent
 argument_list|(
-literal|"vm://localhost?broker.persistent=false"
+literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 argument_list|)
 expr_stmt|;
