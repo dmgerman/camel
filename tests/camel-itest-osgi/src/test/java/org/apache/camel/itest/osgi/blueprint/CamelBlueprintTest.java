@@ -422,7 +422,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle1)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|getOsgiService
@@ -433,7 +433,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle1)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 block|}
@@ -529,7 +529,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle2)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|getOsgiService
@@ -540,7 +540,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle2)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 block|}
@@ -636,7 +636,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle3)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|getOsgiService
@@ -647,7 +647,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle3)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 block|}
@@ -677,7 +677,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle4)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|CamelContext
@@ -691,7 +691,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle4)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -734,7 +734,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle5)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 expr_stmt|;
 name|CamelContext
@@ -748,7 +748,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle5)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -794,7 +794,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle6)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -808,7 +808,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle6)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -871,7 +871,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle7)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -885,7 +885,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle7)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -970,7 +970,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle8)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -984,7 +984,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle8)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1051,7 +1051,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle9)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1065,7 +1065,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle9)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1111,7 +1111,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle10)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1125,7 +1125,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle10)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|Object
@@ -1214,7 +1214,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle11)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1228,7 +1228,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle11)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1279,7 +1279,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle12)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1293,7 +1293,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle12)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|Object
@@ -1380,7 +1380,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle14)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1394,7 +1394,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintTestBundle14)"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|assertEquals
