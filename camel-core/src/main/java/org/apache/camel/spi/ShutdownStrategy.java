@@ -131,19 +131,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Shutdown the routes using a specified timeout instead of the default timeout values and supports "give up" mode      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @param timeout   timeout      * @param timeUnit  the unit to use      * @param giveUp    should give up after timeout      * @return<tt>true</tt> if the route is stopped before the timeout      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
-DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean giveUp)
+comment|/**      * Shutdown the route using a specified timeout instead of the default timeout values and supports abortAfterTimeout mode      *      * @param context   the camel context      * @param route     the route      * @param timeout   timeout      * @param timeUnit  the unit to use      * @param abortAfterTimeout   should abort shutdown after timeout      * @return<tt>true</tt> if the route is stopped before the timeout      * @throws Exception is thrown if error shutting down the consumer, however its preferred to avoid this      */
+DECL|method|shutdown (CamelContext context, RouteStartupOrder route, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
 name|boolean
 name|shutdown
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|List
-argument_list|<
 name|RouteStartupOrder
-argument_list|>
-name|routes
+name|route
 parameter_list|,
 name|long
 name|timeout
@@ -152,7 +149,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|,
 name|boolean
-name|giveUp
+name|abortAfterTimeout
 parameter_list|)
 throws|throws
 name|Exception

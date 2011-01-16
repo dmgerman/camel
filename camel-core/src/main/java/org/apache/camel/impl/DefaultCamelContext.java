@@ -4400,7 +4400,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean giveUp)
+DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
 specifier|public
 specifier|synchronized
 name|boolean
@@ -4416,7 +4416,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|,
 name|boolean
-name|giveUp
+name|abortAfterTimeout
 parameter_list|)
 throws|throws
 name|Exception
@@ -4438,23 +4438,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|List
-argument_list|<
 name|RouteStartupOrder
-argument_list|>
-name|routes
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|RouteStartupOrder
-argument_list|>
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|RouteStartupOrder
-name|order
+name|route
 init|=
 operator|new
 name|DefaultRouteStartupOrder
@@ -4475,13 +4460,6 @@ argument_list|,
 name|routeService
 argument_list|)
 decl_stmt|;
-name|routes
-operator|.
-name|add
-argument_list|(
-name|order
-argument_list|)
-expr_stmt|;
 name|boolean
 name|completed
 init|=
@@ -4492,13 +4470,13 @@ name|shutdown
 argument_list|(
 name|this
 argument_list|,
-name|routes
+name|route
 argument_list|,
 name|timeout
 argument_list|,
 name|timeUnit
 argument_list|,
-name|giveUp
+name|abortAfterTimeout
 argument_list|)
 decl_stmt|;
 if|if
@@ -4517,6 +4495,17 @@ expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// shutdown was aborted, make sure route is re-started properly
+name|startRouteService
+argument_list|(
+name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

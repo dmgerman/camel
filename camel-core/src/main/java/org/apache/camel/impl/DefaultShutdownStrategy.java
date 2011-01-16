@@ -526,7 +526,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean giveUp)
+DECL|method|shutdown (CamelContext context, RouteStartupOrder route, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
 specifier|public
 name|boolean
 name|shutdown
@@ -534,11 +534,8 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|List
-argument_list|<
 name|RouteStartupOrder
-argument_list|>
-name|routes
+name|route
 parameter_list|,
 name|long
 name|timeout
@@ -547,11 +544,33 @@ name|TimeUnit
 name|timeUnit
 parameter_list|,
 name|boolean
-name|giveUp
+name|abortAfterTimeout
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|routes
+operator|.
+name|add
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 return|return
 name|doShutdown
 argument_list|(
@@ -565,7 +584,7 @@ name|timeUnit
 argument_list|,
 literal|false
 argument_list|,
-name|giveUp
+name|abortAfterTimeout
 argument_list|)
 return|;
 block|}
@@ -608,7 +627,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean giveUp)
+DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout)
 specifier|protected
 name|boolean
 name|doShutdown
@@ -632,7 +651,7 @@ name|boolean
 name|suspendOnly
 parameter_list|,
 name|boolean
-name|giveUp
+name|abortAfterTimeout
 parameter_list|)
 throws|throws
 name|Exception
@@ -782,6 +801,8 @@ argument_list|,
 name|routesOrdered
 argument_list|,
 name|suspendOnly
+argument_list|,
+name|abortAfterTimeout
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -827,17 +848,17 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//if set, stop processing and return false to indicate that the shutdown is giving up
+comment|// if set, stop processing and return false to indicate that the shutdown is aborting
 if|if
 condition|(
-name|giveUp
+name|abortAfterTimeout
 condition|)
 block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Giving up now."
+literal|"Timeout occurred. Aborting the shutdown now."
 argument_list|)
 expr_stmt|;
 return|return
@@ -1580,7 +1601,13 @@ specifier|final
 name|boolean
 name|suspendOnly
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, boolean suspendOnly)
+DECL|field|abortAfterTimeout
+specifier|private
+specifier|final
+name|boolean
+name|abortAfterTimeout
+decl_stmt|;
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, boolean suspendOnly, boolean abortAfterTimeout)
 specifier|public
 name|ShutdownTask
 parameter_list|(
@@ -1595,6 +1622,9 @@ name|routes
 parameter_list|,
 name|boolean
 name|suspendOnly
+parameter_list|,
+name|boolean
+name|abortAfterTimeout
 parameter_list|)
 block|{
 name|this
@@ -1614,6 +1644,12 @@ operator|.
 name|suspendOnly
 operator|=
 name|suspendOnly
+expr_stmt|;
+name|this
+operator|.
+name|abortAfterTimeout
+operator|=
+name|abortAfterTimeout
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -2139,6 +2175,23 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|abortAfterTimeout
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Interrupted while waiting during graceful shutdown, will abort."
+argument_list|)
+expr_stmt|;
+comment|//Thread.currentThread().interrupt();
+return|return;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|warn
@@ -2155,6 +2208,7 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 else|else
