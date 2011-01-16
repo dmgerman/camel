@@ -509,40 +509,6 @@ name|method
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @param parameterType the parameter type of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|method (String bean, String method, Class parameterType)
-specifier|public
-name|T
-name|method
-parameter_list|(
-name|String
-name|bean
-parameter_list|,
-name|String
-name|method
-parameter_list|,
-name|Class
-name|parameterType
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|method
-argument_list|(
-name|bean
-argument_list|,
-name|method
-argument_list|,
-name|parameterType
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Object instance, String method)
 specifier|public
@@ -564,35 +530,6 @@ argument_list|(
 name|instance
 argument_list|,
 name|method
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @param parameterType the parameter type of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
-DECL|method|method (Object instance, String method, Class parameterType)
-specifier|public
-name|T
-name|method
-parameter_list|(
-name|Object
-name|instance
-parameter_list|,
-name|String
-name|method
-parameter_list|,
-name|Class
-name|parameterType
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|method
-argument_list|(
-name|instance
-argument_list|,
-name|method
-argument_list|,
-name|parameterType
 argument_list|)
 return|;
 block|}
@@ -620,38 +557,6 @@ argument_list|(
 name|beanType
 argument_list|,
 name|method
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @param parameterType the parameter type of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
-DECL|method|method (Class<?> beanType, String method, Class parameterType)
-specifier|public
-name|T
-name|method
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|beanType
-parameter_list|,
-name|String
-name|method
-parameter_list|,
-name|Class
-name|parameterType
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|method
-argument_list|(
-name|beanType
-argument_list|,
-name|method
-argument_list|,
-name|parameterType
 argument_list|)
 return|;
 block|}

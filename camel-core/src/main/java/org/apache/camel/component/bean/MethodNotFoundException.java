@@ -91,14 +91,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|field|parameterTypes
-specifier|private
-name|List
-argument_list|<
-name|Class
-argument_list|>
-name|parameterTypes
-decl_stmt|;
 DECL|method|MethodNotFoundException (Exchange exchange, Object pojo, String methodName)
 specifier|public
 name|MethodNotFoundException
@@ -137,67 +129,6 @@ operator|.
 name|bean
 operator|=
 name|pojo
-expr_stmt|;
-block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|MethodNotFoundException (Exchange exchange, Object pojo, String methodName, List<Class> parameterTypes)
-specifier|public
-name|MethodNotFoundException
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Object
-name|pojo
-parameter_list|,
-name|String
-name|methodName
-parameter_list|,
-name|List
-argument_list|<
-name|Class
-argument_list|>
-name|parameterTypes
-parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"Method with name: "
-operator|+
-name|methodName
-operator|+
-literal|" and parameter types: "
-operator|+
-name|parameterTypes
-operator|+
-literal|" not found on bean: "
-operator|+
-name|pojo
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|methodName
-operator|=
-name|methodName
-expr_stmt|;
-name|this
-operator|.
-name|bean
-operator|=
-name|pojo
-expr_stmt|;
-name|this
-operator|.
-name|parameterTypes
-operator|=
-name|parameterTypes
 expr_stmt|;
 block|}
 DECL|method|MethodNotFoundException (Object pojo, String methodName, Throwable cause)
@@ -260,24 +191,6 @@ parameter_list|()
 block|{
 return|return
 name|bean
-return|;
-block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|getParameterTypes ()
-specifier|public
-name|List
-argument_list|<
-name|Class
-argument_list|>
-name|getParameterTypes
-parameter_list|()
-block|{
-return|return
-name|parameterTypes
 return|;
 block|}
 block|}
