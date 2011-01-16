@@ -283,9 +283,11 @@ literal|"Bye "
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we should disable reply to to avoid sending the message back to our self
+comment|// after we have consumed it
 name|from
 argument_list|(
-literal|"activemq:queue:bar"
+literal|"activemq:queue:bar?disableReplyTo=true"
 argument_list|)
 operator|.
 name|to
