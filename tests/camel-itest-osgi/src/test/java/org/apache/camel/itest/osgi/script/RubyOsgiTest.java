@@ -264,6 +264,11 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"You need an OSGi-ified version of JRuby for this to pass"
+argument_list|)
 DECL|class|RubyOsgiTest
 specifier|public
 class|class
@@ -311,11 +316,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"You need an OSGi-ified version of JRuby for this to pass"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testSendMessage ()
@@ -375,18 +375,6 @@ index|[]
 name|configure
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"URL: "
-operator|+
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Option
 index|[]
 name|options
