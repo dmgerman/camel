@@ -24,7 +24,11 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
 import|;
 end_import
 
@@ -61,15 +65,17 @@ specifier|final
 class|class
 name|CamelJmsTestHelper
 block|{
-DECL|field|ran
+DECL|field|counter
 specifier|private
 specifier|static
-name|Random
-name|ran
+name|AtomicInteger
+name|counter
 init|=
 operator|new
-name|Random
-argument_list|()
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 DECL|method|CamelJmsTestHelper ()
 specifier|private
@@ -87,12 +93,10 @@ comment|// using a unique broker name improves testing when running the entire t
 name|int
 name|id
 init|=
-name|ran
+name|counter
 operator|.
-name|nextInt
-argument_list|(
-literal|100000
-argument_list|)
+name|incrementAndGet
+argument_list|()
 decl_stmt|;
 name|ConnectionFactory
 name|connectionFactory
@@ -100,7 +104,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://broker-"
+literal|"vm://test-broker-"
 operator|+
 name|id
 operator|+
@@ -122,12 +126,10 @@ comment|// using a unique broker name improves testing when running the entire t
 name|int
 name|id
 init|=
-name|ran
+name|counter
 operator|.
-name|nextInt
-argument_list|(
-literal|100000
-argument_list|)
+name|incrementAndGet
+argument_list|()
 decl_stmt|;
 name|ConnectionFactory
 name|connectionFactory
@@ -135,7 +137,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://broker-"
+literal|"vm://test-broker-"
 operator|+
 name|id
 operator|+
