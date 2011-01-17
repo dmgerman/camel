@@ -183,7 +183,7 @@ name|delta
 argument_list|,
 name|delta
 operator|<
-literal|5000
+literal|7000
 argument_list|)
 expr_stmt|;
 block|}
