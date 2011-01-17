@@ -60,18 +60,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -113,6 +101,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|CamelJmsTestHelper
 import|;
 end_import
 
@@ -170,7 +174,7 @@ name|jms
 operator|.
 name|JmsComponent
 operator|.
-name|jmsComponent
+name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -370,11 +374,10 @@ decl_stmt|;
 name|ConnectionFactory
 name|connectionFactory
 init|=
-operator|new
-name|ActiveMQConnectionFactory
-argument_list|(
-literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
-argument_list|)
+name|CamelJmsTestHelper
+operator|.
+name|createConnectionFactory
+argument_list|()
 decl_stmt|;
 name|camelContext
 operator|.
@@ -382,7 +385,7 @@ name|addComponent
 argument_list|(
 literal|"activemq"
 argument_list|,
-name|jmsComponent
+name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)

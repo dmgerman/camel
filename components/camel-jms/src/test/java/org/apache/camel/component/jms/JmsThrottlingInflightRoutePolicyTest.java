@@ -340,11 +340,10 @@ decl_stmt|;
 name|ConnectionFactory
 name|connectionFactory
 init|=
-operator|new
-name|ActiveMQConnectionFactory
-argument_list|(
-literal|"vm://localhost?broker.persistent=true&broker.useJmx=false"
-argument_list|)
+name|CamelJmsTestHelper
+operator|.
+name|createPersistentConnectionFactory
+argument_list|()
 decl_stmt|;
 name|camelContext
 operator|.

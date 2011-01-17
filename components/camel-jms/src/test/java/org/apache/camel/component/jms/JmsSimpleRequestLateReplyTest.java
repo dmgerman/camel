@@ -36,6 +36,16 @@ name|javax
 operator|.
 name|jms
 operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
 name|Destination
 import|;
 end_import
@@ -47,22 +57,6 @@ operator|.
 name|jms
 operator|.
 name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|activemq
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|ActiveMQComponent
 import|;
 end_import
 
@@ -220,6 +214,24 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentAutoAcknowledge
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple requesr / late reply test using InOptionalOut.  */
 end_comment
@@ -275,7 +287,7 @@ literal|"Late Reply"
 decl_stmt|;
 DECL|field|activeMQComponent
 specifier|protected
-name|ActiveMQComponent
+name|JmsComponent
 name|activeMQComponent
 decl_stmt|;
 DECL|field|latch
@@ -357,7 +369,7 @@ throws|throws
 name|InterruptedException
 block|{
 comment|// use another thread to send the late reply to simulate that we do it later, not
-comment|// from the origianl route anyway
+comment|// from the original route anyway
 name|Thread
 name|sender
 init|=
@@ -738,13 +750,37 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|ConnectionFactory
+name|connectionFactory
+init|=
+name|CamelJmsTestHelper
+operator|.
+name|createConnectionFactory
+argument_list|()
+decl_stmt|;
+name|camelContext
+operator|.
+name|addComponent
+argument_list|(
+literal|"activemq"
+argument_list|,
+name|jmsComponentAutoAcknowledge
+argument_list|(
+name|connectionFactory
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|activeMQComponent
 operator|=
-name|ActiveMQComponent
+name|camelContext
 operator|.
-name|activeMQComponent
+name|getComponent
 argument_list|(
-literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
+literal|"activemq"
+argument_list|,
+name|JmsComponent
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// as this is a unit test I dont want to wait 20 sec before timeout occurs, so we use 10
@@ -756,15 +792,6 @@ operator|.
 name|setRequestTimeout
 argument_list|(
 literal|10000
-argument_list|)
-expr_stmt|;
-name|camelContext
-operator|.
-name|addComponent
-argument_list|(
-literal|"activemq"
-argument_list|,
-name|activeMQComponent
 argument_list|)
 expr_stmt|;
 return|return

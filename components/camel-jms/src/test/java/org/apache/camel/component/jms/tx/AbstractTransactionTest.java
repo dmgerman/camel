@@ -290,6 +290,7 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+comment|// should be 1 completed and 1 failed
 name|NotifyBuilder
 name|notify
 init|=
@@ -301,7 +302,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|.
 name|create
