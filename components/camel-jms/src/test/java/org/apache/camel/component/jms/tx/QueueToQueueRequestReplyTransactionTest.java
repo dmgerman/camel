@@ -149,7 +149,7 @@ init|=
 operator|new
 name|ConditionalExceptionProcessor
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 decl_stmt|;
 name|context
@@ -303,7 +303,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+literal|5
 condition|;
 operator|++
 name|i

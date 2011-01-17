@@ -193,7 +193,7 @@ block|{
 name|int
 name|size
 init|=
-literal|1000
+literal|100
 decl_stmt|;
 name|LOG
 operator|.
