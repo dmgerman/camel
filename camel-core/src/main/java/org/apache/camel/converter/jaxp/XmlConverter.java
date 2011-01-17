@@ -674,7 +674,7 @@ block|}
 name|Transformer
 name|transformer
 init|=
-name|createTransfomer
+name|createTransformer
 argument_list|()
 decl_stmt|;
 if|if
@@ -3367,10 +3367,26 @@ operator|=
 name|transformerFactory
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #createTransformer}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|createTransfomer ()
 specifier|public
 name|Transformer
 name|createTransfomer
+parameter_list|()
+throws|throws
+name|TransformerConfigurationException
+block|{
+return|return
+name|createTransformer
+argument_list|()
+return|;
+block|}
+DECL|method|createTransformer ()
+specifier|public
+name|Transformer
+name|createTransformer
 parameter_list|()
 throws|throws
 name|TransformerConfigurationException
