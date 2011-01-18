@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for unit testing using a secure FTP Server (over SSL/TLS)  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * Abstract base class for unit testing using a secure FTP Server (over SSL/TLS)  *   * @version $Revision$  */
 end_comment
 
 begin_class

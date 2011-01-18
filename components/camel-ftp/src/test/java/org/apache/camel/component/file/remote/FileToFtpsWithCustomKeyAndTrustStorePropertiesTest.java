@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the ftps component over SSL (explicit) and without client authentication  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * Test the ftps component over SSL (explicit) and without client authentication  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -84,7 +84,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000&disableSecureDataChannelDefaults=true"
+literal|"/tmp2/camel?password=admin&consumer.initialDelay=2000&disableSecureDataChannelDefaults=true"
 operator|+
 literal|"&securityProtocol=SSL&isImplicit=false&ftpClient.keyStore.file=./src/test/resources/server.jks&ftpClient.keyStore.type=JKS"
 operator|+
@@ -92,7 +92,7 @@ literal|"&ftpClient.keyStore.algorithm=SunX509&ftpClient.keyStore.password=passw
 operator|+
 literal|"&ftpClient.trustStore.file=./src/test/resources/server.jks&ftpClient.trustStore.type=JKS"
 operator|+
-literal|"&ftpClient.trustStore.algorithm=SunX509&ftpClient.trustStore.password=password"
+literal|"&ftpClient.trustStore.algorithm=SunX509&ftpClient.trustStore.password=password&delete=true"
 return|;
 block|}
 annotation|@
@@ -155,6 +155,22 @@ name|Exception
 block|{
 name|from
 argument_list|(
+literal|"file:src/main/data?noop=true"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Got ${file:name}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|getFtpUrl
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|)
@@ -162,17 +178,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"file:src/main/data?noop=true&consumer.delay=5000"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|getFtpUrl
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
