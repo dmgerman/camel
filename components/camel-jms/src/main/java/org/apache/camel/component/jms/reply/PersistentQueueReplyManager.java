@@ -588,8 +588,6 @@ operator|.
 name|this
 init|)
 block|{
-try|try
-block|{
 comment|// resolve the reply to destination
 if|if
 condition|(
@@ -615,17 +613,6 @@ name|setReplyTo
 argument_list|(
 name|destination
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-name|PersistentQueueReplyManager
-operator|.
-name|this
-operator|.
-name|notifyAll
-argument_list|()
 expr_stmt|;
 block|}
 block|}

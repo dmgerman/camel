@@ -741,34 +741,6 @@ block|}
 name|initReplyManager
 argument_list|()
 expr_stmt|;
-comment|// note due to JMS transaction semantics we cannot use a single transaction
-comment|// for sending the request and receiving the response
-specifier|final
-name|Destination
-name|replyTo
-init|=
-name|replyManager
-operator|.
-name|getReplyTo
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|replyTo
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeExchangeException
-argument_list|(
-literal|"Failed to resolve replyTo destination"
-argument_list|,
-name|exchange
-argument_list|)
-throw|;
-block|}
 comment|// when using message id as correlation id, we need at first to use a provisional correlation id
 comment|// which we then update to the real JMSMessageID when the message has been sent
 comment|// this is done with the help of the MessageSentCallback
@@ -915,6 +887,32 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|// get the reply to destination to be used from the reply manager
+name|Destination
+name|replyTo
+init|=
+name|replyManager
+operator|.
+name|getReplyTo
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|replyTo
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Failed to resolve replyTo destination"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setJMSReplyTo
