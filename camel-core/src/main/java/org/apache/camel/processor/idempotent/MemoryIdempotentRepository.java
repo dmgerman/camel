@@ -142,7 +142,6 @@ argument_list|>
 block|{
 DECL|field|cache
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -150,6 +149,11 @@ argument_list|,
 name|Object
 argument_list|>
 name|cache
+decl_stmt|;
+DECL|field|cacheSize
+specifier|private
+name|int
+name|cacheSize
 decl_stmt|;
 DECL|method|MemoryIdempotentRepository ()
 specifier|public
@@ -431,6 +435,22 @@ name|size
 argument_list|()
 return|;
 block|}
+DECL|method|setCacheSize (int cacheSize)
+specifier|public
+name|void
+name|setCacheSize
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheSize
+operator|=
+name|cacheSize
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -440,7 +460,29 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+if|if
+condition|(
+name|cacheSize
+operator|>
+literal|0
+condition|)
+block|{
+name|cache
+operator|=
+operator|new
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|cacheSize
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
