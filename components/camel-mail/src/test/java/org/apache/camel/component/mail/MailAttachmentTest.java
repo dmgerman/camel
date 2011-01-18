@@ -152,6 +152,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jvnet
+operator|.
+name|mock_javamail
+operator|.
+name|Mailbox
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for Camel attachments and Mail attachments.  */
 end_comment
@@ -174,6 +186,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// clear mailbox
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// create an exchange with a normal body and attachment to be produced as email
 name|Endpoint
