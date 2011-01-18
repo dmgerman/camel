@@ -266,11 +266,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|AnnotationTypeConverterLoader
+name|TypeConverterLoaderException
 import|;
 end_import
 
@@ -286,7 +282,7 @@ name|impl
 operator|.
 name|converter
 operator|.
-name|TypeConverterLoader
+name|AnnotationTypeConverterLoader
 import|;
 end_import
 
@@ -451,6 +447,20 @@ operator|.
 name|spi
 operator|.
 name|PackageScanFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|TypeConverterLoader
 import|;
 end_import
 
@@ -2070,6 +2080,12 @@ operator|new
 name|Loader
 argument_list|()
 decl_stmt|;
+DECL|field|bundle
+specifier|private
+specifier|final
+name|Bundle
+name|bundle
+decl_stmt|;
 DECL|method|BundleTypeConverterLoader (Bundle bundle)
 specifier|public
 name|BundleTypeConverterLoader
@@ -2087,6 +2103,21 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|bundle
+argument_list|,
+literal|"bundle"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|bundle
+operator|=
+name|bundle
+expr_stmt|;
 block|}
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
@@ -2098,10 +2129,12 @@ name|TypeConverterRegistry
 name|registry
 parameter_list|)
 throws|throws
-name|Exception
+name|TypeConverterLoaderException
 block|{
 comment|// must be synchronized to ensure we don't load type converters concurrently
 comment|// which cause Camel apps to fails in OSGi thereafter
+try|try
+block|{
 name|loader
 operator|.
 name|load
@@ -2109,6 +2142,28 @@ argument_list|(
 name|registry
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TypeConverterLoaderException
+argument_list|(
+literal|"Cannot load type converters using OSGi bundle: "
+operator|+
+name|bundle
+operator|.
+name|getBundleId
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|register ()
 specifier|public
@@ -2154,7 +2209,7 @@ name|TypeConverterRegistry
 name|registry
 parameter_list|)
 throws|throws
-name|Exception
+name|TypeConverterLoaderException
 block|{
 name|PackageScanFilter
 name|test

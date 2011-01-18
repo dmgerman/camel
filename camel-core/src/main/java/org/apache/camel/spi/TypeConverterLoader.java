@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.converter
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
+name|spi
 package|;
 end_package
 
@@ -26,14 +24,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|TypeConverterRegistry
+name|TypeConverterLoaderException
 import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy to load type converters into a registry from some kind of mechanism  *  * @version $Revision$  */
+comment|/**  * A pluggable strategy to load type converters into a  * {@link TypeConverterRegistry} from some kind of mechanism.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -42,7 +38,7 @@ specifier|public
 interface|interface
 name|TypeConverterLoader
 block|{
-comment|/**      * A pluggable strategy to load type converters into a registry from some kind of mechanism      *      * @param registry the registry to load the type converters into      * @throws Exception if the type converters could not be loaded      */
+comment|/**      * A pluggable strategy to load type converters into a registry from some kind of mechanism      *      * @param registry the registry to load the type converters into      * @throws org.apache.camel.TypeConverterLoaderException if the type converters could not be loaded      */
 DECL|method|load (TypeConverterRegistry registry)
 name|void
 name|load
@@ -51,7 +47,7 @@ name|TypeConverterRegistry
 name|registry
 parameter_list|)
 throws|throws
-name|Exception
+name|TypeConverterLoaderException
 function_decl|;
 block|}
 end_interface

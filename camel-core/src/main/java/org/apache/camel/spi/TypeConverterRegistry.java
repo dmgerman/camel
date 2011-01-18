@@ -89,7 +89,7 @@ argument_list|>
 name|fromType
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the injector to be used for creating new instances during type convertions.      *      * @param injector the injector      */
+comment|/**      * Sets the injector to be used for creating new instances during type conversions.      *      * @param injector the injector      */
 DECL|method|setInjector (Injector injector)
 name|void
 name|setInjector
