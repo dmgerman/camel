@@ -181,12 +181,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|File
@@ -195,7 +195,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/stream/streamfile.txt"
+literal|"target/stream/streamfile.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -269,7 +269,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"stream:file?fileName=./target/stream/streamfile.txt&delay=100"
+literal|"stream:file?fileName=target/stream/streamfile.txt&delay=100"
 argument_list|)
 decl_stmt|;
 name|Consumer

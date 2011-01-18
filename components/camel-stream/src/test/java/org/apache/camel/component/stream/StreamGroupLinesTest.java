@@ -145,12 +145,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|File
@@ -159,7 +159,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/stream/streamfile.txt"
+literal|"target/stream/streamfile.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -446,7 +446,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"stream:file?fileName=./target/stream/streamfile.txt&groupLines=3"
+literal|"stream:file?fileName=target/stream/streamfile.txt&groupLines=3"
 argument_list|)
 operator|.
 name|to

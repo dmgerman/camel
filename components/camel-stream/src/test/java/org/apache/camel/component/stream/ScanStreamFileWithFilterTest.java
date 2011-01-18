@@ -135,12 +135,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./target/stream"
+literal|"target/stream"
 argument_list|)
 expr_stmt|;
 name|file
@@ -148,7 +148,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/stream/scanstreamfile.txt"
+literal|"target/stream/scanstreamfile.txt"
 argument_list|)
 expr_stmt|;
 name|file
@@ -359,7 +359,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"stream:file?fileName=./target/stream/scanstreamfile.txt&scanStream=true&scanStreamDelay=100"
+literal|"stream:file?fileName=target/stream/scanstreamfile.txt&scanStream=true&scanStreamDelay=100"
 argument_list|)
 operator|.
 name|filter
