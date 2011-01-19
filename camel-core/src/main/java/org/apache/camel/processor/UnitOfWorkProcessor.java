@@ -512,17 +512,9 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Caught unhandled exception while processing ExchangeId: "
 operator|+
@@ -534,16 +526,8 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 comment|// fallback and catch any exceptions the process may not have caught
 comment|// we must ensure to done the UoW in all cases and issue done on the callback
-name|doneUow
-argument_list|(
-name|uow
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -551,6 +535,10 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// Order here matters. We need to complete the callbacks
+comment|// since they will likely update the exchange with some final results.
+try|try
+block|{
 name|callback
 operator|.
 name|done
@@ -558,6 +546,17 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|doneUow
+argument_list|(
+name|uow
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
