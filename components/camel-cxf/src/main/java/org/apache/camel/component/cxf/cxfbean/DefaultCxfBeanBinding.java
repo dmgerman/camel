@@ -184,6 +184,28 @@ name|org
 operator|.
 name|apache
 operator|.
+name|cxf
+operator|.
+name|message
+operator|.
+name|Message
+name|answer
+init|=
+name|CxfMessageHelper
+operator|.
+name|getCxfInMessage
+argument_list|(
+name|headerFilterStrategy
+argument_list|,
+name|camelExchange
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
 name|camel
 operator|.
 name|Message
@@ -194,7 +216,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-comment|// request content types
 name|String
 name|requestContentType
 init|=
@@ -203,7 +224,6 @@ argument_list|(
 name|camelMessage
 argument_list|)
 decl_stmt|;
-comment|// accept content types
 name|String
 name|acceptContentTypes
 init|=
@@ -238,7 +258,6 @@ argument_list|(
 name|camelMessage
 argument_list|)
 decl_stmt|;
-comment|// path
 name|String
 name|path
 init|=
@@ -247,7 +266,6 @@ argument_list|(
 name|camelMessage
 argument_list|)
 decl_stmt|;
-comment|// base path
 name|String
 name|basePath
 init|=
@@ -256,7 +274,6 @@ argument_list|(
 name|camelExchange
 argument_list|)
 decl_stmt|;
-comment|// verb
 name|String
 name|verb
 init|=
@@ -271,70 +288,6 @@ init|=
 name|getQueryString
 argument_list|(
 name|camelMessage
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Processing "
-operator|+
-name|camelExchange
-operator|+
-literal|", requestContentType = "
-operator|+
-name|requestContentType
-operator|+
-literal|", acceptContentTypes = "
-operator|+
-name|acceptContentTypes
-operator|+
-literal|", encoding = "
-operator|+
-name|enc
-operator|+
-literal|", path = "
-operator|+
-name|path
-operator|+
-literal|", basePath = "
-operator|+
-name|basePath
-operator|+
-literal|", verb = "
-operator|+
-name|verb
-argument_list|)
-expr_stmt|;
-block|}
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|message
-operator|.
-name|Message
-name|answer
-init|=
-name|CxfMessageHelper
-operator|.
-name|getCxfInMessage
-argument_list|(
-name|headerFilterStrategy
-argument_list|,
-name|camelExchange
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|answer
@@ -490,6 +443,48 @@ name|queryString
 argument_list|)
 expr_stmt|;
 comment|// TODO propagate security context
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing "
+operator|+
+name|camelExchange
+operator|+
+literal|", requestContentType = "
+operator|+
+name|requestContentType
+operator|+
+literal|", acceptContentTypes = "
+operator|+
+name|acceptContentTypes
+operator|+
+literal|", encoding = "
+operator|+
+name|enc
+operator|+
+literal|", path = "
+operator|+
+name|path
+operator|+
+literal|", basePath = "
+operator|+
+name|basePath
+operator|+
+literal|", verb = "
+operator|+
+name|verb
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
