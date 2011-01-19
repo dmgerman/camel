@@ -2054,6 +2054,44 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * To be used to check is a file is found in the file system      */
+DECL|method|assertFileExists (String filename)
+specifier|public
+specifier|static
+name|void
+name|assertFileExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"File "
+operator|+
+name|filename
+operator|+
+literal|" should exist"
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Is this OS the given platform.      *<p/>      * Uses<tt>os.name</tt> from the system properties to determine the OS.      *      * @param platform such as Windows      * @return<tt>true</tt> if its that platform.      */
 DECL|method|isPlatform (String platform)
 specifier|public

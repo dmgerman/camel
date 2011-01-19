@@ -287,17 +287,17 @@ expr_stmt|;
 name|assertFileExists
 argument_list|(
 literal|"target/outBox/"
+operator|+
+name|getTestFileName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertFileExists (String directory)
+DECL|method|getTestFileName ()
 specifier|private
-name|void
-name|assertFileExists
-parameter_list|(
 name|String
-name|directory
-parameter_list|)
+name|getTestFileName
+parameter_list|()
 block|{
 name|SimpleDateFormat
 name|sdf
@@ -320,24 +320,30 @@ name|Date
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|String
-name|name
-init|=
-name|directory
-operator|+
+return|return
 literal|"test-"
 operator|+
 name|s
 operator|+
 literal|".txt"
-decl_stmt|;
+return|;
+block|}
+DECL|method|assertFileExists (String filename)
+specifier|private
+name|void
+name|assertFileExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
 name|File
 name|file
 init|=
 operator|new
 name|File
 argument_list|(
-name|name
+name|filename
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -345,9 +351,11 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"File should exist: "
+literal|"File "
 operator|+
-name|name
+name|filename
+operator|+
+literal|" should exist"
 argument_list|,
 name|file
 operator|.
