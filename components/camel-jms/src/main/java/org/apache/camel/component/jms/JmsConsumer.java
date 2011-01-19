@@ -195,6 +195,8 @@ specifier|public
 name|AbstractMessageListenerContainer
 name|getListenerContainer
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -276,6 +278,8 @@ specifier|protected
 name|void
 name|createMessageListenerContainer
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|listenerContainer
 operator|=

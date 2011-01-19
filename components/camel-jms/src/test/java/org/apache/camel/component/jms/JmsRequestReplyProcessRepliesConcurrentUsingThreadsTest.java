@@ -34,18 +34,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -310,6 +298,11 @@ argument_list|(
 literal|"activemq:queue:foo"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"reply   - ${body}"
+argument_list|)
+operator|.
 name|threads
 argument_list|(
 literal|5
@@ -317,7 +310,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"reply   - ${body}"
+literal|"delay   - ${body}"
 argument_list|)
 operator|.
 name|delay
