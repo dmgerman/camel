@@ -180,6 +180,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|// now there is no managed endpoint for the bean
 name|assertEquals
 argument_list|(
 literal|6
