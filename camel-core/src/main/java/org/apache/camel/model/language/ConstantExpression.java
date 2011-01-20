@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a constant  *  */
+comment|/**  * For expressions and predicates using a constant  */
 end_comment
 
 begin_class
