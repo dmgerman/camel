@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.trim
+DECL|package|org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.notrim
 package|package
 name|org
 operator|.
@@ -22,7 +22,7 @@ name|unmarshall
 operator|.
 name|simple
 operator|.
-name|trim
+name|notrim
 package|;
 end_package
 
@@ -321,10 +321,10 @@ end_import
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|BindySimpleFixedLengthUnmarshallTest
+DECL|class|BindySimpleFixedLengthNoTrimUnmarshallTest
 specifier|public
 class|class
-name|BindySimpleFixedLengthUnmarshallTest
+name|BindySimpleFixedLengthNoTrimUnmarshallTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
@@ -340,7 +340,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|BindySimpleFixedLengthUnmarshallTest
+name|BindySimpleFixedLengthNoTrimUnmarshallTest
 operator|.
 name|class
 argument_list|)
@@ -427,7 +427,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"10A9  PaulineM    ISINXD12345678BUYShare000002500.45USD01-08-2009"
+literal|"10A9  PaulineM    ISINXD12345678BUYShare000002500.45USD01-08-2009    "
 expr_stmt|;
 name|template
 operator|.
@@ -464,7 +464,7 @@ init|=
 operator|new
 name|BindyFixedLengthDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.trim"
+literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.notrim"
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()
@@ -495,11 +495,15 @@ name|FixedLengthRecord
 argument_list|(
 name|length
 operator|=
-literal|65
+literal|69
 argument_list|,
 name|paddingChar
 operator|=
 literal|' '
+argument_list|,
+name|trimRecordOnUnmarshal
+operator|=
+literal|false
 argument_list|)
 DECL|class|Order
 specifier|public

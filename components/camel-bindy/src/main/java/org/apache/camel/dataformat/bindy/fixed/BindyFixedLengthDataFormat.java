@@ -670,10 +670,20 @@ name|hasNextLine
 argument_list|()
 condition|)
 block|{
-comment|// Read the line
 name|String
 name|line
-init|=
+decl_stmt|;
+comment|// Read the line
+if|if
+condition|(
+name|factory
+operator|.
+name|isTrimRecordOnUnmarshal
+argument_list|()
+condition|)
+block|{
+name|line
+operator|=
 name|scanner
 operator|.
 name|nextLine
@@ -681,7 +691,18 @@ argument_list|()
 operator|.
 name|trim
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|line
+operator|=
+name|scanner
+operator|.
+name|nextLine
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
