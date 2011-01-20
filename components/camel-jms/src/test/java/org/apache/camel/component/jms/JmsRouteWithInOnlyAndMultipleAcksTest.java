@@ -380,11 +380,10 @@ name|to
 argument_list|(
 literal|"mock:inbox"
 argument_list|)
-comment|// we dont care about the WARN log so we disable that
 operator|.
 name|inOnly
 argument_list|(
-literal|"amq:topic:orderServiceNotification?logWarnWhenReplyToIsDiscarded=false"
+literal|"amq:topic:orderServiceNotification"
 argument_list|)
 operator|.
 name|beanRef

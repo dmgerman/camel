@@ -1379,10 +1379,20 @@ argument_list|()
 operator|)
 condition|)
 block|{
-comment|// log a warn if enabled otherwise a debug level
-name|String
-name|msg
-init|=
+comment|// log at debug what we are doing, as higher level may cause noise in production logs
+comment|// this behavior is also documented at the camel website
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
 literal|"Disabling JMSReplyTo: "
 operator|+
 name|jmsReplyTo
@@ -1394,30 +1404,6 @@ operator|+
 literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on endpoint: "
 operator|+
 name|endpoint
-decl_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|.
-name|isLogWarnWhenReplyToIsDiscarded
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-name|msg
 argument_list|)
 expr_stmt|;
 block|}
