@@ -167,6 +167,25 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|prepareMailbox
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Test
 DECL|method|testBatchConsumer ()
 specifier|public
@@ -176,9 +195,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareMailbox
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
