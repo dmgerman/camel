@@ -2181,6 +2181,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|isLogWarnWhenReplyToIsDiscarded ()
+specifier|public
+name|boolean
+name|isLogWarnWhenReplyToIsDiscarded
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isLogWarnWhenReplyToIsDiscarded
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReplyToDestinationSelectorName ()
 specifier|public
 name|String
@@ -3266,6 +3282,26 @@ operator|.
 name|setReplyTo
 argument_list|(
 name|replyToDestination
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setLogWarnWhenReplyToIsDiscarded (boolean logWarnWhenReplyToIsDiscarded)
+specifier|public
+name|void
+name|setLogWarnWhenReplyToIsDiscarded
+parameter_list|(
+name|boolean
+name|logWarnWhenReplyToIsDiscarded
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setLogWarnWhenReplyToIsDiscarded
+argument_list|(
+name|logWarnWhenReplyToIsDiscarded
 argument_list|)
 expr_stmt|;
 block|}

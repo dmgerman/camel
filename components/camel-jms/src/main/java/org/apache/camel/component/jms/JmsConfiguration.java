@@ -751,6 +751,13 @@ specifier|private
 name|boolean
 name|disableReplyTo
 decl_stmt|;
+DECL|field|logWarnWhenReplyToIsDiscarded
+specifier|private
+name|boolean
+name|logWarnWhenReplyToIsDiscarded
+init|=
+literal|true
+decl_stmt|;
 DECL|field|eagerLoadingOfProperties
 specifier|private
 name|boolean
@@ -4355,6 +4362,32 @@ name|normalizeDestinationName
 argument_list|(
 name|replyToDestination
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isLogWarnWhenReplyToIsDiscarded ()
+specifier|public
+name|boolean
+name|isLogWarnWhenReplyToIsDiscarded
+parameter_list|()
+block|{
+return|return
+name|logWarnWhenReplyToIsDiscarded
+return|;
+block|}
+DECL|method|setLogWarnWhenReplyToIsDiscarded (boolean logWarnWhenReplyToIsDiscarded)
+specifier|public
+name|void
+name|setLogWarnWhenReplyToIsDiscarded
+parameter_list|(
+name|boolean
+name|logWarnWhenReplyToIsDiscarded
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logWarnWhenReplyToIsDiscarded
+operator|=
+name|logWarnWhenReplyToIsDiscarded
 expr_stmt|;
 block|}
 DECL|method|getReplyToDestinationSelectorName ()
