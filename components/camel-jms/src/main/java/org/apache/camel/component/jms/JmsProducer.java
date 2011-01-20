@@ -1214,46 +1214,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// we must honor these special flags to preserve QoS
-if|if
-condition|(
-operator|!
-name|endpoint
-operator|.
-name|isPreserveMessageQos
-argument_list|()
-operator|&&
-operator|!
-name|endpoint
-operator|.
-name|isExplicitQosEnabled
-argument_list|()
-condition|)
-block|{
-name|Object
-name|replyTo
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"JMSReplyTo"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|replyTo
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// we are routing an existing JmsMessage, origin from another JMS endpoint
-comment|// then we need to remove the existing JMSReplyTo
-comment|// as we are not OUT capable and thus do not expect a reply, and therefore
-comment|// the consumer of this message should not return a reply
+specifier|final
 name|String
 name|to
 init|=
@@ -1267,37 +1228,6 @@ literal|""
 operator|+
 name|destination
 decl_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Disabling JMSReplyTo as this Exchange is not OUT capable with JMSReplyTo: "
-operator|+
-name|replyTo
-operator|+
-literal|" for destination: "
-operator|+
-name|to
-operator|+
-literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-literal|"JMSReplyTo"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|MessageCreator
 name|messageCreator
 init|=
@@ -1333,6 +1263,18 @@ name|session
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+comment|// when in InOnly mode the JMSReplyTo is a bit complicated
+comment|// we only want to set the JMSReplyTo on the answer if
+comment|// there is a JMSReplyTo from the header/endpoint and
+comment|// we have been told to preserveMessageQos
+name|Object
+name|jmsReplyTo
+init|=
+name|answer
+operator|.
+name|getJMSReplyTo
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1374,18 +1316,14 @@ block|{
 comment|// if the binding did not create the reply to then we have to try to create it here
 if|if
 condition|(
-name|answer
-operator|.
-name|getJMSReplyTo
-argument_list|()
+name|jmsReplyTo
 operator|==
 literal|null
 condition|)
 block|{
 comment|// prefer reply to from header over endpoint configured
-name|String
-name|replyTo
-init|=
+name|jmsReplyTo
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1399,15 +1337,15 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
-name|replyTo
+name|jmsReplyTo
 operator|==
 literal|null
 condition|)
 block|{
-name|replyTo
+name|jmsReplyTo
 operator|=
 name|endpoint
 operator|.
@@ -1415,26 +1353,84 @@ name|getReplyTo
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|// we must honor these special flags to preserve QoS
+comment|// as we are not OUT capable and thus do not expect a reply, and therefore
+comment|// the consumer of this message should not return a reply so we remove it
+comment|// unless we use preserveMessageQos=true to tell that we still want to use JMSReplyTo
 if|if
 condition|(
-name|replyTo
+name|jmsReplyTo
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|endpoint
+operator|.
+name|isPreserveMessageQos
+argument_list|()
+operator|||
+name|endpoint
+operator|.
+name|isExplicitQosEnabled
+argument_list|()
+operator|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Disabling JMSReplyTo: "
+operator|+
+name|jmsReplyTo
+operator|+
+literal|" for destination: "
+operator|+
+name|to
+operator|+
+literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on endpoint: "
+operator|+
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|jmsReplyTo
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|// the reply to is a String, so we need to look up its Destination instance
+comment|// and if needed create the destination using the session if needed to
+if|if
+condition|(
+name|jmsReplyTo
+operator|!=
+literal|null
+operator|&&
+name|jmsReplyTo
+operator|instanceof
+name|String
 condition|)
 block|{
 comment|// must normalize the destination name
+name|String
 name|replyTo
-operator|=
+init|=
 name|normalizeDestinationName
 argument_list|(
-name|replyTo
+operator|(
+name|String
+operator|)
+name|jmsReplyTo
 argument_list|)
-expr_stmt|;
-name|Destination
-name|destination
-init|=
-literal|null
 decl_stmt|;
+comment|// we need to null it as we use the String to resolve it as a Destination instance
+name|jmsReplyTo
+operator|=
+literal|null
+expr_stmt|;
 comment|// try using destination resolver to lookup the destination
 if|if
 condition|(
@@ -1446,7 +1442,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|destination
+name|jmsReplyTo
 operator|=
 name|endpoint
 operator|.
@@ -1468,7 +1464,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|destination
+name|jmsReplyTo
 operator|==
 literal|null
 condition|)
@@ -1500,7 +1496,7 @@ name|replyTo
 argument_list|)
 expr_stmt|;
 block|}
-name|destination
+name|jmsReplyTo
 operator|=
 name|session
 operator|.
@@ -1530,7 +1526,7 @@ name|replyTo
 argument_list|)
 expr_stmt|;
 block|}
-name|destination
+name|jmsReplyTo
 operator|=
 name|session
 operator|.
@@ -1541,9 +1537,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// set the JMSReplyTo on the answer if we are to use it
+name|Destination
+name|replyTo
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
-name|destination
+name|jmsReplyTo
+operator|instanceof
+name|Destination
+condition|)
+block|{
+name|replyTo
+operator|=
+operator|(
+name|Destination
+operator|)
+name|jmsReplyTo
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|replyTo
 operator|!=
 literal|null
 condition|)
@@ -1562,7 +1580,7 @@ name|debug
 argument_list|(
 literal|"Using JMSReplyTo destination: "
 operator|+
-name|destination
+name|replyTo
 argument_list|)
 expr_stmt|;
 block|}
@@ -1570,12 +1588,20 @@ name|answer
 operator|.
 name|setJMSReplyTo
 argument_list|(
-name|destination
+name|replyTo
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
+else|else
+block|{
+comment|// do not use JMSReplyTo
+name|answer
+operator|.
+name|setJMSReplyTo
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|answer

@@ -103,10 +103,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JmsInOnlyWithReplyToTest
+DECL|class|JmsInOnlyWithReplyToNotPreservedTest
 specifier|public
 class|class
-name|JmsInOnlyWithReplyToTest
+name|JmsInOnlyWithReplyToNotPreservedTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -132,16 +132,6 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:bar"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
 literal|"mock:done"
 argument_list|)
 operator|.
@@ -161,6 +151,26 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// there should be no messages on the bar queue
+name|Object
+name|msg
+init|=
+name|consumer
+operator|.
+name|receiveBody
+argument_list|(
+literal|"activemq:queue:bar"
+argument_list|,
+literal|1000
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"Should be no message on bar queue"
+argument_list|,
+name|msg
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
@@ -234,7 +244,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"activemq:queue:foo?replyTo=queue:bar&preserveMessageQos=true"
+literal|"activemq:queue:foo?replyTo=queue:bar"
 argument_list|)
 operator|.
 name|to
@@ -263,20 +273,6 @@ name|prepend
 argument_list|(
 literal|"Bye "
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we should disable reply to to avoid sending the message back to our self
-comment|// after we have consumed it
-name|from
-argument_list|(
-literal|"activemq:queue:bar?disableReplyTo=true"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:bar?showAll=true"
-argument_list|,
-literal|"mock:bar"
 argument_list|)
 expr_stmt|;
 block|}
