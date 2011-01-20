@@ -2172,7 +2172,7 @@ name|trimRecordOnUnmarshal
 operator|=
 name|record
 operator|.
-name|trimRecordOnUnmarshal
+name|trim
 argument_list|()
 expr_stmt|;
 if|if

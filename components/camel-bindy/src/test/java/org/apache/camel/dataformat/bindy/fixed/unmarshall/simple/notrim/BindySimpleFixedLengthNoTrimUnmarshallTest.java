@@ -500,10 +500,6 @@ argument_list|,
 name|paddingChar
 operator|=
 literal|' '
-argument_list|,
-name|trimRecordOnUnmarshal
-operator|=
-literal|false
 argument_list|)
 DECL|class|Order
 specifier|public

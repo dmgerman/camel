@@ -500,6 +500,10 @@ argument_list|,
 name|paddingChar
 operator|=
 literal|' '
+argument_list|,
+name|trim
+operator|=
+literal|true
 argument_list|)
 DECL|class|Order
 specifier|public

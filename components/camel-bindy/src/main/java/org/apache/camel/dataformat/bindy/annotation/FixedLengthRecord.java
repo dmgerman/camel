@@ -123,13 +123,13 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-DECL|method|trimRecordOnUnmarshal ()
-DECL|field|true
+DECL|method|trim ()
+DECL|field|false
 name|boolean
-name|trimRecordOnUnmarshal
+name|trim
 parameter_list|()
 default|default
-literal|true
+literal|false
 function_decl|;
 block|}
 end_annotation_defn
