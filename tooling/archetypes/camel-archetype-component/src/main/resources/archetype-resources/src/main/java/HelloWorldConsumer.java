@@ -108,10 +108,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-comment|// poll method will fire every 500 ms by default
 DECL|method|poll ()
 specifier|protected
-name|void
+name|int
 name|poll
 parameter_list|()
 throws|throws
@@ -156,6 +155,10 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
+comment|// number of messages polled
 block|}
 finally|finally
 block|{
