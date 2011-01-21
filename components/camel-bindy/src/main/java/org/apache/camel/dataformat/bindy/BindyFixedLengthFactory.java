@@ -902,6 +902,22 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dataField
+operator|.
+name|trim
+argument_list|()
+condition|)
+block|{
+name|token
+operator|=
+name|token
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Check mandatory field
 if|if
 condition|(
