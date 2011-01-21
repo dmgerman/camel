@@ -39,10 +39,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|UriCharachersEncoderTest
+DECL|class|UriCharactersEncoderTest
 specifier|public
 class|class
-name|UriCharachersEncoderTest
+name|UriCharactersEncoderTest
 extends|extends
 name|Assert
 block|{
