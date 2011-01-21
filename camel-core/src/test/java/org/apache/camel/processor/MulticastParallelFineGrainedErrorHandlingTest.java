@@ -277,14 +277,16 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// stop on exception can cause tasks which hasnt been started yet to not run
+comment|// so it can either be 0 or 1 message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -292,13 +294,11 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
-comment|// in some cases the parallel task has not send to baz and thus it will stop before sending to it
-comment|// so it can be 0 or 1 messages
 name|getMockEndpoint
 argument_list|(
 literal|"mock:baz"
