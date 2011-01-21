@@ -366,11 +366,6 @@ specifier|private
 name|int
 name|recordLength
 decl_stmt|;
-DECL|field|trimRecordOnUnmarshal
-specifier|private
-name|boolean
-name|trimRecordOnUnmarshal
-decl_stmt|;
 DECL|method|BindyFixedLengthFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyFixedLengthFactory
@@ -2167,36 +2162,10 @@ name|recordLength
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Get trimRecord parameter
-name|trimRecordOnUnmarshal
-operator|=
-name|record
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Trim record :  "
-operator|+
-name|trimRecordOnUnmarshal
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-comment|/**      * Flag indicating if we have a header      *       * @return boolean      */
+comment|/**      * Flag indicating if we have a header      */
 DECL|method|hasHeader ()
 specifier|public
 name|boolean
@@ -2207,7 +2176,7 @@ return|return
 name|hasHeader
 return|;
 block|}
-comment|/**      * Flag indicating if we have a footer      *       * @return boolean      */
+comment|/**      * Flag indicating if we have a footer      */
 DECL|method|hasFooter ()
 specifier|public
 name|boolean
@@ -2218,7 +2187,7 @@ return|return
 name|hasFooter
 return|;
 block|}
-comment|/**      * Padding char used to fill the field      *       * @return char      */
+comment|/**      * Padding char used to fill the field      */
 DECL|method|paddingchar ()
 specifier|public
 name|char
@@ -2237,17 +2206,6 @@ parameter_list|()
 block|{
 return|return
 name|recordLength
-return|;
-block|}
-comment|/**      * Flag indicating whether the fixed length record should be trimmed      *       * @return boolean      */
-DECL|method|isTrimRecordOnUnmarshal ()
-specifier|public
-name|boolean
-name|isTrimRecordOnUnmarshal
-parameter_list|()
-block|{
-return|return
-name|trimRecordOnUnmarshal
 return|;
 block|}
 block|}

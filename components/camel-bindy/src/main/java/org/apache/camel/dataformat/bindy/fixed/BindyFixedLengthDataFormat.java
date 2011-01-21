@@ -673,28 +673,7 @@ block|{
 name|String
 name|line
 decl_stmt|;
-comment|// Read the line
-if|if
-condition|(
-name|factory
-operator|.
-name|isTrimRecordOnUnmarshal
-argument_list|()
-condition|)
-block|{
-name|line
-operator|=
-name|scanner
-operator|.
-name|nextLine
-argument_list|()
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// Read the line (should not trim as its fixed length)
 name|line
 operator|=
 name|scanner
@@ -702,7 +681,6 @@ operator|.
 name|nextLine
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ObjectHelper
