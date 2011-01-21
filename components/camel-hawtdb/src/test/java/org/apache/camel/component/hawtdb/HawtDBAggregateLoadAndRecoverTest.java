@@ -386,9 +386,7 @@ name|template
 operator|.
 name|sendBodyAndHeaders
 argument_list|(
-literal|"seda:start?size="
-operator|+
-name|SIZE
+literal|"seda:start"
 argument_list|,
 name|value
 argument_list|,
@@ -400,7 +398,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
@@ -519,6 +517,14 @@ operator|.
 name|setUseRecovery
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+comment|// for faster unit testing
+name|repo
+operator|.
+name|setRecoveryInterval
+argument_list|(
+literal|500
 argument_list|)
 expr_stmt|;
 name|from
