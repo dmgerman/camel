@@ -222,6 +222,20 @@ name|SimpleLanguage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Language
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -279,6 +293,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assertExpressionResultInstanceOf
+argument_list|(
+literal|"ref:myAnimal"
+argument_list|,
+name|Animal
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertExpressionResultInstanceOf
+argument_list|(
+literal|"${ref:myAnimal}"
+argument_list|,
+name|Animal
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"ref:myAnimal"
@@ -2169,10 +2201,20 @@ throws|throws
 name|Exception
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map
@@ -2227,10 +2269,20 @@ throws|throws
 name|Exception
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map
@@ -4701,6 +4753,87 @@ return|return
 literal|"simple"
 return|;
 block|}
+DECL|method|assertExpressionResultInstanceOf (String expressionText, Class<?> expectedType)
+specifier|protected
+name|void
+name|assertExpressionResultInstanceOf
+parameter_list|(
+name|String
+name|expressionText
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|expectedType
+parameter_list|)
+block|{
+comment|// TODO [hz]: we should refactor TestSupport.assertExpression(Expression, Exchange, Object)
+comment|// into 2 methods, a helper that returns the value and use that helper in assertExpression
+comment|// Then use the helper here to get the value and move this method to LanguageTestSupport
+name|Language
+name|language
+init|=
+name|assertResolveLanguage
+argument_list|(
+name|getLanguageName
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Expression
+name|expression
+init|=
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|expressionText
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Cannot assert type when no type is provided"
+argument_list|,
+name|expectedType
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No Expression could be created for text: "
+operator|+
+name|expressionText
+operator|+
+literal|" language: "
+operator|+
+name|language
+argument_list|,
+name|expression
+argument_list|)
+expr_stmt|;
+name|Object
+name|answer
+init|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|Animal
+operator|.
+name|class
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 DECL|class|Animal
 specifier|public
 specifier|static
@@ -4831,13 +4964,19 @@ block|{
 DECL|field|lines
 specifier|private
 name|List
+argument_list|<
+name|OrderLine
+argument_list|>
 name|lines
 decl_stmt|;
-DECL|method|Order (List lines)
+DECL|method|Order (List<OrderLine> lines)
 specifier|public
 name|Order
 parameter_list|(
 name|List
+argument_list|<
+name|OrderLine
+argument_list|>
 name|lines
 parameter_list|)
 block|{
@@ -4851,6 +4990,9 @@ block|}
 DECL|method|getLines ()
 specifier|public
 name|List
+argument_list|<
+name|OrderLine
+argument_list|>
 name|getLines
 parameter_list|()
 block|{
@@ -4858,12 +5000,15 @@ return|return
 name|lines
 return|;
 block|}
-DECL|method|setLines (List lines)
+DECL|method|setLines (List<OrderLine> lines)
 specifier|public
 name|void
 name|setLines
 parameter_list|(
 name|List
+argument_list|<
+name|OrderLine
+argument_list|>
 name|lines
 parameter_list|)
 block|{
