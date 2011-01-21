@@ -123,14 +123,6 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-DECL|method|trim ()
-DECL|field|false
-name|boolean
-name|trim
-parameter_list|()
-default|default
-literal|false
-function_decl|;
 block|}
 end_annotation_defn
 
