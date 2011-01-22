@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ScriptTestHelper
 import|;
 end_import
@@ -92,6 +80,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests a routing expression using JavaScript  */
 end_comment
@@ -102,8 +116,10 @@ specifier|public
 class|class
 name|JavaScriptExpressionTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -123,9 +139,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// TODO Currently, this test fails because the JavaScript expression in createRouteBuilder
-comment|// below returns false
-comment|// To fix that, we need to figure out how to get the expression to return the right value
 name|MockEndpoint
 name|mock
 init|=
@@ -215,6 +228,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNonMatchingMessage ()
 specifier|public
 name|void

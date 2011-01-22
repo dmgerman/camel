@@ -228,8 +228,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// whats the numbers before, because the JVM can have left overs when unit testing
 name|int
-name|routes
+name|before
 init|=
 name|mbsc
 operator|.
@@ -240,7 +241,7 @@ name|ObjectName
 argument_list|(
 literal|"org.apache.camel"
 operator|+
-literal|":type=routes,*"
+literal|":type=consumers,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -249,43 +250,48 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|int
-name|processors
-init|=
-name|mbsc
+comment|// start route should enlist the consumer to JMX
+name|context
 operator|.
-name|queryNames
+name|startRoute
 argument_list|(
-operator|new
-name|ObjectName
-argument_list|(
-literal|"org.apache.camel"
-operator|+
-literal|":type=processors,*"
-argument_list|)
-argument_list|,
-literal|null
-argument_list|)
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should contain routes"
-argument_list|,
-name|routes
-operator|>
-literal|0
+literal|"foo"
 argument_list|)
 expr_stmt|;
+name|int
+name|after
+init|=
+name|mbsc
+operator|.
+name|queryNames
+argument_list|(
+operator|new
+name|ObjectName
+argument_list|(
+literal|"org.apache.camel"
+operator|+
+literal|":type=consumers,*"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should contain processors"
+literal|"Should have added consumer to JMX, before: "
+operator|+
+name|before
+operator|+
+literal|", after: "
+operator|+
+name|after
 argument_list|,
-name|processors
+name|after
 operator|>
-literal|0
+name|before
 argument_list|)
 expr_stmt|;
 block|}

@@ -92,10 +92,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
+comment|// whats the numbers before, because the JVM can have left overs when unit testing
+name|int
+name|before
+init|=
 name|mbsc
 operator|.
 name|queryNames
@@ -105,7 +105,7 @@ name|ObjectName
 argument_list|(
 literal|"org.apache.camel"
 operator|+
-literal|":type=routes,*"
+literal|":type=consumers,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -113,12 +113,18 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+comment|// start route should enlist the consumer to JMX if JMX was enabled
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"foo"
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
+name|int
+name|after
+init|=
 name|mbsc
 operator|.
 name|queryNames
@@ -128,7 +134,7 @@ name|ObjectName
 argument_list|(
 literal|"org.apache.camel"
 operator|+
-literal|":type=processors,*"
+literal|":type=consumers,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -136,6 +142,14 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should not have added consumer to JMX"
+argument_list|,
+name|before
+argument_list|,
+name|after
 argument_list|)
 expr_stmt|;
 block|}

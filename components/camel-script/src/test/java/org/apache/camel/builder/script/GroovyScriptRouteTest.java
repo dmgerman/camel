@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ScriptTestHelper
 import|;
 end_import
@@ -72,18 +60,61 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for a Groovy script based on end-user question.  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"May fail on CI server on JDK 1.6"
+argument_list|)
 DECL|class|GroovyScriptRouteTest
 specifier|public
 class|class
 name|GroovyScriptRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testGroovyScript ()
 specifier|public
 name|void
@@ -103,14 +134,48 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// TODO: fails on some JDL1.6 boxes
-comment|//        MockEndpoint mock = getMockEndpoint("mock:result");
-comment|//        mock.expectedBodiesReceived("Hello World");
-comment|//        mock.expectedHeaderReceived("foo", "Hello World");
-comment|//
-comment|//        template.sendBodyAndHeader("seda:a", "Hello World", "foo", "London");
-comment|//
-comment|//        mock.assertIsSatisfied();
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"London"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

@@ -60,6 +60,16 @@ name|ScriptTestHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -92,6 +102,8 @@ block|,
 literal|"javascript"
 block|}
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testLanguageNames ()
 specifier|public
 name|void
