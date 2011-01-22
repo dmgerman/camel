@@ -127,6 +127,8 @@ DECL|field|sleepForConnection
 specifier|protected
 name|long
 name|sleepForConnection
+init|=
+literal|2000
 decl_stmt|;
 annotation|@
 name|Override
