@@ -445,7 +445,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision$  *   * Forwards messages from Camel to CXF and the CXF response back to Camel  */
 end_comment
 
 begin_class
@@ -1298,6 +1298,7 @@ name|camelExchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Receives a response from CXF and forwards it to the camel route the request came in from      */
 DECL|class|CamelOutputStream
 specifier|private
 class|class
