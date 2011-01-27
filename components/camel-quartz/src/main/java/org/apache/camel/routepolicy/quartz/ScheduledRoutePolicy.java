@@ -494,6 +494,8 @@ argument_list|)
 expr_stmt|;
 name|loadCallbackDataIntoSchedulerContext
 argument_list|(
+name|jobDetail
+argument_list|,
 name|action
 argument_list|,
 name|route
@@ -1009,11 +1011,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|loadCallbackDataIntoSchedulerContext (Action action, Route route)
+DECL|method|loadCallbackDataIntoSchedulerContext (JobDetail jobDetail, Action action, Route route)
 specifier|protected
 name|void
 name|loadCallbackDataIntoSchedulerContext
 parameter_list|(
+name|JobDetail
+name|jobDetail
+parameter_list|,
 name|Action
 name|action
 parameter_list|,
@@ -1023,6 +1028,7 @@ parameter_list|)
 throws|throws
 name|SchedulerException
 block|{
+comment|/*        getScheduler().getContext().put(SCHEDULED_ACTION, action);         getScheduler().getContext().put(SCHEDULED_ROUTE, route);*/
 name|getScheduler
 argument_list|()
 operator|.
@@ -1031,22 +1037,18 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|SCHEDULED_ACTION
+name|jobDetail
+operator|.
+name|getName
+argument_list|()
 argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-name|getScheduler
-argument_list|()
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|put
+operator|new
+name|ScheduledJobState
 argument_list|(
-name|SCHEDULED_ROUTE
+name|action
 argument_list|,
 name|route
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
