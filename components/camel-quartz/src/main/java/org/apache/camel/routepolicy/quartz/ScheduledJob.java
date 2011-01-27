@@ -166,7 +166,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|/*        Action storedAction = (Action) schedulerContext.get(SCHEDULED_ACTION);         storedRoute = (Route) schedulerContext.get(SCHEDULED_ROUTE);*/
 name|ScheduledJobState
 name|state
 init|=

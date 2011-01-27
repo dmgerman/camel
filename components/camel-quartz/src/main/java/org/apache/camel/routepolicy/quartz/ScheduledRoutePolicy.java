@@ -1028,7 +1028,6 @@ parameter_list|)
 throws|throws
 name|SchedulerException
 block|{
-comment|/*        getScheduler().getContext().put(SCHEDULED_ACTION, action);         getScheduler().getContext().put(SCHEDULED_ROUTE, route);*/
 name|getScheduler
 argument_list|()
 operator|.
