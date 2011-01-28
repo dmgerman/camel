@@ -149,7 +149,7 @@ argument_list|(
 literal|"mock:claus"
 argument_list|)
 operator|.
-name|assertNoDuplicates
+name|expectsNoDuplicates
 argument_list|(
 name|body
 argument_list|()
@@ -160,7 +160,7 @@ argument_list|(
 literal|"mock:james"
 argument_list|)
 operator|.
-name|assertNoDuplicates
+name|expectsNoDuplicates
 argument_list|(
 name|body
 argument_list|()

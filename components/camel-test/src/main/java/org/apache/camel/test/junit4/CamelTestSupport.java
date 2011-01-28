@@ -292,6 +292,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|InterceptSendToMockEndpointStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|JndiRegistry
 import|;
 end_import
@@ -433,6 +447,17 @@ parameter_list|()
 block|{
 return|return
 name|useRouteBuilder
+return|;
+block|}
+comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+DECL|method|isMockEndpoints ()
+specifier|public
+name|String
+name|isMockEndpoints
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 DECL|method|setUseRouteBuilder (boolean useRouteBuilder)
@@ -613,6 +638,32 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// enable auto mocking if enabled
+name|String
+name|pattern
+init|=
+name|isMockEndpoints
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|addRegisterEndpointCallback
+argument_list|(
+operator|new
+name|InterceptSendToMockEndpointStrategy
+argument_list|(
+name|pattern
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|postProcessTest
 argument_list|()
 expr_stmt|;

@@ -1130,6 +1130,26 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the assert period on all the Mock endpoints      */
+DECL|method|setAssertPeriod (long period)
+specifier|protected
+name|void
+name|setAssertPeriod
+parameter_list|(
+name|long
+name|period
+parameter_list|)
+block|{
+name|MockEndpoint
+operator|.
+name|setAssertPeriod
+argument_list|(
+name|context
+argument_list|,
+name|period
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Reset all Mock endpoints.      */
 DECL|method|resetMocks ()
 specifier|protected

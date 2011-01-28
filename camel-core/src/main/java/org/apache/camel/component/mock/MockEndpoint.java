@@ -64,6 +64,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -459,7 +469,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *  * @version $Revision$  */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *<p/>  * The mock endpoint have two set of methods  *<ul>  *<li>expectedXXX or expectsXXX - To set pre conditions, before the test is executed</li>  *<li>assertXXX - To assert assertions, after the test has been executed</li>  *</ul>  * Its<b>important</b> to know the difference between the two set. The former is used to  * set expectations before the test is being started (eg before the mock receives messages).  * The latter is used after the test has been executed, to verify the expectations; or  * other assertions which you can perform after the test has been completed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -557,6 +567,11 @@ DECL|field|resultMinimumWaitTime
 specifier|private
 name|long
 name|resultMinimumWaitTime
+decl_stmt|;
+DECL|field|assertPeriod
+specifier|private
+name|long
+name|assertPeriod
 decl_stmt|;
 DECL|field|expectedMinimumCount
 specifier|private
@@ -1071,6 +1086,94 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Sets the assert period on all the expectations on any {@link MockEndpoint} instances registered      * in the given context.      *      * @param context the camel context used to find all the available endpoints      * @param period the period in millis      */
+DECL|method|setAssertPeriod (CamelContext context, long period)
+specifier|public
+specifier|static
+name|void
+name|setAssertPeriod
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|long
+name|period
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|context
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|endpoints
+init|=
+name|context
+operator|.
+name|getEndpoints
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Endpoint
+name|endpoint
+range|:
+name|endpoints
+control|)
+block|{
+comment|// if the endpoint was intercepted we should get the delegate
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|InterceptSendToEndpoint
+condition|)
+block|{
+name|endpoint
+operator|=
+operator|(
+operator|(
+name|InterceptSendToEndpoint
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|MockEndpoint
+condition|)
+block|{
+name|MockEndpoint
+name|mockEndpoint
+init|=
+operator|(
+name|MockEndpoint
+operator|)
+name|endpoint
+decl_stmt|;
+name|mockEndpoint
+operator|.
+name|setAssertPeriod
+argument_list|(
+name|period
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * Reset all mock endpoints      *      * @param context the camel context used to find all the available endpoints to reset      */
 DECL|method|resetMocks (CamelContext context)
 specifier|public
@@ -1413,6 +1516,60 @@ operator|+
 literal|" is satisfied"
 argument_list|)
 expr_stmt|;
+name|doAssertIsSatisfied
+argument_list|(
+name|timeoutForEmptyEndpoints
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|assertPeriod
+operator|>
+literal|0
+condition|)
+block|{
+comment|// if an assert period was set then re-assert again to ensure the assertion is still valid
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|assertPeriod
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Re-asserting: "
+operator|+
+name|this
+operator|+
+literal|" is satisfied after "
+operator|+
+name|assertPeriod
+operator|+
+literal|" millis"
+argument_list|)
+expr_stmt|;
+comment|// do not use timeout when we re-assert
+name|doAssertIsSatisfied
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doAssertIsSatisfied (long timeoutForEmptyEndpoints)
+specifier|protected
+name|void
+name|doAssertIsSatisfied
+parameter_list|(
+name|long
+name|timeoutForEmptyEndpoints
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
 if|if
 condition|(
 name|expectedCount
@@ -1716,6 +1873,23 @@ name|setExpectedMessageCount
 argument_list|(
 name|expectedCount
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * By default this period is disabled      *      * @param period grace period in millis      */
+DECL|method|setAssertPeriod (long period)
+specifier|public
+name|void
+name|setAssertPeriod
+parameter_list|(
+name|long
+name|period
+parameter_list|)
+block|{
+name|this
+operator|.
+name|assertPeriod
+operator|=
+name|period
 expr_stmt|;
 block|}
 comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
@@ -2204,7 +2378,9 @@ name|clause
 init|=
 operator|new
 name|AssertionClause
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 block|{
 specifier|public
 name|void
@@ -3429,7 +3605,9 @@ name|clause
 init|=
 operator|new
 name|AssertionClause
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 block|{
 specifier|public
 name|void
@@ -3475,7 +3653,9 @@ name|clause
 init|=
 operator|new
 name|AssertionClause
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 block|{
 specifier|public
 name|void
@@ -3866,6 +4046,10 @@ name|resultMinimumWaitTime
 operator|=
 literal|0L
 expr_stmt|;
+name|assertPeriod
+operator|=
+literal|0L
+expr_stmt|;
 name|expectedMinimumCount
 operator|=
 operator|-
@@ -4108,6 +4292,20 @@ name|actualBody
 argument_list|)
 expr_stmt|;
 block|}
+comment|// record timestamp when exchange was received
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|RECEIVED_TIMESTAMP
+argument_list|,
+operator|new
+name|Date
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|receivedExchanges
 operator|.
 name|add

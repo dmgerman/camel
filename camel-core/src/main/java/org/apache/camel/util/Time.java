@@ -309,6 +309,28 @@ operator|*
 literal|24
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|number
+operator|+
+literal|" "
+operator|+
+name|timeUnit
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

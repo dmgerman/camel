@@ -256,7 +256,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|assertNoDuplicates
+name|expectsNoDuplicates
 argument_list|(
 name|body
 argument_list|()

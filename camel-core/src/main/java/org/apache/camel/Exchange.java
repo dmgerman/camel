@@ -432,6 +432,12 @@ name|ON_COMPLETION
 init|=
 literal|"CamelOnCompletion"
 decl_stmt|;
+DECL|field|RECEIVED_TIMESTAMP
+name|String
+name|RECEIVED_TIMESTAMP
+init|=
+literal|"CamelReceivedTimestamp"
+decl_stmt|;
 DECL|field|REDELIVERED
 name|String
 name|REDELIVERED
