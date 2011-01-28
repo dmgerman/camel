@@ -2040,6 +2040,25 @@ argument_list|(
 name|qname
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Can't find the BindingOperationInfo with operation name "
+operator|+
+name|qname
+operator|+
+literal|". Please check the message headers of operationName and operationNamespace."
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|answer
