@@ -310,19 +310,25 @@ name|boolean
 name|isRouteAdded
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the route policy      *      * @return the route policy if any      */
-DECL|method|getRoutePolicy ()
+comment|/**      * Gets the route policy List      *      * @return the route policy list if any      */
+DECL|method|getRoutePolicyList ()
+name|List
+argument_list|<
 name|RoutePolicy
-name|getRoutePolicy
+argument_list|>
+name|getRoutePolicyList
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom route policy      *      * @param routePolicy the custom route policy      */
-DECL|method|setRoutePolicy (RoutePolicy routePolicy)
+comment|/**      * Sets a custom route policy List      *      * @param routePolicyList the custom route policy list      */
+DECL|method|setRoutePolicyList (List<RoutePolicy> routePolicyList)
 name|void
-name|setRoutePolicy
+name|setRoutePolicyList
 parameter_list|(
+name|List
+argument_list|<
 name|RoutePolicy
-name|routePolicy
+argument_list|>
+name|routePolicyList
 parameter_list|)
 function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping      * when building a route based on the model      *<p/>      * We need this special book keeping be able to assign the correct      * {@link org.apache.camel.model.ProcessorDefinition} to the {@link org.apache.camel.Channel}      *      * @param node the current node      * @return the current count      */

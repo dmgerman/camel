@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -538,28 +548,31 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route Policy"
+literal|"Route Policy List"
 argument_list|)
-DECL|method|getRoutePolicy ()
+DECL|method|getRoutePolicyList ()
 specifier|public
 name|String
-name|getRoutePolicy
+name|getRoutePolicyList
 parameter_list|()
 block|{
+name|List
+argument_list|<
 name|RoutePolicy
-name|policy
+argument_list|>
+name|policyList
 init|=
 name|route
 operator|.
 name|getRouteContext
 argument_list|()
 operator|.
-name|getRoutePolicy
+name|getRoutePolicyList
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|policy
+name|policyList
 operator|!=
 literal|null
 condition|)
@@ -571,6 +584,14 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
+name|policyList
+control|)
+block|{
 name|sb
 operator|.
 name|append
@@ -604,6 +625,35 @@ operator|.
 name|append
 argument_list|(
 literal|")"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", "
+argument_list|)
+expr_stmt|;
+block|}
+name|sb
+operator|=
+name|sb
+operator|.
+name|delete
+argument_list|(
+name|sb
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|", "
+argument_list|)
+argument_list|,
+name|sb
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
