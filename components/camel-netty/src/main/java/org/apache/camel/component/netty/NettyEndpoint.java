@@ -402,19 +402,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
-specifier|public
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull

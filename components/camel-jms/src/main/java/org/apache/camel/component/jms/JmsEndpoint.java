@@ -52,6 +52,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -570,6 +584,16 @@ DECL|field|replyManagerExecutorService
 specifier|private
 name|ScheduledExecutorService
 name|replyManagerExecutorService
+decl_stmt|;
+DECL|field|running
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|running
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 DECL|method|JmsEndpoint ()
 specifier|public
@@ -1766,22 +1790,55 @@ return|return
 name|replyManagerExecutorService
 return|;
 block|}
-DECL|method|start ()
-specifier|public
-name|void
-name|start
+comment|/**      * State whether this endpoint is running (eg started)      */
+DECL|method|isRunning ()
+specifier|protected
+name|boolean
+name|isRunning
 parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|stop ()
-specifier|public
+block|{
+return|return
+name|running
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|stop
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|running
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|running
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|replyManager

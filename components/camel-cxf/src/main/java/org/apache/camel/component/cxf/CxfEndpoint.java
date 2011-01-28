@@ -2610,10 +2610,12 @@ return|return
 name|loggingFeatureEnabled
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -2668,10 +2670,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception

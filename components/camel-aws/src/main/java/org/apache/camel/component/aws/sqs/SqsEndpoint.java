@@ -364,19 +364,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
-specifier|public
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|client
 operator|=
 name|getConfiguration
@@ -495,10 +490,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
-specifier|public
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -506,11 +501,6 @@ block|{
 name|client
 operator|=
 literal|null
-expr_stmt|;
-name|super
-operator|.
-name|stop
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createExchange (com.amazonaws.services.sqs.model.Message msg)

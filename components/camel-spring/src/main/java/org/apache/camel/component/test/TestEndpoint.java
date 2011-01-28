@@ -214,10 +214,12 @@ operator|=
 name|expectedMessageEndpoint
 expr_stmt|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -326,14 +328,6 @@ name|expectedBodies
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 comment|/**      * This method allows us to convert or coerce the expected message body into some other type      */
 DECL|method|getInBody (Exchange exchange)
 specifier|protected

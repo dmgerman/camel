@@ -359,6 +359,18 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|endpointpDone
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|endpointpDone
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, List<Route> routes)
 specifier|public
 name|RouteService
@@ -534,6 +546,41 @@ name|Exception
 block|{
 if|if
 condition|(
+name|endpointpDone
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+comment|// endpoints should only be started once as they can be reused on other routes
+comment|// and whatnot, thus their lifecycle is to start once, and only to stop when Camel shutdown
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routes
+control|)
+block|{
+comment|// ensure endpoint is started first (before the route services, such as the consumer)
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
 name|warmUpDone
 operator|.
 name|compareAndSet
@@ -556,17 +603,20 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Starting route services: "
+literal|"Starting services on route: "
 operator|+
 name|route
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -809,17 +859,20 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Stopping route: "
+literal|"Stopping services on route: "
 operator|+
 name|route
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -882,7 +935,7 @@ condition|)
 block|{
 name|ServiceHelper
 operator|.
-name|stopAndShutdownService
+name|stopAndShutdownServices
 argument_list|(
 name|route
 argument_list|)
@@ -892,7 +945,7 @@ else|else
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopServices
 argument_list|(
 name|route
 argument_list|)
@@ -935,6 +988,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routes
+control|)
+block|{
+comment|// endpoints should only be stopped when Camel is shutting down
+comment|// so comments in warmUp method
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// need to call onRoutesRemove when the CamelContext is shutting down or Route is shutdown
 for|for
 control|(
@@ -962,6 +1036,13 @@ name|clear
 argument_list|()
 expr_stmt|;
 name|warmUpDone
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|endpointpDone
 operator|.
 name|set
 argument_list|(

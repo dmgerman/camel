@@ -325,27 +325,35 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|stop
+name|doStart
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|server
 operator|.
-name|stop
+name|start
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|start
+name|doStop
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|server
 operator|.
-name|start
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

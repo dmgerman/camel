@@ -800,6 +800,14 @@ name|lookup
 expr_stmt|;
 block|}
 comment|// warm up the producer by starting it so we can fail fast if there was a problem
+comment|// however must start endpoint first
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|destination
+argument_list|)
+expr_stmt|;
 name|producerCache
 operator|.
 name|startProducer

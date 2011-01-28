@@ -148,6 +148,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -251,6 +265,7 @@ name|sessionID
 decl_stmt|;
 DECL|field|consumers
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|QuickfixjConsumer
@@ -348,12 +363,6 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// TODO The lifecycle mgmt requirements aren't clear to me
-name|consumer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|consumers
 operator|.
 name|add
@@ -404,7 +413,6 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
-comment|// TODO This seems to be incorrect. There can be multiple consumers for a session endpoint.
 return|return
 literal|true
 return|;
@@ -504,6 +512,23 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear list of consumers
+name|consumers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

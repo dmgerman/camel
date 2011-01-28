@@ -923,6 +923,21 @@ name|ManagedService
 operator|)
 name|managedObject
 decl_stmt|;
+comment|// skip endpoints as they are already managed
+if|if
+condition|(
+name|ms
+operator|.
+name|getService
+argument_list|()
+operator|instanceof
+name|Endpoint
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|objectName
 operator|=
 name|getManagementNamingStrategy

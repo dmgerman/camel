@@ -94,18 +94,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -165,8 +153,6 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
-implements|,
-name|Service
 block|{
 DECL|field|DEFAULT_PORT
 specifier|private
@@ -719,10 +705,38 @@ return|return
 name|restletUriPatterns
 return|;
 block|}
-DECL|method|start ()
+DECL|method|isThrowExceptionOnFailure ()
+specifier|public
+name|boolean
+name|isThrowExceptionOnFailure
+parameter_list|()
+block|{
+return|return
+name|throwExceptionOnFailure
+return|;
+block|}
+DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
-name|start
+name|setThrowExceptionOnFailure
+parameter_list|(
+name|boolean
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwExceptionOnFailure
+operator|=
+name|throwExceptionOnFailure
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -777,41 +791,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 comment|// noop
-block|}
-DECL|method|isThrowExceptionOnFailure ()
-specifier|public
-name|boolean
-name|isThrowExceptionOnFailure
-parameter_list|()
-block|{
-return|return
-name|throwExceptionOnFailure
-return|;
-block|}
-DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
-specifier|public
-name|void
-name|setThrowExceptionOnFailure
-parameter_list|(
-name|boolean
-name|throwExceptionOnFailure
-parameter_list|)
-block|{
-name|this
-operator|.
-name|throwExceptionOnFailure
-operator|=
-name|throwExceptionOnFailure
-expr_stmt|;
 block|}
 block|}
 end_class

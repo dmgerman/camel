@@ -1187,10 +1187,12 @@ name|JobDetail
 argument_list|()
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -1215,10 +1217,12 @@ name|loadBalancer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -1231,10 +1235,12 @@ name|loadBalancer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shutdown ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
 name|void
-name|shutdown
+name|doShutdown
 parameter_list|()
 throws|throws
 name|Exception

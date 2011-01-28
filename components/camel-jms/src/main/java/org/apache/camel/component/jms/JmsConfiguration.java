@@ -396,22 +396,6 @@ name|normalizeDestinationName
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -1949,7 +1933,9 @@ name|AbstractMessageListenerContainer
 name|container
 init|=
 name|chooseMessageListenerContainerImplementation
-argument_list|()
+argument_list|(
+name|endpoint
+argument_list|)
 decl_stmt|;
 name|configureMessageListenerContainer
 argument_list|(
@@ -4045,11 +4031,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|chooseMessageListenerContainerImplementation ()
+DECL|method|chooseMessageListenerContainerImplementation (JmsEndpoint endpoint)
 specifier|public
 name|AbstractMessageListenerContainer
 name|chooseMessageListenerContainerImplementation
-parameter_list|()
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
 block|{
 switch|switch
 condition|(
@@ -4059,6 +4048,7 @@ block|{
 case|case
 name|Simple
 case|:
+comment|// TODO: simple is @deprecated and should be removed in Camel 2.7 when we upgrade to Spring 3
 return|return
 operator|new
 name|SimpleMessageListenerContainer
@@ -4069,8 +4059,10 @@ name|Default
 case|:
 return|return
 operator|new
-name|DefaultMessageListenerContainer
-argument_list|()
+name|JmsMessageListenerContainer
+argument_list|(
+name|endpoint
+argument_list|)
 return|;
 default|default:
 throw|throw
@@ -4094,6 +4086,7 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|)
 block|{
+comment|// TODO: upgrade to Spring 3
 comment|// if we are on a new enough spring version we can assume CACHE_CONSUMER
 if|if
 condition|(

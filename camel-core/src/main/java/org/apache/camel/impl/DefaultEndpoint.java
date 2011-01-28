@@ -198,6 +198,8 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultEndpoint
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Endpoint
 implements|,
@@ -902,20 +904,24 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
