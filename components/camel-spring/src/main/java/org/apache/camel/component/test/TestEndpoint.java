@@ -94,18 +94,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|mock
@@ -167,8 +155,6 @@ class|class
 name|TestEndpoint
 extends|extends
 name|MockEndpoint
-implements|implements
-name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -229,14 +215,11 @@ name|expectedMessageEndpoint
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|start ()
-specifier|public
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -261,10 +244,16 @@ expr_stmt|;
 block|}
 specifier|final
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|expectedBodies
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|EndpointHelper
@@ -339,14 +328,6 @@ name|expectedBodies
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 comment|/**      * This method allows us to convert or coerce the expected message body into some other type      */
 DECL|method|getInBody (Exchange exchange)
 specifier|protected
