@@ -997,7 +997,7 @@ name|routes
 control|)
 block|{
 comment|// endpoints should only be stopped when Camel is shutting down
-comment|// so comments in warmUp method
+comment|// see more details in the warmUp method
 name|ServiceHelper
 operator|.
 name|stopAndShutdownServices
