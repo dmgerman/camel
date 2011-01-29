@@ -555,10 +555,13 @@ specifier|private
 name|Integer
 name|startupOrder
 decl_stmt|;
-DECL|field|routePolicy
+DECL|field|routePolicies
 specifier|private
+name|List
+argument_list|<
 name|RoutePolicy
-name|routePolicy
+argument_list|>
+name|routePolicies
 decl_stmt|;
 DECL|field|routePolicyRef
 specifier|private
@@ -967,7 +970,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Advices this route with the route builder.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext  the camel context      * @param builder       the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
+comment|/**      * Advices this route with the route builder.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param builder      the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
 DECL|method|adviceWith (CamelContext camelContext, RouteBuilder builder)
 specifier|public
 name|RouteDefinition
@@ -1080,7 +1083,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -----------------------------------------------------------------------
-comment|/**      * Creates an input to the route      *      * @param uri  the from uri      * @return the builder      */
+comment|/**      * Creates an input to the route      *      * @param uri the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteDefinition
@@ -1106,7 +1109,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an input to the route      *      * @param endpoint  the from endpoint      * @return the builder      */
+comment|/**      * Creates an input to the route      *      * @param endpoint the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteDefinition
@@ -1132,7 +1135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates inputs to the route      *      * @param uris  the from uris      * @return the builder      */
+comment|/**      * Creates inputs to the route      *      * @param uris the from uris      * @return the builder      */
 DECL|method|from (String... uris)
 specifier|public
 name|RouteDefinition
@@ -1168,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates inputs to the route      *      * @param endpoints  the from endpoints      * @return the builder      */
+comment|/**      * Creates inputs to the route      *      * @param endpoints the from endpoints      * @return the builder      */
 DECL|method|from (Endpoint... endpoints)
 specifier|public
 name|RouteDefinition
@@ -1204,7 +1207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the group name for this route      *      * @param name  the group name      * @return the builder      */
+comment|/**      * Set the group name for this route      *      * @param name the group name      * @return the builder      */
 DECL|method|group (String name)
 specifier|public
 name|RouteDefinition
@@ -1223,7 +1226,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the route id for this route      *      * @param id  the route id      * @return the builder      */
+comment|/**      * Set the route id for this route      *      * @param id the route id      * @return the builder      */
 DECL|method|routeId (String id)
 specifier|public
 name|RouteDefinition
@@ -1242,7 +1245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable stream caching for this route.      *       * @return the builder      */
+comment|/**      * Disable stream caching for this route.      *      * @return the builder      */
 DECL|method|noStreamCaching ()
 specifier|public
 name|RouteDefinition
@@ -1266,7 +1269,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable stream caching for this route.      *       * @return the builder      */
+comment|/**      * Enable stream caching for this route.      *      * @return the builder      */
 DECL|method|streamCaching ()
 specifier|public
 name|RouteDefinition
@@ -1315,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable tracing for this route.      *       * @return the builder      */
+comment|/**      * Disable tracing for this route.      *      * @return the builder      */
 DECL|method|noTracing ()
 specifier|public
 name|RouteDefinition
@@ -1331,7 +1334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable tracing for this route.      *       * @return the builder      */
+comment|/**      * Enable tracing for this route.      *      * @return the builder      */
 DECL|method|tracing ()
 specifier|public
 name|RouteDefinition
@@ -1347,7 +1350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable handle fault for this route.      *       * @return the builder      */
+comment|/**      * Disable handle fault for this route.      *      * @return the builder      */
 DECL|method|noHandleFault ()
 specifier|public
 name|RouteDefinition
@@ -1363,7 +1366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable handle fault for this route.      *       * @return the builder      */
+comment|/**      * Enable handle fault for this route.      *      * @return the builder      */
 DECL|method|handleFault ()
 specifier|public
 name|RouteDefinition
@@ -1379,7 +1382,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable delayer for this route.      *       * @return the builder      */
+comment|/**      * Disable delayer for this route.      *      * @return the builder      */
 DECL|method|noDelayer ()
 specifier|public
 name|RouteDefinition
@@ -1435,7 +1438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disables this route from being auto started when Camel starts.      *       * @return the builder      */
+comment|/**      * Disables this route from being auto started when Camel starts.      *      * @return the builder      */
 DECL|method|noAutoStartup ()
 specifier|public
 name|RouteDefinition
@@ -1470,26 +1473,55 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a route policy for this route      *      * @param routePolicy the route policy      * @return the builder      */
-DECL|method|routePolicy (RoutePolicy routePolicy)
+comment|/**      * Configures route policies for this route      *      * @param policies the route policies      * @return the builder      */
+DECL|method|routePolicy (RoutePolicy... policies)
 specifier|public
 name|RouteDefinition
 name|routePolicy
 parameter_list|(
 name|RoutePolicy
-name|routePolicy
+modifier|...
+name|policies
 parameter_list|)
 block|{
-name|setRoutePolicy
+if|if
+condition|(
+name|routePolicies
+operator|==
+literal|null
+condition|)
+block|{
+name|routePolicies
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RoutePolicy
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
+name|policies
+control|)
+block|{
+name|routePolicies
+operator|.
+name|add
 argument_list|(
-name|routePolicy
+name|policy
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      * @return the builder      */
+comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      *                       You can specify multiple references by separating using comma.      * @return the builder      */
 DECL|method|routePolicyRef (String routePolicyRef)
 specifier|public
 name|RouteDefinition
@@ -1638,7 +1670,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *      * May be null.      */
+comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *<p/>      * May be null.      */
 DECL|method|getGroup ()
 specifier|public
 name|String
@@ -1974,33 +2006,39 @@ return|return
 name|routePolicyRef
 return|;
 block|}
+DECL|method|getRoutePolicies ()
+specifier|public
+name|List
+argument_list|<
+name|RoutePolicy
+argument_list|>
+name|getRoutePolicies
+parameter_list|()
+block|{
+return|return
+name|routePolicies
+return|;
+block|}
 annotation|@
 name|XmlTransient
-DECL|method|setRoutePolicy (RoutePolicy routePolicy)
+DECL|method|setRoutePolicies (List<RoutePolicy> routePolicies)
 specifier|public
 name|void
-name|setRoutePolicy
+name|setRoutePolicies
 parameter_list|(
+name|List
+argument_list|<
 name|RoutePolicy
-name|routePolicy
+argument_list|>
+name|routePolicies
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routePolicy
+name|routePolicies
 operator|=
-name|routePolicy
+name|routePolicies
 expr_stmt|;
-block|}
-DECL|method|getRoutePolicy ()
-specifier|public
-name|RoutePolicy
-name|getRoutePolicy
-parameter_list|()
-block|{
-return|return
-name|routePolicy
-return|;
 block|}
 DECL|method|getShutdownRoute ()
 specifier|public
@@ -2154,7 +2192,8 @@ name|debug
 argument_list|(
 literal|"Tracing is enabled on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2216,7 +2255,8 @@ name|debug
 argument_list|(
 literal|"StreamCaching is enabled on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2298,7 +2338,8 @@ name|debug
 argument_list|(
 literal|"HandleFault is enabled on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2386,7 +2427,8 @@ name|delayer
 operator|+
 literal|" ms. on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2416,7 +2458,8 @@ name|debug
 argument_list|(
 literal|"Delayer is disabled on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2426,10 +2469,24 @@ block|}
 comment|// configure route policy
 if|if
 condition|(
-name|routePolicy
+name|routePolicies
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|routePolicies
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
+block|{
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
+name|routePolicies
+control|)
 block|{
 if|if
 condition|(
@@ -2445,11 +2502,12 @@ name|debug
 argument_list|(
 literal|"RoutePolicy is enabled: "
 operator|+
-name|routePolicy
+name|policy
 operator|+
 literal|" on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2460,12 +2518,11 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|getRoutePolicy
-argument_list|()
+name|policy
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+block|}
 if|if
 condition|(
 name|routePolicyRef
@@ -2492,6 +2549,17 @@ name|hasMoreTokens
 argument_list|()
 condition|)
 block|{
+name|String
+name|ref
+init|=
+name|policyTokens
+operator|.
+name|nextToken
+argument_list|()
+operator|.
+name|trim
+argument_list|()
+decl_stmt|;
 name|RoutePolicy
 name|policy
 init|=
@@ -2501,13 +2569,7 @@ name|mandatoryLookup
 argument_list|(
 name|camelContext
 argument_list|,
-name|policyTokens
-operator|.
-name|nextToken
-argument_list|()
-operator|.
-name|trim
-argument_list|()
+name|ref
 argument_list|,
 name|RoutePolicy
 operator|.
@@ -2532,7 +2594,8 @@ name|policy
 operator|+
 literal|" on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2587,7 +2650,8 @@ name|isAutoStartup
 operator|+
 literal|" on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2626,7 +2690,8 @@ argument_list|()
 operator|+
 literal|" on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2665,7 +2730,8 @@ argument_list|()
 operator|+
 literal|" on route: "
 operator|+
-name|this
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

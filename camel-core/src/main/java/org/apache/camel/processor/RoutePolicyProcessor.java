@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -118,8 +128,36 @@ name|RoutePolicy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * {@link Processor} which instruments the {@link RoutePolicy}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -130,26 +168,47 @@ name|RoutePolicyProcessor
 extends|extends
 name|DelegateAsyncProcessor
 block|{
-DECL|field|routePolicy
+DECL|field|LOG
 specifier|private
 specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|RoutePolicyProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|routePolicies
+specifier|private
+specifier|final
+name|List
+argument_list|<
 name|RoutePolicy
-name|routePolicy
+argument_list|>
+name|routePolicies
 decl_stmt|;
 DECL|field|route
 specifier|private
 name|Route
 name|route
 decl_stmt|;
-DECL|method|RoutePolicyProcessor (Processor processor, RoutePolicy routePolicy)
+DECL|method|RoutePolicyProcessor (Processor processor, List<RoutePolicy> routePolicies)
 specifier|public
 name|RoutePolicyProcessor
 parameter_list|(
 name|Processor
 name|processor
 parameter_list|,
+name|List
+argument_list|<
 name|RoutePolicy
-name|routePolicy
+argument_list|>
+name|routePolicies
 parameter_list|)
 block|{
 name|super
@@ -159,9 +218,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|routePolicy
+name|routePolicies
 operator|=
-name|routePolicy
+name|routePolicies
 expr_stmt|;
 block|}
 annotation|@
@@ -175,7 +234,7 @@ block|{
 return|return
 literal|"RoutePolicy["
 operator|+
-name|routePolicy
+name|routePolicies
 operator|+
 literal|"]"
 return|;
@@ -194,15 +253,26 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// check whether the policy is enabled
+comment|// invoke begin
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
+name|routePolicies
+control|)
+block|{
+try|try
+block|{
 if|if
 condition|(
 name|isRoutePolicyRunAllowed
-argument_list|()
+argument_list|(
+name|policy
+argument_list|)
 condition|)
 block|{
-comment|// invoke begin
-name|routePolicy
+name|policy
 operator|.
 name|onExchangeBegin
 argument_list|(
@@ -211,6 +281,29 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred during onExchangeBegin on RoutePolicy: "
+operator|+
+name|policy
+operator|+
+literal|". This exception will be ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// add on completion that invokes the policy callback on complete
 comment|// as the Exchange can be routed async and thus we need the callback to
 comment|// invoke when the route is completed
@@ -247,7 +340,25 @@ condition|)
 block|{
 return|return;
 block|}
-name|routePolicy
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
+name|routePolicies
+control|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+name|isRoutePolicyRunAllowed
+argument_list|(
+name|policy
+argument_list|)
+condition|)
+block|{
+name|policy
 operator|.
 name|onExchangeDone
 argument_list|(
@@ -257,6 +368,29 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred during onExchangeDone on RoutePolicy: "
+operator|+
+name|policy
+operator|+
+literal|". This exception will be ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -265,13 +399,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RoutePolicy"
+literal|"RoutePolicyOnCompletion"
 return|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|super
 operator|.
@@ -283,6 +416,7 @@ name|callback
 argument_list|)
 return|;
 block|}
+comment|/**      * Sets the route this policy applies.      *      * @param route the route      */
 DECL|method|setRoute (Route route)
 specifier|public
 name|void
@@ -298,6 +432,42 @@ name|route
 operator|=
 name|route
 expr_stmt|;
+block|}
+comment|/**      * Strategy to determine if this policy is allowed to run      *      * @param policy the policy      * @return<tt>true</tt> to run      */
+DECL|method|isRoutePolicyRunAllowed (RoutePolicy policy)
+specifier|protected
+name|boolean
+name|isRoutePolicyRunAllowed
+parameter_list|(
+name|RoutePolicy
+name|policy
+parameter_list|)
+block|{
+if|if
+condition|(
+name|policy
+operator|instanceof
+name|ServiceSupport
+condition|)
+block|{
+name|ServiceSupport
+name|ss
+init|=
+operator|(
+name|ServiceSupport
+operator|)
+name|policy
+decl_stmt|;
+return|return
+name|ss
+operator|.
+name|isRunAllowed
+argument_list|()
+return|;
+block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|isCamelStopping (CamelContext context)
 specifier|private
@@ -338,38 +508,6 @@ return|;
 block|}
 return|return
 literal|false
-return|;
-block|}
-DECL|method|isRoutePolicyRunAllowed ()
-specifier|private
-name|boolean
-name|isRoutePolicyRunAllowed
-parameter_list|()
-block|{
-if|if
-condition|(
-name|routePolicy
-operator|instanceof
-name|ServiceSupport
-condition|)
-block|{
-name|ServiceSupport
-name|ss
-init|=
-operator|(
-name|ServiceSupport
-operator|)
-name|routePolicy
-decl_stmt|;
-return|return
-name|ss
-operator|.
-name|isRunAllowed
-argument_list|()
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 block|}
