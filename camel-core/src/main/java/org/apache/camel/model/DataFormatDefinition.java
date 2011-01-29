@@ -353,6 +353,29 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|dataFormatName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Data format '"
+operator|+
+name|dataFormatName
+operator|+
+literal|"' could not be created."
+operator|+
+literal|"Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -360,6 +383,7 @@ argument_list|(
 literal|"Data format could not be created. Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
 argument_list|)
 throw|;
+block|}
 block|}
 else|else
 block|{
