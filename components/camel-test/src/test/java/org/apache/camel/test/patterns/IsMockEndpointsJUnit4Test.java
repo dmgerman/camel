@@ -62,6 +62,10 @@ begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
+begin_comment
+comment|// START SNIPPET: e1
+end_comment
+
 begin_class
 DECL|class|IsMockEndpointsJUnit4Test
 specifier|public
@@ -78,6 +82,8 @@ name|String
 name|isMockEndpoints
 parameter_list|()
 block|{
+comment|// override this method and return the pattern for which endpoints to mock.
+comment|// use * to indicate all
 return|return
 literal|"*"
 return|;
@@ -92,6 +98,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// notice we have automatic mocked all endpoints and the name of the endpoints is "mock:uri"
 name|getMockEndpoint
 argument_list|(
 literal|"mock:direct:start"
@@ -280,6 +287,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 
