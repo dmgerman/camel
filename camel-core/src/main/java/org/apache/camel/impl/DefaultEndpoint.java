@@ -268,6 +268,7 @@ operator|.
 name|createEndpointId
 argument_list|()
 decl_stmt|;
+comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *      * @param endpointUri the full URI used to create this endpoint      * @param component the component that created this endpoint      */
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
 name|DefaultEndpoint
@@ -296,6 +297,7 @@ operator|=
 name|component
 expr_stmt|;
 block|}
+comment|/**      * Constructs a DefaultEndpoint instance which has<b>not</b> been created using a {@link Component}.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      * @param camelContext the Camel Context in which this endpoint is operating      */
 DECL|method|DefaultEndpoint (String endpointUri, CamelContext camelContext)
 specifier|protected
 name|DefaultEndpoint
@@ -319,6 +321,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      */
 DECL|method|DefaultEndpoint (String endpointUri)
 specifier|protected
 name|DefaultEndpoint
@@ -335,6 +338,7 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      * Useful when creating endpoints manually (e.g., as beans in Spring).      *<p/>      * Please note that the endpoint URI must be set through properties (or      * overriding {@link #createEndpointUri()} if one uses this constructor.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      */
 DECL|method|DefaultEndpoint ()
 specifier|protected
 name|DefaultEndpoint
@@ -558,6 +562,7 @@ return|return
 name|camelContext
 return|;
 block|}
+comment|/**      * Returns the component that created this endpoint.      *      * @return the component that created this endpoint, or<tt>null</tt> if none set      */
 DECL|method|getComponent ()
 specifier|public
 name|Component
@@ -773,6 +778,7 @@ name|pattern
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the default exchange pattern to use for createExchange().      *      * @see #setExchangePattern(ExchangePattern exchangePattern)      */
 DECL|method|getExchangePattern ()
 specifier|public
 name|ExchangePattern
@@ -783,6 +789,7 @@ return|return
 name|exchangePattern
 return|;
 block|}
+comment|/**      * Sets the default exchange pattern to use for {@link #createExchange()}.      * The default value is {@link ExchangePattern#InOnly}      */
 DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|void
@@ -799,6 +806,7 @@ operator|=
 name|exchangePattern
 expr_stmt|;
 block|}
+comment|/**      * Returns whether synchronous processing should be strictly used.      *      * @see #setSynchronous(boolean synchronous)      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -877,6 +885,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Sets the URI that created this endpoint.      */
 DECL|method|setEndpointUri (String endpointUri)
 specifier|protected
 name|void
@@ -928,6 +937,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
+comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      */
 DECL|method|sanitizeUri (String uri)
 specifier|public
 specifier|static

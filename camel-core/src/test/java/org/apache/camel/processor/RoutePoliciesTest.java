@@ -134,6 +134,7 @@ argument_list|)
 decl_stmt|;
 DECL|class|MyCustomRoutePolicy
 specifier|private
+specifier|final
 class|class
 name|MyCustomRoutePolicy
 extends|extends

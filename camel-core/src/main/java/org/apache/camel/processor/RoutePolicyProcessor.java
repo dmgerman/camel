@@ -170,6 +170,7 @@ name|DelegateAsyncProcessor
 block|{
 DECL|field|LOG
 specifier|private
+specifier|static
 specifier|final
 name|Log
 name|LOG

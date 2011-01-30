@@ -188,6 +188,7 @@ return|;
 block|}
 DECL|class|MyCustomRoutePolicy
 specifier|private
+specifier|final
 class|class
 name|MyCustomRoutePolicy
 extends|extends
