@@ -349,16 +349,17 @@ expr_stmt|;
 if|if
 condition|(
 name|dataFormat
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|dataFormatName
 operator|!=
 literal|null
 condition|)
+block|{
+name|configureDataFormat
+argument_list|(
+name|dataFormat
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 throw|throw
 operator|new
@@ -366,32 +367,21 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Data format '"
 operator|+
+operator|(
 name|dataFormatName
+operator|!=
+literal|null
+condition|?
+name|dataFormatName
+else|:
+literal|"<null>"
+operator|)
 operator|+
-literal|"' could not be created."
+literal|"' could not be created. "
 operator|+
 literal|"Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Data format could not be created. Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-name|configureDataFormat
-argument_list|(
-name|dataFormat
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 return|return
