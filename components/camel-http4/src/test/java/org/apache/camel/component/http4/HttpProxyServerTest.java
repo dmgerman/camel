@@ -1289,7 +1289,10 @@ block|{
 return|return
 name|proxy
 operator|.
-name|getServiceHostName
+name|getServiceAddress
+argument_list|()
+operator|.
+name|getHostName
 argument_list|()
 return|;
 block|}
@@ -1302,7 +1305,10 @@ block|{
 return|return
 name|proxy
 operator|.
-name|getServicePort
+name|getServiceAddress
+argument_list|()
+operator|.
+name|getPort
 argument_list|()
 return|;
 block|}

@@ -420,6 +420,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|responses
 init|=
@@ -429,6 +432,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -454,6 +460,9 @@ init|=
 name|i
 decl_stmt|;
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|out
 init|=
 name|executor
@@ -537,6 +546,9 @@ decl_stmt|;
 for|for
 control|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 range|:
 name|responses

@@ -779,6 +779,18 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isStreaming ()
+specifier|public
+name|boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 DECL|class|ResponseCompressingInterceptor
@@ -924,6 +936,18 @@ block|{
 return|return
 operator|-
 literal|1
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isStreaming ()
+specifier|public
+name|boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}

@@ -916,6 +916,40 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
+comment|/**      * Used from the IntrospectionSupport in HttpComponent.      * @param binding      */
+DECL|method|setHttpBinding (HttpBinding binding)
+specifier|public
+name|void
+name|setHttpBinding
+parameter_list|(
+name|HttpBinding
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
+block|}
+comment|/**      * Used from the IntrospectionSupport in HttpComponent.      * @param binding      */
+DECL|method|setHttpBindingRef (HttpBinding binding)
+specifier|public
+name|void
+name|setHttpBindingRef
+parameter_list|(
+name|HttpBinding
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
+block|}
 DECL|method|getPath ()
 specifier|public
 name|String

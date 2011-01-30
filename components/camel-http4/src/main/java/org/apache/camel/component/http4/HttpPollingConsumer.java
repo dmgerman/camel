@@ -206,6 +206,20 @@ name|HttpConnectionParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|util
+operator|.
+name|EntityUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * A polling HTTP consumer which by default performs a GET  *  * @version $Revision$  */
 end_comment
@@ -549,10 +563,12 @@ condition|)
 block|{
 try|try
 block|{
-name|responeEntity
+name|EntityUtils
 operator|.
-name|consumeContent
-argument_list|()
+name|consume
+argument_list|(
+name|responeEntity
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

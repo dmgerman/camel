@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpResponseFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|localserver
 operator|.
 name|LocalTestServer
@@ -97,6 +109,20 @@ operator|.
 name|protocol
 operator|.
 name|BasicHttpProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|protocol
+operator|.
+name|HttpExpectationVerifier
 import|;
 end_import
 
@@ -159,6 +185,12 @@ name|getBasicHttpProcessor
 argument_list|()
 argument_list|,
 name|getConnectionReuseStrategy
+argument_list|()
+argument_list|,
+name|getHttpResponseFactory
+argument_list|()
+argument_list|,
+name|getHttpExpectationVerifier
 argument_list|()
 argument_list|,
 name|getHttpParams
@@ -237,6 +269,28 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Returns the org.apache.http.HttpResponseFactory which should be used      * by the server.      *      * @return httpResponseFactory      */
+DECL|method|getHttpResponseFactory ()
+specifier|protected
+name|HttpResponseFactory
+name|getHttpResponseFactory
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Returns the org.apache.http.protocol.HttpExpectationVerifier which should be used      * by the server.      *      * @return httpExpectationVerifier      */
+DECL|method|getHttpExpectationVerifier ()
+specifier|protected
+name|HttpExpectationVerifier
+name|getHttpExpectationVerifier
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Returns the org.apache.http.params.HttpParams which should be used by      * the server.      *      * @return httpParams      */
 DECL|method|getHttpParams ()
 specifier|protected
@@ -281,7 +335,10 @@ block|{
 return|return
 name|localServer
 operator|.
-name|getServiceHostName
+name|getServiceAddress
+argument_list|()
+operator|.
+name|getHostName
 argument_list|()
 return|;
 block|}
@@ -295,7 +352,10 @@ block|{
 return|return
 name|localServer
 operator|.
-name|getServicePort
+name|getServiceAddress
+argument_list|()
+operator|.
+name|getPort
 argument_list|()
 return|;
 block|}

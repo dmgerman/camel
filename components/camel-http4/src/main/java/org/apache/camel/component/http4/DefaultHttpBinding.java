@@ -413,6 +413,11 @@ name|getHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 specifier|public
 name|void
@@ -818,6 +823,11 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
@@ -1072,6 +1082,11 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|populateAttachments (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
