@@ -76,6 +76,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -463,8 +473,6 @@ name|String
 name|packageName
 parameter_list|)
 block|{
-try|try
-block|{
 name|Bundle
 index|[]
 name|bundles
@@ -509,7 +517,7 @@ argument_list|>
 name|urls
 init|=
 operator|new
-name|HashSet
+name|LinkedHashSet
 argument_list|<
 name|String
 argument_list|>
@@ -541,6 +549,8 @@ name|bd
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|Enumeration
 argument_list|<
 name|URL
@@ -630,10 +640,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
-name|urls
-return|;
-block|}
 catch|catch
 parameter_list|(
 name|Throwable
@@ -644,7 +650,11 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot search bundles for classes matching criteria: "
+literal|"Cannot search in bundle: "
+operator|+
+name|bundle
+operator|+
+literal|" for classes matching criteria: "
 operator|+
 name|test
 operator|+
@@ -660,10 +670,11 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+block|}
+return|return
+name|urls
+return|;
 block|}
 block|}
 end_class

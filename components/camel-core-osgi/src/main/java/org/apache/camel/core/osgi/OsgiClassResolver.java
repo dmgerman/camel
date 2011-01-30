@@ -336,9 +336,9 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Cannot load resource: "
 operator|+
@@ -346,7 +346,7 @@ name|uri
 argument_list|,
 name|ex
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 return|return
@@ -460,6 +460,8 @@ operator|+
 literal|" using classloader: "
 operator|+
 name|loader
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)

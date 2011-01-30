@@ -76,6 +76,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -351,6 +365,14 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -360,6 +382,7 @@ operator|+
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|ServiceReference
@@ -435,13 +458,13 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeException
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
 throw|;
-comment|// Should never happen
 block|}
 block|}
 DECL|method|getLanguageResolver (String name, CamelContext context)
@@ -456,6 +479,14 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -465,6 +496,7 @@ operator|+
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|ServiceReference
@@ -533,13 +565,13 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeException
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
 throw|;
-comment|// Should never happen
 block|}
 block|}
 block|}
