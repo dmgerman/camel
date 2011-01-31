@@ -64,18 +64,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -140,7 +128,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -874,7 +862,7 @@ operator|.
 name|createConsumer
 argument_list|(
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|()
 argument_list|)
 expr_stmt|;

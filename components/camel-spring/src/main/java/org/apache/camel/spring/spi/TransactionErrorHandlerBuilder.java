@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -126,13 +126,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -140,13 +136,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -193,12 +185,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|TransactionErrorHandlerBuilder
 operator|.
@@ -744,17 +736,17 @@ comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 DECL|method|createLogger ()
 specifier|protected
-name|Logger
+name|CamelLogger
 name|createLogger
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|TransactionErrorHandler
 operator|.

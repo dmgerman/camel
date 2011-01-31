@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -154,13 +154,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -168,13 +164,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -283,12 +275,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ServerChannelHandler
 operator|.
@@ -302,7 +294,7 @@ name|consumer
 decl_stmt|;
 DECL|field|noReplyLogger
 specifier|private
-name|Logger
+name|CamelLogger
 name|noReplyLogger
 decl_stmt|;
 DECL|method|ServerChannelHandler (NettyConsumer consumer)
@@ -327,7 +319,7 @@ operator|.
 name|noReplyLogger
 operator|=
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
 name|LOG
 argument_list|,

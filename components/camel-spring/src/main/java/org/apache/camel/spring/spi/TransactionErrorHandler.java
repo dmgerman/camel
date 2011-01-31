@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -184,20 +184,6 @@ name|transaction
 operator|.
 name|support
 operator|.
-name|TransactionCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|transaction
-operator|.
-name|support
-operator|.
 name|TransactionCallbackWithoutResult
 import|;
 end_import
@@ -235,7 +221,7 @@ name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
 comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param handledPolicy           policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      */
-DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile)
+DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
@@ -245,7 +231,7 @@ parameter_list|,
 name|Processor
 name|output
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|,
 name|Processor

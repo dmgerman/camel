@@ -603,7 +603,7 @@ name|setLogLevel
 argument_list|(
 name|LoggingLevel
 operator|.
-name|FATAL
+name|ERROR
 argument_list|)
 expr_stmt|;
 name|tracer
