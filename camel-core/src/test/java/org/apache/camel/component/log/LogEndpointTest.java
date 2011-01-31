@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -109,7 +109,7 @@ specifier|private
 class|class
 name|MyLogger
 extends|extends
-name|Logger
+name|CamelLogger
 block|{
 annotation|@
 name|Override

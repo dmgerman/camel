@@ -75,17 +75,17 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
-DECL|method|LogProcessor (Expression expression, Logger logger)
+DECL|method|LogProcessor (Expression expression, CamelLogger logger)
 specifier|public
 name|LogProcessor
 parameter_list|(
 name|Expression
 name|expression
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|)
 block|{

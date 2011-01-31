@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -160,13 +160,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -274,7 +270,7 @@ name|useJpa
 decl_stmt|;
 DECL|field|logger
 specifier|private
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|field|traceInterceptorFactory
@@ -406,7 +402,7 @@ comment|/**      * Gets the logger to be used for tracers that can format and lo
 DECL|method|getLogger (ExchangeFormatter formatter)
 specifier|public
 specifier|synchronized
-name|Logger
+name|CamelLogger
 name|getLogger
 parameter_list|(
 name|ExchangeFormatter
@@ -423,11 +419,11 @@ block|{
 name|logger
 operator|=
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|getLogName
 argument_list|()

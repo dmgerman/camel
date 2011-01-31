@@ -76,13 +76,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -107,7 +103,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|doneSynchronizations (Exchange exchange, List<Synchronization> synchronizations, Log log)
+DECL|method|doneSynchronizations (Exchange exchange, List<Synchronization> synchronizations, Logger log)
 specifier|public
 specifier|static
 name|void
@@ -122,7 +118,7 @@ name|Synchronization
 argument_list|>
 name|synchronizations
 parameter_list|,
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{

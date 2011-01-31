@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Log formatter to format the logging output.  */
+comment|/**  * Logger formatter to format the logging output.  */
 end_comment
 
 begin_class
@@ -204,7 +204,7 @@ name|maxChars
 decl_stmt|;
 DECL|method|format (Exchange exchange)
 specifier|public
-name|Object
+name|String
 name|format
 parameter_list|(
 name|Exchange

@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LogProcessor
+name|CamelLogger
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|LogProcessor
 import|;
 end_import
 
@@ -384,11 +384,11 @@ name|LoggingLevel
 operator|.
 name|INFO
 decl_stmt|;
-name|Logger
+name|CamelLogger
 name|logger
 init|=
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
 name|name
 argument_list|,

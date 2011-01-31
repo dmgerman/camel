@@ -82,13 +82,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -96,13 +92,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -122,12 +114,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|IOHelper
 operator|.
@@ -537,7 +529,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
-DECL|method|close (Closeable closeable, String name, Log log)
+DECL|method|close (Closeable closeable, String name, Logger log)
 specifier|public
 specifier|static
 name|void
@@ -549,7 +541,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{

@@ -93,7 +93,7 @@ extends|extends
 name|RedeliveryErrorHandler
 block|{
 comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      */
-DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile)
+DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -103,7 +103,7 @@ parameter_list|,
 name|Processor
 name|output
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|,
 name|Processor

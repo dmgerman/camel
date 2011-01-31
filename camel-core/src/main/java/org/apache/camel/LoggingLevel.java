@@ -42,7 +42,6 @@ name|LoggingLevel
 block|{
 DECL|enumConstant|DEBUG
 DECL|enumConstant|ERROR
-DECL|enumConstant|FATAL
 DECL|enumConstant|INFO
 DECL|enumConstant|TRACE
 DECL|enumConstant|WARN
@@ -50,8 +49,6 @@ DECL|enumConstant|OFF
 name|DEBUG
 block|,
 name|ERROR
-block|,
-name|FATAL
 block|,
 name|INFO
 block|,

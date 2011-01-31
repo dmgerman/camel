@@ -140,13 +140,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -154,13 +150,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -904,9 +896,9 @@ block|{
 return|return
 name|loggingErrorHandler
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|log
 argument_list|)
@@ -914,12 +906,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
-DECL|method|loggingErrorHandler (Log log)
+DECL|method|loggingErrorHandler (Logger log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|loggingErrorHandler
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -932,12 +924,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
-DECL|method|loggingErrorHandler (Log log, LoggingLevel level)
+DECL|method|loggingErrorHandler (Logger log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|loggingErrorHandler
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|,
 name|LoggingLevel

@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -74,7 +62,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -110,18 +98,14 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link Logger} to  * log to an arbitrary {@link org.apache.commons.logging.Log Log} with some {@link LoggingLevel}  *  * @version $Revision$  */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log to an arbitrary {@link org.apache.commons.logging.Log Logger} with some {@link LoggingLevel}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -135,7 +119,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|method|LoggingExceptionHandler (Class<?> ownerType)
@@ -152,11 +136,11 @@ block|{
 name|this
 argument_list|(
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ownerType
 argument_list|)
@@ -168,11 +152,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|LoggingExceptionHandler (Logger logger)
+DECL|method|LoggingExceptionHandler (CamelLogger logger)
 specifier|public
 name|LoggingExceptionHandler
 parameter_list|(
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|)
 block|{

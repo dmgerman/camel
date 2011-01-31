@@ -328,7 +328,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateAsyncProcessor
+name|CamelLogger
 import|;
 end_import
 
@@ -342,7 +342,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|DelegateAsyncProcessor
 import|;
 end_import
 
@@ -448,13 +448,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -462,13 +458,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -491,12 +483,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|TraceInterceptor
 operator|.
@@ -505,7 +497,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|logger
 specifier|private
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|field|traceEventProducer
@@ -1608,14 +1600,16 @@ block|}
 block|}
 DECL|method|format (Exchange exchange)
 specifier|public
-name|Object
+name|String
 name|format
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-return|return
+name|Object
+name|msg
+init|=
 name|formatter
 operator|.
 name|format
@@ -1629,7 +1623,27 @@ argument_list|()
 argument_list|,
 name|exchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|msg
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|msg
+operator|.
+name|toString
+argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
@@ -1648,7 +1662,7 @@ return|;
 block|}
 DECL|method|getLogger ()
 specifier|public
-name|Logger
+name|CamelLogger
 name|getLogger
 parameter_list|()
 block|{

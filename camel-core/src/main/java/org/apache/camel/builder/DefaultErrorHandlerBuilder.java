@@ -96,11 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|processor
 operator|.
-name|bean
-operator|.
-name|BeanExpression
+name|CamelLogger
 import|;
 end_import
 
@@ -129,20 +127,6 @@ operator|.
 name|processor
 operator|.
 name|ErrorHandlerSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|Logger
 import|;
 end_import
 
@@ -208,41 +192,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -276,7 +228,7 @@ name|ErrorHandlerBuilderSupport
 block|{
 DECL|field|logger
 specifier|protected
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|field|exceptionPolicyStrategy
@@ -845,12 +797,12 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the logger used for caught exceptions      *      * @param logger the logger      * @return the builder      */
-DECL|method|logger (Logger logger)
+DECL|method|logger (CamelLogger logger)
 specifier|public
 name|DefaultErrorHandlerBuilder
 name|logger
 parameter_list|(
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|)
 block|{
@@ -886,12 +838,16 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the log used for caught exceptions      *      * @param log the logger      * @return the builder      */
-DECL|method|log (Log log)
+DECL|method|log (org.slf4j.Logger log)
 specifier|public
 name|DefaultErrorHandlerBuilder
 name|log
 parameter_list|(
-name|Log
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -920,9 +876,9 @@ block|{
 return|return
 name|log
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|log
 argument_list|)
@@ -945,9 +901,9 @@ block|{
 return|return
 name|log
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|log
 argument_list|)
@@ -1100,7 +1056,7 @@ expr_stmt|;
 block|}
 DECL|method|getLogger ()
 specifier|public
-name|Logger
+name|CamelLogger
 name|getLogger
 parameter_list|()
 block|{
@@ -1121,12 +1077,12 @@ return|return
 name|logger
 return|;
 block|}
-DECL|method|setLogger (Logger logger)
+DECL|method|setLogger (CamelLogger logger)
 specifier|public
 name|void
 name|setLogger
 parameter_list|(
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|)
 block|{
@@ -1523,17 +1479,17 @@ return|;
 block|}
 DECL|method|createLogger ()
 specifier|protected
-name|Logger
+name|CamelLogger
 name|createLogger
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|DefaultErrorHandler
 operator|.

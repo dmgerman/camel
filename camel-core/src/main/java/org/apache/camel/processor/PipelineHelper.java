@@ -32,13 +32,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -75,7 +71,7 @@ name|PipelineHelper
 parameter_list|()
 block|{     }
 comment|/**      * Should we continue processing the exchange?      *      * @param exchange the next exchange      * @param message a message to use when logging that we should not continue processing      * @param log a logger      * @return<tt>true</tt> to continue processing,<tt>false</tt> to break out, for example if an exception occurred.      */
-DECL|method|continueProcessing (Exchange exchange, String message, Log log)
+DECL|method|continueProcessing (Exchange exchange, String message, Logger log)
 specifier|public
 specifier|static
 name|boolean
@@ -87,7 +83,7 @@ parameter_list|,
 name|String
 name|message
 parameter_list|,
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{

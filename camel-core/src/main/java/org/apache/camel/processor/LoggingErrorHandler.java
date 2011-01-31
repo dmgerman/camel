@@ -69,7 +69,7 @@ extends|extends
 name|DefaultErrorHandler
 block|{
 comment|/**      * Creates the logging error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this logging error handler      * @param logger                  logger to use for logging failures      * @param exceptionPolicyStrategy strategy for onException handling      */
-DECL|method|LoggingErrorHandler (CamelContext camelContext, Processor output, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
+DECL|method|LoggingErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|LoggingErrorHandler
 parameter_list|(
@@ -79,7 +79,7 @@ parameter_list|,
 name|Processor
 name|output
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|,
 name|ExceptionPolicyStrategy

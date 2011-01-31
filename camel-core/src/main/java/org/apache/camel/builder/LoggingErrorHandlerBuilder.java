@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -86,13 +86,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -100,13 +96,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -124,12 +116,12 @@ name|ErrorHandlerBuilderSupport
 block|{
 DECL|field|log
 specifier|private
-name|Log
+name|Logger
 name|log
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|Logger
 operator|.
@@ -150,12 +142,12 @@ specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|()
 block|{     }
-DECL|method|LoggingErrorHandlerBuilder (final Log log)
+DECL|method|LoggingErrorHandlerBuilder (final Logger log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|(
 specifier|final
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -166,12 +158,12 @@ operator|=
 name|log
 expr_stmt|;
 block|}
-DECL|method|LoggingErrorHandlerBuilder (final Log log, final LoggingLevel level)
+DECL|method|LoggingErrorHandlerBuilder (final Logger log, final LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|(
 specifier|final
-name|Log
+name|Logger
 name|log
 parameter_list|,
 specifier|final
@@ -216,11 +208,11 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|Logger
+name|CamelLogger
 name|logger
 init|=
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
 name|log
 argument_list|,
@@ -284,7 +276,7 @@ expr_stmt|;
 block|}
 DECL|method|getLog ()
 specifier|public
-name|Log
+name|Logger
 name|getLog
 parameter_list|()
 block|{
@@ -292,13 +284,13 @@ return|return
 name|log
 return|;
 block|}
-DECL|method|setLog (final Log log)
+DECL|method|setLog (final Logger log)
 specifier|public
 name|void
 name|setLog
 parameter_list|(
 specifier|final
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -329,13 +321,13 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|log (final Log log)
+DECL|method|log (final Logger log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|log
 parameter_list|(
 specifier|final
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{

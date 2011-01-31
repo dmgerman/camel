@@ -114,7 +114,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -122,13 +122,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -206,7 +202,7 @@ name|INFO
 decl_stmt|;
 DECL|field|logger
 specifier|private
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|method|ThrottlingInflightRoutePolicy ()
@@ -521,7 +517,7 @@ return|;
 block|}
 DECL|method|getLogger ()
 specifier|public
-name|Logger
+name|CamelLogger
 name|getLogger
 parameter_list|()
 block|{
@@ -543,12 +539,12 @@ name|logger
 return|;
 block|}
 comment|/**      * Sets the logger to use for logging throttling activity.      *      * @param logger the logger      */
-DECL|method|setLogger (Logger logger)
+DECL|method|setLogger (CamelLogger logger)
 specifier|public
 name|void
 name|setLogger
 parameter_list|(
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|)
 block|{
@@ -578,17 +574,17 @@ expr_stmt|;
 block|}
 DECL|method|createLogger ()
 specifier|protected
-name|Logger
+name|CamelLogger
 name|createLogger
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ThrottlingInflightRoutePolicy
 operator|.

@@ -352,7 +352,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|final
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 DECL|field|useOriginalMessagePolicy
@@ -777,7 +777,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -787,7 +787,7 @@ parameter_list|,
 name|Processor
 name|output
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|,
 name|Processor
@@ -1929,7 +1929,7 @@ return|;
 block|}
 DECL|method|getLogger ()
 specifier|public
-name|Logger
+name|CamelLogger
 name|getLogger
 parameter_list|()
 block|{
@@ -3328,15 +3328,9 @@ operator|==
 name|LoggingLevel
 operator|.
 name|ERROR
-operator|||
-name|newLogLevel
-operator|==
-name|LoggingLevel
-operator|.
-name|FATAL
 condition|)
 block|{
-comment|// log intended rollback on maximum WARN level (no ERROR or FATAL)
+comment|// log intended rollback on maximum WARN level (no ERROR)
 name|logger
 operator|.
 name|log

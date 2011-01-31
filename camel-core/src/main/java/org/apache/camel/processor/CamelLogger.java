@@ -98,13 +98,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -112,33 +108,30 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which just logs to a {@link Log} object which can be used  * as an exception handler instead of using a dead letter queue.  *  * @version $Revision$  */
+comment|/**  * A {@link Processor} which just logs to a {@link CamelLogger} object which can be used  * as an exception handler instead of using a dead letter queue.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|Logger
+DECL|class|CamelLogger
 specifier|public
 class|class
-name|Logger
+name|CamelLogger
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
 block|{
+comment|// TODO: Rename CamelLogger to a better name
 DECL|field|log
 specifier|private
-name|Log
+name|Logger
 name|log
 decl_stmt|;
 DECL|field|level
@@ -156,29 +149,29 @@ operator|.
 name|getInstance
 argument_list|()
 decl_stmt|;
-DECL|method|Logger ()
+DECL|method|CamelLogger ()
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|()
 block|{
 name|this
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
-name|Logger
+name|CamelLogger
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Logger (Log log)
+DECL|method|CamelLogger (Logger log)
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -192,11 +185,11 @@ name|INFO
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Logger (Log log, LoggingLevel level)
+DECL|method|CamelLogger (Logger log, LoggingLevel level)
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|,
 name|LoggingLevel
@@ -216,9 +209,9 @@ operator|=
 name|level
 expr_stmt|;
 block|}
-DECL|method|Logger (String logName)
+DECL|method|CamelLogger (String logName)
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|(
 name|String
 name|logName
@@ -226,18 +219,18 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|logName
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Logger (String logName, LoggingLevel level)
+DECL|method|CamelLogger (String logName, LoggingLevel level)
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|(
 name|String
 name|logName
@@ -248,9 +241,9 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|logName
 argument_list|)
@@ -259,11 +252,11 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Logger (Log log, ExchangeFormatter formatter)
+DECL|method|CamelLogger (Logger log, ExchangeFormatter formatter)
 specifier|public
-name|Logger
+name|CamelLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|,
 name|ExchangeFormatter
@@ -349,29 +342,6 @@ block|{
 name|log
 operator|.
 name|error
-argument_list|(
-name|logMessage
-argument_list|(
-name|exchange
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
-name|FATAL
-case|:
-if|if
-condition|(
-name|log
-operator|.
-name|isFatalEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|fatal
 argument_list|(
 name|logMessage
 argument_list|(
@@ -541,31 +511,6 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|FATAL
-case|:
-if|if
-condition|(
-name|log
-operator|.
-name|isFatalEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|fatal
-argument_list|(
-name|logMessage
-argument_list|(
-name|exchange
-argument_list|)
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
 name|INFO
 case|:
 if|if
@@ -719,31 +664,6 @@ block|{
 name|log
 operator|.
 name|error
-argument_list|(
-name|logMessage
-argument_list|(
-name|exchange
-argument_list|,
-name|message
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
-name|FATAL
-case|:
-if|if
-condition|(
-name|log
-operator|.
-name|isFatalEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|fatal
 argument_list|(
 name|logMessage
 argument_list|(
@@ -944,26 +864,6 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|FATAL
-case|:
-if|if
-condition|(
-name|log
-operator|.
-name|isFatalEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|fatal
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
 name|INFO
 case|:
 if|if
@@ -1144,28 +1044,6 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|FATAL
-case|:
-if|if
-condition|(
-name|log
-operator|.
-name|isFatalEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|fatal
-argument_list|(
-name|message
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-block|}
-break|break;
-case|case
 name|INFO
 case|:
 if|if
@@ -1255,7 +1133,7 @@ block|}
 block|}
 DECL|method|logMessage (Exchange exchange)
 specifier|protected
-name|Object
+name|String
 name|logMessage
 parameter_list|(
 name|Exchange
@@ -1273,7 +1151,7 @@ return|;
 block|}
 DECL|method|logMessage (Exchange exchange, String message)
 specifier|protected
-name|Object
+name|String
 name|logMessage
 parameter_list|(
 name|Exchange
@@ -1296,7 +1174,7 @@ return|;
 block|}
 DECL|method|getLog ()
 specifier|public
-name|Log
+name|Logger
 name|getLog
 parameter_list|()
 block|{
@@ -1304,12 +1182,12 @@ return|return
 name|log
 return|;
 block|}
-DECL|method|setLog (Log log)
+DECL|method|setLog (Logger log)
 specifier|public
 name|void
 name|setLog
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -1375,9 +1253,9 @@ name|this
 operator|.
 name|log
 operator|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|logName
 argument_list|)

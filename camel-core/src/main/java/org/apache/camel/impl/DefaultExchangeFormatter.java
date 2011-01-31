@@ -78,7 +78,7 @@ return|;
 block|}
 DECL|method|format (Exchange exchange)
 specifier|public
-name|Object
+name|String
 name|format
 parameter_list|(
 name|Exchange

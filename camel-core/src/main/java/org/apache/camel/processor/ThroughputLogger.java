@@ -118,13 +118,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -132,13 +128,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -152,18 +144,18 @@ specifier|public
 class|class
 name|ThroughputLogger
 extends|extends
-name|Logger
+name|CamelLogger
 block|{
 DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ThroughputLogger
 operator|.
@@ -254,11 +246,11 @@ specifier|public
 name|ThroughputLogger
 parameter_list|()
 block|{     }
-DECL|method|ThroughputLogger (Log log)
+DECL|method|ThroughputLogger (Logger log)
 specifier|public
 name|ThroughputLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|)
 block|{
@@ -268,11 +260,11 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ThroughputLogger (Log log, LoggingLevel level)
+DECL|method|ThroughputLogger (Logger log, LoggingLevel level)
 specifier|public
 name|ThroughputLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|,
 name|LoggingLevel
@@ -715,7 +707,7 @@ annotation|@
 name|Override
 DECL|method|logMessage (Exchange exchange)
 specifier|protected
-name|Object
+name|String
 name|logMessage
 parameter_list|(
 name|Exchange
@@ -782,7 +774,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"scheduling throughput log to run every "
+literal|"Scheduling throughput log to run every "
 operator|+
 name|groupInterval
 operator|+

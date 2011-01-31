@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Logger
+name|CamelLogger
 import|;
 end_import
 
@@ -178,7 +178,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Logger
+name|CamelLogger
 name|logger
 decl_stmt|;
 if|if
@@ -284,7 +284,7 @@ expr_stmt|;
 name|logger
 operator|=
 operator|new
-name|Logger
+name|CamelLogger
 argument_list|(
 name|remaining
 argument_list|)

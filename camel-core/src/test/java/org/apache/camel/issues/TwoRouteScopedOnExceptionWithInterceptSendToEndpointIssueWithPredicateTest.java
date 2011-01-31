@@ -472,7 +472,7 @@ name|retryAttemptedLogLevel
 argument_list|(
 name|LoggingLevel
 operator|.
-name|FATAL
+name|ERROR
 argument_list|)
 comment|// send to mock when we are exhausted
 operator|.

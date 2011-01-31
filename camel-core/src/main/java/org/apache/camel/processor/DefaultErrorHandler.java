@@ -93,7 +93,7 @@ extends|extends
 name|RedeliveryErrorHandler
 block|{
 comment|/**      * Creates the default error handler.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this default error handler      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      * @param retryWhile                retry while      */
-DECL|method|DefaultErrorHandler (CamelContext camelContext, Processor output, Logger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate retryWhile)
+DECL|method|DefaultErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate retryWhile)
 specifier|public
 name|DefaultErrorHandler
 parameter_list|(
@@ -103,7 +103,7 @@ parameter_list|,
 name|Processor
 name|output
 parameter_list|,
-name|Logger
+name|CamelLogger
 name|logger
 parameter_list|,
 name|Processor
