@@ -511,6 +511,15 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+name|transformer
+operator|.
+name|setErrorListener
+argument_list|(
+operator|new
+name|DefaultTransformErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Source
 name|source
 init|=
