@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which just logs to a {@link CamelLogger} object which can be used  * as an exception handler instead of using a dead letter queue.  *  * @version $Revision$  */
+comment|/**  * A {@link Processor} which just logs to a {@link CamelLogger} object which can be used  * as an exception handler instead of using a dead letter queue.  *<p/>  * The name<tt>CamelLogger</tt> has been chosen to avoid any name clash with log kits  * which has a<tt>Logger</tt> class.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -128,7 +128,6 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
-comment|// TODO: Rename CamelLogger to a better name
 DECL|field|log
 specifier|private
 name|Logger
