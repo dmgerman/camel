@@ -286,11 +286,9 @@ argument_list|(
 name|XML_FRAGMENT
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"xmlFragment: "
 operator|+
@@ -313,15 +311,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testFullPayloadXMLEncryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -376,15 +365,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLContentEncryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -443,15 +423,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadMultiNodeXMLContentEncryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -510,15 +481,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLElementEncryptionWithKey ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -676,15 +638,6 @@ argument_list|(
 name|bits128
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLElementEncryptionWithKeyAndAlgorithm ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -750,15 +703,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testFullPayloadXMLDecryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -819,15 +763,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLContentDecryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -896,15 +831,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadMultiNodeXMLContentDecryption ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -973,15 +899,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLElementDecryptionWithKey ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -1151,15 +1068,6 @@ argument_list|(
 name|bits128
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n***--------- Test: testPartialPayloadXMLContentDecryptionWithKeyAndAlgorithm ----------***\n"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -1297,17 +1205,6 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n\nIn EncryptedXMLMessageProcessor:"
-operator|+
-name|xmlStr
-argument_list|)
-expr_stmt|;
 name|NodeList
 name|nodeList
 init|=
@@ -1413,17 +1310,6 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n\nIn DecryptedXMLMessageProcessor:"
-operator|+
-name|xmlStr
-argument_list|)
-expr_stmt|;
 name|NodeList
 name|nodeList
 init|=

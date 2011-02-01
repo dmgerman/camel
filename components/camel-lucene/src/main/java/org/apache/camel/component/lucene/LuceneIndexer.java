@@ -88,13 +88,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -102,13 +98,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -193,12 +185,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|LuceneIndexer
 operator|.
@@ -849,7 +841,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"could not be read."
+literal|" could not be read."
 operator|+
 literal|" This directory will not be indexed. Please check permissions and rebuild indexes."
 argument_list|)

@@ -456,7 +456,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Log app messages as JSON
+comment|// Logger app messages as JSON
 name|from
 argument_list|(
 literal|"quickfix:examples/gateway.cfg"

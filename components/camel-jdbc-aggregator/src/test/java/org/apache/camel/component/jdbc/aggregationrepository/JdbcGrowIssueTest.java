@@ -301,6 +301,9 @@ operator|.
 name|info
 argument_list|(
 name|data
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue

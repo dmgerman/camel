@@ -280,13 +280,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -294,13 +290,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -330,7 +322,7 @@ name|JingValidator
 implements|implements
 name|Processor
 block|{
-comment|//private static final transient Log LOG = LogFactory.getLog(JingValidator.class);
+comment|//private static final transient Logger LOG = LoggerFactory.getLogger(JingValidator.class);
 DECL|field|schema
 specifier|private
 name|Schema

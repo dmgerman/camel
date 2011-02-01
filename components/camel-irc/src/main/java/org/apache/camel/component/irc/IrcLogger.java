@@ -22,13 +22,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -88,7 +84,7 @@ name|IRCEventAdapter
 block|{
 DECL|field|log
 specifier|private
-name|Log
+name|Logger
 name|log
 decl_stmt|;
 DECL|field|server
@@ -96,11 +92,11 @@ specifier|private
 name|String
 name|server
 decl_stmt|;
-DECL|method|IrcLogger (Log log, String server)
+DECL|method|IrcLogger (Logger log, String server)
 specifier|public
 name|IrcLogger
 parameter_list|(
-name|Log
+name|Logger
 name|log
 parameter_list|,
 name|String

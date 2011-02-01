@@ -130,7 +130,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelExchangeException
 import|;
 end_import
 
@@ -240,13 +240,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|Logger
 import|;
 end_import
 
@@ -254,13 +250,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|slf4j
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|LoggerFactory
 import|;
 end_import
 
@@ -342,12 +334,12 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|CxfRsProducer
 operator|.
@@ -411,24 +403,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Process exchange: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 name|Message
 name|inMessage
 init|=
@@ -928,9 +902,17 @@ else|else
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
-literal|"Can't find the Collection member type"
+literal|"Header "
+operator|+
+name|CxfConstants
+operator|.
+name|CAMEL_CXF_RS_RESPONSE_GENERIC_TYPE
+operator|+
+literal|" not found in message"
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -1397,11 +1379,11 @@ throw|throw
 operator|new
 name|NoSuchMethodException
 argument_list|(
-literal|"Can find the method "
+literal|"Cannot find method with name: "
 operator|+
 name|methodName
 operator|+
-literal|"withe these parameter "
+literal|" having parameters: "
 operator|+
 name|arrayToString
 argument_list|(
@@ -1607,13 +1589,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|headers
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|responseCode
@@ -1824,25 +1799,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Parse external header "
-operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"="
-operator|+
-name|entry
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|answer
 operator|.
 name|put
