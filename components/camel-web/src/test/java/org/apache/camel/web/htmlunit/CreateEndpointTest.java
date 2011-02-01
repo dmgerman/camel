@@ -68,6 +68,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|openqa
+operator|.
+name|selenium
+operator|.
+name|WebElement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -81,18 +93,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|openqa
-operator|.
-name|selenium
-operator|.
-name|WebElement
 import|;
 end_import
 

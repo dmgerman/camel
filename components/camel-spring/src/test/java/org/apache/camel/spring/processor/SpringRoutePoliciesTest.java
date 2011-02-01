@@ -199,6 +199,7 @@ block|}
 DECL|class|MyCustomRoutePolicy
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|MyCustomRoutePolicy
 extends|extends
