@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -60,12 +72,15 @@ block|{
 comment|// utility class
 block|}
 comment|/**      * Is the spring version 2.0.x?      *      * @return<tt>true</tt> if 2.0.x or<tt>false</tt> if newer such as 2.5.x      */
-DECL|method|isSpring20x ()
+DECL|method|isSpring20x (CamelContext context)
 specifier|public
 specifier|static
 name|boolean
 name|isSpring20x
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 comment|// this class is only possible to instantiate in 2.5.x or newer
 name|Class
@@ -74,6 +89,39 @@ name|?
 argument_list|>
 name|type
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+condition|)
+block|{
+name|type
+operator|=
+name|context
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
+argument_list|(
+name|DEFAULT_QUEUE_BROWSE_STRATEGY
+argument_list|,
+name|JmsComponent
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|type
+operator|=
 name|ObjectHelper
 operator|.
 name|loadClass
@@ -87,7 +135,8 @@ operator|.
 name|getClassLoader
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|type

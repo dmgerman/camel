@@ -2330,7 +2330,9 @@ condition|(
 name|JmsHelper
 operator|.
 name|isSpring20x
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 condition|)
 block|{
 comment|// not possible with spring 2.0.x
@@ -2347,9 +2349,12 @@ name|?
 argument_list|>
 name|type
 init|=
-name|ObjectHelper
+name|context
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|DEFAULT_QUEUE_BROWSE_STRATEGY
 argument_list|,
