@@ -150,6 +150,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Required
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -364,6 +378,8 @@ name|expr
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Required
 DECL|method|setPropertyName (String propertyName)
 specifier|public
 name|void
