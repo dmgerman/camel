@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -119,6 +131,18 @@ operator|.
 name|camel
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -266,21 +290,19 @@ name|UnitOfWork
 implements|,
 name|Service
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
+DECL|field|log
+specifier|protected
 specifier|final
 specifier|transient
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultUnitOfWork
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|id
@@ -346,13 +368,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -623,13 +645,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -758,13 +780,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -796,13 +818,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -826,13 +848,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -866,7 +888,7 @@ name|exchange
 argument_list|,
 name|synchronizations
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 comment|// then fire event to signal the exchange is done
@@ -913,7 +935,7 @@ name|e
 parameter_list|)
 block|{
 comment|// must catch exceptions to ensure synchronizations is also invoked
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1018,13 +1040,13 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|isTransactedBy (Object transactionDefinition)
+DECL|method|isTransactedBy (Object key)
 specifier|public
 name|boolean
 name|isTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 block|{
 return|return
@@ -1033,17 +1055,17 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|transactionDefinition
+name|key
 argument_list|)
 return|;
 block|}
-DECL|method|beginTransactedBy (Object transactionDefinition)
+DECL|method|beginTransactedBy (Object key)
 specifier|public
 name|void
 name|beginTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 block|{
 name|getTransactedBy
@@ -1051,17 +1073,17 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|transactionDefinition
+name|key
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|endTransactedBy (Object transactionDefinition)
+DECL|method|endTransactedBy (Object key)
 specifier|public
 name|void
 name|endTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 block|{
 name|getTransactedBy
@@ -1069,7 +1091,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|transactionDefinition
+name|key
 argument_list|)
 expr_stmt|;
 block|}
@@ -1140,6 +1162,46 @@ name|pop
 argument_list|()
 return|;
 block|}
+DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
+specifier|public
+name|AsyncCallback
+name|beforeProcess
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+comment|// no wrapping needed
+return|return
+name|callback
+return|;
+block|}
+DECL|method|afterProcess (Processor processor, Exchange exchange, AsyncCallback callback, boolean doneSync)
+specifier|public
+name|void
+name|afterProcess
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|getTransactedBy ()
 specifier|private
 name|Set
@@ -1168,6 +1230,18 @@ expr_stmt|;
 block|}
 return|return
 name|transactedBy
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DefaultUnitOfWork"
 return|;
 block|}
 block|}

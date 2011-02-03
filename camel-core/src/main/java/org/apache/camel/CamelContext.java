@@ -1465,6 +1465,21 @@ name|Boolean
 name|lazyLoadTypeConverters
 parameter_list|)
 function_decl|;
+comment|/**      * Whether or not<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a> logging is being enabled.      *      * @return<tt>true</tt> if MDC logging is enabled      */
+DECL|method|isUseMDCLogging ()
+name|Boolean
+name|isUseMDCLogging
+parameter_list|()
+function_decl|;
+comment|/**      * Set whether<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a> is enabled.      *      * @param useMDCLogging<tt>true</tt> to enable MDC logging,<tt>false</tt> to disable      */
+DECL|method|setUseMDCLogging (Boolean useMDCLogging)
+name|void
+name|setUseMDCLogging
+parameter_list|(
+name|Boolean
+name|useMDCLogging
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

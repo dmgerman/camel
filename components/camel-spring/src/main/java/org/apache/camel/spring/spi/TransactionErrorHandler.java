@@ -220,6 +220,12 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
+DECL|field|transactionKey
+specifier|private
+specifier|final
+name|String
+name|transactionKey
+decl_stmt|;
 comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param handledPolicy           policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      */
 DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile)
 specifier|public
@@ -286,6 +292,17 @@ operator|.
 name|transactionTemplate
 operator|=
 name|transactionTemplate
+expr_stmt|;
+name|this
+operator|.
+name|transactionKey
+operator|=
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|transactionTemplate
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
@@ -361,7 +378,7 @@ argument_list|()
 operator|.
 name|isTransactedBy
 argument_list|(
-name|transactionTemplate
+name|transactionKey
 argument_list|)
 condition|)
 block|{
@@ -446,16 +463,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|id
-init|=
-name|ObjectHelper
-operator|.
-name|getIdentityHashCode
-argument_list|(
-name|transactionTemplate
-argument_list|)
-decl_stmt|;
 try|try
 block|{
 comment|// mark the beginning of this transaction boundary
@@ -466,7 +473,7 @@ argument_list|()
 operator|.
 name|beginTransactedBy
 argument_list|(
-name|transactionTemplate
+name|transactionKey
 argument_list|)
 expr_stmt|;
 if|if
@@ -483,7 +490,7 @@ name|debug
 argument_list|(
 literal|"Transaction begin ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+
@@ -513,7 +520,7 @@ name|debug
 argument_list|(
 literal|"Transaction commit ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+
@@ -546,7 +553,7 @@ name|debug
 argument_list|(
 literal|"Transaction rollback ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+
@@ -572,7 +579,7 @@ name|warn
 argument_list|(
 literal|"Transaction rollback ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+
@@ -607,7 +614,7 @@ argument_list|()
 operator|.
 name|endTransactedBy
 argument_list|(
-name|transactionTemplate
+name|transactionKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -666,7 +673,7 @@ name|debug
 argument_list|(
 literal|"Transaction rollback ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+
@@ -689,7 +696,7 @@ name|debug
 argument_list|(
 literal|"Transaction rollback ("
 operator|+
-name|id
+name|transactionKey
 operator|+
 literal|") for ExchangeId: "
 operator|+

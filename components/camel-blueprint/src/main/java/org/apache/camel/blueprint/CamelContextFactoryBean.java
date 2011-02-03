@@ -728,6 +728,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|useMDCLogging
+specifier|private
+name|String
+name|useMDCLogging
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|shutdownRoute
 specifier|private
 name|ShutdownRoute
@@ -1786,6 +1798,32 @@ operator|.
 name|autoStartup
 operator|=
 name|autoStartup
+expr_stmt|;
+block|}
+DECL|method|getUseMDCLogging ()
+specifier|public
+name|String
+name|getUseMDCLogging
+parameter_list|()
+block|{
+return|return
+name|useMDCLogging
+return|;
+block|}
+DECL|method|setUseMDCLogging (String useMDCLogging)
+specifier|public
+name|void
+name|setUseMDCLogging
+parameter_list|(
+name|String
+name|useMDCLogging
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useMDCLogging
+operator|=
+name|useMDCLogging
 expr_stmt|;
 block|}
 DECL|method|getLazyLoadTypeConverters ()

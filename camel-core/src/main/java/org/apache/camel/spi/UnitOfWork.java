@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -40,6 +52,30 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  *  * @version $Revision$  */
 end_comment
@@ -49,6 +85,8 @@ DECL|interface|UnitOfWork
 specifier|public
 interface|interface
 name|UnitOfWork
+extends|extends
+name|Service
 block|{
 comment|/**      * Adds a synchronization hook      *      * @param synchronization  the hook      */
 DECL|method|addSynchronization (Synchronization synchronization)
@@ -110,31 +148,31 @@ name|boolean
 name|isTransacted
 parameter_list|()
 function_decl|;
-comment|/**      * Are we already transacted by the given transaction definition      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *      * @param transactionDefinition the transaction definition      * @return<tt>true</tt> if already,<tt>false</tt> otherwise      */
-DECL|method|isTransactedBy (Object transactionDefinition)
+comment|/**      * Are we already transacted by the given transaction key?      *      * @param key the transaction key      * @return<tt>true</tt> if already,<tt>false</tt> otherwise      */
+DECL|method|isTransactedBy (Object key)
 name|boolean
 name|isTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Mark this UnitOfWork as being transacted by the given transaction definition.      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *<p/>      * When the transaction is completed then invoke the {@link #endTransactedBy(Object)} method.      *      * @param transactionDefinition the transaction definition      */
-DECL|method|beginTransactedBy (Object transactionDefinition)
+comment|/**      * Mark this UnitOfWork as being transacted by the given transaction key.      *<p/>      * When the transaction is completed then invoke the {@link #endTransactedBy(Object)} method using the same key.      *      * @param key the transaction key      */
+DECL|method|beginTransactedBy (Object key)
 name|void
 name|beginTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Mark this UnitOfWork as not transacted anymore by the given transaction definition.      *<p/>      * The definition will most likely be a Spring TransactionTemplate when using Spring Transaction      *      * @param transactionDefinition the transaction definition      */
-DECL|method|endTransactedBy (Object transactionDefinition)
+comment|/**      * Mark this UnitOfWork as not transacted anymore by the given transaction definition.      *      * @param key the transaction key      */
+DECL|method|endTransactedBy (Object key)
 name|void
 name|endTransactedBy
 parameter_list|(
 name|Object
-name|transactionDefinition
+name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the {@link RouteContext} that this {@link UnitOfWork} currently is being routed through.      *<p/>      * Notice that an {@link Exchange} can be routed through multiple routes and thus the      * {@link org.apache.camel.spi.RouteContext} can change over time.      *      * @return the route context      * @see #pushRouteContext(RouteContext)      * @see #popRouteContext()      */
@@ -157,6 +195,39 @@ DECL|method|popRouteContext ()
 name|RouteContext
 name|popRouteContext
 parameter_list|()
+function_decl|;
+comment|/**      * Strategy for optional work to be execute before processing      *<p/>      * For example the {@link org.apache.camel.impl.MDCUnitOfWork} leverages this      * to ensure MDC is handled correctly during routing exchanges using the      * asynchronous routing engine.      *      * @param processor the processor to be executed      * @param exchange  the current exchange      * @param callback the callback      * @return the callback to be used (can be wrapped)      */
+DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
+name|AsyncCallback
+name|beforeProcess
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+function_decl|;
+comment|/**      * Strategy for optional work to be executed after the callback has been processed.      *      * @param processor the processor executed      * @param exchange  the current exchange      * @param callback  the callback used      * @param doneSync  whether the process was done synchronously or asynchronously      */
+DECL|method|afterProcess (Processor processor, Exchange exchange, AsyncCallback callback, boolean doneSync)
+name|void
+name|afterProcess
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
+name|boolean
+name|doneSync
+parameter_list|)
 function_decl|;
 block|}
 end_interface
