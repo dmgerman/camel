@@ -63,14 +63,19 @@ end_comment
 begin_class
 DECL|class|BundleContextUtils
 specifier|public
+specifier|final
 class|class
 name|BundleContextUtils
 block|{
+DECL|method|BundleContextUtils ()
+specifier|private
+name|BundleContextUtils
+parameter_list|()
+block|{     }
 comment|/**      * Retrieve the BundleContext that the given class has been loaded from.      *      * @param clazz the class to find the bundle context from      * @return the bundle context or<code>null</code> if it can't be found      */
 DECL|method|getBundleContext (Class clazz)
 specifier|public
 specifier|static
-specifier|final
 name|BundleContext
 name|getBundleContext
 parameter_list|(
@@ -78,10 +83,8 @@ name|Class
 name|clazz
 parameter_list|)
 block|{
-comment|//
 comment|// Ideally we should use FrameworkUtil.getBundle(clazz).getBundleContext()
 comment|// but that does not exist in OSGi 4.1, so until we upgrade, we keep that one
-comment|//
 try|try
 block|{
 name|ClassLoader
