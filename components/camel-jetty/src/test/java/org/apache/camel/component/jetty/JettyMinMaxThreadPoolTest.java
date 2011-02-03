@@ -287,6 +287,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Got reply "
+operator|+
+name|body
+argument_list|)
+expr_stmt|;
 name|replies
 operator|.
 name|add
@@ -335,6 +344,18 @@ operator|.
 name|sort
 argument_list|(
 name|replies
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Sorted replies: "
+operator|+
+name|replies
+operator|.
+name|toArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

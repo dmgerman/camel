@@ -196,7 +196,7 @@ name|RouteContext
 name|popRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * Strategy for optional work to be execute before processing      *<p/>      * For example the {@link org.apache.camel.impl.MDCUnitOfWork} leverages this      * to ensure MDC is handled correctly during routing exchanges using the      * asynchronous routing engine.      *      * @param processor the processor to be executed      * @param exchange  the current exchange      * @param callback the callback      * @return the callback to be used (can be wrapped)      */
+comment|/**      * Strategy for optional work to be execute before processing      *<p/>      * For example the {@link org.apache.camel.impl.MDCUnitOfWork} leverages this      * to ensure MDC is handled correctly during routing exchanges using the      * asynchronous routing engine.      *      * @param processor the processor to be executed      * @param exchange  the current exchange      * @param callback the callback      * @return the callback to be used (can return a wrapped callback)      */
 DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
 name|AsyncCallback
 name|beforeProcess
@@ -211,7 +211,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Strategy for optional work to be executed after the callback has been processed.      *      * @param processor the processor executed      * @param exchange  the current exchange      * @param callback  the callback used      * @param doneSync  whether the process was done synchronously or asynchronously      */
+comment|/**      * Strategy for optional work to be executed after the processing      *      * @param processor the processor executed      * @param exchange  the current exchange      * @param callback  the callback used      * @param doneSync  whether the process was done synchronously or asynchronously      */
 DECL|method|afterProcess (Processor processor, Exchange exchange, AsyncCallback callback, boolean doneSync)
 name|void
 name|afterProcess

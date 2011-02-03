@@ -46,6 +46,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xml
 operator|.
 name|sax
@@ -78,25 +98,9 @@ name|SAXParseException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
+begin_comment
+comment|/**  * {@link ErrorHandler} and {@link ErrorListener} which will log warnings,  * and throws error and fatal as exception, which ensures those can be caught by Camel and dealt-with.  */
+end_comment
 
 begin_class
 DECL|class|DefaultTransformErrorHandler
