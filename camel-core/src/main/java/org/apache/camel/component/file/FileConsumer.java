@@ -676,28 +676,7 @@ name|lastModified
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|answer
-operator|.
-name|isAbsolute
-argument_list|()
-condition|)
-block|{
-comment|// use absolute path as relative
-name|answer
-operator|.
-name|setRelativeFilePath
-argument_list|(
-name|file
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// compute the file path as relative to the starting directory
 name|File
 name|path
 decl_stmt|;
@@ -804,7 +783,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// the file name should be the relative path
 name|answer
