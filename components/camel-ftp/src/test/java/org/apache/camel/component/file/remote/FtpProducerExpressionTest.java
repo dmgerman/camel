@@ -355,6 +355,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// need one extra subdirectory (=foo) to be able to start with .. in the fileName option
+name|String
+name|url
+init|=
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/filelanguage/foo?password=admin"
+decl_stmt|;
 name|String
 name|expression
 init|=
@@ -364,8 +375,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|url
 operator|+
 literal|"&fileName="
 operator|+
@@ -394,7 +404,7 @@ name|assertFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"filelanguageinbox/myfile-123-"
+literal|"filelanguage/filelanguageinbox/myfile-123-"
 operator|+
 name|date
 operator|+
