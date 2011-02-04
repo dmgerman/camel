@@ -919,7 +919,7 @@ argument_list|)
 expr_stmt|;
 name|session
 operator|.
-name|close
+name|unbindAndClose
 argument_list|()
 expr_stmt|;
 name|expect
