@@ -126,18 +126,6 @@ begin_comment
 comment|/**  * A base class for a parser for a bean.  *  * @version $Revision$  */
 end_comment
 
-begin_comment
-comment|// TODO cannot use AbstractSimpleBeanDefinitionParser
-end_comment
-
-begin_comment
-comment|// as doParse() is final and isEligableAttribute does not allow us to filter out attributes
-end_comment
-
-begin_comment
-comment|// with the name "xmlns:"
-end_comment
-
 begin_class
 DECL|class|BeanDefinitionParser
 specifier|public
@@ -196,6 +184,16 @@ return|return
 name|type
 return|;
 block|}
+DECL|method|isAssignId ()
+specifier|protected
+name|boolean
+name|isAssignId
+parameter_list|()
+block|{
+return|return
+name|assignId
+return|;
+block|}
 DECL|method|isEligibleAttribute (String attributeName)
 specifier|protected
 name|boolean
@@ -235,13 +233,8 @@ literal|"xmlns:"
 argument_list|)
 return|;
 block|}
-comment|// TODO the following code is copied from AbstractSimpleBeanDefinitionParser
-comment|// it can be removed if ever the doParse() method is not final!
-comment|// or the Spring bug http://jira.springframework.org/browse/SPR-4599 is resolved
-comment|/**      * Parse the supplied {@link Element} and populate the supplied      * {@link BeanDefinitionBuilder} as required.      *<p>This implementation maps any attributes present on the      * supplied element to {@link org.springframework.beans.PropertyValue}      * instances, and      * {@link BeanDefinitionBuilder#addPropertyValue(String, Object) adds them}      * to the      * {@link org.springframework.beans.factory.config.BeanDefinition builder}.      *<p>The {@link #extractPropertyName(String)} method is used to      * reconcile the name of an attribute with the name of a JavaBean      * property.      *      * @param element the XML element being parsed      * @param builder used to define the<code>BeanDefinition</code>      * @see #extractPropertyName(String)      */
 DECL|method|doParse (Element element, BeanDefinitionBuilder builder)
 specifier|protected
-specifier|final
 name|void
 name|doParse
 parameter_list|(
@@ -317,7 +310,8 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|&&
-name|assignId
+name|isAssignId
+argument_list|()
 condition|)
 block|{
 if|if
