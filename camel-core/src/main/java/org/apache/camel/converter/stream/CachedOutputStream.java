@@ -164,20 +164,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -799,9 +785,8 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
 literal|"Cached file "
 operator|+
@@ -924,9 +909,8 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
 literal|"Cached file "
 operator|+

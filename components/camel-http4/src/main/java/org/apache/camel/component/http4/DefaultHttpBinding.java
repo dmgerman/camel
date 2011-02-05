@@ -1740,9 +1740,8 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
 name|e
 argument_list|)

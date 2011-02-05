@@ -234,20 +234,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|cxf
 operator|.
 name|Bus
@@ -1180,8 +1166,6 @@ argument_list|)
 expr_stmt|;
 name|Exception
 name|exception
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1220,11 +1204,10 @@ literal|null
 condition|)
 block|{
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
-literal|"Can't send the request message."
+literal|"Cannot send the request message."
 argument_list|,
 name|exchange
 operator|.
@@ -1312,13 +1295,11 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// Throw IOException here
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
-literal|"Can't get the response message. "
+literal|"Cannot get the response message. "
 argument_list|,
 name|ex
 argument_list|)

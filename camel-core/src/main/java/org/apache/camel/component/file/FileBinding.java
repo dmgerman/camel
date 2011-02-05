@@ -62,20 +62,6 @@ name|NoTypeConversionAvailableException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * File binding with the {@link java.io.File} type.  */
 end_comment
@@ -243,9 +229,8 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
 literal|"Cannot load file content: "
 operator|+
