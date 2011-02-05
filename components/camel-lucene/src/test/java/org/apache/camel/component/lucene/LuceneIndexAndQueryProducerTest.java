@@ -262,7 +262,7 @@ init|=
 block|{
 literal|"I think, therefore I am. I think - George Carlin"
 block|,
-literal|"I have as much authority as the Pope. I just donÕt have as many people who believe it. - George Carlin"
+literal|"I have as much authority as the Pope. I just don't have as many people who believe it. - George Carlin"
 block|,
 literal|"There`s no present. There`s only the immediate future and the recent past - George Carlin"
 block|,
@@ -272,7 +272,7 @@ literal|"I refuse to join any club that would have me as a member. - Groucho Mar
 block|,
 literal|"I tell ya when I was a kid, all I knew was rejection. My yo-yo, it never came back. - Rodney Dangerfield"
 block|,
-literal|"I worked in a pet store and people kept asking how big IÕd get. - Rodney Dangerfield"
+literal|"I worked in a pet store and people kept asking how big I'd get. - Rodney Dangerfield"
 block|}
 decl_stmt|;
 annotation|@

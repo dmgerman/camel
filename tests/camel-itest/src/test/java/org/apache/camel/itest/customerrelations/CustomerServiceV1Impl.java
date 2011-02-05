@@ -68,7 +68,7 @@ name|maxMueller
 operator|.
 name|setLastname
 argument_list|(
-literal|"Müller"
+literal|"Mueller"
 argument_list|)
 expr_stmt|;
 name|maxMueller

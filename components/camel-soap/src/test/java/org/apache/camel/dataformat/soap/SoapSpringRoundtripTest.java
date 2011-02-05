@@ -239,7 +239,7 @@ name|request
 operator|.
 name|setName
 argument_list|(
-literal|"Müller"
+literal|"Mueller"
 argument_list|)
 expr_stmt|;
 name|producer
@@ -293,7 +293,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"Müller"
+literal|"Mueller"
 argument_list|,
 name|received
 operator|.
