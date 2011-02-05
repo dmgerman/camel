@@ -1231,12 +1231,20 @@ argument_list|,
 literal|"CamelContext"
 argument_list|)
 expr_stmt|;
-comment|// create context and resolve partial class up front so they are ready to be used
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if context not injected, create one and resolve partial class up front so they are ready to be used
 name|context
 operator|=
 name|createContext
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|partClass
