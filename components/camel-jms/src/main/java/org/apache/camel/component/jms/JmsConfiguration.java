@@ -110,35 +110,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|PackageHelper
 import|;
 end_import
 
@@ -497,15 +469,6 @@ specifier|private
 name|ExceptionListener
 name|exceptionListener
 decl_stmt|;
-DECL|field|consumerType
-specifier|private
-name|ConsumerType
-name|consumerType
-init|=
-name|ConsumerType
-operator|.
-name|Default
-decl_stmt|;
 DECL|field|autoStartup
 specifier|private
 name|boolean
@@ -544,12 +507,6 @@ DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
 name|taskExecutor
-decl_stmt|;
-comment|// TODO: remove in Camel 3.0 when Spring 3.0+ is required
-DECL|field|taskExecutorSpring2
-specifier|private
-name|Object
-name|taskExecutorSpring2
 decl_stmt|;
 DECL|field|pubSubNoLocal
 specifier|private
@@ -2307,32 +2264,6 @@ operator|=
 name|taskExecutor
 expr_stmt|;
 block|}
-DECL|method|getTaskExecutorSpring2 ()
-specifier|public
-name|Object
-name|getTaskExecutorSpring2
-parameter_list|()
-block|{
-return|return
-name|taskExecutorSpring2
-return|;
-block|}
-DECL|method|setTaskExecutorSpring2 (Object taskExecutorSpring2)
-specifier|public
-name|void
-name|setTaskExecutorSpring2
-parameter_list|(
-name|Object
-name|taskExecutorSpring2
-parameter_list|)
-block|{
-name|this
-operator|.
-name|taskExecutorSpring2
-operator|=
-name|taskExecutorSpring2
-expr_stmt|;
-block|}
 DECL|method|isPubSubNoLocal ()
 specifier|public
 name|boolean
@@ -2911,32 +2842,6 @@ name|priority
 expr_stmt|;
 name|configuredQoS
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getConsumerType ()
-specifier|public
-name|ConsumerType
-name|getConsumerType
-parameter_list|()
-block|{
-return|return
-name|consumerType
-return|;
-block|}
-DECL|method|setConsumerType (ConsumerType consumerType)
-specifier|public
-name|void
-name|setConsumerType
-parameter_list|(
-name|ConsumerType
-name|consumerType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerType
-operator|=
-name|consumerType
 expr_stmt|;
 block|}
 DECL|method|getAcknowledgementMode ()
@@ -3827,30 +3732,6 @@ name|taskExecutor
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|taskExecutorSpring2
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// use reflection to invoke to support spring 2 when JAR is compiled with Spring 3.0
-name|IntrospectionSupport
-operator|.
-name|setProperty
-argument_list|(
-name|listenerContainer
-argument_list|,
-literal|"taskExecutor"
-argument_list|,
-name|endpoint
-operator|.
-name|getTaskExecutorSpring2
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
@@ -3903,30 +3784,6 @@ operator|.
 name|setTaskExecutor
 argument_list|(
 name|taskExecutor
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|taskExecutorSpring2
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// use reflection to invoke to support spring 2 when JAR is compiled with Spring 3.0
-name|IntrospectionSupport
-operator|.
-name|setProperty
-argument_list|(
-name|listenerContainer
-argument_list|,
-literal|"taskExecutor"
-argument_list|,
-name|endpoint
-operator|.
-name|getTaskExecutorSpring2
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4032,23 +3889,6 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|consumerType
-condition|)
-block|{
-case|case
-name|Simple
-case|:
-comment|// TODO: simple is @deprecated and should be removed in Camel 2.7 when we upgrade to Spring 3
-return|return
-operator|new
-name|SimpleMessageListenerContainer
-argument_list|()
-return|;
-case|case
-name|Default
-case|:
 return|return
 operator|new
 name|JmsMessageListenerContainer
@@ -4056,19 +3896,8 @@ argument_list|(
 name|endpoint
 argument_list|)
 return|;
-default|default:
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Unknown consumer type: "
-operator|+
-name|consumerType
-argument_list|)
-throw|;
 block|}
-block|}
-comment|/**      * Defaults the JMS cache level if none is explicitly specified. Note that      * due to this<a      * href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring      * Bug</a> we cannot use CACHE_CONSUMER by default (which we should do as      * its most efficient) unless the spring version is 2.5.1 or later. Instead      * we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being      * created and destroyed per message).      *      * @param endpoint the endpoint      * @return the cache level      */
+comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *<p/>      * Will by default use<tt>CACHE_CONSUMER</tt> which is the most efficient.      *      * @param endpoint the endpoint      * @return the cache level      */
 DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
 specifier|protected
 name|int
@@ -4078,61 +3907,11 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// TODO: upgrade to Spring 3
-comment|// if we are on a new enough spring version we can assume CACHE_CONSUMER
-if|if
-condition|(
-name|PackageHelper
-operator|.
-name|isValidVersion
-argument_list|(
-literal|"org.springframework.jms"
-argument_list|,
-literal|2.51D
-argument_list|)
-condition|)
-block|{
 return|return
 name|DefaultMessageListenerContainer
 operator|.
 name|CACHE_CONSUMER
 return|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|endpoint
-operator|.
-name|isPubSubDomain
-argument_list|()
-operator|&&
-operator|!
-name|isSubscriptionDurable
-argument_list|()
-condition|)
-block|{
-comment|// we must cache the consumer or we will miss messages
-comment|// see https://issues.apache.org/activemq/browse/CAMEL-253
-return|return
-name|DefaultMessageListenerContainer
-operator|.
-name|CACHE_CONSUMER
-return|;
-block|}
-else|else
-block|{
-comment|// to enable consuming and sending with a single JMS session (to
-comment|// avoid XA) we can only use CACHE_CONNECTION
-comment|// due to this bug :
-comment|// http://opensource.atlassian.com/projects/spring/browse/SPR-3890
-return|return
-name|DefaultMessageListenerContainer
-operator|.
-name|CACHE_CONNECTION
-return|;
-block|}
-block|}
 block|}
 comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
 DECL|method|createConnectionFactory ()

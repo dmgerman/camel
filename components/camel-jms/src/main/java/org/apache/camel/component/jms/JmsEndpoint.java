@@ -2005,20 +2005,6 @@ name|getConnectionFactory
 argument_list|()
 return|;
 block|}
-DECL|method|getConsumerType ()
-specifier|public
-name|ConsumerType
-name|getConsumerType
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getConsumerType
-argument_list|()
-return|;
-block|}
 DECL|method|getDestinationResolver ()
 specifier|public
 name|DestinationResolver
@@ -2279,20 +2265,6 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getTaskExecutor
-argument_list|()
-return|;
-block|}
-DECL|method|getTaskExecutorSpring2 ()
-specifier|public
-name|Object
-name|getTaskExecutorSpring2
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getTaskExecutorSpring2
 argument_list|()
 return|;
 block|}
@@ -2839,24 +2811,6 @@ operator|.
 name|setConnectionFactory
 argument_list|(
 name|connectionFactory
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setConsumerType (ConsumerType consumerType)
-specifier|public
-name|void
-name|setConsumerType
-parameter_list|(
-name|ConsumerType
-name|consumerType
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setConsumerType
-argument_list|(
-name|consumerType
 argument_list|)
 expr_stmt|;
 block|}
@@ -3419,24 +3373,6 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setTaskExecutor
-argument_list|(
-name|taskExecutor
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setTaskExecutorSpring2 (Object taskExecutor)
-specifier|public
-name|void
-name|setTaskExecutorSpring2
-parameter_list|(
-name|Object
-name|taskExecutor
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setTaskExecutorSpring2
 argument_list|(
 name|taskExecutor
 argument_list|)

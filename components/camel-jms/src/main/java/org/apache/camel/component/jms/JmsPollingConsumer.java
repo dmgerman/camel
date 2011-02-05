@@ -104,12 +104,6 @@ specifier|private
 name|JmsEndpoint
 name|jmsEndpoint
 decl_stmt|;
-DECL|field|spring20x
-specifier|private
-specifier|final
-name|boolean
-name|spring20x
-decl_stmt|;
 DECL|method|JmsPollingConsumer (JmsEndpoint endpoint, JmsOperations template)
 specifier|public
 name|JmsPollingConsumer
@@ -138,26 +132,6 @@ name|template
 operator|=
 name|template
 expr_stmt|;
-name|this
-operator|.
-name|spring20x
-operator|=
-name|JmsHelper
-operator|.
-name|isSpring20x
-argument_list|(
-name|endpoint
-operator|!=
-literal|null
-condition|?
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-else|:
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -183,25 +157,6 @@ name|Exchange
 name|receiveNoWait
 parameter_list|()
 block|{
-comment|// spring have changed the semantic of the receive timeout mode
-comment|// so we need to determine if running spring 2.0.x or 2.5.x or newer
-if|if
-condition|(
-name|spring20x
-condition|)
-block|{
-comment|// spring 2.0.x
-return|return
-name|receive
-argument_list|(
-literal|0L
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// spring 2.5.x
-comment|// no wait using -1L does not work properly so wait at most 1 millis to simulate no wait
 return|return
 name|receive
 argument_list|(
@@ -209,39 +164,18 @@ literal|1
 argument_list|)
 return|;
 block|}
-block|}
 DECL|method|receive ()
 specifier|public
 name|Exchange
 name|receive
 parameter_list|()
 block|{
-comment|// spring have changed the semantic of the receive timeout mode
-comment|// so we need to determine if running spring 2.0.x or 2.5.x or newer
-if|if
-condition|(
-name|spring20x
-condition|)
-block|{
-comment|// spring 2.0.x
-return|return
-name|receive
-argument_list|(
-operator|-
-literal|1L
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// spring 2.5.x
 return|return
 name|receive
 argument_list|(
 literal|0L
 argument_list|)
 return|;
-block|}
 block|}
 DECL|method|receive (long timeout)
 specifier|public

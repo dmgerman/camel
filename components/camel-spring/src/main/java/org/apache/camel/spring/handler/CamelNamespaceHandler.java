@@ -2648,11 +2648,6 @@ operator|.
 name|invoke
 argument_list|(
 name|definition
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{}
 argument_list|)
 decl_stmt|;
 if|if
