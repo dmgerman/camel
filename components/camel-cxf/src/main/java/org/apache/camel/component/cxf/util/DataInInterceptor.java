@@ -190,12 +190,13 @@ name|DataInInterceptor
 extends|extends
 name|AbstractInDatabindingInterceptor
 block|{
-DECL|field|LOG
+comment|// CXF requires JUL for Message
+DECL|field|JUL_LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|LOG
+name|JUL_LOG
 init|=
 name|LogUtils
 operator|.
@@ -292,7 +293,7 @@ name|Message
 argument_list|(
 literal|"XMLSTREAM_EXCEPTION"
 argument_list|,
-name|LOG
+name|JUL_LOG
 argument_list|)
 argument_list|,
 name|e

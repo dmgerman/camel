@@ -174,12 +174,13 @@ name|DataOutInterceptor
 extends|extends
 name|AbstractOutDatabindingInterceptor
 block|{
-DECL|field|LOG
+comment|// CXF requires java.util.logging for Message
+DECL|field|JUL_LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|LOG
+name|JUL_LOG
 init|=
 name|LogUtils
 operator|.
@@ -290,7 +291,7 @@ name|Message
 argument_list|(
 literal|"XMLSTREAM_EXCEPTION"
 argument_list|,
-name|LOG
+name|JUL_LOG
 argument_list|,
 name|e
 argument_list|)

@@ -42,30 +42,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -444,8 +420,28 @@ name|EndpointReferenceUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  *   * Forwards messages from Camel to CXF and the CXF response back to Camel  */
+comment|/**  * @version $Revision$  *  * Forwards messages from Camel to CXF and the CXF response back to Camel  */
 end_comment
 
 begin_class
@@ -473,6 +469,29 @@ specifier|static
 specifier|final
 name|Logger
 name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|CamelDestination
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// used for places where CXF requires JUL
+DECL|field|JUL_LOG
+specifier|private
+specifier|static
+specifier|final
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+name|JUL_LOG
 init|=
 name|LogUtils
 operator|.
@@ -654,12 +673,18 @@ expr_stmt|;
 block|}
 DECL|method|getLogger ()
 specifier|protected
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
 name|Logger
 name|getLogger
 parameter_list|()
 block|{
 return|return
-name|LOG
+name|JUL_LOG
 return|;
 block|}
 DECL|method|setCheckException (boolean exception)
@@ -711,15 +736,10 @@ name|void
 name|activate
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|LOG
 operator|.
-name|log
+name|debug
 argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|,
 literal|"CamelDestination activate().... "
 argument_list|)
 expr_stmt|;
@@ -736,15 +756,10 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getLogger
-argument_list|()
+name|LOG
 operator|.
-name|log
+name|debug
 argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|,
 literal|"establishing Camel connection"
 argument_list|)
 expr_stmt|;
@@ -816,15 +831,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Error stopping consumer"
 argument_list|,
 name|e
@@ -838,15 +848,10 @@ name|void
 name|shutdown
 parameter_list|()
 block|{
-name|getLogger
-argument_list|()
+name|LOG
 operator|.
-name|log
+name|debug
 argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|,
 literal|"CamelDestination shutdown()"
 argument_list|)
 expr_stmt|;
@@ -897,15 +902,10 @@ name|Exchange
 name|camelExchange
 parameter_list|)
 block|{
-name|getLogger
-argument_list|()
+name|LOG
 operator|.
-name|log
+name|debug
 argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|,
 literal|"server received request: "
 argument_list|,
 name|camelExchange
@@ -1229,12 +1229,18 @@ expr_stmt|;
 block|}
 DECL|method|getLogger ()
 specifier|protected
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
 name|Logger
 name|getLogger
 parameter_list|()
 block|{
 return|return
-name|LOG
+name|JUL_LOG
 return|;
 block|}
 block|}
@@ -1416,20 +1422,24 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getLogger
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
 argument_list|()
+condition|)
+block|{
+name|LOG
 operator|.
-name|log
+name|debug
 argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|,
 literal|"send the response message: "
 operator|+
 name|outputStream
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

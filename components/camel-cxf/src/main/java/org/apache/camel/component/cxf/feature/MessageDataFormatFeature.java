@@ -22,18 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,22 +47,6 @@ operator|.
 name|cxf
 operator|.
 name|Bus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|LogUtils
 import|;
 end_import
 
@@ -120,8 +92,28 @@ name|Phase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  *<p>   * MessageDataFormatFeature sets up the CXF endpoint interceptor for handling the  * Message in Message data format.  Only the interceptors of these phases are   *<b>preserved</b>:  *</p>  *<p>  * In phases: {Phase.RECEIVE , Phase.INVOKE, Phase.POST_INVOKE}  *</p>  *<p>  * Out phases: {Phase.PREPARE_SEND, Phase.WRITE, Phase.SEND, Phase.PREPARE_SEND_ENDING}  *</p>  */
+comment|/**  *<p>  * MessageDataFormatFeature sets up the CXF endpoint interceptor for handling the  * Message in Message data format.  Only the interceptors of these phases are  *<b>preserved</b>:  *</p>  *<p>  * In phases: {Phase.RECEIVE , Phase.INVOKE, Phase.POST_INVOKE}  *</p>  *<p>  * Out phases: {Phase.PREPARE_SEND, Phase.WRITE, Phase.SEND, Phase.PREPARE_SEND_ENDING}  *</p>  */
 end_comment
 
 begin_class
@@ -139,9 +131,9 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|LogUtils
+name|LoggerFactory
 operator|.
-name|getL7dLogger
+name|getLogger
 argument_list|(
 name|MessageDataFormatFeature
 operator|.
