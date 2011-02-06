@@ -72,16 +72,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -260,11 +250,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: Test hangs"
-argument_list|)
 DECL|class|QuartzCronRouteTest
 specifier|public
 class|class
@@ -382,7 +367,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-literal|"INFO"
+literal|"DEBUG"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
@@ -405,10 +390,8 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
+comment|// TODO: test hang on shutdown on equionox
 name|felix
-argument_list|()
-argument_list|,
-name|equinox
 argument_list|()
 argument_list|)
 decl_stmt|;
