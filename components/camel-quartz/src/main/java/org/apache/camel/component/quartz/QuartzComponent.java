@@ -637,12 +637,30 @@ decl_stmt|;
 name|Trigger
 name|trigger
 decl_stmt|;
-comment|// if we're starting up and not running in Quartz clustered mode then check for a name conflict.
+name|boolean
+name|stateful
+init|=
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"stateful"
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// if we're starting up and not running in Quartz clustered mode or not stateful then check for a name conflict.
 if|if
 condition|(
 operator|!
 name|isClustered
 argument_list|()
+operator|&&
+operator|!
+name|stateful
 condition|)
 block|{
 comment|// check to see if this trigger already exists
