@@ -321,6 +321,11 @@ specifier|private
 name|String
 name|nativeQuery
 decl_stmt|;
+DECL|field|resultClass
+specifier|private
+name|Class
+name|resultClass
+decl_stmt|;
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
@@ -1126,6 +1131,32 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+DECL|method|getResultClass ()
+specifier|public
+name|Class
+name|getResultClass
+parameter_list|()
+block|{
+return|return
+name|resultClass
+return|;
+block|}
+DECL|method|setResultClass (Class resultClass)
+specifier|public
+name|void
+name|setResultClass
+parameter_list|(
+name|Class
+name|resultClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultClass
+operator|=
+name|resultClass
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * A strategy method to lock an object with an exclusive lock so that it can      * be processed      *       * @param entity the entity to be locked      * @param entityManager entity manager      * @return true if the entity was locked      */
@@ -1279,6 +1310,26 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|resultClass
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|QueryBuilder
+operator|.
+name|nativeQuery
+argument_list|(
+name|nativeQuery
+argument_list|,
+name|resultClass
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|QueryBuilder
 operator|.
@@ -1287,6 +1338,7 @@ argument_list|(
 name|nativeQuery
 argument_list|)
 return|;
+block|}
 block|}
 else|else
 block|{

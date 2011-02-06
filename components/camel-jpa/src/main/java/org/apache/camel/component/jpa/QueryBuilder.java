@@ -254,6 +254,69 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Creates a native SQL query with a provided resultClass      */
+DECL|method|nativeQuery (final String nativeQuery, final Class resultClass)
+specifier|public
+specifier|static
+name|QueryBuilder
+name|nativeQuery
+parameter_list|(
+specifier|final
+name|String
+name|nativeQuery
+parameter_list|,
+specifier|final
+name|Class
+name|resultClass
+parameter_list|)
+block|{
+return|return
+operator|new
+name|QueryBuilder
+argument_list|()
+block|{
+specifier|protected
+name|Query
+name|makeQueryObject
+parameter_list|(
+name|EntityManager
+name|entityManager
+parameter_list|)
+block|{
+return|return
+name|entityManager
+operator|.
+name|createNativeQuery
+argument_list|(
+name|nativeQuery
+argument_list|,
+name|resultClass
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"NativeQuery: "
+operator|+
+name|nativeQuery
+operator|+
+literal|" resultClass:"
+operator|+
+name|resultClass
+operator|+
+name|getParameterDescription
+argument_list|()
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Specifies the parameters to the query      *       * @param parameters the parameters to be configured on the query      * @return this query builder      */
 DECL|method|parameters (Object... parameters)
 specifier|public
