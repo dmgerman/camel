@@ -88,7 +88,7 @@ name|jms
 operator|.
 name|listener
 operator|.
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 import|;
 end_import
 
@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations to consume JMS messages  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link DefaultMessageListenerContainer} implementations to consume JMS messages  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -122,7 +122,7 @@ name|SuspendableService
 block|{
 DECL|field|listenerContainer
 specifier|private
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|listenerContainer
 decl_stmt|;
 DECL|field|messageListener
@@ -136,7 +136,7 @@ specifier|volatile
 name|boolean
 name|initialized
 decl_stmt|;
-DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
+DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, DefaultMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
 parameter_list|(
@@ -146,7 +146,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|listenerContainer
 parameter_list|)
 block|{
@@ -192,7 +192,7 @@ return|;
 block|}
 DECL|method|getListenerContainer ()
 specifier|public
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|getListenerContainer
 parameter_list|()
 throws|throws
@@ -295,6 +295,8 @@ operator|.
 name|configureListenerContainer
 argument_list|(
 name|listenerContainer
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|listenerContainer

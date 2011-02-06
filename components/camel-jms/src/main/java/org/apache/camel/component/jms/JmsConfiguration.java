@@ -240,35 +240,7 @@ name|jms
 operator|.
 name|listener
 operator|.
-name|AbstractMessageListenerContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|listener
-operator|.
 name|DefaultMessageListenerContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|listener
-operator|.
-name|SimpleMessageListenerContainer
 import|;
 end_import
 
@@ -1869,7 +1841,7 @@ return|;
 block|}
 DECL|method|createMessageListenerContainer (JmsEndpoint endpoint)
 specifier|public
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|createMessageListenerContainer
 parameter_list|(
 name|JmsEndpoint
@@ -1878,10 +1850,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|container
 init|=
-name|chooseMessageListenerContainerImplementation
+operator|new
+name|JmsMessageListenerContainer
 argument_list|(
 name|endpoint
 argument_list|)
@@ -1962,7 +1935,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -3217,12 +3190,12 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|configureMessageListenerContainer (AbstractMessageListenerContainer container, JmsEndpoint endpoint)
+DECL|method|configureMessageListenerContainer (DefaultMessageListenerContainer container, JmsEndpoint endpoint)
 specifier|protected
 name|void
 name|configureMessageListenerContainer
 parameter_list|(
-name|AbstractMessageListenerContainer
+name|DefaultMessageListenerContainer
 name|container
 parameter_list|,
 name|JmsEndpoint
@@ -3459,28 +3432,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|container
-operator|instanceof
-name|DefaultMessageListenerContainer
-condition|)
-block|{
-comment|// this includes DefaultMessageListenerContainer102
-name|DefaultMessageListenerContainer
-name|listenerContainer
-init|=
-operator|(
-name|DefaultMessageListenerContainer
-operator|)
-name|container
-decl_stmt|;
-if|if
-condition|(
 name|concurrentConsumers
 operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setConcurrentConsumers
 argument_list|(
@@ -3495,7 +3452,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setCacheLevel
 argument_list|(
@@ -3511,7 +3468,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setCacheLevelName
 argument_list|(
@@ -3521,7 +3478,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setCacheLevel
 argument_list|(
@@ -3539,7 +3496,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setIdleTaskExecutionLimit
 argument_list|(
@@ -3575,7 +3532,7 @@ name|concurrentConsumers
 argument_list|)
 throw|;
 block|}
-name|listenerContainer
+name|container
 operator|.
 name|setMaxConcurrentConsumers
 argument_list|(
@@ -3590,7 +3547,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setMaxMessagesPerTask
 argument_list|(
@@ -3598,7 +3555,7 @@ name|maxMessagesPerTask
 argument_list|)
 expr_stmt|;
 block|}
-name|listenerContainer
+name|container
 operator|.
 name|setPubSubNoLocal
 argument_list|(
@@ -3612,7 +3569,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setReceiveTimeout
 argument_list|(
@@ -3627,7 +3584,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setRecoveryInterval
 argument_list|(
@@ -3642,7 +3599,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setTaskExecutor
 argument_list|(
@@ -3665,7 +3622,7 @@ operator|&&
 name|transacted
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setTransactionManager
 argument_list|(
@@ -3694,7 +3651,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setTransactionName
 argument_list|(
@@ -3709,84 +3666,13 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|listenerContainer
+name|container
 operator|.
 name|setTransactionTimeout
 argument_list|(
 name|transactionTimeout
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|taskExecutor
-operator|!=
-literal|null
-condition|)
-block|{
-name|listenerContainer
-operator|.
-name|setTaskExecutor
-argument_list|(
-name|taskExecutor
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|container
-operator|instanceof
-name|SimpleMessageListenerContainer
-condition|)
-block|{
-comment|// this includes SimpleMessageListenerContainer102
-name|SimpleMessageListenerContainer
-name|listenerContainer
-init|=
-operator|(
-name|SimpleMessageListenerContainer
-operator|)
-name|container
-decl_stmt|;
-if|if
-condition|(
-name|concurrentConsumers
-operator|>=
-literal|0
-condition|)
-block|{
-name|listenerContainer
-operator|.
-name|setConcurrentConsumers
-argument_list|(
-name|concurrentConsumers
-argument_list|)
-expr_stmt|;
-block|}
-name|listenerContainer
-operator|.
-name|setPubSubNoLocal
-argument_list|(
-name|pubSubNoLocal
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|taskExecutor
-operator|!=
-literal|null
-condition|)
-block|{
-name|listenerContainer
-operator|.
-name|setTaskExecutor
-argument_list|(
-name|taskExecutor
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|configure (EndpointMessageListener listener)
@@ -3879,23 +3765,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|chooseMessageListenerContainerImplementation (JmsEndpoint endpoint)
-specifier|public
-name|AbstractMessageListenerContainer
-name|chooseMessageListenerContainerImplementation
-parameter_list|(
-name|JmsEndpoint
-name|endpoint
-parameter_list|)
-block|{
-return|return
-operator|new
-name|JmsMessageListenerContainer
-argument_list|(
-name|endpoint
-argument_list|)
-return|;
 block|}
 comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *<p/>      * Will by default use<tt>CACHE_CONSUMER</tt> which is the most efficient.      *      * @param endpoint the endpoint      * @return the cache level      */
 DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
