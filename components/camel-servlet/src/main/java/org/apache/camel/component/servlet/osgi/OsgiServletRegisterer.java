@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.component.servlet
+DECL|package|org.apache.camel.component.servlet.osgi
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|component
 operator|.
 name|servlet
+operator|.
+name|osgi
 package|;
 end_package
 
