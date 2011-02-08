@@ -382,6 +382,18 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getServletName ()
+specifier|public
+name|String
+name|getServletName
+parameter_list|()
+block|{
+return|return
+name|servletName
+return|;
+block|}
 block|}
 end_class
 
