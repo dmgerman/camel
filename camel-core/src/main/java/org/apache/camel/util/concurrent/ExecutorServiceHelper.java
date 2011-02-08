@@ -1391,6 +1391,20 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"CamelThreadFactory["
+operator|+
+name|name
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 block|}
 end_class
