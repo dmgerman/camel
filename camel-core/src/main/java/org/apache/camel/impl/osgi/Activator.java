@@ -2486,7 +2486,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|visitedURLs
+name|visitedURIs
 operator|.
 name|clear
 argument_list|()
