@@ -198,10 +198,6 @@ DECL|field|singleton
 specifier|private
 name|Boolean
 name|singleton
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
