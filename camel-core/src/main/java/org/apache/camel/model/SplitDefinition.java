@@ -318,8 +318,6 @@ DECL|field|streaming
 specifier|private
 name|Boolean
 name|streaming
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -848,12 +846,22 @@ else|:
 literal|false
 return|;
 block|}
-DECL|method|setStreaming (boolean streaming)
+DECL|method|getStreaming ()
+specifier|public
+name|Boolean
+name|getStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+return|;
+block|}
+DECL|method|setStreaming (Boolean streaming)
 specifier|public
 name|void
 name|setStreaming
 parameter_list|(
-name|boolean
+name|Boolean
 name|streaming
 parameter_list|)
 block|{

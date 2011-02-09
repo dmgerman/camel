@@ -940,12 +940,12 @@ argument_list|)
 argument_list|,
 name|config
 operator|.
-name|getAllowDuplicates
+name|isAllowDuplicates
 argument_list|()
 argument_list|,
 name|config
 operator|.
-name|getReverse
+name|isReverse
 argument_list|()
 argument_list|)
 decl_stmt|;

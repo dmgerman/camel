@@ -129,10 +129,6 @@ DECL|field|allowDuplicates
 specifier|private
 name|Boolean
 name|allowDuplicates
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -140,10 +136,6 @@ DECL|field|reverse
 specifier|private
 name|Boolean
 name|reverse
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 comment|/**      * Creates a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      */
 DECL|method|BatchResequencerConfig ()
@@ -250,6 +242,23 @@ operator|=
 name|batchTimeout
 expr_stmt|;
 block|}
+DECL|method|isAllowDuplicates ()
+specifier|public
+name|boolean
+name|isAllowDuplicates
+parameter_list|()
+block|{
+return|return
+name|allowDuplicates
+operator|!=
+literal|null
+operator|&&
+name|allowDuplicates
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
 DECL|method|getAllowDuplicates ()
 specifier|public
 name|Boolean
@@ -275,6 +284,23 @@ name|allowDuplicates
 operator|=
 name|allowDuplicates
 expr_stmt|;
+block|}
+DECL|method|isReverse ()
+specifier|public
+name|boolean
+name|isReverse
+parameter_list|()
+block|{
+return|return
+name|reverse
+operator|!=
+literal|null
+operator|&&
+name|reverse
+operator|.
+name|booleanValue
+argument_list|()
+return|;
 block|}
 DECL|method|getReverse ()
 specifier|public

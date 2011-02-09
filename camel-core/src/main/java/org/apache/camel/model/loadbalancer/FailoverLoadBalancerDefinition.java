@@ -222,10 +222,6 @@ DECL|field|roundRobin
 specifier|private
 name|Boolean
 name|roundRobin
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -367,8 +363,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isRoundRobin
-argument_list|()
+name|roundRobin
 operator|!=
 literal|null
 condition|)
@@ -377,8 +372,7 @@ name|answer
 operator|.
 name|setRoundRobin
 argument_list|(
-name|isRoundRobin
-argument_list|()
+name|roundRobin
 argument_list|)
 expr_stmt|;
 block|}
@@ -420,8 +414,25 @@ expr_stmt|;
 block|}
 DECL|method|isRoundRobin ()
 specifier|public
-name|Boolean
+name|boolean
 name|isRoundRobin
+parameter_list|()
+block|{
+return|return
+name|roundRobin
+operator|!=
+literal|null
+operator|&&
+name|roundRobin
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+DECL|method|getRoundRobin ()
+specifier|public
+name|Boolean
+name|getRoundRobin
 parameter_list|()
 block|{
 return|return

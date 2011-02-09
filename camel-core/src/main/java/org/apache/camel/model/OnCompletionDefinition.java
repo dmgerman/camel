@@ -297,10 +297,6 @@ DECL|field|onCompleteOnly
 specifier|private
 name|Boolean
 name|onCompleteOnly
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -313,10 +309,6 @@ DECL|field|onFailureOnly
 specifier|private
 name|Boolean
 name|onFailureOnly
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -459,9 +451,11 @@ name|Exception
 block|{
 if|if
 condition|(
-name|onCompleteOnly
+name|isOnCompleteOnly
+argument_list|()
 operator|&&
-name|onFailureOnly
+name|isOnFailureOnly
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -589,9 +583,11 @@ name|childProcessor
 argument_list|,
 name|executorService
 argument_list|,
-name|onCompleteOnly
+name|isOnCompleteOnly
+argument_list|()
 argument_list|,
-name|onFailureOnly
+name|isOnFailureOnly
+argument_list|()
 argument_list|,
 name|when
 argument_list|,
@@ -694,7 +690,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|onFailureOnly
+name|isOnFailureOnly
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -736,7 +733,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|onCompleteOnly
+name|isOnCompleteOnly
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -920,6 +918,23 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
+DECL|method|isOnCompleteOnly ()
+specifier|public
+name|boolean
+name|isOnCompleteOnly
+parameter_list|()
+block|{
+return|return
+name|onCompleteOnly
+operator|!=
+literal|null
+operator|&&
+name|onCompleteOnly
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
 DECL|method|getOnCompleteOnly ()
 specifier|public
 name|Boolean
@@ -945,6 +960,23 @@ name|onCompleteOnly
 operator|=
 name|onCompleteOnly
 expr_stmt|;
+block|}
+DECL|method|isOnFailureOnly ()
+specifier|public
+name|boolean
+name|isOnFailureOnly
+parameter_list|()
+block|{
+return|return
+name|onFailureOnly
+operator|!=
+literal|null
+operator|&&
+name|onFailureOnly
+operator|.
+name|booleanValue
+argument_list|()
+return|;
 block|}
 DECL|method|getOnFailureOnly ()
 specifier|public

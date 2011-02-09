@@ -151,10 +151,6 @@ DECL|field|validation
 specifier|private
 name|Boolean
 name|validation
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -207,8 +203,26 @@ expr_stmt|;
 block|}
 DECL|method|isValidation ()
 specifier|public
-name|Boolean
+name|boolean
 name|isValidation
+parameter_list|()
+block|{
+comment|// defaults to true if not configured
+return|return
+name|validation
+operator|==
+literal|null
+operator|||
+name|validation
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+DECL|method|getValidation ()
+specifier|public
+name|Boolean
+name|getValidation
 parameter_list|()
 block|{
 return|return
@@ -367,23 +381,16 @@ name|mappingFile
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|validation
-operator|!=
-literal|null
-condition|)
-block|{
 name|setProperty
 argument_list|(
 name|dataFormat
 argument_list|,
 literal|"validation"
 argument_list|,
-name|validation
+name|isValidation
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|encoding

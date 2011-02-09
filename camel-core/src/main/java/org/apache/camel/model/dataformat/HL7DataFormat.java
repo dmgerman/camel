@@ -139,10 +139,6 @@ DECL|field|validate
 specifier|private
 name|Boolean
 name|validate
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 DECL|method|HL7DataFormat ()
 specifier|public
@@ -157,8 +153,26 @@ expr_stmt|;
 block|}
 DECL|method|isValidate ()
 specifier|public
-name|Boolean
+name|boolean
 name|isValidate
+parameter_list|()
+block|{
+comment|// defaults to true if not configured
+return|return
+name|validate
+operator|==
+literal|null
+operator|||
+name|validate
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+DECL|method|getValidate ()
+specifier|public
+name|Boolean
+name|getValidate
 parameter_list|()
 block|{
 return|return
@@ -192,23 +206,16 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
-if|if
-condition|(
-name|validate
-operator|!=
-literal|null
-condition|)
-block|{
 name|setProperty
 argument_list|(
 name|dataFormat
 argument_list|,
 literal|"validate"
 argument_list|,
-name|validate
+name|isValidate
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
