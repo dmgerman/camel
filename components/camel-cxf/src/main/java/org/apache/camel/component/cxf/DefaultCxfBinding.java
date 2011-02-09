@@ -1592,7 +1592,7 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// propagate attachments
+comment|// propagate attachments if the data format is not POJO
 if|if
 condition|(
 name|cxfMessage
@@ -1601,6 +1601,27 @@ name|getAttachments
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|camelExchange
+operator|.
+name|getProperty
+argument_list|(
+name|CxfConstants
+operator|.
+name|DATA_FORMAT_PROPERTY
+argument_list|,
+name|DataFormat
+operator|.
+name|class
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|DataFormat
+operator|.
+name|POJO
+argument_list|)
 condition|)
 block|{
 for|for
@@ -2042,7 +2063,20 @@ block|}
 block|}
 block|}
 block|}
-comment|// propagate attachments
+comment|// propagate attachments if the data format is not POJO
+if|if
+condition|(
+operator|!
+name|DataFormat
+operator|.
+name|POJO
+operator|.
+name|equals
+argument_list|(
+name|dataFormat
+argument_list|)
+condition|)
+block|{
 name|Set
 argument_list|<
 name|Attachment
@@ -2159,6 +2193,7 @@ argument_list|(
 name|attachments
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|BindingOperationInfo
 name|boi

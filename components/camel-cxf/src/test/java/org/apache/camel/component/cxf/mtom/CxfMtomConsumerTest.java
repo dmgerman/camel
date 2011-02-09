@@ -313,6 +313,21 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"We should not get any attachements here."
+argument_list|,
+literal|0
+argument_list|,
+name|in
+operator|.
+name|getAttachments
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Get the parameter list
 name|List
 argument_list|<
