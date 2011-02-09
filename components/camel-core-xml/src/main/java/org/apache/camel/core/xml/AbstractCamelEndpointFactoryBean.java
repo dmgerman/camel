@@ -187,6 +187,11 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 annotation|@
 name|Deprecated
 DECL|field|singleton
