@@ -443,20 +443,6 @@ argument_list|(
 name|nodeList
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The node list is "
-operator|+
-name|nodeList
-operator|.
-name|getLength
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a worng size of nodeList"
