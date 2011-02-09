@@ -147,6 +147,11 @@ specifier|private
 name|boolean
 name|scanStream
 decl_stmt|;
+DECL|field|retry
+specifier|private
+name|boolean
+name|retry
+decl_stmt|;
 DECL|field|scanStreamDelay
 specifier|private
 name|long
@@ -485,6 +490,32 @@ operator|.
 name|scanStream
 operator|=
 name|scanStream
+expr_stmt|;
+block|}
+DECL|method|isRetry ()
+specifier|public
+name|boolean
+name|isRetry
+parameter_list|()
+block|{
+return|return
+name|retry
+return|;
+block|}
+DECL|method|setRetry (boolean retry)
+specifier|public
+name|void
+name|setRetry
+parameter_list|(
+name|boolean
+name|retry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retry
+operator|=
+name|retry
 expr_stmt|;
 block|}
 DECL|method|getScanStreamDelay ()

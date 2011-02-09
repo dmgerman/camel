@@ -732,6 +732,11 @@ name|eos
 operator|&&
 name|isRunAllowed
 argument_list|()
+operator|&&
+name|endpoint
+operator|.
+name|isRetry
+argument_list|()
 condition|)
 block|{
 comment|//try and re-open stream
