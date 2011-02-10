@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -62,9 +72,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
+name|Set
 import|;
 end_import
 
@@ -76,9 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|atomic
-operator|.
-name|AtomicInteger
+name|ThreadPoolExecutor
 import|;
 end_import
 
@@ -986,6 +992,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementAgent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ManagementAware
 import|;
 end_import
@@ -1117,19 +1137,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|CONTEXT_COUNTER
-specifier|private
-specifier|static
-specifier|final
-name|AtomicInteger
-name|CONTEXT_COUNTER
-init|=
-operator|new
-name|AtomicInteger
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
 DECL|field|wrappedProcessors
 specifier|private
 specifier|final
@@ -1167,8 +1174,25 @@ name|camelContext
 decl_stmt|;
 DECL|field|initialized
 specifier|private
+specifier|volatile
 name|boolean
 name|initialized
+decl_stmt|;
+DECL|field|knowRouteIds
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|knowRouteIds
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultManagementLifecycleStrategy ()
 specifier|public
@@ -1755,7 +1779,7 @@ name|Component
 name|component
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
+comment|// always register components as there are only a few of those
 if|if
 condition|(
 operator|!
@@ -1935,13 +1959,18 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
 if|if
 condition|(
 operator|!
-name|initialized
+name|shouldRegister
+argument_list|(
+name|endpoint
+argument_list|,
+literal|null
+argument_list|)
 condition|)
 block|{
+comment|// avoid registering if not needed
 return|return;
 block|}
 try|try
@@ -2176,13 +2205,18 @@ parameter_list|)
 block|{
 comment|// services can by any kind of misc type but also processors
 comment|// so we have special logic when its a processor
-comment|// the agent hasn't been started
 if|if
 condition|(
 operator|!
-name|initialized
+name|shouldRegister
+argument_list|(
+name|service
+argument_list|,
+name|route
+argument_list|)
 condition|)
 block|{
+comment|// avoid registering if not needed
 return|return;
 block|}
 name|Object
@@ -3065,15 +3099,6 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
-if|if
-condition|(
-operator|!
-name|initialized
-condition|)
-block|{
-return|return;
-block|}
 for|for
 control|(
 name|Route
@@ -3082,6 +3107,64 @@ range|:
 name|routes
 control|)
 block|{
+comment|// if we are starting CamelContext or either of the two options has been
+comment|// enabled, then enlist the route as a known route
+if|if
+condition|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarting
+argument_list|()
+operator|||
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getRegisterAlways
+argument_list|()
+operator|||
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getRegisterNewRoutes
+argument_list|()
+condition|)
+block|{
+comment|// register as known route id
+name|knowRouteIds
+operator|.
+name|add
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|shouldRegister
+argument_list|(
+name|route
+argument_list|,
+name|route
+argument_list|)
+condition|)
+block|{
+comment|// avoid registering if not needed, skip to next route
+continue|continue;
+block|}
 name|ManagedRoute
 name|mr
 decl_stmt|;
@@ -3380,13 +3463,18 @@ name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
 if|if
 condition|(
 operator|!
-name|initialized
+name|shouldRegister
+argument_list|(
+name|errorHandler
+argument_list|,
+literal|null
+argument_list|)
 condition|)
 block|{
+comment|// avoid registering if not needed
 return|return;
 block|}
 name|ManagedErrorHandler
@@ -3500,7 +3588,7 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
+comment|// always register thread pools as there are only a few of those
 if|if
 condition|(
 operator|!
@@ -3611,7 +3699,6 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-comment|// the agent hasn't been started
 if|if
 condition|(
 operator|!
@@ -3942,6 +4029,141 @@ name|initialized
 operator|=
 literal|false
 expr_stmt|;
+name|knowRouteIds
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Whether or not to register the mbean.      *<p/>      * The {@link ManagementAgent} has options which controls when to register.      * This allows us to only register mbeans accordingly. For example by default any      * dynamic endpoints is not registered. This avoids to register excessive mbeans, which      * most often is not desired.      *      *      * @param service the object to register      * @param route   an optional route the mbean is associated with, can be<tt>null</tt>      * @return<tt>true</tt> to register,<tt>false</tt> to skip registering      */
+DECL|method|shouldRegister (Object service, Route route)
+specifier|protected
+name|boolean
+name|shouldRegister
+parameter_list|(
+name|Object
+name|service
+parameter_list|,
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// the agent hasn't been started
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Checking whether to register "
+operator|+
+name|service
+operator|+
+literal|" from route: "
+operator|+
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+comment|// always register if we are starting CamelContext
+if|if
+condition|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarting
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// register if always is enabled
+name|ManagementAgent
+name|agent
+init|=
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|agent
+operator|.
+name|getRegisterAlways
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// is it a known route then always accept
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+operator|&&
+name|knowRouteIds
+operator|.
+name|contains
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// only register if we are starting a new route, and current thread is in starting routes mode
+if|if
+condition|(
+name|agent
+operator|.
+name|getRegisterNewRoutes
+argument_list|()
+condition|)
+block|{
+comment|// no specific route, then fallback to see if this thread is starting routes
+comment|// which is kept as state on the camel context
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|isStartingRoutes
+argument_list|()
+return|;
+block|}
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class

@@ -994,6 +994,12 @@ name|String
 name|routeId
 parameter_list|)
 function_decl|;
+comment|/**      * Indicates whether current thread is starting route(s).      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *      * @return<tt>true</tt> if current thread is starting route(s), or<tt>false</tt> if not.      */
+DECL|method|isStartingRoutes ()
+name|boolean
+name|isStartingRoutes
+parameter_list|()
+function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 comment|/**      * Returns the type converter used to coerce types from one type to another      *      * @return the converter      */

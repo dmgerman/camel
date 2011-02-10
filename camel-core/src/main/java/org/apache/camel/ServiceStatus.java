@@ -98,6 +98,18 @@ operator|==
 name|Started
 return|;
 block|}
+DECL|method|isStarting ()
+specifier|public
+name|boolean
+name|isStarting
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Starting
+return|;
+block|}
 DECL|method|isStarted ()
 specifier|public
 name|boolean

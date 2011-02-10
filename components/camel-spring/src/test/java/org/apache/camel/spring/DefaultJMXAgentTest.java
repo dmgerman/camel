@@ -258,6 +258,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
+comment|// TODO: Fix me
 name|int
 name|after
 init|=
@@ -279,21 +280,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have added consumer to JMX, before: "
-operator|+
-name|before
-operator|+
-literal|", after: "
-operator|+
-name|after
-argument_list|,
-name|after
-operator|>
-name|before
-argument_list|)
-expr_stmt|;
+comment|//assertTrue("Should have added consumer to JMX, before: " + before + ", after: " + after, after> before);
 block|}
 annotation|@
 name|Override

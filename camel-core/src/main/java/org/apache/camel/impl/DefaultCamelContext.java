@@ -1680,6 +1680,22 @@ specifier|volatile
 name|boolean
 name|doNotStartRoutesOnFirstStart
 decl_stmt|;
+DECL|field|isStartingRoutes
+specifier|private
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|Boolean
+argument_list|>
+name|isStartingRoutes
+init|=
+operator|new
+name|ThreadLocal
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|autoStartup
 specifier|private
 name|Boolean
@@ -4231,6 +4247,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// indicate we are staring the route using this thread so
+comment|// we are able to query this if needed
+name|isStartingRoutes
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 comment|// must ensure route is prepared, before we can start it
 name|route
 operator|.
@@ -4287,6 +4314,38 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// we are done staring routes
+name|isStartingRoutes
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|isStartingRoutes ()
+specifier|public
+name|boolean
+name|isStartingRoutes
+parameter_list|()
+block|{
+name|Boolean
+name|answer
+init|=
+name|isStartingRoutes
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+return|return
+name|answer
+operator|!=
+literal|null
+operator|&&
+name|answer
+return|;
 block|}
 DECL|method|stopRoute (RouteDefinition route)
 specifier|public
@@ -8682,6 +8741,29 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// we may already be starting routes so remember this, so we can unset accordingly in finally block
+name|boolean
+name|alreadyStartingRoutes
+init|=
+name|isStartingRoutes
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|alreadyStartingRoutes
+condition|)
+block|{
+name|isStartingRoutes
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 comment|// the route service could have been suspended, and if so then resume it instead
 if|if
 condition|(
@@ -8766,6 +8848,22 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+block|}
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|alreadyStartingRoutes
+condition|)
+block|{
+name|isStartingRoutes
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

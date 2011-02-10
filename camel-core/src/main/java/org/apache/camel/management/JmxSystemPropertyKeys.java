@@ -117,6 +117,26 @@ name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
 init|=
 literal|"org.apache.camel.jmx.onlyRegisterProcessorWithCustomId"
 decl_stmt|;
+comment|// whether to register always
+DECL|field|REGISTER_ALWAYS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REGISTER_ALWAYS
+init|=
+literal|"org.apache.camel.jmx.registerAlways"
+decl_stmt|;
+comment|// whether to register when starting new routes
+DECL|field|REGISTER_NEW_ROUTES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REGISTER_NEW_ROUTES
+init|=
+literal|"org.apache.camel.jmx.registerNewRoutes"
+decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
 name|JmxSystemPropertyKeys

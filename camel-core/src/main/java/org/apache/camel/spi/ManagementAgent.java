@@ -142,103 +142,148 @@ name|String
 name|getMBeanObjectDomainName
 parameter_list|()
 function_decl|;
-DECL|method|setRegistryPort (Integer value)
+comment|/**      * Sets the port used by {@link java.rmi.registry.LocateRegistry}.      *      * @param port the port      */
+DECL|method|setRegistryPort (Integer port)
 name|void
 name|setRegistryPort
 parameter_list|(
 name|Integer
-name|value
+name|port
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the port used by {@link java.rmi.registry.LocateRegistry}.      *      * @return the port      */
 DECL|method|getRegistryPort ()
 name|Integer
 name|getRegistryPort
 parameter_list|()
 function_decl|;
-DECL|method|setConnectorPort (Integer value)
+comment|/**      * Sets the port clients must use to connect      *      * @param port the port      */
+DECL|method|setConnectorPort (Integer port)
 name|void
 name|setConnectorPort
 parameter_list|(
 name|Integer
-name|value
+name|port
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the port clients must use to connect      *      * @return the port      */
 DECL|method|getConnectorPort ()
 name|Integer
 name|getConnectorPort
 parameter_list|()
 function_decl|;
-DECL|method|setMBeanServerDefaultDomain (String value)
+comment|/**      * Sets the default domain on the MBean server      *      * @param domain the domain      */
+DECL|method|setMBeanServerDefaultDomain (String domain)
 name|void
 name|setMBeanServerDefaultDomain
 parameter_list|(
 name|String
-name|value
+name|domain
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the default domain on the MBean server      *      * @return the domain      */
 DECL|method|getMBeanServerDefaultDomain ()
 name|String
 name|getMBeanServerDefaultDomain
 parameter_list|()
 function_decl|;
-DECL|method|setMBeanObjectDomainName (String value)
+comment|/**      * Sets the object domain name      *      * @param domainName the object domain name      */
+DECL|method|setMBeanObjectDomainName (String domainName)
 name|void
 name|setMBeanObjectDomainName
 parameter_list|(
 name|String
-name|value
+name|domainName
 parameter_list|)
 function_decl|;
-DECL|method|setServiceUrlPath (String value)
+comment|/**      * Sets the service url      *      * @param url the service url      */
+DECL|method|setServiceUrlPath (String url)
 name|void
 name|setServiceUrlPath
 parameter_list|(
 name|String
-name|value
+name|url
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the service url      *      * @return the url      */
 DECL|method|getServiceUrlPath ()
 name|String
 name|getServiceUrlPath
 parameter_list|()
 function_decl|;
-DECL|method|setCreateConnector (Boolean flag)
+comment|/**      * Whether connector should be created, allowing clients to connect remotely      *      * @param createConnector<tt>true</tt> to create connector      */
+DECL|method|setCreateConnector (Boolean createConnector)
 name|void
 name|setCreateConnector
 parameter_list|(
 name|Boolean
-name|flag
+name|createConnector
 parameter_list|)
 function_decl|;
+comment|/**      * Whether connector is created, allowing clients to connect remotely      *      * @return<tt>true</tt> if connector is created      */
 DECL|method|getCreateConnector ()
 name|Boolean
 name|getCreateConnector
 parameter_list|()
 function_decl|;
-DECL|method|setUsePlatformMBeanServer (Boolean flag)
+comment|/**      * Whether to use the platform MBean Server.      *      * @param usePlatformMBeanServer<tt>true</tt> to use platform MBean server      */
+DECL|method|setUsePlatformMBeanServer (Boolean usePlatformMBeanServer)
 name|void
 name|setUsePlatformMBeanServer
 parameter_list|(
 name|Boolean
-name|flag
+name|usePlatformMBeanServer
 parameter_list|)
 function_decl|;
+comment|/**      * Whether to use the platform MBean Server.      *      * @return<tt>true</tt> if platform MBean server is to be used      */
 DECL|method|getUsePlatformMBeanServer ()
 name|Boolean
 name|getUsePlatformMBeanServer
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to only register processors which has a custom id assigned.      *<p/>      * This allows you to filter unwanted processors.      *      * @return<tt>true</tt> if only processors with custom id is registered      */
 DECL|method|getOnlyRegisterProcessorWithCustomId ()
 name|Boolean
 name|getOnlyRegisterProcessorWithCustomId
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to only register processors which has a custom id assigned.      *<p/>      * This allows you to filter unwanted processors.      *      * @param onlyRegisterProcessorWithCustomId<tt>true</tt> to only register if custom id has been assigned      */
 DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
 name|void
 name|setOnlyRegisterProcessorWithCustomId
 parameter_list|(
 name|Boolean
 name|onlyRegisterProcessorWithCustomId
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to always register mbeans.      *<p/>      * This option is default<tt>false</tt>.      *<p/>      *<b>Important:</b> If this option is enabled then any service is registered as mbean. When using      * dynamic EIP patterns using unique endpoint urls, you may create excessive mbeans in the registry.      * This could lead to degraded performance as memory consumption will rise due the rising number      * of mbeans.      *      * @return<tt>true</tt> if always registering      */
+DECL|method|getRegisterAlways ()
+name|Boolean
+name|getRegisterAlways
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to always register mbeans.      *<p/>      * This option is default<tt>false</tt>.      *<p/>      *<b>Important:</b> If this option is enabled then any service is registered as mbean. When using      * dynamic EIP patterns using unique endpoint urls, you may create excessive mbeans in the registry.      * This could lead to degraded performance as memory consumption will rise due the rising number      * of mbeans.      *      * @param registerAlways<tt>true</tt> to always register      */
+DECL|method|setRegisterAlways (Boolean registerAlways)
+name|void
+name|setRegisterAlways
+parameter_list|(
+name|Boolean
+name|registerAlways
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to register mbeans when starting a new route      *      * @return<tt>true</tt> to register when starting a new route      */
+DECL|method|getRegisterNewRoutes ()
+name|Boolean
+name|getRegisterNewRoutes
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to register mbeans when starting a new route      *      * @param registerNewRoutes<tt>true</tt> to register when starting a new route      */
+DECL|method|setRegisterNewRoutes (Boolean registerNewRoutes)
+name|void
+name|setRegisterNewRoutes
+parameter_list|(
+name|Boolean
+name|registerNewRoutes
 parameter_list|)
 function_decl|;
 block|}

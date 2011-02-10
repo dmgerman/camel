@@ -466,6 +466,18 @@ specifier|private
 name|Boolean
 name|onlyRegisterProcessorWithCustomId
 decl_stmt|;
+DECL|field|registerAlways
+specifier|private
+name|Boolean
+name|registerAlways
+decl_stmt|;
+DECL|field|registerNewRoutes
+specifier|private
+name|Boolean
+name|registerNewRoutes
+init|=
+literal|true
+decl_stmt|;
 DECL|method|DefaultManagementAgent ()
 specifier|public
 name|DefaultManagementAgent
@@ -492,6 +504,7 @@ name|void
 name|finalizeSettings
 parameter_list|()
 block|{
+comment|// TODO: System properties ought to take precedence, over configured options
 if|if
 condition|(
 name|registryPort
@@ -616,6 +629,25 @@ name|CREATE_CONNECTOR
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|onlyRegisterProcessorWithCustomId
+operator|==
+literal|null
+condition|)
+block|{
+name|onlyRegisterProcessorWithCustomId
+operator|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
+argument_list|)
+expr_stmt|;
+block|}
 comment|// "Use platform mbean server" is true by default
 if|if
 condition|(
@@ -645,12 +677,19 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|onlyRegisterProcessorWithCustomId
-operator|==
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|REGISTER_ALWAYS
+argument_list|)
+operator|!=
 literal|null
 condition|)
 block|{
-name|onlyRegisterProcessorWithCustomId
+name|registerAlways
 operator|=
 name|Boolean
 operator|.
@@ -658,23 +697,49 @@ name|getBoolean
 argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
-name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
+name|REGISTER_ALWAYS
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|REGISTER_NEW_ROUTES
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|registerNewRoutes
+operator|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|REGISTER_NEW_ROUTES
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setRegistryPort (Integer value)
+DECL|method|setRegistryPort (Integer port)
 specifier|public
 name|void
 name|setRegistryPort
 parameter_list|(
 name|Integer
-name|value
+name|port
 parameter_list|)
 block|{
 name|registryPort
 operator|=
-name|value
+name|port
 expr_stmt|;
 block|}
 DECL|method|getRegistryPort ()
@@ -687,18 +752,18 @@ return|return
 name|registryPort
 return|;
 block|}
-DECL|method|setConnectorPort (Integer value)
+DECL|method|setConnectorPort (Integer port)
 specifier|public
 name|void
 name|setConnectorPort
 parameter_list|(
 name|Integer
-name|value
+name|port
 parameter_list|)
 block|{
 name|connectorPort
 operator|=
-name|value
+name|port
 expr_stmt|;
 block|}
 DECL|method|getConnectorPort ()
@@ -711,18 +776,18 @@ return|return
 name|connectorPort
 return|;
 block|}
-DECL|method|setMBeanServerDefaultDomain (String value)
+DECL|method|setMBeanServerDefaultDomain (String domain)
 specifier|public
 name|void
 name|setMBeanServerDefaultDomain
 parameter_list|(
 name|String
-name|value
+name|domain
 parameter_list|)
 block|{
 name|mBeanServerDefaultDomain
 operator|=
-name|value
+name|domain
 expr_stmt|;
 block|}
 DECL|method|getMBeanServerDefaultDomain ()
@@ -735,18 +800,18 @@ return|return
 name|mBeanServerDefaultDomain
 return|;
 block|}
-DECL|method|setMBeanObjectDomainName (String value)
+DECL|method|setMBeanObjectDomainName (String domainName)
 specifier|public
 name|void
 name|setMBeanObjectDomainName
 parameter_list|(
 name|String
-name|value
+name|domainName
 parameter_list|)
 block|{
 name|mBeanObjectDomainName
 operator|=
-name|value
+name|domainName
 expr_stmt|;
 block|}
 DECL|method|getMBeanObjectDomainName ()
@@ -759,18 +824,18 @@ return|return
 name|mBeanObjectDomainName
 return|;
 block|}
-DECL|method|setServiceUrlPath (String value)
+DECL|method|setServiceUrlPath (String url)
 specifier|public
 name|void
 name|setServiceUrlPath
 parameter_list|(
 name|String
-name|value
+name|url
 parameter_list|)
 block|{
 name|serviceUrlPath
 operator|=
-name|value
+name|url
 expr_stmt|;
 block|}
 DECL|method|getServiceUrlPath ()
@@ -880,6 +945,66 @@ block|{
 return|return
 name|server
 return|;
+block|}
+DECL|method|getRegisterAlways ()
+specifier|public
+name|Boolean
+name|getRegisterAlways
+parameter_list|()
+block|{
+return|return
+name|registerAlways
+operator|!=
+literal|null
+operator|&&
+name|registerAlways
+return|;
+block|}
+DECL|method|setRegisterAlways (Boolean registerAlways)
+specifier|public
+name|void
+name|setRegisterAlways
+parameter_list|(
+name|Boolean
+name|registerAlways
+parameter_list|)
+block|{
+name|this
+operator|.
+name|registerAlways
+operator|=
+name|registerAlways
+expr_stmt|;
+block|}
+DECL|method|getRegisterNewRoutes ()
+specifier|public
+name|Boolean
+name|getRegisterNewRoutes
+parameter_list|()
+block|{
+return|return
+name|registerNewRoutes
+operator|!=
+literal|null
+operator|&&
+name|registerNewRoutes
+return|;
+block|}
+DECL|method|setRegisterNewRoutes (Boolean registerNewRoutes)
+specifier|public
+name|void
+name|setRegisterNewRoutes
+parameter_list|(
+name|Boolean
+name|registerNewRoutes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|registerNewRoutes
+operator|=
+name|registerNewRoutes
+expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
