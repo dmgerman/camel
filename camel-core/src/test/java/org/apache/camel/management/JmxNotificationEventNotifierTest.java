@@ -232,7 +232,7 @@ argument_list|(
 literal|"org.apache.camel"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e2
+comment|// END SNIPPET: e1
 return|return
 name|context
 return|;
