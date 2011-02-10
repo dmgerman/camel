@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantLock
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -380,6 +394,16 @@ DECL|field|sessionStateListener
 specifier|private
 name|SessionStateListener
 name|sessionStateListener
+decl_stmt|;
+DECL|field|reconnectLock
+specifier|private
+specifier|final
+name|ReentrantLock
+name|reconnectLock
+init|=
+operator|new
+name|ReentrantLock
+argument_list|()
 decl_stmt|;
 comment|/**      * The constructor which gets a smpp endpoint, a smpp configuration and a      * processor      */
 DECL|method|SmppConsumer (SmppEndpoint endpoint, SmppConfiguration config, Processor processor)
@@ -1082,6 +1106,14 @@ name|long
 name|initialReconnectDelay
 parameter_list|)
 block|{
+if|if
+condition|(
+name|reconnectLock
+operator|.
+name|tryLock
+argument_list|()
+condition|)
+block|{
 operator|new
 name|Thread
 argument_list|()
@@ -1093,6 +1125,13 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
+name|boolean
+name|reconnected
+init|=
+literal|false
+decl_stmt|;
 name|LOG
 operator|.
 name|info
@@ -1119,7 +1158,7 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{                 }
+block|{                         }
 name|int
 name|attempt
 init|=
@@ -1184,6 +1223,10 @@ operator|=
 name|createSession
 argument_list|()
 expr_stmt|;
+name|reconnected
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1227,9 +1270,14 @@ parameter_list|(
 name|InterruptedException
 name|ee
 parameter_list|)
-block|{                         }
+block|{                                 }
 block|}
 block|}
+if|if
+condition|(
+name|reconnected
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -1245,10 +1293,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+name|reconnectLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
