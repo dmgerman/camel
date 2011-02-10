@@ -106,6 +106,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+operator|.
+name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeMap
 import|;
 end_import
@@ -1368,12 +1380,17 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+name|Entry
+argument_list|<
 name|Integer
-name|key
+argument_list|,
+name|List
+argument_list|>
+name|entry
 range|:
 name|sortValues
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
@@ -1384,12 +1401,10 @@ name|String
 argument_list|>
 name|val
 init|=
-name|sortValues
+name|entry
 operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 comment|// For one to one relation
 comment|// There is only one item in the list

@@ -64,6 +64,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+operator|.
+name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1682,24 +1694,27 @@ condition|)
 block|{
 for|for
 control|(
+name|Entry
+argument_list|<
 name|String
-name|id
+argument_list|,
+name|EventNotifier
+argument_list|>
+name|entry
 range|:
 name|eventNotifiers
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|EventNotifier
 name|notifier
 init|=
-name|eventNotifiers
+name|entry
 operator|.
-name|get
-argument_list|(
-name|id
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
 if|if
@@ -1726,7 +1741,10 @@ name|info
 argument_list|(
 literal|"Using custom EventNotifier with id: "
 operator|+
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" and implementation: "
 operator|+
@@ -1784,24 +1802,27 @@ condition|)
 block|{
 for|for
 control|(
+name|Entry
+argument_list|<
 name|String
-name|id
+argument_list|,
+name|EndpointStrategy
+argument_list|>
+name|entry
 range|:
 name|endpointStrategies
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|EndpointStrategy
 name|strategy
 init|=
-name|endpointStrategies
+name|entry
 operator|.
-name|get
-argument_list|(
-name|id
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
@@ -1809,7 +1830,10 @@ name|info
 argument_list|(
 literal|"Using custom EndpointStrategy with id: "
 operator|+
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" and implementation: "
 operator|+
@@ -1899,24 +1923,27 @@ condition|)
 block|{
 for|for
 control|(
+name|Entry
+argument_list|<
 name|String
-name|id
+argument_list|,
+name|InterceptStrategy
+argument_list|>
+name|entry
 range|:
 name|interceptStrategies
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|InterceptStrategy
 name|strategy
 init|=
-name|interceptStrategies
+name|entry
 operator|.
-name|get
-argument_list|(
-name|id
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
 if|if
@@ -1940,7 +1967,10 @@ name|info
 argument_list|(
 literal|"Using custom InterceptStrategy with id: "
 operator|+
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" and implementation: "
 operator|+
@@ -1995,24 +2025,27 @@ condition|)
 block|{
 for|for
 control|(
+name|Entry
+argument_list|<
 name|String
-name|id
+argument_list|,
+name|LifecycleStrategy
+argument_list|>
+name|entry
 range|:
 name|lifecycleStrategies
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|LifecycleStrategy
 name|strategy
 init|=
-name|lifecycleStrategies
+name|entry
 operator|.
-name|get
-argument_list|(
-name|id
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
 if|if
@@ -2036,7 +2069,10 @@ name|info
 argument_list|(
 literal|"Using custom LifecycleStrategy with id: "
 operator|+
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" and implementation: "
 operator|+
@@ -3336,24 +3372,27 @@ condition|)
 block|{
 for|for
 control|(
+name|Entry
+argument_list|<
 name|String
-name|id
+argument_list|,
+name|ThreadPoolProfile
+argument_list|>
+name|entry
 range|:
 name|profiles
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
 name|ThreadPoolProfile
 name|profile
 init|=
-name|profiles
+name|entry
 operator|.
-name|get
-argument_list|(
-name|id
-argument_list|)
+name|getValue
+argument_list|()
 decl_stmt|;
 comment|// do not add if already added, for instance a tracer that is also an InterceptStrategy class
 if|if
@@ -3370,7 +3409,10 @@ name|info
 argument_list|(
 literal|"Using custom default ThreadPoolProfile with id: "
 operator|+
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" and implementation: "
 operator|+
@@ -3391,7 +3433,10 @@ name|defaultIds
 operator|.
 name|add
 argument_list|(
-name|id
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
