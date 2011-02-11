@@ -872,6 +872,25 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/spel.html">SpEL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|spel (String text)
+specifier|public
+name|T
+name|spel
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|language
+argument_list|(
+literal|"spel"
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/sql.html">SQL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|sql (String text)
 specifier|public
