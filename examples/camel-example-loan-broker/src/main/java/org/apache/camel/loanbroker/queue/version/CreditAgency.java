@@ -175,11 +175,7 @@ name|Constants
 operator|.
 name|PROPERTY_SCORE
 argument_list|,
-operator|new
-name|Integer
-argument_list|(
 name|score
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -193,11 +189,7 @@ name|Constants
 operator|.
 name|PROPERTY_HISTORYLENGTH
 argument_list|,
-operator|new
-name|Integer
-argument_list|(
 name|hlength
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange

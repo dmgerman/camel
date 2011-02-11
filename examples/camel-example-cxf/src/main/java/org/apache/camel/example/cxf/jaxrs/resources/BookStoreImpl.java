@@ -279,11 +279,7 @@ name|book
 operator|.
 name|setId
 argument_list|(
-operator|new
-name|Long
-argument_list|(
 literal|123
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|book
