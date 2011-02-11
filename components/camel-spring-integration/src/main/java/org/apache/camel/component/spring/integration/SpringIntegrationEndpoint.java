@@ -104,8 +104,6 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|core
-operator|.
 name|MessageChannel
 import|;
 end_import

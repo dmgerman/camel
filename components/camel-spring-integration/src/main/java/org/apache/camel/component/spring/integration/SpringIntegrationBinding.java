@@ -83,8 +83,6 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|core
-operator|.
 name|Message
 name|createSpringIntegrationMessage
 parameter_list|(
@@ -120,8 +118,6 @@ operator|.
 name|springframework
 operator|.
 name|integration
-operator|.
-name|core
 operator|.
 name|Message
 name|createSpringIntegrationMessage
@@ -179,8 +175,6 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|core
-operator|.
 name|Message
 name|storeToSpringIntegrationMessage
 parameter_list|(
@@ -205,7 +199,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|storeToCamelMessage (org.springframework.integration.core.Message siMessage, org.apache.camel.Message cMessage)
+DECL|method|storeToCamelMessage (org.springframework.integration.Message siMessage, org.apache.camel.Message cMessage)
 specifier|public
 specifier|static
 name|void
@@ -216,8 +210,6 @@ operator|.
 name|springframework
 operator|.
 name|integration
-operator|.
-name|core
 operator|.
 name|Message
 name|siMessage

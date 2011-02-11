@@ -84,8 +84,6 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|core
-operator|.
 name|MessageChannel
 import|;
 end_import
@@ -100,7 +98,7 @@ name|integration
 operator|.
 name|message
 operator|.
-name|StringMessage
+name|GenericMessage
 import|;
 end_import
 
@@ -168,7 +166,10 @@ operator|.
 name|send
 argument_list|(
 operator|new
-name|StringMessage
+name|GenericMessage
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|MESSAGE_BODY
 argument_list|)

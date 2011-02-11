@@ -133,7 +133,7 @@ operator|.
 name|getChannel
 argument_list|()
 operator|.
-name|getName
+name|toString
 argument_list|()
 argument_list|,
 literal|"channelA"
@@ -178,7 +178,7 @@ operator|.
 name|getChannel
 argument_list|()
 operator|.
-name|getName
+name|toString
 argument_list|()
 argument_list|,
 literal|"channelB"
@@ -282,7 +282,7 @@ operator|.
 name|getReplyChannel
 argument_list|()
 operator|.
-name|getName
+name|toString
 argument_list|()
 argument_list|,
 literal|"channelC"
