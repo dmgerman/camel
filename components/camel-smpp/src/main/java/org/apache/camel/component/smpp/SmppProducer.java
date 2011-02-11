@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantLock
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -315,6 +329,16 @@ DECL|field|sessionStateListener
 specifier|private
 name|SessionStateListener
 name|sessionStateListener
+decl_stmt|;
+DECL|field|reconnectLock
+specifier|private
+specifier|final
+name|ReentrantLock
+name|reconnectLock
+init|=
+operator|new
+name|ReentrantLock
+argument_list|()
 decl_stmt|;
 DECL|method|SmppProducer (SmppEndpoint endpoint, SmppConfiguration config)
 specifier|public
@@ -1028,6 +1052,14 @@ name|long
 name|initialReconnectDelay
 parameter_list|)
 block|{
+if|if
+condition|(
+name|reconnectLock
+operator|.
+name|tryLock
+argument_list|()
+condition|)
+block|{
 operator|new
 name|Thread
 argument_list|()
@@ -1038,6 +1070,8 @@ specifier|public
 name|void
 name|run
 parameter_list|()
+block|{
+try|try
 block|{
 name|LOG
 operator|.
@@ -1065,7 +1099,7 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{                 }
+block|{                         }
 name|int
 name|attempt
 init|=
@@ -1173,7 +1207,7 @@ parameter_list|(
 name|InterruptedException
 name|ee
 parameter_list|)
-block|{                         }
+block|{                                 }
 block|}
 block|}
 name|LOG
@@ -1190,11 +1224,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|reconnectLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
