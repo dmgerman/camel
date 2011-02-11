@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A predicate which is evaluating a binary expression.  *<p/>  * The predicate has a left and right hand side expressions which  * is matched based on an operator.  *<p/>  * This predicate can return information about the evaluated expressions  * which allows you to get detailed information, so you better understand  * why the predicate did not match.  *  * @version $Revision$  */
+comment|/**  * A predicate which is evaluating a binary expression.  *<p/>  * The predicate has a left and right hand side expressions which  * is matched based on an operator.  *<p/>  * This predicate offers the {@link #matchesReturningFailureMessage} method  * which evaluates and return a detailed failure message if the predicate did not match.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -44,17 +44,14 @@ name|Expression
 name|getRight
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the evaluated left hand side value.      *<p/>      * Beware of thread safety that the result of the {@link #getRightValue()} may in fact be from another evaluation.      *      * @return the left value, may be<tt>null</tt> if predicate has not been matched yet.      */
-DECL|method|getLeftValue ()
-name|Object
-name|getLeftValue
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the evaluated right hand side value.      *<p/>      * Beware of thread safety that the result of the {@link #getLeftValue()} may in fact be from another evaluation.      *      * @return the right value, may be<tt>null</tt> if predicate has not been matched yet.      */
-DECL|method|getRightValue ()
-name|Object
-name|getRightValue
-parameter_list|()
+comment|/**      * Evaluates the predicate on the message exchange and returns<tt>null</tt> if this      * exchange matches the predicate. If it did<b>not</b> match, then a failure message      * is returned detailing why it did not fail, which can be used for end users to understand      * the failure.      *      * @param exchange the message exchange      * @return<tt>null</tt> if the predicate matches.      */
+DECL|method|matchesReturningFailureMessage (Exchange exchange)
+name|String
+name|matchesReturningFailureMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 function_decl|;
 block|}
 end_interface

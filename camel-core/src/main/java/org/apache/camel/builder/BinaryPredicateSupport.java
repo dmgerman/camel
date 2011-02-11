@@ -105,16 +105,6 @@ specifier|final
 name|Expression
 name|right
 decl_stmt|;
-DECL|field|lastLeftValue
-specifier|private
-name|Object
-name|lastLeftValue
-decl_stmt|;
-DECL|field|lastRightValue
-specifier|private
-name|Object
-name|lastRightValue
-decl_stmt|;
 DECL|method|BinaryPredicateSupport (Expression left, Expression right)
 specifier|protected
 name|BinaryPredicateSupport
@@ -183,6 +173,32 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+return|return
+name|matchesReturningFailureMessage
+argument_list|(
+name|exchange
+argument_list|)
+operator|==
+literal|null
+return|;
+block|}
+DECL|method|matchesReturningFailureMessage (Exchange exchange)
+specifier|public
+name|String
+name|matchesReturningFailureMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// we must not store any state, so we can be thread safe
+comment|// and thus we offer this method which returns a failure message if
+comment|// we did not match
+name|String
+name|answer
+init|=
+literal|null
+decl_stmt|;
 comment|// must be thread safe and store result in local objects
 name|Object
 name|leftValue
@@ -212,16 +228,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// remember last result (may not be thread safe)
-name|lastRightValue
-operator|=
-name|rightValue
-expr_stmt|;
-name|lastLeftValue
-operator|=
-name|leftValue
-expr_stmt|;
-return|return
+if|if
+condition|(
+operator|!
 name|matches
 argument_list|(
 name|exchange
@@ -230,6 +239,24 @@ name|leftValue
 argument_list|,
 name|rightValue
 argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+name|leftValue
+operator|+
+literal|" "
+operator|+
+name|getOperator
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|rightValue
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 DECL|method|matches (Exchange exchange, Object leftValue, Object rightValue)
@@ -255,16 +282,6 @@ name|String
 name|getOperationText
 parameter_list|()
 function_decl|;
-DECL|method|getRight ()
-specifier|public
-name|Expression
-name|getRight
-parameter_list|()
-block|{
-return|return
-name|right
-return|;
-block|}
 DECL|method|getLeft ()
 specifier|public
 name|Expression
@@ -273,6 +290,16 @@ parameter_list|()
 block|{
 return|return
 name|left
+return|;
+block|}
+DECL|method|getRight ()
+specifier|public
+name|Expression
+name|getRight
+parameter_list|()
+block|{
+return|return
+name|right
 return|;
 block|}
 DECL|method|getOperator ()
@@ -284,26 +311,6 @@ block|{
 return|return
 name|getOperationText
 argument_list|()
-return|;
-block|}
-DECL|method|getRightValue ()
-specifier|public
-name|Object
-name|getRightValue
-parameter_list|()
-block|{
-return|return
-name|lastRightValue
-return|;
-block|}
-DECL|method|getLeftValue ()
-specifier|public
-name|Object
-name|getLeftValue
-parameter_list|()
-block|{
-return|return
-name|lastLeftValue
 return|;
 block|}
 block|}
