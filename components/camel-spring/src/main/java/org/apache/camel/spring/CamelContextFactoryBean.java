@@ -224,6 +224,22 @@ name|core
 operator|.
 name|xml
 operator|.
+name|AbstractCamelEndpointFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|core
+operator|.
+name|xml
+operator|.
 name|CamelJMXAgentDefinition
 import|;
 end_import
@@ -2081,6 +2097,19 @@ name|routes
 operator|=
 name|routes
 expr_stmt|;
+block|}
+DECL|method|getEndpoints ()
+specifier|public
+name|List
+argument_list|<
+name|CamelEndpointFactoryBean
+argument_list|>
+name|getEndpoints
+parameter_list|()
+block|{
+return|return
+name|endpoints
+return|;
 block|}
 DECL|method|getIntercepts ()
 specifier|public

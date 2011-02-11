@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>PatternBasedPackageScanFilter</code> uses an underlying  * {@link AntPathMatcher} to filter scanned files according to include and  * exclude patterns.  *   * @see AntPathMatcher  */
+comment|/**  * {@link PatternBasedPackageScanFilter} uses an underlying  * {@link AntPathMatcher} to filter scanned files according to include and  * exclude patterns.  *   * @see AntPathMatcher  */
 end_comment
 
 begin_class
@@ -78,6 +78,7 @@ name|PackageScanFilter
 block|{
 DECL|field|matcher
 specifier|private
+specifier|final
 name|AntPathMatcher
 name|matcher
 init|=
@@ -101,7 +102,7 @@ name|String
 argument_list|>
 name|includePatterns
 decl_stmt|;
-comment|/**      * add and exclude pattern to the filter. Classes matching this pattern will      * not match the filter       *       * @param excludePattern      */
+comment|/**      * add and exclude pattern to the filter. Classes matching this pattern will      * not match the filter       */
 DECL|method|addExcludePattern (String excludePattern)
 specifier|public
 name|void
@@ -136,7 +137,7 @@ name|excludePattern
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * add and include pattern to the filter. Classes must match one of supplied      * include patterns to match the filter       *       * @param includePattern      */
+comment|/**      * add and include pattern to the filter. Classes must match one of supplied      * include patterns to match the filter       */
 DECL|method|addIncludePattern (String includePattern)
 specifier|public
 name|void
