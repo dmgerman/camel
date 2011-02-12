@@ -2203,7 +2203,12 @@ operator|=
 name|exceptionPolicy
 operator|.
 name|isAsyncDelayedRedelivery
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// route specific failure handler?
 name|Processor

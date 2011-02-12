@@ -1006,6 +1006,114 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Parses the given text and converts it to a Double and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the double vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
+DECL|method|parseDouble (CamelContext camelContext, String text)
+specifier|public
+specifier|static
+name|Double
+name|parseDouble
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|text
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// ensure we support property placeholders
+name|String
+name|s
+init|=
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|s
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+return|return
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|Double
+operator|.
+name|class
+argument_list|,
+name|s
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] as an Integer."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error parsing ["
+operator|+
+name|s
+operator|+
+literal|"] from property "
+operator|+
+name|text
+operator|+
+literal|" as an Integer."
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Parses the given text and converts it to an Boolean and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the boolean vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
 DECL|method|parseBoolean (CamelContext camelContext, String text)
 specifier|public

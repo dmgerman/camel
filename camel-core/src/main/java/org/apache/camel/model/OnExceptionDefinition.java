@@ -1291,6 +1291,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the back off multiplier (supports property placeholders)      *      * @param backOffMultiplier the back off multiplier      * @return the builder      */
+DECL|method|backOffMultiplier (String backOffMultiplier)
+specifier|public
+name|OnExceptionDefinition
+name|backOffMultiplier
+parameter_list|(
+name|String
+name|backOffMultiplier
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|backOffMultiplier
+argument_list|(
+name|backOffMultiplier
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
@@ -1298,6 +1320,28 @@ name|OnExceptionDefinition
 name|collisionAvoidanceFactor
 parameter_list|(
 name|double
+name|collisionAvoidanceFactor
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|collisionAvoidanceFactor
+argument_list|(
+name|collisionAvoidanceFactor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the collision avoidance factor (supports property placeholders)      *      * @param collisionAvoidanceFactor the factor      * @return the builder      */
+DECL|method|collisionAvoidanceFactor (String collisionAvoidanceFactor)
+specifier|public
+name|OnExceptionDefinition
+name|collisionAvoidanceFactor
+parameter_list|(
+name|String
 name|collisionAvoidanceFactor
 parameter_list|)
 block|{
@@ -1357,6 +1401,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the initial redelivery delay (supports property placeholders)      *      * @param delay delay in millis      * @return the builder      */
+DECL|method|redeliveryDelay (String delay)
+specifier|public
+name|OnExceptionDefinition
+name|redeliveryDelay
+parameter_list|(
+name|String
+name|delay
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|redeliveryDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Allow synchronous delayed redelivery.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
@@ -1367,10 +1433,8 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setAsyncDelayedRedelivery
-argument_list|(
-literal|true
-argument_list|)
+name|asyncDelayedRedelivery
+argument_list|()
 expr_stmt|;
 return|return
 name|this
@@ -1433,7 +1497,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogStackTrace
+name|logStackTrace
+argument_list|(
+name|logStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log stacktrace for failed messages (supports property placeholders)      */
+DECL|method|logStackTrace (String logStackTrace)
+specifier|public
+name|OnExceptionDefinition
+name|logStackTrace
+parameter_list|(
+name|String
+name|logStackTrace
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logStackTrace
 argument_list|(
 name|logStackTrace
 argument_list|)
@@ -1455,7 +1541,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogRetryStackTrace
+name|logRetryStackTrace
+argument_list|(
+name|logRetryStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log stacktrace for failed redelivery attempts (supports property placeholders)      */
+DECL|method|logRetryStackTrace (String logRetryStackTrace)
+specifier|public
+name|OnExceptionDefinition
+name|logRetryStackTrace
+parameter_list|(
+name|String
+name|logRetryStackTrace
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logRetryStackTrace
 argument_list|(
 name|logRetryStackTrace
 argument_list|)
@@ -1477,7 +1585,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogHandled
+name|logHandled
+argument_list|(
+name|logHandled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log errors even if its handled (supports property placeholders)      */
+DECL|method|logHandled (String logHandled)
+specifier|public
+name|OnExceptionDefinition
+name|logHandled
+parameter_list|(
+name|String
+name|logHandled
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logHandled
 argument_list|(
 name|logHandled
 argument_list|)
@@ -1499,7 +1629,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogContinued
+name|logContinued
+argument_list|(
+name|logContinued
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log errors even if its continued (supports property placeholders)      */
+DECL|method|logContinued (String logContinued)
+specifier|public
+name|OnExceptionDefinition
+name|logContinued
+parameter_list|(
+name|String
+name|logContinued
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logContinued
 argument_list|(
 name|logContinued
 argument_list|)
@@ -1521,7 +1673,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogRetryAttempted
+name|logRetryAttempted
+argument_list|(
+name|logRetryAttempted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log retry attempts (supports property placeholders)      */
+DECL|method|logRetryAttempted (String logRetryAttempted)
+specifier|public
+name|OnExceptionDefinition
+name|logRetryAttempted
+parameter_list|(
+name|String
+name|logRetryAttempted
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logRetryAttempted
 argument_list|(
 name|logRetryAttempted
 argument_list|)
@@ -1543,7 +1717,29 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|setLogExhausted
+name|logExhausted
+argument_list|(
+name|logExhausted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log exhausted exceptions (supports property placeholders)      */
+DECL|method|logExhausted (String logExhausted)
+specifier|public
+name|OnExceptionDefinition
+name|logExhausted
+parameter_list|(
+name|String
+name|logExhausted
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logExhausted
 argument_list|(
 name|logExhausted
 argument_list|)
@@ -1559,6 +1755,28 @@ name|OnExceptionDefinition
 name|maximumRedeliveries
 parameter_list|(
 name|int
+name|maximumRedeliveries
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+name|maximumRedeliveries
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the maximum redeliveries (supports property placeholders)      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries the value      * @return the builder      */
+DECL|method|maximumRedeliveries (String maximumRedeliveries)
+specifier|public
+name|OnExceptionDefinition
+name|maximumRedeliveries
+parameter_list|(
+name|String
 name|maximumRedeliveries
 parameter_list|)
 block|{
@@ -1615,6 +1833,28 @@ name|OnExceptionDefinition
 name|maximumRedeliveryDelay
 parameter_list|(
 name|long
+name|maximumRedeliveryDelay
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveryDelay
+argument_list|(
+name|maximumRedeliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the maximum delay between redelivery (supports property placeholders)      *      * @param maximumRedeliveryDelay the delay in millis      * @return the builder      */
+DECL|method|maximumRedeliveryDelay (String maximumRedeliveryDelay)
+specifier|public
+name|OnExceptionDefinition
+name|maximumRedeliveryDelay
+parameter_list|(
+name|String
 name|maximumRedeliveryDelay
 parameter_list|)
 block|{
@@ -2157,11 +2397,14 @@ operator|=
 name|useOriginalMessagePolicy
 expr_stmt|;
 block|}
-DECL|method|isAsyncDelayedRedelivery ()
+DECL|method|isAsyncDelayedRedelivery (CamelContext context)
 specifier|public
 name|boolean
 name|isAsyncDelayedRedelivery
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -2175,16 +2418,10 @@ return|return
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|getAsyncDelayedRedelivery
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|getRedeliveryPolicy
-argument_list|()
-operator|.
-name|getAsyncDelayedRedelivery
-argument_list|()
+name|isAsyncDelayedRedelivery
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 return|return
