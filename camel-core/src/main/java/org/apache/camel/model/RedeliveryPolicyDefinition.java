@@ -164,13 +164,6 @@ name|RedeliveryPolicyDefinition
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|ref
-specifier|private
-name|String
-name|ref
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|maximumRedeliveries
 specifier|private
 name|String
@@ -307,29 +300,6 @@ name|RedeliveryPolicy
 name|parentPolicy
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ref
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// lookup in registry if ref provided
-return|return
-name|CamelContextHelper
-operator|.
-name|mandatoryLookup
-argument_list|(
-name|context
-argument_list|,
-name|ref
-argument_list|,
-name|RedeliveryPolicy
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 name|RedeliveryPolicy
 name|answer
 decl_stmt|;
@@ -1344,25 +1314,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Use redelivery policy looked up in the registry      *      * @param ref  reference to the redelivery policy to lookup and use      * @return the builder      */
-DECL|method|ref (String ref)
-specifier|public
-name|RedeliveryPolicyDefinition
-name|ref
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|setRef
-argument_list|(
-name|ref
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the delay pattern with delay intervals.      *      * @param delayPattern the delay pattern      * @return the builder      */
 DECL|method|delayPattern (String delayPattern)
 specifier|public
@@ -1384,32 +1335,6 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-DECL|method|getRef ()
-specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
-expr_stmt|;
-block|}
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|String

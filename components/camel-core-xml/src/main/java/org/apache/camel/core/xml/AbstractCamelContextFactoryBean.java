@@ -2859,6 +2859,18 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 function_decl|;
+DECL|method|getRedeliveryPolicies ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|?
+extends|extends
+name|AbstractCamelRedeliveryPolicyFactoryBean
+argument_list|>
+name|getRedeliveryPolicies
+parameter_list|()
+function_decl|;
 DECL|method|getIntercepts ()
 specifier|public
 specifier|abstract
