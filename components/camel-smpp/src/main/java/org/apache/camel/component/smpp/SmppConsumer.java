@@ -861,11 +861,6 @@ name|createSMPPSession
 argument_list|()
 decl_stmt|;
 name|session
-operator|=
-name|createSMPPSession
-argument_list|()
-expr_stmt|;
-name|session
 operator|.
 name|setEnquireLinkTimer
 argument_list|(
