@@ -1037,6 +1037,25 @@ literal|" Remove all routes from the route builder."
 argument_list|)
 throw|;
 block|}
+comment|// we can not advice with error handlers
+if|if
+condition|(
+name|routes
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"You can not advice with error handlers. Remove the error handlers from the route builder."
+argument_list|)
+throw|;
+block|}
 comment|// stop and remove this existing route
 name|camelContext
 operator|.
