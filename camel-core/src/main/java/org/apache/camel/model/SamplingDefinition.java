@@ -188,7 +188,6 @@ block|{
 comment|// use Long to let it be optional in JAXB so when using XML the default is 1 second
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|samplePeriod
 specifier|private
 name|Long
@@ -196,7 +195,6 @@ name|samplePeriod
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|messageFrequency
 specifier|private
 name|Long
@@ -204,7 +202,6 @@ name|messageFrequency
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
@@ -292,6 +289,21 @@ return|;
 block|}
 else|else
 block|{
+name|TimeUnit
+name|tu
+init|=
+name|getUnits
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getUnits
+argument_list|()
+else|:
+name|TimeUnit
+operator|.
+name|SECONDS
+decl_stmt|;
 return|return
 literal|"Sample[1 Exchange per "
 operator|+
@@ -300,8 +312,7 @@ argument_list|()
 operator|+
 literal|" "
 operator|+
-name|getUnits
-argument_list|()
+name|tu
 operator|.
 name|toString
 argument_list|()
@@ -356,6 +367,21 @@ return|;
 block|}
 else|else
 block|{
+name|TimeUnit
+name|tu
+init|=
+name|getUnits
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getUnits
+argument_list|()
+else|:
+name|TimeUnit
+operator|.
+name|SECONDS
+decl_stmt|;
 return|return
 literal|"sample[1 Exchange per "
 operator|+
@@ -364,10 +390,9 @@ argument_list|()
 operator|+
 literal|" "
 operator|+
-name|getUnits
-argument_list|()
+name|tu
 operator|.
-name|toString
+name|name
 argument_list|()
 operator|.
 name|toLowerCase
