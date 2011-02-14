@@ -142,6 +142,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Required
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -190,6 +204,8 @@ name|ThrowExceptionDefinition
 argument_list|>
 block|{
 annotation|@
+name|Required
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|name
@@ -198,8 +214,9 @@ literal|"ref"
 argument_list|,
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|)
+comment|// the ref is required from tooling and XML DSL
 DECL|field|ref
 specifier|private
 name|String
