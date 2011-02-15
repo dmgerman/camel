@@ -505,8 +505,8 @@ block|{
 comment|/**      * The local address to bind to.      * The host is an IP number rather than "localhost" to avoid surprises      * on hosts that map "localhost" to an IPv6 address or something else.      * The port is 0 to let the system pick one.      */
 DECL|field|TEST_SERVER_ADDR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|InetSocketAddress
 name|TEST_SERVER_ADDR
 init|=
@@ -1194,6 +1194,7 @@ name|ssock
 operator|==
 literal|null
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -1201,7 +1202,9 @@ argument_list|(
 literal|"stopped"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|sb
 operator|.
 name|append
@@ -1212,6 +1215,7 @@ name|getLocalSocketAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|sb
 operator|.
