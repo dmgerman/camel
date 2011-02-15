@@ -54,7 +54,7 @@ name|component
 operator|.
 name|ibatis
 operator|.
-name|IBatisEndpoint
+name|IBatisConsumer
 import|;
 end_import
 
@@ -70,12 +70,12 @@ name|component
 operator|.
 name|ibatis
 operator|.
-name|IBatisPollingConsumer
+name|IBatisEndpoint
 import|;
 end_import
 
 begin_comment
-comment|/**  * Processing strategy for dealing with IBatis.  */
+comment|/**  * Processing strategy for dealing with IBatis when consuming.  */
 end_comment
 
 begin_interface
@@ -84,12 +84,12 @@ specifier|public
 interface|interface
 name|IBatisProcessingStrategy
 block|{
-comment|/**      * Called when record is being queried.      *       * @param consumer The Ibatis Polling Consumer      * @param endpoint The Ibatis Endpoint      * @return Results of the query as a java.util.List      * @throws Exception can be thrown in case of error      */
-DECL|method|poll (IBatisPollingConsumer consumer, IBatisEndpoint endpoint)
+comment|/**      * Called when record is being queried.      *      * @param consumer the consumer      * @param endpoint the endpoint      * @return Results of the query as a {@link List}      * @throws Exception can be thrown in case of error      */
+DECL|method|poll (IBatisConsumer consumer, IBatisEndpoint endpoint)
 name|List
 name|poll
 parameter_list|(
-name|IBatisPollingConsumer
+name|IBatisConsumer
 name|consumer
 parameter_list|,
 name|IBatisEndpoint
@@ -98,7 +98,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Commit callback if there are a statements to be run after processing.      *       * @param endpoint The Ibatis Enpoint      * @param exchange The exchange after it has been processed      * @param data The original data delivered to the route      * @param consumeStatements Name of the statement(s) to run, will use SQL update. Use comma to provide multiple statements to run.      * @throws Exception can be thrown in case of error      */
+comment|/**      * Commit callback if there are a statements to be run after processing.      *      * @param endpoint          the endpoint      * @param exchange          The exchange after it has been processed      * @param data              The original data delivered to the route      * @param consumeStatements Name of the statement(s) to run, will use SQL update. Use comma to provide multiple statements to run.      * @throws Exception can be thrown in case of error      */
 DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatements)
 name|void
 name|commit

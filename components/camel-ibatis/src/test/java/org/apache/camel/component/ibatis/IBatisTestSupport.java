@@ -82,6 +82,16 @@ name|IBatisTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|method|createTestData ()
+specifier|protected
+name|boolean
+name|createTestData
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -126,6 +136,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|createTestData
+argument_list|()
+condition|)
+block|{
 name|Account
 name|account
 init|=
@@ -213,6 +229,7 @@ argument_list|,
 name|account
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

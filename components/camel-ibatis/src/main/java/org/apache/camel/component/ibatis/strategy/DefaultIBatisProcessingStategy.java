@@ -78,7 +78,7 @@ name|component
 operator|.
 name|ibatis
 operator|.
-name|IBatisEndpoint
+name|IBatisConsumer
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|component
 operator|.
 name|ibatis
 operator|.
-name|IBatisPollingConsumer
+name|IBatisEndpoint
 import|;
 end_import
 
@@ -222,12 +222,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|poll (IBatisPollingConsumer consumer, IBatisEndpoint endpoint)
+DECL|method|poll (IBatisConsumer consumer, IBatisEndpoint endpoint)
 specifier|public
 name|List
 name|poll
 parameter_list|(
-name|IBatisPollingConsumer
+name|IBatisConsumer
 name|consumer
 parameter_list|,
 name|IBatisEndpoint

@@ -268,7 +268,7 @@ annotation|@
 name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
-name|IBatisPollingConsumer
+name|IBatisConsumer
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -277,11 +277,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|IBatisPollingConsumer
+name|IBatisConsumer
 name|consumer
 init|=
 operator|new
-name|IBatisPollingConsumer
+name|IBatisConsumer
 argument_list|(
 name|this
 argument_list|,

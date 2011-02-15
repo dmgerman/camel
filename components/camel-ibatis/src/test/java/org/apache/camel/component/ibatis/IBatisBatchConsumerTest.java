@@ -224,7 +224,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"ibatis:selectAllAccounts?statementType=QueryForList"
+literal|"ibatis:selectAllAccounts"
 argument_list|)
 operator|.
 name|to
