@@ -367,7 +367,7 @@ literal|"restlet:http://localhost:9080/users/davsclaus/"
 operator|+
 name|index
 operator|+
-literal|"?restletMethod=POST"
+literal|"?restletMethod=GET"
 argument_list|,
 literal|null
 argument_list|,
@@ -483,7 +483,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080/users/{username}/{id}?restletMethod=POST"
+literal|"restlet:http://localhost:9080/users/{username}/{id}?restletMethod=GET"
 argument_list|)
 operator|.
 name|to
