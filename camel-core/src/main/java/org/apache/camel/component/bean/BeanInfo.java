@@ -122,6 +122,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -143,18 +153,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
 import|;
 end_import
 
@@ -508,9 +506,15 @@ specifier|final
 name|ParameterMappingStrategy
 name|strategy
 decl_stmt|;
-DECL|field|operations
+DECL|field|defaultMethod
 specifier|private
 specifier|final
+name|MethodInfo
+name|defaultMethod
+decl_stmt|;
+comment|// shared state with details of operations introspected from the bean, created during the constructor
+DECL|field|operations
+specifier|private
 name|Map
 argument_list|<
 name|String
@@ -523,7 +527,7 @@ argument_list|>
 name|operations
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|String
 argument_list|,
@@ -536,7 +540,6 @@ argument_list|()
 decl_stmt|;
 DECL|field|operationsWithBody
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|MethodInfo
@@ -552,7 +555,6 @@ argument_list|()
 decl_stmt|;
 DECL|field|operationsWithCustomAnnotation
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|MethodInfo
@@ -568,7 +570,6 @@ argument_list|()
 decl_stmt|;
 DECL|field|operationsWithHandlerAnnotation
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|MethodInfo
@@ -584,7 +585,6 @@ argument_list|()
 decl_stmt|;
 DECL|field|methodMap
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|Method
@@ -594,23 +594,13 @@ argument_list|>
 name|methodMap
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|Method
 argument_list|,
 name|MethodInfo
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|defaultMethod
-specifier|private
-name|MethodInfo
-name|defaultMethod
-decl_stmt|;
-DECL|field|superBeanInfo
-specifier|private
-name|BeanInfo
-name|superBeanInfo
 decl_stmt|;
 static|static
 block|{
@@ -720,6 +710,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// if there are only 1 method with 1 operation then select it as a default/fallback method
+name|MethodInfo
+name|method
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|operations
@@ -757,7 +752,7 @@ operator|==
 literal|1
 condition|)
 block|{
-name|defaultMethod
+name|method
 operator|=
 name|methods
 operator|.
@@ -768,6 +763,57 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|defaultMethod
+operator|=
+name|method
+expr_stmt|;
+comment|// mark the operations lists as unmodifiable, as they should not change during runtime
+comment|// to keep this code thread safe
+name|operations
+operator|=
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|operations
+argument_list|)
+expr_stmt|;
+name|operationsWithBody
+operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|operationsWithBody
+argument_list|)
+expr_stmt|;
+name|operationsWithCustomAnnotation
+operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|operationsWithCustomAnnotation
+argument_list|)
+expr_stmt|;
+name|operationsWithHandlerAnnotation
+operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|operationsWithHandlerAnnotation
+argument_list|)
+expr_stmt|;
+name|methodMap
+operator|=
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|methodMap
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getType ()
 specifier|public
@@ -1551,10 +1597,6 @@ block|{
 comment|// maybe the method is defined on a base class?
 if|if
 condition|(
-name|superBeanInfo
-operator|==
-literal|null
-operator|&&
 name|type
 operator|!=
 name|Object
@@ -1586,8 +1628,9 @@ operator|.
 name|class
 condition|)
 block|{
+name|BeanInfo
 name|superBeanInfo
-operator|=
+init|=
 operator|new
 name|BeanInfo
 argument_list|(
@@ -1597,7 +1640,7 @@ name|superclass
 argument_list|,
 name|strategy
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
 name|superBeanInfo
 operator|.
@@ -2030,6 +2073,56 @@ comment|// @Handler should be select first
 comment|// then any single method that has a custom @annotation
 comment|// or any single method that has a match parameter type that matches the Exchange payload
 comment|// and last then try to select the best among the rest
+comment|// must use defensive copy, to avoid altering the shared lists
+comment|// and we want to remove unwanted operations from these local lists
+specifier|final
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|localOperationsWithBody
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|MethodInfo
+argument_list|>
+argument_list|(
+name|operationsWithBody
+argument_list|)
+decl_stmt|;
+specifier|final
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|localOperationsWithCustomAnnotation
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|MethodInfo
+argument_list|>
+argument_list|(
+name|operationsWithCustomAnnotation
+argument_list|)
+decl_stmt|;
+specifier|final
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|localOperationsWithHandlerAnnotation
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|MethodInfo
+argument_list|>
+argument_list|(
+name|operationsWithHandlerAnnotation
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|name
@@ -2040,21 +2133,21 @@ block|{
 comment|// filter all lists to only include methods with this name
 name|removeNonMatchingMethods
 argument_list|(
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
 name|removeNonMatchingMethods
 argument_list|(
-name|operationsWithCustomAnnotation
+name|localOperationsWithCustomAnnotation
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
 name|removeNonMatchingMethods
 argument_list|(
-name|operationsWithBody
+name|localOperationsWithBody
 argument_list|,
 name|name
 argument_list|)
@@ -2065,23 +2158,23 @@ block|{
 comment|// remove all getter/setter as we do not want to consider these methods
 name|removeAllSetterOrGetterMethods
 argument_list|(
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 argument_list|)
 expr_stmt|;
 name|removeAllSetterOrGetterMethods
 argument_list|(
-name|operationsWithCustomAnnotation
+name|localOperationsWithCustomAnnotation
 argument_list|)
 expr_stmt|;
 name|removeAllSetterOrGetterMethods
 argument_list|(
-name|operationsWithBody
+name|localOperationsWithBody
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 operator|.
 name|size
 argument_list|()
@@ -2096,13 +2189,13 @@ name|AmbiguousMethodCallException
 argument_list|(
 name|exchange
 argument_list|,
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 operator|.
 name|size
 argument_list|()
@@ -2112,7 +2205,7 @@ condition|)
 block|{
 comment|// methods with handler should be preferred
 return|return
-name|operationsWithHandlerAnnotation
+name|localOperationsWithHandlerAnnotation
 operator|.
 name|get
 argument_list|(
@@ -2123,7 +2216,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|operationsWithCustomAnnotation
+name|localOperationsWithCustomAnnotation
 operator|.
 name|size
 argument_list|()
@@ -2133,7 +2226,7 @@ condition|)
 block|{
 comment|// if there is one method with an annotation then use that one
 return|return
-name|operationsWithCustomAnnotation
+name|localOperationsWithCustomAnnotation
 operator|.
 name|get
 argument_list|(
@@ -2144,7 +2237,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|operationsWithBody
+name|localOperationsWithBody
 operator|.
 name|size
 argument_list|()
@@ -2154,7 +2247,7 @@ condition|)
 block|{
 comment|// if there is one method with body then use that one
 return|return
-name|operationsWithBody
+name|localOperationsWithBody
 operator|.
 name|get
 argument_list|(
@@ -2179,14 +2272,14 @@ name|possibleOperations
 operator|.
 name|addAll
 argument_list|(
-name|operationsWithBody
+name|localOperationsWithBody
 argument_list|)
 expr_stmt|;
 name|possibleOperations
 operator|.
 name|addAll
 argument_list|(
-name|operationsWithCustomAnnotation
+name|localOperationsWithCustomAnnotation
 argument_list|)
 expr_stmt|;
 if|if
@@ -2207,6 +2300,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|possibleOperations
+argument_list|,
+name|localOperationsWithCustomAnnotation
 argument_list|)
 decl_stmt|;
 if|if
@@ -2238,7 +2333,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|chooseMethodWithMatchingBody (Exchange exchange, Collection<MethodInfo> operationList)
+DECL|method|chooseMethodWithMatchingBody (Exchange exchange, Collection<MethodInfo> operationList, List<MethodInfo> operationsWithCustomAnnotation)
 specifier|private
 name|MethodInfo
 name|chooseMethodWithMatchingBody
@@ -2251,6 +2346,12 @@ argument_list|<
 name|MethodInfo
 argument_list|>
 name|operationList
+parameter_list|,
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|operationsWithCustomAnnotation
 parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
@@ -2439,6 +2540,8 @@ argument_list|,
 name|possibles
 argument_list|,
 name|possiblesWithException
+argument_list|,
+name|operationsWithCustomAnnotation
 argument_list|)
 return|;
 block|}
@@ -2447,7 +2550,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|chooseBestPossibleMethodInfo (Exchange exchange, Collection<MethodInfo> operationList, Object body, List<MethodInfo> possibles, List<MethodInfo> possiblesWithException)
+DECL|method|chooseBestPossibleMethodInfo (Exchange exchange, Collection<MethodInfo> operationList, Object body, List<MethodInfo> possibles, List<MethodInfo> possiblesWithException, List<MethodInfo> possibleWithCustomAnnotation)
 specifier|private
 name|MethodInfo
 name|chooseBestPossibleMethodInfo
@@ -2475,6 +2578,12 @@ argument_list|<
 name|MethodInfo
 argument_list|>
 name|possiblesWithException
+parameter_list|,
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|possibleWithCustomAnnotation
 parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
@@ -2765,7 +2874,7 @@ block|{
 comment|// if we only have a single method with custom annotations, lets use that one
 if|if
 condition|(
-name|operationsWithCustomAnnotation
+name|possibleWithCustomAnnotation
 operator|.
 name|size
 argument_list|()
@@ -2776,7 +2885,7 @@ block|{
 name|MethodInfo
 name|answer
 init|=
-name|operationsWithCustomAnnotation
+name|possibleWithCustomAnnotation
 operator|.
 name|get
 argument_list|(
