@@ -486,6 +486,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|listenerContainer
+operator|!=
+literal|null
+condition|)
+block|{
 name|listenerContainer
 operator|.
 name|stop
@@ -496,6 +503,7 @@ operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
 comment|// null container and listener so they are fully re created if this consumer is restarted
 comment|// then we will use updated configuration from jms endpoint that may have been managed using JMX
 name|listenerContainer
