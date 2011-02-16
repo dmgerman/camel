@@ -1581,6 +1581,9 @@ argument_list|(
 literal|"Script compile failed: "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1679,6 +1682,9 @@ argument_list|(
 literal|"Script evaluation failed: "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -1723,8 +1729,6 @@ argument_list|()
 expr_stmt|;
 name|Object
 name|result
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
