@@ -247,7 +247,8 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -273,7 +274,8 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -284,7 +286,8 @@ expr_stmt|;
 name|RouteDefinition
 name|answer
 init|=
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|from
 argument_list|(
@@ -314,7 +317,8 @@ modifier|...
 name|args
 parameter_list|)
 block|{
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -325,7 +329,8 @@ expr_stmt|;
 name|RouteDefinition
 name|answer
 init|=
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|from
 argument_list|(
@@ -358,7 +363,8 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -369,7 +375,8 @@ expr_stmt|;
 name|RouteDefinition
 name|answer
 init|=
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|from
 argument_list|(
@@ -396,7 +403,8 @@ modifier|...
 name|uris
 parameter_list|)
 block|{
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -407,7 +415,8 @@ expr_stmt|;
 name|RouteDefinition
 name|answer
 init|=
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|from
 argument_list|(
@@ -434,7 +443,8 @@ modifier|...
 name|endpoints
 parameter_list|)
 block|{
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -445,7 +455,8 @@ expr_stmt|;
 name|RouteDefinition
 name|answer
 init|=
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|from
 argument_list|(
@@ -474,7 +485,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -491,7 +503,8 @@ literal|"errorHandler must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -518,7 +531,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -535,7 +549,8 @@ literal|"intercept must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -544,7 +559,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|intercept
 argument_list|()
@@ -560,7 +576,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -577,7 +594,8 @@ literal|"interceptFrom must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -586,7 +604,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|interceptFrom
 argument_list|()
@@ -605,7 +624,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -622,7 +642,8 @@ literal|"interceptFrom must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -631,7 +652,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|interceptFrom
 argument_list|(
@@ -652,7 +674,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -669,7 +692,8 @@ literal|"interceptSendToEndpoint must be defined before any routes in the RouteB
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -678,7 +702,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|interceptSendToEndpoint
 argument_list|(
@@ -700,7 +725,8 @@ comment|// is only allowed at the top currently
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -717,7 +743,8 @@ literal|"onException must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -726,7 +753,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|onException
 argument_list|(
@@ -803,7 +831,8 @@ comment|// is only allowed at the top currently
 if|if
 condition|(
 operator|!
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -820,7 +849,8 @@ literal|"onCompletion must be defined before any routes in the RouteBuilder"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -829,7 +859,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|onCompletion
 argument_list|()
@@ -1023,7 +1054,8 @@ argument_list|(
 name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setErrorHandlerBuilder
 argument_list|(
@@ -1134,7 +1166,8 @@ literal|"CamelContext has not been injected!"
 argument_list|)
 throw|;
 block|}
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|setCamelContext
 argument_list|(
@@ -1145,7 +1178,8 @@ name|camelContext
 operator|.
 name|addRouteDefinitions
 argument_list|(
-name|routeCollection
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -1180,7 +1214,7 @@ operator|.
 name|routeCollection
 return|;
 block|}
-comment|/**      * Factory method      */
+comment|/**      * Factory method      * @return the CamelContext      */
 DECL|method|createContainer ()
 specifier|protected
 name|CamelContext
@@ -1214,7 +1248,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a collection of routes to this context      *      * @throws Exception if the routes could not be created for whatever reason      * @deprecated use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
+comment|/**      * Adds a collection of routes to this context      *      * @param routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
 annotation|@
 name|Deprecated
 DECL|method|addRoutes (RoutesBuilder routes)

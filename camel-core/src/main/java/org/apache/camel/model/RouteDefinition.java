@@ -1973,7 +1973,7 @@ return|;
 block|}
 comment|/**      * Sets the error handler if one is not already set      */
 DECL|method|setErrorHandlerBuilderIfNull (ErrorHandlerBuilder errorHandlerBuilder)
-specifier|protected
+specifier|public
 name|void
 name|setErrorHandlerBuilderIfNull
 parameter_list|(

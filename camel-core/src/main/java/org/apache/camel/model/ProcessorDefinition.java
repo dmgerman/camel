@@ -3902,6 +3902,8 @@ DECL|method|filter ()
 specifier|public
 name|ExpressionClause
 argument_list|<
+name|?
+extends|extends
 name|FilterDefinition
 argument_list|>
 name|filter

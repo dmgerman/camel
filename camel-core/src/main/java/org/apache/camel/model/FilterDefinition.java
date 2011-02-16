@@ -248,6 +248,8 @@ DECL|method|expression ()
 specifier|public
 name|ExpressionClause
 argument_list|<
+name|?
+extends|extends
 name|FilterDefinition
 argument_list|>
 name|expression
