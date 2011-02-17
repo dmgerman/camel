@@ -325,7 +325,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a Camel using the  *<code>jndi.properties</code> file on the classpath to  * way to<a href="http://camel.apache.org/guice.html">bootstrap via Guice</a>  * then the DOT files are created, then they are converted from DOT files to another format such as PNG  *  * @version $Revision$  * @goal dot  * @requiresDependencyResolution runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
+comment|/**  * Runs a Camel using the  *<code>jndi.properties</code> file on the classpath to  * way to<a href="http://camel.apache.org/guice.html">bootstrap via Guice</a>  * then the DOT files are created, then they are converted from DOT files to another format such as PNG  *  * @version   * @goal dot  * @requiresDependencyResolution runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
 end_comment
 
 begin_class

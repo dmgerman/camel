@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for reporting type converters.  *<p/>  * Used by the camel-maven-plugin.  *  * @version $Revision$  */
+comment|/**  * Registry for reporting type converters.  *<p/>  * Used by the camel-maven-plugin.  *  * @version   */
 end_comment
 
 begin_class
