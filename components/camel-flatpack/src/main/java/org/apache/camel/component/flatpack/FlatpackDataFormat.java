@@ -299,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Flatpack DataFormat.  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from<tt>List&lt;Map&lt;String, Object&gt;&gt;</tt> to<tt>OutputStream</tt> (can be converted to String)</li>  *<li>unmarshal = from<tt>InputStream</tt> (such as a File) to {@link DataSetList}.  *</ul>  *<b>Notice:</b> The Flatpack library does currently not support header and trailers for the marshal operation.  *  * @version $Revision$  */
+comment|/**  * Flatpack DataFormat.  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from<tt>List&lt;Map&lt;String, Object&gt;&gt;</tt> to<tt>OutputStream</tt> (can be converted to String)</li>  *<li>unmarshal = from<tt>InputStream</tt> (such as a File) to {@link DataSetList}.  *</ul>  *<b>Notice:</b> The Flatpack library does currently not support header and trailers for the marshal operation.  *  * @version   */
 end_comment
 
 begin_class

@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delegates the strategy to the {@link JpaTemplate} and {@link TransactionTemplate} for transaction handling  *  * @version $Revision$  */
+comment|/**  * Delegates the strategy to the {@link JpaTemplate} and {@link TransactionTemplate} for transaction handling  *  * @version   */
 end_comment
 
 begin_class

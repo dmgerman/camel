@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/xquery.html">XQuery Component</a>  * for performing transforming messages  *  * @version $Revision$  */
+comment|/**  * An<a href="http://camel.apache.org/xquery.html">XQuery Component</a>  * for performing transforming messages  *  * @version   */
 end_comment
 
 begin_class

@@ -115,7 +115,7 @@ comment|// END SNIPPET: example
 end_comment
 
 begin_comment
-comment|/**  * Tests filtering using Camel Test  *  * @version $Revision$  */
+comment|/**  * Tests filtering using Camel Test  *  * @version   */
 end_comment
 
 begin_comment

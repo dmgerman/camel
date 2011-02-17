@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel<a href="http://camel.apache.org/endpoint.html">Endpoint</a>  *  * @version $Revision$  */
+comment|/**  * A Camel<a href="http://camel.apache.org/endpoint.html">Endpoint</a>  *  * @version   */
 end_comment
 
 begin_class

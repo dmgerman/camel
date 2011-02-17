@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Injects values into the {@link EndpointInject} injection point  *  * @version $Revision$  */
+comment|/**  * Injects values into the {@link EndpointInject} injection point  *  * @version   */
 end_comment
 
 begin_class

@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A timer engine to monitor for expired activities and perform whatever actions  * are required.  *   * @version $Revision$  */
+comment|/**  * A timer engine to monitor for expired activities and perform whatever actions  * are required.  *   * @version   */
 end_comment
 
 begin_class

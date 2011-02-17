@@ -305,7 +305,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *<p/>  * For a brief tutorial on setting cron expression see  *<a href="http://www.opensymphony.com/quartz/wikidocs/CronTriggers%20Tutorial.html">Quartz cron tutorial</a>.  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *<p/>  * For a brief tutorial on setting cron expression see  *<a href="http://www.opensymphony.com/quartz/wikidocs/CronTriggers%20Tutorial.html">Quartz cron tutorial</a>.  *  * @version   */
 end_comment
 
 begin_class

@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;proxy&gt; tag element.  *  * @version $Revision: 938746 $ */
+comment|/**  * The&lt;proxy&gt; tag element.  *  * @version  */
 end_comment
 
 begin_comment

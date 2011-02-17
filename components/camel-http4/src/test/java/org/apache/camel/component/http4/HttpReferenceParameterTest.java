@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for resolving reference parameters.  *  * @version $Revision: $  */
+comment|/**  * Unit test for resolving reference parameters.  *  * @version   */
 end_comment
 
 begin_class

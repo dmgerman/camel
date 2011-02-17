@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a href="http://www.springsource.org/javaconfig">Spring JavaConfig</a>  * configurations for working with Camel  *  * @version $Revision$  */
+comment|/**  * A useful base class for writing  *<a href="http://www.springsource.org/javaconfig">Spring JavaConfig</a>  * configurations for working with Camel  *  * @version   */
 end_comment
 
 begin_class

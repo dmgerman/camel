@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a single business process  *   * @version $Revision$  */
+comment|/**  * Represents a single business process  *   * @version   */
 end_comment
 
 begin_class

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the list of the currently active<a href="http://camel.apache.org/component.html">components</a>  * in the current camel context  *  * @version $Revision$  */
+comment|/**  * Represents the list of the currently active<a href="http://camel.apache.org/component.html">components</a>  * in the current camel context  *  * @version   */
 end_comment
 
 begin_class

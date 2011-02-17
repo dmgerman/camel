@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify the algorithm for selecting either GET or POST.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify the algorithm for selecting either GET or POST.  *  * @version   */
 end_comment
 
 begin_class

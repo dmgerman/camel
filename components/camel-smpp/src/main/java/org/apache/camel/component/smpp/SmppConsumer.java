@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of @{link Consumer} which use the SMPP protocol  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * An implementation of @{link Consumer} which use the SMPP protocol  *   * @version   * @author muellerc  */
 end_comment
 
 begin_class

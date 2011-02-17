@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel MINA.  *  * @version $Revision$  */
+comment|/**  * Endpoint for Camel MINA.  *  * @version   */
 end_comment
 
 begin_class

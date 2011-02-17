@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit testing using different encodings with the TCP protocol.  *  * @version $Revision$  */
+comment|/**  * Unit testing using different encodings with the TCP protocol.  *  * @version   */
 end_comment
 
 begin_class

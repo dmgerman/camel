@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Create a collection of routes via a provider method  *  * @version $Revision$  */
+comment|/**  * Create a collection of routes via a provider method  *  * @version   */
 end_comment
 
 begin_class

@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Bean Validator Component for validating java beans against JSR 303 Validator  *  * @version $Revision$  */
+comment|/**  * Bean Validator Component for validating java beans against JSR 303 Validator  *  * @version   */
 end_comment
 
 begin_class

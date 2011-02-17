@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * As we have the JAXB FallbackTypeConverter, so we don't need to register this converter  * @version $Revision$  */
+comment|/**  * As we have the JAXB FallbackTypeConverter, so we don't need to register this converter  * @version   */
 end_comment
 
 begin_class

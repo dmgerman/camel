@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A resolver of the JAXB context OSGI primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version $Revision: 892691 $  */
+comment|/**  * A resolver of the JAXB context OSGI primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version   */
 end_comment
 
 begin_class

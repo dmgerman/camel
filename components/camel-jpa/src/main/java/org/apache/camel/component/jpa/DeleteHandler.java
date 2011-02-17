@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for deleting entity beans which have been processed; either by a real delete or by an update of some  * application specific properties so that the entity bean will not be found in future polling queries.  *  * @version $Revision$  */
+comment|/**  * A strategy for deleting entity beans which have been processed; either by a real delete or by an update of some  * application specific properties so that the entity bean will not be found in future polling queries.  *  * @version   */
 end_comment
 
 begin_interface

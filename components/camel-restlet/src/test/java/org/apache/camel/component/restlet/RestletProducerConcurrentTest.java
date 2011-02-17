@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Restlet producer concurrent test  *   * @version $Revision$  */
+comment|/**  * Restlet producer concurrent test  *   * @version   */
 end_comment
 
 begin_class

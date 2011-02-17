@@ -539,7 +539,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for Apache MINA.  *  * @version $Revision$  */
+comment|/**  * Component for Apache MINA.  *  * @version   */
 end_comment
 
 begin_class

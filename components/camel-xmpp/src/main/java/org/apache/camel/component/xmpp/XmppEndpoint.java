@@ -297,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A XMPP Endpoint  *  * @version $Revision:520964 $  */
+comment|/**  * A XMPP Endpoint  *  * @version   */
 end_comment
 
 begin_class

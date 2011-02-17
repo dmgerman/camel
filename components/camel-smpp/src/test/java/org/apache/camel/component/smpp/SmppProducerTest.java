@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppProducer</code>  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppProducer</code>  *   * @version   * @author muellerc  */
 end_comment
 
 begin_class

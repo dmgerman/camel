@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to poll atom feeds and return each entry from the feed step by step.  *  * @version $Revision$  */
+comment|/**  * Consumer to poll atom feeds and return each entry from the feed step by step.  *  * @version   */
 end_comment
 
 begin_class

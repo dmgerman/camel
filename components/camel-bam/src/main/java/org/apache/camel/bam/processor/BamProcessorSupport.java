@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base {@link Processor} for working on<a  * href="http://camel.apache.org/bam.html">BAM</a> which a derived  * class would do the actual persistence such as the {@link JpaBamProcessor}  *  * @version $Revision$  */
+comment|/**  * A base {@link Processor} for working on<a  * href="http://camel.apache.org/bam.html">BAM</a> which a derived  * class would do the actual persistence such as the {@link JpaBamProcessor}  *  * @version   */
 end_comment
 
 begin_class

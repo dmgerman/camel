@@ -387,7 +387,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version $Revision$  */
+comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version   */
 end_comment
 
 begin_class

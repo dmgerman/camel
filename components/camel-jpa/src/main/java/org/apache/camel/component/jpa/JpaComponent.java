@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JPA Component  *  * @version $Revision$  */
+comment|/**  * A JPA Component  *  * @version   */
 end_comment
 
 begin_class

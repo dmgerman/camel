@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple post processor  *  * @version $Revision$  */
+comment|/**  * A simple post processor  *  * @version   */
 end_comment
 
 begin_class

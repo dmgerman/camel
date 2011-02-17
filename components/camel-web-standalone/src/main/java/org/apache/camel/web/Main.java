@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bootstrap class for starting Jetty Runner using an embedded war  *  * @version $Revision$  */
+comment|/**  * A bootstrap class for starting Jetty Runner using an embedded war  *  * @version   */
 end_comment
 
 begin_class

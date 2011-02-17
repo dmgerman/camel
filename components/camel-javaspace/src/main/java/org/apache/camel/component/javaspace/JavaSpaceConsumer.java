@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @{link Consumer} implementation for Javaspaces  *   * @version $Revision$  */
+comment|/**  * @{link Consumer} implementation for Javaspaces  *   * @version   */
 end_comment
 
 begin_class

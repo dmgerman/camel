@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test timeout.  *  * @version $Revision$  */
+comment|/**  * To test timeout.  *  * @version   */
 end_comment
 
 begin_class

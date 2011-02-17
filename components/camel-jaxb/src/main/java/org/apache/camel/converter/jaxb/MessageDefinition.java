@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} -<b>Important</b>: work in progress!  *  * @version $Revision$  */
+comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} -<b>Important</b>: work in progress!  *  * @version   */
 end_comment
 
 begin_class

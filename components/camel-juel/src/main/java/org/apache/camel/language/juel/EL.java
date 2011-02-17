@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of EL (JSP& JSF) expressions into method parameters, fields or properties  *  * @version $Revision$  */
+comment|/**  * An annotation for injection of EL (JSP& JSF) expressions into method parameters, fields or properties  *  * @version   */
 end_comment
 
 begin_annotation_defn

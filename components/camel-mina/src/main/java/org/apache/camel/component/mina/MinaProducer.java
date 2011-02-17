@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Producer} implementation for MINA  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Producer} implementation for MINA  *  * @version   */
 end_comment
 
 begin_class

@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default state for a specific activity within a process  *  * @version $Revision$  */
+comment|/**  * The default state for a specific activity within a process  *  * @version   */
 end_comment
 
 begin_class

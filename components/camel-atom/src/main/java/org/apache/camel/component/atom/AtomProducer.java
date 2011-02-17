@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AtomProducer is currently not implemented  *  * @version $Revision$  */
+comment|/**  * AtomProducer is currently not implemented  *  * @version   */
 end_comment
 
 begin_class

@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default CamelContext implementation for working with Guice.  *<p/>  * It is recommended you use this implementation with the  *<a href="http://code.google.com/p/guiceyfruit/wiki/GuiceyJndi">Guicey JNDI Provider</a>  *  * @version $Revision$  */
+comment|/**  * The default CamelContext implementation for working with Guice.  *<p/>  * It is recommended you use this implementation with the  *<a href="http://code.google.com/p/guiceyfruit/wiki/GuiceyJndi">Guicey JNDI Provider</a>  *  * @version   */
 end_comment
 
 begin_class

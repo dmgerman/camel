@@ -585,7 +585,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bean to create and initialize a {@link BlueprintCamelContext}  * and install routes either explicitly configured in  * Blueprint XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version $Revision$  */
+comment|/**  * A bean to create and initialize a {@link BlueprintCamelContext}  * and install routes either explicitly configured in  * Blueprint XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version   */
 end_comment
 
 begin_class

@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of SQL {@link org.apache.camel.Expression} and  * {@link org.apache.camel.Predicate} implementations  *   * @version $Revision$  */
+comment|/**  * A builder of SQL {@link org.apache.camel.Expression} and  * {@link org.apache.camel.Predicate} implementations  *   * @version   */
 end_comment
 
 begin_class

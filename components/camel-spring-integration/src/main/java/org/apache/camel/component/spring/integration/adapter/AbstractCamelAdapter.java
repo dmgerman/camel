@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Abstract class for the Spring Integration Camel Adapter  *  * @version $Revision$  */
+comment|/**  * The Abstract class for the Spring Integration Camel Adapter  *  * @version   */
 end_comment
 
 begin_class

@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for JPA based BAM which can use any entity to store the process  * instance information which allows derived classes to specialise the process  * instance entity.  *  * @version $Revision$  */
+comment|/**  * A base class for JPA based BAM which can use any entity to store the process  * instance information which allows derived classes to specialise the process  * instance entity.  *  * @version   */
 end_comment
 
 begin_class

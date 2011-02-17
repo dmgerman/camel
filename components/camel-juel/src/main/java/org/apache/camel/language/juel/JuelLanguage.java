@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/el.html">EL Language from JSP and JSF</a>  * using the<a href="http://camel.apache.org/juel.html">JUEL library</a>  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/el.html">EL Language from JSP and JSF</a>  * using the<a href="http://camel.apache.org/juel.html">JUEL library</a>  *  * @version   */
 end_comment
 
 begin_class

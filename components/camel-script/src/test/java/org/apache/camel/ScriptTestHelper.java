@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Script test helper.  *  * @version $Revision$  */
+comment|/**  * Script test helper.  *  * @version   */
 end_comment
 
 begin_class

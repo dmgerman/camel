@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with Mail  *  * @version $Revision:520964 $  */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with Mail  *  * @version   */
 end_comment
 
 begin_class

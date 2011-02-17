@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel Mail.  *  * @version $Revision:520964 $  */
+comment|/**  * Endpoint for Camel Mail.  *  * @version   */
 end_comment
 
 begin_class

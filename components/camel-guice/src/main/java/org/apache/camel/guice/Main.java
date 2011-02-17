@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command line tool for booting up a CamelContext using a Guice Injector via JNDI  * assuming that a valid jndi.properties is on the classpath  *  * @version $Revision$  */
+comment|/**  * A command line tool for booting up a CamelContext using a Guice Injector via JNDI  * assuming that a valid jndi.properties is on the classpath  *  * @version   */
 end_comment
 
 begin_class

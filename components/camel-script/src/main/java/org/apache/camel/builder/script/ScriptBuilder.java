@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder class for creating {@link Processor}, {@link Expression} and  * {@link Predicate} objects using the JSR 223 scripting engine.  *  * @version $Revision$  */
+comment|/**  * A builder class for creating {@link Processor}, {@link Expression} and  * {@link Predicate} objects using the JSR 223 scripting engine.  *  * @version   */
 end_comment
 
 begin_class

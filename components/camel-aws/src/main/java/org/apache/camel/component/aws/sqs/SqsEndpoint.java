@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    *  * @version $Revision: $  */
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    *  * @version   */
 end_comment
 
 begin_class

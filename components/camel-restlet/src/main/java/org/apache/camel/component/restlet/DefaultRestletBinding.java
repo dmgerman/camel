@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default Restlet binding implementation  *  * @version $Revision$  */
+comment|/**  * Default Restlet binding implementation  *  * @version   */
 end_comment
 
 begin_class

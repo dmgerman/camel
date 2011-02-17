@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CamelTargetAdapter will redirect the Spring Integration message to the Camel context.  * When we inject the camel context into it, we need also specify the Camel endpoint url  * we will route the Spring Integration message to the Camel context  *  * @version $Revision$  */
+comment|/**  * CamelTargetAdapter will redirect the Spring Integration message to the Camel context.  * When we inject the camel context into it, we need also specify the Camel endpoint url  * we will route the Spring Integration message to the Camel context  *  * @version   */
 end_comment
 
 begin_class

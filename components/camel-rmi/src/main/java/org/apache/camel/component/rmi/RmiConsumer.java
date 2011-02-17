@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} which uses RMI's {@link UnicastRemoteObject} to consume  * method invocations.  *   * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which uses RMI's {@link UnicastRemoteObject} to consume  * method invocations.  *   * @version   */
 end_comment
 
 begin_class

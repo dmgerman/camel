@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Filter used by the {@link org.apache.camel.component.feed.FeedEntryPollingConsumer} to filter entries  * from the feed.  *  * @version $Revision$  */
+comment|/**  * Filter used by the {@link org.apache.camel.component.feed.FeedEntryPollingConsumer} to filter entries  * from the feed.  *  * @version   */
 end_comment
 
 begin_interface

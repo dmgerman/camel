@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Route builder for RestletRouteBuilderAuthTest  *   * @version $Revision$  */
+comment|/**  * Route builder for RestletRouteBuilderAuthTest  *   * @version   */
 end_comment
 
 begin_class

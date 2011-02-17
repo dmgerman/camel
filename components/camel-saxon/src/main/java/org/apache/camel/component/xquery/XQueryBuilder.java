@@ -547,7 +547,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XQuery builder  *  * @version $Revision$  */
+comment|/**  * Creates an XQuery builder  *  * @version   */
 end_comment
 
 begin_class

@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppSSLConnectionFactory</code>  *   * @version $Revision: $  * @author cmueller  */
+comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppSSLConnectionFactory</code>  *   * @version   * @author cmueller  */
 end_comment
 
 begin_class

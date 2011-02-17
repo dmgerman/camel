@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Statement types to instruct which iBatis operation to use.  *  * @version $Revision$  */
+comment|/**  * Statement types to instruct which iBatis operation to use.  *  * @version   */
 end_comment
 
 begin_enum

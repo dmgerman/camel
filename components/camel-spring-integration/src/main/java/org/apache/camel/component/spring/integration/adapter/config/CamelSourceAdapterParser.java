@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for the&lt;camelSource/&gt; element  *  * @version $Revision$  */
+comment|/**  * Parser for the&lt;camelSource/&gt; element  *  * @version   */
 end_comment
 
 begin_class

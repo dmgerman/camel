@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An integration test which requires a Jabber server to be running, by default on localhost.  *<p/>  * You can overload the<b>xmpp.url</b> system property to define the jabber connection URI  * to something like<b>xmpp://camel@localhost/?login=false&room=</b>  * @version $Revision$  */
+comment|/**  * An integration test which requires a Jabber server to be running, by default on localhost.  *<p/>  * You can overload the<b>xmpp.url</b> system property to define the jabber connection URI  * to something like<b>xmpp://camel@localhost/?login=false&room=</b>  * @version   */
 end_comment
 
 begin_class

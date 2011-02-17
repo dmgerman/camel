@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JavaMail specific converters.  *  * @version $Revision$  */
+comment|/**  * JavaMail specific converters.  *  * @version   */
 end_comment
 
 begin_class

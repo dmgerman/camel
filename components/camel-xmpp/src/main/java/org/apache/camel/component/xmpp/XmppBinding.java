@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version   */
 end_comment
 
 begin_class

@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default header filtering strategy for Restlet  *   * @version $Revision$  */
+comment|/**  * Default header filtering strategy for Restlet  *   * @version   */
 end_comment
 
 begin_class

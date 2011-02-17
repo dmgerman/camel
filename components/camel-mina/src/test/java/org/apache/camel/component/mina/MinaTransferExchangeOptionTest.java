@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the<tt>transferExchange=true</tt> option.  *  * @version $Revision$  */
+comment|/**  * Unit test for the<tt>transferExchange=true</tt> option.  *  * @version   */
 end_comment
 
 begin_class

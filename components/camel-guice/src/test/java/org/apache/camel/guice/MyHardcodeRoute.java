@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A single hard coded route  *  * @version $Revision$  */
+comment|/**  * A single hard coded route  *  * @version   */
 end_comment
 
 begin_class

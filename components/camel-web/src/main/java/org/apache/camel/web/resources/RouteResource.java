@@ -391,7 +391,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Patterns</a>  *  * @version $Revision$  */
+comment|/**  * A single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Patterns</a>  *  * @version   */
 end_comment
 
 begin_class

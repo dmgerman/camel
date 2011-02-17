@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel XMPP module  *  * @version $Revision$  */
+comment|/**  * Constants used in Camel XMPP module  *  * @version   */
 end_comment
 
 begin_interface

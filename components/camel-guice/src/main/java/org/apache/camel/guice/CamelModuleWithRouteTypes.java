@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Guice Module which injects the CamelContext with the specified {@link org.apache.camel.RoutesBuilder} types - which are then injected by Guice.  *<p>  * If you wish to bind all of the bound {@link org.apache.camel.RoutesBuilder} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Or if you would like to specify exactly which {@link org.apache.camel.RoutesBuilder} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *   *  * @version $Revision$  */
+comment|/**  * A Guice Module which injects the CamelContext with the specified {@link org.apache.camel.RoutesBuilder} types - which are then injected by Guice.  *<p>  * If you wish to bind all of the bound {@link org.apache.camel.RoutesBuilder} implementations available - maybe with some filter applied - then  * please use the {@link org.apache.camel.guice.CamelModuleWithMatchingRoutes}.  *<p>  * Or if you would like to specify exactly which {@link org.apache.camel.RoutesBuilder} to bind then use the {@link CamelModule} and create a provider  * method annotated with @Provides and returning Set<Routes> such as  *<code><pre>  * public class MyModule extends CamelModule {  *&#64;Provides  *   Set&lt;Routes&gt; routes(Injector injector) { ... }  * }  *</pre></code>  *   *  * @version   */
 end_comment
 
 begin_class

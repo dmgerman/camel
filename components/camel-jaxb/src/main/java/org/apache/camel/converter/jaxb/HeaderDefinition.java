@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} header  *  * @version $Revision$  */
+comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} header  *  * @version   */
 end_comment
 
 begin_class

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using  *<a href="http://www.jasypt.org/">Jasypt</a> to decrypt any encrypted values.  *<p/>  * The values must be enclosed in the prefix and suffix token.  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using  *<a href="http://www.jasypt.org/">Jasypt</a> to decrypt any encrypted values.  *<p/>  * The values must be enclosed in the prefix and suffix token.  *  * @version   */
 end_comment
 
 begin_class

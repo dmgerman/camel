@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants for Restlet component  *   * @version $Revision$  */
+comment|/**  * Constants for Restlet component  *   * @version   */
 end_comment
 
 begin_class

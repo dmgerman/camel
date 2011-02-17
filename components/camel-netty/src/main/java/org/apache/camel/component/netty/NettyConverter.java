@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of converter methods for working with Netty types  *  * @version $Revision$  */
+comment|/**  * A set of converter methods for working with Netty types  *  * @version   */
 end_comment
 
 begin_class

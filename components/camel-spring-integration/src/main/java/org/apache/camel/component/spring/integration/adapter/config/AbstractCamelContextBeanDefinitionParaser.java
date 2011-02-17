@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This BeanDefinition parser help to inject the camel context into the beans  *  * @version $Revision$  */
+comment|/**  * This BeanDefinition parser help to inject the camel context into the beans  *  * @version   */
 end_comment
 
 begin_class

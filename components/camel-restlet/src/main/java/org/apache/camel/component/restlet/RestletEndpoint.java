@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://www.restlet.org/"> endpoint</a>  *  * @version $Revision$  */
+comment|/**  * Represents a<a href="http://www.restlet.org/"> endpoint</a>  *  * @version   */
 end_comment
 
 begin_class

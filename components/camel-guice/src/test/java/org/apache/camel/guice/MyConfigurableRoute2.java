@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A route which is reused multiple times with different configurations  *  * @version $Revision$  */
+comment|/**  * A route which is reused multiple times with different configurations  *  * @version   */
 end_comment
 
 begin_class

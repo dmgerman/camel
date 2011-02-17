@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/type-coverter.html">Type Converter</a>  * of XMLBeans objects  *  * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/type-coverter.html">Type Converter</a>  * of XMLBeans objects  *  * @version   */
 end_comment
 
 begin_class

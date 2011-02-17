@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Jsmpp ConnectionFactory that creates SSL Sockets.  *   * @version $Revision$  */
+comment|/**  * A Jsmpp ConnectionFactory that creates SSL Sockets.  *   * @version   */
 end_comment
 
 begin_class

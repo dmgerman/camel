@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Netty constants  *  * @version $Revision$  */
+comment|/**  * Netty constants  *  * @version   */
 end_comment
 
 begin_class

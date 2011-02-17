@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances on the classpath  *  * @version $Revision$  */
+comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances on the classpath  *  * @version   */
 end_comment
 
 begin_class

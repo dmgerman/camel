@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *  * @version $Revision:520964 $  */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *  * @version   */
 end_comment
 
 begin_class

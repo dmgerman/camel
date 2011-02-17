@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Mail producer concurrent test.  *  * @version $Revision$  */
+comment|/**  * Mail producer concurrent test.  *  * @version   */
 end_comment
 
 begin_class

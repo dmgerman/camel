@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which instantiates {@link org.apache.camel.processor.RedeliveryPolicy} objects  *  * @version $Revision$  */
+comment|/**  * A factory which instantiates {@link org.apache.camel.processor.RedeliveryPolicy} objects  *  * @version   */
 end_comment
 
 begin_class

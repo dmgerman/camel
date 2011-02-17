@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains the SMPP component configuration properties</a>  *   * @version $Revision$  * @author muellerc  */
+comment|/**  * Contains the SMPP component configuration properties</a>  *   * @version   * @author muellerc  */
 end_comment
 
 begin_class

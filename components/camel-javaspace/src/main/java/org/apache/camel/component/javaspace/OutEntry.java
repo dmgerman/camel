@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Specialized JavaSpace Entry for managing the request/reply pattern  *   * @version $Revision$  */
+comment|/**  * Specialized JavaSpace Entry for managing the request/reply pattern  *   * @version   */
 end_comment
 
 begin_class

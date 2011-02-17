@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XPath language.  *  * @version $Revision$  */
+comment|/**  * XPath language.  *  * @version   */
 end_comment
 
 begin_class

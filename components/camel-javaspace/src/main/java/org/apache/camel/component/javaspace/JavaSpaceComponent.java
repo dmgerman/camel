@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The component for using the JavaSpaces library  *   * @version $Revision$  */
+comment|/**  * The component for using the JavaSpaces library  *   * @version   */
 end_comment
 
 begin_class

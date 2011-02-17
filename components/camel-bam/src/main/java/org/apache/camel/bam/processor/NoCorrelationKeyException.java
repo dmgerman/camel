@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if no correlation key could be found for a message  * exchange preventing any particular orchestration or  *<a href="http://camel.apache.org/bam.html">BAM</a>  *  * @version $Revision$  */
+comment|/**  * An exception thrown if no correlation key could be found for a message  * exchange preventing any particular orchestration or  *<a href="http://camel.apache.org/bam.html">BAM</a>  *  * @version   */
 end_comment
 
 begin_class

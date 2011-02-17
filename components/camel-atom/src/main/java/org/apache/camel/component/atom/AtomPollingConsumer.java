@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to poll atom feeds and return the full feed.  *  * @version $Revision$  */
+comment|/**  * Consumer to poll atom feeds and return the full feed.  *  * @version   */
 end_comment
 
 begin_class

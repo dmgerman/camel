@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test camel-mina component using a TCP client that communicates using TCP socket communication.  *  * @version $Revision$  */
+comment|/**  * To test camel-mina component using a TCP client that communicates using TCP socket communication.  *  * @version   */
 end_comment
 
 begin_class

@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for JavaMail.  *  * @version $Revision:520964 $  */
+comment|/**  * Component for JavaMail.  *  * @version   */
 end_comment
 
 begin_class

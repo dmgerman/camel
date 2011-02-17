@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Producer} implementation for JavaSpaces  *   * @version $Revision$  */
+comment|/**  * A {@link Producer} implementation for JavaSpaces  *   * @version   */
 end_comment
 
 begin_class

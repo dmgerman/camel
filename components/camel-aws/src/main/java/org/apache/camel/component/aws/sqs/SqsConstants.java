@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel AWS SQS module  *  * @version $Revision: $  */
+comment|/**  * Constants used in Camel AWS SQS module  *  * @version   */
 end_comment
 
 begin_interface

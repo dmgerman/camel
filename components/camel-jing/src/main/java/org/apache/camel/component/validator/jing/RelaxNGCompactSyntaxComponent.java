@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A component for validating the XML payload using  *<a href="http://www.oasis-open.org/committees/relax-ng/compact-20021121.html">RelaxNG Compact Syntax</a> using the  *<a href="http://www.thaiopensource.com/relaxng/jing.html">Jing library</a>  *  * @version $Revision$  */
+comment|/**  * A component for validating the XML payload using  *<a href="http://www.oasis-open.org/committees/relax-ng/compact-20021121.html">RelaxNG Compact Syntax</a> using the  *<a href="http://www.thaiopensource.com/relaxng/jing.html">Jing library</a>  *  * @version   */
 end_comment
 
 begin_class

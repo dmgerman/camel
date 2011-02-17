@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * JPA constants  *  * @version $Revision$  */
+comment|/**  * JPA constants  *  * @version   */
 end_comment
 
 begin_class

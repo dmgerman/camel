@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>PropertyPlaceholderDefinition</code> represents a&lt;propertyPlaceholder/&gt element.  *  * @version $Revision: 911816 $  */
+comment|/**  *<code>PropertyPlaceholderDefinition</code> represents a&lt;propertyPlaceholder/&gt element.  *  * @version   */
 end_comment
 
 begin_class

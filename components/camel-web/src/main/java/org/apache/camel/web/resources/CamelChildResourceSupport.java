@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for any sub resource of the root {@link org.apache.camel.web.resources.CamelContextResource}  *  * @version $Revision$  */
+comment|/**  * A useful base class for any sub resource of the root {@link org.apache.camel.web.resources.CamelContextResource}  *  * @version   */
 end_comment
 
 begin_class

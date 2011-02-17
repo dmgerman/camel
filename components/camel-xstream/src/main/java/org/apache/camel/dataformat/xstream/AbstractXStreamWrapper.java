@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An abstract class which implement<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) interface which leverage the XStream library for XML or JSON's marshaling and unmarshaling  *  * @version $Revision$  */
+comment|/**  * An abstract class which implement<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) interface which leverage the XStream library for XML or JSON's marshaling and unmarshaling  *  * @version   */
 end_comment
 
 begin_class

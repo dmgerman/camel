@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a task which has multiple steps so that it can move from stage to stage  * with the method annotated with {@link @Consumed} being invoked when the Camel consumer  * has processed the entity bean  *  * @version $Revision$  */
+comment|/**  * Represents a task which has multiple steps so that it can move from stage to stage  * with the method annotated with {@link @Consumed} being invoked when the Camel consumer  * has processed the entity bean  *  * @version   */
 end_comment
 
 begin_class
