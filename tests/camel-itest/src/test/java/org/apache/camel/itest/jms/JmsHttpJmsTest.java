@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on user forum.  *  * @version $Revision$  */
+comment|/**  * Based on user forum.  *  * @version   */
 end_comment
 
 begin_class
