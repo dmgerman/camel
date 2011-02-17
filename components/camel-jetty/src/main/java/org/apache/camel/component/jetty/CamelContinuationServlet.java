@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Servlet which leverage<a href="http://wiki.eclipse.org/Jetty/Feature/Continuations">Jetty Continuations</a>.  *  * @version $Revision$  */
+comment|/**  * Servlet which leverage<a href="http://wiki.eclipse.org/Jetty/Feature/Continuations">Jetty Continuations</a>.  *  * @version   */
 end_comment
 
 begin_class

@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jetty specific binding to parse the response when using {@link org.apache.camel.component.jetty.JettyHttpProducer}  *  * @version $Revision$  */
+comment|/**  * Jetty specific binding to parse the response when using {@link org.apache.camel.component.jetty.JettyHttpProducer}  *  * @version   */
 end_comment
 
 begin_interface

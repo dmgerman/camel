@@ -593,7 +593,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version $Revision$  */
+comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version   */
 end_comment
 
 begin_class

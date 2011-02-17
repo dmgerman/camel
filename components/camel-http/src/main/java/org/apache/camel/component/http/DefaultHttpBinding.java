@@ -335,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *  * @version $Revision$  */
+comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *  * @version   */
 end_comment
 
 begin_class

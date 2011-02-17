@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy for configuring the http binding so reading request and writing response  * can be customized using the Java Servlet API.  *<p/>  * This is also used by the<tt>camel-jetty</tt> component in the<tt>JettyHttpConsumer</tt> class.  *  * @version $Revision$  */
+comment|/**  * A pluggable strategy for configuring the http binding so reading request and writing response  * can be customized using the Java Servlet API.  *<p/>  * This is also used by the<tt>camel-jetty</tt> component in the<tt>JettyHttpConsumer</tt> class.  *  * @version   */
 end_comment
 
 begin_interface

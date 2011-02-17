@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jetty HTTP producer concurrent test.  *  * @version $Revision$  */
+comment|/**  * Jetty HTTP producer concurrent test.  *  * @version   */
 end_comment
 
 begin_class

@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jetty specific exchange which keeps track of the the request and response.  *  * @version $Revision$  */
+comment|/**  * Jetty specific exchange which keeps track of the the request and response.  *  * @version   */
 end_comment
 
 begin_class
