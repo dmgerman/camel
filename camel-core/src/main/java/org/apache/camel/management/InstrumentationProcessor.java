@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX enabled processor that uses the {@link org.apache.camel.management.mbean.ManagedCounter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
+comment|/**  * JMX enabled processor that uses the {@link org.apache.camel.management.mbean.ManagedCounter} for instrumenting  * processing of exchanges.  *  * @version   */
 end_comment
 
 begin_class

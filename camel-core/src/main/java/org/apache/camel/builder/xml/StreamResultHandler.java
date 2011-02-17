@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes the XSLT result as a byte[]  *  * @version $Revision$  */
+comment|/**  * Processes the XSLT result as a byte[]  *  * @version   */
 end_comment
 
 begin_class

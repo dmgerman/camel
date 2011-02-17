@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if am XPath expression could not be parsed or evaluated  *  * @version $Revision$  */
+comment|/**  * An exception thrown if am XPath expression could not be parsed or evaluated  *  * @version   */
 end_comment
 
 begin_class

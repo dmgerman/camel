@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which evaluates an Expression and logs it.  *  * @version $Revision$  */
+comment|/**  * A processor which evaluates an Expression and logs it.  *  * @version   */
 end_comment
 
 begin_class

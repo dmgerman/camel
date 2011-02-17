@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Used for defining if a given class is singleton or not.  * If the class is a Singleton, then a single instance will be shared. Because the class is shared, it  * should be treated as an immutable and be thread safe.  *  * @version $Revision$  */
+comment|/**  * Used for defining if a given class is singleton or not.  * If the class is a Singleton, then a single instance will be shared. Because the class is shared, it  * should be treated as an immutable and be thread safe.  *  * @version   */
 end_comment
 
 begin_interface

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A marker for defining the policy to be used for applying transaction to routes.  *  * @version $Revision$  */
+comment|/**  * A marker for defining the policy to be used for applying transaction to routes.  *  * @version   */
 end_comment
 
 begin_interface

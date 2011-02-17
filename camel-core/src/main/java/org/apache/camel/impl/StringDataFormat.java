@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The text based<a href="http://camel.apache.org/data-format.html">data format</a> supporting  * charset encoding.  *  * @version $Revision$  */
+comment|/**  * The text based<a href="http://camel.apache.org/data-format.html">data format</a> supporting  * charset encoding.  *  * @version   */
 end_comment
 
 begin_class

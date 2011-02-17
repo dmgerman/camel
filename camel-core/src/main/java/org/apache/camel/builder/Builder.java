@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version $Revision$  */
+comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version   */
 end_comment
 
 begin_class

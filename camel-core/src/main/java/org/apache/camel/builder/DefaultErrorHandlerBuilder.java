@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default error handler builder.  *  * @version $Revision$  */
+comment|/**  * The default error handler builder.  *  * @version   */
 end_comment
 
 begin_class

@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stops continue processing the route and marks it as complete.  *  * @version $Revision$  */
+comment|/**  * Stops continue processing the route and marks it as complete.  *  * @version   */
 end_comment
 
 begin_class

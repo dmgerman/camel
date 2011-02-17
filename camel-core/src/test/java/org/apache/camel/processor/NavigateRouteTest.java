@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for navigating a route (runtime processors, not the model).  *  * @version $Revision$  */
+comment|/**  * Unit test for navigating a route (runtime processors, not the model).  *  * @version   */
 end_comment
 
 begin_class

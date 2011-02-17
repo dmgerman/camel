@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy for assigning name to a {@link org.apache.camel.CamelContext}.  *  * @version $Revision$  */
+comment|/**  * Strategy for assigning name to a {@link org.apache.camel.CamelContext}.  *  * @version   */
 end_comment
 
 begin_interface

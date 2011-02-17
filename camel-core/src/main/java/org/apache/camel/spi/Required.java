@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to denote fields which are required to be specified for validation purposes  * particularly in tooling.  *  * @version $Revision$  */
+comment|/**  * Used to denote fields which are required to be specified for validation purposes  * particularly in tooling.  *  * @version   */
 end_comment
 
 begin_annotation_defn

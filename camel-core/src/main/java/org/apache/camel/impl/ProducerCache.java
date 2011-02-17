@@ -305,7 +305,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cache containing created {@link Producer}.  *  * @version $Revision$  */
+comment|/**  * Cache containing created {@link Producer}.  *  * @version   */
 end_comment
 
 begin_class

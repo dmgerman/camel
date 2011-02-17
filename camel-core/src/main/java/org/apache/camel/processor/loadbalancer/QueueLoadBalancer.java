@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link LoadBalancer} implementations which choose a single  * destination for each exchange (rather like JMS Queues)  *   * @version $Revision$  */
+comment|/**  * A base class for {@link LoadBalancer} implementations which choose a single  * destination for each exchange (rather like JMS Queues)  *   * @version   */
 end_comment
 
 begin_class

@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Notifier to send {@link java.util.EventObject events}.  *  * @see org.apache.camel.spi.EventFactory  * @version $Revision$  */
+comment|/**  * Notifier to send {@link java.util.EventObject events}.  *  * @see org.apache.camel.spi.EventFactory  * @version   */
 end_comment
 
 begin_interface

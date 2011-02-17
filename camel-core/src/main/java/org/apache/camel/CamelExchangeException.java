@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception caused by a specific message {@link Exchange}  *  * @version $Revision$  */
+comment|/**  * An exception caused by a specific message {@link Exchange}  *  * @version   */
 end_comment
 
 begin_class

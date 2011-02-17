@@ -271,7 +271,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;threads/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;threads/&gt; element  *  * @version   */
 end_comment
 
 begin_class

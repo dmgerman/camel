@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class for {@link ErrorHandler} implementations.  *  * @version $Revision$  */
+comment|/**  * Support class for {@link ErrorHandler} implementations.  *  * @version   */
 end_comment
 
 begin_class

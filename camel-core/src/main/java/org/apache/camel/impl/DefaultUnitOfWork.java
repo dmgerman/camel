@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link org.apache.camel.spi.UnitOfWork}  *  * @version $Revision$  */
+comment|/**  * The default implementation of {@link org.apache.camel.spi.UnitOfWork}  *  * @version   */
 end_comment
 
 begin_class

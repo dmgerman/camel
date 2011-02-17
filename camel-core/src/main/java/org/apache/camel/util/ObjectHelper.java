@@ -373,7 +373,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of useful helper methods for working with Objects  *  * @version $Revision$  */
+comment|/**  * A number of useful helper methods for working with Objects  *  * @version   */
 end_comment
 
 begin_class

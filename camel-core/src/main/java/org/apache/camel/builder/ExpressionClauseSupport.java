@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for building expression clauses.  *  * @version $Revision$  */
+comment|/**  * A support class for building expression clauses.  *  * @version   */
 end_comment
 
 begin_class

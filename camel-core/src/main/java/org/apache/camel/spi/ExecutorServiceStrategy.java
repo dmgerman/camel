@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *  * @version $Revision$  */
+comment|/**  * Strategy to create thread pools.  *<p/>  * This strategy is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a J2EE server.  *<p/>  * This strategy has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * However there are two types of pools: regular and scheduled.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *  * @version   */
 end_comment
 
 begin_interface

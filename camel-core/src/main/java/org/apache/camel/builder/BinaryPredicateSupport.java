@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for {@link Predicate} implementations  *  * @version $Revision$  */
+comment|/**  * A useful base class for {@link Predicate} implementations  *  * @version   */
 end_comment
 
 begin_class

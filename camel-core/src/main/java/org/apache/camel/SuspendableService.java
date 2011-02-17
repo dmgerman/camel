@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A {@link Service} which is also capable of suspending and resuming.  *<p/>  * This is useable for services which needs more fine grained control at runtime supporting suspension.  * Other services may select to mimic suspending by just stopping the service.  *<p/>  * For example this is use by the JmsConsumer which suspends the Spring JMS listener instead of stopping  * the consumer totally.  *  * @version $Revision$  */
+comment|/**  * A {@link Service} which is also capable of suspending and resuming.  *<p/>  * This is useable for services which needs more fine grained control at runtime supporting suspension.  * Other services may select to mimic suspending by just stopping the service.  *<p/>  * For example this is use by the JmsConsumer which suspends the Spring JMS listener instead of stopping  * the consumer totally.  *  * @version   */
 end_comment
 
 begin_interface

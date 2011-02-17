@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a collection of routes  *  * @version $Revision$  */
+comment|/**  * Represents a collection of routes  *  * @version   */
 end_comment
 
 begin_class

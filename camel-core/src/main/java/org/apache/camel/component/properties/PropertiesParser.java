@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A parser to parse properties for a given input  *  * @version $Revision$  */
+comment|/**  * A parser to parse properties for a given input  *  * @version   */
 end_comment
 
 begin_interface

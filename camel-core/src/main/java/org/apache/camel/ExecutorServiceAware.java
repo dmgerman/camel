@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Is used for easy configuration of {@link ExecutorService}.  *  * @version $Revision$  */
+comment|/**  * Is used for easy configuration of {@link ExecutorService}.  *  * @version   */
 end_comment
 
 begin_interface

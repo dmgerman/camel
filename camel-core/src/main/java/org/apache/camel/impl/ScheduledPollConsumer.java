@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for any consumer which is polling based  *   * @version $Revision$  */
+comment|/**  * A useful base class for any consumer which is polling based  *   * @version   */
 end_comment
 
 begin_class

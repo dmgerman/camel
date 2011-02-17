@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/component.html">component</a> is  * a factory of {@link Endpoint} objects.  *   * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/component.html">component</a> is  * a factory of {@link Endpoint} objects.  *   * @version   */
 end_comment
 
 begin_interface

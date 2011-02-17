@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test about retrying deleting processed file, that can be a bit more tricky  * on some OS as java.io.delete can return wrong answer  *  * @version $Revision$  */
+comment|/**  * Unit test about retrying deleting processed file, that can be a bit more tricky  * on some OS as java.io.delete can return wrong answer  *  * @version   */
 end_comment
 
 begin_class

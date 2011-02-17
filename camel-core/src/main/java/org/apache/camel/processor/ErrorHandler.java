@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface used to represent an error handler  *  * @version $Revision$  */
+comment|/**  * An interface used to represent an error handler  *  * @version   */
 end_comment
 
 begin_interface

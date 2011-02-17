@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A caching proxy  *  * @version $Revision$  */
+comment|/**  * A caching proxy  *  * @version   */
 end_comment
 
 begin_class

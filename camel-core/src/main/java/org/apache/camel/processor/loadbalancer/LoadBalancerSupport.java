@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for asynchronous load balancers.  *<p/>  * Consider using the {@link SimpleLoadBalancerSupport} if your load balancer does not by nature  * support asynchronous routing.  *  * @version $Revision$  */
+comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for asynchronous load balancers.  *<p/>  * Consider using the {@link SimpleLoadBalancerSupport} if your load balancer does not by nature  * support asynchronous routing.  *  * @version   */
 end_comment
 
 begin_class

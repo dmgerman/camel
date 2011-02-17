@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests mbeans is registered when adding a 2nd route after CamelContext has been started.  *  * @version $Revision: 1058591 $  */
+comment|/**  * Tests mbeans is registered when adding a 2nd route after CamelContext has been started.  *  * @version   */
 end_comment
 
 begin_class

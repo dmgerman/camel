@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which catches exceptions.  *  * @version $Revision$  */
+comment|/**  * A processor which catches exceptions.  *  * @version   */
 end_comment
 
 begin_class

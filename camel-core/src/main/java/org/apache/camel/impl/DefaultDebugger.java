@@ -339,7 +339,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of the {@link Debugger}.  *  * @version $Revision$  */
+comment|/**  * The default implementation of the {@link Debugger}.  *  * @version   */
 end_comment
 
 begin_class

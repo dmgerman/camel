@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that data format receives callback if its a service / CamelContextAware  *  * @version $Revision$  */
+comment|/**  * Test that data format receives callback if its a service / CamelContextAware  *  * @version   */
 end_comment
 
 begin_class

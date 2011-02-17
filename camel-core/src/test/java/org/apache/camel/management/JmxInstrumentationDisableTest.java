@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test which verifies disabling of JMX instrumentation.  *  * @version $Revision$  */
+comment|/**  * A unit test which verifies disabling of JMX instrumentation.  *  * @version   */
 end_comment
 
 begin_class

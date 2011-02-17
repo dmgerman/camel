@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.RequiredModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version $Revision$  */
+comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.RequiredModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version   */
 end_comment
 
 begin_class

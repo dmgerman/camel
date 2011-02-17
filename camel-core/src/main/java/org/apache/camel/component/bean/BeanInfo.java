@@ -433,7 +433,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the metadata about a bean type created via a combination of  * introspection and annotations together with some useful sensible defaults  *  * @version $Revision$  */
+comment|/**  * Represents the metadata about a bean type created via a combination of  * introspection and annotations together with some useful sensible defaults  *  * @version   */
 end_comment
 
 begin_class

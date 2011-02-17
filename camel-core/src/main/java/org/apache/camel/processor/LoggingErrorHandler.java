@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link ErrorHandler} which uses commons-logging to dump the error  *  * @version $Revision$  */
+comment|/**  * An {@link ErrorHandler} which uses commons-logging to dump the error  *  * @version   */
 end_comment
 
 begin_class

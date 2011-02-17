@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a  * memory leak.  *  * @version $Revision$  */
+comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a  * memory leak.  *  * @version   */
 end_comment
 
 begin_class

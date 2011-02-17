@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link Processor} which instruments the {@link RoutePolicy}.  *  * @version $Revision$  */
+comment|/**  * {@link Processor} which instruments the {@link RoutePolicy}.  *  * @version   */
 end_comment
 
 begin_class

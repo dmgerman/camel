@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;transacted/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;transacted/&gt; element  *  * @version   */
 end_comment
 
 begin_class

@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will load type converters up-front on startup.  *  * @version $Revision$  */
+comment|/**  * Default implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will load type converters up-front on startup.  *  * @version   */
 end_comment
 
 begin_class

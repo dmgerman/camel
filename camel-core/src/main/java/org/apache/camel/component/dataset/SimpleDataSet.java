@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple DataSet that allows a static payload to be used to create each message exchange  * along with using a pluggable transformer to randomize the message.  *  * @version $Revision$  */
+comment|/**  * A simple DataSet that allows a static payload to be used to create each message exchange  * along with using a pluggable transformer to randomize the message.  *  * @version   */
 end_comment
 
 begin_class

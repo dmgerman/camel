@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception to veto starting {@link CamelContext}.  *  * @version $Revision$  */
+comment|/**  * An exception to veto starting {@link CamelContext}.  *  * @version   */
 end_comment
 
 begin_class

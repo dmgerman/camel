@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a<a  * href="http://camel.apache.org/polling-consumer.html">Polling  * Consumer</a> where the caller polls for messages when it is ready.  *   * @version $Revision$  */
+comment|/**  * Represents a<a  * href="http://camel.apache.org/polling-consumer.html">Polling  * Consumer</a> where the caller polls for messages when it is ready.  *   * @version   */
 end_comment
 
 begin_interface

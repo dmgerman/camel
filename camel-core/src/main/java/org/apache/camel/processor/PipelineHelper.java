@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for processing {@link org.apache.camel.Exchange} in a  *<a href="http://camel.apache.org/pipes-and-filters.html">pipeline</a>.  *  * @version $Revision$  */
+comment|/**  * Helper for processing {@link org.apache.camel.Exchange} in a  *<a href="http://camel.apache.org/pipes-and-filters.html">pipeline</a>.  *  * @version   */
 end_comment
 
 begin_class

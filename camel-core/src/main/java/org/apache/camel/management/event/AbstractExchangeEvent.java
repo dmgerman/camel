@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link Exchange} events.  *  * @version $Revision$  */
+comment|/**  * Base class for {@link Exchange} events.  *  * @version   */
 end_comment
 
 begin_class

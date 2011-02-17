@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default data format resolver  *  * @version $Revision$  */
+comment|/**  * Default data format resolver  *  * @version   */
 end_comment
 
 begin_class

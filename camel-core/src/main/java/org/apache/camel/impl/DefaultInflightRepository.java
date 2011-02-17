@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implement which just uses a counter  *  * @version $Revision$  */
+comment|/**  * Default implement which just uses a counter  *  * @version   */
 end_comment
 
 begin_class

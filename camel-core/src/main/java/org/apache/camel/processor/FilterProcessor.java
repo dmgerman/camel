@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The processor which implements the  *<a href="http://camel.apache.org/message-filter.html">Message Filter</a> EIP pattern.  *  * @version $Revision$  */
+comment|/**  * The processor which implements the  *<a href="http://camel.apache.org/message-filter.html">Message Filter</a> EIP pattern.  *  * @version   */
 end_comment
 
 begin_class

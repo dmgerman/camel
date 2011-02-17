@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DataSet consumer.  *  * @version $Revision$  */
+comment|/**  * DataSet consumer.  *  * @version   */
 end_comment
 
 begin_class

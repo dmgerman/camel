@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple {@link Synchronization} adapter with empty methods for easier overriding  * of single methods.  *  * @version $Revision$  */
+comment|/**  * Simple {@link Synchronization} adapter with empty methods for easier overriding  * of single methods.  *  * @version   */
 end_comment
 
 begin_class

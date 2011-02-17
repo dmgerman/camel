@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a strategy for testing endpoints with canned data.  *  * @version $Revision$  */
+comment|/**  * Represents a strategy for testing endpoints with canned data.  *  * @version   */
 end_comment
 
 begin_interface

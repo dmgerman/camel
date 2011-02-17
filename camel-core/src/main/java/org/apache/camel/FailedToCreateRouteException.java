@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception when failing to create a {@link org.apache.camel.Route}.  *  * @version $Revision$  */
+comment|/**  * Exception when failing to create a {@link org.apache.camel.Route}.  *  * @version   */
 end_comment
 
 begin_class

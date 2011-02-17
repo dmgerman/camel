@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation to inherit for a basic service pool.  *  * @version $Revision$  */
+comment|/**  * Default implementation to inherit for a basic service pool.  *  * @version   */
 end_comment
 
 begin_class

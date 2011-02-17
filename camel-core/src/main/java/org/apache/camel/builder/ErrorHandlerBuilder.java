@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a href="http://camel.apache.org/error-handler.html">Error Handler</a>  *  * @version $Revision$  */
+comment|/**  * A builder of a<a href="http://camel.apache.org/error-handler.html">Error Handler</a>  *  * @version   */
 end_comment
 
 begin_interface

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents time based clauses for setting expectations on the mocks.  * Such as time constrains for the received messages.  *  * @version $Revision$  */
+comment|/**  * Represents time based clauses for setting expectations on the mocks.  * Such as time constrains for the received messages.  *  * @version   */
 end_comment
 
 begin_class

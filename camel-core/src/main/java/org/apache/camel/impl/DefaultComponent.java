@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default component to use for base for components implementations.  *  * @version $Revision$  */
+comment|/**  * Default component to use for base for components implementations.  *  * @version   */
 end_comment
 
 begin_class

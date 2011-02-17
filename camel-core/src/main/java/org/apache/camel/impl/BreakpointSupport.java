@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for {@link Breakpoint} implementations to use as base class.  *<p/>  * Will be in active state.  *  * @version $Revision$  */
+comment|/**  * A support class for {@link Breakpoint} implementations to use as base class.  *<p/>  * Will be in active state.  *  * @version   */
 end_comment
 
 begin_class

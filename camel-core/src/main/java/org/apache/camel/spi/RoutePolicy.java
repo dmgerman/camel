@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Policy for a {@link Route} which allows controlling the route at runtime.  *<p/>  * For example using the {@link org.apache.camel.impl.ThrottlingInflightRoutePolicy} to throttle the {@link Route}  * at runtime where it suspends and resume the {@link org.apache.camel.Route#getConsumer()}.  *  * @version $Revision$  */
+comment|/**  * Policy for a {@link Route} which allows controlling the route at runtime.  *<p/>  * For example using the {@link org.apache.camel.impl.ThrottlingInflightRoutePolicy} to throttle the {@link Route}  * at runtime where it suspends and resume the {@link org.apache.camel.Route#getConsumer()}.  *  * @version   */
 end_comment
 
 begin_interface

@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IO helper class.  *  * @version $Revision$  */
+comment|/**  * IO helper class.  *  * @version   */
 end_comment
 
 begin_class

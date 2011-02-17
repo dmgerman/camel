@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous processing model</a>  * should check the {@link #isSynchronous()} to determine if asynchronous processing is allowed.  * The<tt>synchronous</tt> option on the endpoint allows Camel end users to dictate whether they want the asynchronous model or not.  * The option is default<tt>false</tt> which means asynchronous processing is allowed.  *  * @version $Revision$  */
+comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous processing model</a>  * should check the {@link #isSynchronous()} to determine if asynchronous processing is allowed.  * The<tt>synchronous</tt> option on the endpoint allows Camel end users to dictate whether they want the asynchronous model or not.  * The option is default<tt>false</tt> which means asynchronous processing is allowed.  *  * @version   */
 end_comment
 
 begin_class

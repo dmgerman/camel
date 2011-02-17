@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link Producer} for implementation inheritance.  *  * @version $Revision$  */
+comment|/**  * A default implementation of {@link Producer} for implementation inheritance.  *  * @version   */
 end_comment
 
 begin_class

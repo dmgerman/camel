@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some core java.lang based<a  * href="http://camel.apache.org/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
+comment|/**  * Some core java.lang based<a  * href="http://camel.apache.org/type-converter.html">Type Converters</a>  *  * @version   */
 end_comment
 
 begin_class

@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the String (text based) {@link DataFormat}  *  * @version $Revision$  */
+comment|/**  * Represents the String (text based) {@link DataFormat}  *  * @version   */
 end_comment
 
 begin_class

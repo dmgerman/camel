@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represent the kinds of options for rejection handlers for thread pools.  *<p/>  * These options are used for fine grained thread pool settings, where you  * want to control which handler to use when a thread pool cannot execute  * a new task.  *<p/>  * Camel will by default use<tt>CallerRuns</tt>.  *  * @version $Revision$  */
+comment|/**  * Represent the kinds of options for rejection handlers for thread pools.  *<p/>  * These options are used for fine grained thread pool settings, where you  * want to control which handler to use when a thread pool cannot execute  * a new task.  *<p/>  * Camel will by default use<tt>CallerRuns</tt>.  *  * @version   */
 end_comment
 
 begin_enum

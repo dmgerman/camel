@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test how to add routes at runtime using a RouteBuilder  *  * @version $Revision$  */
+comment|/**  * Test how to add routes at runtime using a RouteBuilder  *  * @version   */
 end_comment
 
 begin_class

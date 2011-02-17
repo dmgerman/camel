@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Callback for sending a exchange message to a endpoint using a producer.  *<p/>  * Using this callback as a template pattern ensures that Camel handles the resource handling and will  * start and stop the given producer, to avoid resource leaks.  *  * @version $Revision$  */
+comment|/**  * Callback for sending a exchange message to a endpoint using a producer.  *<p/>  * Using this callback as a template pattern ensures that Camel handles the resource handling and will  * start and stop the given producer, to avoid resource leaks.  *  * @version   */
 end_comment
 
 begin_interface

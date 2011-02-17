@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for an expression  *  * @version $Revision$  */
+comment|/**  * A useful base class for an expression  *  * @version   */
 end_comment
 
 begin_class

@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A testcase for exception handler when management is enabled (by default).  *   * @version $Revision$  */
+comment|/**  * A testcase for exception handler when management is enabled (by default).  *   * @version   */
 end_comment
 
 begin_class

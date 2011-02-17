@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor for forwarding exchanges to an endpoint destination.  *  * @version $Revision$  */
+comment|/**  * Processor for forwarding exchanges to an endpoint destination.  *  * @version   */
 end_comment
 
 begin_class

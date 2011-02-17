@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Evaluates an expression using a bean method invocation  *  * @version $Revision$  */
+comment|/**  * Evaluates an expression using a bean method invocation  *  * @version   */
 end_comment
 
 begin_class

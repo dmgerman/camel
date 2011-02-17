@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/castor.html">Castor</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version $Revision$  */
+comment|/**  * Represents a<a href="http://camel.apache.org/castor.html">Castor</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version   */
 end_comment
 
 begin_class

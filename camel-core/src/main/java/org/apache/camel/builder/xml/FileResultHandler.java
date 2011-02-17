@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Use file to handle the result of XSLT transformation.  *<p/>  * For example when transforming big files you can stream directly to a file output  * to avoid consuming to much memory.  *  * @version $Revision$  */
+comment|/**  * Use file to handle the result of XSLT transformation.  *<p/>  * For example when transforming big files you can stream directly to a file output  * to avoid consuming to much memory.  *  * @version   */
 end_comment
 
 begin_class

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to inject a bean expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
+comment|/**  * Used to inject a bean expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  *  * @version   */
 end_comment
 
 begin_annotation_defn

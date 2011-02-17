@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Auto works just as enabled so we can reuse this time  *  * @version $Revision$  */
+comment|/**  * Auto works just as enabled so we can reuse this time  *  * @version   */
 end_comment
 
 begin_class

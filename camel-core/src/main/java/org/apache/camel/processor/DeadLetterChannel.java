@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a> after attempting to redeliver the message using the  * {@link RedeliveryPolicy}  *  * @version $Revision$  */
+comment|/**  * Implements a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a> after attempting to redeliver the message using the  * {@link RedeliveryPolicy}  *  * @version   */
 end_comment
 
 begin_class

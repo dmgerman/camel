@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods when working with {@link org.apache.camel.Message}.  *  * @version $Revision$  */
+comment|/**  * Some helper methods when working with {@link org.apache.camel.Message}.  *  * @version   */
 end_comment
 
 begin_class

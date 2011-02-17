@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for implementations of {@link PollingConsumer}  *   * @version $Revision$  */
+comment|/**  * A useful base class for implementations of {@link PollingConsumer}  *   * @version   */
 end_comment
 
 begin_class

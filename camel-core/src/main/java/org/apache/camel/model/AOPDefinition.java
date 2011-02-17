@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;aop/&gt; element  *  * @deprecated will be removed in the future  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;aop/&gt; element  *  * @deprecated will be removed in the future  * @version   */
 end_comment
 
 begin_class

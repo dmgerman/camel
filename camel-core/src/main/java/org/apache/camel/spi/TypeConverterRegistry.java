@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for type converters.  *  * @version $Revision$  */
+comment|/**  * Registry for type converters.  *  * @version   */
 end_comment
 
 begin_interface

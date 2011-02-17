@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of the Camel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision$  */
+comment|/**  * A factory of the Camel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version   */
 end_comment
 
 begin_class

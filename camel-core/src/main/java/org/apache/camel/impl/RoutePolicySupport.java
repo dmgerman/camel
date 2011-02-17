@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for developing custom {@link RoutePolicy} implementations.  *  * @version $Revision$  */
+comment|/**  * A base class for developing custom {@link RoutePolicy} implementations.  *  * @version   */
 end_comment
 
 begin_class

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Delegates to another {@link org.apache.camel.management.PerformanceCounter}.  *<p/>  * This is used to allow Camel to pre initialize these delegate performance counters  * when Camel creates the actual route from the model. Then later as the various  * processors, routes etc. is created and registered in the {@link org.apache.camel.spi.LifecycleStrategy}  * then we link this to the real {@link org.apache.camel.management.mbean.ManagedPerformanceCounter} mbean  * so the mbean can gather statistics.  *<p/>  * This delegation is needed as how Camel is designed to register services in the  * {@link org.apache.camel.spi.LifecycleStrategy} in various stages.  *  * @version $Revision$  */
+comment|/**  * Delegates to another {@link org.apache.camel.management.PerformanceCounter}.  *<p/>  * This is used to allow Camel to pre initialize these delegate performance counters  * when Camel creates the actual route from the model. Then later as the various  * processors, routes etc. is created and registered in the {@link org.apache.camel.spi.LifecycleStrategy}  * then we link this to the real {@link org.apache.camel.management.mbean.ManagedPerformanceCounter} mbean  * so the mbean can gather statistics.  *<p/>  * This delegation is needed as how Camel is designed to register services in the  * {@link org.apache.camel.spi.LifecycleStrategy} in various stages.  *  * @version   */
 end_comment
 
 begin_class

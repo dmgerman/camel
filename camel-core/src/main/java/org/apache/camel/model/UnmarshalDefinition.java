@@ -473,7 +473,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unmarshals the binary payload using the given {@link DataFormatDefinition}  *  * @version $Revision$  */
+comment|/**  * Unmarshals the binary payload using the given {@link DataFormatDefinition}  *  * @version   */
 end_comment
 
 begin_class

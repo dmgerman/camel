@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a href="http://camel.apache.org/resequencer.html">Resequencer</a>  * which can reorder messages within a batch.  *  * @version $Revision$  */
+comment|/**  * An implementation of the<a href="http://camel.apache.org/resequencer.html">Resequencer</a>  * which can reorder messages within a batch.  *  * @version   */
 end_comment
 
 begin_class

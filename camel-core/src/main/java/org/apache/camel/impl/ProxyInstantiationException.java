@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version $Revision$  */
+comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version   */
 end_comment
 
 begin_class

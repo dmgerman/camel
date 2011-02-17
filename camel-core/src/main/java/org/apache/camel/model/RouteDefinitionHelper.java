@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are added to  * {@link org.apache.camel.CamelContext}.  *  * @version $Revision$  */
+comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are added to  * {@link org.apache.camel.CamelContext}.  *  * @version   */
 end_comment
 
 begin_class

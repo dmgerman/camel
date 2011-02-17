@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The direct producer.  *  * @version $Revision$  */
+comment|/**  * The direct producer.  *  * @version   */
 end_comment
 
 begin_class

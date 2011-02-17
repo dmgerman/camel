@@ -465,7 +465,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor for debugging and tracing routes  *  * @version $Revision$  */
+comment|/**  * An interceptor for debugging and tracing routes  *  * @version   */
 end_comment
 
 begin_class

@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default error handler test with trace  *  * @version $Revision$  */
+comment|/**  * Default error handler test with trace  *  * @version   */
 end_comment
 
 begin_class

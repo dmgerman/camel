@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extended test to see if mbeans is removed and stats are correct  *  * @version $Revision: 1058591 $  */
+comment|/**  * Extended test to see if mbeans is removed and stats are correct  *  * @version   */
 end_comment
 
 begin_class

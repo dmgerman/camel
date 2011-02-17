@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression which extracts the named exchange property  *  * @version $Revision$  */
+comment|/**  * An expression which extracts the named exchange property  *  * @version   */
 end_comment
 
 begin_class

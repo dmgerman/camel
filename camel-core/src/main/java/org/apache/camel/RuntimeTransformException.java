@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Thrown if a message transformation fails  *   * @version $Revision$  */
+comment|/**  * Thrown if a message transformation fails  *   * @version   */
 end_comment
 
 begin_class

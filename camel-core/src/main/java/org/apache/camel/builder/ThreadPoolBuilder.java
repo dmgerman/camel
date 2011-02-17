@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create thread pools.  *  * @version $Revision$  */
+comment|/**  * A builder to create thread pools.  *  * @version   */
 end_comment
 
 begin_class

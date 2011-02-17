@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a body or header tokenizer  *  * @version $Revision$  */
+comment|/**  * For expressions and predicates using a body or header tokenizer  *  * @version   */
 end_comment
 
 begin_class

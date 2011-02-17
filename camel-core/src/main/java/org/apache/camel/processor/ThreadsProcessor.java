@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Threads processor that leverage a thread pool for continue processing the {@link Exchange}s  * using the asynchronous routing engine.  *  * @version $Revision$  */
+comment|/**  * Threads processor that leverage a thread pool for continue processing the {@link Exchange}s  * using the asynchronous routing engine.  *  * @version   */
 end_comment
 
 begin_class

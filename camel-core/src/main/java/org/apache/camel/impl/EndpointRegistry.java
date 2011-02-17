@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}  * to keep the last 1000 in an internal cache.  *  * @version $Revision$  */
+comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}  * to keep the last 1000 in an internal cache.  *  * @version   */
 end_comment
 
 begin_class

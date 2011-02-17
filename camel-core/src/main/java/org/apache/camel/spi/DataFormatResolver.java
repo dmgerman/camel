@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a resolver of data formats.  *  * @version $Revision$  */
+comment|/**  * Represents a resolver of data formats.  *  * @version   */
 end_comment
 
 begin_interface

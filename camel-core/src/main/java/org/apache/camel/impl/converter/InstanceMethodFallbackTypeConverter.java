@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a fallback type converter  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a fallback type converter  *  * @version   */
 end_comment
 
 begin_class

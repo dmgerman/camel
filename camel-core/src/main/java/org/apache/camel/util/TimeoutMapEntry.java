@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an entry in a {@link TimeoutMap}  *  * @version $Revision$  */
+comment|/**  * Represents an entry in a {@link TimeoutMap}  *  * @version   */
 end_comment
 
 begin_class

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A counter that gathers performance metrics when {@link org.apache.camel.Exchange} are routed in Camel.  *  * @version $Revision$  */
+comment|/**  * A counter that gathers performance metrics when {@link org.apache.camel.Exchange} are routed in Camel.  *  * @version   */
 end_comment
 
 begin_interface

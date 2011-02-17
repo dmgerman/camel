@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *<p/>  * By default the capacity is set to 100.  *  * @version $Revision$  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Services that is capable of being pooled should implement the marker interface  * {@link org.apache.camel.ServicePoolAware}.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *<p/>  * By default the capacity is set to 100.  *  * @version   */
 end_comment
 
 begin_interface

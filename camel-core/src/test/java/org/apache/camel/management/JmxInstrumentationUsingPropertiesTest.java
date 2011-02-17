@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This module contains test cases that verifies jmx system property uses.  *  * @version $Revision$  */
+comment|/**  * This module contains test cases that verifies jmx system property uses.  *  * @version   */
 end_comment
 
 begin_class

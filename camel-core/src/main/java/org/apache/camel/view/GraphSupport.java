@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for Graph processing code of Camel EIPs containing a number of helper methods  *  * @version $Revision$  */
+comment|/**  * A base class for Graph processing code of Camel EIPs containing a number of helper methods  *  * @version   */
 end_comment
 
 begin_class

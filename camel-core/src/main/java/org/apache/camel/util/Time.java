@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with times in various units  *   * @version $Revision$  */
+comment|/**  * A helper class for working with times in various units  *   * @version   */
 end_comment
 
 begin_class

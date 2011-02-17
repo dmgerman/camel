@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an expression clause within the DSL which when the expression is  * complete the clause continues to another part of the DSL  *   * @version $Revision$  */
+comment|/**  * Represents an expression clause within the DSL which when the expression is  * complete the clause continues to another part of the DSL  *   * @version   */
 end_comment
 
 begin_class

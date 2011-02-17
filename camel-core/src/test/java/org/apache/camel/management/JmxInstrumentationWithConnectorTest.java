@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *  * @version $Revision$  */
+comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *  * @version   */
 end_comment
 
 begin_class

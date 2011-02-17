@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a timer endpoint that can generate periodic inbound exchanges triggered by a timer.  *  * @version $Revision$  */
+comment|/**  * Represents a timer endpoint that can generate periodic inbound exchanges triggered by a timer.  *  * @version   */
 end_comment
 
 begin_class

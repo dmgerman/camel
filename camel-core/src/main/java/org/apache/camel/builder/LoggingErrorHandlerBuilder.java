@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link Logger} as an error handler, will log at<tt>ERROR</tt> level by default.  *  * @version $Revision$  */
+comment|/**  * Uses the {@link Logger} as an error handler, will log at<tt>ERROR</tt> level by default.  *  * @version   */
 end_comment
 
 begin_class

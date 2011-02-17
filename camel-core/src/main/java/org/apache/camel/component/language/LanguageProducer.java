@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Language producer.  *  * @version $Revision$  */
+comment|/**  * Language producer.  *  * @version   */
 end_comment
 
 begin_class

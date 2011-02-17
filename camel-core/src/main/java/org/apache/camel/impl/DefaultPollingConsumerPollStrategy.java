@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *<p/>  * The implement will<b>not</b> log if the rollback occurred during shutdown.  *  * @version $Revision$  */
+comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *<p/>  * The implement will<b>not</b> log if the rollback occurred during shutdown.  *  * @version   */
 end_comment
 
 begin_class

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link org.apache.camel.Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version $Revision$  */
+comment|/**  * A base class for {@link org.apache.camel.Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version   */
 end_comment
 
 begin_class

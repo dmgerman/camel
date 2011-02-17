@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for easily sending event notifications in a single line of code  *  * @version $Revision$  */
+comment|/**  * Helper for easily sending event notifications in a single line of code  *  * @version   */
 end_comment
 
 begin_class

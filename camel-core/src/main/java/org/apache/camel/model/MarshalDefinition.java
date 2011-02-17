@@ -457,7 +457,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals to a binary payload using the given {@link DataFormatDefinition}  *  * @version $Revision$  */
+comment|/**  * Marshals to a binary payload using the given {@link DataFormatDefinition}  *  * @version   */
 end_comment
 
 begin_class

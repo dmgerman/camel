@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link org.apache.camel.PollingConsumer} which just uses  * a {@link Processor}. This implementation does not support timeout based  * receive methods such as {@link #receive(long)}  *  * @version $Revision$  */
+comment|/**  * A simple implementation of {@link org.apache.camel.PollingConsumer} which just uses  * a {@link Processor}. This implementation does not support timeout based  * receive methods such as {@link #receive(long)}  *  * @version   */
 end_comment
 
 begin_class

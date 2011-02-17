@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to indicate that the actual type of a parameter on a converter method must have the given annotation class  * to be applicable. e.g. this annotation could be used on a JAXB converter which only applies to objects with a  * JAXB annotation on them  *  * @version $Revision$  */
+comment|/**  * Used to indicate that the actual type of a parameter on a converter method must have the given annotation class  * to be applicable. e.g. this annotation could be used on a JAXB converter which only applies to objects with a  * JAXB annotation on them  *  * @version   */
 end_comment
 
 begin_annotation_defn

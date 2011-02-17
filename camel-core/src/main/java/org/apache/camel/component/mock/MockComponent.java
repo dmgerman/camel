@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of {@link MockEndpoint} instances  *  * @version $Revision$  */
+comment|/**  * A factory of {@link MockEndpoint} instances  *  * @version   */
 end_comment
 
 begin_class

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object which can make use of  * injected {@link HeaderFilterStrategy}.  *   * @since 1.5  * @version $Revision$  */
+comment|/**  * An interface to represent an object which can make use of  * injected {@link HeaderFilterStrategy}.  *   * @since 1.5  * @version   */
 end_comment
 
 begin_interface

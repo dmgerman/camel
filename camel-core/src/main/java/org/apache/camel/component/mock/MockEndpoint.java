@@ -461,7 +461,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *<p/>  * The mock endpoint have two set of methods  *<ul>  *<li>expectedXXX or expectsXXX - To set pre conditions, before the test is executed</li>  *<li>assertXXX - To assert assertions, after the test has been executed</li>  *</ul>  * Its<b>important</b> to know the difference between the two set. The former is used to  * set expectations before the test is being started (eg before the mock receives messages).  * The latter is used after the test has been executed, to verify the expectations; or  * other assertions which you can perform after the test has been completed.  *  * @version $Revision$  */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *<p/>  * The mock endpoint have two set of methods  *<ul>  *<li>expectedXXX or expectsXXX - To set pre conditions, before the test is executed</li>  *<li>assertXXX - To assert assertions, after the test has been executed</li>  *</ul>  * Its<b>important</b> to know the difference between the two set. The former is used to  * set expectations before the test is being started (eg before the mock receives messages).  * The latter is used after the test has been executed, to verify the expectations; or  * other assertions which you can perform after the test has been completed.  *  * @version   */
 end_comment
 
 begin_class

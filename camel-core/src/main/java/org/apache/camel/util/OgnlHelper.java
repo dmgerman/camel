@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for Camel OGNL expressions.  *  * @version $Revision$  */
+comment|/**  * Helper for Camel OGNL expressions.  *  * @version   */
 end_comment
 
 begin_class

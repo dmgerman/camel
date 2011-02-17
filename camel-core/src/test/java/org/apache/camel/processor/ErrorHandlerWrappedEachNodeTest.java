@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for verifying that error handler is wrapped each individual node in a pipeline.  * Based on CAMEL-1548.  *  * @version $Revision$  */
+comment|/**  * Unit test for verifying that error handler is wrapped each individual node in a pipeline.  * Based on CAMEL-1548.  *  * @version   */
 end_comment
 
 begin_class

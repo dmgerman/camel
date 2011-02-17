@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on user forum request how to do failover with Camel 1.x  *  * @version $Revision$  */
+comment|/**  * Based on user forum request how to do failover with Camel 1.x  *  * @version   */
 end_comment
 
 begin_class

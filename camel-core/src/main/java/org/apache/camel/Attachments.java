@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being Map of attachments of an inbound {@link Message}  *   * @version $Revision$  */
+comment|/**  * Marks a parameter as being Map of attachments of an inbound {@link Message}  *   * @version   */
 end_comment
 
 begin_annotation_defn

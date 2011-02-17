@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a  *<a href="http://camel.apache.org/data-format.html">data format</a>  * used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  *  * @version $Revision$  */
+comment|/**  * Represents a  *<a href="http://camel.apache.org/data-format.html">data format</a>  * used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  *  * @version   */
 end_comment
 
 begin_interface

@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wire tap unit test  *  * @version $Revision$  */
+comment|/**  * Wire tap unit test  *  * @version   */
 end_comment
 
 begin_class

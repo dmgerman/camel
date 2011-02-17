@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A comparator to sort {@link Ordered}  *  * @version $Revision$  */
+comment|/**  * A comparator to sort {@link Ordered}  *  * @version   */
 end_comment
 
 begin_class

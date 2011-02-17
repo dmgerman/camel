@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *   * @version $Revision$  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *   * @version   */
 end_comment
 
 begin_class

@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for a custom ServicePool for producer.  *  * @version $Revision$  */
+comment|/**  * Unit test for a custom ServicePool for producer.  *  * @version   */
 end_comment
 
 begin_class

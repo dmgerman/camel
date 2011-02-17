@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information used by Camel to perform method invocation.  *  * @version $Revision$  */
+comment|/**  * Information used by Camel to perform method invocation.  *  * @version   */
 end_comment
 
 begin_interface

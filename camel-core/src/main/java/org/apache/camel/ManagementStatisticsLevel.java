@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Level of granularity for performance statistics enabled  *  * @version $Revision$  */
+comment|/**  * Level of granularity for performance statistics enabled  *  * @version   */
 end_comment
 
 begin_enum

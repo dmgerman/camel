@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which ensures that a service is only initialized once and  * provides some helper methods for enquiring of its status.  *<p/>  * Implementations can extend this base class and implement {@link org.apache.camel.SuspendableService}  * in case they support suspend/resume.  *  * @version $Revision$  */
+comment|/**  * A useful base class which ensures that a service is only initialized once and  * provides some helper methods for enquiring of its status.  *<p/>  * Implementations can extend this base class and implement {@link org.apache.camel.SuspendableService}  * in case they support suspend/resume.  *  * @version   */
 end_comment
 
 begin_class

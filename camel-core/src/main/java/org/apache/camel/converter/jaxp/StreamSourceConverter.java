@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A converter from {@link StreamSource} objects  *  * @version $Revision$  */
+comment|/**  * A converter from {@link StreamSource} objects  *  * @version   */
 end_comment
 
 begin_class

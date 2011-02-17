@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the content of the inbound message body  * against a predicate.  *   * @version $Revision$  */
+comment|/**  * A processor which validates the content of the inbound message body  * against a predicate.  *   * @version   */
 end_comment
 
 begin_class

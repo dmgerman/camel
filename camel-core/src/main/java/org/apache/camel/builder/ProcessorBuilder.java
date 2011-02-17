@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a number of different {@link Processor} implementations  *  * @version $Revision$  */
+comment|/**  * A builder of a number of different {@link Processor} implementations  *  * @version   */
 end_comment
 
 begin_class

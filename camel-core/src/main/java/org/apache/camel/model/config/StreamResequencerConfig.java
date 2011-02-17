@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the {@link org.apache.camel.processor.StreamResequencer}.  * Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         StreamResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  *   * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream().to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>capacity</code> and<code>timeout</code> can be  * set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         new StreamResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version $Revision$  */
+comment|/**  * Defines the configuration parameters for the {@link org.apache.camel.processor.StreamResequencer}.  * Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         StreamResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  *   * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream().to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>capacity</code> and<code>timeout</code> can be  * set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         new StreamResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version   */
 end_comment
 
 begin_class

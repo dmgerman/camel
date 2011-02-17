@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A predicate which is evaluating a binary expression.  *<p/>  * The predicate has a left and right hand side expressions which  * is matched based on an operator.  *<p/>  * This predicate offers the {@link #matchesReturningFailureMessage} method  * which evaluates and return a detailed failure message if the predicate did not match.  *  * @version $Revision$  */
+comment|/**  * A predicate which is evaluating a binary expression.  *<p/>  * The predicate has a left and right hand side expressions which  * is matched based on an operator.  *<p/>  * This predicate offers the {@link #matchesReturningFailureMessage} method  * which evaluates and return a detailed failure message if the predicate did not match.  *  * @version   */
 end_comment
 
 begin_interface

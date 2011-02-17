@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Thrown if Camel failed to create a producer for a given endpoint.  *  * @version $Revision$  */
+comment|/**  * Thrown if Camel failed to create a producer for a given endpoint.  *  * @version   */
 end_comment
 
 begin_class

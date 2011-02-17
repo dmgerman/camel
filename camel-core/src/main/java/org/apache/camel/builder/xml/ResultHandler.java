@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for handling XSLT results  *  * @version $Revision$  */
+comment|/**  * A strategy for handling XSLT results  *  * @version   */
 end_comment
 
 begin_interface

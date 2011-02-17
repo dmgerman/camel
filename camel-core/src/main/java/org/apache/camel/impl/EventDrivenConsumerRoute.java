@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link DefaultRoute} which starts with an  *<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision$  */
+comment|/**  * A {@link DefaultRoute} which starts with an  *<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version   */
 end_comment
 
 begin_class

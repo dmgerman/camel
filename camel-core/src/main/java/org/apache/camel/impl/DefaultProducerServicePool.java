@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service pool for {@link Producer}.  *<p/>  * For instance camel-mina and camel-ftp leverages this to allow a pool of producers so we  * can support concurrent producers in a thread safe manner.  *  * @version $Revision$  */
+comment|/**  * A service pool for {@link Producer}.  *<p/>  * For instance camel-mina and camel-ftp leverages this to allow a pool of producers so we  * can support concurrent producers in a thread safe manner.  *  * @version   */
 end_comment
 
 begin_class

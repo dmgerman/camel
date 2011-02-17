@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel specific {@link javax.xml.transform.URIResolver} which is capable of loading files  * from the classpath and file system.  *<p/>  * Use prefix<tt>classpath:</tt> or<tt>file:</tt> to denote either classpath or file system.  * If no prefix is provided then the prefix from the<tt>location</tt> parameter is used.  * If it neither has a prefix then<tt>classpath:</tt> is used.  *<p/>  * This implementation<b>cannot</b> load files over http.  *  * @version $Revision$  */
+comment|/**  * Camel specific {@link javax.xml.transform.URIResolver} which is capable of loading files  * from the classpath and file system.  *<p/>  * Use prefix<tt>classpath:</tt> or<tt>file:</tt> to denote either classpath or file system.  * If no prefix is provided then the prefix from the<tt>location</tt> parameter is used.  * If it neither has a prefix then<tt>classpath:</tt> is used.  *<p/>  * This implementation<b>cannot</b> load files over http.  *  * @version   */
 end_comment
 
 begin_class

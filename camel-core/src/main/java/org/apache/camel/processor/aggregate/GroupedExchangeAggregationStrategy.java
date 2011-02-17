@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List} as a exchange property with the key  * {@link org.apache.camel.Exchange#GROUPED_EXCHANGE}.  *  * @version $Revision$  */
+comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List} as a exchange property with the key  * {@link org.apache.camel.Exchange#GROUPED_EXCHANGE}.  *  * @version   */
 end_comment
 
 begin_class

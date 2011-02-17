@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for {@link org.apache.camel.spi.Condition} implementations to use as base class.  *  * @version $Revision$  */
+comment|/**  * A support class for {@link org.apache.camel.spi.Condition} implementations to use as base class.  *  * @version   */
 end_comment
 
 begin_class

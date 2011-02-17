@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  *  * @version $Revision$  */
+comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  *  * @version   */
 end_comment
 
 begin_class

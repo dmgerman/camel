@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for intercepting sending to endpoint with dynamic endpoints  * and uri matching  *  * @version $Revision$  */
+comment|/**  * Unit test for intercepting sending to endpoint with dynamic endpoints  * and uri matching  *  * @version   */
 end_comment
 
 begin_class

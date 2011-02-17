@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lazy implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will lazy load type converters on-demand.  *  * @version $Revision$  */
+comment|/**  * Lazy implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will lazy load type converters on-demand.  *  * @version   */
 end_comment
 
 begin_class

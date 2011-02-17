@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception found if no XML body is available on the inbound message  *  * @version $Revision$  */
+comment|/**  * An exception found if no XML body is available on the inbound message  *  * @version   */
 end_comment
 
 begin_class

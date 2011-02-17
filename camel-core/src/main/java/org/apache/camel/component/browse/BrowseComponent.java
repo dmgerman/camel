@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/browse.html">browse</a> component.  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/browse.html">browse</a> component.  *  * @version   */
 end_comment
 
 begin_class

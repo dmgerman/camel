@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals the body of the incoming message using the given  *<a href="http://camel.apache.org/data-format.html">data format</a>  *  * @version $Revision$  */
+comment|/**  * Marshals the body of the incoming message using the given  *<a href="http://camel.apache.org/data-format.html">data format</a>  *  * @version   */
 end_comment
 
 begin_class

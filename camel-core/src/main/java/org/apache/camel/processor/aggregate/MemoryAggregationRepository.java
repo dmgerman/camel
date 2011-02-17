@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based {@link org.apache.camel.spi.AggregationRepository} which stores in memory only.  *  * @version $Revision$  */
+comment|/**  * A memory based {@link org.apache.camel.spi.AggregationRepository} which stores in memory only.  *  * @version   */
 end_comment
 
 begin_class

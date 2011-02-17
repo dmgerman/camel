@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link org.apache.camel.PollingConsumer}  *  * @version $Revision$  */
+comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link org.apache.camel.PollingConsumer}  *  * @version   */
 end_comment
 
 begin_class

@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The direct consumer.  *  * @version $Revision$  */
+comment|/**  * The direct consumer.  *  * @version   */
 end_comment
 
 begin_class

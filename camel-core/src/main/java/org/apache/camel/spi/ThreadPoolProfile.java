@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A profile which defines thread pool settings.  *  * @version $Revision$  */
+comment|/**  * A profile which defines thread pool settings.  *  * @version   */
 end_comment
 
 begin_interface

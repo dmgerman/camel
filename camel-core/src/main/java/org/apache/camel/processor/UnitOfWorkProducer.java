@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ensures a {@link Producer} is executed within an {@link org.apache.camel.spi.UnitOfWork}.  *  * @version $Revision$  */
+comment|/**  * Ensures a {@link Producer} is executed within an {@link org.apache.camel.spi.UnitOfWork}.  *  * @version   */
 end_comment
 
 begin_class

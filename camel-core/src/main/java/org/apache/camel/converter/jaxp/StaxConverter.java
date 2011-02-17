@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A converter of StAX objects  *  * @version $Revision$  */
+comment|/**  * A converter of StAX objects  *  * @version   */
 end_comment
 
 begin_class

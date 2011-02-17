@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper for doing {@link Predicate} assertions.  *  * @version $Revision$  */
+comment|/**  * A helper for doing {@link Predicate} assertions.  *  * @version   */
 end_comment
 
 begin_class

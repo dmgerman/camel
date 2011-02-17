@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for {@link javax.xml.transform.stream.StreamResult} which is streamed to file.  *  * @version $Revision$  */
+comment|/**  * Factory for {@link javax.xml.transform.stream.StreamResult} which is streamed to file.  *  * @version   */
 end_comment
 
 begin_class

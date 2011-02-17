@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMX capable {@link org.apache.camel.spi.ManagementStrategy} that Camel by default uses if possible.  *<p/>  * Camel detects whether its possible to use this JMX capable strategy and if<b>not</b> then Camel  * will fallback to the {@link org.apache.camel.management.DefaultManagementStrategy} instead.  *  * @see org.apache.camel.spi.ManagementStrategy  * @see org.apache.camel.management.DefaultManagementStrategy  * @version $Revision$  */
+comment|/**  * A JMX capable {@link org.apache.camel.spi.ManagementStrategy} that Camel by default uses if possible.  *<p/>  * Camel detects whether its possible to use this JMX capable strategy and if<b>not</b> then Camel  * will fallback to the {@link org.apache.camel.management.DefaultManagementStrategy} instead.  *  * @see org.apache.camel.spi.ManagementStrategy  * @see org.apache.camel.management.DefaultManagementStrategy  * @version   */
 end_comment
 
 begin_class

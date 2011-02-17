@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base annotation for languages.  *  * @version $Revision$  */
+comment|/**  * Base annotation for languages.  *  * @version   */
 end_comment
 
 begin_annotation_defn

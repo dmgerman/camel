@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which invokes a static method  * as a fallback type converter from a type to another type  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which invokes a static method  * as a fallback type converter from a type to another type  *  * @version   */
 end_comment
 
 begin_class

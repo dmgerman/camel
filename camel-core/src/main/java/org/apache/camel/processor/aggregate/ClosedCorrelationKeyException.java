@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The correlation key has been closed and the Exchange cannot be aggregated.  *  * @version $Revision$  */
+comment|/**  * The correlation key has been closed and the Exchange cannot be aggregated.  *  * @version   */
 end_comment
 
 begin_class

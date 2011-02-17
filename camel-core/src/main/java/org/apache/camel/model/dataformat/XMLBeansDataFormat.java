@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XMLBeans XML {@link org.apache.camel.spi.DataFormat}  *  * @version $Revision$  */
+comment|/**  * Represents the XMLBeans XML {@link org.apache.camel.spi.DataFormat}  *  * @version   */
 end_comment
 
 begin_class

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * On completion strategy for {@link org.apache.camel.processor.idempotent.IdempotentConsumer}.  *<p/>  * This strategy adds the message id to the idempotent repository in cast the exchange  * was processed successfully. In case of failure the message id is<b>not</b> added.  *  * @version $Revision$  */
+comment|/**  * On completion strategy for {@link org.apache.camel.processor.idempotent.IdempotentConsumer}.  *<p/>  * This strategy adds the message id to the idempotent repository in cast the exchange  * was processed successfully. In case of failure the message id is<b>not</b> added.  *  * @version   */
 end_comment
 
 begin_class

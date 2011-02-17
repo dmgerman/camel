@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a proxy to an error handler builder which is resolved by named reference  *  * @version $Revision$  */
+comment|/**  * Represents a proxy to an error handler builder which is resolved by named reference  *  * @version   */
 end_comment
 
 begin_class

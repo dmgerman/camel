@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a direct endpoint that synchronously invokes the consumer of the  * endpoint when a producer sends a message to it.  *  * @version $Revision$  */
+comment|/**  * Represents a direct endpoint that synchronously invokes the consumer of the  * endpoint when a producer sends a message to it.  *  * @version   */
 end_comment
 
 begin_class

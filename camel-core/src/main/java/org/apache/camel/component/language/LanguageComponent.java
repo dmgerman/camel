@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/language-component.html">language component</a> to send  * {@link org.apache.camel.Exchange}s to a given language and have the script being executed.  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/language-component.html">language component</a> to send  * {@link org.apache.camel.Exchange}s to a given language and have the script being executed.  *  * @version   */
 end_comment
 
 begin_class

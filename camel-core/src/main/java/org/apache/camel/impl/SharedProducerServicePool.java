@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A shared {@link org.apache.camel.impl.DefaultProducerServicePool} which is used by  * {@link org.apache.camel.CamelContext} by default.  *  * @version $Revision$  */
+comment|/**  * A shared {@link org.apache.camel.impl.DefaultProducerServicePool} which is used by  * {@link org.apache.camel.CamelContext} by default.  *  * @version   */
 end_comment
 
 begin_class

@@ -515,7 +515,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/aggregator2.html">Aggregator</a>  * pattern where a batch of messages are processed (up to a maximum amount or  * until some timeout is reached) and messages for the same correlation key are  * combined together using some kind of {@link AggregationStrategy}  * (by default the latest message is used) to compress many message exchanges  * into a smaller number of exchanges.  *<p/>  * A good example of this is stock market data; you may be receiving 30,000  * messages/second and you may want to throttle it right down so that multiple  * messages for the same stock are combined (or just the latest message is used  * and older prices are discarded). Another idea is to combine line item messages  * together into a single invoice message.  *  * @version $Revision$  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/aggregator2.html">Aggregator</a>  * pattern where a batch of messages are processed (up to a maximum amount or  * until some timeout is reached) and messages for the same correlation key are  * combined together using some kind of {@link AggregationStrategy}  * (by default the latest message is used) to compress many message exchanges  * into a smaller number of exchanges.  *<p/>  * A good example of this is stock market data; you may be receiving 30,000  * messages/second and you may want to throttle it right down so that multiple  * messages for the same stock are combined (or just the latest message is used  * and older prices are discarded). Another idea is to combine line item messages  * together into a single invoice message.  *  * @version   */
 end_comment
 
 begin_class

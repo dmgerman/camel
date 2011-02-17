@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To be run manually when testing the timeout aggregator  *  * @version $Revision$  */
+comment|/**  * To be run manually when testing the timeout aggregator  *  * @version   */
 end_comment
 
 begin_class

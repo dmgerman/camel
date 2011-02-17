@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a protobuf DataFormat {@link org.apache.camel.spi.DataFormat}  *  * @version $Revision$  */
+comment|/**  * Represents a protobuf DataFormat {@link org.apache.camel.spi.DataFormat}  *  * @version   */
 end_comment
 
 begin_class

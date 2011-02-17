@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *<p/>  * This helper should<b>NOT</b> be used by end users of Camel, as you should use  * {@link org.apache.camel.spi.ExecutorServiceStrategy} which you obtain from {@link org.apache.camel.CamelContext}  * to create thread pools.  *<p/>  * This helper should only be used internally in Camel.  *  * @version $Revision$  */
+comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *<p/>  * This helper should<b>NOT</b> be used by end users of Camel, as you should use  * {@link org.apache.camel.spi.ExecutorServiceStrategy} which you obtain from {@link org.apache.camel.CamelContext}  * to create thread pools.  *<p/>  * This helper should only be used internally in Camel.  *  * @version   */
 end_comment
 
 begin_class

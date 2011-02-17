@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the runtime objects for a given {@link RouteDefinition} so that it can be stopped independently  * of other routes  *  * @version $Revision$  */
+comment|/**  * Represents the runtime objects for a given {@link RouteDefinition} so that it can be stopped independently  * of other routes  *  * @version   */
 end_comment
 
 begin_class

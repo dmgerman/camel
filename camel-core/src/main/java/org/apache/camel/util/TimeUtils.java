@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Time utils.  *  * @version $Revision$  */
+comment|/**  * Time utils.  *  * @version   */
 end_comment
 
 begin_class

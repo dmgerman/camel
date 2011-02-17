@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers  *  * @version $Revision$  */
+comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers  *  * @version   */
 end_comment
 
 begin_interface

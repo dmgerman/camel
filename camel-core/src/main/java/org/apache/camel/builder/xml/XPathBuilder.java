@@ -583,7 +583,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is the application's responsibility to make  * sure that one XPath object is not used from more than one thread at any given time, and while the evaluate method  * is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to allow concurrency  *  * @see XPathConstants#NODESET  *  * @version $Revision$  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is the application's responsibility to make  * sure that one XPath object is not used from more than one thread at any given time, and while the evaluate method  * is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to allow concurrency  *  * @see XPathConstants#NODESET  *  * @version   */
 end_comment
 
 begin_class

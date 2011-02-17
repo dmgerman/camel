@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This strategy class wraps targeted processors with a  * {@link InstrumentationProcessor}. Each InstrumentationProcessor has an  * embedded {@link ManagedPerformanceCounter} for monitoring performance metrics.  *<p/>  * This class looks up a map to determine which PerformanceCounter should go into the  * InstrumentationProcessor for any particular target processor.  *  * @version $Revision$  */
+comment|/**  * This strategy class wraps targeted processors with a  * {@link InstrumentationProcessor}. Each InstrumentationProcessor has an  * embedded {@link ManagedPerformanceCounter} for monitoring performance metrics.  *<p/>  * This class looks up a map to determine which PerformanceCounter should go into the  * InstrumentationProcessor for any particular target processor.  *  * @version   */
 end_comment
 
 begin_class

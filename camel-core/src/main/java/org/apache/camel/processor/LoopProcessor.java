@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The processor which sends messages in a loop.  *  * @version $Revision$  */
+comment|/**  * The processor which sends messages in a loop.  *  * @version   */
 end_comment
 
 begin_class

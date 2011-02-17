@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A parser to parse a string which contains property placeholders  *  * @version $Revision$  */
+comment|/**  * A parser to parse a string which contains property placeholders  *  * @version   */
 end_comment
 
 begin_class

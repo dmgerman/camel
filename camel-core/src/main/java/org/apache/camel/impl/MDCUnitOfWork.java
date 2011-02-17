@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This unit of work supports<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a>.  *  * @version $Revision$  */
+comment|/**  * This unit of work supports<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a>.  *  * @version   */
 end_comment
 
 begin_class

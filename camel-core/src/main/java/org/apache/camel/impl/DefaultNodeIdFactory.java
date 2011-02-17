@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default id factory.  *  * @version $Revision$  */
+comment|/**  * Default id factory.  *  * @version   */
 end_comment
 
 begin_class

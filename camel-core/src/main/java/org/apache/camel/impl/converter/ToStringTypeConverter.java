@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple converter that can convert any object to a String type by using the  * toString() method of the object.  *  * @version $Revision$  */
+comment|/**  * A simple converter that can convert any object to a String type by using the  * toString() method of the object.  *  * @version   */
 end_comment
 
 begin_class

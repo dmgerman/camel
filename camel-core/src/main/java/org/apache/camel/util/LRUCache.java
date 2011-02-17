@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Least Recently Used Cache  *  * @version $Revision$  */
+comment|/**  * A Least Recently Used Cache  *  * @version   */
 end_comment
 
 begin_class

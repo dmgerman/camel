@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log to an arbitrary {@link org.apache.commons.logging.Log Logger} with some {@link LoggingLevel}  *  * @version $Revision$  */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log to an arbitrary {@link org.apache.commons.logging.Log Logger} with some {@link LoggingLevel}  *  * @version   */
 end_comment
 
 begin_class

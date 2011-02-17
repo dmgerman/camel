@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to mark classes and methods to indicate code capable of  * converting from a type to another type which are then auto-discovered using  * the<a href="http://camel.apache.org/type-converter.html">Type  * Conversion Support</a>  *   * @version $Revision$  */
+comment|/**  * An annotation used to mark classes and methods to indicate code capable of  * converting from a type to another type which are then auto-discovered using  * the<a href="http://camel.apache.org/type-converter.html">Type  * Conversion Support</a>  *   * @version   */
 end_comment
 
 begin_annotation_defn

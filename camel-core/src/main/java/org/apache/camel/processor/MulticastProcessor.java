@@ -649,7 +649,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @version $Revision$  * @see Pipeline  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @version   * @see Pipeline  */
 end_comment
 
 begin_class

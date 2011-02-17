@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Language endpoint.  *  * @version $Revision$  */
+comment|/**  * Language endpoint.  *  * @version   */
 end_comment
 
 begin_class

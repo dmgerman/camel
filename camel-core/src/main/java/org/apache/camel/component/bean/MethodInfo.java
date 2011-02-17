@@ -369,7 +369,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a method to be used for invocation.  *  * @version $Revision$  */
+comment|/**  * Information about a method to be used for invocation.  *  * @version   */
 end_comment
 
 begin_class

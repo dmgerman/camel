@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify unit of work with multicast.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify unit of work with multicast.  *  * @version   */
 end_comment
 
 begin_class

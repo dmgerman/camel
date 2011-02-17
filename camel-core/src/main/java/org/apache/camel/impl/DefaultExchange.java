@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link Exchange}  *  * @version $Revision$  */
+comment|/**  * A default implementation of {@link Exchange}  *  * @version   */
 end_comment
 
 begin_class

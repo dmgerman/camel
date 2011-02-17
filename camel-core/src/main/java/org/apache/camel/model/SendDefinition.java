@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for sending to an endpoint with an optional {@link ExchangePattern}  *  * @version $Revision$  */
+comment|/**  * Base class for sending to an endpoint with an optional {@link ExchangePattern}  *  * @version   */
 end_comment
 
 begin_class

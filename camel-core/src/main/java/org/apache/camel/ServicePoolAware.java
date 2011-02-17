@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.spi.ServicePool}.  *  * @version $Revision$  */
+comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.spi.ServicePool}.  *  * @version   */
 end_comment
 
 begin_interface

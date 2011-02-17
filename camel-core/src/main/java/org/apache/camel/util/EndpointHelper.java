@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with {@link Endpoint} instances  *  * @version $Revision$  */
+comment|/**  * Some helper methods for working with {@link Endpoint} instances  *  * @version   */
 end_comment
 
 begin_class

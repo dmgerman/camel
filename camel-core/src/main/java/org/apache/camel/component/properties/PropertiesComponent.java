@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/properties">properties</a> component.  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/properties">properties</a> component.  *  * @version   */
 end_comment
 
 begin_class

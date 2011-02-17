@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test shows we can poll a bean for a method and send the POJO over some transport  *  * @version $Revision$  */
+comment|/**  * This test shows we can poll a bean for a method and send the POJO over some transport  *  * @version   */
 end_comment
 
 begin_class

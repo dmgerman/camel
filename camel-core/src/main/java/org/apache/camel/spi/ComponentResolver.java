@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a resolver of components from a URI to be able to auto-load them using some  * discovery mechanism like {@link org.apache.camel.impl.DefaultComponentResolver}  *  * @version $Revision$  */
+comment|/**  * Represents a resolver of components from a URI to be able to auto-load them using some  * discovery mechanism like {@link org.apache.camel.impl.DefaultComponentResolver}  *  * @version   */
 end_comment
 
 begin_interface

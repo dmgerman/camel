@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For Groovy expressions and predicates  *  * @version $Revision$  */
+comment|/**  * For Groovy expressions and predicates  *  * @version   */
 end_comment
 
 begin_class

@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the JAXB2 XML {@link DataFormat}  *  * @version $Revision$  */
+comment|/**  * Represents the JAXB2 XML {@link DataFormat}  *  * @version   */
 end_comment
 
 begin_class

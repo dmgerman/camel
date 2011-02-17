@@ -271,7 +271,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer for the SEDA component.  *  * @version $Revision$  */
+comment|/**  * A Consumer for the SEDA component.  *  * @version   */
 end_comment
 
 begin_class

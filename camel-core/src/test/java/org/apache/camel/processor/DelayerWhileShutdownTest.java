@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delayer while shutting down so its interrupted and will also stop.  *  * @version $Revision$  */
+comment|/**  * Delayer while shutting down so its interrupted and will also stop.  *  * @version   */
 end_comment
 
 begin_class

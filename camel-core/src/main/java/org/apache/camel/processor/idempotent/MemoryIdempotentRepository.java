@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based implementation of {@link org.apache.camel.spi.IdempotentRepository}.   *<p/>  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak.  *  * @version $Revision$  */
+comment|/**  * A memory based implementation of {@link org.apache.camel.spi.IdempotentRepository}.   *<p/>  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak.  *  * @version   */
 end_comment
 
 begin_class

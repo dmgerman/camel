@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for {@link StringResultHandler}  *  * @version $Revision$  */
+comment|/**  * Factory for {@link StringResultHandler}  *  * @version   */
 end_comment
 
 begin_class

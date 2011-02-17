@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows objects to be notified when {@link CamelContext} have just been started.  *<p/>  * This can be used to perform any custom work when the entire {@link CamelContext} has been initialized and started.  * For example this ensures that all the Camel routes has been started and are up and running, before this callback  * is being invoked.  *<p/>  * For example the QuartzComponent leverages this to ensure the Quartz scheduler is started late, when all the  * Camel routes and services already have been started.  *  * @version $Revision$  */
+comment|/**  * Allows objects to be notified when {@link CamelContext} have just been started.  *<p/>  * This can be used to perform any custom work when the entire {@link CamelContext} has been initialized and started.  * For example this ensures that all the Camel routes has been started and are up and running, before this callback  * is being invoked.  *<p/>  * For example the QuartzComponent leverages this to ensure the Quartz scheduler is started late, when all the  * Camel routes and services already have been started.  *  * @version   */
 end_comment
 
 begin_interface

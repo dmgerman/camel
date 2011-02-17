@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test stops a route, mutates it then restarts it  *  * @version $Revision$  */
+comment|/**  * This test stops a route, mutates it then restarts it  *  * @version   */
 end_comment
 
 begin_class

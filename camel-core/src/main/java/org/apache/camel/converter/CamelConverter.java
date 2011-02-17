@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some useful converters for Camel APIs such as to convert a {@link Predicate} or {@link Expression}  * to a {@link Processor}  *  * @version $Revision$  */
+comment|/**  * Some useful converters for Camel APIs such as to convert a {@link Predicate} or {@link Expression}  * to a {@link Processor}  *  * @version   */
 end_comment
 
 begin_class

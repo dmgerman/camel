@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that using DLC with redelivery and delays with blocking threads.  * As threads comes cheap these days in the modern JVM its no biggie. And for transactions  * you should use the same thread anyway.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify that using DLC with redelivery and delays with blocking threads.  * As threads comes cheap these days in the modern JVM its no biggie. And for transactions  * you should use the same thread anyway.  *  * @version   */
 end_comment
 
 begin_class

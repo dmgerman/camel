@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a dynamic<a  * href="http://camel.apache.org/recipient-list.html">Recipient List</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on some dynamic expression.  *  * @version $Revision$  */
+comment|/**  * Implements a dynamic<a  * href="http://camel.apache.org/recipient-list.html">Recipient List</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on some dynamic expression.  *  * @version   */
 end_comment
 
 begin_class

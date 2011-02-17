@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for handling a StreamSource in a content-based router with XPath predicates  *  * @version $Revision$  */
+comment|/**  * Test for handling a StreamSource in a content-based router with XPath predicates  *  * @version   */
 end_comment
 
 begin_class

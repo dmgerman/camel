@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class which will auto-discover converter objects and methods to pre-load  * the registry of converters on startup  *  * @version $Revision$  */
+comment|/**  * A class which will auto-discover converter objects and methods to pre-load  * the registry of converters on startup  *  * @version   */
 end_comment
 
 begin_class

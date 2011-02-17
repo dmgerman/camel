@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link EndpointStrategy} which is capable of mocking endpoints.  *<p/>  * This strategy will only apply when new endpoints is being created. If you want to apply  * existing endpoints, you will have to remove them from the {@link org.apache.camel.CamelContext} beforehand.  *  * @version $Revision$  */
+comment|/**  * A {@link EndpointStrategy} which is capable of mocking endpoints.  *<p/>  * This strategy will only apply when new endpoints is being created. If you want to apply  * existing endpoints, you will have to remove them from the {@link org.apache.camel.CamelContext} beforehand.  *  * @version   */
 end_comment
 
 begin_class

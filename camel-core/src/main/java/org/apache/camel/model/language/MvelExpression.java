@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For MVEL expressions and predicates  *  * @version $Revision$  */
+comment|/**  * For MVEL expressions and predicates  *  * @version   */
 end_comment
 
 begin_class

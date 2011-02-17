@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *<p/>  * You must provide a {@link java.util.concurrent.ScheduledExecutorService} in the constructor which is used  * to schedule a background task which check for old entries to purge. This implementation will shutdown the scheduler  * if its being stopped.  *  * @version $Revision$  */
+comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *<p/>  * You must provide a {@link java.util.concurrent.ScheduledExecutorService} in the constructor which is used  * to schedule a background task which check for old entries to purge. This implementation will shutdown the scheduler  * if its being stopped.  *  * @version   */
 end_comment
 
 begin_class

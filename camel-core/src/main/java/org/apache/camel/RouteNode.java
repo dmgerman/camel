@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a model of a node in the runtime route path.  *  * @version $Revision$  */
+comment|/**  * Represents a model of a node in the runtime route path.  *  * @version   */
 end_comment
 
 begin_interface

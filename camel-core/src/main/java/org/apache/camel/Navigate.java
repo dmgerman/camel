@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementations support navigating a graph where you can traverse forward and each next  * returns a {@link List} of outputs of type<tt>T</tt> that can contain<tt>0..n</tt> nodes.  *  * @version $Revision$  */
+comment|/**  * Implementations support navigating a graph where you can traverse forward and each next  * returns a {@link List} of outputs of type<tt>T</tt> that can contain<tt>0..n</tt> nodes.  *  * @version   */
 end_comment
 
 begin_interface

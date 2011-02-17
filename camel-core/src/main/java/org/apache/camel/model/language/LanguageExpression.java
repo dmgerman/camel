@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a parameterised language expression which can support any language  * at runtime using the language attribute.  *  * @version $Revision$  */
+comment|/**  * Represents a parameterised language expression which can support any language  * at runtime using the language attribute.  *  * @version   */
 end_comment
 
 begin_class

@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for DataSet.  *  * @version $Revision$  */
+comment|/**  * Endpoint for DataSet.  *  * @version   */
 end_comment
 
 begin_class

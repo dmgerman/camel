@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception thrown if the expression contains illegal syntax.  *  * @version $Revision$  */
+comment|/**  * An exception thrown if the expression contains illegal syntax.  *  * @version   */
 end_comment
 
 begin_class

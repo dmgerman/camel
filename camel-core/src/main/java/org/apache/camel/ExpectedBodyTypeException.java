@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Thrown if the body could not be converted to the required type  *   * @version $Revision$  */
+comment|/**  * Thrown if the body could not be converted to the required type  *   * @version   */
 end_comment
 
 begin_class

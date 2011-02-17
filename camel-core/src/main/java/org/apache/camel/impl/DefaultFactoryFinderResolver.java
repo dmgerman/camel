@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default factory finder.  *  * @version $Revision$  */
+comment|/**  * Default factory finder.  *  * @version   */
 end_comment
 
 begin_class

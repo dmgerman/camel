@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A throttle based {@link org.apache.camel.spi.RoutePolicy} which is capable of dynamic  * throttling a route based on number of current inflight exchanges.  *  * @version $Revision$  */
+comment|/**  * A throttle based {@link org.apache.camel.spi.RoutePolicy} which is capable of dynamic  * throttling a route based on number of current inflight exchanges.  *  * @version   */
 end_comment
 
 begin_class

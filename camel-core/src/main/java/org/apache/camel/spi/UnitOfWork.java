@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  *  * @version $Revision$  */
+comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  *  * @version   */
 end_comment
 
 begin_interface

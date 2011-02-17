@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TypeConverter} implementation which invokes a static method to convert from a type to another type  *  * @version $Revision$  */
+comment|/**  * A {@link TypeConverter} implementation which invokes a static method to convert from a type to another type  *  * @version   */
 end_comment
 
 begin_class

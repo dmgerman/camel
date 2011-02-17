@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default error handler  *  * @version $Revision$  */
+comment|/**  * Default error handler  *  * @version   */
 end_comment
 
 begin_class

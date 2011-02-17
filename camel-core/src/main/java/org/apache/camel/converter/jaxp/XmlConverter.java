@@ -443,7 +443,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version $Revision$  */
+comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version   */
 end_comment
 
 begin_class

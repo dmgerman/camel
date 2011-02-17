@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test verifies the system property to un-select platform mbean server.  *   * @version $Revision$  */
+comment|/**  * This test verifies the system property to un-select platform mbean server.  *   * @version   */
 end_comment
 
 begin_class

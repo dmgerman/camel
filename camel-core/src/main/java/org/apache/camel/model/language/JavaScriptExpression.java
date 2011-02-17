@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For JavaScript expressions and predicates  *  * @version $Revision$  */
+comment|/**  * For JavaScript expressions and predicates  *  * @version   */
 end_comment
 
 begin_class

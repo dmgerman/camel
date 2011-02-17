@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *  * @version $Revision$  */
+comment|/**  * Base implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *  * @version   */
 end_comment
 
 begin_class

@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for useOriginalBody option on DeadLetterChannel  *  * @version $Revision$  */
+comment|/**  * Unit test for useOriginalBody option on DeadLetterChannel  *  * @version   */
 end_comment
 
 begin_class

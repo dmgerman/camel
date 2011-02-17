@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link java.beans.PropertyEditor} conversion system to convert Objects to  * and from String values.  *  * @version $Revision$  */
+comment|/**  * Uses the {@link java.beans.PropertyEditor} conversion system to convert Objects to  * and from String values.  *  * @version   */
 end_comment
 
 begin_class

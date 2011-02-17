@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the batch-processing  * {@link org.apache.camel.processor.Resequencer}. Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         BatchResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch().to(&quot;mock:result&quot;)  *</pre>  *   * or  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>batchSize</code> and<code>batchTimeout</code>  * can be set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         new BatchResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version $Revision$  */
+comment|/**  * Defines the configuration parameters for the batch-processing  * {@link org.apache.camel.processor.Resequencer}. Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         BatchResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch().to(&quot;mock:result&quot;)  *</pre>  *   * or  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>batchSize</code> and<code>batchTimeout</code>  * can be set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         new BatchResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version   */
 end_comment
 
 begin_class

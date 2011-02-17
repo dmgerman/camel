@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A very simple stop watch.  *<p/>  * This implementation is not thread safe and can only time one task at any given time.  *  * @version $Revision$  */
+comment|/**  * A very simple stop watch.  *<p/>  * This implementation is not thread safe and can only time one task at any given time.  *  * @version   */
 end_comment
 
 begin_class

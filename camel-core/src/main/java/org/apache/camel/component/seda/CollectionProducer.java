@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple {@link org.apache.camel.Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @version $Revision$  */
+comment|/**  * A simple {@link org.apache.camel.Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @version   */
 end_comment
 
 begin_class

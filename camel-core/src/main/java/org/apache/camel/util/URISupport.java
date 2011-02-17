@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * URI utilities.  *  * @version $Revision$  */
+comment|/**  * URI utilities.  *  * @version   */
 end_comment
 
 begin_class

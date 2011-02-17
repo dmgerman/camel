@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A constant (singleton) bean implementation of {@link BeanHolder}  *  * @version $Revision$  */
+comment|/**  * A constant (singleton) bean implementation of {@link BeanHolder}  *  * @version   */
 end_comment
 
 begin_class

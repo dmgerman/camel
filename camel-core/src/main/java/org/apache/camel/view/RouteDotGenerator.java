@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://www.graphviz.org/">DOT</a> file creator plugin which  * creates a DOT file showing the current routes  *  * @version $Revision$  */
+comment|/**  * A<a href="http://www.graphviz.org/">DOT</a> file creator plugin which  * creates a DOT file showing the current routes  *  * @version   */
 end_comment
 
 begin_class

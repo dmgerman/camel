@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DeadLetterChannel now also have handled policy, like onException.  *  * @version $Revision$  */
+comment|/**  * DeadLetterChannel now also have handled policy, like onException.  *  * @version   */
 end_comment
 
 begin_class

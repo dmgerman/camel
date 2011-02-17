@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command line tool for booting up a CamelContext  *  * @version $Revision: 1025866 $  */
+comment|/**  * A command line tool for booting up a CamelContext  *  * @version   */
 end_comment
 
 begin_class

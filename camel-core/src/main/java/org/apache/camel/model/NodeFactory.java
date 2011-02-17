@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple factory used to create new child nodes which allows pluggable extension points  * such as to add extra DSL helper methods such as for the Groovy or Ruby DSLs  *  * @version $Revision$  */
+comment|/**  * A simple factory used to create new child nodes which allows pluggable extension points  * such as to add extra DSL helper methods such as for the Groovy or Ruby DSLs  *  * @version   */
 end_comment
 
 begin_class
