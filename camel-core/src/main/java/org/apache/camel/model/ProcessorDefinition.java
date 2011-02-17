@@ -3794,6 +3794,21 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Ends the current block and returns back to the {@link ChoiceDefinition choice()} DSL.      *      * @return the builder      */
+DECL|method|endChoice ()
+specifier|public
+name|ChoiceDefinition
+name|endChoice
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ChoiceDefinition
+operator|)
+name|end
+argument_list|()
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *            * @return the builder      */
 DECL|method|idempotentConsumer ()
 specifier|public

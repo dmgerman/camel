@@ -341,7 +341,9 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
+comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      *      * @deprecated      */
+annotation|@
+name|Deprecated
 DECL|method|pattern (ExchangePattern pattern)
 specifier|public
 name|ToDefinition
