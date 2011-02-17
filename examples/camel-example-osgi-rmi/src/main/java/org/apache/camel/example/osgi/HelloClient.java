@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client to invoke the RMI service hosted on another JVM running on localhost.  *  * @version $Revision$  */
+comment|/**  * Client to invoke the RMI service hosted on another JVM running on localhost.  *  * @version   */
 end_comment
 
 begin_class

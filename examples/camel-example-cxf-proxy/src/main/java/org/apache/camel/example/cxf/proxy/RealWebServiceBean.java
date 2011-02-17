@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bean to start and stop the real webservice.  *<p/>  * This implementation uses pure JAX-WS (no CXF, no Camel).  *  * @version $Revision$  */
+comment|/**  * A bean to start and stop the real webservice.  *<p/>  * This implementation uses pure JAX-WS (no CXF, no Camel).  *  * @version   */
 end_comment
 
 begin_class

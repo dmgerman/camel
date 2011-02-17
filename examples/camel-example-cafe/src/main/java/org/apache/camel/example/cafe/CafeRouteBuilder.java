@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple example router from Cafe Demo  *  * @version $Revision$  */
+comment|/**  * A simple example router from Cafe Demo  *  * @version   */
 end_comment
 
 begin_class

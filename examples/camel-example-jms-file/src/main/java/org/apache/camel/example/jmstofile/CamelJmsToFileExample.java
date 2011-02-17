@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating some of the basics behind Camel. This  * example sends some text messages on to a JMS Queue, consumes them and  * persists them to disk  *   * @version $Revision$  */
+comment|/**  * An example class for demonstrating some of the basics behind Camel. This  * example sends some text messages on to a JMS Queue, consumes them and  * persists them to disk  *   * @version   */
 end_comment
 
 begin_class

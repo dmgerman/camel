@@ -137,7 +137,7 @@ comment|// import static org.apache.camel.language.simple.SimpleLanguage.simple;
 end_comment
 
 begin_comment
-comment|/**  * The Camel route  *  * @version $Revision$  */
+comment|/**  * The Camel route  *  * @version   */
 end_comment
 
 begin_comment

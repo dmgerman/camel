@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the CamelContext, RouteBuilder, Component and Endpoint instances using  * Guice within OSGi platform  *  * @version $Revision$  */
+comment|/**  * Configures the CamelContext, RouteBuilder, Component and Endpoint instances using  * Guice within OSGi platform  *  * @version   */
 end_comment
 
 begin_class

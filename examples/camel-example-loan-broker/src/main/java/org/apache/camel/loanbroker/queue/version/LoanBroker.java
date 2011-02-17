@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  * @version $Revision$  */
+comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  * @version   */
 end_comment
 
 begin_class

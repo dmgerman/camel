@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple content based router example  *  * @version $Revision$  */
+comment|/**  * A simple content based router example  *  * @version   */
 end_comment
 
 begin_class

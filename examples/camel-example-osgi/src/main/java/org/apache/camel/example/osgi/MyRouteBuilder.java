@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple example router to show how to define the route with Java DSL  *  * @version $Revision$  */
+comment|/**  * A simple example router to show how to define the route with Java DSL  *  * @version   */
 end_comment
 
 begin_class

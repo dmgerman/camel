@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Implementation of the service which returns a message.  *  * @version $Revision$  */
+comment|/**  * Implementation of the service which returns a message.  *  * @version   */
 end_comment
 
 begin_class

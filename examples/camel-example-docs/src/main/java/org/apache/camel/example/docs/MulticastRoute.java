@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple multicast example  *  * @version $Revision$  */
+comment|/**  * A simple multicast example  *  * @version   */
 end_comment
 
 begin_class

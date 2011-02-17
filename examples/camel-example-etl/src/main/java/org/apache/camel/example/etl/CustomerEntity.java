@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example entity bean which can be marshalled to/from XML  *   * @version $Revision$  */
+comment|/**  * An example entity bean which can be marshalled to/from XML  *   * @version   */
 end_comment
 
 begin_class

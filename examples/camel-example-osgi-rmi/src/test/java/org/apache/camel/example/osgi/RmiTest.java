@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test the example.  *  * @version $Revision$  */
+comment|/**  * Unit test the example.  *  * @version   */
 end_comment
 
 begin_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A command line tool to run this example  *  * @version $Revision$  */
+comment|/**  * A command line tool to run this example  *  * @version   */
 end_comment
 
 begin_class

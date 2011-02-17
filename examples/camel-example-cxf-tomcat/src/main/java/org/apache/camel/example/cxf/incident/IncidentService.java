@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Interface with the services we want to expose as web services using code first.  *<p/>  * This is a basic example, you can use the JAX-WS annotations to control the contract.  *  * @version $Revision$  */
+comment|/**  * Interface with the services we want to expose as web services using code first.  *<p/>  * This is a basic example, you can use the JAX-WS annotations to control the contract.  *  * @version   */
 end_comment
 
 begin_comment

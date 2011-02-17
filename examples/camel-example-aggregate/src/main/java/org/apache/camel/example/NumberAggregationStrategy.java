@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregate two numbers  *  * @version $Revision$  */
+comment|/**  * Aggregate two numbers  *  * @version   */
 end_comment
 
 begin_comment

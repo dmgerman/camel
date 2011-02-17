@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for the service to expose. Notice we must extend {@link Remote} which  * is required when using RMI.  *  * @version $Revision$  */
+comment|/**  * Interface for the service to expose. Notice we must extend {@link Remote} which  * is required when using RMI.  *  * @version   */
 end_comment
 
 begin_interface

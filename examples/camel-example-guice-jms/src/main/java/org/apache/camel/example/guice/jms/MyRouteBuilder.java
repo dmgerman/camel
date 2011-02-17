@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple example router from a file system to an ActiveMQ queue and then to a file system  *  * @version $Revision$  */
+comment|/**  * A simple example router from a file system to an ActiveMQ queue and then to a file system  *  * @version   */
 end_comment
 
 begin_class

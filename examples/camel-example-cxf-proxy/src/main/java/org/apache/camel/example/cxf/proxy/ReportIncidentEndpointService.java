@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the implementation of the real web service  *  * @version $Revision$  */
+comment|/**  * This is the implementation of the real web service  *  * @version   */
 end_comment
 
 begin_class
