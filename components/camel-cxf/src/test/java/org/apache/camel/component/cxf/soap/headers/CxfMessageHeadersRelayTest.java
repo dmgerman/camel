@@ -649,7 +649,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test suite verifies message header filter features  *  * @version $Revision$  */
+comment|/**  * This test suite verifies message header filter features  *  * @version   */
 end_comment
 
 begin_class

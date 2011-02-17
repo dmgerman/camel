@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Package local test helper  *   * @version $Revision$  */
+comment|/**  * Package local test helper  *   * @version   */
 end_comment
 
 begin_class

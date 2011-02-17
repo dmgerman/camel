@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A CXF transport {@link org.apache.cxf.transport.Destination} that listens   * Camel {@link Exchange} from an associated {@link CxfBeanEndpoint}.  *    * @version $Revision$  */
+comment|/**  * A CXF transport {@link org.apache.cxf.transport.Destination} that listens   * Camel {@link Exchange} from an associated {@link CxfBeanEndpoint}.  *    * @version   */
 end_comment
 
 begin_class

@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for spring configured cxf endpoint.  *   * @version $Revision$  */
+comment|/**  * A unit test for spring configured cxf endpoint.  *   * @version   */
 end_comment
 
 begin_class

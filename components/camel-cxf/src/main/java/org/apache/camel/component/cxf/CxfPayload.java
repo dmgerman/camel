@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CxfMessage body type when {@link DataFormat#PAYLOAD} is used.  *   * @version $Revision$  */
+comment|/**  * CxfMessage body type when {@link DataFormat#PAYLOAD} is used.  *   * @version   */
 end_comment
 
 begin_class

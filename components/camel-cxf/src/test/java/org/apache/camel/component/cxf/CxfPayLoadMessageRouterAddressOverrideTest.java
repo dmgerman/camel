@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for testing reading SOAP body with address override in PAYLOAD mode.  *   * @version $Revision$  */
+comment|/**  * A unit test for testing reading SOAP body with address override in PAYLOAD mode.  *   * @version   */
 end_comment
 
 begin_class

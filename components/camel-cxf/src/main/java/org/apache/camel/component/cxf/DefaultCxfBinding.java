@@ -535,7 +535,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Default CXF binding implementation.  *   * @version $Revision$  */
+comment|/**  * The Default CXF binding implementation.  *   * @version   */
 end_comment
 
 begin_class

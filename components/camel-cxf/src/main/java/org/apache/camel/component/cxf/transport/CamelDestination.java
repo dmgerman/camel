@@ -441,7 +441,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  *  * Forwards messages from Camel to CXF and the CXF response back to Camel  */
+comment|/**  * @version   *  * Forwards messages from Camel to CXF and the CXF response back to Camel  */
 end_comment
 
 begin_class

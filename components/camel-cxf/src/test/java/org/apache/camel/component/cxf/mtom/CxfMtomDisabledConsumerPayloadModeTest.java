@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** * Unit test for exercising SOAP with Attachment (SwA) feature of a CxfConsumer in PAYLOAD mode.   * That is, testing attachment with MTOM optimization off. *  * @version $Revision$ */
+comment|/** * Unit test for exercising SOAP with Attachment (SwA) feature of a CxfConsumer in PAYLOAD mode.   * That is, testing attachment with MTOM optimization off. *  * @version  */
 end_comment
 
 begin_class

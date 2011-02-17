@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CXF Bean TransportFactory that overrides CamelTransportFactory to create  * a specific Destination (@link CxfBeanDestination}.  *   * @version $Revision$  */
+comment|/**  * CXF Bean TransportFactory that overrides CamelTransportFactory to create  * a specific Destination (@link CxfBeanDestination}.  *   * @version   */
 end_comment
 
 begin_class

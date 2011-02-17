@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class to propagate headers to and from CXF message.  *  * @version $Revision$  */
+comment|/**  * Utility class to propagate headers to and from CXF message.  *  * @version   */
 end_comment
 
 begin_class

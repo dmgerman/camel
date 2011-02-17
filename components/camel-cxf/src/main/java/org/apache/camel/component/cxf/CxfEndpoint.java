@@ -629,7 +629,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},   * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat   * mode is {@link DataFormat#POJO}.    *  * @version $Revision$  */
+comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},   * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat   * mode is {@link DataFormat#POJO}.    *  * @version   */
 end_comment
 
 begin_class

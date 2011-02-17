@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default CXF header filter strategy.  *   * @version $Revision$  */
+comment|/**  * The default CXF header filter strategy.  *   * @version   */
 end_comment
 
 begin_class

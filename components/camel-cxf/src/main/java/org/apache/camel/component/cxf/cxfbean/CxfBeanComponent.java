@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CXF Bean component creates {@link CxfBeanEndpoint} which represents a  * bean.<b>Currently, only JAXRS annotated beans are supported.  In the  * future, JAXwS annotated beans and POJO can be supported</b>.  *   * @version $Revision$  */
+comment|/**  * CXF Bean component creates {@link CxfBeanEndpoint} which represents a  * bean.<b>Currently, only JAXRS annotated beans are supported.  In the  * future, JAXwS annotated beans and POJO can be supported</b>.  *   * @version   */
 end_comment
 
 begin_class

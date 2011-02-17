@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify using '#' notation to reference serviceClass.  *   * @version $Revision$  */
+comment|/**  * Unit test to verify using '#' notation to reference serviceClass.  *   * @version   */
 end_comment
 
 begin_class

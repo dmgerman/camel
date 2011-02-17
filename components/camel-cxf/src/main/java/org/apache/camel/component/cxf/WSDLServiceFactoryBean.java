@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service factory bean class that create a service factory without requiring a service class  * (SEI).  * It will pick the first one service name and first one port/endpoint name in the WSDL, if   * there is service name or port/endpoint name setted.  * @version $Revision$  */
+comment|/**  * A service factory bean class that create a service factory without requiring a service class  * (SEI).  * It will pick the first one service name and first one port/endpoint name in the WSDL, if   * there is service name or port/endpoint name setted.  * @version   */
 end_comment
 
 begin_class

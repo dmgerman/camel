@@ -231,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CXF Bean Endpoint is a {@link ProcessorEndpoint} which associated with   * a {@link CxfBeanDestination}.  It delegates the processing of Camel   * Exchanges to the associated CxfBeanDestination.  *    * @version $Revision$  */
+comment|/**  * CXF Bean Endpoint is a {@link ProcessorEndpoint} which associated with   * a {@link CxfBeanDestination}.  It delegates the processing of Camel   * Exchanges to the associated CxfBeanDestination.  *    * @version   */
 end_comment
 
 begin_class

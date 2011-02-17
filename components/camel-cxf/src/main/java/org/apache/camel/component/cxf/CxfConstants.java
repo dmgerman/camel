@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in this module  *  * @version $Revision$  */
+comment|/**  * Constants used in this module  *  * @version   */
 end_comment
 
 begin_interface
