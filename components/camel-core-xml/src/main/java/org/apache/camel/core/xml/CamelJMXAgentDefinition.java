@@ -306,25 +306,6 @@ return|return
 name|disabled
 return|;
 block|}
-DECL|method|isAgentDisabled ()
-specifier|public
-name|boolean
-name|isAgentDisabled
-parameter_list|()
-block|{
-return|return
-name|disabled
-operator|!=
-literal|null
-operator|&&
-name|Boolean
-operator|.
-name|parseBoolean
-argument_list|(
-name|disabled
-argument_list|)
-return|;
-block|}
 DECL|method|setDisabled (String disabled)
 specifier|public
 name|void
