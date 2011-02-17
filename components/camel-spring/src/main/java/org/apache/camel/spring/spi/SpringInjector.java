@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring implementation of {@link Injector} allowing Spring to be used to dependency inject newly created POJOs  *  * @version $Revision$  */
+comment|/**  * A Spring implementation of {@link Injector} allowing Spring to be used to dependency inject newly created POJOs  *  * @version   */
 end_comment
 
 begin_class

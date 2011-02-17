@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example bean which adds some expectations on some mock endpoints and then  * asserts that the expectactions are met.  *  * @version $Revision$  */
+comment|/**  * An example bean which adds some expectations on some mock endpoints and then  * asserts that the expectactions are met.  *  * @version   */
 end_comment
 
 begin_comment

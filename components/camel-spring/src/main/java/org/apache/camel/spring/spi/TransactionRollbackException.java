@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * We use a runtime exception to force Spring transaction manager to rollback the transaction.  *  * @version $Revision$  */
+comment|/**  * We use a runtime exception to force Spring transaction manager to rollback the transaction.  *  * @version   */
 end_comment
 
 begin_class

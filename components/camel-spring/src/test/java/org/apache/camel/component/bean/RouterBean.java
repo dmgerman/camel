@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example POJO which has a method {@link #route) which can be used as a  * Dynamic Recipient List  *  * @version $Revision$  */
+comment|/**  * An example POJO which has a method {@link #route) which can be used as a  * Dynamic Recipient List  *  * @version   */
 end_comment
 
 begin_class

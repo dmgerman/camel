@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for LifecycleStrategy injection.  *  * @version $Revision$  */
+comment|/**  * Test for LifecycleStrategy injection.  *  * @version   */
 end_comment
 
 begin_class

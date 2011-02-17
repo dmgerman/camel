@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.springframework.beans.factory.FactoryBean} which instantiates {@link org.apache.camel.processor.RedeliveryPolicy} objects  *  * @version $Revision$  */
+comment|/**  * A {@link org.springframework.beans.factory.FactoryBean} which instantiates {@link org.apache.camel.processor.RedeliveryPolicy} objects  *  * @version   */
 end_comment
 
 begin_class

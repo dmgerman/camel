@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using Spring property placeholder instead of Camel properties component.  *  * @version $Revision$  */
+comment|/**  * Using Spring property placeholder instead of Camel properties component.  *  * @version   */
 end_comment
 
 begin_class

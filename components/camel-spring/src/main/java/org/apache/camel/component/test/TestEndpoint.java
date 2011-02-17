@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/test.html">Test Endpoint</a> is a  *<a href="http://camel.apache.org/mock.html">Mock Endpoint</a> for testing but it will  * pull all messages from the nested endpoint and use those as expected message body assertions.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/test.html">Test Endpoint</a> is a  *<a href="http://camel.apache.org/mock.html">Mock Endpoint</a> for testing but it will  * pull all messages from the nested endpoint and use those as expected message body assertions.  *  * @version   */
 end_comment
 
 begin_class

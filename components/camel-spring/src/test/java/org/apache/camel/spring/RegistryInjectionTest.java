@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for Registry injection.  *  * @version $Revision$  */
+comment|/**  * Test for Registry injection.  *  * @version   */
 end_comment
 
 begin_class

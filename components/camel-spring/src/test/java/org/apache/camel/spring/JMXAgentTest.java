@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX properties can be configured via Spring.  *  * @version $Revision$  */
+comment|/**  * Test that verifies JMX properties can be configured via Spring.  *  * @version   */
 end_comment
 
 begin_class

@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX is enabled by default.  *  * @version $Revision$  */
+comment|/**  * Test that verifies JMX is enabled by default.  *  * @version   */
 end_comment
 
 begin_class

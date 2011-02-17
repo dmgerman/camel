@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.springframework.beans.factory.FactoryBean} which instantiates {@link java.util.concurrent.ExecutorService} objects  *  * @version $Revision$  */
+comment|/**  * A {@link org.springframework.beans.factory.FactoryBean} which instantiates {@link java.util.concurrent.ExecutorService} objects  *  * @version   */
 end_comment
 
 begin_class

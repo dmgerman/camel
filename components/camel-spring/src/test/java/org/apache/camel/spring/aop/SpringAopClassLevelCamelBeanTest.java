@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring AOP will proxy a bean at class level which is also a bean that Camel should invoke  * using its bean component. The test should test that Camel bean binding annotations works.  *  * @version $Revision$  */
+comment|/**  * Spring AOP will proxy a bean at class level which is also a bean that Camel should invoke  * using its bean component. The test should test that Camel bean binding annotations works.  *  * @version   */
 end_comment
 
 begin_class

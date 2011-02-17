@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/validator.html">Validator Component</a>  * for validating XML against some schema  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/validator.html">Validator Component</a>  * for validating XML against some schema  *  * @version   */
 end_comment
 
 begin_class

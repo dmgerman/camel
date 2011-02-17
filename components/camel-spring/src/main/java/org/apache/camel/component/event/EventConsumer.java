@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/event.html">Event Consumer</a>  * for working with Spring ApplicationEvents  *  * @version $Revision$  */
+comment|/**  * An<a href="http://camel.apache.org/event.html">Event Consumer</a>  * for working with Spring ApplicationEvents  *  * @version   */
 end_comment
 
 begin_class

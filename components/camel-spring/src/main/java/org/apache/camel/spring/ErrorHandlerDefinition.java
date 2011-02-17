@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;errorHandler&gt; tag element.  *  * @version $Revision: 938746 $  */
+comment|/**  * The&lt;errorHandler&gt; tag element.  *  * @version   */
 end_comment
 
 begin_class

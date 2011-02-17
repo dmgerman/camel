@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wraps the processor in a Spring transaction  *  * @version $Revision$  */
+comment|/**  * Wraps the processor in a Spring transaction  *  * @version   */
 end_comment
 
 begin_class

@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Transactional client test with rollback in the DSL.  *  * @version $Revision$  */
+comment|/**  * Transactional client test with rollback in the DSL.  *  * @version   */
 end_comment
 
 begin_class
