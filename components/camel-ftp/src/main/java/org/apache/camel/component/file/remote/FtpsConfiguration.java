@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version $Revision$  */
+comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version   */
 end_comment
 
 begin_class

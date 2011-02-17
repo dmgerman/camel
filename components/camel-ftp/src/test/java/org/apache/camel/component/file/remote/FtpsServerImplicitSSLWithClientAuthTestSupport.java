@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Abstract base class for unit testing using a secure FTP Server over SSL (implicit)  * and with client authentication.  *   * @version $Revision$  */
+comment|/**  * Abstract base class for unit testing using a secure FTP Server over SSL (implicit)  * and with client authentication.  *   * @version   */
 end_comment
 
 begin_class

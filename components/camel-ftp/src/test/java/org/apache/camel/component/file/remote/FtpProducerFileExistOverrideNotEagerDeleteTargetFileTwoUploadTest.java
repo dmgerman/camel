@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision: 889125 $  */
+comment|/**  * @version   */
 end_comment
 
 begin_class

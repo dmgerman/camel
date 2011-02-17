@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simulate network issues by using a custom poll strategy to force exceptions  * occurring during poll.  *  * @version $Revision$  */
+comment|/**  * Simulate network issues by using a custom poll strategy to force exceptions  * occurring during poll.  *  * @version   */
 end_comment
 
 begin_class
