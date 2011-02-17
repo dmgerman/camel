@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * With the passthrough option  *  * @version $Revision$  */
+comment|/**  * With the passthrough option  *  * @version   */
 end_comment
 
 begin_class

@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link ReplyManager} implementations.  *  * @version $Revision$  */
+comment|/**  * Base class for {@link ReplyManager} implementations.  *  * @version   */
 end_comment
 
 begin_class

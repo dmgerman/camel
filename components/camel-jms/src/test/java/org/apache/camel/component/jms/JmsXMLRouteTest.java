@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For unit testing with XML streams that can be troublesome with the StreamCache  *  * @version $Revision$  */
+comment|/**  * For unit testing with XML streams that can be troublesome with the StreamCache  *  * @version   */
 end_comment
 
 begin_class

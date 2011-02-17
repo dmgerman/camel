@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMSPriority being ordered using the resequencer in batch mode.  *   * @version $Revision: 724291 $  */
+comment|/**  * JMSPriority being ordered using the resequencer in batch mode.  *   * @version   */
 end_comment
 
 begin_class

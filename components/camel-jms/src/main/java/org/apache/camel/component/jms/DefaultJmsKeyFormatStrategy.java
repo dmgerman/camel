@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys containg package names that is common by Java frameworks.  *  * @version $Revision$  */
+comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys containg package names that is common by Java frameworks.  *  * @version   */
 end_comment
 
 begin_class

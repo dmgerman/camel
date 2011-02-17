@@ -227,7 +227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test based on user forum issue.  *  * @version $Revision$  */
+comment|/**  * Unit test based on user forum issue.  *  * @version   */
 end_comment
 
 begin_class

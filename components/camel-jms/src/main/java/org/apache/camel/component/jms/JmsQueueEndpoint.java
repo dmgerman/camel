@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint for a JMS Queue which is also browsable  *  * @version $Revision$  */
+comment|/**  * An endpoint for a JMS Queue which is also browsable  *  * @version   */
 end_comment
 
 begin_class

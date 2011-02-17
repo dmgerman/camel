@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version $Revision$  */
+comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version   */
 end_comment
 
 begin_class

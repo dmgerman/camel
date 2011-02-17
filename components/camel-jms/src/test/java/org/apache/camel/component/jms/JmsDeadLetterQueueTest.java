@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for using JMS as DLQ  *  * @version $Revision$  */
+comment|/**  * Unit test for using JMS as DLQ  *  * @version   */
 end_comment
 
 begin_class

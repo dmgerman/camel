@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy for applying encoding and decoding of JMS headers so they apply to the JMS spec.  *  * @version $Revision$  */
+comment|/**  * Strategy for applying encoding and decoding of JMS headers so they apply to the JMS spec.  *  * @version   */
 end_comment
 
 begin_interface

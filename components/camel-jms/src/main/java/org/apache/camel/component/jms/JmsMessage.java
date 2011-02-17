@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with JMS  *  * @version $Revision:520964 $  */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with JMS  *  * @version   */
 end_comment
 
 begin_class

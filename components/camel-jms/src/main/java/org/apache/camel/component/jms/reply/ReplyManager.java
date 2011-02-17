@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link ReplyManager} is responsible for handling<a href="http://camel.apache.org/request-reply.html">request-reply</a>  * over JMS.  *  * @version $Revision$  */
+comment|/**  * The {@link ReplyManager} is responsible for handling<a href="http://camel.apache.org/request-reply.html">request-reply</a>  * over JMS.  *  * @version   */
 end_comment
 
 begin_interface

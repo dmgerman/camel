@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMS with XPath  *  * @version $Revision: 827439 $  */
+comment|/**  * JMS with XPath  *  * @version   */
 end_comment
 
 begin_class

@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test inspired by user forum  *  * @version $Revision$  */
+comment|/**  * Unit test inspired by user forum  *  * @version   */
 end_comment
 
 begin_class

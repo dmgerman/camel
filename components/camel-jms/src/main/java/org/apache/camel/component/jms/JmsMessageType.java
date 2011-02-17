@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Enum for different {@link javax.jms.Message} types.  *  * @version $Revision$  */
+comment|/**  * Enum for different {@link javax.jms.Message} types.  *  * @version   */
 end_comment
 
 begin_enum

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A reply message which cannot be correlated to a match request message.  *  * @version $Revision$  */
+comment|/**  * A reply message which cannot be correlated to a match request message.  *  * @version   */
 end_comment
 
 begin_class
