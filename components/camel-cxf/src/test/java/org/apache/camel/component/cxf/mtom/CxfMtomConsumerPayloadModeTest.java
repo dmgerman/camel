@@ -304,6 +304,18 @@ name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
 begin_comment
 comment|/** * Unit test for exercising MTOM feature of a CxfConsumer in PAYLOAD mode *  * @version  */
 end_comment
@@ -365,6 +377,23 @@ argument_list|(
 name|ExchangePattern
 operator|.
 name|InOut
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong Content-Type header"
+argument_list|,
+literal|"application/xop+xml"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"Content-Type"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|List

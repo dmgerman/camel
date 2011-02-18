@@ -328,6 +328,20 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong Content-Type header"
+argument_list|,
+literal|"application/xop+xml"
+argument_list|,
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"Content-Type"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Get the parameter list
 name|List
 argument_list|<
