@@ -1429,6 +1429,36 @@ name|executorService
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|AtomicInteger
+name|total
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+specifier|final
+name|Iterator
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|it
+init|=
+name|pairs
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
 comment|// when parallel then aggregate on the fly
 specifier|final
 name|AtomicBoolean
@@ -1438,16 +1468,6 @@ operator|new
 name|AtomicBoolean
 argument_list|(
 literal|true
-argument_list|)
-decl_stmt|;
-specifier|final
-name|AtomicInteger
-name|total
-init|=
-operator|new
-name|AtomicInteger
-argument_list|(
-literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1476,26 +1496,6 @@ operator|new
 name|AtomicException
 argument_list|()
 decl_stmt|;
-specifier|final
-name|Iterator
-argument_list|<
-name|ProcessorExchangePair
-argument_list|>
-name|it
-init|=
-name|pairs
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
 comment|// issue task to execute in separate thread so it can aggregate on-the-fly
 comment|// while we submit new tasks, and those tasks complete concurrently
 comment|// this allows us to optimize work and reduce memory consumption
@@ -1530,7 +1530,6 @@ argument_list|(
 name|task
 argument_list|)
 expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|trace
@@ -1837,6 +1836,7 @@ operator|.
 name|get
 argument_list|()
 throw|;
+block|}
 block|}
 comment|// no everything is okay so we are done
 if|if
