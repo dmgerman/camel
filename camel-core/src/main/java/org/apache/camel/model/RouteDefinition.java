@@ -274,6 +274,34 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|AdviceWithRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|AdviceWithTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ErrorHandlerBuilder
 import|;
 end_import
@@ -970,7 +998,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Advices this route with the route builder.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param builder      the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
+comment|/**      * Advices this route with the route builder.      *<p/>      * You can use a regular {@link RouteBuilder} but the specialized {@link org.apache.camel.builder.AdviceWithRouteBuilder}      * has additional features when using the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.      * We therefore suggest you to use the {@link org.apache.camel.builder.AdviceWithRouteBuilder}.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param builder      the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      * @see AdviceWithRouteBuilder      */
 DECL|method|adviceWith (CamelContext camelContext, RouteBuilder builder)
 specifier|public
 name|RouteDefinition
@@ -1003,6 +1031,46 @@ argument_list|,
 literal|"RouteBuilder"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"AdviceWith route before: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+comment|// inject this route into the advice route builder so it can access this route
+comment|// and offer features to manipulate the route directly
+if|if
+condition|(
+name|builder
+operator|instanceof
+name|AdviceWithRouteBuilder
+condition|)
+block|{
+operator|(
+operator|(
+name|AdviceWithRouteBuilder
+operator|)
+name|builder
+operator|)
+operator|.
+name|setOriginalRoute
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 comment|// configure and prepare the routes from the builder
 name|RoutesDefinition
 name|routes
@@ -1014,6 +1082,24 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"AdviceWith routes: "
+operator|+
+name|routes
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we can only advice with a route builder without any routes
 if|if
 condition|(
@@ -1064,6 +1150,45 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// any advice with tasks we should execute first?
+if|if
+condition|(
+name|builder
+operator|instanceof
+name|AdviceWithRouteBuilder
+condition|)
+block|{
+name|List
+argument_list|<
+name|AdviceWithTask
+argument_list|>
+name|tasks
+init|=
+operator|(
+operator|(
+name|AdviceWithRouteBuilder
+operator|)
+name|builder
+operator|)
+operator|.
+name|getAdviceWithTasks
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|AdviceWithTask
+name|task
+range|:
+name|tasks
+control|)
+block|{
+name|task
+operator|.
+name|task
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|// now merge which also ensures that interceptors and the likes get mixed in correctly as well
 name|RouteDefinition
 name|merged
@@ -1085,6 +1210,16 @@ name|add
 argument_list|(
 literal|0
 argument_list|,
+name|merged
+argument_list|)
+expr_stmt|;
+comment|// log the merged route at info level to make it easier to end users to spot any mistakes they may have made
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"AdviceWith route after: "
+operator|+
 name|merged
 argument_list|)
 expr_stmt|;

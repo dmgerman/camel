@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -30,8 +50,36 @@ name|InterceptSendToMockEndpointStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link RouteBuilder} which has extended features when using  * {@link org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder) adviceWith}.  *  * @version   */
+comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *  * @see org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder)  */
 end_comment
 
 begin_class
@@ -43,7 +91,70 @@ name|AdviceWithRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
-comment|/**      * Mock all endpoints in the route.      */
+DECL|field|originalRoute
+specifier|private
+name|RouteDefinition
+name|originalRoute
+decl_stmt|;
+DECL|field|adviceWithTasks
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|AdviceWithTask
+argument_list|>
+name|adviceWithTasks
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|AdviceWithTask
+argument_list|>
+argument_list|()
+decl_stmt|;
+comment|/**      * Sets the original route which we advice.      *      * @param originalRoute the original route we advice.      */
+DECL|method|setOriginalRoute (RouteDefinition originalRoute)
+specifier|public
+name|void
+name|setOriginalRoute
+parameter_list|(
+name|RouteDefinition
+name|originalRoute
+parameter_list|)
+block|{
+name|this
+operator|.
+name|originalRoute
+operator|=
+name|originalRoute
+expr_stmt|;
+block|}
+comment|/**      * Gets the original route we advice.      *      * @return the original route.      */
+DECL|method|getOriginalRoute ()
+specifier|public
+name|RouteDefinition
+name|getOriginalRoute
+parameter_list|()
+block|{
+return|return
+name|originalRoute
+return|;
+block|}
+comment|/**      * Gets a list of additional tasks to execute after the {@link #configure()} method has been executed      * during the advice process.      *      * @return a list of additional {@link AdviceWithTask} tasks to be executed during the advice process.      */
+DECL|method|getAdviceWithTasks ()
+specifier|public
+name|List
+argument_list|<
+name|AdviceWithTask
+argument_list|>
+name|getAdviceWithTasks
+parameter_list|()
+block|{
+return|return
+name|adviceWithTasks
+return|;
+block|}
+comment|/**      * Mock all endpoints in the route.      *      * @throws Exception can be thrown if error occurred      */
 DECL|method|mockEndpoints ()
 specifier|public
 name|void
@@ -73,7 +184,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern  the pattern.      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern.      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
 DECL|method|mockEndpoints (String pattern)
 specifier|public
 name|void
@@ -105,6 +216,72 @@ name|pattern
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Advices by matching id of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+DECL|method|adviceById (String pattern)
+specifier|public
+name|AdviceWithBuilder
+name|adviceById
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|originalRoute
+argument_list|,
+literal|"originalRoute"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|AdviceWithBuilder
+argument_list|(
+name|this
+argument_list|,
+name|pattern
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Advices by matching the to string representation of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+DECL|method|adviceByToString (String pattern)
+specifier|public
+name|AdviceWithBuilder
+name|adviceByToString
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|originalRoute
+argument_list|,
+literal|"originalRoute"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|AdviceWithBuilder
+argument_list|(
+name|this
+argument_list|,
+literal|null
+argument_list|,
+name|pattern
+argument_list|)
+return|;
 block|}
 block|}
 end_class

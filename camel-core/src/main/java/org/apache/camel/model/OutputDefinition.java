@@ -203,6 +203,37 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"output"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getShortName
+argument_list|()
+operator|+
+literal|" -> ["
+operator|+
+name|outputs
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

@@ -178,6 +178,26 @@ name|RoutesDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link org.apache.camel.impl.DefaultRoute} instances in a {@link CamelContext} for smart routing.  *  * @version   */
 end_comment
@@ -193,6 +213,19 @@ name|BuilderSupport
 implements|implements
 name|RoutesBuilder
 block|{
+DECL|field|log
+specifier|protected
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|initialized
 specifier|private
 name|AtomicBoolean
@@ -1214,7 +1247,7 @@ operator|.
 name|routeCollection
 return|;
 block|}
-comment|/**      * Factory method      * @return the CamelContext      */
+comment|/**      * Factory method      *      * @return the CamelContext      */
 DECL|method|createContainer ()
 specifier|protected
 name|CamelContext
@@ -1248,7 +1281,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a collection of routes to this context      *      * @param routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
+comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
 annotation|@
 name|Deprecated
 DECL|method|addRoutes (RoutesBuilder routes)
