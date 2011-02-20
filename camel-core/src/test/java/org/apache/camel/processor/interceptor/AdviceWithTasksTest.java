@@ -638,6 +638,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e5
 name|from
 argument_list|(
 literal|"direct:start"
@@ -663,6 +664,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e5
 block|}
 block|}
 return|;
