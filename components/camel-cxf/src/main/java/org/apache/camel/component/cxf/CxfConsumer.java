@@ -260,20 +260,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|version
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -394,7 +380,6 @@ block|}
 name|Continuation
 name|continuation
 decl_stmt|;
-comment|// Only calling the continuation API for CXF 2.3.x
 if|if
 condition|(
 operator|!
@@ -413,16 +398,6 @@ argument_list|)
 operator|)
 operator|!=
 literal|null
-operator|&&
-name|Version
-operator|.
-name|getCurrentVersion
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"2.3"
-argument_list|)
 condition|)
 block|{
 if|if
