@@ -5414,9 +5414,17 @@ name|isSingleton
 argument_list|()
 expr_stmt|;
 block|}
+comment|// do not add endpoints as they have their own list
 if|if
 condition|(
 name|singleton
+operator|&&
+operator|!
+operator|(
+name|service
+operator|instanceof
+name|Endpoint
+operator|)
 condition|)
 block|{
 name|servicesToClose
