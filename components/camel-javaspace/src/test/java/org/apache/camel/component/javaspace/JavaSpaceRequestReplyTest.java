@@ -274,7 +274,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|100
 condition|;
 operator|++
 name|i
@@ -408,7 +408,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|100
 condition|;
 operator|++
 name|i
@@ -612,7 +612,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:pojo"
+literal|"bean:pojo"
 argument_list|)
 expr_stmt|;
 name|from
@@ -622,7 +622,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:pojo"
+literal|"bean:pojo"
 argument_list|)
 expr_stmt|;
 name|from
@@ -632,7 +632,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:pojo"
+literal|"bean:pojo"
 argument_list|)
 expr_stmt|;
 block|}

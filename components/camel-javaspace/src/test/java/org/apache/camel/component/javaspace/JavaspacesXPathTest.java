@@ -333,8 +333,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|byte
-index|[]
+name|String
 name|body
 init|=
 name|exc
@@ -344,18 +343,14 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|byte
-index|[]
+name|String
 operator|.
-expr|class
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"<person name='James' city='London'/>"
-operator|.
-name|getBytes
-argument_list|()
 argument_list|,
 name|body
 argument_list|)
