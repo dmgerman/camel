@@ -352,24 +352,25 @@ return|;
 block|}
 name|Continuation
 name|continuation
-init|=
-name|getContinuation
-argument_list|(
-name|cxfExchange
-argument_list|)
 decl_stmt|;
-comment|// Only calling the continuation API for CXF 2.3.x
 if|if
 condition|(
-name|continuation
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|endpoint
 operator|.
 name|isSynchronous
 argument_list|()
+operator|&&
+operator|(
+name|continuation
+operator|=
+name|getContinuation
+argument_list|(
+name|cxfExchange
+argument_list|)
+operator|)
+operator|!=
+literal|null
 operator|&&
 name|Version
 operator|.
@@ -382,6 +383,7 @@ literal|"2.3"
 argument_list|)
 condition|)
 block|{
+comment|// Only calling the continuation API for CXF 2.3.x
 return|return
 name|asyncInvoke
 argument_list|(
