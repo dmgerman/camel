@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link IoHandler} implementation of reverser server protocol.  *  * @version $Rev$, $Date$,  */
+comment|/**  * {@link IoHandler} implementation of reverser server protocol.  *  */
 end_comment
 
 begin_class
