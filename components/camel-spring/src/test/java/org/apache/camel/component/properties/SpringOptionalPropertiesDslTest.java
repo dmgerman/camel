@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model
+DECL|package|org.apache.camel.component.properties
 package|package
 name|org
 operator|.
@@ -12,56 +12,71 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|component
+operator|.
+name|properties
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * Various constants.  *  * @version   */
+comment|/**  * Spring placeholder DSL test  */
 end_comment
 
 begin_class
-DECL|class|Constants
+DECL|class|SpringOptionalPropertiesDslTest
 specifier|public
-specifier|final
 class|class
-name|Constants
+name|SpringOptionalPropertiesDslTest
+extends|extends
+name|OptionalPropertiesDslTest
 block|{
-DECL|field|JAXB_CONTEXT_PACKAGES
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JAXB_CONTEXT_PACKAGES
-init|=
-literal|""
-operator|+
-literal|"org.apache.camel:"
-operator|+
-literal|"org.apache.camel.model:"
-operator|+
-literal|"org.apache.camel.model.config:"
-operator|+
-literal|"org.apache.camel.model.dataformat:"
-operator|+
-literal|"org.apache.camel.model.language:"
-operator|+
-literal|"org.apache.camel.model.loadbalancer"
-decl_stmt|;
-DECL|field|PLACEHOLDER_QNAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PLACEHOLDER_QNAME
-init|=
-literal|"http://camel.apache.org/schema/placeholder"
-decl_stmt|;
-DECL|method|Constants ()
-specifier|private
-name|Constants
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
-block|{     }
+throws|throws
+name|Exception
+block|{
+return|return
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/component/properties/SpringOptionalPropertiesDslTest.xml"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
