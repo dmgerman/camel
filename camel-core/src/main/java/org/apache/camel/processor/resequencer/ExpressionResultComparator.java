@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -67,16 +57,13 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-comment|/**      * Sets the list expressions used for comparing {@link Exchange}s.      *       * @param expressions a list of {@link Expression} objects.      */
-DECL|method|setExpressions (List<Expression> expressions)
+comment|/**      * Set the expression sed for comparing {@link Exchange}s.      *       * @param expression the expression      */
+DECL|method|setExpression (Expression expression)
 name|void
-name|setExpressions
+name|setExpression
 parameter_list|(
-name|List
-argument_list|<
 name|Expression
-argument_list|>
-name|expressions
+name|expression
 parameter_list|)
 function_decl|;
 block|}

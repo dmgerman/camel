@@ -178,7 +178,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (CamelContext camelContext, Processor processor, List<Expression> expressions, boolean allowDuplicates, boolean reverse)
+DECL|method|Resequencer (CamelContext camelContext, Processor processor, Expression expression, boolean allowDuplicates, boolean reverse)
 specifier|public
 name|Resequencer
 parameter_list|(
@@ -188,11 +188,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|List
-argument_list|<
 name|Expression
-argument_list|>
-name|expressions
+name|expression
 parameter_list|,
 name|boolean
 name|allowDuplicates
@@ -209,7 +206,7 @@ name|processor
 argument_list|,
 name|createSet
 argument_list|(
-name|expressions
+name|expression
 argument_list|,
 name|allowDuplicates
 argument_list|,

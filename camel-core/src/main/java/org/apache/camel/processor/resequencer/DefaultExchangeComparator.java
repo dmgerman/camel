@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -53,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comaprator's  *<code>expression</code>. The expression is set during route definition  * e.g.  *   *<pre>  *    ...resequencer(header(&quot;seqnum&quot;)).stream()...  *</pre>  *   * @version   */
+comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comaprator's  *<code>expression</code>.  *   * @version   */
 end_comment
 
 begin_class
@@ -69,16 +59,6 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|getExpression ()
-specifier|public
-name|Expression
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
 DECL|method|setExpression (Expression expression)
 specifier|public
 name|void
@@ -93,63 +73,6 @@ operator|.
 name|expression
 operator|=
 name|expression
-expr_stmt|;
-block|}
-DECL|method|setExpressions (List<Expression> expressions)
-specifier|public
-name|void
-name|setExpressions
-parameter_list|(
-name|List
-argument_list|<
-name|Expression
-argument_list|>
-name|expressions
-parameter_list|)
-block|{
-if|if
-condition|(
-name|expressions
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Expression required to resolve sequence number"
-argument_list|)
-throw|;
-block|}
-elseif|else
-if|if
-condition|(
-name|expressions
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"More than one expression currently not supported"
-argument_list|)
-throw|;
-block|}
-name|expression
-operator|=
-name|expressions
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|predecessor (Exchange o1, Exchange o2)

@@ -121,12 +121,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the {@link org.apache.camel.processor.StreamResequencer}.  * Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         StreamResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  *   * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream().to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>capacity</code> and<code>timeout</code> can be  * set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequencer(header(&quot;seqnum&quot;)).stream(  *         new StreamResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version   */
+comment|/**  * Defines the configuration parameters for the {@link org.apache.camel.processor.StreamResequencer}.  *  * @version   */
 end_comment
 
 begin_class
 annotation|@
 name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"stream-config"
+argument_list|)
 annotation|@
 name|XmlAccessorType
 argument_list|(
@@ -146,7 +151,6 @@ specifier|private
 name|Integer
 name|capacity
 decl_stmt|;
-comment|// optional XML attribute requires wrapper object
 annotation|@
 name|XmlAttribute
 DECL|field|timeout
@@ -154,7 +158,6 @@ specifier|private
 name|Long
 name|timeout
 decl_stmt|;
-comment|// optional XML attribute requires wrapper object
 annotation|@
 name|XmlTransient
 DECL|field|comparator

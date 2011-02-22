@@ -75,12 +75,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the batch-processing  * {@link org.apache.camel.processor.Resequencer}. Usage example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         BatchResequencerConfig.getDefault()).to(&quot;mock:result&quot;)  *</pre>  * is equivalent to  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch().to(&quot;mock:result&quot;)  *</pre>  *   * or  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).to(&quot;mock:result&quot;)  *</pre>  *   * Custom values for<code>batchSize</code> and<code>batchTimeout</code>  * can be set like in this example:  *   *<pre>  * from(&quot;direct:start&quot;).resequence(body()).batch(  *         new BatchResequencerConfig(300, 400L)).to(&quot;mock:result&quot;)  *</pre>  *   * @version   */
+comment|/**  * Defines the configuration parameters for the batch-processing  * {@link org.apache.camel.processor.Resequencer}. Usage example:  */
 end_comment
 
 begin_class
 annotation|@
 name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"batch-config"
+argument_list|)
 annotation|@
 name|XmlAccessorType
 argument_list|(
@@ -100,7 +105,6 @@ specifier|private
 name|Integer
 name|batchSize
 decl_stmt|;
-comment|// optional XML attribute requires wrapper object
 annotation|@
 name|XmlAttribute
 DECL|field|batchTimeout
@@ -108,7 +112,6 @@ specifier|private
 name|Long
 name|batchTimeout
 decl_stmt|;
-comment|// optional XML attribute requires wrapper object
 annotation|@
 name|XmlAttribute
 DECL|field|allowDuplicates
@@ -137,7 +140,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>batchSize</code> and<code>batchTimeout</code>.      *       * @param batchSize      *            size of the batch to be re-ordered.      * @param batchTimeout      *            timeout for collecting elements to be re-ordered.      */
+comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>batchSize</code> and<code>batchTimeout</code>.      *      * @param batchSize    size of the batch to be re-ordered.      * @param batchTimeout timeout for collecting elements to be re-ordered.      */
 DECL|method|BatchResequencerConfig (int batchSize, long batchTimeout)
 specifier|public
 name|BatchResequencerConfig
@@ -162,7 +165,7 @@ operator|=
 name|batchTimeout
 expr_stmt|;
 block|}
-comment|/**      * Returns a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      *       * @return a default {@link BatchResequencerConfig}.      */
+comment|/**      * Returns a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      *      * @return a default {@link BatchResequencerConfig}.      */
 DECL|method|getDefault ()
 specifier|public
 specifier|static
