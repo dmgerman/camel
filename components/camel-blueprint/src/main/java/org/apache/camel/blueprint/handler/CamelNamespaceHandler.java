@@ -4574,7 +4574,7 @@ operator|)
 name|def
 operator|)
 operator|.
-name|getExpressions
+name|getExpression
 argument_list|()
 argument_list|,
 name|languages
