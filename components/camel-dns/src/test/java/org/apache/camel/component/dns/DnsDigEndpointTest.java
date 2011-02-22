@@ -193,10 +193,10 @@ comment|/**  * Tests for the dig endpoint.  */
 end_comment
 
 begin_class
-DECL|class|DNSDigEndpointTest
+DECL|class|DnsDigEndpointTest
 specifier|public
 class|class
-name|DNSDigEndpointTest
+name|DnsDigEndpointTest
 extends|extends
 name|CamelTestSupport
 block|{

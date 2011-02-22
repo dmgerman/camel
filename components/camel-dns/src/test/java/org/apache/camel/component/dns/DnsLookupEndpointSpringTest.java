@@ -185,10 +185,10 @@ comment|/**  * A set of test cases to make DNS lookups.  */
 end_comment
 
 begin_class
-DECL|class|DNSLookupEndpointSpringTest
+DECL|class|DnsLookupEndpointSpringTest
 specifier|public
 class|class
-name|DNSLookupEndpointSpringTest
+name|DnsLookupEndpointSpringTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
