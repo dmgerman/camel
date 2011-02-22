@@ -81,11 +81,6 @@ end_comment
 begin_class
 annotation|@
 name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"batch-config"
-argument_list|)
 annotation|@
 name|XmlAccessorType
 argument_list|(

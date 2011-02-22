@@ -127,11 +127,6 @@ end_comment
 begin_class
 annotation|@
 name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"stream-config"
-argument_list|)
 annotation|@
 name|XmlAccessorType
 argument_list|(

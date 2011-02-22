@@ -263,10 +263,10 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|resequence
-argument_list|(
+argument_list|()
+operator|.
 name|body
 argument_list|()
-argument_list|)
 operator|.
 name|to
 argument_list|(

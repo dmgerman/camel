@@ -197,14 +197,14 @@ block|{
 annotation|@
 name|XmlElementRef
 DECL|field|expression
-specifier|private
+specifier|protected
 name|ExpressionDefinition
 name|expression
 decl_stmt|;
 annotation|@
 name|XmlElementRef
 DECL|field|outputs
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|ProcessorDefinition
