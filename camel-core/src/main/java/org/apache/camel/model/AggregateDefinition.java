@@ -1060,7 +1060,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isCompletionFromBatchConsumer
+name|getCompletionFromBatchConsumer
 argument_list|()
 operator|!=
 literal|null
@@ -1077,7 +1077,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isEagerCheckCompletion
+name|getEagerCheckCompletion
 argument_list|()
 operator|!=
 literal|null
@@ -1094,7 +1094,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isIgnoreInvalidCorrelationKeys
+name|getIgnoreInvalidCorrelationKeys
 argument_list|()
 operator|!=
 literal|null
@@ -1128,7 +1128,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isDiscardOnCompletionTimeout
+name|getDiscardOnCompletionTimeout
 argument_list|()
 operator|!=
 literal|null
@@ -1515,13 +1515,27 @@ operator|=
 name|completionSizeExpression
 expr_stmt|;
 block|}
-DECL|method|isGroupExchanges ()
+DECL|method|getGroupExchanges ()
 specifier|public
 name|Boolean
+name|getGroupExchanges
+parameter_list|()
+block|{
+return|return
+name|groupExchanges
+return|;
+block|}
+DECL|method|isGroupExchanges ()
+specifier|public
+name|boolean
 name|isGroupExchanges
 parameter_list|()
 block|{
 return|return
+name|groupExchanges
+operator|!=
+literal|null
+operator|&&
 name|groupExchanges
 return|;
 block|}
@@ -1541,13 +1555,27 @@ operator|=
 name|groupExchanges
 expr_stmt|;
 block|}
-DECL|method|isCompletionFromBatchConsumer ()
+DECL|method|getCompletionFromBatchConsumer ()
 specifier|public
 name|Boolean
+name|getCompletionFromBatchConsumer
+parameter_list|()
+block|{
+return|return
+name|completionFromBatchConsumer
+return|;
+block|}
+DECL|method|isCompletionFromBatchConsumer ()
+specifier|public
+name|boolean
 name|isCompletionFromBatchConsumer
 parameter_list|()
 block|{
 return|return
+name|completionFromBatchConsumer
+operator|!=
+literal|null
+operator|&&
 name|completionFromBatchConsumer
 return|;
 block|}
@@ -1592,6 +1620,16 @@ name|executorService
 operator|=
 name|executorService
 expr_stmt|;
+block|}
+DECL|method|getParallelProcessing ()
+specifier|public
+name|Boolean
+name|getParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+return|;
 block|}
 DECL|method|isParallelProcessing ()
 specifier|public
@@ -1675,13 +1713,27 @@ operator|=
 name|strategyRef
 expr_stmt|;
 block|}
-DECL|method|isEagerCheckCompletion ()
+DECL|method|getEagerCheckCompletion ()
 specifier|public
 name|Boolean
+name|getEagerCheckCompletion
+parameter_list|()
+block|{
+return|return
+name|eagerCheckCompletion
+return|;
+block|}
+DECL|method|isEagerCheckCompletion ()
+specifier|public
+name|boolean
 name|isEagerCheckCompletion
 parameter_list|()
 block|{
 return|return
+name|eagerCheckCompletion
+operator|!=
+literal|null
+operator|&&
 name|eagerCheckCompletion
 return|;
 block|}
@@ -1701,13 +1753,27 @@ operator|=
 name|eagerCheckCompletion
 expr_stmt|;
 block|}
-DECL|method|isIgnoreInvalidCorrelationKeys ()
+DECL|method|getIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|Boolean
+name|getIgnoreInvalidCorrelationKeys
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidCorrelationKeys
+return|;
+block|}
+DECL|method|isIgnoreInvalidCorrelationKeys ()
+specifier|public
+name|boolean
 name|isIgnoreInvalidCorrelationKeys
 parameter_list|()
 block|{
 return|return
+name|ignoreInvalidCorrelationKeys
+operator|!=
+literal|null
+operator|&&
 name|ignoreInvalidCorrelationKeys
 return|;
 block|}
@@ -1805,13 +1871,27 @@ operator|=
 name|aggregationRepositoryRef
 expr_stmt|;
 block|}
-DECL|method|isDiscardOnCompletionTimeout ()
+DECL|method|getDiscardOnCompletionTimeout ()
 specifier|public
 name|Boolean
+name|getDiscardOnCompletionTimeout
+parameter_list|()
+block|{
+return|return
+name|discardOnCompletionTimeout
+return|;
+block|}
+DECL|method|isDiscardOnCompletionTimeout ()
+specifier|public
+name|boolean
 name|isDiscardOnCompletionTimeout
 parameter_list|()
 block|{
 return|return
+name|discardOnCompletionTimeout
+operator|!=
+literal|null
+operator|&&
 name|discardOnCompletionTimeout
 return|;
 block|}

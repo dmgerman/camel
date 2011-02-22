@@ -183,7 +183,7 @@ literal|false
 argument_list|)
 DECL|field|secureTagContents
 specifier|private
-name|boolean
+name|Boolean
 name|secureTagContents
 decl_stmt|;
 DECL|method|XMLSecurityDataFormat ()
@@ -509,22 +509,22 @@ operator|=
 name|secureTag
 expr_stmt|;
 block|}
-DECL|method|isSecureTagContents ()
+DECL|method|getSecureTagContents ()
 specifier|public
-name|boolean
-name|isSecureTagContents
+name|Boolean
+name|getSecureTagContents
 parameter_list|()
 block|{
 return|return
 name|secureTagContents
 return|;
 block|}
-DECL|method|setSecureTagContents (boolean secureTagContents)
+DECL|method|setSecureTagContents (Boolean secureTagContents)
 specifier|public
 name|void
 name|setSecureTagContents
 parameter_list|(
-name|boolean
+name|Boolean
 name|secureTagContents
 parameter_list|)
 block|{
@@ -534,6 +534,20 @@ name|secureTagContents
 operator|=
 name|secureTagContents
 expr_stmt|;
+block|}
+DECL|method|isSecureTagContents ()
+specifier|public
+name|boolean
+name|isSecureTagContents
+parameter_list|()
+block|{
+return|return
+name|secureTagContents
+operator|!=
+literal|null
+operator|&&
+name|secureTagContents
+return|;
 block|}
 block|}
 end_class

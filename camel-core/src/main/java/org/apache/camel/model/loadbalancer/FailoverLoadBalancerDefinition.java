@@ -424,9 +424,6 @@ operator|!=
 literal|null
 operator|&&
 name|roundRobin
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 DECL|method|getRoundRobin ()

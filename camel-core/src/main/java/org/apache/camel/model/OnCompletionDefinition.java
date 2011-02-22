@@ -918,23 +918,6 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
-DECL|method|isOnCompleteOnly ()
-specifier|public
-name|boolean
-name|isOnCompleteOnly
-parameter_list|()
-block|{
-return|return
-name|onCompleteOnly
-operator|!=
-literal|null
-operator|&&
-name|onCompleteOnly
-operator|.
-name|booleanValue
-argument_list|()
-return|;
-block|}
 DECL|method|getOnCompleteOnly ()
 specifier|public
 name|Boolean
@@ -961,21 +944,18 @@ operator|=
 name|onCompleteOnly
 expr_stmt|;
 block|}
-DECL|method|isOnFailureOnly ()
+DECL|method|isOnCompleteOnly ()
 specifier|public
 name|boolean
-name|isOnFailureOnly
+name|isOnCompleteOnly
 parameter_list|()
 block|{
 return|return
-name|onFailureOnly
+name|onCompleteOnly
 operator|!=
 literal|null
 operator|&&
-name|onFailureOnly
-operator|.
-name|booleanValue
-argument_list|()
+name|onCompleteOnly
 return|;
 block|}
 DECL|method|getOnFailureOnly ()
@@ -1003,6 +983,20 @@ name|onFailureOnly
 operator|=
 name|onFailureOnly
 expr_stmt|;
+block|}
+DECL|method|isOnFailureOnly ()
+specifier|public
+name|boolean
+name|isOnFailureOnly
+parameter_list|()
+block|{
+return|return
+name|onFailureOnly
+operator|!=
+literal|null
+operator|&&
+name|onFailureOnly
+return|;
 block|}
 DECL|method|getOnWhen ()
 specifier|public

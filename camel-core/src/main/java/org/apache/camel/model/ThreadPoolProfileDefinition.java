@@ -420,17 +420,13 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|isDefaultProfile ()
+DECL|method|getDefaultProfile ()
 specifier|public
 name|Boolean
-name|isDefaultProfile
+name|getDefaultProfile
 parameter_list|()
 block|{
 return|return
-name|defaultProfile
-operator|!=
-literal|null
-operator|&&
 name|defaultProfile
 return|;
 block|}
@@ -449,6 +445,20 @@ name|defaultProfile
 operator|=
 name|defaultProfile
 expr_stmt|;
+block|}
+DECL|method|isDefaultProfile ()
+specifier|public
+name|Boolean
+name|isDefaultProfile
+parameter_list|()
+block|{
+return|return
+name|defaultProfile
+operator|!=
+literal|null
+operator|&&
+name|defaultProfile
+return|;
 block|}
 DECL|method|getPoolSize ()
 specifier|public

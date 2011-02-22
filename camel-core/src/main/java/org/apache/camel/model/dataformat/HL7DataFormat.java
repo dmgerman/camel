@@ -160,13 +160,12 @@ block|{
 comment|// defaults to true if not configured
 return|return
 name|validate
-operator|==
+operator|!=
 literal|null
-operator|||
+condition|?
 name|validate
-operator|.
-name|booleanValue
-argument_list|()
+else|:
+literal|true
 return|;
 block|}
 DECL|method|getValidate ()

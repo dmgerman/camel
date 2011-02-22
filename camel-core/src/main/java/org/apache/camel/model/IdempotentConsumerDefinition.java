@@ -436,10 +436,10 @@ operator|=
 name|idempotentRepository
 expr_stmt|;
 block|}
-DECL|method|isEager ()
+DECL|method|getEager ()
 specifier|public
 name|Boolean
-name|isEager
+name|getEager
 parameter_list|()
 block|{
 return|return
@@ -461,6 +461,23 @@ name|eager
 operator|=
 name|eager
 expr_stmt|;
+block|}
+DECL|method|isEager ()
+specifier|public
+name|boolean
+name|isEager
+parameter_list|()
+block|{
+comment|// defaults to true if not configured
+return|return
+name|eager
+operator|!=
+literal|null
+condition|?
+name|eager
+else|:
+literal|true
+return|;
 block|}
 annotation|@
 name|Override
@@ -542,20 +559,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-comment|// should be eager by default
-name|boolean
-name|isEager
-init|=
-name|isEager
-argument_list|()
-operator|!=
-literal|null
-condition|?
-name|isEager
-argument_list|()
-else|:
-literal|true
-decl_stmt|;
 return|return
 operator|new
 name|IdempotentConsumer
@@ -565,6 +568,7 @@ argument_list|,
 name|idempotentRepository
 argument_list|,
 name|isEager
+argument_list|()
 argument_list|,
 name|childProcessor
 argument_list|)

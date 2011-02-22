@@ -70,20 +70,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlEnum
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -254,9 +240,6 @@ operator|!=
 literal|null
 operator|&&
 name|allowDuplicates
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 DECL|method|getAllowDuplicates ()
@@ -297,9 +280,6 @@ operator|!=
 literal|null
 operator|&&
 name|reverse
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 DECL|method|getReverse ()

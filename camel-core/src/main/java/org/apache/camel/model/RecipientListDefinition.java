@@ -926,6 +926,32 @@ operator|=
 name|delimiter
 expr_stmt|;
 block|}
+DECL|method|getParallelProcessing ()
+specifier|public
+name|Boolean
+name|getParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+return|;
+block|}
+DECL|method|setParallelProcessing (Boolean parallelProcessing)
+specifier|public
+name|void
+name|setParallelProcessing
+parameter_list|(
+name|Boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelProcessing
+operator|=
+name|parallelProcessing
+expr_stmt|;
+block|}
 DECL|method|isParallelProcessing ()
 specifier|public
 name|boolean
@@ -939,22 +965,6 @@ literal|null
 operator|&&
 name|parallelProcessing
 return|;
-block|}
-DECL|method|setParallelProcessing (boolean parallelProcessing)
-specifier|public
-name|void
-name|setParallelProcessing
-parameter_list|(
-name|boolean
-name|parallelProcessing
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parallelProcessing
-operator|=
-name|parallelProcessing
-expr_stmt|;
 block|}
 DECL|method|getStrategyRef ()
 specifier|public
@@ -1008,10 +1018,10 @@ operator|=
 name|executorServiceRef
 expr_stmt|;
 block|}
-DECL|method|isIgnoreInvalidEndpoints ()
+DECL|method|getIgnoreInvalidEndpoints ()
 specifier|public
 name|Boolean
-name|isIgnoreInvalidEndpoints
+name|getIgnoreInvalidEndpoints
 parameter_list|()
 block|{
 return|return
@@ -1034,10 +1044,24 @@ operator|=
 name|ignoreInvalidEndpoints
 expr_stmt|;
 block|}
-DECL|method|isStopOnException ()
+DECL|method|isIgnoreInvalidEndpoints ()
+specifier|public
+name|boolean
+name|isIgnoreInvalidEndpoints
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidEndpoints
+operator|!=
+literal|null
+operator|&&
+name|ignoreInvalidEndpoints
+return|;
+block|}
+DECL|method|getStopOnException ()
 specifier|public
 name|Boolean
-name|isStopOnException
+name|getStopOnException
 parameter_list|()
 block|{
 return|return
@@ -1059,6 +1083,20 @@ name|stopOnException
 operator|=
 name|stopOnException
 expr_stmt|;
+block|}
+DECL|method|isStopOnException ()
+specifier|public
+name|boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
+operator|!=
+literal|null
+operator|&&
+name|stopOnException
+return|;
 block|}
 DECL|method|getAggregationStrategy ()
 specifier|public
@@ -1112,12 +1150,22 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
-DECL|method|setStreaming (boolean streaming)
+DECL|method|getStreaming ()
+specifier|public
+name|Boolean
+name|getStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+return|;
+block|}
+DECL|method|setStreaming (Boolean streaming)
 specifier|public
 name|void
 name|setStreaming
 parameter_list|(
-name|boolean
+name|Boolean
 name|streaming
 parameter_list|)
 block|{
@@ -1138,10 +1186,8 @@ return|return
 name|streaming
 operator|!=
 literal|null
-condition|?
+operator|&&
 name|streaming
-else|:
-literal|false
 return|;
 block|}
 DECL|method|getTimeout ()

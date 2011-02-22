@@ -685,6 +685,32 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|getParallelProcessing ()
+specifier|public
+name|Boolean
+name|getParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+return|;
+block|}
+DECL|method|setParallelProcessing (Boolean parallelProcessing)
+specifier|public
+name|void
+name|setParallelProcessing
+parameter_list|(
+name|Boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelProcessing
+operator|=
+name|parallelProcessing
+expr_stmt|;
+block|}
 DECL|method|isParallelProcessing ()
 specifier|public
 name|boolean
@@ -695,26 +721,34 @@ return|return
 name|parallelProcessing
 operator|!=
 literal|null
-condition|?
+operator|&&
 name|parallelProcessing
-else|:
-literal|false
 return|;
 block|}
-DECL|method|setParallelProcessing (boolean parallelProcessing)
+DECL|method|getStreaming ()
+specifier|public
+name|Boolean
+name|getStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+return|;
+block|}
+DECL|method|setStreaming (Boolean streaming)
 specifier|public
 name|void
-name|setParallelProcessing
+name|setStreaming
 parameter_list|(
-name|boolean
-name|parallelProcessing
+name|Boolean
+name|streaming
 parameter_list|)
 block|{
 name|this
 operator|.
-name|parallelProcessing
+name|streaming
 operator|=
-name|parallelProcessing
+name|streaming
 expr_stmt|;
 block|}
 DECL|method|isStreaming ()
@@ -727,42 +761,18 @@ return|return
 name|streaming
 operator|!=
 literal|null
-condition|?
+operator|&&
 name|streaming
-else|:
-literal|false
 return|;
 block|}
-DECL|method|setStreaming (boolean streaming)
-specifier|public
-name|void
-name|setStreaming
-parameter_list|(
-name|boolean
-name|streaming
-parameter_list|)
-block|{
-name|this
-operator|.
-name|streaming
-operator|=
-name|streaming
-expr_stmt|;
-block|}
-DECL|method|isStopOnException ()
+DECL|method|getStopOnException ()
 specifier|public
 name|Boolean
-name|isStopOnException
+name|getStopOnException
 parameter_list|()
 block|{
 return|return
 name|stopOnException
-operator|!=
-literal|null
-condition|?
-name|stopOnException
-else|:
-literal|false
 return|;
 block|}
 DECL|method|setStopOnException (Boolean stopOnException)
@@ -780,6 +790,20 @@ name|stopOnException
 operator|=
 name|stopOnException
 expr_stmt|;
+block|}
+DECL|method|isStopOnException ()
+specifier|public
+name|Boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
+operator|!=
+literal|null
+operator|&&
+name|stopOnException
+return|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public

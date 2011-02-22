@@ -682,7 +682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables streaming.       * See {@link SplitDefinition#setStreaming(boolean)} for more information      *      * @return the builder      */
+comment|/**      * Enables streaming.       * See {@link org.apache.camel.model.SplitDefinition#isStreaming()} for more information      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
 name|SplitDefinition
@@ -797,28 +797,22 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
-DECL|method|isParallelProcessing ()
+DECL|method|getParallelProcessing ()
 specifier|public
-name|boolean
-name|isParallelProcessing
+name|Boolean
+name|getParallelProcessing
 parameter_list|()
 block|{
 return|return
 name|parallelProcessing
-operator|!=
-literal|null
-condition|?
-name|parallelProcessing
-else|:
-literal|false
 return|;
 block|}
-DECL|method|setParallelProcessing (boolean parallelProcessing)
+DECL|method|setParallelProcessing (Boolean parallelProcessing)
 specifier|public
 name|void
 name|setParallelProcessing
 parameter_list|(
-name|boolean
+name|Boolean
 name|parallelProcessing
 parameter_list|)
 block|{
@@ -829,21 +823,18 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
-comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link org.apache.camel.Exchange#SPLIT_SIZE} header property      *       * @return whether or not streaming should be used      */
-DECL|method|isStreaming ()
+DECL|method|isParallelProcessing ()
 specifier|public
 name|boolean
-name|isStreaming
+name|isParallelProcessing
 parameter_list|()
 block|{
 return|return
-name|streaming
+name|parallelProcessing
 operator|!=
 literal|null
-condition|?
-name|streaming
-else|:
-literal|false
+operator|&&
+name|parallelProcessing
 return|;
 block|}
 DECL|method|getStreaming ()
@@ -872,20 +863,29 @@ operator|=
 name|streaming
 expr_stmt|;
 block|}
-DECL|method|isStopOnException ()
+comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:      * - the sent exchanges will no longer contain the {@link org.apache.camel.Exchange#SPLIT_SIZE} header property      *      * @return whether or not streaming should be used      */
+DECL|method|isStreaming ()
+specifier|public
+name|boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+operator|!=
+literal|null
+operator|&&
+name|streaming
+return|;
+block|}
+DECL|method|getStopOnException ()
 specifier|public
 name|Boolean
-name|isStopOnException
+name|getStopOnException
 parameter_list|()
 block|{
 return|return
 name|stopOnException
-operator|!=
-literal|null
-condition|?
-name|stopOnException
-else|:
-literal|false
 return|;
 block|}
 DECL|method|setStopOnException (Boolean stopOnException)
@@ -903,6 +903,20 @@ name|stopOnException
 operator|=
 name|stopOnException
 expr_stmt|;
+block|}
+DECL|method|isStopOnException ()
+specifier|public
+name|Boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|stopOnException
+operator|!=
+literal|null
+operator|&&
+name|stopOnException
+return|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public

@@ -396,25 +396,6 @@ argument_list|,
 name|executorService
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|isCopy
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-comment|// should default be true
-name|answer
-operator|.
-name|setCopy
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|answer
 operator|.
 name|setCopy
@@ -423,7 +404,6 @@ name|isCopy
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|newExchangeProcessorRef
@@ -705,10 +685,10 @@ operator|=
 name|executorServiceRef
 expr_stmt|;
 block|}
-DECL|method|isCopy ()
+DECL|method|getCopy ()
 specifier|public
 name|Boolean
-name|isCopy
+name|getCopy
 parameter_list|()
 block|{
 return|return
@@ -730,6 +710,23 @@ name|copy
 operator|=
 name|copy
 expr_stmt|;
+block|}
+DECL|method|isCopy ()
+specifier|public
+name|boolean
+name|isCopy
+parameter_list|()
+block|{
+comment|// should default to true if not configured
+return|return
+name|copy
+operator|!=
+literal|null
+condition|?
+name|copy
+else|:
+literal|true
+return|;
 block|}
 block|}
 end_class

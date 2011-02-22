@@ -268,22 +268,10 @@ block|{
 comment|// validate that only either mark rollbacks is chosen and not both
 if|if
 condition|(
-name|markRollbackOnly
-operator|!=
-literal|null
-operator|&&
-name|markRollbackOnly
-operator|.
-name|booleanValue
+name|isMarkRollbackOnly
 argument_list|()
 operator|&&
-name|markRollbackOnlyLast
-operator|!=
-literal|null
-operator|&&
-name|markRollbackOnlyLast
-operator|.
-name|booleanValue
+name|isMarkRollbackOnlyLast
 argument_list|()
 condition|)
 block|{
@@ -308,26 +296,16 @@ name|answer
 operator|.
 name|setMarkRollbackOnly
 argument_list|(
-name|markRollbackOnly
-operator|!=
-literal|null
-condition|?
-name|markRollbackOnly
-else|:
-literal|false
+name|isMarkRollbackOnly
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|answer
 operator|.
 name|setMarkRollbackOnlyLast
 argument_list|(
-name|markRollbackOnlyLast
-operator|!=
-literal|null
-condition|?
-name|markRollbackOnlyLast
-else|:
-literal|false
+name|isMarkRollbackOnlyLast
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -356,10 +334,10 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-DECL|method|isMarkRollbackOnly ()
+DECL|method|getMarkRollbackOnly ()
 specifier|public
 name|Boolean
-name|isMarkRollbackOnly
+name|getMarkRollbackOnly
 parameter_list|()
 block|{
 return|return
@@ -382,10 +360,24 @@ operator|=
 name|markRollbackOnly
 expr_stmt|;
 block|}
-DECL|method|isMarkRollbackOnlyLast ()
+DECL|method|isMarkRollbackOnly ()
+specifier|public
+name|boolean
+name|isMarkRollbackOnly
+parameter_list|()
+block|{
+return|return
+name|markRollbackOnly
+operator|!=
+literal|null
+operator|&&
+name|markRollbackOnly
+return|;
+block|}
+DECL|method|getMarkRollbackOnlyLast ()
 specifier|public
 name|Boolean
-name|isMarkRollbackOnlyLast
+name|getMarkRollbackOnlyLast
 parameter_list|()
 block|{
 return|return
@@ -407,6 +399,20 @@ name|markRollbackOnlyLast
 operator|=
 name|markRollbackOnlyLast
 expr_stmt|;
+block|}
+DECL|method|isMarkRollbackOnlyLast ()
+specifier|public
+name|boolean
+name|isMarkRollbackOnlyLast
+parameter_list|()
+block|{
+return|return
+name|markRollbackOnlyLast
+operator|!=
+literal|null
+operator|&&
+name|markRollbackOnlyLast
+return|;
 block|}
 block|}
 end_class
