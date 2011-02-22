@@ -106,7 +106,7 @@ throws|throws
 name|Exception
 block|{
 comment|// replace all gold id's with the following route path
-name|adviceById
+name|weaveById
 argument_list|(
 literal|"gold*"
 argument_list|)

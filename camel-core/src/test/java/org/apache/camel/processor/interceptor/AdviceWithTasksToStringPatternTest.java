@@ -107,7 +107,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|adviceByToString
+name|weaveByToString
 argument_list|(
 literal|"xxx"
 argument_list|)
@@ -192,9 +192,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// advice nodes in the route which has foo anywhere in their to string representation
+comment|// weave nodes in the route which has foo anywhere in their to string representation
 comment|// and replace them with the following route path
-name|adviceByToString
+name|weaveByToString
 argument_list|(
 literal|".*foo.*"
 argument_list|)
@@ -318,7 +318,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|adviceByToString
+name|weaveByToString
 argument_list|(
 literal|".*bar.*"
 argument_list|)
@@ -412,7 +412,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|adviceByToString
+name|weaveByToString
 argument_list|(
 literal|".*bar.*"
 argument_list|)
@@ -525,7 +525,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|adviceByToString
+name|weaveByToString
 argument_list|(
 literal|".*bar.*"
 argument_list|)

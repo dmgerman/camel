@@ -217,11 +217,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Advices by matching id of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
-DECL|method|adviceById (String pattern)
+comment|/**      * Weaves by matching id of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+DECL|method|weaveById (String pattern)
 specifier|public
 name|AdviceWithBuilder
-name|adviceById
+name|weaveById
 parameter_list|(
 name|String
 name|pattern
@@ -250,11 +250,11 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Advices by matching the to string representation of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
-DECL|method|adviceByToString (String pattern)
+comment|/**      * Weaves by matching the to string representation of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+DECL|method|weaveByToString (String pattern)
 specifier|public
 name|AdviceWithBuilder
-name|adviceByToString
+name|weaveByToString
 parameter_list|(
 name|String
 name|pattern

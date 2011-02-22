@@ -107,7 +107,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|adviceById
+name|weaveById
 argument_list|(
 literal|"xxx"
 argument_list|)
@@ -192,9 +192,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// advice the node in the route which has id = bar
+comment|// weave the node in the route which has id = bar
 comment|// and replace it with the following route path
-name|adviceById
+name|weaveById
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -319,8 +319,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// advice the node in the route which has id = bar and remove it
-name|adviceById
+comment|// weave the node in the route which has id = bar and remove it
+name|weaveById
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -416,9 +416,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// advice the node in the route which has id = bar
+comment|// weave the node in the route which has id = bar
 comment|// and insert the following route path before the adviced node
-name|adviceById
+name|weaveById
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -533,9 +533,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// advice the node in the route which has id = bar
+comment|// weave the node in the route which has id = bar
 comment|// and insert the following route path after the advice node
-name|adviceById
+name|weaveById
 argument_list|(
 literal|"bar"
 argument_list|)
