@@ -34,6 +34,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Converter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xbill
 operator|.
 name|DNS
@@ -143,16 +155,27 @@ comment|/**  * More converters for all the DNS objects used by the DNS component
 end_comment
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|DnsRecordConverter
 specifier|public
+specifier|final
 class|class
 name|DnsRecordConverter
 block|{
-comment|/**      * @param ip, like "192.168.1.1"      * @return the complete DNS record for that IP.      * @throws IOException      */
-DECL|method|convert (String ip)
+DECL|method|DnsRecordConverter ()
+specifier|private
+name|DnsRecordConverter
+parameter_list|()
+block|{     }
+comment|/**      * @param ip, like "192.168.1.1"      * @return the complete DNS record for that IP.      */
+annotation|@
+name|Converter
+DECL|method|toRecord (String ip)
 specifier|public
+specifier|static
 name|Record
-name|convert
+name|toRecord
 parameter_list|(
 name|String
 name|ip

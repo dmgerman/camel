@@ -117,16 +117,22 @@ annotation|@
 name|Converter
 DECL|class|DnsConverter
 specifier|public
+specifier|final
 class|class
 name|DnsConverter
 block|{
-comment|/**      * @param record      * @return the String representation of a record.      */
+DECL|method|DnsConverter ()
+specifier|private
+name|DnsConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
-DECL|method|convert (Record record)
+DECL|method|toString (Record record)
 specifier|public
+specifier|static
 name|String
-name|convert
+name|toString
 parameter_list|(
 name|Record
 name|record
@@ -139,16 +145,16 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @param records      * @return the String representation of a record.      */
 annotation|@
 name|Converter
-DECL|method|convert (Record[] records)
+DECL|method|toList (Record[] records)
 specifier|public
+specifier|static
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|convert
+name|toList
 parameter_list|(
 name|Record
 index|[]
@@ -180,7 +186,7 @@ name|list
 operator|.
 name|add
 argument_list|(
-name|convert
+name|toString
 argument_list|(
 name|rec
 argument_list|)
@@ -191,13 +197,13 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * @param message      * @return the String representation of a message.      */
 annotation|@
 name|Converter
-DECL|method|convert (Message message)
+DECL|method|toString (Message message)
 specifier|public
+specifier|static
 name|String
-name|convert
+name|toString
 parameter_list|(
 name|Message
 name|message
@@ -210,13 +216,13 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @param address a DNS address      * @return its String representation.      */
 annotation|@
 name|Converter
-DECL|method|convert (Address address)
+DECL|method|toString (Address address)
 specifier|public
+specifier|static
 name|String
-name|convert
+name|toString
 parameter_list|(
 name|Address
 name|address
@@ -229,13 +235,13 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @param address      * @return the host name of the address.      */
 annotation|@
 name|Converter
-DECL|method|convert (InetAddress address)
+DECL|method|toString (InetAddress address)
 specifier|public
+specifier|static
 name|String
-name|convert
+name|toString
 parameter_list|(
 name|InetAddress
 name|address
@@ -248,13 +254,13 @@ name|getHostAddress
 argument_list|()
 return|;
 block|}
-comment|/**      * @param domain      * @return the InetAddress object for a given domain.      * @throws UnknownHostException      */
 annotation|@
 name|Converter
-DECL|method|convert (String domain)
+DECL|method|toInetAddress (String domain)
 specifier|public
+specifier|static
 name|InetAddress
-name|convert
+name|toInetAddress
 parameter_list|(
 name|String
 name|domain
@@ -267,9 +273,6 @@ name|Address
 operator|.
 name|getByName
 argument_list|(
-operator|(
-name|String
-operator|)
 name|domain
 argument_list|)
 return|;

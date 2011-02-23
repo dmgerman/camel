@@ -108,8 +108,7 @@ name|this
 argument_list|)
 return|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|DnsConstants
@@ -130,8 +129,7 @@ name|this
 argument_list|)
 return|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|DnsConstants
@@ -152,8 +150,7 @@ name|this
 argument_list|)
 return|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|DnsConstants
@@ -182,12 +179,9 @@ name|IllegalArgumentException
 argument_list|(
 name|uri
 operator|+
-literal|"is unsupported by the DNS component"
+literal|" is unsupported by the DNS component"
 argument_list|)
 throw|;
-block|}
-block|}
-block|}
 block|}
 block|}
 block|}

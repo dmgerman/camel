@@ -78,6 +78,15 @@ name|DNS_NAME
 init|=
 literal|"dns.name"
 decl_stmt|;
+DECL|field|DNS_DOMAIN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DNS_DOMAIN
+init|=
+literal|"dns.domain"
+decl_stmt|;
 DECL|field|DNS_SERVER
 specifier|public
 specifier|static
