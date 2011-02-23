@@ -157,7 +157,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"tcp://localhost:61618"
+literal|"vm://broker8"
 argument_list|)
 decl_stmt|;
 name|answer
