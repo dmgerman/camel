@@ -162,7 +162,7 @@ specifier|public
 class|class
 name|SetExchangePatternDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|SetExchangePatternDefinition
 argument_list|>

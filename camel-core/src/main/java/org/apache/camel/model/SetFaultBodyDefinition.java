@@ -104,20 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|SetBodyProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -148,7 +134,7 @@ specifier|public
 class|class
 name|SetFaultBodyDefinition
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|method|SetFaultBodyDefinition ()
 specifier|public

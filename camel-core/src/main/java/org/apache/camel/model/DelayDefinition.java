@@ -253,6 +253,7 @@ argument_list|<
 name|DelayDefinition
 argument_list|>
 block|{
+comment|// TODO: Camel 3.0 Should extend NoOutputExpressionNode
 annotation|@
 name|XmlTransient
 DECL|field|executorService

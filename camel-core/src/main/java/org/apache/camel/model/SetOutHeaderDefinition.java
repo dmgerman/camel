@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|SetOutHeaderDefinition
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 block|{
 annotation|@
 name|XmlAttribute

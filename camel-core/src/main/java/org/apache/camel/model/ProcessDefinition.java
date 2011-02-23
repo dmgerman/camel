@@ -190,7 +190,7 @@ specifier|public
 class|class
 name|ProcessDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|ProcessDefinition
 argument_list|>

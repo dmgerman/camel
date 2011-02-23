@@ -293,7 +293,6 @@ argument_list|<
 name|ResequenceDefinition
 argument_list|>
 block|{
-comment|// TODO: extend OutputDefinition, and use propOrder to control the ordering if possible
 annotation|@
 name|XmlElement
 argument_list|(
@@ -367,8 +366,6 @@ return|return
 literal|"resequence"
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -380,6 +377,37 @@ parameter_list|()
 block|{
 return|return
 name|outputs
+return|;
+block|}
+DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+specifier|public
+name|void
+name|setOutputs
+parameter_list|(
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|outputs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputs
+operator|=
+name|outputs
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 comment|// Fluent API

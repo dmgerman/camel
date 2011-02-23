@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|RemoveHeaderDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|RemoveHeaderDefinition
 argument_list|>

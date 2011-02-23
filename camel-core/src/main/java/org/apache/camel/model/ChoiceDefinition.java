@@ -681,6 +681,16 @@ argument_list|()
 return|;
 block|}
 block|}
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getOtherwise ()
 specifier|public
 name|OtherwiseDefinition

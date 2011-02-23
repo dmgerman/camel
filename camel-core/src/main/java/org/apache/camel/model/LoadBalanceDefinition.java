@@ -710,6 +710,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String

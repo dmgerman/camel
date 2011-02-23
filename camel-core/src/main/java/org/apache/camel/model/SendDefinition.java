@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -210,7 +190,7 @@ name|Type
 parameter_list|>
 parameter_list|>
 extends|extends
-name|ProcessorDefinition
+name|NoOutputDefinition
 argument_list|<
 name|Type
 argument_list|>
@@ -425,22 +405,6 @@ parameter_list|()
 block|{
 return|return
 literal|null
-return|;
-block|}
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns the endpoint URI or the name of the reference to it      */

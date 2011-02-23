@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|EnrichDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|EnrichDefinition
 argument_list|>

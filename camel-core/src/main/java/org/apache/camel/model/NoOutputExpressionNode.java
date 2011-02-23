@@ -198,6 +198,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|addOutput (ProcessorDefinition output)
 specifier|public
 name|void

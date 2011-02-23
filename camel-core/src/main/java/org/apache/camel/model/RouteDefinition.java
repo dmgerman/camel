@@ -1824,6 +1824,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *<p/>      * May be null.      */
 DECL|method|getGroup ()
 specifier|public

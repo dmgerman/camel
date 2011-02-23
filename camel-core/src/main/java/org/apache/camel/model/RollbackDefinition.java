@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -156,7 +136,7 @@ specifier|public
 class|class
 name|RollbackDefinition
 extends|extends
-name|ProcessorDefinition
+name|NoOutputDefinition
 argument_list|<
 name|RollbackDefinition
 argument_list|>
@@ -310,28 +290,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
-return|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
 return|;
 block|}
 DECL|method|getMarkRollbackOnly ()

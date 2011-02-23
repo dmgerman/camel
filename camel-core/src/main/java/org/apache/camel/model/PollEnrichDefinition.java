@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|PollEnrichDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|PollEnrichDefinition
 argument_list|>

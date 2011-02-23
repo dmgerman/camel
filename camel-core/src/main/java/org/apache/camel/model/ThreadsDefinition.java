@@ -304,6 +304,7 @@ argument_list|<
 name|ThreadsDefinition
 argument_list|>
 block|{
+comment|// TODO: Camel 3.0 Should extend NoOutputDefinition
 annotation|@
 name|XmlTransient
 DECL|field|executorService

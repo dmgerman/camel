@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|RemovePropertyDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|RemovePropertyDefinition
 argument_list|>

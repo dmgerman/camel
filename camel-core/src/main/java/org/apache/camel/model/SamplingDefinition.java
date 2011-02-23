@@ -186,6 +186,7 @@ name|SamplingDefinition
 argument_list|>
 block|{
 comment|// use Long to let it be optional in JAXB so when using XML the default is 1 second
+comment|// TODO: Camel 3.0 Should extend NoOutputDefinition
 annotation|@
 name|XmlAttribute
 DECL|field|samplePeriod
