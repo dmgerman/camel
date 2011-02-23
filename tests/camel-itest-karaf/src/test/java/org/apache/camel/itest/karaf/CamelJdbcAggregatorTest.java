@@ -101,6 +101,7 @@ name|CamelJdbcAggregatorTest
 extends|extends
 name|AbstractFeatureTest
 block|{
+comment|// the aggregator is included in the camel-sql artifact
 DECL|field|COMPONENT
 specifier|public
 specifier|static
@@ -108,12 +109,7 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-name|extractName
-argument_list|(
-name|CamelJdbcAggregatorTest
-operator|.
-name|class
-argument_list|)
+literal|"sql"
 decl_stmt|;
 annotation|@
 name|Test
