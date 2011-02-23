@@ -126,8 +126,6 @@ name|org
 operator|.
 name|restlet
 operator|.
-name|data
-operator|.
 name|Request
 import|;
 end_import
@@ -137,8 +135,6 @@ import|import
 name|org
 operator|.
 name|restlet
-operator|.
-name|data
 operator|.
 name|Response
 import|;
