@@ -202,7 +202,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|sortBody
+name|sort
+argument_list|()
+operator|.
+name|body
 argument_list|()
 operator|.
 name|to

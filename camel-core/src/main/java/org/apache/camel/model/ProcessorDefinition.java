@@ -7622,50 +7622,21 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sorts the IN message body using the given comparator.      * The IN body mut be convertable to {@link List}.      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|sortBody (Comparator comparator)
+comment|/**      * Sorts the expression using a default sorting based on toString representation.      *      * @param expression  the expression, must be convertable to {@link List}      * @return the builder      */
+DECL|method|sort (Expression expression)
 specifier|public
 name|Type
-name|sortBody
+name|sort
 parameter_list|(
-name|Comparator
-name|comparator
+name|Expression
+name|expression
 parameter_list|)
 block|{
-name|addOutput
+return|return
+name|sort
 argument_list|(
-operator|new
-name|SortDefinition
-argument_list|(
-name|body
-argument_list|()
+name|expression
 argument_list|,
-name|comparator
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
-comment|/**      * Sorts the IN message body using a default sorting based on toString representation.      * The IN body mut be convertable to {@link List}.      *      * @return the builder      */
-DECL|method|sortBody ()
-specifier|public
-name|Type
-name|sortBody
-parameter_list|()
-block|{
-return|return
-name|sortBody
-argument_list|(
 literal|null
 argument_list|)
 return|;
@@ -7706,22 +7677,34 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sorts the expression using a default sorting based on toString representation.       *      * @param expression  the expression, must be convertable to {@link List}      * @return the builder      */
-DECL|method|sort (Expression expression)
+comment|/**      * Sorts the expression      *      * @return the builder      */
+DECL|method|sort ()
 specifier|public
-name|Type
+name|ExpressionClause
+argument_list|<
+name|SortDefinition
+argument_list|>
 name|sort
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
+parameter_list|()
 block|{
-return|return
-name|sort
+name|SortDefinition
+name|answer
+init|=
+operator|new
+name|SortDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
 argument_list|(
-name|expression
-argument_list|,
-literal|null
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
 argument_list|)
 return|;
 block|}
