@@ -169,16 +169,16 @@ name|packages
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|locale
 specifier|private
 name|String
 name|locale
 decl_stmt|;
+DECL|method|BindyDataFormat ()
+specifier|public
+name|BindyDataFormat
+parameter_list|()
+block|{     }
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -210,6 +210,22 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+block|}
+DECL|method|setLocale (String locale)
+specifier|public
+name|void
+name|setLocale
+parameter_list|(
+name|String
+name|locale
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
 expr_stmt|;
 block|}
 DECL|method|createDataFormat (RouteContext routeContext)

@@ -116,11 +116,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|prettyPrint
 specifier|private
 name|Boolean

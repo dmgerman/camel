@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a wellformed HTML document (XML well Formed) {@link DataFormat}  *  */
+comment|/**  * Represents a wellformed HTML document (XML well Formed) {@link DataFormat}  */
 end_comment
 
 begin_class
@@ -142,11 +142,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|dataObjectType
 specifier|private
 name|Class

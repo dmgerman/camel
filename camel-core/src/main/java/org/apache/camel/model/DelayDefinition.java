@@ -263,11 +263,6 @@ name|executorService
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|executorServiceRef
 specifier|private
 name|String

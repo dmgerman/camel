@@ -197,11 +197,6 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|uri
 specifier|protected
 name|String
@@ -209,11 +204,6 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|ref
 specifier|protected
 name|String

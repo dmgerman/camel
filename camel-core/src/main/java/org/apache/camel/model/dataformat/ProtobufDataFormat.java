@@ -158,11 +158,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|instanceClass
 specifier|private
 name|String

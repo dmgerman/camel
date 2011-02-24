@@ -28,6 +28,34 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -88,6 +116,13 @@ name|name
 operator|=
 literal|"roundRobin"
 argument_list|)
+annotation|@
+name|XmlAccessorType
+argument_list|(
+name|XmlAccessType
+operator|.
+name|FIELD
+argument_list|)
 DECL|class|RoundRobinLoadBalancerDefinition
 specifier|public
 class|class
@@ -95,6 +130,11 @@ name|RoundRobinLoadBalancerDefinition
 extends|extends
 name|LoadBalancerDefinition
 block|{
+DECL|method|RoundRobinLoadBalancerDefinition ()
+specifier|public
+name|RoundRobinLoadBalancerDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|createLoadBalancer (RouteContext routeContext)

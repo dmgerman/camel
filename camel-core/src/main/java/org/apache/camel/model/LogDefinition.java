@@ -192,6 +192,11 @@ name|NoOutputDefinition
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|message
 specifier|private
 name|String

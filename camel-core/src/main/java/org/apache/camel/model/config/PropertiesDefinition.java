@@ -134,10 +134,6 @@ argument_list|(
 name|name
 operator|=
 literal|"property"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|properties
 specifier|private

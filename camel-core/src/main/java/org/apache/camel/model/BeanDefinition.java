@@ -249,11 +249,6 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|ref
 specifier|private
 name|String
@@ -261,11 +256,6 @@ name|ref
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|method
 specifier|private
 name|String
@@ -273,11 +263,6 @@ name|method
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|beanType
 specifier|private
 name|Class

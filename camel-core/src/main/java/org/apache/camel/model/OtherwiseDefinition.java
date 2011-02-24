@@ -139,6 +139,11 @@ argument_list|>
 implements|implements
 name|Block
 block|{
+DECL|method|OtherwiseDefinition ()
+specifier|public
+name|OtherwiseDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()

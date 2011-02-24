@@ -236,11 +236,6 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|skipSendToOriginalEndpoint
 specifier|private
 name|Boolean

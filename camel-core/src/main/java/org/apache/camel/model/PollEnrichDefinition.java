@@ -223,11 +223,6 @@ name|resourceRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"timeout"
-argument_list|)
 DECL|field|timeout
 specifier|private
 name|Long

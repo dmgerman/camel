@@ -232,11 +232,6 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|parallelProcessing
 specifier|private
 name|Boolean
@@ -244,11 +239,6 @@ name|parallelProcessing
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|strategyRef
 specifier|private
 name|String
@@ -263,11 +253,6 @@ name|executorService
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|executorServiceRef
 specifier|private
 name|String
@@ -275,11 +260,6 @@ name|executorServiceRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|streaming
 specifier|private
 name|Boolean
@@ -287,11 +267,6 @@ name|streaming
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|stopOnException
 specifier|private
 name|Boolean
@@ -299,11 +274,6 @@ name|stopOnException
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|timeout
 specifier|private
 name|Long
@@ -316,6 +286,11 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
+DECL|method|MulticastDefinition ()
+specifier|public
+name|MulticastDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()

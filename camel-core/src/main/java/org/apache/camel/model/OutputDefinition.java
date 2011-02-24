@@ -113,6 +113,7 @@ name|FIELD
 argument_list|)
 DECL|class|OutputDefinition
 specifier|public
+specifier|abstract
 class|class
 name|OutputDefinition
 parameter_list|<

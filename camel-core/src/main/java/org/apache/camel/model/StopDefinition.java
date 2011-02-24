@@ -127,6 +127,11 @@ argument_list|<
 name|StopDefinition
 argument_list|>
 block|{
+DECL|method|StopDefinition ()
+specifier|public
+name|StopDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|getShortName ()

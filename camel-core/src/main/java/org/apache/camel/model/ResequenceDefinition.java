@@ -299,10 +299,6 @@ argument_list|(
 name|name
 operator|=
 literal|"batch-config"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|batchConfig
 specifier|private
@@ -315,10 +311,6 @@ argument_list|(
 name|name
 operator|=
 literal|"stream-config"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|streamConfig
 specifier|private

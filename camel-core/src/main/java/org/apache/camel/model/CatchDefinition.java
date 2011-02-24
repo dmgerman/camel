@@ -313,10 +313,6 @@ argument_list|(
 name|name
 operator|=
 literal|"onWhen"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|onWhen
 specifier|private
@@ -329,10 +325,6 @@ argument_list|(
 name|name
 operator|=
 literal|"handled"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|handled
 specifier|private

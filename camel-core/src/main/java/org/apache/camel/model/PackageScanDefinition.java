@@ -144,15 +144,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"excludes"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|excludes
 specifier|private
 name|List
@@ -170,15 +161,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"includes"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|includes
 specifier|private
 name|List
@@ -194,6 +176,11 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|PackageScanDefinition ()
+specifier|public
+name|PackageScanDefinition
+parameter_list|()
+block|{     }
 DECL|method|getExcludes ()
 specifier|public
 name|List

@@ -165,11 +165,6 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|beforeUri
 specifier|private
 name|String
@@ -177,11 +172,6 @@ name|beforeUri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|afterUri
 specifier|private
 name|String
@@ -189,11 +179,6 @@ name|afterUri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|afterFinallyUri
 specifier|private
 name|String

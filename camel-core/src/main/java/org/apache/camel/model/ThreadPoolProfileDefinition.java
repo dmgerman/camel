@@ -184,7 +184,6 @@ name|ThreadPoolProfile
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|defaultProfile
 specifier|private
 name|Boolean
@@ -192,7 +191,6 @@ name|defaultProfile
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|poolSize
 specifier|private
 name|Integer
@@ -200,7 +198,6 @@ name|poolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|maxPoolSize
 specifier|private
 name|Integer
@@ -208,7 +205,6 @@ name|maxPoolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|keepAliveTime
 specifier|private
 name|Long
@@ -228,7 +224,6 @@ name|timeUnit
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|maxQueueSize
 specifier|private
 name|Integer
@@ -236,7 +231,6 @@ name|maxQueueSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|()
 DECL|field|rejectedPolicy
 specifier|private
 name|ThreadPoolRejectedPolicy

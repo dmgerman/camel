@@ -258,16 +258,16 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|otherwise
 specifier|private
 name|OtherwiseDefinition
 name|otherwise
 decl_stmt|;
+DECL|method|ChoiceDefinition ()
+specifier|public
+name|ChoiceDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()

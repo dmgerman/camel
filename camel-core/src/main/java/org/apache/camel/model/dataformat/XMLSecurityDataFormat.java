@@ -140,11 +140,6 @@ literal|"http://www.w3.org/2001/04/xmlenc#tripledes-cbc"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|xmlCipherAlgorithm
 specifier|private
 name|String
@@ -152,11 +147,6 @@ name|xmlCipherAlgorithm
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|passPhrase
 specifier|private
 name|String
@@ -164,11 +154,6 @@ name|passPhrase
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|secureTag
 specifier|private
 name|String
@@ -176,11 +161,6 @@ name|secureTag
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|secureTagContents
 specifier|private
 name|Boolean

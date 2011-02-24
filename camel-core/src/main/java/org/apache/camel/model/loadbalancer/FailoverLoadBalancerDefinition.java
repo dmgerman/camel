@@ -230,6 +230,11 @@ specifier|private
 name|Integer
 name|maximumFailoverAttempts
 decl_stmt|;
+DECL|method|FailoverLoadBalancerDefinition ()
+specifier|public
+name|FailoverLoadBalancerDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|createLoadBalancer (RouteContext routeContext)

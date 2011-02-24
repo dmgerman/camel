@@ -156,19 +156,10 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|compressionLevel
 specifier|private
-name|int
+name|Integer
 name|compressionLevel
-init|=
-name|Deflater
-operator|.
-name|BEST_SPEED
 decl_stmt|;
 DECL|method|ZipDataFormat ()
 specifier|public
@@ -201,6 +192,33 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|compressionLevel
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ZipDataFormat
+argument_list|(
+name|Deflater
+operator|.
+name|DEFAULT_COMPRESSION
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 operator|new
 name|org
@@ -217,9 +235,10 @@ name|compressionLevel
 argument_list|)
 return|;
 block|}
+block|}
 DECL|method|getCompressionLevel ()
 specifier|public
-name|int
+name|Integer
 name|getCompressionLevel
 parameter_list|()
 block|{
@@ -227,12 +246,12 @@ return|return
 name|compressionLevel
 return|;
 block|}
-DECL|method|setCompressionLevel (int compressionLevel)
+DECL|method|setCompressionLevel (Integer compressionLevel)
 specifier|public
 name|void
 name|setCompressionLevel
 parameter_list|(
-name|int
+name|Integer
 name|compressionLevel
 parameter_list|)
 block|{

@@ -195,11 +195,6 @@ parameter_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
@@ -223,11 +218,6 @@ name|customId
 decl_stmt|;
 annotation|@
 name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|description
 specifier|private
 name|DescriptionDefinition

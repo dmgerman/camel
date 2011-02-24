@@ -227,10 +227,6 @@ argument_list|(
 name|name
 operator|=
 literal|"strategyRef"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|aggregationStrategyRef
 specifier|private

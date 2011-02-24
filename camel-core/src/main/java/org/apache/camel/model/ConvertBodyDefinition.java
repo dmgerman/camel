@@ -197,6 +197,11 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|type
 specifier|private
 name|String
@@ -204,11 +209,6 @@ name|type
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|charset
 specifier|private
 name|String

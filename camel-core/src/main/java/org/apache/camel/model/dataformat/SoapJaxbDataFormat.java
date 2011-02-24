@@ -80,9 +80,11 @@ name|javax
 operator|.
 name|xml
 operator|.
-name|namespace
+name|bind
 operator|.
-name|QName
+name|annotation
+operator|.
+name|XmlTransient
 import|;
 end_import
 
@@ -114,20 +116,6 @@ name|DataFormat
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_class
 annotation|@
 name|XmlRootElement
@@ -155,7 +143,7 @@ name|XmlAttribute
 argument_list|(
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|)
 DECL|field|contextPath
 specifier|private
@@ -164,11 +152,6 @@ name|contextPath
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|encoding
 specifier|private
 name|String
@@ -176,16 +159,13 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|elementNameStrategyRef
 specifier|private
 name|String
 name|elementNameStrategyRef
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|elementNameStrategy
 specifier|private
 name|Object

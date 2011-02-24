@@ -159,7 +159,7 @@ name|XmlAttribute
 argument_list|(
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|)
 DECL|field|contextPath
 specifier|private
@@ -168,11 +168,6 @@ name|contextPath
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
@@ -180,11 +175,6 @@ name|prettyPrint
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|ignoreJAXBElement
 specifier|private
 name|Boolean
@@ -192,11 +182,6 @@ name|ignoreJAXBElement
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|filterNonXmlChars
 specifier|private
 name|Boolean
@@ -204,11 +189,6 @@ name|filterNonXmlChars
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|encoding
 specifier|private
 name|String
@@ -217,11 +197,6 @@ decl_stmt|;
 comment|// Partial encoding
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|partClass
 specifier|private
 name|String
@@ -229,11 +204,6 @@ name|partClass
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|partNamespace
 specifier|private
 name|String
@@ -411,6 +381,32 @@ operator|.
 name|partNamespace
 operator|=
 name|partNamespace
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 annotation|@

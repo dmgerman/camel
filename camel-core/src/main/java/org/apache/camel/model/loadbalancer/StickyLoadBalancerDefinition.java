@@ -180,16 +180,17 @@ argument_list|(
 name|name
 operator|=
 literal|"correlationExpression"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|correlationExpression
 specifier|private
 name|ExpressionSubElementDefinition
 name|correlationExpression
 decl_stmt|;
+DECL|method|StickyLoadBalancerDefinition ()
+specifier|public
+name|StickyLoadBalancerDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|createLoadBalancer (RouteContext routeContext)

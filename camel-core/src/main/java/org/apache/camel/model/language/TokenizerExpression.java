@@ -154,11 +154,6 @@ name|token
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|headerName
 specifier|private
 name|String
@@ -166,11 +161,6 @@ name|headerName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|regex
 specifier|private
 name|Boolean

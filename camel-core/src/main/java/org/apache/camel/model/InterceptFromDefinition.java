@@ -152,11 +152,6 @@ name|InterceptDefinition
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|uri
 specifier|protected
 name|String

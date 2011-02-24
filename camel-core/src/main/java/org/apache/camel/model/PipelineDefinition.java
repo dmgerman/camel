@@ -113,6 +113,11 @@ argument_list|<
 name|PipelineDefinition
 argument_list|>
 block|{
+DECL|method|PipelineDefinition ()
+specifier|public
+name|PipelineDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|getShortName ()

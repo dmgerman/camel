@@ -311,6 +311,11 @@ name|ProcessorDefinition
 argument_list|>
 name|outputsWithoutCatches
 decl_stmt|;
+DECL|method|TryDefinition ()
+specifier|public
+name|TryDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()

@@ -305,6 +305,11 @@ specifier|private
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 decl_stmt|;
+DECL|method|RoutesDefinition ()
+specifier|public
+name|RoutesDefinition
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()

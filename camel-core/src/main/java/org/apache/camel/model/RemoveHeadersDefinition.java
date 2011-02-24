@@ -183,11 +183,6 @@ name|pattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|excludePattern
 specifier|private
 name|String
