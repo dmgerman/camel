@@ -1891,13 +1891,22 @@ operator|+
 name|fileName
 argument_list|)
 expr_stmt|;
-comment|// Parts marked with a disposition of Part.ATTACHMENT are clearly attachments
-name|CollectionHelper
-operator|.
-name|appendValue
-argument_list|(
+if|if
+condition|(
+operator|!
 name|map
-argument_list|,
+operator|.
+name|containsKey
+argument_list|(
+name|fileName
+argument_list|)
+condition|)
+block|{
+comment|// Parts marked with a disposition of Part.ATTACHMENT are clearly attachments
+name|map
+operator|.
+name|put
+argument_list|(
 name|fileName
 argument_list|,
 name|part
@@ -1906,6 +1915,19 @@ name|getDataHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot extract duplicate attachment: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
