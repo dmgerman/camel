@@ -316,7 +316,7 @@ argument_list|)
 expr_stmt|;
 comment|// here we define onException to catch MyUserException as a kind
 comment|// of fallback when the above did not match.
-comment|// Noitce: The order how we have defined these onException is
+comment|// Notice: The order how we have defined these onException is
 comment|// important as Camel will resolve in the same order as they
 comment|// have been defined
 name|onException
