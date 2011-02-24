@@ -319,7 +319,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|getIgnoreInvalidEndpoint
+name|getIgnoreInvalidEndpoints
 argument_list|()
 operator|!=
 literal|null
@@ -329,7 +329,7 @@ name|dynamicRouter
 operator|.
 name|setIgnoreInvalidEndpoints
 argument_list|(
-name|getIgnoreInvalidEndpoint
+name|getIgnoreInvalidEndpoints
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -380,10 +380,10 @@ operator|=
 name|ignoreInvalidEndpoints
 expr_stmt|;
 block|}
-DECL|method|getIgnoreInvalidEndpoint ()
+DECL|method|getIgnoreInvalidEndpoints ()
 specifier|public
 name|Boolean
-name|getIgnoreInvalidEndpoint
+name|getIgnoreInvalidEndpoints
 parameter_list|()
 block|{
 return|return

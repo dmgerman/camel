@@ -341,6 +341,32 @@ operator|=
 name|filterNonXmlChars
 expr_stmt|;
 block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+block|}
 DECL|method|getPartClass ()
 specifier|public
 name|String
@@ -367,6 +393,16 @@ operator|=
 name|partClass
 expr_stmt|;
 block|}
+DECL|method|getPartNamespace ()
+specifier|public
+name|String
+name|getPartNamespace
+parameter_list|()
+block|{
+return|return
+name|partNamespace
+return|;
+block|}
 DECL|method|setPartNamespace (String partNamespace)
 specifier|public
 name|void
@@ -381,32 +417,6 @@ operator|.
 name|partNamespace
 operator|=
 name|partNamespace
-expr_stmt|;
-block|}
-DECL|method|getEncoding ()
-specifier|public
-name|String
-name|getEncoding
-parameter_list|()
-block|{
-return|return
-name|encoding
-return|;
-block|}
-DECL|method|setEncoding (String encoding)
-specifier|public
-name|void
-name|setEncoding
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encoding
-operator|=
-name|encoding
 expr_stmt|;
 block|}
 annotation|@

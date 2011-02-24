@@ -182,16 +182,6 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-DECL|method|getMessage ()
-specifier|public
-name|String
-name|getMessage
-parameter_list|()
-block|{
-return|return
-name|message
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()
@@ -291,6 +281,32 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getMessage ()
+specifier|public
+name|String
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
+block|}
+DECL|method|setMessage (String message)
+specifier|public
+name|void
+name|setMessage
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
 block|}
 DECL|method|getMarkRollbackOnly ()
 specifier|public

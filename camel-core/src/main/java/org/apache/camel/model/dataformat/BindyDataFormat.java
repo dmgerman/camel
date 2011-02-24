@@ -179,6 +179,43 @@ specifier|public
 name|BindyDataFormat
 parameter_list|()
 block|{     }
+DECL|method|getType ()
+specifier|public
+name|BindyType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (BindyType type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|BindyType
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getPackages ()
+specifier|public
+name|String
+index|[]
+name|getPackages
+parameter_list|()
+block|{
+return|return
+name|packages
+return|;
+block|}
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -196,21 +233,15 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
-DECL|method|setType (BindyType type)
+DECL|method|getLocale ()
 specifier|public
-name|void
-name|setType
-parameter_list|(
-name|BindyType
-name|type
-parameter_list|)
+name|String
+name|getLocale
+parameter_list|()
 block|{
-name|this
-operator|.
-name|type
-operator|=
-name|type
-expr_stmt|;
+return|return
+name|locale
+return|;
 block|}
 DECL|method|setLocale (String locale)
 specifier|public

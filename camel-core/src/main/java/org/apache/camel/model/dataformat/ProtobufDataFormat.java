@@ -198,6 +198,16 @@ name|instanceClass
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getInstanceClass ()
+specifier|public
+name|String
+name|getInstanceClass
+parameter_list|()
+block|{
+return|return
+name|instanceClass
+return|;
+block|}
 DECL|method|setInstanceClass (String instanceClass)
 specifier|public
 name|void
@@ -214,20 +224,30 @@ operator|=
 name|instanceClass
 expr_stmt|;
 block|}
-DECL|method|setDefaultInstance (Object instance)
+DECL|method|getDefaultInstance ()
+specifier|public
+name|Object
+name|getDefaultInstance
+parameter_list|()
+block|{
+return|return
+name|defaultInstance
+return|;
+block|}
+DECL|method|setDefaultInstance (Object defaultInstance)
 specifier|public
 name|void
 name|setDefaultInstance
 parameter_list|(
 name|Object
-name|instance
+name|defaultInstance
 parameter_list|)
 block|{
 name|this
 operator|.
 name|defaultInstance
 operator|=
-name|instance
+name|defaultInstance
 expr_stmt|;
 block|}
 annotation|@

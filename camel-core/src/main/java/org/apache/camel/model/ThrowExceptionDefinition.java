@@ -301,6 +301,32 @@ name|exception
 argument_list|)
 return|;
 block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
+block|}
 DECL|method|getException ()
 specifier|public
 name|Exception

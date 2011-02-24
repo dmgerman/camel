@@ -578,6 +578,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getAlgorithm ()
+specifier|public
+name|String
+name|getAlgorithm
+parameter_list|()
+block|{
+return|return
+name|algorithm
+return|;
+block|}
 DECL|method|setAlgorithm (String algorithm)
 specifier|public
 name|void
@@ -593,6 +603,16 @@ name|algorithm
 operator|=
 name|algorithm
 expr_stmt|;
+block|}
+DECL|method|getCryptoProvider ()
+specifier|public
+name|String
+name|getCryptoProvider
+parameter_list|()
+block|{
+return|return
+name|cryptoProvider
+return|;
 block|}
 DECL|method|setCryptoProvider (String cryptoProvider)
 specifier|public
@@ -610,21 +630,41 @@ operator|=
 name|cryptoProvider
 expr_stmt|;
 block|}
-DECL|method|setKeyReference (String keyReference)
+DECL|method|getKeyRef ()
+specifier|public
+name|String
+name|getKeyRef
+parameter_list|()
+block|{
+return|return
+name|keyRef
+return|;
+block|}
+DECL|method|setKeyRef (String keyRef)
 specifier|public
 name|void
-name|setKeyReference
+name|setKeyRef
 parameter_list|(
 name|String
-name|keyReference
+name|keyRef
 parameter_list|)
 block|{
 name|this
 operator|.
 name|keyRef
 operator|=
-name|keyReference
+name|keyRef
 expr_stmt|;
+block|}
+DECL|method|getInitVectorRef ()
+specifier|public
+name|String
+name|getInitVectorRef
+parameter_list|()
+block|{
+return|return
+name|initVectorRef
+return|;
 block|}
 DECL|method|setInitVectorRef (String initVectorRef)
 specifier|public
@@ -642,6 +682,16 @@ operator|=
 name|initVectorRef
 expr_stmt|;
 block|}
+DECL|method|getAlgorithmParameterRef ()
+specifier|public
+name|String
+name|getAlgorithmParameterRef
+parameter_list|()
+block|{
+return|return
+name|algorithmParameterRef
+return|;
+block|}
 DECL|method|setAlgorithmParameterRef (String algorithmParameterRef)
 specifier|public
 name|void
@@ -657,6 +707,16 @@ name|algorithmParameterRef
 operator|=
 name|algorithmParameterRef
 expr_stmt|;
+block|}
+DECL|method|getBuffersize ()
+specifier|public
+name|Integer
+name|getBuffersize
+parameter_list|()
+block|{
+return|return
+name|buffersize
+return|;
 block|}
 DECL|method|setBuffersize (Integer buffersize)
 specifier|public
@@ -674,6 +734,16 @@ operator|=
 name|buffersize
 expr_stmt|;
 block|}
+DECL|method|getMacAlgorithm ()
+specifier|public
+name|String
+name|getMacAlgorithm
+parameter_list|()
+block|{
+return|return
+name|macAlgorithm
+return|;
+block|}
 DECL|method|setMacAlgorithm (String macAlgorithm)
 specifier|public
 name|void
@@ -689,6 +759,16 @@ name|macAlgorithm
 operator|=
 name|macAlgorithm
 expr_stmt|;
+block|}
+DECL|method|getShouldAppendHMAC ()
+specifier|public
+name|Boolean
+name|getShouldAppendHMAC
+parameter_list|()
+block|{
+return|return
+name|shouldAppendHMAC
+return|;
 block|}
 DECL|method|setShouldAppendHMAC (Boolean shouldAppendHMAC)
 specifier|public
@@ -706,10 +786,20 @@ operator|=
 name|shouldAppendHMAC
 expr_stmt|;
 block|}
-DECL|method|setShouldInlineInitVector (Boolean inline)
+DECL|method|getInline ()
+specifier|public
+name|Boolean
+name|getInline
+parameter_list|()
+block|{
+return|return
+name|inline
+return|;
+block|}
+DECL|method|setInline (Boolean inline)
 specifier|public
 name|void
-name|setShouldInlineInitVector
+name|setInline
 parameter_list|(
 name|Boolean
 name|inline

@@ -309,6 +309,32 @@ operator|=
 name|unmarshalType
 expr_stmt|;
 block|}
+DECL|method|getLibrary ()
+specifier|public
+name|JsonLibrary
+name|getLibrary
+parameter_list|()
+block|{
+return|return
+name|library
+return|;
+block|}
+DECL|method|setLibrary (JsonLibrary library)
+specifier|public
+name|void
+name|setLibrary
+parameter_list|(
+name|JsonLibrary
+name|library
+parameter_list|)
+block|{
+name|this
+operator|.
+name|library
+operator|=
+name|library
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createDataFormat (RouteContext routeContext)
@@ -396,17 +422,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|Boolean
-name|answer
-init|=
-name|ObjectHelper
-operator|.
-name|toBoolean
-argument_list|(
-name|getPrettyPrint
-argument_list|()
-argument_list|)
-decl_stmt|;
 return|return
 name|super
 operator|.

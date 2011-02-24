@@ -429,10 +429,10 @@ return|return
 name|distributionRatio
 return|;
 block|}
-DECL|method|setDistributionRatioList (String distributionRatio)
+DECL|method|setDistributionRatio (String distributionRatio)
 specifier|public
 name|void
-name|setDistributionRatioList
+name|setDistributionRatio
 parameter_list|(
 name|String
 name|distributionRatio
@@ -443,6 +443,32 @@ operator|.
 name|distributionRatio
 operator|=
 name|distributionRatio
+expr_stmt|;
+block|}
+DECL|method|getDistributionRatioDelimiter ()
+specifier|public
+name|String
+name|getDistributionRatioDelimiter
+parameter_list|()
+block|{
+return|return
+name|distributionRatioDelimiter
+return|;
+block|}
+DECL|method|setDistributionRatioDelimiter (String distributionRatioDelimiter)
+specifier|public
+name|void
+name|setDistributionRatioDelimiter
+parameter_list|(
+name|String
+name|distributionRatioDelimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|distributionRatioDelimiter
+operator|=
+name|distributionRatioDelimiter
 expr_stmt|;
 block|}
 annotation|@

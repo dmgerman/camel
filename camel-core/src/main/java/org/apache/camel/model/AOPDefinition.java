@@ -216,6 +216,22 @@ return|return
 name|beforeUri
 return|;
 block|}
+DECL|method|setBeforeUri (String beforeUri)
+specifier|public
+name|void
+name|setBeforeUri
+parameter_list|(
+name|String
+name|beforeUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beforeUri
+operator|=
+name|beforeUri
+expr_stmt|;
+block|}
 DECL|method|getAfterUri ()
 specifier|public
 name|String
@@ -226,6 +242,22 @@ return|return
 name|afterUri
 return|;
 block|}
+DECL|method|setAfterUri (String afterUri)
+specifier|public
+name|void
+name|setAfterUri
+parameter_list|(
+name|String
+name|afterUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|afterUri
+operator|=
+name|afterUri
+expr_stmt|;
+block|}
 DECL|method|getAfterFinallyUri ()
 specifier|public
 name|String
@@ -235,6 +267,22 @@ block|{
 return|return
 name|afterFinallyUri
 return|;
+block|}
+DECL|method|setAfterFinallyUri (String afterFinallyUri)
+specifier|public
+name|void
+name|setAfterFinallyUri
+parameter_list|(
+name|String
+name|afterFinallyUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|afterFinallyUri
+operator|=
+name|afterFinallyUri
+expr_stmt|;
 block|}
 annotation|@
 name|Override
