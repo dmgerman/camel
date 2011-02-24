@@ -639,12 +639,15 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepares the route definition to be ready to be added to {@link CamelContext}      */
-DECL|method|prepare ()
+comment|/**      * Prepares the route definition to be ready to be added to {@link CamelContext}      *      * @param context the camel context      */
+DECL|method|prepare (CamelContext context)
 specifier|public
 name|void
 name|prepare
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -662,6 +665,8 @@ name|RouteDefinitionHelper
 operator|.
 name|prepareRoute
 argument_list|(
+name|context
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

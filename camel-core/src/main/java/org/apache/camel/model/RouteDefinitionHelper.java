@@ -44,6 +44,32 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -235,19 +261,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Prepares the route.      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param route the route      */
-DECL|method|prepareRoute (RouteDefinition route)
+comment|/**      * Prepares the route.      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route   the route      */
+DECL|method|prepareRoute (CamelContext context, RouteDefinition route)
 specifier|public
 specifier|static
 name|void
 name|prepareRoute
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RouteDefinition
 name|route
 parameter_list|)
 block|{
 name|prepareRoute
 argument_list|(
+name|context
+argument_list|,
 name|route
 argument_list|,
 literal|null
@@ -262,13 +293,16 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepares the route which supports context scoped features such as onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param route                              the route      * @param onExceptions                       optional list of onExceptions      * @param intercepts                         optional list of interceptors      * @param interceptFromDefinitions           optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of interceptSendToEndpoints      * @param onCompletions                      optional list onCompletions      */
-DECL|method|prepareRoute (RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
+comment|/**      * Prepares the route which supports context scoped features such as onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context                            the camel context      * @param route                              the route      * @param onExceptions                       optional list of onExceptions      * @param intercepts                         optional list of interceptors      * @param interceptFromDefinitions           optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of interceptSendToEndpoints      * @param onCompletions                      optional list onCompletions      */
+DECL|method|prepareRoute (CamelContext context, RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
 specifier|public
 specifier|static
 name|void
 name|prepareRoute
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RouteDefinition
 name|route
 parameter_list|,
@@ -367,6 +401,8 @@ expr_stmt|;
 comment|// interceptors should be first for the cross cutting concerns
 name|initInterceptors
 argument_list|(
+name|context
+argument_list|,
 name|route
 argument_list|,
 name|abstracts
@@ -589,12 +625,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|initInterceptors (RouteDefinition route, List<ProcessorDefinition> abstracts, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
+DECL|method|initInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
 specifier|private
 specifier|static
 name|void
 name|initInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RouteDefinition
 name|route
 parameter_list|,
@@ -748,6 +787,8 @@ block|}
 block|}
 name|doInitInterceptors
 argument_list|(
+name|context
+argument_list|,
 name|route
 argument_list|,
 name|upper
@@ -760,12 +801,15 @@ name|interceptSendToEndpointDefinitions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doInitInterceptors (RouteDefinition route, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
+DECL|method|doInitInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
 specifier|private
 specifier|static
 name|void
 name|doInitInterceptors
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RouteDefinition
 name|route
 parameter_list|,
@@ -895,16 +939,84 @@ name|getInputs
 argument_list|()
 control|)
 block|{
+comment|// a bit more logic to lookup the endpoint as it can be uri/ref based
+name|String
+name|uri
+init|=
+name|input
+operator|.
+name|getUri
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uri
+operator|!=
+literal|null
+operator|&&
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"ref:"
+argument_list|)
+condition|)
+block|{
+comment|// its a ref: so lookup the endpoint to get its url
+name|uri
+operator|=
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|context
+argument_list|,
+name|uri
+argument_list|)
+operator|.
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|input
+operator|.
+name|getRef
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// lookup the endpoint to get its url
+name|uri
+operator|=
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|context
+argument_list|,
+literal|"ref:"
+operator|+
+name|input
+operator|.
+name|getRef
+argument_list|()
+argument_list|)
+operator|.
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|EndpointHelper
 operator|.
 name|matchEndpoint
 argument_list|(
-name|input
-operator|.
-name|getUri
-argument_list|()
+name|uri
 argument_list|,
 name|intercept
 operator|.

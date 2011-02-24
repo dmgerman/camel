@@ -2178,6 +2178,9 @@ name|RouteDefinitionHelper
 operator|.
 name|prepareRoute
 argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
 name|route
 argument_list|,
 name|getOnExceptions
