@@ -150,7 +150,6 @@ name|InterceptFromDefinition
 extends|extends
 name|InterceptDefinition
 block|{
-comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 annotation|@
 name|XmlAttribute
 argument_list|(

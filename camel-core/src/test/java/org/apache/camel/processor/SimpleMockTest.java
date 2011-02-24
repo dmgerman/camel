@@ -177,6 +177,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|fromF
+argument_list|()
 name|from
 argument_list|(
 literal|"direct:start"

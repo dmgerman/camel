@@ -199,7 +199,6 @@ argument_list|<
 name|InterceptDefinition
 argument_list|>
 block|{
-comment|// TODO: support stop later (its a bit hard as it needs to break entire processing of route)
 annotation|@
 name|XmlTransient
 DECL|field|output
@@ -298,7 +297,6 @@ throws|throws
 name|Exception
 block|{
 comment|// create the output processor
-comment|// TODO: This should be mandatory (but ExceptionHandlerStreamCacheTest fails)
 name|output
 operator|=
 name|this
@@ -307,7 +305,7 @@ name|createChildProcessor
 argument_list|(
 name|routeContext
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// add the output as a intercept strategy to the route context so its invoked on each processing step
