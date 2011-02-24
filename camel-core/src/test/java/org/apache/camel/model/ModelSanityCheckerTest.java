@@ -206,7 +206,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|discoverJAxbClasses ()
+DECL|method|discoverJaxbClasses ()
 specifier|private
 name|Set
 argument_list|<
@@ -215,7 +215,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|discoverJAxbClasses
+name|discoverJaxbClasses
 parameter_list|()
 block|{
 name|PackageScanClassResolver
@@ -268,7 +268,7 @@ argument_list|>
 argument_list|>
 name|classes
 init|=
-name|discoverJAxbClasses
+name|discoverJaxbClasses
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -554,7 +554,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// does the field have a jaxb annotation?
+comment|// does the method have a jaxb annotation?
 name|boolean
 name|attribute
 init|=
