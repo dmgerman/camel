@@ -329,7 +329,7 @@ expr_stmt|;
 comment|// should get the Content-Length
 name|assertNotNull
 argument_list|(
-literal|"Should get the content-lenghth "
+literal|"Should get the content-length"
 argument_list|,
 name|headers
 operator|.
@@ -362,7 +362,7 @@ name|mockEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"%40 query"
+literal|"@ query"
 argument_list|)
 expr_stmt|;
 name|template

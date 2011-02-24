@@ -122,7 +122,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|RuntimeExchangeException
 import|;
 end_import
 
@@ -670,6 +670,42 @@ name|toASCIIString
 argument_list|()
 expr_stmt|;
 block|}
+comment|// resolve placeholders in uri
+try|try
+block|{
+name|uri
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Cannot resolve property placeholders with uri: "
+operator|+
+name|uri
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// append HTTP_PATH to HTTP_URI if it is provided in the header
 name|String
 name|path
@@ -831,9 +867,11 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
 literal|"Cannot analyze the Exchange.HTTP_PATH header, due to: cannot find the right HTTP_BASE_URI"
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -846,7 +884,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|RuntimeExchangeException
 argument_list|(
 literal|"Cannot analyze the Exchange.HTTP_PATH header, due to: "
 operator|+
@@ -854,6 +892,8 @@ name|t
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|,
 name|t
 argument_list|)
