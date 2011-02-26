@@ -297,6 +297,14 @@ operator|new
 name|ConnectionFactoryBuilder
 argument_list|()
 decl_stmt|;
+comment|// VERY IMPORTANT! Otherwise, spymemcached optimizes away concurrent gets
+name|builder
+operator|.
+name|setShouldOptimize
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// We never want spymemcached to time out
 name|builder
 operator|.
