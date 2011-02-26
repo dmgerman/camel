@@ -2218,7 +2218,7 @@ name|context
 parameter_list|)
 function_decl|;
 DECL|method|initJMXAgent ()
-specifier|private
+specifier|protected
 name|void
 name|initJMXAgent
 parameter_list|()
@@ -2584,7 +2584,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|initPropertyPlaceholder ()
-specifier|private
+specifier|protected
 name|void
 name|initPropertyPlaceholder
 parameter_list|()
@@ -2720,7 +2720,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|initRouteRefs ()
-specifier|private
+specifier|protected
 name|void
 name|initRouteRefs
 parameter_list|()
@@ -3363,7 +3363,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|initThreadPoolProfiles (T context)
-specifier|private
+specifier|protected
 name|void
 name|initThreadPoolProfiles
 parameter_list|(

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -92,7 +102,6 @@ name|JASYPT_SUFFIX_TOKEN
 init|=
 literal|")"
 decl_stmt|;
-comment|// TODO: A JasyptComponent we can leverage instead of directly from here
 DECL|field|encryptor
 specifier|private
 name|StandardPBEStringEncryptor
@@ -277,13 +286,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parsePropertyValue (String value)
+DECL|method|parseProperty (String key, String value, Properties properties)
 specifier|public
 name|String
-name|parsePropertyValue
+name|parseProperty
 parameter_list|(
 name|String
+name|key
+parameter_list|,
+name|String
 name|value
+parameter_list|,
+name|Properties
+name|properties
 parameter_list|)
 block|{
 comment|// check if the value is using the tokens

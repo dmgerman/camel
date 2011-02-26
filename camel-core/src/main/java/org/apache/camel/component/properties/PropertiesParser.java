@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A parser to parse properties for a given input  *  * @version   */
+comment|/**  * A parser to parse properties for a given input  */
 end_comment
 
 begin_interface
@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|PropertiesParser
 block|{
-comment|/**      * Parses the string and replaces the property placeholders with values from the given properties      *      * @param text        the text to be parsed      * @param properties  the properties resolved which values should be looked up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @return the parsed text with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
+comment|/**      * Parses the string and replaces the property placeholders with values from the given properties.      *      * @param text        the text to be parsed      * @param properties  the properties resolved which values should be looked up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @return the parsed text with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
 DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken)
 name|String
 name|parseUri
@@ -58,13 +58,19 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Parses the property value      *      * @param value the value      * @return the parsed value      */
-DECL|method|parsePropertyValue (String value)
+comment|/**      * While parsing the uri using {@link #parseUri(String, java.util.Properties, String, String) parseUri} each      * parsed property found invokes this callback.      *<p/>      * This strategy method allows you to hook into the parsing and do custom lookup and return the actual value to use.      *      * @param key        the key      * @param value      the value      * @param properties the properties resolved which values should be looked up      * @return the value to use      */
+DECL|method|parseProperty (String key, String value, Properties properties)
 name|String
-name|parsePropertyValue
+name|parseProperty
 parameter_list|(
 name|String
+name|key
+parameter_list|,
+name|String
 name|value
+parameter_list|,
+name|Properties
+name|properties
 parameter_list|)
 function_decl|;
 block|}

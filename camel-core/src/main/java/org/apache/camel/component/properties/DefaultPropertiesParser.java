@@ -232,13 +232,19 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|parsePropertyValue (String value)
+DECL|method|parseProperty (String key, String value, Properties properties)
 specifier|public
 name|String
-name|parsePropertyValue
+name|parseProperty
 parameter_list|(
 name|String
+name|key
+parameter_list|,
+name|String
 name|value
+parameter_list|,
+name|Properties
+name|properties
 parameter_list|)
 block|{
 return|return
@@ -483,8 +489,6 @@ name|end
 parameter_list|)
 block|{
 return|return
-name|parsePropertyValue
-argument_list|(
 name|uri
 operator|.
 name|substring
@@ -493,16 +497,15 @@ name|start
 argument_list|,
 name|end
 argument_list|)
-argument_list|)
 return|;
 block|}
-DECL|method|createPlaceholderPart (String placeholderPart, Properties properties, List<String> replaced)
+DECL|method|createPlaceholderPart (String key, Properties properties, List<String> replaced)
 specifier|private
 name|String
 name|createPlaceholderPart
 parameter_list|(
 name|String
-name|placeholderPart
+name|key
 parameter_list|,
 name|Properties
 name|properties
@@ -519,7 +522,7 @@ name|replaced
 operator|.
 name|add
 argument_list|(
-name|placeholderPart
+name|key
 argument_list|)
 expr_stmt|;
 name|String
@@ -529,7 +532,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-name|placeholderPart
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -541,17 +544,23 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Found a JVM system property: "
-operator|+
-name|placeholderPart
-operator|+
-literal|". Overriding property set via Property Location"
+literal|"Found a JVM system property: {} with value: {} to be used."
+argument_list|,
+name|key
+argument_list|,
+name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|properties
+operator|!=
+literal|null
+condition|)
 block|{
 name|propertyValue
 operator|=
@@ -559,14 +568,18 @@ name|properties
 operator|.
 name|getProperty
 argument_list|(
-name|placeholderPart
+name|key
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|parsePropertyValue
+name|parseProperty
 argument_list|(
+name|key
+argument_list|,
 name|propertyValue
+argument_list|,
+name|properties
 argument_list|)
 return|;
 block|}
