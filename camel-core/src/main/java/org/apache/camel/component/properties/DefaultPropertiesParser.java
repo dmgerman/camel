@@ -201,7 +201,7 @@ literal|"Circular reference detected with key ["
 operator|+
 name|replace
 operator|+
-literal|"] in uri "
+literal|"] from text: "
 operator|+
 name|text
 argument_list|)
@@ -397,7 +397,7 @@ literal|"Expecting "
 operator|+
 name|suffixToken
 operator|+
-literal|" but found end of string for uri: "
+literal|" but found end of string from text: "
 operator|+
 name|uri
 argument_list|)
@@ -442,7 +442,7 @@ literal|"Property with key ["
 operator|+
 name|key
 operator|+
-literal|"] not found in properties for uri: "
+literal|"] not found in properties from text: "
 operator|+
 name|uri
 argument_list|)

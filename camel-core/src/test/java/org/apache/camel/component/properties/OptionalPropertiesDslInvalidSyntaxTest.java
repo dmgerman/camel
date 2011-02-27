@@ -179,7 +179,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [xxx] not found in properties for uri: {{xxx}}"
+literal|"Property with key [xxx] not found in properties from text: {{xxx}}"
 argument_list|,
 name|cause
 operator|.

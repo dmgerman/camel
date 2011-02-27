@@ -3370,6 +3370,8 @@ parameter_list|(
 name|T
 name|context
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Set
 argument_list|<
@@ -3560,6 +3562,11 @@ operator|.
 name|setDefaultThreadPoolProfile
 argument_list|(
 name|profile
+operator|.
+name|asThreadPoolProfile
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|defaultIds
@@ -3583,6 +3590,11 @@ operator|.
 name|registerThreadPoolProfile
 argument_list|(
 name|profile
+operator|.
+name|asThreadPoolProfile
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

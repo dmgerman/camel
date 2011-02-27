@@ -379,7 +379,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [bean.unknown] not found in properties for uri: {{bean.unknown}}"
+literal|"Property with key [bean.unknown] not found in properties from text: {{bean.unknown}}"
 argument_list|,
 name|cause
 operator|.
@@ -485,7 +485,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [bean.unknown] not found in properties for uri: {{bean.unknown}}"
+literal|"Property with key [bean.unknown] not found in properties from text: {{bean.unknown}}"
 argument_list|,
 name|cause
 operator|.

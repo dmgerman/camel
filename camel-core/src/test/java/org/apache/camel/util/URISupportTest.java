@@ -761,20 +761,6 @@ literal|"S\u00F8ren"
 argument_list|)
 expr_stmt|;
 comment|// danish letter
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|map
-operator|.
-name|get
-argument_list|(
-literal|"name"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// create new uri with the parameters
 name|URI
 name|out

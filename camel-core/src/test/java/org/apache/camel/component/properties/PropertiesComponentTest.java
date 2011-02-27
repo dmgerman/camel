@@ -627,7 +627,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Property with key [foo.unknown] not found in properties for uri: {{foo.unknown}}"
+literal|"Property with key [foo.unknown] not found in properties from text: {{foo.unknown}}"
 argument_list|,
 name|iae
 operator|.
@@ -727,7 +727,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Circular reference detected with key [cool.a] in uri {{cool.a}}"
+literal|"Circular reference detected with key [cool.a] from text: {{cool.a}}"
 argument_list|,
 name|iae
 operator|.
