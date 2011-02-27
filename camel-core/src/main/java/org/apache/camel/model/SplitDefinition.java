@@ -250,7 +250,7 @@ specifier|public
 class|class
 name|SplitDefinition
 extends|extends
-name|ExpressionNode
+name|OutputExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<

@@ -206,7 +206,7 @@ specifier|public
 class|class
 name|SetPropertyDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 annotation|@
 name|XmlAttribute

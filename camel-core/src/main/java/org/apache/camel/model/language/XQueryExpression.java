@@ -178,11 +178,6 @@ name|NamespaceAwareExpression
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|type
 specifier|private
 name|String

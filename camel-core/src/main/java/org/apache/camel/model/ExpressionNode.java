@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collections
 import|;
 end_import
 
@@ -154,26 +154,12 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for nodes which contain an expression and a number of outputs  *  * @version   */
+comment|/**  * A base class for nodes which contain an expression  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  *  * @version   */
 end_comment
 
 begin_class
@@ -191,7 +177,7 @@ name|ExpressionNode
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|ExpressionNode
+name|OutputExpressionNode
 argument_list|>
 block|{
 annotation|@
@@ -200,23 +186,6 @@ DECL|field|expression
 specifier|protected
 name|ExpressionDefinition
 name|expression
-decl_stmt|;
-annotation|@
-name|XmlElementRef
-DECL|field|outputs
-specifier|protected
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|method|ExpressionNode ()
 specifier|public
@@ -312,8 +281,6 @@ return|return
 name|expression
 return|;
 block|}
-annotation|@
-name|Required
 DECL|method|setExpression (ExpressionDefinition expression)
 specifier|public
 name|void
@@ -330,6 +297,13 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -340,28 +314,13 @@ name|getOutputs
 parameter_list|()
 block|{
 return|return
-name|outputs
+name|Collections
+operator|.
+name|EMPTY_LIST
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
-specifier|public
-name|void
-name|setOutputs
-parameter_list|(
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputs
-operator|=
-name|outputs
-expr_stmt|;
-block|}
+annotation|@
+name|Override
 DECL|method|isOutputSupported ()
 specifier|public
 name|boolean
@@ -369,8 +328,29 @@ name|isOutputSupported
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|addOutput (ProcessorDefinition output)
+specifier|public
+name|void
+name|addOutput
+parameter_list|(
+name|ProcessorDefinition
+name|output
+parameter_list|)
+block|{
+comment|// add it to the parent as we do not support outputs
+name|getParent
+argument_list|()
+operator|.
+name|addOutput
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

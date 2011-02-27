@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|LoopDefinition
 extends|extends
-name|ExpressionNode
+name|OutputExpressionNode
 block|{
 DECL|method|LoopDefinition ()
 specifier|public
