@@ -1024,18 +1024,11 @@ condition|)
 block|{
 name|session
 operator|.
-name|removeSessionStateListener
-argument_list|(
-name|this
-operator|.
-name|sessionStateListener
-argument_list|)
-expr_stmt|;
-name|session
-operator|.
 name|unbindAndClose
 argument_list|()
 expr_stmt|;
+comment|// throws the java.util.ConcurrentModificationException
+comment|//session.removeSessionStateListener(this.sessionStateListener);
 name|session
 operator|=
 literal|null
