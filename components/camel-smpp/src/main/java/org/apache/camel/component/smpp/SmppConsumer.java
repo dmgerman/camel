@@ -1073,11 +1073,45 @@ condition|)
 block|{
 name|session
 operator|.
+name|removeSessionStateListener
+argument_list|(
+name|this
+operator|.
+name|sessionStateListener
+argument_list|)
+expr_stmt|;
+comment|// remove this hack after http://code.google.com/p/jsmpp/issues/detail?id=93 is fixed
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
 name|unbindAndClose
 argument_list|()
 expr_stmt|;
-comment|// throws the java.util.ConcurrentModificationException
-comment|//session.removeSessionStateListener(this.sessionStateListener);
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not close session "
+operator|+
+name|session
+argument_list|)
+expr_stmt|;
+block|}
 name|session
 operator|=
 literal|null
