@@ -4416,6 +4416,7 @@ block|}
 comment|/**      * Strategy to create the thread pool for the aggregator background task which waits for and aggregates      * completed tasks when running in parallel mode.      *      * @param name  the suggested name for the background thread      * @return the thread pool      */
 DECL|method|createAggregateExecutorService (String name)
 specifier|protected
+specifier|synchronized
 name|ExecutorService
 name|createAggregateExecutorService
 parameter_list|(
