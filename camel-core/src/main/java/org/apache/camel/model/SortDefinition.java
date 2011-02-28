@@ -218,7 +218,7 @@ specifier|public
 class|class
 name|SortDefinition
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 block|{
 annotation|@
 name|XmlTransient

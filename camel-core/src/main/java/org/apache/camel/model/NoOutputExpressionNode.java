@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collections
 import|;
 end_import
 
@@ -61,20 +61,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElementRef
 import|;
 end_import
 
@@ -119,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for nodes which contain an expression and a number of outputs  *  * @version   */
+comment|/**  * An {@link org.apache.camel.model.ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  *  * @version   */
 end_comment
 
 begin_class
@@ -130,38 +116,25 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|OutputExpressionNode
+DECL|class|NoOutputExpressionNode
 specifier|public
 class|class
-name|OutputExpressionNode
+name|NoOutputExpressionNode
 extends|extends
 name|ExpressionNode
 block|{
-annotation|@
-name|XmlElementRef
-DECL|field|outputs
-specifier|protected
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-DECL|method|OutputExpressionNode ()
+DECL|method|NoOutputExpressionNode ()
 specifier|public
-name|OutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|()
-block|{     }
-DECL|method|OutputExpressionNode (ExpressionDefinition expression)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|NoOutputExpressionNode (ExpressionDefinition expression)
 specifier|public
-name|OutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|ExpressionDefinition
 name|expression
@@ -173,9 +146,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OutputExpressionNode (Expression expression)
+DECL|method|NoOutputExpressionNode (Expression expression)
 specifier|public
-name|OutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|Expression
 name|expression
@@ -187,9 +160,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OutputExpressionNode (Predicate predicate)
+DECL|method|NoOutputExpressionNode (Predicate predicate)
 specifier|public
-name|OutputExpressionNode
+name|NoOutputExpressionNode
 parameter_list|(
 name|Predicate
 name|predicate
@@ -201,6 +174,13 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -211,27 +191,10 @@ name|getOutputs
 parameter_list|()
 block|{
 return|return
-name|outputs
-return|;
-block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
-specifier|public
-name|void
-name|setOutputs
-parameter_list|(
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-parameter_list|)
-block|{
-name|this
+name|Collections
 operator|.
-name|outputs
-operator|=
-name|outputs
-expr_stmt|;
+name|EMPTY_LIST
+return|;
 block|}
 annotation|@
 name|Override
@@ -242,7 +205,7 @@ name|isOutputSupported
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 annotation|@
@@ -256,9 +219,11 @@ name|ProcessorDefinition
 name|output
 parameter_list|)
 block|{
-name|outputs
+comment|// add it to the parent as we do not support outputs
+name|getParent
+argument_list|()
 operator|.
-name|add
+name|addOutput
 argument_list|(
 name|output
 argument_list|)

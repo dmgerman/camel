@@ -206,7 +206,7 @@ specifier|public
 class|class
 name|IdempotentConsumerDefinition
 extends|extends
-name|OutputExpressionNode
+name|ExpressionNode
 block|{
 annotation|@
 name|XmlAttribute

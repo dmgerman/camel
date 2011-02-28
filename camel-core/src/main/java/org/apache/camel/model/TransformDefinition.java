@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|TransformDefinition
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 block|{
 DECL|method|TransformDefinition ()
 specifier|public

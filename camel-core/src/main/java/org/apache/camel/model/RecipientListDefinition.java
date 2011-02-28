@@ -243,7 +243,7 @@ extends|extends
 name|ProcessorDefinition
 parameter_list|>
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
