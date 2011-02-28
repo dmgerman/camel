@@ -414,7 +414,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|camelContext
+name|getCamelContext
+argument_list|()
 operator|.
 name|getName
 argument_list|()

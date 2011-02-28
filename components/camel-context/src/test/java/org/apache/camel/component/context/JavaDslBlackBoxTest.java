@@ -174,10 +174,10 @@ name|template
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testUsingBlackBox ()
+DECL|method|testUsingContextComponent ()
 specifier|public
 name|void
-name|testUsingBlackBox
+name|testUsingContextComponent
 parameter_list|()
 throws|throws
 name|Exception
@@ -268,8 +268,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// receive purchase orders, lets process it in some way then send an invoice
-comment|// to our invoice endpoint
+comment|// receive purchase orders, lets process it in some way then
+comment|// send an invoice to our invoice endpoint
 name|from
 argument_list|(
 literal|"direct:purchaseOrder"

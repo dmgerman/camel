@@ -185,6 +185,8 @@ argument_list|(
 literal|"direct"
 argument_list|,
 literal|"seda"
+argument_list|,
+literal|"mock"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -310,6 +312,31 @@ operator|.
 name|getEndpointMap
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Trying to lookup "
+operator|+
+name|remaining
+operator|+
+literal|" in local map "
+operator|+
+name|map
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|Endpoint
 name|endpoint
 init|=
