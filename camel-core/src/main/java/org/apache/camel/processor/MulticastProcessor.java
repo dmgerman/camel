@@ -4399,6 +4399,31 @@ literal|"-AggregateTask"
 decl_stmt|;
 name|aggregateExecutorService
 operator|=
+name|createAggregateExecutorService
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|processors
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Strategy to create the thread pool for the aggregator background task which waits for and aggregates      * completed tasks when running in parallel mode.      *      * @param name  the suggested name for the background thread      * @return the thread pool      */
+DECL|method|createAggregateExecutorService (String name)
+specifier|protected
+name|ExecutorService
+name|createAggregateExecutorService
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
 name|camelContext
 operator|.
 name|getExecutorServiceStrategy
@@ -4416,15 +4441,7 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|)
-expr_stmt|;
-block|}
-name|ServiceHelper
-operator|.
-name|startServices
-argument_list|(
-name|processors
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|doStop ()
 specifier|protected
