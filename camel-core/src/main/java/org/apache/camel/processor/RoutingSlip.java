@@ -967,9 +967,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Endpoint uri is invalid: "
 operator|+
@@ -980,6 +988,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 name|current
 operator|.
 name|setException
@@ -1378,9 +1387,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Endpoint uri is invalid: "
 operator|+
@@ -1391,6 +1408,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 name|current
 operator|.
 name|setException

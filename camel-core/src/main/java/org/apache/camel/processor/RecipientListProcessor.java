@@ -767,9 +767,17 @@ name|isIgnoreInvalidEndpoints
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Endpoint uri is invalid: "
 operator|+
@@ -780,6 +788,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 continue|continue;
 block|}
 else|else
