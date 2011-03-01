@@ -391,10 +391,10 @@ argument_list|(
 name|builder
 argument_list|)
 expr_stmt|;
+block|}
 name|startCamelContext
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
