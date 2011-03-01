@@ -162,6 +162,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -324,7 +336,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -338,7 +350,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -1349,17 +1361,20 @@ name|Exception
 block|{
 return|return
 operator|new
-name|DefaultProducer
+name|DefaultAsyncProducer
 argument_list|(
 name|this
 argument_list|)
 block|{
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 name|onExchange
@@ -1367,6 +1382,16 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 block|}
 return|;
