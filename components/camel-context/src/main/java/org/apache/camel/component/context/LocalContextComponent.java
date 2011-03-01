@@ -316,13 +316,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Trying to lookup "
 operator|+
@@ -459,11 +459,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Mapping the URI "
+literal|"Mapping the URI: "
 operator|+
 name|uri
 operator|+
-literal|" to local endpoint "
+literal|" to local endpoint: "
 operator|+
 name|endpoint
 argument_list|)
