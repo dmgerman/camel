@@ -92,6 +92,8 @@ DECL|class|BatchResequencerConfig
 specifier|public
 class|class
 name|BatchResequencerConfig
+extends|extends
+name|ResequencerConfig
 block|{
 annotation|@
 name|XmlAttribute

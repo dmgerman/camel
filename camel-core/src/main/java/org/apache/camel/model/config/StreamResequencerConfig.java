@@ -138,6 +138,8 @@ DECL|class|StreamResequencerConfig
 specifier|public
 class|class
 name|StreamResequencerConfig
+extends|extends
+name|ResequencerConfig
 block|{
 annotation|@
 name|XmlAttribute
