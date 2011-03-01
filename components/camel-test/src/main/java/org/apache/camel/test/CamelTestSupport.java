@@ -417,6 +417,7 @@ operator|new
 name|DebugBreakpoint
 argument_list|()
 decl_stmt|;
+comment|/**      * Use the RouteBuilder or not      * @return       *  If the return value is true, the camel context will be started in the setup method.      *  If the return value is false, the camel context will not be started in the setup method.      */
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean
