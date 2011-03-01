@@ -6645,7 +6645,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -6723,6 +6723,9 @@ operator|.
 name|setBeanType
 argument_list|(
 name|beanType
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -6737,7 +6740,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -6767,6 +6770,9 @@ operator|.
 name|setBeanType
 argument_list|(
 name|beanType
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|answer
@@ -6824,7 +6830,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -7504,7 +7510,9 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      */
+comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      * @deprecated use {@link #removeHeader(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|removeFaultHeader (String name)
 specifier|public
 name|Type
