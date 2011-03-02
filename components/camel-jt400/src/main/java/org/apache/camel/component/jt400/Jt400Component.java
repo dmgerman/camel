@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link Component} to provide integration with AS/400 objects.   *   * Current implementation only supports working with data queues (*DTAQ)  */
+comment|/**  * {@link Component} to provide integration with AS/400 objects.   *   * Current implementation supports working with data queues (*DTAQ) and Program calls (*PGM)  */
 end_comment
 
 begin_class
@@ -86,6 +86,15 @@ name|String
 name|DATA_QUEUE
 init|=
 literal|"DTAQ"
+decl_stmt|;
+DECL|field|PGM
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PGM
+init|=
+literal|"PGM"
 decl_stmt|;
 annotation|@
 name|Override
@@ -144,6 +153,26 @@ block|{
 return|return
 operator|new
 name|Jt400DataQueueEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|PGM
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+operator|new
+name|Jt400PgmEndpoint
 argument_list|(
 name|uri
 argument_list|,

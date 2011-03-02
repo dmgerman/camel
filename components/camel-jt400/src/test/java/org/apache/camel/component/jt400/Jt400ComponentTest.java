@@ -121,13 +121,13 @@ name|Jt400Component
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test creation of a {@link Jt400DataQueueEndpoint}      */
+comment|/**      * Test creation of a {@link Jt400DataQueueEndpoint} for Datq      */
 annotation|@
 name|Test
-DECL|method|testCreateEndpoint ()
+DECL|method|testCreateDatqEndpoint ()
 specifier|public
 name|void
-name|testCreateEndpoint
+name|testCreateDatqEndpoint
 parameter_list|()
 throws|throws
 name|Exception
@@ -161,6 +161,46 @@ name|Jt400DataQueueEndpoint
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Test creation of a {@link Jt400DataQueueEndpoint} for pgm calls      */
+annotation|@
+name|Test
+DECL|method|testCreatePgmEndpoint ()
+specifier|public
+name|void
+name|testCreatePgmEndpoint
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|component
+operator|.
+name|createEndpoint
+argument_list|(
+literal|"jt400://user:password@host/qsys.lib/library.lib/queue.pgm"
+argument_list|,
+literal|"/user:password@host/qsys.lib/library.lib/queue.pgm"
+argument_list|,
+operator|new
+name|HashMap
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|endpoint
+operator|instanceof
+name|Jt400PgmEndpoint
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Test exception when trying to access any other object type on AS/400      */
 annotation|@
 name|Test
@@ -178,9 +218,9 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jt400://user:password@host/qsys.lib/library.lib/program.pgm"
+literal|"jt400://user:password@host/qsys.lib/library.lib/program.xxx"
 argument_list|,
-literal|"/user:password@host/qsys.lib/library.lib/program.pgm"
+literal|"/user:password@host/qsys.lib/library.lib/program.xxx"
 argument_list|,
 operator|new
 name|HashMap
