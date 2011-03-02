@@ -1605,6 +1605,29 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|name
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Syntax error in "
+operator|+
+name|operatorText
+operator|+
+literal|" operator: "
+operator|+
+name|expression
+operator|+
+literal|" cannot be null. It must be a class type."
+argument_list|)
+throw|;
+block|}
 name|Class
 argument_list|<
 name|?
