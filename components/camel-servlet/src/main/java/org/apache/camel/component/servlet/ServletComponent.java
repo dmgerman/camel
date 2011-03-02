@@ -550,8 +550,6 @@ name|endpoint
 init|=
 name|createServletEndpoint
 argument_list|(
-name|servletName
-argument_list|,
 name|uri
 argument_list|,
 name|this
@@ -566,6 +564,13 @@ argument_list|,
 name|configurer
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|setServletName
+argument_list|(
+name|servletName
+argument_list|)
+expr_stmt|;
 name|setEndpointHeaderFilterStrategy
 argument_list|(
 name|endpoint
@@ -675,14 +680,11 @@ name|endpoint
 return|;
 block|}
 comment|/**      * Strategy to create the servlet endpoint.      */
-DECL|method|createServletEndpoint (String servletName, String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|createServletEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|protected
 name|ServletEndpoint
 name|createServletEndpoint
 parameter_list|(
-name|String
-name|servletName
-parameter_list|,
 name|String
 name|endpointUri
 parameter_list|,
@@ -708,8 +710,6 @@ return|return
 operator|new
 name|ServletEndpoint
 argument_list|(
-name|servletName
-argument_list|,
 name|endpointUri
 argument_list|,
 name|component

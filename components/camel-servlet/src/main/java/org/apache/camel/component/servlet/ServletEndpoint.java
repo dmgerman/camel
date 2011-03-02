@@ -174,13 +174,10 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|ServletEndpoint (String servletName, String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|ServletEndpoint
 parameter_list|(
-name|String
-name|servletName
-parameter_list|,
 name|String
 name|endPointURI
 parameter_list|,
@@ -216,12 +213,6 @@ name|httpConnectionManager
 argument_list|,
 name|clientConfigurer
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|servletName
-operator|=
-name|servletName
 expr_stmt|;
 block|}
 DECL|method|setServletName (String name)
