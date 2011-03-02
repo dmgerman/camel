@@ -46,35 +46,9 @@ name|javax
 operator|.
 name|servlet
 operator|.
-name|Servlet
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
 name|http
 operator|.
 name|HttpServlet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|servlet
-operator|.
-name|CamelHttpTransportServlet
 import|;
 end_import
 
@@ -146,6 +120,7 @@ name|Lifecycle
 implements|,
 name|InitializingBean
 block|{
+comment|// TODO: There must be a better way than depend on spring for registering a servlet into OSGi!
 comment|/**      * The alias is the name in the URI namespace of the Http Service at which the registration will be mapped      * An alias must begin with slash ('/') and must not end with slash ('/'), with the exception that an alias       * of the form "/" is used to denote the root alias.      */
 DECL|field|alias
 specifier|private

@@ -270,6 +270,15 @@ operator|==
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"No consumer to service request {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|sendError
@@ -290,6 +299,15 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer suspended, cannot service request {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|sendError
@@ -629,6 +647,15 @@ name|HttpConsumer
 name|consumer
 parameter_list|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Connecting consumer: {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
 name|consumers
 operator|.
 name|put
@@ -651,6 +678,15 @@ name|HttpConsumer
 name|consumer
 parameter_list|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Disconnecting consumer: {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
 name|consumers
 operator|.
 name|remove

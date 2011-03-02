@@ -36,18 +36,6 @@ name|meterware
 operator|.
 name|httpunit
 operator|.
-name|HttpNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|meterware
-operator|.
-name|httpunit
-operator|.
 name|HttpUnitOptions
 import|;
 end_import
@@ -191,9 +179,6 @@ argument_list|,
 name|CONTEXT
 argument_list|)
 expr_stmt|;
-name|loadServlets
-argument_list|()
-expr_stmt|;
 name|HttpUnitOptions
 operator|.
 name|setExceptionsThrownOnErrorStatus
@@ -239,38 +224,6 @@ operator|.
 name|shutDown
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|loadServlets ()
-specifier|protected
-name|void
-name|loadServlets
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|sr
-operator|.
-name|newClient
-argument_list|()
-operator|.
-name|getResponse
-argument_list|(
-name|CONTEXT_URL
-operator|+
-literal|"/services"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|HttpNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// ignore, we just want to boot up the servlet
-block|}
 block|}
 comment|/**      * @return The web.xml to use for testing.      */
 DECL|method|getConfiguration ()
