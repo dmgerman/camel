@@ -186,6 +186,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -297,6 +307,8 @@ block|{
 literal|"/org/apache/camel/component/gae/task/context-combined.xml"
 block|}
 argument_list|)
+annotation|@
+name|Ignore
 DECL|class|GTaskCombinedRouteBuilderTest
 specifier|public
 class|class
