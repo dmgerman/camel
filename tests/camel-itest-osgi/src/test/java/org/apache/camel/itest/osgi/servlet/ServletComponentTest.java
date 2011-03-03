@@ -274,8 +274,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"response is "
-argument_list|,
 literal|"Echo Hello World"
 argument_list|,
 name|response

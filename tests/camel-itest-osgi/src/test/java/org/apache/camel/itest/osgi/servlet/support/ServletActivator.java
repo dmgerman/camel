@@ -48,16 +48,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|Servlet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -299,7 +289,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Regist the servlet service"
+literal|"Register the servlet service"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -367,7 +357,7 @@ name|put
 argument_list|(
 literal|"servlet-name"
 argument_list|,
-literal|"camelServlet"
+literal|"CamelServlet"
 argument_list|)
 expr_stmt|;
 name|httpService
@@ -377,9 +367,6 @@ argument_list|(
 literal|"/camel/services"
 argument_list|,
 comment|// alias
-operator|(
-name|Servlet
-operator|)
 operator|new
 name|CamelHttpTransportServlet
 argument_list|()
@@ -426,7 +413,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Can't register the servlet, the reason is "
+literal|"Cannot register the servlet, the reason is "
 operator|+
 name|e
 argument_list|)
