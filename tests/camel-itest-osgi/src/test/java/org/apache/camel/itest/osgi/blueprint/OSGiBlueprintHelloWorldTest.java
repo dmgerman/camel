@@ -383,7 +383,7 @@ name|name
 operator|+
 literal|")"
 argument_list|,
-literal|5000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|ProducerTemplate
