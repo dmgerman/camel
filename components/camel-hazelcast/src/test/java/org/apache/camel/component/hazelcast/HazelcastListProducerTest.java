@@ -100,6 +100,44 @@ name|HazelcastListProducerTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|list
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|list
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|list
+operator|=
+name|Hazelcast
+operator|.
+name|getList
+argument_list|(
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 comment|// @Test
 DECL|method|add ()
 specifier|public
