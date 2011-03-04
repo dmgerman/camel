@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -69,10 +83,15 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SftpSimpleProduceTest
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Disabled due CI servers fails on full build running with these tests"
+argument_list|)
+DECL|class|SftpProduceTempFileTest
 specifier|public
 class|class
-name|SftpSimpleProduceTest
+name|SftpProduceTempFileTest
 extends|extends
 name|SftpServerTestSupport
 block|{
@@ -90,10 +109,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSftpSimpleProduce ()
+DECL|method|testSftpTempFile ()
 specifier|public
 name|void
-name|testSftpSimpleProduce
+name|testSftpTempFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -120,7 +139,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&password=admin"
+literal|"?username=admin&password=admin&tempFileName=temp-${file:name}"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -179,10 +198,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSftpSimpleSubPathProduce ()
+DECL|method|testSftpTempFileNoStartingPath ()
 specifier|public
 name|void
-name|testSftpSimpleSubPathProduce
+name|testSftpTempFileNoStartingPath
 parameter_list|()
 throws|throws
 name|Exception
@@ -205,19 +224,15 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
-operator|+
-literal|"/mysub?username=admin&password=admin"
+literal|"/?username=admin&password=admin&tempFileName=temp-${file:name}"
 argument_list|,
-literal|"Bye World"
+literal|"Hello World"
 argument_list|,
 name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"bye.txt"
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|File
@@ -226,9 +241,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/mysub/bye.txt"
+literal|"./hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -248,7 +261,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye World"
+literal|"Hello World"
 argument_list|,
 name|context
 operator|.
@@ -265,93 +278,12 @@ name|file
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSftpSimpleTwoSubPathProduce ()
-specifier|public
-name|void
-name|testSftpSimpleTwoSubPathProduce
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-operator|!
-name|canTest
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
-name|template
+comment|// delete file when we are done testing
+name|FileUtil
 operator|.
-name|sendBodyAndHeader
+name|deleteFile
 argument_list|(
-literal|"sftp://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
-operator|+
-literal|"/mysub/myother?username=admin&password=admin"
-argument_list|,
-literal|"Farewell World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"farewell.txt"
-argument_list|)
-expr_stmt|;
-name|File
 name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/mysub/myother/farewell.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File should exist: "
-operator|+
-name|file
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Farewell World"
-argument_list|,
-name|context
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|convertTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|,
-name|file
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

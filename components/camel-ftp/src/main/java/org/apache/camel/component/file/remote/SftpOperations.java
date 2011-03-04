@@ -3642,7 +3642,7 @@ block|{
 comment|// assume current dir if no path could be extracted
 name|directory
 operator|=
-literal|""
+literal|"."
 expr_stmt|;
 block|}
 name|String
