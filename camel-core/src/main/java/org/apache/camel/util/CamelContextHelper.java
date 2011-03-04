@@ -689,6 +689,13 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 block|{
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|s
 init|=
@@ -758,6 +765,7 @@ block|}
 return|return
 name|size
 return|;
+block|}
 block|}
 comment|// 1000 is the default fallback
 return|return
