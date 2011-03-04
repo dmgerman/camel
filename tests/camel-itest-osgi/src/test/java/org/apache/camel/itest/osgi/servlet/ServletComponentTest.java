@@ -243,6 +243,15 @@ name|ServletComponentTest
 extends|extends
 name|OSGiIntegrationSpringTestSupport
 block|{
+DECL|field|CONTEXT_PATH
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CONTEXT_PATH
+init|=
+literal|"/org/apache/camel/itest/osgi/servlet/ServletComponentTest-context.xml"
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testSendMessage ()
@@ -408,9 +417,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org/apache/camel/itest/osgi/servlet/ServletService.xml"
-block|,
-literal|"org/apache/camel/itest/osgi/servlet/CamelServletContext.xml"
+name|CONTEXT_PATH
 block|}
 argument_list|)
 return|;

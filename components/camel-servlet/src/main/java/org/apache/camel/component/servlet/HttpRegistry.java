@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -61,65 +51,46 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service which binds {@link CamelServlet} to the consumers it should service.  */
+comment|/**  * Keeps track of HttpConsumers and CamelServlets and   * connects them to each other. In OSGi there should  * be one HttpRegistry per bundle.  *   * A CamelServlet that should serve more than one  * bundle should be registered as an OSGi service.  * The HttpRegistryImpl can then be configured to listen  * to service changes. See /tests/camel-itest-osgi/../servlet  * for an example how to use this.  */
 end_comment
 
 begin_interface
-DECL|interface|CamelServletService
+DECL|interface|HttpRegistry
 specifier|public
 interface|interface
-name|CamelServletService
+name|HttpRegistry
 block|{
-comment|/**      * Adds the given consumer to this service.      *      * @param consumer the consumer      */
-DECL|method|addConsumer (HttpConsumer consumer)
+DECL|method|register (HttpConsumer consumer)
 name|void
-name|addConsumer
+name|register
 parameter_list|(
 name|HttpConsumer
 name|consumer
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the known consumers this service services.      *      * @return the consumers.      */
-DECL|method|getConsumers ()
-name|Set
-argument_list|<
-name|HttpConsumer
-argument_list|>
-name|getConsumers
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the servlet to use.      *      * @param camelServlet the servlet to use.      */
-DECL|method|setCamelServlet (CamelServlet camelServlet)
+DECL|method|unregister (HttpConsumer consumer)
 name|void
-name|setCamelServlet
+name|unregister
+parameter_list|(
+name|HttpConsumer
+name|consumer
+parameter_list|)
+function_decl|;
+DECL|method|register (CamelServlet provider)
+name|void
+name|register
 parameter_list|(
 name|CamelServlet
-name|camelServlet
+name|provider
 parameter_list|)
 function_decl|;
-comment|/**      * Connect the given consumer to the servlet.      *      * @param consumer the consumer      */
-DECL|method|connect (HttpConsumer consumer)
+DECL|method|unregister (CamelServlet provider)
 name|void
-name|connect
+name|unregister
 parameter_list|(
-name|HttpConsumer
-name|consumer
+name|CamelServlet
+name|provider
 parameter_list|)
-function_decl|;
-comment|/**      * Disconnects the given consumer from the servlet.      *      * @param consumer the consumer      */
-DECL|method|disconnect (HttpConsumer consumer)
-name|void
-name|disconnect
-parameter_list|(
-name|HttpConsumer
-name|consumer
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the name of the servlet used.      *      * @return the name of the servlet used.      */
-DECL|method|getServletName ()
-name|String
-name|getServletName
-parameter_list|()
 function_decl|;
 block|}
 end_interface

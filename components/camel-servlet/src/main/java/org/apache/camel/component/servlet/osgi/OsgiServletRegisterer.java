@@ -80,34 +80,8 @@ name|HttpService
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|InitializingBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|Lifecycle
-import|;
-end_import
-
 begin_comment
-comment|/**  * Register the given (CamelHttpTransport) Servlet with the OSGI   *<a href="http://www.osgi.org/javadoc/r4v42/org/osgi/service/http/HttpService.html">  * HttpService</a>  */
+comment|/**  * Register the given (CamelHttpTransport) Servlet with the OSGI   *<a href="http://www.osgi.org/javadoc/r4v42/org/osgi/service/http/HttpService.html">  * HttpService</a>  *   * See src/test/resources/osgiservletregisterer.xml  *   */
 end_comment
 
 begin_class
@@ -115,17 +89,17 @@ DECL|class|OsgiServletRegisterer
 specifier|public
 class|class
 name|OsgiServletRegisterer
-implements|implements
-name|Lifecycle
-implements|,
-name|InitializingBean
 block|{
-comment|// TODO: There must be a better way than depend on spring for registering a servlet into OSGi!
 comment|/**      * The alias is the name in the URI namespace of the Http Service at which the registration will be mapped      * An alias must begin with slash ('/') and must not end with slash ('/'), with the exception that an alias       * of the form "/" is used to denote the root alias.      */
 DECL|field|alias
 specifier|private
 name|String
 name|alias
+decl_stmt|;
+DECL|field|servletName
+specifier|private
+name|String
+name|servletName
 decl_stmt|;
 comment|/**      * Servlet to be registered      */
 DECL|field|servlet
@@ -181,6 +155,22 @@ operator|=
 name|alias
 expr_stmt|;
 block|}
+DECL|method|setServletName (String servletName)
+specifier|public
+name|void
+name|setServletName
+parameter_list|(
+name|String
+name|servletName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|servletName
+operator|=
+name|servletName
+expr_stmt|;
+block|}
 DECL|method|setServlet (HttpServlet servlet)
 specifier|public
 name|void
@@ -213,12 +203,10 @@ operator|=
 name|httpContext
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|afterPropertiesSet ()
+DECL|method|register ()
 specifier|public
 name|void
-name|afterPropertiesSet
+name|register
 parameter_list|()
 throws|throws
 name|Exception
@@ -267,16 +255,6 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|String
-name|servletName
-init|=
-name|servlet
-operator|.
-name|getServletName
-argument_list|()
-decl_stmt|;
 name|initParams
 operator|.
 name|put
@@ -286,16 +264,6 @@ argument_list|,
 name|servletName
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// If getServletName is not implemented the default is to throw an exception
-comment|// In this case we simply do not set a servlet name
-block|}
 name|httpService
 operator|.
 name|registerServlet
@@ -314,20 +282,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|start ()
+DECL|method|unregister ()
 specifier|public
 name|void
-name|start
-parameter_list|()
-block|{     }
-annotation|@
-name|Override
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
+name|unregister
 parameter_list|()
 block|{
 if|if
@@ -347,18 +305,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|isRunning ()
-specifier|public
-name|boolean
-name|isRunning
-parameter_list|()
-block|{
-return|return
-name|alreadyRegistered
-return|;
 block|}
 block|}
 end_class

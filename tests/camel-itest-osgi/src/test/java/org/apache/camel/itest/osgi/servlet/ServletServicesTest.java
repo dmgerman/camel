@@ -68,6 +68,20 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|CoreOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|Option
 import|;
 end_import
@@ -307,6 +321,17 @@ argument_list|(
 literal|"1.2.0"
 argument_list|)
 argument_list|,
+name|CoreOptions
+operator|.
+name|mavenBundle
+argument_list|(
+literal|"org.apache.felix"
+argument_list|,
+literal|"org.apache.felix.fileinstall"
+argument_list|,
+literal|"3.0.2"
+argument_list|)
+argument_list|,
 comment|// need to install some karaf features
 name|scanFeatures
 argument_list|(
@@ -357,7 +382,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-literal|"INFO"
+literal|"DEBUG"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
@@ -367,6 +392,8 @@ name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
 literal|"camel-core"
+argument_list|,
+literal|"camel-blueprint"
 argument_list|,
 literal|"camel-spring"
 argument_list|,
@@ -382,6 +409,7 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
+comment|//PaxRunnerOptions.vmOption("-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"),
 name|felix
 argument_list|()
 argument_list|,
