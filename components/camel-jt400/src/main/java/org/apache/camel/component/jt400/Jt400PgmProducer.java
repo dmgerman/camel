@@ -318,7 +318,7 @@ operator|.
 name|getSystemName
 argument_list|()
 operator|+
-literal|"' authenticatin with the user '"
+literal|"' authentication with the user '"
 operator|+
 name|iSeries
 operator|.
@@ -360,7 +360,7 @@ operator|.
 name|getSystemName
 argument_list|()
 operator|+
-literal|"'. Success?"
+literal|"'. Success? "
 operator|+
 name|result
 argument_list|)
@@ -383,12 +383,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO Do we need to throw an exception
-name|handleMessages
+throw|throw
+operator|new
+name|Jt400PgmCallException
+argument_list|(
+name|getOutputMessages
 argument_list|(
 name|pgmCall
 argument_list|)
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|getParameterList (Exchange exchange)
@@ -697,13 +701,6 @@ operator|.
 name|getOutputDataLength
 argument_list|()
 decl_stmt|;
-name|length
-operator|=
-name|pgmParam
-operator|.
-name|getOutputDataLength
-argument_list|()
-expr_stmt|;
 name|AS400Text
 name|text
 init|=
@@ -770,10 +767,10 @@ name|bodyOUT
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleMessages (ProgramCall pgmCall)
+DECL|method|getOutputMessages (ProgramCall pgmCall)
 specifier|private
-name|void
-name|handleMessages
+name|String
+name|getOutputMessages
 parameter_list|(
 name|ProgramCall
 name|pgmCall
@@ -781,15 +778,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// Show messages.
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
+name|StringBuilder
+name|outputMsg
+init|=
+operator|new
+name|StringBuilder
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
+comment|// Show messages.
 name|AS400Message
 index|[]
 name|messageList
@@ -825,17 +821,19 @@ operator|.
 name|load
 argument_list|()
 expr_stmt|;
-comment|// Show each message.
-name|LOG
+name|outputMsg
 operator|.
-name|debug
+name|append
 argument_list|(
-literal|"The message list ["
-operator|+
 name|i
 operator|+
-literal|"]"
-operator|+
+literal|") "
+argument_list|)
+expr_stmt|;
+name|outputMsg
+operator|.
+name|append
+argument_list|(
 name|messageList
 index|[
 name|i
@@ -843,9 +841,19 @@ index|]
 operator|.
 name|getText
 argument_list|()
-operator|+
-literal|", help info: "
-operator|+
+argument_list|)
+expr_stmt|;
+name|outputMsg
+operator|.
+name|append
+argument_list|(
+literal|" - "
+argument_list|)
+expr_stmt|;
+name|outputMsg
+operator|.
+name|append
+argument_list|(
 name|messageList
 index|[
 name|i
@@ -855,8 +863,20 @@ name|getHelp
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|outputMsg
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
 block|}
-block|}
+return|return
+name|outputMsg
+operator|.
+name|toString
+argument_list|()
+return|;
 block|}
 block|}
 end_class
