@@ -166,16 +166,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|setServletName
-argument_list|(
-name|config
-operator|.
-name|getServletName
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|httpRegistry
@@ -185,7 +175,7 @@ condition|)
 block|{
 name|httpRegistry
 operator|=
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 operator|.
 name|getSingletonHttpRegistry
 argument_list|()
@@ -202,12 +192,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Initialized CamelHttpTransportServlet["
-operator|+
+literal|"Initialized CamelHttpTransportServlet[{}]"
+argument_list|,
 name|getServletName
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -230,12 +218,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Destroyed CamelHttpTransportServlet["
-operator|+
+literal|"Destroyed CamelHttpTransportServlet[{}]"
+argument_list|,
 name|getServletName
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -265,7 +251,15 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Invalid consumer type. Must be ServletEndpoint"
+literal|"Invalid consumer type. Must be ServletEndpoint but is "
+operator|+
+name|consumer
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -343,7 +343,7 @@ condition|)
 block|{
 name|httpRegistry
 operator|=
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 operator|.
 name|getSingletonHttpRegistry
 argument_list|()

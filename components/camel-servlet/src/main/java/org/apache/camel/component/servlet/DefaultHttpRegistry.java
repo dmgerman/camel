@@ -121,10 +121,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|HttpRegistryImpl
+DECL|class|DefaultHttpRegistry
 specifier|public
 class|class
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 implements|implements
 name|HttpRegistry
 block|{
@@ -140,7 +140,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 operator|.
 name|class
 argument_list|)
@@ -153,6 +153,7 @@ name|singleton
 decl_stmt|;
 DECL|field|consumers
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|HttpConsumer
@@ -161,15 +162,16 @@ name|consumers
 decl_stmt|;
 DECL|field|providers
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|CamelServlet
 argument_list|>
 name|providers
 decl_stmt|;
-DECL|method|HttpRegistryImpl ()
+DECL|method|DefaultHttpRegistry ()
 specifier|public
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 parameter_list|()
 block|{
 name|consumers
@@ -210,7 +212,7 @@ block|{
 name|singleton
 operator|=
 operator|new
-name|HttpRegistryImpl
+name|DefaultHttpRegistry
 argument_list|()
 expr_stmt|;
 block|}
@@ -234,15 +236,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registering consumer for path"
-operator|+
+literal|"Registering consumer for path {} providers present: {}"
+argument_list|,
 name|consumer
 operator|.
 name|getPath
 argument_list|()
-operator|+
-literal|" providers present: "
-operator|+
+argument_list|,
 name|providers
 operator|.
 name|size
@@ -289,8 +289,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unregistering consumer for path "
-operator|+
+literal|"Unregistering consumer for path {} "
+argument_list|,
 name|consumer
 operator|.
 name|getPath
@@ -342,8 +342,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registering provider through OSGi service listener "
-operator|+
+literal|"Registering provider through OSGi service listener {}"
+argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
@@ -434,15 +434,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registering CamelServlet with name "
-operator|+
+literal|"Registering CamelServlet with name {} consumers present: {}"
+argument_list|,
 name|provider
 operator|.
 name|getServletName
 argument_list|()
-operator|+
-literal|" consumers present: "
-operator|+
+argument_list|,
 name|consumers
 operator|.
 name|size
