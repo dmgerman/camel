@@ -1073,26 +1073,7 @@ literal|"1.2.0"
 argument_list|)
 argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|systemProperty
-argument_list|(
-literal|"org.ops4j.pax.logging.DefaultServiceLog.level"
-argument_list|)
-operator|.
-name|value
-argument_list|(
-literal|"TRACE"
-argument_list|)
-argument_list|,
+comment|//org.ops4j.pax.exam.CoreOptions.systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("TRACE"),
 comment|// install blueprint requirements
 name|mavenBundle
 argument_list|(
