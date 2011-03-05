@@ -478,6 +478,24 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Sending to endpoint: "
+operator|+
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" is intercepted and detoured to: "
+operator|+
+name|detour
+operator|+
+literal|" for exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
 comment|// add header with the real endpoint uri
 name|exchange
 operator|.
