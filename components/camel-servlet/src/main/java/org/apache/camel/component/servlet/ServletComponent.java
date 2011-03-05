@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|Resource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -261,8 +251,6 @@ name|servletName
 init|=
 literal|"CamelServlet"
 decl_stmt|;
-annotation|@
-name|Resource
 DECL|field|httpRegistry
 specifier|private
 name|HttpRegistry
