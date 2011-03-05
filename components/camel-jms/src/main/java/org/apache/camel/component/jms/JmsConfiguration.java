@@ -3280,27 +3280,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|durableSubscriptionName
-operator|!=
-literal|null
-operator|&&
-name|clientId
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"ClientId must be configured when subscription is durable for "
-operator|+
-name|endpoint
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
 name|clientId
 operator|!=
 literal|null
