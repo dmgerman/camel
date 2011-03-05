@@ -62,7 +62,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Router  *  * @version $  */
+comment|/**  * A Camel Router  */
 end_comment
 
 begin_class
