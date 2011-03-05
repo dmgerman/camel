@@ -208,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The loglevel should be INFO"
+literal|"The log level should be INFO"
 argument_list|,
 name|LoggingLevel
 operator|.
@@ -217,6 +217,18 @@ argument_list|,
 name|errorHandler
 operator|.
 name|getLevel
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The log name should be foo"
+argument_list|,
+literal|"foo"
+argument_list|,
+name|errorHandler
+operator|.
+name|getLogName
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -188,6 +188,13 @@ name|ERROR
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|logName
+specifier|private
+name|String
+name|logName
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|useOriginalMessage
 specifier|private
 name|Boolean
