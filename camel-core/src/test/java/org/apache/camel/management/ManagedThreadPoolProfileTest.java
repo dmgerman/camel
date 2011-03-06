@@ -123,7 +123,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=threadpools,name=threads1(threads)"
+literal|"org.apache.camel:context=localhost/camel-1,type=threadpools,name=\"threads1(threads)\""
 argument_list|)
 decl_stmt|;
 name|Boolean
