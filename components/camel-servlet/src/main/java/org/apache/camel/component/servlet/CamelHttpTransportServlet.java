@@ -22,16 +22,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|annotation
-operator|.
-name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|servlet
 operator|.
 name|ServletConfig
@@ -139,8 +129,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Resource
 DECL|field|httpRegistry
 specifier|private
 name|HttpRegistry

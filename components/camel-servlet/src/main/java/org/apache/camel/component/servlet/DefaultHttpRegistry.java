@@ -193,7 +193,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Lookup or create a HttpRegistry      * @param registry      * @return      */
+comment|/**      * Lookup or create a HttpRegistry      */
 DECL|method|getSingletonHttpRegistry ()
 specifier|public
 specifier|static
@@ -220,7 +220,6 @@ return|return
 name|singleton
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.servlet.HttpRegistry#register(org.apache.camel.component.http.HttpConsumer)      */
 annotation|@
 name|Override
 DECL|method|register (HttpConsumer consumer)
@@ -273,7 +272,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.servlet.HttpRegistry#unregister(org.apache.camel.component.http.HttpConsumer)      */
 annotation|@
 name|Override
 DECL|method|unregister (HttpConsumer consumer)
@@ -418,7 +416,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.servlet.HttpRegistry#register(org.apache.camel.component.http.CamelServlet)      */
 annotation|@
 name|Override
 DECL|method|register (CamelServlet provider)
@@ -471,7 +468,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.servlet.HttpRegistry#unregister(org.apache.camel.component.http.CamelServlet)      */
 annotation|@
 name|Override
 DECL|method|unregister (CamelServlet provider)

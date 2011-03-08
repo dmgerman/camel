@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Register the given (CamelHttpTransport) Servlet with the OSGI   *<a href="http://www.osgi.org/javadoc/r4v42/org/osgi/service/http/HttpService.html">  * HttpService</a>  *   * See src/test/resources/osgiservletregisterer.xml  *   */
+comment|/**  * Register the given (CamelHttpTransport) Servlet with the OSGI   *<a href="http://www.osgi.org/javadoc/r4v42/org/osgi/service/http/HttpService.html">  * HttpService</a>  *   * See src/test/resources/osgiservletregisterer.xml  */
 end_comment
 
 begin_class
