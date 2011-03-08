@@ -213,22 +213,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Beginning Test ---> testStatefulTransactionalTCPRequestReply()"
-argument_list|)
-expr_stmt|;
-block|}
 name|unreachableEndpoint
 operator|.
 name|expectedMessageCount
@@ -247,7 +231,7 @@ name|producerTemplate
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"sip://agent@localhost:5152?stackName=client&eventHeaderName=evtHdrName&eventId=evtid&fromUser=user2&fromHost=localhost&fromPort=3534"
+literal|"sip://agent@localhost:5252?stackName=client&eventHeaderName=evtHdrName&eventId=evtid&fromUser=user2&fromHost=localhost&fromPort=3534"
 argument_list|,
 literal|"EVENT_A"
 argument_list|,
@@ -261,22 +245,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Completed Test ---> testStatefulTransactionalTCPRequestReply()"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -305,7 +273,7 @@ block|{
 comment|// Create PresenceAgent
 name|from
 argument_list|(
-literal|"sip://agent@localhost:5152?stackName=PresenceAgent&presenceAgent=true&eventHeaderName=evtHdrName&eventId=evtid"
+literal|"sip://agent@localhost:5252?stackName=PresenceAgent&presenceAgent=true&eventHeaderName=evtHdrName&eventId=evtid"
 argument_list|)
 operator|.
 name|to
@@ -315,7 +283,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sip://johndoe@localhost:5154?stackName=Subscriber&toUser=agent&toHost=localhost&toPort=5152&eventHeaderName=evtHdrName&eventId=evtid"
+literal|"sip://johndoe@localhost:5254?stackName=Subscriber&toUser=agent&toHost=localhost&toPort=5252&eventHeaderName=evtHdrName&eventId=evtid"
 argument_list|)
 operator|.
 name|to
