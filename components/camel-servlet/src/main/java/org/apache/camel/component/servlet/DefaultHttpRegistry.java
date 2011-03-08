@@ -345,13 +345,6 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|provider
-operator|instanceof
-name|CamelServlet
-condition|)
-block|{
 name|CamelServlet
 name|camelServlet
 init|=
@@ -381,13 +374,12 @@ name|camelServlet
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|unregister (Servlet provider, Map<String, Object> properties)
+DECL|method|unregister (CamelServlet provider, Map<String, Object> properties)
 specifier|public
 name|void
 name|unregister
 parameter_list|(
-name|Servlet
+name|CamelServlet
 name|provider
 parameter_list|,
 name|Map
@@ -399,13 +391,6 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
-if|if
-condition|(
-name|provider
-operator|instanceof
-name|CamelServlet
-condition|)
-block|{
 name|unregister
 argument_list|(
 operator|(
@@ -414,7 +399,6 @@ operator|)
 name|provider
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
