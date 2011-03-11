@@ -721,6 +721,13 @@ specifier|private
 name|boolean
 name|testConnectionOnStartup
 decl_stmt|;
+comment|// if the message is a JmsMessage and mapJmsMessage=false, force the
+comment|// producer to send the javax.jms.Message body to the next JMS destination
+DECL|field|forceSendOriginalMessage
+specifier|private
+name|boolean
+name|forceSendOriginalMessage
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4186,6 +4193,32 @@ name|testConnectionOnStartup
 operator|=
 name|testConnectionOnStartup
 expr_stmt|;
+block|}
+DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
+specifier|public
+name|void
+name|setForceSendOriginalMessage
+parameter_list|(
+name|boolean
+name|forceSendOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceSendOriginalMessage
+operator|=
+name|forceSendOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|isForceSendOriginalMessage ()
+specifier|public
+name|boolean
+name|isForceSendOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|forceSendOriginalMessage
+return|;
 block|}
 block|}
 end_class

@@ -1548,6 +1548,14 @@ name|jmsMessage
 operator|.
 name|shouldCreateNewMessage
 argument_list|()
+operator|||
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isForceSendOriginalMessage
+argument_list|()
 condition|)
 block|{
 name|answer
