@@ -596,7 +596,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Braking out of failover after "
+literal|"Breaking out of failover after "
 operator|+
 name|attempts
 operator|+
@@ -674,7 +674,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Braking out of failover as we reach the end of endpoints to use for failover"
+literal|"Breaking out of failover as we reached the end of endpoints to use for failover"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1199,7 +1199,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Braking out of failover after "
+literal|"Breaking out of failover after "
 operator|+
 name|attempts
 operator|+
@@ -1268,7 +1268,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Braking out of failover as we reach the end of endpoints to use for failover"
+literal|"Breaking out of failover as we reached the end of endpoints to use for failover"
 argument_list|)
 expr_stmt|;
 break|break;
