@@ -1427,6 +1427,24 @@ name|testConnectionOnStartup
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
+specifier|public
+name|void
+name|setForceSendOriginalMessage
+parameter_list|(
+name|boolean
+name|forceSendOriginalMessage
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setForceSendOriginalMessage
+argument_list|(
+name|forceSendOriginalMessage
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
