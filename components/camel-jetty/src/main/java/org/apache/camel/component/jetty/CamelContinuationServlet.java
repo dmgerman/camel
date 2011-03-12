@@ -30,6 +30,28 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -249,16 +271,41 @@ specifier|private
 name|Long
 name|continuationTimeout
 decl_stmt|;
+comment|// we must remember expired exchanges as Jetty will initiate a new continuation when we send
+comment|// back the error when timeout occurred, and thus in the async callback we cannot check the
+comment|// continuation if it was previously expired. So that's why we have our own map for that
+DECL|field|expiredExchanges
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|expiredExchanges
+init|=
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
-DECL|method|service (HttpServletRequest request, HttpServletResponse response)
+DECL|method|service (final HttpServletRequest request, final HttpServletResponse response)
 specifier|protected
 name|void
 name|service
 parameter_list|(
+specifier|final
 name|HttpServletRequest
 name|request
 parameter_list|,
+specifier|final
 name|HttpServletResponse
 name|response
 parameter_list|)
@@ -267,24 +314,15 @@ name|ServletException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service: "
-operator|+
+literal|"Service: {}"
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-block|}
 comment|// is there a consumer registered for the request.
 name|HttpConsumer
 name|consumer
@@ -347,11 +385,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|continuation
+operator|.
+name|isInitial
+argument_list|()
+operator|&&
 name|continuationTimeout
 operator|!=
 literal|null
 condition|)
 block|{
+comment|// set timeout on initial
 name|continuation
 operator|.
 name|setTimeout
@@ -406,12 +450,22 @@ argument_list|(
 name|EXCHANGE_ATTRIBUTE_ID
 argument_list|)
 decl_stmt|;
+comment|// remember this id as expired
+name|expiredExchanges
+operator|.
+name|put
+argument_list|(
+name|id
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Continuation expired of exchangeId: "
-operator|+
+literal|"Continuation expired of exchangeId: {}"
+argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
@@ -521,27 +575,18 @@ name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending continuation of exchangeId: "
-operator|+
+literal|"Suspending continuation of exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|continuation
 operator|.
 name|setAttribute
@@ -560,27 +605,18 @@ operator|.
 name|suspend
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing request for exchangeId: "
-operator|+
+literal|"Processing request for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// use the asynchronous API to process the exchange
 name|consumer
 operator|.
@@ -603,27 +639,40 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
+comment|// check if the exchange id is already expired
+name|boolean
+name|expired
+init|=
+name|expiredExchanges
+operator|.
+name|remove
+argument_list|(
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 if|if
 condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
+operator|!
+name|expired
 condition|)
 block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resuming continuation of exchangeId: "
-operator|+
+literal|"Resuming continuation of exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// resume processing after both, sync and async callbacks
 name|continuation
 operator|.
@@ -640,6 +689,22 @@ name|resume
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot resume expired continuation of exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -649,27 +714,18 @@ return|return;
 block|}
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resumed continuation and writing response for exchangeId: "
-operator|+
+literal|"Resumed continuation and writing response for exchangeId: {}"
+argument_list|,
 name|result
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// now lets output to the response
 name|consumer
 operator|.
@@ -751,6 +807,25 @@ operator|.
 name|continuationTimeout
 operator|=
 name|continuationTimeout
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+block|{
+name|expiredExchanges
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|destroy
+argument_list|()
 expr_stmt|;
 block|}
 block|}
