@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log to an arbitrary {@link org.apache.commons.logging.Log Logger} with some {@link LoggingLevel}  *  * @version   */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at DEBUG level.  *  * @version   */
 end_comment
 
 begin_class
@@ -147,7 +147,7 @@ argument_list|)
 argument_list|,
 name|LoggingLevel
 operator|.
-name|ERROR
+name|DEBUG
 argument_list|)
 argument_list|)
 expr_stmt|;
