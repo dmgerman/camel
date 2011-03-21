@@ -92,6 +92,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|testing
+operator|.
+name|Helper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -356,29 +370,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
+name|OptionUtils
 operator|.
-name|options
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|profile
+name|combine
 import|;
 end_import
 
@@ -799,47 +793,29 @@ name|Option
 index|[]
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Option
 index|[]
 name|options
 init|=
-name|options
+name|combine
 argument_list|(
-comment|// install the spring dm profile
-name|profile
-argument_list|(
-literal|"spring.dm"
-argument_list|)
+comment|// Default karaf environment
+name|Helper
 operator|.
-name|version
+name|getDefaultOptions
 argument_list|(
-literal|"1.2.0"
-argument_list|)
-argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)
-name|org
+name|Helper
 operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|systemProperty
+name|setLogLevel
 argument_list|(
-literal|"org.ops4j.pax.logging.DefaultServiceLog.level"
+literal|"WARN"
 argument_list|)
-operator|.
-name|value
-argument_list|(
-literal|"INFO"
 argument_list|)
 argument_list|,
-comment|//org.ops4j.pax.exam.CoreOptions.systemProperty("org.apache.servicemix.specs.debug").value("true"),
-comment|//mavenBundle().groupId("net.sourceforge.serp").artifactId("com.springsource.serp").version("1.13.1"),
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
@@ -855,7 +831,6 @@ argument_list|,
 literal|"camel-jpa"
 argument_list|)
 argument_list|,
-comment|/* This the camel-jpa needed bundles              mavenBundle().groupId("org.apache.servicemix.specs").artifactId("org.apache.servicemix.specs.java-persistence-api-1.1.1").version("1.4-SNAPSHOT"),             mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.openjpa").version("1.2.1_1-SNAPSHOT"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jta_1.1_spec").version("1.1.1"),             mavenBundle().groupId("org.apache.camel").artifactId("camel-jpa").version("2.1-SNAPSHOT"),             mavenBundle().groupId("org.springframework").artifactId("spring-jdbc").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-tx").version("2.5.6"),             mavenBundle().groupId("org.springframework").artifactId("spring-orm").version("2.5.6"),             mavenBundle().groupId("commons-lang").artifactId("commons-lang").version("2.4"),                 mavenBundle().groupId("commons-collections").artifactId("commons-collections").version("3.2.1"),                 mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.ant").version("1.7.0_1"),                 mavenBundle().groupId("commons-pool").artifactId("commons-pool").version("1.4"),             mavenBundle().groupId("org.apache.geronimo.specs").artifactId("geronimo-jms_1.1_spec").version("1.1.1"),*/
 name|mavenBundle
 argument_list|()
 operator|.

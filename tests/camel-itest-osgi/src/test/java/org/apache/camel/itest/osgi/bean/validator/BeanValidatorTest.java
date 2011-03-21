@@ -66,6 +66,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|testing
+operator|.
+name|Helper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -190,45 +204,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
+name|OptionUtils
 operator|.
-name|options
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|provision
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|profile
+name|combine
 import|;
 end_import
 
@@ -473,43 +451,27 @@ name|Option
 index|[]
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Option
 index|[]
 name|options
 init|=
-name|options
+name|combine
 argument_list|(
-comment|// install the spring dm profile
-name|profile
-argument_list|(
-literal|"spring.dm"
-argument_list|)
+comment|// Default karaf environment
+name|Helper
 operator|.
-name|version
+name|getDefaultOptions
 argument_list|(
-literal|"1.2.0"
-argument_list|)
-argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)
-name|org
+name|Helper
 operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|systemProperty
+name|setLogLevel
 argument_list|(
-literal|"org.ops4j.pax.logging.DefaultServiceLog.level"
+literal|"WARN"
 argument_list|)
-operator|.
-name|value
-argument_list|(
-literal|"DEBUG"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
@@ -519,6 +481,8 @@ name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
 literal|"camel-core"
+argument_list|,
+literal|"camel-spring"
 argument_list|,
 literal|"camel-test"
 argument_list|,
@@ -530,16 +494,10 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
-comment|//provision(newBundle()
-comment|//        .add("META-INF/validation.xml", BeanValidatorTest.class.getClassLoader().getResource("META-INF/validation.xml"))
-comment|//        .add("constraints-car.xml", BeanValidatorTest.class.getClassLoader().getResource("constraints-car.xml"))
-comment|//        .set(Constants.BUNDLE_SYMBOLICNAME, "validation-fragment")
-comment|//        .set(Constants.FRAGMENT_HOST, "org.apache.servicemix.specs.jsr303-api-1.0.0")
-comment|//        .build(withBnd())),
-name|felix
+name|equinox
 argument_list|()
 argument_list|,
-name|equinox
+name|felix
 argument_list|()
 argument_list|)
 decl_stmt|;

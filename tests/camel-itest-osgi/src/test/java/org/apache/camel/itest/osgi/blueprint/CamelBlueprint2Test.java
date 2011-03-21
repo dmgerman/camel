@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|testing
+operator|.
+name|Helper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -222,7 +236,7 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|options
+name|wrappedBundle
 import|;
 end_import
 
@@ -236,9 +250,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
+name|OptionUtils
 operator|.
-name|wrappedBundle
+name|combine
 import|;
 end_import
 
@@ -818,8 +832,22 @@ name|Option
 index|[]
 name|options
 init|=
-name|options
+name|combine
 argument_list|(
+comment|// Default karaf environment
+name|Helper
+operator|.
+name|getDefaultOptions
+argument_list|(
+comment|// this is how you set the default log level when using pax logging (logProfile)
+name|Helper
+operator|.
+name|setLogLevel
+argument_list|(
+literal|"WARN"
+argument_list|)
+argument_list|)
+argument_list|,
 name|bundle
 argument_list|(
 name|newBundle
@@ -1061,52 +1089,6 @@ operator|.
 name|noStart
 argument_list|()
 argument_list|,
-comment|// install the spring dm profile
-name|profile
-argument_list|(
-literal|"spring.dm"
-argument_list|)
-operator|.
-name|version
-argument_list|(
-literal|"1.2.0"
-argument_list|)
-argument_list|,
-comment|// this is how you set the default log level when using pax logging (logProfile)
-comment|//org.ops4j.pax.exam.CoreOptions.systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("TRACE"),
-comment|// install blueprint requirements
-name|mavenBundle
-argument_list|(
-literal|"org.apache.felix"
-argument_list|,
-literal|"org.apache.felix.configadmin"
-argument_list|)
-argument_list|,
-comment|// install tiny bundles
-name|mavenBundle
-argument_list|(
-literal|"org.ops4j.base"
-argument_list|,
-literal|"ops4j-base-store"
-argument_list|)
-argument_list|,
-name|wrappedBundle
-argument_list|(
-name|mavenBundle
-argument_list|(
-literal|"org.ops4j.pax.swissbox"
-argument_list|,
-literal|"pax-swissbox-bnd"
-argument_list|)
-argument_list|)
-argument_list|,
-name|mavenBundle
-argument_list|(
-literal|"org.ops4j.pax.swissbox"
-argument_list|,
-literal|"pax-swissbox-tinybundles"
-argument_list|)
-argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
@@ -1131,7 +1113,6 @@ argument_list|(
 literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
-comment|//                vmOption("-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5008"),
 name|felix
 argument_list|()
 argument_list|,

@@ -525,7 +525,7 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|"1.2.0"
+literal|"1.2.1"
 argument_list|)
 argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)

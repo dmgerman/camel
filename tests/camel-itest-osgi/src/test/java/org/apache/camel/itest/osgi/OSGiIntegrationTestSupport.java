@@ -64,6 +64,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|testing
+operator|.
+name|Helper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|ops4j
 operator|.
 name|pax
@@ -222,9 +236,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
+name|OptionUtils
 operator|.
-name|options
+name|combine
 import|;
 end_import
 
@@ -552,7 +566,7 @@ block|{
 name|String
 name|karafVersion
 init|=
-literal|"2.1.4"
+literal|"2.2.0"
 decl_stmt|;
 name|System
 operator|.
@@ -578,12 +592,12 @@ argument_list|()
 operator|.
 name|groupId
 argument_list|(
-literal|"org.apache.karaf"
+literal|"org.apache.karaf.assemblies.features"
 argument_list|)
 operator|.
 name|artifactId
 argument_list|(
-literal|"apache-karaf"
+literal|"standard"
 argument_list|)
 operator|.
 name|version
@@ -613,47 +627,20 @@ name|Option
 index|[]
 name|options
 init|=
-name|options
+name|combine
 argument_list|(
-comment|// install the spring dm profile
-name|profile
-argument_list|(
-literal|"spring.dm"
-argument_list|)
+comment|// Default karaf environment
+name|Helper
 operator|.
-name|version
+name|getDefaultOptions
 argument_list|(
-literal|"1.2.0"
-argument_list|)
-argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)
-name|org
+name|Helper
 operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|systemProperty
+name|setLogLevel
 argument_list|(
-literal|"org.ops4j.pax.logging.DefaultServiceLog.level"
+literal|"WARN"
 argument_list|)
-operator|.
-name|value
-argument_list|(
-literal|"INFO"
-argument_list|)
-argument_list|,
-comment|// need to install some karaf features
-name|scanFeatures
-argument_list|(
-name|getKarafFeatureUrl
-argument_list|()
-argument_list|,
-literal|"http"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components

@@ -837,7 +837,7 @@ block|{
 name|String
 name|karafVersion
 init|=
-literal|"2.1.4"
+literal|"2.2.0"
 decl_stmt|;
 name|System
 operator|.
@@ -863,12 +863,12 @@ argument_list|()
 operator|.
 name|groupId
 argument_list|(
-literal|"org.apache.karaf"
+literal|"org.apache.karaf.assemblies.features"
 argument_list|)
 operator|.
 name|artifactId
 argument_list|(
-literal|"apache-karaf"
+literal|"standard"
 argument_list|)
 operator|.
 name|version

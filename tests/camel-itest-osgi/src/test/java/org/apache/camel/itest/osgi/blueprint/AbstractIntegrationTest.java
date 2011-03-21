@@ -929,6 +929,39 @@ name|versionAsInProject
 argument_list|()
 return|;
 block|}
+comment|/**      *  Create an provisioning option for the specified maven artifact      * (groupId and artifactId), using the version found in the list      * of dependencies of this maven project.      *      * @param groupId the groupId of the maven bundle      * @param artifactId the artifactId of the maven bundle      * @param version the version of the maven bundle      * @return the provisioning option for the given bundle      */
+DECL|method|mavenBundle (String groupId, String artifactId, String version)
+specifier|protected
+specifier|static
+name|MavenArtifactProvisionOption
+name|mavenBundle
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+block|{
+return|return
+name|CoreOptions
+operator|.
+name|mavenBundle
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|)
+operator|.
+name|version
+argument_list|(
+name|version
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
