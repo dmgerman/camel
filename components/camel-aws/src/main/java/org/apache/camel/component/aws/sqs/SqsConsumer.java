@@ -208,6 +208,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|ScheduledPollConsumer
 import|;
 end_import
@@ -289,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/aws-sqs/">AWS SQS</a>  *   * @version   */
+comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   */
 end_comment
 
 begin_class
@@ -440,6 +454,15 @@ else|:
 literal|null
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Receiving messages with request [{}]..."
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 name|ReceiveMessageResult
 name|messageResult
 init|=
@@ -451,6 +474,21 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Received {} messages"
+argument_list|,
+name|messageResult
+operator|.
+name|getMessages
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Queue
 argument_list|<
 name|Exchange
@@ -492,29 +530,18 @@ argument_list|>
 name|messages
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Received "
-operator|+
+literal|"Received {} messages in this poll"
+argument_list|,
 name|messages
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" messages in this poll"
 argument_list|)
 expr_stmt|;
-block|}
 name|Queue
 argument_list|<
 name|Exchange
@@ -715,26 +742,15 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchange ["
-operator|+
+literal|"Processing exchange [{}]..."
+argument_list|,
 name|exchange
-operator|+
-literal|"]..."
 argument_list|)
 expr_stmt|;
-block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -800,32 +816,28 @@ argument_list|,
 name|receiptHandle
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting message with receipt handle "
-operator|+
+literal|"Deleting message with receipt handle {}..."
+argument_list|,
 name|receiptHandle
-operator|+
-literal|"..."
 argument_list|)
 expr_stmt|;
-block|}
 name|getClient
 argument_list|()
 operator|.
 name|deleteMessage
 argument_list|(
 name|deleteRequest
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Message deleted"
 argument_list|)
 expr_stmt|;
 block|}
@@ -897,8 +909,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange failed, so rolling back message status: "
-operator|+
+literal|"Exchange failed, so rolling back message status: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -1094,6 +1106,31 @@ argument_list|()
 operator|.
 name|getMaxMessagesPerPoll
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SqsConsumer["
+operator|+
+name|DefaultEndpoint
+operator|.
+name|sanitizeUri
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

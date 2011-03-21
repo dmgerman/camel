@@ -220,7 +220,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"([?&][^=]*(?:passphrase|password)[^=]*)=([^&]*)"
+literal|"([?&][^=]*(?:passphrase|password|secretKey)[^=]*)=([^&]*)"
 argument_list|,
 name|Pattern
 operator|.

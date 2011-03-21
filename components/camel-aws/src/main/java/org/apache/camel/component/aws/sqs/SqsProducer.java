@@ -112,6 +112,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|DefaultProducer
 import|;
 end_import
@@ -137,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   * @version   */
+comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   */
 end_comment
 
 begin_class
@@ -219,30 +233,17 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sending request ["
-operator|+
+literal|"Sending request [{}] from exchange [{}]..."
+argument_list|,
 name|request
-operator|+
-literal|"] from exchange ["
-operator|+
+argument_list|,
 name|exchange
-operator|+
-literal|"]..."
 argument_list|)
 expr_stmt|;
-block|}
 name|SendMessageResult
 name|result
 init|=
@@ -254,26 +255,15 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Received result ["
-operator|+
+literal|"Received result [{}]"
+argument_list|,
 name|result
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|Message
 name|message
 init|=
@@ -404,6 +394,31 @@ name|super
 operator|.
 name|getEndpoint
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SqsProducer["
+operator|+
+name|DefaultEndpoint
+operator|.
+name|sanitizeUri
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

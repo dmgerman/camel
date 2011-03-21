@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    *  * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    *  */
 end_comment
 
 begin_class
@@ -417,33 +417,20 @@ else|:
 literal|null
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating queue ["
-operator|+
+literal|"Creating queue [{}] with request [{}]..."
+argument_list|,
 name|configuration
 operator|.
 name|getQueueName
 argument_list|()
-operator|+
-literal|"] with request ["
-operator|+
+argument_list|,
 name|request
-operator|+
-literal|"]..."
 argument_list|)
 expr_stmt|;
-block|}
 name|CreateQueueResult
 name|queueResult
 init|=
@@ -461,24 +448,15 @@ operator|.
 name|getQueueUrl
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Queue created and available at: "
-operator|+
+literal|"Queue created and available at: {}"
+argument_list|,
 name|queueUrl
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

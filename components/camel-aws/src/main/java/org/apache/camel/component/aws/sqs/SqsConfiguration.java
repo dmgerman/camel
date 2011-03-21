@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The AWS SQS component configuration properties  *   * @version   */
+comment|/**  * The AWS SQS component configuration properties  *   */
 end_comment
 
 begin_class

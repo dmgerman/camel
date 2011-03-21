@@ -371,7 +371,7 @@ name|assertEquals
 argument_list|(
 literal|"6a1559560f67c5e7a7d5d838bf0272ee"
 argument_list|,
-name|resultExchange
+name|exchange
 operator|.
 name|getIn
 argument_list|()

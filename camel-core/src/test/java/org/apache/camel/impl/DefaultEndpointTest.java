@@ -112,6 +112,18 @@ literal|"sftp://host.mysite.com/records?user=someuser&privateKeyFile=key.file&pr
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"aws-sqs://MyQueue?accessKey=1672t4rflhnhli3&secretKey=******"
+argument_list|,
+name|DefaultEndpoint
+operator|.
+name|sanitizeUri
+argument_list|(
+literal|"aws-sqs://MyQueue?accessKey=1672t4rflhnhli3&secretKey=qi472qfberu33dqjncq"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertSanitizedUriUnchanged (String uri)
 specifier|public

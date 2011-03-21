@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS Component</a>   *   * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS Component</a>   *   */
 end_comment
 
 begin_class
@@ -142,13 +142,23 @@ condition|(
 name|remaining
 operator|==
 literal|null
+operator|||
+name|remaining
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Queue name not specified."
+literal|"Queue name must be specified."
 argument_list|)
 throw|;
 block|}
@@ -189,7 +199,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"AmazonSQSClient or accessKey and secretKey must be set"
+literal|"AmazonSQSClient or accessKey and secretKey must be specified."
 argument_list|)
 throw|;
 block|}
