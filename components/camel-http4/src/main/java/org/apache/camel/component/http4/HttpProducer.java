@@ -958,6 +958,19 @@ name|IOException
 throws|,
 name|ClassNotFoundException
 block|{
+comment|// We just make the out message is not create when extractResponseBody throws exception
+name|Object
+name|response
+init|=
+name|extractResponseBody
+argument_list|(
+name|httpRequest
+argument_list|,
+name|httpResponse
+argument_list|,
+name|exchange
+argument_list|)
+decl_stmt|;
 name|Message
 name|answer
 init|=
@@ -991,14 +1004,7 @@ name|answer
 operator|.
 name|setBody
 argument_list|(
-name|extractResponseBody
-argument_list|(
-name|httpRequest
-argument_list|,
-name|httpResponse
-argument_list|,
-name|exchange
-argument_list|)
+name|response
 argument_list|)
 expr_stmt|;
 comment|// propagate HTTP response headers
