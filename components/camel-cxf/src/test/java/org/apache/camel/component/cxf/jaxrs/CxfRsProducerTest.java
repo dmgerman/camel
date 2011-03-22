@@ -273,6 +273,17 @@ literal|"org/apache/camel/component/cxf/jaxrs/CxfRsSpringProducer.xml"
 argument_list|)
 return|;
 block|}
+DECL|method|setupDestinationURL (Message inMessage)
+specifier|protected
+name|void
+name|setupDestinationURL
+parameter_list|(
+name|Message
+name|inMessage
+parameter_list|)
+block|{
+comment|// do nothing here
+block|}
 annotation|@
 name|Test
 DECL|method|testGetConstumerWithClientProxyAPI ()
@@ -322,6 +333,11 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|setupDestinationURL
+argument_list|(
+name|inMessage
+argument_list|)
+expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -462,6 +478,11 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|setupDestinationURL
+argument_list|(
+name|inMessage
+argument_list|)
+expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -618,6 +639,11 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|setupDestinationURL
+argument_list|(
+name|inMessage
+argument_list|)
+expr_stmt|;
 comment|// using the http central client API
 name|inMessage
 operator|.
