@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -100,7 +80,7 @@ name|converter
 operator|.
 name|stream
 operator|.
-name|FileInputStreamCache
+name|InputStreamCache
 import|;
 end_import
 
@@ -125,14 +105,14 @@ name|HELLO_WORLD
 init|=
 literal|"Hello World"
 decl_stmt|;
-DECL|field|TEST_FILE
+DECL|field|TEST_STRING
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|TEST_FILE
+name|TEST_STRING
 init|=
-literal|"src/test/resources/org/apache/camel/converter/stream/test.xml"
+literal|"<firstName>James</firstName>"
 decl_stmt|;
 DECL|method|testOnExceptionError ()
 specifier|public
@@ -299,25 +279,16 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|TEST_FILE
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-decl_stmt|;
-name|FileInputStreamCache
+name|InputStreamCache
 name|cache
 init|=
 operator|new
-name|FileInputStreamCache
+name|InputStreamCache
 argument_list|(
-name|file
+name|TEST_STRING
+operator|.
+name|getBytes
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|template

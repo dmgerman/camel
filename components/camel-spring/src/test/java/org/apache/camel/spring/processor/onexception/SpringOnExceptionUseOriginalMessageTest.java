@@ -105,7 +105,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/OnExceptionUseOriginalMessageTest.xml"
+literal|"org/apache/camel/spring/processor/onexception/SpringOnExceptionUseOriginalMessageTest.xml"
 argument_list|)
 return|;
 block|}
