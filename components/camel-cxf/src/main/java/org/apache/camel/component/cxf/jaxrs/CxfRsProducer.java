@@ -1175,10 +1175,25 @@ operator|.
 name|getResourceClasses
 argument_list|()
 expr_stmt|;
+comment|// check the null body first
 name|Object
 index|[]
 name|parameters
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|inMessage
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|parameters
+operator|=
 name|inMessage
 operator|.
 name|getBody
@@ -1188,7 +1203,8 @@ index|[]
 operator|.
 expr|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// get the method
 name|Method
 name|method
@@ -1406,6 +1422,21 @@ index|[]
 name|objects
 parameter_list|)
 block|{
+comment|// We need to handle the void parameter situation.
+if|if
+condition|(
+name|objects
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|Class
+index|[]
+block|{}
+return|;
+block|}
 name|Class
 argument_list|<
 name|?
