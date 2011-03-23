@@ -1048,6 +1048,26 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|session
+operator|.
+name|setServerAliveInterval
+argument_list|(
+name|sftpConfig
+operator|.
+name|getServerAliveInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setServerAliveCountMax
+argument_list|(
+name|sftpConfig
+operator|.
+name|getServerAliveCountMax
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// set user information
 name|session
 operator|.
