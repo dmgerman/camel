@@ -1009,24 +1009,15 @@ name|void
 name|trunkStore
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Trunking idempotent filestore: "
-operator|+
+literal|"Trunking idempotent filestore: {}"
+argument_list|,
 name|fileStore
 argument_list|)
 expr_stmt|;
-block|}
 name|FileOutputStream
 name|fos
 init|=

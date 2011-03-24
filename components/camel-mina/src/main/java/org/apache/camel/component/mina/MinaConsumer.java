@@ -330,28 +330,17 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Binding to server address: "
-operator|+
+literal|"Binding to server address: {} using acceptor: {}"
+argument_list|,
 name|address
-operator|+
-literal|" using acceptor: "
-operator|+
+argument_list|,
 name|acceptor
 argument_list|)
 expr_stmt|;
-block|}
 name|IoHandler
 name|handler
 init|=
@@ -385,28 +374,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Unbinding from server address: "
-operator|+
+literal|"Unbinding from server address: {} using acceptor: {}"
+argument_list|,
 name|address
-operator|+
-literal|" using acceptor: "
-operator|+
+argument_list|,
 name|acceptor
 argument_list|)
 expr_stmt|;
-block|}
 name|acceptor
 operator|.
 name|unbind

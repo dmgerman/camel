@@ -299,27 +299,18 @@ argument_list|,
 name|message
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sending notification to Nagios: "
-operator|+
+literal|"Sending notification to Nagios: {}"
+argument_list|,
 name|payload
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|sender
 operator|.
 name|send

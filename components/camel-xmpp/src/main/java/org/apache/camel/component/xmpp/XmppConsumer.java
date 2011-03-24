@@ -576,34 +576,23 @@ name|getPacketReplyTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Joined room: "
-operator|+
+literal|"Joined room: {} as: {}"
+argument_list|,
 name|muc
 operator|.
 name|getRoom
 argument_list|()
-operator|+
-literal|" as: "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getNickname
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|super
 operator|.
@@ -633,27 +622,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Leaving room: "
-operator|+
+literal|"Leaving room: {}"
+argument_list|,
 name|muc
 operator|.
 name|getRoom
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|muc
 operator|.
 name|removeMessageListener

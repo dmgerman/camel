@@ -2065,25 +2065,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Loading Quartz properties file from classpath: "
-operator|+
+literal|"Loading Quartz properties file from classpath: {}"
+argument_list|,
 name|getPropertiesFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|InputStream
 name|is
 init|=

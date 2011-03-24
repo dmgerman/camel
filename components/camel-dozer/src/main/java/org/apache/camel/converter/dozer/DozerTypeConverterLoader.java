@@ -572,38 +572,30 @@ range|:
 name|all
 control|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Added "
-operator|+
+literal|"Added {} -> {} as type converter to: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|map
 operator|.
 name|getSrcClassName
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+block|,
 name|map
 operator|.
 name|getDestClassName
 argument_list|()
-operator|+
-literal|" as type converter to: "
-operator|+
+block|,
 name|registry
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 name|registry
 operator|.
 name|addTypeConverter

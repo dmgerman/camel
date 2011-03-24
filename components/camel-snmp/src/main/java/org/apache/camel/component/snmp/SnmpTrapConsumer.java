@@ -285,20 +285,12 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// load connection data only if the endpoint is enabled
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting trap consumer on "
-operator|+
+literal|"Starting trap consumer on {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint
@@ -307,7 +299,6 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|listenGenericAddress

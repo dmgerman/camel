@@ -159,24 +159,15 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Executing "
-operator|+
+literal|"Executing {}"
+argument_list|,
 name|execCommand
 argument_list|)
 expr_stmt|;
-block|}
 name|ExecResult
 name|result
 init|=
@@ -199,39 +190,22 @@ argument_list|,
 literal|"The command executor must return a not-null result"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"The command "
-operator|+
+literal|"The command {} had exit value {}"
+argument_list|,
 name|execCommand
-operator|+
-literal|" had exit value "
-operator|+
+argument_list|,
 name|result
 operator|.
 name|getExitValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
-name|log
-operator|.
-name|isErrorEnabled
-argument_list|()
-operator|&&
 name|result
 operator|.
 name|getExitValue
@@ -244,12 +218,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"The command "
-operator|+
+literal|"The command {} returned exit value {}"
+argument_list|,
 name|execCommand
-operator|+
-literal|" returned exit value "
-operator|+
+argument_list|,
 name|result
 operator|.
 name|getExitValue
