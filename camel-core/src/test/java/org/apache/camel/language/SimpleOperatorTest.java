@@ -125,6 +125,63 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNullValue ()
+specifier|public
+name|void
+name|testNullValue
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.body} != null"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body} == null"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.body} == null"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body} != null"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testAnd ()
 specifier|public
 name|void
