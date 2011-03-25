@@ -464,6 +464,42 @@ operator|=
 name|jmsMessage
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setBody (Object body)
+specifier|public
+name|void
+name|setBody
+parameter_list|(
+name|Object
+name|body
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
+block|{
+comment|// preserver headers even if we set body to null
+name|ensureInitialHeaders
+argument_list|()
+expr_stmt|;
+comment|// remove underlying jmsMessage since we mutated body to null
+name|jmsMessage
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

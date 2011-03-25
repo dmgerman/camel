@@ -179,10 +179,10 @@ name|uri
 init|=
 literal|"activemq:queue:hello"
 decl_stmt|;
-DECL|method|testMuateMessage ()
+DECL|method|testMutateMessage ()
 specifier|public
 name|void
-name|testMuateMessage
+name|testMutateMessage
 parameter_list|()
 throws|throws
 name|Exception
