@@ -402,24 +402,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding ContextClassLoader from current thread: "
-operator|+
+literal|"Adding ContextClassLoader from current thread: {}"
+argument_list|,
 name|ccl
 argument_list|)
 expr_stmt|;
-block|}
 name|classLoaders
 operator|.
 name|add
@@ -1282,16 +1273,16 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Searching for: "
-operator|+
+literal|"Searching for: {} in package: {} using classloader: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|test
-operator|+
-literal|" in package: "
-operator|+
+block|,
 name|packageName
-operator|+
-literal|" using classloader: "
-operator|+
+block|,
 name|loader
 operator|.
 name|getClass
@@ -1299,6 +1290,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1378,24 +1370,15 @@ operator|.
 name|nextElement
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"URL from classloader: "
-operator|+
+literal|"URL from classloader: {}"
+argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-block|}
 name|url
 operator|=
 name|customResourceLocator
@@ -1434,12 +1417,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Decoded urlPath: "
-operator|+
+literal|"Decoded urlPath: {} with protocol: {}"
+argument_list|,
 name|urlPath
-operator|+
-literal|" with protocol: "
-operator|+
+argument_list|,
 name|url
 operator|.
 name|getProtocol
@@ -1568,28 +1549,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Scanning for classes in ["
-operator|+
+literal|"Scanning for classes in [{}] matching criteria: {}"
+argument_list|,
 name|urlPath
-operator|+
-literal|"] matching criteria: "
-operator|+
+argument_list|,
 name|test
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 name|file
 init|=
@@ -1607,24 +1577,15 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from directory using file: "
-operator|+
+literal|"Loading from directory using file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|loadImplementationsInDirectory
 argument_list|(
 name|test
@@ -1673,24 +1634,15 @@ condition|)
 block|{
 comment|// load resources using http/https, sonicfs and other acceptable scheme
 comment|// sonic ESB requires to be loaded using a regular URLConnection
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from jar using url: "
-operator|+
+literal|"Loading from jar using url: {}"
+argument_list|,
 name|urlPath
 argument_list|)
 expr_stmt|;
-block|}
 name|URL
 name|urlStream
 init|=
@@ -1726,24 +1678,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loading from jar using file: "
-operator|+
+literal|"Loading from jar using file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|stream
 operator|=
 operator|new
@@ -1824,28 +1767,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Getting resource URL for package: "
-operator|+
+literal|"Getting resource URL for package: {} with classloader: {}"
+argument_list|,
 name|packageName
-operator|+
-literal|" with classloader: "
-operator|+
+argument_list|,
 name|loader
 argument_list|)
 expr_stmt|;
-block|}
 comment|// If the URL is a jar, the URLClassloader.getResources() seems to require a trailing slash.  The
 comment|// trailing slash is harmless for other URLs
 if|if
@@ -2299,32 +2231,24 @@ range|:
 name|set
 control|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Testing for class "
-operator|+
+literal|"Testing for class {} matches criteria [{}] using classloader: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|externalName
-operator|+
-literal|" matches criteria ["
-operator|+
+block|,
 name|test
-operator|+
-literal|"] using classloader:"
-operator|+
+block|,
 name|classLoader
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Class
@@ -2340,28 +2264,17 @@ argument_list|(
 name|externalName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Loaded the class: "
-operator|+
+literal|"Loaded the class: {} in classloader: {}"
+argument_list|,
 name|type
-operator|+
-literal|" in classloader: "
-operator|+
+argument_list|,
 name|classLoader
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|test
@@ -2372,28 +2285,17 @@ name|type
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Found class: "
-operator|+
+literal|"Found class: {} which matches the filter in classloader: {}"
+argument_list|,
 name|type
-operator|+
-literal|" which matches the filter in classloader: "
-operator|+
+argument_list|,
 name|classLoader
 argument_list|)
 expr_stmt|;
-block|}
 name|classes
 operator|.
 name|add

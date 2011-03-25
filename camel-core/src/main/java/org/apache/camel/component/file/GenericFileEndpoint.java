@@ -800,24 +800,15 @@ argument_list|(
 literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using FactoryFinder: "
-operator|+
+literal|"Using FactoryFinder: {}"
+argument_list|,
 name|finder
 argument_list|)
 expr_stmt|;
-block|}
 name|factory
 operator|=
 name|finder
@@ -837,14 +828,6 @@ name|ClassNotFoundException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -855,20 +838,11 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|IOException
 name|e
 parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 block|{
 name|log
 operator|.
@@ -880,7 +854,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|factory
@@ -891,24 +864,15 @@ block|{
 comment|// use default
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using ClassResolver to resolve class: "
-operator|+
+literal|"Using ClassResolver to resolve class: {}"
+argument_list|,
 name|DEFAULT_STRATEGYFACTORY_CLASS
 argument_list|)
 expr_stmt|;
-block|}
 name|factory
 operator|=
 name|this
@@ -931,26 +895,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot load class: "
-operator|+
+literal|"Cannot load class: {}"
+argument_list|,
 name|DEFAULT_STRATEGYFACTORY_CLASS
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// fallback and us this class loader
 try|try
@@ -967,8 +922,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using classloader: "
-operator|+
+literal|"Using classloader: {} to resolve class: {}"
+argument_list|,
 name|this
 operator|.
 name|getClass
@@ -976,9 +931,7 @@ argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()
-operator|+
-literal|" to resolve class: "
-operator|+
+argument_list|,
 name|DEFAULT_STRATEGYFACTORY_CLASS
 argument_list|)
 expr_stmt|;
@@ -1025,11 +978,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot load class: "
-operator|+
-name|DEFAULT_STRATEGYFACTORY_CLASS
-operator|+
-literal|" using classloader: "
+literal|"Cannot load class: {} using classloader: "
 operator|+
 name|this
 operator|.
@@ -1038,6 +987,8 @@ argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()
+argument_list|,
+name|DEFAULT_STRATEGYFACTORY_CLASS
 argument_list|,
 name|e
 argument_list|)

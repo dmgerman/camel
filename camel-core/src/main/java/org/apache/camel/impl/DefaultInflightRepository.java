@@ -179,31 +179,20 @@ operator|.
 name|incrementAndGet
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Total "
-operator|+
+literal|"Total {} inflight exchanges. Last added: {}"
+argument_list|,
 name|count
-operator|+
-literal|" inflight exchanges. Last added: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|exchange
@@ -276,31 +265,20 @@ operator|.
 name|decrementAndGet
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Total "
-operator|+
+literal|"Total {} inflight exchanges. Last removed: {}"
+argument_list|,
 name|count
-operator|+
-literal|" inflight exchanges. Last removed: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|exchange

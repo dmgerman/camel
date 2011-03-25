@@ -441,58 +441,36 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the pipeline will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// check for error if so we should break out
 if|if
 condition|(
@@ -510,14 +488,6 @@ block|{
 break|break;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
 comment|// we are logging the completion if will be confusing if we log the original instead
 comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
@@ -525,19 +495,16 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|nextExchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// copy results back to the original exchange
 name|ExchangeHelper
 operator|.
@@ -588,32 +555,21 @@ name|AsyncProcessor
 name|asyncProcessor
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// this does the actual processing so log at trace level
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// implement asynchronous routing logic in callback so we can have the callback being
 comment|// triggered and then continue routing where we left
 name|boolean
@@ -720,29 +676,18 @@ operator|!
 name|doneSync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 block|}
@@ -755,31 +700,20 @@ argument_list|,
 name|nextExchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|original
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|original
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -980,31 +914,20 @@ name|hasNext
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"ExchangeId: "
-operator|+
+literal|"ExchangeId: {} should continue routing: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" should continue routing: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

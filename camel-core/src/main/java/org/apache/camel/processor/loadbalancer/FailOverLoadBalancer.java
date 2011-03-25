@@ -418,31 +418,20 @@ block|}
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Should failover: "
-operator|+
+literal|"Should failover: {} for exchangeId: {}"
+argument_list|,
 name|answer
-operator|+
-literal|" for exchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -529,24 +518,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Failover starting with endpoint index "
-operator|+
+literal|"Failover starting with endpoint index {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
-block|}
 while|while
 condition|(
 name|first
@@ -725,58 +705,36 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1187,26 +1145,15 @@ operator|>
 name|maximumFailoverAttempts
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Breaking out of failover after "
-operator|+
+literal|"Breaking out of failover after {} failover attempts"
+argument_list|,
 name|attempts
-operator|+
-literal|" failover attempts"
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 name|index
@@ -1317,29 +1264,18 @@ operator|!
 name|doneSync
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;

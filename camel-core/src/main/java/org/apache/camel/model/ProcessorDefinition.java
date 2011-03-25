@@ -1237,24 +1237,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding event driven processor: "
-operator|+
+literal|"Adding event driven processor: {}"
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|addEventDrivenProcessor
@@ -1494,24 +1485,15 @@ name|isInheritErrorHandler
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} is configured to inheritErrorHandler"
+argument_list|,
 name|defn
-operator|+
-literal|" is configured to inheritErrorHandler"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// only add error handler if we are configured to do so
 comment|// regular definition so add the error handler
 name|Processor
@@ -1566,26 +1548,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} wrapped in Channel: {}"
+argument_list|,
 name|defn
-operator|+
-literal|" wrapped in Channel: "
-operator|+
+argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|channel
 return|;
@@ -2159,24 +2132,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resolving property placeholders for: "
-operator|+
+literal|"Resolving property placeholders for: {}"
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-block|}
 comment|// find all getter/setter which we can use for property placeholders
 name|Map
 argument_list|<
@@ -2366,31 +2330,20 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"There are "
-operator|+
+literal|"There are {} properties on: {}"
+argument_list|,
 name|properties
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" properties on: "
-operator|+
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lookup and resolve properties for String based properties
 for|for
 control|(
@@ -2550,24 +2503,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resolving known fields for: "
-operator|+
+literal|"Resolving known fields for: {}"
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-block|}
 comment|// find all String getter/setter
 name|Map
 argument_list|<
@@ -2606,31 +2550,20 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"There are "
-operator|+
+literal|"There are {} properties on: {}"
+argument_list|,
 name|properties
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" properties on: "
-operator|+
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lookup and resolve known constant fields for String based properties
 for|for
 control|(

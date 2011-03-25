@@ -1147,24 +1147,15 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing file: "
-operator|+
+literal|"Processing file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// must extract the absolute name before the begin strategy as the file could potentially be pre moved
 comment|// and then the file name would be changed
 name|String
@@ -1320,28 +1311,17 @@ decl_stmt|;
 try|try
 block|{
 comment|// retrieve the file using the stream
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Retrieving file: "
-operator|+
+literal|"Retrieving file: {} from: {}"
+argument_list|,
 name|name
-operator|+
-literal|" from: "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 comment|// retrieve the file and check it was a success
 name|boolean
 name|retrieved
@@ -1378,28 +1358,17 @@ name|endpoint
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Retrieved file: "
-operator|+
+literal|"Retrieved file: {} from: {}"
+argument_list|,
 name|name
-operator|+
-literal|" from: "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 comment|// register on completion callback that does the completion strategies
 comment|// (for instance to move the file after we have processed it)
 name|exchange
@@ -1467,32 +1436,21 @@ name|doneSync
 parameter_list|)
 block|{
 comment|// noop
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Done processing file: "
-operator|+
+literal|"Done processing file: {} {}"
+argument_list|,
 name|target
-operator|+
-operator|(
+argument_list|,
 name|doneSync
 condition|?
-literal|" synchronously"
+literal|"synchronously"
 else|:
-literal|" asynchronously"
-operator|)
+literal|"asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
@@ -1552,24 +1510,15 @@ name|isDirectory
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"File did not match. Will skip this file: "
-operator|+
+literal|"File did not match. Will skip this file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
@@ -1596,24 +1545,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This consumer is idempotent and the file has been consumed before. Will skip this file: "
-operator|+
+literal|"This consumer is idempotent and the file has been consumed before. Will skip this file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
@@ -1869,24 +1809,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Skipping done file: "
-operator|+
+literal|"Skipping done file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
@@ -1903,26 +1834,15 @@ name|doneFileName
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Done file: "
-operator|+
+literal|"Done file: {} does not exist"
+argument_list|,
 name|doneFileName
-operator|+
-literal|" does not exist"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

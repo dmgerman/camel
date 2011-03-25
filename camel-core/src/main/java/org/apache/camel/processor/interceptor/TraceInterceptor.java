@@ -962,24 +962,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot trace as this Exchange does not have an UnitOfWork: "
-operator|+
+literal|"Cannot trace as this Exchange does not have an UnitOfWork: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// log and trace the processor

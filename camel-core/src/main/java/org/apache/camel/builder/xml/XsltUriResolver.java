@@ -247,28 +247,17 @@ literal|"include href is empty"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolving URI with href: "
-operator|+
+literal|"Resolving URI with href: {} and base: {}"
+argument_list|,
 name|href
-operator|+
-literal|" and base: "
-operator|+
+argument_list|,
 name|base
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|href

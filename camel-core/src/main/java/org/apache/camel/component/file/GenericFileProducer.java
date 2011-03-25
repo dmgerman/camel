@@ -512,28 +512,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing file: "
-operator|+
+literal|"Processing file: {} for exchange: {}"
+argument_list|,
 name|target
-operator|+
-literal|" for exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|preWriteCheck
@@ -573,24 +562,15 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Writing using tempNameFile: "
-operator|+
+literal|"Writing using tempNameFile: {}"
+argument_list|,
 name|tempTarget
 argument_list|)
 expr_stmt|;
-block|}
 comment|// cater for file exists option on the real target as
 comment|// the file operations code will work on the temp file
 comment|// if an existing file already exists what should we do?
@@ -617,26 +597,15 @@ name|Ignore
 condition|)
 block|{
 comment|// ignore but indicate that the file was written
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"An existing file already exists: "
-operator|+
+literal|"An existing file already exists: {}. Ignore and do not override it."
+argument_list|,
 name|target
-operator|+
-literal|". Ignore and do not override it."
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 elseif|else
@@ -684,24 +653,15 @@ condition|)
 block|{
 comment|// we override the target so we do this by deleting it so the temp file can be renamed later
 comment|// with success as the existing target file have been deleted
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Eagerly deleting existing file: "
-operator|+
+literal|"Eagerly deleting existing file: {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -736,24 +696,15 @@ name|tempTarget
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting existing temp file: "
-operator|+
+literal|"Deleting existing temp file: {}"
+argument_list|,
 name|tempTarget
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -828,24 +779,15 @@ condition|)
 block|{
 comment|// we override the target so we do this by deleting it so the temp file can be renamed later
 comment|// with success as the existing target file have been deleted
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting existing file: "
-operator|+
+literal|"Deleting existing file: {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -869,30 +811,17 @@ throw|;
 block|}
 block|}
 comment|// now we are ready to rename the temp file to the target file
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Renaming file: ["
-operator|+
+literal|"Renaming file: [{}] to: [{}]"
+argument_list|,
 name|tempTarget
-operator|+
-literal|"] to: ["
-operator|+
+argument_list|,
 name|target
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|renamed
 init|=
@@ -978,26 +907,15 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Writing done file: ["
-operator|+
+literal|"Writing done file: [{}]"
+argument_list|,
 name|doneFileName
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// delete any existing done file
 if|if
 condition|(
@@ -1219,35 +1137,25 @@ block|}
 block|}
 block|}
 comment|// upload
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"About to write ["
-operator|+
+literal|"About to write [{}] to [{}] from exchange [{}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|fileName
-operator|+
-literal|"] to ["
-operator|+
+block|,
 name|getEndpoint
 argument_list|()
-operator|+
-literal|"] from exchange ["
-operator|+
+block|,
 name|exchange
-operator|+
-literal|"]"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|success
 init|=

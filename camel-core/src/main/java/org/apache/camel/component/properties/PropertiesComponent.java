@@ -361,24 +361,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Overriding default locations with location: "
-operator|+
+literal|"Overriding default locations with location: {}"
+argument_list|,
 name|locations
 argument_list|)
 expr_stmt|;
-block|}
 name|paths
 operator|=
 name|locations
@@ -585,28 +576,17 @@ operator|+
 name|SUFFIX_TOKEN
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parsing uri "
-operator|+
+literal|"Parsing uri {} with properties: {}"
+argument_list|,
 name|uri
-operator|+
-literal|" with properties: "
-operator|+
+argument_list|,
 name|prop
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|propertiesParser
 operator|.

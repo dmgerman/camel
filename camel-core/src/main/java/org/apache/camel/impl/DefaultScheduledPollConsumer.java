@@ -189,28 +189,17 @@ block|}
 name|messagesPolled
 operator|++
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Polled "
-operator|+
+literal|"Polled {} {}"
+argument_list|,
 name|messagesPolled
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// if the result of the polled exchange has output we should create a new exchange and
 comment|// use the output as input to the next processor
 if|if

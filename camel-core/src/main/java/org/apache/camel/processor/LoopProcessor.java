@@ -332,58 +332,36 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// increment counter before next loop
 name|index
 operator|.
@@ -399,31 +377,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -569,29 +536,18 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
@@ -611,31 +567,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done

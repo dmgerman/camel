@@ -351,29 +351,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now go through the candidates and find the best
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} candidates"
+argument_list|,
 name|candidates
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" candidates"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|candidates
@@ -557,8 +546,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finding best suited exception policy for thrown exception "
-operator|+
+literal|"Finding best suited exception policy for thrown exception {}"
+argument_list|,
 name|exception
 operator|.
 name|getClass
@@ -730,15 +719,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The type is scoped for route: "
-operator|+
+literal|"The type is scoped for route: {} however Exchange is at route: {}"
+argument_list|,
 name|typeRoute
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" however Exchange is at route: "
-operator|+
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -773,24 +760,15 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The type did not match when: "
-operator|+
+literal|"The type did not match when: {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 comment|// exact match then break
@@ -871,28 +849,17 @@ argument_list|)
 condition|)
 block|{
 comment|// only add as candidate if we do not already have it registered with that level
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Adding "
-operator|+
+literal|"Adding {} as candidate at level {}"
+argument_list|,
 name|candidate
-operator|+
-literal|" as candidate at level "
-operator|+
+argument_list|,
 name|candidateDiff
 argument_list|)
 expr_stmt|;
-block|}
 name|candidates
 operator|.
 name|put
@@ -919,22 +886,23 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Existing candidate "
-operator|+
+literal|"Existing candidate {} takes precedence over{} at level {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|candidates
 operator|.
 name|get
 argument_list|(
 name|candidateDiff
 argument_list|)
-operator|+
-literal|" takes precedence over "
-operator|+
+block|,
 name|candidate
-operator|+
-literal|" at level "
-operator|+
+block|,
 name|candidateDiff
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -962,8 +930,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exact match found for candidate: "
-operator|+
+literal|"Exact match found for candidate: {}"
+argument_list|,
 name|candidate
 argument_list|)
 expr_stmt|;

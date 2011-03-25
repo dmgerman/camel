@@ -319,24 +319,15 @@ name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive read lock to file: "
-operator|+
+literal|"Waiting for exclusive read lock to file: {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 comment|// try to acquire rw lock on the file before we can consume it
@@ -449,28 +440,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Acquired exclusive read lock: "
-operator|+
+literal|"Acquired exclusive read lock: {} to file: {}"
+argument_list|,
 name|lock
-operator|+
-literal|" to file: "
-operator|+
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 name|lockFileName
 operator|=
 name|target
@@ -634,26 +614,15 @@ name|boolean
 name|sleep
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for "
-operator|+
+literal|"Exclusive read lock not granted. Sleeping for {} millis."
+argument_list|,
 name|checkInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Thread

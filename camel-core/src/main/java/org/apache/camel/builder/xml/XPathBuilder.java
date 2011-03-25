@@ -2801,28 +2801,17 @@ name|QName
 name|resultQName
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Evaluating exchange: "
-operator|+
+literal|"Evaluating exchange: {} as: {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" as: "
-operator|+
+argument_list|,
 name|resultQName
 argument_list|)
 expr_stmt|;
-block|}
 name|Object
 name|answer
 decl_stmt|;
@@ -3013,32 +3002,24 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Done evaluating exchange: "
-operator|+
+literal|"Done evaluating exchange: {} as: {} with result: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|exchange
-operator|+
-literal|" as: "
-operator|+
+block|,
 name|resultQName
-operator|+
-literal|" with result: "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

@@ -219,24 +219,15 @@ argument_list|,
 name|message
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Broadcasting JMX notification: "
-operator|+
+literal|"Broadcasting JMX notification: {}"
+argument_list|,
 name|notification
 argument_list|)
 expr_stmt|;
-block|}
 name|notificationBroadcaster
 operator|.
 name|sendNotification

@@ -505,29 +505,18 @@ argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Timer "
-operator|+
+literal|"Timer {} is firing"
+argument_list|,
 name|endpoint
 operator|.
 name|getTimerName
 argument_list|()
-operator|+
-literal|" is firing"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|getProcessor

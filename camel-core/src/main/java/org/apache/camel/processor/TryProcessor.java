@@ -466,58 +466,36 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the try .. catch .. finally will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|ExchangeHelper
 operator|.
@@ -526,31 +504,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -587,32 +554,21 @@ argument_list|>
 name|processors
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// this does the actual processing so log at trace level
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// implement asynchronous routing logic in callback so we can have the callback being
 comment|// triggered and then continue routing where we left
 name|boolean
@@ -692,29 +648,18 @@ operator|!
 name|doneSync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the try .. catch .. finally will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
@@ -727,31 +672,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -1187,8 +1121,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"This TryProcessor catches the exception: "
-operator|+
+literal|"This TryProcessor catches the exception: {} caused by: {}"
+argument_list|,
 name|caught
 operator|.
 name|getClass
@@ -1196,9 +1130,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" caused by: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1259,8 +1191,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"This TryProcessor does not catch the exception: "
-operator|+
+literal|"This TryProcessor does not catch the exception: {} caused by: {}"
+argument_list|,
 name|e
 operator|.
 name|getClass
@@ -1268,9 +1200,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" caused by: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1528,31 +1458,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done

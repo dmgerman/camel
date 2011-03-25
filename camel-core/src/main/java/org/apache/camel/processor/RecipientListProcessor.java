@@ -409,28 +409,17 @@ name|begin
 parameter_list|()
 block|{
 comment|// we have already acquired and prepare the producer so we
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"RecipientProcessorExchangePair #"
-operator|+
+literal|"RecipientProcessorExchangePair #{} begin: {}"
+argument_list|,
 name|index
-operator|+
-literal|" begin: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|done ()
 specifier|public
@@ -438,28 +427,17 @@ name|void
 name|done
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"RecipientProcessorExchangePair #"
-operator|+
+literal|"RecipientProcessorExchangePair #{} done: {}"
+argument_list|,
 name|index
-operator|+
-literal|" done: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// when we are done we should release back in pool
 try|try
 block|{

@@ -1005,24 +1005,15 @@ name|outputDir
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating temporary stream cache file: "
-operator|+
+literal|"Creating temporary stream cache file: {}"
+argument_list|,
 name|tempFile
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|currentStream

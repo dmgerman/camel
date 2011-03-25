@@ -1011,24 +1011,15 @@ name|batchSize
 operator|=
 name|size
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using batch consumer completion, so setting batch size to: "
-operator|+
+literal|"Using batch consumer completion, so setting batch size to: {}"
+argument_list|,
 name|batchSize
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|sender
@@ -1171,26 +1162,15 @@ operator|!
 name|exchangeEnqueued
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for new exchange to arrive or batchTimeout to occur after "
-operator|+
+literal|"Waiting for new exchange to arrive or batchTimeout to occur after {} ms."
+argument_list|,
 name|batchTimeout
-operator|+
-literal|" ms."
 argument_list|)
 expr_stmt|;
-block|}
 name|exchangeEnqueuedCondition
 operator|.
 name|await
@@ -1238,14 +1218,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|id
 operator|!=
 literal|null
@@ -1268,7 +1240,6 @@ argument_list|(
 literal|"Collecting exchanges to be aggregated triggered by batch timeout"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|drainQueueTo
 argument_list|(
@@ -1585,24 +1556,15 @@ condition|(
 name|matches
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exchange matched completion predicate: "
-operator|+
+literal|"Exchange matched completion predicate: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add this exchange to the list of exchanges which marks the batch as complete
 name|completionPredicateMatched
 operator|.

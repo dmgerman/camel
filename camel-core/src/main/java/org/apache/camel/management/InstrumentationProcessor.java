@@ -353,19 +353,16 @@ name|long
 name|duration
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-operator|(
+literal|"{}Recording duration: {} millis for exchange: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|type
 operator|!=
 literal|null
@@ -375,18 +372,13 @@ operator|+
 literal|": "
 else|:
 literal|""
-operator|)
-operator|+
-literal|"Recording duration: "
-operator|+
+block|,
 name|duration
-operator|+
-literal|" millis for exchange: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!

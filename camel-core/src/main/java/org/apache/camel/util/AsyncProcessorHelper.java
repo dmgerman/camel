@@ -199,31 +199,20 @@ argument_list|()
 condition|)
 block|{
 comment|// must be synchronized for transacted exchanges
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Transacted Exchange must be routed synchronously for exchangeId: "
-operator|+
+literal|"Transacted Exchange must be routed synchronously for exchangeId: {} -> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|process
@@ -349,26 +338,25 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exchange processed and is continued routed "
-operator|+
-operator|(
+literal|"Exchange processed and is continued routed {} for exchangeId: {} -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|sync
 condition|?
 literal|"synchronously"
 else|:
 literal|"asynchronously"
-operator|)
-operator|+
-literal|" for exchangeId: "
-operator|+
+block|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -431,27 +419,18 @@ operator|!
 name|doneSync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Asynchronous callback received for exchangeId: "
-operator|+
+literal|"Asynchronous callback received for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|latch
 operator|.
 name|countDown
@@ -481,61 +460,39 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for asynchronous callback before continuing for exchangeId: "
-operator|+
+literal|"Waiting for asynchronous callback before continuing for exchangeId: {} -> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|latch
 operator|.
 name|await
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Asynchronous callback received, will continue routing exchangeId: "
-operator|+
+literal|"Asynchronous callback received, will continue routing exchangeId: {} -> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Processes the exchange async.      *      * @param executor  executor service      * @param processor the processor      * @param exchange  the exchange      * @return a future handle for the task being executed asynchronously      * @deprecated will be removed in Camel 2.5      */

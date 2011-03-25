@@ -229,28 +229,17 @@ argument_list|(
 literal|""
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Replaced original source "
-operator|+
+literal|"Replaced original source {} to {}"
+argument_list|,
 name|source
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|replacedSource
 argument_list|)
 expr_stmt|;
-block|}
 name|matcher
 operator|=
 name|createMatcher
@@ -460,28 +449,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"source: "
-operator|+
+literal|"source: {} milliseconds: "
+argument_list|,
 name|source
-operator|+
-literal|" milliseconds: "
-operator|+
+argument_list|,
 name|milliseconds
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|milliseconds
 return|;

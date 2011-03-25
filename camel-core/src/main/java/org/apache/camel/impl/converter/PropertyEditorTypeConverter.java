@@ -405,24 +405,15 @@ name|type
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No previously found property editor for type: "
-operator|+
+literal|"No previously found property editor for type: {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -469,28 +460,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found property editor for type: "
-operator|+
+literal|"Found property editor for type: {} -> {}"
+argument_list|,
 name|type
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|editor
 argument_list|)
 expr_stmt|;
-block|}
 name|cache
 operator|.
 name|put
@@ -503,24 +483,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find property editor for type: "
-operator|+
+literal|"Cannot find property editor for type: {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-block|}
 name|misses
 operator|.
 name|put

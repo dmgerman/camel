@@ -968,9 +968,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Converting "
-operator|+
-operator|(
+literal|"Converting {} -> {} with value: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|value
 operator|==
 literal|null
@@ -984,18 +987,14 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|)
-operator|+
-literal|" -> "
-operator|+
+block|,
 name|type
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" with value: "
-operator|+
+block|,
 name|value
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1099,28 +1098,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using converter: "
-operator|+
+literal|"Using converter: {} to convert {}"
+argument_list|,
 name|converter
-operator|+
-literal|" to convert "
-operator|+
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|Object
 name|rc
 init|=
@@ -1275,22 +1263,22 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Fallback type converter "
-operator|+
+literal|"Fallback type converter {} converted type from: {} to: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|fallback
 operator|.
 name|getFallbackTypeConverter
 argument_list|()
-operator|+
-literal|" converted type from: "
-operator|+
+block|,
 name|type
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|value
 operator|.
 name|getClass
@@ -1298,6 +1286,7 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1389,24 +1378,15 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding type converter: "
-operator|+
+literal|"Adding type converter: {}"
+argument_list|,
 name|typeConverter
 argument_list|)
 expr_stmt|;
-block|}
 name|TypeMapping
 name|key
 init|=
@@ -1487,28 +1467,17 @@ name|boolean
 name|canPromote
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding fallback type converter: "
-operator|+
+literal|"Adding fallback type converter: {} which can promote: {}"
+argument_list|,
 name|typeConverter
-operator|+
-literal|" which can promote: "
-operator|+
+argument_list|,
 name|canPromote
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add in top of fallback as the toString() fallback will nearly always be able to convert
 name|fallbackConverters
 operator|.

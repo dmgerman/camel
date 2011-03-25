@@ -2063,12 +2063,14 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setter \""
-operator|+
+literal|"Setter \"{}\" with parameter type \"{}\" could not be used for type conversions of {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|setter
-operator|+
-literal|"\" with parameter type \""
-operator|+
+block|,
 name|setter
 operator|.
 name|getParameterTypes
@@ -2076,10 +2078,9 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|+
-literal|"\" could not be used for type conversions of "
-operator|+
+block|,
 name|value
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2536,31 +2537,20 @@ block|}
 else|else
 block|{
 comment|// find the best match if possible
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} suitable setter methods for setting {}"
+argument_list|,
 name|candidates
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" suitable setter methods for setting "
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 comment|// prefer to use the one with the same instance if any exists
 for|for
 control|(
@@ -2586,26 +2576,15 @@ name|value
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Method "
-operator|+
+literal|"Method {} is the best candidate as it has parameter with same instance type"
+argument_list|,
 name|method
-operator|+
-literal|" is the best candidate as it has parameter with same instance type"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// retain only this method in the answer
 name|candidates
 operator|.

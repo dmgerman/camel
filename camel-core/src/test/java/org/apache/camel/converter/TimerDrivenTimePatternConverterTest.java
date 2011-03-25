@@ -185,24 +185,15 @@ operator|.
 name|stop
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Should take approx 2000 milliseconds, was: "
-operator|+
+literal|"Should take approx 2000 milliseconds, was: {}"
+argument_list|,
 name|interval
 argument_list|)
 expr_stmt|;
-block|}
 name|assertTrue
 argument_list|(
 literal|"Should take approx 2000 milliseconds, was: "

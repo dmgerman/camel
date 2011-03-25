@@ -220,24 +220,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive read lock to file: "
-operator|+
+literal|"Waiting for exclusive read lock to file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
 comment|// since its a Generic file we cannot use java.nio to get a RW lock
 name|String
@@ -353,24 +344,15 @@ condition|(
 name|exclusive
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Acquired exclusive read lock to file: "
-operator|+
+literal|"Acquired exclusive read lock to file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// rename it back so we can read it
 name|operations
 operator|.
@@ -443,26 +425,15 @@ name|boolean
 name|sleep
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for "
-operator|+
+literal|"Exclusive read lock not granted. Sleeping for {} millis."
+argument_list|,
 name|checkInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Thread

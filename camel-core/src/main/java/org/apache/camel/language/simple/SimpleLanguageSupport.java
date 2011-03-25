@@ -999,8 +999,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Matcher start: "
-operator|+
+literal|"Matcher start: {}"
+argument_list|,
 name|matcher
 operator|.
 name|start
@@ -1011,8 +1011,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Matcher end: "
-operator|+
+literal|"Matcher end: {}"
+argument_list|,
 name|matcher
 operator|.
 name|end
@@ -1023,8 +1023,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Matcher group: "
-operator|+
+literal|"Matcher group: {}"
+argument_list|,
 name|matcher
 operator|.
 name|group
@@ -1035,8 +1035,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Matcher group count: "
-operator|+
+literal|"Matcher group count: {}"
+argument_list|,
 name|matcher
 operator|.
 name|groupCount
@@ -1077,12 +1077,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Matcher group #"
-operator|+
+literal|"Matcher group #{}: {}"
+argument_list|,
 name|i
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|group
 argument_list|)
 expr_stmt|;

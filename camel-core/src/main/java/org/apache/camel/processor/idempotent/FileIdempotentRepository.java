@@ -1103,24 +1103,15 @@ name|void
 name|loadStore
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Loading to 1st level cache from idempotent filestore: "
-operator|+
+literal|"Loading to 1st level cache from idempotent filestore: {}"
+argument_list|,
 name|fileStore
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!

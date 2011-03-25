@@ -299,28 +299,17 @@ name|FileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Locking the file: "
-operator|+
+literal|"Locking the file: {} using the lock file name: {}"
+argument_list|,
 name|file
-operator|+
-literal|" using the lock file name: "
-operator|+
+argument_list|,
 name|lockFileName
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create a plain file as marker filer for locking (do not use FileLock)
 name|lock
 operator|=
@@ -383,24 +372,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Unlocking file: "
-operator|+
+literal|"Unlocking file: {}"
+argument_list|,
 name|lockFileName
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|deleted
 init|=
@@ -411,28 +391,17 @@ argument_list|(
 name|lock
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Lock file: "
-operator|+
+literal|"Lock file: {} was deleted: {}"
+argument_list|,
 name|lockFileName
-operator|+
-literal|" was deleted: "
-operator|+
+argument_list|,
 name|deleted
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|setTimeout (long timeout)

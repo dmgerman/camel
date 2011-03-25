@@ -497,24 +497,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using a custom adapter as bean invocation: "
-operator|+
+literal|"Using a custom adapter as bean invocation: {}"
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|processor
@@ -582,24 +573,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exchange IN body is a BeanInvocation instance: "
-operator|+
+literal|"Exchange IN body is a BeanInvocation instance: {}"
+argument_list|,
 name|beanInvoke
 argument_list|)
 expr_stmt|;
-block|}
 name|Class
 argument_list|<
 name|?
@@ -624,35 +606,27 @@ argument_list|(
 name|bean
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"BeanHolder bean: "
-operator|+
+literal|"BeanHolder bean: {} and beanInvocation bean: {} is same instance: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|bean
 operator|.
 name|getClass
 argument_list|()
-operator|+
-literal|" and beanInvocation bean: "
-operator|+
+block|,
 name|clazz
-operator|+
-literal|" is same instance: "
-operator|+
+block|,
 name|sameBean
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|sameBean
@@ -893,58 +867,36 @@ name|get
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the routing will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

@@ -2187,26 +2187,15 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Shutdown ExecutorService: "
-operator|+
+literal|"Shutdown ExecutorService: {} complete."
+argument_list|,
 name|executorService
-operator|+
-literal|" complete."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|shutdownNow (ExecutorService executorService)
 specifier|public
@@ -2270,26 +2259,15 @@ operator|.
 name|shutdownNow
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"ShutdownNow ExecutorService: "
-operator|+
+literal|"ShutdownNow ExecutorService: {} complete."
+argument_list|,
 name|executorService
-operator|+
-literal|" complete."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

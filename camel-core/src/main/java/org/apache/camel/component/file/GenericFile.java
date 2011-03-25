@@ -671,24 +671,15 @@ name|String
 name|newName
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Changing name to: "
-operator|+
+literal|"Changing name to: {}"
+argument_list|,
 name|newName
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Make sure the newName is normalized.
 name|String
 name|newFileName
@@ -698,20 +689,12 @@ argument_list|(
 name|newName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Normalized endpointPath: "
-operator|+
+literal|"Normalized endpointPath: {}"
+argument_list|,
 name|endpointPath
 argument_list|)
 expr_stmt|;
@@ -719,12 +702,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Normalized newFileName: "
-operator|+
+literal|"Normalized newFileName: ()"
+argument_list|,
 name|newFileName
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 name|file
 init|=
@@ -934,8 +916,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"FileNameOnly: "
-operator|+
+literal|"FileNameOnly: {}"
+argument_list|,
 name|getFileNameOnly
 argument_list|()
 argument_list|)
@@ -944,8 +926,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"FileName: "
-operator|+
+literal|"FileName: {}"
+argument_list|,
 name|getFileName
 argument_list|()
 argument_list|)
@@ -954,8 +936,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Absolute: "
-operator|+
+literal|"Absolute: {}"
+argument_list|,
 name|isAbsolute
 argument_list|()
 argument_list|)
@@ -964,8 +946,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Relative path: "
-operator|+
+literal|"Relative path: {}"
+argument_list|,
 name|getRelativeFilePath
 argument_list|()
 argument_list|)
@@ -974,8 +956,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Absolute path: "
-operator|+
+literal|"Absolute path: {}"
+argument_list|,
 name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
@@ -984,8 +966,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Name changed to: "
-operator|+
+literal|"Name changed to: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

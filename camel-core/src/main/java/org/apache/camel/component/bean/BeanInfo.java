@@ -1159,28 +1159,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Chosen method to invoke: "
-operator|+
+literal|"Chosen method to invoke: {} on bean: {}"
+argument_list|,
 name|methodInfo
-operator|+
-literal|" on bean: "
-operator|+
+argument_list|,
 name|pojo
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|methodInfo
 operator|.
@@ -1235,24 +1224,15 @@ argument_list|(
 name|clazz
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Introspecting class: "
-operator|+
+literal|"Introspecting class: {}"
+argument_list|,
 name|clazz
 argument_list|)
 expr_stmt|;
-block|}
 name|Method
 index|[]
 name|methods
@@ -1280,28 +1260,17 @@ argument_list|,
 name|method
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Method:  "
-operator|+
+literal|"Method:  {} is valid: {}"
+argument_list|,
 name|method
-operator|+
-literal|" is valid: "
-operator|+
+argument_list|,
 name|valid
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|valid
@@ -1367,28 +1336,17 @@ name|Method
 name|method
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Introspecting class: "
-operator|+
+literal|"Introspecting class: {}, method: {}"
+argument_list|,
 name|clazz
-operator|+
-literal|", method: "
-operator|+
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|opName
 init|=
@@ -1425,50 +1383,30 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"This method is already overridden in a subclass, so the method from the sub class is preferred: "
-operator|+
+literal|"This method is already overridden in a subclass, so the method from the sub class is preferred: {}"
+argument_list|,
 name|existingMethodInfo
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|existingMethodInfo
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Adding operation: "
-operator|+
+literal|"Adding operation: {} for method: {}"
+argument_list|,
 name|opName
-operator|+
-literal|" for method: "
-operator|+
+argument_list|,
 name|methodInfo
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|hasMethod
@@ -1773,34 +1711,24 @@ name|parameterTypes
 operator|.
 name|length
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating MethodInfo for class: "
-operator|+
+literal|"Creating MethodInfo for class: {} method: {} having {} parameters"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|clazz
-operator|+
-literal|" method: "
-operator|+
+block|,
 name|method
-operator|+
-literal|" having "
-operator|+
+block|,
 name|size
-operator|+
-literal|" parameters"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -1868,28 +1796,17 @@ argument_list|,
 name|expression
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{}: {}"
+argument_list|,
 name|i
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|parameterInfo
 argument_list|)
 expr_stmt|;
-block|}
 name|parameters
 operator|.
 name|add
@@ -1918,28 +1835,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-operator|&&
-name|bodyAnnotation
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} has @Body annotation"
+argument_list|,
 name|i
-operator|+
-literal|" has @Body annotation"
 argument_list|)
 expr_stmt|;
-block|}
 name|hasCustomAnnotation
 operator||=
 name|bodyAnnotation
@@ -1991,28 +1895,17 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} is the body parameter using expression {}"
+argument_list|,
 name|i
-operator|+
-literal|" is the body parameter using expression "
-operator|+
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-block|}
 name|parameterInfo
 operator|.
 name|setExpression
@@ -2033,28 +1926,17 @@ block|{
 comment|// will ignore the expression for parameter evaluation
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} has parameter info: "
+argument_list|,
 name|i
-operator|+
-literal|" has parameter info: "
-operator|+
+argument_list|,
 name|parameterInfo
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// now lets add the method to the repository
 return|return
@@ -2414,27 +2296,18 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Matching for method with a single parameter that matches type: "
-operator|+
+literal|"Matching for method with a single parameter that matches type: {}"
+argument_list|,
 name|bodyType
 operator|.
 name|getCanonicalName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|MethodInfo
@@ -2505,24 +2378,15 @@ name|bodyType
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found a possible method: "
-operator|+
+literal|"Found a possible method: {}"
+argument_list|,
 name|methodInfo
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|methodInfo
@@ -2645,14 +2509,6 @@ operator|==
 literal|1
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -2660,7 +2516,6 @@ argument_list|(
 literal|"Exchange has exception set so we prefer method that also has exception as parameter"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// prefer the method that accepts exception in case we have an exception also
 return|return
 name|possiblesWithException
@@ -2700,14 +2555,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -2715,7 +2562,6 @@ argument_list|(
 literal|"No possible methods so now trying to convert body to parameter types"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lets try converting
 name|Object
 name|newBody
@@ -2791,8 +2637,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Converted body from: "
-operator|+
+literal|"Converted body from: {} to: {}"
+argument_list|,
 name|body
 operator|.
 name|getClass
@@ -2800,9 +2646,7 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|"to: "
-operator|+
+argument_list|,
 name|methodInfo
 operator|.
 name|getBodyParameterType
@@ -2857,24 +2701,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setting converted body: "
-operator|+
+literal|"Setting converted body: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 name|Message
 name|in
 init|=
@@ -2918,24 +2753,15 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"There are only one method with annotations so we choose it: "
-operator|+
+literal|"There are only one method with annotations so we choose it: {}"
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

@@ -195,28 +195,17 @@ condition|(
 name|failed
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Invoking synchronization.onFailure: "
-operator|+
+literal|"Invoking synchronization.onFailure: {} with {}"
+argument_list|,
 name|synchronization
-operator|+
-literal|" with "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|synchronization
 operator|.
 name|onFailure
@@ -227,28 +216,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Invoking synchronization.onComplete: "
-operator|+
+literal|"Invoking synchronization.onComplete: {} with {}"
+argument_list|,
 name|synchronization
-operator|+
-literal|" with "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|synchronization
 operator|.
 name|onComplete

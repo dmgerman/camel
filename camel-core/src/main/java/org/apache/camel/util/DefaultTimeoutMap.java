@@ -739,29 +739,18 @@ name|void
 name|purge
 parameter_list|()
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"There are "
-operator|+
+literal|"There are {} in the timeout map"
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" in the timeout map"
 argument_list|)
 expr_stmt|;
-block|}
 name|long
 name|now
 init|=

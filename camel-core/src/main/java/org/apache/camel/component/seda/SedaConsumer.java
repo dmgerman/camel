@@ -654,14 +654,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -669,7 +661,6 @@ argument_list|(
 literal|"Shutdown is pending, so this consumer thread is breaking out because the task queue is empty."
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we want to shutdown so break out if there queue is empty
 break|break;
 block|}

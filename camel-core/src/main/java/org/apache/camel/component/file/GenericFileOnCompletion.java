@@ -519,28 +519,17 @@ argument_list|(
 name|doneFileName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Done file: "
-operator|+
+literal|"Done file: {} was deleted: {}"
+argument_list|,
 name|doneFileName
-operator|+
-literal|" was deleted: "
-operator|+
+argument_list|,
 name|deleted
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -575,28 +564,17 @@ block|}
 block|}
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Commit file strategy: "
-operator|+
+literal|"Commit file strategy: {} for file: {}"
+argument_list|,
 name|processStrategy
-operator|+
-literal|" for file: "
-operator|+
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|processStrategy
 operator|.
 name|commit

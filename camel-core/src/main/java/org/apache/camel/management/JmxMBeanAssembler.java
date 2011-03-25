@@ -316,31 +316,20 @@ name|class
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Assembling MBeanInfo for: "
-operator|+
+literal|"Assembling MBeanInfo for: {} from custom @ManagedResource object: {}"
+argument_list|,
 name|name
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" from custom @ManagedResource object: "
-operator|+
+argument_list|,
 name|custom
 argument_list|)
 expr_stmt|;
-block|}
 comment|// get the mbean info from the custom managed object
 name|mbi
 operator|=
@@ -371,31 +360,20 @@ literal|null
 condition|)
 block|{
 comment|// use the default provided mbean which has been annotated with Spring JMX annotations
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Assembling MBeanInfo for: "
-operator|+
+literal|"Assembling MBeanInfo for: {} from @ManagedResource object: {}"
+argument_list|,
 name|name
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" from @ManagedResource object: "
-operator|+
+argument_list|,
 name|obj
 argument_list|)
 expr_stmt|;
-block|}
 name|mbi
 operator|=
 name|assembler

@@ -259,24 +259,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Starting producer: "
-operator|+
+literal|"Starting producer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|doStop ()
@@ -315,24 +306,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Stopping producer: "
-operator|+
+literal|"Stopping producer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

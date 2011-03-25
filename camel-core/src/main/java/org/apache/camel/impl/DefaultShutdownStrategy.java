@@ -1227,24 +1227,15 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Shutting down: "
-operator|+
+literal|"Shutting down: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
@@ -1323,24 +1314,15 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending: "
-operator|+
+literal|"Suspending: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
@@ -1750,14 +1732,18 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-operator|(
+literal|"{}{} with options [{},{}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|suspendOnly
 condition|?
 literal|"Suspending route: "
 else|:
 literal|"Shutting down route: "
-operator|)
-operator|+
+block|,
 name|order
 operator|.
 name|getRoute
@@ -1765,16 +1751,11 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" with options ["
-operator|+
+block|,
 name|shutdownRoute
-operator|+
-literal|","
-operator|+
+block|,
 name|shutdownRunningTask
-operator|+
-literal|"]"
+block|}
 argument_list|)
 expr_stmt|;
 block|}

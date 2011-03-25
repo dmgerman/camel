@@ -172,24 +172,15 @@ argument_list|)
 condition|)
 block|{
 comment|// only start service if not already started
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Service already started: "
-operator|+
+literal|"Service already started: {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 if|if
@@ -207,24 +198,15 @@ name|Service
 operator|)
 name|value
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Starting service: "
-operator|+
+literal|"Starting service: {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|service
 operator|.
 name|start
@@ -394,24 +376,15 @@ argument_list|)
 condition|)
 block|{
 comment|// only stop service if not already stopped
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Service already stopped: "
-operator|+
+literal|"Service already stopped: {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 if|if
@@ -429,24 +402,15 @@ name|Service
 operator|)
 name|value
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Stopping service "
-operator|+
+literal|"Stopping service {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|service
 operator|.
 name|stop
@@ -657,24 +621,15 @@ name|ShutdownableService
 operator|)
 name|value
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Shutting down service "
-operator|+
+literal|"Shutting down service {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|service
 operator|.
 name|shutdown
@@ -764,24 +719,15 @@ name|value
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Shutting down service: "
-operator|+
+literal|"Shutting down service: {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|service
 operator|.
 name|shutdown
@@ -1186,24 +1132,15 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending service "
-operator|+
+literal|"Suspending service {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|ss
 operator|.
 name|suspend

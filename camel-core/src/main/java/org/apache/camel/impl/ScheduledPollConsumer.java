@@ -325,29 +325,18 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot start to poll: "
-operator|+
+literal|"Cannot start to poll: {} as its suspended"
+argument_list|,
 name|this
 operator|.
 name|getEndpoint
 argument_list|()
-operator|+
-literal|" as its suspended"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|int
@@ -388,27 +377,18 @@ operator|-
 literal|1
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Starting to poll: "
-operator|+
+literal|"Starting to poll: {}"
+argument_list|,
 name|this
 operator|.
 name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -500,27 +480,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finished polling: "
-operator|+
+literal|"Finished polling: {}"
+argument_list|,
 name|this
 operator|.
 name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

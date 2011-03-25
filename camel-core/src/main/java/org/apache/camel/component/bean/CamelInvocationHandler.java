@@ -313,31 +313,20 @@ name|invocation
 argument_list|)
 expr_stmt|;
 comment|// process the exchange
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Proxied method call "
-operator|+
+literal|"Proxied method call {} invoking producer: {}"
+argument_list|,
 name|method
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" invoking producer: "
-operator|+
+argument_list|,
 name|producer
 argument_list|)
 expr_stmt|;
-block|}
 name|producer
 operator|.
 name|process
@@ -499,31 +488,20 @@ argument_list|(
 name|to
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Proxied method call "
-operator|+
+literal|"Proxied method call {} returning: {}"
+argument_list|,
 name|method
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" returning: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

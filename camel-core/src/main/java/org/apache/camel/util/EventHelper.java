@@ -2694,24 +2694,15 @@ name|event
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Notification of event is disabled: "
-operator|+
+literal|"Notification of event is disabled: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 try|try

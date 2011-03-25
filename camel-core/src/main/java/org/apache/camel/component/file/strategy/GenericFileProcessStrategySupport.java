@@ -671,28 +671,17 @@ argument_list|(
 name|local
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Local work file: "
-operator|+
+literal|"Local work file: {} was deleted: {}"
+argument_list|,
 name|local
-operator|+
-literal|" was deleted: "
-operator|+
+argument_list|,
 name|deleted
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

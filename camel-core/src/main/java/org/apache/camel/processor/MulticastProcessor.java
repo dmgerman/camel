@@ -1702,24 +1702,15 @@ argument_list|)
 throw|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parallel processing complete for exchange: "
-operator|+
+literal|"Parallel processing complete for exchange: {}"
+argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|subExchange
 return|;
@@ -1734,29 +1725,18 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// signal all tasks has been submitted
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Signaling that all "
-operator|+
+literal|"Signaling that all {} tasks has been submitted."
+argument_list|,
 name|total
 operator|.
 name|get
 argument_list|()
-operator|+
-literal|" tasks has been submitted."
 argument_list|)
 expr_stmt|;
-block|}
 name|allTasksSubmitted
 operator|.
 name|set
@@ -2187,28 +2167,17 @@ operator|.
 name|poll
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Polled completion task #"
-operator|+
+literal|"Polled completion task #{} after timeout to grab already completed tasks: {}"
+argument_list|,
 name|aggregated
-operator|+
-literal|" after timeout to grab already completed tasks: "
-operator|+
+argument_list|,
 name|future
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
@@ -2240,30 +2209,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Polling completion task #"
-operator|+
+literal|"Polling completion task #{} using timeout {} millis."
+argument_list|,
 name|aggregated
-operator|+
-literal|" using timeout "
-operator|+
+argument_list|,
 name|left
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
-block|}
 name|future
 operator|=
 name|completion
@@ -2280,24 +2236,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Polling completion task #"
-operator|+
+literal|"Polling completion task #{}"
+argument_list|,
 name|aggregated
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we must not block so poll every second
 name|future
 operator|=
@@ -2718,8 +2665,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|pair
 operator|.
 name|getExchange
@@ -2727,8 +2674,6 @@ argument_list|()
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2750,8 +2695,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|pair
 operator|.
 name|getExchange
@@ -2759,8 +2704,6 @@ argument_list|()
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2841,28 +2784,17 @@ literal|true
 return|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sequential processing complete for number "
-operator|+
+literal|"Sequential processing complete for number {} exchange: {}"
+argument_list|,
 name|total
-operator|+
-literal|" exchange: "
-operator|+
+argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
-block|}
 name|doAggregate
 argument_list|(
 name|getAggregationStrategy
@@ -3304,29 +3236,18 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|original
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 comment|// Decide whether to continue with the multicast or not; similar logic to the Pipeline
@@ -4208,46 +4129,28 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using existing error handler for: "
-operator|+
+literal|"Using existing error handler for: {}"
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating error handler for: "
-operator|+
+literal|"Creating error handler for: {}"
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
 name|ErrorHandlerBuilder
 name|builder
 init|=

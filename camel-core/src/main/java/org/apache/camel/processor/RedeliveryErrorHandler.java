@@ -524,35 +524,27 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Redelivering exchangeId: "
-operator|+
+literal|"Redelivering exchangeId: {} -> {} for Exchange: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+block|,
 name|outputAsync
-operator|+
-literal|" for Exchange: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 comment|// emmit event we are doing redelivery
 name|EventHelper
 operator|.
@@ -606,31 +598,20 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Redelivering exchangeId: "
-operator|+
+literal|"Redelivering exchangeId: {} done sync: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" done sync: "
-operator|+
+argument_list|,
 name|doneSync
 argument_list|)
 expr_stmt|;
-block|}
 comment|// mark we are in sync mode now
 name|data
 operator|.
@@ -698,31 +679,20 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Redelivering exchangeId: "
-operator|+
+literal|"Redelivering exchangeId: {} done sync: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" done sync: "
-operator|+
+argument_list|,
 name|doneSync
 argument_list|)
 expr_stmt|;
-block|}
 comment|// this callback should only handle the async case
 if|if
 condition|(
@@ -1217,14 +1187,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Scheduling redelivery task to run in "
-operator|+
+literal|"Scheduling redelivery task to run in {} millis for exchangeId: {}"
+argument_list|,
 name|data
 operator|.
 name|redeliveryDelay
-operator|+
-literal|" millis for exchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
@@ -1658,14 +1626,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Scheduling redelivery task to run in "
-operator|+
+literal|"Scheduling redelivery task to run in {} millis for exchangeId: {}"
+argument_list|,
 name|data
 operator|.
 name|redeliveryDelay
-operator|+
-literal|" millis for exchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
@@ -1772,31 +1738,20 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Is exchangeId: "
-operator|+
+literal|"Is exchangeId: {} done? {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" done? "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -1846,31 +1801,20 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Is exchangeId: "
-operator|+
+literal|"Is exchangeId: {} interrupted? {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" interrupted? "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -2345,17 +2289,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Redelivery processor "
-operator|+
+literal|"Redelivery processor {} is processing Exchange: {} before its redelivered"
+argument_list|,
 name|data
 operator|.
 name|onRedeliveryProcessor
-operator|+
-literal|" is processing Exchange: "
-operator|+
+argument_list|,
 name|exchange
-operator|+
-literal|" before its redelivered"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2530,14 +2470,6 @@ operator|.
 name|useOriginalInMessage
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -2545,7 +2477,6 @@ argument_list|(
 literal|"Using the original IN message instead of current"
 argument_list|)
 expr_stmt|;
-block|}
 name|Message
 name|original
 init|=
@@ -2572,14 +2503,6 @@ name|hasOut
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -2587,7 +2510,6 @@ argument_list|(
 literal|"Removing the out message to avoid some uncertain behavior"
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|setOut
@@ -2608,28 +2530,17 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Failure processor "
-operator|+
+literal|"Failure processor {} is processing Exchange: {}"
+argument_list|,
 name|processor
-operator|+
-literal|" is processing Exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// store the last to endpoint as the failure endpoint
 name|exchange
 operator|.
@@ -2682,28 +2593,17 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Failure processor done: "
-operator|+
+literal|"Failure processor done: {} processing Exchange: {}"
+argument_list|,
 name|processor
-operator|+
-literal|" processing Exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|prepareExchangeAfterFailure
@@ -2918,24 +2818,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange has already been marked for handling: "
-operator|+
+literal|"This exchange has already been marked for handling: {}"
+argument_list|,
 name|handled
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|handled
@@ -3002,24 +2893,15 @@ name|data
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is handled so its marked as not failed: "
-operator|+
+literal|"This exchange is handled so its marked as not failed: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|setProperty
@@ -3045,24 +2927,15 @@ name|data
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is continued: "
-operator|+
+literal|"This exchange is continued: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// okay we want to continue then prepare the exchange for that as well
 name|prepareExchangeForContinue
 argument_list|(
@@ -3074,24 +2947,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is not handled or continued so its marked as failed: "
-operator|+
+literal|"This exchange is not handled or continued so its marked as failed: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// exception not handled, put exception back in the exchange
 name|exchange
 operator|.
@@ -3466,24 +3330,15 @@ condition|(
 name|rollbackOnly
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is marked as rollback only, should not be redelivered: "
-operator|+
+literal|"This exchange is marked as rollback only, should not be redelivered: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

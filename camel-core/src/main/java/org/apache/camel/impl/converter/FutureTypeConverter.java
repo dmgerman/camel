@@ -280,14 +280,6 @@ name|TYPE
 return|;
 block|}
 comment|// do some trace logging as the get is blocking until the response is ready
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -295,7 +287,6 @@ argument_list|(
 literal|"Getting future response"
 argument_list|)
 expr_stmt|;
-block|}
 name|Object
 name|body
 init|=
@@ -304,14 +295,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -319,7 +302,6 @@ argument_list|(
 literal|"Got future response"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|body

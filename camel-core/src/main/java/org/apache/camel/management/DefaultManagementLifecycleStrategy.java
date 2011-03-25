@@ -1656,32 +1656,24 @@ argument_list|,
 name|on
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using name: "
-operator|+
+literal|"Using name: {} in ObjectName[{}] exists? {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|name
-operator|+
-literal|" in ObjectName["
-operator|+
+block|,
 name|on
-operator|+
-literal|"] exists? "
-operator|+
+block|,
 name|done
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|name
@@ -2255,24 +2247,15 @@ literal|null
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The service is already managed: "
-operator|+
+literal|"The service is already managed: {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 try|try
@@ -3222,24 +3205,15 @@ literal|null
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The route is already managed: "
-operator|+
+literal|"The route is already managed: {}"
+argument_list|,
 name|route
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 comment|// get the wrapped instrumentation processor from this route
@@ -3399,24 +3373,15 @@ literal|null
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The route is not managed: "
-operator|+
+literal|"The route is not managed: {}"
+argument_list|,
 name|route
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 try|try
@@ -3512,24 +3477,15 @@ literal|null
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The error handler builder is already managed: "
-operator|+
+literal|"The error handler builder is already managed: {}"
+argument_list|,
 name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 try|try
@@ -3638,24 +3594,15 @@ literal|null
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The thread pool is already managed: "
-operator|+
+literal|"The thread pool is already managed: {}"
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 try|try
@@ -4059,28 +4006,17 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Checking whether to register "
-operator|+
+literal|"Checking whether to register {} from route: {}"
+argument_list|,
 name|service
-operator|+
-literal|" from route: "
-operator|+
+argument_list|,
 name|route
 argument_list|)
 expr_stmt|;
-block|}
 comment|// always register if we are starting CamelContext
 if|if
 condition|(

@@ -356,11 +356,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{}. Timeout occurred so response will be ignored: {}"
+argument_list|,
 name|this
-operator|+
-literal|". Timeout occurred so response will be ignored: "
-operator|+
-operator|(
+argument_list|,
 name|response
 operator|.
 name|hasOut
@@ -375,7 +374,6 @@ name|response
 operator|.
 name|getIn
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -395,11 +393,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} with response: {}"
+argument_list|,
 name|this
-operator|+
-literal|" with response: "
-operator|+
-operator|(
+argument_list|,
 name|response
 operator|.
 name|hasOut
@@ -414,7 +411,6 @@ name|response
 operator|.
 name|getIn
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -475,24 +471,15 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding Exchange to queue: "
-operator|+
+literal|"Adding Exchange to queue: {}"
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-block|}
 name|queue
 operator|.
 name|add
@@ -519,18 +506,14 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for task to complete using timeout (ms): "
-operator|+
+literal|"Waiting for task to complete using timeout (ms): {} at [{}]"
+argument_list|,
 name|timeout
-operator|+
-literal|" at ["
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -605,14 +588,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for task to complete (blocking) at ["
-operator|+
+literal|"Waiting for task to complete (blocking) at [{}]"
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -638,24 +619,15 @@ block|}
 else|else
 block|{
 comment|// no wait, eg its a InOnly then just add to queue and return
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding Exchange to queue: "
-operator|+
+literal|"Adding Exchange to queue: {}"
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-block|}
 name|queue
 operator|.
 name|add

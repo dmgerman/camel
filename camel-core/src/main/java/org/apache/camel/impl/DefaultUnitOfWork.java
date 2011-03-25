@@ -366,31 +366,20 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"UnitOfWork created for ExchangeId: "
-operator|+
+literal|"UnitOfWork created for ExchangeId: {} with {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" with "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|tracedRouteNodes
 operator|=
 operator|new
@@ -643,24 +632,15 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding synchronization "
-operator|+
+literal|"Adding synchronization {}"
+argument_list|,
 name|synchronization
 argument_list|)
 expr_stmt|;
-block|}
 name|synchronizations
 operator|.
 name|add
@@ -778,28 +758,17 @@ condition|(
 name|handover
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Handover synchronization "
-operator|+
+literal|"Handover synchronization {} to: {}"
+argument_list|,
 name|synchronization
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 name|target
 operator|.
 name|addOnCompletion
@@ -816,24 +785,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Handover not allow for synchronization "
-operator|+
+literal|"Handover not allow for synchronization {}"
+argument_list|,
 name|synchronization
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -846,31 +806,20 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"UnitOfWork done for ExchangeId: "
-operator|+
+literal|"UnitOfWork done for ExchangeId: {} with {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" with "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|failed
 init|=

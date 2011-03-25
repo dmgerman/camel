@@ -219,27 +219,18 @@ name|void
 name|run
 parameter_list|()
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Delayed task woke up and continues routing for exchangeId: "
-operator|+
+literal|"Delayed task woke up and continues routing for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -466,31 +457,20 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Scheduling delayed task to run in "
-operator|+
+literal|"Scheduling delayed task to run in {} millis for exchangeId: {}"
+argument_list|,
 name|delay
-operator|+
-literal|" millis for exchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|executorService
 operator|.
 name|schedule
@@ -808,26 +788,15 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Sleeping for: "
-operator|+
+literal|"Sleeping for: {} millis"
+argument_list|,
 name|delay
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
-block|}
 name|Thread
 operator|.
 name|sleep

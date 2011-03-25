@@ -357,24 +357,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"File was not deleted at this attempt will try again in 1 sec.: "
-operator|+
+literal|"File was not deleted at this attempt will try again in 1 sec.: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// sleep a bit and try again
 name|Thread
 operator|.

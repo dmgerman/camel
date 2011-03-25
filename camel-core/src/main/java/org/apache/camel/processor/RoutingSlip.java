@@ -889,58 +889,36 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed synchronously"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed synchronously"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we ignore some kind of exceptions and allow us to continue
 if|if
 condition|(
@@ -1016,14 +994,6 @@ block|{
 break|break;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
 comment|// we are logging the completion if will be confusing if we log the original instead
 comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
@@ -1031,19 +1001,16 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|current
 argument_list|)
 expr_stmt|;
-block|}
 comment|// copy results back to the original exchange
 name|ExchangeHelper
 operator|.
@@ -1218,32 +1185,21 @@ name|RoutingSlipIterator
 name|iter
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// this does the actual processing so log at trace level
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|sync
 init|=
@@ -1513,40 +1469,21 @@ operator|!
 name|sync
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing exchangeId: "
-operator|+
+literal|"Processing exchangeId: {} is continued being processed asynchronously"
+argument_list|,
 name|original
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is continued being processed asynchronously"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
 comment|// we are logging the completion if will be confusing if we log the original instead
 comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
@@ -1554,19 +1491,16 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing complete for exchangeId: "
-operator|+
+literal|"Processing complete for exchangeId: {}>>> {}"
+argument_list|,
 name|original
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|current
 argument_list|)
 expr_stmt|;
-block|}
 comment|// copy results back to the original exchange
 name|ExchangeHelper
 operator|.

@@ -587,8 +587,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Loading converter class: "
-operator|+
+literal|"Loading converter class: {}"
+argument_list|,
 name|ObjectHelper
 operator|.
 name|name

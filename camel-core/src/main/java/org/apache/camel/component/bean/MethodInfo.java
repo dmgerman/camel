@@ -1405,24 +1405,23 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|">>>> invoking: "
-operator|+
+literal|">>>> invoking: {} on bean: {} with arguments: {} for exchange: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|method
-operator|+
-literal|" on bean: "
-operator|+
+block|,
 name|pojo
-operator|+
-literal|" with arguments: "
-operator|+
+block|,
 name|asString
 argument_list|(
 name|arguments
 argument_list|)
-operator|+
-literal|" for exchange: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1820,26 +1819,15 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating parameters expression for "
-operator|+
+literal|"Creating parameters expression for {} parameters"
+argument_list|,
 name|size
-operator|+
-literal|" parameters"
 argument_list|)
 expr_stmt|;
-block|}
 specifier|final
 name|Expression
 index|[]
@@ -1886,28 +1874,17 @@ index|]
 operator|=
 name|parameterExpression
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} has expression: {}"
+argument_list|,
 name|i
-operator|+
-literal|" has expression: "
-operator|+
+argument_list|,
 name|parameterExpression
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 operator|new
@@ -2116,22 +2093,23 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} evaluated as: {} type: "
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|i
-operator|+
-literal|" evaluated as: "
-operator|+
+block|,
 name|value
-operator|+
-literal|" type: "
-operator|+
+block|,
 name|ObjectHelper
 operator|.
 name|type
 argument_list|(
 name|value
 argument_list|)
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2156,26 +2134,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #"
-operator|+
+literal|"Parameter #{} evaluated as null"
+argument_list|,
 name|i
-operator|+
-literal|" evaluated as null"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

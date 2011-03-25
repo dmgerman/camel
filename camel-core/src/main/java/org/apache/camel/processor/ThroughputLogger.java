@@ -958,29 +958,18 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"ThroughputLogger cannot start because CamelContext("
-operator|+
+literal|"ThroughputLogger cannot start because CamelContext({}) has not been started yet"
+argument_list|,
 name|camelContext
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|") has not been started yet"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|createGroupIntervalLogMessage

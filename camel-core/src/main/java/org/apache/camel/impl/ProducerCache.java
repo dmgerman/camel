@@ -1653,24 +1653,15 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"size = "
-operator|+
+literal|"size = {}"
+argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|size
 return|;

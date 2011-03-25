@@ -330,28 +330,17 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"AddAndAcquire key: "
-operator|+
+literal|"AddAndAcquire key: {} service: {}"
+argument_list|,
 name|key
-operator|+
-literal|" service: "
-operator|+
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 comment|// test if queue will be full
 if|if
 condition|(
@@ -410,24 +399,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"No free services in pool to acquire for key: "
-operator|+
+literal|"No free services in pool to acquire for key: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -440,28 +420,17 @@ operator|.
 name|poll
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Acquire: "
-operator|+
+literal|"Acquire: {} service: {}"
+argument_list|,
 name|key
-operator|+
-literal|" service: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -479,28 +448,17 @@ name|Service
 name|service
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Release: "
-operator|+
+literal|"Release: {} service: {}"
+argument_list|,
 name|key
-operator|+
-literal|" service: "
-operator|+
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|BlockingQueue
 argument_list|<
 name|Service

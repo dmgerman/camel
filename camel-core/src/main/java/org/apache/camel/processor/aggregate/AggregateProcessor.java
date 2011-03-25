@@ -1122,24 +1122,15 @@ parameter_list|)
 throws|throws
 name|CamelExchangeException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"onAggregation +++ start +++ with correlation key: "
-operator|+
+literal|"onAggregation +++ start +++ with correlation key: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|Exchange
 name|answer
 decl_stmt|;
@@ -1318,28 +1309,17 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"In progress aggregated exchange: "
-operator|+
+literal|"In progress aggregated exchange: {} with correlation key: {}"
+argument_list|,
 name|answer
-operator|+
-literal|" with correlation key:"
-operator|+
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|aggregationRepository
 operator|.
 name|add
@@ -1469,24 +1449,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"onAggregation +++  end  +++ with correlation key: "
-operator|+
+literal|"onAggregation +++  end  +++ with correlation key: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -1678,32 +1649,24 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating correlation key "
-operator|+
+literal|"Updating correlation key {} to timeout after {} ms. as exchange received: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|key
-operator|+
-literal|" to timeout after "
-operator|+
+block|,
 name|value
-operator|+
-literal|" ms. as exchange received: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 name|timeoutMap
 operator|.
 name|put
@@ -1736,33 +1699,25 @@ literal|0
 condition|)
 block|{
 comment|// timeout is used so use the timeout map to keep an eye on this
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating correlation key "
-operator|+
+literal|"Updating correlation key {} to timeout after {} ms. as exchange received: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|key
-operator|+
-literal|" to timeout after "
-operator|+
+block|,
 name|getCompletionTimeout
 argument_list|()
-operator|+
-literal|" ms. as exchange received: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 name|timeoutMap
 operator|.
 name|put
@@ -2170,26 +2125,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing aggregated exchange: "
-operator|+
+literal|"Processing aggregated exchange: {} complete."
+argument_list|,
 name|exchange
-operator|+
-literal|" complete."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2600,24 +2544,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregated exchange onFailure: "
-operator|+
+literal|"Aggregated exchange onFailure: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// must remember to remove in progress when we failed
 name|inProgressCompleteExchanges
 operator|.
@@ -2637,24 +2572,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregated exchange onComplete: "
-operator|+
+literal|"Aggregated exchange onComplete: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// only confirm if we processed without a problem
 try|try
 block|{
@@ -2818,26 +2744,15 @@ condition|(
 name|inProgress
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregated exchange with id: "
-operator|+
+literal|"Aggregated exchange with id: {} is already in progress."
+argument_list|,
 name|exchangeId
-operator|+
-literal|" is already in progress."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -2917,29 +2832,18 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Completion interval task cannot start due CamelContext("
-operator|+
+literal|"Completion interval task cannot start due CamelContext({}) has not been started yet"
+argument_list|,
 name|camelContext
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|") has not been started yet"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|LOG
@@ -3009,24 +2913,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Completion interval triggered for correlation key: "
-operator|+
+literal|"Completion interval triggered for correlation key: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 comment|// indicate it was completed by interval
 name|exchange
 operator|.
@@ -3118,29 +3013,18 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Recover check cannot start due CamelContext("
-operator|+
+literal|"Recover check cannot start due CamelContext({}) has not been started yet"
+argument_list|,
 name|camelContext
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|") has not been started yet"
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|LOG
@@ -3203,26 +3087,15 @@ condition|(
 name|inProgress
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregated exchange with id: "
-operator|+
+literal|"Aggregated exchange with id: {} is already in progress."
+argument_list|,
 name|exchangeId
-operator|+
-literal|" is already in progress."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

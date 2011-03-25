@@ -237,24 +237,15 @@ name|exclusive
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive read lock to file: "
-operator|+
+literal|"Waiting for exclusive read lock to file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|long
@@ -342,24 +333,14 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Previous last modified: "
-operator|+
+literal|"Previous last modified: {}, new last modified: {}"
+argument_list|,
 name|lastModified
-operator|+
-literal|", new last modified: "
-operator|+
+argument_list|,
 name|newLastModified
 argument_list|)
 expr_stmt|;
@@ -367,16 +348,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Previous length: "
-operator|+
+literal|"Previous length: {}, new length: {}"
+argument_list|,
 name|length
-operator|+
-literal|", new length: "
-operator|+
+argument_list|,
 name|newLength
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|newLastModified
@@ -500,26 +478,15 @@ name|boolean
 name|sleep
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for "
-operator|+
+literal|"Exclusive read lock not granted. Sleeping for {} millis."
+argument_list|,
 name|checkInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Thread

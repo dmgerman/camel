@@ -567,14 +567,6 @@ condition|(
 name|useOriginalBody
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -582,7 +574,6 @@ argument_list|(
 literal|"Using the original IN message instead of current"
 argument_list|)
 expr_stmt|;
-block|}
 name|Message
 name|original
 init|=

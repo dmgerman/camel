@@ -158,24 +158,15 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"pollDirectory from fileName: "
-operator|+
+literal|"pollDirectory from fileName: {}"
+argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 name|directory
 init|=
@@ -241,27 +232,18 @@ return|return
 literal|true
 return|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Polling directory: "
-operator|+
+literal|"Polling directory: {}"
+argument_list|,
 name|directory
 operator|.
 name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 index|[]
 name|files
@@ -285,27 +267,18 @@ literal|0
 condition|)
 block|{
 comment|// no files in this directory to poll
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"No files found in directory: "
-operator|+
+literal|"No files found in directory: {}"
+argument_list|,
 name|directory
 operator|.
 name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -313,33 +286,22 @@ block|}
 else|else
 block|{
 comment|// we found some files
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} in directory: {}"
+argument_list|,
 name|files
 operator|.
 name|length
-operator|+
-literal|" in directory: "
-operator|+
+argument_list|,
 name|directory
 operator|.
 name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
@@ -376,39 +338,34 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Found file: "
-operator|+
+literal|"Found file: {} [isAbsolute: {}, isDirectory: {}, isFile: {}, isHidden: {}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|file
-operator|+
-literal|" [isAbsolute: "
-operator|+
+block|,
 name|file
 operator|.
 name|isAbsolute
 argument_list|()
-operator|+
-literal|", isDirectory: "
-operator|+
+block|,
 name|file
 operator|.
 name|isDirectory
 argument_list|()
-operator|+
-literal|", isFile: "
-operator|+
+block|,
 name|file
 operator|.
 name|isFile
 argument_list|()
-operator|+
-literal|", isHidden: "
-operator|+
+block|,
 name|file
 operator|.
 name|isHidden
 argument_list|()
-operator|+
-literal|"]"
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -507,20 +464,12 @@ name|gf
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Skipping as file is already in progress: "
-operator|+
+literal|"Skipping as file is already in progress: {}"
+argument_list|,
 name|gf
 operator|.
 name|getFileName
@@ -528,27 +477,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 else|else
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Adding valid file: "
-operator|+
+literal|"Adding valid file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// matched file so add
 name|fileList
 operator|.

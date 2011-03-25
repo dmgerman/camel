@@ -302,14 +302,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -317,7 +309,6 @@ argument_list|(
 literal|"Consumer is not running, so returning null"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;

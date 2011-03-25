@@ -325,30 +325,19 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Invoking method: "
-operator|+
+literal|"Invoking method: {} with args: {}"
+argument_list|,
 name|getMethod
 argument_list|()
-operator|+
-literal|" with args: "
-operator|+
+argument_list|,
 name|getArgs
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|Object
 name|response
 init|=
@@ -363,24 +352,15 @@ name|getArgs
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Got response: "
-operator|+
+literal|"Got response: {}"
+argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getOut
