@@ -56,6 +56,20 @@ name|ProxyHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A build to create Camel proxies.  *  * @version   */
 end_comment
@@ -157,6 +171,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"endpoint"
+argument_list|)
+expr_stmt|;
 return|return
 name|ProxyHelper
 operator|.
