@@ -745,10 +745,8 @@ return|return
 name|header
 return|;
 block|}
-comment|// Split ognl except
-comment|// when this is not a Map, Array
-comment|// and we would like to keep the dots
-comment|// within the key name
+comment|// Split ognl except when this is not a Map, Array
+comment|// and we would like to keep the dots within the key name
 name|List
 argument_list|<
 name|String
