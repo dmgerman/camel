@@ -954,8 +954,6 @@ throws|throws
 name|AmbiguousMethodCallException
 throws|,
 name|MethodNotFoundException
-throws|,
-name|ClassNotFoundException
 block|{
 name|MethodInfo
 name|methodInfo
@@ -2079,7 +2077,7 @@ name|hasHandlerAnnotation
 argument_list|)
 return|;
 block|}
-comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @param name an optional name of the method that must match, use<tt>null</tt> to indicate all methods      * @return the method to invoke or null if no definitive method could be matched      * @throws AmbiguousMethodCallException is thrown if cannot chose method due to ambiguous      * @throws ClassNotFoundException is thrown if name contains parameter types to use as qualifier and a class was not found      */
+comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @param name an optional name of the method that must match, use<tt>null</tt> to indicate all methods      * @return the method to invoke or null if no definitive method could be matched      * @throws AmbiguousMethodCallException is thrown if cannot chose method due to ambiguous      */
 DECL|method|chooseMethod (Object pojo, Exchange exchange, String name)
 specifier|protected
 name|MethodInfo
@@ -2096,8 +2094,6 @@ name|name
 parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
-throws|,
-name|ClassNotFoundException
 block|{
 comment|// @Handler should be select first
 comment|// then any single method that has a custom @annotation
@@ -3654,8 +3650,6 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
 block|{
 name|Iterator
 argument_list|<
@@ -3718,8 +3712,6 @@ parameter_list|,
 name|String
 name|methodName
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
 block|{
 if|if
 condition|(

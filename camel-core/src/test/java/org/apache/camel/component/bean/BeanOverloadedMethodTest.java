@@ -277,6 +277,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
 name|from
 argument_list|(
 literal|"direct:start"
@@ -296,6 +297,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 block|}
 argument_list|)
@@ -376,6 +378,88 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello Claus you are from Denmark"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Claus"
+argument_list|,
+literal|"country"
+argument_list|,
+literal|"Denmark"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testHelloOverloadedWildcardWildcard ()
+specifier|public
+name|void
+name|testHelloOverloadedWildcardWildcard
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// START SNIPPET: e3
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|bean
+argument_list|(
+name|MyBean
+operator|.
+name|class
+argument_list|,
+literal|"hello(*,*)"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 block|}
 argument_list|)
@@ -985,6 +1069,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// START SNIPPET: e1
 DECL|class|MyBean
 specifier|public
 specifier|static
@@ -1239,6 +1324,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e1
 block|}
 end_class
 
