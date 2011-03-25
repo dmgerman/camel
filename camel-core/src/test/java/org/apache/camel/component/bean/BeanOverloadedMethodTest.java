@@ -459,7 +459,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e2
+comment|// END SNIPPET: e3
 block|}
 block|}
 argument_list|)
