@@ -209,7 +209,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result?foo=bar"
+literal|"direct:result?foo=bar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -240,7 +240,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Failed to create route route2 at:>>> To[mock:result?foo=bar]<<< in route: Route[[From[direct:start]] -> [To[mock:result?foo=bar]]] because of"
+literal|"Failed to create route route2 at:>>> To[direct:result?foo=bar]<<< in route: Route[[From[direct:start]] -> [To[direct:result?foo=bar]]] because of"
 argument_list|)
 argument_list|)
 expr_stmt|;
