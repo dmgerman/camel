@@ -116,6 +116,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -251,6 +265,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+specifier|final
+name|UnitOfWork
+name|uow
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
 comment|// allow unit of work to wrap callback in case it need to do some special work
 comment|// for example the MDCUnitOfWork
 name|AsyncCallback
@@ -260,20 +283,14 @@ name|callback
 decl_stmt|;
 if|if
 condition|(
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|uow
 operator|!=
 literal|null
 condition|)
 block|{
 name|async
 operator|=
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|uow
 operator|.
 name|beforeProcess
 argument_list|(
@@ -297,21 +314,15 @@ argument_list|,
 name|async
 argument_list|)
 expr_stmt|;
-comment|// execute any after processor work
+comment|// execute any after processor work (in current thread, not in the callback)
 if|if
 condition|(
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|uow
 operator|!=
 literal|null
 condition|)
 block|{
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|uow
 operator|.
 name|afterProcess
 argument_list|(
