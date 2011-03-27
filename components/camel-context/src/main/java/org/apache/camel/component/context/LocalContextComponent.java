@@ -324,12 +324,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to lookup "
-operator|+
+literal|"Trying to lookup {} in local map {}"
+argument_list|,
 name|remaining
-operator|+
-literal|" in local map "
-operator|+
+argument_list|,
 name|map
 operator|.
 name|keySet

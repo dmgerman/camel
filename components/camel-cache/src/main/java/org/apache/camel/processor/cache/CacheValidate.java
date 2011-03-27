@@ -100,24 +100,15 @@ name|String
 name|key
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cache Name: "
-operator|+
+literal|"Cache Name: {}"
+argument_list|,
 name|cacheName
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -189,12 +180,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cache "
-operator|+
+literal|"Cache {} currently contains {} elements"
+argument_list|,
 name|cacheName
-operator|+
-literal|" currently contains "
-operator|+
+argument_list|,
 name|cacheManager
 operator|.
 name|getCache
@@ -204,8 +193,6 @@ argument_list|)
 operator|.
 name|getSize
 argument_list|()
-operator|+
-literal|" elements"
 argument_list|)
 expr_stmt|;
 block|}

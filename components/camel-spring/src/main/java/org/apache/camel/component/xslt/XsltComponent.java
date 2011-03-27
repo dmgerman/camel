@@ -811,26 +811,17 @@ parameter_list|)
 throws|throws
 name|TransformerConfigurationException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} loading schema resource: {}"
+argument_list|,
 name|this
-operator|+
-literal|" loading schema resource: "
-operator|+
+argument_list|,
 name|resource
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|xslt

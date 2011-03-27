@@ -349,27 +349,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Channel open: "
-operator|+
+literal|"Channel open: {}"
+argument_list|,
 name|e
 operator|.
 name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// to keep track of open sockets
 name|consumer
 operator|.
@@ -401,27 +392,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Channel closed: "
-operator|+
+literal|"Channel closed: {}"
+argument_list|,
 name|e
 operator|.
 name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

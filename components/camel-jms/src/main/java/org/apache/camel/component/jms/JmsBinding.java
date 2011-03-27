@@ -679,15 +679,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body using a custom MessageConverter: "
-operator|+
+literal|"Extracting body using a custom MessageConverter: {} from JMS message: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getMessageConverter
 argument_list|()
-operator|+
-literal|" from JMS message: "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -721,24 +719,15 @@ name|isMapJmsMessage
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Option map JMS message is false so using JMS message as body: "
-operator|+
+literal|"Option map JMS message is false so using JMS message as body: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|message
 return|;
@@ -750,24 +739,15 @@ operator|instanceof
 name|ObjectMessage
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body as a ObjectMessage from JMS message: "
-operator|+
+literal|"Extracting body as a ObjectMessage from JMS message: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 name|ObjectMessage
 name|objectMessage
 init|=
@@ -836,24 +816,15 @@ operator|instanceof
 name|TextMessage
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body as a TextMessage from JMS message: "
-operator|+
+literal|"Extracting body as a TextMessage from JMS message: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 name|TextMessage
 name|textMessage
 init|=
@@ -877,24 +848,15 @@ operator|instanceof
 name|MapMessage
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body as a MapMessage from JMS message: "
-operator|+
+literal|"Extracting body as a MapMessage from JMS message: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createMapFromMapMessage
 argument_list|(
@@ -913,24 +875,15 @@ operator|instanceof
 name|BytesMessage
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body as a BytesMessage from JMS message: "
-operator|+
+literal|"Extracting body as a BytesMessage from JMS message: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createByteArrayFromBytesMessage
 argument_list|(
@@ -949,24 +902,15 @@ operator|instanceof
 name|StreamMessage
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracting body as a StreamMessage from JMS message: "
-operator|+
+literal|"Extracting body as a StreamMessage from JMS message: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|message
 return|;
@@ -2052,14 +1996,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
+else|else
 block|{
 comment|// The following properties are set by the MessageProducer:
 comment|// JMSDestination
@@ -2070,12 +2007,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Ignoring JMS header: "
-operator|+
+literal|"Ignoring JMS header: {} with value: {}"
+argument_list|,
 name|headerName
-operator|+
-literal|" with value: "
-operator|+
+argument_list|,
 name|headerValue
 argument_list|)
 expr_stmt|;
@@ -2377,24 +2312,15 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using JmsMessageType: "
-operator|+
+literal|"Using JmsMessageType: {}"
+argument_list|,
 name|Object
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|session
 operator|.
@@ -2450,14 +2376,6 @@ name|isTransferExchange
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -2465,7 +2383,6 @@ argument_list|(
 literal|"Option transferExchange=true so we use JmsMessageType: Object"
 argument_list|)
 expr_stmt|;
-block|}
 name|Serializable
 name|holder
 init|=
@@ -2512,15 +2429,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating JmsMessage using a custom MessageConverter: "
-operator|+
+literal|"Creating JmsMessage using a custom MessageConverter: {} with body: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getMessageConverter
 argument_list|()
-operator|+
-literal|" with body: "
-operator|+
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
@@ -2632,24 +2547,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using JmsMessageType: "
-operator|+
+literal|"Using JmsMessageType: {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createJmsMessageForType
 argument_list|(

@@ -298,24 +298,15 @@ range|:
 name|classes
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found RouteBuilder class: "
-operator|+
+literal|"Found RouteBuilder class: {}"
+argument_list|,
 name|aClass
 argument_list|)
 expr_stmt|;
-block|}
 comment|// certain beans should be ignored
 if|if
 condition|(

@@ -284,24 +284,15 @@ block|{
 comment|// Using the non-OSGi classloaders as a fallback
 comment|// this is necessary when use JBI packaging for servicemix-camel SU
 comment|// so that we get chance to use SU classloader to scan packages in the SU
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find any classes in bundles, not trying regular classloaders scanning: "
-operator|+
+literal|"Cannot find any classes in bundles, not trying regular classloaders scanning: {}"
+argument_list|,
 name|packageName
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|ClassLoader
@@ -531,24 +522,15 @@ range|:
 name|bundles
 control|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Searching in bundle:"
-operator|+
+literal|"Searching in bundle: {}"
+argument_list|,
 name|bd
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Enumeration
@@ -620,24 +602,15 @@ argument_list|(
 name|urlString
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Added url: "
-operator|+
+literal|"Added url: {}"
+argument_list|,
 name|urlString
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch

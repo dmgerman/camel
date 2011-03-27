@@ -298,24 +298,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing header: "
-operator|+
+literal|"Processing header: {}"
+argument_list|,
 name|header
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -326,26 +317,15 @@ name|SoapHeader
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Skipped header: "
-operator|+
+literal|"Skipped header: {} since it is not a SoapHeader"
+argument_list|,
 name|header
-operator|+
-literal|" since it is not a SoapHeader"
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 name|SoapHeader
@@ -417,24 +397,15 @@ block|{
 comment|// dropping headers if actor/role equals to {ns}/role|actor/next
 comment|// cxf SoapHeader needs to have soap:header@relay attribute,
 comment|// then we can check for it here as well
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Filtered header: "
-operator|+
+literal|"Filtered header: {}"
+argument_list|,
 name|header
 argument_list|)
 expr_stmt|;
-block|}
 name|iterator
 operator|.
 name|remove

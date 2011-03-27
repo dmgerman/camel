@@ -1526,27 +1526,18 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Syslog message : "
-operator|+
+literal|"Syslog message : {}"
+argument_list|,
 name|syslogMessage
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|syslogMessage
 return|;

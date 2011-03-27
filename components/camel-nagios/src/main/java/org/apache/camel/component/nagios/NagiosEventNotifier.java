@@ -318,14 +318,6 @@ argument_list|(
 name|payload
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -333,7 +325,6 @@ argument_list|(
 literal|"Sending notification done"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|isEnabled (EventObject eventObject)
 specifier|public

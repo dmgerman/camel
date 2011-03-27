@@ -1481,26 +1481,15 @@ argument_list|(
 name|ID
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"getKey ["
-operator|+
+literal|"getKey [{}]"
+argument_list|,
 name|id
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|id
 return|;
@@ -1615,26 +1604,15 @@ argument_list|(
 name|ID
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"getKey ["
-operator|+
+literal|"getKey [{}]"
+argument_list|,
 name|id
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|id
 return|;

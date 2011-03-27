@@ -268,23 +268,24 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delivering to client id: "
-operator|+
+literal|"Delivering to client id: {} path: {} exchange: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|client
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" path:"
-operator|+
+block|,
 name|endpoint
 operator|.
 name|getPath
 argument_list|()
-operator|+
-literal|" exchange: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}

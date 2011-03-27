@@ -493,24 +493,15 @@ name|getUriPattern
 argument_list|()
 decl_stmt|;
 comment|// substitute { } placeholders in uri and use mandatory headers
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Substituting { } placeholders in uri: "
-operator|+
+literal|"Substituting { } placeholders in uri: {}"
+argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
 name|Matcher
 name|matcher
 init|=
@@ -590,17 +581,15 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Replacing: "
-operator|+
+literal|"Replacing: {} with header value: {}"
+argument_list|,
 name|matcher
 operator|.
 name|group
 argument_list|(
 literal|0
 argument_list|)
-operator|+
-literal|" with header value: "
-operator|+
+argument_list|,
 name|header
 argument_list|)
 expr_stmt|;
@@ -1088,34 +1077,23 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parse external header "
-operator|+
+literal|"Parse external header {}={}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|put

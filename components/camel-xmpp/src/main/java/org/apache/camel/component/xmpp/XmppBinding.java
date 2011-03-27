@@ -398,31 +398,20 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Added property name: "
-operator|+
+literal|"Added property name: {} value: {}"
+argument_list|,
 name|name
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|value
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

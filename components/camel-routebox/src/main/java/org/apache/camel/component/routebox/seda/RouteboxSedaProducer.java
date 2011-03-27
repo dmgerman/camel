@@ -411,11 +411,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{}. Timeout occurred so response will be ignored: {}"
+argument_list|,
 name|this
-operator|+
-literal|". Timeout occurred so response will be ignored: "
-operator|+
-operator|(
+argument_list|,
 name|response
 operator|.
 name|hasOut
@@ -430,7 +429,6 @@ name|response
 operator|.
 name|getIn
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,11 +448,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} with response: {}"
+argument_list|,
 name|this
-operator|+
-literal|" with response: "
-operator|+
-operator|(
+argument_list|,
 name|response
 operator|.
 name|hasOut
@@ -469,7 +466,6 @@ name|response
 operator|.
 name|getIn
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -542,33 +538,20 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for task to complete using timeout (ms): "
-operator|+
+literal|"Waiting for task to complete using timeout (ms): {} at [{}]"
+argument_list|,
 name|timeout
-operator|+
-literal|" at ["
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lets see if we can get the task done before the timeout
 name|boolean
 name|done
@@ -628,29 +611,18 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for task to complete (blocking) at ["
-operator|+
+literal|"Waiting for task to complete (blocking) at [{}]"
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// no timeout then wait until its done
 try|try
 block|{

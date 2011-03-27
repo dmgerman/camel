@@ -351,24 +351,15 @@ init|=
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Polling: "
-operator|+
+literal|"Polling: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|Object

@@ -359,24 +359,15 @@ name|Object
 name|o
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Received CXF Request: "
-operator|+
+literal|"Received CXF Request: {}"
+argument_list|,
 name|cxfExchange
 argument_list|)
 expr_stmt|;
-block|}
 name|Continuation
 name|continuation
 decl_stmt|;
@@ -400,14 +391,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -415,7 +398,6 @@ argument_list|(
 literal|"Calling the Camel async processors."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|asyncInvoke
 argument_list|(
@@ -427,14 +409,6 @@ return|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -442,7 +416,6 @@ argument_list|(
 literal|"Calling the Camel sync processors."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|syncInvoke
 argument_list|(
@@ -493,27 +466,18 @@ name|cxfExchange
 argument_list|)
 decl_stmt|;
 comment|// Now we don't set up the timeout value
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending continuation of exchangeId: "
-operator|+
+literal|"Suspending continuation of exchangeId: {}"
+argument_list|,
 name|camelExchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// TODO Support to set the timeout in case the Camel can't send the response back on time.
 comment|// The continuation could be called before the suspend is called
 name|continuation
@@ -549,27 +513,18 @@ init|(
 name|continuation
 init|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resuming continuation of exchangeId: "
-operator|+
+literal|"Resuming continuation of exchangeId: {}"
+argument_list|,
 name|camelExchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// resume processing after both, sync and async callbacks
 name|continuation
 operator|.
@@ -698,14 +653,6 @@ name|cxfExchange
 argument_list|)
 decl_stmt|;
 comment|// send Camel exchange to the target processor
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -713,7 +660,6 @@ argument_list|(
 literal|"Processing +++ START +++"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|getProcessor
@@ -739,14 +685,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -754,7 +692,6 @@ argument_list|(
 literal|"Processing +++ END +++"
 argument_list|)
 expr_stmt|;
-block|}
 name|setResponseBack
 argument_list|(
 name|cxfExchange
@@ -885,24 +822,15 @@ argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set exchange property: BindingOperationInfo: "
-operator|+
+literal|"Set exchange property: BindingOperationInfo: {}"
+argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// set data format mode in Camel exchange
 name|camelExchange
@@ -916,33 +844,22 @@ argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set Exchange property: "
-operator|+
+literal|"Set Exchange property: {}={}"
+argument_list|,
 name|DataFormat
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-block|}
 name|camelExchange
 operator|.
 name|setProperty

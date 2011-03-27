@@ -350,27 +350,18 @@ operator|.
 name|getChatManager
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Looking for existing chat instance with thread ID "
-operator|+
+literal|"Looking for existing chat instance with thread ID {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getChatId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|Chat
 name|chat
 init|=
@@ -391,27 +382,18 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating new chat instance with thread ID "
-operator|+
+literal|"Creating new chat instance with thread ID {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getChatId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|chat
 operator|=
 name|chatManager

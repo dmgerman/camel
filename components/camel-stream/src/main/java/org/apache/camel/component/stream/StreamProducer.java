@@ -682,26 +682,15 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delaying "
-operator|+
+literal|"Delaying {} millis"
+argument_list|,
 name|ms
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
-block|}
 name|Thread
 operator|.
 name|sleep

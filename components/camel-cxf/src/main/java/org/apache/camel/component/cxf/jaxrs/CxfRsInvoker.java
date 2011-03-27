@@ -359,14 +359,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -374,7 +366,6 @@ argument_list|(
 literal|"Calling the Camel async processors."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|asyncInvoke
 argument_list|(
@@ -392,14 +383,6 @@ return|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -407,7 +390,6 @@ argument_list|(
 literal|"Calling the Camel sync processors."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|syncInvoke
 argument_list|(
@@ -569,27 +551,18 @@ name|paramArray
 argument_list|)
 expr_stmt|;
 comment|// Now we don't set up the timeout value
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending continuation of exchangeId: "
-operator|+
+literal|"Suspending continuation of exchangeId: {}"
+argument_list|,
 name|camelExchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// TODO Support to set the timeout in case the Camel can't send the response back on time.
 comment|// The continuation could be called before the suspend is called
 name|continuation
@@ -637,27 +610,18 @@ init|(
 name|continuation
 init|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resuming continuation of exchangeId: "
-operator|+
+literal|"Resuming continuation of exchangeId: {}"
+argument_list|,
 name|camelExchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// resume processing after both, sync and async callbacks
 name|continuation
 operator|.

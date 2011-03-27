@@ -282,24 +282,15 @@ name|ServletException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service: "
-operator|+
+literal|"Service: {}"
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Is there a consumer registered for the request.
 name|HttpConsumer
 name|consumer
@@ -461,27 +452,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing request for exchangeId: "
-operator|+
+literal|"Processing request for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// process the exchange
 name|consumer
 operator|.
@@ -510,27 +492,18 @@ expr_stmt|;
 block|}
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Writing response for exchangeId: "
-operator|+
+literal|"Writing response for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// now lets output to the response
 name|consumer
 operator|.

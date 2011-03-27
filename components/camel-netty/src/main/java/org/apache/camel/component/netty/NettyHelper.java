@@ -221,14 +221,6 @@ literal|"\n"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -236,7 +228,6 @@ argument_list|(
 literal|"Auto appending missing newline delimiter to body"
 argument_list|)
 expr_stmt|;
-block|}
 name|s
 operator|=
 name|s
@@ -259,14 +250,6 @@ literal|"\u0000"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -274,7 +257,6 @@ argument_list|(
 literal|"Auto appending missing null delimiter to body"
 argument_list|)
 expr_stmt|;
-block|}
 name|s
 operator|=
 name|s
@@ -346,14 +328,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// wait for the write
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -361,7 +335,6 @@ argument_list|(
 literal|"Waiting for write to complete"
 argument_list|)
 expr_stmt|;
-block|}
 name|future
 operator|.
 name|awaitUninterruptibly
@@ -424,24 +397,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Closing channel: "
-operator|+
+literal|"Closing channel: {}"
+argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-block|}
 name|channel
 operator|.
 name|close

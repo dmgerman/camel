@@ -361,24 +361,15 @@ name|Destination
 name|replyTo
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"ReplyTo destination: "
-operator|+
+literal|"ReplyTo destination: {}"
+argument_list|,
 name|replyTo
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|replyTo
@@ -861,26 +852,15 @@ operator|<
 literal|50
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Early reply not found handler at attempt "
-operator|+
+literal|"Early reply not found handler at attempt {}. Waiting a bit longer."
+argument_list|,
 name|counter
-operator|+
-literal|". Waiting a bit longer."
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Thread
@@ -934,17 +914,18 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Early reply with correlationID ["
-operator|+
+literal|"Early reply with correlationID [{}] has been matched after {} attempts and can be processed using handler: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|correlationID
-operator|+
-literal|"] has been matched after "
-operator|+
+block|,
 name|counter
-operator|+
-literal|" attempts and can be processed using handler: "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}

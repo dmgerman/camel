@@ -400,33 +400,20 @@ name|timeout
 operator|/
 literal|1000
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reading from data queue: "
-operator|+
+literal|"Reading from data queue: {} with {} seconds timeout"
+argument_list|,
 name|queue
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" with "
-operator|+
+argument_list|,
 name|seconds
-operator|+
-literal|" seconds timeout"
 argument_list|)
 expr_stmt|;
-block|}
 name|entry
 operator|=
 name|queue
@@ -439,29 +426,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reading from data queue: "
-operator|+
+literal|"Reading from data queue: {} with no timeout"
+argument_list|,
 name|queue
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" with no timeout"
 argument_list|)
 expr_stmt|;
-block|}
 name|entry
 operator|=
 name|queue

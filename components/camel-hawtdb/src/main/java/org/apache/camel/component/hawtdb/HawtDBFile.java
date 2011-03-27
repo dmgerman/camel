@@ -538,24 +538,15 @@ argument_list|>
 name|work
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Executing work +++ start +++ "
-operator|+
+literal|"Executing work +++ start +++ {}"
+argument_list|,
 name|work
 argument_list|)
 expr_stmt|;
-block|}
 name|Transaction
 name|tx
 init|=
@@ -576,24 +567,15 @@ argument_list|,
 name|pageFile
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Executing work +++ done  +++ "
-operator|+
+literal|"Executing work +++ done  +++ {}"
+argument_list|,
 name|work
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -731,28 +713,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Repository index with name "
-operator|+
+literal|"Repository index with name {} at location {}"
+argument_list|,
 name|name
-operator|+
-literal|" at location "
-operator|+
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|=
 name|INDEX_FACTORY
@@ -765,28 +736,17 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Repository index with name "
-operator|+
+literal|"Repository index with name {} -> {}"
+argument_list|,
 name|name
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -876,31 +836,20 @@ argument_list|(
 name|tx
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"TX is read only: "
-operator|+
+literal|"TX is read only: {} for executed work: {}"
+argument_list|,
 name|tx
 operator|.
 name|isReadOnly
 argument_list|()
-operator|+
-literal|" for executed work: "
-operator|+
+argument_list|,
 name|work
 argument_list|)
 expr_stmt|;
-block|}
 comment|// commit work
 name|tx
 operator|.

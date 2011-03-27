@@ -606,8 +606,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"HTTP method = "
-operator|+
+literal|"HTTP method = {}"
+argument_list|,
 name|httpMethod
 argument_list|)
 expr_stmt|;
@@ -615,8 +615,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"path = "
-operator|+
+literal|"path = {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
@@ -624,8 +624,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"responseClass = "
-operator|+
+literal|"responseClass = {}"
+argument_list|,
 name|responseClass
 argument_list|)
 expr_stmt|;
@@ -996,24 +996,15 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Response body = "
-operator|+
+literal|"Response body = {}"
+argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getOut
@@ -1802,34 +1793,23 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parse external header "
-operator|+
+literal|"Parse external header {}={}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|put
@@ -1993,49 +1973,27 @@ name|retval
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Created client factory bean and add to cache for address '"
-operator|+
+literal|"Created client factory bean and add to cache for address '{}'"
+argument_list|,
 name|address
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Retrieved client factory bean from cache for address '"
-operator|+
+literal|"Retrieved client factory bean from cache for address '{}'"
+argument_list|,
 name|address
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

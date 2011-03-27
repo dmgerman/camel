@@ -338,28 +338,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"SelectOne: "
-operator|+
+literal|"SelectOne: {} using statement: {}"
+argument_list|,
 name|in
-operator|+
-literal|"  using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -374,24 +363,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"SelectOne using statement: "
-operator|+
+literal|"SelectOne using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -469,28 +449,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"SelectList: "
-operator|+
+literal|"SelectList: {} using statement: {}"
+argument_list|,
 name|in
-operator|+
-literal|"  using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -505,24 +474,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"SelectList using statement: "
-operator|+
+literal|"SelectList using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -627,28 +587,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Inserting: "
-operator|+
+literal|"Inserting: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -671,24 +620,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Inserting using statement: "
-operator|+
+literal|"Inserting using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -798,28 +738,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating: "
-operator|+
+literal|"Updating: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -842,24 +771,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating using statement: "
-operator|+
+literal|"Updating using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -969,28 +889,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting: "
-operator|+
+literal|"Deleting: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session
@@ -1013,24 +922,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting using statement: "
-operator|+
+literal|"Deleting using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|session

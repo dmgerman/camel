@@ -579,24 +579,15 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"messageHeaderfilter = "
-operator|+
+literal|"messageHeaderfilter = {}"
+argument_list|,
 name|messageHeaderfilter
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|messageHeaderfilter

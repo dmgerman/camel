@@ -4201,26 +4201,15 @@ name|name
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using package: "
-operator|+
+literal|"Using package: {} to scan for RouteBuilder classes"
+argument_list|,
 name|name
-operator|+
-literal|" to scan for RouteBuilder classes"
 argument_list|)
 expr_stmt|;
-block|}
 name|packages
 operator|.
 name|add

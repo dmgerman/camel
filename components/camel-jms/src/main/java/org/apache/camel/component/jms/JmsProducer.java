@@ -1691,32 +1691,19 @@ name|getInOnlyTemplate
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using "
-operator|+
-operator|(
+literal|"Using {} jms template"
+argument_list|,
 name|inOut
 condition|?
 literal|"inOut"
 else|:
 literal|"inOnly"
-operator|)
-operator|+
-literal|" jms template"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// destination should be preferred
 if|if
 condition|(

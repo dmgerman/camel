@@ -314,28 +314,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"QueryForObject: "
-operator|+
+literal|"QueryForObject: {} using statement: {}"
+argument_list|,
 name|in
-operator|+
-literal|"  using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -350,24 +339,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"QueryForObject using statement: "
-operator|+
+literal|"QueryForObject using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -426,28 +406,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"QueryForList: "
-operator|+
+literal|"QueryForList: {} using statement: {}"
+argument_list|,
 name|in
-operator|+
-literal|"  using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -462,24 +431,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"QueryForList using statement: "
-operator|+
+literal|"QueryForList using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -565,28 +525,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Inserting: "
-operator|+
+literal|"Inserting: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -609,24 +558,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Inserting using statement: "
-operator|+
+literal|"Inserting using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -712,28 +652,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating: "
-operator|+
+literal|"Updating: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -756,24 +685,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Updating using statement: "
-operator|+
+literal|"Updating using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -859,28 +779,17 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting: "
-operator|+
+literal|"Deleting: {} using statement: {}"
+argument_list|,
 name|value
-operator|+
-literal|" using statement: "
-operator|+
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client
@@ -903,24 +812,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting using statement: "
-operator|+
+literal|"Deleting using statement: {}"
+argument_list|,
 name|statement
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|client

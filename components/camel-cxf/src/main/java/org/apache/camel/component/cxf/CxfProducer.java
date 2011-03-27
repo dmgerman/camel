@@ -418,26 +418,15 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Process exchange: "
-operator|+
+literal|"Process exchange: {} in an async way."
+argument_list|,
 name|camelExchange
-operator|+
-literal|" in an async way."
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 comment|// create CXF exchange
@@ -620,26 +609,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Process exchange: "
-operator|+
+literal|"Process exchange: {} in sync way."
+argument_list|,
 name|camelExchange
-operator|+
-literal|"in sync way."
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create CXF exchange
 name|ExchangeImpl
 name|cxfExchange
@@ -932,33 +910,22 @@ argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set Camel Exchange property: "
-operator|+
+literal|"Set Camel Exchange property: {}={}"
+argument_list|,
 name|DataFormat
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-block|}
 comment|// set data format mode in the request context
 name|requestContext
 operator|.
@@ -995,30 +962,19 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set CXF Exchange property: "
-operator|+
+literal|"Set CXF Exchange property: {}={}"
+argument_list|,
 name|Client
 operator|.
 name|KEEP_CONDUIT_ALIVE
-operator|+
-literal|"="
-operator|+
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// bind the request CXF exchange
 name|endpoint
@@ -1147,24 +1103,15 @@ argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set exchange property: BindingOperationInfo: "
-operator|+
+literal|"Set exchange property: BindingOperationInfo: {}"
+argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Unwrap boi before passing it to make a client call
 if|if
 condition|(
@@ -1203,24 +1150,15 @@ operator|.
 name|getUnwrappedOperation
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Unwrapped BOI "
-operator|+
+literal|"Unwrapped BOI {}"
+argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -1748,12 +1686,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"params["
-operator|+
+literal|"params[{}] = {}"
+argument_list|,
 name|i
-operator|+
-literal|"] = "
-operator|+
+argument_list|,
 name|params
 index|[
 name|i
@@ -1963,24 +1899,15 @@ operator|.
 name|getNamespaceURI
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Operation namespace not in header.  Set it to: "
-operator|+
+literal|"Operation namespace not in header. Set it to: {}"
+argument_list|,
 name|ns
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QName
 name|qname
@@ -1993,27 +1920,18 @@ argument_list|,
 name|lp
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Operation qname = "
-operator|+
+literal|"Operation qname = {}"
+argument_list|,
 name|qname
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|=
 name|client

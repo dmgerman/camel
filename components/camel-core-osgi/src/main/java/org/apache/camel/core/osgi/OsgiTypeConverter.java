@@ -352,24 +352,15 @@ name|ServiceReference
 name|serviceReference
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"AddingService: "
-operator|+
+literal|"AddingService: {}"
+argument_list|,
 name|serviceReference
 argument_list|)
 expr_stmt|;
-block|}
 name|TypeConverterLoader
 name|loader
 init|=
@@ -445,24 +436,15 @@ name|Object
 name|o
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"RemovedService: "
-operator|+
+literal|"RemovedService: {}"
+argument_list|,
 name|serviceReference
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|delegate
@@ -908,24 +890,15 @@ throw|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Created TypeConverter: "
-operator|+
+literal|"Created TypeConverter: {}"
+argument_list|,
 name|reg
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|reg
 return|;

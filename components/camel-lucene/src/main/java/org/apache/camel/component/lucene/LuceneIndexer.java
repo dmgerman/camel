@@ -584,8 +584,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Adding field: "
-operator|+
+literal|"Adding field: {}"
+argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
@@ -593,8 +593,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"       value: "
-operator|+
+literal|"       value: {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
@@ -758,24 +758,15 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Adding "
-operator|+
+literal|"Adding {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|openIndexWriter
 argument_list|()
 expr_stmt|;
@@ -812,26 +803,15 @@ expr_stmt|;
 name|closeIndexWriter
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Added "
-operator|+
+literal|"Added {} successfully"
+argument_list|,
 name|file
-operator|+
-literal|" successfully"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else

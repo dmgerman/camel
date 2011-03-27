@@ -649,14 +649,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -664,7 +656,6 @@ argument_list|(
 literal|"Kestrel poller is running"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Construct the target key that we'll be requesting from kestrel.
 comment|// Include the /t=... wait time as applicable.
 name|String
@@ -794,24 +785,15 @@ operator|!
 name|shutdownPending
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Polling "
-operator|+
+literal|"Polling {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|value
@@ -909,24 +891,15 @@ block|{                             }
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Got object from "
-operator|+
+literal|"Got object from {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|concurrent
@@ -1071,24 +1044,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Finished polling "
-operator|+
+literal|"Finished polling {}"
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Decrement the shutdown countdown latch
 name|shutdownLatch
 operator|.
@@ -1137,6 +1101,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} is starting"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread
@@ -1144,8 +1110,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" is starting"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1259,14 +1223,6 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -1274,7 +1230,6 @@ argument_list|(
 literal|"Got a value from the exchanger"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Create the exchange and let camel process/route it
 name|Exchange
 name|exchange
@@ -1376,6 +1331,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
+literal|"{} is finished"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread
@@ -1383,8 +1340,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" is finished"
 argument_list|)
 expr_stmt|;
 block|}

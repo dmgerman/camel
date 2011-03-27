@@ -435,48 +435,32 @@ name|queryString
 argument_list|)
 expr_stmt|;
 comment|// TODO propagate security context
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Processing "
-operator|+
+literal|"Processing {}, requestContentType = {}, acceptContentTypes = {}, encoding = {}, path = {}, basePath = {}, verb = {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|camelExchange
-operator|+
-literal|", requestContentType = "
-operator|+
+block|,
 name|requestContentType
-operator|+
-literal|", acceptContentTypes = "
-operator|+
+block|,
 name|acceptContentTypes
-operator|+
-literal|", encoding = "
-operator|+
+block|,
 name|enc
-operator|+
-literal|", path = "
-operator|+
+block|,
 name|path
-operator|+
-literal|", basePath = "
-operator|+
+block|,
 name|basePath
-operator|+
-literal|", verb = "
-operator|+
+block|,
 name|verb
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -496,24 +480,15 @@ name|HeaderFilterStrategy
 name|strategy
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Propagating response headers from CXF message "
-operator|+
+literal|"Propagating response headers from CXF message {}"
+argument_list|,
 name|cxfMessage
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|strategy
@@ -636,34 +611,23 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate header from CXF header="
-operator|+
+literal|"Populate header from CXF header={} value={}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value="
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -715,34 +679,26 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate header from CXF header="
-operator|+
+literal|"Populate header from CXF header={} value={} as {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|key
-operator|+
-literal|" value="
-operator|+
+block|,
 name|value
-operator|+
-literal|" as "
-operator|+
+block|,
 name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
+block|}
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// propagate HTTP CONTENT_TYPE
 if|if

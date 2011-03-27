@@ -336,24 +336,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finding Component: "
-operator|+
+literal|"Finding Component: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|ServiceReference

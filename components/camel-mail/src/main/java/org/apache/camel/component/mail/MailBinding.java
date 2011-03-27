@@ -891,24 +891,15 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Determined Content-Type: "
-operator|+
+literal|"Determined Content-Type: {}"
+argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|contentType
 return|;
@@ -1179,28 +1170,17 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using Content-Type "
-operator|+
+literal|"Using Content-Type {} for MimeMessage: {}"
+argument_list|,
 name|contentType
-operator|+
-literal|" for MimeMessage: "
-operator|+
+argument_list|,
 name|part
 argument_list|)
 expr_stmt|;
-block|}
 comment|// always store content in a byte array data store to avoid various content type and charset issues
 name|DataSource
 name|ds
@@ -1277,28 +1257,17 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using Content-Type "
-operator|+
+literal|"Using Content-Type {} for BodyPart: {}"
+argument_list|,
 name|contentType
-operator|+
-literal|" for BodyPart: "
-operator|+
+argument_list|,
 name|part
 argument_list|)
 expr_stmt|;
-block|}
 comment|// always store content in a byte array data store to avoid various content type and charset issues
 name|DataSource
 name|ds
@@ -1746,12 +1715,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: Disposition: {}"
+argument_list|,
 name|i
-operator|+
-literal|": Disposition: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getDisposition
@@ -1762,12 +1729,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: Description: {}"
+argument_list|,
 name|i
-operator|+
-literal|": Description: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getDescription
@@ -1778,12 +1743,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: ContentType: {}"
+argument_list|,
 name|i
-operator|+
-literal|": ContentType: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getContentType
@@ -1794,12 +1757,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: FileName: {}"
+argument_list|,
 name|i
-operator|+
-literal|": FileName: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getFileName
@@ -1810,12 +1771,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: Size: {}"
+argument_list|,
 name|i
-operator|+
-literal|": Size: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getSize
@@ -1826,12 +1785,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: LineCount: {}"
+argument_list|,
 name|i
-operator|+
-literal|": LineCount: "
-operator|+
+argument_list|,
 name|part
 operator|.
 name|getLineCount
@@ -2641,12 +2598,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: Disposition: {}"
+argument_list|,
 name|i
-operator|+
-literal|": Disposition: "
-operator|+
+argument_list|,
 name|partDisposition
 argument_list|)
 expr_stmt|;
@@ -2654,12 +2609,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: DataHandler: {}"
+argument_list|,
 name|i
-operator|+
-literal|": DataHandler: "
-operator|+
+argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
@@ -2667,12 +2620,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: FileName: {}"
+argument_list|,
 name|i
-operator|+
-literal|": FileName: "
-operator|+
+argument_list|,
 name|attachmentFilename
 argument_list|)
 expr_stmt|;

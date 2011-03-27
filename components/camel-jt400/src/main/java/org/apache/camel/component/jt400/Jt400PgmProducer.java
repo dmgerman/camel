@@ -349,20 +349,21 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Executed PGM '"
-operator|+
+literal|"Executed PGM '{}' in host '{}'. Success? {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|commandStr
-operator|+
-literal|"' in host '"
-operator|+
+block|,
 name|iSeries
 operator|.
 name|getSystemName
 argument_list|()
-operator|+
-literal|"'. Success? "
-operator|+
+block|,
 name|result
+block|}
 argument_list|)
 expr_stmt|;
 block|}

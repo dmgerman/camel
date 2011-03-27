@@ -668,32 +668,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Client address is overridden by header '"
-operator|+
+literal|"Client address is overridden by header '{}' to value '{}'"
+argument_list|,
 name|Exchange
 operator|.
 name|DESTINATION_OVERRIDE_URL
-operator|+
-literal|"' to value '"
-operator|+
+argument_list|,
 name|overrideAddress
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
-block|}
 name|requestContext
 operator|.
 name|put
@@ -876,24 +863,15 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate exchange from CXF response message: "
-operator|+
+literal|"Populate exchange from CXF response message: {}"
+argument_list|,
 name|cxfMessage
 argument_list|)
 expr_stmt|;
-block|}
 comment|// propagate body
 name|camelExchange
 operator|.
@@ -969,30 +947,19 @@ argument_list|,
 name|responseContext
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set header = "
-operator|+
+literal|"Set header = {} value = {}"
+argument_list|,
 name|Client
 operator|.
 name|RESPONSE_CONTEXT
-operator|+
-literal|" value = "
-operator|+
+argument_list|,
 name|responseContext
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// propagate protocol headers
@@ -1268,14 +1235,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set IN header: "
-operator|+
+literal|"Set IN header: {}={}"
+argument_list|,
 name|CxfConstants
 operator|.
 name|OPERATION_NAMESPACE
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|boi
 operator|.
 name|getName
@@ -1289,14 +1254,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set IN header: "
-operator|+
+literal|"Set IN header: {}={}"
+argument_list|,
 name|CxfConstants
 operator|.
 name|OPERATION_NAME
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|boi
 operator|.
 name|getName
@@ -1345,14 +1308,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set IN header: "
-operator|+
+literal|"Set IN header: {}={}"
+argument_list|,
 name|CxfConstants
 operator|.
 name|OPERATION_NAME
-operator|+
-literal|"="
-operator|+
+argument_list|,
 name|method
 operator|.
 name|getName
@@ -1369,24 +1330,15 @@ argument_list|(
 name|mep
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set exchange MEP: "
-operator|+
+literal|"Set exchange MEP: {}"
+argument_list|,
 name|mep
 argument_list|)
 expr_stmt|;
-block|}
 comment|// propagate headers
 name|Message
 name|cxfMessage
@@ -1525,30 +1477,19 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate context from CXF message "
-operator|+
+literal|"Populate context from CXF message {} value={}"
+argument_list|,
 name|Client
 operator|.
 name|REQUEST_CONTEXT
-operator|+
-literal|" value="
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// set body
 name|Object
@@ -1812,24 +1753,15 @@ argument_list|,
 name|responseContext
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set out response context = "
-operator|+
+literal|"Set out response context = {}"
+argument_list|,
 name|responseContext
 argument_list|)
 expr_stmt|;
-block|}
 comment|// set body
 name|Object
 name|outBody
@@ -2042,24 +1974,15 @@ argument_list|,
 name|resList
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Set Out CXF message content = "
-operator|+
+literal|"Set Out CXF message content = {}"
+argument_list|,
 name|resList
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2452,13 +2375,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Propagate "
-operator|+
+literal|"Propagate {} from header context = {}"
+argument_list|,
 name|contextKey
-operator|+
-literal|" from header context = "
-operator|+
-operator|(
+argument_list|,
 operator|(
 name|context
 operator|instanceof
@@ -2476,7 +2396,6 @@ name|getWrappedMap
 argument_list|()
 else|:
 name|context
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2520,13 +2439,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Propagate "
-operator|+
+literal|"Propagate {} from exchange property context = {}"
+argument_list|,
 name|contextKey
-operator|+
-literal|" from exchange property context = "
-operator|+
-operator|(
+argument_list|,
 operator|(
 name|context
 operator|instanceof
@@ -2544,7 +2460,6 @@ name|getWrappedMap
 argument_list|()
 else|:
 name|context
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2765,24 +2680,15 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Find the multi-part Conent-Type, and replace it with "
-operator|+
+literal|"Find the multi-part Conent-Type, and replace it with {}"
+argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
-block|}
 name|camelHeaders
 operator|.
 name|put
@@ -2798,34 +2704,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate header from CXF header="
-operator|+
+literal|"Populate header from CXF header={} value={}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value="
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|camelHeaders
 operator|.
 name|put
@@ -2899,28 +2794,17 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Populate header from CXF header="
-operator|+
+literal|"Populate header from CXF header={} value={}"
+argument_list|,
 name|key
-operator|+
-literal|" value="
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -3241,34 +3125,23 @@ condition|)
 block|{
 continue|continue;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Propagate to CXF header: "
-operator|+
+literal|"Propagate to CXF header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// put response code in request context so it will be copied to CXF message's property
 if|if
 condition|(
@@ -3354,34 +3227,23 @@ operator|.
 name|DIRECTION_OUT
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Propagate SOAP/protocol header: "
-operator|+
+literal|"Propagate SOAP/protocol header: {} : {}"
+argument_list|,
 name|header
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|header
 operator|.
 name|getObject
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|//cxfExchange.put(Header.HEADER_LIST, headerList);
 name|cxfContext
@@ -3558,12 +3420,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Content format="
-operator|+
+literal|"Content format={} value={}"
+argument_list|,
 name|contentFormat
-operator|+
-literal|" value="
-operator|+
+argument_list|,
 name|message
 operator|.
 name|getContent
@@ -3705,24 +3565,15 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extracted body from CXF message = "
-operator|+
+literal|"Extracted body from CXF message = {}"
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
@@ -3984,9 +3835,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Extract body element "
-operator|+
-operator|(
+literal|"Extract body element {}"
+argument_list|,
 name|element
 operator|==
 literal|null
@@ -3999,7 +3849,6 @@ name|toString
 argument_list|(
 name|element
 argument_list|)
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

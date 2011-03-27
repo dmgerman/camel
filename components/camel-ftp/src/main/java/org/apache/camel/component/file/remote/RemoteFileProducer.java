@@ -451,24 +451,15 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"preWriteCheck send noop success: "
-operator|+
+literal|"preWriteCheck send noop success: {}"
+argument_list|,
 name|noop
 argument_list|)
 expr_stmt|;
-block|}
 comment|// if not alive then reconnect
 if|if
 condition|(
@@ -537,25 +528,16 @@ name|isDisconnect
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"postWriteCheck disconnect from: "
-operator|+
+literal|"postWriteCheck disconnect from: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|disconnect
 argument_list|()
 expr_stmt|;

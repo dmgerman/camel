@@ -334,29 +334,18 @@ argument_list|(
 name|paxLoggingEvent
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"PaxLogging "
-operator|+
+literal|"PaxLogging {} is firing"
+argument_list|,
 name|endpoint
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" is firing"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|getProcessor

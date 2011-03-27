@@ -177,24 +177,15 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"FindClass: "
-operator|+
+literal|"FindClass: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|bundle
 operator|.
@@ -213,24 +204,15 @@ name|String
 name|name
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"FindResource: "
-operator|+
+literal|"FindResource: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|URL
 name|resource
 init|=
@@ -282,24 +264,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"FindResource: "
-operator|+
+literal|"FindResource: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|bundle
 operator|.
@@ -326,28 +299,17 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"LoadClass: "
-operator|+
+literal|"LoadClass: {}, resolve: {}"
+argument_list|,
 name|name
-operator|+
-literal|", resolve: "
-operator|+
+argument_list|,
 name|resolve
 argument_list|)
 expr_stmt|;
-block|}
 name|Class
 name|clazz
 decl_stmt|;

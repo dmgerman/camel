@@ -289,27 +289,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cache Name: "
-operator|+
+literal|"Cache Name: {}"
+argument_list|,
 name|config
 operator|.
 name|getCacheName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|cacheManager
@@ -335,8 +326,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found an existing cache: "
-operator|+
+literal|"Found an existing cache: {}"
+argument_list|,
 name|config
 operator|.
 name|getCacheName
@@ -347,15 +338,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cache "
-operator|+
+literal|"Cache {} currently contains {} elements"
+argument_list|,
 name|config
 operator|.
 name|getCacheName
 argument_list|()
-operator|+
-literal|" currently contains "
-operator|+
+argument_list|,
 name|cacheManager
 operator|.
 name|getCache
@@ -368,8 +357,6 @@ argument_list|)
 operator|.
 name|getSize
 argument_list|()
-operator|+
-literal|" elements"
 argument_list|)
 expr_stmt|;
 block|}

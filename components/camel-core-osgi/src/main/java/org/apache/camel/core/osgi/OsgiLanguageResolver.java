@@ -357,24 +357,15 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finding Language: "
-operator|+
+literal|"Finding Language: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|ServiceReference
@@ -471,24 +462,15 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finding LanguageResolver: "
-operator|+
+literal|"Finding LanguageResolver: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|ServiceReference

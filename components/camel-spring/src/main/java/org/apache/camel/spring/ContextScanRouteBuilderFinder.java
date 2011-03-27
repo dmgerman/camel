@@ -236,28 +236,17 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found RouteBuilder with id: "
-operator|+
+literal|"Found RouteBuilder with id: {} -> {}"
+argument_list|,
 name|key
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
 comment|// certain beans should be ignored
 if|if
 condition|(

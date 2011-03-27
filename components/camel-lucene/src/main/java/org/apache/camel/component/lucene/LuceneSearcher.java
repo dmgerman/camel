@@ -514,26 +514,15 @@ name|ParseException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"*** Search Phrase: "
-operator|+
+literal|"*** Search Phrase: {} ***"
+argument_list|,
 name|searchPhrase
-operator|+
-literal|" ***"
 argument_list|)
 expr_stmt|;
-block|}
 name|QueryParser
 name|parser
 init|=
@@ -587,28 +576,17 @@ argument_list|()
 operator|.
 name|scoreDocs
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"*** Search generated "
-operator|+
+literal|"*** Search generated {} hits ***"
+argument_list|,
 name|hits
 operator|.
 name|length
-operator|+
-literal|" hits ***"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|hits
 operator|.

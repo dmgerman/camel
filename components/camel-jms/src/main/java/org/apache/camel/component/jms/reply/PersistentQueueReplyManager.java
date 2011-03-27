@@ -260,30 +260,17 @@ name|long
 name|requestTimeout
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Updated provisional correlationId ["
-operator|+
+literal|"Updated provisional correlationId [{}] to expected correlationId [{}]"
+argument_list|,
 name|correlationId
-operator|+
-literal|"] to expected correlationId ["
-operator|+
+argument_list|,
 name|newCorrelationId
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|ReplyHandler
 name|handler
 init|=
@@ -697,26 +684,15 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using MessageSelector["
-operator|+
+literal|"Using MessageSelector[{}]"
+argument_list|,
 name|id
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|id
 return|;

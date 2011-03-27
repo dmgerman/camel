@@ -419,24 +419,15 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Finding DataFormat: "
-operator|+
+literal|"Finding DataFormat: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|ServiceReference

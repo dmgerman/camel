@@ -863,14 +863,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -878,7 +870,6 @@ argument_list|(
 literal|"No javax.jms.Message set so generating a new message id"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|super
 operator|.

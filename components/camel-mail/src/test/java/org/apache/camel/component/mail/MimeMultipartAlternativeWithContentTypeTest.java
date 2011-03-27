@@ -390,24 +390,15 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"multipart alternative: \n"
-operator|+
+literal|"multipart alternative: \n{}"
+argument_list|,
 name|dumpedMessage
 argument_list|)
 expr_stmt|;
-block|}
 comment|// plain text
 name|assertEquals
 argument_list|(

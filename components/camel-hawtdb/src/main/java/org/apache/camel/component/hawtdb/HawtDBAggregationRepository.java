@@ -1356,26 +1356,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"getKey ["
-operator|+
+literal|"getKey [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|keys
 operator|.
 name|add
@@ -1593,26 +1582,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Scan exchangeId ["
-operator|+
+literal|"Scan exchangeId [{}]"
+argument_list|,
 name|exchangeId
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|add

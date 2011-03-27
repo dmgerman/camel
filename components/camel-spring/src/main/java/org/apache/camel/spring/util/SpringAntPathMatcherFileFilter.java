@@ -177,24 +177,15 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Filtering file: "
-operator|+
+literal|"Filtering file: {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 comment|// excludes take precedence
 if|if
 condition|(
@@ -224,24 +215,15 @@ argument_list|)
 condition|)
 block|{
 comment|// something to exclude so we cant accept it
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"File is excluded: "
-operator|+
+literal|"File is excluded: {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
@@ -276,24 +258,15 @@ argument_list|)
 condition|)
 block|{
 comment|// something to include so we accept it
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"File is included: "
-operator|+
+literal|"File is included: {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;

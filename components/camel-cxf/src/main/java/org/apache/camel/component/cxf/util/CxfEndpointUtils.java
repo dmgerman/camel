@@ -954,32 +954,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Client address is overridden by header '"
-operator|+
+literal|"Client address is overridden by header '{}' to value '{}'"
+argument_list|,
 name|Exchange
 operator|.
 name|DESTINATION_OVERRIDE_URL
-operator|+
-literal|"' to value '"
-operator|+
+argument_list|,
 name|retval
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|retval

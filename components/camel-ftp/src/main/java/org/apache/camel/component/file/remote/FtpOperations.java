@@ -460,24 +460,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Connecting using FTPClient: "
-operator|+
+literal|"Connecting using FTPClient: {}"
+argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|host
 init|=
@@ -513,8 +504,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring FTPClient with config: "
-operator|+
+literal|"Configuring FTPClient with config: {}"
+argument_list|,
 name|clientConfig
 argument_list|)
 expr_stmt|;
@@ -538,15 +529,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Connecting to "
-operator|+
+literal|"Connecting to {} using connection timeout: {}"
+argument_list|,
 name|configuration
 operator|.
 name|remoteServerInformation
 argument_list|()
-operator|+
-literal|" using connection timeout: "
-operator|+
+argument_list|,
 name|client
 operator|.
 name|getConnectTimeout
@@ -588,12 +577,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reconnect attempt #"
-operator|+
+literal|"Reconnect attempt #{} connecting to {}"
+argument_list|,
 name|attempt
-operator|+
-literal|" connecting to + "
-operator|+
+argument_list|,
 name|configuration
 operator|.
 name|remoteServerInformation
@@ -733,27 +720,18 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot connect due: "
-operator|+
+literal|"Cannot connect due: {}"
+argument_list|,
 name|failed
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|attempt
 operator|++
 expr_stmt|;
@@ -938,31 +916,20 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login user: "
-operator|+
+literal|"Attempting to login user: {} using password: {}"
+argument_list|,
 name|username
-operator|+
-literal|" using password: "
-operator|+
+argument_list|,
 name|configuration
 operator|.
 name|getPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|login
 operator|=
 name|client
@@ -999,21 +966,12 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"User "
-operator|+
-operator|(
+literal|"User {} logged in: {}"
+argument_list|,
 name|username
 operator|!=
 literal|null
@@ -1021,14 +979,10 @@ condition|?
 name|username
 else|:
 literal|"anonymous"
-operator|)
-operator|+
-literal|" logged in: "
-operator|+
+argument_list|,
 name|login
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1168,24 +1122,15 @@ argument_list|,
 name|next
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Site command to send: "
-operator|+
+literal|"Site command to send: {}"
+argument_list|,
 name|command
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|command
@@ -1506,26 +1451,15 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"buildDirectory("
-operator|+
+literal|"buildDirectory({})"
+argument_list|,
 name|directory
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|String
@@ -1557,24 +1491,15 @@ operator|!
 name|success
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to build remote directory: "
-operator|+
+literal|"Trying to build remote directory: {}"
+argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
-block|}
 name|success
 operator|=
 name|client
@@ -1666,26 +1591,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"retrieveFile("
-operator|+
+literal|"retrieveFile({})"
+argument_list|,
 name|name
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -2317,28 +2231,17 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error occurred during retrieving file: "
-operator|+
+literal|"Error occurred during retrieving file: {} to local directory. Deleting local work file: {}"
+argument_list|,
 name|name
-operator|+
-literal|" to local directory. Deleting local work file: "
-operator|+
+argument_list|,
 name|temp
 argument_list|)
 expr_stmt|;
-block|}
 comment|// failed to retrieve the file so we need to close streams and delete in progress file
 comment|// must close stream before deleting file
 name|IOHelper
@@ -2447,28 +2350,17 @@ condition|(
 name|result
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Renaming local in progress file from: "
-operator|+
+literal|"Renaming local in progress file from: {} to: {}"
+argument_list|,
 name|temp
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|local
 argument_list|)
 expr_stmt|;
-block|}
 comment|// operation went okay so rename temp to local after we have retrieved the data
 if|if
 condition|(
@@ -2529,26 +2421,15 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"storeFile("
-operator|+
+literal|"storeFile({})"
+argument_list|,
 name|name
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|answer
 init|=
@@ -2665,26 +2546,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"doStoreFile("
-operator|+
+literal|"doStoreFile({})"
+argument_list|,
 name|targetName
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// if an existing file already exists what should we do?
 if|if
 condition|(
@@ -2730,26 +2600,15 @@ name|Ignore
 condition|)
 block|{
 comment|// ignore but indicate that the file was written
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"An existing file already exists: "
-operator|+
+literal|"An existing file already exists: {}. Ignore and do not override it."
+argument_list|,
 name|name
-operator|+
-literal|". Ignore and do not override it."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -2915,26 +2774,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"existsFile("
-operator|+
+literal|"existsFile({})"
+argument_list|,
 name|name
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// check whether a file already exists
 name|String
 name|directory
@@ -3009,28 +2857,17 @@ range|:
 name|names
 control|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Existing file: "
-operator|+
+literal|"Existing file: {}, target file: {}"
+argument_list|,
 name|existing
-operator|+
-literal|", target file: "
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|existing
 operator|=
 name|FileUtil
@@ -3101,14 +2938,6 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -3116,7 +2945,6 @@ argument_list|(
 literal|"getCurrentDirectory()"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -3167,26 +2995,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"changeCurrentDirectory("
-operator|+
+literal|"changeCurrentDirectory({})"
+argument_list|,
 name|path
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -3345,24 +3162,15 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Changing directory: "
-operator|+
+literal|"Changing directory: {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|success
 decl_stmt|;
@@ -3512,14 +3320,6 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -3527,7 +3327,6 @@ argument_list|(
 literal|"listFiles()"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 specifier|final
@@ -3622,26 +3421,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"listFiles("
-operator|+
+literal|"listFiles({})"
+argument_list|,
 name|path
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// use current directory if path not given
 if|if
 condition|(
@@ -3748,14 +3536,6 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -3763,7 +3543,6 @@ argument_list|(
 literal|"sendNoOp"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -3814,26 +3593,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"sendSiteCommand("
-operator|+
+literal|"sendSiteCommand({})"
+argument_list|,
 name|command
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -3984,24 +3752,15 @@ argument_list|)
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to build remote directory by chunk: "
-operator|+
+literal|"Trying to build remote directory by chunk: {}"
+argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
-block|}
 name|success
 operator|=
 name|client

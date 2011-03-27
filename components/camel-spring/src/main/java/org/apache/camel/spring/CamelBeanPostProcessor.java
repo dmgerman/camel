@@ -468,24 +468,15 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Camel bean processing before initialization for bean: "
-operator|+
+literal|"Camel bean processing before initialization for bean: {}"
+argument_list|,
 name|beanName
 argument_list|)
 expr_stmt|;
-block|}
 comment|// some beans cannot be post processed at this given time, so we gotta check beforehand
 if|if
 condition|(
@@ -590,24 +581,15 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Camel bean processing after initialization for bean: "
-operator|+
+literal|"Camel bean processing after initialization for bean: {}"
+argument_list|,
 name|beanName
 argument_list|)
 expr_stmt|;
-block|}
 comment|// some beans cannot be post processed at this given time, so we gotta check beforehand
 if|if
 condition|(
@@ -798,26 +780,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"CamelContext already set on bean with id ["
-operator|+
+literal|"CamelContext already set on bean with id [{}]. Will keep existing CamelContext on bean."
+argument_list|,
 name|beanName
-operator|+
-literal|"]. Will keep existing CamelContext on bean."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

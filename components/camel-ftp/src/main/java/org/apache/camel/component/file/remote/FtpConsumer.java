@@ -314,28 +314,17 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"doPollDirectory from absolutePath: "
-operator|+
+literal|"doPollDirectory from absolutePath: {}, dirName: {}"
+argument_list|,
 name|absolutePath
-operator|+
-literal|", dirName: "
-operator|+
+argument_list|,
 name|dirName
 argument_list|)
 expr_stmt|;
-block|}
 comment|// remove trailing /
 name|dirName
 operator|=
@@ -384,24 +373,15 @@ operator|=
 name|absolutePath
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Polling directory: "
-operator|+
+literal|"Polling directory: {}"
+argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|FTPFile
@@ -447,24 +427,15 @@ argument_list|()
 condition|)
 block|{
 comment|// no files in this directory to poll
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"No files found in directory: "
-operator|+
+literal|"No files found in directory: {}"
+argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -472,31 +443,20 @@ block|}
 else|else
 block|{
 comment|// we found some files
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} in directory: {}"
+argument_list|,
 name|files
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" in directory: "
-operator|+
+argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
@@ -638,27 +598,18 @@ name|remote
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Skipping as file is already in progress: "
-operator|+
+literal|"Skipping as file is already in progress: {}"
+argument_list|,
 name|remote
 operator|.
 name|getFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

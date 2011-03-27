@@ -420,8 +420,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Authority: "
-operator|+
+literal|"Authority: {}"
+argument_list|,
 name|uri
 operator|.
 name|getAuthority

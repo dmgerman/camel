@@ -341,24 +341,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Received request : "
-operator|+
+literal|"Received request : {}"
+argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
-block|}
 name|org
 operator|.
 name|apache

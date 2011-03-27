@@ -429,14 +429,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// process the exchange
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -444,7 +436,6 @@ argument_list|(
 literal|"onMessage.process START"
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|correlationId
 init|=
@@ -496,14 +487,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -511,7 +494,6 @@ argument_list|(
 literal|"onMessage.process END"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// get the correct jms message to send as reply
 name|JmsMessage
 name|body
@@ -777,27 +759,18 @@ argument_list|(
 name|rce
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"onMessage END throwing exception: "
-operator|+
+literal|"onMessage END throwing exception: {}"
+argument_list|,
 name|rce
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 throw|throw
 name|rce
 throw|;

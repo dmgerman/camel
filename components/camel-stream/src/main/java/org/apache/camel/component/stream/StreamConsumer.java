@@ -685,24 +685,15 @@ operator|.
 name|readLine
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Read line: "
-operator|+
+literal|"Read line: {}"
+argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|eos
 init|=
@@ -815,24 +806,15 @@ operator|.
 name|readLine
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Read line: "
-operator|+
+literal|"Read line: {}"
+argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
-block|}
 name|eos
 operator|=
 name|line

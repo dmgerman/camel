@@ -288,25 +288,16 @@ name|isDisconnect
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"postPollCheck disconnect from: "
-operator|+
+literal|"postPollCheck disconnect from: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|disconnect
 argument_list|()
 expr_stmt|;

@@ -577,24 +577,15 @@ name|SearchResult
 argument_list|>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using paged ldap search, pageSize="
-operator|+
+literal|"Using paged ldap search, pageSize={}"
+argument_list|,
 name|pageSize
 argument_list|)
 expr_stmt|;
-block|}
 name|Control
 index|[]
 name|requestControls
@@ -643,29 +634,18 @@ argument_list|(
 name|pageResult
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Page returned "
-operator|+
+literal|"Page returned {} entries"
+argument_list|,
 name|pageResult
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" entries"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 do|while
 condition|(
