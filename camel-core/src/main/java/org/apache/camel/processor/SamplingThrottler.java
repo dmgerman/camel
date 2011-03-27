@@ -126,10 +126,10 @@ specifier|private
 name|long
 name|samplePeriod
 decl_stmt|;
-DECL|field|periodInNanos
+DECL|field|periodInMillis
 specifier|private
 name|long
-name|periodInNanos
+name|periodInMillis
 decl_stmt|;
 DECL|field|units
 specifier|private
@@ -269,11 +269,11 @@ name|units
 expr_stmt|;
 name|this
 operator|.
-name|periodInNanos
+name|periodInMillis
 operator|=
 name|units
 operator|.
-name|toNanos
+name|toMillis
 argument_list|(
 name|samplePeriod
 argument_list|)
@@ -431,7 +431,7 @@ name|now
 init|=
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 if|if
@@ -440,7 +440,7 @@ name|now
 operator|>=
 name|timeOfLastExchange
 operator|+
-name|periodInNanos
+name|periodInMillis
 condition|)
 block|{
 name|doSend
