@@ -588,6 +588,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// We need to make sure that this is thread-safe and only one thread tries to create the path directory at the same time.
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|path
@@ -608,21 +614,31 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Building directory: {}"
-argument_list|,
+literal|"Building directory: "
+operator|+
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|path
 operator|.
 name|mkdirs
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 DECL|method|listFiles ()
@@ -769,15 +785,26 @@ name|Ignore
 condition|)
 block|{
 comment|// ignore but indicate that the file was written
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"An existing file already exists: {}. Ignore and do not override it."
-argument_list|,
+literal|"An existing file already exists: "
+operator|+
 name|file
+operator|+
+literal|". Ignore and do not override it."
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -1119,24 +1146,32 @@ argument_list|(
 name|last
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Keeping last modified timestamp: {} on file: {} with result: {}"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
+literal|"Keeping last modified timestamp: "
+operator|+
 name|last
-block|,
+operator|+
+literal|" on file: "
+operator|+
 name|file
-block|,
+operator|+
+literal|" with result: "
+operator|+
 name|result
-block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1152,17 +1187,28 @@ name|File
 name|file
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using local work file being renamed from: {} to: {}"
-argument_list|,
+literal|"Using local work file being renamed from: "
+operator|+
 name|source
-argument_list|,
+operator|+
+literal|" to: "
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|FileUtil
 operator|.
@@ -1216,17 +1262,28 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using FileChannel to transfer from: {} to: {}"
-argument_list|,
+literal|"Using FileChannel to transfer from: "
+operator|+
 name|in
-argument_list|,
+operator|+
+literal|" to: "
+operator|+
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|size
 init|=
@@ -1327,17 +1384,28 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using InputStream to transfer from: {} to: {}"
-argument_list|,
+literal|"Using InputStream to transfer from: "
+operator|+
 name|in
-argument_list|,
+operator|+
+literal|" to: "
+operator|+
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 name|int
 name|size
 init|=
@@ -1447,7 +1515,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates and prepares the output file channel. Will position itself in correct position if the file is writable      *  eg. it should append or override any existing content.      */
+comment|/**      * Creates and prepares the output file channel. Will position itself in correct position if the file is writable      * eg. it should append or override any existing content.      */
 DECL|method|prepareOutputFileChannel (File target, FileChannel out)
 specifier|private
 name|FileChannel
