@@ -304,14 +304,6 @@ operator|!=
 name|bean
 condition|)
 block|{
-name|bean
-operator|=
-name|value
-expr_stmt|;
-name|processor
-operator|=
-literal|null
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -340,6 +332,14 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|bean
+operator|=
+name|value
+expr_stmt|;
+name|processor
+operator|=
+literal|null
+expr_stmt|;
 comment|// could be a class then create an instance of it
 if|if
 condition|(
