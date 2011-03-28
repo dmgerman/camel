@@ -181,6 +181,25 @@ literal|"CamelCxfTest"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"header "
+operator|+
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"SOAPAction"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertNull
 argument_list|(
 literal|"We should not get this header"
@@ -328,7 +347,19 @@ name|setHeader
 argument_list|(
 literal|"CamelCxfTest"
 argument_list|,
-literal|"test"
+literal|"\"test\""
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"SOAPAction"
+argument_list|,
+literal|"\"test\""
 argument_list|)
 expr_stmt|;
 name|exchange
