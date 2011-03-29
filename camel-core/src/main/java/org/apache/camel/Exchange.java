@@ -156,6 +156,14 @@ name|BINDING
 init|=
 literal|"CamelBinding"
 decl_stmt|;
+comment|// do not prefix with Camel and use lower-case starting letter as its a shared key
+comment|// used across other Apache products such as AMQ, SMX etc.
+DECL|field|BREADCRUMB_ID
+name|String
+name|BREADCRUMB_ID
+init|=
+literal|"breadcrumbId"
+decl_stmt|;
 DECL|field|CHARSET_NAME
 name|String
 name|CHARSET_NAME

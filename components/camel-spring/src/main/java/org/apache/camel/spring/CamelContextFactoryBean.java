@@ -813,6 +813,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|useBreadcrumb
+specifier|private
+name|String
+name|useBreadcrumb
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|shutdownRoute
 specifier|private
 name|ShutdownRoute
@@ -2508,6 +2520,32 @@ operator|.
 name|useMDCLogging
 operator|=
 name|useMDCLogging
+expr_stmt|;
+block|}
+DECL|method|getUseBreadcrumb ()
+specifier|public
+name|String
+name|getUseBreadcrumb
+parameter_list|()
+block|{
+return|return
+name|useBreadcrumb
+return|;
+block|}
+DECL|method|setUseBreadcrumb (String useBreadcrumb)
+specifier|public
+name|void
+name|setUseBreadcrumb
+parameter_list|(
+name|String
+name|useBreadcrumb
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useBreadcrumb
+operator|=
+name|useBreadcrumb
 expr_stmt|;
 block|}
 DECL|method|getLazyLoadTypeConverters ()

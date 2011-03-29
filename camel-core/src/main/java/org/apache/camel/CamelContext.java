@@ -1486,6 +1486,21 @@ name|Boolean
 name|useMDCLogging
 parameter_list|)
 function_decl|;
+comment|/**      * Whether or not breadcrumb is enabled.      *      * @return<tt>true</tt> if breadcrumb is enabled      */
+DECL|method|isUseBreadcrumb ()
+name|Boolean
+name|isUseBreadcrumb
+parameter_list|()
+function_decl|;
+comment|/**      * Set whether breadcrumb is enabled.      *      * @param useBreadcrumb<tt>true</tt> to enable breadcrumb,<tt>false</tt> to disable      */
+DECL|method|setUseBreadcrumb (Boolean useBreadcrumb)
+name|void
+name|setUseBreadcrumb
+parameter_list|(
+name|Boolean
+name|useBreadcrumb
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

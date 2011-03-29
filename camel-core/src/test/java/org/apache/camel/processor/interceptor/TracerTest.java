@@ -415,7 +415,8 @@ name|getFromEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+comment|// there is always a breadcrumb header
+name|assertNotNull
 argument_list|(
 name|em
 operator|.

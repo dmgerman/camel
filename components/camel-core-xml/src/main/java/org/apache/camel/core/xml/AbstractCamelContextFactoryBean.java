@@ -3023,6 +3023,13 @@ name|String
 name|getUseMDCLogging
 parameter_list|()
 function_decl|;
+DECL|method|getUseBreadcrumb ()
+specifier|public
+specifier|abstract
+name|String
+name|getUseBreadcrumb
+parameter_list|()
+function_decl|;
 DECL|method|getLazyLoadTypeConverters ()
 specifier|public
 specifier|abstract
@@ -3302,6 +3309,31 @@ name|getContext
 argument_list|()
 argument_list|,
 name|getUseMDCLogging
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getUseBreadcrumb
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setUseBreadcrumb
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|getUseBreadcrumb
 argument_list|()
 argument_list|)
 argument_list|)
