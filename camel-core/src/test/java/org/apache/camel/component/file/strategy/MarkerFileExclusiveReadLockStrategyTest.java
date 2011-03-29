@@ -180,6 +180,7 @@ decl_stmt|;
 DECL|field|NUMBER_OF_THREADS
 specifier|private
 specifier|static
+specifier|final
 name|int
 name|NUMBER_OF_THREADS
 init|=
