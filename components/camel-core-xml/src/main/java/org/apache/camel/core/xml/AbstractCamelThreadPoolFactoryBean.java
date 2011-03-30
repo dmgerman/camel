@@ -391,7 +391,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|keepAliveTime
+name|maxQueueSize
 argument_list|)
 expr_stmt|;
 block|}
