@@ -333,7 +333,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Detect the system property, test skips starting camel context!"
+literal|"Skipping starting CamelContext as system property skipStartingCamelContext is set to be true."
 argument_list|)
 expr_stmt|;
 block|}
