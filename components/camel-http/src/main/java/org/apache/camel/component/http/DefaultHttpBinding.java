@@ -1075,7 +1075,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot parser the parameter "
+literal|"Invalid parameter, expected to be a pair but was "
 operator|+
 name|param
 argument_list|)
