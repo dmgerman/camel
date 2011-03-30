@@ -643,13 +643,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|detour
-argument_list|)
-expr_stmt|;
+comment|// do not stop detour as it should only be stopped when the interceptor stops
 block|}
 block|}
 return|;
@@ -790,10 +784,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|delegate
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startServices
+argument_list|(
+name|detour
+argument_list|,
+name|delegate
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stop ()
@@ -804,10 +802,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|delegate
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopServices
+argument_list|(
+name|delegate
+argument_list|,
+name|detour
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
