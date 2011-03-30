@@ -101,6 +101,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+literal|"true"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"skipStartingCamelContext"
+argument_list|)
+argument_list|)
+condition|)
+block|{
 name|main
 operator|=
 operator|new
@@ -119,6 +135,19 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Detect the system property, test skips starting camel context!"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|stopCamel ()
 specifier|protected
