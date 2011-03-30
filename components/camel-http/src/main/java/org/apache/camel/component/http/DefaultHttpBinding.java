@@ -72,16 +72,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URLDecoder
@@ -591,7 +581,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|UnsupportedEncodingException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -830,7 +820,7 @@ name|HttpMessage
 name|message
 parameter_list|)
 throws|throws
-name|UnsupportedEncodingException
+name|Exception
 block|{
 comment|//we populate the http request parameters without checking the request method
 name|Map
@@ -1078,6 +1068,18 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot parser the parameter "
+operator|+
+name|param
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

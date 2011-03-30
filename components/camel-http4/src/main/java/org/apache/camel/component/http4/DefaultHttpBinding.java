@@ -72,16 +72,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URLDecoder
@@ -413,11 +403,6 @@ name|getHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 specifier|public
 name|void
@@ -596,7 +581,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|UnsupportedEncodingException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -823,11 +808,6 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
@@ -840,7 +820,7 @@ name|HttpMessage
 name|message
 parameter_list|)
 throws|throws
-name|UnsupportedEncodingException
+name|Exception
 block|{
 comment|//we populate the http request parameters without checking the request method
 name|Map
@@ -1089,14 +1069,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-block|}
-block|}
-annotation|@
-name|SuppressWarnings
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"rawtypes"
+literal|"Cannot parser the parameter "
+operator|+
+name|param
 argument_list|)
+throw|;
+block|}
+block|}
+block|}
+block|}
 DECL|method|populateAttachments (HttpServletRequest request, HttpMessage message)
 specifier|protected
 name|void
