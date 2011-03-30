@@ -1007,6 +1007,15 @@ argument_list|,
 literal|2
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|pair
+operator|.
+name|length
+operator|==
+literal|2
+condition|)
+block|{
 name|String
 name|name
 init|=
@@ -1068,6 +1077,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
