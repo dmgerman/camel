@@ -306,6 +306,8 @@ DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
 name|maxMessagesPerPoll
+init|=
+literal|10
 decl_stmt|;
 DECL|method|S3Endpoint (String uri, CamelContext context, S3Configuration configuration)
 specifier|public
