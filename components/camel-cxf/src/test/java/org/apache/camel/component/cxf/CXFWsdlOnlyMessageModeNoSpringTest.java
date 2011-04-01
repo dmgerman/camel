@@ -18,18 +18,6 @@ name|cxf
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_class
 DECL|class|CXFWsdlOnlyMessageModeNoSpringTest
 specifier|public

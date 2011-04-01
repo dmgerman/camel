@@ -2290,9 +2290,6 @@ name|partInfo
 range|:
 name|boi
 operator|.
-name|getOperationInfo
-argument_list|()
-operator|.
 name|getOutput
 argument_list|()
 operator|.

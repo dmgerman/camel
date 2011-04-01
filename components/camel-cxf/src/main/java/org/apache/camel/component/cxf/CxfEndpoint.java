@@ -2998,9 +2998,6 @@ name|partInfo
 range|:
 name|boi
 operator|.
-name|getOperationInfo
-argument_list|()
-operator|.
 name|getInput
 argument_list|()
 operator|.
