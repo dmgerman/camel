@@ -578,7 +578,9 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-return|return
+name|Buffer
+name|buffer
+init|=
 name|index
 operator|.
 name|put
@@ -587,6 +589,18 @@ name|keyBuffer
 argument_list|,
 name|exchangeBuffer
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Added key index {}"
+argument_list|,
+name|keyBuffer
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
 return|;
 block|}
 annotation|@
@@ -747,13 +761,27 @@ return|return
 literal|null
 return|;
 block|}
-return|return
+name|Buffer
+name|buffer
+init|=
 name|index
 operator|.
 name|get
 argument_list|(
 name|keyBuffer
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Getting key index {}"
+argument_list|,
+name|keyBuffer
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
 return|;
 block|}
 annotation|@
@@ -959,11 +987,25 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// remove from the in progress index
+name|Buffer
+name|buffer
+init|=
 name|index
 operator|.
 name|remove
 argument_list|(
 name|keyBuffer
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Removed key index {} -> {}"
+argument_list|,
+name|keyBuffer
+argument_list|,
+name|buffer
 argument_list|)
 expr_stmt|;
 comment|// and add it to the confirmed index
@@ -994,6 +1036,15 @@ argument_list|(
 name|confirmKeyBuffer
 argument_list|,
 name|exchangeBuffer
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Added confirm index {}"
+argument_list|,
+name|confirmKeyBuffer
 argument_list|)
 expr_stmt|;
 return|return
@@ -1128,13 +1179,29 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-return|return
+name|Buffer
+name|buffer
+init|=
 name|indexCompleted
 operator|.
 name|remove
 argument_list|(
 name|confirmKeyBuffer
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Removed confirm index {} -> {}"
+argument_list|,
+name|confirmKeyBuffer
+argument_list|,
+name|buffer
+argument_list|)
+expr_stmt|;
+return|return
+name|buffer
 return|;
 block|}
 annotation|@
