@@ -226,6 +226,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"activemq-data"
+argument_list|)
+expr_stmt|;
 name|JndiContext
 name|answer
 init|=
@@ -233,7 +238,7 @@ operator|new
 name|JndiContext
 argument_list|()
 decl_stmt|;
-comment|// add ActiveMQ with embedded broker
+comment|// add ActiveMQ with embedded broker which must be persistent
 name|ActiveMQComponent
 name|amq
 init|=
@@ -241,7 +246,7 @@ name|ActiveMQComponent
 operator|.
 name|activeMQComponent
 argument_list|(
-literal|"vm://localhost?broker.persistent=false"
+literal|"vm://localhost?broker.persistent=true&broker.useJmx=false"
 argument_list|)
 decl_stmt|;
 name|amq
