@@ -1718,6 +1718,11 @@ return|return
 literal|"ProducerCache for source: "
 operator|+
 name|source
+operator|+
+literal|", capacity: "
+operator|+
+name|getCapacity
+argument_list|()
 return|;
 block|}
 block|}
