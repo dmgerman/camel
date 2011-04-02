@@ -85,17 +85,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedProducerCacheTest
+DECL|class|ManagedEndpointRegistryTest
 specifier|public
 class|class
-name|ManagedProducerCacheTest
+name|ManagedEndpointRegistryTest
 extends|extends
 name|ManagementTestSupport
 block|{
-DECL|method|testManageProducerCache ()
+DECL|method|testManageEndpointRegistry ()
 specifier|public
 name|void
-name|testManageProducerCache
+name|testManageEndpointRegistry
 parameter_list|()
 throws|throws
 name|Exception
@@ -195,7 +195,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ProducerCache"
+literal|"EndpointRegistry"
 argument_list|)
 condition|)
 block|{
@@ -208,7 +208,7 @@ block|}
 block|}
 name|assertNotNull
 argument_list|(
-literal|"Should have found ProducerCache"
+literal|"Should have found EndpointRegistry"
 argument_list|,
 name|on
 argument_list|)
@@ -255,7 +255,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|current
 operator|.
@@ -278,11 +278,24 @@ argument_list|,
 literal|"Source"
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"sendTo(Endpoint[mock://result])"
-argument_list|,
 name|source
+operator|.
+name|startsWith
+argument_list|(
+literal|"EndpointRegistry"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|source
+operator|.
+name|endsWith
+argument_list|(
+literal|"capacity: 1000"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

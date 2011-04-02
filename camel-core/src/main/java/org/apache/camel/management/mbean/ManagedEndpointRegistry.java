@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,22 +12,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|management
+operator|.
+name|mbean
 package|;
 end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -46,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|impl
+operator|.
+name|EndpointRegistry
 import|;
 end_import
 
@@ -54,13 +48,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|jmx
 operator|.
-name|util
+name|export
 operator|.
-name|CamelContextHelper
+name|annotation
+operator|.
+name|ManagedAttribute
 import|;
 end_import
 
@@ -68,109 +64,134 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|jmx
 operator|.
-name|util
+name|export
 operator|.
-name|LRUCache
+name|annotation
+operator|.
+name|ManagedResource
 import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}.  *  * @version   */
+comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|EndpointRegistry
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed EndpointRegistry"
+argument_list|)
+DECL|class|ManagedEndpointRegistry
 specifier|public
 class|class
-name|EndpointRegistry
+name|ManagedEndpointRegistry
 extends|extends
-name|LRUCache
-argument_list|<
-name|EndpointKey
-argument_list|,
-name|Endpoint
-argument_list|>
+name|ManagedService
 block|{
-DECL|field|context
+DECL|field|endpointRegistry
 specifier|private
 specifier|final
-name|CamelContext
-name|context
+name|EndpointRegistry
+name|endpointRegistry
 decl_stmt|;
-DECL|method|EndpointRegistry (CamelContext context)
+DECL|method|ManagedEndpointRegistry (CamelContext context, EndpointRegistry endpointRegistry)
 specifier|public
-name|EndpointRegistry
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|CamelContextHelper
-operator|.
-name|getMaximumEndpointCacheSize
-argument_list|(
-name|context
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
-expr_stmt|;
-block|}
-DECL|method|EndpointRegistry (CamelContext context, Map<EndpointKey, Endpoint> endpoints)
-specifier|public
-name|EndpointRegistry
+name|ManagedEndpointRegistry
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|Map
-argument_list|<
-name|EndpointKey
-argument_list|,
-name|Endpoint
-argument_list|>
-name|endpoints
+name|EndpointRegistry
+name|endpointRegistry
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
 name|context
+argument_list|,
+name|endpointRegistry
 argument_list|)
 expr_stmt|;
-name|putAll
-argument_list|(
-name|endpoints
-argument_list|)
+name|this
+operator|.
+name|endpointRegistry
+operator|=
+name|endpointRegistry
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+DECL|method|getEndpointRegistry ()
 specifier|public
-name|String
-name|toString
+name|EndpointRegistry
+name|getEndpointRegistry
 parameter_list|()
 block|{
 return|return
-literal|"EndpointRegistry for "
-operator|+
-name|context
+name|endpointRegistry
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Source"
+argument_list|)
+DECL|method|getSource ()
+specifier|public
+name|String
+name|getSource
+parameter_list|()
+block|{
+return|return
+name|endpointRegistry
 operator|.
-name|getName
+name|toString
 argument_list|()
-operator|+
-literal|", capacity: "
-operator|+
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of endpoints cached"
+argument_list|)
+DECL|method|getSize ()
+specifier|public
+name|Integer
+name|getSize
+parameter_list|()
+block|{
+return|return
+name|endpointRegistry
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Maximum cache size (capacity)"
+argument_list|)
+DECL|method|getMaximumCacheSize ()
+specifier|public
+name|Integer
+name|getMaximumCacheSize
+parameter_list|()
+block|{
+return|return
+name|endpointRegistry
+operator|.
 name|getMaxCacheSize
 argument_list|()
 return|;

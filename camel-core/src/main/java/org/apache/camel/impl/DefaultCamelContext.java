@@ -1445,7 +1445,6 @@ name|applicationContextClassLoader
 decl_stmt|;
 DECL|field|endpoints
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|EndpointKey
@@ -1453,10 +1452,6 @@ argument_list|,
 name|Endpoint
 argument_list|>
 name|endpoints
-init|=
-operator|new
-name|EndpointRegistry
-argument_list|()
 decl_stmt|;
 DECL|field|endpointKeyCounter
 specifier|private
@@ -2060,6 +2055,17 @@ parameter_list|()
 block|{
 name|super
 argument_list|()
+expr_stmt|;
+comment|// create endpoint registry at first since end users may access endpoints before CamelContext is started
+name|this
+operator|.
+name|endpoints
+operator|=
+operator|new
+name|EndpointRegistry
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 comment|// use WebSphere specific resolver if running on WebSphere
 if|if
@@ -7746,6 +7752,23 @@ argument_list|)
 expr_stmt|;
 name|forceLazyInitialization
 argument_list|()
+expr_stmt|;
+comment|// re-create endpoint registry as the cache size limit may be set after the constructor of this instance was called.
+comment|// and we needed to create endpoints up-front as it may be accessed before this context is started
+name|endpoints
+operator|=
+operator|new
+name|EndpointRegistry
+argument_list|(
+name|this
+argument_list|,
+name|endpoints
+argument_list|)
+expr_stmt|;
+name|addService
+argument_list|(
+name|endpoints
+argument_list|)
 expr_stmt|;
 name|addService
 argument_list|(

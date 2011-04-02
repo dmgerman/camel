@@ -416,6 +416,12 @@ name|MAXIMUM_CACHE_POOL_SIZE
 init|=
 literal|"CamelMaximumCachePoolSize"
 decl_stmt|;
+DECL|field|MAXIMUM_ENDPOINT_CACHE_SIZE
+name|String
+name|MAXIMUM_ENDPOINT_CACHE_SIZE
+init|=
+literal|"CamelMaximumEndpointCacheSize"
+decl_stmt|;
 DECL|field|MULTICAST_INDEX
 name|String
 name|MULTICAST_INDEX
