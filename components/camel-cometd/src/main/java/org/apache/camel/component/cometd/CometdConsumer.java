@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer for receiving messages using Cometd and Bayeux protocol.  *   * @version   */
+comment|/**  * A Consumer for receiving messages using Cometd and Bayeux protocol.  */
 end_comment
 
 begin_class

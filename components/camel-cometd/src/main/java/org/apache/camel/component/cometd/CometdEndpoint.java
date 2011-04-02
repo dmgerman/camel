@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel Cometd.  *  * @version   */
+comment|/**  * Endpoint for Camel Cometd.  */
 end_comment
 
 begin_class
