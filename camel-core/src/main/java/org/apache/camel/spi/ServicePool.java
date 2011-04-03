@@ -85,6 +85,12 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * Purges the pool.      */
+DECL|method|purge ()
+name|void
+name|purge
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

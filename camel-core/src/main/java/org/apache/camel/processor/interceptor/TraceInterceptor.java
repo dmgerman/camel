@@ -1854,6 +1854,14 @@ name|isUseJpa
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1867,6 +1875,7 @@ operator|+
 literal|" for tracing event messages"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// load the jpa event message class
 name|loadJpaTraceEventMessageClass
 argument_list|(

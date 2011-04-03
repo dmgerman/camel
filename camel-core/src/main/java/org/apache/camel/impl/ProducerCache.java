@@ -1706,6 +1706,25 @@ return|return
 name|capacity
 return|;
 block|}
+comment|/**      * Purges this cache      */
+DECL|method|purge ()
+specifier|public
+specifier|synchronized
+name|void
+name|purge
+parameter_list|()
+block|{
+name|producers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|pool
+operator|.
+name|purge
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

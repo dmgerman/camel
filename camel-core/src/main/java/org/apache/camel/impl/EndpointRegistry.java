@@ -153,6 +153,17 @@ name|endpoints
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Purges the cache      */
+DECL|method|purge ()
+specifier|public
+name|void
+name|purge
+parameter_list|()
+block|{
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

@@ -488,6 +488,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|purge ()
+specifier|public
+name|void
+name|purge
+parameter_list|()
+block|{
+name|pool
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
