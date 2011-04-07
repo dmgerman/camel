@@ -16,6 +16,18 @@ name|management
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Delegates to another {@link org.apache.camel.management.PerformanceCounter}.  *<p/>  * This is used to allow Camel to pre initialize these delegate performance counters  * when Camel creates the actual route from the model. Then later as the various  * processors, routes etc. is created and registered in the {@link org.apache.camel.spi.LifecycleStrategy}  * then we link this to the real {@link org.apache.camel.management.mbean.ManagedPerformanceCounter} mbean  * so the mbean can gather statistics.  *<p/>  * This delegation is needed as how Camel is designed to register services in the  * {@link org.apache.camel.spi.LifecycleStrategy} in various stages.  *  * @version   */
 end_comment
@@ -69,11 +81,14 @@ name|statisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|completedExchange (long time)
+DECL|method|completedExchange (Exchange exchange, long time)
 specifier|public
 name|void
 name|completedExchange
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|long
 name|time
 parameter_list|)
@@ -82,20 +97,27 @@ name|counter
 operator|.
 name|completedExchange
 argument_list|(
+name|exchange
+argument_list|,
 name|time
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|failedExchange ()
+DECL|method|failedExchange (Exchange exchange)
 specifier|public
 name|void
 name|failedExchange
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
 name|counter
 operator|.
 name|failedExchange
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isStatisticsEnabled ()
@@ -105,7 +127,7 @@ name|isStatisticsEnabled
 parameter_list|()
 block|{
 comment|// statistics is only considered enabled if we have a counter to delegate to
-comment|// otherwise we do not want to gather statistics (we are just a delegate with noone to delegate to)
+comment|// otherwise we do not want to gather statistics (we are just a delegate with none to delegate to)
 return|return
 name|counter
 operator|!=

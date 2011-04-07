@@ -16,6 +16,18 @@ name|management
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * A counter that gathers performance metrics when {@link org.apache.camel.Exchange} are routed in Camel.  *  * @version   */
 end_comment
@@ -26,20 +38,26 @@ specifier|public
 interface|interface
 name|PerformanceCounter
 block|{
-comment|/**      * Executed when an {@link org.apache.camel.Exchange} is complete.      *      * @param time  the time it took in millis to complete it      */
-DECL|method|completedExchange (long time)
+comment|/**      * Executed when an {@link org.apache.camel.Exchange} is complete.      *      * @param exchange the exchange      * @param time  the time it took in millis to complete it      */
+DECL|method|completedExchange (Exchange exchange, long time)
 name|void
 name|completedExchange
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|long
 name|time
 parameter_list|)
 function_decl|;
-comment|/**      * Executed when an {@link org.apache.camel.Exchange} failed.      */
-DECL|method|failedExchange ()
+comment|/**      * Executed when an {@link org.apache.camel.Exchange} failed.      *      * @param exchange the exchange      */
+DECL|method|failedExchange (Exchange exchange)
 name|void
 name|failedExchange
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 function_decl|;
 comment|/**      * Is statistics enabled.      *<p/>      * They can be enabled and disabled at runtime      *      * @return whether statistics is enabled or not      */
 DECL|method|isStatisticsEnabled ()

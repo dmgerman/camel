@@ -398,6 +398,8 @@ name|counter
 operator|.
 name|completedExchange
 argument_list|(
+name|exchange
+argument_list|,
 name|duration
 argument_list|)
 expr_stmt|;
@@ -407,7 +409,9 @@ block|{
 name|counter
 operator|.
 name|failedExchange
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 block|}
 block|}
