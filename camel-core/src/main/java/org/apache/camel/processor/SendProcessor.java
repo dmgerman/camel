@@ -476,28 +476,17 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|">>>> "
-operator|+
+literal|">>>> {} {}"
+argument_list|,
 name|destination
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|producer
 operator|.
 name|process
@@ -590,28 +579,17 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|">>>> "
-operator|+
+literal|">>>> {} {}"
+argument_list|,
 name|destination
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|AsyncProcessorHelper
 operator|.
@@ -770,15 +748,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Intercepted sending to "
-operator|+
+literal|"Intercepted sending to {} -> {}"
+argument_list|,
 name|destination
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|lookup
 operator|.
 name|getEndpointUri

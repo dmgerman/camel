@@ -801,9 +801,18 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|Integer
-name|dsi
-init|=
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Received message: {} (DataSet index={}) = {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|index
+block|,
 name|actual
 operator|.
 name|getIn
@@ -819,22 +828,9 @@ name|Integer
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Received message: "
-operator|+
-name|index
-operator|+
-literal|" (DataSet index="
-operator|+
-name|dsi
-operator|+
-literal|") = "
-operator|+
+block|,
 name|actual
+block|}
 argument_list|)
 expr_stmt|;
 block|}

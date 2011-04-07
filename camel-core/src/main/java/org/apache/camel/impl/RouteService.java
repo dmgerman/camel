@@ -591,27 +591,18 @@ range|:
 name|routes
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting services on route: "
-operator|+
+literal|"Starting services on route: {}"
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|Service
@@ -847,27 +838,18 @@ range|:
 name|routes
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping services on route: "
-operator|+
+literal|"Stopping services on route: {}"
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// getServices will not add services again
 name|List
 argument_list|<

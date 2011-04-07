@@ -1291,28 +1291,17 @@ return|;
 block|}
 block|}
 comment|// now lets dispatch
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|">>>> "
-operator|+
+literal|">>>> {} {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// set property which endpoint we send to
 name|exchange
 operator|.
@@ -1510,28 +1499,17 @@ operator|instanceof
 name|ServicePoolAware
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding to producer service pool with key: "
-operator|+
+literal|"Adding to producer service pool with key: {} for producer: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" for producer: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|=
 name|pool
@@ -1553,28 +1531,17 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding to producer cache with key: "
-operator|+
+literal|"Adding to producer cache with key: {} for producer: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" for producer: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 name|producers
 operator|.
 name|put

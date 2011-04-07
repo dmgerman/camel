@@ -202,28 +202,17 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Filter matches: "
-operator|+
+literal|"Filter matches: {} for exchange: {}"
+argument_list|,
 name|matches
-operator|+
-literal|" for exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// set property whether the filter matches or not
 name|exchange
 operator|.

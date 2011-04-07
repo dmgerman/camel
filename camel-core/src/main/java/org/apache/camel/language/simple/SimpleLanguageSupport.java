@@ -461,24 +461,15 @@ name|matches
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as simple (with operator) expression: "
-operator|+
+literal|"Expression is evaluated as simple (with operator) expression: {}"
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createOperatorExpression
 argument_list|(
@@ -501,24 +492,15 @@ name|expression
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as simple (strict) expression: "
-operator|+
+literal|"Expression is evaluated as simple (strict) expression: {}"
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createComplexConcatExpression
 argument_list|(
@@ -528,24 +510,15 @@ return|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as simple (non strict) expression: "
-operator|+
+literal|"Expression is evaluated as simple (non strict) expression: {}"
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createSimpleExpression
 argument_list|(

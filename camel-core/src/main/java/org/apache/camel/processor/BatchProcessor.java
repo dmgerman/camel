@@ -579,14 +579,6 @@ operator|<=
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -594,7 +586,6 @@ argument_list|(
 literal|"Disabling batch size, will only be triggered by timeout"
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|batchSize
@@ -1508,24 +1499,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received exchange to be batched: "
-operator|+
+literal|"Received exchange to be batched: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|queueLock
 operator|.
 name|lock
@@ -1646,24 +1628,15 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending aggregated exchange: "
-operator|+
+literal|"Sending aggregated exchange: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|processExchange
 argument_list|(
 name|exchange

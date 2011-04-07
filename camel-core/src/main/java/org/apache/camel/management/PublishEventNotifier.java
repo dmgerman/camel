@@ -167,24 +167,15 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot publish event as notifier is not started: "
-operator|+
+literal|"Cannot publish event as notifier is not started: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 comment|// only notify when camel context is running
@@ -200,24 +191,15 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot publish event as CamelContext is not started: "
-operator|+
+literal|"Cannot publish event as CamelContext is not started: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|Exchange

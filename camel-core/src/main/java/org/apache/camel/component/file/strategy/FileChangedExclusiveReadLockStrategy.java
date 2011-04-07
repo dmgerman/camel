@@ -433,14 +433,6 @@ throw|throw
 name|e
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -450,7 +442,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|interrupted
 init|=
@@ -506,14 +497,6 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -521,7 +504,6 @@ argument_list|(
 literal|"Sleep interrupted while waiting for exclusive read lock, so breaking out"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;

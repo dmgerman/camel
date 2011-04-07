@@ -705,15 +705,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Searching for annotations of "
-operator|+
+literal|"Searching for annotations of {} in packages: {}"
+argument_list|,
 name|annotation
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" in packages: "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -774,24 +772,15 @@ name|classes
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"Found: {}"
+argument_list|,
 name|classes
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|classes
 return|;
@@ -853,12 +842,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Searching for annotations of "
-operator|+
+literal|"Searching for annotations of {} in packages: {}"
+argument_list|,
 name|annotations
-operator|+
-literal|" in packages: "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -919,24 +906,15 @@ name|classes
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"Found: {}"
+argument_list|,
 name|classes
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|classes
 return|;
@@ -990,15 +968,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Searching for implementations of "
-operator|+
+literal|"Searching for implementations of {} in packages: {}"
+argument_list|,
 name|parent
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" in packages: "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1057,24 +1033,15 @@ name|classes
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"Found: {}"
+argument_list|,
 name|classes
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|classes
 return|;
@@ -1153,24 +1120,15 @@ name|classes
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"Found: {}"
+argument_list|,
 name|classes
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|classes
 return|;
@@ -2387,29 +2345,17 @@ operator|!
 name|found
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-comment|// use debug to avoid being noisy in logs
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot find class '"
-operator|+
+literal|"Cannot find class '{}' in any classloaders: {}"
+argument_list|,
 name|fqn
-operator|+
-literal|"' in any classloaders: "
-operator|+
+argument_list|,
 name|set
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch

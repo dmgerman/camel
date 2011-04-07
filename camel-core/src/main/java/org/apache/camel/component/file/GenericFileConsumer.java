@@ -395,14 +395,6 @@ name|prePollCheck
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -410,7 +402,6 @@ argument_list|(
 literal|"Skipping poll as pre poll check returned false"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|0
 return|;
@@ -485,17 +476,15 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Took "
-operator|+
+literal|"Took {} to poll: {}"
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
 argument_list|(
 name|delta
 argument_list|)
-operator|+
-literal|" to poll: "
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -506,26 +495,15 @@ condition|(
 name|limitHit
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Limiting maximum messages to poll at "
-operator|+
+literal|"Limiting maximum messages to poll at {} files as there was more messages in this poll."
+argument_list|,
 name|maxMessagesPerPoll
-operator|+
-literal|" files as there was more messages in this poll."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// sort files using file comparator if provided
 if|if
@@ -651,22 +629,15 @@ condition|(
 name|total
 operator|>
 literal|0
-operator|&&
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Total "
-operator|+
+literal|"Total {} files to consume"
+argument_list|,
 name|total
-operator|+
-literal|" files to consume"
 argument_list|)
 expr_stmt|;
 block|}
@@ -751,30 +722,17 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Limiting to maximum messages to poll "
-operator|+
+literal|"Limiting to maximum messages to poll {} as there was {} messages in this poll."
+argument_list|,
 name|maxMessagesPerPoll
-operator|+
-literal|" as there was "
-operator|+
+argument_list|,
 name|total
-operator|+
-literal|" messages in this poll."
 argument_list|)
 expr_stmt|;
-block|}
 name|total
 operator|=
 name|maxMessagesPerPoll
@@ -1203,26 +1161,17 @@ operator|!
 name|begin
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
 name|endpoint
 operator|+
-literal|" cannot begin processing file: "
-operator|+
+literal|" cannot begin processing file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 comment|// begin returned false, so remove file from the in progress list as its no longer in progress
 name|endpoint
 operator|.
@@ -1391,28 +1340,17 @@ name|absoluteFileName
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"About to process file: "
-operator|+
+literal|"About to process file: {} using exchange: {}"
+argument_list|,
 name|target
-operator|+
-literal|" using exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// process the exchange using the async consumer to support async routing engine
 comment|// which can be supported by this file consumer as all the done work is
 comment|// provided in the GenericFileOnCompletion

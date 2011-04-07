@@ -425,27 +425,18 @@ name|count
 parameter_list|)
 block|{
 comment|// set current index as property
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"LoopProcessor: iteration #"
-operator|+
+literal|"LoopProcessor: iteration #{}"
+argument_list|,
 name|index
 operator|.
 name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|setProperty

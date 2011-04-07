@@ -4482,26 +4482,15 @@ operator|.
 name|stop
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Took "
-operator|+
+literal|"Took {} millis to complete latch"
+argument_list|,
 name|delta
-operator|+
-literal|" millis to complete latch"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|resultMinimumWaitTime
@@ -4688,19 +4677,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} failed and received[{}]: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" failed and received["
-operator|+
-operator|(
+block|,
 operator|++
 name|index
-operator|)
-operator|+
-literal|"]: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}

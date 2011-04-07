@@ -1181,24 +1181,15 @@ name|exchange
 argument_list|)
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot find suitable method to invoke on bean: "
-operator|+
+literal|"Cannot find suitable method to invoke on bean: {}"
+argument_list|,
 name|pojo
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;

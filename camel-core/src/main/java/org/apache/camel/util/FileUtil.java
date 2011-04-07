@@ -1399,17 +1399,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Retrying attempt "
-operator|+
+literal|"Retrying attempt {} to rename file from: {} to: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|count
-operator|+
-literal|" to rename file from: "
-operator|+
+block|,
 name|from
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|to
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1471,21 +1472,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Tried "
-operator|+
+literal|"Tried {} to rename file: {} to: {} with result: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|count
-operator|+
-literal|" to rename file: "
-operator|+
+block|,
 name|from
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|to
-operator|+
-literal|" with result: "
-operator|+
+block|,
 name|renamed
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1539,32 +1539,17 @@ operator|<
 literal|3
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-operator|&&
-name|count
-operator|>
-literal|0
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Retrying attempt "
-operator|+
+literal|"Retrying attempt {} to delete file: {}"
+argument_list|,
 name|count
-operator|+
-literal|" to delete file: "
-operator|+
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|deleted
 operator|=
 name|file
@@ -1621,17 +1606,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Tried "
-operator|+
+literal|"Tried {} to delete file: {} with result: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|count
-operator|+
-literal|" to delete file: "
-operator|+
+block|,
 name|file
-operator|+
-literal|" with result: "
-operator|+
+block|,
 name|deleted
+block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -395,19 +395,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating endpoint uri=["
-operator|+
+literal|"Creating endpoint uri=[{}], path=[{}], parameters=[{}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|uri
-operator|+
-literal|"], path=["
-operator|+
+block|,
 name|path
-operator|+
-literal|"], parameters=["
-operator|+
+block|,
 name|parameters
-operator|+
-literal|"]"
+block|}
 argument_list|)
 expr_stmt|;
 block|}

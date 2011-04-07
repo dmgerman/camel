@@ -740,6 +740,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} Caused by: {}. Will ignore this and continue."
+argument_list|,
 name|NoTypeConversionAvailableException
 operator|.
 name|createMessage
@@ -748,15 +750,11 @@ name|value
 argument_list|,
 name|type
 argument_list|)
-operator|+
-literal|" Caused by: "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|". Will ignore this and continue."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1209,15 +1207,17 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Promoting fallback type converter as a known type converter to convert from: "
-operator|+
+literal|"Promoting fallback type converter as a known type converter to convert from: {} to: {} for the fallback converter: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|type
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|value
 operator|.
 name|getClass
@@ -1225,13 +1225,12 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" for the fallback converter: "
-operator|+
+block|,
 name|fallback
 operator|.
 name|getFallbackTypeConverter
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

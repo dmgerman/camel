@@ -582,28 +582,17 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created processor: "
-operator|+
+literal|"Created processor: {} for consumer: {}"
+argument_list|,
 name|processor
-operator|+
-literal|" for consumer: "
-operator|+
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 name|startService
 argument_list|(
 name|consumer
@@ -670,24 +659,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Service is not singleton so you must remember to stop it manually "
-operator|+
+literal|"Service is not singleton so you must remember to stop it manually {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|ServiceHelper
 operator|.
 name|startService

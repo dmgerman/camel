@@ -1113,26 +1113,15 @@ name|absolute
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot build directory ["
-operator|+
+literal|"Cannot build directory [{}] (could be because of denied permissions)"
+argument_list|,
 name|directory
-operator|+
-literal|"] (could be because of denied permissions)"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1186,31 +1175,18 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Wrote ["
-operator|+
+literal|"Wrote [{}] to [{}]"
+argument_list|,
 name|fileName
-operator|+
-literal|"] to ["
-operator|+
+argument_list|,
 name|getEndpoint
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|createFileName (Exchange exchange)
 specifier|public
@@ -1271,28 +1247,19 @@ name|name
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} contains a Simple expression: {}"
+argument_list|,
 name|Exchange
 operator|.
 name|FILE_NAME
-operator|+
-literal|" contains a Simple expression: "
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|Language
 name|language
 init|=
@@ -1325,24 +1292,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Filename evaluated as expression: "
-operator|+
+literal|"Filename evaluated as expression: {}"
+argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-block|}
 name|name
 operator|=
 name|expression

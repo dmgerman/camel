@@ -1747,29 +1747,18 @@ expr_stmt|;
 comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
 comment|// and have it pickup the replies and do the aggregation (eg we use a latch to wait)
 comment|// wait for aggregation to be done
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting for on-the-fly aggregation to complete aggregating "
-operator|+
+literal|"Waiting for on-the-fly aggregation to complete aggregating {} responses."
+argument_list|,
 name|total
 operator|.
 name|get
 argument_list|()
-operator|+
-literal|" responses."
 argument_list|)
 expr_stmt|;
-block|}
 name|aggregationOnTheFlyDone
 operator|.
 name|await
@@ -1798,8 +1787,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Parallel processing failed due "
-operator|+
+literal|"Parallel processing failed due {}"
+argument_list|,
 name|executionException
 operator|.
 name|get
@@ -1819,26 +1808,15 @@ throw|;
 block|}
 block|}
 comment|// no everything is okay so we are done
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Done parallel processing "
-operator|+
+literal|"Done parallel processing {} exchanges"
+argument_list|,
 name|total
-operator|+
-literal|" exchanges"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Task to aggregate on-the-fly for completed tasks when using parallel processing.      *<p/>      * This ensures lower memory consumption as we do not need to keep all completed tasks in memory      * before we perform aggregation. Instead this separate thread will run and aggregate when new      * completed tasks is done.      *<p/>      * The logic is fairly complex as this implementation has to keep track how far it got, and also      * signal back to the<i>main</t> thread when its done, so the<i>main</t> thread can continue      * processing when the entire splitting is done.      */
 DECL|class|AggregateOnTheFlyTask
@@ -2125,26 +2103,15 @@ name|get
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Done aggregating "
-operator|+
+literal|"Done aggregating {} exchanges on the fly."
+argument_list|,
 name|aggregated
-operator|+
-literal|" exchanges on the fly."
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 name|Future
@@ -2369,30 +2336,17 @@ literal|". This task will be cancelled and will not be aggregated."
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Timeout occurred after "
-operator|+
+literal|"Timeout occurred after {} millis for number {} task."
+argument_list|,
 name|timeout
-operator|+
-literal|" millis for number "
-operator|+
+argument_list|,
 name|aggregated
-operator|+
-literal|" task."
 argument_list|)
 expr_stmt|;
-block|}
 name|timedOut
 operator|=
 literal|true
@@ -2500,33 +2454,21 @@ block|{
 if|if
 condition|(
 name|timedOut
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cancelling tasks due timeout after "
-operator|+
+literal|"Cancelling tasks due timeout after {} millis."
+argument_list|,
 name|timeout
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
 name|stoppedOnException
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
@@ -2813,26 +2755,15 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Done sequential processing "
-operator|+
+literal|"Done sequential processing {} exchanges"
+argument_list|,
 name|total
-operator|+
-literal|" exchanges"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;

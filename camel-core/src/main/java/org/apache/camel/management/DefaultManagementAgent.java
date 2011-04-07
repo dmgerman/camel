@@ -1170,24 +1170,15 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unregistered MBean with objectname: "
+literal|"Unregistered MBean with objectname: {}"
 operator|+
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|mbeansRegistered
 operator|.
@@ -1255,25 +1246,16 @@ argument_list|(
 name|server
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting JMX agent on server: "
-operator|+
+literal|"Starting JMX agent on server: {}"
+argument_list|,
 name|getMBeanServer
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -1479,24 +1461,15 @@ block|}
 else|else
 block|{
 comment|// okay ignore we do not want to force it and it could be a shared instance
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MBean already registered with objectname: "
-operator|+
+literal|"MBean already registered with objectname: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// register bean if by force or not exists
@@ -1549,24 +1522,15 @@ operator|.
 name|getObjectName
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registered MBean with objectname: "
-operator|+
+literal|"Registered MBean with objectname: {}"
+argument_list|,
 name|registeredName
 argument_list|)
 expr_stmt|;
-block|}
 name|mbeansRegistered
 operator|.
 name|add
@@ -1758,27 +1722,18 @@ range|:
 name|servers
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found MBeanServer with default domain "
-operator|+
+literal|"Found MBeanServer with default domain {}"
+argument_list|,
 name|server
 operator|.
 name|getDefaultDomain
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|mBeanServerDefaultDomain
@@ -1845,24 +1800,15 @@ argument_list|(
 name|registryPort
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created JMXConnector RMI registry on port "
-operator|+
+literal|"Created JMXConnector RMI registry on port {}"
+argument_list|,
 name|registryPort
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

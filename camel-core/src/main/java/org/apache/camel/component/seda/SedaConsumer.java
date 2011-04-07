@@ -490,29 +490,18 @@ name|shutdownPending
 operator|=
 literal|true
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Preparing to shutdown, waiting for "
-operator|+
+literal|"Preparing to shutdown, waiting for {} consumer threads to complete."
+argument_list|,
 name|latch
 operator|.
 name|getCount
 argument_list|()
-operator|+
-literal|" consumer threads to complete."
 argument_list|)
 expr_stmt|;
-block|}
 comment|// wait for all threads to end
 try|try
 block|{
@@ -671,30 +660,19 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Sleep interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 catch|catch
@@ -741,29 +719,18 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ending this polling consumer thread, there are still "
-operator|+
+literal|"Ending this polling consumer thread, there are still {} consumer threads left."
+argument_list|,
 name|latch
 operator|.
 name|getCount
 argument_list|()
-operator|+
-literal|" consumer threads left."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Send the given {@link Exchange} to the consumer(s).      *<p/>      * If multiple consumers then they will each receive a copy of the Exchange.      * A multicast processor will send the exchange in parallel to the multiple consumers.      *<p/>      * If there is only a single consumer then its dispatched directly to it using same thread.      *       * @param exchange the exchange      * @throws Exception can be thrown if processing of the exchange failed      */
 DECL|method|sendToConsumers (Exchange exchange)
@@ -808,8 +775,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Multicasting to "
-operator|+
+literal|"Multicasting to {} consumers for Exchange: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getConsumers
@@ -817,9 +784,7 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" consumers for Exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

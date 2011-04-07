@@ -785,27 +785,18 @@ name|BundleEvent
 name|event
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Bundle started: "
-operator|+
+literal|"Bundle started: {}"
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|BaseService
@@ -907,27 +898,18 @@ name|Object
 name|object
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Bundle stopped: "
-operator|+
+literal|"Bundle stopped: {}"
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|BaseService
@@ -1045,31 +1027,20 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found entry: "
-operator|+
+literal|"Found entry: {} in bundle {}"
+argument_list|,
 name|path
-operator|+
-literal|" in bundle "
-operator|+
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=
@@ -1200,31 +1171,20 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found entry: "
-operator|+
+literal|"Found entry: {} in bundle {}"
+argument_list|,
 name|path
-operator|+
-literal|" in bundle "
-operator|+
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=
@@ -1309,31 +1269,20 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found entry: "
-operator|+
+literal|"Found entry: {} in bundle {}"
+argument_list|,
 name|path
-operator|+
-literal|" in bundle "
-operator|+
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=
@@ -1447,31 +1396,20 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found entry: "
-operator|+
+literal|"Found entry: {} in bundle {}"
+argument_list|,
 name|path
-operator|+
-literal|" in bundle "
-operator|+
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=
@@ -2389,14 +2327,12 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} @Converter classes to load"
+argument_list|,
 name|classes
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" @Converter classes to load"
 argument_list|)
 expr_stmt|;
 for|for
@@ -2419,8 +2355,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loading converter class: "
-operator|+
+literal|"Loading converter class: {}"
+argument_list|,
 name|ObjectHelper
 operator|.
 name|name
@@ -2577,28 +2513,17 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The entry "
-operator|+
+literal|"The entry {}'s url is {}"
+argument_list|,
 name|name
-operator|+
-literal|"'s url is"
-operator|+
+argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|createInstance
 argument_list|(

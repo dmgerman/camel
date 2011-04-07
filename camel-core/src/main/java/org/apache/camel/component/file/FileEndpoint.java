@@ -297,24 +297,15 @@ name|isAutoCreate
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Creating non existing starting directory: "
-operator|+
+literal|"Creating non existing starting directory: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|absolute
 init|=

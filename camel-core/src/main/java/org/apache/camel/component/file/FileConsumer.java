@@ -191,24 +191,15 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot poll as directory does not exists or its not a directory: "
-operator|+
+literal|"Cannot poll as directory does not exists or its not a directory: {}"
+argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|getEndpoint

@@ -3122,15 +3122,18 @@ name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} converted to endpoint: {} by component: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|uri
-operator|+
-literal|" converted to endpoint: "
-operator|+
+block|,
 name|answer
-operator|+
-literal|" by component: "
-operator|+
+block|,
 name|component
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3806,24 +3809,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Adding routes from builder: "
-operator|+
+literal|"Adding routes from builder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lets now add the routes from the builder
 name|builder
 operator|.
@@ -5722,28 +5716,17 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved text: "
-operator|+
+literal|"Resolved text: {} -> {}"
+argument_list|,
 name|text
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -9648,31 +9631,20 @@ operator|.
 name|getRouteService
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Warming up route id: "
-operator|+
+literal|"Warming up route id: {} having autoStartup={}"
+argument_list|,
 name|routeService
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" having autoStartup="
-operator|+
+argument_list|,
 name|autoStartup
 argument_list|)
 expr_stmt|;
-block|}
 name|routeService
 operator|.
 name|warmUp
@@ -9919,27 +9891,17 @@ argument_list|)
 throw|;
 block|}
 comment|// start the consumer on the route
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {}>>> {}"
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|route
 argument_list|)
 expr_stmt|;
@@ -9952,12 +9914,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resuming consumer (order: "
-operator|+
+literal|"Resuming consumer (order: {}) on route: {}"
+argument_list|,
 name|order
-operator|+
-literal|") on route: "
-operator|+
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -9971,19 +9931,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Starting consumer (order: "
-operator|+
+literal|"Starting consumer (order: {}) on route: {}"
+argument_list|,
 name|order
-operator|+
-literal|") on route: "
-operator|+
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

@@ -2659,28 +2659,17 @@ operator|!
 name|started
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring notifying event "
-operator|+
+literal|"Ignoring notifying event {}. The EventNotifier has not been started yet: {}"
+argument_list|,
 name|event
-operator|+
-literal|". The EventNotifier has not been started yet: "
-operator|+
+argument_list|,
 name|notifier
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 if|if

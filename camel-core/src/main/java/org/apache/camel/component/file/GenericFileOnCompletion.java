@@ -315,28 +315,17 @@ operator|.
 name|getGenericFileProcessStrategy
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Done processing file: "
-operator|+
+literal|"Done processing file: {} using exchange: {}"
+argument_list|,
 name|file
-operator|+
-literal|" using exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// commit or rollback
 name|boolean
 name|committed

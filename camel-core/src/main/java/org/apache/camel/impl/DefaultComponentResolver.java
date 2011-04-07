@@ -204,34 +204,18 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|bean
-operator|!=
-literal|null
-operator|&&
-name|getLog
-argument_list|()
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|getLog
 argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Found component: "
-operator|+
+literal|"Found component: {} in registry: {}"
+argument_list|,
 name|name
-operator|+
-literal|" in registry: "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -377,25 +361,26 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Found component: "
-operator|+
+literal|"Found component: {} via type: {} via: {}{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|name
-operator|+
-literal|" via type: "
-operator|+
+block|,
 name|type
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" via: "
-operator|+
+block|,
 name|factoryFinder
 operator|.
 name|getResourcePath
 argument_list|()
-operator|+
+block|,
 name|name
+block|}
 argument_list|)
 expr_stmt|;
 block|}

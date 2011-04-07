@@ -895,28 +895,17 @@ name|String
 name|messageId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Appending "
-operator|+
+literal|"Appending {} to idempotent filestore: {}"
+argument_list|,
 name|messageId
-operator|+
-literal|" to idempotent filestore: "
-operator|+
+argument_list|,
 name|fileStore
 argument_list|)
 expr_stmt|;
-block|}
 name|FileOutputStream
 name|fos
 init|=
@@ -1208,31 +1197,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded "
-operator|+
+literal|"Loaded {} to the 1st level cache from idempotent filestore: {}"
+argument_list|,
 name|cache
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" to the 1st level cache from idempotent filestore: "
-operator|+
+argument_list|,
 name|fileStore
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

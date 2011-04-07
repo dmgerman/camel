@@ -699,24 +699,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing onComplete: "
-operator|+
+literal|"Processing onComplete: {}"
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-block|}
 name|doProcess
 argument_list|(
 name|processor
@@ -804,24 +795,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing onFailure: "
-operator|+
+literal|"Processing onFailure: {}"
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-block|}
 name|doProcess
 argument_list|(
 name|processor

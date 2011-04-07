@@ -238,24 +238,15 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Starting producer: "
-operator|+
+literal|"Starting producer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -285,24 +276,15 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping producer: "
-operator|+
+literal|"Stopping producer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

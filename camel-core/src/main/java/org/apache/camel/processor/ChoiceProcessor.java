@@ -402,21 +402,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"#"
-operator|+
+literal|"#{} - {} matches: {} for: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|i
-operator|+
-literal|" - "
-operator|+
+block|,
 name|predicate
-operator|+
-literal|" matches: "
-operator|+
+block|,
 name|matches
-operator|+
-literal|" for: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}

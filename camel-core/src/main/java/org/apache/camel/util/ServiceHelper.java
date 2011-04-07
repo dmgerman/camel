@@ -936,24 +936,15 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resuming service "
-operator|+
+literal|"Resuming service {}"
+argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
-block|}
 name|ss
 operator|.
 name|resume

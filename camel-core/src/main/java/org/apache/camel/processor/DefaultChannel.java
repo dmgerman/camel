@@ -1473,24 +1473,15 @@ condition|(
 name|doStop
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Exchange is marked to stop routing: "
-operator|+
+literal|"Exchange is marked to stop routing: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

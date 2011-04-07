@@ -731,15 +731,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Sleep interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

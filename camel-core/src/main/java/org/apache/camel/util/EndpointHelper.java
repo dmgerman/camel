@@ -919,17 +919,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configured property: "
-operator|+
+literal|"Configured property: {} on bean: {} with value: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|name
-operator|+
-literal|" on bean: "
-operator|+
+block|,
 name|bean
-operator|+
-literal|" with value: "
-operator|+
+block|,
 name|ref
+block|}
 argument_list|)
 expr_stmt|;
 block|}

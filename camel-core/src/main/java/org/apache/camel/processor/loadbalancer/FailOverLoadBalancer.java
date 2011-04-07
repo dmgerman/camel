@@ -564,26 +564,15 @@ operator|>
 name|maximumFailoverAttempts
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Breaking out of failover after "
-operator|+
+literal|"Breaking out of failover after {} failover attempts"
+argument_list|,
 name|attempts
-operator|+
-literal|" failover attempts"
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 name|index
@@ -736,31 +725,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Failover complete for exchangeId: "
-operator|+
+literal|"Failover complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -804,8 +782,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Failover due "
-operator|+
+literal|"Failover due {} for exchangeId: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getException
@@ -813,9 +791,7 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|" for exchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
@@ -946,28 +922,17 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Processing failover at attempt "
-operator|+
+literal|"Processing failover at attempt {} for {}"
+argument_list|,
 name|attempts
-operator|+
-literal|" for "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|AsyncProcessor
 name|albp
 init|=
@@ -1281,31 +1246,20 @@ comment|// so we break out now, then the callback will be invoked which then con
 return|return;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Failover complete for exchangeId: "
-operator|+
+literal|"Failover complete for exchangeId: {}>>> {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|">>> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// signal callback we are done
 name|callback
 operator|.

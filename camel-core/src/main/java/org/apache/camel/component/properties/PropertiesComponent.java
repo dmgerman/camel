@@ -390,24 +390,15 @@ argument_list|,
 name|paths
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Endpoint uri parsed as: "
-operator|+
+literal|"Endpoint uri parsed as: {}"
+argument_list|,
 name|endpointUri
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|getCamelContext
 argument_list|()

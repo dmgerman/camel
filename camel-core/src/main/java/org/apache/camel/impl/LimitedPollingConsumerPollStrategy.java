@@ -230,28 +230,17 @@ operator|+=
 literal|1
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Rollback occurred after "
-operator|+
+literal|"Rollback occurred after {} times when consuming {}"
+argument_list|,
 name|times
-operator|+
-literal|" times when consuming "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|retry
 init|=

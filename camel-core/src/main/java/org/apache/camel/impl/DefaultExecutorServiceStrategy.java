@@ -903,35 +903,19 @@ condition|(
 name|answer
 operator|!=
 literal|null
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Looking up ExecutorService with ref: "
-operator|+
+literal|"Looking up ExecutorService with ref: {} and found it from Registry: {}"
+argument_list|,
 name|executorServiceRef
-operator|+
-literal|" and found it from Registry: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -957,23 +941,16 @@ condition|(
 name|answer
 operator|!=
 literal|null
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Looking up ExecutorService with ref: "
-operator|+
+literal|"Looking up ExecutorService with ref: {} and found a matching ThreadPoolProfile to create the ExecutorService: {}"
+argument_list|,
 name|executorServiceRef
-operator|+
-literal|" and found a matching ThreadPoolProfile to create the ExecutorService: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -1020,35 +997,19 @@ condition|(
 name|answer
 operator|!=
 literal|null
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Looking up ScheduledExecutorService with ref: "
-operator|+
+literal|"Looking up ScheduledExecutorService with ref: {} and found it from Registry: {}"
+argument_list|,
 name|executorServiceRef
-operator|+
-literal|" and found it from Registry: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1096,23 +1057,16 @@ condition|(
 name|answer
 operator|!=
 literal|null
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Looking up ScheduledExecutorService with ref: "
-operator|+
+literal|"Looking up ScheduledExecutorService with ref: {} and found a matching ThreadPoolProfile to create the ScheduledExecutorService: {}"
+argument_list|,
 name|executorServiceRef
-operator|+
-literal|" and found a matching ThreadPoolProfile to create the ScheduledExecutorService: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -1429,17 +1383,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new cached thread pool for source: "
-operator|+
+literal|"Created new cached thread pool for source: {} with name: {}. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1531,21 +1486,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new scheduled thread pool for source: "
-operator|+
+literal|"Created new scheduled thread pool for source: {} with name: {}. [poolSize={}]. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". [poolSize="
-operator|+
+block|,
 name|poolSize
-operator|+
-literal|"]. -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1605,21 +1559,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new fixed thread pool for source: "
-operator|+
+literal|"Created new fixed thread pool for source: {} with name: {}. [poolSize={}]. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". [poolSize="
-operator|+
+block|,
 name|poolSize
-operator|+
-literal|"]. -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1674,17 +1627,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new single thread pool for source: "
-operator|+
+literal|"Created new single thread pool for source: {} with name: {}. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1733,17 +1687,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new synchronous thread pool for source: "
-operator|+
+literal|"Created new synchronous thread pool for source: {} with name: {}. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1806,25 +1761,22 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new thread pool for source: "
-operator|+
+literal|"Created new thread pool for source: {} with name: {}. [poolSize={}, maxPoolSize={}] -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". [poolSize="
-operator|+
+block|,
 name|corePoolSize
-operator|+
-literal|", maxPoolSize="
-operator|+
+block|,
 name|maxPoolSize
-operator|+
-literal|"] -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1892,29 +1844,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new thread pool for source: "
-operator|+
+literal|"Created new thread pool for source: {} with name: {}. [poolSize={}, maxPoolSize={}, maxQueueSize={}] -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". [poolSize="
-operator|+
+block|,
 name|corePoolSize
-operator|+
-literal|", maxPoolSize="
-operator|+
+block|,
 name|maxPoolSize
-operator|+
-literal|", maxQueueSize="
-operator|+
+block|,
 name|maxQueueSize
-operator|+
-literal|"] -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2032,45 +1979,34 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new thread pool for source: "
+literal|"Created new thread pool for source: {} with name: {}. [poolSize={}, maxPoolSize={}, keepAliveTime={} {}, maxQueueSize={}, "
 operator|+
+literal|"rejectedExecutionHandler={}, daemon={}] -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|source
-operator|+
-literal|" with name: "
-operator|+
+block|,
 name|name
-operator|+
-literal|". [poolSize="
-operator|+
+block|,
 name|corePoolSize
-operator|+
-literal|", maxPoolSize="
-operator|+
+block|,
 name|maxPoolSize
-operator|+
-literal|", keepAliveTime="
-operator|+
+block|,
 name|keepAliveTime
-operator|+
-literal|" "
-operator|+
+block|,
 name|timeUnit
-operator|+
-literal|", maxQueueSize="
-operator|+
+block|,
 name|maxQueueSize
-operator|+
-literal|", rejectedExecutionHandler="
-operator|+
+block|,
 name|rejectedExecutionHandler
-operator|+
-literal|", daemon="
-operator|+
+block|,
 name|daemon
-operator|+
-literal|"] -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2164,24 +2100,15 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Shutdown ExecutorService: "
-operator|+
+literal|"Shutdown ExecutorService: {}"
+argument_list|,
 name|executorService
 argument_list|)
 expr_stmt|;
-block|}
 name|executorService
 operator|.
 name|shutdown
@@ -2230,24 +2157,15 @@ return|return
 literal|null
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"ShutdownNow ExecutorService: "
-operator|+
+literal|"ShutdownNow ExecutorService: {}"
+argument_list|,
 name|executorService
 argument_list|)
 expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|Runnable

@@ -392,31 +392,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Retrying attempt "
-operator|+
+literal|"Retrying attempt {} to poll: {}"
+argument_list|,
 name|retryCounter
-operator|+
-literal|" to poll: "
-operator|+
+argument_list|,
 name|this
 operator|.
 name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|boolean
 name|begin
@@ -460,24 +449,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot begin polling as pollStrategy returned false: "
-operator|+
+literal|"Cannot begin polling as pollStrategy returned false: {}"
+argument_list|,
 name|pollStrategy
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|LOG
@@ -795,18 +775,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduling poll (fixed delay) with initialDelay: "
-operator|+
+literal|"Scheduling poll (fixed delay) with initialDelay: {}, delay: {} ({}) for: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|getInitialDelay
 argument_list|()
-operator|+
-literal|", delay: "
-operator|+
+block|,
 name|getDelay
 argument_list|()
-operator|+
-literal|" ("
-operator|+
+block|,
 name|getTimeUnit
 argument_list|()
 operator|.
@@ -815,11 +795,10 @@ argument_list|()
 operator|.
 name|toLowerCase
 argument_list|()
-operator|+
-literal|") for: "
-operator|+
+block|,
 name|getEndpoint
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -856,18 +835,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduling poll (fixed rate) with initialDelay: "
-operator|+
+literal|"Scheduling poll (fixed rate) with initialDelay: {}, delay: {} ({}) for: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|getInitialDelay
 argument_list|()
-operator|+
-literal|", delay: "
-operator|+
+block|,
 name|getDelay
 argument_list|()
-operator|+
-literal|" ("
-operator|+
+block|,
 name|getTimeUnit
 argument_list|()
 operator|.
@@ -876,11 +855,10 @@ argument_list|()
 operator|.
 name|toLowerCase
 argument_list|()
-operator|+
-literal|") for: "
-operator|+
+block|,
 name|getEndpoint
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

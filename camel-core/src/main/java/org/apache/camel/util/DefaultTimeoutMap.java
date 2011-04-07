@@ -841,27 +841,18 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Evicting inactive entry ID: "
-operator|+
+literal|"Evicting inactive entry ID: {}"
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|expired
 operator|.
 name|add

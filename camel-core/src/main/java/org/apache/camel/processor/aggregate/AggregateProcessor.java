@@ -1008,24 +1008,15 @@ name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Invalid correlation key. This Exchange will be ignored: "
-operator|+
+literal|"Invalid correlation key. This Exchange will be ignored: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 else|else
@@ -1915,28 +1906,17 @@ argument_list|()
 condition|)
 block|{
 comment|// discard due timeout
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Aggregation for correlation key "
-operator|+
+literal|"Aggregation for correlation key {} discarding aggregated exchange: ()"
+argument_list|,
 name|key
-operator|+
-literal|" discarding aggregated exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// must confirm the discarded exchange
 name|aggregationRepository
 operator|.
@@ -1991,28 +1971,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Aggregation complete for correlation key "
-operator|+
+literal|"Aggregation complete for correlation key {} sending aggregated exchange: {}"
+argument_list|,
 name|key
-operator|+
-literal|" sending aggregated exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add this as in progress before we submit the task
 name|inProgressCompleteExchanges
 operator|.
@@ -2038,24 +2007,15 @@ name|void
 name|run
 parameter_list|()
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing aggregated exchange: "
-operator|+
+literal|"Processing aggregated exchange: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add on completion task so we remember to update the inProgressCompleteExchanges
 name|exchange
 operator|.
@@ -2711,24 +2671,15 @@ name|String
 name|exchangeId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Completion timeout triggered for correlation key: "
-operator|+
+literal|"Completion timeout triggered for correlation key: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|inProgress
 init|=
@@ -3099,26 +3050,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loading aggregated exchange with id: "
-operator|+
+literal|"Loading aggregated exchange with id: {} to be recovered."
+argument_list|,
 name|exchangeId
-operator|+
-literal|" to be recovered."
 argument_list|)
 expr_stmt|;
-block|}
 name|Exchange
 name|exchange
 init|=
@@ -3411,32 +3351,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Delivery attempt: "
-operator|+
+literal|"Delivery attempt: {} to recover aggregated exchange with id: {}"
+argument_list|,
 name|data
 operator|.
 name|redeliveryCounter
-operator|+
-literal|" to recover aggregated exchange with id: "
-operator|+
+argument_list|,
 name|exchangeId
-operator|+
-literal|""
 argument_list|)
 expr_stmt|;
-block|}
 comment|// not exhaust so resubmit the recovered exchange
 name|onSubmitCompletion
 argument_list|(

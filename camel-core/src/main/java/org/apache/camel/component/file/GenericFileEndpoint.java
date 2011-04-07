@@ -741,24 +741,15 @@ operator|=
 name|createGenericFileStrategy
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using Generic file process strategy: "
-operator|+
+literal|"Using Generic file process strategy: {}"
+argument_list|,
 name|processStrategy
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|processStrategy

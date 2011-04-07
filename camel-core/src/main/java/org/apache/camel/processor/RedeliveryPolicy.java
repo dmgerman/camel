@@ -491,26 +491,15 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleeping for: "
-operator|+
+literal|"Sleeping for: {} millis until attempting redelivery"
+argument_list|,
 name|redeliveryDelay
-operator|+
-literal|" millis until attempting redelivery"
 argument_list|)
 expr_stmt|;
-block|}
 name|Thread
 operator|.
 name|sleep

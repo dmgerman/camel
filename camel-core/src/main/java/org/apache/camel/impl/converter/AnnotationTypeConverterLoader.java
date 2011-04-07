@@ -771,28 +771,17 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Loading file "
-operator|+
+literal|"Loading file {} to retrieve list of packages, from url: {}"
+argument_list|,
 name|META_INF_SERVICES
-operator|+
-literal|" to retrieve list of packages, from url: "
-operator|+
+argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-block|}
 name|BufferedReader
 name|reader
 init|=

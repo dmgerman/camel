@@ -1008,24 +1008,15 @@ argument_list|()
 condition|)
 block|{
 comment|// force out creating if not already created (as its lazy)
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting bean invocation result on the OUT message: "
-operator|+
+literal|"Setting bean invocation result on the OUT message: {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getOut
@@ -1060,24 +1051,15 @@ block|}
 else|else
 block|{
 comment|// if not out then set it on the in
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting bean invocation result on the IN message: "
-operator|+
+literal|"Setting bean invocation result on the IN message: {}"
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getIn

@@ -380,28 +380,17 @@ condition|(
 name|singleton
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding to consumer cache with key: "
-operator|+
+literal|"Adding to consumer cache with key: {} for consumer: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" for consumer: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 name|consumers
 operator|.
 name|put
@@ -414,26 +403,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer for endpoint: "
-operator|+
+literal|"Consumer for endpoint: {} is not singleton and thus not added to consumer cache"
+argument_list|,
 name|key
-operator|+
-literal|" is not singleton and thus not added to consumer cache"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -449,24 +427,15 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"<<<< "
-operator|+
+literal|"<<<< {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|PollingConsumer
 name|consumer
 init|=
@@ -494,24 +463,15 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"<<<< "
-operator|+
+literal|"<<<< {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|PollingConsumer
 name|consumer
 init|=
@@ -538,24 +498,15 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"<<<< "
-operator|+
+literal|"<<<< {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|PollingConsumer
 name|consumer
 init|=

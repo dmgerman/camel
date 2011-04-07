@@ -679,22 +679,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluated time clause ["
-operator|+
+literal|"Evaluated time clause [{}] with current: {}, other: {} -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|toString
 argument_list|()
-operator|+
-literal|"] with current: "
-operator|+
+block|,
 name|currentDate
-operator|+
-literal|", other: "
-operator|+
+block|,
 name|otherDate
-operator|+
-literal|" -> "
-operator|+
+block|,
 name|answer
+block|}
 argument_list|)
 expr_stmt|;
 block|}

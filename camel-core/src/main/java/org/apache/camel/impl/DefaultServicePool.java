@@ -508,24 +508,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Starting service pool: "
-operator|+
+literal|"Starting service pool: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -535,24 +526,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping service pool: "
-operator|+
+literal|"Stopping service pool: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|BlockingQueue

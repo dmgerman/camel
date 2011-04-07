@@ -626,28 +626,17 @@ name|String
 name|messageId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring duplicate message with id: "
-operator|+
+literal|"Ignoring duplicate message with id: {} for exchange: {}"
+argument_list|,
 name|messageId
-operator|+
-literal|" for exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

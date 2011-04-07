@@ -291,28 +291,17 @@ argument_list|(
 name|messageId
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removed from repository as exchange failed: "
-operator|+
+literal|"Removed from repository as exchange failed: {} with id: {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" with id: "
-operator|+
+argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

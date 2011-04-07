@@ -882,24 +882,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"One instance of PlatformTransactionManager found in registry: "
-operator|+
+literal|"One instance of PlatformTransactionManager found in registry: {}"
+argument_list|,
 name|transactionManager
 argument_list|)
 expr_stmt|;
-block|}
 name|Class
 name|txClazz
 init|=
@@ -923,24 +914,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating a new temporary SpringTransactionPolicy using the PlatformTransactionManager: "
-operator|+
+literal|"Creating a new temporary SpringTransactionPolicy using the PlatformTransactionManager: {}"
+argument_list|,
 name|transactionManager
 argument_list|)
 expr_stmt|;
-block|}
 name|TransactedPolicy
 name|txPolicy
 init|=
@@ -1046,16 +1028,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found "
+literal|"Found {} PlatformTransactionManager in registry. "
 operator|+
+literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the policy"
+argument_list|,
 name|maps
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" PlatformTransactionManager in registry. "
-operator|+
-literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the policy"
 argument_list|)
 expr_stmt|;
 block|}

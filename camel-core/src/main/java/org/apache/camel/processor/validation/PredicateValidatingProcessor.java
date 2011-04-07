@@ -172,25 +172,22 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Validation "
-operator|+
-operator|(
+literal|"Validation {} for {} with Predicate[{}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|matches
 condition|?
-literal|"succeed "
+literal|"succeed"
 else|:
-literal|"failed "
-operator|)
-operator|+
-literal|"for "
-operator|+
+literal|"failed"
+block|,
 name|exchange
-operator|+
-literal|" with Predicate["
-operator|+
+block|,
 name|predicate
-operator|+
-literal|"]"
+block|}
 argument_list|)
 expr_stmt|;
 block|}

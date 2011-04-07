@@ -463,18 +463,19 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending to endpoint: "
-operator|+
+literal|"Sending to endpoint: {} is intercepted and detoured to: {} for exchange: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" is intercepted and detoured to: "
-operator|+
+block|,
 name|detour
-operator|+
-literal|" for exchange: "
-operator|+
+block|,
 name|exchange
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -584,29 +585,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stop() means skip sending exchange to original intended destination: "
-operator|+
+literal|"Stop() means skip sending exchange to original intended destination: {} for exchange: {}"
+argument_list|,
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" for exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 specifier|public

@@ -323,24 +323,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping consumer: "
-operator|+
+literal|"Stopping consumer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|ServiceHelper
 operator|.
 name|stopServices
@@ -357,24 +348,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Starting consumer: "
-operator|+
+literal|"Starting consumer: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|ServiceHelper
 operator|.
 name|startServices

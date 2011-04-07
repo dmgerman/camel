@@ -1036,24 +1036,15 @@ argument_list|,
 literal|"RouteBuilder"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"AdviceWith route before: "
-operator|+
+literal|"AdviceWith route before: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 comment|// inject this route into the advice route builder so it can access this route
 comment|// and offer features to manipulate the route directly
 if|if
@@ -1087,24 +1078,15 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"AdviceWith routes: "
-operator|+
+literal|"AdviceWith routes: {}"
+argument_list|,
 name|routes
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we can only advice with a route builder without any routes
 if|if
 condition|(
@@ -2347,25 +2329,16 @@ condition|(
 name|isTrace
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Tracing is enabled on route: "
-operator|+
+literal|"Tracing is enabled on route: {}"
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 block|}
 block|}
@@ -2410,25 +2383,16 @@ condition|(
 name|isStreamCache
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"StreamCaching is enabled on route: "
-operator|+
+literal|"StreamCaching is enabled on route: {}"
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// only add a new stream cache if not already a global configured on camel context
 if|if
 condition|(
@@ -2493,25 +2457,16 @@ condition|(
 name|isHandleFault
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"HandleFault is enabled on route: "
-operator|+
+literal|"HandleFault is enabled on route: {}"
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// only add a new handle fault if not already a global configured on camel context
 if|if
 condition|(
@@ -2578,29 +2533,18 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Delayer is enabled with: "
-operator|+
+literal|"Delayer is enabled with: {} ms. on route: {}"
+argument_list|,
 name|delayer
-operator|+
-literal|" ms. on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|addInterceptStrategy
 argument_list|(
 operator|new
@@ -2613,25 +2557,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Delayer is disabled on route: "
-operator|+
+literal|"Delayer is disabled on route: {}"
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2657,29 +2592,18 @@ range|:
 name|routePolicies
 control|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"RoutePolicy is enabled: "
-operator|+
+literal|"RoutePolicy is enabled: {} on route: {}"
+argument_list|,
 name|policy
-operator|+
-literal|" on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|getRoutePolicyList
@@ -2745,29 +2669,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"RoutePolicy is enabled: "
-operator|+
+literal|"RoutePolicy is enabled: {} on route: {}"
+argument_list|,
 name|policy
-operator|+
-literal|" on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|getRoutePolicyList
@@ -2801,29 +2714,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using AutoStartup "
-operator|+
+literal|"Using AutoStartup {} on route: {}"
+argument_list|,
 name|isAutoStartup
-operator|+
-literal|" on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|setAutoStartup
@@ -2840,30 +2742,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using ShutdownRoute "
-operator|+
+literal|"Using ShutdownRoute {} on route: {}"
+argument_list|,
 name|getShutdownRoute
 argument_list|()
-operator|+
-literal|" on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|setShutdownRoute
@@ -2880,30 +2771,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using ShutdownRunningTask "
-operator|+
+literal|"Using ShutdownRunningTask {} on route: {}"
+argument_list|,
 name|getShutdownRunningTask
 argument_list|()
-operator|+
-literal|" on route: "
-operator|+
+argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|routeContext
 operator|.
 name|setShutdownRunningTask

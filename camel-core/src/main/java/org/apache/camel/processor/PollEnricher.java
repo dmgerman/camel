@@ -322,24 +322,15 @@ operator|<
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer receive: "
-operator|+
+literal|"Consumer receive: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 name|resourceExchange
 operator|=
 name|consumer
@@ -356,24 +347,15 @@ operator|==
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer receiveNoWait: "
-operator|+
+literal|"Consumer receiveNoWait: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 name|resourceExchange
 operator|=
 name|consumer
@@ -384,28 +366,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer receive with timeout: "
-operator|+
+literal|"Consumer receive with timeout: {} ms. {}"
+argument_list|,
 name|timeout
-operator|+
-literal|" ms. "
-operator|+
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 name|resourceExchange
 operator|=
 name|consumer
@@ -416,14 +387,6 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 if|if
 condition|(
 name|resourceExchange
@@ -445,12 +408,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consumer received: "
-operator|+
+literal|"Consumer received: {}"
+argument_list|,
 name|resourceExchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

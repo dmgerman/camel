@@ -413,28 +413,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|">>>> (wiretap) "
-operator|+
+literal|">>>> (wiretap) {} {}"
+argument_list|,
 name|destination
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|producer
 operator|.
 name|process
@@ -550,28 +539,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|">>>> (wiretap) "
-operator|+
+literal|">>>> (wiretap) {} {}"
+argument_list|,
 name|destination
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|producer
 operator|.
 name|process

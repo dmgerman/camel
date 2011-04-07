@@ -224,19 +224,14 @@ decl_stmt|;
 if|if
 condition|(
 name|resumed
-operator|&&
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resuming consumer "
-operator|+
+literal|"Resuming consumer {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
@@ -269,19 +264,14 @@ decl_stmt|;
 if|if
 condition|(
 name|suspended
-operator|&&
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Suspended consumer "
-operator|+
+literal|"Suspended consumer {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;

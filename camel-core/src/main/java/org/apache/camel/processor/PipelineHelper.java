@@ -293,31 +293,20 @@ condition|(
 name|doStop
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"ExchangeId: "
-operator|+
+literal|"ExchangeId: {} is marked to stop routing: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" is marked to stop routing: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

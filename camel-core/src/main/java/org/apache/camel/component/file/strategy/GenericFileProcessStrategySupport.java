@@ -556,28 +556,17 @@ literal|" (could be because of denied permissions)"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Renaming file: "
-operator|+
+literal|"Renaming file: {} to: {}"
+argument_list|,
 name|from
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|renamed
 init|=

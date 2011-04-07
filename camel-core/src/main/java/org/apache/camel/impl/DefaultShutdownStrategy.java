@@ -1285,24 +1285,15 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Shutdown complete for: "
-operator|+
+literal|"Shutdown complete for: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Suspends/stops the consumer immediately.      *      * @param consumer the consumer to suspend      */
 DECL|method|suspendNow (Consumer consumer)
@@ -1372,24 +1363,15 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Suspend complete for: "
-operator|+
+literal|"Suspend complete for: {}"
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|getExecutorService ()
 specifier|private
@@ -1638,37 +1620,24 @@ comment|//    some routes will be deferred to shutdown at the end, as they are n
 comment|//    by other routes so they can complete their tasks
 comment|// 2) wait until all inflight and pending exchanges has been completed
 comment|// 3) shutdown the deferred routes
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"There are "
-operator|+
+literal|"There are {} routes to {}"
+argument_list|,
 name|routes
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" routes to "
-operator|+
-operator|(
+argument_list|,
 name|suspendOnly
 condition|?
 literal|"suspend"
 else|:
 literal|"shutdown"
-operator|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// list of deferred consumers to shutdown when all exchanges has been completed routed
 comment|// and thus there are no more inflight exchanges so they can be safely shutdown at that time
 name|List
@@ -2065,26 +2034,17 @@ name|size
 operator|+=
 name|inflight
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} inflight and pending exchanges for consumer: {}"
+argument_list|,
 name|inflight
-operator|+
-literal|" inflight and pending exchanges for consumer: "
-operator|+
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2228,8 +2188,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} preparing to shutdown."
+argument_list|,
 name|deferred
 operator|.
 name|getRoute
@@ -2237,8 +2197,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" preparing to shutdown."
 argument_list|)
 expr_stmt|;
 block|}

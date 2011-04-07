@@ -1216,24 +1216,15 @@ condition|(
 name|endpointInterceptor
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Endpoint interceptor should not be added as an event driven consumer route: "
-operator|+
+literal|"Endpoint interceptor should not be added as an event driven consumer route: {}"
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -1528,24 +1519,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} is configured to not inheritErrorHandler."
+argument_list|,
 name|defn
-operator|+
-literal|" is configured to not inheritErrorHandler."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|log
@@ -2472,17 +2454,18 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Changed property ["
-operator|+
+literal|"Changed property [{}] from: {} to: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|name
-operator|+
-literal|"] from: "
-operator|+
+block|,
 name|value
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|text
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2682,17 +2665,18 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Changed property ["
-operator|+
+literal|"Changed property [{}] from: {} to: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|name
-operator|+
-literal|"] from: "
-operator|+
+block|,
 name|value
-operator|+
-literal|" to: "
-operator|+
+block|,
 name|constant
+block|}
 argument_list|)
 expr_stmt|;
 block|}

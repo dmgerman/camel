@@ -268,24 +268,15 @@ literal|"classpath:"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resolving URI from classpath: "
-operator|+
+literal|"Resolving URI from classpath: {}"
+argument_list|,
 name|href
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=
@@ -345,24 +336,15 @@ literal|"file:"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resolving URI from file: "
-operator|+
+literal|"Resolving URI from file: {}"
+argument_list|,
 name|href
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|name
 init|=

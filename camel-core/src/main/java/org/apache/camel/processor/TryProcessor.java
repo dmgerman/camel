@@ -773,24 +773,15 @@ condition|(
 name|doStop
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Exchange is marked to stop routing: "
-operator|+
+literal|"Exchange is marked to stop routing: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
@@ -1662,12 +1653,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The exception is handled: "
-operator|+
+literal|"The exception is handled: {} for the exception: {} caused by: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|handled
-operator|+
-literal|" for the exception: "
-operator|+
+block|,
 name|caught
 operator|.
 name|getClass
@@ -1675,13 +1668,12 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" caused by: "
-operator|+
+block|,
 name|caught
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

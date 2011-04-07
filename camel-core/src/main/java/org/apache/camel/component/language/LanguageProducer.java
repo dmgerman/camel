@@ -215,28 +215,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluated expression as: "
-operator|+
+literal|"Evaluated expression as: {} with: {}"
+argument_list|,
 name|result
-operator|+
-literal|" with: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// set message body if transform is enabled
 if|if
 condition|(
