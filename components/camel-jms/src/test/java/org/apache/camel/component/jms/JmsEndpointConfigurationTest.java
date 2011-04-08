@@ -658,7 +658,7 @@ name|endpoint
 argument_list|,
 name|DefaultMessageListenerContainer
 operator|.
-name|CACHE_CONSUMER
+name|CACHE_AUTO
 argument_list|)
 expr_stmt|;
 block|}
@@ -689,7 +689,7 @@ name|endpoint
 argument_list|,
 name|DefaultMessageListenerContainer
 operator|.
-name|CACHE_CONSUMER
+name|CACHE_AUTO
 argument_list|)
 expr_stmt|;
 block|}

@@ -3752,7 +3752,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *<p/>      * Will by default use<tt>CACHE_CONSUMER</tt> which is the most efficient.      *      * @param endpoint the endpoint      * @return the cache level      */
+comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *<p/>      * Will return<tt>CACHE_AUTO</tt> which will pickup and use<tt>CACHE_NONE</tt>      * if transacted has been enabled, otherwise it will use<tt>CACHE_CONSUMER</tt>      * which is the most efficient.      *      * @param endpoint the endpoint      * @return the cache level      */
 DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
 specifier|protected
 name|int
@@ -3765,7 +3765,7 @@ block|{
 return|return
 name|DefaultMessageListenerContainer
 operator|.
-name|CACHE_CONSUMER
+name|CACHE_AUTO
 return|;
 block|}
 comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
