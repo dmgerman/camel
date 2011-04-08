@@ -547,7 +547,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XQuery builder  *  * @version   */
+comment|/**  * Creates an XQuery builder.  *<p/>  * The XQueryExpression, as you would expect, can be executed repeatedly, as often as you want, in the same or in different threads.  *  * @version   */
 end_comment
 
 begin_class
@@ -2203,33 +2203,13 @@ name|source
 init|=
 name|in
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|Source
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|source
-operator|==
-literal|null
-condition|)
-block|{
-name|source
-operator|=
-name|converter
-operator|.
-name|toDOMSource
-argument_list|(
-name|converter
-operator|.
-name|createDocument
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|DocumentInfo
 name|doc
 init|=
