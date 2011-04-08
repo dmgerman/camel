@@ -291,6 +291,11 @@ specifier|protected
 name|boolean
 name|asyncDelayedRedelivery
 decl_stmt|;
+DECL|field|executorServiceRef
+specifier|protected
+name|String
+name|executorServiceRef
+decl_stmt|;
 DECL|method|DefaultErrorHandlerBuilder ()
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -345,6 +350,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|)
+argument_list|,
+name|getExecutorServiceRef
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it
@@ -707,6 +715,25 @@ operator|.
 name|setAsyncDelayedRedelivery
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a reference to a thread pool to be used for redelivery.      *      * @param ref reference to a scheduled thread pool      * @return the builder.      */
+DECL|method|executorServiceRef (String ref)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|executorServiceRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setExecutorServiceRef
+argument_list|(
+name|ref
 argument_list|)
 expr_stmt|;
 return|return
@@ -1425,6 +1452,32 @@ operator|.
 name|asyncDelayedRedelivery
 operator|=
 name|asyncDelayedRedelivery
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 DECL|method|createHandledPolicy ()

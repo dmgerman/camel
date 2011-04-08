@@ -295,6 +295,12 @@ specifier|static
 name|ScheduledExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|executorServiceRef
+specifier|protected
+specifier|final
+name|String
+name|executorServiceRef
+decl_stmt|;
 DECL|field|camelContext
 specifier|protected
 specifier|final
@@ -747,7 +753,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile, String executorServiceRef)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -780,6 +786,9 @@ name|useOriginalMessagePolicy
 parameter_list|,
 name|Predicate
 name|retryWhile
+parameter_list|,
+name|String
+name|executorServiceRef
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -874,6 +883,12 @@ operator|.
 name|retryWhilePolicy
 operator|=
 name|retryWhile
+expr_stmt|;
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
@@ -3701,6 +3716,51 @@ argument_list|()
 condition|)
 block|{
 comment|// camel context will shutdown the executor when it shutdown so no need to shut it down when stopping
+if|if
+condition|(
+name|executorServiceRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+name|camelContext
+operator|.
+name|getExecutorServiceStrategy
+argument_list|()
+operator|.
+name|lookupScheduled
+argument_list|(
+name|this
+argument_list|,
+literal|"ErrorHandlerRedeliveryTask"
+argument_list|,
+name|executorServiceRef
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
 name|executorService
 operator|=
 name|camelContext
@@ -3715,6 +3775,7 @@ argument_list|,
 literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

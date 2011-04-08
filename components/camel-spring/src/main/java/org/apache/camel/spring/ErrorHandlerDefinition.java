@@ -236,6 +236,13 @@ name|String
 name|redeliveryPolicyRef
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|executorServiceRef
+specifier|private
+name|String
+name|executorServiceRef
+decl_stmt|;
+annotation|@
 name|XmlElement
 DECL|field|redeliveryPolicy
 specifier|private
