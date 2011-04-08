@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -75,64 +55,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|TypeConverterRegistryTest
+DECL|class|TypeConverterRegistryMissesThenAddTest
 specifier|public
 class|class
-name|TypeConverterRegistryTest
+name|TypeConverterRegistryMissesThenAddTest
 extends|extends
 name|TestCase
 block|{
-DECL|method|testDefaultTypeConverterRegistry ()
+DECL|method|testMissThenAddTypeConverter ()
 specifier|public
 name|void
-name|testDefaultTypeConverterRegistry
-parameter_list|()
-block|{
-name|DefaultCamelContext
-name|ctx
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|ctx
-operator|.
-name|getTypeConverterRegistry
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// file to inputstream is a default converter in Camel
-name|TypeConverter
-name|tc
-init|=
-name|ctx
-operator|.
-name|getTypeConverterRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|,
-name|File
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|tc
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testAddTypeConverter ()
-specifier|public
-name|void
-name|testAddTypeConverter
+name|testMissThenAddTypeConverter
 parameter_list|()
 block|{
 name|DefaultCamelContext
@@ -142,8 +75,29 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-comment|// START SNIPPET: e1
-comment|// add our own type converter manually that converts from String -> MyOrder using MyOrderTypeConverter
+name|MyOrder
+name|order
+init|=
+name|context
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|MyOrder
+operator|.
+name|class
+argument_list|,
+literal|"123"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+name|order
+argument_list|)
+expr_stmt|;
+comment|// add missing type converter
 name|context
 operator|.
 name|getTypeConverterRegistry
@@ -164,11 +118,9 @@ name|MyOrderTypeConverter
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
-comment|// START SNIPPET: e3
-name|MyOrder
+comment|// this time it should work
 name|order
-init|=
+operator|=
 name|context
 operator|.
 name|getTypeConverter
@@ -182,8 +134,7 @@ name|class
 argument_list|,
 literal|"123"
 argument_list|)
-decl_stmt|;
-comment|// END SNIPPET: e3
+expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|order
@@ -237,7 +188,6 @@ name|id
 expr_stmt|;
 block|}
 block|}
-comment|// START SNIPPET: e2
 DECL|class|MyOrderTypeConverter
 specifier|private
 class|class
@@ -389,7 +339,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// END SNIPPET: e2
 block|}
 end_class
 

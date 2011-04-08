@@ -1334,11 +1334,6 @@ return|;
 block|}
 block|}
 comment|// Could not find suitable conversion, so remember it
-synchronized|synchronized
-init|(
-name|misses
-init|)
-block|{
 name|misses
 operator|.
 name|put
@@ -1348,7 +1343,6 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Could not find suitable conversion, so return Void to indicate not found
 return|return
 name|Void
@@ -1449,6 +1443,14 @@ argument_list|(
 name|key
 argument_list|,
 name|typeConverter
+argument_list|)
+expr_stmt|;
+comment|// remove any previous misses, as we added the new type converter
+name|misses
+operator|.
+name|remove
+argument_list|(
+name|key
 argument_list|)
 expr_stmt|;
 block|}
