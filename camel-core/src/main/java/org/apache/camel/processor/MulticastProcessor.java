@@ -1499,8 +1499,9 @@ decl_stmt|;
 comment|// issue task to execute in separate thread so it can aggregate on-the-fly
 comment|// while we submit new tasks, and those tasks complete concurrently
 comment|// this allows us to optimize work and reduce memory consumption
+specifier|final
 name|AggregateOnTheFlyTask
-name|task
+name|aggregateOnTheFlyTask
 init|=
 operator|new
 name|AggregateOnTheFlyTask
@@ -1522,14 +1523,14 @@ argument_list|,
 name|executionException
 argument_list|)
 decl_stmt|;
-comment|// and start the aggregation task so we can aggregate on-the-fly
-name|aggregateExecutorService
-operator|.
-name|submit
-argument_list|(
-name|task
-argument_list|)
-expr_stmt|;
+specifier|final
+name|AtomicBoolean
+name|aggregationTaskSubmitted
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|trace
@@ -1595,6 +1596,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// only start the aggregation task when the task is being executed to avoid staring
+comment|// the aggregation task to early and pile up too many threads
+if|if
+condition|(
+name|aggregationTaskSubmitted
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+comment|// but only submit the task once
+name|aggregateExecutorService
+operator|.
+name|submit
+argument_list|(
+name|aggregateOnTheFlyTask
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1751,11 +1775,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting for on-the-fly aggregation to complete aggregating {} responses."
+literal|"Waiting for on-the-fly aggregation to complete aggregating {} responses for exchangeId: {}"
 argument_list|,
 name|total
 operator|.
 name|get
+argument_list|()
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1969,7 +1998,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregate on the fly task +++ started +++"
+literal|"Aggregate on the fly task started for exchangeId: {}"
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -2025,14 +2059,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Signaling we are done aggregating on the fly"
+literal|"Signaling we are done aggregating on the fly for exchangeId: {}"
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Aggregate on the fly task +++ done +++"
+literal|"Aggregate on the fly task done for exchangeId: {}"
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|aggregationOnTheFlyDone
@@ -2324,15 +2368,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Parallel processing timed out after "
-operator|+
+literal|"Parallel processing timed out after {} millis for number {}. This task will be cancelled and will not be aggregated."
+argument_list|,
 name|timeout
-operator|+
-literal|" millis for number "
-operator|+
+argument_list|,
 name|aggregated
-operator|+
-literal|". This task will be cancelled and will not be aggregated."
 argument_list|)
 expr_stmt|;
 block|}
@@ -4217,9 +4257,7 @@ condition|)
 block|{
 comment|// use unbounded thread pool so we ensure the aggregate on-the-fly task always will have assigned a thread
 comment|// and run the tasks when the task is submitted. If not then the aggregate task may not be able to run
-comment|// and signal completion during processing, which would lead to a dead-lock
-comment|// keep at least one thread in the pool so we re-use the thread avoiding to create new threads because
-comment|// the pool shrank to zero.
+comment|// and signal completion during processing, which would lead to what would appear as a dead-lock or a slow processing
 name|String
 name|name
 init|=
@@ -4258,23 +4296,18 @@ name|String
 name|name
 parameter_list|)
 block|{
+comment|// use a cached thread pool so we each on-the-fly task has a dedicated thread to process completions as they come in
 return|return
 name|camelContext
 operator|.
 name|getExecutorServiceStrategy
 argument_list|()
 operator|.
-name|newThreadPool
+name|newCachedThreadPool
 argument_list|(
 name|this
 argument_list|,
 name|name
-argument_list|,
-literal|1
-argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
 argument_list|)
 return|;
 block|}
