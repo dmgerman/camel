@@ -177,6 +177,13 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
+DECL|method|onPrepareRef ()
+name|String
+name|onPrepareRef
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

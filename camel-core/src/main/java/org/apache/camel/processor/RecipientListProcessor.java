@@ -561,7 +561,7 @@ operator|=
 name|iter
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -594,6 +594,9 @@ name|stopOnException
 parameter_list|,
 name|long
 name|timeout
+parameter_list|,
+name|Processor
+name|onPrepare
 parameter_list|)
 block|{
 name|super
@@ -613,6 +616,8 @@ argument_list|,
 name|stopOnException
 argument_list|,
 name|timeout
+argument_list|,
+name|onPrepare
 argument_list|)
 expr_stmt|;
 name|this
@@ -875,6 +880,39 @@ argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
+comment|// invoke on prepare on the exchange if specified
+if|if
+condition|(
+name|onPrepare
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|onPrepare
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// and create the pair
 return|return
 operator|new

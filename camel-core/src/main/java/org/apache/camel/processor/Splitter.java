@@ -381,10 +381,12 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout)
+DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -414,6 +416,9 @@ name|stopOnException
 parameter_list|,
 name|long
 name|timeout
+parameter_list|,
+name|Processor
+name|onPrepare
 parameter_list|)
 block|{
 name|super
@@ -438,6 +443,8 @@ argument_list|,
 name|stopOnException
 argument_list|,
 name|timeout
+argument_list|,
+name|onPrepare
 argument_list|)
 expr_stmt|;
 name|this
