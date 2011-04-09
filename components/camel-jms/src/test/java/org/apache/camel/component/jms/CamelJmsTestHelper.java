@@ -54,6 +54,20 @@ name|ActiveMQConnectionFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|pool
+operator|.
+name|PooledConnectionFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper for unit testing with Apache ActiveMQ as embedded JMS broker.  *  * @version   */
 end_comment
@@ -140,7 +154,7 @@ operator|+
 name|options
 expr_stmt|;
 block|}
-name|ConnectionFactory
+name|ActiveMQConnectionFactory
 name|connectionFactory
 init|=
 operator|new
@@ -149,8 +163,25 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-return|return
+comment|// use a pooled connection factory
+name|PooledConnectionFactory
+name|pooled
+init|=
+operator|new
+name|PooledConnectionFactory
+argument_list|(
 name|connectionFactory
+argument_list|)
+decl_stmt|;
+name|pooled
+operator|.
+name|setMaxConnections
+argument_list|(
+literal|8
+argument_list|)
+expr_stmt|;
+return|return
+name|pooled
 return|;
 block|}
 DECL|method|createPersistentConnectionFactory ()
@@ -211,7 +242,7 @@ operator|+
 name|options
 expr_stmt|;
 block|}
-name|ConnectionFactory
+name|ActiveMQConnectionFactory
 name|connectionFactory
 init|=
 operator|new
@@ -220,8 +251,25 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-return|return
+comment|// use a pooled connection factory
+name|PooledConnectionFactory
+name|pooled
+init|=
+operator|new
+name|PooledConnectionFactory
+argument_list|(
 name|connectionFactory
+argument_list|)
+decl_stmt|;
+name|pooled
+operator|.
+name|setMaxConnections
+argument_list|(
+literal|8
+argument_list|)
+expr_stmt|;
+return|return
+name|pooled
 return|;
 block|}
 block|}

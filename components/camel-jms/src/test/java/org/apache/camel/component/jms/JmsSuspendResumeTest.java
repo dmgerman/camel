@@ -204,6 +204,14 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// sleep a bit to ensure its properly suspended
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
