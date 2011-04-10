@@ -241,11 +241,13 @@ DECL|class|WireTapDefinition
 specifier|public
 class|class
 name|WireTapDefinition
+parameter_list|<
+name|Type
 extends|extends
-name|SendDefinition
-argument_list|<
-name|WireTapDefinition
-argument_list|>
+name|ProcessorDefinition
+parameter_list|>
+extends|extends
+name|NoOutputDefinition
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
@@ -253,12 +255,34 @@ name|ProcessorDefinition
 argument_list|>
 block|{
 annotation|@
+name|XmlAttribute
+DECL|field|uri
+specifier|protected
+name|String
+name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|ref
+specifier|protected
+name|String
+name|ref
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|endpoint
+specifier|protected
+name|Endpoint
+name|endpoint
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|newExchangeProcessor
 specifier|private
 name|Processor
 name|newExchangeProcessor
 decl_stmt|;
+comment|// TODO: Should be named newExchangeRef instead of processorRef (Camel 3.0)
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -568,6 +592,30 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|end ()
+specifier|public
+name|Type
+name|end
+parameter_list|()
+block|{
+comment|// allow end() to return to previous type so you can continue in the DSL
+return|return
+operator|(
+name|Type
+operator|)
+name|super
+operator|.
+name|end
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|addOutput (ProcessorDefinition output)
 specifier|public
 name|void
@@ -587,12 +635,75 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|resolveEndpoint (RouteContext context)
+specifier|public
+name|Endpoint
+name|resolveEndpoint
+parameter_list|(
+name|RouteContext
+name|context
+parameter_list|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|context
+operator|.
+name|resolveEndpoint
+argument_list|(
+name|getUri
+argument_list|()
+argument_list|,
+name|getRef
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|FromDefinition
+operator|.
+name|description
+argument_list|(
+name|getUri
+argument_list|()
+argument_list|,
+name|getRef
+argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Uses a custom thread pool      *      * @param executorService a custom {@link ExecutorService} to use as thread pool      *                        for sending tapped exchanges      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorService
 parameter_list|(
 name|ExecutorService
@@ -612,6 +723,9 @@ comment|/**      * Uses a custom thread pool      *      * @param executorServic
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorServiceRef
 parameter_list|(
 name|String
@@ -631,6 +745,9 @@ comment|/**      * Uses a copy of the original exchange      *      * @return th
 DECL|method|copy ()
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|copy
 parameter_list|()
 block|{
@@ -647,6 +764,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchange (Expression expression)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchange
 parameter_list|(
 name|Expression
@@ -666,6 +786,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchange (Processor processor)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchange
 parameter_list|(
 name|Processor
@@ -685,6 +808,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchangeRef (String ref)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchangeRef
 parameter_list|(
 name|String
@@ -704,6 +830,9 @@ comment|/**      * Uses the {@link Processor} when preparing the {@link org.apac
 DECL|method|onPrepare (Processor onPrepare)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|onPrepare
 parameter_list|(
 name|Processor
@@ -723,6 +852,9 @@ comment|/**      * Uses the {@link Processor} when preparing the {@link org.apac
 DECL|method|onPrepareRef (String onPrepareRef)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|onPrepareRef
 parameter_list|(
 name|String
@@ -737,6 +869,84 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+DECL|method|setEndpoint (Endpoint endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
 block|}
 DECL|method|getNewExchangeProcessor ()
 specifier|public
