@@ -668,6 +668,8 @@ name|felix
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// for remote debugging
+comment|// vmOption("-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5008"),
 return|return
 name|options
 return|;
