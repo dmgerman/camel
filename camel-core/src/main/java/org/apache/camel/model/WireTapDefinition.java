@@ -198,6 +198,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ExecutorServiceHelper
@@ -205,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;wireTap/&gt; element  *  * @version   */
+comment|/**  * Represents an XML&lt;wireTap/&gt; element  */
 end_comment
 
 begin_class
@@ -289,6 +303,20 @@ DECL|field|copy
 specifier|private
 name|Boolean
 name|copy
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|onPrepareRef
+specifier|private
+name|String
+name|onPrepareRef
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|onPrepare
+specifier|private
+name|Processor
+name|onPrepare
 decl_stmt|;
 DECL|method|WireTapDefinition ()
 specifier|public
@@ -452,6 +480,47 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|onPrepareRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|onPrepare
+operator|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|onPrepareRef
+argument_list|,
+name|Processor
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|onPrepare
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setOnPrepare
+argument_list|(
+name|onPrepare
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -497,43 +566,177 @@ return|return
 literal|"wireTap"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|addOutput (ProcessorDefinition output)
+specifier|public
+name|void
+name|addOutput
+parameter_list|(
+name|ProcessorDefinition
+name|output
+parameter_list|)
+block|{
+comment|// add outputs on parent as this wiretap does not support outputs
+name|getParent
+argument_list|()
+operator|.
+name|addOutput
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|/**      * Uses a custom thread pool      *      * @param executorService a custom {@link ExecutorService} to use as thread pool      *                        for sending tapped exchanges      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
-name|ProcessorDefinition
+name|WireTapDefinition
 name|executorService
 parameter_list|(
 name|ExecutorService
 name|executorService
 parameter_list|)
 block|{
-comment|// wiretap has no outputs and therefore we cannot use custom wiretap builder methods in Java DSL
-comment|// as the Java DSL is stretched so far we can using regular Java
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|setExecutorService
 argument_list|(
-literal|"wireTap does not support these builder methods"
+name|executorService
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
+comment|/**      * Uses a custom thread pool      *      * @param executorServiceRef reference to lookup a custom {@link ExecutorService}      *                           to use as thread pool for sending tapped exchanges      * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
-name|ProcessorDefinition
+name|WireTapDefinition
 name|executorServiceRef
 parameter_list|(
 name|String
 name|executorServiceRef
 parameter_list|)
 block|{
-comment|// wiretap has no outputs and therefore we cannot use custom wiretap builder methods in Java DSL
-comment|// as the Java DSL is stretched so far we can using regular Java
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|setExecutorServiceRef
 argument_list|(
-literal|"wireTap does not support these builder methods"
+name|executorServiceRef
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses a copy of the original exchange      *      * @return the builder      */
+DECL|method|copy ()
+specifier|public
+name|WireTapDefinition
+name|copy
+parameter_list|()
+block|{
+name|setCopy
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      */
+DECL|method|newExchange (Expression expression)
+specifier|public
+name|WireTapDefinition
+name|newExchange
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|setNewExchangeExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      */
+DECL|method|newExchange (Processor processor)
+specifier|public
+name|WireTapDefinition
+name|newExchange
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setNewExchangeProcessor
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param ref reference to the processor to lookup in the {@link org.apache.camel.spi.Registry} to      *            be used for preparing the new exchange to send      * @return the builder      */
+DECL|method|newExchangeRef (String ref)
+specifier|public
+name|WireTapDefinition
+name|newExchangeRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setNewExchangeProcessorRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+DECL|method|onPrepare (Processor onPrepare)
+specifier|public
+name|WireTapDefinition
+name|onPrepare
+parameter_list|(
+name|Processor
+name|onPrepare
+parameter_list|)
+block|{
+name|setOnPrepare
+argument_list|(
+name|onPrepare
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
+DECL|method|onPrepareRef (String onPrepareRef)
+specifier|public
+name|WireTapDefinition
+name|onPrepareRef
+parameter_list|(
+name|String
+name|onPrepareRef
+parameter_list|)
+block|{
+name|setOnPrepareRef
+argument_list|(
+name|onPrepareRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getNewExchangeProcessor ()
 specifier|public
@@ -727,6 +930,58 @@ name|copy
 else|:
 literal|true
 return|;
+block|}
+DECL|method|getOnPrepareRef ()
+specifier|public
+name|String
+name|getOnPrepareRef
+parameter_list|()
+block|{
+return|return
+name|onPrepareRef
+return|;
+block|}
+DECL|method|setOnPrepareRef (String onPrepareRef)
+specifier|public
+name|void
+name|setOnPrepareRef
+parameter_list|(
+name|String
+name|onPrepareRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onPrepareRef
+operator|=
+name|onPrepareRef
+expr_stmt|;
+block|}
+DECL|method|getOnPrepare ()
+specifier|public
+name|Processor
+name|getOnPrepare
+parameter_list|()
+block|{
+return|return
+name|onPrepare
+return|;
+block|}
+DECL|method|setOnPrepare (Processor onPrepare)
+specifier|public
+name|void
+name|setOnPrepare
+parameter_list|(
+name|Processor
+name|onPrepare
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onPrepare
+operator|=
+name|onPrepare
+expr_stmt|;
 block|}
 block|}
 end_class
