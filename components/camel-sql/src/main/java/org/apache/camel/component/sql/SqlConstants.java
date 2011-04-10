@@ -29,6 +29,15 @@ specifier|final
 class|class
 name|SqlConstants
 block|{
+DECL|field|SQL_QUERY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_QUERY
+init|=
+literal|"CamelSqlQuery"
+decl_stmt|;
 DECL|field|SQL_UPDATE_COUNT
 specifier|public
 specifier|static
