@@ -119,15 +119,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test issue with hawtdb file store not growing large  */
+comment|/**  * Test issue with hawtdb file store growing to large  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Work in progress"
-argument_list|)
 DECL|class|HawtDBBigPayloadTest
 specifier|public
 class|class
@@ -266,6 +261,7 @@ operator|+
 name|size
 argument_list|)
 expr_stmt|;
+comment|// should be about 32mb, so we say 34 just in case
 name|assertTrue
 argument_list|(
 name|file
@@ -276,7 +272,7 @@ name|size
 argument_list|,
 name|size
 operator|<
-literal|32
+literal|34
 operator|*
 literal|1024
 operator|*

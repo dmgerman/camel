@@ -288,11 +288,13 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
+comment|//ROOT_INDEXES_FACTORY.setDeferredEncoding(true);
+comment|// TODO: use false due CAMEL-3826 until root cause is fixed in hawtdb
 name|ROOT_INDEXES_FACTORY
 operator|.
 name|setDeferredEncoding
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|INDEX_FACTORY
@@ -313,11 +315,13 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
+comment|//INDEX_FACTORY.setDeferredEncoding(true);
+comment|// TODO: use false due CAMEL-3826 until root cause is fixed in hawtdb
 name|INDEX_FACTORY
 operator|.
 name|setDeferredEncoding
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
