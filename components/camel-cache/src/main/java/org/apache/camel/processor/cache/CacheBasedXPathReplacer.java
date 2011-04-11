@@ -184,7 +184,7 @@ name|component
 operator|.
 name|cache
 operator|.
-name|CacheManagerFactory
+name|DefaultCacheManagerFactory
 import|;
 end_import
 
@@ -399,7 +399,7 @@ comment|// Cache the buffer to the specified Cache against the specified key
 name|cacheManager
 operator|=
 operator|new
-name|CacheManagerFactory
+name|DefaultCacheManagerFactory
 argument_list|()
 operator|.
 name|instantiateCacheManager

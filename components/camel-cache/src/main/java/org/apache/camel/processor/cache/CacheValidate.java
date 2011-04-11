@@ -120,54 +120,34 @@ name|cacheName
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No existing Cache found with name: "
-operator|+
-name|cacheName
+literal|"No existing Cache found with name: {}"
 operator|+
 literal|". Please ensure a cache is first instantiated using a Cache Consumer or Cache Producer."
 operator|+
-literal|" Replacement will not be performed since the cache "
-operator|+
+literal|" Replacement will not be performed since the cache {} does not presently exist"
+argument_list|,
 name|cacheName
-operator|+
-literal|"does not presently exist"
+argument_list|,
+name|cacheName
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found an existing cache: "
-operator|+
+literal|"Found an existing cache: {}"
+argument_list|,
 name|cacheName
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|LOG
@@ -217,28 +197,17 @@ name|key
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No Key with name: "
-operator|+
-name|key
-operator|+
-literal|"presently exists in the cache. It is also possible that the key may have expired in the cache."
+literal|"No Key with name: {} presently exists in the cache. It is also possible that the key may have expired in the cache."
 operator|+
 literal|" Replacement will not be performed until an appropriate key/value pair is added to (or) found in the cache."
+argument_list|,
+name|key
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

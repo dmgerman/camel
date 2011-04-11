@@ -123,7 +123,7 @@ name|CacheManagerFactory
 name|cacheManagerFactory
 init|=
 operator|new
-name|CacheManagerFactory
+name|DefaultCacheManagerFactory
 argument_list|()
 decl_stmt|;
 DECL|method|CacheComponent ()
@@ -211,6 +211,20 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|setProperties
+argument_list|(
+name|this
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|setProperties
+argument_list|(
+name|config
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 name|CacheEndpoint
 name|cacheEndpoint
 init|=
@@ -226,16 +240,6 @@ argument_list|,
 name|cacheManagerFactory
 argument_list|)
 decl_stmt|;
-name|setProperties
-argument_list|(
-name|cacheEndpoint
-operator|.
-name|getConfig
-argument_list|()
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 return|return
 name|cacheEndpoint
 return|;
