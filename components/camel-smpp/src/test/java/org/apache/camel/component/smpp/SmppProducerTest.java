@@ -1171,7 +1171,7 @@ name|GeneralDataCoding
 argument_list|(
 literal|false
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|MessageClass
 operator|.
@@ -1515,7 +1515,7 @@ name|GeneralDataCoding
 argument_list|(
 literal|false
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|MessageClass
 operator|.
@@ -2097,7 +2097,7 @@ name|GeneralDataCoding
 argument_list|(
 literal|false
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|MessageClass
 operator|.
