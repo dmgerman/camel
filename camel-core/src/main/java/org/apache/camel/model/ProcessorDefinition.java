@@ -4068,7 +4068,44 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate chedck      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @return the builder      */
+DECL|method|idempotentConsumer (Expression messageIdExpression)
+specifier|public
+name|IdempotentConsumerDefinition
+name|idempotentConsumer
+parameter_list|(
+name|Expression
+name|messageIdExpression
+parameter_list|)
+block|{
+name|IdempotentConsumerDefinition
+name|answer
+init|=
+operator|new
+name|IdempotentConsumerDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setExpression
+argument_list|(
+operator|new
+name|ExpressionDefinition
+argument_list|(
+name|messageIdExpression
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate check      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -4104,7 +4141,9 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate check      * @return the builder used to create the expression      * @deprecated use any of the other methods      */
+annotation|@
+name|Deprecated
 DECL|method|idempotentConsumer (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|ExpressionClause

@@ -223,6 +223,13 @@ name|Boolean
 name|eager
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|skipDuplicate
+specifier|private
+name|Boolean
+name|skipDuplicate
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|idempotentRepository
 specifier|private
@@ -378,6 +385,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to skip duplicates or not.      *<p/>      * The default behavior is to skip duplicates.      *<p/>      * A duplicate message would have the Exchange property {@link org.apache.camel.Exchange#DUPLICATE_MESSAGE} set      * to a {@link Boolean#TRUE} value. A none duplicate message will not have this property set.      *      * @param skipDuplicate<tt>true</tt> to skip duplicates,<tt>false</tt> to allow duplicates.      * @return builder      */
+DECL|method|skipDuplicate (boolean skipDuplicate)
+specifier|public
+name|IdempotentConsumerDefinition
+name|skipDuplicate
+parameter_list|(
+name|boolean
+name|skipDuplicate
+parameter_list|)
+block|{
+name|setSkipDuplicate
+argument_list|(
+name|skipDuplicate
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getMessageIdRepositoryRef ()
 specifier|public
 name|String
@@ -479,6 +505,49 @@ else|:
 literal|true
 return|;
 block|}
+DECL|method|getSkipDuplicate ()
+specifier|public
+name|Boolean
+name|getSkipDuplicate
+parameter_list|()
+block|{
+return|return
+name|skipDuplicate
+return|;
+block|}
+DECL|method|setSkipDuplicate (Boolean skipDuplicate)
+specifier|public
+name|void
+name|setSkipDuplicate
+parameter_list|(
+name|Boolean
+name|skipDuplicate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipDuplicate
+operator|=
+name|skipDuplicate
+expr_stmt|;
+block|}
+DECL|method|isSkipDuplicate ()
+specifier|public
+name|boolean
+name|isSkipDuplicate
+parameter_list|()
+block|{
+comment|// defaults to true if not configured
+return|return
+name|skipDuplicate
+operator|!=
+literal|null
+condition|?
+name|skipDuplicate
+else|:
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -570,6 +639,9 @@ argument_list|,
 name|isEager
 argument_list|()
 argument_list|,
+name|isSkipDuplicate
+argument_list|()
+argument_list|,
 name|childProcessor
 argument_list|)
 return|;
@@ -589,10 +661,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|idempotentRepository
-operator|==
-literal|null
-operator|&&
 name|messageIdRepositoryRef
 operator|!=
 literal|null

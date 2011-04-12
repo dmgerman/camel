@@ -265,7 +265,13 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, Processor processor)
+DECL|field|skipDuplicate
+specifier|private
+specifier|final
+name|boolean
+name|skipDuplicate
+decl_stmt|;
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean skipDuplicate, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -280,6 +286,9 @@ name|idempotentRepository
 parameter_list|,
 name|boolean
 name|eager
+parameter_list|,
+name|boolean
+name|skipDuplicate
 parameter_list|,
 name|Processor
 name|processor
@@ -302,6 +311,12 @@ operator|.
 name|eager
 operator|=
 name|eager
+expr_stmt|;
+name|this
+operator|.
+name|skipDuplicate
+operator|=
+name|skipDuplicate
 expr_stmt|;
 name|this
 operator|.
@@ -439,12 +454,50 @@ operator|!
 name|newKey
 condition|)
 block|{
+comment|// mark the exchange as duplicate
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DUPLICATE_MESSAGE
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|newKey
+condition|)
+block|{
 comment|// we already have this key so its a duplicate message
 name|onDuplicateMessage
 argument_list|(
 name|exchange
 argument_list|,
 name|messageId
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|skipDuplicate
+condition|)
+block|{
+comment|// if we should skip duplicate then we are done
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Ignoring duplicate message with id: {} for exchange: {}"
+argument_list|,
+name|messageId
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 name|callback
@@ -457,6 +510,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 block|}
 comment|// register our on completion callback
 name|exchange
@@ -626,17 +680,7 @@ name|String
 name|messageId
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Ignoring duplicate message with id: {} for exchange: {}"
-argument_list|,
-name|messageId
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 block|}
 end_class

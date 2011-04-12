@@ -218,6 +218,12 @@ name|DISABLE_HTTP_STREAM_CACHE
 init|=
 literal|"CamelDisableHttpStreamCache"
 decl_stmt|;
+DECL|field|DUPLICATE_MESSAGE
+name|String
+name|DUPLICATE_MESSAGE
+init|=
+literal|"CamelDuplicateMessage"
+decl_stmt|;
 DECL|field|ERRORHANDLER_HANDLED
 name|String
 name|ERRORHANDLER_HANDLED
