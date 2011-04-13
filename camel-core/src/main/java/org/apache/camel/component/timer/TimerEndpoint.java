@@ -204,6 +204,11 @@ specifier|private
 name|Timer
 name|timer
 decl_stmt|;
+DECL|field|repeatCount
+specifier|private
+name|long
+name|repeatCount
+decl_stmt|;
 DECL|method|TimerEndpoint ()
 specifier|public
 name|TimerEndpoint
@@ -549,6 +554,46 @@ operator|.
 name|period
 operator|=
 name|period
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Repeat Count"
+argument_list|)
+DECL|method|getRepeatCount ()
+specifier|public
+name|long
+name|getRepeatCount
+parameter_list|()
+block|{
+return|return
+name|repeatCount
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Repeat Count"
+argument_list|)
+DECL|method|setRepeatCount (long repeatCount)
+specifier|public
+name|void
+name|setRepeatCount
+parameter_list|(
+name|long
+name|repeatCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repeatCount
+operator|=
+name|repeatCount
 expr_stmt|;
 block|}
 DECL|method|getTime ()

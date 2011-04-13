@@ -536,6 +536,12 @@ name|SPLIT_SIZE
 init|=
 literal|"CamelSplitSize"
 decl_stmt|;
+DECL|field|TIMER_COUNTER
+name|String
+name|TIMER_COUNTER
+init|=
+literal|"CamelTimerCounter"
+decl_stmt|;
 DECL|field|TIMER_FIRED_TIME
 name|String
 name|TIMER_FIRED_TIME
