@@ -22,6 +22,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ExecutorService
@@ -81,6 +101,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
 import|;
 end_import
 
@@ -282,7 +316,6 @@ specifier|private
 name|Processor
 name|newExchangeProcessor
 decl_stmt|;
-comment|// TODO: Should be named newExchangeRef instead of processorRef (Camel 3.0)
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -306,6 +339,23 @@ DECL|field|newExchangeExpression
 specifier|private
 name|ExpressionSubElementDefinition
 name|newExchangeExpression
+decl_stmt|;
+annotation|@
+name|XmlElementRef
+DECL|field|headers
+specifier|private
+name|List
+argument_list|<
+name|SetHeaderDefinition
+argument_list|>
+name|headers
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|SetHeaderDefinition
+argument_list|>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -477,13 +527,21 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|newExchangeProcessor
+operator|!=
+literal|null
+condition|)
+block|{
 name|answer
 operator|.
-name|setNewExchangeProcessor
+name|addNewExchangeProcessor
 argument_list|(
 name|newExchangeProcessor
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|newExchangeExpression
@@ -503,6 +561,46 @@ name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|headers
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|headers
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|SetHeaderDefinition
+name|header
+range|:
+name|headers
+control|)
+block|{
+name|Processor
+name|processor
+init|=
+name|header
+operator|.
+name|createProcessor
+argument_list|(
+name|routeContext
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|addNewExchangeProcessor
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -760,7 +858,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      */
+comment|/**      * @deprecated use newExchangeBody      */
+annotation|@
+name|Deprecated
 DECL|method|newExchange (Expression expression)
 specifier|public
 name|WireTapDefinition
@@ -768,6 +868,26 @@ argument_list|<
 name|Type
 argument_list|>
 name|newExchange
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+return|return
+name|newExchangeBody
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+DECL|method|newExchangeBody (Expression expression)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|newExchangeBody
 parameter_list|(
 name|Expression
 name|expression
@@ -782,7 +902,29 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param ref reference to the {@link Processor} to lookup in the {@link org.apache.camel.spi.Registry} to      *            be used for preparing the new exchange to send      * @return the builder      */
+DECL|method|newExchangeRef (String ref)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|newExchangeRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setNewExchangeProcessorRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
 DECL|method|newExchange (Processor processor)
 specifier|public
 name|WireTapDefinition
@@ -804,22 +946,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param ref reference to the processor to lookup in the {@link org.apache.camel.spi.Registry} to      *            be used for preparing the new exchange to send      * @return the builder      */
-DECL|method|newExchangeRef (String ref)
+comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the {@link #newExchange(org.apache.camel.Expression)} or {@link #newExchange(org.apache.camel.Processor)}      * methods.      *      * @param headerName  the header name      * @param expression  the expression setting the header value      * @return the builder      */
+DECL|method|newExchangeHeader (String headerName, Expression expression)
 specifier|public
 name|WireTapDefinition
 argument_list|<
 name|Type
 argument_list|>
-name|newExchangeRef
+name|newExchangeHeader
 parameter_list|(
 name|String
-name|ref
+name|headerName
+parameter_list|,
+name|Expression
+name|expression
 parameter_list|)
 block|{
-name|setNewExchangeProcessorRef
+name|headers
+operator|.
+name|add
 argument_list|(
-name|ref
+operator|new
+name|SetHeaderDefinition
+argument_list|(
+name|headerName
+argument_list|,
+name|expression
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1191,6 +1344,38 @@ operator|.
 name|onPrepare
 operator|=
 name|onPrepare
+expr_stmt|;
+block|}
+DECL|method|getHeaders ()
+specifier|public
+name|List
+argument_list|<
+name|SetHeaderDefinition
+argument_list|>
+name|getHeaders
+parameter_list|()
+block|{
+return|return
+name|headers
+return|;
+block|}
+DECL|method|setHeaders (List<SetHeaderDefinition> headers)
+specifier|public
+name|void
+name|setHeaders
+parameter_list|(
+name|List
+argument_list|<
+name|SetHeaderDefinition
+argument_list|>
+name|headers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headers
+operator|=
+name|headers
 expr_stmt|;
 block|}
 block|}
