@@ -77,8 +77,6 @@ DECL|field|serverAliveInterval
 specifier|private
 name|int
 name|serverAliveInterval
-init|=
-literal|0
 decl_stmt|;
 DECL|field|serverAliveCountMax
 specifier|private
