@@ -165,6 +165,11 @@ name|to
 argument_list|(
 literal|"restlet:http://localhost:9080/users/123/basic"
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:reply"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
