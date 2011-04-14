@@ -135,6 +135,23 @@ name|maximumRequestsPerPeriod
 operator|=
 name|maximumRequestsPerPeriod
 expr_stmt|;
+if|if
+condition|(
+name|maximumRequestsPerPeriod
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"MaximumRequestsPerPeriod should be a positive number, was: "
+operator|+
+name|maximumRequestsPerPeriod
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|timePeriodMillis
