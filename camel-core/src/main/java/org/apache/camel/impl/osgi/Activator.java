@@ -2251,7 +2251,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Invalid script engine factory "
+literal|"Invalid ScriptEngineFactory: "
 operator|+
 name|cls
 operator|.
@@ -2311,6 +2311,11 @@ operator|.
 name|getContextClassLoader
 argument_list|()
 decl_stmt|;
+name|ScriptEngine
+name|engine
+decl_stmt|;
+try|try
+block|{
 comment|// JRuby seems to require the correct TCCL to call getScriptEngine
 name|Thread
 operator|.
@@ -2328,14 +2333,16 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ScriptEngine
 name|engine
-init|=
+operator|=
 name|factory
 operator|.
 name|getScriptEngine
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Thread
 operator|.
 name|currentThread
@@ -2344,6 +2351,18 @@ operator|.
 name|setContextClassLoader
 argument_list|(
 name|old
+argument_list|)
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Resolved ScriptEngineFactory: {} for expected name: {}"
+argument_list|,
+name|engine
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -2355,15 +2374,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Script Engine Factory for "
-operator|+
+literal|"ScriptEngineFactory: {} does not match expected name: {}"
+argument_list|,
 name|factory
 operator|.
 name|getEngineName
 argument_list|()
-operator|+
-literal|" does not match "
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -2381,7 +2398,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to create script engine factory: "
+literal|"Cannot create ScriptEngineFactory: "
 operator|+
 name|e
 operator|.
