@@ -382,7 +382,9 @@ name|boolean
 name|hasAttachments
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the unique ID for a message exchange if this message is capable      * of creating one or<tt>null</tt> if not      *      * @return the created exchange id, or<tt>null</tt> if not capable of creating      */
+comment|/**      * Returns the unique ID for a message exchange if this message is capable      * of creating one or<tt>null</tt> if not      *      * @return the created exchange id, or<tt>null</tt> if not capable of creating      * @deprecated it is discouraged for messages to create exchange ids      */
+annotation|@
+name|Deprecated
 DECL|method|createExchangeId ()
 name|String
 name|createExchangeId
