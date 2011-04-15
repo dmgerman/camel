@@ -34,18 +34,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -115,10 +103,10 @@ comment|/**  * A simple request / reply test  */
 end_comment
 
 begin_class
-DECL|class|JmsSimpleRequestReply2Test
+DECL|class|JmsSimpleRequestReplyFixedReplyQueueTest
 specifier|public
 class|class
-name|JmsSimpleRequestReply2Test
+name|JmsSimpleRequestReplyFixedReplyQueueTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -278,7 +266,7 @@ argument_list|)
 operator|.
 name|inOut
 argument_list|(
-literal|"activemq:queue:foo"
+literal|"activemq:queue:foo?replyTo=queue:bar"
 argument_list|)
 operator|.
 name|to
