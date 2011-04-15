@@ -209,6 +209,7 @@ specifier|private
 name|String
 name|resourceUri
 decl_stmt|;
+comment|// TODO: For Camel 3.0 we should remove this ref attribute as you can do that in the uri, by prefixing with ref:
 annotation|@
 name|XmlAttribute
 argument_list|(

@@ -1129,20 +1129,18 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Changing shutdownRunningTask from "
-operator|+
-name|current
-operator|+
-literal|" to "
+literal|"Changing shutdownRunningTask from {} to "
 operator|+
 name|ShutdownRunningTask
 operator|.
 name|CompleteCurrentTaskOnly
 operator|+
-literal|" on route "
-operator|+
+literal|" on route {} to shutdown faster"
+argument_list|,
+name|current
+argument_list|,
 name|order
 operator|.
 name|getRoute
@@ -1150,8 +1148,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" to shutdown faster"
 argument_list|)
 expr_stmt|;
 name|order
@@ -1287,7 +1283,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Shutdown complete for: {}"
 argument_list|,
@@ -1365,7 +1361,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Suspend complete for: {}"
 argument_list|,
@@ -1802,6 +1798,7 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+comment|// log at info level when a route has been shutdown (otherwise log at debug level to not be too noisy)
 if|if
 condition|(
 name|suspend
@@ -1832,10 +1829,10 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} suspended and shutdown deferred, was consuming from: {}"
+argument_list|,
 name|order
 operator|.
 name|getRoute
@@ -1843,9 +1840,7 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" suspended and shutdown deferred, was consuming from: "
-operator|+
+argument_list|,
 name|order
 operator|.
 name|getRoute
@@ -1871,8 +1866,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} shutdown complete, was consuming from: {}"
+argument_list|,
 name|order
 operator|.
 name|getRoute
@@ -1880,9 +1875,7 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" shutdown complete, was consuming from: "
-operator|+
+argument_list|,
 name|order
 operator|.
 name|getRoute
@@ -1915,7 +1908,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Route: "
 operator|+
@@ -2036,7 +2029,7 @@ name|inflight
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"{} inflight and pending exchanges for consumer: {}"
 argument_list|,
@@ -2120,7 +2113,6 @@ argument_list|(
 literal|"Interrupted while waiting during graceful shutdown, will abort."
 argument_list|)
 expr_stmt|;
-comment|//Thread.currentThread().interrupt();
 return|return;
 block|}
 else|else
@@ -2131,14 +2123,6 @@ name|warn
 argument_list|(
 literal|"Interrupted while waiting during graceful shutdown, will force shutdown now."
 argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
 expr_stmt|;
 break|break;
 block|}
@@ -2176,17 +2160,9 @@ operator|instanceof
 name|ShutdownAware
 condition|)
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Route: {} preparing to shutdown."
 argument_list|,
@@ -2199,7 +2175,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 operator|(
 operator|(
 name|ShutdownAware
@@ -2212,10 +2187,10 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} preparing to shutdown complete."
+argument_list|,
 name|deferred
 operator|.
 name|getRoute
@@ -2223,8 +2198,6 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" preparing to shutdown complete."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2260,8 +2233,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} suspend complete, was consuming from: {}"
+argument_list|,
 name|deferred
 operator|.
 name|getRoute
@@ -2269,8 +2242,14 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" suspend complete."
+argument_list|,
+name|deferred
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2285,8 +2264,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} shutdown complete, was consuming from: {}"
+argument_list|,
 name|deferred
 operator|.
 name|getRoute
@@ -2294,8 +2273,14 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" shutdown complete."
+argument_list|,
+name|deferred
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
