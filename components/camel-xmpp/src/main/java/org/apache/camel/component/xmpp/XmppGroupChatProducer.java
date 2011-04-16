@@ -507,11 +507,11 @@ operator|.
 name|leave
 argument_list|()
 expr_stmt|;
+block|}
 name|chat
 operator|=
 literal|null
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|connection
@@ -530,6 +530,10 @@ name|disconnect
 argument_list|()
 expr_stmt|;
 block|}
+name|connection
+operator|=
+literal|null
+expr_stmt|;
 name|super
 operator|.
 name|doStop

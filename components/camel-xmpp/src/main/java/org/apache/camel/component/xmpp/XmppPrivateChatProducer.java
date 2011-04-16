@@ -698,6 +698,10 @@ name|disconnect
 argument_list|()
 expr_stmt|;
 block|}
+name|connection
+operator|=
+literal|null
+expr_stmt|;
 name|super
 operator|.
 name|doStop

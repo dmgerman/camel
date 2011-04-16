@@ -1143,29 +1143,6 @@ name|getUser
 argument_list|()
 return|;
 block|}
-DECL|method|destroy ()
-specifier|protected
-specifier|synchronized
-name|void
-name|destroy
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|connection
-operator|!=
-literal|null
-condition|)
-block|{
-name|connection
-operator|.
-name|disconnect
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
@@ -1539,6 +1516,38 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|connection
+operator|!=
+literal|null
+condition|)
+block|{
+name|connection
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
+name|connection
+operator|=
+literal|null
+expr_stmt|;
+name|binding
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 end_class
 
