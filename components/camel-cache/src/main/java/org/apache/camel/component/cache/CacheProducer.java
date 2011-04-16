@@ -634,8 +634,6 @@ name|key
 argument_list|,
 name|element
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -694,8 +692,6 @@ name|key
 argument_list|,
 name|element
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -772,8 +768,6 @@ operator|.
 name|remove
 argument_list|(
 name|key
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
