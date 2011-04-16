@@ -5608,6 +5608,28 @@ name|long
 name|maximumRequestCount
 parameter_list|)
 block|{
+return|return
+name|throttle
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|maximumRequestCount
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount  an expression to calculate the maximum request count       * @return the builder      */
+DECL|method|throttle (Expression maximumRequestCount)
+specifier|public
+name|ThrottleDefinition
+name|throttle
+parameter_list|(
+name|Expression
+name|maximumRequestCount
+parameter_list|)
+block|{
 name|ThrottleDefinition
 name|answer
 init|=

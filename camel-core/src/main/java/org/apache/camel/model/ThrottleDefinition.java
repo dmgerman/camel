@@ -118,7 +118,49 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -147,6 +189,20 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -190,17 +246,14 @@ specifier|public
 class|class
 name|ThrottleDefinition
 extends|extends
-name|OutputDefinition
-argument_list|<
-name|ThrottleDefinition
-argument_list|>
+name|ExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
 name|ThrottleDefinition
 argument_list|>
 block|{
-comment|// TODO: Camel 3.0 Should extend NoOutputDefinition
+comment|// TODO: Camel 3.0 Should not support outputs
 annotation|@
 name|XmlTransient
 DECL|field|executorService
@@ -214,18 +267,6 @@ DECL|field|executorServiceRef
 specifier|private
 name|String
 name|executorServiceRef
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|field|maximumRequestsPerPeriod
-specifier|private
-name|Long
-name|maximumRequestsPerPeriod
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -253,19 +294,18 @@ specifier|public
 name|ThrottleDefinition
 parameter_list|()
 block|{     }
-DECL|method|ThrottleDefinition (long maximumRequestsPerPeriod)
+DECL|method|ThrottleDefinition (Expression maximumRequestsPerPeriod)
 specifier|public
 name|ThrottleDefinition
 parameter_list|(
-name|long
+name|Expression
 name|maximumRequestsPerPeriod
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|maximumRequestsPerPeriod
-operator|=
-name|maximumRequestsPerPeriod
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -279,7 +319,7 @@ block|{
 return|return
 literal|"Throttle["
 operator|+
-name|getMaximumRequestsPerPeriod
+name|getExpression
 argument_list|()
 operator|+
 literal|" request per "
@@ -318,7 +358,7 @@ block|{
 return|return
 literal|""
 operator|+
-name|getMaximumRequestsPerPeriod
+name|getExpression
 argument_list|()
 operator|+
 literal|" per "
@@ -423,6 +463,14 @@ argument_list|()
 else|:
 literal|1000L
 decl_stmt|;
+name|Expression
+name|maxRequestsExpression
+init|=
+name|createMaxRequestsPerPeriodExpression
+argument_list|(
+name|routeContext
+argument_list|)
+decl_stmt|;
 name|Throttler
 name|answer
 init|=
@@ -431,8 +479,7 @@ name|Throttler
 argument_list|(
 name|childProcessor
 argument_list|,
-name|getMaximumRequestsPerPeriod
-argument_list|()
+name|maxRequestsExpression
 argument_list|,
 name|period
 argument_list|,
@@ -488,6 +535,60 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|createMaxRequestsPerPeriodExpression (RouteContext routeContext)
+specifier|private
+name|Expression
+name|createMaxRequestsPerPeriodExpression
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+if|if
+condition|(
+name|getExpression
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+argument_list|)
+operator|||
+name|getExpression
+argument_list|()
+operator|.
+name|getExpressionValue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getExpression
+argument_list|()
+operator|.
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
+return|;
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the time period during which the maximum request count is valid for      *      * @param timePeriodMillis  period in millis      * @return the builder      */
@@ -519,9 +620,18 @@ name|Long
 name|maximumRequestsPerPeriod
 parameter_list|)
 block|{
-name|setMaximumRequestsPerPeriod
+name|setExpression
+argument_list|(
+operator|new
+name|ExpressionDefinition
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|constantExpression
 argument_list|(
 name|maximumRequestsPerPeriod
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -601,32 +711,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-DECL|method|getMaximumRequestsPerPeriod ()
-specifier|public
-name|Long
-name|getMaximumRequestsPerPeriod
-parameter_list|()
-block|{
-return|return
-name|maximumRequestsPerPeriod
-return|;
-block|}
-DECL|method|setMaximumRequestsPerPeriod (Long maximumRequestsPerPeriod)
-specifier|public
-name|void
-name|setMaximumRequestsPerPeriod
-parameter_list|(
-name|Long
-name|maximumRequestsPerPeriod
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maximumRequestsPerPeriod
-operator|=
-name|maximumRequestsPerPeriod
-expr_stmt|;
-block|}
 DECL|method|getTimePeriodMillis ()
 specifier|public
 name|Long

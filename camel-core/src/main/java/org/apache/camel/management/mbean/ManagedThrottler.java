@@ -90,6 +90,22 @@ name|ManagedResource
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+operator|.
+name|constant
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -175,7 +191,7 @@ return|return
 name|getThrottler
 argument_list|()
 operator|.
-name|getMaximumRequestsPerPeriod
+name|getCurrentMaximumRequestsPerPeriod
 argument_list|()
 return|;
 block|}
@@ -198,9 +214,12 @@ block|{
 name|getThrottler
 argument_list|()
 operator|.
-name|setMaximumRequestsPerPeriod
+name|setMaximumRequestsPerPeriodExpression
+argument_list|(
+name|constant
 argument_list|(
 name|maximumRequestsPerPeriod
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

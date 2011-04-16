@@ -48,7 +48,33 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -71,10 +97,17 @@ specifier|private
 name|long
 name|maximumRequestsPerPeriod
 decl_stmt|;
+DECL|field|maxRequestsPerPeriodExpression
+specifier|private
+name|Expression
+name|maxRequestsPerPeriodExpression
+decl_stmt|;
 DECL|field|timePeriodMillis
 specifier|private
 name|long
 name|timePeriodMillis
+init|=
+literal|1000
 decl_stmt|;
 DECL|field|slot
 specifier|private
@@ -82,38 +115,15 @@ specifier|volatile
 name|TimeSlot
 name|slot
 decl_stmt|;
-DECL|method|Throttler (Processor processor, long maximumRequestsPerPeriod)
+DECL|method|Throttler (Processor processor, Expression maxRequestsPerPeriodExpression, long timePeriodMillis, ScheduledExecutorService executorService)
 specifier|public
 name|Throttler
 parameter_list|(
 name|Processor
 name|processor
 parameter_list|,
-name|long
-name|maximumRequestsPerPeriod
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|processor
-argument_list|,
-name|maximumRequestsPerPeriod
-argument_list|,
-literal|1000
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|Throttler (Processor processor, long maximumRequestsPerPeriod, long timePeriodMillis, ScheduledExecutorService executorService)
-specifier|public
-name|Throttler
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|,
-name|long
-name|maximumRequestsPerPeriod
+name|Expression
+name|maxRequestsPerPeriodExpression
 parameter_list|,
 name|long
 name|timePeriodMillis
@@ -129,15 +139,24 @@ argument_list|,
 name|executorService
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|maxRequestsPerPeriodExpression
+argument_list|,
+literal|"maxRequestsPerPeriodExpression"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 operator|=
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 expr_stmt|;
 if|if
 condition|(
-name|maximumRequestsPerPeriod
+name|timePeriodMillis
 operator|<=
 literal|0
 condition|)
@@ -146,9 +165,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"MaximumRequestsPerPeriod should be a positive number, was: "
+literal|"TimePeriodMillis should be a positive number, was: "
 operator|+
-name|maximumRequestsPerPeriod
+name|timePeriodMillis
 argument_list|)
 throw|;
 block|}
@@ -170,7 +189,7 @@ block|{
 return|return
 literal|"Throttler[requests: "
 operator|+
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 operator|+
 literal|" per: "
 operator|+
@@ -193,7 +212,7 @@ block|{
 return|return
 literal|"throttle["
 operator|+
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 operator|+
 literal|" per: "
 operator|+
@@ -204,32 +223,32 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getMaximumRequestsPerPeriod ()
-specifier|public
-name|long
-name|getMaximumRequestsPerPeriod
-parameter_list|()
-block|{
-return|return
-name|maximumRequestsPerPeriod
-return|;
-block|}
-comment|/**      * Sets the maximum number of requests per time period      */
-DECL|method|setMaximumRequestsPerPeriod (long maximumRequestsPerPeriod)
+comment|/**      * Sets the maximum number of requests per time period expression      */
+DECL|method|setMaximumRequestsPerPeriodExpression (Expression maxRequestsPerPeriodExpression)
 specifier|public
 name|void
-name|setMaximumRequestsPerPeriod
+name|setMaximumRequestsPerPeriodExpression
 parameter_list|(
-name|long
-name|maximumRequestsPerPeriod
+name|Expression
+name|maxRequestsPerPeriodExpression
 parameter_list|)
 block|{
 name|this
 operator|.
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 operator|=
-name|maximumRequestsPerPeriod
+name|maxRequestsPerPeriodExpression
 expr_stmt|;
+block|}
+DECL|method|getMaximumRequestsPerPeriodExpression ()
+specifier|public
+name|Expression
+name|getMaximumRequestsPerPeriodExpression
+parameter_list|()
+block|{
+return|return
+name|maxRequestsPerPeriodExpression
+return|;
 block|}
 DECL|method|getTimePeriodMillis ()
 specifier|public
@@ -239,6 +258,17 @@ parameter_list|()
 block|{
 return|return
 name|timePeriodMillis
+return|;
+block|}
+comment|/**      * Gets the current maximum request per period value.      */
+DECL|method|getCurrentMaximumRequestsPerPeriod ()
+specifier|public
+name|long
+name|getCurrentMaximumRequestsPerPeriod
+parameter_list|()
+block|{
+return|return
+name|maximumRequestsPerPeriod
 return|;
 block|}
 comment|/**      * Sets the time period during which the maximum number of requests apply      */
@@ -269,6 +299,76 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|Long
+name|longValue
+init|=
+name|maxRequestsPerPeriodExpression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|longValue
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// log if we changed max period after initial setting
+if|if
+condition|(
+name|maximumRequestsPerPeriod
+operator|>
+literal|0
+operator|&&
+name|longValue
+operator|.
+name|longValue
+argument_list|()
+operator|!=
+name|maximumRequestsPerPeriod
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Throttler changed maximum requests per period from {} to {}"
+argument_list|,
+name|maximumRequestsPerPeriod
+argument_list|,
+name|longValue
+argument_list|)
+expr_stmt|;
+block|}
+name|maximumRequestsPerPeriod
+operator|=
+name|longValue
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|maximumRequestsPerPeriod
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The maximumRequestsPerPeriod must be a positive number, was: "
+operator|+
+name|maximumRequestsPerPeriod
+argument_list|)
+throw|;
+block|}
 name|TimeSlot
 name|slot
 init|=
