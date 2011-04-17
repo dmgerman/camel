@@ -3788,6 +3788,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// noop, do not stop any services which we only do when shutting down
+comment|// as the error handler can be context scoped, and should not stop in case
+comment|// a route stops
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|ServiceHelper
 operator|.
 name|stopServices
