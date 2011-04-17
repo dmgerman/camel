@@ -78,6 +78,37 @@ name|deleteAfterRead
 init|=
 literal|true
 decl_stmt|;
+DECL|field|amazonS3Endpoint
+specifier|private
+name|String
+name|amazonS3Endpoint
+decl_stmt|;
+DECL|method|setAmazonS3Endpoint (String amazonS3Endpoint)
+specifier|public
+name|void
+name|setAmazonS3Endpoint
+parameter_list|(
+name|String
+name|amazonS3Endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonS3Endpoint
+operator|=
+name|amazonS3Endpoint
+expr_stmt|;
+block|}
+DECL|method|getAmazonS3Endpoint ()
+specifier|public
+name|String
+name|getAmazonS3Endpoint
+parameter_list|()
+block|{
+return|return
+name|amazonS3Endpoint
+return|;
+block|}
 DECL|method|getAccessKey ()
 specifier|public
 name|String

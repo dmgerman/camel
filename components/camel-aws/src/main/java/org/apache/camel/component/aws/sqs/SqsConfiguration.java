@@ -75,6 +75,11 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+DECL|field|amazonSQSEndpoint
+specifier|private
+name|String
+name|amazonSQSEndpoint
+decl_stmt|;
 comment|// consumer properties
 DECL|field|deleteAfterRead
 specifier|private
@@ -103,6 +108,32 @@ specifier|private
 name|Integer
 name|defaultVisibilityTimeout
 decl_stmt|;
+DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
+specifier|public
+name|void
+name|setAmazonSQSEndpoint
+parameter_list|(
+name|String
+name|amazonSQSEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonSQSEndpoint
+operator|=
+name|amazonSQSEndpoint
+expr_stmt|;
+block|}
+DECL|method|getAmazonSQSEndpoint ()
+specifier|public
+name|String
+name|getAmazonSQSEndpoint
+parameter_list|()
+block|{
+return|return
+name|amazonSQSEndpoint
+return|;
+block|}
 DECL|method|getQueueName ()
 specifier|public
 name|String

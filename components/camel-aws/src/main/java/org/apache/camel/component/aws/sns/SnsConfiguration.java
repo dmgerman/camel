@@ -67,6 +67,11 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+DECL|field|amazonSNSEndpoint
+specifier|private
+name|String
+name|amazonSNSEndpoint
+decl_stmt|;
 comment|// Producer only properties
 DECL|field|subject
 specifier|private
@@ -78,6 +83,32 @@ specifier|private
 name|String
 name|topicArn
 decl_stmt|;
+DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
+specifier|public
+name|void
+name|setAmazonSNSEndpoint
+parameter_list|(
+name|String
+name|awsSNSEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonSNSEndpoint
+operator|=
+name|awsSNSEndpoint
+expr_stmt|;
+block|}
+DECL|method|getAmazonSNSEndpoint ()
+specifier|public
+name|String
+name|getAmazonSNSEndpoint
+parameter_list|()
+block|{
+return|return
+name|amazonSNSEndpoint
+return|;
+block|}
 DECL|method|getSubject ()
 specifier|public
 name|String
