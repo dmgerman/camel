@@ -1091,7 +1091,10 @@ comment|// we can only advice with a route builder without any routes
 if|if
 condition|(
 operator|!
-name|routes
+name|builder
+operator|.
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getRoutes
 argument_list|()
@@ -1110,15 +1113,33 @@ literal|" Remove all routes from the route builder."
 argument_list|)
 throw|;
 block|}
-comment|// we can not advice with error handlers
+comment|// we can not advice with error handlers (if you added a new error handler in the route builder)
+comment|// we must check the error handler on builder is not the same as on camel context, as that would be the default
+comment|// context scoped error handler, in case no error handlers was configured
 if|if
 condition|(
-name|routes
+name|builder
+operator|.
+name|getRouteCollection
+argument_list|()
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|camelContext
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+operator|!=
+name|builder
+operator|.
+name|getRouteCollection
+argument_list|()
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
 condition|)
 block|{
 throw|throw
