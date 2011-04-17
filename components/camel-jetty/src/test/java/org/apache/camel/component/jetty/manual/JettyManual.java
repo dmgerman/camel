@@ -84,6 +84,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -177,7 +191,14 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:"
+operator|+
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+operator|+
+literal|"/ myapp / myservice"
 argument_list|)
 operator|.
 name|process
