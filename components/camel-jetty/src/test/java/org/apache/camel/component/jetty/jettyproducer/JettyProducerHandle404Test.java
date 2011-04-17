@@ -36,18 +36,8 @@ name|JettyHandle404Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  *  * @version   */
+comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  *  * @version  */
 end_comment
 
 begin_class
