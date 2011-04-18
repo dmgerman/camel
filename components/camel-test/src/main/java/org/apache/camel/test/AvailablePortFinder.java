@@ -56,8 +56,22 @@ name|NoSuchElementException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
 begin_comment
-comment|/**  * Finds currently available server ports.  *  * @see<a href="http://www.iana.org/assignments/port-numbers">IANA.org</a>  */
+comment|/**  * Finds currently available server ports.  *  * @see<a href="http://www.iana.org/assignments/currentMinPort-numbers">IANA.org</a>  */
 end_comment
 
 begin_class
@@ -67,7 +81,7 @@ specifier|final
 class|class
 name|AvailablePortFinder
 block|{
-comment|/**      * The minimum server port number. Set at 1024 to avoid returning privileged      * port numbers.      */
+comment|/**      * The minimum server currentMinPort number. Set at 1024 to avoid returning privileged      * currentMinPort numbers.      */
 DECL|field|MIN_PORT_NUMBER
 specifier|public
 specifier|static
@@ -77,7 +91,7 @@ name|MIN_PORT_NUMBER
 init|=
 literal|1024
 decl_stmt|;
-comment|/**      * The maximum server port number.      */
+comment|/**      * The maximum server currentMinPort number.      */
 DECL|field|MAX_PORT_NUMBER
 specifier|public
 specifier|static
@@ -87,6 +101,19 @@ name|MAX_PORT_NUMBER
 init|=
 literal|49151
 decl_stmt|;
+comment|/**      * Incremented to the next lowest available port when getNextAvailable() is called.      */
+DECL|field|currentMinPort
+specifier|private
+specifier|static
+name|AtomicInteger
+name|currentMinPort
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+name|MIN_PORT_NUMBER
+argument_list|)
+decl_stmt|;
 comment|/**      * Creates a new instance.      */
 DECL|method|AvailablePortFinder ()
 specifier|private
@@ -95,7 +122,7 @@ parameter_list|()
 block|{
 comment|// Do nothing
 block|}
-comment|/**      * Gets the next available port starting at the lowest port number.      *      * @throws NoSuchElementException if there are no ports available      */
+comment|/**      * Gets the next available currentMinPort starting at the lowest currentMinPort number. This is the preferred      * method to use. The port return is immediately marked in use and doesn't rely on the caller actually opening      * the port.      *      * @throws NoSuchElementException if there are no ports available      */
 DECL|method|getNextAvailable ()
 specifier|public
 specifier|static
@@ -103,14 +130,31 @@ name|int
 name|getNextAvailable
 parameter_list|()
 block|{
-return|return
+name|int
+name|next
+init|=
 name|getNextAvailable
 argument_list|(
-name|MIN_PORT_NUMBER
+name|currentMinPort
+operator|.
+name|get
+argument_list|()
 argument_list|)
+decl_stmt|;
+name|currentMinPort
+operator|.
+name|set
+argument_list|(
+name|next
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+return|return
+name|next
 return|;
 block|}
-comment|/**      * Gets the next available port starting at a port.      *      * @param fromPort the port to scan for availability      * @throws NoSuchElementException if there are no ports available      */
+comment|/**      * Gets the next available currentMinPort starting at a currentMinPort.      *      * @param fromPort the currentMinPort to scan for availability      * @throws NoSuchElementException if there are no ports available      */
 DECL|method|getNextAvailable (int fromPort)
 specifier|public
 specifier|static
@@ -125,7 +169,11 @@ if|if
 condition|(
 name|fromPort
 argument_list|<
-name|MIN_PORT_NUMBER
+name|currentMinPort
+operator|.
+name|get
+operator|(
+operator|)
 operator|||
 name|fromPort
 argument_list|>
@@ -136,7 +184,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid start port: "
+literal|"Invalid start currentMinPort: "
 operator|+
 name|fromPort
 argument_list|)
@@ -174,13 +222,13 @@ throw|throw
 operator|new
 name|NoSuchElementException
 argument_list|(
-literal|"Could not find an available port above "
+literal|"Could not find an available currentMinPort above "
 operator|+
 name|fromPort
 argument_list|)
 throw|;
 block|}
-comment|/**      * Checks to see if a specific port is available.      *      * @param port the port to check for availability      */
+comment|/**      * Checks to see if a specific currentMinPort is available.      *      * @param port the currentMinPort to check for availability      */
 DECL|method|available (int port)
 specifier|public
 specifier|static
@@ -195,7 +243,11 @@ if|if
 condition|(
 name|port
 argument_list|<
-name|MIN_PORT_NUMBER
+name|currentMinPort
+operator|.
+name|get
+operator|(
+operator|)
 operator|||
 name|port
 argument_list|>
@@ -206,7 +258,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid start port: "
+literal|"Invalid start currentMinPort: "
 operator|+
 name|port
 argument_list|)
