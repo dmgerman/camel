@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateProducerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -136,10 +148,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testConnectionOnStartupTest ()
+DECL|method|testConnectionOnStartupConsumerTest ()
 specifier|public
 name|void
-name|testConnectionOnStartupTest
+name|testConnectionOnStartupConsumerTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -200,6 +212,85 @@ argument_list|(
 literal|"Failed to create Consumer for endpoint: Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. "
 operator|+
 literal|"Reason: Cannot get JMS Connection on startup for destination foo"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testConnectionOnStartupProducerTest ()
+specifier|public
+name|void
+name|testConnectionOnStartupProducerTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"activemq:queue:foo?testConnectionOnStartup=true"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FailedToCreateProducerException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+name|assertEquals
+argument_list|(
+literal|"Failed to create Producer for endpoint: Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. "
+operator|+
+literal|"Reason: org.apache.camel.FailedToCreateProducerException: Failed to create Producer for endpoint: "
+operator|+
+literal|"Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. Reason: javax.jms.JMSException: "
+operator|+
+literal|"Could not connect to broker URL: tcp://localhost:61111. Reason: java.net.ConnectException: Connection refused"
 argument_list|,
 name|e
 operator|.
