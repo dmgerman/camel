@@ -547,6 +547,12 @@ name|tempTarget
 init|=
 literal|null
 decl_stmt|;
+comment|// remember if target exists to avoid checking twice
+name|Boolean
+name|targetExists
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|writeAsTempAndRename
@@ -574,14 +580,18 @@ expr_stmt|;
 comment|// cater for file exists option on the real target as
 comment|// the file operations code will work on the temp file
 comment|// if an existing file already exists what should we do?
-if|if
-condition|(
+name|targetExists
+operator|=
 name|operations
 operator|.
 name|existsFile
 argument_list|(
 name|target
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|targetExists
 condition|)
 block|{
 if|if
@@ -760,12 +770,7 @@ operator|.
 name|isEagerDeleteTargetFile
 argument_list|()
 operator|&&
-name|operations
-operator|.
-name|existsFile
-argument_list|(
-name|target
-argument_list|)
+name|targetExists
 operator|&&
 name|endpoint
 operator|.
