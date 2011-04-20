@@ -1156,7 +1156,7 @@ name|setBody
 argument_list|(
 name|outputStream
 operator|.
-name|getBytes
+name|getInputStream
 argument_list|()
 argument_list|)
 expr_stmt|;
