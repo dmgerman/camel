@@ -86,9 +86,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|cometd
+name|apache
 operator|.
-name|Bayeux
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -98,7 +102,25 @@ name|org
 operator|.
 name|cometd
 operator|.
-name|Client
+name|bayeux
+operator|.
+name|server
+operator|.
+name|ServerMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|cometd
+operator|.
+name|bayeux
+operator|.
+name|server
+operator|.
+name|ServerSession
 import|;
 end_import
 
@@ -110,7 +132,7 @@ name|cometd
 operator|.
 name|server
 operator|.
-name|AbstractBayeux
+name|AbstractService
 import|;
 end_import
 
@@ -122,7 +144,7 @@ name|cometd
 operator|.
 name|server
 operator|.
-name|BayeuxService
+name|BayeuxServerImpl
 import|;
 end_import
 
@@ -142,7 +164,7 @@ name|CometdProducerConsumer
 block|{
 DECL|field|bayeux
 specifier|private
-name|AbstractBayeux
+name|BayeuxServerImpl
 name|bayeux
 decl_stmt|;
 DECL|field|endpoint
@@ -196,6 +218,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// must connect first
 name|endpoint
 operator|.
 name|connect
@@ -242,12 +265,12 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|setBayeux (AbstractBayeux bayeux)
+DECL|method|setBayeux (BayeuxServerImpl bayeux)
 specifier|public
 name|void
 name|setBayeux
 parameter_list|(
-name|AbstractBayeux
+name|BayeuxServerImpl
 name|bayeux
 parameter_list|)
 block|{
@@ -274,7 +297,7 @@ specifier|static
 class|class
 name|ConsumerService
 extends|extends
-name|BayeuxService
+name|AbstractService
 block|{
 DECL|field|endpoint
 specifier|private
@@ -288,14 +311,14 @@ specifier|final
 name|CometdConsumer
 name|consumer
 decl_stmt|;
-DECL|method|ConsumerService (String channel, Bayeux bayeux, CometdConsumer consumer)
+DECL|method|ConsumerService (String channel, BayeuxServerImpl bayeux, CometdConsumer consumer)
 specifier|public
 name|ConsumerService
 parameter_list|(
 name|String
 name|channel
 parameter_list|,
-name|Bayeux
+name|BayeuxServerImpl
 name|bayeux
 parameter_list|,
 name|CometdConsumer
@@ -324,7 +347,7 @@ operator|.
 name|getEndpoint
 argument_list|()
 expr_stmt|;
-name|subscribe
+name|addService
 argument_list|(
 name|channel
 argument_list|,
@@ -332,20 +355,46 @@ literal|"push"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|push (Client client, Object data)
+DECL|method|push (ServerSession remote, String channelName, ServerMessage cometdMessage, String messageId)
 specifier|public
 name|void
 name|push
 parameter_list|(
-name|Client
-name|client
+name|ServerSession
+name|remote
 parameter_list|,
-name|Object
-name|data
+name|String
+name|channelName
+parameter_list|,
+name|ServerMessage
+name|cometdMessage
+parameter_list|,
+name|String
+name|messageId
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Object
+name|data
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|cometdMessage
+operator|!=
+literal|null
+condition|)
+block|{
+name|data
+operator|=
+name|cometdMessage
+operator|.
+name|getData
+argument_list|()
+expr_stmt|;
+block|}
 name|Message
 name|message
 init|=
@@ -385,6 +434,42 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ExchangeHelper
+operator|.
+name|isOutCapable
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|Message
+name|camelOutMessage
+init|=
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+decl_stmt|;
+name|remote
+operator|.
+name|deliver
+argument_list|(
+name|getServerSession
+argument_list|()
+argument_list|,
+name|channelName
+argument_list|,
+name|camelOutMessage
+operator|.
+name|getBody
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

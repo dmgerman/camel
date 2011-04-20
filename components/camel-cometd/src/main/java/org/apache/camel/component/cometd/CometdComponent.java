@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|LinkedHashMap
 import|;
 end_import
 
@@ -100,7 +100,11 @@ name|org
 operator|.
 name|cometd
 operator|.
-name|Extension
+name|bayeux
+operator|.
+name|server
+operator|.
+name|BayeuxServer
 import|;
 end_import
 
@@ -109,6 +113,10 @@ import|import
 name|org
 operator|.
 name|cometd
+operator|.
+name|bayeux
+operator|.
+name|server
 operator|.
 name|SecurityPolicy
 import|;
@@ -122,7 +130,7 @@ name|cometd
 operator|.
 name|server
 operator|.
-name|AbstractBayeux
+name|BayeuxServerImpl
 import|;
 end_import
 
@@ -134,9 +142,7 @@ name|cometd
 operator|.
 name|server
 operator|.
-name|continuation
-operator|.
-name|ContinuationCometdServlet
+name|CometdServlet
 import|;
 end_import
 
@@ -197,6 +203,38 @@ operator|.
 name|nio
 operator|.
 name|SelectChannelConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|session
+operator|.
+name|HashSessionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|session
+operator|.
+name|SessionHandler
 import|;
 end_import
 
@@ -321,7 +359,7 @@ argument_list|>
 name|connectors
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -363,6 +401,8 @@ DECL|field|extensions
 specifier|private
 name|List
 argument_list|<
+name|BayeuxServer
+operator|.
 name|Extension
 argument_list|>
 name|extensions
@@ -376,21 +416,21 @@ name|Connector
 name|connector
 decl_stmt|;
 DECL|field|servlet
-name|ContinuationCometdServlet
+name|CometdServlet
 name|servlet
 decl_stmt|;
 DECL|field|refCount
 name|int
 name|refCount
 decl_stmt|;
-DECL|method|ConnectorRef (Connector connector, ContinuationCometdServlet servlet)
+DECL|method|ConnectorRef (Connector connector, CometdServlet servlet)
 specifier|public
 name|ConnectorRef
 parameter_list|(
 name|Connector
 name|connector
 parameter_list|,
-name|ContinuationCometdServlet
+name|CometdServlet
 name|servlet
 parameter_list|)
 block|{
@@ -642,7 +682,7 @@ argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
-name|ContinuationCometdServlet
+name|CometdServlet
 name|servlet
 init|=
 name|createServletForConnector
@@ -686,7 +726,7 @@ name|increment
 argument_list|()
 expr_stmt|;
 block|}
-name|AbstractBayeux
+name|BayeuxServerImpl
 name|bayeux
 init|=
 name|connectorRef
@@ -696,16 +736,6 @@ operator|.
 name|getBayeux
 argument_list|()
 decl_stmt|;
-name|bayeux
-operator|.
-name|setJSONCommented
-argument_list|(
-name|endpoint
-operator|.
-name|isJsonCommented
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|securityPolicy
@@ -730,6 +760,8 @@ condition|)
 block|{
 for|for
 control|(
+name|BayeuxServer
+operator|.
 name|Extension
 name|extension
 range|:
@@ -861,7 +893,7 @@ block|}
 block|}
 DECL|method|createServletForConnector (Connector connector, CometdEndpoint endpoint)
 specifier|protected
-name|ContinuationCometdServlet
+name|CometdServlet
 name|createServletForConnector
 parameter_list|(
 name|Connector
@@ -873,11 +905,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ContinuationCometdServlet
+name|CometdServlet
 name|servlet
 init|=
 operator|new
-name|ContinuationCometdServlet
+name|CometdServlet
 argument_list|()
 decl_stmt|;
 name|ServletContextHandler
@@ -928,6 +960,13 @@ argument_list|(
 name|servlet
 argument_list|)
 expr_stmt|;
+name|holder
+operator|.
+name|setAsyncSupported
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// Use baseResource to pass as a parameter the url
 comment|// pointing to by example classpath:webapp
 if|if
@@ -954,18 +993,26 @@ argument_list|(
 literal|":"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|">>> Protocol found :"
+literal|">>> Protocol found: "
 operator|+
 name|resources
 index|[
 literal|0
 index|]
 operator|+
-literal|", and resource : "
+literal|", and resource: "
 operator|+
 name|resources
 index|[
@@ -973,6 +1020,7 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|resources
@@ -1066,6 +1114,19 @@ argument_list|(
 literal|"org.eclipse.jetty.servlet.DefaultServlet"
 argument_list|,
 literal|"/"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setSessionHandler
+argument_list|(
+operator|new
+name|SessionHandler
+argument_list|(
+operator|new
+name|HashSessionManager
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|holder
@@ -1196,6 +1257,7 @@ argument_list|()
 expr_stmt|;
 comment|// with default null values, jetty ssl system properties
 comment|// and console will be read by jetty implementation
+comment|// TODO: use non @deprecated API from Jetty
 name|sslSocketConnector
 operator|.
 name|setPassword
@@ -1379,6 +1441,8 @@ DECL|method|getExtensions ()
 specifier|public
 name|List
 argument_list|<
+name|BayeuxServer
+operator|.
 name|Extension
 argument_list|>
 name|getExtensions
@@ -1388,13 +1452,15 @@ return|return
 name|extensions
 return|;
 block|}
-DECL|method|setExtensions (List<Extension> extensions)
+DECL|method|setExtensions (List<BayeuxServer.Extension> extensions)
 specifier|public
 name|void
 name|setExtensions
 parameter_list|(
 name|List
 argument_list|<
+name|BayeuxServer
+operator|.
 name|Extension
 argument_list|>
 name|extensions
@@ -1407,11 +1473,13 @@ operator|=
 name|extensions
 expr_stmt|;
 block|}
-DECL|method|addExtension (Extension extension)
+DECL|method|addExtension (BayeuxServer.Extension extension)
 specifier|public
 name|void
 name|addExtension
 parameter_list|(
+name|BayeuxServer
+operator|.
 name|Extension
 name|extension
 parameter_list|)
@@ -1428,6 +1496,8 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
+name|BayeuxServer
+operator|.
 name|Extension
 argument_list|>
 argument_list|()

@@ -26,7 +26,7 @@ name|cometd
 operator|.
 name|server
 operator|.
-name|AbstractBayeux
+name|BayeuxServerImpl
 import|;
 end_import
 
@@ -43,11 +43,11 @@ name|getEndpoint
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the bayeux to use.      */
-DECL|method|setBayeux (AbstractBayeux bayeux)
+DECL|method|setBayeux (BayeuxServerImpl bayeux)
 name|void
 name|setBayeux
 parameter_list|(
-name|AbstractBayeux
+name|BayeuxServerImpl
 name|bayeux
 parameter_list|)
 function_decl|;
