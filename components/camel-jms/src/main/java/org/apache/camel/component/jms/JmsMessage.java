@@ -1033,7 +1033,7 @@ argument_list|()
 operator|.
 name|replaceAll
 argument_list|(
-literal|"[^a-zA-Z0-9\\:\\.\\_\\-]"
+literal|"[^a-zA-Z0-9\\.\\_\\-]"
 argument_list|,
 literal|"_"
 argument_list|)
