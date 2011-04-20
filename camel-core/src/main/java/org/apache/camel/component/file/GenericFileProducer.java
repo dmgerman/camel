@@ -1254,7 +1254,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"{} contains a Simple expression: {}"
 argument_list|,
@@ -1299,7 +1299,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Filename evaluated as expression: {}"
 argument_list|,
