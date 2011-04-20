@@ -1257,17 +1257,22 @@ argument_list|()
 expr_stmt|;
 comment|// with default null values, jetty ssl system properties
 comment|// and console will be read by jetty implementation
-comment|// TODO: use non @deprecated API from Jetty
 name|sslSocketConnector
 operator|.
-name|setPassword
+name|getSslContextFactory
+argument_list|()
+operator|.
+name|setKeyManagerPassword
 argument_list|(
 name|sslPassword
 argument_list|)
 expr_stmt|;
 name|sslSocketConnector
 operator|.
-name|setKeyPassword
+name|getSslContextFactory
+argument_list|()
+operator|.
+name|setKeyStorePassword
 argument_list|(
 name|sslKeyPassword
 argument_list|)
@@ -1281,11 +1286,15 @@ condition|)
 block|{
 name|sslSocketConnector
 operator|.
-name|setKeystore
+name|getSslContextFactory
+argument_list|()
+operator|.
+name|setKeyStore
 argument_list|(
 name|sslKeystore
 argument_list|)
 expr_stmt|;
+empty_stmt|;
 block|}
 block|}
 return|return
