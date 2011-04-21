@@ -1114,7 +1114,9 @@ literal|"numberingPlanIndicator=0, "
 operator|+
 literal|"initialReconnectDelay=5000, "
 operator|+
-literal|"reconnectDelay=5000]"
+literal|"reconnectDelay=5000, "
+operator|+
+literal|"lazySessionCreation=false]"
 decl_stmt|;
 name|assertEquals
 argument_list|(

@@ -312,6 +312,11 @@ name|reconnectDelay
 init|=
 literal|5000
 decl_stmt|;
+DECL|field|lazySessionCreation
+specifier|private
+name|boolean
+name|lazySessionCreation
+decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
@@ -1047,6 +1052,32 @@ operator|=
 name|reconnectDelay
 expr_stmt|;
 block|}
+DECL|method|isLazySessionCreation ()
+specifier|public
+name|boolean
+name|isLazySessionCreation
+parameter_list|()
+block|{
+return|return
+name|lazySessionCreation
+return|;
+block|}
+DECL|method|setLazySessionCreation (boolean lazySessionCreation)
+specifier|public
+name|void
+name|setLazySessionCreation
+parameter_list|(
+name|boolean
+name|lazySessionCreation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazySessionCreation
+operator|=
+name|lazySessionCreation
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1155,6 +1186,10 @@ operator|+
 literal|", reconnectDelay="
 operator|+
 name|reconnectDelay
+operator|+
+literal|", lazySessionCreation="
+operator|+
+name|lazySessionCreation
 operator|+
 literal|"]"
 return|;
