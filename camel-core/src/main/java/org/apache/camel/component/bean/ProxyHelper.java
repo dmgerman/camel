@@ -85,7 +85,7 @@ specifier|private
 name|ProxyHelper
 parameter_list|()
 block|{     }
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
 DECL|method|createProxyObject (Endpoint endpoint, Producer producer, ClassLoader classLoader, Class[] interfaces, MethodInfoCache methodCache)
 specifier|public
 specifier|static
@@ -133,7 +133,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -198,7 +198,7 @@ name|methodCache
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -248,7 +248,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
 DECL|method|createProxy (Endpoint endpoint, Class<T>... interfaceClasses)
 specifier|public
 specifier|static
@@ -288,51 +288,7 @@ name|interfaceClasses
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createProxy (Endpoint endpoint, Class<T> interfaceClass)
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|createProxy
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|interfaceClass
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|(
-name|T
-operator|)
-name|createProxy
-argument_list|(
-name|endpoint
-argument_list|,
-name|getClassLoader
-argument_list|(
-name|interfaceClass
-argument_list|)
-argument_list|,
-name|interfaceClass
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

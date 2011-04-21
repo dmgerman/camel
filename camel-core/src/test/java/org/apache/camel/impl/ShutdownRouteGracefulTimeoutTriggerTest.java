@@ -98,6 +98,11 @@ name|foo
 init|=
 literal|""
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testShutdownRouteGraceful ()
 specifier|public
 name|void
@@ -174,7 +179,7 @@ expr_stmt|;
 comment|// timeout after 2 seconds
 name|context
 operator|.
-name|stopRoute
+name|shutdownRoute
 argument_list|(
 literal|"seda"
 argument_list|,

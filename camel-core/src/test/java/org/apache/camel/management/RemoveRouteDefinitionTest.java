@@ -106,6 +106,11 @@ name|RemoveRouteDefinitionTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testShutdownRoute ()
 specifier|public
 name|void
@@ -211,14 +216,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|stopRoute
-argument_list|(
-literal|"route1"
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|removeRoute
+name|shutdownRoute
 argument_list|(
 literal|"route1"
 argument_list|)
