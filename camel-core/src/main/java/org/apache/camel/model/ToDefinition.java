@@ -269,7 +269,7 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      *      * @deprecated will be removed in the near future. Instead use {@link org.apache.camel.model.ProcessorDefinition#inOnly()}      * or {@link org.apache.camel.model.ProcessorDefinition#inOnly()}      */
+comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      *      * @deprecated will be removed in the near future. Instead use {@link ProcessorDefinition#inOnly()}      * or {@link ProcessorDefinition#inOut()}      */
 annotation|@
 name|Deprecated
 DECL|method|pattern (ExchangePattern pattern)
