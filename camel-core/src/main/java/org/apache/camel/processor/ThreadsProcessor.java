@@ -158,12 +158,6 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|camelContext
-specifier|private
-specifier|final
-name|CamelContext
-name|camelContext
-decl_stmt|;
 DECL|field|executorService
 specifier|private
 specifier|final
@@ -296,12 +290,6 @@ name|executorService
 argument_list|,
 literal|"executorService"
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
 expr_stmt|;
 name|this
 operator|.

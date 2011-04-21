@@ -727,10 +727,20 @@ literal|"http://localhost:23271/myapp/mytest?columns=name%2Ctotalsens%2Cupsens&u
 decl_stmt|;
 comment|// these are the parameters which is tricky to encode
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map

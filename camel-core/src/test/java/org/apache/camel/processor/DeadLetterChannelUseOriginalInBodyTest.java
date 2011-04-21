@@ -230,11 +230,6 @@ argument_list|)
 operator|.
 name|useOriginalMessage
 argument_list|()
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
 decl_stmt|;
 comment|// will NOT use original
 name|ErrorHandlerBuilder
@@ -258,11 +253,6 @@ operator|.
 name|logStackTrace
 argument_list|(
 literal|false
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
 argument_list|)
 decl_stmt|;
 name|from

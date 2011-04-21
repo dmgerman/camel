@@ -92,11 +92,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"log:foo?showAll=true"

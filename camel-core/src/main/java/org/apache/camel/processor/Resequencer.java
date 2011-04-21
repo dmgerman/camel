@@ -137,6 +137,11 @@ comment|/**  * An implementation of the<a href="http://camel.apache.org/resequen
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|Resequencer
 specifier|public
 class|class

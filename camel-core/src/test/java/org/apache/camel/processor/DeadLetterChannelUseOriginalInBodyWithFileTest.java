@@ -250,11 +250,6 @@ argument_list|)
 operator|.
 name|useOriginalMessage
 argument_list|()
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

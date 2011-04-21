@@ -638,34 +638,6 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|hasExceptionBeenHandledByErrorHandler (Exchange nextExchange)
-specifier|private
-specifier|static
-name|boolean
-name|hasExceptionBeenHandledByErrorHandler
-parameter_list|(
-name|Exchange
-name|nextExchange
-parameter_list|)
-block|{
-return|return
-name|Boolean
-operator|.
-name|TRUE
-operator|.
-name|equals
-argument_list|(
-name|nextExchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ERRORHANDLER_HANDLED
-argument_list|)
-argument_list|)
-return|;
-block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

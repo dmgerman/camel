@@ -341,6 +341,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|MyFooBean
 specifier|private
 specifier|static

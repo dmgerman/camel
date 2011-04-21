@@ -174,7 +174,7 @@ expr_stmt|;
 comment|// timeout after 2 seconds
 name|context
 operator|.
-name|shutdownRoute
+name|stopRoute
 argument_list|(
 literal|"seda"
 argument_list|,

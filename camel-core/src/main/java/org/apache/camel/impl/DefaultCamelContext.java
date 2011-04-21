@@ -4538,16 +4538,11 @@ name|completed
 condition|)
 block|{
 comment|// must stop route service as well
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4654,16 +4649,11 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4762,16 +4752,11 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4860,16 +4845,11 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well (and remove the routes from management)
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -4968,20 +4948,20 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 comment|// must stop route service as well (and remove the routes from management)
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|stopRouteService
 argument_list|(
 name|routeService
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|removeRoute (String routeId)
 specifier|public
 specifier|synchronized
@@ -5169,13 +5149,6 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// must suspend route service as well
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|suspendRouteService
 argument_list|(
 name|routeService
@@ -5297,13 +5270,6 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 comment|// must suspend route service as well
-name|routeService
-operator|.
-name|setRemovingRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|suspendRouteService
 argument_list|(
 name|routeService
@@ -8951,6 +8917,42 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+DECL|method|stopRouteService (RouteService routeService, boolean removingRoutes)
+specifier|protected
+specifier|synchronized
+name|void
+name|stopRouteService
+parameter_list|(
+name|RouteService
+name|routeService
+parameter_list|,
+name|boolean
+name|removingRoutes
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|routeService
+operator|.
+name|setRemovingRoutes
+argument_list|(
+name|removingRoutes
+argument_list|)
+expr_stmt|;
+name|stopRouteService
+argument_list|(
+name|routeService
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 DECL|method|stopRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9079,6 +9081,11 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|suspendRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9091,6 +9098,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|routeService
+operator|.
+name|setRemovingRoutes
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|routeService
 operator|.
 name|suspend

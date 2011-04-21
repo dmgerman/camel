@@ -345,7 +345,20 @@ class|class
 name|TestHttpBinding
 extends|extends
 name|DefaultHttpBinding
-block|{     }
+block|{
+DECL|method|TestHttpBinding ()
+name|TestHttpBinding
+parameter_list|()
+block|{
+name|super
+argument_list|(
+operator|new
+name|HttpEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|class|TestClientConfigurer
 specifier|private
 specifier|static

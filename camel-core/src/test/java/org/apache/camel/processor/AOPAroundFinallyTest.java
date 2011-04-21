@@ -269,6 +269,11 @@ name|RouteBuilder
 argument_list|()
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 name|void

@@ -688,7 +688,6 @@ name|answer
 return|;
 block|}
 DECL|class|Delivery
-specifier|private
 class|class
 name|Delivery
 extends|extends

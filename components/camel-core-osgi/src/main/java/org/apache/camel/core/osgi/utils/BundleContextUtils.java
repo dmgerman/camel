@@ -96,6 +96,9 @@ name|getClassLoader
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clClazz
 init|=
 name|cl

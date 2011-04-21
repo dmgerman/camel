@@ -364,7 +364,7 @@ operator|=
 name|foo
 expr_stmt|;
 block|}
-DECL|method|doSomething (String body, @Headers Map headers)
+DECL|method|doSomething (String body, @Headers Map<Object, Object> headers)
 specifier|public
 name|String
 name|doSomething
@@ -375,6 +375,11 @@ parameter_list|,
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|)
 throws|throws

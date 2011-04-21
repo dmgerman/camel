@@ -132,6 +132,11 @@ name|uri
 operator|=
 literal|"mock:result"
 argument_list|)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|field|mock
 specifier|private
 name|MockEndpoint

@@ -73,6 +73,11 @@ extends|extends
 name|RouteBuilder
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+annotation|@
 name|Resource
 argument_list|(
 name|name

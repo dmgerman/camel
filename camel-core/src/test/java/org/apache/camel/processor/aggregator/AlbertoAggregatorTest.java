@@ -213,21 +213,6 @@ name|BROTHERS_TYPE
 init|=
 literal|"brothers"
 decl_stmt|;
-DECL|field|log
-specifier|private
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 DECL|method|testAggregator ()
 specifier|public
 name|void

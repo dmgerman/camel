@@ -95,9 +95,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|p1
-init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
@@ -108,7 +105,7 @@ name|MIN_PORT_NUMBER
 operator|-
 literal|1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -127,9 +124,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|p1
-init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
@@ -140,7 +134,7 @@ name|MAX_PORT_NUMBER
 operator|+
 literal|1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 end_class

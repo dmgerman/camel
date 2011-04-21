@@ -78,18 +78,6 @@ name|InflightRepositoryRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|latch
-specifier|private
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 DECL|method|testInflight ()
 specifier|public
 name|void

@@ -270,14 +270,40 @@ class|class
 name|MyBinding
 extends|extends
 name|DefaultHttpBinding
-block|{     }
+block|{
+DECL|method|MyBinding ()
+name|MyBinding
+parameter_list|()
+block|{
+name|super
+argument_list|(
+operator|new
+name|HttpEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|class|MyOtherBinding
 specifier|private
 class|class
 name|MyOtherBinding
 extends|extends
 name|DefaultHttpBinding
-block|{     }
+block|{
+DECL|method|MyOtherBinding ()
+name|MyOtherBinding
+parameter_list|()
+block|{
+name|super
+argument_list|(
+operator|new
+name|HttpEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

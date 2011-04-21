@@ -97,10 +97,11 @@ block|{
 name|IOException
 name|io
 init|=
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
+literal|"Damn"
+argument_list|,
 operator|new
 name|IllegalArgumentException
 argument_list|(
@@ -138,9 +139,8 @@ block|{
 name|IOException
 name|io
 init|=
-name|IOHelper
-operator|.
-name|createIOException
+operator|new
+name|IOException
 argument_list|(
 literal|"Not again"
 argument_list|,

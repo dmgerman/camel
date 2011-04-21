@@ -141,6 +141,11 @@ name|RouteBuilder
 argument_list|()
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 name|void
@@ -611,6 +616,11 @@ name|RouteBuilder
 argument_list|()
 block|{
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Override
 specifier|public
 name|void
@@ -806,7 +816,7 @@ operator|.
 name|copy
 argument_list|()
 operator|.
-name|newExchange
+name|newExchangeBody
 argument_list|(
 name|simple
 argument_list|(

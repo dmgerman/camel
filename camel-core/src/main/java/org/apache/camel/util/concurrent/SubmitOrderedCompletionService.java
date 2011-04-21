@@ -510,11 +510,6 @@ return|return
 name|f
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|take ()
 specifier|public
 name|Future

@@ -628,6 +628,11 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|TransactionErrorHandler
 name|answer
 init|=

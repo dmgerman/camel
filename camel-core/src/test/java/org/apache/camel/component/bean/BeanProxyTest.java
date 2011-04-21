@@ -99,11 +99,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|BeanProxyTest
 specifier|public
 class|class

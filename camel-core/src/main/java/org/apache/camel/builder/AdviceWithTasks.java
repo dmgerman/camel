@@ -617,11 +617,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doRemove (final RouteDefinition route, final MatchBy matchBy)
 specifier|private
 specifier|static

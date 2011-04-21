@@ -191,6 +191,44 @@ name|interfaceClasses
 argument_list|)
 return|;
 block|}
+comment|/**      * Builds the proxy.      *      * @param interfaceClass  the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
+DECL|method|build (Class<T> interfaceClass)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|build
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|interfaceClass
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"endpoint"
+argument_list|)
+expr_stmt|;
+return|return
+name|ProxyHelper
+operator|.
+name|createProxy
+argument_list|(
+name|endpoint
+argument_list|,
+name|interfaceClass
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

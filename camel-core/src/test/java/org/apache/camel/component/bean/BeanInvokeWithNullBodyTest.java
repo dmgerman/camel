@@ -255,6 +255,11 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|MyNullFooBean
 specifier|private
 class|class

@@ -435,7 +435,7 @@ specifier|static
 class|class
 name|MyBean
 block|{
-DECL|method|doSomething (@ody String body, @Headers Map headers, @OutHeaders Map outHeaders)
+DECL|method|doSomething (@ody String body, @Headers Map<?, ?> headers, @OutHeaders Map<String, Object> outHeaders)
 specifier|public
 name|String
 name|doSomething
@@ -448,11 +448,21 @@ parameter_list|,
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 parameter_list|,
 annotation|@
 name|OutHeaders
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|outHeaders
 parameter_list|)
 block|{

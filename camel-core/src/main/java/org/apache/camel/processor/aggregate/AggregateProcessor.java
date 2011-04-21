@@ -705,10 +705,6 @@ DECL|field|redeliveryCounter
 name|int
 name|redeliveryCounter
 decl_stmt|;
-DECL|field|redeliveryDelay
-name|long
-name|redeliveryDelay
-decl_stmt|;
 block|}
 comment|// options
 DECL|field|ignoreInvalidCorrelationKeys

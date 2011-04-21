@@ -2796,6 +2796,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds an optional attribute      *      * @param name    the name of the attribute      * @param value   the value      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|attribute (QName name, Object value)
 specifier|public
 name|Type

@@ -1630,6 +1630,11 @@ name|newSingleThreadExecutor
 argument_list|()
 decl_stmt|;
 comment|// send it async with the help of this helper
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Future
 argument_list|<
 name|Exchange
@@ -1785,6 +1790,11 @@ name|newSingleThreadExecutor
 argument_list|()
 decl_stmt|;
 comment|// send it async with the help of this helper
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Future
 argument_list|<
 name|Exchange
