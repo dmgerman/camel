@@ -1281,7 +1281,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
+comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated will be removed in Camel 3.0. Instead use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
 annotation|@
 name|Deprecated
 DECL|method|addRoutes (RoutesBuilder routes)

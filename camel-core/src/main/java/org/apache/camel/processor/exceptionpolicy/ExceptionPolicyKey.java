@@ -61,6 +61,7 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
+comment|/**      * @deprecated will be removed in the near future, use the other constructor      */
 annotation|@
 name|Deprecated
 DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
@@ -151,6 +152,7 @@ return|return
 name|routeId
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
 annotation|@
 name|Deprecated
 DECL|method|newInstance (Class exceptionClass)
@@ -173,6 +175,7 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
 annotation|@
 name|Deprecated
 DECL|method|newInstance (Class exceptionClass, WhenDefinition when)

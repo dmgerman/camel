@@ -1280,7 +1280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay      *      * @param delay the initial redelivery delay      * @return the builder      * @deprecated      */
+comment|/**      * Sets the initial redelivery delay      *      * @param delay the initial redelivery delay      * @return the builder      * @deprecated will be removed in the near future. Instead use {@link #redeliveryDelay(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|redeliverDelay (long delay)

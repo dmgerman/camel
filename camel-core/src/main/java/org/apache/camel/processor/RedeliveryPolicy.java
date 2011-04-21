@@ -742,7 +742,7 @@ return|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the initial redelivery delay in milliseconds      *      * @deprecated use redeliveryDelay instead      */
+comment|/**      * Sets the initial redelivery delay in milliseconds      *      * @deprecated will be removed in the near future. Instead use {@link #redeliveryDelay(long)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|redeliverDelay (long delay)
@@ -1080,6 +1080,7 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+comment|/**      * @deprecated will be removed in the near future. Instead use {@link #getRedeliveryDelay()}      */
 annotation|@
 name|Deprecated
 DECL|method|getRedeliverDelay ()
@@ -1093,6 +1094,7 @@ name|getRedeliveryDelay
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Instead use {@link #setRedeliveryDelay(long)}      */
 annotation|@
 name|Deprecated
 DECL|method|setRedeliverDelay (long redeliveryDelay)

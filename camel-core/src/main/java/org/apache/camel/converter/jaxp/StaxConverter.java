@@ -384,6 +384,7 @@ name|result
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|createXMLStreamReader (InputStream in)
@@ -486,6 +487,7 @@ name|in
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|createXMLEventReader (InputStream in)

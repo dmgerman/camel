@@ -864,10 +864,9 @@ name|data
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given input Source into text      */
+comment|/**      * Converts the given input Source into text.      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toString (Source source)
 specifier|public
 name|String
@@ -1110,10 +1109,9 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Converts the given input Node into text      */
+comment|/**      * Converts the given input Node into text      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toString (Node node)
 specifier|public
 name|String
@@ -1341,10 +1339,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSource (String source)
 specifier|public
 name|SAXSource
@@ -1402,10 +1399,9 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSource (InputStream source)
 specifier|public
 name|SAXSource
@@ -1463,10 +1459,9 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSource (Source source)
 specifier|public
 name|SAXSource
@@ -1571,9 +1566,9 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSource (Source source)
 specifier|public
 name|StreamSource
@@ -1878,9 +1873,9 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSourceFromSAX (SAXSource source)
 specifier|public
 name|StreamSource
@@ -1993,9 +1988,9 @@ name|result
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toStreamSourceFromDOM (DOMSource source)
 specifier|public
 name|StreamSource
@@ -2128,9 +2123,9 @@ name|inputSource
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toReaderFromSource (Source src)
 specifier|public
 name|Reader
@@ -2397,9 +2392,9 @@ name|systemId
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toSAXSourceFromDOM (DOMSource source)
 specifier|public
 name|SAXSource
@@ -3119,9 +3114,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toInputStream (DOMSource source)
 specifier|public
 name|InputStream
@@ -3183,9 +3178,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the method which take the exchange as the parameter
 DECL|method|toInputStream (Document dom)
 specifier|public
 name|InputStream

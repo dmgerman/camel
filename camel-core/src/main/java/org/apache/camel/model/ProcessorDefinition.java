@@ -3950,7 +3950,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Wraps the sub route using AOP allowing you to do before and after work (AOP around).      *      * @return the builder      * @deprecated (to be removed in the future)      */
+comment|/**      * Wraps the sub route using AOP allowing you to do before and after work (AOP around).      *      * @return the builder      * @deprecated to be removed in the near future. Instead you can use interceptors or processors to do AOP with Camel.      */
 annotation|@
 name|Deprecated
 DECL|method|aop ()
@@ -4146,7 +4146,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate check      * @return the builder used to create the expression      * @deprecated use any of the other methods      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate check      * @return the builder used to create the expression      * @deprecated will be removed in Camel 3.0. Instead use any of the other methods      */
 annotation|@
 name|Deprecated
 DECL|method|idempotentConsumer (IdempotentRepository<?> idempotentRepository)
@@ -7516,7 +7516,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      * @deprecated use {@link #removeHeader(String)}      */
+comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      * @deprecated will be removed in the near future. Instead use {@link #removeHeader(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|removeFaultHeader (String name)

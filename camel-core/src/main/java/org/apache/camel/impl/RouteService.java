@@ -351,11 +351,11 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|endpointpDone
+DECL|field|endpointDone
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|endpointpDone
+name|endpointDone
 init|=
 operator|new
 name|AtomicBoolean
@@ -497,8 +497,6 @@ return|return
 name|inputs
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|isRemovingRoutes ()
 specifier|public
 name|boolean
@@ -509,8 +507,6 @@ return|return
 name|removingRoutes
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|setRemovingRoutes (boolean removingRoutes)
 specifier|public
 name|void
@@ -538,7 +534,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|endpointpDone
+name|endpointDone
 operator|.
 name|compareAndSet
 argument_list|(
@@ -1016,7 +1012,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|endpointpDone
+name|endpointDone
 operator|.
 name|set
 argument_list|(

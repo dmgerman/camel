@@ -435,6 +435,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toReader (File file)
@@ -540,6 +541,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toWriter (File file)
@@ -597,6 +599,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toReader (InputStream in)
@@ -650,6 +653,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toWriter (OutputStream out)
@@ -692,6 +696,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: Why is this method deprecated?
 return|return
 operator|new
 name|OutputStreamWriter
@@ -725,6 +730,7 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toInputStream (String text)
@@ -780,6 +786,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toInputStream (BufferedReader buffer)
@@ -832,6 +839,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toString (byte[] data)
@@ -887,6 +895,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toString (File file)
@@ -986,6 +995,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toByteArray (Reader reader)
@@ -1063,6 +1073,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toString (URL url)
@@ -1294,6 +1305,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toByteArray (BufferedReader reader)
@@ -1348,6 +1360,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toByteArray (String value)
@@ -1408,6 +1421,7 @@ else|:
 literal|null
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toString (InputStream in)
@@ -1634,6 +1648,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toString (ByteArrayOutputStream os)

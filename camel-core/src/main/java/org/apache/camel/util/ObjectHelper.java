@@ -4348,7 +4348,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      * @deprecated use {@link org.apache.camel.util.IOHelper#close(java.io.Closeable, String, org.apache.commons.logging.Log)}      */
+comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      * @deprecated will be removed in Camel 3.0. Instead use {@link org.apache.camel.util.IOHelper#close(java.io.Closeable, String, org.slf4j.Logger)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|close (Closeable closeable, String name, Logger log)

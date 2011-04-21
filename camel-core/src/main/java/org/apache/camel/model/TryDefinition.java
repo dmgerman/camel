@@ -714,7 +714,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
 DECL|method|handled (boolean handled)
@@ -748,7 +748,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
 DECL|method|handled (Predicate handled)
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
 DECL|method|handled (Expression handled)

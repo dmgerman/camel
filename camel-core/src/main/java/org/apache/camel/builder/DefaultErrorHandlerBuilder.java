@@ -419,6 +419,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Use {@link #redeliveryDelay(long)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|redeliverDelay (long delay)
@@ -740,7 +741,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|handled (boolean handled)
@@ -774,7 +775,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|handled (Predicate handled)
@@ -797,7 +798,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|handled (Expression handled)
@@ -1274,6 +1275,7 @@ operator|=
 name|retryWhileRef
 expr_stmt|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|getHandledPolicy ()
@@ -1299,6 +1301,7 @@ return|return
 name|handledPolicy
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|setHandledPolicy (Predicate handled)
@@ -1317,7 +1320,7 @@ operator|=
 name|handled
 expr_stmt|;
 block|}
-comment|/**      * Sets the handled using a boolean and thus easier to use for Spring XML configuration as well      */
+comment|/**      * Sets the handled using a boolean and thus easier to use for Spring XML configuration as well.      *      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
 annotation|@
 name|Deprecated
 DECL|method|setHandled (boolean handled)

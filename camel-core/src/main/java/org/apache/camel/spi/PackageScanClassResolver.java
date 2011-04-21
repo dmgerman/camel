@@ -48,7 +48,7 @@ specifier|public
 interface|interface
 name|PackageScanClassResolver
 block|{
-comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders loaders to use when scanning for classes      * @deprecated use {@link #addClassLoader(ClassLoader)} instead.      */
+comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders loaders to use when scanning for classes      * @deprecated will be removed in Camel 3.0. Use {@link #addClassLoader(ClassLoader)} instead.      */
 annotation|@
 name|Deprecated
 DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)

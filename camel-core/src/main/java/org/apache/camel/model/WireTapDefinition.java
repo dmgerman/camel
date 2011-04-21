@@ -858,7 +858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated use newExchangeBody      */
+comment|/**      * @deprecated will be removed in Camel 3.0 Instead use {@link #newExchangeBody(org.apache.camel.Expression)}      */
 annotation|@
 name|Deprecated
 DECL|method|newExchange (Expression expression)

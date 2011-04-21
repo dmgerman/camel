@@ -790,7 +790,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Removes the header on the FAULT message      * @deprecated use {@link #removeHeader(String)}      */
+comment|/**      * Removes the header on the FAULT message      * @deprecated will be removed in the near future. Instead use {@link #removeHeader(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|removeFaultHeader (final String name)

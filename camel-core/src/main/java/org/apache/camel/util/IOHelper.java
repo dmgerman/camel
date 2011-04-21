@@ -256,7 +256,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6.      */
+comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6. Will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
 DECL|method|createIOException (Throwable cause)
@@ -281,7 +281,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6.      */
+comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6. Will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
 DECL|method|createIOException (String message, Throwable cause)

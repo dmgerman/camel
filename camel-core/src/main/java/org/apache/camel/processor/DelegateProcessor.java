@@ -277,26 +277,6 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Proceed with the underlying delegated processor      *      * @deprecated will be removed in Camel 2.5      */
-annotation|@
-name|Deprecated
-DECL|method|proceed (Exchange exchange)
-specifier|public
-name|void
-name|proceed
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|processNext
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|hasNext ()
 specifier|public
 name|boolean

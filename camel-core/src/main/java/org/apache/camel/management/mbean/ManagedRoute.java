@@ -885,6 +885,7 @@ name|abortAfterTimeout
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -931,6 +932,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
 annotation|@
 name|ManagedOperation
 argument_list|(

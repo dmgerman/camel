@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version   * @deprecated may be removed in the future  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version   * @deprecated may be removed in the future when we overhaul the resequencer EIP  */
 end_comment
 
 begin_class

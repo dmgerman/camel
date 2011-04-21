@@ -281,7 +281,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that WhenType will use      * @return the builder      * @deprecated      */
+comment|/**      * Set the expression that WhenType will use      * @return the builder      * @deprecated will be removed in the near future. The expression is often already set.      */
 annotation|@
 name|Deprecated
 DECL|method|expression ()
