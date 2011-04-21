@@ -1576,7 +1576,11 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"Operation UNKNOWN is not supported."
+name|CacheConstants
+operator|.
+name|CACHE_OPERATION
+operator|+
+literal|" UNKNOWN is not supported."
 argument_list|)
 argument_list|)
 operator|.

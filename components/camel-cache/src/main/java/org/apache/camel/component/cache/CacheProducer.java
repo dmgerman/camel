@@ -511,7 +511,11 @@ throw|throw
 operator|new
 name|CacheException
 argument_list|(
-literal|"Operation not specified in the message header ["
+name|CacheConstants
+operator|.
+name|CACHE_OPERATION
+operator|+
+literal|" not specified in the message header ["
 operator|+
 name|CacheConstants
 operator|.
@@ -546,7 +550,11 @@ throw|throw
 operator|new
 name|CacheException
 argument_list|(
-literal|"Cache Key is not specified in message header header or endpoint URL."
+name|CacheConstants
+operator|.
+name|CACHE_KEY
+operator|+
+literal|" is not specified in message header or endpoint URL."
 argument_list|)
 throw|;
 block|}
@@ -557,6 +565,31 @@ argument_list|,
 name|operation
 argument_list|,
 name|key
+argument_list|)
+expr_stmt|;
+comment|//cleanup the cache headers
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|CacheConstants
+operator|.
+name|CACHE_KEY
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|CacheConstants
+operator|.
+name|CACHE_OPERATION
 argument_list|)
 expr_stmt|;
 block|}
@@ -952,7 +985,11 @@ throw|throw
 operator|new
 name|CacheException
 argument_list|(
-literal|"Operation "
+name|CacheConstants
+operator|.
+name|CACHE_OPERATION
+operator|+
+literal|" "
 operator|+
 name|operation
 operator|+

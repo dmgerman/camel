@@ -386,7 +386,9 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-literal|"CACHE_OPERATION"
+name|CacheConstants
+operator|.
+name|CACHE_OPERATION
 argument_list|,
 name|operation
 argument_list|)
@@ -395,7 +397,9 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-literal|"CACHE_KEY"
+name|CacheConstants
+operator|.
+name|CACHE_KEY
 argument_list|,
 name|key
 argument_list|)
