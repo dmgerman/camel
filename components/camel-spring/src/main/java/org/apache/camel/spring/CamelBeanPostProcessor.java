@@ -722,8 +722,13 @@ parameter_list|)
 block|{
 comment|// the JMXAgent is a bit strange and causes Spring issues if we let it being
 comment|// post processed by this one. It does not need it anyway so we are good to go.
+comment|// We should also avoid to process the null object bean (in Spring 2.5.x)
 if|if
 condition|(
+name|bean
+operator|==
+literal|null
+operator|||
 name|bean
 operator|instanceof
 name|CamelJMXAgentDefinition
