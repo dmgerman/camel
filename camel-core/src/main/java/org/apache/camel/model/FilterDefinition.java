@@ -78,9 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionClause
+name|Processor
 import|;
 end_import
 
@@ -241,26 +239,45 @@ name|routeContext
 argument_list|)
 return|;
 block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Set the expression that this FilterType will use      * @return the builder      */
-DECL|method|expression ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|?
-extends|extends
-name|FilterDefinition
-argument_list|>
-name|expression
-parameter_list|()
+annotation|@
+name|Override
+DECL|method|createFilterProcessor (RouteContext routeContext)
+specifier|protected
+name|FilterProcessor
+name|createFilterProcessor
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
+comment|// filter EIP should have child outputs
+name|Processor
+name|childProcessor
+init|=
 name|this
+operator|.
+name|createChildProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|FilterProcessor
+argument_list|(
+name|getExpression
+argument_list|()
+operator|.
+name|createPredicate
+argument_list|(
+name|routeContext
+argument_list|)
+argument_list|,
+name|childProcessor
 argument_list|)
 return|;
 block|}
