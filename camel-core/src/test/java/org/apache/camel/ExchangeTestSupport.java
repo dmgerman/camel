@@ -104,6 +104,15 @@ argument_list|(
 literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"foobar"
+argument_list|,
+literal|"cba"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
