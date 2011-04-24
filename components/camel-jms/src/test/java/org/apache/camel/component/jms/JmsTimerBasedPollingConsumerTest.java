@@ -314,6 +314,16 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
+literal|"activemq:queue.foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
 literal|"timer://foo?period=5000"
 argument_list|)
 operator|.
@@ -322,16 +332,6 @@ argument_list|(
 name|cool
 argument_list|,
 literal|"someBusinessLogic"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"activemq:queue.foo"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
