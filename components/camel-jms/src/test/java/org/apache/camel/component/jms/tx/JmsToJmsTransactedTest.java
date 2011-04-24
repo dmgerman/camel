@@ -313,10 +313,10 @@ name|start
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 expr_stmt|;
-comment|// default number of redeliveries by AMQ
+comment|// default number of redeliveries by AMQ is 6 so we get 6+1
 name|template
 operator|.
 name|sendBody
@@ -429,10 +429,10 @@ name|start
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 expr_stmt|;
-comment|// default number of redeliveries by AMQ
+comment|// default number of redeliveries by AMQ is 6 so we get 6+1
 name|template
 operator|.
 name|sendBody
@@ -565,9 +565,10 @@ name|start
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 expr_stmt|;
+comment|// default number of redeliveries by AMQ is 6 so we get 6+1
 name|template
 operator|.
 name|sendBody
