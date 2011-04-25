@@ -461,6 +461,9 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+try|try
+block|{
+comment|// TODO - Why does this use the endpoint client and not the one we were handed during construction?
 name|HttpClient
 name|client
 init|=
@@ -470,8 +473,6 @@ operator|.
 name|getClient
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|JettyContentExchange
 name|httpExchange
 init|=

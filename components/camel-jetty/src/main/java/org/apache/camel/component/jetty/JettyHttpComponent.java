@@ -292,6 +292,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|eclipse
 operator|.
 name|jetty
@@ -313,6 +329,22 @@ operator|.
 name|client
 operator|.
 name|HttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|http
+operator|.
+name|ssl
+operator|.
+name|SslContextFactory
 import|;
 end_import
 
@@ -795,6 +827,16 @@ name|useContinuation
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
+DECL|field|isExplicitHttpClient
+specifier|protected
+name|boolean
+name|isExplicitHttpClient
+decl_stmt|;
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -1115,6 +1157,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|SSLContextParameters
+name|sslContextParameters
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"sslContextParametersRef"
+argument_list|,
+name|SSLContextParameters
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// configure http client if we have url configuration for it
 comment|// http client is only used for jetty http producer (hence not very commonly used)
 name|HttpClient
@@ -1132,15 +1188,49 @@ name|parameters
 argument_list|,
 literal|"httpClient."
 argument_list|)
+operator|||
+name|sslContextParameters
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// set additional parameters on http client
-comment|// only create client when needed
 name|client
 operator|=
-name|getHttpClient
+name|getNewHttpClient
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|IntrospectionSupport
+operator|.
+name|hasProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|isExplicitHttpClient
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The user explicitly set an HttpClient instance on the component, "
+operator|+
+literal|"but this endpoint provides HttpClient configuration.  Are you sure that "
+operator|+
+literal|"this is what was intended?  Applying endpoint configuration to a new HttpClient instance "
+operator|+
+literal|"to avoid altering existing HttpClient instances."
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set additional parameters on http client
 name|IntrospectionSupport
 operator|.
 name|setProperties
@@ -1161,6 +1251,61 @@ name|parameters
 argument_list|,
 literal|"httpClient."
 argument_list|)
+expr_stmt|;
+block|}
+comment|// Note that the component level instance is already configured in getNewHttpClient.
+comment|// We replace it here for endpoint level config.
+if|if
+condition|(
+name|sslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|isExplicitHttpClient
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The user explicitly set an HttpClient instance on the component, "
+operator|+
+literal|"but this endpoint provides SSLContextParameters configuration.  Are you sure that "
+operator|+
+literal|"this is what was intended?  Applying endpoint configuration to a new HttpClient instance "
+operator|+
+literal|"to avoid altering existing HttpClient instances."
+argument_list|)
+expr_stmt|;
+block|}
+operator|(
+operator|(
+name|CamelHttpClient
+operator|)
+name|client
+operator|)
+operator|.
+name|setSSLContext
+argument_list|(
+name|sslContextParameters
+operator|.
+name|createSSLContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// Either we use the default one created by the component or we are using
+comment|// one explicitly set by the end user, either way, we just use it as is.
+name|client
+operator|=
+name|getHttpClient
+argument_list|()
 expr_stmt|;
 block|}
 comment|// keep the configure parameters for the http client
@@ -1489,6 +1634,27 @@ name|useContinuation
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sslContextParameters
+operator|==
+literal|null
+condition|)
+block|{
+name|sslContextParameters
+operator|=
+name|this
+operator|.
+name|sslContextParameters
+expr_stmt|;
+block|}
+name|endpoint
+operator|.
+name|setSslContextParameters
+argument_list|(
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -1577,9 +1743,6 @@ operator|=
 name|getSslSocketConnector
 argument_list|(
 name|endpoint
-operator|.
-name|getPort
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2414,13 +2577,13 @@ return|return
 name|sslKeystore
 return|;
 block|}
-DECL|method|getSslSocketConnector (int port)
+DECL|method|getSslSocketConnector (JettyHttpEndpoint endpoint)
 specifier|protected
 name|SslSelectChannelConnector
 name|getSslSocketConnector
 parameter_list|(
-name|int
-name|port
+name|JettyHttpEndpoint
+name|endpoint
 parameter_list|)
 throws|throws
 name|Exception
@@ -2443,7 +2606,10 @@ name|sslSocketConnectors
 operator|.
 name|get
 argument_list|(
-name|port
+name|endpoint
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2457,28 +2623,116 @@ block|{
 name|answer
 operator|=
 name|createSslSocketConnector
-argument_list|()
+argument_list|(
+name|endpoint
+argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|answer
 return|;
 block|}
-DECL|method|createSslSocketConnector ()
+DECL|method|createSslSocketConnector (JettyHttpEndpoint endpoint)
 specifier|protected
 name|SslSelectChannelConnector
 name|createSslSocketConnector
-parameter_list|()
+parameter_list|(
+name|JettyHttpEndpoint
+name|endpoint
+parameter_list|)
 throws|throws
 name|Exception
 block|{
 name|SslSelectChannelConnector
 name|answer
 init|=
+literal|null
+decl_stmt|;
+comment|// Note that this was set on the endpoint when it was constructed.  It was
+comment|// either explicitly set at the component or on the endpoint, but either way,
+comment|// the value is already set.  We therefore do not need to look at the component
+comment|// level SSLContextParameters again in this method.
+name|SSLContextParameters
+name|endpointSslContextParameters
+init|=
+name|endpoint
+operator|.
+name|getSslContextParameters
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|endpointSslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
+name|SslContextFactory
+name|contextFact
+init|=
+operator|new
+name|SslContextFactory
+argument_list|()
+block|{
+comment|/**                  * We are going to provide the context so none of the configuration options                  * matter in the factory.  This method does not account for this scenario so                  * we short-circuit it here to just let things go when the context is already                  * provided.                  */
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|checkConfig
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getSslContext
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|super
+operator|.
+name|checkConfig
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+decl_stmt|;
+name|contextFact
+operator|.
+name|setSslContext
+argument_list|(
+name|endpointSslContextParameters
+operator|.
+name|createSSLContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|=
+operator|new
+name|SslSelectChannelConnector
+argument_list|(
+name|contextFact
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
 operator|new
 name|SslSelectChannelConnector
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// with default null values, jetty ssl system properties
 comment|// and console will be read by jetty implementation
 name|String
@@ -2622,6 +2876,7 @@ name|sslPassword
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|getSslSocketConnectorProperties
@@ -2630,6 +2885,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|endpointSslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"An SSLContextParameters instance is configured "
+operator|+
+literal|"in addition to SslSocketConnectorProperties.  Any SslSocketConnector properties"
+operator|+
+literal|"related to the SSLContext will be ignored in favor of the settings provided through"
+operator|+
+literal|"SSLContextParameters."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// must copy the map otherwise it will be deleted
 name|Map
 argument_list|<
@@ -2900,6 +3176,8 @@ specifier|synchronized
 name|HttpClient
 name|getHttpClient
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -2910,10 +3188,31 @@ condition|)
 block|{
 name|httpClient
 operator|=
-operator|new
-name|HttpClient
+name|this
+operator|.
+name|getNewHttpClient
 argument_list|()
 expr_stmt|;
+block|}
+return|return
+name|httpClient
+return|;
+block|}
+DECL|method|getNewHttpClient ()
+specifier|public
+name|CamelHttpClient
+name|getNewHttpClient
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelHttpClient
+name|httpClient
+init|=
+operator|new
+name|CamelHttpClient
+argument_list|()
+decl_stmt|;
 name|httpClient
 operator|.
 name|setConnectorType
@@ -3097,6 +3396,32 @@ name|getHttpClientThreadPool
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|sslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelHttpClient
+operator|)
+name|httpClient
+operator|)
+operator|.
+name|setSSLContext
+argument_list|(
+name|this
+operator|.
+name|sslContextParameters
+operator|.
+name|createSSLContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|httpClient
@@ -3111,6 +3436,29 @@ name|HttpClient
 name|httpClient
 parameter_list|)
 block|{
+if|if
+condition|(
+name|httpClient
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|isExplicitHttpClient
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|isExplicitHttpClient
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|httpClient
@@ -3638,6 +3986,32 @@ operator|.
 name|useContinuation
 operator|=
 name|useContinuation
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 comment|// Implementation methods

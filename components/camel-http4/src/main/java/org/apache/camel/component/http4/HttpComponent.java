@@ -32,16 +32,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -135,6 +125,22 @@ operator|.
 name|util
 operator|.
 name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -423,7 +429,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/http.html">HTTP  * Component</a>  *  * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/http4.html">HTTP4  * Component</a>  *  * @version   */
 end_comment
 
 begin_class
@@ -465,6 +471,11 @@ DECL|field|httpBinding
 specifier|protected
 name|HttpBinding
 name|httpBinding
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|field|x509HostnameVerifier
 specifier|protected
@@ -1072,6 +1083,34 @@ operator|.
 name|x509HostnameVerifier
 expr_stmt|;
 block|}
+name|SSLContextParameters
+name|sslContextParameters
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"sslContextParametersRef"
+argument_list|,
+name|SSLContextParameters
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sslContextParameters
+operator|==
+literal|null
+condition|)
+block|{
+name|sslContextParameters
+operator|=
+name|this
+operator|.
+name|sslContextParameters
+expr_stmt|;
+block|}
 comment|// create the configurer to use for this endpoint
 name|HttpClientConfigurer
 name|configurer
@@ -1213,6 +1252,8 @@ argument_list|,
 name|x509HostnameVerifier
 argument_list|,
 name|port
+argument_list|,
+name|sslContextParameters
 argument_list|)
 expr_stmt|;
 comment|// create the endpoint
@@ -1391,7 +1432,7 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|registerPort (boolean secure, X509HostnameVerifier x509HostnameVerifier, int port)
+DECL|method|registerPort (boolean secure, X509HostnameVerifier x509HostnameVerifier, int port, SSLContextParameters sslContextParams)
 specifier|protected
 name|void
 name|registerPort
@@ -1404,9 +1445,12 @@ name|x509HostnameVerifier
 parameter_list|,
 name|int
 name|port
+parameter_list|,
+name|SSLContextParameters
+name|sslContextParams
 parameter_list|)
 throws|throws
-name|NoSuchAlgorithmException
+name|Exception
 block|{
 name|SchemeRegistry
 name|registry
@@ -1421,15 +1465,40 @@ condition|(
 name|secure
 condition|)
 block|{
-comment|// must register both https and https4
 name|SSLSocketFactory
 name|socketFactory
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|sslContextParams
+operator|==
+literal|null
+condition|)
+block|{
+name|socketFactory
+operator|=
 name|SSLSocketFactory
 operator|.
 name|getSocketFactory
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|socketFactory
+operator|=
+operator|new
+name|SSLSocketFactory
+argument_list|(
+name|sslContextParams
+operator|.
+name|createSSLContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|socketFactory
 operator|.
 name|setHostnameVerifier
@@ -1437,6 +1506,7 @@ argument_list|(
 name|x509HostnameVerifier
 argument_list|)
 expr_stmt|;
+comment|// must register both https and https4
 name|registry
 operator|.
 name|register
@@ -1459,20 +1529,6 @@ argument_list|(
 literal|"Registering SSL scheme https on port "
 operator|+
 name|port
-argument_list|)
-expr_stmt|;
-name|socketFactory
-operator|=
-name|SSLSocketFactory
-operator|.
-name|getSocketFactory
-argument_list|()
-expr_stmt|;
-name|socketFactory
-operator|.
-name|setHostnameVerifier
-argument_list|(
-name|x509HostnameVerifier
 argument_list|)
 expr_stmt|;
 name|registry
@@ -1899,6 +1955,32 @@ operator|.
 name|httpBinding
 operator|=
 name|httpBinding
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getMaxTotalConnections ()
