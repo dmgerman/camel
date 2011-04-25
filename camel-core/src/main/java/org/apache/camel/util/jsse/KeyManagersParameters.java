@@ -134,13 +134,13 @@ specifier|protected
 name|KeyStoreParameters
 name|keyStore
 decl_stmt|;
-comment|/**      * The optional password for recovering keys in the key store. Used by the      * {@link KeyManagerFactory} that creates the {@link KeyManagers}s      * represented by this object's configuration.      */
+comment|/**      * The optional password for recovering keys in the key store. Used by the      * {@link KeyManagerFactory} that creates the {@link KeyManager}s      * represented by this object's configuration.      */
 DECL|field|keyPassword
 specifier|protected
 name|String
 name|keyPassword
 decl_stmt|;
-comment|/**      * The optional provider identifier for the {@link KeyManagerFactory} used to create      * the {@link KeyManagers}s represented by this object's configuration.      */
+comment|/**      * The optional provider identifier for the {@link KeyManagerFactory} used to create      * the {@link KeyManager}s represented by this object's configuration.      */
 DECL|field|provider
 specifier|protected
 name|String
@@ -164,29 +164,18 @@ name|GeneralSecurityException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating KeyManager[] from KeyManagersParameters: "
-operator|+
+literal|"Creating KeyManager[] from KeyManagersParameters: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|KeyManager
 index|[]
 name|keyManagers
-init|=
-literal|null
 decl_stmt|;
 name|String
 name|kmfAlgorithm
@@ -357,7 +346,7 @@ return|return
 name|keyPassword
 return|;
 block|}
-comment|/**      * Sets the optional password for recovering keys in the key store. Used by the      * {@link KeyManagerFactory} that creates the {@link KeyManagers}s      * represented by this object's configuration.      *      * @param value the value to use      */
+comment|/**      * Sets the optional password for recovering keys in the key store. Used by the      * {@link KeyManagerFactory} that creates the {@link KeyManager}s      * represented by this object's configuration.      *      * @param value the value to use      */
 DECL|method|setKeyPassword (String value)
 specifier|public
 name|void
@@ -402,7 +391,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * @see KeyManagersParametersTest#setAlgorithm(String)      */
+comment|/**      * @see KeyManagerFactory#getDefaultAlgorithm()      */
 DECL|method|getAlgorithm ()
 specifier|public
 name|String

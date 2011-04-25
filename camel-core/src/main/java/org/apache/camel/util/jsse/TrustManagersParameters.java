@@ -154,24 +154,15 @@ name|GeneralSecurityException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Creating TrustManager[] from TrustManagersParameters: "
-operator|+
+literal|"Creating TrustManager[] from TrustManagersParameters: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|TrustManager
 index|[]
 name|trustManagers
@@ -290,7 +281,6 @@ return|return
 name|trustManagers
 return|;
 block|}
-comment|/**      * @see #setKeyStore(KeyStoreParameters)      */
 DECL|method|getKeyStore ()
 specifier|public
 name|KeyStoreParameters
@@ -318,7 +308,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * @see #setProvider(String)      */
 DECL|method|getProvider ()
 specifier|public
 name|String
@@ -346,7 +335,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * @see KeyManagersParametersTest#setAlgorithm(String)      */
 DECL|method|getAlgorithm ()
 specifier|public
 name|String

@@ -147,7 +147,7 @@ name|GeneralSecurityException
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configuring client-side SSLContext parameters..."
 argument_list|)
@@ -192,7 +192,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configured client-side SSLContext parameters."
 argument_list|)

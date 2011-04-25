@@ -459,7 +459,7 @@ specifier|private
 name|FilterParameters
 name|secureSocketProtocolsFilter
 decl_stmt|;
-comment|/**      * The optional {@link SSLSessionContext} timeout time for {@link SSLSession}s.      * TODO provide a time unit here and on the getter/setter.      */
+comment|/**      * The optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      * TODO provide a time unit here and on the getter/setter.      */
 DECL|field|sessionTimeout
 specifier|private
 name|Integer
@@ -577,7 +577,7 @@ operator|=
 name|secureSocketProtocolsFilter
 expr_stmt|;
 block|}
-comment|/**      * Returns the optional {@link SSLSessionContext} timeout time for {@link SSLSession}s.      */
+comment|/**      * Returns the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      */
 DECL|method|getSessionTimeout ()
 specifier|public
 name|Integer
@@ -588,7 +588,7 @@ return|return
 name|sessionTimeout
 return|;
 block|}
-comment|/**      * Sets the optional {@link SSLSessionContext} timeout time for {@link SSLSession}s.      *      * @param sessionTimeout the timeout value or {@code null} to use the default      */
+comment|/**      * Sets the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      *      * @param sessionTimeout the timeout value or {@code null} to use the default      */
 DECL|method|setSessionTimeout (Integer sessionTimeout)
 specifier|public
 name|void
@@ -619,7 +619,7 @@ name|GeneralSecurityException
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configuring client and server side SSLContext parameters..."
 argument_list|)
@@ -638,8 +638,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring client and server side SSLContext session timeout: "
-operator|+
+literal|"Configuring client and server side SSLContext session timeout: {}"
+argument_list|,
 name|this
 operator|.
 name|getSessionTimeout
@@ -679,7 +679,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configured client and server side SSLContext parameters."
 argument_list|)
@@ -1884,7 +1884,7 @@ return|return
 name|sslServerSocketConfigurers
 return|;
 block|}
-comment|/**      * Configures a {@link SessionContext}, client or server, with the supplied session timeout.      *      * @param sessionContext the context to configure      * @param sessionTimeout the timeout time period      * @throws GeneralSecurityException if {@code sessionContext} is {@code null}      */
+comment|/**      * Configures a {@link SSLSessionContext}, client or server, with the supplied session timeout.      *      * @param sessionContext the context to configure      * @param sessionTimeout the timeout time period      * @throws GeneralSecurityException if {@code sessionContext} is {@code null}      */
 DECL|method|configureSessionContext ( SSLSessionContext sessionContext, int sessionTimeout)
 specifier|protected
 name|void
@@ -1922,7 +1922,7 @@ name|GeneralSecurityException
 argument_list|(
 literal|"The SSLContext does not support SSLSessionContext, "
 operator|+
-literal|"but a session timeout is configured.  Set sessionTimeout to null "
+literal|"but a session timeout is configured. Set sessionTimeout to null "
 operator|+
 literal|"to avoid this error."
 argument_list|)
@@ -2025,7 +2025,7 @@ name|enabledExcludePatterns
 argument_list|)
 return|;
 block|}
-comment|/**      * Filters the values in {@code availableValues} returning only the values that      * are explicitly listed in {@code explicitValues} (returns them regardless      * of if they appear in {@code availableValues} or not) if {@code explicitValues} is not      * {@code null} or as match the patterns in {@code includePatterns} and do      * not match the patterns in {@code excludePatterns} if {@code explicitValues} is {@code null}.      *       * @param explicitValues the optional explicit values to use      * @param availableValues the available values to filter from if {@code explicitValues} is {@code null}      * @param includePatterns the patterns to use for inclusion filtering, required if {@code explicitValues} is {@code null}      * @param excludePatterns the patterns to use for exclusion filtering, required if {@code explicitValues} is {@code null}      *      * @return the filtered values      *      * @see #filter(Collection, FilterParameters, FilterParameters, Collection)      */
+comment|/**      * Filters the values in {@code availableValues} returning only the values that      * are explicitly listed in {@code explicitValues} (returns them regardless      * of if they appear in {@code availableValues} or not) if {@code explicitValues} is not      * {@code null} or as match the patterns in {@code includePatterns} and do      * not match the patterns in {@code excludePatterns} if {@code explicitValues} is {@code null}.      *       * @param explicitValues the optional explicit values to use      * @param availableValues the available values to filter from if {@code explicitValues} is {@code null}      * @param includePatterns the patterns to use for inclusion filtering, required if {@code explicitValues} is {@code null}      * @param excludePatterns the patterns to use for exclusion filtering, required if {@code explicitValues} is {@code null}      *      * @return the filtered values      */
 DECL|method|filter (Collection<String> explicitValues, Collection<String> availableValues, List<Pattern> includePatterns, List<Pattern> excludePatterns)
 specifier|protected
 name|Collection
@@ -2199,7 +2199,7 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Configures a {@code T} based on the related configuration      * options. The return value from this method may be {@code object} or it      * may be a decorated instance there of. Consequently, any subsequent      * actions on {@code object} must be performed using the returned value.      *       * @param object the object to configure      * @return {@code object} or a decorated instance there of      */
+comment|/**      * Configures a {@code T} based on the related configuration options.      */
 DECL|interface|Configurer
 interface|interface
 name|Configurer
@@ -2207,6 +2207,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**          * Configures a {@code T} based on the related configuration options.          * The return value from this method may be {@code object} or it          * may be a decorated instance there of. Consequently, any subsequent          * actions on {@code object} must be performed using the returned value.          *          * @param object the object to configure          * @return {@code object} or a decorated instance there of          */
 DECL|method|configure (T object)
 name|T
 name|configure
@@ -2257,7 +2258,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Class needed to provide decoration of an existing {@link SSLContext}.      * Since {@code SSLContext} is an abstract class and requires an instance of      * {@Link SSLContextSpi}, this class effectively wraps an      * {@code SSLContext} as if it were an {@code SSLContextSpi}, allowing us to      * achieve decoration.      */
+comment|/**      * Class needed to provide decoration of an existing {@link SSLContext}.      * Since {@code SSLContext} is an abstract class and requires an instance of      * {@link SSLContextSpi}, this class effectively wraps an      * {@code SSLContext} as if it were an {@code SSLContextSpi}, allowing us to      * achieve decoration.      */
 DECL|class|SSLContextSpiDecorator
 specifier|protected
 specifier|static
@@ -2525,7 +2526,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|engineInit ( KeyManager[] km, TrustManager[] tm, SecureRandom random)
+DECL|method|engineInit (KeyManager[] km, TrustManager[] tm, SecureRandom random)
 specifier|protected
 name|void
 name|engineInit

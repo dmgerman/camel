@@ -291,24 +291,15 @@ name|GeneralSecurityException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating KeyStore instance from KeyStoreParameters: "
-operator|+
+literal|"Creating KeyStore instance from KeyStoreParameters: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|ksType
 init|=
@@ -358,8 +349,6 @@ expr_stmt|;
 block|}
 name|KeyStore
 name|ks
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

@@ -239,7 +239,6 @@ specifier|private
 name|String
 name|secureSocketProtocol
 decl_stmt|;
-comment|/**      * @see #setKeyManagers(KeyManager)      */
 DECL|method|getKeyManagers ()
 specifier|public
 name|KeyManagersParameters
@@ -267,7 +266,6 @@ operator|=
 name|keyManagers
 expr_stmt|;
 block|}
-comment|/**      * @see #setTrustManagers(TrustManagersParameters)      */
 DECL|method|getTrustManagers ()
 specifier|public
 name|TrustManagersParameters
@@ -295,7 +293,6 @@ operator|=
 name|trustManagers
 expr_stmt|;
 block|}
-comment|/**      * @see #setSecureRandom(SecureRandomParameters)      */
 DECL|method|getSecureRandom ()
 specifier|public
 name|SecureRandomParameters
@@ -323,7 +320,6 @@ operator|=
 name|secureRandom
 expr_stmt|;
 block|}
-comment|/**      * @see #setClientParameters(SSLContextClientParameters)      */
 DECL|method|getClientParameters ()
 specifier|public
 name|SSLContextClientParameters
@@ -351,7 +347,6 @@ operator|=
 name|clientParameters
 expr_stmt|;
 block|}
-comment|/**      * @see #setServerParameters(SSLContextServerParameters)      */
 DECL|method|getServerParameters ()
 specifier|public
 name|SSLContextServerParameters
@@ -379,7 +374,6 @@ operator|=
 name|serverParameters
 expr_stmt|;
 block|}
-comment|/**      * @see #setProvider(String)      */
 DECL|method|getProvider ()
 specifier|public
 name|String
@@ -390,7 +384,7 @@ return|return
 name|provider
 return|;
 block|}
-comment|/**      * Sets the optional provider identifier to use when constructing an      * {@link SSLContext}.      *       * @param the provider identifier (from the list of available providers      *            returned by {@link Security#getProviders()}) or {@code null}      *            to use the highest priority provider implementing the secure      *            socket protocol      *      * @see Security#getProviders(java.util.Map)      * @see #setSecureSocketProtocol(String)                  */
+comment|/**      * Sets the optional provider identifier to use when constructing an      * {@link SSLContext}.      *       * @param provider the identifier (from the list of available providers      *            returned by {@link Security#getProviders()}) or {@code null}      *            to use the highest priority provider implementing the secure      *            socket protocol      *      * @see Security#getProviders(java.util.Map)      * @see #setSecureSocketProtocol(String)                  */
 DECL|method|setProvider (String provider)
 specifier|public
 name|void
@@ -407,7 +401,6 @@ operator|=
 name|provider
 expr_stmt|;
 block|}
-comment|/**      * @see #setSecureSocketProtocol(String)      */
 DECL|method|getSecureSocketProtocol ()
 specifier|public
 name|String
@@ -462,24 +455,15 @@ name|GeneralSecurityException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating SSLContext from SSLContextParameters: "
-operator|+
+literal|"Creating SSLContext from SSLContextParameters: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|KeyManager
 index|[]
 name|keyManagers
@@ -538,8 +522,6 @@ argument_list|()
 decl_stmt|;
 name|SSLContext
 name|context
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -655,7 +637,7 @@ name|GeneralSecurityException
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configuring client and server side SSLContext parameters..."
 argument_list|)
@@ -725,7 +707,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Configured client and server side SSLContext parameters."
 argument_list|)
@@ -750,7 +732,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collecting client and server side SSLEngine configurers..."
 argument_list|)
@@ -839,7 +821,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collected client and server side SSLEngine configurers."
 argument_list|)
@@ -867,7 +849,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collecting SSLSocketFactory configurers..."
 argument_list|)
@@ -923,7 +905,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collected SSLSocketFactory configurers."
 argument_list|)
@@ -951,7 +933,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collecting SSLServerSocketFactory configurers..."
 argument_list|)
@@ -1007,7 +989,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Collected client and server side SSLServerSocketFactory configurers."
 argument_list|)

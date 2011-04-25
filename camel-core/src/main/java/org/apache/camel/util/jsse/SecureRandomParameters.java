@@ -111,28 +111,17 @@ parameter_list|()
 throws|throws
 name|GeneralSecurityException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating SecureRandom from SecureRandomParameters: "
-operator|+
+literal|"Creating SecureRandom from SecureRandomParameters: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|SecureRandom
 name|secureRandom
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
