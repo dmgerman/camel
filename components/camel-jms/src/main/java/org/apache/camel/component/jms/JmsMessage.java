@@ -323,6 +323,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// copy body and fault flag
 name|setBody
 argument_list|(
 name|that
@@ -331,6 +332,23 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setFault
+argument_list|(
+name|that
+operator|.
+name|isFault
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we have already cleared the headers
+if|if
+condition|(
+name|that
+operator|.
+name|hasHeaders
+argument_list|()
+condition|)
+block|{
 name|getHeaders
 argument_list|()
 operator|.
@@ -342,6 +360,21 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+name|getAttachments
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|that
+operator|.
+name|hasAttachments
+argument_list|()
+condition|)
+block|{
 name|getAttachments
 argument_list|()
 operator|.
@@ -353,6 +386,7 @@ name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the underlying JMS message      */
 DECL|method|getJmsMessage ()
