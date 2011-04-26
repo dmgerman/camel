@@ -291,6 +291,11 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|doSendMessages (int files, int poolSize)
 specifier|private
 name|void
@@ -330,6 +335,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|responses
 init|=
@@ -339,6 +347,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -364,6 +375,9 @@ init|=
 name|i
 decl_stmt|;
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|out
 init|=
 name|executor

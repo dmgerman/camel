@@ -186,6 +186,11 @@ init|=
 literal|""
 decl_stmt|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testMax2Rows ()
 specifier|public
@@ -236,6 +241,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+annotation|@
 name|Test
 DECL|method|testMax5Rows ()
 specifier|public
@@ -285,6 +295,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testNoParameters ()
