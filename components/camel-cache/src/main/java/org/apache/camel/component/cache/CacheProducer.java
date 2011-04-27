@@ -515,13 +515,7 @@ name|CacheConstants
 operator|.
 name|CACHE_OPERATION
 operator|+
-literal|" not specified in the message header ["
-operator|+
-name|CacheConstants
-operator|.
-name|CACHE_KEY
-operator|+
-literal|"]"
+literal|" header not specified in message"
 argument_list|)
 throw|;
 block|}
