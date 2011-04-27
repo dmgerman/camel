@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  *  * @version   */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  *  * @version  */
 end_comment
 
 begin_class
@@ -502,7 +502,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Polling mailfolder: "
+literal|"Polling mailbox folder: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -1313,7 +1313,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Strategy to flag the message after being processed.      *      * @param mail the mail message      * @param exchange the exchange      */
+comment|/**      * Strategy to flag the message after being processed.      *      * @param mail     the mail message      * @param exchange the exchange      */
 DECL|method|processCommit (Message mail, Exchange exchange)
 specifier|protected
 name|void
@@ -1328,6 +1328,26 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// ensure folder is open
+if|if
+condition|(
+operator|!
+name|folder
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
+name|folder
+operator|.
+name|open
+argument_list|(
+name|Folder
+operator|.
+name|READ_WRITE
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|getEndpoint
@@ -1409,7 +1429,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when processing the exchange failed.      *      * @param mail the mail message      * @param exchange the exchange      */
+comment|/**      * Strategy when processing the exchange failed.      *      * @param mail     the mail message      * @param exchange the exchange      */
 DECL|method|processRollback (Message mail, Exchange exchange)
 specifier|protected
 name|void
