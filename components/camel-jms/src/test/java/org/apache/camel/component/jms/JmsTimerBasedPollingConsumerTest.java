@@ -34,18 +34,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -324,7 +312,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"timer://foo?period=5000"
+literal|"timer://foo?period=1000"
 argument_list|)
 operator|.
 name|bean
@@ -348,6 +336,7 @@ name|MyCoolBean
 block|{
 DECL|field|count
 specifier|private
+specifier|volatile
 name|int
 name|count
 decl_stmt|;
@@ -405,17 +394,15 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// receive the message from the queue, wait at most 3 sec
+comment|// receive the message from the queue
 name|String
 name|msg
 init|=
 name|consumer
 operator|.
-name|receiveBody
+name|receiveBodyNoWait
 argument_list|(
 literal|"activemq:queue.inbox"
-argument_list|,
-literal|3000
 argument_list|,
 name|String
 operator|.
