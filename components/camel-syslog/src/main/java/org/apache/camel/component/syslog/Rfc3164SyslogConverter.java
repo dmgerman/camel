@@ -131,6 +131,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|Rfc3164SyslogConverter
 specifier|public
 specifier|final
