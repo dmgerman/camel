@@ -579,7 +579,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|// do not convert to stream cache
 if|if
 condition|(
 name|BeanInvocation
