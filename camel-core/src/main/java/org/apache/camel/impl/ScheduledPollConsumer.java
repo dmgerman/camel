@@ -222,11 +222,11 @@ operator|new
 name|DefaultPollingConsumerPollStrategy
 argument_list|()
 decl_stmt|;
-DECL|method|ScheduledPollConsumer (DefaultEndpoint endpoint, Processor processor)
+DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
-name|DefaultEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|Processor

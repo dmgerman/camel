@@ -246,6 +246,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// use a defensive copy of the consumer properties as the methods below will remove the used properties
+comment|// and in case we restart routes, we need access to the original consumer properties again
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|copy
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|consumerProperties
+argument_list|)
+decl_stmt|;
 comment|// set reference properties first as they use # syntax that fools the regular properties setter
 name|EndpointHelper
 operator|.
@@ -256,7 +277,7 @@ argument_list|()
 argument_list|,
 name|consumer
 argument_list|,
-name|consumerProperties
+name|copy
 argument_list|)
 expr_stmt|;
 name|EndpointHelper
@@ -268,7 +289,7 @@ argument_list|()
 argument_list|,
 name|consumer
 argument_list|,
-name|consumerProperties
+name|copy
 argument_list|)
 expr_stmt|;
 if|if
@@ -279,7 +300,7 @@ operator|.
 name|isLenientProperties
 argument_list|()
 operator|&&
-name|consumerProperties
+name|copy
 operator|.
 name|size
 argument_list|()
@@ -298,7 +319,7 @@ argument_list|()
 argument_list|,
 literal|"There are "
 operator|+
-name|consumerProperties
+name|copy
 operator|.
 name|size
 argument_list|()
@@ -309,7 +330,7 @@ literal|" Check the uri if the parameters are spelt correctly and that they are 
 operator|+
 literal|" Unknown consumer parameters=["
 operator|+
-name|consumerProperties
+name|copy
 operator|+
 literal|"]"
 argument_list|)
