@@ -204,7 +204,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<T>... interfaceClasses)
+DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<?>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -221,7 +221,7 @@ name|cl
 parameter_list|,
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -249,7 +249,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-DECL|method|createProxy (Endpoint endpoint, Class<T>... interfaceClasses)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createProxy (Endpoint endpoint, Class<?>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -263,7 +268,7 @@ name|endpoint
 parameter_list|,
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -294,7 +299,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createProxy (Endpoint endpoint, Producer producer, Class<T>... interfaceClasses)
+DECL|method|createProxy (Endpoint endpoint, Producer producer, Class<?>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -311,7 +316,7 @@ name|producer
 parameter_list|,
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 modifier|...
 name|interfaceClasses
