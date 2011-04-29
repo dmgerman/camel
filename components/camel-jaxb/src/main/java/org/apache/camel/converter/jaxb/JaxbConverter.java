@@ -172,20 +172,6 @@ name|camel
 operator|.
 name|converter
 operator|.
-name|HasAnnotation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
 name|jaxp
 operator|.
 name|XmlConverter
@@ -193,10 +179,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * As we have the JAXB FallbackTypeConverter, so we don't need to register this converter  * @version   */
+comment|/**  * As we have the JAXB FallbackTypeConverter, so we don't need to register this converter  *  * @deprecated will be removed in the near future  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|JaxbConverter
 specifier|public
 specifier|final

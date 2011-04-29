@@ -272,6 +272,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|StreamCache
 import|;
 end_import
@@ -285,6 +297,22 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|bean
+operator|.
+name|BeanInvocation
 import|;
 end_import
 
@@ -365,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -551,6 +579,34 @@ name|Object
 name|value
 parameter_list|)
 block|{
+comment|// do not convert to stream cache
+if|if
+condition|(
+name|BeanInvocation
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+operator|||
+name|Processor
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+comment|// JAXB cannot convert to a BeanInvocation / Processor, so we need to indicate this
+comment|// to avoid Camel trying to do this when using beans with JAXB payloads
+return|return
+literal|null
+return|;
+block|}
 try|try
 block|{
 if|if
@@ -773,6 +829,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Unmarshal to {} with value {}"
+argument_list|,
+name|type
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|value
@@ -1021,6 +1088,17 @@ name|XMLStreamException
 throws|,
 name|FactoryConfigurationError
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Marshal from value {} to type {}"
+argument_list|,
+name|value
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
 name|T
 name|answer
 init|=
@@ -1198,7 +1276,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Unmarshals the given value with the unmarshaller      *      * @param unmarshaller  the unmarshaller      * @param exchange the exchange       * @param value  the stream to unmarshal (will close it after use, also if exception is thrown)      * @return  the value      * @throws JAXBException is thrown if an exception occur while unmarshalling      * @throws UnsupportedEncodingException       */
 DECL|method|unmarshal (Unmarshaller unmarshaller, Exchange exchange, Object value)
 specifier|protected
 name|Object
