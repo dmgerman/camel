@@ -307,18 +307,39 @@ name|type
 argument_list|)
 condition|)
 block|{
-comment|// As the PasswordType is PasswordDigest, we need to do the authentication in the call back
+comment|// Code for CXF 2.4.X
 if|if
 condition|(
-operator|!
 name|pc
 operator|.
 name|getPassword
 argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|pc
+operator|.
+name|setPassword
+argument_list|(
+name|pass
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// Code for CXF 2.3.x
+comment|// As the PasswordType is not PasswordDigest, we need to do the authentication in the call back
+if|if
+condition|(
+operator|!
+name|pass
 operator|.
 name|equals
 argument_list|(
-name|pass
+name|pc
+operator|.
+name|getPassword
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -435,7 +456,9 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|String
+name|result
+init|=
 operator|(
 name|String
 operator|)
@@ -451,6 +474,9 @@ index|[
 literal|0
 index|]
 argument_list|)
+decl_stmt|;
+return|return
+name|result
 return|;
 block|}
 catch|catch

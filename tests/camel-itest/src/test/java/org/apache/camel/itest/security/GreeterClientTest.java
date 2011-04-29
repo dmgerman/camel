@@ -620,20 +620,6 @@ operator|instanceof
 name|SOAPFaultException
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Exception message is "
-operator|+
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Get a wrong exception message"
