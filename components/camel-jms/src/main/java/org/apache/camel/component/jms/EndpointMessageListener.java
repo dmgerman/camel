@@ -388,6 +388,9 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|sendReply
+decl_stmt|;
 name|RuntimeCamelException
 name|rce
 init|=
@@ -403,6 +406,17 @@ argument_list|(
 name|message
 argument_list|)
 decl_stmt|;
+comment|// we can only send back a reply if there was a reply destination configured
+comment|// and disableReplyTo hasn't been explicit enabled
+name|sendReply
+operator|=
+name|replyDestination
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|disableReplyTo
+expr_stmt|;
 specifier|final
 name|Exchange
 name|exchange
@@ -428,14 +442,6 @@ name|getHeaders
 argument_list|()
 expr_stmt|;
 block|}
-comment|// process the exchange
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"onMessage.process START"
-argument_list|)
-expr_stmt|;
 name|String
 name|correlationId
 init|=
@@ -463,6 +469,14 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// process the exchange
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onMessage.process START"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|processor
@@ -494,8 +508,17 @@ argument_list|(
 literal|"onMessage.process END"
 argument_list|)
 expr_stmt|;
-comment|// get the correct jms message to send as reply
-name|JmsMessage
+comment|// now we evaluate the processing of the exchange and determine if it was a success or failure
+comment|// we also grab information from the exchange to be used for sending back a reply (if we are to do so)
+comment|// so the following logic seems a bit complicated at first glance
+comment|// if we send back a reply it can either be the message body or transferring a caused exception
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|body
 init|=
 literal|null
@@ -504,11 +527,6 @@ name|Exception
 name|cause
 init|=
 literal|null
-decl_stmt|;
-name|boolean
-name|sendReply
-init|=
-literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -523,59 +541,6 @@ name|isRollbackOnly
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// an exception occurred while processing
-if|if
-condition|(
-name|endpoint
-operator|.
-name|isTransferException
-argument_list|()
-condition|)
-block|{
-comment|// send the exception as reply
-name|body
-operator|=
-literal|null
-expr_stmt|;
-name|cause
-operator|=
-name|exchange
-operator|.
-name|getException
-argument_list|()
-expr_stmt|;
-name|sendReply
-operator|=
-literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// only throw exception if endpoint is not configured to transfer exceptions back to caller
-comment|// do not send a reply but wrap and rethrow the exception
-name|rce
-operator|=
-name|wrapRuntimeCamelException
-argument_list|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
 if|if
 condition|(
 name|exchange
@@ -602,29 +567,47 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getBody
+name|getException
 argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// a fault occurred while processing
+comment|// an exception occurred while processing
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
+comment|// send the exception as reply, so null body and set the exception as the cause
 name|body
 operator|=
-operator|(
-name|JmsMessage
-operator|)
+literal|null
+expr_stmt|;
+name|cause
+operator|=
 name|exchange
 operator|.
-name|getOut
+name|getException
 argument_list|()
 expr_stmt|;
-name|sendReply
+block|}
+else|else
+block|{
+comment|// only throw exception if endpoint is not configured to transfer exceptions back to caller
+comment|// do not send a reply but wrap and rethrow the exception
+name|rce
 operator|=
-literal|true
+name|wrapRuntimeCamelException
+argument_list|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -635,35 +618,36 @@ name|exchange
 operator|.
 name|hasOut
 argument_list|()
+operator|&&
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
+argument_list|()
 condition|)
 block|{
-comment|// process OK so get the reply
+comment|// a fault occurred while processing
 name|body
 operator|=
-operator|(
-name|JmsMessage
-operator|)
 name|exchange
 operator|.
 name|getOut
 argument_list|()
 expr_stmt|;
-name|sendReply
+name|cause
 operator|=
-literal|true
+literal|null
 expr_stmt|;
 block|}
-comment|// send the reply if we got a response and the exchange is out capable
+block|}
+else|else
+block|{
+comment|// process OK so get the reply body if we are InOut and has a body
 if|if
 condition|(
-name|rce
-operator|==
-literal|null
-operator|&&
 name|sendReply
-operator|&&
-operator|!
-name|disableReplyTo
 operator|&&
 name|exchange
 operator|.
@@ -672,6 +656,44 @@ argument_list|()
 operator|.
 name|isOutCapable
 argument_list|()
+operator|&&
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|body
+operator|=
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+expr_stmt|;
+name|cause
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+comment|// send back reply if there was no error and we are supposed to send back a reply
+if|if
+condition|(
+name|rce
+operator|==
+literal|null
+operator|&&
+name|sendReply
+operator|&&
+operator|(
+name|body
+operator|!=
+literal|null
+operator|||
+name|cause
+operator|!=
+literal|null
+operator|)
 condition|)
 block|{
 name|LOG
@@ -747,6 +769,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// an exception occurred so rethrow to trigger rollback on JMS listener
 if|if
 condition|(
 name|rce
@@ -1159,7 +1182,7 @@ name|correlationId
 return|;
 block|}
 block|}
-DECL|method|sendReply (Destination replyDestination, final Message message, final Exchange exchange, final JmsMessage out, final Exception cause)
+DECL|method|sendReply (Destination replyDestination, final Message message, final Exchange exchange, final org.apache.camel.Message out, final Exception cause)
 specifier|protected
 name|void
 name|sendReply
@@ -1176,7 +1199,13 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|JmsMessage
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|out
 parameter_list|,
 specifier|final
@@ -1299,7 +1328,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendReply (String replyDestination, final Message message, final Exchange exchange, final JmsMessage out, final Exception cause)
+DECL|method|sendReply (String replyDestination, final Message message, final Exchange exchange, final org.apache.camel.Message out, final Exception cause)
 specifier|protected
 name|void
 name|sendReply
@@ -1316,7 +1345,13 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|JmsMessage
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|out
 parameter_list|,
 specifier|final
