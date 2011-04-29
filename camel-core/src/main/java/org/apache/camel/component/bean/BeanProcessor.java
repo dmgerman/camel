@@ -549,23 +549,43 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-comment|// Now it gets a bit complicated as ProxyHelper can proxy beans which we later
-comment|// intend to invoke (for example to proxy and invoke using spring remoting).
-comment|// and therefore the message body contains a BeanInvocation object.
-comment|// However this can causes problem if we in a Camel route invokes another bean,
-comment|// so we must test whether BeanHolder and BeanInvocation is the same bean or not
+comment|// is the message proxied using a BeanInvocation?
 name|BeanInvocation
 name|beanInvoke
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
 name|in
 operator|.
 name|getBody
-argument_list|(
-name|BeanInvocation
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|in
 operator|.
-name|class
-argument_list|)
-decl_stmt|;
+name|getBody
+argument_list|()
+operator|instanceof
+name|BeanInvocation
+condition|)
+block|{
+comment|// BeanInvocation would be stored directly as the message body
+comment|// do not force any type conversion attempts as it would just be unnecessary and cost a bit performance
+comment|// so a regular instanceof check is sufficient
+name|beanInvoke
+operator|=
+operator|(
+name|BeanInvocation
+operator|)
+name|in
+operator|.
+name|getBody
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|beanInvoke
@@ -573,6 +593,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Now it gets a bit complicated as ProxyHelper can proxy beans which we later
+comment|// intend to invoke (for example to proxy and invoke using spring remoting).
+comment|// and therefore the message body contains a BeanInvocation object.
+comment|// However this can causes problem if we in a Camel route invokes another bean,
+comment|// so we must test whether BeanHolder and BeanInvocation is the same bean or not
 name|LOG
 operator|.
 name|trace
