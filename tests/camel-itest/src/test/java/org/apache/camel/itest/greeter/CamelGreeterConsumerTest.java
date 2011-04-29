@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -87,6 +99,18 @@ operator|.
 name|cxf
 operator|.
 name|CxfConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|hello_world_soap_http
+operator|.
+name|PingMeFault
 import|;
 end_import
 
@@ -182,6 +206,18 @@ name|assertTrue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ContextConfiguration
@@ -201,10 +237,10 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testMocksAreValid ()
+DECL|method|testInvokeServers ()
 specifier|public
 name|void
-name|testMocksAreValid
+name|testInvokeServers
 parameter_list|()
 throws|throws
 name|Exception
@@ -292,6 +328,61 @@ argument_list|,
 literal|"HelloWillem"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"cxf://bean:serviceEndpoint"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|,
+name|params
+argument_list|,
+name|CxfConstants
+operator|.
+name|OPERATION_NAME
+argument_list|,
+literal|"pingMe"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expect exception here."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Get a wrong exception."
+argument_list|,
+name|ex
+operator|instanceof
+name|CamelExecutionException
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Get a wrong exception cause. "
+argument_list|,
+name|ex
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|PingMeFault
+argument_list|)
+expr_stmt|;
+block|}
 name|template
 operator|.
 name|stop

@@ -620,6 +620,20 @@ operator|instanceof
 name|SOAPFaultException
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Exception message is "
+operator|+
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Get a wrong exception message"
@@ -631,25 +645,12 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"The security token could not be authenticated or authorized;"
+literal|"The security token could not be authenticated or authorized"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong exception message"
-argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|endsWith
-argument_list|(
-literal|"java.io.IOException: Wrong password!"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// CXF 2.4.0 WSecurity doesn't put the authentication exception
+comment|//assertTrue("Get a wrong exception message", ex.getMessage().endsWith("java.io.IOException: Wrong password!"));
 block|}
 block|}
 annotation|@
