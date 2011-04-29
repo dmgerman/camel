@@ -4957,11 +4957,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|removeRoute (String routeId)
 specifier|public
 specifier|synchronized
@@ -8917,11 +8912,6 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|stopRouteService (RouteService routeService, boolean removingRoutes)
 specifier|protected
 specifier|synchronized
@@ -9081,11 +9071,6 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|suspendRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized

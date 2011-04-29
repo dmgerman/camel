@@ -1294,7 +1294,6 @@ argument_list|(
 name|sslKeystore
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 block|}
 return|return
