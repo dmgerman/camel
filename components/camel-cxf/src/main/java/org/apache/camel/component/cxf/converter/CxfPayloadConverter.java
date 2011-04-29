@@ -595,8 +595,6 @@ argument_list|<
 name|?
 argument_list|>
 name|p
-init|=
-literal|null
 decl_stmt|;
 name|p
 operator|=
@@ -657,6 +655,15 @@ operator|)
 name|p
 return|;
 block|}
+comment|// no we could not do it currently
+return|return
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
+return|;
 block|}
 comment|// Convert a CxfPayload into something else
 if|if
@@ -779,6 +786,18 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// no we could not do it currently
+return|return
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
 return|;
 block|}
 block|}
