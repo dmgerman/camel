@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|smpp
+operator|.
+name|SmppMessageType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -143,6 +159,11 @@ comment|/**  * Spring based integration test for the smpp component. To run this
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Must be manually tested"
+argument_list|)
 DECL|class|SmppComponentSpringIntegrationTest
 specifier|public
 class|class
@@ -152,11 +173,6 @@ name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested"
-argument_list|)
 DECL|method|sendInOut ()
 specifier|public
 name|void
@@ -240,6 +256,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+name|SmppMessageType
+operator|.
+name|DeliveryReceipt
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|resultExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SmppBinding
+operator|.
+name|MESSAGE_TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Hello SMPP World!"
@@ -365,11 +403,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested"
-argument_list|)
 DECL|method|sendInOnly ()
 specifier|public
 name|void
@@ -453,6 +486,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+name|SmppMessageType
+operator|.
+name|DeliveryReceipt
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|resultExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SmppBinding
+operator|.
+name|MESSAGE_TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Hello SMPP World!"
