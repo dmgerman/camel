@@ -365,7 +365,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody
@@ -384,7 +384,7 @@ else|else
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody
