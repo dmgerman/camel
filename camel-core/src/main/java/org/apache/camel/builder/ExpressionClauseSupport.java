@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -467,6 +479,23 @@ argument_list|(
 name|ExpressionBuilder
 operator|.
 name|outHeadersExpression
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * An expression of the exchange pattern      */
+DECL|method|exchangePattern ()
+specifier|public
+name|T
+name|exchangePattern
+parameter_list|()
+block|{
+return|return
+name|expression
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|exchangePatternExpression
 argument_list|()
 argument_list|)
 return|;

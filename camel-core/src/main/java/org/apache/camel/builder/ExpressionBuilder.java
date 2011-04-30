@@ -1016,6 +1016,48 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns an expression for the exchange pattern      *      * @see org.apache.camel.Exchange#getPattern()      * @return an expression object which will return the exchange pattern      */
+DECL|method|exchangePatternExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|exchangePatternExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"exchangePattern"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns an expression for an exception set on the exchange      *      * @see Exchange#getException()      * @return an expression object which will return the exception set on the exchange      */
 DECL|method|exchangeExceptionExpression ()
 specifier|public
