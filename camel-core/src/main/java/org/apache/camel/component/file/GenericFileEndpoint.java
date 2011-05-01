@@ -431,9 +431,9 @@ specifier|protected
 name|int
 name|bufferSize
 init|=
-literal|128
-operator|*
-literal|1024
+name|FileUtil
+operator|.
+name|BUFFER_SIZE
 decl_stmt|;
 DECL|field|fileExist
 specifier|protected
