@@ -38,6 +38,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -80,7 +94,7 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|342098639681884413L
+literal|342098639681884414L
 decl_stmt|;
 DECL|field|maxCacheSize
 specifier|private
@@ -88,6 +102,26 @@ name|int
 name|maxCacheSize
 init|=
 literal|10000
+decl_stmt|;
+DECL|field|hits
+specifier|private
+specifier|final
+name|AtomicLong
+name|hits
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
+DECL|field|misses
+specifier|private
+specifier|final
+name|AtomicLong
+name|misses
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 DECL|method|LRUCache (int maximumCacheSize)
 specifier|public
@@ -143,6 +177,80 @@ operator|=
 name|maximumCacheSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|get (Object o)
+specifier|public
+name|V
+name|get
+parameter_list|(
+name|Object
+name|o
+parameter_list|)
+block|{
+name|V
+name|answer
+init|=
+name|super
+operator|.
+name|get
+argument_list|(
+name|o
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|hits
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|misses
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Gets the number of cache hits      */
+DECL|method|getHits ()
+specifier|public
+name|long
+name|getHits
+parameter_list|()
+block|{
+return|return
+name|hits
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+comment|/**      * Gets the number of cache misses.      */
+DECL|method|getMisses ()
+specifier|public
+name|long
+name|getMisses
+parameter_list|()
+block|{
+return|return
+name|misses
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns the maxCacheSize.      */
 DECL|method|getMaxCacheSize ()
 specifier|public
@@ -153,6 +261,28 @@ block|{
 return|return
 name|maxCacheSize
 return|;
+block|}
+comment|/**      * Rest the cache statistics such as hits and misses.      */
+DECL|method|resetStatistics ()
+specifier|public
+name|void
+name|resetStatistics
+parameter_list|()
+block|{
+name|hits
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|misses
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|removeEldestEntry (Map.Entry<K, V> entry)
 specifier|protected
@@ -213,6 +343,20 @@ argument_list|)
 expr_stmt|;
 name|clear
 argument_list|()
+expr_stmt|;
+name|hits
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|misses
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 block|}

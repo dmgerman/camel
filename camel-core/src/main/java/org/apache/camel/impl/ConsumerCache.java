@@ -674,6 +674,115 @@ return|return
 name|capacity
 return|;
 block|}
+comment|/**      * Gets the cache hits statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the hits      */
+DECL|method|getHits ()
+specifier|public
+name|long
+name|getHits
+parameter_list|()
+block|{
+name|long
+name|hits
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|consumers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|consumers
+decl_stmt|;
+name|hits
+operator|=
+name|cache
+operator|.
+name|getHits
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|hits
+return|;
+block|}
+comment|/**      * Gets the cache misses statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the misses      */
+DECL|method|getMisses ()
+specifier|public
+name|long
+name|getMisses
+parameter_list|()
+block|{
+name|long
+name|misses
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|consumers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|consumers
+decl_stmt|;
+name|misses
+operator|=
+name|cache
+operator|.
+name|getMisses
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|misses
+return|;
+block|}
+comment|/**      * Resets the cache statistics      */
+DECL|method|resetCacheStatistics ()
+specifier|public
+name|void
+name|resetCacheStatistics
+parameter_list|()
+block|{
+if|if
+condition|(
+name|consumers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|consumers
+decl_stmt|;
+name|cache
+operator|.
+name|resetStatistics
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Purges this cache      */
 DECL|method|purge ()
 specifier|public
@@ -687,6 +796,25 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ConsumerCache for source: "
+operator|+
+name|source
+operator|+
+literal|", capacity: "
+operator|+
+name|getCapacity
+argument_list|()
+return|;
 block|}
 DECL|method|doStart ()
 specifier|protected

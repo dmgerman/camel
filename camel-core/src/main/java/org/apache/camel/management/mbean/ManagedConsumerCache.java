@@ -230,6 +230,65 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache hits"
+argument_list|)
+DECL|method|getHits ()
+specifier|public
+name|Long
+name|getHits
+parameter_list|()
+block|{
+return|return
+name|consumerCache
+operator|.
+name|getHits
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache misses"
+argument_list|)
+DECL|method|getMisses ()
+specifier|public
+name|Long
+name|getMisses
+parameter_list|()
+block|{
+return|return
+name|consumerCache
+operator|.
+name|getMisses
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset cache statistics"
+argument_list|)
+DECL|method|resetStatistics ()
+specifier|public
+name|void
+name|resetStatistics
+parameter_list|()
+block|{
+name|consumerCache
+operator|.
+name|resetCacheStatistics
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
