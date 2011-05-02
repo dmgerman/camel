@@ -1147,6 +1147,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -1401,6 +1406,12 @@ name|String
 argument_list|>
 name|val
 init|=
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|entry
 operator|.
 name|getValue
@@ -1538,16 +1549,6 @@ name|res
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|buffer
-operator|.
-name|append
-argument_list|(
-literal|""
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|itx
@@ -1662,11 +1663,6 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|boolean
-name|cont
-init|=
-literal|true
-decl_stmt|;
 name|int
 name|idx
 init|=
@@ -1674,6 +1670,8 @@ literal|0
 decl_stmt|;
 name|int
 name|idxSize
+init|=
+literal|0
 decl_stmt|;
 do|do
 block|{

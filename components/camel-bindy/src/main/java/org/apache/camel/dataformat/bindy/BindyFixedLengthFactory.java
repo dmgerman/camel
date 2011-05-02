@@ -763,13 +763,6 @@ decl_stmt|;
 name|DataField
 name|dataField
 decl_stmt|;
-name|StringBuilder
-name|result
-init|=
-operator|new
-name|StringBuilder
-argument_list|()
-decl_stmt|;
 name|String
 name|token
 decl_stmt|;
