@@ -1215,6 +1215,30 @@ literal|"Options groupExchanges and AggregationStrategy cannot be enabled at the
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|eagerCheckCompletion
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|eagerCheckCompletion
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option eagerCheckCompletion cannot be false when groupExchanges has been enabled"
+argument_list|)
+throw|;
+block|}
+comment|// set eager check to enabled by default when using grouped exchanges
+name|setEagerCheckCompletion
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// if grouped exchange is enabled then use special strategy for that
 name|strategy
 operator|=
@@ -2183,6 +2207,12 @@ name|groupExchanges
 parameter_list|()
 block|{
 name|setGroupExchanges
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// must use eager check when using grouped exchanges
+name|setEagerCheckCompletion
 argument_list|(
 literal|true
 argument_list|)
