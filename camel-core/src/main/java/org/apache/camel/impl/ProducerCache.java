@@ -266,6 +266,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUSoftCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -418,13 +432,7 @@ operator|.
 name|getProducerServicePool
 argument_list|()
 argument_list|,
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Producer
-argument_list|>
+name|createLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)
@@ -482,6 +490,36 @@ name|producers
 operator|=
 name|cache
 expr_stmt|;
+block|}
+comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link LRUSoftCache} instance.       * @param cacheSize the cache size      * @return the cache      */
+DECL|method|createLRUCache (int cacheSize)
+specifier|protected
+specifier|static
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Producer
+argument_list|>
+name|createLRUCache
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+comment|// We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.
+return|return
+operator|new
+name|LRUSoftCache
+argument_list|<
+name|String
+argument_list|,
+name|Producer
+argument_list|>
+argument_list|(
+name|cacheSize
+argument_list|)
+return|;
 block|}
 DECL|method|getCamelContext ()
 specifier|public

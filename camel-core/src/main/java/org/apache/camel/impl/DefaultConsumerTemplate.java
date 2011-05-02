@@ -1206,6 +1206,8 @@ operator|=
 operator|new
 name|ConsumerCache
 argument_list|(
+name|this
+argument_list|,
 name|context
 argument_list|,
 name|maximumCacheSize
@@ -1219,6 +1221,8 @@ operator|=
 operator|new
 name|ConsumerCache
 argument_list|(
+name|this
+argument_list|,
 name|context
 argument_list|)
 expr_stmt|;

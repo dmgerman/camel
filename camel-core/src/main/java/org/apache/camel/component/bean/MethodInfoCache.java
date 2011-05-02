@@ -76,12 +76,12 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|LRUSoftCache
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a cache of {@link MethodInfo} objects to avoid the expense of introspection for each  * invocation of a method via a proxy,  *  * @version   */
+comment|/**  * Represents a cache of {@link MethodInfo} objects to avoid the expense of introspection for each  * invocation of a method via a proxy.  *  * @version   */
 end_comment
 
 begin_class
@@ -386,9 +386,10 @@ name|int
 name|size
 parameter_list|)
 block|{
+comment|// use a soft cache
 return|return
 operator|new
-name|LRUCache
+name|LRUSoftCache
 argument_list|<
 name|Object
 argument_list|,

@@ -136,6 +136,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUSoftCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -206,16 +220,27 @@ name|PollingConsumer
 argument_list|>
 name|consumers
 decl_stmt|;
-DECL|method|ConsumerCache (CamelContext camelContext)
+DECL|field|source
+specifier|private
+specifier|final
+name|Object
+name|source
+decl_stmt|;
+DECL|method|ConsumerCache (Object source, CamelContext camelContext)
 specifier|public
 name|ConsumerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
 name|this
 argument_list|(
+name|source
+argument_list|,
 name|camelContext
 argument_list|,
 name|CamelContextHelper
@@ -227,38 +252,40 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ConsumerCache (CamelContext camelContext, int maximumCacheSize)
+DECL|method|ConsumerCache (Object source, CamelContext camelContext, int cacheSize)
 specifier|public
 name|ConsumerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
 name|int
-name|maximumCacheSize
+name|cacheSize
 parameter_list|)
 block|{
 name|this
 argument_list|(
+name|source
+argument_list|,
 name|camelContext
 argument_list|,
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|PollingConsumer
-argument_list|>
+name|createLRUCache
 argument_list|(
-name|maximumCacheSize
+name|cacheSize
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ConsumerCache (CamelContext camelContext, Map<String, PollingConsumer> cache)
+DECL|method|ConsumerCache (Object source, CamelContext camelContext, Map<String, PollingConsumer> cache)
 specifier|public
 name|ConsumerCache
 parameter_list|(
+name|Object
+name|source
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
@@ -283,6 +310,42 @@ name|consumers
 operator|=
 name|cache
 expr_stmt|;
+name|this
+operator|.
+name|source
+operator|=
+name|source
+expr_stmt|;
+block|}
+comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link org.apache.camel.util.LRUSoftCache} instance.       * @param cacheSize the cache size      * @return the cache      */
+DECL|method|createLRUCache (int cacheSize)
+specifier|protected
+specifier|static
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|createLRUCache
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+comment|// We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.
+return|return
+operator|new
+name|LRUSoftCache
+argument_list|<
+name|String
+argument_list|,
+name|PollingConsumer
+argument_list|>
+argument_list|(
+name|cacheSize
+argument_list|)
+return|;
 block|}
 DECL|method|getConsumer (Endpoint endpoint)
 specifier|public
@@ -532,6 +595,99 @@ return|return
 name|camelContext
 return|;
 block|}
+comment|/**      * Gets the source which uses this cache      *      * @return the source      */
+DECL|method|getSource ()
+specifier|public
+name|Object
+name|getSource
+parameter_list|()
+block|{
+return|return
+name|source
+return|;
+block|}
+comment|/**      * Returns the current size of the cache      *      * @return the current size      */
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+name|int
+name|size
+init|=
+name|consumers
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"size = {}"
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
+return|return
+name|size
+return|;
+block|}
+comment|/**      * Gets the maximum cache size (capacity).      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the capacity      */
+DECL|method|getCapacity ()
+specifier|public
+name|int
+name|getCapacity
+parameter_list|()
+block|{
+name|int
+name|capacity
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|consumers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|consumers
+decl_stmt|;
+name|capacity
+operator|=
+name|cache
+operator|.
+name|getMaxCacheSize
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|capacity
+return|;
+block|}
+comment|/**      * Purges this cache      */
+DECL|method|purge ()
+specifier|public
+specifier|synchronized
+name|void
+name|purge
+parameter_list|()
+block|{
+name|consumers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -568,19 +724,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
-comment|/**      * Returns the current size of the consumer cache      *      * @return the current size      */
-DECL|method|size ()
-name|int
-name|size
-parameter_list|()
-block|{
-return|return
-name|consumers
-operator|.
-name|size
-argument_list|()
-return|;
 block|}
 block|}
 end_class

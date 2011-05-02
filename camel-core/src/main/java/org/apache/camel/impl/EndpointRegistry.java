@@ -74,12 +74,12 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|LRUSoftCache
 import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}.  *  * @version   */
+comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUSoftCache}.  *<p/>  * We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.  *  * @version   */
 end_comment
 
 begin_class
@@ -88,7 +88,7 @@ specifier|public
 class|class
 name|EndpointRegistry
 extends|extends
-name|LRUCache
+name|LRUSoftCache
 argument_list|<
 name|EndpointKey
 argument_list|,

@@ -104,7 +104,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|LRUSoftCache
 import|;
 end_import
 
@@ -119,6 +119,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -172,7 +186,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// use a bound cache to avoid using too much memory in case a lot of different classes
+comment|// use a soft bound cache to avoid using too much memory in case a lot of different classes
 comment|// is being converted to string
 DECL|field|misses
 specifier|private
@@ -186,7 +200,7 @@ argument_list|>
 name|misses
 init|=
 operator|new
-name|LRUCache
+name|LRUSoftCache
 argument_list|<
 name|Class
 argument_list|,
@@ -602,7 +616,15 @@ name|start
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|misses
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|stop ()
 specifier|public
 name|void
@@ -616,10 +638,12 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|misses
+name|ServiceHelper
 operator|.
-name|clear
-argument_list|()
+name|stopService
+argument_list|(
+name|misses
+argument_list|)
 expr_stmt|;
 block|}
 block|}
