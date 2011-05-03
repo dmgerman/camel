@@ -774,7 +774,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"SELECT COUNT (*) FROM "
+literal|"SELECT COUNT(*) FROM "
 operator|+
 name|getRepositoryName
 argument_list|()
