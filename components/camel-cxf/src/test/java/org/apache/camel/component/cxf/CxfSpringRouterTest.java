@@ -157,19 +157,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|applicationContext
-operator|!=
-literal|null
-condition|)
-block|{
-name|applicationContext
-operator|.
-name|destroy
-argument_list|()
-expr_stmt|;
-block|}
+comment|// Don't close the application context, as it will cause some trouble on the bus shutdown
 name|super
 operator|.
 name|tearDown

@@ -146,7 +146,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|Version
 operator|.
 name|getCurrentVersion
@@ -154,7 +153,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"2.4"
+literal|"2.3"
 argument_list|)
 condition|)
 block|{
