@@ -412,12 +412,7 @@ name|ArrayList
 argument_list|<
 name|V
 argument_list|>
-argument_list|(
-name|col
-operator|.
-name|size
 argument_list|()
-argument_list|)
 decl_stmt|;
 for|for
 control|(

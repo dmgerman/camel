@@ -332,7 +332,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should have stopped the produers"
+literal|"Should have stopped the producers"
 argument_list|,
 literal|true
 argument_list|,
