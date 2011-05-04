@@ -219,6 +219,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|long
 name|count
 init|=
@@ -277,6 +279,24 @@ argument_list|)
 expr_stmt|;
 name|cancel
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// catch all to avoid the JVM closing the thread and not firing again
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error processing exchange. This exception will be ignored, to let the timer be able to trigger again."
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
