@@ -815,6 +815,22 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the definition to wrap should be the fine grained,
+comment|// so if a child is set then use it, if not then its the original output used
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|targetOutputDef
+init|=
+name|childDefinition
+operator|!=
+literal|null
+condition|?
+name|childDefinition
+else|:
+name|outputDefinition
+decl_stmt|;
 comment|// first wrap the output with the managed strategy if any
 name|InterceptStrategy
 name|managed
@@ -852,7 +868,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|outputDefinition
+name|targetOutputDef
 argument_list|,
 name|target
 argument_list|,
@@ -861,21 +877,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// then wrap the output with the tracer
-comment|// the tracer should have the fine grained definition so if a child is set then use it, if not then its the original output used
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|traceDef
-init|=
-name|childDefinition
-operator|!=
-literal|null
-condition|?
-name|childDefinition
-else|:
-name|outputDefinition
-decl_stmt|;
 name|TraceInterceptor
 name|trace
 init|=
@@ -892,7 +893,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|traceDef
+name|targetOutputDef
 argument_list|,
 name|target
 argument_list|,
@@ -960,6 +961,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// use the fine grained definition (eg the child if available). Its always possible to get back to the parent
 name|Processor
 name|wrapped
 init|=
@@ -972,7 +974,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|outputDefinition
+name|targetOutputDef
 argument_list|,
 name|target
 argument_list|,
@@ -1034,7 +1036,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|outputDefinition
+name|targetOutputDef
 argument_list|,
 name|bridge
 argument_list|,

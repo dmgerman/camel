@@ -331,6 +331,11 @@ operator|.
 name|otherwise
 argument_list|()
 operator|.
+name|log
+argument_list|(
+literal|"Hey"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:other"
@@ -392,10 +397,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// this should take the when path
+comment|// this should take the when path (first to)
 name|assertEquals
 argument_list|(
-literal|"#choice6##when3#"
+literal|"#choice5##to2#"
 argument_list|,
 name|ids
 argument_list|)
@@ -453,7 +458,7 @@ expr_stmt|;
 comment|// this should take the otherwise path
 name|assertEquals
 argument_list|(
-literal|"#choice6##otherwise5#"
+literal|"#choice5##log3##to4#"
 argument_list|,
 name|ids
 argument_list|)

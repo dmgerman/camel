@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|NodeIdFactory
 block|{
-comment|/**      * Creates an id for the given model definiton.      *      * @param definition model definition      * @return the id created      */
+comment|/**      * Creates an id for the given model definition.      *      * @param definition model definition      *        (its most likely a {@link org.apache.camel.model.OutputDefinition OutputDefinition} instance)      * @return the id created      */
 DECL|method|createId (OptionalIdentifiedDefinition<?> definition)
 name|String
 name|createId
