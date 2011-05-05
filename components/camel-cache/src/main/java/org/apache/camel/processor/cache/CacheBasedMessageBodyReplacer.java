@@ -238,7 +238,7 @@ operator|new
 name|DefaultCacheManagerFactory
 argument_list|()
 operator|.
-name|instantiateCacheManager
+name|getInstance
 argument_list|()
 expr_stmt|;
 if|if
