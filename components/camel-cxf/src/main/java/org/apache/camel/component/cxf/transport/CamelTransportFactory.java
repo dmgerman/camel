@@ -120,6 +120,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -322,6 +334,8 @@ implements|implements
 name|ConduitInitiator
 implements|,
 name|DestinationFactory
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|TRANSPORT_ID
 specifier|public
