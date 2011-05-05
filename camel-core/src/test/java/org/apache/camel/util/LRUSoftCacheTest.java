@@ -1465,7 +1465,7 @@ name|Object
 name|createData
 parameter_list|()
 block|{
-comment|// 1mb data
+comment|// 5mb data
 name|byte
 index|[]
 name|buf
@@ -1473,7 +1473,7 @@ init|=
 operator|new
 name|byte
 index|[
-literal|1
+literal|5
 operator|*
 literal|1024
 operator|*
