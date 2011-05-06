@@ -123,11 +123,6 @@ argument_list|,
 literal|"world.txt"
 argument_list|)
 expr_stmt|;
-name|oneExchangeDone
-operator|.
-name|matchesMockWaitTime
-argument_list|()
-expr_stmt|;
 name|File
 name|file
 init|=
@@ -192,11 +187,6 @@ name|FILE_NAME
 argument_list|,
 literal|"world.txt"
 argument_list|)
-expr_stmt|;
-name|oneExchangeDone
-operator|.
-name|matchesMockWaitTime
-argument_list|()
 expr_stmt|;
 name|File
 name|file
@@ -263,11 +253,6 @@ argument_list|,
 literal|"world.txt"
 argument_list|)
 expr_stmt|;
-name|oneExchangeDone
-operator|.
-name|matchesMockWaitTime
-argument_list|()
-expr_stmt|;
 name|File
 name|file
 init|=
@@ -309,6 +294,18 @@ name|file
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class
