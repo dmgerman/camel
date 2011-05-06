@@ -198,7 +198,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Message: StringSource[<?xml version=\"1.0\"?><person><name>Claus</name></person>]"
+literal|"Message:<?xml version=\"1.0\"?><person><name>Claus</name></person>"
 argument_list|,
 name|msg
 argument_list|)
@@ -282,7 +282,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Message: StringSource[<?xml version=\"1.0\"?><person><name>Claus</name></person>]"
+literal|"Message:<?xml version=\"1.0\"?><person><name>Claus</name></person>"
 argument_list|,
 name|msg
 argument_list|)
@@ -368,7 +368,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Message: StringSource[<?xml version=\"1.0\"?><person><name>Claus</name></person>]"
+literal|"Message:<?xml version=\"1.0\"?><person><name>Claus</name></person>"
 argument_list|,
 name|msg
 argument_list|)

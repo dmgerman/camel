@@ -422,6 +422,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getHeader (String name, Object defaultValue, Class<T> type)
 specifier|public
 parameter_list|<
@@ -453,6 +458,39 @@ argument_list|,
 name|defaultValue
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// lets avoid NullPointerException when converting to boolean for null values
+if|if
+condition|(
+name|boolean
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|Boolean
+operator|.
+name|FALSE
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|// eager same instance type test to avoid the overhead of invoking the type converter
 comment|// if already same type
 if|if
