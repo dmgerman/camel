@@ -123,6 +123,11 @@ comment|/**  * Test issue with hawtdb file store growing to large  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Run this test manually"
+argument_list|)
 DECL|class|HawtDBBigPayloadTest
 specifier|public
 class|class
