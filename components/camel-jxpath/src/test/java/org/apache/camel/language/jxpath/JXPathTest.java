@@ -38,7 +38,21 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
 name|LanguageTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -67,7 +81,8 @@ argument_list|,
 literal|"London"
 argument_list|)
 decl_stmt|;
-comment|/**      * Test JXPath expressions      */
+annotation|@
+name|Test
 DECL|method|testJXPathExpressions ()
 specifier|public
 name|void
@@ -118,7 +133,8 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test JXPath predicates      */
+annotation|@
+name|Test
 DECL|method|testJXPathPredicates ()
 specifier|public
 name|void
@@ -138,7 +154,8 @@ literal|"in/headders/@foo = 'abc'"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test exceptions being thrown appropriately      */
+annotation|@
+name|Test
 DECL|method|testExceptions ()
 specifier|public
 name|void

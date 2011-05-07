@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://commons.apache.org/jxpath/">JXPath</a> {@link Expression} support   */
+comment|/**  *<a href="http://commons.apache.org/jxpath/">JXPath</a> {@link org.apache.camel.Expression} support  */
 end_comment
 
 begin_class
