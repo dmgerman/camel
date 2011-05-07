@@ -158,6 +158,16 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:end"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -251,6 +261,16 @@ name|routingSlip
 argument_list|(
 literal|"slip"
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:end"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:end"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -260,6 +280,11 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:foo"
 argument_list|)
 operator|.
 name|transform
@@ -276,6 +301,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"activemq:queue:result"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:result"
 argument_list|)
 operator|.
 name|to
