@@ -66,7 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
+operator|.
+name|jms
 operator|.
 name|async
 operator|.

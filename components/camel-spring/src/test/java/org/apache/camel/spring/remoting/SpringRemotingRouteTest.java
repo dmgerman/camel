@@ -108,7 +108,6 @@ init|=
 name|createApplicationContext
 argument_list|()
 decl_stmt|;
-comment|/*         Object service = applicationContext.getBean("say");         log.info("Found service!: " + service);         assertTrue("not an ISay!", service instanceof ISay); */
 name|CamelContext
 name|camelContext
 init|=

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.remoting
+DECL|package|org.apache.camel.component.jms.issues
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|remoting
+name|issues
 package|;
 end_package
 
@@ -28,11 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelSpringTestSupport
+name|Exchange
 import|;
 end_import
 
@@ -40,102 +36,44 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
+name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JmsRemotingTest
+DECL|class|MyFailureProcessor
 specifier|public
 class|class
-name|JmsRemotingTest
-extends|extends
-name|CamelSpringTestSupport
+name|MyFailureProcessor
+implements|implements
+name|Processor
 block|{
-DECL|method|createApplicationContext ()
-specifier|protected
-name|ClassPathXmlApplicationContext
-name|createApplicationContext
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/component/jms/remoting/spring.xml"
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Test
-DECL|method|testRemoting ()
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|testRemoting
-parameter_list|()
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ISay
-name|proxy
-init|=
-operator|(
-name|ISay
-operator|)
-name|applicationContext
-operator|.
-name|getBean
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"sayProxy"
+literal|"Unit test - this is thrown by intention"
 argument_list|)
-decl_stmt|;
-name|String
-name|rc
-init|=
-name|proxy
-operator|.
-name|say
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello"
-argument_list|,
-name|rc
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 end_class

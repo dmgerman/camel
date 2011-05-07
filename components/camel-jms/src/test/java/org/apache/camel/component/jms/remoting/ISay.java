@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.issues
+DECL|package|org.apache.camel.component.jms.remoting
 package|package
 name|org
 operator|.
@@ -16,40 +16,51 @@ name|component
 operator|.
 name|jms
 operator|.
-name|issues
+name|remoting
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|springframework
+name|rmi
 operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|ContextConfiguration
+name|Remote
 import|;
 end_import
 
-begin_class
-annotation|@
-name|ContextConfiguration
-argument_list|(
-name|inheritLocations
-operator|=
-literal|false
-argument_list|)
-DECL|class|JmsSpringResequencerTest
+begin_import
+import|import
+name|java
+operator|.
+name|rmi
+operator|.
+name|RemoteException
+import|;
+end_import
+
+begin_comment
+comment|/**  *  */
+end_comment
+
+begin_interface
+DECL|interface|ISay
 specifier|public
-class|class
-name|JmsSpringResequencerTest
+interface|interface
+name|ISay
 extends|extends
-name|JmsResequencerTest
-block|{  }
-end_class
+name|Remote
+block|{
+DECL|method|say ()
+name|String
+name|say
+parameter_list|()
+throws|throws
+name|RemoteException
+function_decl|;
+block|}
+end_interface
 
 end_unit
 
