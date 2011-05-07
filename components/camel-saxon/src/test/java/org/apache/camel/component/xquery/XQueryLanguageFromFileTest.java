@@ -269,6 +269,13 @@ argument_list|(
 literal|"/mail/@from = 'davsclaus@apache.org'"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:davsclaus"
@@ -276,6 +283,13 @@ argument_list|)
 operator|.
 name|otherwise
 argument_list|()
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 operator|.
 name|to
 argument_list|(
