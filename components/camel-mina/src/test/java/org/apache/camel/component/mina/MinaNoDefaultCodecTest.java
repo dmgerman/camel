@@ -36,7 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -48,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -70,6 +74,16 @@ name|Entry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * For unit testing the<tt>noDefaultCodec</tt> option.  */
 end_comment
@@ -80,8 +94,10 @@ specifier|public
 class|class
 name|MinaNoDefaultCodecTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testFilter ()
 specifier|public
 name|void

@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -138,6 +126,32 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for the<tt>transferExchange=true</tt> option.  *  * @version   */
 end_comment
@@ -148,7 +162,7 @@ specifier|public
 class|class
 name|MinaTransferExchangeOptionTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|protected
@@ -157,6 +171,8 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:6321?sync=true&encoding=UTF-8&transferExchange=true"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMinaTransferExchangeOptionWithoutException ()
 specifier|public
 name|void
@@ -181,6 +197,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMinaTransferExchangeOptionWithException ()
 specifier|public
 name|void

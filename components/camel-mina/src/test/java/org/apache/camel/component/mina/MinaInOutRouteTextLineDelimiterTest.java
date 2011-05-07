@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -84,6 +72,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to verify that MINA can be used with an InOut MEP but still use sync to send and receive data  * from a remote server and using MAC textline delimiter.  */
 end_comment
@@ -94,7 +108,7 @@ specifier|public
 class|class
 name|MinaInOutRouteTextLineDelimiterTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|private
@@ -103,6 +117,8 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:8080?sync=true&textline=true&textlineDelimiter=MAC"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testInOutUsingMina ()
 specifier|public
 name|void

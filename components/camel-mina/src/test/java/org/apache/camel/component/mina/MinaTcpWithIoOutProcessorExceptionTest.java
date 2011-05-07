@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -94,6 +82,32 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * To unit test CAMEL-364.  */
 end_comment
@@ -104,7 +118,7 @@ specifier|public
 class|class
 name|MinaTcpWithIoOutProcessorExceptionTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|PORT
 specifier|private
@@ -136,6 +150,8 @@ name|PORT
 operator|+
 literal|"?textline=true&sync=true"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testExceptionThrownInProcessor ()
 specifier|public
 name|void

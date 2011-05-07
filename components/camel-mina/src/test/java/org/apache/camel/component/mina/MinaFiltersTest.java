@@ -68,18 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -146,6 +134,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jndi
@@ -196,6 +200,16 @@ name|IoSession
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * For unit testing the<tt>filters</tt> option.  */
 end_comment
@@ -206,8 +220,10 @@ specifier|public
 class|class
 name|MinaFiltersTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testFilterListRef ()
 specifier|public
 name|void
@@ -222,6 +238,8 @@ literal|"mina:tcp://localhost:6321?textline=true&minaLogger=true&sync=false&filt
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFilterElementRef ()
 specifier|public
 name|void
@@ -236,17 +254,26 @@ literal|"mina:tcp://localhost:6322?textline=true&minaLogger=true&sync=false&filt
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|TestFilter
 operator|.
 name|called
 operator|=
 literal|0
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testFilter (final String uri)
@@ -508,6 +535,7 @@ block|{
 DECL|field|called
 specifier|public
 specifier|static
+specifier|volatile
 name|int
 name|called
 decl_stmt|;

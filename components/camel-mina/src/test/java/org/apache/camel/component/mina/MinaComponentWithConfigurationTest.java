@@ -26,7 +26,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -40,8 +54,10 @@ specifier|public
 class|class
 name|MinaComponentWithConfigurationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMinaComponentWithConfiguration ()
 specifier|public
 name|void

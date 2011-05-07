@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -82,6 +70,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -92,7 +106,7 @@ specifier|public
 class|class
 name|MinaUdpUsingTemplateTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|messageCount
 specifier|private
@@ -101,6 +115,8 @@ name|messageCount
 init|=
 literal|3
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMinaRoute ()
 specifier|public
 name|void
@@ -186,6 +202,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingByteMessages ()
 specifier|public
 name|void

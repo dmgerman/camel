@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -38,7 +38,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -52,8 +66,10 @@ specifier|public
 class|class
 name|MinaComponentTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testUnknownProtocol ()
 specifier|public
 name|void
@@ -110,6 +126,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMistypedProtocol ()
 specifier|public
 name|void

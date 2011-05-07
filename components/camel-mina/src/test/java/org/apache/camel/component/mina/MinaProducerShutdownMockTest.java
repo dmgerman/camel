@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -114,6 +102,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|mina
 operator|.
 name|transport
@@ -123,6 +127,16 @@ operator|.
 name|nio
 operator|.
 name|SocketConnector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -178,7 +192,7 @@ specifier|public
 class|class
 name|MinaProducerShutdownMockTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|URI
 specifier|private
@@ -189,6 +203,8 @@ name|URI
 init|=
 literal|"mina:tcp://localhost:6321?textline=true&sync=false"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testProducerShutdownTestingWithMock ()
 specifier|public
 name|void

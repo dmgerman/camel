@@ -76,18 +76,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -118,6 +106,32 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * To test camel-mina component using a TCP client that communicates using TCP socket communication.  *  * @version   */
 end_comment
@@ -128,7 +142,7 @@ specifier|public
 class|class
 name|MinaTcpLineDelimiterUsingPlainSocketTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|PORT
 specifier|private
@@ -152,6 +166,8 @@ name|PORT
 operator|+
 literal|"?textline=true&textlineDelimiter=MAC&sync=true"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendAndReceiveOnce ()
 specifier|public
 name|void
@@ -183,6 +199,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendAndReceiveTwice ()
 specifier|public
 name|void
@@ -236,6 +254,8 @@ name|paris
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceiveNoResponseSinceOutBodyIsNull ()
 specifier|public
 name|void
@@ -260,6 +280,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceiveNoResponseSinceOutBodyIsNullTwice ()
 specifier|public
 name|void
@@ -298,6 +320,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeFailedOutShouldBeNull ()
 specifier|public
 name|void

@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -95,6 +83,22 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -206,6 +210,16 @@ name|ProtocolEncoderOutput
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to test what happens if remote server closes session but doesn't reply  */
 end_comment
@@ -216,7 +230,7 @@ specifier|public
 class|class
 name|MinaNoResponseFromServerTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|private
@@ -225,6 +239,8 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:11300?sync=true&codec=#myCodec"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoResponse ()
 specifier|public
 name|void

@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -132,6 +120,32 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit testing using different encodings with the TCP protocol.  *  * @version   */
 end_comment
@@ -142,8 +156,10 @@ specifier|public
 class|class
 name|MinaEncodingTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testTCPEncodeUTF8InputIsBytes ()
 specifier|public
 name|void
@@ -234,6 +250,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTCPEncodeUTF8InputIsString ()
 specifier|public
 name|void
@@ -318,6 +336,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTCPEncodeUTF8TextLineInputIsString ()
 specifier|public
 name|void
@@ -404,6 +424,8 @@ expr_stmt|;
 block|}
 comment|// Note: MINA does not support sending bytes with the textline codec
 comment|// See TextLineEncoder#encode where the message is converted to String using .toString()
+annotation|@
+name|Test
 DECL|method|testUDPEncodeUTF8InputIsBytes ()
 specifier|public
 name|void
@@ -492,6 +514,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUDPEncodeUTF8InputIsString ()
 specifier|public
 name|void
@@ -576,6 +600,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUDPEncodeUTF8InputIsStringNoMock ()
 specifier|public
 name|void
@@ -756,6 +782,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidEncoding ()
 specifier|public
 name|void

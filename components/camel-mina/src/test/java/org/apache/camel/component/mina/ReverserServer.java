@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * (<b>Entry point</b>) Reverser server which reverses all text lines from  * clients.  *  */
+comment|/**  * (<b>Entry point</b>) Reverser server which reverses all text lines from  * clients.  */
 end_comment
 
 begin_class

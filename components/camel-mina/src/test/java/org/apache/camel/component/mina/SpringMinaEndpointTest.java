@@ -42,9 +42,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|SpringTestSupport
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -63,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test spring based mina endpoint configuraiton.  */
+comment|/**  * Unit test spring based mina endpoint configuration.  */
 end_comment
 
 begin_class
@@ -72,8 +84,10 @@ specifier|public
 class|class
 name|SpringMinaEndpointTest
 extends|extends
-name|SpringTestSupport
+name|CamelSpringTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMinaSpringEndpoint ()
 specifier|public
 name|void

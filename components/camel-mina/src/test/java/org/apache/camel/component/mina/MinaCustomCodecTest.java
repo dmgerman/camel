@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -83,6 +71,22 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -210,6 +214,16 @@ name|ProtocolEncoderOutput
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test with custom codec.  */
 end_comment
@@ -220,7 +234,7 @@ specifier|public
 class|class
 name|MinaCustomCodecTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|uri
 specifier|protected
@@ -236,6 +250,8 @@ name|badUri
 init|=
 literal|"mina:tcp://localhost:9130?sync=true&codec=#XXX"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMyCodec ()
 specifier|public
 name|void
@@ -291,6 +307,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTCPEncodeUTF8InputIsString ()
 specifier|public
 name|void
@@ -375,6 +393,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBadConfiguration ()
 specifier|public
 name|void
