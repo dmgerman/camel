@@ -717,7 +717,6 @@ name|ClassNotFoundException
 throws|,
 name|IOException
 block|{
-comment|// TODO change to support finding multiple classes on the classpath!
 name|Class
 argument_list|<
 name|?
