@@ -338,6 +338,16 @@ argument_list|(
 literal|"All messages done"
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|replies
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// sort replies
 name|Collections
 operator|.

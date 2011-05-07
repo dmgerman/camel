@@ -112,6 +112,9 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// load type converters up front
+name|loadCoreTypeConverters
+argument_list|()
+expr_stmt|;
 name|loadTypeConverters
 argument_list|()
 expr_stmt|;

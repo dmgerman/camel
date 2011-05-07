@@ -500,6 +500,39 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// if we only have camel-core on the classpath then we have already pre-loaded all its type converters
+comment|// but we exposed the "org.apache.camel.core" package in camel-core. This ensures there is at least one
+comment|// packageName to scan, which triggers the scanning process. That allows us to ensure that we look for
+comment|// type converters in all the JARs.
+if|if
+condition|(
+name|packageNames
+operator|.
+name|length
+operator|==
+literal|1
+operator|&&
+literal|"org.apache.camel.core"
+operator|.
+name|equals
+argument_list|(
+name|packageNames
+index|[
+literal|0
+index|]
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No additional package names found in classpath for annotated type converters."
+argument_list|)
+expr_stmt|;
+comment|// no additional package names found to load type converters so break out
+return|return;
+block|}
 name|Set
 argument_list|<
 name|Class

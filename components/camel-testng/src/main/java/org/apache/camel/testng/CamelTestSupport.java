@@ -741,6 +741,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Whether or not type converters should be lazy loaded (notice core converters is always loaded)      *<p/>      * We enabled lazy by default as it would speedup unit testing.      *      * @return<tt>true</tt> by default.      */
+DECL|method|isLazyLoadingTypeConverter ()
+specifier|protected
+name|boolean
+name|isLazyLoadingTypeConverter
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 DECL|method|postProcessTest ()
 specifier|protected
@@ -884,13 +895,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|CamelContext
+name|context
+init|=
 operator|new
 name|DefaultCamelContext
 argument_list|(
 name|createRegistry
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|context
+operator|.
+name|setLazyLoadTypeConverters
+argument_list|(
+name|isLazyLoadingTypeConverter
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|context
 return|;
 block|}
 DECL|method|createRegistry ()

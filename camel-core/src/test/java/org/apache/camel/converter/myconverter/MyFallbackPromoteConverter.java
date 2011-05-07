@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter
+DECL|package|org.apache.camel.converter.myconverter
 package|package
 name|org
 operator|.
@@ -13,18 +13,10 @@ operator|.
 name|camel
 operator|.
 name|converter
+operator|.
+name|myconverter
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TimeZone
-import|;
-end_import
 
 begin_import
 import|import
@@ -59,6 +51,20 @@ operator|.
 name|camel
 operator|.
 name|FallbackConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|MyCoolBean
 import|;
 end_import
 
@@ -83,22 +89,20 @@ end_comment
 begin_class
 annotation|@
 name|Converter
-DECL|class|StaticDummyFallbackConverter
+DECL|class|MyFallbackPromoteConverter
 specifier|public
-specifier|final
 class|class
-name|StaticDummyFallbackConverter
+name|MyFallbackPromoteConverter
 block|{
-DECL|method|StaticDummyFallbackConverter ()
-specifier|private
-name|StaticDummyFallbackConverter
-parameter_list|()
-block|{     }
 annotation|@
 name|FallbackConverter
+argument_list|(
+name|canPromote
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
-specifier|static
 name|Object
 name|convertTo
 parameter_list|(
@@ -120,7 +124,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|TimeZone
+name|MyCoolBean
 operator|.
 name|class
 operator|.
@@ -134,7 +138,12 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"Time talks"
+literal|"This is cool: "
+operator|+
+name|value
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 return|return

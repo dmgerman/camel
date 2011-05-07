@@ -269,6 +269,13 @@ block|}
 if|if
 condition|(
 name|bean
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|bean
 operator|instanceof
 name|Component
 condition|)
@@ -310,6 +317,7 @@ block|{
 return|return
 name|component
 return|;
+block|}
 block|}
 block|}
 comment|// Check in OSGi bundles

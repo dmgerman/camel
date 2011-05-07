@@ -124,16 +124,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Hashtable
 import|;
 end_import
@@ -2689,6 +2679,10 @@ decl_stmt|;
 while|while
 condition|(
 name|e
+operator|!=
+literal|null
+operator|&&
+name|e
 operator|.
 name|hasMoreElements
 argument_list|()
@@ -3466,7 +3460,7 @@ argument_list|>
 name|packages
 init|=
 operator|new
-name|HashSet
+name|LinkedHashSet
 argument_list|<
 name|String
 argument_list|>

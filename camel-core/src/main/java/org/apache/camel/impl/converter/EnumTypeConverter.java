@@ -137,8 +137,6 @@ argument_list|()
 decl_stmt|;
 name|Method
 name|method
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{

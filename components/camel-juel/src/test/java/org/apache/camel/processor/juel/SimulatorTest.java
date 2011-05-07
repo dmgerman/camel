@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -110,6 +98,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -129,6 +133,16 @@ operator|.
 name|jndi
 operator|.
 name|JndiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -160,7 +174,7 @@ specifier|public
 class|class
 name|SimulatorTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|method|createJndiContext ()
 specifier|protected
@@ -207,6 +221,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceivesFooResponse ()
 specifier|public
 name|void
@@ -223,6 +239,8 @@ literal|"Bye said foo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceivesBarResponse ()
 specifier|public
 name|void

@@ -96,7 +96,7 @@ argument_list|()
 operator|+
 literal|"/dirnotmatched/?password=admin"
 operator|+
-literal|"&recursive=true&include=.*txt$"
+literal|"&recursive=true&include=^.*txt$"
 return|;
 block|}
 annotation|@

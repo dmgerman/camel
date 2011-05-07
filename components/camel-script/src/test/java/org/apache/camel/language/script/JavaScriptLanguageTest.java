@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LanguageTestSupport
+name|ScriptTestHelper
 import|;
 end_import
 
@@ -38,7 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ScriptTestHelper
+name|test
+operator|.
+name|junit4
+operator|.
+name|LanguageTestSupport
 import|;
 end_import
 

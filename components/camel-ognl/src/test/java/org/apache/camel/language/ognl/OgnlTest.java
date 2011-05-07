@@ -26,7 +26,21 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
 name|LanguageTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -42,6 +56,8 @@ name|OgnlTest
 extends|extends
 name|LanguageTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOgnlExpressions ()
 specifier|public
 name|void
@@ -100,6 +116,8 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetOutFalseKeepsNullOutMessage ()
 specifier|public
 name|void
@@ -124,6 +142,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResponseCreatesOutMessage ()
 specifier|public
 name|void

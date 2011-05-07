@@ -52,20 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|XPathFilterTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|SpringCamelContext
@@ -98,18 +84,6 @@ name|GroovyFilterTest
 extends|extends
 name|XPathFilterTest
 block|{
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|testSendMatchingMessage ()

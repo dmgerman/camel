@@ -98,6 +98,18 @@ name|CamelTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests filtering using Camel Test  *   * @version $Revision$  */
 end_comment
@@ -134,6 +146,8 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -171,6 +185,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNotMatchingMessage ()
 specifier|public
 name|void

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter
+DECL|package|org.apache.camel.converter.myconverter
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|converter
+operator|.
+name|myconverter
 package|;
 end_package
 
@@ -47,6 +49,20 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|PurchaseOrder
 import|;
 end_import
 

@@ -50,16 +50,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|de
 operator|.
 name|odysseus
@@ -84,6 +74,26 @@ name|SimpleContext
 import|;
 end_import
 
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -96,6 +106,8 @@ name|JuelTest
 extends|extends
 name|TestCase
 block|{
+annotation|@
+name|Test
 DECL|method|testJuel ()
 specifier|public
 name|void

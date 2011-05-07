@@ -26,7 +26,21 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
 name|LanguageTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -42,6 +56,8 @@ name|JuelLanguageTest
 extends|extends
 name|LanguageTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testElExpressions ()
 specifier|public
 name|void
@@ -72,6 +88,8 @@ literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testElPredicates ()
 specifier|public
 name|void

@@ -450,6 +450,12 @@ name|FallbackTypeConverter
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|resolver
+specifier|protected
+specifier|final
+name|PackageScanClassResolver
+name|resolver
+decl_stmt|;
 DECL|field|injector
 specifier|protected
 name|Injector
@@ -485,6 +491,12 @@ name|FactoryFinder
 name|factoryFinder
 parameter_list|)
 block|{
+name|this
+operator|.
+name|resolver
+operator|=
+name|resolver
+expr_stmt|;
 name|this
 operator|.
 name|injector
@@ -2202,6 +2214,63 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Loads the core type converters which is mandatory to use Camel      */
+DECL|method|loadCoreTypeConverters ()
+specifier|protected
+name|void
+name|loadCoreTypeConverters
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|int
+name|before
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+comment|// load all the type converters from camel-core
+name|CoreTypeConverterLoader
+name|core
+init|=
+operator|new
+name|CoreTypeConverterLoader
+argument_list|()
+decl_stmt|;
+name|core
+operator|.
+name|load
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|int
+name|delta
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+operator|-
+name|before
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Loaded {} core type converters (total {} type converters)"
+argument_list|,
+name|delta
+argument_list|,
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Checks if the registry is loaded and if not lazily load it      */
 DECL|method|loadTypeConverters ()
 specifier|protected
@@ -2218,11 +2287,19 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
+name|int
+name|before
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Loading type converters ..."
+literal|"Loading additional type converters ..."
 argument_list|)
 expr_stmt|;
 for|for
@@ -2261,10 +2338,20 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Loading type converters done"
+literal|"Loading additional type converters done"
 argument_list|)
 expr_stmt|;
 comment|// report how long time it took to load
+name|int
+name|delta
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+operator|-
+name|before
+decl_stmt|;
 if|if
 condition|(
 name|log
@@ -2277,14 +2364,18 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Loaded "
+literal|"Loaded additional "
+operator|+
+name|delta
+operator|+
+literal|" type converters (total "
 operator|+
 name|typeMappings
 operator|.
 name|size
 argument_list|()
 operator|+
-literal|" type converters in "
+literal|" type converters) in "
 operator|+
 name|TimeUtils
 operator|.

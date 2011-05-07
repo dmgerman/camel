@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -128,6 +140,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|FactoryFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Injector
 import|;
 end_import
@@ -171,6 +197,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -288,6 +328,12 @@ specifier|final
 name|Injector
 name|injector
 decl_stmt|;
+DECL|field|factoryFinder
+specifier|private
+specifier|final
+name|FactoryFinder
+name|factoryFinder
+decl_stmt|;
 DECL|field|tracker
 specifier|private
 specifier|final
@@ -300,7 +346,7 @@ specifier|volatile
 name|DefaultTypeConverter
 name|delegate
 decl_stmt|;
-DECL|method|OsgiTypeConverter (BundleContext bundleContext, Injector injector)
+DECL|method|OsgiTypeConverter (BundleContext bundleContext, Injector injector, FactoryFinder factoryFinder)
 specifier|public
 name|OsgiTypeConverter
 parameter_list|(
@@ -309,6 +355,9 @@ name|bundleContext
 parameter_list|,
 name|Injector
 name|injector
+parameter_list|,
+name|FactoryFinder
+name|factoryFinder
 parameter_list|)
 block|{
 name|this
@@ -322,6 +371,12 @@ operator|.
 name|injector
 operator|=
 name|injector
+expr_stmt|;
+name|this
+operator|.
+name|factoryFinder
+operator|=
+name|factoryFinder
 expr_stmt|;
 name|this
 operator|.
@@ -445,6 +500,42 @@ argument_list|,
 name|serviceReference
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|this
+operator|.
+name|delegate
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error stopping service due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|delegate
@@ -486,6 +577,15 @@ name|tracker
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|this
+operator|.
+name|delegate
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -749,6 +849,7 @@ return|;
 block|}
 DECL|method|getDelegate ()
 specifier|public
+specifier|synchronized
 name|DefaultTypeConverter
 name|getDelegate
 parameter_list|()
@@ -760,31 +861,11 @@ operator|==
 literal|null
 condition|)
 block|{
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
-if|if
-condition|(
-name|delegate
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|delegate
-return|;
-block|}
-else|else
-block|{
 name|delegate
 operator|=
 name|createRegistry
 argument_list|()
 expr_stmt|;
-block|}
-block|}
 block|}
 return|return
 name|delegate
@@ -797,9 +878,8 @@ name|createRegistry
 parameter_list|()
 block|{
 comment|// base the osgi type converter on the default type converter
-comment|// TODO: Why is it based on the DefaultPackageScanClassResolver and not OsgiPackageScanClassResolver?
 name|DefaultTypeConverter
-name|reg
+name|answer
 init|=
 operator|new
 name|DefaultTypeConverter
@@ -818,6 +898,7 @@ argument_list|>
 name|getClassLoaders
 parameter_list|()
 block|{
+comment|// we don't need any classloaders as we use osgi service tracker instead
 return|return
 name|Collections
 operator|.
@@ -829,9 +910,10 @@ block|}
 argument_list|,
 name|injector
 argument_list|,
-literal|null
+name|factoryFinder
 argument_list|)
 decl_stmt|;
+comment|// load the type converters the tracker has been tracking
 name|Object
 index|[]
 name|services
@@ -869,7 +951,7 @@ operator|)
 operator|.
 name|load
 argument_list|(
-name|reg
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
@@ -880,15 +962,56 @@ name|t
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
+operator|new
+name|RuntimeCamelException
 argument_list|(
+literal|"Error loading type converters from service: "
+operator|+
+name|o
+operator|+
+literal|" due: "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|t
 argument_list|)
 throw|;
 block|}
 block|}
+block|}
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Error staring OSGiTypeConverter due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 name|LOG
 operator|.
@@ -896,11 +1019,11 @@ name|trace
 argument_list|(
 literal|"Created TypeConverter: {}"
 argument_list|,
-name|reg
+name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|reg
+name|answer
 return|;
 block|}
 block|}

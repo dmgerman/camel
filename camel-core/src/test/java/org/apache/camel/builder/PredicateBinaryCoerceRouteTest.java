@@ -52,10 +52,10 @@ name|PredicateBinaryCoerceRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testNoHeder ()
+DECL|method|testNoHeader ()
 specifier|public
 name|void
-name|testNoHeder
+name|testNoHeader
 parameter_list|()
 throws|throws
 name|Exception
@@ -103,10 +103,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsNumber123 ()
+DECL|method|testHeaderAsNumber123 ()
 specifier|public
 name|void
-name|testHederAsNumber123
+name|testHeaderAsNumber123
 parameter_list|()
 throws|throws
 name|Exception
@@ -158,10 +158,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsNumber456 ()
+DECL|method|testHeaderAsNumber456 ()
 specifier|public
 name|void
-name|testHederAsNumber456
+name|testHeaderAsNumber456
 parameter_list|()
 throws|throws
 name|Exception
@@ -213,10 +213,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsNumber999 ()
+DECL|method|testHeaderAsNumber999 ()
 specifier|public
 name|void
-name|testHederAsNumber999
+name|testHeaderAsNumber999
 parameter_list|()
 throws|throws
 name|Exception
@@ -268,10 +268,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsString123 ()
+DECL|method|testHeaderAsString123 ()
 specifier|public
 name|void
-name|testHederAsString123
+name|testHeaderAsString123
 parameter_list|()
 throws|throws
 name|Exception
@@ -323,10 +323,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsString456 ()
+DECL|method|testHeaderAsString456 ()
 specifier|public
 name|void
-name|testHederAsString456
+name|testHeaderAsString456
 parameter_list|()
 throws|throws
 name|Exception
@@ -378,10 +378,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsString999 ()
+DECL|method|testHeaderAsString999 ()
 specifier|public
 name|void
-name|testHederAsString999
+name|testHeaderAsString999
 parameter_list|()
 throws|throws
 name|Exception
@@ -433,10 +433,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsEnum ()
+DECL|method|testHeaderAsEnum ()
 specifier|public
 name|void
-name|testHederAsEnum
+name|testHeaderAsEnum
 parameter_list|()
 throws|throws
 name|Exception
@@ -470,10 +470,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHederAsEnumString ()
+DECL|method|testHeaderAsEnumString ()
 specifier|public
 name|void
-name|testHederAsEnumString
+name|testHeaderAsEnumString
 parameter_list|()
 throws|throws
 name|Exception
