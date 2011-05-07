@@ -261,7 +261,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 operator|.
 name|asyncDelayedRedelivery

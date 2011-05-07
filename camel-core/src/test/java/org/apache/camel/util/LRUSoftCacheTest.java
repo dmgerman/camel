@@ -1271,7 +1271,7 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|(
-literal|250
+literal|500
 argument_list|)
 decl_stmt|;
 name|cache
@@ -1288,7 +1288,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|500
 condition|;
 name|i
 operator|++
@@ -1432,10 +1432,10 @@ operator|!=
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// last key should be 999
+comment|// last key should be 499
 name|assertEquals
 argument_list|(
-literal|999
+literal|499
 argument_list|,
 name|list
 operator|.
