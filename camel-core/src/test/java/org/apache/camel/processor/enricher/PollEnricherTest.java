@@ -178,6 +178,13 @@ argument_list|,
 literal|"blah"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|250
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -397,7 +404,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|250
 argument_list|)
 expr_stmt|;
 name|String
@@ -442,6 +449,13 @@ argument_list|(
 literal|"seda:foo4"
 argument_list|,
 literal|"blah"
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|250
 argument_list|)
 expr_stmt|;
 name|Exchange
