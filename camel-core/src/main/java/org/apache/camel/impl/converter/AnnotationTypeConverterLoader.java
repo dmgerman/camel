@@ -66,26 +66,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URL
 import|;
 end_import
@@ -414,14 +394,14 @@ DECL|field|visitedURIs
 specifier|protected
 name|Set
 argument_list|<
-name|URI
+name|String
 argument_list|>
 name|visitedURIs
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|URI
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -651,7 +631,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO related errors      * @throws URISyntaxException       */
+comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO related errors      */
 DECL|method|findPackageNames ()
 specifier|protected
 name|String
@@ -660,8 +640,6 @@ name|findPackageNames
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|URISyntaxException
 block|{
 name|Set
 argument_list|<
@@ -745,8 +723,6 @@ name|classLoader
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|URISyntaxException
 block|{
 name|Enumeration
 argument_list|<
@@ -777,12 +753,12 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-name|URI
-name|uri
+name|String
+name|path
 init|=
 name|url
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 decl_stmt|;
 if|if
@@ -792,7 +768,7 @@ name|visitedURIs
 operator|.
 name|contains
 argument_list|(
-name|uri
+name|path
 argument_list|)
 condition|)
 block|{
@@ -801,7 +777,7 @@ name|visitedURIs
 operator|.
 name|add
 argument_list|(
-name|uri
+name|path
 argument_list|)
 expr_stmt|;
 name|LOG

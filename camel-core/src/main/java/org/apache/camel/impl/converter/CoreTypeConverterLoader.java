@@ -73,8 +73,6 @@ name|findPackageNames
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|URISyntaxException
 block|{
 return|return
 operator|new
