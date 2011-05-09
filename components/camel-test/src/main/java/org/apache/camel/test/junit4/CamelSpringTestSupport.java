@@ -309,6 +309,17 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|// tell camel-spring it should not trigger starting CamelContext, since we do that later
+comment|// after we are finished setting up the unit test
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"maybeStartCamelContext"
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
 name|applicationContext
 operator|=
 name|createApplicationContext
@@ -325,6 +336,13 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"maybeStartCamelContext"
+argument_list|)
 expr_stmt|;
 block|}
 else|else

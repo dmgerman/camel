@@ -970,6 +970,30 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// for example from unit testing we want to start Camel later and not when Spring framework
+comment|// publish a ContextRefreshedEvent
+name|String
+name|maybeStart
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"maybeStartCamelContext"
+argument_list|,
+literal|"true"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|maybeStart
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 operator|!
@@ -993,6 +1017,17 @@ operator|.
 name|trace
 argument_list|(
 literal|"Ignoring maybeStart() as Apache Camel is already started"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Ignoring maybeStart() as System property maybeStartCamelContext is false"
 argument_list|)
 expr_stmt|;
 block|}

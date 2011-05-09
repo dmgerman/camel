@@ -555,8 +555,10 @@ operator|=
 name|createCamelContext
 argument_list|()
 expr_stmt|;
-name|assertValidContext
+name|assertNotNull
 argument_list|(
+literal|"No context found!"
+argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -687,6 +689,18 @@ block|}
 name|startCamelContext
 argument_list|()
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Routing Rules are: "
+operator|+
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -700,6 +714,23 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Routing Rules are: "
+operator|+
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertValidContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

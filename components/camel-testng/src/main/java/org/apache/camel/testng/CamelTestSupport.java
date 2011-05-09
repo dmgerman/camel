@@ -519,9 +519,11 @@ operator|=
 name|createCamelContext
 argument_list|()
 expr_stmt|;
-name|assertValidContext
+name|assertNotNull
 argument_list|(
 name|context
+argument_list|,
+literal|"No context found!"
 argument_list|)
 expr_stmt|;
 comment|// reduce default shutdown timeout to avoid waiting for 300 seconds
@@ -660,6 +662,11 @@ name|context
 operator|.
 name|getRoutes
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertValidContext
+argument_list|(
+name|context
 argument_list|)
 expr_stmt|;
 block|}
