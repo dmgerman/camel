@@ -2206,8 +2206,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Invoked when a new thread pool is created.      * This implementation will invoke the {@link LifecycleStrategy#onThreadPoolAdd(org.apache.camel.CamelContext,      * java.util.concurrent.ThreadPoolExecutor, String, String, String, String) LifecycleStrategy.onThreadPoolAdd} method,      * which for example will enlist the thread pool in JMX management.      *      * @param executorService the thread pool      * @param source          the source to use the thread pool      * @param threadPoolProfileId profile id, if the thread pool was created from a thread pool profile      */
 DECL|method|onThreadPoolCreated (ExecutorService executorService, Object source, String threadPoolProfileId)
-specifier|private
+specifier|protected
 name|void
 name|onThreadPoolCreated
 parameter_list|(
