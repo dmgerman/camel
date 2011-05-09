@@ -29,15 +29,6 @@ specifier|final
 class|class
 name|FreemarkerConstants
 block|{
-DECL|field|FREEMARKER_RESOURCE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FREEMARKER_RESOURCE
-init|=
-literal|"CamelFreemarkerResource"
-decl_stmt|;
 DECL|field|FREEMARKER_RESOURCE_URI
 specifier|public
 specifier|static
