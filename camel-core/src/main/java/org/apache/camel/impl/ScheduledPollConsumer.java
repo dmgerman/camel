@@ -662,6 +662,7 @@ return|return
 name|timeUnit
 return|;
 block|}
+comment|/**      * Sets the time unit to use.      *<p/>      * Notice that both {@link #getDelay()} and {@link #getInitialDelay()} are using      * the same time unit. So if you change this value, then take into account that the      * default value of {@link #getInitialDelay()} is 1000. So you may to adjust this value accordingly.      *      * @param timeUnit the time unit.      */
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
