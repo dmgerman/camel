@@ -73,6 +73,7 @@ end_import
 begin_class
 DECL|class|TracingTestBase
 specifier|public
+specifier|abstract
 class|class
 name|TracingTestBase
 extends|extends
