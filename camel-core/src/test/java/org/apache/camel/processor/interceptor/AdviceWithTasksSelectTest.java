@@ -806,7 +806,7 @@ argument_list|)
 operator|.
 name|selectIndex
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 operator|.
 name|replace
