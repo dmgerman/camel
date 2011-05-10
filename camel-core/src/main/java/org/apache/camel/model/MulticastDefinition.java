@@ -648,10 +648,22 @@ literal|"Multicast"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
+name|long
+name|timeout
+init|=
 name|getTimeout
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getTimeout
+argument_list|()
+else|:
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|timeout
 operator|>
 literal|0
 operator|&&
@@ -718,8 +730,7 @@ argument_list|,
 name|isStopOnException
 argument_list|()
 argument_list|,
-name|getTimeout
-argument_list|()
+name|timeout
 argument_list|,
 name|onPrepare
 argument_list|)
@@ -960,12 +971,6 @@ parameter_list|()
 block|{
 return|return
 name|timeout
-operator|!=
-literal|null
-condition|?
-name|timeout
-else|:
-literal|0
 return|;
 block|}
 DECL|method|setTimeout (Long timeout)

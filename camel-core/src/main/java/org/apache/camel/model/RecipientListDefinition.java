@@ -640,10 +640,22 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|long
+name|timeout
+init|=
 name|getTimeout
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getTimeout
+argument_list|()
+else|:
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|timeout
 operator|>
 literal|0
 operator|&&
@@ -1271,12 +1283,6 @@ parameter_list|()
 block|{
 return|return
 name|timeout
-operator|!=
-literal|null
-condition|?
-name|timeout
-else|:
-literal|0
 return|;
 block|}
 DECL|method|setTimeout (Long timeout)
