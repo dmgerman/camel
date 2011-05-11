@@ -119,10 +119,10 @@ comment|// START SNIPPET: example
 end_comment
 
 begin_class
-DECL|class|FilterJUnit4Test
+DECL|class|FilterCreateCamelContextPerClassTest
 specifier|public
 class|class
-name|FilterJUnit4Test
+name|FilterCreateCamelContextPerClassTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -150,6 +150,21 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+comment|// we override this method and return true, to tell Camel test-kit that
+comment|// it should only create CamelContext once (per class), so we will
+comment|// re-use the CamelContext between each test method in this class
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testSendMatchingMessage ()
@@ -270,10 +285,6 @@ return|;
 block|}
 block|}
 end_class
-
-begin_comment
-comment|// END SNIPPET: example
-end_comment
 
 end_unit
 

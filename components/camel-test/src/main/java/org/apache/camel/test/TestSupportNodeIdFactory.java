@@ -38,7 +38,7 @@ name|TestSupportNodeIdFactory
 extends|extends
 name|DefaultNodeIdFactory
 block|{
-comment|// start tests with fresh counters
+comment|/**      * Start tests with fresh counters      */
 DECL|method|resetCounters ()
 specifier|public
 specifier|static

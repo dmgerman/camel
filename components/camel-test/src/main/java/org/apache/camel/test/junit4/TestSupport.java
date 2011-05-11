@@ -304,6 +304,28 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Rule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|rules
+operator|.
+name|TestName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -363,6 +385,19 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// CHECKSTYLE:OFF
+annotation|@
+name|Rule
+DECL|field|testName
+specifier|public
+name|TestName
+name|testName
+init|=
+operator|new
+name|TestName
+argument_list|()
+decl_stmt|;
+comment|// CHECKSTYLE:ON
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
@@ -2123,7 +2158,9 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      */
+comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      * @deprecated will be removed in the near future as Camel now requires JDK1.6+      */
+annotation|@
+name|Deprecated
 DECL|method|isJava15 ()
 specifier|public
 specifier|static
@@ -2164,10 +2201,11 @@ name|String
 name|getTestMethodName
 parameter_list|()
 block|{
-comment|// TODO: When using latest junit we can use @Rule to remember the test name
-comment|// http://kentbeck.github.com/junit/javadoc/latest/org/junit/rules/TestName.html
 return|return
-literal|""
+name|testName
+operator|.
+name|getMethodName
+argument_list|()
 return|;
 block|}
 block|}
