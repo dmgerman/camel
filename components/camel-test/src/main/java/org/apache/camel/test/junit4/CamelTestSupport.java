@@ -651,6 +651,7 @@ name|isCreateCamelContextPerClass
 argument_list|()
 condition|)
 block|{
+comment|// test is per class, so only setup once (the first time)
 if|if
 condition|(
 name|first
@@ -660,7 +661,9 @@ name|doSetUp
 argument_list|()
 expr_stmt|;
 block|}
-comment|// must always post process to do IoC and reset mocks between tests
+else|else
+block|{
+comment|// and in between tests we must do IoC and reset mocks
 name|postProcessTest
 argument_list|()
 expr_stmt|;
@@ -668,8 +671,10 @@ name|resetMocks
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
+comment|// test is per test so always setup
 name|doSetUp
 argument_list|()
 expr_stmt|;
