@@ -197,14 +197,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jms with JDBC idempotent consumer test.  */
+comment|/**  * Jms with JDBC idempotent consumer using XA test.  */
 end_comment
 
 begin_class
-DECL|class|FromJmsToJdbcIdempotentConsumerToJmsTest
+DECL|class|FromJmsToJdbcIdempotentConsumerToJmsXaTest
 specifier|public
 class|class
-name|FromJmsToJdbcIdempotentConsumerToJmsTest
+name|FromJmsToJdbcIdempotentConsumerToJmsXaTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -230,7 +230,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/itest/sql/FromJmsToJdbcIdempotentConsumerToJmsTest.xml"
+literal|"org/apache/camel/itest/sql/FromJmsToJdbcIdempotentConsumerToJmsXaTest.xml"
 argument_list|)
 return|;
 block|}
@@ -260,7 +260,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"dataSource"
+literal|"myNonXADataSource"
 argument_list|,
 name|DataSource
 operator|.
