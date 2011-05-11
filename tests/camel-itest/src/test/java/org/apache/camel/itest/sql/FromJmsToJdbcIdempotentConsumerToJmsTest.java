@@ -260,7 +260,7 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"dataSource"
+literal|"myNonXADataSource"
 argument_list|,
 name|DataSource
 operator|.
@@ -1100,7 +1100,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|checkInitialState ()
-specifier|private
+specifier|protected
 name|void
 name|checkInitialState
 parameter_list|()
