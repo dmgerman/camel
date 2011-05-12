@@ -2121,7 +2121,9 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      */
+comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      * @deprecated will be removed in the near future as Camel now requires JDK1.6+      */
+annotation|@
+name|Deprecated
 DECL|method|isJava15 ()
 specifier|public
 specifier|static
@@ -2153,6 +2155,16 @@ name|startsWith
 argument_list|(
 literal|"1.5"
 argument_list|)
+return|;
+block|}
+DECL|method|getTestMethodName ()
+specifier|public
+name|String
+name|getTestMethodName
+parameter_list|()
+block|{
+return|return
+literal|""
 return|;
 block|}
 block|}
