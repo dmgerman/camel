@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A SMPP Endpoint  *   * @version   * @author muellerc  */
+comment|/**  * A SMPP Endpoint  *   * @version   */
 end_comment
 
 begin_class

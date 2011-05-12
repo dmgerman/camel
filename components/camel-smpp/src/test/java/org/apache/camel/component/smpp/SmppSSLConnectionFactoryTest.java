@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppSSLConnectionFactory</code>  *   * @version   * @author cmueller  */
+comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppSSLConnectionFactory</code>  *   * @version   */
 end_comment
 
 begin_class
@@ -179,11 +179,19 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|connection
+operator|!=
+literal|null
+condition|)
+block|{
 name|connection
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

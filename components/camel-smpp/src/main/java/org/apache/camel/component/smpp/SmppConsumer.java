@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of @{link Consumer} which use the SMPP protocol  *   * @version   * @author muellerc  */
+comment|/**  * An implementation of @{link Consumer} which use the SMPP protocol  *   * @version   */
 end_comment
 
 begin_class
@@ -471,7 +471,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Loost connection to: "
+literal|"Lost connection to: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -483,9 +483,7 @@ literal|" - trying to reconnect..."
 argument_list|)
 expr_stmt|;
 name|closeSession
-argument_list|(
-name|session
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|reconnect
 argument_list|(
@@ -1037,9 +1035,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 name|closeSession
-argument_list|(
-name|session
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
@@ -1055,14 +1051,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|closeSession (SMPPSession session)
+DECL|method|closeSession ()
 specifier|private
 name|void
 name|closeSession
-parameter_list|(
-name|SMPPSession
-name|session
-parameter_list|)
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -1271,9 +1264,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|closeSession
-argument_list|(
-name|session
-argument_list|)
+argument_list|()
 expr_stmt|;
 try|try
 block|{

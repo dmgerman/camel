@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with SMPP  *   * @author muellerc  * @version   */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with SMPP  *   * @author muellerc  */
 end_comment
 
 begin_class

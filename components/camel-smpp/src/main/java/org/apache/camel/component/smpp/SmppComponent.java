@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   * @author muellerc  */
+comment|/**  * @version   */
 end_comment
 
 begin_class
