@@ -526,7 +526,7 @@ return|return
 name|useRouteBuilder
 return|;
 block|}
-comment|/**      * Override to control whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you want to re-use      * {@link CamelContext} between test methods you can override this method and return<tt>true</tt>      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
+comment|/**      * Override to control whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you want to re-use      * {@link CamelContext} between test methods you can override this method and return<tt>true</tt>      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will carry over state      * from previous tests, such as endpoints, components etc. So you cannot use this in all your tests.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean
