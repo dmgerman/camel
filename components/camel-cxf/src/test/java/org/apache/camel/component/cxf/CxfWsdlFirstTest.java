@@ -104,18 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -260,18 +248,6 @@ name|CxfWsdlFirstTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -285,23 +261,6 @@ argument_list|(
 literal|"org/apache/camel/component/cxf/WsdlFirstBeans.xml"
 argument_list|)
 return|;
-block|}
-DECL|method|assertValidContext (CamelContext context)
-specifier|protected
-name|void
-name|assertValidContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-literal|"No context found!"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|BeforeClass
