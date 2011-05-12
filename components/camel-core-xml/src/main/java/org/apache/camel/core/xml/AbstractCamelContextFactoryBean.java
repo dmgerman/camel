@@ -1090,31 +1090,7 @@ literal|"Id must be set"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|getProperties
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getContext
-argument_list|()
-operator|.
-name|setProperties
-argument_list|(
-name|getProperties
-argument_list|()
-operator|.
-name|asMap
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|// set the type converter mode first
-name|initLazyLoadTypeConverteres
-argument_list|()
-expr_stmt|;
+comment|// set the package scan resolver as soon as possible
 name|PackageScanClassResolver
 name|packageResolver
 init|=
@@ -1150,6 +1126,32 @@ name|packageResolver
 argument_list|)
 expr_stmt|;
 block|}
+comment|// then set custom properties
+if|if
+condition|(
+name|getProperties
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|setProperties
+argument_list|(
+name|getProperties
+argument_list|()
+operator|.
+name|asMap
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// and enable lazy loading of type converters if applicable
+name|initLazyLoadTypeConverteres
+argument_list|()
+expr_stmt|;
 name|ClassResolver
 name|classResolver
 init|=
