@@ -449,6 +449,11 @@ name|noop
 operator|=
 literal|false
 expr_stmt|;
+comment|// mark as not logged in, since the noop failed
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 name|log
@@ -788,7 +793,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|loggedIn
+name|getOperations
+argument_list|()
+operator|.
+name|isConnected
+argument_list|()
 condition|)
 block|{
 if|if
