@@ -128,6 +128,22 @@ name|isEmpty
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+operator|.
+name|xmlEncode
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -341,7 +357,7 @@ parameter_list|)
 block|{
 name|group
 operator|=
-name|encode
+name|xmlEncode
 argument_list|(
 name|group
 argument_list|)
@@ -493,7 +509,7 @@ name|group
 operator|+
 literal|"' toID='"
 operator|+
-name|encode
+name|xmlEncode
 argument_list|(
 name|nodeData
 operator|.
@@ -677,7 +693,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|fromData
 operator|.
@@ -696,7 +712,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|toData
 operator|.
@@ -730,7 +746,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|association
 argument_list|)
@@ -845,7 +861,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|data
 operator|.
@@ -886,7 +902,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|name
 argument_list|)
@@ -938,7 +954,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|nodeType
 argument_list|)
@@ -955,7 +971,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|data
 operator|.
@@ -979,7 +995,7 @@ name|writer
 operator|.
 name|print
 argument_list|(
-name|encode
+name|xmlEncode
 argument_list|(
 name|data
 operator|.
@@ -996,58 +1012,6 @@ literal|"\"/>"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|encode (String text)
-specifier|protected
-name|String
-name|encode
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-if|if
-condition|(
-name|text
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|""
-return|;
-block|}
-return|return
-name|text
-operator|.
-name|replaceAll
-argument_list|(
-literal|"\""
-argument_list|,
-literal|"&quot;"
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|"<"
-argument_list|,
-literal|"&lt;"
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|">"
-argument_list|,
-literal|"&gt;"
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|"&"
-argument_list|,
-literal|"&amp;"
-argument_list|)
-return|;
 block|}
 block|}
 end_class
