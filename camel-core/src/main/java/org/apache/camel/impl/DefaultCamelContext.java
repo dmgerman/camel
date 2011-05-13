@@ -3847,6 +3847,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// must use classloader from CamelContext to have JAXB working
 name|jaxbContext
 operator|=
 name|JAXBContext
@@ -3856,6 +3857,13 @@ argument_list|(
 name|Constants
 operator|.
 name|JAXB_CONTEXT_PACKAGES
+argument_list|,
+name|CamelContext
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
