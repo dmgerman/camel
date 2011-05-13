@@ -244,7 +244,7 @@ index|[]
 block|{
 literal|"java.lang.String"
 block|,
-literal|"java.lang.String"
+literal|"java.lang.Object"
 block|}
 argument_list|)
 decl_stmt|;
