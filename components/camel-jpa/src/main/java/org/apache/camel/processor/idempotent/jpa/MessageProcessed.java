@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|persistence
@@ -67,6 +77,26 @@ operator|.
 name|persistence
 operator|.
 name|Table
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Temporal
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|TemporalType
 import|;
 end_import
 
@@ -115,6 +145,11 @@ name|MessageProcessed
 implements|implements
 name|Serializable
 block|{
+DECL|field|createdAt
+specifier|protected
+name|Date
+name|createdAt
+decl_stmt|;
 DECL|field|id
 specifier|private
 name|Long
@@ -147,6 +182,11 @@ operator|+
 literal|" messageId: "
 operator|+
 name|getMessageId
+argument_list|()
+operator|+
+literal|" createdAt: "
+operator|+
+name|getCreatedAt
 argument_list|()
 operator|+
 literal|"]"
@@ -232,6 +272,39 @@ operator|.
 name|processorName
 operator|=
 name|processorName
+expr_stmt|;
+block|}
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIMESTAMP
+argument_list|)
+DECL|method|getCreatedAt ()
+specifier|public
+name|Date
+name|getCreatedAt
+parameter_list|()
+block|{
+return|return
+name|createdAt
+return|;
+block|}
+DECL|method|setCreatedAt (Date createdAt)
+specifier|public
+name|void
+name|setCreatedAt
+parameter_list|(
+name|Date
+name|createdAt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|createdAt
+operator|=
+name|createdAt
 expr_stmt|;
 block|}
 block|}

@@ -487,7 +487,7 @@ name|jdbcTemplate
 operator|.
 name|execute
 argument_list|(
-literal|"CREATE TABLE CAMEL_MESSAGEPROCESSED (processorName VARCHAR(20), messageId VARCHAR(10))"
+literal|"CREATE TABLE CAMEL_MESSAGEPROCESSED (processorName VARCHAR(20), messageId VARCHAR(10), createdAt timestamp)"
 argument_list|)
 expr_stmt|;
 block|}

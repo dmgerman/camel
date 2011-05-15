@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|sql
+operator|.
+name|Timestamp
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -224,7 +234,7 @@ specifier|final
 name|String
 name|INSERT_STRING
 init|=
-literal|"INSERT INTO CAMEL_MESSAGEPROCESSED (processorName, messageId) VALUES (?, ?)"
+literal|"INSERT INTO CAMEL_MESSAGEPROCESSED (processorName, messageId, createdAt) VALUES (?, ?, ?)"
 decl_stmt|;
 DECL|field|DELETE_STRING
 specifier|protected
@@ -464,6 +474,15 @@ argument_list|,
 name|processorName
 argument_list|,
 name|messageId
+argument_list|,
+operator|new
+name|Timestamp
+argument_list|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
