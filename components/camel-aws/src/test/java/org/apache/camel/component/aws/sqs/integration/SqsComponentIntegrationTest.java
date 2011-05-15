@@ -167,6 +167,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Must be manually tested. Provide your own accessKey and secretKey!"
+argument_list|)
 DECL|class|SqsComponentIntegrationTest
 specifier|public
 class|class
@@ -174,6 +179,20 @@ name|SqsComponentIntegrationTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|accessKey
+specifier|private
+name|String
+name|accessKey
+init|=
+literal|"xxx"
+decl_stmt|;
+DECL|field|secretKey
+specifier|private
+name|String
+name|secretKey
+init|=
+literal|"yyy"
+decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -200,11 +219,6 @@ name|result
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested. Provide your own accessKey and secretKey!"
-argument_list|)
 DECL|method|sendInOnly ()
 specifier|public
 name|void
@@ -387,11 +401,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested. Provide your own accessKey and secretKey!"
-argument_list|)
 DECL|method|sendInOut ()
 specifier|public
 name|void
@@ -580,6 +589,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|String
+name|sqsURI
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"aws-sqs://MyQueue?accessKey=%s&secretKey=%s&messageRetentionPeriod=%s&maximumMessageSize=%s&policy=%s"
+argument_list|,
+name|accessKey
+argument_list|,
+name|secretKey
+argument_list|,
+literal|"1209600"
+argument_list|,
+literal|"65536"
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|RouteBuilder
@@ -601,12 +631,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy"
+name|sqsURI
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"aws-sqs://MyQueue?accessKey=xxx&secretKey=yyy"
+name|sqsURI
 argument_list|)
 operator|.
 name|to

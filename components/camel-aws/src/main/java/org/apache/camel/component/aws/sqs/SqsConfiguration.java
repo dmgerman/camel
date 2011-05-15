@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|amazonaws
@@ -41,6 +31,16 @@ operator|.
 name|sqs
 operator|.
 name|AmazonSQSClient
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -107,6 +107,22 @@ DECL|field|defaultVisibilityTimeout
 specifier|private
 name|Integer
 name|defaultVisibilityTimeout
+decl_stmt|;
+comment|// queue properties
+DECL|field|maximumMessageSize
+specifier|private
+name|Integer
+name|maximumMessageSize
+decl_stmt|;
+DECL|field|messageRetentionPeriod
+specifier|private
+name|Integer
+name|messageRetentionPeriod
+decl_stmt|;
+DECL|field|policy
+specifier|private
+name|String
+name|policy
 decl_stmt|;
 DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
 specifier|public
@@ -348,6 +364,84 @@ operator|=
 name|defaultVisibilityTimeout
 expr_stmt|;
 block|}
+DECL|method|getMaximumMessageSize ()
+specifier|public
+name|Integer
+name|getMaximumMessageSize
+parameter_list|()
+block|{
+return|return
+name|maximumMessageSize
+return|;
+block|}
+DECL|method|setMaximumMessageSize (Integer maximumMessageSize)
+specifier|public
+name|void
+name|setMaximumMessageSize
+parameter_list|(
+name|Integer
+name|maximumMessageSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumMessageSize
+operator|=
+name|maximumMessageSize
+expr_stmt|;
+block|}
+DECL|method|getMessageRetentionPeriod ()
+specifier|public
+name|Integer
+name|getMessageRetentionPeriod
+parameter_list|()
+block|{
+return|return
+name|messageRetentionPeriod
+return|;
+block|}
+DECL|method|setMessageRetentionPeriod (Integer messageRetentionPeriod)
+specifier|public
+name|void
+name|setMessageRetentionPeriod
+parameter_list|(
+name|Integer
+name|messageRetentionPeriod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageRetentionPeriod
+operator|=
+name|messageRetentionPeriod
+expr_stmt|;
+block|}
+DECL|method|getPolicy ()
+specifier|public
+name|String
+name|getPolicy
+parameter_list|()
+block|{
+return|return
+name|policy
+return|;
+block|}
+DECL|method|setPolicy (String policy)
+specifier|public
+name|void
+name|setPolicy
+parameter_list|(
+name|String
+name|policy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|policy
+operator|=
+name|policy
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -386,6 +480,18 @@ operator|+
 literal|", defaultVisibilityTimeout="
 operator|+
 name|defaultVisibilityTimeout
+operator|+
+literal|", maximumMessageSize="
+operator|+
+name|maximumMessageSize
+operator|+
+literal|", messageRetentionPeriod="
+operator|+
+name|messageRetentionPeriod
+operator|+
+literal|", policy="
+operator|+
+name|policy
 operator|+
 literal|"]"
 return|;
