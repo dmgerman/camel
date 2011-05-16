@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of queue browsing using the Spring 2.5.x {@link BrowserCallback}  * @version   */
+comment|/**  * A default implementation of queue browsing using the Spring {@link BrowserCallback}  *  * @version   */
 end_comment
 
 begin_class
@@ -160,12 +160,6 @@ name|endpoint
 parameter_list|)
 block|{
 return|return
-operator|(
-name|List
-argument_list|<
-name|Exchange
-argument_list|>
-operator|)
 name|template
 operator|.
 name|browse
@@ -174,10 +168,19 @@ name|queue
 argument_list|,
 operator|new
 name|BrowserCallback
+argument_list|<
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
 name|doInJms
 parameter_list|(
 name|Session
@@ -189,7 +192,7 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
-comment|// TODO not the best implementation in the world as we have to browse
+comment|// not the best implementation in the world as we have to browse
 comment|// the entire queue, which could be massive
 name|List
 argument_list|<

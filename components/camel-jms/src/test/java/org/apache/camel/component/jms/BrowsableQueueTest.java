@@ -311,7 +311,7 @@ literal|2
 argument_list|,
 name|endpoint
 operator|.
-name|qeueSize
+name|queueSize
 argument_list|()
 argument_list|)
 expr_stmt|;
