@@ -130,18 +130,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|xbill
-operator|.
-name|DNS
-operator|.
-name|Address
-import|;
-end_import
-
 begin_comment
 comment|/**  * An endpoint to conduct IP address lookup from the host name.  */
 end_comment
@@ -230,7 +218,7 @@ expr_stmt|;
 name|InetAddress
 name|address
 init|=
-name|Address
+name|InetAddress
 operator|.
 name|getByName
 argument_list|(
