@@ -227,11 +227,11 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/search?username="
+literal|"/search?authUsername="
 operator|+
 name|user
 operator|+
-literal|"&password="
+literal|"&authPassword="
 operator|+
 name|password
 argument_list|,
@@ -337,7 +337,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/search?throwExceptionOnFailure=false&username=camel&password=wrong"
+literal|"/search?throwExceptionOnFailure=false&authUsername=camel&authPassword=wrong"
 argument_list|,
 operator|new
 name|Processor

@@ -564,7 +564,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http4://www.google.com?proxyHost=myproxy&proxyPort=1234"
+literal|"http4://www.google.com?proxyAuthHost=myproxy&proxyAuthPort=1234"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -578,7 +578,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http4://www.google.com?test=parameter&proxyHost=myotherproxy&proxyPort=2345"
+literal|"http4://www.google.com?test=parameter&proxyAuthHost=myotherproxy&proxyAuthPort=2345"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -682,7 +682,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri of http1"
 argument_list|,
-literal|"http4://www.google.com?proxyHost=myproxy&proxyPort=1234"
+literal|"http4://www.google.com?proxyAuthHost=myproxy&proxyAuthPort=1234"
 argument_list|,
 name|URISupport
 operator|.
@@ -699,7 +699,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri of http2"
 argument_list|,
-literal|"http4://www.google.com?proxyHost=myotherproxy&proxyPort=2345&test=parameter"
+literal|"http4://www.google.com?proxyAuthHost=myotherproxy&proxyAuthPort=2345&test=parameter"
 argument_list|,
 name|URISupport
 operator|.
@@ -818,12 +818,12 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?proxyHost="
+literal|"?proxyAuthHost="
 operator|+
 name|getProxyHost
 argument_list|()
 operator|+
-literal|"&proxyPort="
+literal|"&proxyAuthPort="
 operator|+
 name|getProxyPort
 argument_list|()
@@ -1137,12 +1137,12 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?proxyHost="
+literal|"?proxyAuthHost="
 operator|+
 name|getProxyHost
 argument_list|()
 operator|+
-literal|"&proxyPort="
+literal|"&proxyAuthPort="
 operator|+
 name|getProxyPort
 argument_list|()
@@ -1245,17 +1245,17 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?proxyHost="
+literal|"?proxyAuthHost="
 operator|+
 name|getProxyHost
 argument_list|()
 operator|+
-literal|"&proxyPort="
+literal|"&proxyAuthPort="
 operator|+
 name|getProxyPort
 argument_list|()
 operator|+
-literal|"&proxyUsername=camel&proxyPassword=password"
+literal|"&proxyAuthUsername=camel&proxyAuthPassword=password"
 argument_list|,
 operator|new
 name|Processor
