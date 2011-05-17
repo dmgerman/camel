@@ -459,7 +459,7 @@ specifier|private
 name|FilterParameters
 name|secureSocketProtocolsFilter
 decl_stmt|;
-comment|/**      * The optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      * TODO provide a time unit here and on the getter/setter.      */
+comment|/**      * The optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s in seconds.      */
 DECL|field|sessionTimeout
 specifier|private
 name|Integer
@@ -577,7 +577,7 @@ operator|=
 name|secureSocketProtocolsFilter
 expr_stmt|;
 block|}
-comment|/**      * Returns the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      */
+comment|/**      * Returns the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s       * in seconds.      */
 DECL|method|getSessionTimeout ()
 specifier|public
 name|Integer
@@ -588,7 +588,7 @@ return|return
 name|sessionTimeout
 return|;
 block|}
-comment|/**      * Sets the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s.      *      * @param sessionTimeout the timeout value or {@code null} to use the default      */
+comment|/**      * Sets the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s      * in seconds.      *      * @param sessionTimeout the timeout value or {@code null} to use the default      */
 DECL|method|setSessionTimeout (Integer sessionTimeout)
 specifier|public
 name|void
@@ -604,6 +604,17 @@ name|sessionTimeout
 operator|=
 name|sessionTimeout
 expr_stmt|;
+block|}
+comment|/**      * Returns a flag indicating if default values should be applied in the event that no other property      * of the instance configures a particular aspect of the entity produced by the instance.      * This flag is used to allow instances of this class to produce a configurer that simply      * passes through the current configuration of a configured entity when the instance of this      * class would otherwise only apply some default configuration.      *      * @see SSLContextClientParameters      * @see SSLContextServerParameters      */
+DECL|method|getAllowPassthrough ()
+specifier|protected
+name|boolean
+name|getAllowPassthrough
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Configures the actual {@link SSLContext} itself with direct setter calls.  This method differs from      * configuration options that are handled by a configurer instance in that the options are part of the      * context itself and are not part of some factory or instance object returned by the context.      *       * @param context the context to configure      *      * @throws GeneralSecurityException if there is an error configuring the context      */
 DECL|method|configureSSLContext (SSLContext context)
@@ -902,6 +913,14 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|//
+specifier|final
+name|boolean
+name|allowPassthrough
+init|=
+name|getAllowPassthrough
+argument_list|()
+decl_stmt|;
 comment|//////
 name|Configurer
 argument_list|<
@@ -953,9 +972,22 @@ name|getCipherSuites
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|engine
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledCipherSuitePatterns
 argument_list|,
 name|defaultEnabledCipherSuitePatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|engine
@@ -1004,9 +1036,22 @@ name|getProtocols
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|engine
+operator|.
+name|getEnabledProtocols
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledSecureSocketProtocolsPatterns
 argument_list|,
 name|defaultEnabledSecureSocketProtocolsPatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|engine
@@ -1413,6 +1458,14 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|//
+specifier|final
+name|boolean
+name|allowPassthrough
+init|=
+name|getAllowPassthrough
+argument_list|()
+decl_stmt|;
 comment|//////
 name|Configurer
 argument_list|<
@@ -1464,9 +1517,22 @@ name|getCipherSuites
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|socket
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledCipherSuitePatterns
 argument_list|,
 name|defaultEnabledCipherSuitePatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|socket
@@ -1515,9 +1581,22 @@ name|getProtocols
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|socket
+operator|.
+name|getEnabledProtocols
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledSecureSocketProtocolsPatterns
 argument_list|,
 name|defaultEnabledSecureSocketProtocolsPatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|socket
@@ -1728,6 +1807,14 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|//
+specifier|final
+name|boolean
+name|allowPassthrough
+init|=
+name|getAllowPassthrough
+argument_list|()
+decl_stmt|;
 comment|//////
 name|Configurer
 argument_list|<
@@ -1776,9 +1863,22 @@ name|getSupportedCipherSuites
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|socket
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledCipherSuitePatterns
 argument_list|,
 name|defaultEnabledCipherSuitePatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|socket
@@ -1824,9 +1924,22 @@ name|getSupportedProtocols
 argument_list|()
 argument_list|)
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|socket
+operator|.
+name|getEnabledProtocols
+argument_list|()
+argument_list|)
+argument_list|,
 name|enabledSecureSocketProtocolsPatterns
 argument_list|,
 name|defaultEnabledSecureSocketProtocolsPatterns
+argument_list|,
+operator|!
+name|allowPassthrough
 argument_list|)
 decl_stmt|;
 name|socket
@@ -1929,8 +2042,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Filters the values in {@code availableValues} returning only the values that      * are explicitly listed in {@code explicitValues} (returns them regardless      * of if they appear in {@code availableValues} or not) if {@code explicitValues} is not      * {@code null} or as match the provided filters according to the following rules:      *<ol>      *<li>Match the include patterns in {@code patterns} and don't match the exclude patterns in {@code patterns}      * if patterns is not {@code null}.</li>      *<li>Match the include patterns in {@code defaultPatterns} and don't match the exclude patterns in {@code defaultPatterns}      * if patterns is {@code null}.</li>      *</ol>      *       * @param explicitValues the optional explicit values to use      * @param availableValues the available values to filter from      * @param patterns the optional patterns to use when {@code explicitValues} is not used      * @param defaultPatterns the required patterns to use when {@code explicitValues} and {@code patterns} are not used      *       * @return the filtered values      *      * @see #filter(Collection, Collection, List, List)      */
-DECL|method|filter ( Collection<String> explicitValues, Collection<String> availableValues, Patterns patterns, Patterns defaultPatterns)
+comment|/**      * Filters the values in {@code availableValues} returning only the values that      * are explicitly listed in {@code explicitValues} (returns them regardless      * of if they appear in {@code availableValues} or not) if {@code explicitValues} is not      * {@code null} or according to the following rules:      *<ol>      *<li>Match the include patterns in {@code patterns} and don't match the exclude patterns in {@code patterns}      * if patterns is not {@code null}.</li>      *<li>Match the include patterns in {@code defaultPatterns} and don't match the exclude patterns in {@code defaultPatterns}      * if patterns is {@code null} and {@code applyDefaults} is true.</li>      *<li>Are provided in currentValues if if patterns is {@code null} and {@code applyDefaults} is false.</li>      *</ol>      *       * @param explicitValues the optional explicit values to use      * @param availableValues the available values to filter from      * @param patterns the optional patterns to use when {@code explicitValues} is not used      * @param defaultPatterns the required patterns to use when {@code explicitValues} and {@code patterns} are not used      * @param applyDefaults flag indicating whether or not to apply defaults in the event that no explicit values and no      *              patterns apply      *       * @return the filtered values      *      * @see #filter(Collection, Collection, List, List)      */
+DECL|method|filter ( Collection<String> explicitValues, Collection<String> availableValues, Collection<String> currentValues, Patterns patterns, Patterns defaultPatterns, boolean applyDefaults)
 specifier|protected
 name|Collection
 argument_list|<
@@ -1950,11 +2063,20 @@ name|String
 argument_list|>
 name|availableValues
 parameter_list|,
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|currentValues
+parameter_list|,
 name|Patterns
 name|patterns
 parameter_list|,
 name|Patterns
 name|defaultPatterns
+parameter_list|,
+name|boolean
+name|applyDefaults
 parameter_list|)
 block|{
 specifier|final
@@ -1971,6 +2093,24 @@ name|Pattern
 argument_list|>
 name|enabledExcludePatterns
 decl_stmt|;
+if|if
+condition|(
+name|explicitValues
+operator|==
+literal|null
+operator|&&
+name|patterns
+operator|==
+literal|null
+operator|&&
+operator|!
+name|applyDefaults
+condition|)
+block|{
+return|return
+name|currentValues
+return|;
+block|}
 if|if
 condition|(
 name|patterns

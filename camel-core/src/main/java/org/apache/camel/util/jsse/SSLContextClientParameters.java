@@ -134,6 +134,18 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|getAllowPassthrough ()
+specifier|protected
+name|boolean
+name|getAllowPassthrough
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|configureSSLContext (SSLContext context)
 specifier|protected
 name|void
