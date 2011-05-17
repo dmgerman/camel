@@ -248,11 +248,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 name|DeadLetterChannel
 name|answer
 init|=
