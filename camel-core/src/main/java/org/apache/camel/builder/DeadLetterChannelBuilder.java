@@ -275,9 +275,6 @@ argument_list|,
 name|getRedeliveryPolicy
 argument_list|()
 argument_list|,
-name|getHandledPolicy
-argument_list|()
-argument_list|,
 name|getExceptionPolicyStrategy
 argument_list|()
 argument_list|,
@@ -410,27 +407,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-DECL|method|createHandledPolicy ()
-specifier|protected
-name|Predicate
-name|createHandledPolicy
-parameter_list|()
-block|{
-comment|// should be handled by default for dead letter channel
-return|return
-name|PredicateBuilder
-operator|.
-name|toPredicate
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|constantExpression
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override

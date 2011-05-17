@@ -251,11 +251,6 @@ specifier|protected
 name|Processor
 name|onRedelivery
 decl_stmt|;
-DECL|field|handledPolicy
-specifier|protected
-name|Predicate
-name|handledPolicy
-decl_stmt|;
 DECL|field|retryWhile
 specifier|protected
 name|Predicate
@@ -335,9 +330,6 @@ name|getOnRedelivery
 argument_list|()
 argument_list|,
 name|getRedeliveryPolicy
-argument_list|()
-argument_list|,
-name|getHandledPolicy
 argument_list|()
 argument_list|,
 name|getExceptionPolicyStrategy
@@ -735,89 +727,6 @@ block|{
 name|setExecutorServiceRef
 argument_list|(
 name|ref
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|handled (boolean handled)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|handled
-parameter_list|(
-name|boolean
-name|handled
-parameter_list|)
-block|{
-name|Expression
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
-argument_list|(
-name|Boolean
-operator|.
-name|toString
-argument_list|(
-name|handled
-argument_list|)
-argument_list|)
-decl_stmt|;
-return|return
-name|handled
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|handled (Predicate handled)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|handled
-parameter_list|(
-name|Predicate
-name|handled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|setHandledPolicy
-argument_list|(
-name|handled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|handled (Expression handled)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|handled
-parameter_list|(
-name|Expression
-name|handled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|setHandledPolicy
-argument_list|(
-name|toPredicate
-argument_list|(
-name|handled
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1275,69 +1184,6 @@ operator|=
 name|retryWhileRef
 expr_stmt|;
 block|}
-comment|/**      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|getHandledPolicy ()
-specifier|public
-name|Predicate
-name|getHandledPolicy
-parameter_list|()
-block|{
-if|if
-condition|(
-name|handledPolicy
-operator|==
-literal|null
-condition|)
-block|{
-name|handledPolicy
-operator|=
-name|createHandledPolicy
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|handledPolicy
-return|;
-block|}
-comment|/**      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setHandledPolicy (Predicate handled)
-specifier|public
-name|void
-name|setHandledPolicy
-parameter_list|(
-name|Predicate
-name|handled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|handledPolicy
-operator|=
-name|handled
-expr_stmt|;
-block|}
-comment|/**      * Sets the handled using a boolean and thus easier to use for Spring XML configuration as well.      *      * @deprecated will be removed in the near future. An exception handler should<b>always</b> handle an exception,      * so it was not a good idea to allow end users to change that behavior. Instead of using handled(false) use      * the<a href="http://camel.apache.org/exception-clause.html">exception clause</a> instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setHandled (boolean handled)
-specifier|public
-name|void
-name|setHandled
-parameter_list|(
-name|boolean
-name|handled
-parameter_list|)
-block|{
-name|handled
-argument_list|(
-name|handled
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getDeadLetterUri ()
 specifier|public
 name|String
@@ -1482,27 +1328,6 @@ name|executorServiceRef
 operator|=
 name|executorServiceRef
 expr_stmt|;
-block|}
-DECL|method|createHandledPolicy ()
-specifier|protected
-name|Predicate
-name|createHandledPolicy
-parameter_list|()
-block|{
-comment|// should NOT be handled by default for default error handler
-return|return
-name|PredicateBuilder
-operator|.
-name|toPredicate
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|constantExpression
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-return|;
 block|}
 DECL|method|createRedeliveryPolicy ()
 specifier|protected

@@ -72,6 +72,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|exceptionpolicy
@@ -92,8 +120,8 @@ name|DeadLetterChannel
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      * @param executorServiceRef        reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
-DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile, String executorServiceRef)
+comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      * @param executorServiceRef        reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
+DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile, String executorServiceRef)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -111,9 +139,6 @@ name|redeliveryProcessor
 parameter_list|,
 name|RedeliveryPolicy
 name|redeliveryPolicy
-parameter_list|,
-name|Predicate
-name|handledPolicy
 parameter_list|,
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
@@ -145,8 +170,6 @@ argument_list|,
 name|redeliveryProcessor
 argument_list|,
 name|redeliveryPolicy
-argument_list|,
-name|handledPolicy
 argument_list|,
 name|deadLetter
 argument_list|,
@@ -223,6 +246,29 @@ name|deadLetter
 operator|)
 operator|+
 literal|"]"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefaultHandledPredicate ()
+specifier|protected
+name|Predicate
+name|getDefaultHandledPredicate
+parameter_list|()
+block|{
+comment|// DeadLetterChannel handles errors before sending to DLQ
+return|return
+name|PredicateBuilder
+operator|.
+name|toPredicate
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}

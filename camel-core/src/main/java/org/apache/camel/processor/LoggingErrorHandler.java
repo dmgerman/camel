@@ -100,8 +100,6 @@ operator|new
 name|RedeliveryPolicy
 argument_list|()
 argument_list|,
-literal|null
-argument_list|,
 name|exceptionPolicyStrategy
 argument_list|,
 literal|null

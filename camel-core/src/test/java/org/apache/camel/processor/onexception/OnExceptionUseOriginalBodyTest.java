@@ -267,14 +267,21 @@ name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// will use original exchange
+name|onException
+argument_list|(
+name|CamelExchangeException
+operator|.
+name|class
+argument_list|)
 operator|.
 name|handled
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
-comment|// will use original exchange
 name|onException
 argument_list|(
 name|IllegalArgumentException

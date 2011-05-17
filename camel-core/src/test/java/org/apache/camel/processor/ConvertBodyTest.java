@@ -622,11 +622,19 @@ argument_list|)
 operator|.
 name|disableRedelivery
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we don't want the DLC to handle the exception
+name|onException
+argument_list|(
+name|InvalidPayloadException
+operator|.
+name|class
+argument_list|)
 operator|.
 name|handled
 argument_list|(
 literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

@@ -343,12 +343,6 @@ specifier|final
 name|RedeliveryPolicy
 name|redeliveryPolicy
 decl_stmt|;
-DECL|field|handledPolicy
-specifier|protected
-specifier|final
-name|Predicate
-name|handledPolicy
-decl_stmt|;
 DECL|field|retryWhilePolicy
 specifier|protected
 specifier|final
@@ -424,7 +418,8 @@ DECL|field|handledPredicate
 name|Predicate
 name|handledPredicate
 init|=
-name|handledPolicy
+name|getDefaultHandledPredicate
+argument_list|()
 decl_stmt|;
 DECL|field|continuedPredicate
 name|Predicate
@@ -753,7 +748,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile, String executorServiceRef)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile, String executorServiceRef)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -771,9 +766,6 @@ name|redeliveryProcessor
 parameter_list|,
 name|RedeliveryPolicy
 name|redeliveryPolicy
-parameter_list|,
-name|Predicate
-name|handledPolicy
 parameter_list|,
 name|Processor
 name|deadLetter
@@ -865,12 +857,6 @@ operator|.
 name|deadLetterUri
 operator|=
 name|deadLetterUri
-expr_stmt|;
-name|this
-operator|.
-name|handledPolicy
-operator|=
-name|handledPolicy
 expr_stmt|;
 name|this
 operator|.
@@ -1894,6 +1880,17 @@ parameter_list|()
 block|{
 return|return
 name|logger
+return|;
+block|}
+DECL|method|getDefaultHandledPredicate ()
+specifier|protected
+name|Predicate
+name|getDefaultHandledPredicate
+parameter_list|()
+block|{
+comment|// Default is not not handle errors
+return|return
+literal|null
 return|;
 block|}
 DECL|method|prepareExchangeForContinue (Exchange exchange, RedeliveryData data)

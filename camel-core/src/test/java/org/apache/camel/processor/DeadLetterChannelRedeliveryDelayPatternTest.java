@@ -295,11 +295,6 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|onRedelivery
 argument_list|(
 operator|new
@@ -322,6 +317,19 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// we don't want DLC to handle the Exception
+name|onException
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|from

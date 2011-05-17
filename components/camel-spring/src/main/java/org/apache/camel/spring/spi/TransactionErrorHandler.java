@@ -226,8 +226,8 @@ specifier|final
 name|String
 name|transactionKey
 decl_stmt|;
-comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param handledPolicy           policy for handling failed exception that are moved to the dead letter queue      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorServiceRef      reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
-DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Predicate handledPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, String executorServiceRef)
+comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorServiceRef      reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
+DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, String executorServiceRef)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
@@ -245,9 +245,6 @@ name|redeliveryProcessor
 parameter_list|,
 name|RedeliveryPolicy
 name|redeliveryPolicy
-parameter_list|,
-name|Predicate
-name|handledPolicy
 parameter_list|,
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
@@ -273,8 +270,6 @@ argument_list|,
 name|redeliveryProcessor
 argument_list|,
 name|redeliveryPolicy
-argument_list|,
-name|handledPolicy
 argument_list|,
 literal|null
 argument_list|,

@@ -966,11 +966,6 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2

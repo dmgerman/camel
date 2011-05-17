@@ -628,11 +628,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 name|TransactionErrorHandler
 name|answer
 init|=
@@ -653,9 +648,6 @@ name|getOnRedelivery
 argument_list|()
 argument_list|,
 name|getRedeliveryPolicy
-argument_list|()
-argument_list|,
-name|getHandledPolicy
 argument_list|()
 argument_list|,
 name|getExceptionPolicyStrategy

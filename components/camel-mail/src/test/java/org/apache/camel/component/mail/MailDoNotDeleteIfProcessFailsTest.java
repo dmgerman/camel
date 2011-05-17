@@ -453,13 +453,21 @@ name|logStackTrace
 argument_list|(
 literal|false
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|onException
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|)
 operator|.
 name|handled
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
+comment|// DLC should not handle
 name|from
 argument_list|(
 literal|"imap://localhost?username=claus&password=secret&unseen=true&delay=250"

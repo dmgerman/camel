@@ -385,6 +385,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we don't want the DLC to handle the Exception
+name|onException
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -400,11 +413,6 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|1
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|redeliveryDelay
@@ -438,11 +446,6 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|redeliveryDelay

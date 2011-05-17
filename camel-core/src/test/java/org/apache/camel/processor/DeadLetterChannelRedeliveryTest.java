@@ -422,8 +422,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we use handled(false) to instruct DLC to not handle the exception and therefore
-comment|// we can assert the number of redeliver attempts to see if that works correct
+comment|// we use onException(Exception.class).handled(false) to instruct DLC to not handle the exception
+comment|// and therefore we can assert the number of redelivery attempts to see if that works correctly
+name|onException
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -444,11 +456,6 @@ operator|.
 name|redeliveryDelay
 argument_list|(
 literal|0
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -497,11 +504,6 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|0
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -555,11 +557,6 @@ operator|.
 name|redeliveryDelay
 argument_list|(
 literal|0
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 operator|.

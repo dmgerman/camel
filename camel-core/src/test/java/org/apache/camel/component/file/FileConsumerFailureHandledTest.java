@@ -505,14 +505,21 @@ name|logStackTrace
 argument_list|(
 literal|false
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// special for not handled when we got beer
+name|onException
+argument_list|(
+name|RuntimeCamelException
+operator|.
+name|class
+argument_list|)
 operator|.
 name|handled
 argument_list|(
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
-comment|// special for not handled when we got beer
 name|onException
 argument_list|(
 name|ValidationException
