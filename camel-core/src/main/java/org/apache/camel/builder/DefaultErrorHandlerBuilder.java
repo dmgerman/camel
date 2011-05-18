@@ -231,16 +231,6 @@ specifier|protected
 name|CamelLogger
 name|logger
 decl_stmt|;
-DECL|field|exceptionPolicyStrategy
-specifier|protected
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-init|=
-name|ErrorHandlerSupport
-operator|.
-name|createDefaultExceptionPolicyStrategy
-argument_list|()
-decl_stmt|;
 DECL|field|redeliveryPolicy
 specifier|protected
 name|RedeliveryPolicy
@@ -847,25 +837,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the exception policy to use      *      * @return the builder      */
-DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|exceptionPolicyStrategy
-parameter_list|(
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-block|{
-name|setExceptionPolicyStrategy
-argument_list|(
-name|exceptionPolicyStrategy
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets a processor that should be processed<b>before</b> a redelivery attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      *      * @param processor the processor      * @return the builder      */
 DECL|method|onRedelivery (Processor processor)
 specifier|public
@@ -1028,33 +999,6 @@ operator|.
 name|logger
 operator|=
 name|logger
-expr_stmt|;
-block|}
-comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      */
-DECL|method|getExceptionPolicyStrategy ()
-specifier|public
-name|ExceptionPolicyStrategy
-name|getExceptionPolicyStrategy
-parameter_list|()
-block|{
-return|return
-name|exceptionPolicyStrategy
-return|;
-block|}
-DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
-specifier|public
-name|void
-name|setExceptionPolicyStrategy
-parameter_list|(
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exceptionPolicyStrategy
-operator|=
-name|exceptionPolicyStrategy
 expr_stmt|;
 block|}
 DECL|method|getOnRedelivery ()
