@@ -401,22 +401,6 @@ operator|instanceof
 name|BadRecordLitFault
 argument_list|)
 expr_stmt|;
-comment|// check out the message body with the fault message, now we just put the Exception as the fault message
-name|assertEquals
-argument_list|(
-literal|"Get a wrong message body"
-argument_list|,
-name|exception
-argument_list|,
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// check out the message header which is copied from in message
 name|String
 name|fileName
