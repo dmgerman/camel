@@ -881,15 +881,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Executes any custom preparation logic before the runtime routes is being built using the      * model definitions.      */
-DECL|method|prepare ()
-specifier|public
-name|void
-name|prepare
-parameter_list|()
-block|{
-comment|// noop
-block|}
 comment|/**      * Override this in definition class and implement logic to create the processor      * based on the definition model.      */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
