@@ -122,6 +122,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|language
@@ -440,6 +454,56 @@ argument_list|,
 name|childProcessor
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|configureChild (ProcessorDefinition output)
+specifier|protected
+name|void
+name|configureChild
+parameter_list|(
+name|ProcessorDefinition
+name|output
+parameter_list|)
+block|{
+if|if
+condition|(
+name|expression
+operator|instanceof
+name|ExpressionClause
+condition|)
+block|{
+name|ExpressionClause
+name|clause
+init|=
+operator|(
+name|ExpressionClause
+operator|)
+name|expression
+decl_stmt|;
+if|if
+condition|(
+name|clause
+operator|.
+name|getExpressionType
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if using the Java DSL then the expression may have been set using the
+comment|// ExpressionClause which is a fancy builder to define expressions and predicates
+comment|// using fluent builders in the DSL. However we need afterwards a callback to
+comment|// reset the expression to the expression type the ExpressionClause did build for us
+name|expression
+operator|=
+name|clause
+operator|.
+name|getExpressionType
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 end_class

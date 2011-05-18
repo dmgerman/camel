@@ -736,22 +736,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-operator|.
-name|body
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for processor types that most XML types extend.  *  * @version   */
 end_comment
@@ -896,6 +880,15 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+comment|/**      * Executes any custom preparation logic before the runtime routes is being built using the      * model definitions.      */
+DECL|method|prepare ()
+specifier|public
+name|void
+name|prepare
+parameter_list|()
+block|{
+comment|// noop
 block|}
 comment|/**      * Override this in definition class and implement logic to create the processor      * based on the definition model.      */
 DECL|method|createProcessor (RouteContext routeContext)
@@ -1062,6 +1055,22 @@ operator|.
 name|setParent
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
+name|setNodeFactory
+argument_list|(
+name|getNodeFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|getErrorHandlerBuilder
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configureChild
@@ -2732,6 +2741,7 @@ name|DEFAULT_ERROR_HANDLER_BUILDER
 argument_list|)
 return|;
 block|}
+comment|/**      * Strategy for children to do any custom configuration      *      * @param output the child to be added as output to this      */
 DECL|method|configureChild (ProcessorDefinition output)
 specifier|protected
 name|void
@@ -2741,22 +2751,7 @@ name|ProcessorDefinition
 name|output
 parameter_list|)
 block|{
-name|output
-operator|.
-name|setNodeFactory
-argument_list|(
-name|getNodeFactory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
-name|setErrorHandlerBuilder
-argument_list|(
-name|getErrorHandlerBuilder
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
@@ -4050,29 +4045,6 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *            * @return the builder      */
-DECL|method|idempotentConsumer ()
-specifier|public
-name|IdempotentConsumerDefinition
-name|idempotentConsumer
-parameter_list|()
-block|{
-name|IdempotentConsumerDefinition
-name|answer
-init|=
-operator|new
-name|IdempotentConsumerDefinition
-argument_list|()
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression)
 specifier|public
@@ -5344,16 +5316,35 @@ operator|new
 name|ResequenceDefinition
 argument_list|()
 decl_stmt|;
+name|ExpressionClause
+argument_list|<
+name|ResequenceDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|ResequenceDefinition
+argument_list|>
+argument_list|(
+name|answer
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
-operator|.
-name|createAndSetExpression
-argument_list|()
+name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
@@ -5410,16 +5401,35 @@ operator|new
 name|AggregateDefinition
 argument_list|()
 decl_stmt|;
+name|ExpressionClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+argument_list|(
+name|answer
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
-operator|.
-name|createAndSetExpression
-argument_list|()
+name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the expression clause to be used as builder to configure the correlation expression      */
@@ -5442,6 +5452,28 @@ operator|new
 name|AggregateDefinition
 argument_list|()
 decl_stmt|;
+name|ExpressionClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+argument_list|(
+name|answer
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setAggregationStrategy
@@ -5455,10 +5487,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
-operator|.
-name|createAndSetExpression
-argument_list|()
+name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
