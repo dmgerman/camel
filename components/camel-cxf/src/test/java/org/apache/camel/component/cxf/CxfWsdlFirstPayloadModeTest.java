@@ -454,11 +454,10 @@ name|getMessageCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//From CXF 2.2.7 the soap handler's getHeader() method will not be called if the SOAP message don't have headers
-comment|//assertEquals(8, toHandler.getGetHeadersCount());
+comment|// Changed to use noErrorhandler and now the message will not be sent again.
 name|assertEquals
 argument_list|(
-literal|8
+literal|3
 argument_list|,
 name|toHandler
 operator|.
@@ -468,7 +467,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|6
+literal|1
 argument_list|,
 name|toHandler
 operator|.
