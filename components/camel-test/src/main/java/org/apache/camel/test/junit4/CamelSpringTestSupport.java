@@ -294,12 +294,10 @@ parameter_list|()
 function_decl|;
 annotation|@
 name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
+DECL|method|doPreSetup ()
 specifier|public
 name|void
-name|setUp
+name|doPreSetup
 parameter_list|()
 throws|throws
 name|Exception
@@ -343,11 +341,6 @@ argument_list|,
 name|applicationContext
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|System
 operator|.
 name|clearProperty
@@ -366,27 +359,6 @@ literal|"Skipping starting CamelContext as system property skipStartingCamelCont
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|doSetUp ()
-specifier|public
-name|void
-name|doSetUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|applicationContext
-operator|=
-name|createApplicationContext
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|doSetUp
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

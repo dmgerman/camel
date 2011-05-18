@@ -542,7 +542,7 @@ operator|=
 name|useRouteBuilder
 expr_stmt|;
 block|}
-comment|/**      * Override to control whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you want to re-use      * {@link CamelContext} between test methods you can override this method and return<tt>true</tt>      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will carry over state      * from previous tests, such as endpoints, components etc. So you cannot use this in all your tests.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
+comment|/**      * Override to control whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you want to re-use      * {@link CamelContext} between test methods you can override this method and return<tt>true</tt>      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will carry over state      * from previous tests, such as endpoints, components etc. So you cannot use this in all your tests.      *<p/>      * Setting up {@link CamelContext} uses the {@link #doPreSetup()}, {@link #doSetUp()}, and {@link #doPostSetup()}      * methods in that given order.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean
@@ -657,7 +657,13 @@ condition|(
 name|first
 condition|)
 block|{
+name|doPreSetup
+argument_list|()
+expr_stmt|;
 name|doSetUp
+argument_list|()
+expr_stmt|;
+name|doPostSetup
 argument_list|()
 expr_stmt|;
 block|}
@@ -675,13 +681,41 @@ block|}
 else|else
 block|{
 comment|// test is per test so always setup
+name|doPreSetup
+argument_list|()
+expr_stmt|;
 name|doSetUp
+argument_list|()
+expr_stmt|;
+name|doPostSetup
 argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|doSetUp ()
+comment|/**      * Strategy to perform any pre setup, before {@link CamelContext} is created      */
+DECL|method|doPreSetup ()
 specifier|protected
+name|void
+name|doPreSetup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+comment|/**      * Strategy to perform any post setup after {@link CamelContext} is createt.      */
+DECL|method|doPostSetup ()
+specifier|protected
+name|void
+name|doPostSetup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|doSetUp ()
+specifier|private
 name|void
 name|doSetUp
 parameter_list|()
