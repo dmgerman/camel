@@ -22,6 +22,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -123,6 +133,22 @@ operator|.
 name|camel
 operator|.
 name|StreamCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFile
 import|;
 end_import
 
@@ -773,6 +799,28 @@ return|return
 name|prepend
 operator|+
 literal|"[Body is instance of java.io.Writer]"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|obj
+operator|instanceof
+name|GenericFile
+operator|||
+name|obj
+operator|instanceof
+name|File
+condition|)
+block|{
+return|return
+name|prepend
+operator|+
+literal|"[Body is instance file based: "
+operator|+
+name|obj
+operator|+
+literal|"]"
 return|;
 block|}
 comment|// is the body a stream cache

@@ -430,9 +430,11 @@ name|append
 argument_list|(
 name|MessageHelper
 operator|.
-name|extractBodyAsString
+name|extractBodyForLogging
 argument_list|(
 name|in
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -509,9 +511,11 @@ name|append
 argument_list|(
 name|MessageHelper
 operator|.
-name|extractBodyAsString
+name|extractBodyForLogging
 argument_list|(
 name|out
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
