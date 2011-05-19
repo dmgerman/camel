@@ -98,18 +98,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -176,9 +164,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -188,8 +202,10 @@ specifier|public
 class|class
 name|CryptoDataFormatTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBasicSymmetric ()
 specifier|public
 name|void
@@ -204,6 +220,8 @@ literal|"direct:basic-encryption"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSymmetricWithInitVector ()
 specifier|public
 name|void
@@ -218,6 +236,8 @@ literal|"direct:init-vector"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSymmetricWithInlineInitVector ()
 specifier|public
 name|void
@@ -232,6 +252,8 @@ literal|"direct:inline"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSymmetricWithHMAC ()
 specifier|public
 name|void
@@ -246,6 +268,8 @@ literal|"direct:hmac"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSymmetricWithMD5HMAC ()
 specifier|public
 name|void
@@ -260,6 +284,8 @@ literal|"direct:hmac-algorithm"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testKeySuppliedAsHeader ()
 specifier|public
 name|void

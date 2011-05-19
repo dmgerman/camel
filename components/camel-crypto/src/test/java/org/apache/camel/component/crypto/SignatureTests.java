@@ -150,18 +150,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -237,6 +225,42 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -296,7 +320,7 @@ specifier|public
 class|class
 name|SignatureTests
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|keyPair
 specifier|private
@@ -813,8 +837,10 @@ empty_stmt|;
 end_empty_stmt
 
 begin_function
-unit|}      public
+unit|}      @
+name|Test
 DECL|method|testBasicSignatureRoute ()
+specifier|public
 name|void
 name|testBasicSignatureRoute
 parameter_list|()
@@ -841,6 +867,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetAlgorithmInRouteDefinition ()
 specifier|public
 name|void
@@ -869,6 +897,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetBufferInRouteDefinition ()
 specifier|public
 name|void
@@ -897,6 +927,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetRandomInRouteDefinition ()
 specifier|public
 name|void
@@ -925,6 +957,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetProviderInRouteDefinition ()
 specifier|public
 name|void
@@ -964,6 +998,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetCertificateInRouteDefinition ()
 specifier|public
 name|void
@@ -992,6 +1028,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSetKeystoreInRouteDefinition ()
 specifier|public
 name|void
@@ -1020,6 +1058,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testSignatureHeaderInRouteDefinition ()
 specifier|public
 name|void
@@ -1084,6 +1124,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testProvideAliasInHeader ()
 specifier|public
 name|void
@@ -1213,6 +1255,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testProvideKeysInHeader ()
 specifier|public
 name|void
@@ -1338,6 +1382,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testProvideCertificateInHeader ()
 specifier|public
 name|void
@@ -1674,9 +1720,9 @@ end_function
 
 begin_function
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

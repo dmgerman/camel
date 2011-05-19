@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -130,11 +130,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|SpringCamelContext
 import|;
 end_import
 
@@ -168,10 +164,10 @@ literal|"RSA"
 argument_list|)
 expr_stmt|;
 return|return
-name|createSpringCamelContext
+name|SpringCamelContext
+operator|.
+name|springCamelContext
 argument_list|(
-name|this
-argument_list|,
 literal|"org/apache/camel/component/crypto/SpringSignatureTests.xml"
 argument_list|)
 return|;
