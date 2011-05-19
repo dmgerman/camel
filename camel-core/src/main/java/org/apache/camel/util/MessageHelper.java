@@ -816,7 +816,7 @@ block|{
 return|return
 name|prepend
 operator|+
-literal|"[Body is instance file based: "
+literal|"[Body is file based: "
 operator|+
 name|obj
 operator|+
