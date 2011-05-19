@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UriUtils
+name|URISupport
 import|;
 end_import
 
@@ -413,7 +413,7 @@ block|{
 return|return
 literal|"SnsProducer["
 operator|+
-name|UriUtils
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
