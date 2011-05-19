@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|DefaultProducer
 import|;
 end_import
 
@@ -136,9 +136,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultProducer
+name|URISupport
 import|;
 end_import
 
@@ -457,7 +457,7 @@ block|{
 return|return
 literal|"S3Producer["
 operator|+
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(

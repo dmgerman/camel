@@ -116,6 +116,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * URI utilities.  *  * @version   */
 end_comment
@@ -127,6 +139,27 @@ specifier|final
 class|class
 name|URISupport
 block|{
+comment|// Match any key-value pair in the URI query string whose key contains
+comment|// "passphrase" or "password" or secret key (case-insensitive).
+comment|// First capture group is the key, second is the value.
+DECL|field|SECRETS
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|SECRETS
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"([?&][^=]*(?:passphrase|password|secretKey)[^=]*)=([^&]*)"
+argument_list|,
+name|Pattern
+operator|.
+name|CASE_INSENSITIVE
+argument_list|)
+decl_stmt|;
 DECL|field|CHARSET
 specifier|private
 specifier|static
@@ -142,6 +175,37 @@ name|URISupport
 parameter_list|()
 block|{
 comment|// Helper class
+block|}
+comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      * @param uri The uri to sanitize.      * @see #SECRETS for the matched pattern      *      * @return Returns null if the uri is null, otherwise the URI with the passphrase, password or secretKey sanitized.      */
+DECL|method|sanitizeUri (String uri)
+specifier|public
+specifier|static
+name|String
+name|sanitizeUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|uri
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|SECRETS
+operator|.
+name|matcher
+argument_list|(
+name|uri
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"$1=******"
+argument_list|)
+return|;
 block|}
 DECL|method|parseQuery (String uri)
 specifier|public

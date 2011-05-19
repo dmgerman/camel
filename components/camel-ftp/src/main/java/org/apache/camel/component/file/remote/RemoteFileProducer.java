@@ -104,6 +104,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Generic remote file producer for all the FTP variations.  */
 end_comment
@@ -867,6 +881,31 @@ block|{
 comment|// this producer is stateful because the remote file operations is not thread safe
 return|return
 literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RemoteFileProducer["
+operator|+
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

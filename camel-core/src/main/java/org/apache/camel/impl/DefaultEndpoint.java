@@ -52,18 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -188,6 +176,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous processing model</a>  * should check the {@link #isSynchronous()} to determine if asynchronous processing is allowed.  * The<tt>synchronous</tt> option on the endpoint allows Camel end users to dictate whether they want the asynchronous model or not.  * The option is default<tt>false</tt> which means asynchronous processing is allowed.  *  * @version   */
 end_comment
@@ -207,26 +209,6 @@ name|HasId
 implements|,
 name|CamelContextAware
 block|{
-comment|//Match any key-value pair in the URI query string whose key contains "passphrase" or "password" (case-insensitive).
-comment|//First capture group is the key, second is the value.
-DECL|field|SECRETS
-specifier|private
-specifier|static
-specifier|final
-name|Pattern
-name|SECRETS
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"([?&][^=]*(?:passphrase|password|secretKey)[^=]*)=([^&]*)"
-argument_list|,
-name|Pattern
-operator|.
-name|CASE_INSENSITIVE
-argument_list|)
-decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -428,6 +410,8 @@ name|format
 argument_list|(
 literal|"Endpoint[%s]"
 argument_list|,
+name|URISupport
+operator|.
 name|sanitizeUri
 argument_list|(
 name|getEndpointUri
@@ -936,37 +920,6 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
-block|}
-comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      */
-DECL|method|sanitizeUri (String uri)
-specifier|public
-specifier|static
-name|String
-name|sanitizeUri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-return|return
-name|uri
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|SECRETS
-operator|.
-name|matcher
-argument_list|(
-name|uri
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|"$1=******"
-argument_list|)
-return|;
 block|}
 block|}
 end_class

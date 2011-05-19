@@ -196,9 +196,6 @@ operator|+
 literal|" could not poll endpoint: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|" caused by: "
 operator|+

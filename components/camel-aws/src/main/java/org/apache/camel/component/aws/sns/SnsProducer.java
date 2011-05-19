@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|DefaultProducer
 import|;
 end_import
 
@@ -110,9 +110,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultProducer
+name|UriUtils
 import|;
 end_import
 
@@ -413,7 +413,7 @@ block|{
 return|return
 literal|"SnsProducer["
 operator|+
-name|DefaultEndpoint
+name|UriUtils
 operator|.
 name|sanitizeUri
 argument_list|(

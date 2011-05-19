@@ -28,8 +28,22 @@ name|ContextTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -48,7 +62,7 @@ parameter_list|()
 block|{
 name|assertNull
 argument_list|(
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
@@ -60,7 +74,7 @@ name|assertEquals
 argument_list|(
 literal|""
 argument_list|,
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
@@ -92,7 +106,7 @@ name|assertEquals
 argument_list|(
 literal|"ftp://host.mysite.com/records?passiveMode=true&user=someuser&password=******"
 argument_list|,
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
@@ -104,7 +118,7 @@ name|assertEquals
 argument_list|(
 literal|"sftp://host.mysite.com/records?user=someuser&privateKeyFile=key.file&privateKeyFilePassphrase=******&knownHostsFile=hosts.list"
 argument_list|,
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
@@ -116,7 +130,7 @@ name|assertEquals
 argument_list|(
 literal|"aws-sqs://MyQueue?accessKey=1672t4rflhnhli3&secretKey=******"
 argument_list|,
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
@@ -125,8 +139,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Ensures that the Uri was not changed because no password was found.      *      * @param uri The uri to test.      */
 DECL|method|assertSanitizedUriUnchanged (String uri)
-specifier|public
+specifier|private
 name|void
 name|assertSanitizedUriUnchanged
 parameter_list|(
@@ -138,7 +153,7 @@ name|assertEquals
 argument_list|(
 name|uri
 argument_list|,
-name|DefaultEndpoint
+name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
