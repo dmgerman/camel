@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -118,6 +106,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|list
 operator|=
 name|Hazelcast
@@ -132,39 +125,17 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 block|}
-comment|// @Test
-DECL|method|add ()
+annotation|@
+name|Test
+DECL|method|addValue ()
 specifier|public
 name|void
-name|add
+name|addValue
 parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -184,13 +155,9 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
-comment|// @Test
+annotation|@
+name|Test
 DECL|method|removeValue ()
 specifier|public
 name|void
@@ -199,24 +166,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|list
 operator|.
 name|add
@@ -285,46 +234,16 @@ literal|"foo3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|CamelExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|get ()
+DECL|method|getValueWithIdx ()
 specifier|public
 name|void
-name|get
+name|getValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
@@ -366,7 +285,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"test"
+literal|"foo2"
 argument_list|,
 name|consumer
 operator|.
@@ -385,38 +304,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|CamelExecutionException
-operator|.
-name|class
-argument_list|)
 DECL|method|setValueWithIdx ()
 specifier|public
 name|void
 name|setValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
@@ -479,32 +373,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// @Test(expected=CamelExecutionException.class)
+annotation|@
+name|Test
 DECL|method|removeValueWithIdx ()
 specifier|public
 name|void
 name|removeValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
