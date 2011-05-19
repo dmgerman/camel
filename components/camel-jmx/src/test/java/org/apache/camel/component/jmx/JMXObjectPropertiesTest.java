@@ -89,6 +89,9 @@ operator|.
 name|touch
 argument_list|()
 expr_stmt|;
+name|getMockFixture
+argument_list|()
+operator|.
 name|waitForMessages
 argument_list|()
 expr_stmt|;
@@ -117,11 +120,6 @@ literal|"#myTable"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 annotation|@
 name|Override
 DECL|method|initRegistry ()

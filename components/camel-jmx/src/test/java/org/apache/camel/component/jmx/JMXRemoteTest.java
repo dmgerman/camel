@@ -174,6 +174,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|initServer ()
 specifier|protected
@@ -278,9 +283,15 @@ operator|.
 name|touch
 argument_list|()
 expr_stmt|;
+name|getMockFixture
+argument_list|()
+operator|.
 name|waitForMessages
 argument_list|()
 expr_stmt|;
+name|getMockFixture
+argument_list|()
+operator|.
 name|assertMessageReceived
 argument_list|(
 operator|new

@@ -323,6 +323,12 @@ argument_list|()
 block|}
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|map
 init|=
 name|Collections
@@ -358,6 +364,28 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// subscribe
+name|addNotificationListener
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Adds a notification listener to the target bean.      * @throws Exception      */
+DECL|method|addNotificationListener ()
+specifier|protected
+name|void
+name|addNotificationListener
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JMXEndpoint
+name|ep
+init|=
+operator|(
+name|JMXEndpoint
+operator|)
+name|getEndpoint
+argument_list|()
+decl_stmt|;
 name|NotificationFilter
 name|nf
 init|=
@@ -408,6 +436,19 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+name|removeNotificationListener
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Removes the consumer as a listener from the bean.       */
+DECL|method|removeNotificationListener ()
+specifier|protected
+name|void
+name|removeNotificationListener
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|JMXEndpoint
 name|ep
 init|=
@@ -521,7 +562,8 @@ name|message
 operator|.
 name|setBody
 argument_list|(
-name|mFormatter
+name|getFormatter
+argument_list|()
 operator|.
 name|format
 argument_list|(
@@ -583,6 +625,16 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getFormatter ()
+specifier|protected
+name|NotificationXmlFormatter
+name|getFormatter
+parameter_list|()
+block|{
+return|return
+name|mFormatter
+return|;
 block|}
 block|}
 end_class

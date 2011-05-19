@@ -89,9 +89,17 @@ name|triggerTimerNotification
 parameter_list|()
 function_decl|;
 DECL|method|getMonitorNumber ()
-name|int
+name|Integer
 name|getMonitorNumber
 parameter_list|()
+function_decl|;
+DECL|method|setMonitorNumber (Integer aMonitorNumber)
+name|void
+name|setMonitorNumber
+parameter_list|(
+name|Integer
+name|aMonitorNumber
+parameter_list|)
 function_decl|;
 block|}
 end_interface

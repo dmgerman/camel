@@ -158,6 +158,9 @@ argument_list|)
 expr_stmt|;
 comment|// we should only get 5 messages, which is 1/2 the number of times we touched the object.
 comment|// The 1/2 is due to the behavior of the test NotificationFilter implemented below
+name|getMockFixture
+argument_list|()
+operator|.
 name|getMockEndpoint
 argument_list|()
 operator|.
@@ -187,6 +190,9 @@ name|touch
 argument_list|()
 expr_stmt|;
 block|}
+name|getMockFixture
+argument_list|()
+operator|.
 name|waitForMessages
 argument_list|()
 expr_stmt|;
@@ -229,6 +235,9 @@ control|(
 name|Exchange
 name|received
 range|:
+name|getMockFixture
+argument_list|()
+operator|.
 name|getMockEndpoint
 argument_list|()
 operator|.

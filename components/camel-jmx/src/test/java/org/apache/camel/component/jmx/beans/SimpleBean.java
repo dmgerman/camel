@@ -140,6 +140,16 @@ name|NotificationBroadcasterSupport
 implements|implements
 name|ISimpleMXBean
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|1230507995730071242L
+decl_stmt|;
 DECL|field|mSequence
 specifier|private
 name|int
@@ -155,6 +165,11 @@ DECL|field|mStringValue
 specifier|private
 name|String
 name|mStringValue
+decl_stmt|;
+DECL|field|mMonitorNumber
+specifier|private
+name|int
+name|mMonitorNumber
 decl_stmt|;
 DECL|method|getStringValue ()
 specifier|public
@@ -217,14 +232,27 @@ expr_stmt|;
 block|}
 DECL|method|getMonitorNumber ()
 specifier|public
-name|int
+name|Integer
 name|getMonitorNumber
 parameter_list|()
 block|{
 return|return
-name|getSequence
-argument_list|()
+name|mMonitorNumber
 return|;
+block|}
+DECL|method|setMonitorNumber (Integer aNumber)
+specifier|public
+name|void
+name|setMonitorNumber
+parameter_list|(
+name|Integer
+name|aNumber
+parameter_list|)
+block|{
+name|mMonitorNumber
+operator|=
+name|aNumber
+expr_stmt|;
 block|}
 DECL|method|getSequence ()
 specifier|public

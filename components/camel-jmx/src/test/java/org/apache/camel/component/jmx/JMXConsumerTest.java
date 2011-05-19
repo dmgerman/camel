@@ -123,6 +123,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|getMockFixture
+argument_list|()
+operator|.
 name|getMockEndpoint
 argument_list|()
 operator|.
@@ -143,6 +146,9 @@ argument_list|(
 literal|"src/test/resources/consumer-test/attributeChange-0.xml"
 argument_list|)
 expr_stmt|;
+name|getMockFixture
+argument_list|()
+operator|.
 name|getMockEndpoint
 argument_list|()
 operator|.
@@ -164,6 +170,9 @@ literal|"src/test/resources/consumer-test/attributeChange-1.xml"
 argument_list|)
 expr_stmt|;
 comment|// set the string to null
+name|getMockFixture
+argument_list|()
+operator|.
 name|getMockEndpoint
 argument_list|()
 operator|.
@@ -326,9 +335,15 @@ name|InterruptedException
 throws|,
 name|Exception
 block|{
+name|getMockFixture
+argument_list|()
+operator|.
 name|waitForMessages
 argument_list|()
 expr_stmt|;
+name|getMockFixture
+argument_list|()
+operator|.
 name|assertMessageReceived
 argument_list|(
 operator|new

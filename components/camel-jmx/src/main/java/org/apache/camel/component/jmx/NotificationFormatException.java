@@ -30,6 +30,16 @@ name|NotificationFormatException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|3460338958670572299L
+decl_stmt|;
 DECL|method|NotificationFormatException (Exception aCausedBy)
 specifier|public
 name|NotificationFormatException
