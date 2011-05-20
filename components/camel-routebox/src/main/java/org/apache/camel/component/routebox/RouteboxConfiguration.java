@@ -340,6 +340,11 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|parseURI (URI uri, Map<String, Object> parameters, RouteboxComponent component)
 specifier|public
 name|void

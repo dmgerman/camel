@@ -330,20 +330,13 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-specifier|final
-name|HazelcastSedaEndpoint
-name|hzlqEndpoint
-init|=
-operator|(
-name|HazelcastSedaEndpoint
-operator|)
 name|hzlqComponent
 operator|.
 name|createEndpoint
 argument_list|(
 literal|"hazelcast:seda: ?concurrentConsumers=4"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 end_class

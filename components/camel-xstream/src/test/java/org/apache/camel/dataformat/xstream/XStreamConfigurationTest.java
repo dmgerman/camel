@@ -369,8 +369,6 @@ name|order
 block|}
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -380,8 +378,6 @@ argument_list|,
 name|order
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -488,8 +484,6 @@ name|history
 block|}
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -499,8 +493,6 @@ argument_list|,
 name|history
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -588,8 +580,6 @@ name|order
 block|}
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -599,8 +589,6 @@ argument_list|,
 name|order
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody
@@ -669,8 +657,6 @@ argument_list|(
 literal|99.95
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|template
 operator|.
 name|sendBody

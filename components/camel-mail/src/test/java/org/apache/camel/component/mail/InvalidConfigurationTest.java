@@ -105,8 +105,6 @@ block|{
 name|Endpoint
 name|endpoint
 init|=
-name|this
-operator|.
 name|context
 operator|.
 name|getEndpoint
@@ -157,8 +155,6 @@ block|{
 name|Endpoint
 name|endpoint
 init|=
-name|this
-operator|.
 name|context
 operator|.
 name|getEndpoint
@@ -208,8 +204,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|this
-operator|.
 name|context
 operator|.
 name|getEndpoint

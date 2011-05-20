@@ -200,10 +200,6 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
-name|JettySuspendWhileInProgressTest
-operator|.
-name|this
-operator|.
 name|context
 operator|.
 name|stop

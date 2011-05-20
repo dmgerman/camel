@@ -90,12 +90,6 @@ name|Reporting
 implements|implements
 name|Processor
 block|{
-DECL|field|count
-specifier|private
-specifier|static
-name|Integer
-name|count
-decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

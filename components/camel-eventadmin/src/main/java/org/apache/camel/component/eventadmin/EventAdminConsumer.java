@@ -190,11 +190,6 @@ specifier|private
 name|ServiceRegistration
 name|registration
 decl_stmt|;
-DECL|field|executor
-specifier|private
-name|Executor
-name|executor
-decl_stmt|;
 DECL|method|EventAdminConsumer (EventAdminEndpoint endpoint, Processor processor)
 specifier|public
 name|EventAdminConsumer

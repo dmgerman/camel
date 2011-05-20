@@ -291,6 +291,16 @@ return|return
 name|endpoint
 return|;
 block|}
+DECL|method|getConsumerService ()
+specifier|public
+name|ConsumerService
+name|getConsumerService
+parameter_list|()
+block|{
+return|return
+name|service
+return|;
+block|}
 DECL|class|ConsumerService
 specifier|public
 specifier|static

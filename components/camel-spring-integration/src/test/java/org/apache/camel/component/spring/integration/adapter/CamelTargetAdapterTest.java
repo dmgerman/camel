@@ -283,6 +283,9 @@ name|message
 init|=
 operator|new
 name|GenericMessage
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|MESSAGE_BODY
 argument_list|)

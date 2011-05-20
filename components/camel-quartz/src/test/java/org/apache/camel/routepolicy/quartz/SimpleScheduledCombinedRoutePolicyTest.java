@@ -144,23 +144,6 @@ name|SimpleScheduledCombinedRoutePolicyTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SimpleScheduledCombinedRoutePolicyTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/* (non-Javadoc)      * @see org.apache.camel.test.junit4.CamelTestSupport#s;etUp()      */
 annotation|@
 name|Override

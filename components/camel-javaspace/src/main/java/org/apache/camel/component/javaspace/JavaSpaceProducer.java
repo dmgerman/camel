@@ -471,25 +471,6 @@ operator|)
 name|body
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|entry
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No payload for exchange: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|Transaction
 name|tnx
 init|=
@@ -674,7 +655,6 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@

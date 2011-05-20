@@ -181,11 +181,6 @@ specifier|private
 name|IRCConnection
 name|connection
 decl_stmt|;
-DECL|field|processor
-specifier|private
-name|Processor
-name|processor
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|IrcEndpoint
@@ -238,15 +233,6 @@ operator|=
 name|mock
 argument_list|(
 name|IrcEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|processor
-operator|=
-name|mock
-argument_list|(
-name|Processor
 operator|.
 name|class
 argument_list|)

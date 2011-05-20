@@ -106,15 +106,12 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|ClassPathXmlApplicationContext
-name|ctx
-init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"org/apache/camel/spring/processor/filterNoChild.xml"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should thrown an exception"

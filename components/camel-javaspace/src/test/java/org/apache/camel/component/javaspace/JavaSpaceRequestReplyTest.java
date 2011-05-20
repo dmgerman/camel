@@ -212,11 +212,6 @@ name|ClassPathXmlApplicationContext
 name|spring
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testJavaSpaceRequestReply ()
 specifier|public
@@ -337,11 +332,6 @@ name|start
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testJavaSpaceConcurrentRequestReply ()

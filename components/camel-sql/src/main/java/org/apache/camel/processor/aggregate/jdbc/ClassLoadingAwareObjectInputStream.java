@@ -155,6 +155,9 @@ name|Override
 DECL|method|resolveClass (ObjectStreamClass classDesc)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|ObjectStreamClass
@@ -193,6 +196,9 @@ name|Override
 DECL|method|resolveProxyClass (String[] interfaces)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveProxyClass
 parameter_list|(
 name|String
