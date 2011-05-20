@@ -174,8 +174,6 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:9083?encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -266,8 +264,6 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:9084?encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -352,8 +348,6 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:9085?textline=true&encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -440,8 +434,6 @@ name|uri
 init|=
 literal|"mina:udp://localhost:9080?encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -530,8 +522,6 @@ name|uri
 init|=
 literal|"mina:udp://localhost:9080?encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -630,8 +620,6 @@ name|uri
 init|=
 literal|"mina:udp://localhost:9080?sync=true&encoding=UTF-8"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes
@@ -800,8 +788,6 @@ literal|"mina:tcp://localhost:9080?textline=true&encoding=XXX&sync=false"
 decl_stmt|;
 try|try
 block|{
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes

@@ -323,8 +323,6 @@ name|myUri
 init|=
 literal|"mina:tcp://localhost:9085?encoding=UTF-8&sync=false"
 decl_stmt|;
-name|this
-operator|.
 name|context
 operator|.
 name|addRoutes

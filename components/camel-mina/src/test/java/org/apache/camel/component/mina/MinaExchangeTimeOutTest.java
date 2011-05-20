@@ -164,8 +164,6 @@ comment|// use a timeout value of 2 seconds (timeout is in millis) so we should 
 name|Endpoint
 name|endpoint
 init|=
-name|this
-operator|.
 name|context
 operator|.
 name|getEndpoint
