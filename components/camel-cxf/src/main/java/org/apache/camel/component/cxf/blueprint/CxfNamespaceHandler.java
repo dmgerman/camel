@@ -190,6 +190,11 @@ literal|"schema/blueprint/camel-cxf.xsd"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getManagedClasses ()
 specifier|public
 name|Set
