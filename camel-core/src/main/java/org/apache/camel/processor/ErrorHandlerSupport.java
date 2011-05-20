@@ -458,12 +458,20 @@ name|ExceptionPolicyStrategy
 name|exceptionPolicy
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exceptionPolicy
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|exceptionPolicy
 operator|=
 name|exceptionPolicy
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Creates the default exception policy strategy to use.      */
 DECL|method|createDefaultExceptionPolicyStrategy ()

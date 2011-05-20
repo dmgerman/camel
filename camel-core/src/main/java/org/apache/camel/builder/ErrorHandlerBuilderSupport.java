@@ -94,6 +94,20 @@ name|ExceptionPolicyStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for builders of error handling.  *  * @version   */
 end_comment
@@ -126,12 +140,8 @@ DECL|field|exceptionPolicyStrategy
 specifier|private
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
-init|=
-name|ErrorHandlerSupport
-operator|.
-name|createDefaultExceptionPolicyStrategy
-argument_list|()
 decl_stmt|;
+comment|// = ErrorHandlerSupport.createDefaultExceptionPolicyStrategy();
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 specifier|public
 name|void
@@ -284,6 +294,15 @@ name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|exceptionPolicyStrategy
+argument_list|,
+literal|"ExceptionPolicyStrategy"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|exceptionPolicyStrategy
