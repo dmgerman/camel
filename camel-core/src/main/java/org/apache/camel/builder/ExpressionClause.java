@@ -712,7 +712,26 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/ref-language.html">Ref      * expression</a>      *       * @param ref refers to the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|ref (String ref)
+specifier|public
+name|T
+name|ref
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|ref
+argument_list|(
+name|ref
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ruby (String text)
 specifier|public
 name|T
