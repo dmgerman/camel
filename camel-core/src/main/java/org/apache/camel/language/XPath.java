@@ -80,18 +80,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|NodeList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -189,7 +177,7 @@ argument_list|)
 block|}
 expr_stmt|;
 DECL|method|resultType ()
-DECL|field|NodeList.class
+DECL|field|Object.class
 name|Class
 argument_list|<
 name|?
@@ -197,7 +185,7 @@ argument_list|>
 name|resultType
 parameter_list|()
 default|default
-name|NodeList
+name|Object
 operator|.
 name|class
 function_decl|;
