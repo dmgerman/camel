@@ -160,6 +160,11 @@ name|PersistentQueueReplyManager
 extends|extends
 name|ReplyManagerSupport
 block|{
+DECL|field|replyToName
+specifier|private
+name|String
+name|replyToName
+decl_stmt|;
 DECL|field|replyToSelectorValue
 specifier|private
 name|String
@@ -170,6 +175,32 @@ specifier|private
 name|MessageSelectorCreator
 name|dynamicMessageSelector
 decl_stmt|;
+DECL|method|setReplyToName (String replyToName)
+specifier|public
+name|void
+name|setReplyToName
+parameter_list|(
+name|String
+name|replyToName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToName
+operator|=
+name|replyToName
+expr_stmt|;
+block|}
+DECL|method|getReplyToName ()
+specifier|public
+name|String
+name|getReplyToName
+parameter_list|()
+block|{
+return|return
+name|replyToName
+return|;
+block|}
 DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|public
 name|String
@@ -822,9 +853,7 @@ name|answer
 operator|.
 name|setDestinationName
 argument_list|(
-name|endpoint
-operator|.
-name|getReplyTo
+name|getReplyToName
 argument_list|()
 argument_list|)
 expr_stmt|;
