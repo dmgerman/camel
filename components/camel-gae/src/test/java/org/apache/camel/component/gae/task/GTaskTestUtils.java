@@ -456,6 +456,15 @@ name|void
 name|waitForServerToStart
 parameter_list|()
 block|{                 }
+specifier|public
+name|boolean
+name|enforceApiDeadlines
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 return|;
 block|}
