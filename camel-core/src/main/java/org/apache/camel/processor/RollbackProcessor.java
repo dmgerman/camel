@@ -161,6 +161,7 @@ block|{
 comment|// do not do anything more as we should only mark the rollback
 return|return;
 block|}
+comment|// throw exception to rollback
 if|if
 condition|(
 name|message
@@ -168,10 +169,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
+throw|throw
 operator|new
 name|RollbackExchangeException
 argument_list|(
@@ -179,22 +177,17 @@ name|message
 argument_list|,
 name|exchange
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 else|else
 block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
+throw|throw
 operator|new
 name|RollbackExchangeException
 argument_list|(
 name|exchange
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 annotation|@
