@@ -372,12 +372,12 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// madrid should NOT be deleted, but should be retired on next consumer
+comment|// madrid should be deleted as the DLC handles it
 name|assertFiles
 argument_list|(
 literal|"madrid.txt"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,18 +508,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// special for not handled when we got beer
-name|onException
-argument_list|(
-name|RuntimeCamelException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|onException
 argument_list|(
 name|ValidationException

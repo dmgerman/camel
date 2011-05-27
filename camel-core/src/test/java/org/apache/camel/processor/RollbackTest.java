@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -408,6 +408,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we don't want the DLC to handle the Exception
 name|onException
 argument_list|(
 name|RollbackExchangeException

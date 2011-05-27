@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -179,8 +167,6 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -190,35 +176,6 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"I cannot do it"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -267,19 +224,6 @@ name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// will use original exchange
-name|onException
-argument_list|(
-name|CamelExchangeException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|onException

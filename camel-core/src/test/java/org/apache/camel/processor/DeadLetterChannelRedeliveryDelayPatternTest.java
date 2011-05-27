@@ -128,7 +128,6 @@ name|counter
 operator|=
 literal|0
 expr_stmt|;
-comment|// We expect the exchange here after 1 delivery and 2 re-deliveries
 name|MockEndpoint
 name|mock
 init|=
@@ -144,42 +143,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|header
-argument_list|(
-literal|"CamelRedelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|header
-argument_list|(
-literal|"CamelRedeliveryCounter"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
 name|long
 name|start
 init|=
@@ -188,8 +151,6 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -199,33 +160,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-name|assertEquals
-argument_list|(
-literal|"Forced exception by unit test"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|long
 name|delta
 init|=
@@ -317,19 +251,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we don't want DLC to handle the Exception
-name|onException
-argument_list|(
-name|Exception
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 name|from

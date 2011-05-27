@@ -1326,6 +1326,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we don't want the DLC to handle the Exception
 name|onException
 argument_list|(
 name|CamelException

@@ -141,7 +141,6 @@ specifier|private
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
 decl_stmt|;
-comment|// = ErrorHandlerSupport.createDefaultExceptionPolicyStrategy();
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 specifier|public
 name|void
