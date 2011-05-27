@@ -6121,6 +6121,7 @@ expr_stmt|;
 block|}
 DECL|method|getRouteDefinitions ()
 specifier|public
+specifier|synchronized
 name|List
 argument_list|<
 name|RouteDefinition
@@ -6134,6 +6135,7 @@ return|;
 block|}
 DECL|method|getRouteDefinition (String id)
 specifier|public
+specifier|synchronized
 name|RouteDefinition
 name|getRouteDefinition
 parameter_list|(
