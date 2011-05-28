@@ -261,6 +261,14 @@ argument_list|(
 name|provider
 argument_list|)
 expr_stmt|;
+name|newInstance
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|newInstance
 return|;

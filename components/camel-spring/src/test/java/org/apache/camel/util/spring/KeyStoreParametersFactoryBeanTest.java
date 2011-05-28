@@ -130,6 +130,17 @@ name|KeyStoreParameters
 name|ksp
 decl_stmt|;
 annotation|@
+name|Resource
+argument_list|(
+name|name
+operator|=
+literal|"&ksp"
+argument_list|)
+DECL|field|kspfb
+name|KeyStoreParametersFactoryBean
+name|kspfb
+decl_stmt|;
+annotation|@
 name|Test
 DECL|method|testKeyStoreParameters ()
 specifier|public
@@ -174,6 +185,19 @@ argument_list|,
 name|ksp
 operator|.
 name|getPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"test"
+argument_list|,
+name|kspfb
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

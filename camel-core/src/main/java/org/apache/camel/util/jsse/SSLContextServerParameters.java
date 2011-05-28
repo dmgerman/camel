@@ -162,16 +162,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The optional configuration options for server-side client-authentication      * requirements.      */
+comment|/**      * The optional configuration options for server-side client-authentication requirements.      */
 DECL|field|clientAuthentication
 specifier|protected
-name|ClientAuthentication
+name|String
 name|clientAuthentication
 decl_stmt|;
-comment|/**      * @see #setClientAuthentication(ClientAuthenticationParameters)         */
+comment|/**      * @see #setClientAuthentication(String)      */
 DECL|method|getClientAuthentication ()
 specifier|public
-name|ClientAuthentication
+name|String
 name|getClientAuthentication
 parameter_list|()
 block|{
@@ -179,13 +179,13 @@ return|return
 name|clientAuthentication
 return|;
 block|}
-comment|/**      * Sets the configuration options for server-side client-authentication requirements.      *       * @param value the desired configuration options or {@code null} to use the defaults      */
-DECL|method|setClientAuthentication (ClientAuthentication value)
+comment|/**      * Sets the configuration options for server-side client-authentication requirements.      * The value must be one of NONE, WANT, REQUIRE as defined in {@link ClientAuthentication}.      *       * @param value the desired configuration options or {@code null} to use the defaults      */
+DECL|method|setClientAuthentication (String value)
 specifier|public
 name|void
 name|setClientAuthentication
 parameter_list|(
-name|ClientAuthentication
+name|String
 name|value
 parameter_list|)
 block|{
@@ -328,10 +328,20 @@ specifier|final
 name|ClientAuthentication
 name|clientAuthValue
 init|=
+name|ClientAuthentication
+operator|.
+name|valueOf
+argument_list|(
+name|this
+operator|.
+name|parsePropertyValue
+argument_list|(
 name|this
 operator|.
 name|getClientAuthentication
 argument_list|()
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|Configurer
 argument_list|<
@@ -406,7 +416,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Unhandled ClientAuthentication enumeration value: "
+literal|"Unknown ClientAuthentication value: "
 operator|+
 name|clientAuthValue
 argument_list|)
@@ -477,10 +487,20 @@ specifier|final
 name|ClientAuthentication
 name|clientAuthValue
 init|=
+name|ClientAuthentication
+operator|.
+name|valueOf
+argument_list|(
+name|this
+operator|.
+name|parsePropertyValue
+argument_list|(
 name|this
 operator|.
 name|getClientAuthentication
 argument_list|()
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|Configurer
 argument_list|<
@@ -555,7 +575,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Unhandled ClientAuthentication enumeration value: "
+literal|"Unknown ClientAuthentication value: "
 operator|+
 name|clientAuthValue
 argument_list|)
@@ -705,6 +725,21 @@ operator|.
 name|append
 argument_list|(
 name|getSessionTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+literal|", getContext()="
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -91,6 +91,8 @@ DECL|class|FilterParameters
 specifier|public
 class|class
 name|FilterParameters
+extends|extends
+name|JsseParameters
 block|{
 DECL|field|include
 specifier|protected
@@ -295,7 +297,12 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
+name|this
+operator|.
+name|parsePropertyValue
+argument_list|(
 name|expression
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -312,6 +319,7 @@ class|class
 name|Patterns
 block|{
 DECL|field|includes
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -320,6 +328,7 @@ argument_list|>
 name|includes
 decl_stmt|;
 DECL|field|excludes
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -487,6 +496,21 @@ argument_list|()
 index|]
 argument_list|)
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+literal|", getContext()="
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

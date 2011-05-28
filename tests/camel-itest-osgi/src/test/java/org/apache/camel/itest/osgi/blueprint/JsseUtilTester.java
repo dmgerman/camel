@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.core.xml.util.jsse
+DECL|package|org.apache.camel.itest.osgi.blueprint
 package|package
 name|org
 operator|.
@@ -12,27 +12,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
+name|itest
 operator|.
-name|xml
+name|osgi
 operator|.
-name|util
-operator|.
-name|jsse
+name|blueprint
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|bind
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|annotation
+name|security
 operator|.
-name|XmlEnum
+name|GeneralSecurityException
 import|;
 end_import
 
@@ -40,55 +44,73 @@ begin_import
 import|import
 name|javax
 operator|.
-name|xml
+name|net
 operator|.
-name|bind
+name|ssl
 operator|.
-name|annotation
-operator|.
-name|XmlType
+name|SSLContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the options for the client authentication settings of a server socket.  */
-end_comment
-
-begin_enum
-annotation|@
-name|XmlEnum
-argument_list|(
-name|value
-operator|=
-name|String
+begin_import
+import|import
+name|org
 operator|.
-name|class
-argument_list|)
-annotation|@
-name|XmlType
-argument_list|(
-name|name
-operator|=
-literal|"clientAuthenticationParameters"
-argument_list|)
-DECL|enum|ClientAuthenticationDefinition
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_class
+DECL|class|JsseUtilTester
 specifier|public
-enum|enum
-name|ClientAuthenticationDefinition
+class|class
+name|JsseUtilTester
 block|{
-comment|/**      * No client authentication required or requested.      */
-DECL|enumConstant|NONE
-name|NONE
-block|,
-comment|/**      * Client authentication requested.      */
-DECL|enumConstant|WANT
-name|WANT
-block|,
-comment|/**      * Client authentication required.      */
-DECL|enumConstant|REQUIRE
-name|REQUIRE
-block|; }
-end_enum
+DECL|field|context
+specifier|private
+name|SSLContext
+name|context
+decl_stmt|;
+DECL|method|JsseUtilTester (SSLContextParameters params)
+specifier|public
+name|JsseUtilTester
+parameter_list|(
+name|SSLContextParameters
+name|params
+parameter_list|)
+throws|throws
+name|GeneralSecurityException
+throws|,
+name|IOException
+block|{
+name|context
+operator|=
+name|params
+operator|.
+name|createSSLContext
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getContext ()
+specifier|public
+name|SSLContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

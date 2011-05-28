@@ -157,7 +157,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|sessionTimeout
 specifier|private
-name|Integer
+name|String
 name|sessionTimeout
 decl_stmt|;
 annotation|@
@@ -401,6 +401,14 @@ name|getExclude
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|filter
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|filter
 return|;
@@ -511,7 +519,7 @@ expr_stmt|;
 block|}
 DECL|method|getSessionTimeout ()
 specifier|public
-name|Integer
+name|String
 name|getSessionTimeout
 parameter_list|()
 block|{
@@ -519,12 +527,12 @@ return|return
 name|sessionTimeout
 return|;
 block|}
-DECL|method|setSessionTimeout (Integer sessionTimeout)
+DECL|method|setSessionTimeout (String sessionTimeout)
 specifier|public
 name|void
 name|setSessionTimeout
 parameter_list|(
-name|Integer
+name|String
 name|sessionTimeout
 parameter_list|)
 block|{

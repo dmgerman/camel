@@ -350,6 +350,8 @@ specifier|public
 specifier|abstract
 class|class
 name|BaseSSLContextParameters
+extends|extends
+name|JsseParameters
 block|{
 DECL|field|DEFAULT_CIPHER_SUITES_FILTER_INCLUDE
 specifier|protected
@@ -462,7 +464,7 @@ decl_stmt|;
 comment|/**      * The optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s in seconds.      */
 DECL|field|sessionTimeout
 specifier|private
-name|Integer
+name|String
 name|sessionTimeout
 decl_stmt|;
 comment|/**      * Returns the optional explicitly configured cipher suites for this configuration.      * These options are used in the configuration of {@link SSLEngine},      * {@link SSLSocketFactory} and {@link SSLServerSocketFactory} depending      * on the context in which they are applied.      *<p/>      * These values override any filters supplied in {@link #setCipherSuitesFilter(FilterParameters)}      */
@@ -580,7 +582,7 @@ block|}
 comment|/**      * Returns the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s       * in seconds.      */
 DECL|method|getSessionTimeout ()
 specifier|public
-name|Integer
+name|String
 name|getSessionTimeout
 parameter_list|()
 block|{
@@ -589,12 +591,12 @@ name|sessionTimeout
 return|;
 block|}
 comment|/**      * Sets the optional {@link SSLSessionContext} timeout time for {@link javax.net.ssl.SSLSession}s      * in seconds.      *      * @param sessionTimeout the timeout value or {@code null} to use the default      */
-DECL|method|setSessionTimeout (Integer sessionTimeout)
+DECL|method|setSessionTimeout (String sessionTimeout)
 specifier|public
 name|void
 name|setSessionTimeout
 parameter_list|(
-name|Integer
+name|String
 name|sessionTimeout
 parameter_list|)
 block|{
@@ -794,11 +796,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getCipherSuites
 argument_list|()
 operator|.
 name|getCipherSuite
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -863,11 +870,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getSecureSocketProtocols
 argument_list|()
 operator|.
 name|getSecureSocketProtocol
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -1339,11 +1351,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getCipherSuites
 argument_list|()
 operator|.
 name|getCipherSuite
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -1408,11 +1425,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getSecureSocketProtocols
 argument_list|()
 operator|.
 name|getSecureSocketProtocol
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -1688,11 +1710,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getCipherSuites
 argument_list|()
 operator|.
 name|getCipherSuite
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -1757,11 +1784,16 @@ literal|null
 else|:
 name|this
 operator|.
+name|parsePropertyValues
+argument_list|(
+name|this
+operator|.
 name|getSecureSocketProtocols
 argument_list|()
 operator|.
 name|getSecureSocketProtocol
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Patterns
@@ -1998,7 +2030,7 @@ name|sslServerSocketConfigurers
 return|;
 block|}
 comment|/**      * Configures a {@link SSLSessionContext}, client or server, with the supplied session timeout.      *      * @param sessionContext the context to configure      * @param sessionTimeout the timeout time period      * @throws GeneralSecurityException if {@code sessionContext} is {@code null}      */
-DECL|method|configureSessionContext ( SSLSessionContext sessionContext, int sessionTimeout)
+DECL|method|configureSessionContext ( SSLSessionContext sessionContext, String sessionTimeout)
 specifier|protected
 name|void
 name|configureSessionContext
@@ -2006,12 +2038,27 @@ parameter_list|(
 name|SSLSessionContext
 name|sessionContext
 parameter_list|,
-name|int
+name|String
 name|sessionTimeout
 parameter_list|)
 throws|throws
 name|GeneralSecurityException
 block|{
+name|int
+name|sessionTimeoutInt
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|this
+operator|.
+name|parsePropertyValue
+argument_list|(
+name|sessionTimeout
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|sessionContext
@@ -2023,7 +2070,7 @@ name|sessionContext
 operator|.
 name|setSessionTimeout
 argument_list|(
-name|sessionTimeout
+name|sessionTimeoutInt
 argument_list|)
 expr_stmt|;
 block|}
