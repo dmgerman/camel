@@ -246,7 +246,7 @@ literal|"cxf://"
 operator|+
 name|MTOM_ENDPOINT_ADDRESS
 operator|+
-literal|"?serviceClass=org.apache.camel.component.cxf.HelloImpl"
+literal|"?serviceClass=org.apache.camel.cxf.mtom_feature.Hello"
 decl_stmt|;
 DECL|field|serviceName
 specifier|private
@@ -523,7 +523,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|getImage (String name)
-specifier|private
+specifier|protected
 name|Image
 name|getImage
 parameter_list|(
@@ -550,10 +550,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testInvokingServiceFromCXFClient ()
+DECL|method|testInvokingService ()
 specifier|public
 name|void
-name|testInvokingServiceFromCXFClient
+name|testInvokingService
 parameter_list|()
 throws|throws
 name|Exception

@@ -120,6 +120,8 @@ operator|+
 literal|"&portName={http://camel.apache.org/wsdl-first}soap"
 operator|+
 literal|"&dataFormat=PAYLOAD"
+operator|+
+literal|"&properties.exceptionMessageCauseEnabled=true&properties.faultStackTraceEnabled=true"
 decl_stmt|;
 annotation|@
 name|Test
