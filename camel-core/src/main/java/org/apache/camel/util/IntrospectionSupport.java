@@ -1943,7 +1943,7 @@ return|;
 block|}
 comment|// loop and execute the best setter method
 name|Exception
-name|typeConvertionFailed
+name|typeConversionFailed
 init|=
 literal|null
 decl_stmt|;
@@ -2035,7 +2035,7 @@ name|NoTypeConversionAvailableException
 name|e
 parameter_list|)
 block|{
-name|typeConvertionFailed
+name|typeConversionFailed
 operator|=
 name|e
 expr_stmt|;
@@ -2046,7 +2046,7 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|typeConvertionFailed
+name|typeConversionFailed
 operator|=
 name|e
 expr_stmt|;
@@ -2090,7 +2090,7 @@ comment|// we did not find a setter method to use, and if we did try to use a ty
 comment|// this kind of exception as the caused by will hint this error
 if|if
 condition|(
-name|typeConvertionFailed
+name|typeConversionFailed
 operator|!=
 literal|null
 condition|)
@@ -2115,7 +2115,7 @@ argument_list|()
 operator|+
 literal|" nor type conversion possible: "
 operator|+
-name|typeConvertionFailed
+name|typeConversionFailed
 operator|.
 name|getMessage
 argument_list|()

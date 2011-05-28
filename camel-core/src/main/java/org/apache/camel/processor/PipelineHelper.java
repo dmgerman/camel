@@ -146,7 +146,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Message exchange has failed "
+literal|"Message exchange has failed: "
 operator|+
 name|message
 operator|+
@@ -162,7 +162,14 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"As the Exception: "
+literal|" Warning: Both fault and exception exists on the exchange, its best practice to only set one of them."
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" Exception: "
 argument_list|)
 operator|.
 name|append
@@ -188,13 +195,19 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|exceptionHandled
+condition|)
+block|{
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|" both exit in the Exchange. Camel pipeline stop to process the exchange."
+literal|" Handled by the error handler."
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|warn
@@ -227,7 +240,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Message exchange has failed "
+literal|"Message exchange has failed: "
 operator|+
 name|message
 operator|+
