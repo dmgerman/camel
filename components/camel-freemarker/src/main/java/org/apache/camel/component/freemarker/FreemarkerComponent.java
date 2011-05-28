@@ -44,6 +44,16 @@ name|freemarker
 operator|.
 name|cache
 operator|.
+name|NullCacheStorage
+import|;
+end_import
+
+begin_import
+import|import
+name|freemarker
+operator|.
+name|cache
+operator|.
 name|URLTemplateLoader
 import|;
 end_import
@@ -352,7 +362,7 @@ operator|.
 name|setCacheStorage
 argument_list|(
 operator|new
-name|NoCacheStorage
+name|NullCacheStorage
 argument_list|()
 argument_list|)
 expr_stmt|;
