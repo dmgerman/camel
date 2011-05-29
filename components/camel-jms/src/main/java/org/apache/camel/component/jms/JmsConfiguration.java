@@ -728,6 +728,12 @@ specifier|private
 name|boolean
 name|forceSendOriginalMessage
 decl_stmt|;
+comment|// to force disabling time to live (works in both in-only or in-out mode)
+DECL|field|disableTimeToLive
+specifier|private
+name|boolean
+name|disableTimeToLive
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -1481,19 +1487,35 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// prefer to use timeToLive over requestTimeout if both specified
+name|long
+name|ttl
+init|=
+name|timeToLive
+operator|>
+literal|0
+condition|?
+name|timeToLive
+else|:
+name|requestTimeout
+decl_stmt|;
 if|if
 condition|(
-name|timeToLive
-operator|<
+name|ttl
+operator|>
 literal|0
+operator|&&
+operator|!
+name|isDisableTimeToLive
+argument_list|()
 condition|)
 block|{
-comment|// If TTL not specified, then default to
+comment|// only use TTL if not disabled
 name|jmsTemplate
 operator|.
 name|setTimeToLive
 argument_list|(
-name|requestTimeout
+name|ttl
 argument_list|)
 expr_stmt|;
 block|}
@@ -1769,11 +1791,16 @@ name|receiveTimeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only set TTL if we have a positive value and it has not been disabled
 if|if
 condition|(
 name|timeToLive
 operator|>=
 literal|0
+operator|&&
+operator|!
+name|isDisableTimeToLive
+argument_list|()
 condition|)
 block|{
 name|template
@@ -4219,6 +4246,32 @@ block|{
 return|return
 name|forceSendOriginalMessage
 return|;
+block|}
+DECL|method|isDisableTimeToLive ()
+specifier|public
+name|boolean
+name|isDisableTimeToLive
+parameter_list|()
+block|{
+return|return
+name|disableTimeToLive
+return|;
+block|}
+DECL|method|setDisableTimeToLive (boolean disableTimeToLive)
+specifier|public
+name|void
+name|setDisableTimeToLive
+parameter_list|(
+name|boolean
+name|disableTimeToLive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableTimeToLive
+operator|=
+name|disableTimeToLive
+expr_stmt|;
 block|}
 block|}
 end_class
