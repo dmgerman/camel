@@ -2023,6 +2023,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// lets inject the namespaces into any namespace aware POJOs
+name|injectNamespaces
+argument_list|(
+name|element
+argument_list|,
+name|binder
+argument_list|)
+expr_stmt|;
+comment|// TODO: We need to inject bean post processors
+comment|// but we need to camelContext id its referred from
 block|}
 block|}
 DECL|class|CamelContextBeanDefinitionParser
