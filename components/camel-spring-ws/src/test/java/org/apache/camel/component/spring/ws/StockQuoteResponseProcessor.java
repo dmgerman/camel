@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -156,13 +166,15 @@ argument_list|(
 literal|"Crafting standard response in StockQuoteResponseProcessor"
 argument_list|)
 expr_stmt|;
-name|File
-name|file
+name|InputStream
+name|is
 init|=
-operator|new
-name|File
+name|getClass
+argument_list|()
+operator|.
+name|getResourceAsStream
 argument_list|(
-literal|"src/test/resources/stockquote-response.xml"
+literal|"/stockquote-response.xml"
 argument_list|)
 decl_stmt|;
 name|DocumentBuilderFactory
@@ -188,7 +200,7 @@ name|db
 operator|.
 name|parse
 argument_list|(
-name|file
+name|is
 argument_list|)
 decl_stmt|;
 name|exchange

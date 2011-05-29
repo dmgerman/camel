@@ -217,7 +217,7 @@ name|FileUtil
 operator|.
 name|readFileAsString
 argument_list|(
-literal|"src/test/resources/stockquote-response.xml"
+literal|"/stockquote-response.xml"
 argument_list|)
 expr_stmt|;
 block|}
