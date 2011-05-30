@@ -65,15 +65,6 @@ name|JMS_DELIVERY_MODE
 init|=
 literal|"CamelJmsDeliveryMode"
 decl_stmt|;
-DECL|field|JMS_REPLY_TO_NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_REPLY_TO_NAME
-init|=
-literal|"CamelJmsReplyToName"
-decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private
 name|JmsConstants

@@ -1764,28 +1764,20 @@ literal|null
 condition|)
 block|{
 comment|// use a persistent queue
-name|PersistentQueueReplyManager
-name|replyManager
-init|=
+name|answer
+operator|=
 operator|new
 name|PersistentQueueReplyManager
 argument_list|()
-decl_stmt|;
-name|replyManager
+expr_stmt|;
+name|answer
 operator|.
 name|setEndpoint
 argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|replyManager
-operator|.
-name|setReplyToName
-argument_list|(
-name|replyTo
-argument_list|)
-expr_stmt|;
-name|replyManager
+name|answer
 operator|.
 name|setScheduledExecutorService
 argument_list|(
@@ -1797,7 +1789,7 @@ name|ServiceHelper
 operator|.
 name|startService
 argument_list|(
-name|replyManager
+name|answer
 argument_list|)
 expr_stmt|;
 comment|// remember this manager so we can re-use it
@@ -1807,12 +1799,8 @@ name|put
 argument_list|(
 name|replyTo
 argument_list|,
-name|replyManager
-argument_list|)
-expr_stmt|;
 name|answer
-operator|=
-name|replyManager
+argument_list|)
 expr_stmt|;
 block|}
 return|return
