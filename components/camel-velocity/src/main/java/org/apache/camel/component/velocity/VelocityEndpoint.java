@@ -447,6 +447,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set the class resolver as a property so we can access it from CamelVelocityClasspathResourceLoader
+name|velocityEngine
+operator|.
+name|addProperty
+argument_list|(
+literal|"CamelClassResolver"
+argument_list|,
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// set regular properties
 name|properties
 operator|.
 name|setProperty
@@ -480,7 +495,7 @@ name|setProperty
 argument_list|(
 literal|"class.resource.loader.description"
 argument_list|,
-literal|"Velocity Classpath Resource Loader"
+literal|"Camel Velocity Classpath Resource Loader"
 argument_list|)
 expr_stmt|;
 name|properties
@@ -489,7 +504,12 @@ name|setProperty
 argument_list|(
 literal|"class.resource.loader.class"
 argument_list|,
-literal|"org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader"
+name|CamelVelocityClasspathResourceLoader
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|properties
@@ -522,6 +542,15 @@ name|class
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Initializing VelocityEngine with properties {}"
+argument_list|,
+name|properties
 argument_list|)
 expr_stmt|;
 name|velocityEngine
