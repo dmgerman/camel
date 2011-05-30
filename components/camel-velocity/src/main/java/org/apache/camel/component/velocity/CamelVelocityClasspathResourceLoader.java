@@ -151,7 +151,6 @@ argument_list|(
 literal|"CamelClassResolver"
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
