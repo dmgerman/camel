@@ -924,7 +924,7 @@ argument_list|(
 literal|"sslContextParameters"
 argument_list|,
 operator|new
-name|SSLContextParametersFactoryBeanBeanDefinitionBarser
+name|SSLContextParametersFactoryBeanBeanDefinitionParser
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1646,16 +1646,16 @@ return|return
 name|classes
 return|;
 block|}
-DECL|class|SSLContextParametersFactoryBeanBeanDefinitionBarser
+DECL|class|SSLContextParametersFactoryBeanBeanDefinitionParser
 specifier|protected
 class|class
-name|SSLContextParametersFactoryBeanBeanDefinitionBarser
+name|SSLContextParametersFactoryBeanBeanDefinitionParser
 extends|extends
 name|BeanDefinitionParser
 block|{
-DECL|method|SSLContextParametersFactoryBeanBeanDefinitionBarser ()
+DECL|method|SSLContextParametersFactoryBeanBeanDefinitionParser ()
 specifier|public
-name|SSLContextParametersFactoryBeanBeanDefinitionBarser
+name|SSLContextParametersFactoryBeanBeanDefinitionParser
 parameter_list|()
 block|{
 name|super
@@ -1871,7 +1871,7 @@ throw|throw
 operator|new
 name|BeanDefinitionStoreException
 argument_list|(
-literal|"Parsed type is not of the expected type.  Expected "
+literal|"Parsed type is not of the expected type. Expected "
 operator|+
 name|SSLContextParametersFactoryBean
 operator|.
@@ -2031,8 +2031,6 @@ argument_list|,
 name|binder
 argument_list|)
 expr_stmt|;
-comment|// TODO: We need to inject bean post processors
-comment|// but we need to camelContext id its referred from
 block|}
 block|}
 DECL|class|CamelContextBeanDefinitionParser
