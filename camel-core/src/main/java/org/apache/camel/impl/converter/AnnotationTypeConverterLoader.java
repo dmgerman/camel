@@ -435,6 +435,15 @@ name|String
 index|[]
 name|packageNames
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Searching for {} services"
+argument_list|,
+name|META_INF_SERVICES
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|packageNames
@@ -513,6 +522,15 @@ expr_stmt|;
 comment|// no additional package names found to load type converters so break out
 return|return;
 block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found converter packages to scan: {}"
+argument_list|,
+name|packageNames
+argument_list|)
+expr_stmt|;
 name|Set
 argument_list|<
 name|Class
@@ -782,7 +800,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Loading file {} to retrieve list of packages, from url: {}"
 argument_list|,
