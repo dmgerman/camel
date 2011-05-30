@@ -802,8 +802,6 @@ return|return;
 block|}
 name|Resource
 name|resource
-init|=
-literal|null
 decl_stmt|;
 name|Reader
 name|reader

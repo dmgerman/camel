@@ -1134,7 +1134,7 @@ name|notNull
 argument_list|(
 name|in
 argument_list|,
-literal|"in"
+literal|"InputStream"
 argument_list|)
 expr_stmt|;
 name|setTransformerSource

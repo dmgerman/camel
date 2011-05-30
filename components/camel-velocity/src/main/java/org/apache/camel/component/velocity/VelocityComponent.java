@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|DefaultComponent
+name|ResourceBasedComponent
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|VelocityComponent
 extends|extends
-name|DefaultComponent
+name|ResourceBasedComponent
 block|{
 DECL|field|velocityEngine
 specifier|private
