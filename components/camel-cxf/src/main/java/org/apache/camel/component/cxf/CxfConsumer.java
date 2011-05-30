@@ -976,18 +976,6 @@ argument_list|(
 name|camelExchange
 argument_list|)
 expr_stmt|;
-comment|// bind the Camel response into a CXF response
-if|if
-condition|(
-name|camelExchange
-operator|.
-name|getPattern
-argument_list|()
-operator|.
-name|isOutCapable
-argument_list|()
-condition|)
-block|{
 name|binding
 operator|.
 name|populateCxfResponseFromExchange
@@ -997,7 +985,6 @@ argument_list|,
 name|cxfExchange
 argument_list|)
 expr_stmt|;
-block|}
 comment|// check failure again as fault could be discovered by converter
 name|checkFailure
 argument_list|(
