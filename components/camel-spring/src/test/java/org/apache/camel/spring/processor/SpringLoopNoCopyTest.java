@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,55 +12,85 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spring
+operator|.
+name|processor
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|LoopNoCopyTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * A simple factory used to create new child nodes which allows pluggable extension points  * such as to add extra DSL helper methods such as for the Groovy or Ruby DSLs  *  * @version   */
+comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|NodeFactory
+DECL|class|SpringLoopNoCopyTest
 specifier|public
 class|class
-name|NodeFactory
+name|SpringLoopNoCopyTest
+extends|extends
+name|LoopNoCopyTest
 block|{
-comment|// TODO: Make this as SPI interface and add the other createXXX methods
-DECL|method|createFilter ()
-specifier|public
-name|FilterDefinition
-name|createFilter
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-operator|new
-name|FilterDefinition
-argument_list|()
-return|;
-block|}
-DECL|method|createLoop ()
-specifier|public
-name|LoopDefinition
-name|createLoop
-parameter_list|()
-block|{
-return|return
-operator|new
-name|LoopDefinition
-argument_list|()
-return|;
-block|}
-DECL|method|createRoute ()
-specifier|public
-name|RouteDefinition
-name|createRoute
-parameter_list|()
-block|{
-return|return
-operator|new
-name|RouteDefinition
-argument_list|()
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/SpringLoopNoCopyTest.xml"
+argument_list|)
 return|;
 block|}
 block|}

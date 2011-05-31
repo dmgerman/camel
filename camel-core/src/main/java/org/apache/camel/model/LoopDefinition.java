@@ -54,6 +54,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -152,6 +166,13 @@ name|LoopDefinition
 extends|extends
 name|ExpressionNode
 block|{
+annotation|@
+name|XmlAttribute
+DECL|field|copy
+specifier|private
+name|Boolean
+name|copy
+decl_stmt|;
 DECL|method|LoopDefinition ()
 specifier|public
 name|LoopDefinition
@@ -185,6 +206,22 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Enables copy mode so a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      *      * @return the builder      */
+DECL|method|copy ()
+specifier|public
+name|LoopDefinition
+name|copy
+parameter_list|()
+block|{
+name|setCopy
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|setExpression (Expression expr)
 specifier|public
 name|void
@@ -193,13 +230,6 @@ parameter_list|(
 name|Expression
 name|expr
 parameter_list|)
-block|{
-if|if
-condition|(
-name|expr
-operator|!=
-literal|null
-condition|)
 block|{
 name|setExpression
 argument_list|(
@@ -211,6 +241,48 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCopy ()
+specifier|public
+name|Boolean
+name|getCopy
+parameter_list|()
+block|{
+return|return
+name|copy
+return|;
+block|}
+DECL|method|setCopy (Boolean copy)
+specifier|public
+name|void
+name|setCopy
+parameter_list|(
+name|Boolean
+name|copy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|copy
+operator|=
+name|copy
+expr_stmt|;
+block|}
+DECL|method|isCopy ()
+specifier|public
+name|boolean
+name|isCopy
+parameter_list|()
+block|{
+comment|// do not copy by default to be backwards compatible
+return|return
+name|copy
+operator|!=
+literal|null
+condition|?
+name|copy
+else|:
+literal|false
+return|;
 block|}
 annotation|@
 name|Override
@@ -275,6 +347,8 @@ return|return
 operator|new
 name|LoopProcessor
 argument_list|(
+name|output
+argument_list|,
 name|getExpression
 argument_list|()
 operator|.
@@ -283,7 +357,8 @@ argument_list|(
 name|routeContext
 argument_list|)
 argument_list|,
-name|output
+name|isCopy
+argument_list|()
 argument_list|)
 return|;
 block|}

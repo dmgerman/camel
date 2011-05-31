@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The processor which sends messages in a loop.  *  * @version   */
+comment|/**  * The processor which sends messages in a loop.  */
 end_comment
 
 begin_class
@@ -160,15 +160,24 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|LoopProcessor (Expression expression, Processor processor)
+DECL|field|copy
+specifier|private
+specifier|final
+name|boolean
+name|copy
+decl_stmt|;
+DECL|method|LoopProcessor (Processor processor, Expression expression, boolean copy)
 specifier|public
 name|LoopProcessor
 parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|,
-name|Processor
-name|processor
+name|boolean
+name|copy
 parameter_list|)
 block|{
 name|super
@@ -181,6 +190,12 @@ operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+name|this
+operator|.
+name|copy
+operator|=
+name|copy
 expr_stmt|;
 block|}
 annotation|@
@@ -278,6 +293,11 @@ return|return
 literal|true
 return|;
 block|}
+name|Exchange
+name|target
+init|=
+name|exchange
+decl_stmt|;
 comment|// set the size before we start
 name|exchange
 operator|.
@@ -305,11 +325,16 @@ argument_list|()
 condition|)
 block|{
 comment|// and prepare for next iteration
-name|ExchangeHelper
-operator|.
-name|prepareOutToIn
+name|target
+operator|=
+name|prepareExchange
 argument_list|(
 name|exchange
+argument_list|,
+name|index
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -317,7 +342,7 @@ name|sync
 init|=
 name|process
 argument_list|(
-name|exchange
+name|target
 argument_list|,
 name|callback
 argument_list|,
@@ -338,7 +363,7 @@ name|trace
 argument_list|(
 literal|"Processing exchangeId: {} is continued being processed asynchronously"
 argument_list|,
-name|exchange
+name|target
 operator|.
 name|getExchangeId
 argument_list|()
@@ -356,7 +381,7 @@ name|trace
 argument_list|(
 literal|"Processing exchangeId: {} is continued being processed synchronously"
 argument_list|,
-name|exchange
+name|target
 operator|.
 name|getExchangeId
 argument_list|()
@@ -372,9 +397,11 @@ block|}
 comment|// we are done so prepare the result
 name|ExchangeHelper
 operator|.
-name|prepareOutToIn
+name|copyResults
 argument_list|(
 name|exchange
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -478,6 +505,11 @@ condition|)
 block|{
 return|return;
 block|}
+name|Exchange
+name|target
+init|=
+name|exchange
+decl_stmt|;
 comment|// increment index as we have just processed once
 name|index
 operator|.
@@ -499,11 +531,16 @@ argument_list|()
 condition|)
 block|{
 comment|// and prepare for next iteration
-name|ExchangeHelper
-operator|.
-name|prepareOutToIn
+name|target
+operator|=
+name|prepareExchange
 argument_list|(
 name|exchange
+argument_list|,
+name|index
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// process again
@@ -512,7 +549,7 @@ name|sync
 init|=
 name|process
 argument_list|(
-name|exchange
+name|target
 argument_list|,
 name|callback
 argument_list|,
@@ -533,7 +570,7 @@ name|trace
 argument_list|(
 literal|"Processing exchangeId: {} is continued being processed asynchronously"
 argument_list|,
-name|exchange
+name|target
 operator|.
 name|getExchangeId
 argument_list|()
@@ -553,9 +590,11 @@ block|}
 comment|// we are done so prepare the result
 name|ExchangeHelper
 operator|.
-name|prepareOutToIn
+name|copyResults
 argument_list|(
 name|exchange
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -587,6 +626,74 @@ return|return
 name|sync
 return|;
 block|}
+comment|/**      * Prepares the exchange for the next iteration      *      * @param exchange the exchange      * @param index the index of the next iteration      * @return the exchange to use      */
+DECL|method|prepareExchange (Exchange exchange, int index)
+specifier|protected
+name|Exchange
+name|prepareExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|int
+name|index
+parameter_list|)
+block|{
+if|if
+condition|(
+name|copy
+condition|)
+block|{
+comment|// create a correlated copy, and do not handover completions on copies
+return|return
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+name|ExchangeHelper
+operator|.
+name|prepareOutToIn
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
+block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"loop["
+operator|+
+name|expression
+operator|+
+literal|"]"
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -606,30 +713,6 @@ name|getProcessor
 argument_list|()
 operator|+
 literal|"]"
-return|;
-block|}
-DECL|method|getTraceLabel ()
-specifier|public
-name|String
-name|getTraceLabel
-parameter_list|()
-block|{
-return|return
-literal|"loop["
-operator|+
-name|expression
-operator|+
-literal|"]"
-return|;
-block|}
-DECL|method|getExpression ()
-specifier|public
-name|Expression
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
 return|;
 block|}
 block|}
