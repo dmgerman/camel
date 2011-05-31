@@ -7744,6 +7744,11 @@ argument_list|(
 name|shutdownStrategy
 argument_list|)
 expr_stmt|;
+name|addService
+argument_list|(
+name|packageScanClassResolver
+argument_list|)
+expr_stmt|;
 name|startServices
 argument_list|(
 name|components

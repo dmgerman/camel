@@ -233,16 +233,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|8
-argument_list|,
-name|set
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|ObjectName

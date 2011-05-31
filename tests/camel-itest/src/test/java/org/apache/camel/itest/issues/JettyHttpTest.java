@@ -64,22 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|Namespaces
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|mock
@@ -110,16 +94,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -129,8 +103,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|JettyHttpTest
 specifier|public
 class|class
@@ -138,7 +110,6 @@ name|JettyHttpTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|// TODO: Jetty async producer needs to be implemented before this test can pass
 DECL|field|targetProducerUri
 specifier|private
 name|String
