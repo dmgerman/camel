@@ -47,6 +47,24 @@ name|RESTLET_PASSWORD
 init|=
 literal|"CamelRestletPassword"
 decl_stmt|;
+DECL|field|RESTLET_REQUEST
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESTLET_REQUEST
+init|=
+literal|"CamelRestletRequest"
+decl_stmt|;
+DECL|field|RESTLET_RESPONSE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESTLET_RESPONSE
+init|=
+literal|"CamelRestletResponse"
+decl_stmt|;
 DECL|method|RestletConstants ()
 specifier|private
 name|RestletConstants

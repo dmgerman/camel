@@ -72,13 +72,16 @@ name|Response
 name|response
 parameter_list|)
 function_decl|;
-comment|/**      * Populate Camel message from Restlet request      *       * @param request message to be copied from      * @param exchange to be populated      * @throws Exception is thrown if error processing      */
-DECL|method|populateExchangeFromRestletRequest (Request request, Exchange exchange)
+comment|/**      * Populate Camel message from Restlet request      *       *      * @param request message to be copied from      * @param response      *@param exchange to be populated  @throws Exception is thrown if error processing      */
+DECL|method|populateExchangeFromRestletRequest (Request request, Response response, Exchange exchange)
 name|void
 name|populateExchangeFromRestletRequest
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|Response
+name|response
 parameter_list|,
 name|Exchange
 name|exchange

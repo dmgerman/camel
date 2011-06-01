@@ -349,13 +349,16 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
-DECL|method|populateExchangeFromRestletRequest (Request request, Exchange exchange)
+DECL|method|populateExchangeFromRestletRequest (Request request, Response response, Exchange exchange)
 specifier|public
 name|void
 name|populateExchangeFromRestletRequest
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|Response
+name|response
 parameter_list|,
 name|Exchange
 name|exchange
@@ -371,6 +374,28 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|RestletConstants
+operator|.
+name|RESTLET_REQUEST
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|RestletConstants
+operator|.
+name|RESTLET_RESPONSE
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 comment|// extract headers from restlet
 for|for
 control|(
@@ -908,14 +933,6 @@ argument_list|(
 name|authentication
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -923,7 +940,6 @@ argument_list|(
 literal|"Basic HTTP Authentication has been applied"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
@@ -1562,6 +1578,25 @@ if|if
 condition|(
 name|body
 operator|instanceof
+name|Response
+condition|)
+block|{
+comment|// its already a restlet response, so dont do anything
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using existing Restlet Response from exchange body: {}"
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|body
+operator|instanceof
 name|InputStream
 condition|)
 block|{
@@ -1615,13 +1650,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|body
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
 comment|// fallback and use string
 name|String
@@ -1646,24 +1675,15 @@ name|mediaType
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate Restlet response from exchange body: "
-operator|+
+literal|"Populate Restlet response from exchange body: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|exchange
@@ -1839,6 +1859,21 @@ operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|,
 name|responseCode
+argument_list|)
+expr_stmt|;
+comment|// set restlet response as header so end user have access to it if needed
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|RestletConstants
+operator|.
+name|RESTLET_RESPONSE
+argument_list|,
+name|response
 argument_list|)
 expr_stmt|;
 if|if
