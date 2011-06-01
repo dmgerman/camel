@@ -24,29 +24,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URLConnection
 import|;
 end_import
 
@@ -95,24 +75,6 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|util
-operator|.
-name|CxfUtils
 import|;
 end_import
 
@@ -268,16 +230,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -391,10 +343,6 @@ operator|.
 name|fail
 import|;
 end_import
-
-begin_comment
-comment|/**  *  * @version   */
-end_comment
 
 begin_class
 annotation|@

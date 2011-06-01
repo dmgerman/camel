@@ -124,22 +124,6 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
 name|cxfbean
 operator|.
 name|DefaultCxfBeanBinding
@@ -627,7 +611,7 @@ argument_list|()
 operator|.
 name|substring
 argument_list|(
-name|CxfConstants
+name|CamelTransportConstants
 operator|.
 name|CAMEL_TRANSPORT_PREFIX
 operator|.
@@ -942,7 +926,7 @@ name|inMessage
 operator|.
 name|put
 argument_list|(
-name|CxfConstants
+name|CamelTransportConstants
 operator|.
 name|CAMEL_EXCHANGE
 argument_list|,
@@ -1197,7 +1181,7 @@ name|message
 operator|.
 name|put
 argument_list|(
-name|CxfConstants
+name|CamelTransportConstants
 operator|.
 name|CAMEL_EXCHANGE
 argument_list|,
@@ -1205,7 +1189,7 @@ name|inMessage
 operator|.
 name|get
 argument_list|(
-name|CxfConstants
+name|CamelTransportConstants
 operator|.
 name|CAMEL_EXCHANGE
 argument_list|)
@@ -1352,7 +1336,7 @@ name|outMessage
 operator|.
 name|get
 argument_list|(
-name|CxfConstants
+name|CamelTransportConstants
 operator|.
 name|CAMEL_EXCHANGE
 argument_list|)

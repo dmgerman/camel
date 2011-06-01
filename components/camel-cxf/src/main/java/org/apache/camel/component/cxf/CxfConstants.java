@@ -125,6 +125,10 @@ name|SPRING_CONTEXT_ENDPOINT
 init|=
 literal|"bean:"
 decl_stmt|;
+annotation|@
+name|Deprecated
+comment|// This constants will be removed in Camel 3.0
+comment|// Please use that one in camel-cxf-transport
 DECL|field|CAMEL_TRANSPORT_PREFIX
 name|String
 name|CAMEL_TRANSPORT_PREFIX
@@ -137,6 +141,8 @@ name|JAXWS_CONTEXT
 init|=
 literal|"jaxwsContext"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|CXF_EXCHANGE
 name|String
 name|CXF_EXCHANGE
@@ -155,6 +161,8 @@ name|DISPATCH_DEFAULT_OPERATION_NAMESPACE
 init|=
 literal|"Invoke"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|CAMEL_EXCHANGE
 name|String
 name|CAMEL_EXCHANGE
