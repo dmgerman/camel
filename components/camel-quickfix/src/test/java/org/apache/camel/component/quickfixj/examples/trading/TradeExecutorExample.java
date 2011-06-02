@@ -444,7 +444,6 @@ throws|throws
 name|Exception
 block|{
 comment|// Release latch when session logon events are received
-comment|// We expect four logon events (four sessions)
 name|from
 argument_list|(
 literal|"quickfix:examples/inprocess.cfg"

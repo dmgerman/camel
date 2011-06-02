@@ -623,6 +623,8 @@ init|=
 operator|new
 name|QuickfixjEndpoint
 argument_list|(
+literal|null
+argument_list|,
 literal|""
 argument_list|,
 name|camelContext
@@ -770,6 +772,8 @@ init|=
 operator|new
 name|QuickfixjEndpoint
 argument_list|(
+literal|null
+argument_list|,
 literal|""
 argument_list|,
 name|camelContext

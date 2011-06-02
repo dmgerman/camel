@@ -468,6 +468,8 @@ operator|=
 operator|new
 name|QuickfixjEndpoint
 argument_list|(
+name|engine
+argument_list|,
 name|uri
 argument_list|,
 name|getCamelContext

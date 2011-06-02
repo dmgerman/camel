@@ -523,6 +523,16 @@ specifier|final
 name|MessageFactory
 name|messageFactory
 decl_stmt|;
+DECL|field|messageCorrelator
+specifier|private
+specifier|final
+name|MessageCorrelator
+name|messageCorrelator
+init|=
+operator|new
+name|MessageCorrelator
+argument_list|()
+decl_stmt|;
 DECL|field|started
 specifier|private
 name|boolean
@@ -679,6 +689,11 @@ name|IOException
 throws|,
 name|JMException
 block|{
+name|addEventListener
+argument_list|(
+name|messageCorrelator
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|uri
@@ -2635,6 +2650,16 @@ parameter_list|()
 block|{
 return|return
 name|uri
+return|;
+block|}
+DECL|method|getMessageCorrelator ()
+specifier|public
+name|MessageCorrelator
+name|getMessageCorrelator
+parameter_list|()
+block|{
+return|return
+name|messageCorrelator
 return|;
 block|}
 comment|// For Testing
