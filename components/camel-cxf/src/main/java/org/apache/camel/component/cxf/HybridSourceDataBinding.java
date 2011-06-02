@@ -46,18 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|cxf
@@ -157,6 +145,18 @@ operator|.
 name|jaxb
 operator|.
 name|JAXBDataBinding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
 import|;
 end_import
 

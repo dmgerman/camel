@@ -21,6 +21,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -146,18 +158,6 @@ name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_comment
 comment|/**  *  * @version   */
 end_comment
@@ -165,10 +165,10 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|CxfBeanWithWsdlLocationInBeanTest
+DECL|class|CxfBeanWithWsdlLocationInBeanAndIoCTest
 specifier|public
 class|class
-name|CxfBeanWithWsdlLocationInBeanTest
+name|CxfBeanWithWsdlLocationInBeanAndIoCTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
@@ -281,7 +281,7 @@ literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
 operator|+
 literal|"<GetPersonResponse xmlns=\"http://camel.apache.org/wsdl-first/types\">"
 operator|+
-literal|"<personId>hello</personId><ssn>000-000-0000</ssn><name>Bonjour</name></GetPersonResponse></soap:Body></soap:Envelope>"
+literal|"<personId>hello</personId><ssn>000-000-0000</ssn><name>Bye</name></GetPersonResponse></soap:Body></soap:Envelope>"
 decl_stmt|;
 name|assertEquals
 argument_list|(

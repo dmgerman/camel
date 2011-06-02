@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.util
+DECL|package|org.apache.camel.component.cxf.common.header
 package|package
 name|org
 operator|.
@@ -16,7 +16,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|util
+name|common
+operator|.
+name|header
 package|;
 end_package
 

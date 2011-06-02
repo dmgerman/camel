@@ -136,11 +136,11 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|transport
+name|common
 operator|.
-name|util
+name|header
 operator|.
-name|CxfMessageHelper
+name|CxfHeaderHelper
 import|;
 end_import
 
@@ -156,9 +156,11 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|util
+name|common
 operator|.
-name|CxfHeaderHelper
+name|message
+operator|.
+name|CxfMessageHelper
 import|;
 end_import
 

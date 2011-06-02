@@ -52,16 +52,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|wsdl
-operator|.
-name|WSDLException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|xml
 operator|.
 name|namespace

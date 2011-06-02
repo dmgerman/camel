@@ -124,9 +124,11 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|cxfbean
+name|common
 operator|.
-name|DefaultCxfBeanBinding
+name|header
+operator|.
+name|CxfHeaderHelper
 import|;
 end_import
 
@@ -142,9 +144,11 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|util
+name|common
 operator|.
-name|CxfHeaderHelper
+name|message
+operator|.
+name|DefaultCxfMesssageMapper
 import|;
 end_import
 
@@ -895,11 +899,11 @@ argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
-name|DefaultCxfBeanBinding
+name|DefaultCxfMesssageMapper
 name|beanBinding
 init|=
 operator|new
-name|DefaultCxfBeanBinding
+name|DefaultCxfMesssageMapper
 argument_list|()
 decl_stmt|;
 name|org

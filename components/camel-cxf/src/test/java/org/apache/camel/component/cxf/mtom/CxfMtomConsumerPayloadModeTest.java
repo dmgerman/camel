@@ -21,6 +21,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -101,18 +113,6 @@ operator|.
 name|xpath
 operator|.
 name|XPathConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Element
 import|;
 end_import
 
@@ -305,14 +305,14 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|junit
+name|w3c
 operator|.
-name|Assert
+name|dom
 operator|.
-name|assertEquals
+name|Element
 import|;
 end_import
 

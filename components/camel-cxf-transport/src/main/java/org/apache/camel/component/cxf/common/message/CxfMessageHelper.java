@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.transport.util
+DECL|package|org.apache.camel.component.cxf.common.message
 package|package
 name|org
 operator|.
@@ -16,9 +16,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|transport
+name|common
 operator|.
-name|util
+name|message
 package|;
 end_package
 
@@ -34,25 +34,21 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Source
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
+name|component
+operator|.
+name|cxf
+operator|.
+name|common
+operator|.
+name|header
+operator|.
+name|CxfHeaderHelper
 import|;
 end_import
 
@@ -71,24 +67,6 @@ operator|.
 name|transport
 operator|.
 name|CamelTransportConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|util
-operator|.
-name|CxfHeaderHelper
 import|;
 end_import
 

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.cxfbean
+DECL|package|org.apache.camel.component.cxf.common.header
 package|package
 name|org
 operator|.
@@ -16,19 +16,19 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|cxfbean
+name|common
+operator|.
+name|header
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|List
 import|;
 end_import
 
@@ -43,6 +43,8 @@ operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
+operator|.
+name|Direction
 import|;
 end_import
 
@@ -54,47 +56,44 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|message
+name|headers
 operator|.
-name|Message
+name|Header
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.  *  * @version   */
+comment|/**  * Filter the wire message headers from one CXF endpoint to another CXF endpoint  */
 end_comment
 
 begin_interface
-DECL|interface|CxfBeanBinding
+DECL|interface|MessageHeaderFilter
 specifier|public
 interface|interface
-name|CxfBeanBinding
+name|MessageHeaderFilter
 block|{
-comment|/**      * Create a CXF {@link Message} from a Camel exchange.      */
-DECL|method|createCxfMessageFromCamelExchange (Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
-name|Message
-name|createCxfMessageFromCamelExchange
-parameter_list|(
-name|Exchange
-name|camelExchange
-parameter_list|,
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
+comment|/**      * @return a list of binding name spaces that this relay can service      */
+DECL|method|getActivationNamespaces ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getActivationNamespaces
+parameter_list|()
 function_decl|;
-comment|/**      * Given a CXF out/response Message, this method propagates response headers to a      * Camel exchange.      */
-DECL|method|propagateResponseHeadersToCamel (Message cxfMessage, Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
+comment|/**      *  This method filters (removes) headers from the given header list.       *<i>Out</i> direction refers to processing headers from a Camel message to an       *  CXF message.<i>In</i> direction is the reverse direction.      *        *  @param direction the direction of the processing      *  @param headers the origin list of headers      */
+DECL|method|filter (Direction direction, List<Header> headers)
 name|void
-name|propagateResponseHeadersToCamel
+name|filter
 parameter_list|(
-name|Message
-name|cxfMessage
+name|Direction
+name|direction
 parameter_list|,
-name|Exchange
-name|camelExchange
-parameter_list|,
-name|HeaderFilterStrategy
-name|headerFilterStrategy
+name|List
+argument_list|<
+name|Header
+argument_list|>
+name|headers
 parameter_list|)
 function_decl|;
 block|}

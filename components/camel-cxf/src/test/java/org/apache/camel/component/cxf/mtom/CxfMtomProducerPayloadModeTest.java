@@ -156,18 +156,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Element
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -369,6 +357,18 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
 import|;
 end_import
 

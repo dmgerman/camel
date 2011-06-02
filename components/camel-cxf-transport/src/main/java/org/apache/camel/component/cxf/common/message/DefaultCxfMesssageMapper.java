@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.cxfbean
+DECL|package|org.apache.camel.component.cxf.common.message
 package|package
 name|org
 operator|.
@@ -16,7 +16,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|cxfbean
+name|common
+operator|.
+name|message
 package|;
 end_package
 
@@ -49,24 +51,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|util
-operator|.
-name|CxfMessageHelper
 import|;
 end_import
 
@@ -137,12 +121,12 @@ comment|/**  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|DefaultCxfBeanBinding
+DECL|class|DefaultCxfMesssageMapper
 specifier|public
 class|class
-name|DefaultCxfBeanBinding
+name|DefaultCxfMesssageMapper
 implements|implements
-name|CxfBeanBinding
+name|CxfMessageMapper
 block|{
 DECL|field|LOG
 specifier|private
@@ -155,7 +139,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultCxfBeanBinding
+name|DefaultCxfMesssageMapper
 operator|.
 name|class
 argument_list|)
