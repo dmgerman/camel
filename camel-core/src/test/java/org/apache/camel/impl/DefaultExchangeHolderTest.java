@@ -875,6 +875,7 @@ return|;
 block|}
 DECL|class|MyFoo
 specifier|private
+specifier|final
 class|class
 name|MyFoo
 block|{
