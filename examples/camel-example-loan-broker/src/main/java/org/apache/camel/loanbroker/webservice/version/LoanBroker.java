@@ -114,6 +114,10 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|common
+operator|.
+name|message
+operator|.
 name|CxfConstants
 import|;
 end_import
