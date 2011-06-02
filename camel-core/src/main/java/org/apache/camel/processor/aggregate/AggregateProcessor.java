@@ -490,6 +490,34 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|TimeUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|TimeoutMap
 import|;
 end_import
@@ -515,7 +543,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/aggregator2.html">Aggregator</a>  * pattern where a batch of messages are processed (up to a maximum amount or  * until some timeout is reached) and messages for the same correlation key are  * combined together using some kind of {@link AggregationStrategy}  * (by default the latest message is used) to compress many message exchanges  * into a smaller number of exchanges.  *<p/>  * A good example of this is stock market data; you may be receiving 30,000  * messages/second and you may want to throttle it right down so that multiple  * messages for the same stock are combined (or just the latest message is used  * and older prices are discarded). Another idea is to combine line item messages  * together into a single invoice message.  *  * @version   */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/aggregator2.html">Aggregator</a>  * pattern where a batch of messages are processed (up to a maximum amount or  * until some timeout is reached) and messages for the same correlation key are  * combined together using some kind of {@link AggregationStrategy}  * (by default the latest message is used) to compress many message exchanges  * into a smaller number of exchanges.  *<p/>  * A good example of this is stock market data; you may be receiving 30,000  * messages/second and you may want to throttle it right down so that multiple  * messages for the same stock are combined (or just the latest message is used  * and older prices are discarded). Another idea is to combine line item messages  * together into a single invoice message.  */
 end_comment
 
 begin_class
@@ -1094,7 +1122,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException      *          is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange exchange)
 specifier|private
 name|Exchange
@@ -1449,7 +1477,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Tests whether the given exchange is complete or not      *      * @param key       the correlation key      * @param exchange  the incoming exchange      * @return<tt>null</tt> if not completed, otherwise a String with the type that triggered the completion      */
+comment|/**      * Tests whether the given exchange is complete or not      *      * @param key      the correlation key      * @param exchange the incoming exchange      * @return<tt>null</tt> if not completed, otherwise a String with the type that triggered the completion      */
 DECL|method|isCompleted (String key, Exchange exchange)
 specifier|protected
 name|String
@@ -1654,16 +1682,11 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
-name|timeoutMap
-operator|.
-name|put
+name|addExchangeToTimeoutMap
 argument_list|(
 name|key
 argument_list|,
 name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
 argument_list|,
 name|value
 argument_list|)
@@ -1705,16 +1728,11 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
-name|timeoutMap
-operator|.
-name|put
+name|addExchangeToTimeoutMap
 argument_list|(
 name|key
 argument_list|,
 name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
 argument_list|,
 name|getCompletionTimeout
 argument_list|()
@@ -2093,6 +2111,200 @@ expr_stmt|;
 block|}
 block|}
 block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Restores the timeout map with timeout values from the aggregation repository.      *<p/>      * This is needed in case the aggregator has been stopped and started again (for example a server restart).      * Then the existing exchanges from the {@link AggregationRepository} must have its timeout conditions restored.      */
+DECL|method|restoreTimeoutMapFromAggregationRepository ()
+specifier|protected
+name|void
+name|restoreTimeoutMapFromAggregationRepository
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Starting restoring CompletionTimeout for existing exchanges from the aggregation repository..."
+argument_list|)
+expr_stmt|;
+comment|// grab the timeout value for each partly aggregated exchange
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|keys
+init|=
+name|aggregationRepository
+operator|.
+name|getKeys
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|keys
+operator|==
+literal|null
+operator|||
+name|keys
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+for|for
+control|(
+name|String
+name|key
+range|:
+name|keys
+control|)
+block|{
+name|Exchange
+name|exchange
+init|=
+name|aggregationRepository
+operator|.
+name|get
+argument_list|(
+name|camelContext
+argument_list|,
+name|key
+argument_list|)
+decl_stmt|;
+comment|// grab the timeout value
+name|long
+name|timeout
+init|=
+name|exchange
+operator|.
+name|hasProperties
+argument_list|()
+condition|?
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_TIMEOUT
+argument_list|,
+literal|0
+argument_list|,
+name|long
+operator|.
+name|class
+argument_list|)
+else|:
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|timeout
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Restoring CompletionTimeout for exchangeId: {} with timeout: {} millis."
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|timeout
+argument_list|)
+expr_stmt|;
+name|addExchangeToTimeoutMap
+argument_list|(
+name|key
+argument_list|,
+name|exchange
+argument_list|,
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// log duration of this task so end user can see how long it takes to pre-check this upon starting
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Restored {} CompletionTimeout conditions in the AggregationTimeoutChecker in {}"
+argument_list|,
+name|timeoutMap
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
+name|watch
+operator|.
+name|stop
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds the given exchange to the timeout map, which is used by the timeout checker task to trigger timeouts.      *      * @param key      the correlation key      * @param exchange the exchange      * @param timeout  the timeout value in millis      */
+DECL|method|addExchangeToTimeoutMap (String key, Exchange exchange, long timeout)
+specifier|private
+name|void
+name|addExchangeToTimeoutMap
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|long
+name|timeout
+parameter_list|)
+block|{
+comment|// store the timeout value on the exchange as well, in case we need it later
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_TIMEOUT
+argument_list|,
+name|timeout
+argument_list|)
+expr_stmt|;
+name|timeoutMap
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|timeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -3849,6 +4061,11 @@ name|scheduler
 argument_list|,
 literal|1000L
 argument_list|)
+expr_stmt|;
+comment|// fill in existing timeout values from the aggregation repository, for example if a restart occurred, then we
+comment|// need to re-establish the timeout map so timeout can trigger
+name|restoreTimeoutMapFromAggregationRepository
+argument_list|()
 expr_stmt|;
 name|ServiceHelper
 operator|.

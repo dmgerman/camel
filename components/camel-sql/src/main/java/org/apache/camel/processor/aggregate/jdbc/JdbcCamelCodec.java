@@ -173,7 +173,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// add the aggregated size property as the only property we want to retain
+comment|// add the aggregated size and timeout property as the only properties we want to retain
 name|DefaultExchangeHolder
 operator|.
 name|addProperty
@@ -193,6 +193,30 @@ operator|.
 name|AGGREGATED_SIZE
 argument_list|,
 name|Integer
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|DefaultExchangeHolder
+operator|.
+name|addProperty
+argument_list|(
+name|pe
+argument_list|,
+name|Exchange
+operator|.
+name|AGGREGATED_TIMEOUT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_TIMEOUT
+argument_list|,
+name|Long
 operator|.
 name|class
 argument_list|)

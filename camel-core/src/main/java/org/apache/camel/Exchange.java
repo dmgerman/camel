@@ -96,6 +96,12 @@ name|AGGREGATED_SIZE
 init|=
 literal|"CamelAggregatedSize"
 decl_stmt|;
+DECL|field|AGGREGATED_TIMEOUT
+name|String
+name|AGGREGATED_TIMEOUT
+init|=
+literal|"CamelAggregatedTimeout"
+decl_stmt|;
 DECL|field|AGGREGATED_COMPLETED_BY
 name|String
 name|AGGREGATED_COMPLETED_BY
