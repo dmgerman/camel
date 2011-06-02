@@ -1122,7 +1122,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException      *          is thrown if error aggregating      */
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param exchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange exchange)
 specifier|private
 name|Exchange
@@ -2123,20 +2123,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|StopWatch
-name|watch
-init|=
-operator|new
-name|StopWatch
-argument_list|()
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Starting restoring CompletionTimeout for existing exchanges from the aggregation repository..."
-argument_list|)
-expr_stmt|;
 comment|// grab the timeout value for each partly aggregated exchange
 name|Set
 argument_list|<
@@ -2163,6 +2149,25 @@ condition|)
 block|{
 return|return;
 block|}
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Starting restoring CompletionTimeout for {} existing exchanges from the aggregation repository..."
+argument_list|,
+name|keys
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
