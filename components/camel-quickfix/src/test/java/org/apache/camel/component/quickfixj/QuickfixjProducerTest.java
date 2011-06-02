@@ -526,7 +526,7 @@ class|class
 name|TestException
 extends|extends
 name|RuntimeException
-block|{ 		 	}
+block|{              }
 annotation|@
 name|Test
 DECL|method|setExceptionOnExchange ()
@@ -998,6 +998,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// TODO: probably not the best thing... use a LOG
 name|e
 operator|.
 name|printStackTrace

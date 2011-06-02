@@ -187,6 +187,13 @@ argument_list|,
 name|messageCriteria
 argument_list|)
 decl_stmt|;
+name|rules
+operator|.
+name|add
+argument_list|(
+name|correlationRule
+argument_list|)
+expr_stmt|;
 specifier|final
 name|long
 name|timeout
@@ -206,13 +213,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|rules
-operator|.
-name|add
-argument_list|(
-name|correlationRule
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|Callable

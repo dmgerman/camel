@@ -542,7 +542,8 @@ name|SessionID
 name|sessionID
 parameter_list|)
 block|{
-return|return
+if|if
+condition|(
 name|this
 operator|.
 name|sessionID
@@ -551,8 +552,13 @@ name|equals
 argument_list|(
 name|sessionID
 argument_list|)
-operator|||
-operator|(
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
 name|isMatching
 argument_list|(
 name|this
@@ -657,7 +663,6 @@ operator|.
 name|getTargetLocationID
 argument_list|()
 argument_list|)
-operator|)
 return|;
 block|}
 DECL|method|isMatching (String s1, String s2)
@@ -701,12 +706,18 @@ name|boolean
 name|isWildcarded
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
 name|sessionID
-operator|!=
+operator|==
 literal|null
-operator|&&
-operator|(
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
 name|sessionID
 operator|.
 name|getBeginString
@@ -776,7 +787,6 @@ name|equals
 argument_list|(
 literal|"*"
 argument_list|)
-operator|)
 return|;
 block|}
 DECL|method|isMultipleConsumersSupported ()
