@@ -537,6 +537,47 @@ else|else
 block|{
 if|if
 condition|(
+literal|"/customerservice/customers/123"
+operator|.
+name|equals
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+comment|// send a customer response back
+name|Response
+name|r
+init|=
+name|Response
+operator|.
+name|status
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|entity
+argument_list|(
+literal|"customer response back!"
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 literal|"/customerservice/customers/456"
 operator|.
 name|equals
@@ -695,13 +736,17 @@ block|}
 return|;
 block|}
 comment|// END SNIPPET: example
-annotation|@
-name|Test
-DECL|method|testGetCustomer ()
-specifier|public
+DECL|method|invokeGetCustomer (String uri, String expect)
+specifier|private
 name|void
-name|testGetCustomer
-parameter_list|()
+name|invokeGetCustomer
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|expect
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -711,7 +756,7 @@ init|=
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://localhost:9000/rest/customerservice/customers/126"
+name|uri
 argument_list|)
 decl_stmt|;
 name|get
@@ -757,7 +802,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"Customer\":{\"id\":126,\"name\":\"Willem\"}}"
+name|expect
 argument_list|,
 name|EntityUtils
 operator|.
@@ -782,6 +827,31 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testGetCustomer ()
+specifier|public
+name|void
+name|testGetCustomer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeGetCustomer
+argument_list|(
+literal|"http://localhost:9000/rest/customerservice/customers/126"
+argument_list|,
+literal|"{\"Customer\":{\"id\":126,\"name\":\"Willem\"}}"
+argument_list|)
+expr_stmt|;
+name|invokeGetCustomer
+argument_list|(
+literal|"http://localhost:9000/rest/customerservice/customers/123"
+argument_list|,
+literal|"customer response back!"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
