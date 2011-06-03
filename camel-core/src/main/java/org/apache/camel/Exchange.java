@@ -188,6 +188,12 @@ name|CONTENT_ENCODING
 init|=
 literal|"Content-Encoding"
 decl_stmt|;
+DECL|field|CONTENT_LENGTH
+name|String
+name|CONTENT_LENGTH
+init|=
+literal|"Content-Length"
+decl_stmt|;
 DECL|field|CONTENT_TYPE
 name|String
 name|CONTENT_TYPE
