@@ -70,6 +70,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -241,10 +251,10 @@ name|OSGiIntegrationTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testAhc ()
+DECL|method|testAhcGet ()
 specifier|public
 name|void
-name|testAhc
+name|testAhcGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -258,7 +268,7 @@ name|requestBody
 argument_list|(
 literal|"ahc:http://localhost:9081/foo"
 argument_list|,
-literal|"World"
+literal|null
 argument_list|,
 name|String
 operator|.
@@ -269,6 +279,89 @@ name|assertEquals
 argument_list|(
 literal|"Bye World"
 argument_list|,
+name|reply
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Error doing POST in OSGi"
+argument_list|)
+DECL|method|testAhcPost ()
+specifier|public
+name|void
+name|testAhcPost
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|reply
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"ahc:http://localhost:9081/foo"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|reply
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Requires online internet for testing"
+argument_list|)
+DECL|method|testAhcGoogle ()
+specifier|public
+name|void
+name|testAhcGoogle
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|reply
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"ahc:http://www.google.se"
+argument_list|,
+literal|null
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
 name|reply
 argument_list|)
 expr_stmt|;
@@ -291,17 +384,14 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9081/foo"
+literal|"jetty:http://0.0.0.0:9081/foo"
 argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|body
-argument_list|()
-operator|.
-name|prepend
+name|constant
 argument_list|(
-literal|"Bye "
+literal|"Bye World"
 argument_list|)
 argument_list|)
 expr_stmt|;
