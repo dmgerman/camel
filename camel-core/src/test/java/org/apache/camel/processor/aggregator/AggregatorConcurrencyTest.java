@@ -418,6 +418,12 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Need to shutdown the threadpool
+name|service
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

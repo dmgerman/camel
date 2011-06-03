@@ -417,6 +417,11 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected

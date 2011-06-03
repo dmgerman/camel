@@ -529,7 +529,7 @@ argument_list|)
 expr_stmt|;
 name|es
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}

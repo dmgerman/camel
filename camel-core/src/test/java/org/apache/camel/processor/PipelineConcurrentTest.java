@@ -296,6 +296,11 @@ name|body
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|executor
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

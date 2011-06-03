@@ -40,6 +40,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|Executors
 import|;
 end_import
@@ -330,12 +342,17 @@ argument_list|)
 expr_stmt|;
 comment|// do not use Camel to send and receive to simulate a non Camel client
 comment|// use another thread to listen and send the reply
+name|ExecutorService
+name|executor
+init|=
 name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
 literal|1
 argument_list|)
+decl_stmt|;
+name|executor
 operator|.
 name|submit
 argument_list|(
@@ -521,6 +538,11 @@ block|}
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}

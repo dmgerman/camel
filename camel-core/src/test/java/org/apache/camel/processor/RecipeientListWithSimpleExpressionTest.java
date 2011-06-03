@@ -310,6 +310,11 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|executors
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|class|MyBeanRouter
 specifier|public
@@ -604,6 +609,11 @@ argument_list|)
 expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|executors
+operator|.
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}

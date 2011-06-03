@@ -327,6 +327,11 @@ operator|+
 literal|" message to JMS broker"
 argument_list|)
 expr_stmt|;
+name|executors
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 name|System
 operator|.
 name|exit

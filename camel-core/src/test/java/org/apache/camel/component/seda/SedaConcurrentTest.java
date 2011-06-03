@@ -438,6 +438,11 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|executors
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testSedaConcurrentInOutWithAsync ()
 specifier|public
@@ -484,6 +489,16 @@ literal|3000
 argument_list|)
 expr_stmt|;
 comment|// use our own template that has a higher thread pool than default camel that uses 5
+name|ExecutorService
+name|executor
+init|=
+name|Executors
+operator|.
+name|newFixedThreadPool
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
 name|ProducerTemplate
 name|pt
 init|=
@@ -492,12 +507,7 @@ name|DefaultProducerTemplate
 argument_list|(
 name|context
 argument_list|,
-name|Executors
-operator|.
-name|newFixedThreadPool
-argument_list|(
-literal|10
-argument_list|)
+name|executor
 argument_list|)
 decl_stmt|;
 comment|// must start the template
@@ -619,6 +629,11 @@ block|}
 name|pt
 operator|.
 name|stop
+argument_list|()
+expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}

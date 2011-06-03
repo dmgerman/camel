@@ -461,7 +461,7 @@ argument_list|()
 expr_stmt|;
 name|service
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}

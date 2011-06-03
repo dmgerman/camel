@@ -104,6 +104,38 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
+DECL|field|pool
+specifier|protected
+name|ExecutorService
+name|pool
+decl_stmt|;
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|pool
+operator|!=
+literal|null
+condition|)
+block|{
+name|pool
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|testSend ()
 specifier|public
 name|void
@@ -190,16 +222,15 @@ parameter_list|()
 block|{
 comment|// START SNIPPET: e1
 comment|// use a custom thread pool for sending tapped messages
-name|ExecutorService
 name|pool
-init|=
+operator|=
 name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
 literal|2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

@@ -526,6 +526,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Before

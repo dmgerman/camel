@@ -311,6 +311,11 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

@@ -2613,6 +2613,11 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testXPathNodeListTest ()
 specifier|public

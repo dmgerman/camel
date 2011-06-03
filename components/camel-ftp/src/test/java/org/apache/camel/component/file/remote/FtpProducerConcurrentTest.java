@@ -252,6 +252,11 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

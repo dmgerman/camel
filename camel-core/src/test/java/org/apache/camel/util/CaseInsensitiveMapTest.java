@@ -3442,6 +3442,11 @@ literal|"cAKe"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|service
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testCopyMapWithCamelHeadersTest ()
 specifier|public

@@ -66,6 +66,54 @@ name|OnCompletionGlobalCustomPoolTest
 extends|extends
 name|OnCompletionGlobalTest
 block|{
+DECL|field|pool
+specifier|private
+name|ExecutorService
+name|pool
+decl_stmt|;
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// use a pool with 2 concurrent tasks so we cannot run too fast
+name|pool
+operator|=
+name|Executors
+operator|.
+name|newFixedThreadPool
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|pool
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -90,16 +138,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ExecutorService
-name|pool
-init|=
-name|Executors
-operator|.
-name|newFixedThreadPool
-argument_list|(
-literal|2
-argument_list|)
-decl_stmt|;
 comment|// use a custom thread pool
 name|onCompletion
 argument_list|()

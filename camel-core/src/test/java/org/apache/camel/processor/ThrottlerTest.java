@@ -360,6 +360,11 @@ operator|>=
 name|minimumTime
 argument_list|)
 expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testTimeSlotCalculus ()
 specifier|public
@@ -590,6 +595,11 @@ operator|>=
 name|minimumTime
 argument_list|)
 expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testConfigurationWithHeaderExpression ()
 specifier|public
@@ -727,6 +737,11 @@ name|delta
 operator|>=
 name|minimumTime
 argument_list|)
+expr_stmt|;
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()

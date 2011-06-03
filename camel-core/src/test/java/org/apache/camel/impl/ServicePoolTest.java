@@ -1204,6 +1204,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testConcurrentStress ()
 specifier|public
@@ -1398,6 +1403,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|executor
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
