@@ -116,16 +116,14 @@ name|AhcComponentClientConfigTest
 extends|extends
 name|CamelTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
+DECL|method|configureComponent ()
+specifier|public
+name|void
+name|configureComponent
 parameter_list|()
-throws|throws
-name|Exception
 block|{
+comment|// START SNIPPET: e1
+comment|// create a client config builder
 name|AsyncHttpClientConfig
 operator|.
 name|Builder
@@ -137,6 +135,8 @@ operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
+comment|// use the builder to set the options we want, in this case we want to follow redirects and try
+comment|// at most 3 retries to send a request to the host
 name|AsyncHttpClientConfig
 name|config
 init|=
@@ -155,14 +155,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|CamelContext
-name|context
-init|=
-name|super
-operator|.
-name|createCamelContext
-argument_list|()
-decl_stmt|;
+comment|// lookup AhcComponent
 name|AhcComponent
 name|component
 init|=
@@ -177,6 +170,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// and set our custom client config to be used
 name|component
 operator|.
 name|setClientConfig
@@ -184,6 +178,26 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
+block|}
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|context
+init|=
+name|super
+operator|.
+name|createCamelContext
+argument_list|()
+decl_stmt|;
 return|return
 name|context
 return|;
@@ -245,6 +259,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|configureComponent
+argument_list|()
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
