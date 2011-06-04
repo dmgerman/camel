@@ -285,11 +285,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Error doing POST in OSGi"
-argument_list|)
 DECL|method|testHttp4Post ()
 specifier|public
 name|void
