@@ -831,6 +831,31 @@ name|childDefinition
 else|:
 name|outputDefinition
 decl_stmt|;
+comment|// fix parent/child relationship. This will be the case of the routes has been
+comment|// defined using XML DSL or end user may have manually assembled a route from the model.
+comment|// Background note: parent/child relationship is assembled on-the-fly when using Java DSL (fluent builders)
+comment|// where as when using XML DSL (JAXB) then it fixed after, but if people are using custom interceptors
+comment|// then we need to fix the parent/child relationship beforehand, and thus we can do it here
+comment|// ideally we need the design time route -> runtime route to be a 2-phase pass (scheduled work for Camel 3.0)
+if|if
+condition|(
+name|childDefinition
+operator|!=
+literal|null
+operator|&&
+name|outputDefinition
+operator|!=
+name|childDefinition
+condition|)
+block|{
+name|childDefinition
+operator|.
+name|setParent
+argument_list|(
+name|outputDefinition
+argument_list|)
+expr_stmt|;
+block|}
 comment|// first wrap the output with the managed strategy if any
 name|InterceptStrategy
 name|managed

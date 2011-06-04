@@ -554,6 +554,27 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// special for OptionalIdentifiedDefinition as it has setter, so we should skip it
+if|if
+condition|(
+name|clazz
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|OptionalIdentifiedDefinition
+operator|.
+name|class
+operator|.
+name|getCanonicalName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// does the method have a jaxb annotation?
 name|boolean
 name|attribute
