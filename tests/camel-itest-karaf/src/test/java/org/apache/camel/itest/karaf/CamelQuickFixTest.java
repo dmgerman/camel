@@ -104,11 +104,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Requires Karaf 2.2 which has slf4j logger improved"
-argument_list|)
 DECL|class|CamelQuickFixTest
 specifier|public
 class|class
