@@ -80,13 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|util
 operator|.
-name|http
-operator|.
-name|helper
-operator|.
-name|GZIPHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -100,7 +96,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
+name|GZIPHelper
 import|;
 end_import
 
