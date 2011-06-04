@@ -266,11 +266,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|helper
+name|util
 operator|.
 name|GZIPHelper
 operator|.
