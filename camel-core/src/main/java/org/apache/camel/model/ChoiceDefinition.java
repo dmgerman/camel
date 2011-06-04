@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;choice/&gt; element  *  * @version   */
+comment|/**  * Represents an XML&lt;choice/&gt; element  *  * @version  */
 end_comment
 
 begin_class
@@ -403,7 +403,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the predicate for the when node      *      * @param predicate  the predicate      * @return the builder      */
+comment|/**      * Sets the predicate for the when node      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
 specifier|public
 name|ChoiceDefinition
@@ -499,7 +499,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the otherwise node      *       * @return the builder      */
+comment|/**      * Sets the otherwise node      *      * @return the builder      */
 DECL|method|otherwise ()
 specifier|public
 name|ChoiceDefinition
@@ -528,6 +528,161 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setId (String value)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+comment|// when setting id, we should set it on the fine grained element, if possible
+if|if
+condition|(
+name|otherwise
+operator|!=
+literal|null
+condition|)
+block|{
+name|otherwise
+operator|.
+name|setId
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|getWhenClauses
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|int
+name|size
+init|=
+name|getWhenClauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|getWhenClauses
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|size
+operator|-
+literal|1
+argument_list|)
+operator|.
+name|setId
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|super
+operator|.
+name|setId
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|addOutput (ProcessorDefinition output)
+specifier|public
+name|void
+name|addOutput
+parameter_list|(
+name|ProcessorDefinition
+name|output
+parameter_list|)
+block|{
+name|super
+operator|.
+name|addOutput
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+comment|// re-configure parent as its a tad more complex for the CNR
+if|if
+condition|(
+name|otherwise
+operator|!=
+literal|null
+condition|)
+block|{
+name|output
+operator|.
+name|setParent
+argument_list|(
+name|otherwise
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|getWhenClauses
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|int
+name|size
+init|=
+name|getWhenClauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|output
+operator|.
+name|setParent
+argument_list|(
+name|getWhenClauses
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|size
+operator|-
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|output
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------

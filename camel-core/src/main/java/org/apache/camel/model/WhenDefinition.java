@@ -265,6 +265,23 @@ name|routeContext
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|endParent ()
+specifier|public
+name|ProcessorDefinition
+name|endParent
+parameter_list|()
+block|{
+comment|// when using when in the DSL we don't want to end back to this when, but instead
+comment|// the parent of this, so return the parent
+return|return
+name|this
+operator|.
+name|getParent
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
