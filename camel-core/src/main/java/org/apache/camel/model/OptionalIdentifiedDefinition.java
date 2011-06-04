@@ -177,7 +177,7 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|FIELD
+name|PROPERTY
 argument_list|)
 DECL|class|OptionalIdentifiedDefinition
 specifier|public
@@ -193,17 +193,6 @@ name|T
 parameter_list|>
 parameter_list|>
 block|{
-annotation|@
-name|XmlAttribute
-annotation|@
-name|XmlJavaTypeAdapter
-argument_list|(
-name|CollapsedStringAdapter
-operator|.
-name|class
-argument_list|)
-annotation|@
-name|XmlID
 DECL|field|id
 specifier|private
 name|String
@@ -216,8 +205,6 @@ specifier|private
 name|boolean
 name|customId
 decl_stmt|;
-annotation|@
-name|XmlElement
 DECL|field|description
 specifier|private
 name|DescriptionDefinition
@@ -235,6 +222,17 @@ name|id
 return|;
 block|}
 comment|/**      * Sets the value of the id property.      */
+annotation|@
+name|XmlAttribute
+annotation|@
+name|XmlJavaTypeAdapter
+argument_list|(
+name|CollapsedStringAdapter
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|XmlID
 DECL|method|setId (String value)
 specifier|public
 name|void
@@ -265,6 +263,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|XmlElement
 DECL|method|setDescription (DescriptionDefinition description)
 specifier|public
 name|void
