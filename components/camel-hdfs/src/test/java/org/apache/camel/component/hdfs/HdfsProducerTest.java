@@ -2278,7 +2278,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2296,7 +2296,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2313,7 +2313,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2330,7 +2330,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2347,7 +2347,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2364,7 +2364,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2381,7 +2381,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2398,7 +2398,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2416,7 +2416,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2433,7 +2433,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2451,7 +2451,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2469,7 +2469,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs://localhost/"
+literal|"hdfs:///"
 operator|+
 name|TEMP_DIR
 operator|.
