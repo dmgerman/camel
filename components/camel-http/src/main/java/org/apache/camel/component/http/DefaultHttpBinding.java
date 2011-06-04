@@ -324,6 +324,26 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *  * @version   */
 end_comment
@@ -336,6 +356,23 @@ name|DefaultHttpBinding
 implements|implements
 name|HttpBinding
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultHttpBinding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|useReaderForPayload
 specifier|private
 name|boolean
@@ -415,6 +452,15 @@ name|HttpMessage
 name|message
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"readRequest {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 comment|// lets force a parse of the body and headers
 name|message
 operator|.
@@ -712,6 +758,87 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP method {}"
+argument_list|,
+name|request
+operator|.
+name|getMethod
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP query {}"
+argument_list|,
+name|request
+operator|.
+name|getQueryString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP url {}"
+argument_list|,
+name|request
+operator|.
+name|getRequestURL
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP uri {}"
+argument_list|,
+name|request
+operator|.
+name|getRequestURI
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP path {}"
+argument_list|,
+name|request
+operator|.
+name|getPathInfo
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP content-type {}"
+argument_list|,
+name|request
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if content type is serialized java object, then de-serialize it to a Java object
 if|if
 condition|(
@@ -873,6 +1000,17 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP header {} = {}"
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|headerFilterStrategy
@@ -906,6 +1044,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP method {} with Content-Type {}"
+argument_list|,
+name|request
+operator|.
+name|getMethod
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|request
@@ -1134,6 +1289,17 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP attachment {} = {}"
+argument_list|,
+name|name
+argument_list|,
+name|object
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|object
