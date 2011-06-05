@@ -169,24 +169,17 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|class|MyExceptionThrower
+specifier|public
+specifier|static
+class|class
+name|MyExceptionThrower
+implements|implements
+name|Processor
+block|{
 annotation|@
 name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-specifier|final
-name|Processor
-name|exceptionThrower
-init|=
-operator|new
-name|Processor
-argument_list|()
-block|{
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -206,6 +199,23 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+specifier|final
+name|Processor
+name|exceptionThrower
+init|=
+operator|new
+name|MyExceptionThrower
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
