@@ -621,7 +621,7 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-comment|// re-configure parent as its a tad more complex for the CNR
+comment|// re-configure parent as its a tad more complex for the Content Based Router
 if|if
 condition|(
 name|otherwise
