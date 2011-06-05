@@ -49,6 +49,11 @@ specifier|private
 name|String
 name|queueName
 decl_stmt|;
+DECL|field|transferExchange
+specifier|private
+name|boolean
+name|transferExchange
+decl_stmt|;
 DECL|method|HazelcastSedaConfiguration ()
 specifier|public
 name|HazelcastSedaConfiguration
@@ -136,6 +141,32 @@ operator|.
 name|pollInterval
 operator|=
 name|pollInterval
+expr_stmt|;
+block|}
+DECL|method|isTransferExchange ()
+specifier|public
+name|boolean
+name|isTransferExchange
+parameter_list|()
+block|{
+return|return
+name|transferExchange
+return|;
+block|}
+DECL|method|setTransferExchange (boolean transferExchange)
+specifier|public
+name|void
+name|setTransferExchange
+parameter_list|(
+name|boolean
+name|transferExchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferExchange
+operator|=
+name|transferExchange
 expr_stmt|;
 block|}
 block|}

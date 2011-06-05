@@ -166,6 +166,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultExchangeHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|converter
 operator|.
 name|AsyncProcessorTypeConverter
@@ -464,6 +478,28 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|body
+operator|instanceof
+name|DefaultExchangeHolder
+condition|)
+block|{
+name|DefaultExchangeHolder
+operator|.
+name|unmarshal
+argument_list|(
+name|exchange
+argument_list|,
+operator|(
+name|DefaultExchangeHolder
+operator|)
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -474,8 +510,10 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
+comment|// process using the asynchronous routing engine
 name|processor
 operator|.
 name|process
@@ -490,11 +528,12 @@ specifier|public
 name|void
 name|done
 parameter_list|(
-specifier|final
 name|boolean
-name|sync
+name|asyncDone
 parameter_list|)
-block|{                             }
+block|{
+comment|// noop
+block|}
 block|}
 argument_list|)
 expr_stmt|;
