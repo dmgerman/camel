@@ -4099,6 +4099,21 @@ name|def
 return|;
 block|}
 block|}
+comment|/**      * Ends the current block and returns back to the {@link TryDefinition doTry()} DSL.      *      * @return the builder      */
+DECL|method|endDoTry ()
+specifier|public
+name|TryDefinition
+name|endDoTry
+parameter_list|()
+block|{
+return|return
+operator|(
+name|TryDefinition
+operator|)
+name|end
+argument_list|()
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression)
 specifier|public
