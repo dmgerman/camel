@@ -206,7 +206,6 @@ name|FailedToCreateConsumerException
 name|e
 parameter_list|)
 block|{
-comment|// expected
 name|assertEquals
 argument_list|(
 literal|"Failed to create Consumer for endpoint: Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. "
@@ -281,21 +280,30 @@ name|FailedToCreateProducerException
 name|e
 parameter_list|)
 block|{
-comment|// expected
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Failed to create Producer for endpoint: Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. "
-operator|+
-literal|"Reason: org.apache.camel.FailedToCreateProducerException: Failed to create Producer for endpoint: "
-operator|+
-literal|"Endpoint[activemq://queue:foo?testConnectionOnStartup=true]. Reason: javax.jms.JMSException: "
-operator|+
-literal|"Could not connect to broker URL: tcp://localhost:61111. Reason: java.net.ConnectException: Connection refused"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Failed to create Producer for endpoint: Endpoint[activemq://queue:foo?testConnectionOnStartup=true]."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"java.net.ConnectException"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
