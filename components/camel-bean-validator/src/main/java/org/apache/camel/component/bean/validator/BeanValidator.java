@@ -139,6 +139,9 @@ decl_stmt|;
 DECL|field|group
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|group
 decl_stmt|;
 DECL|method|process (Exchange exchange)
@@ -285,6 +288,9 @@ block|}
 DECL|method|getGroup ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getGroup
 parameter_list|()
 block|{
@@ -292,12 +298,15 @@ return|return
 name|group
 return|;
 block|}
-DECL|method|setGroup (Class group)
+DECL|method|setGroup (Class<?> group)
 specifier|public
 name|void
 name|setGroup
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|group
 parameter_list|)
 block|{
