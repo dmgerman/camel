@@ -1360,6 +1360,52 @@ name|xsdf
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the XML Security data format      */
+DECL|method|secureXML (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm)
+specifier|public
+name|T
+name|secureXML
+parameter_list|(
+name|String
+name|secureTag
+parameter_list|,
+name|boolean
+name|secureTagContents
+parameter_list|,
+name|String
+name|recipientKeyAlias
+parameter_list|,
+name|String
+name|xmlCipherAlgorithm
+parameter_list|,
+name|String
+name|keyCipherAlgorithm
+parameter_list|)
+block|{
+name|XMLSecurityDataFormat
+name|xsdf
+init|=
+operator|new
+name|XMLSecurityDataFormat
+argument_list|(
+name|secureTag
+argument_list|,
+name|secureTagContents
+argument_list|,
+name|recipientKeyAlias
+argument_list|,
+name|xmlCipherAlgorithm
+argument_list|,
+name|keyCipherAlgorithm
+argument_list|)
+decl_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|xsdf
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the xmlBeans data format      */
 DECL|method|xmlBeans ()
 specifier|public
