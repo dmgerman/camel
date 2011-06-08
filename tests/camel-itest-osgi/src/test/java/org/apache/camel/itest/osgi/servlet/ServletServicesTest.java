@@ -324,6 +324,8 @@ name|Helper
 operator|.
 name|loadKarafStandardFeatures
 argument_list|(
+literal|"spring"
+argument_list|,
 literal|"http"
 argument_list|,
 literal|"war"

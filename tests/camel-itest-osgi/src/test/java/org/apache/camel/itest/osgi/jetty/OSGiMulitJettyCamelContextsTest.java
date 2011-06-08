@@ -170,38 +170,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|equinox
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|felix
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|provision
 import|;
 end_import
@@ -250,26 +218,6 @@ name|ops4j
 operator|.
 name|pax
 operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|workingDirectory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
 name|swissbox
 operator|.
 name|tinybundles
@@ -290,11 +238,7 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: fix me"
-argument_list|)
+comment|//@Ignore("TODO: fix me")
 DECL|class|OSGiMulitJettyCamelContextsTest
 specifier|public
 class|class
@@ -465,8 +409,6 @@ name|Option
 index|[]
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Option
 index|[]
@@ -474,31 +416,14 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
-argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
-argument_list|)
+name|getDefaultCamelKarafOptions
+argument_list|()
 argument_list|,
-comment|// using the features to install the camel components
+comment|// using the features to install the other camel components
 name|scanFeatures
 argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
-argument_list|,
-literal|"camel-core"
-argument_list|,
-literal|"camel-spring"
-argument_list|,
-literal|"camel-test"
 argument_list|,
 literal|"camel-jetty"
 argument_list|)
@@ -618,17 +543,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-argument_list|,
-name|workingDirectory
-argument_list|(
-literal|"target/paxrunner/"
-argument_list|)
-argument_list|,
-name|equinox
-argument_list|()
-argument_list|,
-name|felix
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

@@ -368,8 +368,6 @@ name|Option
 index|[]
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Option
 index|[]
@@ -377,47 +375,19 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
-argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
-argument_list|)
+name|getDefaultCamelKarafOptions
+argument_list|()
 argument_list|,
-comment|// using the features to install the camel components
+comment|// using the features to install the other camel components
 name|scanFeatures
 argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
-literal|"camel-core"
-argument_list|,
-literal|"camel-spring"
-argument_list|,
-literal|"camel-test"
-argument_list|,
 literal|"camel-script"
 argument_list|,
 literal|"camel-ruby"
 argument_list|)
-argument_list|,
-name|workingDirectory
-argument_list|(
-literal|"target/paxrunner/"
-argument_list|)
-argument_list|,
-name|felix
-argument_list|()
-argument_list|,
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

@@ -506,29 +506,6 @@ name|getCamelKarafFeatureUrl
 parameter_list|()
 block|{
 name|String
-name|springVersion
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"springVersion"
-argument_list|)
-decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"*** The spring version is "
-operator|+
-name|springVersion
-operator|+
-literal|" ***"
-argument_list|)
-expr_stmt|;
-name|String
 name|type
 init|=
 literal|"xml/features"
@@ -566,7 +543,12 @@ block|{
 name|String
 name|karafVersion
 init|=
-literal|"2.2.1"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"karafVersion"
+argument_list|)
 decl_stmt|;
 name|System
 operator|.
@@ -611,17 +593,13 @@ name|type
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Configuration
-DECL|method|configure ()
+DECL|method|getDefaultCamelKarafOptions ()
 specifier|public
 specifier|static
 name|Option
 index|[]
-name|configure
+name|getDefaultCamelKarafOptions
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Option
 index|[]
@@ -641,6 +619,19 @@ name|setLogLevel
 argument_list|(
 literal|"WARN"
 argument_list|)
+argument_list|)
+argument_list|,
+comment|// install the spring, http features first
+name|scanFeatures
+argument_list|(
+name|getKarafFeatureUrl
+argument_list|()
+argument_list|,
+literal|"spring"
+argument_list|,
+literal|"spring-dm"
+argument_list|,
+literal|"jetty"
 argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
@@ -665,6 +656,32 @@ name|equinox
 argument_list|()
 argument_list|,
 name|felix
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|options
+return|;
+block|}
+annotation|@
+name|Configuration
+DECL|method|configure ()
+specifier|public
+specifier|static
+name|Option
+index|[]
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Option
+index|[]
+name|options
+init|=
+name|combine
+argument_list|(
+name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|)
 decl_stmt|;

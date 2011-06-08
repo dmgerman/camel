@@ -410,6 +410,19 @@ argument_list|(
 literal|"1.0.5"
 argument_list|)
 argument_list|,
+comment|// install the spring, http features first
+name|scanFeatures
+argument_list|(
+name|getKarafFeatureUrl
+argument_list|()
+argument_list|,
+literal|"spring"
+argument_list|,
+literal|"spring-dm"
+argument_list|,
+literal|"jetty"
+argument_list|)
+argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
