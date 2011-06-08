@@ -1988,6 +1988,11 @@ name|Method
 name|m
 parameter_list|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
 name|Annotation

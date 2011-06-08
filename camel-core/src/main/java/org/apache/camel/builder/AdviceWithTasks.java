@@ -320,6 +320,9 @@ DECL|field|type
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|method|MatchByType (Class<?> type)

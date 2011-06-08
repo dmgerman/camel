@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/*  * @version   */
 end_comment
 
 begin_class
@@ -114,21 +114,23 @@ name|ExceptionThrownFromOnExceptionTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|retry
+DECL|field|RETRY
 specifier|private
 specifier|static
+specifier|final
 name|AtomicInteger
-name|retry
+name|RETRY
 init|=
 operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|field|onExceptionRetry
+DECL|field|ON_EXCEPTION_RETRY
 specifier|private
 specifier|static
+specifier|final
 name|AtomicInteger
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 init|=
 operator|new
 name|AtomicInteger
@@ -154,14 +156,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -221,7 +223,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -285,7 +287,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -423,7 +425,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -435,7 +437,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()
@@ -450,14 +452,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -523,7 +525,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -587,7 +589,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -725,7 +727,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -737,7 +739,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()
@@ -752,14 +754,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -835,7 +837,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -899,7 +901,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1049,7 +1051,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -1061,7 +1063,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()
@@ -1076,14 +1078,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -1165,7 +1167,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1229,7 +1231,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1379,7 +1381,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -1391,7 +1393,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()
@@ -1406,14 +1408,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -1489,7 +1491,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1547,7 +1549,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1699,7 +1701,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -1711,7 +1713,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()
@@ -1726,14 +1728,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|set
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|set
 argument_list|(
@@ -1815,7 +1817,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1873,7 +1875,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|retry
+name|RETRY
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1984,7 +1986,7 @@ literal|"Should try 4 times (1 first, 3 retry)"
 argument_list|,
 literal|4
 argument_list|,
-name|retry
+name|RETRY
 operator|.
 name|get
 argument_list|()
@@ -1996,7 +1998,7 @@ literal|"Should only invoke onException once"
 argument_list|,
 literal|1
 argument_list|,
-name|onExceptionRetry
+name|ON_EXCEPTION_RETRY
 operator|.
 name|get
 argument_list|()

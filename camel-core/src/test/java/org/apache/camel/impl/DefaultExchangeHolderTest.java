@@ -899,6 +899,11 @@ operator|=
 name|foo
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|getFoo ()
 specifier|public
 name|String
