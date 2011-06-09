@@ -252,6 +252,9 @@ argument_list|()
 decl_stmt|;
 name|sslSocketConnector
 operator|.
+name|getSslContextFactory
+argument_list|()
+operator|.
 name|setSslContext
 argument_list|(
 name|sslContextParameters
