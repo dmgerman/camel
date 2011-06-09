@@ -1457,7 +1457,7 @@ name|MulticastDefinition
 condition|)
 block|{
 comment|// do not use error handler for multicast as it offers fine grained error handlers for its outputs
-comment|// however if sub unit of work is enabled, we need to wrap an error handler on the multicast parent
+comment|// however if share unit of work is enabled, we need to wrap an error handler on the multicast parent
 name|MulticastDefinition
 name|def
 init|=
@@ -1497,7 +1497,7 @@ name|RecipientListDefinition
 condition|)
 block|{
 comment|// do not use error handler for recipient list as it offers fine grained error handlers for its outputs
-comment|// however if sub unit of work is enabled, we need to wrap an error handler on the recipient list parent
+comment|// however if share unit of work is enabled, we need to wrap an error handler on the recipient list parent
 name|RecipientListDefinition
 name|def
 init|=

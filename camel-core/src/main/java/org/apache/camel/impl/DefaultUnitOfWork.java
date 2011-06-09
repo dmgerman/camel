@@ -1440,7 +1440,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|// push a new savepoint
 name|subUnitOfWorks
 operator|.
 name|push
