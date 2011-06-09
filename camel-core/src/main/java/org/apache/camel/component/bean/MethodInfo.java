@@ -1070,6 +1070,16 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|recipientList
+operator|.
+name|setShareUnitOfWork
+argument_list|(
+name|annotation
+operator|.
+name|shareUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper

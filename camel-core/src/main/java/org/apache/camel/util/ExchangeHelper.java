@@ -1839,6 +1839,33 @@ name|class
 argument_list|)
 return|;
 block|}
+DECL|method|isUnitOfWorkExhausted (Exchange exchange)
+specifier|public
+specifier|static
+name|boolean
+name|isUnitOfWorkExhausted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|UNIT_OF_WORK_EXHAUSTED
+argument_list|,
+literal|false
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|setFailureHandled (Exchange exchange)
 specifier|public
 specifier|static

@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  *  * @version   */
+comment|/**  * An object representing the unit of work processing an {@link Exchange}  * which allows the use of {@link Synchronization} hooks. This object might map one-to-one with  * a transaction in JPA or Spring; or might not.  */
 end_comment
 
 begin_interface
@@ -88,7 +88,7 @@ name|UnitOfWork
 extends|extends
 name|Service
 block|{
-comment|/**      * Adds a synchronization hook      *      * @param synchronization  the hook      */
+comment|/**      * Adds a synchronization hook      *      * @param synchronization the hook      */
 DECL|method|addSynchronization (Synchronization synchronization)
 name|void
 name|addSynchronization
@@ -97,7 +97,7 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
-comment|/**      * Removes a synchronization hook      *      * @param synchronization  the hook      */
+comment|/**      * Removes a synchronization hook      *      * @param synchronization the hook      */
 DECL|method|removeSynchronization (Synchronization synchronization)
 name|void
 name|removeSynchronization
@@ -106,7 +106,7 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
-comment|/**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *       * @param target  the target exchange      */
+comment|/**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *      * @param target the target exchange      */
 DECL|method|handoverSynchronization (Exchange target)
 name|void
 name|handoverSynchronization
@@ -124,7 +124,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      *       * @return the unique ID      */
+comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      *      * @return the unique ID      */
 DECL|method|getId ()
 name|String
 name|getId
@@ -196,7 +196,7 @@ name|RouteContext
 name|popRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * Strategy for optional work to be execute before processing      *<p/>      * For example the {@link org.apache.camel.impl.MDCUnitOfWork} leverages this      * to ensure MDC is handled correctly during routing exchanges using the      * asynchronous routing engine.      *      * @param processor the processor to be executed      * @param exchange  the current exchange      * @param callback the callback      * @return the callback to be used (can return a wrapped callback)      */
+comment|/**      * Strategy for optional work to be execute before processing      *<p/>      * For example the {@link org.apache.camel.impl.MDCUnitOfWork} leverages this      * to ensure MDC is handled correctly during routing exchanges using the      * asynchronous routing engine.      *      * @param processor the processor to be executed      * @param exchange  the current exchange      * @param callback  the callback      * @return the callback to be used (can return a wrapped callback)      */
 DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
 name|AsyncCallback
 name|beforeProcess
@@ -227,6 +227,48 @@ name|callback
 parameter_list|,
 name|boolean
 name|doneSync
+parameter_list|)
+function_decl|;
+comment|/**      * Create a child unit of work, which is associated to this unit of work as its parent.      *<p/>      * This is often used when EIPs need to support {@link SubUnitOfWork}s. For example a splitter,      * where the sub messages of the splitter all participate in the same sub unit of work.      * That sub unit of work then decides whether the Splitter (in general) is failed or a      * processed successfully.      *      * @param childExchange the child exchange      * @return the created child unit of work      * @see SubUnitOfWork      * @see SubUnitOfWorkCallback      */
+DECL|method|createChildUnitOfWork (Exchange childExchange)
+name|UnitOfWork
+name|createChildUnitOfWork
+parameter_list|(
+name|Exchange
+name|childExchange
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the parent unit of work.      *      * @param parentUnitOfWork the parent      */
+DECL|method|setParentUnitOfWork (UnitOfWork parentUnitOfWork)
+name|void
+name|setParentUnitOfWork
+parameter_list|(
+name|UnitOfWork
+name|parentUnitOfWork
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link SubUnitOfWorkCallback} if this unit of work participates in a sub unit of work.      *      * @return the callback, or<tt>null</tt> if this unit of work is not part of a sub unit of work.      * @see #beginSubUnitOfWork(org.apache.camel.Exchange)      */
+DECL|method|getSubUnitOfWorkCallback ()
+name|SubUnitOfWorkCallback
+name|getSubUnitOfWorkCallback
+parameter_list|()
+function_decl|;
+comment|/**      * Begins a {@link SubUnitOfWork}, where sub (child) unit of works participate in a parent unit of work.      * The {@link SubUnitOfWork} will callback to the parent unit of work using {@link SubUnitOfWorkCallback}s.      *      * @param exchange the exchange      */
+DECL|method|beginSubUnitOfWork (Exchange exchange)
+name|void
+name|beginSubUnitOfWork
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Ends a {@link SubUnitOfWork}.      *<p/>      * The {@link #beginSubUnitOfWork(org.apache.camel.Exchange)} must have been invoked      * prior to this operation.      *      * @param exchange the exchange      */
+DECL|method|endSubUnitOfWork (Exchange exchange)
+name|void
+name|endSubUnitOfWork
+parameter_list|(
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 block|}

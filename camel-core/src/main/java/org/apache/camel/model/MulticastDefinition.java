@@ -144,6 +144,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|SubUnitOfWorkProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|aggregate
 operator|.
 name|AggregationStrategy
@@ -313,6 +327,13 @@ DECL|field|onPrepare
 specifier|private
 name|Processor
 name|onPrepare
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|shareUnitOfWork
+specifier|private
+name|Boolean
+name|shareUnitOfWork
 decl_stmt|;
 DECL|method|MulticastDefinition ()
 specifier|public
@@ -553,6 +574,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+DECL|method|shareUnitOfWork ()
+specifier|public
+name|MulticastDefinition
+name|shareUnitOfWork
+parameter_list|()
+block|{
+name|setShareUnitOfWork
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|createCompositeProcessor (RouteContext routeContext, List<Processor> list)
 specifier|protected
 name|Processor
@@ -706,7 +743,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|MulticastProcessor
+name|answer
+init|=
 operator|new
 name|MulticastProcessor
 argument_list|(
@@ -733,7 +772,28 @@ argument_list|,
 name|timeout
 argument_list|,
 name|onPrepare
+argument_list|,
+name|isShareUnitOfWork
+argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isShareUnitOfWork
+argument_list|()
+condition|)
+block|{
+comment|// wrap answer in a sub unit of work, since we share the unit of work
+return|return
+operator|new
+name|SubUnitOfWorkProcessor
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 DECL|method|getAggregationStrategy ()
@@ -1040,6 +1100,46 @@ name|onPrepare
 operator|=
 name|onPrepare
 expr_stmt|;
+block|}
+DECL|method|getShareUnitOfWork ()
+specifier|public
+name|Boolean
+name|getShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
+return|;
+block|}
+DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
+specifier|public
+name|void
+name|setShareUnitOfWork
+parameter_list|(
+name|Boolean
+name|shareUnitOfWork
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shareUnitOfWork
+operator|=
+name|shareUnitOfWork
+expr_stmt|;
+block|}
+DECL|method|isShareUnitOfWork ()
+specifier|public
+name|boolean
+name|isShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
+operator|!=
+literal|null
+operator|&&
+name|shareUnitOfWork
+return|;
 block|}
 block|}
 end_class

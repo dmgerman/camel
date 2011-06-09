@@ -561,7 +561,7 @@ operator|=
 name|iter
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -597,6 +597,9 @@ name|timeout
 parameter_list|,
 name|Processor
 name|onPrepare
+parameter_list|,
+name|boolean
+name|shareUnitOfWork
 parameter_list|)
 block|{
 name|super
@@ -618,6 +621,8 @@ argument_list|,
 name|timeout
 argument_list|,
 name|onPrepare
+argument_list|,
+name|shareUnitOfWork
 argument_list|)
 expr_stmt|;
 name|this
@@ -842,6 +847,21 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// if we share unit of work, we need to prepare the child exchange
+if|if
+condition|(
+name|isShareUnitOfWork
+argument_list|()
+condition|)
+block|{
+name|prepareSharedUnitOfWork
+argument_list|(
+name|copy
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set property which endpoint we send to
 name|setToEndpoint
 argument_list|(
@@ -877,6 +897,8 @@ name|createErrorHandler
 argument_list|(
 name|routeContext
 argument_list|,
+name|copy
+argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
@@ -894,7 +916,7 @@ name|onPrepare
 operator|.
 name|process
 argument_list|(
-name|exchange
+name|copy
 argument_list|)
 expr_stmt|;
 block|}
@@ -904,7 +926,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|exchange
+name|copy
 operator|.
 name|setException
 argument_list|(
@@ -1046,6 +1068,30 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RecipientList"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTraceLabel ()
+specifier|public
+name|String
+name|getTraceLabel
+parameter_list|()
+block|{
+return|return
+literal|"recipientList"
+return|;
 block|}
 block|}
 end_class

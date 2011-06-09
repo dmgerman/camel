@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelUnitOfWorkException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -169,6 +181,34 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|SubUnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|SubUnitOfWorkCallback
 import|;
 end_import
 
@@ -277,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link org.apache.camel.spi.UnitOfWork}  *  * @version   */
+comment|/**  * The default implementation of {@link org.apache.camel.spi.UnitOfWork}  */
 end_comment
 
 begin_class
@@ -304,6 +344,17 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// TODO: This implementation seems to have transformed itself into a to broad concern
+comment|// where unit of work is doing a bit more work than the transactional aspect that ties
+comment|// to its name. Maybe this implementation should be named ExchangeContext and we can
+comment|// introduce a simpler UnitOfWork concept. This would also allow us to refactor the
+comment|// SubUnitOfWork into a general parent/child unit of work concept. However this
+comment|// requires API changes and thus is best kept for Camel 3.0
+DECL|field|parent
+specifier|private
+name|UnitOfWork
+name|parent
 decl_stmt|;
 DECL|field|id
 specifier|private
@@ -358,6 +409,14 @@ name|RouteContext
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|subUnitOfWorks
+specifier|private
+name|Stack
+argument_list|<
+name|DefaultSubUnitOfWork
+argument_list|>
+name|subUnitOfWorks
+decl_stmt|;
 DECL|method|DefaultUnitOfWork (Exchange exchange)
 specifier|public
 name|DefaultUnitOfWork
@@ -393,7 +452,7 @@ operator|.
 name|getContext
 argument_list|()
 expr_stmt|;
-comment|// TODO: the copy on facade strategy will help us here in the future
+comment|// TODO: Camel 3.0: the copy on facade strategy will help us here in the future
 comment|// TODO: optimize to only copy original message if enabled to do so in the route
 comment|// special for JmsMessage as it can cause it to loose headers later.
 comment|// This will be resolved when we get the message facade with copy on write implemented
@@ -590,6 +649,69 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|newInstance (Exchange exchange)
+name|UnitOfWork
+name|newInstance
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DefaultUnitOfWork
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setParentUnitOfWork (UnitOfWork parentUnitOfWork)
+specifier|public
+name|void
+name|setParentUnitOfWork
+parameter_list|(
+name|UnitOfWork
+name|parentUnitOfWork
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parent
+operator|=
+name|parentUnitOfWork
+expr_stmt|;
+block|}
+DECL|method|createChildUnitOfWork (Exchange childExchange)
+specifier|public
+name|UnitOfWork
+name|createChildUnitOfWork
+parameter_list|(
+name|Exchange
+name|childExchange
+parameter_list|)
+block|{
+comment|// create a new child unit of work, and mark me as its parent
+name|UnitOfWork
+name|answer
+init|=
+name|newInstance
+argument_list|(
+name|childExchange
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setParentUnitOfWork
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
@@ -651,10 +773,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-name|originalInMessage
-operator|=
-literal|null
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -670,6 +788,31 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|subUnitOfWorks
+operator|!=
+literal|null
+condition|)
+block|{
+name|subUnitOfWorks
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+name|originalInMessage
+operator|=
+literal|null
+expr_stmt|;
+name|parent
+operator|=
+literal|null
+expr_stmt|;
+name|id
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|addSynchronization (Synchronization synchronization)
 specifier|public
@@ -906,6 +1049,48 @@ argument_list|,
 name|log
 argument_list|)
 expr_stmt|;
+comment|// notify uow callback if in use
+try|try
+block|{
+name|SubUnitOfWorkCallback
+name|uowCallback
+init|=
+name|getSubUnitOfWorkCallback
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uowCallback
+operator|!=
+literal|null
+condition|)
+block|{
+name|uowCallback
+operator|.
+name|onDone
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// must catch exceptions to ensure synchronizations is also invoked
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occurred during savepoint onDone. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// then fire event to signal the exchange is done
 try|try
 block|{
@@ -1214,8 +1399,290 @@ parameter_list|,
 name|boolean
 name|doneSync
 parameter_list|)
+block|{     }
+annotation|@
+name|Override
+DECL|method|beginSubUnitOfWork (Exchange exchange)
+specifier|public
+name|void
+name|beginSubUnitOfWork
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
-comment|// noop
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"beginSubUnitOfWork exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|subUnitOfWorks
+operator|==
+literal|null
+condition|)
+block|{
+name|subUnitOfWorks
+operator|=
+operator|new
+name|Stack
+argument_list|<
+name|DefaultSubUnitOfWork
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+comment|// push a new savepoint
+name|subUnitOfWorks
+operator|.
+name|push
+argument_list|(
+operator|new
+name|DefaultSubUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|endSubUnitOfWork (Exchange exchange)
+specifier|public
+name|void
+name|endSubUnitOfWork
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"endSubUnitOfWork exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|subUnitOfWorks
+operator|==
+literal|null
+operator|||
+name|subUnitOfWorks
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+comment|// pop last sub unit of work as its now ended
+name|SubUnitOfWork
+name|subUoW
+init|=
+name|subUnitOfWorks
+operator|.
+name|pop
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|subUoW
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
+comment|// the sub unit of work failed so set an exception containing all the caused exceptions
+comment|// and mark the exchange for rollback only
+comment|// if there are multiple exceptions then wrap those into another exception with them all
+name|Exception
+name|cause
+decl_stmt|;
+name|List
+argument_list|<
+name|Exception
+argument_list|>
+name|list
+init|=
+name|subUoW
+operator|.
+name|getExceptions
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|list
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|list
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
+name|cause
+operator|=
+name|list
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|cause
+operator|=
+operator|new
+name|CamelUnitOfWorkException
+argument_list|(
+name|exchange
+argument_list|,
+name|list
+argument_list|)
+expr_stmt|;
+block|}
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+comment|// mark it as rollback and that the unit of work is exhausted. This ensures that we do not try
+comment|// to redeliver this exception (again)
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|UNIT_OF_WORK_EXHAUSTED
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// and remove any indications of error handled which will prevent this exception to be noticed
+comment|// by the error handler which we want to react with the result of the sub unit of work
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ERRORHANDLER_HANDLED
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_HANDLED
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"endSubUnitOfWork exchangeId: {} with {} caused exceptions."
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|list
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getSubUnitOfWorkCallback ()
+specifier|public
+name|SubUnitOfWorkCallback
+name|getSubUnitOfWorkCallback
+parameter_list|()
+block|{
+comment|// if there is a parent-child relationship between unit of works
+comment|// then we should use the callback strategies from the parent
+if|if
+condition|(
+name|parent
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|parent
+operator|.
+name|getSubUnitOfWorkCallback
+argument_list|()
+return|;
+block|}
+if|if
+condition|(
+name|subUnitOfWorks
+operator|==
+literal|null
+operator|||
+name|subUnitOfWorks
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+return|return
+name|subUnitOfWorks
+operator|.
+name|peek
+argument_list|()
+return|;
 block|}
 DECL|method|getTransactedBy ()
 specifier|private

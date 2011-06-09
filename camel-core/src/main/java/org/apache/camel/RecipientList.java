@@ -184,6 +184,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|shareUnitOfWork ()
+DECL|field|false
+name|boolean
+name|shareUnitOfWork
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

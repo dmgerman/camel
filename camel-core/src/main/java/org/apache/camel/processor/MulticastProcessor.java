@@ -444,6 +444,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|AsyncProcessorHelper
@@ -947,6 +961,12 @@ name|Processor
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|shareUnitOfWork
+specifier|private
+specifier|final
+name|boolean
+name|shareUnitOfWork
+decl_stmt|;
 DECL|method|MulticastProcessor (CamelContext camelContext, Collection<Processor> processors)
 specifier|public
 name|MulticastProcessor
@@ -1007,10 +1027,12 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MulticastProcessor (CamelContext camelContext, Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare)
+DECL|method|MulticastProcessor (CamelContext camelContext, Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
@@ -1043,6 +1065,9 @@ name|timeout
 parameter_list|,
 name|Processor
 name|onPrepare
+parameter_list|,
+name|boolean
+name|shareUnitOfWork
 parameter_list|)
 block|{
 name|notNull
@@ -1110,6 +1135,12 @@ operator|.
 name|onPrepare
 operator|=
 name|onPrepare
+expr_stmt|;
+name|this
+operator|.
+name|shareUnitOfWork
+operator|=
+name|shareUnitOfWork
 expr_stmt|;
 block|}
 annotation|@
@@ -3962,6 +3993,21 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// if we share unit of work, we need to prepare the child exchange
+if|if
+condition|(
+name|isShareUnitOfWork
+argument_list|()
+condition|)
+block|{
+name|prepareSharedUnitOfWork
+argument_list|(
+name|copy
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and add the pair
 name|RouteContext
 name|routeContext
@@ -4044,6 +4090,8 @@ name|createErrorHandler
 argument_list|(
 name|routeContext
 argument_list|,
+name|exchange
+argument_list|,
 name|prepared
 argument_list|)
 expr_stmt|;
@@ -4094,13 +4142,16 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Exchange exchange, Processor processor)
 specifier|protected
 name|Processor
 name|createErrorHandler
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|,
 name|Processor
 name|processor
@@ -4217,10 +4268,11 @@ block|}
 comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
 name|answer
 operator|=
-operator|new
-name|UnitOfWorkProcessor
+name|createUnitOfWorkProcessor
 argument_list|(
 name|processor
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// add to cache
@@ -4239,16 +4291,102 @@ block|{
 comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
 name|answer
 operator|=
-operator|new
-name|UnitOfWorkProcessor
+name|createUnitOfWorkProcessor
 argument_list|(
 name|processor
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|answer
 return|;
+block|}
+comment|/**      * Strategy to create the {@link UnitOfWorkProcessor} to be used for the sub route      *      * @param processor the processor wrapped in this unit of work processor      * @param exchange  the exchange      * @return the unit of work processor      */
+DECL|method|createUnitOfWorkProcessor (Processor processor, Exchange exchange)
+specifier|protected
+name|UnitOfWorkProcessor
+name|createUnitOfWorkProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|UnitOfWork
+name|parent
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|PARENT_UNIT_OF_WORK
+argument_list|,
+name|UnitOfWork
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|parent
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ChildUnitOfWorkProcessor
+argument_list|(
+name|parent
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|UnitOfWorkProcessor
+argument_list|(
+name|processor
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Prepares the exchange for participating in a shared unit of work      *<p/>      * This ensures a child exchange can access its parent {@link UnitOfWork} when it participate      * in a shared unit of work.      *      * @param childExchange  the child exchange      * @param parentExchange the parent exchange      */
+DECL|method|prepareSharedUnitOfWork (Exchange childExchange, Exchange parentExchange)
+specifier|protected
+name|void
+name|prepareSharedUnitOfWork
+parameter_list|(
+name|Exchange
+name|childExchange
+parameter_list|,
+name|Exchange
+name|parentExchange
+parameter_list|)
+block|{
+name|childExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|PARENT_UNIT_OF_WORK
+argument_list|,
+name|parentExchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -4729,6 +4867,16 @@ parameter_list|()
 block|{
 return|return
 name|parallelProcessing
+return|;
+block|}
+DECL|method|isShareUnitOfWork ()
+specifier|public
+name|boolean
+name|isShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
 return|;
 block|}
 DECL|method|next ()

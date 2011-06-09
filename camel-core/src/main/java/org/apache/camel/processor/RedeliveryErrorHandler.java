@@ -198,6 +198,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|SubUnitOfWorkCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|AsyncProcessorHelper
@@ -1052,11 +1066,57 @@ operator|!
 name|shouldRedeliver
 condition|)
 block|{
-comment|// no we should not redeliver to the same output so either try an onException (if any given)
-comment|// or the dead letter queue
 name|Processor
 name|target
 init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|deliver
+init|=
+literal|true
+decl_stmt|;
+comment|// the unit of work may have an optional callback associated we need to leverage
+name|SubUnitOfWorkCallback
+name|uowCallback
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getSubUnitOfWorkCallback
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uowCallback
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// signal to the callback we are exhausted
+name|uowCallback
+operator|.
+name|onExhausted
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// do not deliver to the failure processor as its been handled by the callback instead
+name|deliver
+operator|=
+literal|false
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|deliver
+condition|)
+block|{
+comment|// should deliver to failure processor (either from onException or the dead letter channel)
+name|target
+operator|=
 name|data
 operator|.
 name|failureProcessor
@@ -1070,8 +1130,10 @@ else|:
 name|data
 operator|.
 name|deadLetterProcessor
-decl_stmt|;
-comment|// deliver to the failure processor (either an on exception or dead letter queue
+expr_stmt|;
+block|}
+comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
+comment|// bit of work for exhausted exchanges (its only the target processor which may be null if handled by a savepoint)
 name|boolean
 name|sync
 init|=
@@ -1525,11 +1587,57 @@ operator|!
 name|shouldRedeliver
 condition|)
 block|{
-comment|// no we should not redeliver to the same output so either try an onException (if any given)
-comment|// or the dead letter queue
 name|Processor
 name|target
 init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|deliver
+init|=
+literal|true
+decl_stmt|;
+comment|// the unit of work may have an optional callback associated we need to leverage
+name|SubUnitOfWorkCallback
+name|uowCallback
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getSubUnitOfWorkCallback
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uowCallback
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// signal to the callback we are exhausted
+name|uowCallback
+operator|.
+name|onExhausted
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// do not deliver to the failure processor as its been handled by the callback instead
+name|deliver
+operator|=
+literal|false
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|deliver
+condition|)
+block|{
+comment|// should deliver to failure processor (either from onException or the dead letter channel)
+name|target
+operator|=
 name|data
 operator|.
 name|failureProcessor
@@ -1543,8 +1651,10 @@ else|:
 name|data
 operator|.
 name|deadLetterProcessor
-decl_stmt|;
-comment|// deliver to the failure processor (either an on exception or dead letter queue
+expr_stmt|;
+block|}
+comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
+comment|// bit of work for exhausted exchanges (its only the target processor which may be null if handled by a savepoint)
 name|deliverToFailureProcessor
 argument_list|(
 name|target
@@ -2212,6 +2322,26 @@ name|processor
 expr_stmt|;
 block|}
 block|}
+comment|// only log if not failure handled or not an exhausted unit of work
+if|if
+condition|(
+operator|!
+name|ExchangeHelper
+operator|.
+name|isFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
+operator|&&
+operator|!
+name|ExchangeHelper
+operator|.
+name|isUnitOfWorkExhausted
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
 name|String
 name|msg
 init|=
@@ -2249,6 +2379,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 name|data
 operator|.
 name|redeliveryCounter
@@ -3059,6 +3190,16 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+comment|// if we should not rollback, then check whether logging is enabled
+if|if
+condition|(
 name|handled
 operator|&&
 operator|!
@@ -3122,12 +3263,41 @@ block|{
 comment|// do not log exhausted
 return|return;
 block|}
+block|}
 name|LoggingLevel
 name|newLogLevel
 decl_stmt|;
 name|boolean
-name|logStrackTrace
+name|logStackTrace
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
+condition|)
+block|{
+name|newLogLevel
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getRetriesExhaustedLogLevel
+argument_list|()
+expr_stmt|;
+name|logStackTrace
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogStackTrace
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|shouldRedeliver
@@ -3142,7 +3312,7 @@ operator|.
 name|getRetryAttemptedLogLevel
 argument_list|()
 expr_stmt|;
-name|logStrackTrace
+name|logStackTrace
 operator|=
 name|data
 operator|.
@@ -3163,7 +3333,7 @@ operator|.
 name|getRetriesExhaustedLogLevel
 argument_list|()
 expr_stmt|;
-name|logStrackTrace
+name|logStackTrace
 operator|=
 name|data
 operator|.
@@ -3207,14 +3377,44 @@ block|{
 name|String
 name|msg
 init|=
-literal|"Rollback exchange"
+literal|"Rollback exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
+name|Throwable
+name|cause
+init|=
 name|exchange
 operator|.
 name|getException
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getException
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Throwable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cause
 operator|!=
 literal|null
 condition|)
@@ -3225,10 +3425,7 @@ name|msg
 operator|+
 literal|" due: "
 operator|+
-name|exchange
-operator|.
-name|getException
-argument_list|()
+name|cause
 operator|.
 name|getMessage
 argument_list|()
@@ -3277,7 +3474,7 @@ name|e
 operator|!=
 literal|null
 operator|&&
-name|logStrackTrace
+name|logStackTrace
 condition|)
 block|{
 name|logger

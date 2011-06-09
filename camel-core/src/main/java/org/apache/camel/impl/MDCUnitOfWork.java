@@ -70,6 +70,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|MDC
@@ -230,6 +244,25 @@ name|breadcrumbId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance (Exchange exchange)
+specifier|public
+name|UnitOfWork
+name|newInstance
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+operator|new
+name|MDCUnitOfWork
+argument_list|(
+name|exchange
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
@@ -421,6 +454,19 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|afterProcess
+argument_list|(
+name|processor
+argument_list|,
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|doneSync
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Clears information put on the MDC by this {@link MDCUnitOfWork}      */
 DECL|method|clear ()

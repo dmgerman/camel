@@ -348,6 +348,13 @@ specifier|private
 name|Processor
 name|onPrepare
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|shareUnitOfWork
+specifier|private
+name|Boolean
+name|shareUnitOfWork
+decl_stmt|;
 DECL|method|RecipientListDefinition ()
 specifier|public
 name|RecipientListDefinition
@@ -499,6 +506,14 @@ operator|.
 name|setStreaming
 argument_list|(
 name|isStreaming
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setShareUnitOfWork
+argument_list|(
+name|isShareUnitOfWork
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -983,6 +998,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+DECL|method|shareUnitOfWork ()
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|shareUnitOfWork
+parameter_list|()
+block|{
+name|setShareUnitOfWork
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getDelimiter ()
@@ -1352,6 +1386,46 @@ name|onPrepare
 operator|=
 name|onPrepare
 expr_stmt|;
+block|}
+DECL|method|getShareUnitOfWork ()
+specifier|public
+name|Boolean
+name|getShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
+return|;
+block|}
+DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
+specifier|public
+name|void
+name|setShareUnitOfWork
+parameter_list|(
+name|Boolean
+name|shareUnitOfWork
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shareUnitOfWork
+operator|=
+name|shareUnitOfWork
+expr_stmt|;
+block|}
+DECL|method|isShareUnitOfWork ()
+specifier|public
+name|boolean
+name|isShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
+operator|!=
+literal|null
+operator|&&
+name|shareUnitOfWork
+return|;
 block|}
 block|}
 end_class

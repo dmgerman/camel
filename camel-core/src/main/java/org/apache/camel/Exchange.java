@@ -464,6 +464,12 @@ name|ON_COMPLETION
 init|=
 literal|"CamelOnCompletion"
 decl_stmt|;
+DECL|field|PARENT_UNIT_OF_WORK
+name|String
+name|PARENT_UNIT_OF_WORK
+init|=
+literal|"CamelParentUnitOfWork"
+decl_stmt|;
 DECL|field|RECEIVED_TIMESTAMP
 name|String
 name|RECEIVED_TIMESTAMP
@@ -613,6 +619,12 @@ name|String
 name|TRANSFER_ENCODING
 init|=
 literal|"Transfer-Encoding"
+decl_stmt|;
+DECL|field|UNIT_OF_WORK_EXHAUSTED
+name|String
+name|UNIT_OF_WORK_EXHAUSTED
+init|=
+literal|"CamelUnitOfWorkExhausted"
 decl_stmt|;
 DECL|field|XSLT_FILE_NAME
 name|String

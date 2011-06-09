@@ -383,10 +383,12 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare)
+DECL|method|Splitter (CamelContext camelContext, Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean useSubUnitOfWork)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -419,6 +421,9 @@ name|timeout
 parameter_list|,
 name|Processor
 name|onPrepare
+parameter_list|,
+name|boolean
+name|useSubUnitOfWork
 parameter_list|)
 block|{
 name|super
@@ -445,6 +450,8 @@ argument_list|,
 name|timeout
 argument_list|,
 name|onPrepare
+argument_list|,
+name|useSubUnitOfWork
 argument_list|)
 expr_stmt|;
 name|this
@@ -841,6 +848,21 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// if we share unit of work, we need to prepare the child exchange
+if|if
+condition|(
+name|isShareUnitOfWork
+argument_list|()
+condition|)
+block|{
+name|prepareSharedUnitOfWork
+argument_list|(
+name|newExchange
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|part

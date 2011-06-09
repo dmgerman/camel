@@ -1454,17 +1454,121 @@ condition|(
 name|defn
 operator|instanceof
 name|MulticastDefinition
-operator|||
+condition|)
+block|{
+comment|// do not use error handler for multicast as it offers fine grained error handlers for its outputs
+comment|// however if sub unit of work is enabled, we need to wrap an error handler on the multicast parent
+name|MulticastDefinition
+name|def
+init|=
+operator|(
+name|MulticastDefinition
+operator|)
+name|defn
+decl_stmt|;
+if|if
+condition|(
+name|def
+operator|.
+name|isShareUnitOfWork
+argument_list|()
+operator|&&
+name|child
+operator|==
+literal|null
+condition|)
+block|{
+comment|// only wrap the parent (not the children of the multicast)
+name|wrapChannelInErrorHandler
+argument_list|(
+name|channel
+argument_list|,
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
 name|defn
 operator|instanceof
 name|RecipientListDefinition
 condition|)
 block|{
-comment|// do not use error handler for multicast or recipient list based as it offers fine grained error handlers for its outputs
+comment|// do not use error handler for recipient list as it offers fine grained error handlers for its outputs
+comment|// however if sub unit of work is enabled, we need to wrap an error handler on the recipient list parent
+name|RecipientListDefinition
+name|def
+init|=
+operator|(
+name|RecipientListDefinition
+operator|)
+name|defn
+decl_stmt|;
+if|if
+condition|(
+name|def
+operator|.
+name|isShareUnitOfWork
+argument_list|()
+operator|&&
+name|child
+operator|==
+literal|null
+condition|)
+block|{
+comment|// only wrap the parent (not the children of the multicast)
+name|wrapChannelInErrorHandler
+argument_list|(
+name|channel
+argument_list|,
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
 comment|// use error handler by default or if configured to do so
+name|wrapChannelInErrorHandler
+argument_list|(
+name|channel
+argument_list|,
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} wrapped in Channel: {}"
+argument_list|,
+name|defn
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
+return|return
+name|channel
+return|;
+block|}
+comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel       the channel      * @param routeContext  the route context      * @throws Exception can be thrown if failed to create error handler builder      */
+DECL|method|wrapChannelInErrorHandler (Channel channel, RouteContext routeContext)
+specifier|private
+name|void
+name|wrapChannelInErrorHandler
+parameter_list|(
+name|Channel
+name|channel
+parameter_list|,
+name|RouteContext
+name|routeContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|isInheritErrorHandler
@@ -1482,11 +1586,9 @@ name|trace
 argument_list|(
 literal|"{} is configured to inheritErrorHandler"
 argument_list|,
-name|defn
+name|this
 argument_list|)
 expr_stmt|;
-comment|// only add error handler if we are configured to do so
-comment|// regular definition so add the error handler
 name|Processor
 name|output
 init|=
@@ -1525,25 +1627,10 @@ name|debug
 argument_list|(
 literal|"{} is configured to not inheritErrorHandler."
 argument_list|,
-name|defn
+name|this
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"{} wrapped in Channel: {}"
-argument_list|,
-name|defn
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
-name|channel
-return|;
 block|}
 comment|/**      * Wraps the given output in an error handler      *      * @param routeContext the route context      * @param output the output      * @return the output wrapped with the error handler      * @throws Exception can be thrown if failed to create error handler builder      */
 DECL|method|wrapInErrorHandler (RouteContext routeContext, ErrorHandlerBuilder builder, Processor output)
