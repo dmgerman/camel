@@ -273,7 +273,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?preMove=work/work-${file:name}&initialDelay=0&delay=10"
+literal|"file://target/premove?preMove=work/work-${file:name}&initialDelay=0&delay=100"
 argument_list|)
 operator|.
 name|process
