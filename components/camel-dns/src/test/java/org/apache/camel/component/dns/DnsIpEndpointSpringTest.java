@@ -92,6 +92,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -270,6 +280,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Run manually, performs DNS lookup to remote apache.org server"
+argument_list|)
 DECL|method|testValidIPRequests ()
 specifier|public
 name|void
@@ -289,7 +304,7 @@ name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"192.0.32.10"
+literal|"140.211.11.131"
 argument_list|)
 expr_stmt|;
 name|template
@@ -300,7 +315,7 @@ literal|"hello"
 argument_list|,
 literal|"dns.domain"
 argument_list|,
-literal|"www.example.com"
+literal|"www.apache.org"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
