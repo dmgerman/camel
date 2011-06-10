@@ -41,6 +41,37 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
+DECL|method|FailedToCreateConsumerException (String endpointURI, Throwable cause)
+specifier|public
+name|FailedToCreateConsumerException
+parameter_list|(
+name|String
+name|endpointURI
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to create Consumer for endpoint for: "
+operator|+
+name|endpointURI
+operator|+
+literal|". Reason: "
+operator|+
+name|cause
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|endpointURI
+expr_stmt|;
+block|}
 DECL|method|FailedToCreateConsumerException (Endpoint endpoint, Throwable cause)
 specifier|public
 name|FailedToCreateConsumerException
