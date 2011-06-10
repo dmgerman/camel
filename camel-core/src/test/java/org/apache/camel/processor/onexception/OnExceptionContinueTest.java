@@ -208,6 +208,16 @@ argument_list|(
 literal|"Forced"
 argument_list|)
 argument_list|)
+comment|//throw a second time to validate that the exchange is reset appropriately
+operator|.
+name|throwException
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced"
+argument_list|)
+argument_list|)
 operator|.
 name|to
 argument_list|(

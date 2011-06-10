@@ -2066,6 +2066,15 @@ operator|.
 name|REDELIVERY_MAX_COUNTER
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_HANDLED
+argument_list|)
+expr_stmt|;
 comment|// keep the Exchange.EXCEPTION_CAUGHT as property so end user knows the caused exception
 comment|// create log message
 name|String
