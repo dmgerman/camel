@@ -273,6 +273,16 @@ condition|(
 name|answer
 operator|==
 literal|null
+operator|&&
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getErrorHandlerRef
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|answer

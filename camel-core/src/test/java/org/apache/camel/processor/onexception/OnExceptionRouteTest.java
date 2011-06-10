@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelExecutionException
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|ContextTestSupport
 import|;
 end_import
 
@@ -283,6 +283,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// DLC does not handle the exception as we failed during processing in onException
 name|MockEndpoint
 name|error
 init|=
@@ -295,7 +296,7 @@ name|error
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -313,6 +314,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -322,6 +325,45 @@ argument_list|,
 literal|"<order><type>myType</type><user>FuncError</user></order>"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+comment|// the myOwnHandlerBean throw exception while handling an exception
+name|IOException
+name|cause
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Damn something did not work"
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -331,50 +373,6 @@ argument_list|(
 name|myOwnHandlerBean
 operator|.
 name|getPayload
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// and check that we have the caused exception stored
-name|Exception
-name|cause
-init|=
-name|error
-operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-name|Exception
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|IOException
-operator|.
-name|class
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Damn something did not work"
-argument_list|,
-name|cause
-operator|.
-name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

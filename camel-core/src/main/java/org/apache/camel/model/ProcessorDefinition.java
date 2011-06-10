@@ -1401,6 +1401,15 @@ name|FinallyDefinition
 condition|)
 block|{
 comment|// do not use error handler for try .. catch .. finally blocks as it will handle errors itself
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} is part of doTry .. doCatch .. doFinally so no error handler is applied"
+argument_list|,
+name|defn
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1447,6 +1456,47 @@ condition|)
 block|{
 comment|// do not use error handler for try .. catch .. finally blocks as it will handle errors itself
 comment|// by checking that any of our parent(s) is not a try .. catch or finally type
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} is part of doTry .. doCatch .. doFinally so no error handler is applied"
+argument_list|,
+name|defn
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|defn
+operator|instanceof
+name|OnExceptionDefinition
+operator|||
+name|ProcessorDefinitionHelper
+operator|.
+name|isParentOfType
+argument_list|(
+name|OnExceptionDefinition
+operator|.
+name|class
+argument_list|,
+name|defn
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} is part of OnException so no error handler is applied"
+argument_list|,
+name|defn
+argument_list|)
+expr_stmt|;
+comment|// do not use error handler for onExceptions blocks as it will handle errors itself
 block|}
 elseif|else
 if|if
@@ -1487,6 +1537,18 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} is part of multicast/recipientList which have special error handling so no error handler is applied"
+argument_list|,
+name|defn
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1524,6 +1586,18 @@ argument_list|(
 name|channel
 argument_list|,
 name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"{} is part of multicast/recipientList which have special error handling so no error handler is applied"
+argument_list|,
+name|defn
 argument_list|)
 expr_stmt|;
 block|}

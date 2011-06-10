@@ -88,6 +88,26 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
+literal|"mock:a"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:b"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
@@ -116,11 +136,18 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// TODO: CAMEL-4022 should not go into DLC
-comment|//getMockEndpoint("mock:dlc").expectedMessageCount(0);
+name|getMockEndpoint
+argument_list|(
+literal|"mock:dlc"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 try|try
 block|{
-comment|// TODO: if sending to direct:intermediate then it works as expected
 name|template
 operator|.
 name|sendBody
@@ -130,8 +157,11 @@ argument_list|,
 literal|"<body/>"
 argument_list|)
 expr_stmt|;
-comment|// TODO: should fail
-comment|// fail("Should throw an exception");
+name|fail
+argument_list|(
+literal|"Should throw an exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -156,7 +186,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Forced by unit test"
+literal|"Damn Again"
 argument_list|,
 name|cause
 operator|.
@@ -177,6 +207,26 @@ name|MyExceptionThrower
 implements|implements
 name|Processor
 block|{
+DECL|field|msg
+specifier|private
+name|String
+name|msg
+decl_stmt|;
+DECL|method|MyExceptionThrower (String msg)
+specifier|public
+name|MyExceptionThrower
+parameter_list|(
+name|String
+name|msg
+parameter_list|)
+block|{
+name|this
+operator|.
+name|msg
+operator|=
+name|msg
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange)
@@ -194,7 +244,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Forced by unit test"
+name|msg
 argument_list|)
 throw|;
 block|}
@@ -209,14 +259,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|Processor
-name|exceptionThrower
-init|=
-operator|new
-name|MyExceptionThrower
-argument_list|()
-decl_stmt|;
 return|return
 operator|new
 name|RouteBuilder
@@ -249,14 +291,23 @@ expr_stmt|;
 comment|// onException that does NOT handle the exception
 name|onException
 argument_list|(
-name|IllegalArgumentException
+name|Exception
 operator|.
 name|class
 argument_list|)
 operator|.
+name|logStackTrace
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|process
 argument_list|(
-name|exceptionThrower
+operator|new
+name|MyExceptionThrower
+argument_list|(
+literal|"Damn Again"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -272,6 +323,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"mock:a"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"direct:intermediate"
 argument_list|)
 operator|.
@@ -280,9 +336,15 @@ argument_list|(
 literal|"mock:result2"
 argument_list|)
 expr_stmt|;
+comment|// 2nd route
 name|from
 argument_list|(
 literal|"direct:intermediate"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:b"
 argument_list|)
 operator|.
 name|setBody
@@ -295,7 +357,11 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-name|exceptionThrower
+operator|new
+name|MyExceptionThrower
+argument_list|(
+literal|"Damn"
+argument_list|)
 argument_list|)
 operator|.
 name|to

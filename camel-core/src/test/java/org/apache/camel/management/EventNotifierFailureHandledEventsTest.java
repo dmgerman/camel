@@ -770,20 +770,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|ExchangeSentEvent
-operator|.
-name|class
-argument_list|,
-name|events
-operator|.
-name|get
-argument_list|(
-literal|4
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|ExchangeFailureHandledEvent
 name|e
 init|=
@@ -797,7 +783,7 @@ name|events
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -813,10 +799,24 @@ name|isDeadLetterChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// dead letter channel will mark the exchange as completed
+comment|// onException will handle the exception
 name|assertIsInstanceOf
 argument_list|(
 name|ExchangeCompletedEvent
+operator|.
+name|class
+argument_list|,
+name|events
+operator|.
+name|get
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,

@@ -195,7 +195,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// b should get between 2 or 3 depending when we stop (we run parallel)
+comment|// b should get between 1 or 3 depending when we stop (we run parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:b"
@@ -203,7 +203,7 @@ argument_list|)
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

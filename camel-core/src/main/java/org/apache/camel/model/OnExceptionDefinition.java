@@ -268,6 +268,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|FatalFallbackErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|RedeliveryPolicy
 import|;
 end_import
@@ -771,6 +785,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isInheritErrorHandler
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|isInheritErrorHandler
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|this
+operator|+
+literal|" cannot have the inheritErrorHandler option set to true"
+argument_list|)
+throw|;
+block|}
 name|setHandledFromExpressionType
 argument_list|(
 name|routeContext
@@ -848,15 +883,42 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// lets attach this on exception to the route error handler
-name|errorHandler
-operator|=
+name|Processor
+name|child
+init|=
 name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|child
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap in our special safe fallback error handler if OnException have child output
+name|errorHandler
+operator|=
+operator|new
+name|FatalFallbackErrorHandler
+argument_list|(
+name|child
+argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// do not wrap as there is no child output
+name|errorHandler
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|// lookup the error handler builder
 name|ErrorHandlerBuilder
 name|builder
 init|=
@@ -868,6 +930,7 @@ operator|.
 name|getErrorHandlerBuilder
 argument_list|()
 decl_stmt|;
+comment|// and add this as error handlers
 name|builder
 operator|.
 name|addErrorHandlers

@@ -251,11 +251,17 @@ name|IOException
 operator|.
 name|class
 argument_list|)
+comment|// try to redeliver at most 3 times
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
 operator|.
 name|onRedelivery
 argument_list|(
 operator|new
-name|MyIORedeliverPrcessor
+name|MyIORedeliverProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -279,10 +285,10 @@ operator|.
 name|onRedelivery
 argument_list|(
 operator|new
-name|MyRedeliverPrcessor
+name|MyRedeliverProcessor
 argument_list|()
 argument_list|)
-comment|// setting delay to zero is just to make unit teting faster
+comment|// setting delay to zero is just to make unit testing faster
 operator|.
 name|redeliveryDelay
 argument_list|(
@@ -332,11 +338,11 @@ block|}
 comment|// START SNIPPET: e3
 comment|// This is our processor that is executed before every redelivery attempt
 comment|// here we can do what we want in the java code, such as altering the message
-DECL|class|MyRedeliverPrcessor
+DECL|class|MyRedeliverProcessor
 specifier|public
 specifier|static
 class|class
-name|MyRedeliverPrcessor
+name|MyRedeliverProcessor
 implements|implements
 name|Processor
 block|{
@@ -404,11 +410,11 @@ comment|// END SNIPPET: e3
 comment|// START SNIPPET: e4
 comment|// This is our processor that is executed before IOException redeliver attempt
 comment|// here we can do what we want in the java code, such as altering the message
-DECL|class|MyIORedeliverPrcessor
+DECL|class|MyIORedeliverProcessor
 specifier|public
 specifier|static
 class|class
-name|MyIORedeliverPrcessor
+name|MyIORedeliverProcessor
 implements|implements
 name|Processor
 block|{

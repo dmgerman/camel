@@ -157,6 +157,8 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+comment|// we tried to handle that exception but then another exception occurred
+comment|// so this exchange failed with an exception
 name|fail
 argument_list|(
 literal|"Should throw an exception"
@@ -169,6 +171,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
+name|ConnectException
+name|cause
+init|=
 name|assertIsInstanceOf
 argument_list|(
 name|ConnectException
@@ -180,6 +185,16 @@ operator|.
 name|getCause
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Cannot connect to bar server"
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
@@ -187,7 +202,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"12312345"
+literal|"123"
 argument_list|,
 name|counter
 argument_list|)
@@ -307,6 +322,7 @@ operator|+=
 name|s
 expr_stmt|;
 block|}
+comment|// we throw an exception here, but the default error handler should not kick in
 throw|throw
 operator|new
 name|ConnectException
