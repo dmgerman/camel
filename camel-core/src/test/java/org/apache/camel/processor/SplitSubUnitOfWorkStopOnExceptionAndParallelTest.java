@@ -216,7 +216,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// line should get between 1 or 2 depending when we stop (we run parallel)
+comment|// line should get between 0 or 2 depending when we stop (we run parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:line"
@@ -224,7 +224,7 @@ argument_list|)
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
