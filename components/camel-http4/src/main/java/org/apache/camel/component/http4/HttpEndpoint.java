@@ -659,28 +659,17 @@ literal|"http.proxyPort"
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: "
-operator|+
+literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: {} port: {}"
+argument_list|,
 name|host
-operator|+
-literal|" port: "
-operator|+
+argument_list|,
 name|port
 argument_list|)
 expr_stmt|;
-block|}
 name|HttpHost
 name|proxy
 init|=
@@ -728,24 +717,15 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created HttpClient "
-operator|+
+literal|"Created HttpClient {}"
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

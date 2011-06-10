@@ -247,24 +247,15 @@ argument_list|,
 literal|"participant"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating XmppPrivateChatProducer to participant "
-operator|+
+literal|"Creating XmppPrivateChatProducer to participant {}"
+argument_list|,
 name|participant
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -299,8 +290,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reconnecting to: "
-operator|+
+literal|"Reconnecting to: {}"
+argument_list|,
 name|XmppEndpoint
 operator|.
 name|getConnectionMessage
@@ -436,13 +427,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received and discarding message from "
-operator|+
+literal|"Received and discarding message from {} : {}"
+argument_list|,
 name|getParticipant
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|message
 operator|.
 name|getBody
@@ -521,26 +510,27 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending XMPP message to "
-operator|+
+literal|"Sending XMPP message to {} from {} : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|endpoint
 operator|.
 name|getParticipant
 argument_list|()
-operator|+
-literal|" from "
-operator|+
+block|,
 name|endpoint
 operator|.
 name|getUser
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+block|,
 name|message
 operator|.
 name|getBody
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

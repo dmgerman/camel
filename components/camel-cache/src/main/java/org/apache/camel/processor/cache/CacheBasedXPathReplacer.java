@@ -454,17 +454,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Replacing XPath value "
-operator|+
+literal|"Replacing XPath value {} in Message with value stored against key {} in CacheName {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|xpath
-operator|+
-literal|"in Message with value stored against key "
-operator|+
+block|,
 name|key
-operator|+
-literal|" in CacheName "
-operator|+
+block|,
 name|cacheName
+block|}
 argument_list|)
 expr_stmt|;
 block|}

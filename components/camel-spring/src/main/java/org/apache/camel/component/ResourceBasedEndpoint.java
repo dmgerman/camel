@@ -301,29 +301,18 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Loading resource: "
-operator|+
+literal|"Loading resource: {} using: {}"
+argument_list|,
 name|resourceUri
-operator|+
-literal|" using: "
-operator|+
+argument_list|,
 name|getResourceLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|resource
 operator|=
 name|getResourceLoader
@@ -407,26 +396,15 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reading resource: "
-operator|+
+literal|"Reading resource: {} into the content cache"
+argument_list|,
 name|resourceUri
-operator|+
-literal|" into the content cache"
 argument_list|)
 expr_stmt|;
-block|}
 name|is
 operator|=
 name|getResourceAsInputStreamWithoutCache
@@ -443,26 +421,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using resource: "
-operator|+
+literal|"Using resource: {} from the content cache"
+argument_list|,
 name|resourceUri
-operator|+
-literal|" from the content cache"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|new
 name|ByteArrayInputStream

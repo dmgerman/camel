@@ -734,24 +734,15 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"New Route is: "
-operator|+
+literal|"New Route is: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|info

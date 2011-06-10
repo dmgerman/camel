@@ -519,24 +519,15 @@ operator|new
 name|CxfRsHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Create default header filter strategy "
-operator|+
+literal|"Create default header filter strategy {}"
+argument_list|,
 name|headerFilterStrategy
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|headerFilterStrategy
@@ -666,24 +657,15 @@ operator|new
 name|DefaultCxfRsBinding
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Create default CXF Binding "
-operator|+
+literal|"Create default CXF Binding {}"
+argument_list|,
 name|binding
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

@@ -1112,27 +1112,16 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignore DataFormat mode "
-operator|+
+literal|"Ignore DataFormat mode {} since SEI class is annotated with WebServiceProvider"
+argument_list|,
 name|getDataFormat
 argument_list|()
-operator|+
-literal|" since SEI class is annotated with WebServiceProvider"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -2709,24 +2698,15 @@ operator|=
 name|doGetBus
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using DefaultBus "
-operator|+
+literal|"Using DefaultBus {}"
+argument_list|,
 name|bus
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -2748,26 +2728,15 @@ argument_list|(
 name|bus
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Set bus "
-operator|+
+literal|"Set bus {} as thread default bus"
+argument_list|,
 name|bus
-operator|+
-literal|" as thread default bus"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|bus

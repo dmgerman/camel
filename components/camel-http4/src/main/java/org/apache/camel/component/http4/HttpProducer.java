@@ -773,15 +773,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Executing http "
-operator|+
+literal|"Executing http {} method: {}"
+argument_list|,
 name|httpRequest
 operator|.
 name|getMethod
 argument_list|()
-operator|+
-literal|" method: "
-operator|+
+argument_list|,
 name|httpRequest
 operator|.
 name|getURI
@@ -810,24 +808,15 @@ operator|.
 name|getStatusCode
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Http responseCode: "
-operator|+
+literal|"Http responseCode: {}"
+argument_list|,
 name|responseCode
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|throwException
@@ -1908,28 +1897,17 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No Content-Type provided for URL: "
-operator|+
+literal|"No Content-Type provided for URL: {} with exchange: {}"
+argument_list|,
 name|url
-operator|+
-literal|" with exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

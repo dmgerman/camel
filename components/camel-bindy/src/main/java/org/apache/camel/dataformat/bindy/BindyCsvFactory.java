@@ -520,8 +520,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class retrieved : "
-operator|+
+literal|"Class retrieved : {}"
+argument_list|,
 name|cl
 operator|.
 name|getName
@@ -571,26 +571,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Position defined in the class : "
-operator|+
+literal|"Position defined in the class : {}, position : {}, Field : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", position : "
-operator|+
+block|,
 name|dataField
 operator|.
 name|pos
 argument_list|()
-operator|+
-literal|", Field : "
-operator|+
+block|,
 name|dataField
-operator|.
-name|toString
-argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -668,19 +666,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class linked  : "
-operator|+
+literal|"Class linked  : {}, Field {}"
+argument_list|,
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", Field"
-operator|+
+argument_list|,
 name|field
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -733,8 +726,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of optional fields : "
-operator|+
+literal|"Number of optional fields : {}"
+argument_list|,
 name|numberOptionalFields
 argument_list|)
 expr_stmt|;
@@ -742,8 +735,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of mandatory fields : "
-operator|+
+literal|"Number of mandatory fields : {}"
+argument_list|,
 name|numberMandatoryFields
 argument_list|)
 expr_stmt|;
@@ -751,8 +744,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Total : "
-operator|+
+literal|"Total : {}"
+argument_list|,
 name|totalFields
 argument_list|)
 expr_stmt|;
@@ -917,20 +910,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pos : "
-operator|+
+literal|"Pos : {}, Data : {}, Field type : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|pos
-operator|+
-literal|", Data : "
-operator|+
+block|,
 name|data
-operator|+
-literal|", Field type : "
-operator|+
+block|,
 name|field
 operator|.
 name|getType
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1094,24 +1088,15 @@ operator|++
 name|pos
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Counter mandatory fields : "
-operator|+
+literal|"Counter mandatory fields : {}"
+argument_list|,
 name|counterMandatoryFields
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|pos
@@ -1223,17 +1208,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator converted : '0x"
-operator|+
+literal|"Separator converted : '0x{}', from : {}"
+argument_list|,
 name|Integer
 operator|.
 name|toHexString
 argument_list|(
 name|separator
 argument_list|)
-operator|+
-literal|"', from : "
-operator|+
+argument_list|,
 name|this
 operator|.
 name|getSeparator
@@ -1287,12 +1270,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Model object : "
-operator|+
+literal|"Model object : {}, class : {}"
+argument_list|,
 name|obj
-operator|+
-literal|", class : "
-operator|+
+argument_list|,
 name|obj
 operator|.
 name|getClass
@@ -1778,22 +1759,23 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value : "
-operator|+
+literal|"Value : {}, pos : {}, at : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|l
 operator|.
 name|get
 argument_list|(
 name|idx
 argument_list|)
-operator|+
-literal|", pos : "
-operator|+
+block|,
 name|ii
-operator|+
-literal|", at :"
-operator|+
+block|,
 name|idx
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1836,22 +1818,23 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value : "
-operator|+
+literal|"Value : {}, pos : {}, at index : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|l
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|+
-literal|", pos : "
-operator|+
+block|,
 name|ii
-operator|+
-literal|", at index : "
-operator|+
+block|,
 literal|0
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2033,20 +2016,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted : "
-operator|+
+literal|"Value to be formatted : {}, position : {}, and its formated value : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|value
-operator|+
-literal|", position : "
-operator|+
+block|,
 name|datafield
 operator|.
 name|pos
 argument_list|()
-operator|+
-literal|", and its formated value : "
-operator|+
+block|,
 name|result
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2115,17 +2099,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key generated : "
-operator|+
+literal|"Key generated : {}, for section : {}"
+argument_list|,
 name|String
 operator|.
 name|valueOf
 argument_list|(
 name|keyGenerated
 argument_list|)
-operator|+
-literal|", for section : "
-operator|+
+argument_list|,
 name|key1
 argument_list|)
 expr_stmt|;
@@ -2514,27 +2496,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Csv record : "
-operator|+
+literal|"Csv record : {}"
+argument_list|,
 name|record
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get skipFirstLine parameter
 name|skipFirstLine
 operator|=
@@ -2543,24 +2513,15 @@ operator|.
 name|skipFirstLine
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Skip First Line parameter of the CSV : "
+literal|"Skip First Line parameter of the CSV : {}"
 operator|+
 name|skipFirstLine
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get generateHeaderColumnNames parameter
 name|generateHeaderColumnNames
 operator|=
@@ -2569,24 +2530,15 @@ operator|.
 name|generateHeaderColumns
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Generate header column names parameter of the CSV : "
-operator|+
+literal|"Generate header column names parameter of the CSV : {}"
+argument_list|,
 name|generateHeaderColumnNames
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get Separator parameter
 name|ObjectHelper
 operator|.
@@ -2607,24 +2559,15 @@ operator|.
 name|separator
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator defined for the CSV : "
-operator|+
+literal|"Separator defined for the CSV : {}"
+argument_list|,
 name|separator
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get carriage return parameter
 name|crlf
 operator|=
@@ -2633,24 +2576,15 @@ operator|.
 name|crlf
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the CSV : "
-operator|+
+literal|"Carriage return defined for the CSV : {}"
+argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get isOrdered parameter
 name|messageOrdered
 operator|=
@@ -2659,24 +2593,15 @@ operator|.
 name|isOrdered
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Must CSV record be ordered ? "
-operator|+
+literal|"Must CSV record be ordered ? {}"
+argument_list|,
 name|messageOrdered
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

@@ -490,8 +490,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Encoding HL7 from "
-operator|+
+literal|"Encoding HL7 from {} to byte stream"
+argument_list|,
 name|message
 operator|.
 name|getClass
@@ -499,8 +499,6 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" to byte stream"
 argument_list|)
 expr_stmt|;
 block|}

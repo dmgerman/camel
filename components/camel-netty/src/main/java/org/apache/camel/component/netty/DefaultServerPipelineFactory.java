@@ -256,14 +256,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -271,7 +263,6 @@ argument_list|(
 literal|"Server SSL handler configured and added as an interceptor against the ChannelPipeline"
 argument_list|)
 expr_stmt|;
-block|}
 name|channelPipeline
 operator|.
 name|addLast

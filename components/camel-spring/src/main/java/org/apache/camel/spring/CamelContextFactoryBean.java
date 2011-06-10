@@ -1849,24 +1849,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing spring-event: "
-operator|+
+literal|"Publishing spring-event: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|event

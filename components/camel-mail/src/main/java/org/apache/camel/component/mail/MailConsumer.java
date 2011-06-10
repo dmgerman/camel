@@ -780,30 +780,17 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Limiting to maximum messages to poll "
-operator|+
+literal|"Limiting to maximum messages to poll {} as there was {} messages in this poll."
+argument_list|,
 name|maxMessagesPerPoll
-operator|+
-literal|" as there was "
-operator|+
+argument_list|,
 name|total
-operator|+
-literal|" messages in this poll."
 argument_list|)
 expr_stmt|;
-block|}
 name|total
 operator|=
 name|maxMessagesPerPoll
@@ -1150,17 +1137,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Fetching "
-operator|+
+literal|"Fetching {} messages. Total {} messages."
+argument_list|,
 name|count
-operator|+
-literal|" messages. Total "
-operator|+
+argument_list|,
 name|messages
 operator|.
 name|length
-operator|+
-literal|" messages."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1238,8 +1221,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping message as it was flagged as deleted: "
-operator|+
+literal|"Skipping message as it was flagged as deleted: {}"
+argument_list|,
 name|MailUtils
 operator|.
 name|dumpMessage
@@ -1290,8 +1273,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing message: "
-operator|+
+literal|"Processing message: {}"
+argument_list|,
 name|MailUtils
 operator|.
 name|dumpMessage
@@ -1583,8 +1566,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Connecting to MailStore: "
-operator|+
+literal|"Connecting to MailStore: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -1656,8 +1639,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting folder "
-operator|+
+literal|"Getting folder {}"
+argument_list|,
 name|config
 operator|.
 name|getFolderName

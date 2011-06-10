@@ -1305,24 +1305,15 @@ argument_list|()
 condition|)
 block|{
 comment|// honor disable reply to configuration
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"ReplyTo is disabled on endpoint: "
-operator|+
+literal|"ReplyTo is disabled on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|JmsMessageHelper
 operator|.
 name|setJMSReplyTo
@@ -1415,17 +1406,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Disabling JMSReplyTo: "
-operator|+
+literal|"Disabling JMSReplyTo: {} for destination: {}. Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on endpoint: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|jmsReplyTo
-operator|+
-literal|" for destination: "
-operator|+
+block|,
 name|to
-operator|+
-literal|". Use preserveMessageQos=true to force Camel to keep the JMSReplyTo on endpoint: "
-operator|+
+block|,
 name|endpoint
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1511,24 +1503,15 @@ name|isPubSubDomain
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating JMSReplyTo topic: "
-operator|+
+literal|"Creating JMSReplyTo topic: {}"
+argument_list|,
 name|replyTo
 argument_list|)
 expr_stmt|;
-block|}
 name|jmsReplyTo
 operator|=
 name|session
@@ -1541,24 +1524,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating JMSReplyTo queue: "
-operator|+
+literal|"Creating JMSReplyTo queue: {}"
+argument_list|,
 name|replyTo
 argument_list|)
 expr_stmt|;
-block|}
 name|jmsReplyTo
 operator|=
 name|session
@@ -1599,24 +1573,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using JMSReplyTo destination: "
-operator|+
+literal|"Using JMSReplyTo destination: {}"
+argument_list|,
 name|replyTo
 argument_list|)
 expr_stmt|;
-block|}
 name|JmsMessageHelper
 operator|.
 name|setJMSReplyTo

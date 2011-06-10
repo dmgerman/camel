@@ -704,8 +704,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Operation = "
-operator|+
+literal|"Operation = {}"
+argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
@@ -713,8 +713,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"key = "
-operator|+
+literal|"key = {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
@@ -722,8 +722,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"value = "
-operator|+
+literal|"value = {}"
+argument_list|,
 name|data
 argument_list|)
 expr_stmt|;

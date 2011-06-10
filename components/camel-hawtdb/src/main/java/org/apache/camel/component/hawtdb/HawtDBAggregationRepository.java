@@ -484,28 +484,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding key   ["
-operator|+
+literal|"Adding key [{}] -> {}"
+argument_list|,
 name|key
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 comment|// If we could guarantee that the key and exchange are immutable,
@@ -844,28 +833,17 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting key  ["
-operator|+
+literal|"Getting key  [{}] -> {}"
+argument_list|,
 name|key
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -888,26 +866,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removing key ["
-operator|+
+literal|"Removing key [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 specifier|final
@@ -1107,26 +1074,15 @@ name|String
 name|exchangeId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Confirming exchangeId ["
-operator|+
+literal|"Confirming exchangeId [{}]"
+argument_list|,
 name|exchangeId
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 specifier|final
@@ -1717,14 +1673,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scanned and found "
-operator|+
+literal|"Scanned and found {} exchange(s) to recover (note some of them may already be in progress)."
+argument_list|,
 name|answer
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" exchange(s) to recover (note some of them may already be in progress)."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1886,28 +1840,17 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Recovering exchangeId ["
-operator|+
+literal|"Recovering exchangeId [{}] -> {}"
+argument_list|,
 name|exchangeId
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -1994,28 +1937,17 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Size of repository ["
-operator|+
+literal|"Size of repository [{}] -> {}"
+argument_list|,
 name|repositoryName
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

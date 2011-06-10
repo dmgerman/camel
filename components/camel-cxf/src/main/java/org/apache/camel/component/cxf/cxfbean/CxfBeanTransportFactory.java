@@ -153,24 +153,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Create CxfBeanDestination: "
-operator|+
+literal|"Create CxfBeanDestination: {}"
+argument_list|,
 name|endpointInfo
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lookup endpoint from component instead of CamelContext because it may not
 comment|// be added to the CamelContext yet.
 return|return

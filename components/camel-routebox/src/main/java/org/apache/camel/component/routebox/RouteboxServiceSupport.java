@@ -300,12 +300,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Adding RouteBuilder "
-operator|+
+literal|"Adding RouteBuilder {} to {}"
+argument_list|,
 name|routeBuilder
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|context
 operator|.
 name|getName

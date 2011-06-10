@@ -307,17 +307,6 @@ parameter_list|)
 throws|throws
 name|CamelException
 block|{
-name|Exchange
-name|exchange
-decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -325,9 +314,9 @@ argument_list|(
 literal|"Consumer Dispatching the received notification along the route"
 argument_list|)
 expr_stmt|;
-block|}
+name|Exchange
 name|exchange
-operator|=
+init|=
 name|sipSubscriber
 operator|.
 name|getEndpoint
@@ -339,7 +328,7 @@ name|ExchangePattern
 operator|.
 name|InOnly
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|exchange
 operator|.
 name|getIn
@@ -432,20 +421,12 @@ argument_list|(
 literal|"branch"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Request: "
-operator|+
+literal|"Request: {}"
+argument_list|,
 name|request
 operator|.
 name|getMethod
@@ -456,8 +437,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Server Transaction Id:"
-operator|+
+literal|"Server Transaction Id: {}"
+argument_list|,
 name|serverTransactionId
 argument_list|)
 expr_stmt|;
@@ -465,12 +446,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received From Branch:"
-operator|+
+literal|"Received From Branch: {}"
+argument_list|,
 name|viaBranch
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|request
@@ -508,14 +488,6 @@ name|ServerTransaction
 name|serverTransactionId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -523,7 +495,6 @@ argument_list|(
 literal|"Notification received at Subscriber"
 argument_list|)
 expr_stmt|;
-block|}
 name|SipProvider
 name|provider
 init|=
@@ -552,14 +523,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -567,7 +530,6 @@ argument_list|(
 literal|"ServerTransaction is null. Creating new Server transaction"
 argument_list|)
 expr_stmt|;
-block|}
 name|serverTransactionId
 operator|=
 name|provider
@@ -677,14 +639,6 @@ name|TERMINATED
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -692,7 +646,6 @@ argument_list|(
 literal|"Subscription state is terminated. Deleting the current dialog"
 argument_list|)
 expr_stmt|;
-block|}
 name|dialog
 operator|.
 name|delete
@@ -726,14 +679,6 @@ name|ResponseEvent
 name|responseReceivedEvent
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -741,7 +686,6 @@ argument_list|(
 literal|"Response received at Subscriber"
 argument_list|)
 expr_stmt|;
-block|}
 name|Response
 name|response
 init|=
@@ -758,31 +702,20 @@ operator|.
 name|getClientTransaction
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Response received with client transaction id "
-operator|+
+literal|"Response received with client transaction id {}:{}"
+argument_list|,
 name|clientTransactionId
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|response
 operator|.
 name|getStatusCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|clientTransactionId

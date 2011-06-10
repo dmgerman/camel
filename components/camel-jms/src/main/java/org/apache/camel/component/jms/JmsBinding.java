@@ -1535,24 +1535,15 @@ literal|null
 condition|)
 block|{
 comment|// an exception occurred so send it as response
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Will create JmsMessage with caused exception: "
-operator|+
+literal|"Will create JmsMessage with caused exception: {}"
+argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create jms message containing the caused exception
 name|answer
 operator|=
@@ -2088,12 +2079,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring non primitive header: "
-operator|+
+literal|"Ignoring non primitive header: {} of class: {} with value: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|headerName
-operator|+
-literal|" of class: "
-operator|+
+block|,
 name|headerValue
 operator|.
 name|getClass
@@ -2101,10 +2094,9 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" with value: "
-operator|+
+block|,
 name|headerValue
+block|}
 argument_list|)
 expr_stmt|;
 block|}

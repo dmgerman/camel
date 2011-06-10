@@ -407,14 +407,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -422,7 +414,6 @@ argument_list|(
 literal|"Beginning Test ---> testRouteboxDirectAsyncRequests()"
 argument_list|)
 expr_stmt|;
-block|}
 name|Book
 name|book
 init|=
@@ -488,34 +479,23 @@ argument_list|,
 literal|"Sir Arthur Conan Doyle"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received book with author "
-operator|+
+literal|"Received book with author {} and title {}"
+argument_list|,
 name|book
 operator|.
 name|getAuthor
 argument_list|()
-operator|+
-literal|" and title "
-operator|+
+argument_list|,
 name|book
 operator|.
 name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|assertEquals
 argument_list|(
 literal|"The Adventures of Sherlock Holmes"
@@ -526,14 +506,6 @@ name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -541,7 +513,6 @@ argument_list|(
 literal|"Completed Test ---> testRouteboxDirectAsyncRequests()"
 argument_list|)
 expr_stmt|;
-block|}
 name|context
 operator|.
 name|stop

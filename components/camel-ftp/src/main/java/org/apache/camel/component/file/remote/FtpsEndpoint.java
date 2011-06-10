@@ -898,25 +898,24 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Created FTPSClient [connectTimeout: "
-operator|+
+literal|"Created FTPSClient [connectTimeout: {}, soTimeout: {}, dataTimeout: {}]: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|client
 operator|.
 name|getConnectTimeout
 argument_list|()
-operator|+
-literal|", soTimeout: "
-operator|+
+block|,
 name|getSoTimeout
 argument_list|()
-operator|+
-literal|", dataTimeout: "
-operator|+
+block|,
 name|dataTimeout
-operator|+
-literal|"]: "
-operator|+
+block|,
 name|client
+block|}
 argument_list|)
 expr_stmt|;
 block|}

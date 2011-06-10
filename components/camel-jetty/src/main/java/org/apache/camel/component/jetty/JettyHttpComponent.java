@@ -3280,12 +3280,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Java System Property http.proxyHost and http.proxyPort detected. Using http proxy host: "
-operator|+
+literal|"Java System Property http.proxyHost and http.proxyPort detected. Using http proxy host: {} port: {}"
+argument_list|,
 name|host
-operator|+
-literal|" port: "
-operator|+
+argument_list|,
 name|port
 argument_list|)
 expr_stmt|;

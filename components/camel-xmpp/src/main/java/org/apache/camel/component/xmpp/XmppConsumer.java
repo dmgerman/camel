@@ -761,26 +761,27 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received XMPP message for "
-operator|+
+literal|"Received XMPP message for {} from {} : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|endpoint
 operator|.
 name|getUser
 argument_list|()
-operator|+
-literal|" from "
-operator|+
+block|,
 name|endpoint
 operator|.
 name|getParticipant
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+block|,
 name|message
 operator|.
 name|getBody
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -580,14 +580,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Preparing to shutdown, waiting for "
-operator|+
+literal|"Preparing to shutdown, waiting for {} threads to complete."
+argument_list|,
 name|shutdownLatch
 operator|.
 name|getCount
 argument_list|()
-operator|+
-literal|" threads to complete."
 argument_list|)
 expr_stmt|;
 block|}
@@ -752,15 +750,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -935,15 +931,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1152,15 +1146,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1209,15 +1201,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

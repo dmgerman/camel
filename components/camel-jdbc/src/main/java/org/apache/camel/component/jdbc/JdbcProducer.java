@@ -393,24 +393,15 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Executing JDBC statement: "
-operator|+
+literal|"Executing JDBC statement: {}"
+argument_list|,
 name|sql
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|stmt

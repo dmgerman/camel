@@ -848,12 +848,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Logging in to XMPP as user: "
-operator|+
+literal|"Logging in to XMPP as user: {} on connection: {}"
+argument_list|,
 name|user
-operator|+
-literal|" on connection: "
-operator|+
+argument_list|,
 name|getConnectionMessage
 argument_list|(
 name|connection
@@ -872,12 +870,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No password configured for user: "
-operator|+
+literal|"No password configured for user: {} on connection: {}"
+argument_list|,
 name|user
-operator|+
-literal|" on connection: "
-operator|+
+argument_list|,
 name|getConnectionMessage
 argument_list|(
 name|connection
@@ -961,8 +957,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Logging in anonymously to XMPP on connection: "
-operator|+
+literal|"Logging in anonymously to XMPP on connection: {}"
+argument_list|,
 name|getConnectionMessage
 argument_list|(
 name|connection
@@ -1068,24 +1064,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detected chat server: "
-operator|+
+literal|"Detected chat server: {}"
+argument_list|,
 name|chatServer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|room
 operator|+

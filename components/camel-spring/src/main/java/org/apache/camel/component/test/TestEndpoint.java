@@ -216,24 +216,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Consuming expected messages from: "
-operator|+
+literal|"Consuming expected messages from: {}"
+argument_list|,
 name|expectedMessageEndpoint
 argument_list|)
 expr_stmt|;
-block|}
 specifier|final
 name|List
 argument_list|<
@@ -289,31 +280,20 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received: "
-operator|+
+literal|"Received: {} expected message(s) from: {}"
+argument_list|,
 name|expectedBodies
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" expected message(s) from: "
-operator|+
+argument_list|,
 name|expectedMessageEndpoint
 argument_list|)
 expr_stmt|;
-block|}
 name|expectedBodiesReceived
 argument_list|(
 name|expectedBodies

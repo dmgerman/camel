@@ -808,24 +808,15 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing client connection to "
-operator|+
+literal|"Closing client connection to {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|memcachedClient
 operator|.
 name|shutdown

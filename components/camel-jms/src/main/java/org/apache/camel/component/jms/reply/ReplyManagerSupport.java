@@ -513,28 +513,17 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received reply message with correlationID: "
-operator|+
+literal|"Received reply message with correlationID: {} -> {}"
+argument_list|,
 name|correlationID
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 comment|// handle the reply message
 name|handleReplyMessage
 argument_list|(
@@ -646,24 +635,15 @@ operator|instanceof
 name|Exception
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reply received. Setting reply as an Exception: "
-operator|+
+literal|"Reply received. Setting reply as an Exception: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we got an exception back and endpoint was configured to transfer exception
 comment|// therefore set response as exception
 name|exchange
@@ -679,24 +659,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reply received. Setting reply as OUT message: "
-operator|+
+literal|"Reply received. Setting reply as OUT message: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 comment|// regular response
 name|exchange
 operator|.

@@ -4154,8 +4154,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unhandled part type '"
-operator|+
+literal|"Unhandled part type '{}'"
+argument_list|,
 name|part
 operator|.
 name|getClass

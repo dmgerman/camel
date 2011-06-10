@@ -241,26 +241,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} using flatpack map resource: {}"
+argument_list|,
 name|this
-operator|+
-literal|" using flatpack map resource: "
-operator|+
+argument_list|,
 name|resource
 argument_list|)
 expr_stmt|;
-block|}
 name|FixedLengthEndpoint
 name|answer
 decl_stmt|;

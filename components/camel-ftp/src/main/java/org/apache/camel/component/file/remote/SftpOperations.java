@@ -1403,24 +1403,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting file: "
-operator|+
+literal|"Deleting file: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|channel
@@ -1467,28 +1458,17 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Renaming file: "
-operator|+
+literal|"Renaming file: {} to: {}"
+argument_list|,
 name|from
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|channel
@@ -1608,24 +1588,15 @@ operator|!
 name|success
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to build remote directory: "
-operator|+
+literal|"Trying to build remote directory: {}"
+argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|channel
@@ -3040,14 +3011,6 @@ name|LOG
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -3055,7 +3018,6 @@ argument_list|(
 literal|"Retrieve file to local work file result: true"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// operation went okay so rename temp to local after we have retrieved the data
 name|LOG
 operator|.

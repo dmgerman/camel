@@ -680,12 +680,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Issuing Job "
-operator|+
+literal|"Issuing Job {} to Printer: {}"
+argument_list|,
 name|i
-operator|+
-literal|" to Printer: "
-operator|+
+argument_list|,
 name|this
 operator|.
 name|printService

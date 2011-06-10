@@ -339,14 +339,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Registering CamelContext ["
-operator|+
+literal|"Registering CamelContext [{}] in OSGi registry"
+argument_list|,
 name|context
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"] in OSGi registry"
 argument_list|)
 expr_stmt|;
 block|}
@@ -429,14 +427,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Unregistering CamelContext ["
-operator|+
+literal|"Unregistering CamelContext [{}] from OSGi registry"
+argument_list|,
 name|context
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"] from OSGi registry"
 argument_list|)
 expr_stmt|;
 block|}

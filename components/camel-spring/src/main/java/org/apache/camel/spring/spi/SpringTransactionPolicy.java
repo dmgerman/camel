@@ -325,24 +325,15 @@ name|ref
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Looking up ErrorHandlerBuilder with ref: "
-operator|+
+literal|"Looking up ErrorHandlerBuilder with ref: {}"
+argument_list|,
 name|ref
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|=
 name|ErrorHandlerBuilderRef
@@ -369,24 +360,15 @@ argument_list|()
 condition|)
 block|{
 comment|// already a TX error handler then we are good to go
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The ErrorHandlerBuilder configured is already a TransactionErrorHandlerBuilder: "
-operator|+
+literal|"The ErrorHandlerBuilder configured is already a TransactionErrorHandlerBuilder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|=
 name|createTransactionErrorHandler
@@ -424,14 +406,6 @@ comment|// the needed information form the configured builder anyway this allow 
 comment|// routes anyway even though the error handler is not transactional, eg ease of configuration
 if|if
 condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|builder
 operator|!=
 literal|null
@@ -441,8 +415,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The ErrorHandlerBuilder configured is not a TransactionErrorHandlerBuilder: "
-operator|+
+literal|"The ErrorHandlerBuilder configured is not a TransactionErrorHandlerBuilder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
@@ -456,7 +430,6 @@ argument_list|(
 literal|"No ErrorHandlerBuilder configured, will use default TransactionErrorHandlerBuilder settings"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|TransactionErrorHandlerBuilder
 name|txBuilder

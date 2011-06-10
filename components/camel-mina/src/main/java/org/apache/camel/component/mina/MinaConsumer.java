@@ -535,8 +535,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received body: "
-operator|+
+literal|"Received body: {}"
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
@@ -752,24 +752,15 @@ condition|)
 block|{
 comment|// must close session if no data to write otherwise client will never receive a response
 comment|// and wait forever (if not timing out)
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing session as no payload to send as reply at address: "
-operator|+
+literal|"Closing session as no payload to send as reply at address: {}"
+argument_list|,
 name|address
 argument_list|)
 expr_stmt|;
-block|}
 name|session
 operator|.
 name|close
@@ -780,24 +771,15 @@ block|}
 else|else
 block|{
 comment|// we got a response to write
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body: "
-operator|+
+literal|"Writing body: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 name|MinaHelper
 operator|.
 name|writeBody
@@ -895,24 +877,15 @@ condition|(
 name|disconnect
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing session when complete at address: "
-operator|+
+literal|"Closing session when complete at address: {}"
+argument_list|,
 name|address
 argument_list|)
 expr_stmt|;
-block|}
 name|session
 operator|.
 name|close

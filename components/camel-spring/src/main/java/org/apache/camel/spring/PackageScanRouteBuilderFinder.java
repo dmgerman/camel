@@ -316,24 +316,15 @@ name|aClass
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring RouteBuilder class: "
-operator|+
+literal|"Ignoring RouteBuilder class: {}"
+argument_list|,
 name|aClass
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 if|if
@@ -345,24 +336,15 @@ name|aClass
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring invalid RouteBuilder class: "
-operator|+
+literal|"Ignoring invalid RouteBuilder class: {}"
+argument_list|,
 name|aClass
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 comment|// type is valid so create and instantiate the builder
@@ -395,24 +377,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding instantiated RouteBuilder: "
-operator|+
+literal|"Adding instantiated RouteBuilder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
-block|}
 name|list
 operator|.
 name|add

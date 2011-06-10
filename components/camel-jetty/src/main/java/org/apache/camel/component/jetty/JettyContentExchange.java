@@ -675,12 +675,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"TaskComplete with state "
-operator|+
+literal|"TaskComplete with state {} for url: {}"
+argument_list|,
 name|exchangeState
-operator|+
-literal|" for url: "
-operator|+
+argument_list|,
 name|getUrl
 argument_list|()
 argument_list|)

@@ -733,24 +733,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Activity first message: "
-operator|+
+literal|"Activity first message: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Called when the expected number of messages are is reached      */
@@ -789,24 +780,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Activity complete: "
-operator|+
+literal|"Activity complete: {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Called when an excess message (after the expected number of messages) are      * received      */

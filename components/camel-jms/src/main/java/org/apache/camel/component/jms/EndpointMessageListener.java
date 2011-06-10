@@ -368,26 +368,17 @@ argument_list|(
 literal|"onMessage START"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} consumer received JMS message: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" consumer received JMS message: "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|sendReply
 decl_stmt|;
@@ -1220,24 +1211,15 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot send reply message as there is no replyDestination for: "
-operator|+
+literal|"Cannot send reply message as there is no replyDestination for: {}"
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|getTemplate
@@ -1308,15 +1290,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} sending reply JMS message [correlationId:{}]: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|endpoint
-operator|+
-literal|" sending reply JMS message [correlationId:"
-operator|+
+block|,
 name|correlationID
-operator|+
-literal|"]: "
-operator|+
+block|,
 name|reply
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1366,24 +1351,15 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot send reply message as there is no replyDestination for: "
-operator|+
+literal|"Cannot send reply message as there is no replyDestination for: {}"
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 name|getTemplate
@@ -1454,15 +1430,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} sending reply JMS message [correlationId:{}]: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|endpoint
-operator|+
-literal|" sending reply JMS message [correlationId:"
-operator|+
+block|,
 name|correlationID
-operator|+
-literal|"]: "
-operator|+
+block|,
 name|reply
+block|}
 argument_list|)
 expr_stmt|;
 block|}

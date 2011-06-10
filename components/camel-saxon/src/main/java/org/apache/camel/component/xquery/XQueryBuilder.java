@@ -855,28 +855,17 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluation: "
-operator|+
+literal|"Evaluation: {} for exchange: {}"
+argument_list|,
 name|expression
-operator|+
-literal|" for exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|resultType
@@ -2792,24 +2781,15 @@ name|get
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Initializing XQueryBuilder "
-operator|+
+literal|"Initializing XQueryBuilder {}"
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|configuration
 operator|=
 operator|new

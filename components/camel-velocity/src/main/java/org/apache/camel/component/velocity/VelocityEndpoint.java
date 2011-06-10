@@ -683,24 +683,15 @@ argument_list|,
 name|newResourceUri
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Getting endpoint with URI: "
-operator|+
+literal|"Getting endpoint with URI: {}"
+argument_list|,
 name|newUri
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|(
 name|VelocityEndpoint
@@ -785,30 +776,19 @@ operator|.
 name|VELOCITY_RESOURCE_URI
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} set to {} creating new endpoint to handle exchange"
+argument_list|,
 name|VelocityConstants
 operator|.
 name|VELOCITY_RESOURCE_URI
-operator|+
-literal|" set to "
-operator|+
+argument_list|,
 name|newResourceUri
-operator|+
-literal|" creating new endpoint to handle exchange"
 argument_list|)
 expr_stmt|;
-block|}
 name|VelocityEndpoint
 name|newEndpoint
 init|=
@@ -882,14 +862,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Velocity content read from header "
-operator|+
+literal|"Velocity content read from header {} for endpoint {}"
+argument_list|,
 name|VelocityConstants
 operator|.
 name|VELOCITY_TEMPLATE
-operator|+
-literal|" for endpoint "
-operator|+
+argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|)
@@ -938,18 +916,19 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Velocity content read from resource "
-operator|+
+literal|"Velocity content read from resource {} with resourceUri: {} for endpoint {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|resource
-operator|+
-literal|" with resourceUri: "
-operator|+
+block|,
 name|path
-operator|+
-literal|" for endpoint "
-operator|+
+block|,
 name|getEndpointUri
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1021,24 +1000,15 @@ init|=
 name|getVelocityEngine
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Velocity is evaluating using velocity context: "
-operator|+
+literal|"Velocity is evaluating using velocity context: {}"
+argument_list|,
 name|variableMap
 argument_list|)
 expr_stmt|;
-block|}
 name|engine
 operator|.
 name|evaluate

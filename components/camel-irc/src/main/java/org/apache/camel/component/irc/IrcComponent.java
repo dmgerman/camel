@@ -280,15 +280,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Returning Cached Connection to "
-operator|+
+literal|"Returning Cached Connection to {}:{}"
+argument_list|,
 name|configuration
 operator|.
 name|getHostname
 argument_list|()
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|configuration
 operator|.
 name|getNickname
@@ -372,33 +370,32 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating SSL Connection to "
-operator|+
+literal|"Creating SSL Connection to {} destination(s): {} nick: {} user: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|configuration
 operator|.
 name|getHostname
 argument_list|()
-operator|+
-literal|" destination(s): "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getListOfChannels
 argument_list|()
-operator|+
-literal|" nick: "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getNickname
 argument_list|()
-operator|+
-literal|" user: "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getUsername
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -468,33 +465,32 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating Connection to "
-operator|+
+literal|"Creating Connection to {} destination(s): {} nick: {} user: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|configuration
 operator|.
 name|getHostname
 argument_list|()
-operator|+
-literal|" destination(s): "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getListOfChannels
 argument_list|()
-operator|+
-literal|" nick: "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getNickname
 argument_list|()
-operator|+
-literal|" user: "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getUsername
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

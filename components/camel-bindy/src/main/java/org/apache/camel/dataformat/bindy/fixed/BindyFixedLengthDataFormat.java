@@ -781,24 +781,15 @@ argument_list|(
 name|model
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Graph of objects created : "
-operator|+
+literal|"Graph of objects created : {}"
+argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Test if models list is empty or not
 comment|// If this is the case (correspond to an empty stream, ...)

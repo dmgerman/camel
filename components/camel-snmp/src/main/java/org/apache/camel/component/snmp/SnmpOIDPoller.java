@@ -596,21 +596,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting OID poller on "
-operator|+
+literal|"Starting OID poller on {} using {} protocol"
+argument_list|,
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" using "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getProtocol
 argument_list|()
-operator|+
-literal|" protocol"
 argument_list|)
 expr_stmt|;
 block|}
@@ -621,27 +617,32 @@ operator|.
 name|listen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Started OID poller on "
-operator|+
+literal|"Started OID poller on {} using {} protocol"
+argument_list|,
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" using "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getProtocol
 argument_list|()
-operator|+
-literal|" protocol"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -670,24 +671,15 @@ name|isListening
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopping OID poller on "
-operator|+
+literal|"Stopping OID poller on {}"
+argument_list|,
 name|targetAddress
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|transport
@@ -699,8 +691,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopped OID poller on "
-operator|+
+literal|"Stopped OID poller on {}"
+argument_list|,
 name|targetAddress
 argument_list|)
 expr_stmt|;
@@ -893,17 +885,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received response event for "
-operator|+
+literal|"Received response event for {} : {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|pdu
 argument_list|)
 expr_stmt|;

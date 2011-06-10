@@ -403,27 +403,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Netty consumer binding to: "
-operator|+
+literal|"Netty consumer binding to: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|super
 operator|.
 name|doStart
@@ -468,27 +459,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Netty consumer unbinding from: "
-operator|+
+literal|"Netty consumer unbinding from: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// close all channels
 name|ChannelGroupFuture
 name|future

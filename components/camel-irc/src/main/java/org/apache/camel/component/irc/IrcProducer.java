@@ -315,24 +315,15 @@ name|msg
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending command: "
-operator|+
+literal|"Sending command: {}"
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|send
@@ -349,28 +340,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending to: "
-operator|+
+literal|"Sending to: {} message: {}"
+argument_list|,
 name|targetChannel
-operator|+
-literal|" message: "
-operator|+
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|doPrivmsg
@@ -397,28 +377,17 @@ name|getChannels
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending to: "
-operator|+
+literal|"Sending to: {} message: {}"
+argument_list|,
 name|channel
-operator|+
-literal|" message: "
-operator|+
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|doPrivmsg
@@ -495,24 +464,15 @@ name|getChannels
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Parting: "
-operator|+
+literal|"Parting: {}"
+argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|doPart

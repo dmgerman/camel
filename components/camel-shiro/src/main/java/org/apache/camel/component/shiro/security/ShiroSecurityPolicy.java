@@ -1249,29 +1249,18 @@ argument_list|(
 name|token
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Current User "
-operator|+
+literal|"Current User {} successfully authenticated"
+argument_list|,
 name|currentUser
 operator|.
 name|getPrincipal
 argument_list|()
-operator|+
-literal|" successfully authenticated"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1428,14 +1417,6 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1443,7 +1424,6 @@ argument_list|(
 literal|"Valid Permissions List not specified for ShiroSecurityPolicy. No authorization checks will be performed for current user"
 argument_list|)
 expr_stmt|;
-block|}
 name|authorized
 operator|=
 literal|true
@@ -1465,29 +1445,18 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Current User "
-operator|+
+literal|"Current User {} is successfully authorized. The exchange will be allowed to proceed"
+argument_list|,
 name|currentUser
 operator|.
 name|getPrincipal
 argument_list|()
-operator|+
-literal|" is successfully authorized. The exchange will be allowed to proceed"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|getCipherService ()
 specifier|public

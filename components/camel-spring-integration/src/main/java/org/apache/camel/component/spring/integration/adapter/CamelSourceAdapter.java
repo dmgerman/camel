@@ -414,28 +414,17 @@ argument_list|>
 name|message
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received "
-operator|+
+literal|"Received {} from ReplyChannel: {}"
+argument_list|,
 name|message
-operator|+
-literal|" from ReplyChannel: "
-operator|+
+argument_list|,
 name|replyChannel
 argument_list|)
 expr_stmt|;
-block|}
 comment|//TODO set the corralationID
 name|SpringIntegrationBinding
 operator|.

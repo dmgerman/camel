@@ -1163,34 +1163,23 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding job using trigger: "
-operator|+
+literal|"Adding job using trigger: {}/{}"
+argument_list|,
 name|trigger
 operator|.
 name|getGroup
 argument_list|()
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|trigger
 operator|.
 name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|getScheduler
 argument_list|()
 operator|.
@@ -1213,36 +1202,23 @@ name|trigger
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trigger: "
-operator|+
+literal|"Trigger: {}/{} already exists and will be updated by Quartz."
+argument_list|,
 name|trigger
 operator|.
 name|getGroup
 argument_list|()
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|trigger
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" already exists and will be updated by Quartz."
 argument_list|)
 expr_stmt|;
-block|}
 name|scheduler
 operator|.
 name|addJob
@@ -1282,36 +1258,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trigger: "
-operator|+
+literal|"Trigger: {}/{} already exists and will be resumed automatically by Quartz."
+argument_list|,
 name|trigger
 operator|.
 name|getGroup
 argument_list|()
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|trigger
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" already exists and will be resumed automatically by Quartz."
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1431,67 +1394,43 @@ argument_list|()
 condition|)
 block|{
 comment|// do not pause jobs which are clustered, as we want the jobs to continue running on the other nodes
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot pause job using trigger: "
-operator|+
+literal|"Cannot pause job using trigger: {}/{} as the JobStore is clustered."
+argument_list|,
 name|trigger
 operator|.
 name|getGroup
 argument_list|()
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|trigger
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" as the JobStore is clustered."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pausing job using trigger: "
-operator|+
+literal|"Pausing job using trigger: {}/{}"
+argument_list|,
 name|trigger
 operator|.
 name|getGroup
 argument_list|()
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|trigger
 operator|.
 name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|getScheduler
 argument_list|()
 operator|.
@@ -1547,30 +1486,17 @@ argument_list|()
 condition|)
 block|{
 comment|// do not pause jobs which are clustered, as we want the jobs to continue running on the other nodes
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot delete job using trigger: "
-operator|+
+literal|"Cannot delete job using trigger: {}/{} as the JobStore is clustered."
+argument_list|,
 name|group
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|name
-operator|+
-literal|" as the JobStore is clustered."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -1594,28 +1520,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting job using trigger: "
-operator|+
+literal|"Deleting job using trigger: {}/{}"
+argument_list|,
 name|group
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|getScheduler
 argument_list|()
 operator|.
@@ -2360,12 +2275,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating SchedulerFactory: "
-operator|+
+literal|"Creating SchedulerFactory: {} with properties: {}"
+argument_list|,
 name|name
-operator|+
-literal|" with properties: "
-operator|+
+argument_list|,
 name|prop
 argument_list|)
 expr_stmt|;

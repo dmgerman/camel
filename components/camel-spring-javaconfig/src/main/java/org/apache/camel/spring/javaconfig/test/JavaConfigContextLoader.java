@@ -215,8 +215,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Creating a JavaConfigApplicationContext for "
-operator|+
+literal|"Creating a JavaConfigApplicationContext for {}"
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -346,20 +346,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Setting config classes to "
-operator|+
+literal|"Setting config classes to {}"
+argument_list|,
 name|configClasses
 argument_list|)
 expr_stmt|;
@@ -367,12 +359,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Setting base packages to "
-operator|+
+literal|"Setting base packages to {}"
+argument_list|,
 name|basePackages
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|Class

@@ -319,24 +319,15 @@ argument_list|(
 name|variableMap
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"StringTemplate is writing using attributes: "
-operator|+
+literal|"StringTemplate is writing using attributes: {}"
+argument_list|,
 name|variableMap
 argument_list|)
 expr_stmt|;
-block|}
 name|template
 operator|.
 name|write

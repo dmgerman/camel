@@ -1126,24 +1126,15 @@ argument_list|,
 literal|"url"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"About to read from url: "
-operator|+
+literal|"About to read from url: {}"
+argument_list|,
 name|u
 argument_list|)
 expr_stmt|;
-block|}
 name|URL
 name|url
 init|=
@@ -1217,15 +1208,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"File to be scanned : "
-operator|+
+literal|"File to be scanned : {}, path : {}"
+argument_list|,
 name|file
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", path : "
-operator|+
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath

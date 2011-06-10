@@ -1040,24 +1040,15 @@ operator|.
 name|InOut
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"send the message to endpoint"
-operator|+
+literal|"send the message to endpoint {}"
+argument_list|,
 name|targetCamelEndpointUri
 argument_list|)
 expr_stmt|;
-block|}
 name|org
 operator|.
 name|apache

@@ -507,28 +507,17 @@ argument_list|>
 name|message
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received "
-operator|+
+literal|"Received {} from InputChannel: {}"
+argument_list|,
 name|message
-operator|+
-literal|" from InputChannel: "
-operator|+
+argument_list|,
 name|inputChannel
 argument_list|)
 expr_stmt|;
-block|}
 name|SpringIntegrationBinding
 operator|.
 name|storeToCamelMessage
@@ -563,28 +552,17 @@ name|exchange
 argument_list|)
 decl_stmt|;
 comment|// send the message to spring integration
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending "
-operator|+
+literal|"Sending {} to OutputChannel: {}"
+argument_list|,
 name|siOutmessage
-operator|+
-literal|" to OutputChannel: "
-operator|+
+argument_list|,
 name|outputChannel
 argument_list|)
 expr_stmt|;
-block|}
 name|outputChannel
 operator|.
 name|send

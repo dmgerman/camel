@@ -594,24 +594,15 @@ operator|.
 name|name
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No encoding parameter using default charset: "
-operator|+
+literal|"No encoding parameter using default charset: {}"
+argument_list|,
 name|encoding
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

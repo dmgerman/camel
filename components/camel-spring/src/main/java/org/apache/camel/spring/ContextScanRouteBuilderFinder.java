@@ -256,24 +256,15 @@ name|bean
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring RouteBuilder id: "
-operator|+
+literal|"Ignoring RouteBuilder id: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 if|if
@@ -285,58 +276,36 @@ name|bean
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring filtered RouteBuilder id: "
-operator|+
+literal|"Ignoring filtered RouteBuilder id: {} as class: {}"
+argument_list|,
 name|key
-operator|+
-literal|" as class: "
-operator|+
+argument_list|,
 name|bean
 operator|.
 name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding instantiated RouteBuilder id: "
-operator|+
+literal|"Adding instantiated RouteBuilder id: {} as class: {}"
+argument_list|,
 name|key
-operator|+
-literal|" as class: "
-operator|+
+argument_list|,
 name|bean
 operator|.
 name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|list
 operator|.
 name|add

@@ -250,24 +250,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing process instance: "
-operator|+
+literal|"Processing process instance: {}"
+argument_list|,
 name|process
 argument_list|)
 expr_stmt|;
-block|}
 comment|// lets force the lazy creation of this activity
 name|ActivityRules
 name|rules

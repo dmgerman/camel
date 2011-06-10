@@ -307,25 +307,24 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Starting to call PGM '"
-operator|+
+literal|"Starting to call PGM '{}' in host '{}' authentication with the user '{}'"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|commandStr
-operator|+
-literal|"' in host '"
-operator|+
+block|,
 name|iSeries
 operator|.
 name|getSystemName
 argument_list|()
-operator|+
-literal|"' authentication with the user '"
-operator|+
+block|,
 name|iSeries
 operator|.
 name|getUserId
 argument_list|()
-operator|+
-literal|"'"
+block|}
 argument_list|)
 expr_stmt|;
 block|}

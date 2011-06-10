@@ -422,21 +422,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting trap consumer on "
-operator|+
+literal|"Starting trap consumer on {} using {} protocol"
+argument_list|,
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" using "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getProtocol
 argument_list|()
-operator|+
-literal|" protocol"
 argument_list|)
 expr_stmt|;
 block|}
@@ -447,27 +443,32 @@ operator|.
 name|listen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Started trap consumer on "
-operator|+
+literal|"Started trap consumer on {} using {} protocol"
+argument_list|,
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" using "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getProtocol
 argument_list|()
-operator|+
-literal|" protocol"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -508,8 +509,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping trap consumer on "
-operator|+
+literal|"Stopping trap consumer on {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint
@@ -612,17 +613,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received trap event for "
-operator|+
+literal|"Received trap event for {} : {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint
 operator|.
 name|getAddress
 argument_list|()
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|pdu
 argument_list|)
 expr_stmt|;

@@ -738,29 +738,18 @@ block|}
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending a short message for exchange id '"
-operator|+
+literal|"Sending a short message for exchange id '{}'..."
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|"'..."
 argument_list|)
 expr_stmt|;
-block|}
 comment|// only possible by trying to reconnect
 if|if
 condition|(
@@ -934,33 +923,20 @@ name|getShortMessage
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sent a short message for exchange id '"
-operator|+
+literal|"Sent a short message for exchange id '{}' and received message id '{}'"
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|"' and received message id '"
-operator|+
+argument_list|,
 name|messageId
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|exchange
@@ -972,14 +948,6 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -987,7 +955,6 @@ argument_list|(
 literal|"Exchange is out capable, setting headers on out exchange..."
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getOut
@@ -1005,14 +972,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1020,7 +979,6 @@ argument_list|(
 literal|"Exchange is not out capable, setting headers on in exchange..."
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getIn

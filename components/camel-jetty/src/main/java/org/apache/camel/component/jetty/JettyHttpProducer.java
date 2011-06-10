@@ -1123,8 +1123,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending HTTP request to: "
-operator|+
+literal|"Sending HTTP request to: {}"
+argument_list|,
 name|httpExchange
 operator|.
 name|getUrl

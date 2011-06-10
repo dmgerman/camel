@@ -666,28 +666,17 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// send the message to spring integration
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending "
-operator|+
+literal|"Sending {} to ReplyChannel: {}"
+argument_list|,
 name|siOutMessage
-operator|+
-literal|" to ReplyChannel: "
-operator|+
+argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
-block|}
 name|reply
 operator|.
 name|send

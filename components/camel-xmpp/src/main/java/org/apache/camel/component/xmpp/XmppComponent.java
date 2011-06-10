@@ -192,24 +192,15 @@ name|uri
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using cached endpoint for URI "
-operator|+
+literal|"Using cached endpoint for URI {}"
+argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|endpointCache
 operator|.
@@ -219,24 +210,15 @@ name|uri
 argument_list|)
 return|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating new endpoint for URI "
-operator|+
+literal|"Creating new endpoint for URI {}"
+argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
 name|XmppEndpoint
 name|endpoint
 init|=

@@ -479,24 +479,15 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Incoming message: "
-operator|+
+literal|"Incoming message: {}"
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create Exchange and let the consumer process it
 name|Exchange
 name|exchange
@@ -780,8 +771,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing channel as no payload to send as reply at address: "
-operator|+
+literal|"Closing channel as no payload to send as reply at address: {}"
+argument_list|,
 name|messageEvent
 operator|.
 name|getRemoteAddress
@@ -844,24 +835,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// we got a body to write
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body: "
-operator|+
+literal|"Writing body: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|consumer
@@ -1008,8 +990,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing channel when complete at address: "
-operator|+
+literal|"Closing channel when complete at address: {}"
+argument_list|,
 name|messageEvent
 operator|.
 name|getRemoteAddress

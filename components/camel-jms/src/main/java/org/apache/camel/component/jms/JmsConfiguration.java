@@ -1328,25 +1328,23 @@ block|}
 comment|// need to log just before so the message is 100% correct when logged
 if|if
 condition|(
-name|logger
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending JMS message to: "
-operator|+
+literal|"Sending JMS message to: {} with message: {}"
+argument_list|,
 name|producer
 operator|.
 name|getDestination
 argument_list|()
-operator|+
-literal|" with message: "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -1370,25 +1368,23 @@ block|{
 comment|// need to log just before so the message is 100% correct when logged
 if|if
 condition|(
-name|logger
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending JMS message to: "
-operator|+
+literal|"Sending JMS message to: {} with message: {}"
+argument_list|,
 name|producer
 operator|.
 name|getDestination
 argument_list|()
-operator|+
-literal|" with message: "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -1404,13 +1400,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|logger
+name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|trace
 argument_list|(

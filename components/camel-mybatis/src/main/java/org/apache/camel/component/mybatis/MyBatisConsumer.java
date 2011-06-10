@@ -682,24 +682,15 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing exchange: "
-operator|+
+literal|"Processing exchange: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|getProcessor
 argument_list|()
 operator|.

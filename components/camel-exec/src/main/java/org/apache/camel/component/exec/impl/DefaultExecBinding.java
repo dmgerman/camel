@@ -466,24 +466,15 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Parsing argument String to a List: "
-operator|+
+literal|"Parsing argument String to a List: {}"
+argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
-block|}
 name|argsList
 operator|=
 name|splitToWhiteSpaceSeparatedTokens

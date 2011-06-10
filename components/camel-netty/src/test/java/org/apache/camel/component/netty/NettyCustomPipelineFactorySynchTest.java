@@ -497,14 +497,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -512,18 +504,9 @@ argument_list|(
 literal|"Beginning Test ---> testCustomClientPipelineFactory()"
 argument_list|)
 expr_stmt|;
-block|}
 name|sendRequest
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -531,7 +514,6 @@ argument_list|(
 literal|"Completed Test ---> testCustomClientPipelineFactory()"
 argument_list|)
 expr_stmt|;
-block|}
 name|context
 operator|.
 name|stop

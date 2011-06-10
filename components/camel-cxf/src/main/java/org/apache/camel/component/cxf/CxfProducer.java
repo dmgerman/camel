@@ -1755,28 +1755,17 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Try to find a default operation.  You should set '"
-operator|+
+literal|"Try to find a default operation. You should set '{}' in header."
+argument_list|,
 name|CxfConstants
 operator|.
 name|OPERATION_NAME
-operator|+
-literal|"' in header."
 argument_list|)
 expr_stmt|;
-block|}
 name|Collection
 argument_list|<
 name|BindingOperationInfo

@@ -616,28 +616,17 @@ literal|"http.proxyPort"
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: "
-operator|+
+literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: {} port: {}"
+argument_list|,
 name|host
-operator|+
-literal|" port: "
-operator|+
+argument_list|,
 name|port
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|getHostConfiguration
@@ -658,28 +647,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using proxy: "
-operator|+
+literal|"Using proxy: {}:{}"
+argument_list|,
 name|proxyHost
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|proxyPort
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|getHostConfiguration
@@ -791,28 +769,17 @@ name|authMethodPriority
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using authSchemePriority #"
-operator|+
+literal|"Using authSchemePriority #{}: {}"
+argument_list|,
 name|i
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|auth
 argument_list|)
 expr_stmt|;
-block|}
 name|authPrefs
 operator|.
 name|add

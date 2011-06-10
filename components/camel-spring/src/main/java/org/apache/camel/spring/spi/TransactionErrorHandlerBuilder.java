@@ -443,15 +443,6 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 if|if
 condition|(
 name|map
@@ -478,19 +469,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found "
+literal|"Found {} TransactionTemplate in registry. Cannot determine which one to use. "
 operator|+
+literal|"Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" TransactionTemplate in registry. "
-operator|+
-literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
@@ -549,15 +537,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 if|if
 condition|(
 name|map
@@ -584,19 +563,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found "
+literal|"Found {} PlatformTransactionManager in registry. Cannot determine which one to use for TransactionTemplate. "
 operator|+
+literal|"Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" PlatformTransactionManager in registry. "
-operator|+
-literal|"Cannot determine which one to use for TransactionTemplate. Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if

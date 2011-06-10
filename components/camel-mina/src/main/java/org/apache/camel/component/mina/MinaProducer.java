@@ -663,8 +663,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body : "
-operator|+
+literal|"Writing body : {}"
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
@@ -687,26 +687,15 @@ name|sync
 condition|)
 block|{
 comment|// wait for response, consider timeout
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting for response using timeout "
-operator|+
+literal|"Waiting for response using timeout {} millis."
+argument_list|,
 name|timeout
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|done
 init|=
@@ -940,8 +929,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing session when complete at address: "
-operator|+
+literal|"Closing session when complete at address: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -1005,12 +994,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping connector: "
-operator|+
+literal|"Stopping connector: {} at address: {}"
+argument_list|,
 name|connector
-operator|+
-literal|" at address: "
-operator|+
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -1113,19 +1100,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating connector to address: "
-operator|+
+literal|"Creating connector to address: {} using connector: {} timeout: {} millis."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|address
-operator|+
-literal|" using connector: "
-operator|+
+block|,
 name|connector
-operator|+
-literal|" timeout: "
-operator|+
+block|,
 name|timeout
-operator|+
-literal|" millis."
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1256,24 +1242,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message received: "
-operator|+
+literal|"Message received: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|message
@@ -1351,8 +1328,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Session closed but no message received from address: "
-operator|+
+literal|"Session closed but no message received from address: {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint

@@ -218,31 +218,20 @@ name|Response
 name|response
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MethodRouter ("
-operator|+
+literal|"MethodRouter ({}) received request method: {}"
+argument_list|,
 name|uriPattern
-operator|+
-literal|") received request method: "
-operator|+
+argument_list|,
 name|request
 operator|.
 name|getMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|Restlet
 name|target
 init|=
@@ -275,27 +264,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No route for request method: "
-operator|+
+literal|"No route for request method: {}"
+argument_list|,
 name|request
 operator|.
 name|getMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|response
 operator|.
 name|setStatus

@@ -476,61 +476,39 @@ argument_list|(
 name|transactionKey
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction begin ("
-operator|+
+literal|"Transaction begin ({}) for ExchangeId: {}"
+argument_list|,
 name|transactionKey
-operator|+
-literal|") for ExchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|doInTransactionTemplate
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction commit ("
-operator|+
+literal|"Transaction commit ({}) for ExchangeId: {}"
+argument_list|,
 name|transactionKey
-operator|+
-literal|") for ExchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -539,33 +517,20 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore as its just a dummy exception to force spring TX to rollback
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback ("
-operator|+
+literal|"Transaction rollback ({}) for ExchangeId: {} due exchange was marked for rollbackOnly"
+argument_list|,
 name|transactionKey
-operator|+
-literal|") for ExchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" due exchange was marked for rollbackOnly"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -694,18 +659,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback ("
-operator|+
+literal|"Transaction rollback ({}) for ExchangeId: {} due exchange was marked for rollbackOnlyLast"
+argument_list|,
 name|transactionKey
-operator|+
-literal|") for ExchangeId: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-operator|+
-literal|" due exchange was marked for rollbackOnlyLast"
 argument_list|)
 expr_stmt|;
 block|}

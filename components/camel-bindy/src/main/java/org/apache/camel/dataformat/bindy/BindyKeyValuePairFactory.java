@@ -504,26 +504,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key declared in the class : "
-operator|+
+literal|"Key declared in the class : {}, key : {}, Field : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", key : "
-operator|+
+block|,
 name|keyValuePairField
 operator|.
 name|tag
 argument_list|()
-operator|+
-literal|", Field : "
-operator|+
+block|,
 name|keyValuePairField
-operator|.
-name|toString
-argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -583,19 +581,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class linked  : "
-operator|+
+literal|"Class linked  : {}, Field {}"
+argument_list|,
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", Field"
-operator|+
+argument_list|,
 name|field
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -675,24 +668,15 @@ name|List
 argument_list|>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key value pairs data : "
-operator|+
+literal|"Key value pairs data : {}"
+argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Separate the key from its value
 comment|// e.g 8=FIX 4.1 --> key = 8 and Value = FIX 4.1
 name|ObjectHelper
@@ -751,28 +735,17 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key : "
-operator|+
+literal|"Key : {}, value : {}"
+argument_list|,
 name|key
-operator|+
-literal|", value : "
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Add value to the Map using key value as key
 if|if
 condition|(
@@ -1326,24 +1299,15 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value formated : "
-operator|+
+literal|"Value formated : {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -1542,24 +1506,15 @@ argument_list|,
 name|line
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value formated : "
-operator|+
+literal|"Value formated : {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 if|if
@@ -2028,17 +1983,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator converted : '0x"
-operator|+
+literal|"Separator converted : '0x{}', from : {}"
+argument_list|,
 name|Integer
 operator|.
 name|toHexString
 argument_list|(
 name|separator
 argument_list|)
-operator|+
-literal|"', from : "
-operator|+
+argument_list|,
 name|this
 operator|.
 name|getPairSeparator
@@ -2110,22 +2063,22 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Tag : "
-operator|+
+literal|"Tag : {}, Field type : {}, class : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|keyValuePairField
 operator|.
 name|tag
 argument_list|()
-operator|+
-literal|", Field type : "
-operator|+
+block|,
 name|field
 operator|.
 name|getType
 argument_list|()
-operator|+
-literal|", class : "
-operator|+
+block|,
 name|field
 operator|.
 name|getDeclaringClass
@@ -2133,6 +2086,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2251,28 +2205,17 @@ operator|.
 name|position
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key of the section : "
-operator|+
+literal|"Key of the section : {}, and the field  : {}"
+argument_list|,
 name|key1
-operator|+
-literal|", and the field  : "
-operator|+
+argument_list|,
 name|key2
 argument_list|)
 expr_stmt|;
-block|}
 name|Integer
 name|keyGenerated
 init|=
@@ -2295,17 +2238,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key generated : "
-operator|+
+literal|"Key generated : {}, for section : {}"
+argument_list|,
 name|String
 operator|.
 name|valueOf
 argument_list|(
 name|keyGenerated
 argument_list|)
-operator|+
-literal|", for section : "
-operator|+
+argument_list|,
 name|key1
 argument_list|)
 expr_stmt|;
@@ -2383,20 +2324,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted : "
-operator|+
+literal|"Value to be formatted : {}, for the tag : {}, and its formated value : {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|keyValue
-operator|+
-literal|", for the tag : "
-operator|+
+block|,
 name|keyValuePairField
 operator|.
 name|tag
 argument_list|()
-operator|+
-literal|", and its formated value : "
-operator|+
+block|,
 name|valueFormated
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2423,8 +2365,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Positions size : "
-operator|+
+literal|"Positions size : {}"
+argument_list|,
 name|positions
 operator|.
 name|size
@@ -2519,21 +2461,26 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value added : "
-operator|+
+literal|"Value added : {}{}{}{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|keyValuePairField
 operator|.
 name|tag
 argument_list|()
-operator|+
+block|,
 name|this
 operator|.
 name|getKeyValuePairSeparator
 argument_list|()
-operator|+
+block|,
 name|valueFormated
-operator|+
+block|,
 name|separator
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2598,15 +2545,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value added at the position ("
-operator|+
+literal|"Value added at the position ({}) : {}{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|posit
-operator|+
-literal|") : "
-operator|+
+block|,
 name|value
-operator|+
+block|,
 name|separator
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2819,24 +2769,15 @@ operator|.
 name|pairSeparator
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pair Separator defined for the message : "
-operator|+
+literal|"Pair Separator defined for the message : {}"
+argument_list|,
 name|pairSeparator
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get KeyValuePair Separator parameter
 name|ObjectHelper
 operator|.
@@ -2857,24 +2798,15 @@ operator|.
 name|keyValuePairSeparator
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key Value Pair Separator defined for the message : "
-operator|+
+literal|"Key Value Pair Separator defined for the message : {}"
+argument_list|,
 name|keyValuePairSeparator
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get carriage return parameter
 name|crlf
 operator|=
@@ -2883,24 +2815,15 @@ operator|.
 name|crlf
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the message : "
-operator|+
+literal|"Carriage return defined for the message : {}"
+argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get isOrderer parameter
 name|messageOrdered
 operator|=
@@ -2909,24 +2832,15 @@ operator|.
 name|isOrdered
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Is the message ordered in output : "
-operator|+
+literal|"Is the message ordered in output : {}"
+argument_list|,
 name|messageOrdered
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

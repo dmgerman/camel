@@ -527,8 +527,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Channel closed but no message received from address: "
-operator|+
+literal|"Channel closed but no message received from address: {}"
+argument_list|,
 name|producer
 operator|.
 name|getConfiguration
@@ -598,24 +598,15 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message received: "
-operator|+
+literal|"Message received: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 comment|// if textline enabled then covert to a String which must be used for textline
 if|if
 condition|(
@@ -804,8 +795,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing channel when complete at address: "
-operator|+
+literal|"Closing channel when complete at address: {}"
+argument_list|,
 name|producer
 operator|.
 name|getConfiguration

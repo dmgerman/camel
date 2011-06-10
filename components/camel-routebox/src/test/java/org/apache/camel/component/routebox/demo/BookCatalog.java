@@ -147,34 +147,23 @@ name|Book
 name|book
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding book with author "
-operator|+
+literal|"Adding book with author {} and title {}"
+argument_list|,
 name|book
 operator|.
 name|getAuthor
 argument_list|()
-operator|+
-literal|" and title "
-operator|+
+argument_list|,
 name|book
 operator|.
 name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|map
 operator|.
 name|put
@@ -216,24 +205,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Finding book with author "
-operator|+
+literal|"Finding book with author {}"
+argument_list|,
 name|author
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|map
 operator|.
@@ -254,24 +234,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Finding author with book "
-operator|+
+literal|"Finding author with book {}"
+argument_list|,
 name|title
 argument_list|)
 expr_stmt|;
-block|}
 name|Set
 argument_list|<
 name|String

@@ -521,24 +521,15 @@ argument_list|,
 literal|"url"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"About to write to url: "
-operator|+
+literal|"About to write to url: {}"
+argument_list|,
 name|u
 argument_list|)
 expr_stmt|;
-block|}
 name|URL
 name|url
 init|=
@@ -588,24 +579,15 @@ argument_list|,
 literal|"fileName"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"About to write to file: "
-operator|+
+literal|"About to write to file: {}"
+argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 name|File
 name|f
 init|=
@@ -758,28 +740,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing as byte[]: "
-operator|+
+literal|"Writing as byte[]: {} to {}"
+argument_list|,
 name|bytes
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|outputStream
 argument_list|)
 expr_stmt|;
-block|}
 name|outputStream
 operator|.
 name|write
@@ -846,17 +817,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing as text: "
-operator|+
+literal|"Writing as text: {} to {} using encoding: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|body
-operator|+
-literal|" to "
-operator|+
+block|,
 name|outputStream
-operator|+
-literal|" using encoding:"
-operator|+
+block|,
 name|charset
+block|}
 argument_list|)
 expr_stmt|;
 block|}

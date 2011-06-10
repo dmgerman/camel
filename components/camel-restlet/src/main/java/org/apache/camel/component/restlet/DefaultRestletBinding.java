@@ -454,34 +454,23 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate exchange from Restlet request header: "
-operator|+
+literal|"Populate exchange from Restlet request header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// copy query string to header
@@ -646,27 +635,18 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate exchange from Restlet request body: "
-operator|+
+literal|"Populate exchange from Restlet request body: {}"
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -706,34 +686,23 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate exchange from Restlet request user header: "
-operator|+
+literal|"Populate exchange from Restlet request user header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -839,28 +808,17 @@ operator|.
 name|APPLICATION_WWW_FORM
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate Restlet request from exchange body: "
-operator|+
+literal|"Populate Restlet request from exchange body: {} using media type {}"
+argument_list|,
 name|body
-operator|+
-literal|" using media type "
-operator|+
+argument_list|,
 name|mediaType
 argument_list|)
 expr_stmt|;
-block|}
 comment|// login and password are filtered by header filter strategy
 name|String
 name|login
@@ -1094,27 +1052,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate Restlet request from exchange header: "
-operator|+
+literal|"Populate Restlet request from exchange header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
@@ -1123,29 +1071,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using Content Type: "
-operator|+
+literal|"Using Content Type: {} for POST data: {}"
+argument_list|,
 name|mediaType
-operator|+
-literal|" for POST data: "
-operator|+
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Only URL Encode for GET and form POST
 if|if
 condition|(
@@ -1490,34 +1426,23 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate Restlet response from exchange header: "
-operator|+
+literal|"Populate Restlet response from exchange header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// set response body according to the message body
@@ -1805,34 +1730,23 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate exchange from Restlet response header: "
-operator|+
+literal|"Populate exchange from Restlet response header: {} value: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" value: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// set response code
@@ -1935,24 +1849,15 @@ operator|.
 name|getText
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Populate exchange from Restlet response: "
-operator|+
+literal|"Populate exchange from Restlet response: {}"
+argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|getOut

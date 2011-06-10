@@ -1047,12 +1047,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Joining: "
-operator|+
+literal|"Joining: {} using {} with key {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|channel
-operator|+
-literal|" using "
-operator|+
+block|,
 name|connection
 operator|.
 name|getClass
@@ -1060,10 +1062,9 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" with key "
-operator|+
+block|,
 name|key
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1091,12 +1092,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Joining: "
-operator|+
+literal|"Joining: {} using {}"
+argument_list|,
 name|channel
-operator|+
-literal|" using "
-operator|+
+argument_list|,
 name|connection
 operator|.
 name|getClass

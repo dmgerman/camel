@@ -254,24 +254,15 @@ name|getChannels
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Parting: "
-operator|+
+literal|"Parting: {}"
+argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|doPart

@@ -296,8 +296,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Package name: "
-operator|+
+literal|"Package name: {}"
+argument_list|,
 name|str
 argument_list|)
 expr_stmt|;

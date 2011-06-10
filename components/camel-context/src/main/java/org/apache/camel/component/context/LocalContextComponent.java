@@ -445,28 +445,17 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Mapping the URI: "
-operator|+
+literal|"Mapping the URI: {} to local endpoint: {}"
+argument_list|,
 name|uri
-operator|+
-literal|" to local endpoint: "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -625,24 +625,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Firing Quartz Job with context: "
-operator|+
+literal|"Firing Quartz Job with context: {}"
+argument_list|,
 name|jobExecutionContext
 argument_list|)
 expr_stmt|;
-block|}
 name|Exchange
 name|exchange
 init|=
@@ -1030,27 +1021,18 @@ argument_list|,
 literal|"trigger"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding consumer "
-operator|+
+literal|"Adding consumer {}"
+argument_list|,
 name|consumer
 operator|.
 name|getProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|getLoadBalancer
 argument_list|()
 operator|.
@@ -1122,27 +1104,18 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removing consumer "
-operator|+
+literal|"Removing consumer {}"
+argument_list|,
 name|consumer
 operator|.
 name|getProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|getLoadBalancer
 argument_list|()
 operator|.

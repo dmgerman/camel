@@ -358,12 +358,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching exchange "
-operator|+
+literal|"Dispatching exchange {} to endpoint {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" to endpoint "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
@@ -473,12 +471,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching exchange "
-operator|+
+literal|"Dispatching exchange {} to endpoint {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" to endpoint "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri

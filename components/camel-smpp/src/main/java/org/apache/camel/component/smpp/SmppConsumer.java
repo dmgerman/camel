@@ -522,24 +522,15 @@ name|AlertNotification
 name|alertNotification
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received an alertNotification "
-operator|+
+literal|"Received an alertNotification {}"
+argument_list|,
 name|alertNotification
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Exchange
@@ -600,24 +591,15 @@ name|DeliverSm
 name|deliverSm
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received a deliverSm "
-operator|+
+literal|"Received a deliverSm {}"
+argument_list|,
 name|deliverSm
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Exchange
@@ -683,24 +665,15 @@ parameter_list|)
 throws|throws
 name|ProcessRequestException
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received a dataSm "
-operator|+
+literal|"Received a dataSm {}"
+argument_list|,
 name|dataSm
 argument_list|)
 expr_stmt|;
-block|}
 name|MessageId
 name|newMessageId
 init|=

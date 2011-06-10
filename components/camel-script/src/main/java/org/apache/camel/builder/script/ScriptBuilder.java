@@ -1824,24 +1824,15 @@ init|=
 name|runScript
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"The script evaluation result is: "
-operator|+
+literal|"The script evaluation result is: {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|result
 return|;

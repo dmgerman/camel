@@ -292,28 +292,17 @@ index|[
 name|key
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending "
-operator|+
+literal|"Sending {} with id {}"
+argument_list|,
 name|value
-operator|+
-literal|" with id "
-operator|+
+argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
-block|}
 name|template
 operator|.
 name|sendBodyAndHeader

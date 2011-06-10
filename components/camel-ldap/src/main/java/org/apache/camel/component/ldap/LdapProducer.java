@@ -305,8 +305,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Setting returning Attributes to searchControls: "
-operator|+
+literal|"Setting returning Attributes to searchControls: {}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -667,15 +667,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Found a total of "
-operator|+
+literal|"Found a total of {} entries for ldap filter {}"
+argument_list|,
 name|data
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" entries for ldap filter "
-operator|+
+argument_list|,
 name|searchFilter
 argument_list|)
 expr_stmt|;

@@ -1649,43 +1649,38 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{}: Using TextLineCodecFactory: {} using encoding: {} line delimiter: {}({})"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|type
-operator|+
-literal|": Using TextLineCodecFactory: "
-operator|+
+block|,
 name|codecFactory
-operator|+
-literal|" using encoding: "
-operator|+
+block|,
 name|charset
-operator|+
-literal|" line delimiter: "
-operator|+
+block|,
 name|configuration
 operator|.
 name|getTextlineDelimiter
 argument_list|()
-operator|+
-literal|"("
-operator|+
+block|,
 name|delimiter
-operator|+
-literal|")"
+block|}
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Encoder maximum line length: "
-operator|+
+literal|"Encoder maximum line length: {}. Decoder maximum line length: {}"
+argument_list|,
 name|codecFactory
 operator|.
 name|getEncoderMaxLineLength
 argument_list|()
-operator|+
-literal|". Decoder maximum line length: "
-operator|+
+argument_list|,
 name|codecFactory
 operator|.
 name|getDecoderMaxLineLength
@@ -1710,26 +1705,17 @@ argument_list|,
 name|codecFactory
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{}: Using ObjectSerializationCodecFactory: {}"
+argument_list|,
 name|type
-operator|+
-literal|": Using ObjectSerializationCodecFactory: "
-operator|+
+argument_list|,
 name|codecFactory
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|createDatagramEndpoint (String uri, MinaConfiguration configuration)
@@ -2199,15 +2185,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{}: Using CodecFactory: {} using encoding: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|type
-operator|+
-literal|": Using CodecFactory: "
-operator|+
+block|,
 name|codecFactory
-operator|+
-literal|" using encoding: "
-operator|+
+block|,
 name|charset
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2375,26 +2364,17 @@ argument_list|(
 name|encoding
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{}: No encoding parameter using default charset: {}"
+argument_list|,
 name|type
-operator|+
-literal|": No encoding parameter using default charset: "
-operator|+
+argument_list|,
 name|encoding
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

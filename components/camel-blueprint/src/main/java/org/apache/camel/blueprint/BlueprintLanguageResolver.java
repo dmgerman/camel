@@ -181,28 +181,17 @@ operator|instanceof
 name|LanguageResolver
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found language resolver: "
-operator|+
+literal|"Found language resolver: {} in registry: {}"
+argument_list|,
 name|name
-operator|+
-literal|" in registry: "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|(
 operator|(

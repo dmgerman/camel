@@ -484,28 +484,17 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Correlation key: "
-operator|+
+literal|"Correlation key: {} with entity: {}"
+argument_list|,
 name|key
-operator|+
-literal|" with entity: "
-operator|+
+argument_list|,
 name|entity
 argument_list|)
 expr_stmt|;
-block|}
 name|processEntity
 argument_list|(
 name|exchange
@@ -547,11 +536,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Attempt "
-operator|+
+literal|"Attempt {} worked!"
+argument_list|,
 name|i
-operator|+
-literal|" worked!"
 argument_list|)
 expr_stmt|;
 block|}

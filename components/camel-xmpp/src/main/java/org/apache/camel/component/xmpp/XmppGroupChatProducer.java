@@ -296,8 +296,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reconnecting to: "
-operator|+
+literal|"Reconnecting to: {}"
+argument_list|,
 name|XmppEndpoint
 operator|.
 name|getConnectionMessage
@@ -313,27 +313,18 @@ name|connect
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending XMPP message: "
-operator|+
+literal|"Sending XMPP message: {}"
+argument_list|,
 name|message
 operator|.
 name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|chat
 operator|.
 name|sendMessage

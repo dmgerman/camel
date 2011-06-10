@@ -218,8 +218,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending MimeMessage: "
-operator|+
+literal|"Sending MimeMessage: {}"
+argument_list|,
 name|MailUtils
 operator|.
 name|dumpMessage

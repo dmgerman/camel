@@ -643,27 +643,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping producer at address: "
-operator|+
+literal|"Stopping producer at address: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// close all channels
 name|ChannelGroupFuture
 name|future
@@ -935,24 +926,15 @@ literal|true
 return|;
 block|}
 comment|// log what we are writing
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body: "
-operator|+
+literal|"Writing body: {}"
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 comment|// write the body asynchronously
 name|ChannelFuture
 name|future
@@ -983,24 +965,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Operation complete "
-operator|+
+literal|"Operation complete {}"
+argument_list|,
 name|channelFuture
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1135,8 +1108,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Closing channel when complete at address: "
-operator|+
+literal|"Closing channel when complete at address: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -1698,27 +1671,18 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating connector to address: "
-operator|+
+literal|"Creating connector to address: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|channel
 return|;

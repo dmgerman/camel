@@ -173,14 +173,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -188,7 +180,6 @@ argument_list|(
 literal|"Beginning Test ---> testUDPInOutWithNettyConsumer()"
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -228,14 +219,6 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -243,7 +226,6 @@ argument_list|(
 literal|"Completed Test ---> testUDPInOutWithNettyConsumer()"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

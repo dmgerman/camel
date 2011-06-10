@@ -130,10 +130,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} : {}"
+argument_list|,
 name|direction
-operator|+
-literal|" : "
-operator|+
+argument_list|,
 name|packet
 operator|.
 name|toXML

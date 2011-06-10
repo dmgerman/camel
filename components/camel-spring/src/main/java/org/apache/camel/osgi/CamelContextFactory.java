@@ -164,24 +164,15 @@ name|BundleContext
 name|bundleContext
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using BundleContext: "
-operator|+
+literal|"Using BundleContext: {}"
+argument_list|,
 name|bundleContext
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|bundleContext
@@ -208,24 +199,15 @@ name|Registry
 name|registry
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using Registry: "
-operator|+
+literal|"Using Registry: {}"
+argument_list|,
 name|registry
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|registry

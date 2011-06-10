@@ -726,14 +726,6 @@ operator|.
 name|getAuthentication
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -741,7 +733,6 @@ argument_list|(
 literal|"Get the authentication from SecurityContextHolder"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
@@ -852,24 +843,15 @@ operator|!
 name|alwaysReauthenticate
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Previously Authenticated: "
-operator|+
+literal|"Previously Authenticated: {}"
+argument_list|,
 name|authentication
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|authentication
 return|;
@@ -883,24 +865,15 @@ argument_list|(
 name|authentication
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully Authenticated: "
-operator|+
+literal|"Successfully Authenticated: {}"
+argument_list|,
 name|authentication
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|authentication
 return|;

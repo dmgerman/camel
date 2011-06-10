@@ -711,26 +711,15 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding exchange with key: ["
-operator|+
+literal|"Adding exchange with key: [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|insert
 init|=
@@ -936,28 +925,17 @@ argument_list|,
 name|camelContext
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting key  ["
-operator|+
+literal|"Getting key  [{}] -> {}"
+argument_list|,
 name|key
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|result
 return|;
@@ -1172,26 +1150,15 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removing key ["
-operator|+
+literal|"Removing key [{}]"
+argument_list|,
 name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 name|jdbcTemplate
 operator|.
 name|update
@@ -1338,26 +1305,15 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Confirming exchangeId ["
-operator|+
+literal|"Confirming exchangeId [{}]"
+argument_list|,
 name|exchangeId
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 specifier|final
 name|String
 name|confirmKey
@@ -1666,28 +1622,17 @@ argument_list|,
 name|camelContext
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Recovering exchangeId ["
-operator|+
+literal|"Recovering exchangeId [{}] -> {}"
+argument_list|,
 name|key
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

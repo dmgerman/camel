@@ -254,24 +254,15 @@ operator|.
 name|getResponseStatus
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"HTTP responseCode: "
-operator|+
+literal|"HTTP responseCode: {}"
+argument_list|,
 name|responseCode
 argument_list|)
 expr_stmt|;
-block|}
 name|Message
 name|in
 init|=

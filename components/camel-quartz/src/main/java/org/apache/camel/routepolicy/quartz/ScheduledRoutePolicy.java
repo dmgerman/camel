@@ -205,31 +205,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Event notification received. Performing requested operation "
-operator|+
+literal|"Scheduled Event notification received. Performing requested operation {} for route {}"
+argument_list|,
 name|action
-operator|+
-literal|" for route "
-operator|+
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|ServiceStatus
 name|routeStatus
 init|=
@@ -515,14 +504,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Trigger: "
-operator|+
+literal|"Scheduled Trigger: {} is operational"
+argument_list|,
 name|trigger
 operator|.
 name|getFullName
 argument_list|()
-operator|+
-literal|" is operational"
 argument_list|)
 expr_stmt|;
 block|}
@@ -564,30 +551,17 @@ argument_list|,
 name|triggerGroup
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Trigger: "
-operator|+
+literal|"Scheduled Trigger: {}. {} is paused"
+argument_list|,
 name|triggerGroup
-operator|+
-literal|"."
-operator|+
+argument_list|,
 name|triggerName
-operator|+
-literal|" is paused"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|resumeRouteTrigger (Action action)
 specifier|public
@@ -626,30 +600,17 @@ argument_list|,
 name|triggerGroup
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Trigger: "
-operator|+
+literal|"Scheduled Trigger: {}. {} has been resumed"
+argument_list|,
 name|triggerGroup
-operator|+
-literal|"."
-operator|+
+argument_list|,
 name|triggerName
-operator|+
-literal|" has been resumed"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|deleteRouteJob (Action action)
 specifier|public
@@ -699,30 +660,17 @@ name|jobDetailGroup
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Job: "
-operator|+
+literal|"Scheduled Job: {}. {} has been deleted"
+argument_list|,
 name|jobDetailGroup
-operator|+
-literal|"."
-operator|+
+argument_list|,
 name|jobDetailName
-operator|+
-literal|" has been deleted"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|createJobDetail (Action action, Route route)
 specifier|protected

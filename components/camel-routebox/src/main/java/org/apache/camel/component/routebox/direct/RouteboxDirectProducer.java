@@ -316,24 +316,15 @@ throw|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching to Inner Route "
-operator|+
+literal|"Dispatching to Inner Route {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|RouteboxDispatcher
 name|dispatcher
 init|=
@@ -470,24 +461,15 @@ else|else
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching to Inner Route "
-operator|+
+literal|"Dispatching to Inner Route {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|RouteboxDispatcher
 name|dispatcher
 init|=

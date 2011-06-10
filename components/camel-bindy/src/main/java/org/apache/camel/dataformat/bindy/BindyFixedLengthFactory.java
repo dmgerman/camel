@@ -457,8 +457,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class retrieved: "
-operator|+
+literal|"Class retrieved: {}"
+argument_list|,
 name|cl
 operator|.
 name|getName
@@ -508,26 +508,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Position defined in the class: "
-operator|+
+literal|"Position defined in the class: {}, position: {}, Field: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", position: "
-operator|+
+block|,
 name|dataField
 operator|.
 name|pos
 argument_list|()
-operator|+
-literal|", Field: "
-operator|+
+block|,
 name|dataField
-operator|.
-name|toString
-argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -605,19 +603,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class linked: "
-operator|+
+literal|"Class linked: {}, Field: {}"
+argument_list|,
 name|cl
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|", Field: "
-operator|+
+argument_list|,
 name|field
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -670,8 +663,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of optional fields: "
-operator|+
+literal|"Number of optional fields: {}"
+argument_list|,
 name|numberOptionalFields
 argument_list|)
 expr_stmt|;
@@ -679,8 +672,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of mandatory fields: "
-operator|+
+literal|"Number of mandatory fields: {}"
+argument_list|,
 name|numberMandatoryFields
 argument_list|)
 expr_stmt|;
@@ -688,8 +681,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Total: "
-operator|+
+literal|"Total: {}"
+argument_list|,
 name|totalFields
 argument_list|)
 expr_stmt|;
@@ -984,20 +977,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pos/Offset: "
-operator|+
+literal|"Pos/Offset: {}, Data: {}, Field type: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|offset
-operator|+
-literal|", Data: "
-operator|+
+block|,
 name|token
-operator|+
-literal|", Field type: "
-operator|+
+block|,
 name|field
 operator|.
 name|getType
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1160,24 +1154,15 @@ operator|++
 name|pos
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Counter mandatory fields: "
-operator|+
+literal|"Counter mandatory fields: {}"
+argument_list|,
 name|counterMandatoryFields
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|pos
@@ -1293,12 +1278,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Model object: "
-operator|+
+literal|"Model object: {}, class: {}"
+argument_list|,
 name|obj
-operator|+
-literal|", class: "
-operator|+
+argument_list|,
 name|obj
 operator|.
 name|getClass
@@ -1806,20 +1789,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted: "
-operator|+
+literal|"Value to be formatted: {}, position: {}, and its formatted value: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|value
-operator|+
-literal|", position: "
-operator|+
+block|,
 name|datafield
 operator|.
 name|pos
 argument_list|()
-operator|+
-literal|", and its formatted value: "
-operator|+
+block|,
 name|result
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2001,27 +1985,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Fixed length record : "
-operator|+
+literal|"Fixed length record : {}"
+argument_list|,
 name|record
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get carriage return parameter
 name|crlf
 operator|=
@@ -2030,24 +2002,15 @@ operator|.
 name|crlf
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the CSV : "
-operator|+
+literal|"Carriage return defined for the CSV : {}"
+argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get hasHeader parameter
 name|hasHeader
 operator|=
@@ -2056,24 +2019,15 @@ operator|.
 name|hasHeader
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Has Header :  "
-operator|+
+literal|"Has Header :  {}"
+argument_list|,
 name|hasHeader
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get hasFooter parameter
 name|hasFooter
 operator|=
@@ -2082,24 +2036,15 @@ operator|.
 name|hasFooter
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Has Footer :  "
-operator|+
+literal|"Has Footer :  {}"
+argument_list|,
 name|hasFooter
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get padding character
 name|paddingChar
 operator|=
@@ -2108,24 +2053,15 @@ operator|.
 name|paddingChar
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Padding char :  "
-operator|+
+literal|"Padding char :  {}"
+argument_list|,
 name|paddingChar
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get length of the record
 name|recordLength
 operator|=
@@ -2134,24 +2070,15 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Length of the record :  "
-operator|+
+literal|"Length of the record : {}"
+argument_list|,
 name|recordLength
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Get length of the record
 name|recordLength
 operator|=
@@ -2160,24 +2087,15 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Length of the record :  "
-operator|+
+literal|"Length of the record : {}"
+argument_list|,
 name|recordLength
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

@@ -237,24 +237,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"FTPClient initializing with execPbsz="
-operator|+
+literal|"FTPClient initializing with execPbsz={}"
+argument_list|,
 name|execPbsz
 argument_list|)
 expr_stmt|;
-block|}
 name|getFtpClient
 argument_list|()
 operator|.
@@ -271,24 +262,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"FTPClient initializing with execProt="
-operator|+
+literal|"FTPClient initializing with execProt={}"
+argument_list|,
 name|execProt
 argument_list|)
 expr_stmt|;
-block|}
 name|getFtpClient
 argument_list|()
 operator|.

@@ -353,24 +353,15 @@ argument_list|,
 name|newResourceUri
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Getting endpoint with URI: "
-operator|+
+literal|"Getting endpoint with URI: {}"
+argument_list|,
 name|newUri
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|(
 name|FreemarkerEndpoint
@@ -464,30 +455,19 @@ operator|.
 name|FREEMARKER_RESOURCE_URI
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} set to {} creating new endpoint to handle exchange"
+argument_list|,
 name|FreemarkerConstants
 operator|.
 name|FREEMARKER_RESOURCE_URI
-operator|+
-literal|" set to "
-operator|+
+argument_list|,
 name|newResourceUri
-operator|+
-literal|" creating new endpoint to handle exchange"
 argument_list|)
 expr_stmt|;
-block|}
 name|FreemarkerEndpoint
 name|newEndpoint
 init|=
@@ -583,30 +563,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Freemarker is evaluating template read from header "
-operator|+
+literal|"Freemarker is evaluating template read from header {} using context: {}"
+argument_list|,
 name|FreemarkerConstants
 operator|.
 name|FREEMARKER_TEMPLATE
-operator|+
-literal|" using context: "
-operator|+
+argument_list|,
 name|variableMap
 argument_list|)
 expr_stmt|;
-block|}
 name|template
 operator|=
 operator|new
@@ -624,28 +593,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Freemarker is evaluating "
-operator|+
+literal|"Freemarker is evaluating {} using context: {}"
+argument_list|,
 name|path
-operator|+
-literal|" using context: "
-operator|+
+argument_list|,
 name|variableMap
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|getEncoding

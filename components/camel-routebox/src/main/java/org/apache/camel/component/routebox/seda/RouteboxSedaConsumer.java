@@ -572,15 +572,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interrupted, are we stopping? "
-operator|+
-operator|(
+literal|"Sleep interrupted, are we stopping? {}"
+argument_list|,
 name|isStopping
 argument_list|()
 operator|||
 name|isStopped
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -624,24 +622,15 @@ condition|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatching to inner route: "
-operator|+
+literal|"Dispatching to inner route: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 name|RouteboxDispatcher
 name|dispatcher
 init|=

@@ -325,24 +325,15 @@ argument_list|,
 name|destinationSession
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Routing destination: "
-operator|+
+literal|"Routing destination: {}"
+argument_list|,
 name|destinationUri
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|destinationUri
 return|;

@@ -365,8 +365,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending notification to Nagios: "
-operator|+
+literal|"Sending notification to Nagios: {}"
+argument_list|,
 name|payload
 operator|.
 name|getMessage

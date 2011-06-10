@@ -214,27 +214,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending FIX message: "
-operator|+
+literal|"Sending FIX message: {}"
+argument_list|,
 name|message
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|SessionID
 name|messageSessionID
 init|=

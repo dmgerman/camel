@@ -344,15 +344,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Decoded HL7 from byte stream of length "
-operator|+
+literal|"Decoded HL7 from byte stream of length {} to String of length {}"
+argument_list|,
 name|state
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|" to String of length "
-operator|+
+argument_list|,
 name|body
 operator|.
 name|length
@@ -570,8 +568,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message starts at position "
-operator|+
+literal|"Message starts at position {}"
+argument_list|,
 name|state
 operator|.
 name|posStart
@@ -678,8 +676,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message ends at position "
-operator|+
+literal|"Message ends at position {}"
+argument_list|,
 name|state
 operator|.
 name|posEnd

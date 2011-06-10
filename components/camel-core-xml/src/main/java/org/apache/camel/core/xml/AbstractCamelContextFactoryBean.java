@@ -2140,8 +2140,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found JAXB created routes: "
-operator|+
+literal|"Found JAXB created routes: {}"
+argument_list|,
 name|getRoutes
 argument_list|()
 argument_list|)
@@ -2870,28 +2870,17 @@ range|:
 name|defs
 control|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding route from "
-operator|+
+literal|"Adding route from {} -> {}"
+argument_list|,
 name|ref
-operator|+
-literal|" -> "
-operator|+
+argument_list|,
 name|def
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add in top as they are most likely to be common/shared
 comment|// which you may want to start first
 name|getRoutes

@@ -566,24 +566,15 @@ argument_list|,
 name|port
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using snmp address "
-operator|+
+literal|"Using snmp address {}"
+argument_list|,
 name|address
 argument_list|)
 expr_stmt|;
-block|}
 name|setAddress
 argument_list|(
 name|address

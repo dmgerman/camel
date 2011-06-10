@@ -370,8 +370,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting HawtDB using file: "
-operator|+
+literal|"Starting HawtDB using file: {}"
+argument_list|,
 name|getFile
 argument_list|()
 argument_list|)
@@ -512,8 +512,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping HawtDB using file: "
-operator|+
+literal|"Stopping HawtDB using file: {}"
+argument_list|,
 name|getFile
 argument_list|()
 argument_list|)
@@ -682,28 +682,17 @@ argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new repository index with name "
-operator|+
+literal|"Created new repository index with name {} at location {}"
+argument_list|,
 name|name
-operator|+
-literal|" at location "
-operator|+
+argument_list|,
 name|page
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|=
 name|created
@@ -806,23 +795,16 @@ condition|(
 name|attempt
 operator|>
 literal|0
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Attempt "
-operator|+
+literal|"Attempt {} to execute work {}"
+argument_list|,
 name|attempt
-operator|+
-literal|" to execute work "
-operator|+
+argument_list|,
 name|work
 argument_list|)
 expr_stmt|;

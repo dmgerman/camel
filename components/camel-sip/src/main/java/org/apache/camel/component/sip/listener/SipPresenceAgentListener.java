@@ -340,20 +340,12 @@ operator|.
 name|getServerTransaction
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Request: "
-operator|+
+literal|"Request: {}"
+argument_list|,
 name|request
 operator|.
 name|getMethod
@@ -364,12 +356,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Server Transaction Id:"
-operator|+
+literal|"Server Transaction Id: {}"
+argument_list|,
 name|serverTransactionId
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|request
@@ -419,29 +410,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received expected request with method: "
-operator|+
+literal|"Received expected request with method: {}. No further processing done"
+argument_list|,
 name|request
 operator|.
 name|getMethod
 argument_list|()
-operator|+
-literal|". No further processing done"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|sendNotification (EventHeader eventHeader, boolean isInitial, Object body)
@@ -630,24 +610,15 @@ name|getContentTypeHeader
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending the following NOTIFY request to Subscriber: "
-operator|+
+literal|"Sending the following NOTIFY request to Subscriber: {}"
+argument_list|,
 name|notifyRequest
 argument_list|)
 expr_stmt|;
-block|}
 name|ClientTransaction
 name|clientTransactionId
 init|=
@@ -691,14 +662,6 @@ operator|.
 name|getRequest
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -710,12 +673,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"SipPresenceAgentListener request: "
-operator|+
+literal|"SipPresenceAgentListener request: {}"
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-block|}
 name|EventHeader
 name|eventHeader
 init|=
@@ -826,14 +788,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -845,12 +799,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"SipPresenceAgentListener request: "
-operator|+
+literal|"SipPresenceAgentListener request: {}"
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-block|}
 name|EventHeader
 name|eventHeader
 init|=
@@ -873,14 +826,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -888,7 +833,6 @@ argument_list|(
 literal|"Cannot find event header.... dropping request."
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 comment|// Always create a ServerTransaction, best as early as possible in the code
@@ -1064,14 +1008,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1083,12 +1019,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"SipPresenceAgentListener response: "
-operator|+
+literal|"SipPresenceAgentListener response: {}"
+argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
-block|}
 name|sendNotification
 argument_list|(
 name|eventHeader

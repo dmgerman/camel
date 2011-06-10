@@ -781,24 +781,15 @@ argument_list|)
 condition|)
 block|{
 comment|// process the current exchange
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing exchange: "
-operator|+
+literal|"Processing exchange: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|getProcessor
@@ -1195,24 +1186,15 @@ return|;
 block|}
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Acquiring exclusive lock on entity: "
-operator|+
+literal|"Acquiring exclusive lock on entity: {}"
+argument_list|,
 name|entity
 argument_list|)
 expr_stmt|;
-block|}
 name|entityManager
 operator|.
 name|lock

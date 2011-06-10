@@ -186,28 +186,17 @@ condition|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending to: "
-operator|+
+literal|"Sending to: {} message: {}"
+argument_list|,
 name|queue
-operator|+
-literal|" message: "
-operator|+
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 name|memcachedClient
 operator|.
 name|set

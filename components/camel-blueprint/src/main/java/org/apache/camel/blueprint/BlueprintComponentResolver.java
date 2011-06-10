@@ -193,28 +193,17 @@ operator|instanceof
 name|Component
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found component: "
-operator|+
+literal|"Found component: {} in registry: {}"
+argument_list|,
 name|name
-operator|+
-literal|" in registry: "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|(
 name|Component
@@ -299,28 +288,17 @@ operator|instanceof
 name|ComponentResolver
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found component resolver: "
-operator|+
+literal|"Found component resolver: {} in registry: {}"
+argument_list|,
 name|name
-operator|+
-literal|" in registry: "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|(
 operator|(

@@ -225,23 +225,16 @@ condition|(
 name|bean
 operator|!=
 literal|null
-operator|&&
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found language: "
-operator|+
+literal|"Found language: {} in registry: {}"
+argument_list|,
 name|name
-operator|+
-literal|" in registry: "
-operator|+
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;

@@ -201,26 +201,15 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No updated time for entry so assuming its valid: entry=["
-operator|+
+literal|"No updated time for entry so assuming its valid: entry=[{}]"
+argument_list|,
 name|entry
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -249,30 +238,17 @@ name|updated
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Entry is older than lastupdate=["
-operator|+
+literal|"Entry is older than lastupdate=[{}], no valid entry=[{}]"
+argument_list|,
 name|lastUpdate
-operator|+
-literal|"], no valid entry=["
-operator|+
+argument_list|,
 name|entry
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

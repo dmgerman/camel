@@ -300,8 +300,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Activating CxfBeanDestination "
-operator|+
+literal|"Activating CxfBeanDestination {}"
+argument_list|,
 name|getCamelDestinationUri
 argument_list|()
 argument_list|)

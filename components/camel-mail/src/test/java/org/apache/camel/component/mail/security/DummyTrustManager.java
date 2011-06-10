@@ -203,10 +203,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} certificate is trusted: {}"
+argument_list|,
 name|type
-operator|+
-literal|" certificate is trusted: "
-operator|+
+argument_list|,
 name|certificate
 argument_list|)
 expr_stmt|;

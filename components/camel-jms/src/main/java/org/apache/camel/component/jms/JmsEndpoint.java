@@ -1193,15 +1193,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using custom TaskExecutor: "
-operator|+
+literal|"Using custom TaskExecutor: {} on listener container: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getTaskExecutor
 argument_list|()
-operator|+
-literal|" on listener container: "
-operator|+
+argument_list|,
 name|listenerContainer
 argument_list|)
 expr_stmt|;

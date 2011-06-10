@@ -212,28 +212,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Attempting to create local endpoint: "
-operator|+
+literal|"Attempting to create local endpoint: {} inside the component: {}"
+argument_list|,
 name|localEndpoint
-operator|+
-literal|" inside the component: "
-operator|+
+argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|component
 operator|.

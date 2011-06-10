@@ -527,24 +527,15 @@ name|ApplicationEvent
 name|event
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onApplicationEvent: "
-operator|+
+literal|"onApplicationEvent: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|event
@@ -623,8 +614,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"No spring-event endpoint enabled to handle event: "
-operator|+
+literal|"No spring-event endpoint enabled to handle event: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
@@ -705,24 +696,15 @@ name|getContextClassLoader
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Set the application context classloader to: "
-operator|+
+literal|"Set the application context classloader to: {}"
+argument_list|,
 name|cl
 argument_list|)
 expr_stmt|;
-block|}
 name|this
 operator|.
 name|setApplicationContextClassLoader

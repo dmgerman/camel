@@ -540,26 +540,15 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleeping for "
-operator|+
+literal|"Sleeping for {} millis"
+argument_list|,
 name|timeToSleep
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Thread
@@ -625,24 +614,15 @@ name|ActivityState
 name|activityState
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to fire expiration of: "
-operator|+
+literal|"Trying to fire expiration of: {}"
+argument_list|,
 name|activityState
 argument_list|)
 expr_stmt|;
-block|}
 name|template
 operator|.
 name|execute

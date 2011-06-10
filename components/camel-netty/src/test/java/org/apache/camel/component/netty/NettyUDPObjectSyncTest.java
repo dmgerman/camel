@@ -173,14 +173,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -188,7 +180,6 @@ argument_list|(
 literal|"Beginning Test ---> testUDPInOutWithNettyConsumer()"
 argument_list|)
 expr_stmt|;
-block|}
 name|Poetry
 name|poetry
 init|=
@@ -222,14 +213,6 @@ name|getPoet
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -237,7 +220,6 @@ argument_list|(
 literal|"Completed Test ---> testUDPInOutWithNettyConsumer()"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

@@ -138,26 +138,15 @@ argument_list|(
 name|resource
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-name|this
-operator|+
-literal|" using schema resource: "
-operator|+
+literal|"{} using schema resource: {}"
+argument_list|,
 name|resource
 argument_list|)
 expr_stmt|;
-block|}
 name|configureValidator
 argument_list|(
 name|validator

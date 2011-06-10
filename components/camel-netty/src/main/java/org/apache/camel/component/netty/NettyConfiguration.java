@@ -1054,17 +1054,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using textline encoders and decoders with charset: "
-operator|+
+literal|"Using textline encoders and decoders with charset: {}, delimiter: {} and decoderMaxLineLength: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|charset
-operator|+
-literal|", delimiter: "
-operator|+
+block|,
 name|delimiter
-operator|+
-literal|" and decoderMaxLineLength: "
-operator|+
+block|,
 name|decoderMaxLineLength
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1090,14 +1091,6 @@ name|ObjectDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1107,16 +1100,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
 block|{
 name|LOG
 operator|.
@@ -1125,7 +1109,6 @@ argument_list|(
 literal|"No encoders and decoders will be used"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else

@@ -811,15 +811,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detached restlet uriPattern: "
-operator|+
+literal|"Detached restlet uriPattern: {} method: {}"
+argument_list|,
 name|router
 operator|.
 name|getUriPattern
 argument_list|()
-operator|+
-literal|" method: "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getRestletMethod
@@ -868,24 +866,15 @@ argument_list|(
 name|uriPattern
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Added method based router: "
-operator|+
+literal|"Added method based router: {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 name|routers
 operator|.
 name|put
@@ -978,24 +967,15 @@ argument_list|,
 name|server
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Added server: "
-operator|+
+literal|"Added server: {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|server
 operator|.
 name|start
@@ -1164,24 +1144,15 @@ name|target
 operator|=
 name|guard
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Target has been set to guard: "
-operator|+
+literal|"Target has been set to guard: {}"
+argument_list|,
 name|guard
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1219,28 +1190,17 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Attached restlet uriPattern: "
-operator|+
+literal|"Attached restlet uriPattern: {} method: {}"
+argument_list|,
 name|uriPattern
-operator|+
-literal|" method: "
-operator|+
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
@@ -1269,12 +1229,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Attached restlet uriPattern: "
-operator|+
+literal|"Attached restlet uriPattern: {} method: {}"
+argument_list|,
 name|uriPattern
-operator|+
-literal|" method: "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getRestletMethod
@@ -1304,24 +1262,15 @@ argument_list|,
 name|router
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Attached methodRouter uriPattern: "
-operator|+
+literal|"Attached methodRouter uriPattern: {}"
+argument_list|,
 name|uriPattern
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

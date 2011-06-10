@@ -1183,29 +1183,18 @@ literal|"OSGi environment not detected."
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using "
-operator|+
+literal|"Using {} as CamelContextBeanDefinitionParser"
+argument_list|,
 name|cl
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" as CamelContextBeanDefinitionParser"
 argument_list|)
 expr_stmt|;
-block|}
 name|registerParser
 argument_list|(
 literal|"camelContext"
@@ -2783,33 +2772,20 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding dependsOn "
-operator|+
+literal|"Adding dependsOn {} to CamelContext({})"
+argument_list|,
 name|depend
-operator|+
-literal|" to CamelContext("
-operator|+
+argument_list|,
 name|factoryBean
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|addDependsOn
@@ -3829,20 +3805,21 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registered default: "
-operator|+
+literal|"Registered default: {} with id: {} on camel context: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|definition
 operator|.
 name|getBeanClassName
 argument_list|()
-operator|+
-literal|" with id: "
-operator|+
+block|,
 name|id
-operator|+
-literal|" on camel context: "
-operator|+
+block|,
 name|contextId
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3852,35 +3829,22 @@ block|{
 comment|// ups we have already registered it before with same id, but on another camel context
 comment|// this is not good so we need to remove all traces of this auto registering.
 comment|// end user must manually add the needed XML elements and provide unique ids access all camel context himself.
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unregistered default: "
+literal|"Unregistered default: {} with id: {} as we have multiple camel contexts and they must use unique ids."
 operator|+
+literal|" You must define the definition in the XML file manually to avoid id clashes when using multiple camel contexts"
+argument_list|,
 name|definition
 operator|.
 name|getBeanClassName
 argument_list|()
-operator|+
-literal|" with id: "
-operator|+
+argument_list|,
 name|id
-operator|+
-literal|" as we have multiple camel contexts and they must use unique ids."
-operator|+
-literal|" You must define the definition in the XML file manually to avoid id clashes when using multiple camel contexts"
 argument_list|)
 expr_stmt|;
-block|}
 name|parserContext
 operator|.
 name|getRegistry

@@ -315,6 +315,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} calling handleResponse"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread
@@ -322,8 +324,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" calling handleResponse"
 argument_list|)
 expr_stmt|;
 block|}
@@ -434,6 +434,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"{} calling handleException"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread
@@ -441,8 +443,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" calling handleException"
 argument_list|)
 expr_stmt|;
 block|}

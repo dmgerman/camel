@@ -2574,13 +2574,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"FIX event dispatched: "
-operator|+
+literal|"FIX event dispatched: {} {}"
+argument_list|,
 name|quickfixjEventCategory
-operator|+
-literal|" "
-operator|+
-operator|(
+argument_list|,
 name|message
 operator|!=
 literal|null
@@ -2588,7 +2585,6 @@ condition|?
 name|message
 else|:
 literal|""
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

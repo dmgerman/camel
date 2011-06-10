@@ -332,25 +332,16 @@ name|FailedToCreateConsumerException
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Testing JMS Connection on startup for destination: "
-operator|+
+literal|"Testing JMS Connection on startup for destination: {}"
+argument_list|,
 name|getDestinationName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|Connection
 name|con
 init|=

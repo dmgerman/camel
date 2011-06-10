@@ -356,8 +356,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Disconnecting from: "
-operator|+
+literal|"Disconnecting from: {}"
+argument_list|,
 name|remoteServer
 argument_list|()
 argument_list|)
@@ -445,27 +445,16 @@ operator|!
 name|loggedIn
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to recover connection to: "
-operator|+
+literal|"Trying to recover connection to: {} with a fresh client."
+argument_list|,
 name|getEndpoint
 argument_list|()
-operator|+
-literal|" with a fresh client."
 argument_list|)
 expr_stmt|;
-block|}
 name|setOperations
 argument_list|(
 name|getEndpoint
@@ -506,8 +495,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected/logged in, connecting to: "
-operator|+
+literal|"Not connected/logged in, connecting to: {}"
+argument_list|,
 name|remoteServer
 argument_list|()
 argument_list|)

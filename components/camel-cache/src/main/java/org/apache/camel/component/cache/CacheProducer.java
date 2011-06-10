@@ -426,26 +426,15 @@ name|CACHE_OPERATION_ADD
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding an element with key "
-operator|+
+literal|"Adding an element with key {} into the Cache"
+argument_list|,
 name|key
-operator|+
-literal|" into the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 name|element
 operator|=
 name|createElementFromBody
@@ -484,26 +473,15 @@ name|CACHE_OPERATION_UPDATE
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating an element with key "
-operator|+
+literal|"Updating an element with key {} into the Cache"
+argument_list|,
 name|key
-operator|+
-literal|" into the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 name|element
 operator|=
 name|createElementFromBody
@@ -542,14 +520,6 @@ name|CACHE_OPERATION_DELETEALL
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -557,7 +527,6 @@ argument_list|(
 literal|"Deleting All elements from the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 name|cache
 operator|.
 name|removeAll
@@ -577,26 +546,15 @@ name|CACHE_OPERATION_DELETE
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting an element with key "
-operator|+
+literal|"Deleting an element with key {} into the Cache"
+argument_list|,
 name|key
-operator|+
-literal|" into the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 name|cache
 operator|.
 name|remove
@@ -618,26 +576,15 @@ name|CACHE_OPERATION_GET
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Quering an element with key "
-operator|+
+literal|"Quering an element with key {} from the Cache"
+argument_list|,
 name|key
-operator|+
-literal|" from the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|cache
@@ -719,26 +666,15 @@ name|CACHE_OPERATION_CHECK
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Querying an element with key "
-operator|+
+literal|"Querying an element with key {} from the Cache"
+argument_list|,
 name|key
-operator|+
-literal|" from the Cache"
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|cache

@@ -1284,24 +1284,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting file: "
-operator|+
+literal|"Deleting file: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -1359,28 +1350,17 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Renaming file: "
-operator|+
+literal|"Renaming file: {} to: {}"
+argument_list|,
 name|from
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -2327,24 +2307,15 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Retrieve file to local work file result: "
-operator|+
+literal|"Retrieve file to local work file result: {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|result
