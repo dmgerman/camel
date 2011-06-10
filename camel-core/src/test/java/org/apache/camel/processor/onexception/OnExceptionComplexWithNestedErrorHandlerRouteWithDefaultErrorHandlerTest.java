@@ -178,6 +178,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|end
 argument_list|()
 operator|.
