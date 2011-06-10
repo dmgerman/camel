@@ -2170,6 +2170,14 @@ name|getRoutes
 argument_list|()
 control|)
 block|{
+comment|// sanity check first as the route is created using XML
+name|RouteDefinitionHelper
+operator|.
+name|sanityCheckRoute
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 comment|// leverage logic from route definition helper to prepare the route
 name|RouteDefinitionHelper
 operator|.
