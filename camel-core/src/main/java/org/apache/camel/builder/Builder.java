@@ -249,6 +249,17 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+name|expression
+operator|=
+name|ExpressionBuilder
+operator|.
+name|convertToExpression
+argument_list|(
+name|expression
+argument_list|,
+name|resultType
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ValueBuilder
