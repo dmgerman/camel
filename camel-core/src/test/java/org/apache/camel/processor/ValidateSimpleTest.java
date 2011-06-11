@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Validation failed for Predicate[body contains Camel]."
+literal|"Validation failed for Predicate[Simple: ${body} contains 'Camel']."
 operator|+
 literal|" Exchange[Message: Bye World]"
 argument_list|,

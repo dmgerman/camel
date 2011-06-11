@@ -222,6 +222,41 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a simple expression      */
+DECL|method|simple (String value, Class<?> resultType)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|simple
+parameter_list|(
+name|String
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|simpleExpression
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
 DECL|method|header (String name)
 specifier|public

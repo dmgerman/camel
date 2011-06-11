@@ -430,6 +430,33 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a simple expression value builder      */
+DECL|method|simple (String value, Class<?> resultType)
+specifier|public
+name|SimpleBuilder
+name|simple
+parameter_list|(
+name|String
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+return|return
+name|SimpleBuilder
+operator|.
+name|simple
+argument_list|(
+name|value
+argument_list|,
+name|resultType
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a xpath expression value builder      */
 DECL|method|xpath (String value)
 specifier|public

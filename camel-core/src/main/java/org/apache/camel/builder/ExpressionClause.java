@@ -807,6 +807,33 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a href="http://camel.apache.org/simple.html">Simple      * expression</a>      *      * @param text the expression to be evaluated      * @param resultType the result type      * @return the builder to continue processing the DSL      */
+DECL|method|simple (String text, Class<?> resultType)
+specifier|public
+name|T
+name|simple
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|simple
+argument_list|(
+name|text
+argument_list|,
+name|resultType
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public
