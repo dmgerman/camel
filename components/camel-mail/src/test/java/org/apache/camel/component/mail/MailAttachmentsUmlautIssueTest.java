@@ -169,10 +169,10 @@ comment|/**  * Unit test for Camel attachments and Mail attachments.  */
 end_comment
 
 begin_class
-DECL|class|MailAttachmentTest
+DECL|class|MailAttachmentsUmlautIssueTest
 specifier|public
 class|class
-name|MailAttachmentTest
+name|MailAttachmentsUmlautIssueTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -192,7 +192,6 @@ operator|.
 name|clearAll
 argument_list|()
 expr_stmt|;
-comment|// START SNIPPET: e1
 comment|// create an exchange with a normal body and attachment to be produced as email
 name|Endpoint
 name|endpoint
@@ -228,11 +227,18 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+comment|// unicode 00DC is german umlaut
+name|String
+name|name
+init|=
+literal|"logo2\u00DC"
+decl_stmt|;
+comment|// use existing logo.jpeg file, but lets name it with the umlaut
 name|in
 operator|.
 name|addAttachment
 argument_list|(
-literal|"logo.jpeg"
+name|name
 argument_list|,
 operator|new
 name|DataHandler
@@ -268,7 +274,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
 comment|// need some time for the mail to arrive on the inbox (consumed and sent to the mock)
 name|Thread
 operator|.
@@ -369,19 +374,27 @@ argument_list|()
 operator|.
 name|getAttachment
 argument_list|(
-literal|"logo.jpeg"
+name|name
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"The logo should be there"
+literal|"The "
+operator|+
+name|name
+operator|+
+literal|" should be there"
 argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"image/jpeg; name=logo.jpeg"
+literal|"image/jpeg; name=\""
+operator|+
+name|name
+operator|+
+literal|"\""
 argument_list|,
 name|handler
 operator|.
@@ -393,7 +406,7 @@ name|assertEquals
 argument_list|(
 literal|"Handler name should be the file name"
 argument_list|,
-literal|"logo.jpeg"
+name|name
 argument_list|,
 name|handler
 operator|.
