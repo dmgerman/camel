@@ -77,17 +77,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|OnExceptionContinueTest
+DECL|class|OnExceptionContinueTwoTest
 specifier|public
 class|class
-name|OnExceptionContinueTest
+name|OnExceptionContinueTwoTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testContinued ()
+DECL|method|testContinuedTwo ()
 specifier|public
 name|void
-name|testContinued
+name|testContinuedTwo
 parameter_list|()
 throws|throws
 name|Exception
@@ -95,6 +95,16 @@ block|{
 name|getMockEndpoint
 argument_list|(
 literal|"mock:start"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:middle"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -151,6 +161,40 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|Exception
+name|cause
+init|=
+name|mock
+operator|.
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Exception
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Forced Again"
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -169,7 +213,6 @@ argument_list|()
 block|{
 annotation|@
 name|Override
-comment|// START SNIPPET: e1
 specifier|public
 name|void
 name|configure
@@ -211,11 +254,25 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"mock:middle"
+argument_list|)
+comment|//throw a second time to validate that the exchange is reset appropriately
+operator|.
+name|throwException
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced Again"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: e1
 block|}
 return|;
 block|}
