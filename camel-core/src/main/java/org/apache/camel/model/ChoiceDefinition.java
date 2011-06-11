@@ -42,16 +42,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -220,6 +210,20 @@ name|CollectionStringBuffer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;choice/&gt; element  *  * @version  */
 end_comment
@@ -289,6 +293,8 @@ argument_list|>
 name|getOutputs
 parameter_list|()
 block|{
+comment|// wrap the outputs into a list where we can on the inside control the when/otherwise
+comment|// but make it appear as a list on the outside
 return|return
 operator|new
 name|AbstractList
@@ -341,7 +347,16 @@ block|}
 throw|throw
 operator|new
 name|IndexOutOfBoundsException
+argument_list|(
+literal|"Index "
+operator|+
+name|index
+operator|+
+literal|" is out of bounds with size "
+operator|+
+name|size
 argument_list|()
+argument_list|)
 throw|;
 block|}
 specifier|public
@@ -393,7 +408,16 @@ block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
-argument_list|()
+argument_list|(
+literal|"Expected either a WhenDefinition or OtherwiseDefinition but was "
+operator|+
+name|ObjectHelper
+operator|.
+name|classCanonicalName
+argument_list|(
+name|def
+argument_list|)
+argument_list|)
 throw|;
 block|}
 specifier|public
@@ -478,7 +502,16 @@ block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
-argument_list|()
+argument_list|(
+literal|"Expected WhenDefinition but was "
+operator|+
+name|ObjectHelper
+operator|.
+name|classCanonicalName
+argument_list|(
+name|element
+argument_list|)
+argument_list|)
 throw|;
 block|}
 elseif|else
@@ -511,7 +544,16 @@ block|}
 throw|throw
 operator|new
 name|IndexOutOfBoundsException
+argument_list|(
+literal|"Index "
+operator|+
+name|index
+operator|+
+literal|" is out of bounds with size "
+operator|+
+name|size
 argument_list|()
+argument_list|)
 throw|;
 block|}
 specifier|public
@@ -568,7 +610,16 @@ block|}
 throw|throw
 operator|new
 name|IndexOutOfBoundsException
+argument_list|(
+literal|"Index "
+operator|+
+name|index
+operator|+
+literal|" is out of bounds with size "
+operator|+
+name|size
 argument_list|()
+argument_list|)
 throw|;
 block|}
 block|}

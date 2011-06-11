@@ -1075,7 +1075,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting {}"
+literal|"Starting child service on route: {} -> {}"
+argument_list|,
+name|route
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|service
 argument_list|)
@@ -1145,6 +1150,20 @@ range|:
 name|services
 control|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping child service on route: {} -> {}"
+argument_list|,
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|LifecycleStrategy
