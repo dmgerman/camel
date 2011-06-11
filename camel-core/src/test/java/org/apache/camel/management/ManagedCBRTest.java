@@ -62,6 +62,7 @@ name|ManagedCBRTest
 extends|extends
 name|ManagementTestSupport
 block|{
+comment|// CAMEL-4044: mbeans not registered for children of choice
 DECL|method|testManagedCBR ()
 specifier|public
 name|void
@@ -86,11 +87,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route\""
 argument_list|)
 decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -102,11 +112,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-a\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -118,11 +137,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"choice\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -134,11 +162,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-b\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -150,11 +187,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-c\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -166,11 +212,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-d\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -182,11 +237,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-e\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|on
@@ -198,11 +262,20 @@ argument_list|(
 literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-done\""
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MBean '"
+operator|+
+name|on
+operator|+
+literal|"' not registered"
+argument_list|,
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

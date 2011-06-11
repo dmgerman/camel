@@ -1071,6 +1071,15 @@ range|:
 name|services
 control|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting {}"
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|LifecycleStrategy

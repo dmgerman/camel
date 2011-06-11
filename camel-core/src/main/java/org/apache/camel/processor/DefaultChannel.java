@@ -831,6 +831,15 @@ name|childDefinition
 else|:
 name|outputDefinition
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Initialize channel for target: '{}'"
+argument_list|,
+name|targetOutputDef
+argument_list|)
+expr_stmt|;
 comment|// fix parent/child relationship. This will be the case of the routes has been
 comment|// defined using XML DSL or end user may have manually assembled a route from the model.
 comment|// Background note: parent/child relationship is assembled on-the-fly when using Java DSL (fluent builders)

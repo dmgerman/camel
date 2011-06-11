@@ -136,8 +136,6 @@ name|OutputDefinition
 argument_list|<
 name|OtherwiseDefinition
 argument_list|>
-implements|implements
-name|Block
 block|{
 DECL|method|OtherwiseDefinition ()
 specifier|public
