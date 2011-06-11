@@ -201,7 +201,7 @@ argument_list|)
 decl_stmt|;
 name|endpointA
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"A blue car!"
 argument_list|,
