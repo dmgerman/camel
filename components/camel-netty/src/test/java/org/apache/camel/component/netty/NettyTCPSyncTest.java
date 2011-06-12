@@ -84,22 +84,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -112,7 +96,7 @@ specifier|public
 class|class
 name|NettyTCPSyncTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 annotation|@
 name|Produce
@@ -143,7 +127,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|,
 literal|"Epitaph in Kohima, India marking the WWII Battle of Kohima and Imphal, Burma Campaign - Attributed to John Maxwell Edmonds"
 argument_list|,
@@ -177,7 +161,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|,
 literal|"Epitaph in Kohima, India marking the WWII Battle of Kohima and Imphal, Burma Campaign - Attributed to John Maxwell Edmonds"
 argument_list|,
@@ -199,7 +183,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -243,7 +227,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|,
 name|poetry
 argument_list|)
@@ -285,7 +269,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

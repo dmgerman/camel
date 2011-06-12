@@ -130,22 +130,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -162,15 +146,8 @@ specifier|public
 class|class
 name|NettyTransferExchangeOptionTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
-DECL|field|uri
-specifier|protected
-name|String
-name|uri
-init|=
-literal|"netty:tcp://localhost:6321?transferExchange=true"
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testNettyTransferExchangeOptionWithoutException ()
@@ -241,7 +218,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-name|uri
+literal|"netty:tcp://localhost:{{port}}?transferExchange=true"
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -514,7 +491,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|uri
+literal|"netty:tcp://localhost:{{port}}?transferExchange=true"
 argument_list|)
 operator|.
 name|process

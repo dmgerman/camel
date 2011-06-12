@@ -36,22 +36,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -68,7 +52,7 @@ specifier|public
 class|class
 name|NettyTextlineInOutTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 annotation|@
 name|Test
@@ -97,7 +81,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5148?textline=true&sync=true"
+literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -143,7 +127,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5148?textline=true&sync=true"
+literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

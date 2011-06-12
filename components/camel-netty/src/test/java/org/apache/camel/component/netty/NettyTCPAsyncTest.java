@@ -168,22 +168,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -216,7 +200,7 @@ specifier|public
 class|class
 name|NettyTCPAsyncTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 DECL|field|LOG
 specifier|private
@@ -362,13 +346,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Beginning Test ---> testTCPInOnlyWithNettyConsumer()"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -386,20 +363,13 @@ argument_list|)
 expr_stmt|;
 name|sendFile
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=false"
+literal|"netty:tcp://localhost:{{port}}?sync=false"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Completed Test ---> testTCPInOnlyWithNettyConsumer()"
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -428,7 +398,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=false"
+literal|"netty:tcp://localhost:{{port}}?sync=false"
 argument_list|)
 operator|.
 name|to

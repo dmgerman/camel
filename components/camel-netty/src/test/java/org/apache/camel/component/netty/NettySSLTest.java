@@ -108,20 +108,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -154,7 +140,7 @@ specifier|public
 class|class
 name|NettySSLTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 DECL|field|LOG
 specifier|private
@@ -198,12 +184,10 @@ block|{
 name|JndiRegistry
 name|registry
 init|=
-operator|new
-name|JndiRegistry
-argument_list|(
-name|createJndiContext
+name|super
+operator|.
+name|createRegistry
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|registry
 operator|.
@@ -271,7 +255,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true&ssl=true&passphrase=#password&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=#password&keyStoreFile=#ksf&trustStoreFile=#tsf"
 argument_list|,
 literal|"Epitaph in Kohima, India marking the WWII Battle of Kohima and Imphal, Burma Campaign - Attributed to John Maxwell Edmonds"
 argument_list|,
@@ -324,7 +308,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true&ssl=true&passphrase=#password&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=#password&keyStoreFile=#ksf&trustStoreFile=#tsf"
 argument_list|)
 operator|.
 name|process
@@ -366,22 +350,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Beginning Test ---> testSSLInOutWithNettyConsumer()"
-argument_list|)
-expr_stmt|;
 name|sendRequest
 argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Completed Test ---> testSSLInOutWithNettyConsumer()"
-argument_list|)
 expr_stmt|;
 name|context
 operator|.

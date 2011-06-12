@@ -146,27 +146,13 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
 begin_class
 DECL|class|NettyConcurrentTest
 specifier|public
 class|class
 name|NettyConcurrentTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 DECL|method|testNoConcurrentProducers ()
 specifier|public
@@ -298,7 +284,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5150"
+literal|"netty:tcp://localhost:{{port}}"
 argument_list|,
 name|index
 argument_list|,
@@ -417,7 +403,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

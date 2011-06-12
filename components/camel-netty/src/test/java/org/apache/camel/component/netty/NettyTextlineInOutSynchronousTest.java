@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -92,7 +76,7 @@ specifier|public
 class|class
 name|NettyTextlineInOutSynchronousTest
 extends|extends
-name|CamelTestSupport
+name|BaseNettyTest
 block|{
 DECL|field|beforeThreadName
 specifier|private
@@ -105,13 +89,6 @@ specifier|private
 specifier|static
 name|String
 name|afterThreadName
-decl_stmt|;
-DECL|field|url
-specifier|private
-name|String
-name|url
-init|=
-literal|"netty:tcp://localhost:5148?textline=true&sync=true&synchronous=true"
 decl_stmt|;
 annotation|@
 name|Test
@@ -238,7 +215,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|url
+literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
 argument_list|)
 operator|.
 name|process
@@ -283,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|url
+literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.
