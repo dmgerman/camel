@@ -76,22 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -108,8 +92,16 @@ specifier|public
 class|class
 name|MinaConsumerTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
+DECL|field|port1
+name|int
+name|port1
+decl_stmt|;
+DECL|field|port2
+name|int
+name|port2
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testSendTextlineText ()
@@ -140,7 +132,11 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true&sync=false"
+literal|"mina:tcp://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -171,7 +167,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://localhost:9201?textline=true&sync=true"
+literal|"mina:tcp://localhost:"
+operator|+
+name|port2
+operator|+
+literal|"?textline=true&sync=true"
 argument_list|,
 literal|"World"
 argument_list|)
@@ -205,10 +205,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port1
+operator|=
+name|getPort
+argument_list|()
+expr_stmt|;
+name|port2
+operator|=
+name|getNextPort
+argument_list|()
+expr_stmt|;
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true&sync=false"
+literal|"mina:tcp://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"?textline=true&sync=false"
 argument_list|)
 operator|.
 name|to
@@ -220,7 +234,11 @@ comment|// END SNIPPET: e1
 comment|// START SNIPPET: e3
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:9201?textline=true&sync=true"
+literal|"mina:tcp://localhost:"
+operator|+
+name|port2
+operator|+
+literal|"?textline=true&sync=true"
 argument_list|)
 operator|.
 name|process

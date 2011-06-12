@@ -86,22 +86,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -118,7 +102,7 @@ specifier|public
 class|class
 name|MessageIOSessionTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 annotation|@
 name|Test
@@ -149,7 +133,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:9200?textline=true&sync=false"
+literal|"mina:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -220,7 +204,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:9200?textline=true&sync=false"
+literal|"mina:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -305,7 +289,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:9200?textline=true&sync=false"
+literal|"mina:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|)
 operator|.
 name|to

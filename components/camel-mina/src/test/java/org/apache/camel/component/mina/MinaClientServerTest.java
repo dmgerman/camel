@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -92,7 +76,7 @@ specifier|public
 class|class
 name|MinaClientServerTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 annotation|@
 name|Test
@@ -113,7 +97,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://localhost:5555?sync=true&textline=true"
+literal|"mina:tcp://localhost:{{port}}?sync=true&textline=true"
 argument_list|,
 literal|"Claus"
 argument_list|)
@@ -152,12 +136,12 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// lets setup a server on port 5555
+comment|// lets setup a server on port {{port}}
 comment|// we set the sync option so we will send a reply
 comment|// and we let the request-reply be processed in the MyServerProcessor
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:5555?sync=true&textline=true"
+literal|"mina:tcp://localhost:{{port}}?sync=true&textline=true"
 argument_list|)
 operator|.
 name|process

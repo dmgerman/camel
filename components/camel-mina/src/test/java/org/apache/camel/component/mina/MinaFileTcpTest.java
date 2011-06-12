@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -84,7 +68,7 @@ specifier|public
 class|class
 name|MinaFileTcpTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 annotation|@
 name|Test
@@ -149,7 +133,7 @@ block|{
 comment|// lets setup a server
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:9123?sync=false&textline=true"
+literal|"mina:tcp://localhost:{{port}}?sync=false&textline=true"
 argument_list|)
 operator|.
 name|to
@@ -164,7 +148,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:9123?sync=false&textline=true"
+literal|"mina:tcp://localhost:{{port}}?sync=false&textline=true"
 argument_list|)
 expr_stmt|;
 block|}

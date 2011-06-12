@@ -146,6 +146,21 @@ specifier|private
 name|IoAcceptor
 name|acceptor
 decl_stmt|;
+DECL|method|ReverserServer (int port)
+specifier|public
+name|ReverserServer
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void

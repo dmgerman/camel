@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -84,15 +68,8 @@ specifier|public
 class|class
 name|MinaVmTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
-DECL|field|uri
-specifier|protected
-name|String
-name|uri
-init|=
-literal|"mina:vm://localhost:8080?sync=false&minaLogger=true"
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testMinaRoute ()
@@ -127,7 +104,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|uri
+literal|"mina:vm://localhost:{{port}}?sync=false&minaLogger=true"
 argument_list|,
 name|body
 argument_list|,
@@ -158,7 +135,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|uri
+literal|"mina:vm://localhost:{{port}}?sync=false&minaLogger=true"
 argument_list|)
 operator|.
 name|to

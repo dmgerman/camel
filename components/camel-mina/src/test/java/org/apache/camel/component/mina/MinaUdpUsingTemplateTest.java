@@ -74,22 +74,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -106,7 +90,7 @@ specifier|public
 class|class
 name|MinaUdpUsingTemplateTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 DECL|field|messageCount
 specifier|private
@@ -193,7 +177,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:udp://127.0.0.1:4445?sync=false"
+literal|"mina:udp://127.0.0.1:{{port}}?sync=false"
 argument_list|,
 literal|"Hello Message: "
 operator|+
@@ -240,7 +224,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:udp://127.0.0.1:4445?sync=false"
+literal|"mina:udp://127.0.0.1:{{port}}?sync=false"
 argument_list|,
 name|in
 argument_list|)
@@ -341,7 +325,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina:udp://127.0.0.1:4445?sync=false&minaLogger=true"
+literal|"mina:udp://127.0.0.1:{{port}}?sync=false&minaLogger=true"
 argument_list|)
 operator|.
 name|to

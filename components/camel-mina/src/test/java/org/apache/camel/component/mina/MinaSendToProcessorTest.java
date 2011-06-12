@@ -48,22 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -76,7 +60,7 @@ specifier|public
 class|class
 name|MinaSendToProcessorTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 annotation|@
 name|Test
@@ -112,7 +96,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:6123?sync=false&lazySessionCreation=false"
+literal|"mina:tcp://localhost:{{port}}?sync=false&lazySessionCreation=false"
 argument_list|)
 expr_stmt|;
 block|}
@@ -139,18 +123,6 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
-name|assertEquals
-argument_list|(
-literal|"Failed to create Producer for endpoint: Endpoint[mina://tcp://localhost:6123?lazySessionCreation=false&sync=false]."
-operator|+
-literal|" Reason: org.apache.mina.common.RuntimeIOException: Failed to get the session."
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -187,7 +159,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:6123?sync=false"
+literal|"mina:tcp://localhost:{{port}}?sync=false"
 argument_list|)
 expr_stmt|;
 block|}

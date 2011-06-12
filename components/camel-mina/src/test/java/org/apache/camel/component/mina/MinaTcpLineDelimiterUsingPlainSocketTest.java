@@ -110,22 +110,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -142,30 +126,8 @@ specifier|public
 class|class
 name|MinaTcpLineDelimiterUsingPlainSocketTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
-DECL|field|PORT
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|PORT
-init|=
-literal|6334
-decl_stmt|;
-comment|// use parameter sync=true to force InOut pattern of the MinaExchange
-comment|// use MAC textline delimiter
-DECL|field|uri
-specifier|protected
-name|String
-name|uri
-init|=
-literal|"mina:tcp://localhost:"
-operator|+
-name|PORT
-operator|+
-literal|"?textline=true&textlineDelimiter=MAC&sync=true"
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testSendAndReceiveOnce ()
@@ -398,7 +360,8 @@ name|InetSocketAddress
 argument_list|(
 literal|"localhost"
 argument_list|,
-name|PORT
+name|getPort
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -588,7 +551,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|uri
+literal|"mina:tcp://localhost:{{port}}?textline=true&textlineDelimiter=MAC&sync=true"
 argument_list|)
 operator|.
 name|process

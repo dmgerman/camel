@@ -92,22 +92,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|mina
 operator|.
 name|common
@@ -230,15 +214,8 @@ specifier|public
 class|class
 name|MinaNoResponseFromServerTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
-DECL|field|uri
-specifier|private
-name|String
-name|uri
-init|=
-literal|"mina:tcp://localhost:11300?sync=true&codec=#myCodec"
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testNoResponse ()
@@ -270,7 +247,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-name|uri
+literal|"mina:tcp://localhost:{{port}}?sync=true&codec=#myCodec"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -375,7 +352,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|uri
+literal|"mina:tcp://localhost:{{port}}?sync=true&codec=#myCodec"
 argument_list|)
 operator|.
 name|transform

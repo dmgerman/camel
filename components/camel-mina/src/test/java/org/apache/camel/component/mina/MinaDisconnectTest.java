@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -92,15 +76,8 @@ specifier|public
 class|class
 name|MinaDisconnectTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
-DECL|field|uri
-specifier|private
-name|String
-name|uri
-init|=
-literal|"mina:tcp://localhost:8080?sync=true&textline=true&disconnect=true"
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testCloseSessionWhenComplete ()
@@ -118,7 +95,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-name|uri
+literal|"mina:tcp://localhost:{{port}}?sync=true&textline=true&disconnect=true"
 argument_list|,
 literal|"Claus"
 argument_list|)
@@ -155,7 +132,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|uri
+literal|"mina:tcp://localhost:{{port}}?sync=true&textline=true&disconnect=true"
 argument_list|)
 operator|.
 name|process

@@ -94,11 +94,23 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit testing for using a MinaProducer that it can shutdown properly (CAMEL-395)  *<p>  * Run this test from maven: mvn exec:java and see the output if there is a error.  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|MinaProducerShutdownTest
 specifier|public
 class|class

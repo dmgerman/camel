@@ -124,22 +124,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -156,7 +140,7 @@ specifier|public
 class|class
 name|MinaEncodingTest
 extends|extends
-name|CamelTestSupport
+name|BaseMinaTest
 block|{
 annotation|@
 name|Test
@@ -172,7 +156,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9083?encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:{{port}}?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -262,7 +246,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9084?encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:{{port}}?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -346,7 +330,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9085?textline=true&encoding=UTF-8&sync=false"
+literal|"mina:tcp://localhost:{{port}}?textline=true&encoding=UTF-8&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -432,7 +416,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:udp://localhost:9080?encoding=UTF-8&sync=false"
+literal|"mina:udp://localhost:{{port}}?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -520,7 +504,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:udp://localhost:9080?encoding=UTF-8&sync=false"
+literal|"mina:udp://localhost:{{port}}?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -618,7 +602,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:udp://localhost:9080?sync=true&encoding=UTF-8"
+literal|"mina:udp://localhost:{{port}}?sync=true&encoding=UTF-8"
 decl_stmt|;
 name|context
 operator|.
@@ -784,7 +768,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9080?textline=true&encoding=XXX&sync=false"
+literal|"mina:tcp://localhost:{{port}}?textline=true&encoding=XXX&sync=false"
 decl_stmt|;
 try|try
 block|{
