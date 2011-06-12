@@ -82,11 +82,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|ahc
 operator|.
-name|CamelTestSupport
+name|BaseAhcTest
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|AhcProduceJavaBodyTest
 extends|extends
-name|CamelTestSupport
+name|BaseAhcTest
 block|{
 annotation|@
 name|Override
@@ -153,7 +153,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process
@@ -268,7 +268,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ahc:http:localhost:9080/myapp/myservice"
+literal|"ahc:http:localhost:{{port}}/myapp/myservice"
 argument_list|,
 name|cool
 argument_list|,
@@ -322,7 +322,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process
@@ -449,7 +449,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ahc:http://localhost:9080/myapp/myservice"
+literal|"ahc:http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 name|cool
 argument_list|,
@@ -516,7 +516,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9080/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice"
 argument_list|)
 operator|.
 name|process
@@ -619,7 +619,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ahc:http://localhost:9080/myapp/myservice"
+literal|"ahc:http://localhost:{{port}}/myapp/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|,
