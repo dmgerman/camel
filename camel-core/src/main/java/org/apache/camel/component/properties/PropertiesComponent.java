@@ -894,6 +894,16 @@ name|key
 argument_list|)
 throw|;
 block|}
+comment|// must quoute the replacement to have it work as literal replacement
+name|value
+operator|=
+name|Matcher
+operator|.
+name|quoteReplacement
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 name|location
 operator|=
 name|matcher
@@ -971,6 +981,16 @@ name|key
 argument_list|)
 throw|;
 block|}
+comment|// must quoute the replacement to have it work as literal replacement
+name|value
+operator|=
+name|Matcher
+operator|.
+name|quoteReplacement
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 name|location
 operator|=
 name|matcher
