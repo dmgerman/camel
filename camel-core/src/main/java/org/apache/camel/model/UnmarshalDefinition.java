@@ -544,7 +544,7 @@ specifier|public
 class|class
 name|UnmarshalDefinition
 extends|extends
-name|NoOutputDefinition
+name|OutputDefinition
 argument_list|<
 name|UnmarshalDefinition
 argument_list|>

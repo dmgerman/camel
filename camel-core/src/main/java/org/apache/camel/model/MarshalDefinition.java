@@ -544,7 +544,7 @@ specifier|public
 class|class
 name|MarshalDefinition
 extends|extends
-name|NoOutputDefinition
+name|OutputDefinition
 argument_list|<
 name|MarshalDefinition
 argument_list|>
