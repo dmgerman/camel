@@ -544,13 +544,17 @@ specifier|public
 class|class
 name|UnmarshalDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|UnmarshalDefinition
 argument_list|>
 block|{
+comment|// TODO: Camel 3.0 Should extend NoOutputDefinition
+comment|// TODO: Camel 3.0, ref attribute should be removed as RefDataFormat is to be used instead
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|ref
 specifier|private
 name|String

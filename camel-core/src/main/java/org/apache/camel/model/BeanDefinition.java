@@ -242,7 +242,7 @@ specifier|public
 class|class
 name|BeanDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|BeanDefinition
 argument_list|>
