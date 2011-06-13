@@ -430,18 +430,8 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Get a wrong content type"
-argument_list|,
-literal|"text/plain"
-argument_list|,
-name|data
-operator|.
-name|getContentType
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// The content-type is set by the file name, not the content-type send from the client now
+comment|//assertEquals("Get a wrong content type", "text/plain", data.getContentType());
 name|assertEquals
 argument_list|(
 literal|"Got the wrong name"
