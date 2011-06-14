@@ -1385,6 +1385,25 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// store the last to endpoint as the failure endpoint
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|boolean
 name|sync
 init|=
@@ -1610,6 +1629,25 @@ return|return
 literal|true
 return|;
 block|}
+comment|// store the last to endpoint as the failure endpoint
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TO_ENDPOINT
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// give the rest of the pipeline another chance
 name|exchange
 operator|.
