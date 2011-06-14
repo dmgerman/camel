@@ -136,9 +136,33 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
 import|;
 end_import
 
@@ -162,11 +186,9 @@ name|CamelTestSupport
 block|{
 DECL|field|serverPort
 specifier|private
-specifier|final
+specifier|static
 name|int
 name|serverPort
-init|=
-literal|10514
 decl_stmt|;
 DECL|field|messageCount
 specifier|private
@@ -188,6 +210,23 @@ literal|"         Devices: Mixer=OK, Jelly_Injector=OK, Frier=OK # Transport:\n"
 operator|+
 literal|"         Conveyer1=OK, Conveyer2=OK # %%"
 decl_stmt|;
+annotation|@
+name|BeforeClass
+DECL|method|initPort ()
+specifier|public
+specifier|static
+name|void
+name|initPort
+parameter_list|()
+block|{
+name|serverPort
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testSendingRawUDP ()
