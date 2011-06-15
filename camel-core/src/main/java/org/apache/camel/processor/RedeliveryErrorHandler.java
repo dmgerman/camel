@@ -1049,11 +1049,11 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|// compute if we should redeliver or not
+comment|// compute if we are exhausted or not
 name|boolean
-name|shouldRedeliver
+name|exhausted
 init|=
-name|shouldRedeliver
+name|isExhausted
 argument_list|(
 name|exchange
 argument_list|,
@@ -1062,8 +1062,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|shouldRedeliver
+name|exhausted
 condition|)
 block|{
 name|Processor
@@ -1570,11 +1569,11 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|// compute if we should redeliver or not
+comment|// compute if we are exhausted or not
 name|boolean
-name|shouldRedeliver
+name|exhausted
 init|=
-name|shouldRedeliver
+name|isExhausted
 argument_list|(
 name|exchange
 argument_list|,
@@ -1583,8 +1582,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|shouldRedeliver
+name|exhausted
 condition|)
 block|{
 name|Processor
@@ -3511,11 +3509,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Determines whether or not to we should try to redeliver      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to redeliver, or<tt>false</tt> to exhaust.      */
-DECL|method|shouldRedeliver (Exchange exchange, RedeliveryData data)
+comment|/**      * Determines whether the exchange is exhausted (or anyway marked to not continue such as rollback).      *<p/>      * If the exchange is exhausted, then we will not continue processing, but let the      * failure processor deal with the exchange.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>false</tt> to continue/redeliver, or<tt>true</tt> to exhaust.      */
+DECL|method|isExhausted (Exchange exchange, RedeliveryData data)
 specifier|private
 name|boolean
-name|shouldRedeliver
+name|isExhausted
 parameter_list|(
 name|Exchange
 name|exchange
@@ -3524,7 +3522,7 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
-comment|// if marked as rollback only then do not redeliver
+comment|// if marked as rollback only then do not continue/redeliver
 name|boolean
 name|rollbackOnly
 init|=
@@ -3552,16 +3550,33 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is marked as rollback only, should not be redelivered: {}"
+literal|"This exchange is marked as rollback only, so forcing it to be exhausted: {}"
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
 return|return
+literal|true
+return|;
+block|}
+comment|// its the first original call so continue
+if|if
+condition|(
+name|data
+operator|.
+name|redeliveryCounter
+operator|==
+literal|0
+condition|)
+block|{
+return|return
 literal|false
 return|;
 block|}
-return|return
+comment|// its a potential redelivery so determine if we should redeliver or not
+name|boolean
+name|redeliver
+init|=
 name|data
 operator|.
 name|currentRedeliveryPolicy
@@ -3578,6 +3593,10 @@ name|data
 operator|.
 name|retryWhilePredicate
 argument_list|)
+decl_stmt|;
+return|return
+operator|!
+name|redeliver
 return|;
 block|}
 comment|/**      * Determines whether or not to continue if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to exhaust.      */
