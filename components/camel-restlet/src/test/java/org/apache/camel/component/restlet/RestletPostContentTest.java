@@ -185,7 +185,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080/users/{username}?restletMethod=POST"
+literal|"restlet:http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/{username}?restletMethod=POST"
 argument_list|)
 operator|.
 name|process
@@ -251,7 +255,11 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"http://localhost:9080/users/homer"
+literal|"http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/homer"
 argument_list|)
 decl_stmt|;
 operator|(

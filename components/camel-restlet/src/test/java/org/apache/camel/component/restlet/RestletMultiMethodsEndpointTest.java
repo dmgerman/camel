@@ -140,7 +140,11 @@ argument_list|(
 operator|new
 name|HttpPost
 argument_list|(
-literal|"http://localhost:9080/users/homer"
+literal|"http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/homer"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -174,7 +178,11 @@ argument_list|(
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://localhost:9080/users/homer"
+literal|"http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/homer"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -213,7 +221,11 @@ block|{
 comment|// START SNIPPET: routeDefinition
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080/users/{username}?restletMethods=post,get"
+literal|"restlet:http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/{username}?restletMethods=post,get"
 argument_list|)
 operator|.
 name|process

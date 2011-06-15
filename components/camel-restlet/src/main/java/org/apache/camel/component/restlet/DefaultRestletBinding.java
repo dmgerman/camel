@@ -1463,10 +1463,16 @@ condition|)
 block|{
 comment|// grab body from generic file holder
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|gf
 init|=
 operator|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|body
 decl_stmt|;

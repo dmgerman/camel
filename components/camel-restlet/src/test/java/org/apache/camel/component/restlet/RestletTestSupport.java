@@ -38,6 +38,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -142,6 +156,16 @@ name|EntityUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @version   */
 end_comment
@@ -155,6 +179,29 @@ name|RestletTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|portNum
+specifier|public
+specifier|static
+name|int
+name|portNum
+decl_stmt|;
+annotation|@
+name|BeforeClass
+DECL|method|initializePortNum ()
+specifier|public
+specifier|static
+name|void
+name|initializePortNum
+parameter_list|()
+block|{
+name|portNum
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doExecute (HttpUriRequest method)
 specifier|public
 name|HttpResponse
