@@ -583,14 +583,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -598,7 +590,6 @@ argument_list|(
 literal|"No CXF Binding namespace can be resolved.  Message headers are intact."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;

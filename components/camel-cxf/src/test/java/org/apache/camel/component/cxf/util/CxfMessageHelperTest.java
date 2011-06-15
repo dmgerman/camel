@@ -128,6 +128,10 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|common
+operator|.
+name|header
+operator|.
 name|CxfHeaderFilterStrategy
 import|;
 end_import

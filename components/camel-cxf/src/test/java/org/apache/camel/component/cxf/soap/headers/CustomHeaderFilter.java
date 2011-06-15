@@ -54,6 +54,10 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|common
+operator|.
+name|header
+operator|.
 name|MessageHeaderFilter
 import|;
 end_import
