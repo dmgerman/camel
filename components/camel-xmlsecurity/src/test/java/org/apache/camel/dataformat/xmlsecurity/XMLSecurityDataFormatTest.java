@@ -224,16 +224,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -286,6 +276,16 @@ operator|+
 literal|"</france>"
 operator|+
 literal|"</cheesesites>"
+decl_stmt|;
+comment|// one could use testCypherAlgorithm = XMLCipher.AES_128 if she had the AES Optional Pack installed
+DECL|field|testCypherAlgorithm
+specifier|private
+name|String
+name|testCypherAlgorithm
+init|=
+name|XMLCipher
+operator|.
+name|AES_128
 decl_stmt|;
 annotation|@
 name|Override
@@ -1110,8 +1110,6 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testFullPayloadAsymmetricKeyEncryption ()
 specifier|public
@@ -1184,9 +1182,7 @@ name|xmlEncDataFormat
 operator|.
 name|setXmlCipherAlgorithm
 argument_list|(
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|)
 expr_stmt|;
 name|xmlEncDataFormat
@@ -1246,8 +1242,6 @@ name|testEncryption
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testPartialPayloadAsymmetricKeyEncryptionWithContextTruststoreProperties ()
@@ -1334,9 +1328,7 @@ literal|true
 argument_list|,
 literal|"recipient"
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
@@ -1356,8 +1348,6 @@ name|testEncryption
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testPartialPayloadAsymmetricKeyEncryptionWithExchangeRecipientAlias ()
@@ -1499,9 +1489,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
@@ -1958,8 +1946,6 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testFullPayloadAsymmetricKeyDecryption ()
 specifier|public
@@ -2103,9 +2089,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
@@ -2128,9 +2112,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
@@ -2150,8 +2132,6 @@ name|testDecryption
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testPartialPayloadAsymmetricKeyDecryption ()
@@ -2296,9 +2276,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
@@ -2321,9 +2299,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-name|XMLCipher
-operator|.
-name|AES_256
+name|testCypherAlgorithm
 argument_list|,
 name|XMLCipher
 operator|.
