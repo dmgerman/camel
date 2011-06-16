@@ -259,7 +259,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RefLoadBalancer["
+literal|"CustomLoadBalancer["
 operator|+
 name|ref
 operator|+
