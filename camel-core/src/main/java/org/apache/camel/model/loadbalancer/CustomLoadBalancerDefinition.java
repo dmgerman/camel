@@ -174,6 +174,11 @@ name|LoadBalancerDefinition
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|ref
 specifier|private
 name|String

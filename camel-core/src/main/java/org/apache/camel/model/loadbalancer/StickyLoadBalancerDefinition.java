@@ -180,6 +180,10 @@ argument_list|(
 name|name
 operator|=
 literal|"correlationExpression"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 DECL|field|correlationExpression
 specifier|private
