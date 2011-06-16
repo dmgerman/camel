@@ -1374,6 +1374,14 @@ name|doneSync
 parameter_list|)
 block|{
 comment|// noop
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -1389,6 +1397,7 @@ else|:
 literal|"asynchronously"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

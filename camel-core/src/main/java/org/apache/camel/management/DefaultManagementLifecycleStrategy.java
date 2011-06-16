@@ -1716,6 +1716,14 @@ argument_list|,
 name|on
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1734,6 +1742,7 @@ name|done
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|name

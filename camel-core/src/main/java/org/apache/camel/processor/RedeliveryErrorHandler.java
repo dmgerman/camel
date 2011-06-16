@@ -539,6 +539,14 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -560,6 +568,7 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// emmit event we are doing redelivery
 name|EventHelper
 operator|.

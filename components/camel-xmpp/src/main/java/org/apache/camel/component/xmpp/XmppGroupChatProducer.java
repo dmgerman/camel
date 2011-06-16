@@ -313,6 +313,14 @@ name|connect
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -325,6 +333,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|chat
 operator|.
 name|sendMessage
@@ -446,6 +455,14 @@ name|getPacketReplyTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -460,6 +477,7 @@ name|getNickname
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.

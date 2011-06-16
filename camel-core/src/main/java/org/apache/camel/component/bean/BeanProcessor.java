@@ -631,6 +631,14 @@ argument_list|(
 name|bean
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -652,6 +660,7 @@ name|sameBean
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|sameBean

@@ -572,6 +572,14 @@ range|:
 name|all
 control|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -596,6 +604,7 @@ name|registry
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|registry
 operator|.
 name|addTypeConverter

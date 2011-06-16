@@ -323,9 +323,6 @@ argument_list|(
 literal|"Assembling MBeanInfo for: {} from custom @ManagedResource object: {}"
 argument_list|,
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|custom
 argument_list|)
@@ -367,9 +364,6 @@ argument_list|(
 literal|"Assembling MBeanInfo for: {} from @ManagedResource object: {}"
 argument_list|,
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|obj
 argument_list|)

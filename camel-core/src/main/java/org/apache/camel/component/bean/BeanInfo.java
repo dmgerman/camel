@@ -1706,6 +1706,14 @@ name|parameterTypes
 operator|.
 name|length
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1724,6 +1732,7 @@ name|size
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -2539,6 +2548,14 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -2551,6 +2568,7 @@ name|getCanonicalName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|MethodInfo

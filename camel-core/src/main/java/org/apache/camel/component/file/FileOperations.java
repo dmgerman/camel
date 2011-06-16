@@ -626,8 +626,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Building directory: "
-operator|+
+literal|"Building directory: {}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
@@ -785,26 +785,15 @@ name|Ignore
 condition|)
 block|{
 comment|// ignore but indicate that the file was written
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"An existing file already exists: "
-operator|+
+literal|"An existing file already exists: {}. Ignore and do not override it."
+argument_list|,
 name|file
-operator|+
-literal|". Ignore and do not override it."
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
@@ -1158,17 +1147,18 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Keeping last modified timestamp: "
-operator|+
+literal|"Keeping last modified timestamp: {} on file: {} with result: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|last
-operator|+
-literal|" on file: "
-operator|+
+block|,
 name|file
-operator|+
-literal|" with result: "
-operator|+
+block|,
 name|result
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1187,28 +1177,17 @@ name|File
 name|file
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using local work file being renamed from: "
-operator|+
+literal|"Using local work file being renamed from: {} to: {}"
+argument_list|,
 name|source
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|FileUtil
 operator|.
@@ -1262,28 +1241,17 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using FileChannel to transfer from: "
-operator|+
+literal|"Using FileChannel to transfer from: {} to: {}"
+argument_list|,
 name|in
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 name|long
 name|size
 init|=
@@ -1384,28 +1352,17 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using InputStream to transfer from: "
-operator|+
+literal|"Using InputStream to transfer from: {} to: {}"
+argument_list|,
 name|in
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|size
 init|=

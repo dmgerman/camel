@@ -299,6 +299,14 @@ argument_list|,
 name|message
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -311,6 +319,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|sender
 operator|.
 name|send

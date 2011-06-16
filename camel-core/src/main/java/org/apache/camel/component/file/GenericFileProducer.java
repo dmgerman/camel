@@ -1131,6 +1131,14 @@ block|}
 block|}
 block|}
 comment|// upload
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -1150,6 +1158,7 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|boolean
 name|success
 init|=

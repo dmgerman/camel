@@ -1664,6 +1664,14 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1682,6 +1690,7 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|addExchangeToTimeoutMap
 argument_list|(
 name|key
@@ -1709,6 +1718,14 @@ literal|0
 condition|)
 block|{
 comment|// timeout is used so use the timeout map to keep an eye on this
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1728,6 +1745,7 @@ name|exchange
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|addExchangeToTimeoutMap
 argument_list|(
 name|key

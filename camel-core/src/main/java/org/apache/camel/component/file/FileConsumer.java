@@ -258,6 +258,14 @@ literal|0
 condition|)
 block|{
 comment|// no files in this directory to poll
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -270,6 +278,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -277,6 +286,14 @@ block|}
 else|else
 block|{
 comment|// we found some files
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -293,6 +310,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 for|for
 control|(
@@ -455,6 +473,14 @@ name|gf
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -467,6 +493,7 @@ name|getFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
