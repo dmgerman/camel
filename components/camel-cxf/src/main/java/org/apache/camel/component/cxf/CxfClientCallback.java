@@ -158,13 +158,13 @@ specifier|final
 name|BindingOperationInfo
 name|boi
 decl_stmt|;
-DECL|field|endpoint
+DECL|field|binding
 specifier|private
 specifier|final
-name|CxfEndpoint
-name|endpoint
+name|CxfBinding
+name|binding
 decl_stmt|;
-DECL|method|CxfClientCallback (AsyncCallback callback, Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange, BindingOperationInfo boi, CxfEndpoint endpoint)
+DECL|method|CxfClientCallback (AsyncCallback callback, Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange, BindingOperationInfo boi, CxfBinding binding)
 specifier|public
 name|CxfClientCallback
 parameter_list|(
@@ -188,8 +188,8 @@ parameter_list|,
 name|BindingOperationInfo
 name|boi
 parameter_list|,
-name|CxfEndpoint
-name|endpoint
+name|CxfBinding
+name|binding
 parameter_list|)
 block|{
 name|this
@@ -218,9 +218,9 @@ name|boi
 expr_stmt|;
 name|this
 operator|.
-name|endpoint
+name|binding
 operator|=
-name|endpoint
+name|binding
 expr_stmt|;
 block|}
 DECL|method|handleResponse (Map<String, Object> ctx, Object[] res)
@@ -288,10 +288,7 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
-operator|.
-name|getCxfBinding
-argument_list|()
+name|binding
 operator|.
 name|populateExchangeFromCxfResponse
 argument_list|(
@@ -407,10 +404,7 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
-operator|.
-name|getCxfBinding
-argument_list|()
+name|binding
 operator|.
 name|populateExchangeFromCxfResponse
 argument_list|(

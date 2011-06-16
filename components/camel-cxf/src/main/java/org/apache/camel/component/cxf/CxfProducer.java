@@ -544,6 +544,9 @@ argument_list|,
 name|boi
 argument_list|,
 name|endpoint
+operator|.
+name|getCxfBinding
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// send the CXF async request
