@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.util
+DECL|package|org.apache.camel.component.cxf
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|cxf
-operator|.
-name|util
 package|;
 end_package
 
@@ -102,38 +100,6 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|CxfSpringEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
 name|common
 operator|.
 name|message
@@ -154,9 +120,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|spring
+name|util
 operator|.
-name|CxfEndpointBean
+name|WSDLSoapServiceFactoryBean
 import|;
 end_import
 
