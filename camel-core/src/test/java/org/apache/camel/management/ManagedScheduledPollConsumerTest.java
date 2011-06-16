@@ -251,7 +251,7 @@ name|assertEquals
 argument_list|(
 name|Boolean
 operator|.
-name|FALSE
+name|TRUE
 argument_list|,
 name|fixedDelay
 argument_list|)
@@ -387,7 +387,7 @@ literal|"UseFixedDelay"
 argument_list|,
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -409,7 +409,7 @@ name|assertEquals
 argument_list|(
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 argument_list|,
 name|fixedDelay
 argument_list|)
