@@ -2017,22 +2017,7 @@ name|resList
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|outBody
-operator|instanceof
-name|MessageContentsList
-condition|)
-block|{
-name|resList
-operator|=
-operator|(
-name|MessageContentsList
-operator|)
-name|outBody
-expr_stmt|;
-block|}
-elseif|else
+comment|// Create a new MessageContentsList to avoid OOM from the HolderOutInterceptor
 if|if
 condition|(
 name|outBody
