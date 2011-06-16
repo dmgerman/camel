@@ -238,8 +238,6 @@ name|cxf
 operator|.
 name|spring
 operator|.
-name|CxfEndpointBeanDefinitionParser
-operator|.
 name|CxfSpringEndpointBean
 import|;
 end_import

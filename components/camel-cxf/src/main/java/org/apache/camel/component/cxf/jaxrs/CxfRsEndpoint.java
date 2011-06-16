@@ -138,8 +138,6 @@ name|cxf
 operator|.
 name|spring
 operator|.
-name|CxfRsClientFactoryBeanDefinitionParser
-operator|.
 name|SpringJAXRSClientFactoryBean
 import|;
 end_import
@@ -157,8 +155,6 @@ operator|.
 name|cxf
 operator|.
 name|spring
-operator|.
-name|CxfRsServerFactoryBeanDefinitionParser
 operator|.
 name|SpringJAXRSServerFactoryBean
 import|;
