@@ -315,7 +315,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|class|MyLoadBalancer
-specifier|private
+specifier|public
+specifier|static
 class|class
 name|MyLoadBalancer
 extends|extends

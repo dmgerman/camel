@@ -256,7 +256,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|RefDataFormat
+name|CustomDataFormat
 import|;
 end_import
 
@@ -541,6 +541,27 @@ argument_list|(
 operator|new
 name|CsvDataFormat
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the custom data format      */
+DECL|method|custom (String ref)
+specifier|public
+name|T
+name|custom
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|CustomDataFormat
+argument_list|(
+name|ref
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -960,27 +981,6 @@ argument_list|(
 operator|new
 name|RssDataFormat
 argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the ref data format      */
-DECL|method|ref (String ref)
-specifier|public
-name|T
-name|ref
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|RefDataFormat
-argument_list|(
-name|ref
-argument_list|)
 argument_list|)
 return|;
 block|}

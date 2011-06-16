@@ -227,7 +227,7 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|ref
+name|custom
 argument_list|(
 literal|"reverse"
 argument_list|)
@@ -245,7 +245,7 @@ operator|.
 name|unmarshal
 argument_list|()
 operator|.
-name|ref
+name|custom
 argument_list|(
 literal|"reverse"
 argument_list|)

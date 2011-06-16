@@ -372,7 +372,7 @@ literal|"ref"
 argument_list|,
 name|type
 operator|=
-name|RefDataFormat
+name|CustomDataFormat
 operator|.
 name|class
 argument_list|)

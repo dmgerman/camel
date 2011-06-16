@@ -126,7 +126,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"ref"
+literal|"customDataFormat"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -135,10 +135,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RefDataFormat
+DECL|class|CustomDataFormat
 specifier|public
 class|class
-name|RefDataFormat
+name|CustomDataFormat
 extends|extends
 name|DataFormatDefinition
 block|{
@@ -149,14 +149,14 @@ specifier|private
 name|String
 name|ref
 decl_stmt|;
-DECL|method|RefDataFormat ()
+DECL|method|CustomDataFormat ()
 specifier|public
-name|RefDataFormat
+name|CustomDataFormat
 parameter_list|()
 block|{     }
-DECL|method|RefDataFormat (String ref)
+DECL|method|CustomDataFormat (String ref)
 specifier|public
-name|RefDataFormat
+name|CustomDataFormat
 parameter_list|(
 name|String
 name|ref
@@ -218,6 +218,22 @@ name|ref
 operator|=
 name|ref
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"CustomDataFormat["
+operator|+
+name|ref
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

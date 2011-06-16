@@ -222,6 +222,22 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
+name|CustomLoadBalancerDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|loadbalancer
+operator|.
 name|RoundRobinLoadBalancerDefinition
 import|;
 end_import
@@ -477,6 +493,8 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|ref
 specifier|private
 name|String
@@ -518,6 +536,24 @@ argument_list|,
 name|type
 operator|=
 name|RandomLoadBalancerDefinition
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|,
+name|name
+operator|=
+literal|"custom"
+argument_list|,
+name|type
+operator|=
+name|CustomLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -1222,7 +1258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses random load balancer      * @return the builder      */
+comment|/**      * Uses random load balancer      *      * @return the builder      */
 DECL|method|random ()
 specifier|public
 name|LoadBalanceDefinition
@@ -1238,6 +1274,39 @@ operator|new
 name|RandomLoadBalancer
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses the custom load balancer      *      * @param ref reference to lookup a custom load balancer from the {@link org.apache.camel.spi.Registry} to be used.      * @return the builder      */
+DECL|method|custom (String ref)
+specifier|public
+name|LoadBalanceDefinition
+name|custom
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|CustomLoadBalancerDefinition
+name|balancer
+init|=
+operator|new
+name|CustomLoadBalancerDefinition
+argument_list|()
+decl_stmt|;
+name|balancer
+operator|.
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+name|setLoadBalancerType
+argument_list|(
+name|balancer
 argument_list|)
 expr_stmt|;
 return|return
