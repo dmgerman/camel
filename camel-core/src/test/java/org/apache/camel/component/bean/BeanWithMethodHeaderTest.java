@@ -232,20 +232,28 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"echo Hello World"
+literal|"hi Hello World"
 argument_list|)
 expr_stmt|;
+comment|// header should be removed after usage
 name|mock
 operator|.
-name|expectedHeaderReceived
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
 argument_list|(
 name|Exchange
 operator|.
 name|BEAN_METHOD_NAME
-argument_list|,
-literal|"hi"
 argument_list|)
+operator|.
+name|isNull
+argument_list|()
 expr_stmt|;
+comment|// header overrule endpoint configuration, so we should invoke the hi method
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -289,20 +297,28 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"hi echo Hello World"
+literal|"hi hi Hello World"
 argument_list|)
 expr_stmt|;
+comment|// header should be removed after usage
 name|mock
 operator|.
-name|expectedHeaderReceived
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
 argument_list|(
 name|Exchange
 operator|.
 name|BEAN_METHOD_NAME
-argument_list|,
-literal|"hi"
 argument_list|)
+operator|.
+name|isNull
+argument_list|()
 expr_stmt|;
+comment|// header overrule endpoint configuration, so we should invoke the hi method
 name|template
 operator|.
 name|sendBodyAndHeader

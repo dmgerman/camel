@@ -421,15 +421,26 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// do we have an explicit method name we always should invoke
-name|boolean
-name|isExplicitMethod
+comment|// do we have an explicit method name we always should invoke (either configured on endpoint or as a header)
+name|String
+name|explicitMethodName
 init|=
-name|ObjectHelper
+name|exchange
 operator|.
-name|isNotEmpty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
+name|Exchange
+operator|.
+name|BEAN_METHOD_NAME
+argument_list|,
 name|method
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Object
@@ -489,8 +500,9 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|isExplicitMethod
+name|explicitMethodName
+operator|==
+literal|null
 operator|&&
 name|processor
 operator|!=
@@ -735,11 +747,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|String
-name|prevMethod
-init|=
-literal|null
-decl_stmt|;
 name|MethodInvocation
 name|invocation
 decl_stmt|;
@@ -766,27 +773,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we just override the bean's invocation method name here
+comment|// set explicit method name to invoke as a header, which is how BeanInfo can detect it
 if|if
 condition|(
-name|isExplicitMethod
+name|explicitMethodName
+operator|!=
+literal|null
 condition|)
 block|{
-name|prevMethod
-operator|=
-name|in
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_METHOD_NAME
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|in
 operator|.
 name|setHeader
@@ -795,7 +789,7 @@ name|Exchange
 operator|.
 name|BEAN_METHOD_NAME
 argument_list|,
-name|method
+name|explicitMethodName
 argument_list|)
 expr_stmt|;
 block|}
@@ -855,7 +849,7 @@ name|bean
 argument_list|)
 throw|;
 block|}
-comment|// remove temporary header
+comment|// remove headers as they should not be propagated
 name|in
 operator|.
 name|removeHeader
@@ -863,6 +857,15 @@ argument_list|(
 name|Exchange
 operator|.
 name|BEAN_MULTI_PARAMETER_ARRAY
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_METHOD_NAME
 argument_list|)
 expr_stmt|;
 name|Object
@@ -983,26 +986,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|isExplicitMethod
-condition|)
-block|{
-name|in
-operator|.
-name|setHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_METHOD_NAME
-argument_list|,
-name|prevMethod
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// if the method returns something then set the value returned on the Exchange
 if|if
