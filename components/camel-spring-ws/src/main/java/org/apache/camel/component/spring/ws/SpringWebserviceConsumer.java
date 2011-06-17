@@ -365,7 +365,24 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// create webservice response from output body
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|exchange
+operator|.
+name|getException
+argument_list|()
+throw|;
+block|}
+elseif|else
 if|if
 condition|(
 name|exchange
