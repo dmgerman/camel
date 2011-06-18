@@ -280,32 +280,6 @@ name|context
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-literal|"server"
-operator|.
-name|equals
-argument_list|(
-name|s
-argument_list|)
-condition|)
-block|{
-comment|//return new RsServerDefinitionParser(JaxWsServerFactoryBean.class).parse(element, context);
-block|}
-elseif|else
-if|if
-condition|(
-literal|"client"
-operator|.
-name|equals
-argument_list|(
-name|s
-argument_list|)
-condition|)
-block|{
-comment|//return new RsClientDefinitionParser(JaxWsProxyFactoryBean.class).parse(element, context);
-block|}
 return|return
 literal|null
 return|;

@@ -1598,13 +1598,6 @@ return|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|xpathFactory
-operator|==
-literal|null
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1619,7 +1612,6 @@ operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 return|return
 name|xpathFactory

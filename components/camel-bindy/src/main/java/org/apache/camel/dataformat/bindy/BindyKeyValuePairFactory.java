@@ -964,10 +964,6 @@ name|keyValuePairField
 operator|.
 name|required
 argument_list|()
-operator|&&
-name|values
-operator|==
-literal|null
 condition|)
 block|{
 throw|throw

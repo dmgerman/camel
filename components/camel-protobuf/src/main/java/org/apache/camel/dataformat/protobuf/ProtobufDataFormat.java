@@ -294,13 +294,6 @@ throw|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|defaultInstance
-operator|==
-literal|null
-condition|)
-block|{
 name|defaultInstance
 operator|=
 name|loadDefaultInstance
@@ -313,7 +306,6 @@ name|getContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

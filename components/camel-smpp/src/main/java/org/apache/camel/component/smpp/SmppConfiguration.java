@@ -100,8 +100,9 @@ specifier|private
 name|Integer
 name|port
 init|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|2775
 argument_list|)

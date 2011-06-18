@@ -366,7 +366,7 @@ operator|.
 name|getDelay
 argument_list|()
 operator|*
-literal|1000
+literal|1000l
 argument_list|)
 expr_stmt|;
 block|}

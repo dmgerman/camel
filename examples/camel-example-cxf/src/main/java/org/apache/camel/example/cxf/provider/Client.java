@@ -136,18 +136,6 @@ name|xml
 operator|.
 name|ws
 operator|.
-name|WebServiceException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|ws
-operator|.
 name|soap
 operator|.
 name|SOAPBinding
@@ -360,36 +348,17 @@ literal|"Send out the request: Hello Camel!!"
 argument_list|)
 expr_stmt|;
 comment|// Invoke the endpoint synchronously
+comment|// Invoke endpoint operation and read response
 name|SOAPMessage
 name|reply
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|// Invoke endpoint operation and read response
-name|reply
-operator|=
 name|dispatch
 operator|.
 name|invoke
 argument_list|(
 name|request
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|WebServiceException
-name|wse
-parameter_list|)
-block|{
-name|wse
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// process the reply
 name|body
 operator|=

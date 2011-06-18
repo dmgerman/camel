@@ -497,6 +497,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
@@ -509,7 +510,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|checkElementNameStrategy (Exchange exchange)

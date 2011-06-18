@@ -280,7 +280,7 @@ operator|.
 name|sleep
 argument_list|(
 call|(
-name|int
+name|long
 call|)
 argument_list|(
 name|Math

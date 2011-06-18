@@ -171,8 +171,9 @@ specifier|private
 name|Integer
 name|bufferSize
 init|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|2048
 argument_list|)

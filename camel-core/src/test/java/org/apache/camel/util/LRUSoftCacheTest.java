@@ -768,6 +768,9 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 name|Collection
+argument_list|<
+name|Object
+argument_list|>
 name|col
 init|=
 name|cache
@@ -786,6 +789,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|it
 init|=
 name|col

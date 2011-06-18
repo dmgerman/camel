@@ -267,13 +267,6 @@ argument_list|(
 literal|"No TransactionTemplate configured on TransactionErrorHandlerBuilder. Will try find it in the registry."
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|transactionTemplate
-operator|==
-literal|null
-condition|)
-block|{
 name|Map
 argument_list|<
 name|String
@@ -342,7 +335,6 @@ operator|.
 name|getTransactionTemplate
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
