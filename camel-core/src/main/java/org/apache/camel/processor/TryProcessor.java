@@ -1385,6 +1385,26 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// but store the caught exception as a property
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// store the last to endpoint as the failure endpoint
 name|exchange
 operator|.
