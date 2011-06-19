@@ -273,7 +273,7 @@ name|String
 argument_list|,
 name|TransactedPolicy
 argument_list|>
-name|map
+name|mapPolicy
 init|=
 name|routeContext
 operator|.
@@ -286,11 +286,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|map
+name|mapPolicy
 operator|!=
 literal|null
 operator|&&
-name|map
+name|mapPolicy
 operator|.
 name|size
 argument_list|()
@@ -301,7 +301,7 @@ block|{
 name|TransactedPolicy
 name|policy
 init|=
-name|map
+name|mapPolicy
 operator|.
 name|values
 argument_list|()
@@ -396,7 +396,7 @@ name|String
 argument_list|,
 name|TransactionTemplate
 argument_list|>
-name|map
+name|mapTemplate
 init|=
 name|routeContext
 operator|.
@@ -409,11 +409,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|map
+name|mapTemplate
 operator|!=
 literal|null
 operator|&&
-name|map
+name|mapTemplate
 operator|.
 name|size
 argument_list|()
@@ -423,7 +423,7 @@ condition|)
 block|{
 name|transactionTemplate
 operator|=
-name|map
+name|mapTemplate
 operator|.
 name|values
 argument_list|()
@@ -437,11 +437,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|map
+name|mapTemplate
 operator|==
 literal|null
 operator|||
-name|map
+name|mapTemplate
 operator|.
 name|isEmpty
 argument_list|()
@@ -465,7 +465,7 @@ literal|"Found {} TransactionTemplate in registry. Cannot determine which one to
 operator|+
 literal|"Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|,
-name|map
+name|mapTemplate
 operator|.
 name|size
 argument_list|()
@@ -486,7 +486,7 @@ name|String
 argument_list|,
 name|PlatformTransactionManager
 argument_list|>
-name|map
+name|mapManager
 init|=
 name|routeContext
 operator|.
@@ -499,11 +499,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|map
+name|mapManager
 operator|!=
 literal|null
 operator|&&
-name|map
+name|mapManager
 operator|.
 name|size
 argument_list|()
@@ -516,7 +516,7 @@ operator|=
 operator|new
 name|TransactionTemplate
 argument_list|(
-name|map
+name|mapManager
 operator|.
 name|values
 argument_list|()
@@ -531,11 +531,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|map
+name|mapManager
 operator|==
 literal|null
 operator|||
-name|map
+name|mapManager
 operator|.
 name|isEmpty
 argument_list|()
@@ -559,7 +559,7 @@ literal|"Found {} PlatformTransactionManager in registry. Cannot determine which
 operator|+
 literal|"Please configure a TransactionTemplate on the TransactionErrorHandlerBuilder"
 argument_list|,
-name|map
+name|mapManager
 operator|.
 name|size
 argument_list|()
