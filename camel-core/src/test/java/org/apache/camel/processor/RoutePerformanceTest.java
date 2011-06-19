@@ -38,6 +38,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -200,16 +212,19 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// give 30 seconds for slow servers
-name|endpoint
+comment|// wait 30 sec for slow servers
+name|MockEndpoint
 operator|.
-name|setResultWaitTime
+name|assertIsSatisfied
 argument_list|(
-literal|30000
+name|context
+argument_list|,
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
 expr_stmt|;
 name|System
 operator|.
