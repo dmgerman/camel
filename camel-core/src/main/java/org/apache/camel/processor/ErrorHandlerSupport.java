@@ -225,7 +225,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|exceptionPolicies
-specifier|private
+specifier|protected
 specifier|final
 name|Map
 argument_list|<
@@ -245,7 +245,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|exceptionPolicy
-specifier|private
+specifier|protected
 name|ExceptionPolicyStrategy
 name|exceptionPolicy
 init|=

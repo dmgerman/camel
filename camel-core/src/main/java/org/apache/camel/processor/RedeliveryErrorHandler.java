@@ -228,6 +228,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|EventHelper
 import|;
 end_import
@@ -289,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  *  * @version   */
+comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  *  * @version  */
 end_comment
 
 begin_class
@@ -375,6 +389,11 @@ specifier|final
 name|boolean
 name|useOriginalMessagePolicy
 decl_stmt|;
+DECL|field|redeliveryEnabled
+specifier|protected
+name|boolean
+name|redeliveryEnabled
+decl_stmt|;
 comment|/**      * Contains the current redelivery data      */
 DECL|class|RedeliveryData
 specifier|protected
@@ -459,7 +478,7 @@ name|isAsyncDelayedRedelivery
 argument_list|()
 decl_stmt|;
 block|}
-comment|/**      * Tasks which performs asynchronous redelivery attempts, and being triggered by a      * {@link java.util.concurrent.ScheduledExecutorService} to avoid having any threads blocking if a task      * has to be delayed before a redelivery attempt is performed.       */
+comment|/**      * Tasks which performs asynchronous redelivery attempts, and being triggered by a      * {@link java.util.concurrent.ScheduledExecutorService} to avoid having any threads blocking if a task      * has to be delayed before a redelivery attempt is performed.      */
 DECL|class|AsyncRedeliveryTask
 specifier|private
 class|class
@@ -973,27 +992,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|defensiveCopyExchange (Exchange exchange)
-specifier|protected
-name|Exchange
-name|defensiveCopyExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// TODO: Optimize to only copy if redelivery is possible/enabled
-return|return
-name|ExchangeHelper
-operator|.
-name|createCopy
-argument_list|(
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
 comment|/**      * Process the exchange using redelivery error handling.      */
 DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
@@ -1019,7 +1017,7 @@ name|data
 operator|.
 name|original
 operator|=
-name|defensiveCopyExchange
+name|defensiveCopyExchangeIfNeeded
 argument_list|(
 name|exchange
 argument_list|)
@@ -1826,6 +1824,40 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Performs a defensive copy of the exchange if needed      *      * @param exchange the exchange      * @return the defensive copy, or<tt>null</tt> if not needed (redelivery is not enabled).      */
+DECL|method|defensiveCopyExchangeIfNeeded (Exchange exchange)
+specifier|protected
+name|Exchange
+name|defensiveCopyExchangeIfNeeded
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// only do a defensive copy if redelivery is enabled
+if|if
+condition|(
+name|redeliveryEnabled
+condition|)
+block|{
+return|return
+name|ExchangeHelper
+operator|.
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/**      * Strategy whether the exchange has an exception that we should try to handle.      *<p/>      * Standard implementations should just look for an exception.      */
 DECL|method|shouldHandleException (Exchange exchange)
 specifier|protected
@@ -2210,6 +2242,20 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// there must be a defensive copy of the exchange
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|data
+operator|.
+name|original
+argument_list|,
+literal|"Defensive copy of Exchange is null"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 comment|// okay we will give it another go so clear the exception so we can try again
 name|exchange
 operator|.
@@ -4130,6 +4176,188 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Determines if redelivery is enabled by checking if any of the redelivery policy      * settings may allow redeliveries.      *      * @return<tt>true</tt> if redelivery is possible,<tt>false</tt> otherwise      * @throws Exception can be thrown      */
+DECL|method|determineIfRedeliveryIsEnabled ()
+specifier|private
+name|boolean
+name|determineIfRedeliveryIsEnabled
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// determine if redeliver is enabled either on error handler
+if|if
+condition|(
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// must check for != 0 as (-1 means redeliver forever)
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|retryWhilePolicy
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// or on the exception policies
+if|if
+condition|(
+operator|!
+name|exceptionPolicies
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// walk them to see if any of them have a maximum redeliveries> 0 or retry until set
+for|for
+control|(
+name|OnExceptionDefinition
+name|def
+range|:
+name|exceptionPolicies
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|def
+operator|.
+name|getRedeliveryPolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+name|ref
+init|=
+name|def
+operator|.
+name|getRedeliveryPolicyRef
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|ref
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// lookup in registry if ref provided
+name|RedeliveryPolicy
+name|policy
+init|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|camelContext
+argument_list|,
+name|ref
+argument_list|,
+name|RedeliveryPolicy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|policy
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// must check for != 0 as (-1 means redeliver forever)
+return|return
+literal|true
+return|;
+block|}
+block|}
+else|else
+block|{
+name|Integer
+name|max
+init|=
+name|CamelContextHelper
+operator|.
+name|parseInteger
+argument_list|(
+name|camelContext
+argument_list|,
+name|def
+operator|.
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|max
+operator|!=
+literal|null
+operator|&&
+name|max
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// must check for != 0 as (-1 means redeliver forever)
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|def
+operator|.
+name|getRetryWhilePolicy
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|def
+operator|.
+name|getRetryWhile
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -4225,6 +4453,32 @@ literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// determine if redeliver is enabled or not
+name|redeliveryEnabled
+operator|=
+name|determineIfRedeliveryIsEnabled
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Redelivery enabled: {} on error handler: {}"
+argument_list|,
+name|redeliveryEnabled
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
