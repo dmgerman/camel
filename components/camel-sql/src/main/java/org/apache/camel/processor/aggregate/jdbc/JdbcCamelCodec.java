@@ -330,6 +330,8 @@ name|pe
 init|=
 name|decode
 argument_list|(
+name|camelContext
+argument_list|,
 name|buffer
 argument_list|)
 decl_stmt|;
@@ -455,11 +457,14 @@ return|return
 name|data
 return|;
 block|}
-DECL|method|decode (byte[] dataIn)
+DECL|method|decode (CamelContext camelContext, byte[] dataIn)
 specifier|private
 name|DefaultExchangeHolder
 name|decode
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|byte
 index|[]
 name|dataIn
@@ -484,6 +489,8 @@ init|=
 operator|new
 name|ClassLoadingAwareObjectInputStream
 argument_list|(
+name|camelContext
+argument_list|,
 name|bytesIn
 argument_list|)
 decl_stmt|;
