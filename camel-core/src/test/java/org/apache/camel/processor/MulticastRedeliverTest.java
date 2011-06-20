@@ -562,7 +562,7 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// mutate IN body
+comment|// mutate OUT body
 name|exchange
 operator|.
 name|getOut

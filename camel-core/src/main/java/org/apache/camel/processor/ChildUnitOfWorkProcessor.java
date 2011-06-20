@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link UnitOfWorkProcessor} that creates a child {@link UnitOfWork} that is  * associated to a parent {@link UnitOfWork}.  *  * @see SubUnitOfWorkProcessor  * @see org.apache.camel.spi.UnitOfWorkCallback  */
+comment|/**  * An {@link UnitOfWorkProcessor} that creates a child {@link UnitOfWork} that is  * associated to a parent {@link UnitOfWork}.  *  * @see SubUnitOfWorkProcessor  */
 end_comment
 
 begin_class
