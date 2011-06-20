@@ -4249,6 +4249,14 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+comment|// must start the error handler
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4512,6 +4520,8 @@ operator|.
 name|stopServices
 argument_list|(
 name|processors
+argument_list|,
+name|errorHandlers
 argument_list|)
 expr_stmt|;
 name|errorHandlers
