@@ -605,11 +605,6 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:foo"
-argument_list|)
-operator|.
-name|to
-argument_list|(
 literal|"activemq:queue:bar?preserveMessageQos=true"
 argument_list|)
 expr_stmt|;

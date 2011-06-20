@@ -1317,11 +1317,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// use the existing delivery mode from the message
 name|deliveryMode
 operator|=
-name|this
+name|message
 operator|.
-name|getDeliveryMode
+name|getJMSDeliveryMode
 argument_list|()
 expr_stmt|;
 block|}

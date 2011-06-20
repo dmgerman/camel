@@ -2290,13 +2290,28 @@ argument_list|,
 name|Object
 argument_list|)
 expr_stmt|;
-return|return
+name|Message
+name|answer
+init|=
 name|session
 operator|.
 name|createObjectMessage
 argument_list|(
 name|cause
 argument_list|)
+decl_stmt|;
+comment|// ensure default delivery mode is used by default
+name|answer
+operator|.
+name|setJMSDeliveryMode
+argument_list|(
+name|Message
+operator|.
+name|DEFAULT_DELIVERY_MODE
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createJmsMessage (Exchange exchange, Object body, Map<String, Object> headers, Session session, CamelContext context)
@@ -2362,13 +2377,28 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-return|return
+name|Message
+name|answer
+init|=
 name|session
 operator|.
 name|createObjectMessage
 argument_list|(
 name|holder
 argument_list|)
+decl_stmt|;
+comment|// ensure default delivery mode is used by default
+name|answer
+operator|.
+name|setJMSDeliveryMode
+argument_list|(
+name|Message
+operator|.
+name|DEFAULT_DELIVERY_MODE
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|// use a custom message converter
@@ -2525,7 +2555,9 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-return|return
+name|Message
+name|answer
+init|=
 name|createJmsMessageForType
 argument_list|(
 name|exchange
@@ -2540,6 +2572,19 @@ name|context
 argument_list|,
 name|type
 argument_list|)
+decl_stmt|;
+comment|// ensure default delivery mode is used by default
+name|answer
+operator|.
+name|setJMSDeliveryMode
+argument_list|(
+name|Message
+operator|.
+name|DEFAULT_DELIVERY_MODE
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|// warn if the body could not be mapped
@@ -2579,11 +2624,26 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// return a default message
-return|return
+name|Message
+name|answer
+init|=
 name|session
 operator|.
 name|createMessage
 argument_list|()
+decl_stmt|;
+comment|// ensure default delivery mode is used by default
+name|answer
+operator|.
+name|setJMSDeliveryMode
+argument_list|(
+name|Message
+operator|.
+name|DEFAULT_DELIVERY_MODE
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Return the {@link JmsMessageType}       *       * @return type or null if no mapping was possible      */

@@ -887,12 +887,10 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
-name|int
+name|Integer
 name|mode
 init|=
-name|Message
-operator|.
-name|DEFAULT_DELIVERY_MODE
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1021,6 +1019,13 @@ name|value
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|mode
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 operator|.
 name|setJMSDeliveryMode
@@ -1039,6 +1044,7 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
