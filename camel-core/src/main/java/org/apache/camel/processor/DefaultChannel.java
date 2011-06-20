@@ -208,6 +208,22 @@ name|processor
 operator|.
 name|interceptor
 operator|.
+name|StreamCaching
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
 name|TraceFormatter
 import|;
 end_import
@@ -510,6 +526,8 @@ block|{
 comment|// the errorHandler is already decorated with interceptors
 comment|// so it contain the entire chain of processors, so we can safely use it directly as output
 comment|// if no error handler provided we use the output
+comment|// TODO: Camel 3.0 we should determine the output dynamically at runtime instead of having the
+comment|// the error handlers, interceptors, etc. woven in at design time
 return|return
 name|errorHandler
 operator|!=
@@ -995,6 +1013,16 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// skip stream caching as it must be wrapped as outer most, which we do later
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|StreamCaching
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// use the fine grained definition (eg the child if available). Its always possible to get back to the parent
 name|Processor
 name|wrapped
@@ -1099,6 +1127,92 @@ name|output
 operator|=
 name|target
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|postInitChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
+specifier|public
+name|void
+name|postInitChannel
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|outputDefinition
+parameter_list|,
+name|RouteContext
+name|routeContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+for|for
+control|(
+name|InterceptStrategy
+name|strategy
+range|:
+name|interceptors
+control|)
+block|{
+comment|// apply stream caching at the end as it should be outer most
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|StreamCaching
+condition|)
+block|{
+if|if
+condition|(
+name|errorHandler
+operator|!=
+literal|null
+condition|)
+block|{
+name|errorHandler
+operator|=
+name|strategy
+operator|.
+name|wrapProcessorInInterceptors
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|outputDefinition
+argument_list|,
+name|errorHandler
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|output
+operator|=
+name|strategy
+operator|.
+name|wrapProcessorInInterceptors
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|outputDefinition
+argument_list|,
+name|output
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
+block|}
 block|}
 DECL|method|getOrCreateTracer ()
 specifier|private

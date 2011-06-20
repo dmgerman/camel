@@ -758,13 +758,16 @@ comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|performAssertions (Exchange actual)
+DECL|method|performAssertions (Exchange actual, Exchange copy)
 specifier|protected
 name|void
 name|performAssertions
 parameter_list|(
 name|Exchange
 name|actual
+parameter_list|,
+name|Exchange
+name|copy
 parameter_list|)
 throws|throws
 name|Exception
@@ -813,7 +816,7 @@ index|[]
 block|{
 name|index
 block|,
-name|actual
+name|copy
 operator|.
 name|getIn
 argument_list|()
@@ -829,7 +832,7 @@ operator|.
 name|class
 argument_list|)
 block|,
-name|actual
+name|copy
 block|}
 argument_list|)
 expr_stmt|;
@@ -840,7 +843,7 @@ name|index
 argument_list|,
 name|expected
 argument_list|,
-name|actual
+name|copy
 argument_list|)
 expr_stmt|;
 if|if
@@ -854,7 +857,7 @@ name|reporter
 operator|.
 name|process
 argument_list|(
-name|actual
+name|copy
 argument_list|)
 expr_stmt|;
 block|}

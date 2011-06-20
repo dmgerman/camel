@@ -514,7 +514,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|exchange
 operator|.

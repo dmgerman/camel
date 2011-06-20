@@ -117,9 +117,6 @@ argument_list|(
 literal|"file://target/transacted/fail?moveFailed=../failed"
 argument_list|)
 operator|.
-name|transacted
-argument_list|()
-operator|.
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -138,6 +135,9 @@ literal|"mock:error"
 argument_list|)
 operator|.
 name|end
+argument_list|()
+operator|.
+name|transacted
 argument_list|()
 operator|.
 name|setBody

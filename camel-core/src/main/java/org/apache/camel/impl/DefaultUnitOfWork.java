@@ -515,6 +515,7 @@ name|copy
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO: Optimize to only copy if useOriginalMessage has been enabled
 comment|// mark the creation time when this Exchange was created
 if|if
 condition|(

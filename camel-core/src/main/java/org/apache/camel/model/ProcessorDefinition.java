@@ -1613,6 +1613,16 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
+comment|// do post init at the end
+name|channel
+operator|.
+name|postInitChannel
+argument_list|(
+name|defn
+argument_list|,
+name|routeContext
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|trace
@@ -3099,7 +3109,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *      * @param pattern the pattern to use for the message exchange      * @param uri  the endpoint to send to      * @return the builder      */
+comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchange      * @param uri  the endpoint to send to      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3135,7 +3145,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *      * @param pattern the pattern to use for the message exchange      * @param endpoint  the endpoint to send to      * @return the builder      */
+comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchange      * @param endpoint  the endpoint to send to      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3296,7 +3306,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param uris  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the exchange to a list of endpoints      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchanges      * @param uris  list of endpoints to send to      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3342,7 +3352,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the exchange to a list of endpoints      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3436,7 +3446,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the ExchangePattern {@link ExchangePattern} into the exchange      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the {@link ExchangePattern} into the {@link Exchange}.      *<p/>      * The pattern set on the {@link Exchange} will      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -3467,7 +3477,9 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOnly      *      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOnly      *      * @return the builder      * @deprecated use {@link #setExchangePattern(org.apache.camel.ExchangePattern)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|inOnly ()
 specifier|public
 name|Type
@@ -3483,7 +3495,7 @@ name|InOnly
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
 DECL|method|inOnly (String uri)
 specifier|public
 name|Type
@@ -3504,7 +3516,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or       *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or       *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
 DECL|method|inOnly (Endpoint endpoint)
 specifier|public
 name|Type
@@ -3525,7 +3537,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uris  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (String... uris)
 specifier|public
 name|Type
@@ -3547,7 +3559,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -3569,7 +3581,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -3593,7 +3605,9 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOut      *      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOut      *      * @return the builder      * @deprecated use {@link #setExchangePattern(org.apache.camel.ExchangePattern)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|inOut ()
 specifier|public
 name|Type
@@ -3609,7 +3623,7 @@ name|InOut
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
 DECL|method|inOut (String uri)
 specifier|public
 name|Type
@@ -3630,7 +3644,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
 DECL|method|inOut (Endpoint endpoint)
 specifier|public
 name|Type
@@ -3651,7 +3665,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uris  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (String... uris)
 specifier|public
 name|Type
@@ -3673,7 +3687,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -3695,7 +3709,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -5232,7 +5246,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      *       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the builder      */
 DECL|method|routingSlip (Expression expression, String uriDelimiter)
 specifier|public
 name|RoutingSlipDefinition
@@ -5274,7 +5288,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      *       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      * @return the builder      */
 DECL|method|routingSlip (Expression expression)
 specifier|public
 name|RoutingSlipDefinition
@@ -6600,7 +6614,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Pushes the given block on the stack as current block      * @param block  the block      */
+comment|/**      * Pushes the given block on the stack as current block      *      * @param block  the block      */
 DECL|method|pushBlock (Block block)
 name|void
 name|pushBlock
@@ -6617,7 +6631,7 @@ name|block
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Pops the block off the stack as current block      * @return the block      */
+comment|/**      * Pops the block off the stack as current block      *      * @return the block      */
 DECL|method|popBlock ()
 name|Block
 name|popBlock
@@ -8130,7 +8144,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obatin the additional data, where as pollEnrich uses a polling consumer.      *      * @param resourceRef            Reference of resource endpoint for obtaining additional data.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obtain the additional data, where as pollEnrich uses a polling consumer.      *      * @param resourceRef            Reference of resource endpoint for obtaining additional data.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -8295,7 +8309,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obatin the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -8333,7 +8347,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obatin the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceRef            Reference of resource endpoint for obtaining additional data.      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceRef            Reference of resource endpoint for obtaining additional data.      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

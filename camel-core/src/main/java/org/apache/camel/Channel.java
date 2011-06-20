@@ -154,6 +154,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Post initializes the channel.      *      * @param outputDefinition  the route definition the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occurred      */
+DECL|method|postInitChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
+name|void
+name|postInitChannel
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|outputDefinition
+parameter_list|,
+name|RouteContext
+name|routeContext
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * If the initialized output definition contained outputs (children) then we need to      * set the child so we can leverage fine grained tracing      *      * @param child the child      */
 DECL|method|setChildDefinition (ProcessorDefinition<?> child)
 name|void

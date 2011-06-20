@@ -381,6 +381,10 @@ specifier|protected
 class|class
 name|RedeliveryData
 block|{
+DECL|field|original
+name|Exchange
+name|original
+decl_stmt|;
 DECL|field|sync
 name|boolean
 name|sync
@@ -529,6 +533,8 @@ comment|// prepare for redelivery
 name|prepareExchangeForRedelivery
 argument_list|(
 name|exchange
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 comment|// letting onRedeliver be executed at first
@@ -967,6 +973,27 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|defensiveCopyExchange (Exchange exchange)
+specifier|protected
+name|Exchange
+name|defensiveCopyExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// TODO: Optimize to only copy if redelivery is possible/enabled
+return|return
+name|ExchangeHelper
+operator|.
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Process the exchange using redelivery error handling.      */
 DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
@@ -986,6 +1013,17 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// do a defensive copy of the original Exchange, which is needed for redelivery so we can ensure the
+comment|// original Exchange is being redelivered, and not a mutated Exchange
+name|data
+operator|.
+name|original
+operator|=
+name|defensiveCopyExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 comment|// use looping to have redelivery attempts
 while|while
 condition|(
@@ -1358,6 +1396,8 @@ comment|// prepare for redelivery
 name|prepareExchangeForRedelivery
 argument_list|(
 name|exchange
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 comment|// letting onRedeliver be executed
@@ -2030,10 +2070,35 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-comment|// continue is a kind of redelivery so reuse the logic to prepare
-name|prepareExchangeForRedelivery
+comment|// we continue so clear any exceptions
+name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// clear rollback flags
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// reset cached streams so they can be read again
+name|MessageHelper
+operator|.
+name|resetStreamCache
 argument_list|(
 name|exchange
+operator|.
+name|getIn
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// its continued then remove traces of redelivery attempted and caught exception
@@ -2133,13 +2198,16 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|prepareExchangeForRedelivery (Exchange exchange)
+DECL|method|prepareExchangeForRedelivery (Exchange exchange, RedeliveryData data)
 specifier|protected
 name|void
 name|prepareExchangeForRedelivery
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|RedeliveryData
+name|data
 parameter_list|)
 block|{
 comment|// okay we will give it another go so clear the exception so we can try again
@@ -2162,6 +2230,89 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// TODO: We may want to store these as state on RedelieryData so we keep them in case end user messes with Exchange
+comment|// and then put these on the exchange when doing a redelivery / fault processor
+comment|// preserve these headers
+name|Integer
+name|redeliveryCounter
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Integer
+name|redeliveryMaxCounter
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Boolean
+name|redelivered
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// we are redelivering so copy from original back to exchange
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|data
+operator|.
+name|original
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 comment|// reset cached streams so they can be read again
 name|MessageHelper
 operator|.
@@ -2173,6 +2324,73 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// put back headers
+if|if
+condition|(
+name|redeliveryCounter
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_COUNTER
+argument_list|,
+name|redeliveryCounter
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|redeliveryMaxCounter
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_MAX_COUNTER
+argument_list|,
+name|redeliveryMaxCounter
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|redelivered
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|,
+name|redelivered
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|handleException (Exchange exchange, RedeliveryData data)
 specifier|protected

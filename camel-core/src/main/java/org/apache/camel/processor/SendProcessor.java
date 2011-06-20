@@ -433,6 +433,17 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// we should preserve existing MEP so remember old MEP
+comment|// if you want to permanently to change the MEP then use .setExchangePattern in the DSL
+specifier|final
+name|ExchangePattern
+name|existingPattern
+init|=
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+decl_stmt|;
 comment|// send the exchange to the destination using a producer
 name|producerCache
 operator|.
@@ -487,6 +498,8 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|producer
 operator|.
 name|process
@@ -494,6 +507,18 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// restore previous MEP
+name|exchange
+operator|.
+name|setPattern
+argument_list|(
+name|existingPattern
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|exchange
 return|;
@@ -532,6 +557,17 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// we should preserve existing MEP so remember old MEP
+comment|// if you want to permanently to change the MEP then use .setExchangePattern in the DSL
+specifier|final
+name|ExchangePattern
+name|existingPattern
+init|=
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+decl_stmt|;
 comment|// send the exchange to the destination using a producer
 return|return
 name|producerCache
@@ -560,25 +596,29 @@ parameter_list|,
 name|AsyncProcessor
 name|asyncProducer
 parameter_list|,
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
 name|ExchangePattern
 name|pattern
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|exchange
-operator|=
+specifier|final
+name|Exchange
+name|target
+init|=
 name|configureExchange
 argument_list|(
 name|exchange
 argument_list|,
 name|pattern
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|log
 operator|.
 name|debug
@@ -597,9 +637,38 @@ name|process
 argument_list|(
 name|asyncProducer
 argument_list|,
-name|exchange
+name|target
 argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// restore previous MEP
+name|target
+operator|.
+name|setPattern
+argument_list|(
+name|existingPattern
+argument_list|)
+expr_stmt|;
+comment|// signal we are done
 name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 return|;
 block|}

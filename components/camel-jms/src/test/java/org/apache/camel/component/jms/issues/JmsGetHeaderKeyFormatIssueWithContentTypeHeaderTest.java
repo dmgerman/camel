@@ -424,18 +424,6 @@ name|getJmsMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should NOT have been muated"
-argument_list|,
-literal|false
-argument_list|,
-name|msg
-operator|.
-name|shouldCreateNewMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)

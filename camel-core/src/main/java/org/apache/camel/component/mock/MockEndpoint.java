@@ -320,20 +320,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|ProcessorBuilder
 import|;
 end_import
@@ -405,6 +391,20 @@ operator|.
 name|util
 operator|.
 name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -4158,9 +4158,24 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// copy the exchange so the mock stores the copy and not the actual exchange
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 name|performAssertions
 argument_list|(
 name|exchange
+argument_list|,
+name|copy
 argument_list|)
 expr_stmt|;
 block|}
@@ -4197,13 +4212,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|performAssertions (Exchange exchange)
+comment|/**      * Performs the assertions on the incoming exchange.      *      * @param exchange   the actual exchange      * @param copy       a copy of the exchange (only store this)      * @throws Exception can be thrown if something went wrong      */
+DECL|method|performAssertions (Exchange exchange, Exchange copy)
 specifier|protected
 name|void
 name|performAssertions
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|copy
 parameter_list|)
 throws|throws
 name|Exception
@@ -4211,7 +4230,7 @@ block|{
 name|Message
 name|in
 init|=
-name|exchange
+name|copy
 operator|.
 name|getIn
 argument_list|()
@@ -4250,7 +4269,7 @@ condition|)
 block|{
 name|actualProperty
 operator|=
-name|exchange
+name|copy
 operator|.
 name|getProperty
 argument_list|(
@@ -4343,7 +4362,7 @@ name|counter
 operator|+
 literal|" : "
 operator|+
-name|exchange
+name|copy
 operator|+
 literal|" with body: "
 operator|+
@@ -4351,7 +4370,7 @@ name|actualBody
 decl_stmt|;
 if|if
 condition|(
-name|exchange
+name|copy
 operator|.
 name|getIn
 argument_list|()
@@ -4364,7 +4383,7 @@ name|msg
 operator|+=
 literal|" and headers:"
 operator|+
-name|exchange
+name|copy
 operator|.
 name|getIn
 argument_list|()
@@ -4385,7 +4404,7 @@ operator|++
 name|counter
 expr_stmt|;
 comment|// record timestamp when exchange was received
-name|exchange
+name|copy
 operator|.
 name|setProperty
 argument_list|(
@@ -4402,7 +4421,7 @@ name|receivedExchanges
 operator|.
 name|add
 argument_list|(
-name|exchange
+name|copy
 argument_list|)
 expr_stmt|;
 name|Processor
@@ -4437,6 +4456,8 @@ condition|)
 block|{
 try|try
 block|{
+comment|// must process the incoming exchange and NOT the copy as the idea
+comment|// is the end user can manipulate the exchange
 name|processor
 operator|.
 name|process
