@@ -125,8 +125,8 @@ block|}
 comment|/**      * Gets the next available currentMinPort starting at the lowest currentMinPort number. This is the preferred      * method to use. The port return is immediately marked in use and doesn't rely on the caller actually opening      * the port.      *      * @throws NoSuchElementException if there are no ports available      */
 DECL|method|getNextAvailable ()
 specifier|public
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|int
 name|getNextAvailable
 parameter_list|()
@@ -158,8 +158,8 @@ block|}
 comment|/**      * Gets the next available currentMinPort starting at a currentMinPort.      *      * @param fromPort the currentMinPort to scan for availability      * @throws NoSuchElementException if there are no ports available      */
 DECL|method|getNextAvailable (int fromPort)
 specifier|public
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|int
 name|getNextAvailable
 parameter_list|(
