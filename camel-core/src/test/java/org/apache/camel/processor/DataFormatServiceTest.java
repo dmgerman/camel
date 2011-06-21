@@ -139,7 +139,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|my
-specifier|private
+specifier|protected
 specifier|final
 name|MyDataFormat
 name|my
@@ -324,6 +324,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
+comment|// marshal using our custom data format. (my is an instance of MyDataFormat)
 name|from
 argument_list|(
 literal|"direct:a"
@@ -339,6 +341,7 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
+comment|// unmarshal using our custom data format.
 name|from
 argument_list|(
 literal|"direct:b"
@@ -354,12 +357,15 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e2
 DECL|class|MyDataFormat
-specifier|private
+specifier|public
+specifier|static
 class|class
 name|MyDataFormat
 extends|extends
@@ -471,6 +477,7 @@ block|{
 comment|// noop
 block|}
 block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 

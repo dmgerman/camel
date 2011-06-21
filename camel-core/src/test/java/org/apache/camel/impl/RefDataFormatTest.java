@@ -219,6 +219,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:a"
@@ -255,10 +256,12 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e2
 DECL|class|MyReverseDataFormat
 specifier|public
 specifier|static
@@ -441,6 +444,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 
