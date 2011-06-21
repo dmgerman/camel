@@ -174,10 +174,12 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+comment|// using our custom load balancer
 operator|.
 name|loadBalance
 argument_list|(
@@ -195,6 +197,7 @@ argument_list|,
 literal|"mock:z"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
@@ -314,6 +317,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// START SNIPPET: e2
 DECL|class|MyLoadBalancer
 specifier|public
 specifier|static
@@ -443,6 +447,7 @@ literal|true
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 
