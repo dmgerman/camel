@@ -474,6 +474,25 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|200
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// END SNIPPET: ProxyExample
 block|}
 annotation|@
@@ -635,6 +654,25 @@ name|getName
 argument_list|()
 argument_list|,
 literal|"Dan"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|200
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -807,6 +845,25 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|200
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// END SNIPPET: HttpExample
 block|}
 annotation|@
@@ -956,6 +1013,25 @@ name|getName
 argument_list|()
 argument_list|,
 literal|"John"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|200
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1443,23 +1519,6 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Response is "
-operator|+
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"The response should not be null "
@@ -1489,6 +1548,25 @@ name|getName
 argument_list|()
 argument_list|,
 literal|"Willem"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|201
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

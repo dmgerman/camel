@@ -1480,26 +1480,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// put response code in Camel message header
-name|answer
-operator|.
-name|put
-argument_list|(
-name|Exchange
-operator|.
-name|HTTP_RESPONSE_CODE
-argument_list|,
-operator|(
-operator|(
-name|Response
-operator|)
-name|response
-operator|)
-operator|.
-name|getStatus
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|answer
