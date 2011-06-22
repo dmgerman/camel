@@ -1189,7 +1189,7 @@ name|SPRING_NS
 argument_list|,
 name|node
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1308,7 +1308,7 @@ if|if
 condition|(
 name|element
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 operator|.
 name|equals
@@ -1330,7 +1330,7 @@ if|if
 condition|(
 name|element
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 operator|.
 name|equals
@@ -1352,7 +1352,7 @@ if|if
 condition|(
 name|element
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 operator|.
 name|equals
@@ -1374,7 +1374,7 @@ if|if
 condition|(
 name|element
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 operator|.
 name|equals
@@ -1396,7 +1396,7 @@ if|if
 condition|(
 name|element
 operator|.
-name|getNodeName
+name|getLocalName
 argument_list|()
 operator|.
 name|equals

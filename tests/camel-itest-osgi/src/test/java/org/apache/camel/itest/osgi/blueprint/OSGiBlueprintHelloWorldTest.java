@@ -533,15 +533,11 @@ operator|.
 name|noStart
 argument_list|()
 argument_list|,
-comment|// install the spring, http features first
+comment|// install the http features first
 name|scanFeatures
 argument_list|(
 name|getKarafFeatureUrl
 argument_list|()
-argument_list|,
-literal|"spring"
-argument_list|,
-literal|"spring-dm"
 argument_list|,
 literal|"jetty"
 argument_list|)
