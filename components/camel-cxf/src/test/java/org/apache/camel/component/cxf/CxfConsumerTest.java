@@ -426,7 +426,7 @@ expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should get the RemoteAddress"
-operator|+
+argument_list|,
 name|request
 operator|.
 name|getRemoteAddr
