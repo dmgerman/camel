@@ -661,7 +661,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},   * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat   * mode is {@link DataFormat#POJO}.    *  * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},  * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat  * mode is {@link DataFormat#POJO}.  */
 end_comment
 
 begin_class
@@ -856,6 +856,25 @@ argument_list|(
 name|remaining
 argument_list|,
 name|context
+argument_list|)
+expr_stmt|;
+name|setAddress
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CxfEndpoint (String remaining)
+specifier|public
+name|CxfEndpoint
+parameter_list|(
+name|String
+name|remaining
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|remaining
 argument_list|)
 expr_stmt|;
 name|setAddress

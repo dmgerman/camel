@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Component</a>   *   * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Component</a>  */
 end_comment
 
 begin_class
@@ -169,7 +169,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a {@link CxfEndpoint} which, can be a Spring bean endpoint having       * URI format cxf:bean:<i>beanId</i> or transport address endpoint having URI format      * cxf://<i>transportAddress</i>.       */
+comment|/**      * Create a {@link CxfEndpoint} which, can be a Spring bean endpoint having      * URI format cxf:bean:<i>beanId</i> or transport address endpoint having URI format      * cxf://<i>transportAddress</i>.      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -196,6 +196,8 @@ name|Exception
 block|{
 name|CxfEndpoint
 name|result
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -245,7 +247,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-name|CxfEndpointBean
+name|Object
 name|bean
 init|=
 name|CamelContextHelper
@@ -257,10 +259,25 @@ argument_list|()
 argument_list|,
 name|beanId
 argument_list|,
-name|CxfEndpointBean
+name|Object
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|CxfEndpointBean
+condition|)
+block|{
+name|CxfEndpointBean
+name|configBean
+init|=
+operator|(
+name|CxfEndpointBean
+operator|)
+name|bean
 decl_stmt|;
 name|result
 operator|=
@@ -269,7 +286,7 @@ name|CxfSpringEndpoint
 argument_list|(
 name|this
 argument_list|,
-name|bean
+name|configBean
 argument_list|)
 expr_stmt|;
 comment|// Apply Spring bean properties (including # notation referenced bean).  Note that the
@@ -278,7 +295,7 @@ comment|// The super class (DefaultComponent) will invoke "setProperties" after 
 comment|// with to apply properties defined by URI query.
 if|if
 condition|(
-name|bean
+name|configBean
 operator|.
 name|getProperties
 argument_list|()
@@ -307,7 +324,7 @@ name|copy
 operator|.
 name|putAll
 argument_list|(
-name|bean
+name|configBean
 operator|.
 name|getProperties
 argument_list|()
@@ -341,6 +358,23 @@ name|MTOM_ENABLED
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|CxfBlueprintEndpoint
+condition|)
+block|{
+name|result
+operator|=
+operator|(
+name|CxfBlueprintEndpoint
+operator|)
+name|bean
 expr_stmt|;
 block|}
 block|}

@@ -302,16 +302,8 @@ block|}
 block|}
 finally|finally
 block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|oldClassLoader
-argument_list|)
-expr_stmt|;
+comment|//TODO https://issues.apache.org/jira/browse/CAMEL-4137
+comment|//Thread.currentThread().setContextClassLoader(oldClassLoader);
 block|}
 return|return
 name|answer

@@ -321,29 +321,18 @@ specifier|private
 name|BlueprintCamelContext
 name|blueprintCamelContext
 decl_stmt|;
-DECL|method|CxfBlueprintEndpoint (String address, BlueprintCamelContext context)
+DECL|method|CxfBlueprintEndpoint (String address)
 specifier|public
 name|CxfBlueprintEndpoint
 parameter_list|(
 name|String
 name|address
-parameter_list|,
-name|BlueprintCamelContext
-name|context
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|address
-argument_list|,
-name|context
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|blueprintCamelContext
-operator|=
-name|context
 expr_stmt|;
 block|}
 DECL|method|getHandlers ()
