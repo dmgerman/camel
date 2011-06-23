@@ -97,7 +97,7 @@ specifier|final
 name|String
 name|OBJECT_ID
 init|=
-literal|"HazelcastObjectId"
+literal|"CamelHazelcastObjectId"
 decl_stmt|;
 DECL|field|OBJECT_POS
 specifier|public
@@ -106,7 +106,7 @@ specifier|final
 name|String
 name|OBJECT_POS
 init|=
-literal|"HazelcastObjectIndex"
+literal|"CamelHazelcastObjectIndex"
 decl_stmt|;
 DECL|field|QUERY
 specifier|public
@@ -115,7 +115,7 @@ specifier|final
 name|String
 name|QUERY
 init|=
-literal|"HazelcastQuery"
+literal|"CamelHazelcastQuery"
 decl_stmt|;
 comment|/*      * outgoing header properties      */
 DECL|field|LISTENER_ACTION
@@ -125,7 +125,7 @@ specifier|final
 name|String
 name|LISTENER_ACTION
 init|=
-literal|"HazelcastListenerAction"
+literal|"CamelHazelcastListenerAction"
 decl_stmt|;
 DECL|field|LISTENER_TYPE
 specifier|public
@@ -134,7 +134,7 @@ specifier|final
 name|String
 name|LISTENER_TYPE
 init|=
-literal|"HazelcastListenerType"
+literal|"CamelHazelcastListenerType"
 decl_stmt|;
 DECL|field|LISTENER_TIME
 specifier|public
@@ -143,7 +143,7 @@ specifier|final
 name|String
 name|LISTENER_TIME
 init|=
-literal|"HazelcastListenerTime"
+literal|"CamelHazelcastListenerTime"
 decl_stmt|;
 DECL|field|INSTANCE_HOST
 specifier|public
@@ -152,7 +152,7 @@ specifier|final
 name|String
 name|INSTANCE_HOST
 init|=
-literal|"HazelcastInstanceHost"
+literal|"CamelHazelcastInstanceHost"
 decl_stmt|;
 DECL|field|INSTANCE_PORT
 specifier|public
@@ -161,7 +161,7 @@ specifier|final
 name|String
 name|INSTANCE_PORT
 init|=
-literal|"HazelcastInstancePort"
+literal|"CamelHazelcastInstancePort"
 decl_stmt|;
 DECL|field|CACHE_NAME
 specifier|public
@@ -170,7 +170,7 @@ specifier|final
 name|String
 name|CACHE_NAME
 init|=
-literal|"HazelcastCacheName"
+literal|"CamelHazelcastCacheName"
 decl_stmt|;
 DECL|field|CACHE_TYPE
 specifier|public
@@ -179,7 +179,7 @@ specifier|final
 name|String
 name|CACHE_TYPE
 init|=
-literal|"HazelcastCacheType"
+literal|"CamelHazelcastCacheType"
 decl_stmt|;
 comment|// actions (put, delete, get, update)
 DECL|field|OPERATION
@@ -189,7 +189,7 @@ specifier|final
 name|String
 name|OPERATION
 init|=
-literal|"HazelcastOperationType"
+literal|"CamelHazelcastOperationType"
 decl_stmt|;
 DECL|field|PUT_OPERATION
 specifier|public
