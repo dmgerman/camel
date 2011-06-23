@@ -336,15 +336,10 @@ decl_stmt|;
 name|QName
 name|service
 init|=
-name|CxfEndpointUtils
-operator|.
-name|getQName
-argument_list|(
 name|endpoint
 operator|.
 name|getServiceName
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -411,11 +406,7 @@ name|getNoServiceClassURI
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-name|CxfEndpointUtils
-operator|.
-name|checkServiceClassName
+name|assertNull
 argument_list|(
 name|endpoint
 operator|.
@@ -423,36 +414,6 @@ name|getServiceClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should get a CamelException here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelException
-name|exception
-parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-literal|"Should get a CamelException here"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"serviceClass is required for CXF endpoint configuration"
-argument_list|,
-name|exception
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Test

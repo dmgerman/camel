@@ -100,7 +100,7 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfEndpointBean
+name|CxfEndpoint
 import|;
 end_import
 
@@ -166,11 +166,11 @@ name|void
 name|testCxfEndpointBeanDefinitionParser
 parameter_list|()
 block|{
-name|CxfEndpointBean
+name|CxfEndpoint
 name|routerEndpoint
 init|=
 operator|(
-name|CxfEndpointBean
+name|CxfEndpoint
 operator|)
 name|ctx
 operator|.
@@ -195,15 +195,15 @@ name|assertEquals
 argument_list|(
 literal|"Got the wrong endpont service class"
 argument_list|,
+literal|"org.apache.camel.component.cxf.HelloService"
+argument_list|,
 name|routerEndpoint
 operator|.
 name|getServiceClass
 argument_list|()
 operator|.
-name|getCanonicalName
+name|getName
 argument_list|()
-argument_list|,
-literal|"org.apache.camel.component.cxf.HelloService"
 argument_list|)
 expr_stmt|;
 block|}

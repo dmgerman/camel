@@ -319,6 +319,9 @@ name|endpoint
 operator|.
 name|getServiceClass
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -385,9 +388,6 @@ name|service
 init|=
 name|endpoint
 operator|.
-name|getBean
-argument_list|()
-operator|.
 name|getServiceName
 argument_list|()
 decl_stmt|;
@@ -395,9 +395,9 @@ name|assertEquals
 argument_list|(
 literal|"We should get the right service name"
 argument_list|,
-name|service
-argument_list|,
 name|SERVICE_NAME
+argument_list|,
+name|service
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -437,9 +437,9 @@ name|assertEquals
 argument_list|(
 literal|"We should get the right service name"
 argument_list|,
-name|service
-argument_list|,
 name|SERVICE_NAME
+argument_list|,
+name|service
 argument_list|)
 expr_stmt|;
 name|QName
@@ -456,9 +456,9 @@ name|assertEquals
 argument_list|(
 literal|"We should get the right endpoint name"
 argument_list|,
-name|port
-argument_list|,
 name|PORT_NAME
+argument_list|,
+name|port
 argument_list|)
 expr_stmt|;
 block|}

@@ -32,7 +32,7 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|CxfEndpointBean
+name|CxfEndpoint
 import|;
 end_import
 
@@ -78,11 +78,11 @@ name|void
 name|testCxfEndpointBeanDefinitionParser
 parameter_list|()
 block|{
-name|CxfEndpointBean
+name|CxfEndpoint
 name|routerEndpoint
 init|=
 operator|(
-name|CxfEndpointBean
+name|CxfEndpoint
 operator|)
 name|ctx
 operator|.
@@ -114,7 +114,7 @@ operator|.
 name|getServiceClass
 argument_list|()
 operator|.
-name|getCanonicalName
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

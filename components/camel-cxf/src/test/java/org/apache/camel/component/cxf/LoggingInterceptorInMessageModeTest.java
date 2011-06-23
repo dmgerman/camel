@@ -331,9 +331,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|getBean
-argument_list|()
-operator|.
 name|getOutInterceptors
 argument_list|()
 control|)

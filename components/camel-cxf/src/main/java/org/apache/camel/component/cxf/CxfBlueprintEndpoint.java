@@ -321,18 +321,25 @@ specifier|private
 name|BlueprintCamelContext
 name|blueprintCamelContext
 decl_stmt|;
-DECL|method|CxfBlueprintEndpoint (String address)
+DECL|method|CxfBlueprintEndpoint (String address, BundleContext context)
 specifier|public
 name|CxfBlueprintEndpoint
 parameter_list|(
 name|String
 name|address
+parameter_list|,
+name|BundleContext
+name|context
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|address
 argument_list|)
+expr_stmt|;
+name|bundleContext
+operator|=
+name|context
 expr_stmt|;
 block|}
 DECL|method|getHandlers ()
@@ -391,6 +398,31 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setServiceClass (String n)
+specifier|public
+name|void
+name|setServiceClass
+parameter_list|(
+name|String
+name|n
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+block|{
+name|setServiceClass
+argument_list|(
+name|bundleContext
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|loadClass
+argument_list|(
+name|n
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Package private methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Create a CXF client object      */
@@ -417,7 +449,7 @@ condition|)
 block|{
 name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 argument_list|(
 name|getServiceClass
 argument_list|()
@@ -515,16 +547,8 @@ block|{
 comment|//Fool CXF classes to load their settings and bindings from the CXF bundle
 name|cls
 operator|=
-name|bundleContext
-operator|.
-name|getBundle
-argument_list|()
-operator|.
-name|loadClass
-argument_list|(
 name|getServiceClass
 argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// create client factory bean
 name|ClientProxyFactoryBean
@@ -677,7 +701,7 @@ block|{
 comment|// get service class
 name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 argument_list|(
 name|getServiceClass
 argument_list|()
@@ -689,16 +713,8 @@ argument_list|)
 expr_stmt|;
 name|cls
 operator|=
-name|bundleContext
-operator|.
-name|getBundle
-argument_list|()
-operator|.
-name|loadClass
-argument_list|(
 name|getServiceClass
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 comment|// create server factory bean

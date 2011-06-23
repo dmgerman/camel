@@ -161,24 +161,8 @@ argument_list|(
 literal|"Executing operation foo"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|in1
-argument_list|)
-expr_stmt|;
+comment|//System.out.println(in);
+comment|//System.out.println(in1);
 try|try
 block|{
 name|InE

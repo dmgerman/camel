@@ -101,9 +101,6 @@ operator|)
 name|endpoint
 operator|)
 operator|.
-name|getBean
-argument_list|()
-operator|.
 name|getFeatures
 argument_list|()
 operator|.
