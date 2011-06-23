@@ -97,7 +97,7 @@ specifier|final
 name|String
 name|OBJECT_ID
 init|=
-literal|"hazelcast.objectId"
+literal|"HazelcastObjectId"
 decl_stmt|;
 DECL|field|OBJECT_POS
 specifier|public
@@ -106,7 +106,7 @@ specifier|final
 name|String
 name|OBJECT_POS
 init|=
-literal|"hazelcast.objectIndex"
+literal|"HazelcastObjectIndex"
 decl_stmt|;
 DECL|field|QUERY
 specifier|public
@@ -115,7 +115,7 @@ specifier|final
 name|String
 name|QUERY
 init|=
-literal|"hazelcast.query"
+literal|"HazelcastQuery"
 decl_stmt|;
 comment|/*      * outgoing header properties      */
 DECL|field|LISTENER_ACTION
@@ -125,7 +125,7 @@ specifier|final
 name|String
 name|LISTENER_ACTION
 init|=
-literal|"hazelcast.listener.action"
+literal|"HazelcastListenerAction"
 decl_stmt|;
 DECL|field|LISTENER_TYPE
 specifier|public
@@ -134,7 +134,7 @@ specifier|final
 name|String
 name|LISTENER_TYPE
 init|=
-literal|"hazelcast.listener.type"
+literal|"HazelcastListenerType"
 decl_stmt|;
 DECL|field|LISTENER_TIME
 specifier|public
@@ -143,7 +143,7 @@ specifier|final
 name|String
 name|LISTENER_TIME
 init|=
-literal|"hazelcast.listener.time"
+literal|"HazelcastListenerTime"
 decl_stmt|;
 DECL|field|INSTANCE_HOST
 specifier|public
@@ -152,7 +152,7 @@ specifier|final
 name|String
 name|INSTANCE_HOST
 init|=
-literal|"hazelcast.instance.host"
+literal|"HazelcastInstanceHost"
 decl_stmt|;
 DECL|field|INSTANCE_PORT
 specifier|public
@@ -161,7 +161,7 @@ specifier|final
 name|String
 name|INSTANCE_PORT
 init|=
-literal|"hazelcast.instance.port"
+literal|"HazelcastInstancePort"
 decl_stmt|;
 DECL|field|CACHE_NAME
 specifier|public
@@ -170,7 +170,7 @@ specifier|final
 name|String
 name|CACHE_NAME
 init|=
-literal|"hazelcast.cache.name"
+literal|"HazelcastCacheName"
 decl_stmt|;
 DECL|field|CACHE_TYPE
 specifier|public
@@ -179,7 +179,7 @@ specifier|final
 name|String
 name|CACHE_TYPE
 init|=
-literal|"hazelcast.cache.type"
+literal|"HazelcastCacheType"
 decl_stmt|;
 comment|// actions (put, delete, get, update)
 DECL|field|OPERATION
@@ -189,7 +189,7 @@ specifier|final
 name|String
 name|OPERATION
 init|=
-literal|"hazelcast.operation.type"
+literal|"HazelcastOperationType"
 decl_stmt|;
 DECL|field|PUT_OPERATION
 specifier|public

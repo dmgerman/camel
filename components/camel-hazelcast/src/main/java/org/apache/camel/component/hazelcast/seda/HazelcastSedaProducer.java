@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastComponentHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultAsyncProducer
@@ -290,6 +306,14 @@ operator|.
 name|add
 argument_list|(
 name|obj
+argument_list|)
+expr_stmt|;
+comment|// finally copy headers
+name|HazelcastComponentHelper
+operator|.
+name|copyHeaders
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
