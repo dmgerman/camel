@@ -165,7 +165,11 @@ block|{
 comment|// enable POST support
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9087/users/?restletMethods=post"
+literal|"restlet:http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/?restletMethods=post"
 argument_list|)
 operator|.
 name|process
@@ -299,7 +303,11 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"http://localhost:9087/users/"
+literal|"http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/"
 argument_list|)
 decl_stmt|;
 name|post

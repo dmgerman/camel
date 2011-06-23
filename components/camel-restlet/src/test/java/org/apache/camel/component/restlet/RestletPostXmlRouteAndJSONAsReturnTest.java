@@ -103,7 +103,11 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"restlet:http://localhost:9087/users?restletMethod=POST"
+literal|"restlet:http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users?restletMethod=POST"
 decl_stmt|;
 annotation|@
 name|Override

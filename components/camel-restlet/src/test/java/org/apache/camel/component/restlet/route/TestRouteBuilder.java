@@ -58,6 +58,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Route builder for RestletRouteBuilderAuthTest  *   * @version   */
 end_comment
@@ -80,10 +94,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// get port number dynamically
+name|int
+name|port
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+decl_stmt|;
 comment|// START SNIPPET: consumer_route
 name|from
 argument_list|(
-literal|"restlet:http://localhost:9080/securedOrders?restletMethod=post&restletRealm=#realm"
+literal|"restlet:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/securedOrders?restletMethod=post&restletRealm=#realm"
 argument_list|)
 operator|.
 name|process
@@ -148,7 +175,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"restlet:http://localhost:9080/securedOrders?restletMethod=post"
+literal|"restlet:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/securedOrders?restletMethod=post"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: producer_route
