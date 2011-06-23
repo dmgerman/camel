@@ -113,7 +113,7 @@ name|Jt400DataQueueEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"jt400://user:password@host/qsys.lib/library.lib/queue.dtaq?ccsid=500&format=binary"
+literal|"jt400://user:password@host/qsys.lib/library.lib/queue.dtaq?ccsid=500&format=binary&guiAvailable=true"
 argument_list|)
 expr_stmt|;
 block|}
@@ -174,6 +174,17 @@ argument_list|,
 name|endpoint
 operator|.
 name|getFormat
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|endpoint
+operator|.
+name|getSystem
+argument_list|()
+operator|.
+name|isGuiAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;

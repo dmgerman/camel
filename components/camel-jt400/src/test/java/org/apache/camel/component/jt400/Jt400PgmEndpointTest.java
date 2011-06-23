@@ -145,7 +145,7 @@ name|HOST
 operator|+
 name|PGM
 operator|+
-literal|"?outputFieldsIdx=1,2&fieldsLength=10,512,255"
+literal|"?guiAvailable=true&outputFieldsIdx=1,2&fieldsLength=10,512,255"
 argument_list|)
 expr_stmt|;
 block|}
@@ -191,6 +191,17 @@ argument_list|,
 name|endpoint
 operator|.
 name|getProgramToExecute
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|endpoint
+operator|.
+name|getiSeries
+argument_list|()
+operator|.
+name|isGuiAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;
