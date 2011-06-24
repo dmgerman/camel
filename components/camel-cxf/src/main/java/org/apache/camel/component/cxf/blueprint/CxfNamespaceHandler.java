@@ -160,6 +160,26 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|CxfNamespaceHandler
 specifier|public
@@ -168,6 +188,22 @@ name|CxfNamespaceHandler
 implements|implements
 name|NamespaceHandler
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|CxfNamespaceHandler
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|getSchemaLocation (String s)
 specifier|public
 name|URL
@@ -234,24 +270,21 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
-name|ClassLoader
-name|oldClassLoader
-init|=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getContextClassLoader
-argument_list|()
-decl_stmt|;
 name|Metadata
 name|answer
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
+name|String
+name|s
+init|=
+name|element
+operator|.
+name|getLocalName
+argument_list|()
+decl_stmt|;
+comment|// Setting the thread context classloader to workaround the issue BlueprintBus ClassLoader
+comment|// This line can be removed when CXF 2.4.2 is released.
 name|Thread
 operator|.
 name|currentThread
@@ -267,14 +300,6 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
-name|s
-init|=
-name|element
-operator|.
-name|getLocalName
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 literal|"cxfEndpoint"
@@ -285,6 +310,13 @@ name|s
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"parsing the cxfEndpoint element"
+argument_list|)
+expr_stmt|;
 name|answer
 operator|=
 operator|new
@@ -298,12 +330,6 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-comment|//TODO https://issues.apache.org/jira/browse/CAMEL-4137
-comment|//Thread.currentThread().setContextClassLoader(oldClassLoader);
 block|}
 return|return
 name|answer
