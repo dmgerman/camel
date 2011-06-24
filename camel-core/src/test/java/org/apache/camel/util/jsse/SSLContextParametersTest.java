@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|Security
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -1846,6 +1856,49 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|checkProtocols (String[] control, String[] configured)
+specifier|private
+name|void
+name|checkProtocols
+parameter_list|(
+name|String
+index|[]
+name|control
+parameter_list|,
+name|String
+index|[]
+name|configured
+parameter_list|)
+block|{
+comment|//With the IBM JDK, an "default" unconfigured control socket is more
+comment|//restricted than with the Sun JDK.   For example, with
+comment|//SSLContext.getInstance("TLS"), on Sun, you get
+comment|// TLSv1, SSLv3, SSLv2Hello
+comment|//but with IBM, you only get:
+comment|// TLSv1
+comment|//We'll check to make sure the "default" protocols are amongst the list
+comment|//that are in after configuration.
+name|assertTrue
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|configured
+argument_list|)
+operator|.
+name|containsAll
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|control
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testClientParameters ()
 specifier|public
 name|void
@@ -2541,11 +2594,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -2556,7 +2605,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Secure socket protocols filter on client params
@@ -2653,11 +2701,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -2668,7 +2712,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Sspp on client params overrides  secure socket protocols filter on client
@@ -2767,11 +2810,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -2782,7 +2821,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Client session timeout only affects client session configuration
@@ -3595,11 +3633,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -3610,7 +3644,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// empty filter
@@ -3791,11 +3824,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -3806,7 +3835,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// explicit filter with excludes (excludes overrides)
@@ -4183,11 +4211,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -4198,7 +4222,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// empty sspp
@@ -4712,11 +4735,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -4727,7 +4746,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// empty filter
@@ -4908,11 +4926,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|Arrays
-operator|.
-name|equals
+name|checkProtocols
 argument_list|(
 name|controlServerSocket
 operator|.
@@ -4923,7 +4937,6 @@ name|serverSocket
 operator|.
 name|getEnabledProtocols
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// explicit filter with excludes (excludes overrides)

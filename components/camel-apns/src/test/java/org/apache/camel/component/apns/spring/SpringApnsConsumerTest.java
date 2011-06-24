@@ -269,7 +269,7 @@ name|InterruptedException
 block|{
 name|server
 operator|=
-name|ApnsServerStub
+name|ApnsUtils
 operator|.
 name|prepareAndStartServer
 argument_list|(

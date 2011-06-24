@@ -146,7 +146,7 @@ specifier|final
 name|String
 name|SECURE_SOCKET_PROTOCOL
 init|=
-literal|"SSL"
+literal|"TLS"
 decl_stmt|;
 DECL|field|PASSWORD
 specifier|protected
