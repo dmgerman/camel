@@ -130,10 +130,9 @@ argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
-comment|// seda consumer doesnt support suspension so it will stop instead
 name|assertEquals
 argument_list|(
-literal|"Stopped"
+literal|"Suspended"
 argument_list|,
 name|context
 operator|.
