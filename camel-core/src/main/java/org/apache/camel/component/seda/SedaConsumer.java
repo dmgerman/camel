@@ -297,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer for the SEDA component.  *  * @version   */
+comment|/**  * A Consumer for the SEDA component.  *<p/>  * In this implementation there is a little<i>slack period</i> when you suspend/stop the consumer, by which  * the consumer may pickup a newly arrived messages and process it. That period is up till 1 second.  *  * @version   */
 end_comment
 
 begin_class
@@ -1060,15 +1060,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|setupTasks
+name|doStart
 argument_list|()
-expr_stmt|;
-name|endpoint
-operator|.
-name|onStarted
-argument_list|(
-name|this
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doStop ()
@@ -1086,9 +1079,18 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// must shutdown executor on stop to avoid overhead of having them running
-comment|// use shutdown now to force the tasks which are polling for new exchanges
-comment|// to stop immediately to avoid them picking up new exchanges arriving in the mean time
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// only shutdown thread pool when we shutdown
 if|if
 condition|(
 name|executor
