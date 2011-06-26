@@ -155,6 +155,21 @@ name|ManagementNamingStrategy
 name|strategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the object strategy to use      *      * @return object strategy      */
+DECL|method|getManagementObjectStrategy ()
+name|ManagementObjectStrategy
+name|getManagementObjectStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the object strategy to use      *      * @param strategy object strategy      */
+DECL|method|setManagementObjectStrategy (ManagementObjectStrategy strategy)
+name|void
+name|setManagementObjectStrategy
+parameter_list|(
+name|ManagementObjectStrategy
+name|strategy
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the management agent      *      * @return management agent      */
 DECL|method|getManagementAgent ()
 name|ManagementAgent

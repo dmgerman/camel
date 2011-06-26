@@ -271,13 +271,13 @@ name|Boolean
 name|registerAlways
 parameter_list|)
 function_decl|;
-comment|/**      * Whether to register mbeans when starting a new route      *      * @return<tt>true</tt> to register when starting a new route      */
+comment|/**      * Whether to register mbeans when starting a new route      *<p/>      * This option is default<tt>true</tt>.      *      * @return<tt>true</tt> to register when starting a new route      */
 DECL|method|getRegisterNewRoutes ()
 name|Boolean
 name|getRegisterNewRoutes
 parameter_list|()
 function_decl|;
-comment|/**      * Whether to register mbeans when starting a new route      *      * @param registerNewRoutes<tt>true</tt> to register when starting a new route      */
+comment|/**      * Whether to register mbeans when starting a new route      *<p/>      * This option is default<tt>true</tt>.      *      * @param registerNewRoutes<tt>true</tt> to register when starting a new route      */
 DECL|method|setRegisterNewRoutes (Boolean registerNewRoutes)
 name|void
 name|setRegisterNewRoutes

@@ -193,15 +193,35 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|setCounter (ManagedPerformanceCounter counter)
+DECL|method|setCounter (Object counter)
 specifier|public
 name|void
 name|setCounter
 parameter_list|(
-name|ManagedPerformanceCounter
+name|Object
 name|counter
 parameter_list|)
 block|{
+name|ManagedPerformanceCounter
+name|mpc
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|counter
+operator|instanceof
+name|ManagedPerformanceCounter
+condition|)
+block|{
+name|mpc
+operator|=
+operator|(
+name|ManagedPerformanceCounter
+operator|)
+name|counter
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|this
@@ -222,7 +242,7 @@ operator|)
 operator|.
 name|setCounter
 argument_list|(
-name|counter
+name|mpc
 argument_list|)
 expr_stmt|;
 block|}
@@ -232,7 +252,7 @@ name|this
 operator|.
 name|counter
 operator|=
-name|counter
+name|mpc
 expr_stmt|;
 block|}
 block|}
