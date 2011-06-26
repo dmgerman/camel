@@ -107,10 +107,19 @@ argument_list|>
 name|eventNotifier
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the event notifier to use.      *      * @param eventNotifier event notifier      */
+comment|/**      * Adds the event notifier to use.      *<p/>      * Ensure the event notifier has been started if its a {@link Service}, as otherwise      * it would not be used.      *      * @param eventNotifier event notifier      */
 DECL|method|addEventNotifier (EventNotifier eventNotifier)
 name|void
 name|addEventNotifier
+parameter_list|(
+name|EventNotifier
+name|eventNotifier
+parameter_list|)
+function_decl|;
+comment|/**      * Removes the event notifier      *      * @param eventNotifier event notifier to remove      * @return<tt>true</tt> if removed,<tt>false</tt> if already removed      */
+DECL|method|removeEventNotifier (EventNotifier eventNotifier)
+name|boolean
+name|removeEventNotifier
 parameter_list|(
 name|EventNotifier
 name|eventNotifier

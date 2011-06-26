@@ -293,6 +293,24 @@ name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|removeEventNotifier (EventNotifier eventNotifier)
+specifier|public
+name|boolean
+name|removeEventNotifier
+parameter_list|(
+name|EventNotifier
+name|eventNotifier
+parameter_list|)
+block|{
+return|return
+name|eventNotifiers
+operator|.
+name|remove
+argument_list|(
+name|eventNotifier
+argument_list|)
+return|;
+block|}
 DECL|method|setEventNotifiers (List<EventNotifier> eventNotifiers)
 specifier|public
 name|void
