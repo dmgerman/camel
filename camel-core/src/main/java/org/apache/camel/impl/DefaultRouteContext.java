@@ -940,17 +940,16 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|routePolicyProcessor
-operator|=
-operator|new
-name|RoutePolicyProcessor
-argument_list|(
-name|unitOfWorkProcessor
-argument_list|,
+for|for
+control|(
+name|RoutePolicy
+name|policy
+range|:
 name|routePolicyList
-argument_list|)
-expr_stmt|;
-comment|// add it as service if we have not already done that (eg possible if two routes have the same service)
+control|)
+block|{
+comment|// add policy as service if we have not already done that (eg possible if two routes have the same service)
+comment|// this ensures Camel can control the lifecycle of the policy
 if|if
 condition|(
 operator|!
@@ -958,7 +957,7 @@ name|camelContext
 operator|.
 name|hasService
 argument_list|(
-name|routePolicyProcessor
+name|policy
 argument_list|)
 condition|)
 block|{
@@ -968,7 +967,7 @@ name|camelContext
 operator|.
 name|addService
 argument_list|(
-name|routePolicyProcessor
+name|policy
 argument_list|)
 expr_stmt|;
 block|}
@@ -988,6 +987,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+name|routePolicyProcessor
+operator|=
+operator|new
+name|RoutePolicyProcessor
+argument_list|(
+name|unitOfWorkProcessor
+argument_list|,
+name|routePolicyList
+argument_list|)
+expr_stmt|;
 name|target
 operator|=
 name|routePolicyProcessor
