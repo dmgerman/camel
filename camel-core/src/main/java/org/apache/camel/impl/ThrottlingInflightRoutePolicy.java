@@ -1163,7 +1163,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// if context
 name|ExchangeCompletedEvent
 name|completedEvent
 init|=
