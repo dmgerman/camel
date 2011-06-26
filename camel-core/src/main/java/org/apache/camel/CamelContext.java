@@ -514,7 +514,7 @@ parameter_list|()
 function_decl|;
 comment|// Service Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Adds a service, starting it so that it will be stopped with this context      *<p/>      * The added service will also be enlisted in JMX for management (if JMX is enabled)      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
+comment|/**      * Adds a service to this context, which allows this context to control the lifecycle, ensuring      * the service is stopped when the context stops.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
 DECL|method|addService (Object object)
 name|void
 name|addService
@@ -525,7 +525,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Has the given service already been added?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
+comment|/**      * Has the given service already been added to this context?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
 DECL|method|hasService (Object object)
 name|boolean
 name|hasService

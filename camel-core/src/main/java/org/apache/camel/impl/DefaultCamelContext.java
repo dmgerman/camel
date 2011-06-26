@@ -5291,6 +5291,30 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// inject CamelContext
+if|if
+condition|(
+name|object
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+name|CamelContextAware
+name|aware
+init|=
+operator|(
+name|CamelContextAware
+operator|)
+name|object
+decl_stmt|;
+name|aware
+operator|.
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|object
@@ -5389,6 +5413,16 @@ name|Endpoint
 operator|)
 condition|)
 block|{
+comment|// only add to list of services to close if its not already there
+if|if
+condition|(
+operator|!
+name|hasService
+argument_list|(
+name|service
+argument_list|)
+condition|)
+block|{
 name|servicesToClose
 operator|.
 name|add
@@ -5398,6 +5432,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// and then ensure service is started (as stated in the javadoc)
 name|startServices
 argument_list|(
 name|object
