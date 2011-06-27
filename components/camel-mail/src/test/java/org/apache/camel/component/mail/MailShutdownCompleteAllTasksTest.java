@@ -237,7 +237,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret"
+literal|"pop3://jones@localhost?password=secret&initialDelay=2s"
 argument_list|)
 operator|.
 name|routeId
