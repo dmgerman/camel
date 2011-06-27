@@ -281,6 +281,12 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|processFile
+specifier|protected
+specifier|final
+name|ProcessFile
+name|processFile
+decl_stmt|;
 DECL|field|endpoint
 specifier|protected
 name|GenericFileEndpoint
@@ -296,11 +302,6 @@ argument_list|<
 name|T
 argument_list|>
 name|operations
-decl_stmt|;
-DECL|field|loggedIn
-specifier|protected
-name|boolean
-name|loggedIn
 decl_stmt|;
 DECL|field|fileExpressionResult
 specifier|protected
@@ -363,6 +364,45 @@ name|operations
 operator|=
 name|operations
 expr_stmt|;
+name|this
+operator|.
+name|processFile
+operator|=
+operator|new
+name|ProcessFile
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|getEndpoint ()
+specifier|public
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 comment|/**      * Poll for files      */
 DECL|method|poll ()
@@ -429,7 +469,8 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
@@ -508,7 +549,8 @@ block|}
 comment|// sort files using file comparator if provided
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSorter
 argument_list|()
@@ -522,7 +564,8 @@ name|sort
 argument_list|(
 name|files
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSorter
 argument_list|()
@@ -557,21 +600,24 @@ block|{
 name|Exchange
 name|exchange
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExchange
 argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|configureExchange
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|configureMessage
 argument_list|(
@@ -594,7 +640,8 @@ block|}
 comment|// sort files using exchange comparator if provided
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSortBy
 argument_list|()
@@ -608,7 +655,8 @@ name|sort
 argument_list|(
 name|exchanges
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSortBy
 argument_list|()
@@ -874,7 +922,8 @@ operator|.
 name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getInProgressRepository
 argument_list|()
@@ -1083,6 +1132,20 @@ operator|=
 name|operations
 expr_stmt|;
 block|}
+comment|/**      * Gets the operations to be used      *      * @return the operations      */
+DECL|method|getOperations ()
+specifier|public
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|getOperations
+parameter_list|()
+block|{
+return|return
+name|operations
+return|;
+block|}
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
 DECL|method|processExchange (final Exchange exchange)
 specifier|protected
@@ -1094,341 +1157,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|file
-init|=
-name|getExchangeFileProperty
+comment|// let the process do the work
+name|processFile
+operator|.
+name|processExchange
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Processing file: {}"
-argument_list|,
-name|file
-argument_list|)
 expr_stmt|;
-comment|// must extract the absolute name before the begin strategy as the file could potentially be pre moved
-comment|// and then the file name would be changed
-name|String
-name|absoluteFileName
-init|=
-name|file
-operator|.
-name|getAbsoluteFilePath
-argument_list|()
-decl_stmt|;
-comment|// check if we can begin processing the file
-try|try
-block|{
-specifier|final
-name|GenericFileProcessStrategy
-argument_list|<
-name|T
-argument_list|>
-name|processStrategy
-init|=
-name|endpoint
-operator|.
-name|getGenericFileProcessStrategy
-argument_list|()
-decl_stmt|;
-name|boolean
-name|begin
-init|=
-name|processStrategy
-operator|.
-name|begin
-argument_list|(
-name|operations
-argument_list|,
-name|endpoint
-argument_list|,
-name|exchange
-argument_list|,
-name|file
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|begin
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-name|endpoint
-operator|+
-literal|" cannot begin processing file: {}"
-argument_list|,
-name|file
-argument_list|)
-expr_stmt|;
-comment|// begin returned false, so remove file from the in progress list as its no longer in progress
-name|endpoint
-operator|.
-name|getInProgressRepository
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|absoluteFileName
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-name|endpoint
-operator|+
-literal|" cannot begin processing file: "
-operator|+
-name|file
-operator|+
-literal|" due to: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-name|endpoint
-operator|.
-name|getInProgressRepository
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|absoluteFileName
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-comment|// must use file from exchange as it can be updated due the
-comment|// preMoveNamePrefix/preMoveNamePostfix options
-specifier|final
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|target
-init|=
-name|getExchangeFileProperty
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-comment|// must use full name when downloading so we have the correct path
-specifier|final
-name|String
-name|name
-init|=
-name|target
-operator|.
-name|getAbsoluteFilePath
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-comment|// retrieve the file using the stream
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Retrieving file: {} from: {}"
-argument_list|,
-name|name
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
-comment|// retrieve the file and check it was a success
-name|boolean
-name|retrieved
-init|=
-name|operations
-operator|.
-name|retrieveFile
-argument_list|(
-name|name
-argument_list|,
-name|exchange
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|retrieved
-condition|)
-block|{
-comment|// throw exception to handle the problem with retrieving the file
-comment|// then if the method return false or throws an exception is handled the same in here
-comment|// as in both cases an exception is being thrown
-throw|throw
-operator|new
-name|GenericFileOperationFailedException
-argument_list|(
-literal|"Cannot retrieve file: "
-operator|+
-name|file
-operator|+
-literal|" from: "
-operator|+
-name|endpoint
-argument_list|)
-throw|;
-block|}
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Retrieved file: {} from: {}"
-argument_list|,
-name|name
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
-comment|// register on completion callback that does the completion strategies
-comment|// (for instance to move the file after we have processed it)
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
-operator|new
-name|GenericFileOnCompletion
-argument_list|<
-name|T
-argument_list|>
-argument_list|(
-name|endpoint
-argument_list|,
-name|operations
-argument_list|,
-name|target
-argument_list|,
-name|absoluteFileName
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"About to process file: {} using exchange: {}"
-argument_list|,
-name|target
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-comment|// process the exchange using the async consumer to support async routing engine
-comment|// which can be supported by this file consumer as all the done work is
-comment|// provided in the GenericFileOnCompletion
-name|getAsyncProcessor
-argument_list|()
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|doneSync
-parameter_list|)
-block|{
-comment|// noop
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Done processing file: {} {}"
-argument_list|,
-name|target
-argument_list|,
-name|doneSync
-condition|?
-literal|"synchronously"
-else|:
-literal|"asynchronously"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// remove file from the in progress list due to failure
-comment|// (cannot be in finally block due to GenericFileOnCompletion will remove it
-comment|// from in progress when it takes over and processes the file, which may happen
-comment|// by another thread at a later time. So its only safe to remove it if there was an exception)
-name|endpoint
-operator|.
-name|getInProgressRepository
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|absoluteFileName
-argument_list|)
-expr_stmt|;
-name|handleException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
 DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)
@@ -1473,12 +1209,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|isIdempotent
 argument_list|()
 operator|&&
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getIdempotentRepository
 argument_list|()
@@ -1578,7 +1316,8 @@ return|;
 block|}
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getFilter
 argument_list|()
@@ -1589,7 +1328,8 @@ block|{
 if|if
 condition|(
 operator|!
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getFilter
 argument_list|()
@@ -1611,7 +1351,8 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExclude
 argument_list|()
@@ -1624,7 +1365,8 @@ name|name
 operator|.
 name|matches
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExclude
 argument_list|()
@@ -1642,7 +1384,8 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getInclude
 argument_list|()
@@ -1656,7 +1399,8 @@ name|name
 operator|.
 name|matches
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getInclude
 argument_list|()
@@ -1671,7 +1415,8 @@ block|}
 comment|// use file expression for a simple dynamic file filter
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getFileName
 argument_list|()
@@ -1709,7 +1454,8 @@ block|}
 comment|// if done file name is enabled, then the file is only valid if a done file exists
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getDoneFileName
 argument_list|()
@@ -1721,7 +1467,8 @@ comment|// done file must be in same path as the file
 name|String
 name|doneFileName
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createDoneFileName
 argument_list|(
@@ -1739,13 +1486,15 @@ name|doneFileName
 argument_list|,
 literal|"doneFileName"
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// is it a done file name?
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|isDoneFile
 argument_list|(
@@ -1773,7 +1522,8 @@ comment|// the file is only valid if the done file exist
 if|if
 condition|(
 operator|!
-name|operations
+name|getOperations
+argument_list|()
 operator|.
 name|existsFile
 argument_list|(
@@ -1822,7 +1572,8 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|!
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getInProgressRepository
 argument_list|()
@@ -1853,7 +1604,8 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -1927,18 +1679,105 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// prepare on startup
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getGenericFileProcessStrategy
 argument_list|()
 operator|.
 name|prepareOnStartup
 argument_list|(
-name|operations
+name|getOperations
+argument_list|()
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Class the processes the exchange when a file has been polled.      */
+DECL|class|ProcessFile
+specifier|private
+class|class
+name|ProcessFile
+extends|extends
+name|GenericFileConsumerSupport
+argument_list|<
+name|T
+argument_list|>
+block|{
+DECL|method|ProcessFile (GenericFileConsumer<T> consumer)
+specifier|public
+name|ProcessFile
+parameter_list|(
+name|GenericFileConsumer
+argument_list|<
+name|T
+argument_list|>
+name|consumer
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|handleExceptionStrategy (Exception e)
+name|void
+name|handleExceptionStrategy
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// handle the exception on the consumer
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|processFileStrategy (Exchange exchange)
+name|void
+name|processFileStrategy
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// process the exchange using the async consumer to support async routing engine
+comment|// which can be supported by this file consumer as all the done work is
+comment|// provided in the GenericFileOnCompletion
+name|getAsyncProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|// noop
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
