@@ -130,7 +130,7 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the original IN {@link Message} this Unit of Work was started with.      *      * @return the original IN {@link Message}      */
+comment|/**      * Gets the original IN {@link Message} this Unit of Work was started with.      *<p/>      *<b>Important:</b> This is subject for change in a later Camel release, where we plan to only      * support getting the original IN message if you have enabled this option explicit.      *      * @return the original IN {@link Message}, may return<tt>null</tt> in a later Camel release (see important note).      */
 DECL|method|getOriginalInMessage ()
 name|Message
 name|getOriginalInMessage
