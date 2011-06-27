@@ -165,13 +165,6 @@ argument_list|(
 literal|"A"
 argument_list|)
 expr_stmt|;
-name|result
-operator|.
-name|setMinimumResultWaitTime
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 comment|// only 1 message will get completed as the throttler will suspend the consumer
 comment|// when A is done
 name|template
