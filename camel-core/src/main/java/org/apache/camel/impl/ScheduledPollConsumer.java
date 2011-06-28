@@ -1294,10 +1294,10 @@ comment|// dont stop/cancel the future task since we just check in the run metho
 block|}
 annotation|@
 name|Override
-DECL|method|onStartup ()
+DECL|method|onInit ()
 specifier|public
 name|void
-name|onStartup
+name|onInit
 parameter_list|()
 throws|throws
 name|Exception

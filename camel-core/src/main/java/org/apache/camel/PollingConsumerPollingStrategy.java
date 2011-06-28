@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy that allows consumers to influence the {@link PollingConsumer}.  */
+comment|/**  * Strategy that allows {@link Consumer}s to influence the {@link PollingConsumer}.  *<p/>  * For example this is used by schedule based consumers to be able to suspend/resume  * upon polling using a {@link PollingConsumer}.  *  * @see org.apache.camel.impl.EventDrivenPollingConsumer  */
 end_comment
 
 begin_interface
@@ -24,10 +24,10 @@ specifier|public
 interface|interface
 name|PollingConsumerPollingStrategy
 block|{
-comment|/**      * Callback invoked when the consumer is started.      *      * @throws Exception can be thrown if error starting.      */
-DECL|method|onStartup ()
+comment|/**      * Callback invoked when the consumer is initialized such as when the {@link PollingConsumer} starts.      *      * @throws Exception can be thrown if error initializing.      */
+DECL|method|onInit ()
 name|void
-name|onStartup
+name|onInit
 parameter_list|()
 throws|throws
 name|Exception

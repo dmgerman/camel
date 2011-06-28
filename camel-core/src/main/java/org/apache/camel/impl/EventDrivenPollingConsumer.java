@@ -670,7 +670,7 @@ name|consumer
 decl_stmt|;
 name|strategy
 operator|.
-name|onStartup
+name|onInit
 argument_list|()
 expr_stmt|;
 block|}
