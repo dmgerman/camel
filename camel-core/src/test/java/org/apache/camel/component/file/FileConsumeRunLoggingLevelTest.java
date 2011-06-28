@@ -76,6 +76,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/files"
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
