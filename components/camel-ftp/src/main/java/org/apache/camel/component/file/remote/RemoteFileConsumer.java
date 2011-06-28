@@ -167,7 +167,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|getOperations ()
-specifier|public
+specifier|protected
 name|RemoteFileOperations
 name|getOperations
 parameter_list|()
