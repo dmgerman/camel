@@ -1464,7 +1464,6 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 name|getManagementStrategy
 argument_list|()
 operator|.
@@ -1529,7 +1528,6 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 name|getManagementStrategy
 argument_list|()
 operator|.
