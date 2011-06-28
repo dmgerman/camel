@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|PollingConsumerPollingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -132,6 +144,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -164,6 +190,8 @@ implements|implements
 name|Runnable
 implements|,
 name|SuspendableService
+implements|,
+name|PollingConsumerPollingStrategy
 block|{
 DECL|field|LOG
 specifier|private
@@ -1263,6 +1291,63 @@ throws|throws
 name|Exception
 block|{
 comment|// dont stop/cancel the future task since we just check in the run method
+block|}
+annotation|@
+name|Override
+DECL|method|onStartup ()
+specifier|public
+name|void
+name|onStartup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// start our self
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|beforePoll ()
+specifier|public
+name|void
+name|beforePoll
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// resume our self
+name|ServiceHelper
+operator|.
+name|resumeService
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|afterPoll ()
+specifier|public
+name|void
+name|afterPoll
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// suspend our self
+name|ServiceHelper
+operator|.
+name|suspendService
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -157,6 +169,34 @@ name|Exchange
 name|receive
 parameter_list|()
 block|{
+comment|// must be started
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+operator|||
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RejectedExecutionException
+argument_list|(
+name|this
+operator|+
+literal|" is not started, but in state: "
+operator|+
+name|getStatus
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|Exchange
 name|exchange
 init|=
