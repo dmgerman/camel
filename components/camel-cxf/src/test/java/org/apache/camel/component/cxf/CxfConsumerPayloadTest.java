@@ -207,7 +207,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|SIMPLE_ENDPOINT_URI
+name|simpleEndpointURI
 operator|+
 literal|"&dataFormat=PAYLOAD"
 argument_list|)

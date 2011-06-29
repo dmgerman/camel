@@ -62,6 +62,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|BeforeClass
 import|;
 end_import
@@ -75,10 +85,9 @@ extends|extends
 name|CXFWsdlOnlyPayloadModeNoSpringTest
 block|{
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|startService ()
 specifier|public
-specifier|static
 name|void
 name|startService
 parameter_list|()
@@ -89,7 +98,11 @@ name|Endpoint
 operator|.
 name|publish
 argument_list|(
-literal|"http://localhost:8093/PersonService"
+literal|"http://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"/PersonService"
 argument_list|,
 operator|new
 name|PersonImpl12

@@ -82,16 +82,21 @@ name|CxfConsumerFaultTest
 extends|extends
 name|CxfConsumerPayloadFaultTest
 block|{
-DECL|field|SERVICE_URI
-specifier|private
-specifier|static
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+block|{
 specifier|final
 name|String
-name|SERVICE_URI
+name|serviceURI
 init|=
 literal|"cxf://"
 operator|+
-name|SERVICE_ADDRESS
+name|serviceAddress
 operator|+
 literal|"?"
 operator|+
@@ -107,14 +112,6 @@ name|WSDL_URL_PROP
 operator|+
 literal|"&serviceClass=org.apache.camel.wsdl_first.Person"
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-block|{
 return|return
 operator|new
 name|RouteBuilder
@@ -127,7 +124,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|SERVICE_URI
+name|serviceURI
 argument_list|)
 operator|.
 name|process

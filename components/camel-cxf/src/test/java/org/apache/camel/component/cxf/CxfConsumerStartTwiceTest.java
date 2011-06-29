@@ -62,6 +62,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -86,6 +100,17 @@ name|CxfConsumerStartTwiceTest
 extends|extends
 name|Assert
 block|{
+DECL|field|PORT
+specifier|static
+specifier|final
+name|int
+name|PORT
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|startServiceTwice ()
@@ -119,7 +144,11 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"cxf:http://localhost:7070/test?serviceClass=org.apache.camel.component.cxf.HelloService"
+literal|"cxf:http://localhost:"
+operator|+
+name|PORT
+operator|+
+literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService"
 argument_list|)
 operator|.
 name|to
@@ -146,7 +175,11 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"cxf:http://localhost:7070/test?serviceClass=org.apache.camel.component.cxf.HelloService"
+literal|"cxf:http://localhost:"
+operator|+
+name|PORT
+operator|+
+literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService"
 argument_list|)
 operator|.
 name|to
@@ -186,7 +219,11 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[cxf://http://localhost:7070/test?serviceClass=org.apache.camel.component.cxf.HelloService]"
+literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[cxf://http://localhost:"
+operator|+
+name|PORT
+operator|+
+literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService]"
 argument_list|)
 argument_list|)
 expr_stmt|;

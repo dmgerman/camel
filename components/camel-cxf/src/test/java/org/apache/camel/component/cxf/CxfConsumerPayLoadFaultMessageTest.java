@@ -173,7 +173,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|FROM_URI
+name|fromURI
 argument_list|)
 operator|.
 name|process

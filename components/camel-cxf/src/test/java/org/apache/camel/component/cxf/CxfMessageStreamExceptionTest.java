@@ -192,7 +192,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-name|SERVICE_URI
+name|serviceURI
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: onException

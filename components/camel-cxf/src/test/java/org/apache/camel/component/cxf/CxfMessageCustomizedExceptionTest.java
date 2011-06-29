@@ -56,7 +56,7 @@ name|routerEndpointURI
 operator|=
 literal|"cxf://"
 operator|+
-name|ROUTER_ADDRESS
+name|routerAddress
 operator|+
 literal|"?"
 operator|+

@@ -225,7 +225,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/cxf/CxfEndpointBeans.xml"
+literal|"org/apache/camel/component/cxf/CxfSpringRouterBeans.xml"
 argument_list|)
 return|;
 block|}
