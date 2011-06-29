@@ -834,6 +834,78 @@ name|resultType
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a token expression on the message body      *      * @param token the token      * @return the builder to continue processing the DSL      */
+DECL|method|tokenize (String token)
+specifier|public
+name|T
+name|tokenize
+parameter_list|(
+name|String
+name|token
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenize
+argument_list|(
+name|token
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token expression on the given header      *      * @param token the token      * @param headerName name of header to tokenize      * @return the builder to continue processing the DSL      */
+DECL|method|tokenize (String token, String headerName)
+specifier|public
+name|T
+name|tokenize
+parameter_list|(
+name|String
+name|token
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenize
+argument_list|(
+name|token
+argument_list|,
+name|headerName
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token expression on the given header      *      * @param token the token      * @param headerName name of header to tokenize      * @param regex whether the token is a regular expression or not      * @return the builder to continue processing the DSL      */
+DECL|method|tokenize (String token, String headerName, boolean regex)
+specifier|public
+name|T
+name|tokenize
+parameter_list|(
+name|String
+name|token
+parameter_list|,
+name|String
+name|headerName
+parameter_list|,
+name|boolean
+name|regex
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenize
+argument_list|(
+name|token
+argument_list|,
+name|headerName
+argument_list|,
+name|regex
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public
