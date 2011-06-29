@@ -203,10 +203,13 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// TODO: stop timer route causes the test to fail
-comment|// we will revisit this in Camel 3.0 where interceptors/cross cutting concerns
-comment|// is applied at runtime
-comment|// context.stopRoute("timer");
+name|context
+operator|.
+name|stopRoute
+argument_list|(
+literal|"timer"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
