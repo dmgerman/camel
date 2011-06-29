@@ -230,6 +230,37 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|//To make sure there is no XML declaration.
+name|assertFalse
+argument_list|(
+literal|"There should have no XML declaration."
+argument_list|,
+name|mock
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"<?xml version="
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

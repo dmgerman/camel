@@ -412,6 +412,11 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
+DECL|field|fragment
+specifier|private
+name|boolean
+name|fragment
+decl_stmt|;
 comment|// partial support
 DECL|field|partNamespace
 specifier|private
@@ -557,6 +562,26 @@ operator|.
 name|JAXB_ENCODING
 argument_list|,
 name|charset
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isFragment
+argument_list|()
+condition|)
+block|{
+name|marshaller
+operator|.
+name|setProperty
+argument_list|(
+name|Marshaller
+operator|.
+name|JAXB_FRAGMENT
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -1077,6 +1102,32 @@ operator|.
 name|prettyPrint
 operator|=
 name|prettyPrint
+expr_stmt|;
+block|}
+DECL|method|isFragment ()
+specifier|public
+name|boolean
+name|isFragment
+parameter_list|()
+block|{
+return|return
+name|fragment
+return|;
+block|}
+DECL|method|setFragment (boolean fragment)
+specifier|public
+name|void
+name|setFragment
+parameter_list|(
+name|boolean
+name|fragment
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fragment
+operator|=
+name|fragment
 expr_stmt|;
 block|}
 DECL|method|isFilterNonXmlChars ()
