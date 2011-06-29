@@ -312,7 +312,7 @@ specifier|public
 class|class
 name|MultiPartFormWithCustomFilterTest
 extends|extends
-name|CamelTestSupport
+name|BaseJettyTest
 block|{
 DECL|class|MyMultipartFilter
 specifier|private
@@ -403,7 +403,12 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:9080/test"
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/test"
 argument_list|)
 decl_stmt|;
 name|Part
@@ -533,7 +538,12 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:9080/test2"
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/test2"
 argument_list|)
 decl_stmt|;
 name|Part
@@ -686,7 +696,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test?multipartFilterRef=myMultipartFilter"
+literal|"jetty://http://localhost:{{port}}/test?multipartFilterRef=myMultipartFilter"
 argument_list|)
 operator|.
 name|process
@@ -804,7 +814,7 @@ comment|// END SNIPPET: e1
 comment|// Test to ensure that setting a multipartFilterRef overrides the enableMultipartFilter=false parameter
 name|from
 argument_list|(
-literal|"jetty://http://localhost:9080/test2?multipartFilterRef=myMultipartFilter&enableMultipartFilter=false"
+literal|"jetty://http://localhost:{{port}}/test2?multipartFilterRef=myMultipartFilter&enableMultipartFilter=false"
 argument_list|)
 operator|.
 name|process
