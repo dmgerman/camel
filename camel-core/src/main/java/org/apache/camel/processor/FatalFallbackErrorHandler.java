@@ -165,12 +165,27 @@ literal|null
 condition|)
 block|{
 comment|// an exception occurred during processing onException
-comment|// log a warning
-name|LOG
+comment|// log detailed error message with as much detail as possible
+name|Throwable
+name|previous
+init|=
+name|exchange
 operator|.
-name|error
+name|getProperty
 argument_list|(
-literal|"Exception occurred while processing exchangeId: "
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Throwable
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|String
+name|msg
+init|=
+literal|"Exception occurred while trying to handle previously thrown exception on exchangeId: "
 operator|+
 name|exchange
 operator|.
@@ -181,14 +196,49 @@ literal|" using: ["
 operator|+
 name|processor
 operator|+
-literal|"] caused by: "
+literal|"]."
+decl_stmt|;
+if|if
+condition|(
+name|previous
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|+=
+literal|" The previous and the new exception will be logged in the following."
+expr_stmt|;
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"\\--> Previous exception on exchangeId: "
 operator|+
 name|exchange
 operator|.
-name|getException
+name|getExchangeId
 argument_list|()
+argument_list|,
+name|previous
+argument_list|)
+expr_stmt|;
+name|LOG
 operator|.
-name|getMessage
+name|error
+argument_list|(
+literal|"\\--> New exception on exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
 argument_list|()
 argument_list|,
 name|exchange
@@ -197,6 +247,34 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"\\--> New exception on exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we can propagated that exception to the caught property on the exchange
 comment|// which will shadow any previously caught exception and cause this new exception
 comment|// to be visible in the error handler
