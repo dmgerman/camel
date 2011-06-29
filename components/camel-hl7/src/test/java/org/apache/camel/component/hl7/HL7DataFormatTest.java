@@ -322,7 +322,7 @@ name|HL7Constants
 operator|.
 name|HL7_SENDING_APPLICATION
 argument_list|,
-literal|"MYSERVER"
+literal|"MYSENDER"
 argument_list|)
 expr_stmt|;
 name|mock

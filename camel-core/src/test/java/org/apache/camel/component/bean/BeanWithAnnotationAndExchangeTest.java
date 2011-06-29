@@ -161,15 +161,6 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedHeaderReceived
-argument_list|(
 literal|"user"
 argument_list|,
 literal|"admin"
