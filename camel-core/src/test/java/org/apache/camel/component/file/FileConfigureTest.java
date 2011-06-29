@@ -504,7 +504,6 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-comment|// TODO: absolute also
 if|if
 condition|(
 operator|!

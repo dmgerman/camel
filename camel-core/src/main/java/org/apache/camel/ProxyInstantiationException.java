@@ -4,41 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|impl
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
 
 begin_comment
 comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version   */
@@ -60,9 +34,8 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|2050115486047385507L
+literal|2050115486047385506L
 decl_stmt|;
-comment|// TODO: Move to org.apache.camel package
 DECL|field|type
 specifier|private
 specifier|final

@@ -115,7 +115,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// TODO: if possible used regexp to parse if its valid/invalid
 comment|// the brackets should come in pair
 name|int
 name|bracketBegin
@@ -222,7 +221,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// TODO: if possible used regexp to parse if its valid/invalid
 comment|// the brackets should come in pair
 name|int
 name|bracketBegin

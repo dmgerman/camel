@@ -1865,7 +1865,6 @@ return|return
 name|result
 return|;
 block|}
-comment|// TODO: Add support for TokenizerExpression
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getLanguage ()

@@ -679,8 +679,6 @@ return|;
 block|}
 annotation|@
 name|Converter
-annotation|@
-name|Deprecated
 DECL|method|toWriter (OutputStream out, Exchange exchange)
 specifier|public
 specifier|static
@@ -696,7 +694,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: Why is this method deprecated?
 return|return
 operator|new
 name|OutputStreamWriter

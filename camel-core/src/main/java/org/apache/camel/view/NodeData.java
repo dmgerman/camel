@@ -789,8 +789,6 @@ name|BeanDefinition
 operator|)
 name|node
 decl_stmt|;
-comment|// TODO
-comment|//this.image = imagePrefix + "Bean.png";
 name|this
 operator|.
 name|nodeType
@@ -830,7 +828,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO we could add this to the model?
 name|String
 name|name
 init|=

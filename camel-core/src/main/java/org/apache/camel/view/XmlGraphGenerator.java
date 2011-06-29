@@ -561,7 +561,6 @@ argument_list|,
 name|nodeData
 argument_list|)
 expr_stmt|;
-comment|// TODO we should add a transactional client / event driven consumer / polling client
 name|NodeData
 name|from
 init|=
