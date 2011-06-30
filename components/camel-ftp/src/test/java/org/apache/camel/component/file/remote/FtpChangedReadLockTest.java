@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.strategy
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|strategy
+name|remote
 package|;
 end_package
 
@@ -37,18 +37,6 @@ operator|.
 name|io
 operator|.
 name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
 import|;
 end_import
 
@@ -86,6 +74,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -103,16 +101,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|FileChangedReadLockTest
+DECL|class|FtpChangedReadLockTest
 specifier|public
 class|class
-name|FileChangedReadLockTest
+name|FtpChangedReadLockTest
 extends|extends
-name|ContextTestSupport
+name|FtpServerTestSupport
 block|{
 DECL|field|LOG
 specifier|private
@@ -126,11 +124,28 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|FileChangedReadLockTest
+name|FtpChangedReadLockTest
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|getFtpUrl ()
+specifier|protected
+name|String
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/changed?password=admin&readLock=changed&readLockCheckInterval=1000&delete=true"
+return|;
+block|}
+annotation|@
+name|Test
 DECL|method|testChangedReadLock ()
 specifier|public
 name|void
@@ -139,16 +154,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/changed/"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"target/changed/in"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -267,13 +272,24 @@ argument_list|(
 literal|"Writing slow file..."
 argument_list|)
 expr_stmt|;
+name|createDirectory
+argument_list|(
+name|FTP_ROOT_DIR
+operator|+
+literal|"/changed"
+argument_list|)
+expr_stmt|;
 name|FileOutputStream
 name|fos
 init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-literal|"target/changed/in/slowfile.dat"
+name|FTP_ROOT_DIR
+operator|+
+literal|"changed/slowfile.dat"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -368,7 +384,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed"
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

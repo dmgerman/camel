@@ -180,6 +180,17 @@ name|RemoteFileEndpoint
 parameter_list|()
 block|{
 comment|// no args constructor for spring bean endpoint configuration
+comment|// for ftp we need to use higher interval/checkout that for files
+name|setReadLockTimeout
+argument_list|(
+literal|20000
+argument_list|)
+expr_stmt|;
+name|setReadLockCheckInterval
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent<T> component, RemoteFileConfiguration configuration)
 specifier|public
@@ -210,6 +221,17 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+comment|// for ftp we need to use higher interval/checkout that for files
+name|setReadLockTimeout
+argument_list|(
+literal|20000
+argument_list|)
+expr_stmt|;
+name|setReadLockCheckInterval
+argument_list|(
+literal|5000
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

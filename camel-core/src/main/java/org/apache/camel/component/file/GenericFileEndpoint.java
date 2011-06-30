@@ -1040,6 +1040,26 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+init|=
+name|getParamsAsMap
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Parameters for Generic file process strategy {}"
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
 return|return
 operator|(
 name|GenericFileProcessStrategy
@@ -1058,8 +1078,7 @@ argument_list|,
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|getParamsAsMap
-argument_list|()
+name|params
 argument_list|)
 return|;
 block|}

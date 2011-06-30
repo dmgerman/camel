@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.strategy
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -16,74 +16,36 @@ name|component
 operator|.
 name|file
 operator|.
-name|strategy
+name|remote
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|FileChangedReadLockTimeoutTest
+DECL|class|FtpChangedReadLockTimeoutTest
 specifier|public
 class|class
-name|FileChangedReadLockTimeoutTest
+name|FtpChangedReadLockTimeoutTest
 extends|extends
-name|FileChangedReadLockTest
+name|FtpChangedReadLockTest
 block|{
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
+DECL|method|getFtpUrl ()
 specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+name|String
+name|getFtpUrl
 parameter_list|()
-throws|throws
-name|Exception
 block|{
+comment|// will timeout, but the scheduler will pickup the file later
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockTimeout=2500"
-argument_list|)
+name|super
 operator|.
-name|to
-argument_list|(
-literal|"file:target/changed/out"
-argument_list|,
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+name|getFtpUrl
+argument_list|()
+operator|+
+literal|"&readLockTimeout=2500"
 return|;
 block|}
 block|}
