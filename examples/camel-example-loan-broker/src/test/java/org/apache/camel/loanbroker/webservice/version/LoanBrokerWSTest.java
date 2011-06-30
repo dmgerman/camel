@@ -89,10 +89,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LoanBrokerTest
+DECL|class|LoanBrokerWSTest
 specifier|public
 class|class
-name|LoanBrokerTest
+name|LoanBrokerWSTest
 extends|extends
 name|Assert
 block|{
