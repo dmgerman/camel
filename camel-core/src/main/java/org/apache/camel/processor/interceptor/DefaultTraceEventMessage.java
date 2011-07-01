@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -113,6 +93,26 @@ operator|.
 name|util
 operator|.
 name|MessageHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 
@@ -216,6 +216,11 @@ specifier|private
 name|String
 name|causedByException
 decl_stmt|;
+DECL|field|routeId
+specifier|private
+name|String
+name|routeId
+decl_stmt|;
 DECL|field|tracedExchange
 specifier|private
 specifier|final
@@ -311,6 +316,15 @@ operator|=
 name|exchange
 operator|.
 name|getExchangeId
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|routeId
+operator|=
+name|exchange
+operator|.
+name|getFromRouteId
 argument_list|()
 expr_stmt|;
 name|this
@@ -685,6 +699,16 @@ return|return
 name|exchangeId
 return|;
 block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
+block|}
 DECL|method|getShortExchangeId ()
 specifier|public
 name|String
@@ -879,6 +903,22 @@ operator|.
 name|exchangeId
 operator|=
 name|exchangeId
+expr_stmt|;
+block|}
+DECL|method|setRouteId (String routeId)
+specifier|public
+name|void
+name|setRouteId
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
 expr_stmt|;
 block|}
 DECL|method|setShortExchangeId (String shortExchangeId)
