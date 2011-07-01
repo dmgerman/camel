@@ -314,7 +314,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|1000
 argument_list|)
 operator|.
 name|to
