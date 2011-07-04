@@ -1084,13 +1084,9 @@ argument_list|,
 name|part
 argument_list|)
 expr_stmt|;
-comment|// always store content in a byte array data store to avoid various content type and charset issues
-name|DataSource
-name|ds
+name|String
+name|body
 init|=
-operator|new
-name|ByteArrayDataSource
-argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -1102,6 +1098,27 @@ name|String
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
+block|{
+name|body
+operator|=
+literal|""
+expr_stmt|;
+block|}
+comment|// always store content in a byte array data store to avoid various content type and charset issues
+name|DataSource
+name|ds
+init|=
+operator|new
+name|ByteArrayDataSource
+argument_list|(
+name|body
 argument_list|,
 name|contentType
 argument_list|)
