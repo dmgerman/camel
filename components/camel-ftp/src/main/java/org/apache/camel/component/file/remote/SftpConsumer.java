@@ -166,7 +166,9 @@ name|getDirectory
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|pollDirectory (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList)
+annotation|@
+name|Override
+DECL|method|pollDirectory (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList, int depth)
 specifier|protected
 name|boolean
 name|pollDirectory
@@ -184,6 +186,9 @@ name|LsEntry
 argument_list|>
 argument_list|>
 name|fileList
+parameter_list|,
+name|int
+name|depth
 parameter_list|)
 block|{
 name|String

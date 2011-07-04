@@ -454,6 +454,8 @@ argument_list|(
 name|name
 argument_list|,
 name|files
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|long
@@ -1044,7 +1046,7 @@ block|{
 comment|// noop
 block|}
 comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      */
-DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)
+DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList, int depth)
 specifier|protected
 specifier|abstract
 name|boolean
@@ -1061,6 +1063,9 @@ name|T
 argument_list|>
 argument_list|>
 name|fileList
+parameter_list|,
+name|int
+name|depth
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the operations to be used.      *<p/>      * Can be used to set a fresh operations in case of recovery attempts      *      * @param operations the operations      */

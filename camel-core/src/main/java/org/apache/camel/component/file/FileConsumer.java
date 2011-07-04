@@ -140,7 +140,9 @@ name|getDirectory
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|pollDirectory (String fileName, List<GenericFile<File>> fileList)
+annotation|@
+name|Override
+DECL|method|pollDirectory (String fileName, List<GenericFile<File>> fileList, int depth)
 specifier|protected
 name|boolean
 name|pollDirectory
@@ -156,6 +158,9 @@ name|File
 argument_list|>
 argument_list|>
 name|fileList
+parameter_list|,
+name|int
+name|depth
 parameter_list|)
 block|{
 name|log
@@ -166,6 +171,9 @@ literal|"pollDirectory from fileName: {}"
 argument_list|,
 name|fileName
 argument_list|)
+expr_stmt|;
+name|depth
+operator|++
 expr_stmt|;
 name|File
 name|directory
@@ -413,6 +421,13 @@ name|gf
 argument_list|,
 literal|true
 argument_list|)
+operator|&&
+name|depth
+operator|<
+name|endpoint
+operator|.
+name|getMaxDepth
+argument_list|()
 condition|)
 block|{
 comment|// recursive scan and add the sub files and folders
@@ -438,6 +453,8 @@ argument_list|(
 name|subDirectory
 argument_list|,
 name|fileList
+argument_list|,
+name|depth
 argument_list|)
 decl_stmt|;
 if|if
@@ -463,6 +480,12 @@ name|gf
 argument_list|,
 literal|false
 argument_list|)
+operator|&&
+name|depth
+operator|>=
+name|endpoint
+operator|.
+name|minDepth
 condition|)
 block|{
 if|if
