@@ -921,6 +921,11 @@ name|submitSm
 operator|.
 name|getShortMessage
 argument_list|()
+argument_list|,
+name|submitSm
+operator|.
+name|getOptionalParametes
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|LOG
