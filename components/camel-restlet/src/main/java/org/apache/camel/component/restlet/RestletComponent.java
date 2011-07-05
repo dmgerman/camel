@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel component embedded Restlet that produces and consumes exchanges.  *  * @version   */
+comment|/**  * A Camel component embedded Restlet that produces and consumes exchanges.  *   * @version  */
 end_comment
 
 begin_class
@@ -305,11 +305,38 @@ specifier|private
 specifier|final
 name|Component
 name|component
-init|=
+decl_stmt|;
+DECL|method|RestletComponent ()
+specifier|public
+name|RestletComponent
+parameter_list|()
+block|{
+name|this
+operator|.
+name|component
+operator|=
 operator|new
 name|Component
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+DECL|method|RestletComponent (Component component)
+specifier|public
+name|RestletComponent
+parameter_list|(
+name|Component
+name|component
+parameter_list|)
+block|{
+comment|// Allow the Component to be injected, so that the RestletServlet may be
+comment|// configured within a webapp
+name|this
+operator|.
+name|component
+operator|=
+name|component
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@
