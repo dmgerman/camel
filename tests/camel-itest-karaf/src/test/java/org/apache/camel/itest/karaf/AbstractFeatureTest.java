@@ -837,7 +837,7 @@ block|{
 name|String
 name|karafVersion
 init|=
-literal|"2.2.1"
+literal|"2.2.2"
 decl_stmt|;
 name|System
 operator|.
