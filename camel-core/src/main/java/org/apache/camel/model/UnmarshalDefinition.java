@@ -1033,6 +1033,19 @@ return|return
 literal|"unmarshal"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|toString
+argument_list|()
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String
