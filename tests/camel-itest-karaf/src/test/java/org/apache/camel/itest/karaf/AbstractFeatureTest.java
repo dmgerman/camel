@@ -777,29 +777,6 @@ name|getCamelKarafFeatureUrl
 parameter_list|()
 block|{
 name|String
-name|springVersion
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"springVersion"
-argument_list|)
-decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"*** The spring version is "
-operator|+
-name|springVersion
-operator|+
-literal|" ***"
-argument_list|)
-expr_stmt|;
-name|String
 name|type
 init|=
 literal|"xml/features"
@@ -837,7 +814,12 @@ block|{
 name|String
 name|karafVersion
 init|=
-literal|"2.2.2"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"karafVersion"
+argument_list|)
 decl_stmt|;
 name|System
 operator|.
