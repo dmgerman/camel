@@ -282,7 +282,6 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-comment|// do not use entrySet but copy one by one
 for|for
 control|(
 name|Map
