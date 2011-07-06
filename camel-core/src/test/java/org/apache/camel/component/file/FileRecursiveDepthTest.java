@@ -254,7 +254,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2"
+literal|"file:target/depth2/2"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -269,7 +269,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2"
+literal|"file:target/depth2/2"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -284,7 +284,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2/bar"
+literal|"file:target/depth2/2/bar"
 argument_list|,
 literal|"b2"
 argument_list|,
@@ -299,7 +299,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2/foo"
+literal|"file:target/depth2/2/foo"
 argument_list|,
 literal|"a2"
 argument_list|,
@@ -314,7 +314,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2/foo/bar"
+literal|"file:target/depth2/2/foo/bar"
 argument_list|,
 literal|"a3"
 argument_list|,
@@ -329,7 +329,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target2/depth/2/bar/foo"
+literal|"file:target/depth2/2/bar/foo"
 argument_list|,
 literal|"b3"
 argument_list|,
@@ -506,7 +506,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target2/depth/2?recursive=true&minDepth=2&maxDepth=99"
+literal|"file:target/depth2/2?recursive=true&minDepth=2&maxDepth=99"
 argument_list|)
 operator|.
 name|convertBodyTo
