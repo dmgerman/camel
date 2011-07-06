@@ -251,6 +251,11 @@ specifier|protected
 name|String
 name|causedByException
 decl_stmt|;
+DECL|field|routeId
+specifier|protected
+name|String
+name|routeId
+decl_stmt|;
 DECL|method|JpaTraceEventMessage ()
 specifier|public
 name|JpaTraceEventMessage
@@ -693,6 +698,32 @@ operator|.
 name|causedByException
 operator|=
 name|causedByException
+expr_stmt|;
+block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
+block|}
+DECL|method|setRouteId (String routeId)
+specifier|public
+name|void
+name|setRouteId
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
 expr_stmt|;
 block|}
 annotation|@
