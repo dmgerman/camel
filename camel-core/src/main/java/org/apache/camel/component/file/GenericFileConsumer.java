@@ -1045,7 +1045,7 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
-comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      */
+comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      * @param depth the current depth of the directory (will start from 0)      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      */
 DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList, int depth)
 specifier|protected
 specifier|abstract
