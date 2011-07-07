@@ -525,8 +525,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @return the configurer      */
-DECL|method|createHttpClientConfigurer (Map<String, Object> parameters)
+comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https4)      * @return the configurer      */
+DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, boolean secure)
 specifier|protected
 name|HttpClientConfigurer
 name|createHttpClientConfigurer
@@ -538,6 +538,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|parameters
+parameter_list|,
+name|boolean
+name|secure
 parameter_list|)
 block|{
 comment|// prefer to use endpoint configured over component configured
@@ -607,6 +610,8 @@ argument_list|(
 name|parameters
 argument_list|,
 name|configurer
+argument_list|,
+name|secure
 argument_list|)
 expr_stmt|;
 return|return
@@ -722,7 +727,7 @@ return|return
 name|configurer
 return|;
 block|}
-DECL|method|configureHttpProxy (Map<String, Object> parameters, HttpClientConfigurer configurer)
+DECL|method|configureHttpProxy (Map<String, Object> parameters, HttpClientConfigurer configurer, boolean secure)
 specifier|private
 name|HttpClientConfigurer
 name|configureHttpProxy
@@ -737,8 +742,42 @@ name|parameters
 parameter_list|,
 name|HttpClientConfigurer
 name|configurer
+parameter_list|,
+name|boolean
+name|secure
 parameter_list|)
 block|{
+name|String
+name|proxyAuthScheme
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"proxyAuthScheme"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|proxyAuthScheme
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback and use either http4 or https4 depending on secure
+name|proxyAuthScheme
+operator|=
+name|secure
+condition|?
+literal|"https4"
+else|:
+literal|"http4"
+expr_stmt|;
+block|}
 name|String
 name|proxyAuthHost
 init|=
@@ -859,6 +898,8 @@ name|proxyAuthHost
 argument_list|,
 name|proxyAuthPort
 argument_list|,
+name|proxyAuthScheme
+argument_list|,
 name|proxyAuthUsername
 argument_list|,
 name|proxyAuthPassword
@@ -885,6 +926,8 @@ argument_list|(
 name|proxyAuthHost
 argument_list|,
 name|proxyAuthPort
+argument_list|,
+name|proxyAuthScheme
 argument_list|)
 argument_list|)
 return|;
@@ -1111,6 +1154,14 @@ operator|.
 name|sslContextParameters
 expr_stmt|;
 block|}
+name|boolean
+name|secure
+init|=
+name|isSecureConnection
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 comment|// create the configurer to use for this endpoint
 name|HttpClientConfigurer
 name|configurer
@@ -1118,6 +1169,8 @@ init|=
 name|createHttpClientConfigurer
 argument_list|(
 name|parameters
+argument_list|,
+name|secure
 argument_list|)
 decl_stmt|;
 name|URI
@@ -1229,14 +1282,6 @@ throw|;
 block|}
 block|}
 comment|// register port on schema registry
-name|boolean
-name|secure
-init|=
-name|isSecureConnection
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
 name|int
 name|port
 init|=
@@ -1467,8 +1512,6 @@ condition|)
 block|{
 name|SSLSocketFactory
 name|socketFactory
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

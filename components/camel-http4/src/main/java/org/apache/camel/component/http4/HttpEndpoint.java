@@ -659,15 +659,36 @@ literal|"http.proxyPort"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|String
+name|scheme
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"http.proxyScheme"
+argument_list|)
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"CamelContext properties http.proxyHost and http.proxyPort detected. Using http proxy host: {} port: {}"
+literal|"CamelContext properties http.proxyHost, http.proxyPort, and http.proxyScheme detected. Using http proxy host: {} port: {} scheme: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|host
-argument_list|,
+block|,
 name|port
+block|,
+name|scheme
+block|}
 argument_list|)
 expr_stmt|;
 name|HttpHost
@@ -679,6 +700,8 @@ argument_list|(
 name|host
 argument_list|,
 name|port
+argument_list|,
+name|scheme
 argument_list|)
 decl_stmt|;
 name|answer

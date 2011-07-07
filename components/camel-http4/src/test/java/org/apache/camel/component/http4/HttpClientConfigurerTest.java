@@ -138,6 +138,8 @@ literal|"proxyhost"
 argument_list|,
 literal|80
 argument_list|,
+literal|"http4"
+argument_list|,
 literal|"user"
 argument_list|,
 literal|"password"

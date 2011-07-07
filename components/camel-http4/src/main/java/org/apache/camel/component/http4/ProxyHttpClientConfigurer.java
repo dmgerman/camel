@@ -156,6 +156,12 @@ specifier|final
 name|Integer
 name|port
 decl_stmt|;
+DECL|field|scheme
+specifier|private
+specifier|final
+name|String
+name|scheme
+decl_stmt|;
 DECL|field|username
 specifier|private
 specifier|final
@@ -180,7 +186,7 @@ specifier|final
 name|String
 name|ntHost
 decl_stmt|;
-DECL|method|ProxyHttpClientConfigurer (String host, Integer port)
+DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String scheme)
 specifier|public
 name|ProxyHttpClientConfigurer
 parameter_list|(
@@ -189,6 +195,9 @@ name|host
 parameter_list|,
 name|Integer
 name|port
+parameter_list|,
+name|String
+name|scheme
 parameter_list|)
 block|{
 name|this
@@ -196,6 +205,8 @@ argument_list|(
 name|host
 argument_list|,
 name|port
+argument_list|,
+name|scheme
 argument_list|,
 literal|null
 argument_list|,
@@ -207,7 +218,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String username, String password, String domain, String ntHost)
+DECL|method|ProxyHttpClientConfigurer (String host, Integer port, String scheme, String username, String password, String domain, String ntHost)
 specifier|public
 name|ProxyHttpClientConfigurer
 parameter_list|(
@@ -216,6 +227,9 @@ name|host
 parameter_list|,
 name|Integer
 name|port
+parameter_list|,
+name|String
+name|scheme
 parameter_list|,
 name|String
 name|username
@@ -241,6 +255,12 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+name|this
+operator|.
+name|scheme
+operator|=
+name|scheme
 expr_stmt|;
 name|this
 operator|.
@@ -293,6 +313,8 @@ argument_list|(
 name|host
 argument_list|,
 name|port
+argument_list|,
+name|scheme
 argument_list|)
 argument_list|)
 expr_stmt|;
