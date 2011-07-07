@@ -571,6 +571,13 @@ specifier|private
 name|Processor
 name|onRedelivery
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|routeScoped
+specifier|private
+name|Boolean
+name|routeScoped
+decl_stmt|;
 DECL|method|OnExceptionDefinition ()
 specifier|public
 name|OnExceptionDefinition
@@ -623,6 +630,23 @@ argument_list|(
 name|exceptionType
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isRouteScoped ()
+specifier|public
+name|boolean
+name|isRouteScoped
+parameter_list|()
+block|{
+comment|// is context scoped by default
+return|return
+name|routeScoped
+operator|!=
+literal|null
+condition|?
+name|routeScoped
+else|:
+literal|false
+return|;
 block|}
 annotation|@
 name|Override
@@ -785,6 +809,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// assign whether this was a route scoped onException or not
+comment|// we need to know this later when setting the parent, as only route scoped should have parent
+comment|// Note: this logic can possible be removed when the Camel routing engine decides at runtime
+comment|// to apply onException in a more dynamic fashion than current code base
+comment|// and therefore is in a better position to decide among context/route scoped OnException at runtime
+if|if
+condition|(
+name|routeScoped
+operator|==
+literal|null
+condition|)
+block|{
+name|routeScoped
+operator|=
+name|super
+operator|.
+name|getParent
+argument_list|()
+operator|!=
+literal|null
+expr_stmt|;
+block|}
 name|setHandledFromExpressionType
 argument_list|(
 name|routeContext

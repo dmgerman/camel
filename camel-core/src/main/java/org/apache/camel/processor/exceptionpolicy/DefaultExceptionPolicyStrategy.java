@@ -654,6 +654,11 @@ name|getUnitOfWork
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|type
+operator|.
+name|isRouteScoped
+argument_list|()
 condition|)
 block|{
 name|RouteDefinition
