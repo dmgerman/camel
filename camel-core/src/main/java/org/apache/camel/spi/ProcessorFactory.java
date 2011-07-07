@@ -53,7 +53,7 @@ interface|interface
 name|ProcessorFactory
 block|{
 comment|/**      * Creates the child processor.      *<p/>      * The child processor is an output from the given definition, for example the sub route in a splitter EIP.      *      * @param routeContext  the route context      * @param definition    the definition which represents the processor      * @param mandatory     whether or not the child is mandatory      * @return the created processor, or<tt>null</tt> to let the default implementation in Camel create the processor.      * @throws Exception can be thrown if error creating the processor      */
-DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition definition, boolean mandatory)
+DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition<?> definition, boolean mandatory)
 name|Processor
 name|createChildProcessor
 parameter_list|(
@@ -61,6 +61,9 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|boolean
@@ -70,7 +73,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Creates the processor.      *      * @param routeContext  the route context      * @param definition    the definition which represents the processor      * @return the created processor, or<tt>null</tt> to let the default implementation in Camel create the processor.      * @throws Exception can be thrown if error creating the processor      */
-DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition definition)
+DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition<?> definition)
 name|Processor
 name|createProcessor
 parameter_list|(
@@ -78,6 +81,9 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws
