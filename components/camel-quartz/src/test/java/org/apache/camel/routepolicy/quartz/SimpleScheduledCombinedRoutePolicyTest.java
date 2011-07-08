@@ -144,24 +144,6 @@ name|SimpleScheduledCombinedRoutePolicyTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|/* (non-Javadoc)      * @see org.apache.camel.test.junit4.CamelTestSupport#s;etUp()      */
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.test.junit4.CamelTestSupport#isUseRouteBuilder()      */
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
@@ -219,20 +201,6 @@ name|setPropertiesFile
 argument_list|(
 literal|"org/apache/camel/routepolicy/quartz/myquartz.properties"
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|getComponent
-argument_list|(
-literal|"quartz"
-argument_list|,
-name|QuartzComponent
-operator|.
-name|class
-argument_list|)
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|context
 operator|.

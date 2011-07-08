@@ -641,7 +641,7 @@ return|return
 name|applicationContext
 return|;
 block|}
-DECL|method|setApplicationContext ( ClassPathXmlApplicationContext applicationContext)
+DECL|method|setApplicationContext (ClassPathXmlApplicationContext applicationContext)
 specifier|public
 name|void
 name|setApplicationContext

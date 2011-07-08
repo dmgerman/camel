@@ -182,7 +182,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.test.CamelSpringTestSupport#createApplicationContext()      */
 annotation|@
 name|Override
 DECL|method|createApplicationContext ()
@@ -191,7 +190,6 @@ name|AbstractApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
