@@ -209,7 +209,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Event notification received. Performing requested operation {} for route {}"
+literal|"Scheduled Event notification received. Performing action: {} on route: {}"
 argument_list|,
 name|action
 argument_list|,
@@ -478,20 +478,32 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Scheduled Trigger: {} is operational"
+literal|"Scheduled trigger: {} for action: {} on route: "
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|trigger
 operator|.
 name|getFullName
 argument_list|()
+block|,
+name|action
+block|,
+name|route
+operator|.
+name|getId
+argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -537,7 +549,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Trigger: {}. {} is paused"
+literal|"Scheduled trigger: {}.{} is paused"
 argument_list|,
 name|triggerGroup
 argument_list|,
@@ -586,7 +598,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Trigger: {}. {} has been resumed"
+literal|"Scheduled trigger: {}.{} is resumed"
 argument_list|,
 name|triggerGroup
 argument_list|,
@@ -646,7 +658,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Job: {}. {} has been deleted"
+literal|"Scheduled Job: {}.{} is deleted"
 argument_list|,
 name|jobDetailGroup
 argument_list|,

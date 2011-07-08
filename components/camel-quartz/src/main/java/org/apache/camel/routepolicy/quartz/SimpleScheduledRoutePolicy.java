@@ -72,6 +72,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|quartz
 operator|.
 name|SimpleTrigger
@@ -204,6 +218,39 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|doOnInit
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|doOnInit (Route route)
+specifier|protected
+name|void
+name|doOnInit
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|QuartzComponent
 name|quartz
 init|=
@@ -232,6 +279,8 @@ name|getScheduler
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Important: do not start scheduler as QuartzComponent does that automatic
+comment|// when CamelContext has been fully initialized and started
 if|if
 condition|(
 name|getRouteStopGracePeriod
@@ -387,25 +436,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|getScheduler
-argument_list|()
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|handleException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -490,7 +520,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.routepolicy.quartz.ScheduledRoutePolicy#createTrigger(org.apache.camel.routepolicy.quartz.ScheduledRoutePolicyConstants.Action)      */
 annotation|@
 name|Override
 DECL|method|createTrigger (Action action, Route route)
