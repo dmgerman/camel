@@ -312,7 +312,7 @@ literal|30000
 decl_stmt|;
 DECL|field|producers
 specifier|private
-specifier|volatile
+specifier|final
 name|Set
 argument_list|<
 name|SedaProducer
@@ -328,7 +328,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|consumers
 specifier|private
-specifier|volatile
+specifier|final
 name|Set
 argument_list|<
 name|SedaConsumer
