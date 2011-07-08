@@ -1718,7 +1718,8 @@ name|uid
 init|=
 literal|null
 decl_stmt|;
-comment|// create an UID based on message headers on the POP3Message, that ought to be unique
+comment|// create an UID based on message headers on the POP3Message, that ought
+comment|// to be unique
 name|StringBuilder
 name|buffer
 init|=
