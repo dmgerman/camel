@@ -354,24 +354,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isWarnEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Route is not in a started state and cannot be suspended. The current route state is "
-operator|+
+literal|"Route is not in a started state and cannot be suspended. The current route state is {}"
+argument_list|,
 name|routeStatus
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
@@ -404,24 +395,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isWarnEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Route is not in a started state and cannot be resumed. The current route state is "
-operator|+
+literal|"Route is not in a started state and cannot be resumed. The current route state is {}"
+argument_list|,
 name|routeStatus
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

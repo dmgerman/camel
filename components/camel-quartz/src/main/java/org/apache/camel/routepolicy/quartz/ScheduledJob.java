@@ -135,12 +135,6 @@ name|serialVersionUID
 init|=
 literal|26L
 decl_stmt|;
-DECL|field|storedRoute
-specifier|private
-name|Route
-name|storedRoute
-decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)      */
 DECL|method|execute (JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
@@ -217,13 +211,14 @@ operator|.
 name|getAction
 argument_list|()
 decl_stmt|;
+name|Route
 name|storedRoute
-operator|=
+init|=
 name|state
 operator|.
 name|getRoute
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|List
 argument_list|<
 name|RoutePolicy
@@ -297,6 +292,8 @@ argument_list|()
 operator|.
 name|getFullName
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

@@ -262,6 +262,7 @@ name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
+comment|// validate time options has been configured
 if|if
 condition|(
 operator|(
@@ -293,30 +294,13 @@ literal|null
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isWarnEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"Scheduled Route Policy for route "
-operator|+
-name|route
-operator|.
-name|getId
-argument_list|()
-operator|+
-literal|" is not set since the no start, stop and/or suspend times are specified"
+literal|"Scheduled Route Policy for route {} has no stop/stop/suspend/resume times specified"
 argument_list|)
-expr_stmt|;
-block|}
-return|return;
+throw|;
 block|}
 if|if
 condition|(
