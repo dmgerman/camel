@@ -1258,6 +1258,25 @@ name|minor
 argument_list|)
 return|;
 block|}
+DECL|method|isSecureConnection (String uri)
+specifier|public
+specifier|static
+name|boolean
+name|isSecureConnection
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"https"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
