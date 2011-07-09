@@ -99,6 +99,11 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
+DECL|field|not
+specifier|private
+name|boolean
+name|not
+decl_stmt|;
 DECL|method|ValueBuilder (Expression expression)
 specifier|public
 name|ValueBuilder
@@ -1002,6 +1007,21 @@ name|newExp
 argument_list|)
 return|;
 block|}
+comment|/**      * Negates the built expression.      *      * @return the current builder      */
+DECL|method|not ()
+specifier|public
+name|ValueBuilder
+name|not
+parameter_list|()
+block|{
+name|not
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * A strategy method to allow derived classes to deal with the newly created      * predicate in different ways      */
@@ -1014,9 +1034,26 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+if|if
+condition|(
+name|not
+condition|)
+block|{
+return|return
+name|PredicateBuilder
+operator|.
+name|not
+argument_list|(
+name|predicate
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|predicate
 return|;
+block|}
 block|}
 DECL|method|asExpression (Object value)
 specifier|protected

@@ -690,6 +690,15 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+name|predicate
+operator|=
+name|super
+operator|.
+name|onNewPredicate
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
 name|addPredicate
 argument_list|(
 name|predicate
