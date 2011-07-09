@@ -120,6 +120,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give a bit of time for AMQ to properly setup topic subscribers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -163,6 +171,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give a bit of time for AMQ to properly setup topic subscribers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -250,6 +266,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give a bit of time for AMQ to properly setup topic subscribers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -381,6 +405,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// give a bit of time for AMQ to properly setup topic subscribers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -473,6 +505,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"activemq-data"
+argument_list|)
+expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
@@ -481,12 +518,13 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+comment|// must be persistent to rember the messages
 name|ConnectionFactory
 name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|createPersistentConnectionFactory
 argument_list|()
 decl_stmt|;
 name|camelContext
