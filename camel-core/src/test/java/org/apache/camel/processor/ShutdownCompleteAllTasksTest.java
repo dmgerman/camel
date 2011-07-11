@@ -390,11 +390,6 @@ operator|.
 name|CompleteAllTasks
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-literal|1000
-argument_list|)
-operator|.
 name|process
 argument_list|(
 operator|new
@@ -431,6 +426,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|counter
 operator|.
 name|incrementAndGet

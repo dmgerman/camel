@@ -180,9 +180,6 @@ name|File
 argument_list|(
 literal|"target/test-file-append/world.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|template
 operator|.
