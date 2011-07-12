@@ -296,7 +296,7 @@ block|{
 name|String
 name|recipients
 init|=
-literal|"&To=camel|pipes@riders.org;easy@riders.org&From=you@apache.org"
+literal|"&To=camel|pipes@riders.org;easy@riders.org"
 decl_stmt|;
 name|from
 argument_list|(
