@@ -130,6 +130,7 @@ name|ScheduledPollEndpoint
 block|{
 DECL|field|consumers
 specifier|private
+specifier|final
 name|CopyOnWriteArraySet
 argument_list|<
 name|DefaultConsumer

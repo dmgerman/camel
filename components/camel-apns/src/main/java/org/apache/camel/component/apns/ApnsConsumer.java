@@ -144,7 +144,6 @@ name|ApnsConsumer
 extends|extends
 name|ScheduledPollConsumer
 block|{
-comment|// TODO: Is the delay relay 3600 seconds?
 DECL|field|DEFAULT_CONSUME_INITIAL_DELAY
 specifier|private
 specifier|static

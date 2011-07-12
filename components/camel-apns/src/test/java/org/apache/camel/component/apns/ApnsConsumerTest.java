@@ -270,7 +270,7 @@ name|Test
 argument_list|(
 name|timeout
 operator|=
-literal|10000
+literal|15000
 argument_list|)
 DECL|method|testConsumer ()
 specifier|public

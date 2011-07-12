@@ -184,11 +184,6 @@ name|ApnsProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|endpoint
-specifier|private
-name|ApnsEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|tokenList
 specifier|private
 name|List
@@ -210,17 +205,29 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
 name|initiate
 argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|ApnsEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ApnsEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 DECL|method|initiate (ApnsEndpoint apnsEndpoint)
 specifier|private
@@ -333,8 +340,6 @@ argument_list|<
 name|String
 argument_list|>
 name|tokens
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -439,7 +444,8 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getApnsService
 argument_list|()
