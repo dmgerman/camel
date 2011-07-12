@@ -26,21 +26,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|test
 operator|.
-name|apache
+name|junit4
 operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
+name|CamelSpringTestSupport
 import|;
 end_import
 
@@ -69,14 +59,30 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|junit
+name|springframework
 operator|.
-name|Assert
+name|context
 operator|.
-name|assertEquals
+name|support
+operator|.
+name|AbstractApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
@@ -85,10 +91,12 @@ comment|/**  * Unit test of our routes  */
 end_comment
 
 begin_class
-DECL|class|ReportIncidentRoutesClient
+DECL|class|ReportIncidentRoutesClientTest
 specifier|public
 class|class
-name|ReportIncidentRoutesClient
+name|ReportIncidentRoutesClientTest
+extends|extends
+name|CamelSpringTestSupport
 block|{
 comment|// should be the same address as we have in our route
 DECL|field|URL
@@ -98,7 +106,7 @@ specifier|final
 name|String
 name|URL
 init|=
-literal|"http://localhost:8181/cxf/camel-example-cxf-osgi/webservices/incident"
+literal|"http://localhost:8181/cxf/camel-example-cxf-blueprint/webservices/incident"
 decl_stmt|;
 DECL|method|createCXFClient ()
 specifier|protected
@@ -247,7 +255,7 @@ decl_stmt|;
 comment|// assert we got a OK back
 name|assertEquals
 argument_list|(
-literal|"0"
+literal|"OK"
 argument_list|,
 name|out
 operator|.
@@ -255,14 +263,55 @@ name|getCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// let some time pass to allow Camel to pickup the file and send it as an email
-name|Thread
+comment|// test the input with other users
+name|input
 operator|.
-name|sleep
+name|setGivenName
 argument_list|(
-literal|3000
+literal|"Guest"
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+name|client
+operator|.
+name|reportIncident
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+comment|// assert we got a Accept back
+name|assertEquals
+argument_list|(
+literal|"Accepted"
+argument_list|,
+name|out
+operator|.
+name|getCode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+operator|new
+name|String
+index|[]
+block|{
+literal|"camel-context.xml"
+block|}
+argument_list|)
+return|;
 block|}
 block|}
 end_class
