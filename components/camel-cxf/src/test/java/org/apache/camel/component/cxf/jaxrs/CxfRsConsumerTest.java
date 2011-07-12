@@ -337,6 +337,7 @@ name|PUT_REQUEST
 init|=
 literal|"<Customer><name>Mary</name><id>123</id></Customer>"
 decl_stmt|;
+comment|// START SNIPPET: example
 DECL|field|CXF_RS_ENDPOINT_URI
 specifier|private
 specifier|static
@@ -344,9 +345,8 @@ specifier|final
 name|String
 name|CXF_RS_ENDPOINT_URI
 init|=
-literal|"cxfrs://http://localhost:9000/rest?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService"
+literal|"cxfrs://http://localhost:9000/rest?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerServiceResource"
 decl_stmt|;
-comment|// START SNIPPET: example
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
