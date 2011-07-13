@@ -781,6 +781,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|cfb
+operator|.
+name|setThreadSafe
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createJAXRSServerFactoryBean ()
 specifier|public

@@ -400,6 +400,14 @@ argument_list|(
 name|address
 argument_list|)
 expr_stmt|;
+comment|// Need to enable the option of ThreadSafe
+name|cfb
+operator|.
+name|setThreadSafe
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getBeanId ()
 specifier|public
