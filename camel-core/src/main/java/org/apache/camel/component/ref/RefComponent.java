@@ -54,6 +54,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component for lookup of existing endpoints bound in the {@link org.apache.camel.spi.Registry}.  *<p/>  * This component uses the<tt>ref:</tt> notation instead of the mostly common<tt>uri:</tt> notation.   */
 end_comment
@@ -152,7 +166,7 @@ name|parameters
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks up an endpoint for a given name.      *      * Derived classes could use this name as a logical name and look it up on some registry.      *      * The default implementation will look up the name in the registry of the {@link #getCamelContext()} property      */
+comment|/**      * Looks up a mandatory endpoint for a given name.      *<p/>      * Derived classes could use this name as a logical name and look it up on some registry.      *<p/>      * The default implementation will do a mandatory look up the name in the {@link org.apache.camel.spi.Registry}.      *      * @throws org.apache.camel.NoSuchBeanException if not found in the {@link org.apache.camel.spi.Registry}      */
 DECL|method|lookupEndpoint (String name, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -171,14 +185,13 @@ name|parameters
 parameter_list|)
 block|{
 return|return
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
+argument_list|,
 name|name
 argument_list|,
 name|Endpoint

@@ -644,7 +644,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"registry entry called xxx of type javax.sql.DataSource must be specified"
+literal|"No bean could be found in the registry for: xxx of type: javax.sql.DataSource"
 argument_list|,
 name|e
 operator|.

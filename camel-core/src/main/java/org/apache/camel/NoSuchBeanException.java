@@ -64,6 +64,35 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+DECL|method|NoSuchBeanException (String name, String type)
+specifier|public
+name|NoSuchBeanException
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|type
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No bean could be found in the registry for: "
+operator|+
+name|name
+operator|+
+literal|" of type: "
+operator|+
+name|type
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
 DECL|method|NoSuchBeanException (String name, Throwable cause)
 specifier|public
 name|NoSuchBeanException

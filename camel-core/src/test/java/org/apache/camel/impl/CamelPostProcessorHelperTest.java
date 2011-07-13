@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -1478,13 +1490,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|NoSuchBeanException
 name|e
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"registry entry called unknown of type org.apache.camel.Endpoint must be specified"
+literal|"No bean could be found in the registry for: unknown of type: org.apache.camel.Endpoint"
 argument_list|,
 name|e
 operator|.

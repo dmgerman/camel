@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -427,7 +439,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws IllegalArgumentException if not found.      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws NoSuchBeanException if not found.      */
 DECL|method|mandatoryLookup (CamelContext context, String name)
 specifier|public
 specifier|static
@@ -451,20 +463,26 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|answer
-argument_list|,
-literal|"registry entry called "
-operator|+
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchBeanException
+argument_list|(
 name|name
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|answer
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws IllegalArgumentException if not found.      */
+comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws NoSuchBeanException if not found.      */
 DECL|method|mandatoryLookup (CamelContext context, String name, Class<T> beanType)
 specifier|public
 specifier|static
@@ -499,22 +517,26 @@ argument_list|,
 name|beanType
 argument_list|)
 decl_stmt|;
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|answer
-argument_list|,
-literal|"registry entry called "
-operator|+
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchBeanException
+argument_list|(
 name|name
-operator|+
-literal|" of type "
-operator|+
+argument_list|,
 name|beanType
 operator|.
 name|getName
 argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|answer
 return|;

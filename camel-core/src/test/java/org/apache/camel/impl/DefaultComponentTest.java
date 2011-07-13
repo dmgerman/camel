@@ -102,6 +102,18 @@ name|Endpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for helper methods on the DefaultComponent.  */
 end_comment
@@ -655,11 +667,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|NoSuchBeanException
 name|e
 parameter_list|)
 block|{
-comment|// test passes
+name|assertEquals
+argument_list|(
+literal|"No bean could be found in the registry for: somewhen of type: java.util.Date"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testResolveAndRemoveReferenceParameterNotInMapDefault ()
@@ -1475,11 +1496,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|NoSuchBeanException
 name|e
 parameter_list|)
 block|{
-comment|// test passes
+name|assertEquals
+argument_list|(
+literal|"No bean could be found in the registry for: bean3 of type: java.util.Date"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testContextShouldBeSet ()
