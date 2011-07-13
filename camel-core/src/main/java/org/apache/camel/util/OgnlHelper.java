@@ -573,7 +573,6 @@ name|String
 name|ognl
 parameter_list|)
 block|{
-comment|// TODO: if possible use reg exp to split instead
 name|List
 argument_list|<
 name|String
@@ -594,6 +593,18 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|int
+name|j
+init|=
+literal|0
+decl_stmt|;
+comment|// j is used as counter per method
+name|boolean
+name|squareBracket
+init|=
+literal|false
+decl_stmt|;
+comment|// special to keep track if we are inside a square bracket block - (eg [foo])
 for|for
 control|(
 name|int
@@ -622,15 +633,15 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-comment|// special for starting
+comment|// special for starting a new method
 if|if
 condition|(
-name|i
+name|j
 operator|==
 literal|0
 operator|||
 operator|(
-name|i
+name|j
 operator|==
 literal|1
 operator|&&
@@ -638,7 +649,9 @@ name|ognl
 operator|.
 name|charAt
 argument_list|(
-literal|0
+name|i
+operator|-
+literal|1
 argument_list|)
 operator|==
 literal|'?'
@@ -652,6 +665,10 @@ operator|&&
 name|ch
 operator|!=
 literal|'?'
+operator|&&
+name|ch
+operator|!=
+literal|']'
 operator|)
 condition|)
 block|{
@@ -662,6 +679,23 @@ argument_list|(
 name|ch
 argument_list|)
 expr_stmt|;
+comment|// special if we are doing square bracket
+if|if
+condition|(
+name|ch
+operator|==
+literal|'['
+condition|)
+block|{
+name|squareBracket
+operator|=
+literal|true
+expr_stmt|;
+block|}
+name|j
+operator|++
+expr_stmt|;
+comment|// advance
 block|}
 else|else
 block|{
@@ -670,8 +704,14 @@ condition|(
 name|ch
 operator|==
 literal|'.'
+operator|&&
+operator|!
+name|squareBracket
 condition|)
 block|{
+comment|// only treat dot as a method separator if not inside a square bracket block
+comment|// as dots can be used in key names when accessing maps
+comment|// a dit denotes end of this method and a new method is to be invoked
 name|String
 name|s
 init|=
@@ -731,8 +771,71 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
+comment|// reset j to begin a new method
+name|j
+operator|=
+literal|0
+expr_stmt|;
 block|}
-comment|// and dont lose the char
+elseif|else
+if|if
+condition|(
+name|ch
+operator|==
+literal|']'
+condition|)
+block|{
+comment|// append ending ] to method name
+name|sb
+operator|.
+name|append
+argument_list|(
+name|ch
+argument_list|)
+expr_stmt|;
+name|String
+name|s
+init|=
+name|sb
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+comment|// reset sb
+name|sb
+operator|.
+name|setLength
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// add the method
+name|methods
+operator|.
+name|add
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+comment|// reset j to begin a new method
+name|j
+operator|=
+literal|0
+expr_stmt|;
+comment|// no more square bracket
+name|squareBracket
+operator|=
+literal|false
+expr_stmt|;
+block|}
+comment|// and dont lose the char if its not an ] end marker (as we already added that)
+if|if
+condition|(
+name|ch
+operator|!=
+literal|']'
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -741,8 +844,21 @@ name|ch
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only advance if already begun on the new method
+if|if
+condition|(
+name|j
+operator|>
+literal|0
+condition|)
+block|{
+name|j
+operator|++
+expr_stmt|;
 block|}
-comment|// add remainder in buffer
+block|}
+block|}
+comment|// add remainder in buffer when reached end of data
 if|if
 condition|(
 name|sb
