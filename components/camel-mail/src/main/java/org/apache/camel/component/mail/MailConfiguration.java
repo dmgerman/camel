@@ -203,6 +203,13 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
+DECL|field|mapMailMessage
+specifier|private
+name|boolean
+name|mapMailMessage
+init|=
+literal|true
+decl_stmt|;
 DECL|field|defaultEncoding
 specifier|private
 name|String
@@ -1468,6 +1475,32 @@ operator|.
 name|delete
 operator|=
 name|delete
+expr_stmt|;
+block|}
+DECL|method|isMapMailMessage ()
+specifier|public
+name|boolean
+name|isMapMailMessage
+parameter_list|()
+block|{
+return|return
+name|mapMailMessage
+return|;
+block|}
+DECL|method|setMapMailMessage (boolean mapMailMessage)
+specifier|public
+name|void
+name|setMapMailMessage
+parameter_list|(
+name|boolean
+name|mapMailMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapMailMessage
+operator|=
+name|mapMailMessage
 expr_stmt|;
 block|}
 DECL|method|getFolderName ()
