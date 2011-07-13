@@ -253,6 +253,26 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// need to set the CamelContext value
+if|if
+condition|(
+name|result
+operator|.
+name|getCamelContext
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|result
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
