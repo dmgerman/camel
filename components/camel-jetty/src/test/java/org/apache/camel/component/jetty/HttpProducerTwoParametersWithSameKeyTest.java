@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty.jettyproducer
+DECL|package|org.apache.camel.component.jetty
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|jetty
-operator|.
-name|jettyproducer
 package|;
 end_package
 
@@ -82,22 +80,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jetty
-operator|.
-name|BaseJettyTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -109,10 +91,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|HttpJettyProducerTwoParametersWithSameKeyTest
+DECL|class|HttpProducerTwoParametersWithSameKeyTest
 specifier|public
 class|class
-name|HttpJettyProducerTwoParametersWithSameKeyTest
+name|HttpProducerTwoParametersWithSameKeyTest
 extends|extends
 name|BaseJettyTest
 block|{
@@ -126,25 +108,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// these tests does not run well on Windows
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"windows"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
-comment|// give Jetty time to startup properly
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|Exchange
 name|out
 init|=
@@ -152,7 +115,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp?from=me&to=foo&to=bar"
+literal|"http://localhost:{{port}}/myapp?from=me&to=foo&to=bar"
 argument_list|,
 literal|null
 argument_list|)
@@ -221,6 +184,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|foo
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -266,25 +234,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// these tests does not run well on Windows
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"windows"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
-comment|// give Jetty time to startup properly
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|Exchange
 name|out
 init|=
@@ -292,7 +241,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp"
+literal|"http://localhost:{{port}}/myapp"
 argument_list|,
 operator|new
 name|Processor
@@ -547,7 +496,7 @@ name|from
 argument_list|)
 expr_stmt|;
 name|List
-name|values
+name|to
 init|=
 name|exchange
 operator|.
@@ -565,14 +514,14 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|values
+name|to
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|values
+name|to
 operator|.
 name|size
 argument_list|()
@@ -582,7 +531,7 @@ name|assertEquals
 argument_list|(
 literal|"foo"
 argument_list|,
-name|values
+name|to
 operator|.
 name|get
 argument_list|(
@@ -594,7 +543,7 @@ name|assertEquals
 argument_list|(
 literal|"bar"
 argument_list|,
-name|values
+name|to
 operator|.
 name|get
 argument_list|(
