@@ -2303,6 +2303,10 @@ decl_stmt|;
 comment|// this code is optimized to only use a Scanner if needed, eg there is a delimiter
 if|if
 condition|(
+name|delimiter
+operator|!=
+literal|null
+operator|&&
 name|s
 operator|.
 name|contains
