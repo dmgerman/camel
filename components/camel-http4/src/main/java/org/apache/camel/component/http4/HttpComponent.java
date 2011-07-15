@@ -895,10 +895,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|boolean
+name|secureProxy
+init|=
+name|HttpHelper
+operator|.
+name|isSecureConnection
+argument_list|(
+name|proxyAuthScheme
+argument_list|)
+decl_stmt|;
 comment|// register scheme for proxy
 name|registerPort
 argument_list|(
-name|secure
+name|secureProxy
 argument_list|,
 name|x509HostnameVerifier
 argument_list|,
