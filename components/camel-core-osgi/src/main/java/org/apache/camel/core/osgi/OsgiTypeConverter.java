@@ -913,6 +913,37 @@ argument_list|,
 name|factoryFinder
 argument_list|)
 decl_stmt|;
+try|try
+block|{
+comment|// only load the core type converters, as osgi activator will keep track on bundles
+comment|// being installed/uninstalled and load type converters as part of that process
+name|answer
+operator|.
+name|loadCoreTypeConverters
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Error loading CoreTypeConverter due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// load the type converters the tracker has been tracking
 name|Object
 index|[]
@@ -981,37 +1012,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-try|try
-block|{
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Error staring OSGiTypeConverter due: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 name|LOG
 operator|.

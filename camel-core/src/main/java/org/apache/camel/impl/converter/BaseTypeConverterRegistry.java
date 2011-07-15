@@ -2216,7 +2216,7 @@ return|;
 block|}
 comment|/**      * Loads the core type converters which is mandatory to use Camel      */
 DECL|method|loadCoreTypeConverters ()
-specifier|protected
+specifier|public
 name|void
 name|loadCoreTypeConverters
 parameter_list|()
