@@ -1146,19 +1146,8 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
-argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
-argument_list|)
+name|getDefaultCamelKarafOptions
+argument_list|()
 argument_list|,
 name|bundle
 argument_list|(
@@ -1466,22 +1455,11 @@ operator|.
 name|noStart
 argument_list|()
 argument_list|,
-comment|// install the spring, http features first
-name|scanFeatures
-argument_list|(
-name|getKarafFeatureUrl
-argument_list|()
-argument_list|,
-literal|"jetty"
-argument_list|)
-argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
 argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
-argument_list|,
-literal|"camel-core"
 argument_list|,
 literal|"camel-blueprint"
 argument_list|,
@@ -1493,17 +1471,6 @@ literal|"camel-jaxb"
 argument_list|,
 literal|"camel-jms"
 argument_list|)
-argument_list|,
-name|workingDirectory
-argument_list|(
-literal|"target/paxrunner/"
-argument_list|)
-argument_list|,
-name|felix
-argument_list|()
-argument_list|,
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// for remote debugging
