@@ -612,6 +612,46 @@ return|return
 name|camelContextService
 return|;
 block|}
+DECL|method|camelContextService ()
+specifier|public
+name|Service
+name|camelContextService
+parameter_list|()
+block|{
+return|return
+name|camelContextService
+return|;
+block|}
+DECL|method|context ()
+specifier|public
+name|CamelContext
+name|context
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
+block|}
+DECL|method|template ()
+specifier|public
+name|ProducerTemplate
+name|template
+parameter_list|()
+block|{
+return|return
+name|template
+return|;
+block|}
+DECL|method|consumer ()
+specifier|public
+name|ConsumerTemplate
+name|consumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
 comment|/**      * Allows a service to be registered a separate lifecycle service to start      * and stop the context; such as for Spring when the ApplicationContext is      * started and stopped, rather than directly stopping the CamelContext      */
 DECL|method|setCamelContextService (Service service)
 specifier|public
