@@ -543,7 +543,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https4)      * @return the configurer      */
+comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https4)      * @return the configurer      * @throws Exception is thrown if error creating configurer      */
 DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, boolean secure)
 specifier|protected
 name|HttpClientConfigurer
@@ -560,6 +560,8 @@ parameter_list|,
 name|boolean
 name|secure
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 comment|// prefer to use endpoint configured over component configured
 name|HttpClientConfigurer
@@ -764,6 +766,8 @@ parameter_list|,
 name|boolean
 name|secure
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|String
 name|proxyAuthScheme
@@ -891,6 +895,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// register scheme for proxy
+name|registerPort
+argument_list|(
+name|secure
+argument_list|,
+name|x509HostnameVerifier
+argument_list|,
+name|proxyAuthPort
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|proxyAuthUsername

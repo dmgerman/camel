@@ -36,6 +36,18 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
 begin_class
 DECL|class|SimpleRegistryTest
 specifier|public
@@ -166,11 +178,34 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ClassCastException
+name|NoSuchBeanException
 name|e
 parameter_list|)
 block|{
 comment|// expected
+name|assertEquals
+argument_list|(
+literal|"a"
+argument_list|,
+name|e
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"of type: java.lang.String expected type was: class java.lang.Float"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testLookupByType ()

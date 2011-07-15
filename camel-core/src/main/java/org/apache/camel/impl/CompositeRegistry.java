@@ -64,6 +64,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Registry
@@ -169,6 +181,8 @@ range|:
 name|registryList
 control|)
 block|{
+try|try
+block|{
 name|answer
 operator|=
 name|registry
@@ -188,6 +202,57 @@ literal|null
 condition|)
 block|{
 break|break;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// do not double wrap the exception
+if|if
+condition|(
+name|e
+operator|instanceof
+name|NoSuchBeanException
+condition|)
+block|{
+throw|throw
+operator|(
+name|NoSuchBeanException
+operator|)
+name|e
+throw|;
+block|}
+throw|throw
+operator|new
+name|NoSuchBeanException
+argument_list|(
+name|name
+argument_list|,
+literal|"Cannot lookup: "
+operator|+
+name|name
+operator|+
+literal|" from registry: "
+operator|+
+name|registry
+operator|+
+literal|" with expected type: "
+operator|+
+name|type
+operator|+
+literal|" due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 return|return

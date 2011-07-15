@@ -127,6 +127,34 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+DECL|method|NoSuchBeanException (String name, String message, Throwable cause)
+specifier|public
+name|NoSuchBeanException
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String
