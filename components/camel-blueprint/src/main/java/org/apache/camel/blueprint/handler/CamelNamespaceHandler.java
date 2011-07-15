@@ -3084,6 +3084,15 @@ argument_list|(
 literal|"getObject"
 argument_list|)
 expr_stmt|;
+name|e
+operator|.
+name|addDependsOn
+argument_list|(
+literal|".camelBlueprint.processor.bean."
+operator|+
+name|contextId
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|getComponentDefinitionRegistry
