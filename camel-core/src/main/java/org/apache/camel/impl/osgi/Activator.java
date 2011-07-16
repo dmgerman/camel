@@ -500,6 +500,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -2179,6 +2193,81 @@ name|META_INF_TYPE_CONVERTER
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found {} {} packages: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|packages
+operator|.
+name|size
+argument_list|()
+block|,
+name|META_INF_TYPE_CONVERTER
+block|,
+name|packages
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|// if we only have camel-core on the classpath then we have already pre-loaded all its type converters
+comment|// but we exposed the "org.apache.camel.core" package in camel-core. This ensures there is at least one
+comment|// packageName to scan, which triggers the scanning process. That allows us to ensure that we look for
+comment|// META-INF/services in all the JARs.
+if|if
+condition|(
+name|packages
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+literal|"org.apache.camel.core"
+operator|.
+name|equals
+argument_list|(
+name|packages
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No additional package names found in classpath for annotated type converters."
+argument_list|)
+expr_stmt|;
+comment|// no additional package names found to load type converters so break out
+return|return;
+block|}
+comment|// now filter out org.apache.camel.core as its not needed anymore (it was just a dummy)
+name|packages
+operator|.
+name|remove
+argument_list|(
+literal|"org.apache.camel.core"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -2187,6 +2276,89 @@ range|:
 name|packages
 control|)
 block|{
+if|if
+condition|(
+name|StringHelper
+operator|.
+name|hasUpperCase
+argument_list|(
+name|pkg
+argument_list|)
+condition|)
+block|{
+comment|// its a FQN class name so load it directly
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading {} class"
+argument_list|,
+name|pkg
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|Class
+name|clazz
+init|=
+name|bundle
+operator|.
+name|loadClass
+argument_list|(
+name|pkg
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|test
+operator|.
+name|matches
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+name|classes
+operator|.
+name|add
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+block|}
+comment|// the class could be found and loaded so continue to next
+continue|continue;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Ignore
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Failed to load "
+operator|+
+name|pkg
+operator|+
+literal|" class due "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// its not a FQN but a package name so scan for classes in the bundle
 name|Enumeration
 argument_list|<
 name|URL
@@ -2271,6 +2443,15 @@ argument_list|,
 literal|'.'
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading {} class"
+argument_list|,
+name|externalName
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Class
@@ -2297,12 +2478,7 @@ name|classes
 operator|.
 name|add
 argument_list|(
-name|bundle
-operator|.
-name|loadClass
-argument_list|(
-name|externalName
-argument_list|)
+name|clazz
 argument_list|)
 expr_stmt|;
 block|}
@@ -2314,9 +2490,30 @@ name|t
 parameter_list|)
 block|{
 comment|// Ignore
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Failed to load "
+operator|+
+name|externalName
+operator|+
+literal|" class due "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
+comment|// load the classes into type converter registry
 name|LOG
 operator|.
 name|info
@@ -2341,13 +2538,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Loading converter class: {}"
 argument_list|,
@@ -2368,6 +2565,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+comment|// register fallback converters
 name|URL
 name|fallbackUrl
 init|=
@@ -2410,7 +2608,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Clear info
+comment|// now clear the maps so we do not hold references
 name|visitedClasses
 operator|.
 name|clear

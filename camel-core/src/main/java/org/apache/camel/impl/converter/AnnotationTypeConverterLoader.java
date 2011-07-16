@@ -76,6 +76,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Arrays
 import|;
 end_import
@@ -97,6 +107,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -310,6 +330,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -327,7 +361,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class which will auto-discover converter objects and methods to pre-load  * the registry of converters on startup  *  * @version   */
+comment|/**  * A class which will auto-discover {@link Converter} objects and methods to pre-load  * the {@link TypeConverterRegistry} of converters on startup.  *<p/>  * This implementation supports scanning for type converters in JAR files. The {@link #META_INF_SERVICES}  * contains a list of packages or FQN class names for {@link Converter} classes. The FQN class names  * is loaded first and directly by the class loader.  *<p/>  * The {@link PackageScanClassResolver} is being used to scan packages for {@link Converter} classes and  * this procedure is slower than loading the {@link Converter} classes directly by its FQN class name.  * Therefore its recommended to specify FQN class names in the {@link #META_INF_SERVICES} file.  * Likewise the procedure for scanning using {@link PackageScanClassResolver} may require custom implementations  * to work in various containers such as JBoss, OSGi, etc.  *  * @version   */
 end_comment
 
 begin_class
@@ -492,7 +526,7 @@ block|}
 comment|// if we only have camel-core on the classpath then we have already pre-loaded all its type converters
 comment|// but we exposed the "org.apache.camel.core" package in camel-core. This ensures there is at least one
 comment|// packageName to scan, which triggers the scanning process. That allows us to ensure that we look for
-comment|// type converters in all the JARs.
+comment|// META-INF/services in all the JARs.
 if|if
 condition|(
 name|packageNames
@@ -522,6 +556,86 @@ expr_stmt|;
 comment|// no additional package names found to load type converters so break out
 return|return;
 block|}
+comment|// now filter out org.apache.camel.core as its not needed anymore (it was just a dummy)
+name|packageNames
+operator|=
+name|filterUnwantedPackage
+argument_list|(
+literal|"org.apache.camel.core"
+argument_list|,
+name|packageNames
+argument_list|)
+expr_stmt|;
+comment|// filter out package names which can be loaded as a class directly so we avoid package scanning which
+comment|// is much slower and does not work 100% in all runtime containers
+name|Set
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|classes
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|packageNames
+operator|=
+name|filterPackageNamesOnly
+argument_list|(
+name|resolver
+argument_list|,
+name|packageNames
+argument_list|,
+name|classes
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|classes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Loaded "
+operator|+
+name|classes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" @Converter classes"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// if there is any packages to scan and load @Converter classes, then do it
+if|if
+condition|(
+name|packageNames
+operator|!=
+literal|null
+operator|&&
+name|packageNames
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -538,7 +652,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|classes
+name|scannedClasses
 init|=
 name|resolver
 operator|.
@@ -553,11 +667,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|classes
-operator|==
-literal|null
-operator|||
-name|classes
+name|scannedClasses
 operator|.
 name|isEmpty
 argument_list|()
@@ -590,7 +700,7 @@ name|length
 operator|+
 literal|" packages with "
 operator|+
-name|classes
+name|scannedClasses
 operator|.
 name|size
 argument_list|()
@@ -598,6 +708,15 @@ operator|+
 literal|" @Converter classes to load"
 argument_list|)
 expr_stmt|;
+name|classes
+operator|.
+name|addAll
+argument_list|(
+name|scannedClasses
+argument_list|)
+expr_stmt|;
+block|}
+comment|// load all the found classes into the type converter registry
 for|for
 control|(
 name|Class
@@ -648,6 +767,190 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Filters the given list of packages and returns an array of<b>only</b> package names.      *<p/>      * This implementation will check the given list of packages, and if it contains a class name,      * that class will be loaded directly and added to the list of classes. This optimizes the      * type converter to avoid excessive file scanning for .class files.      *      * @param resolver the class resolver      * @param packageNames the package names      * @param classes to add loaded @Converter classes      * @return the filtered package names      */
+DECL|method|filterPackageNamesOnly (PackageScanClassResolver resolver, String[] packageNames, Set<Class<?>> classes)
+specifier|protected
+name|String
+index|[]
+name|filterPackageNamesOnly
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
+name|String
+index|[]
+name|packageNames
+parameter_list|,
+name|Set
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|classes
+parameter_list|)
+block|{
+if|if
+condition|(
+name|packageNames
+operator|==
+literal|null
+operator|||
+name|packageNames
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|packageNames
+return|;
+block|}
+comment|// optimize for CorePackageScanClassResolver
+if|if
+condition|(
+name|resolver
+operator|.
+name|getClassLoaders
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+name|packageNames
+return|;
+block|}
+comment|// the filtered packages to return
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|packages
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+comment|// try to load it as a class first
+for|for
+control|(
+name|String
+name|name
+range|:
+name|packageNames
+control|)
+block|{
+comment|// must be a FQN class name by having an upper case letter
+if|if
+condition|(
+name|StringHelper
+operator|.
+name|hasUpperCase
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+for|for
+control|(
+name|ClassLoader
+name|loader
+range|:
+name|resolver
+operator|.
+name|getClassLoaders
+argument_list|()
+control|)
+block|{
+try|try
+block|{
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+init|=
+name|loader
+operator|.
+name|loadClass
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loaded {} as class {}"
+argument_list|,
+name|name
+argument_list|,
+name|clazz
+argument_list|)
+expr_stmt|;
+name|classes
+operator|.
+name|add
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+comment|// class founder, so no need to load it with another class loader
+break|break;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore as its not a class (will be package scan afterwards)
+name|packages
+operator|.
+name|add
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+comment|// ignore as its not a class (will be package scan afterwards)
+name|packages
+operator|.
+name|add
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// return the packages which is not FQN classes
+return|return
+name|packages
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|String
+index|[
+name|packages
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
+return|;
 block|}
 comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO related errors      */
 DECL|method|findPackageNames ()
@@ -1853,6 +2156,80 @@ index|]
 argument_list|)
 operator|)
 operator|)
+return|;
+block|}
+comment|/**      * Filters the given list of packages      *      * @param name  the name to filter out      * @param packageNames the packages      * @return he packages without the given name      */
+DECL|method|filterUnwantedPackage (String name, String[] packageNames)
+specifier|protected
+specifier|static
+name|String
+index|[]
+name|filterUnwantedPackage
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+index|[]
+name|packageNames
+parameter_list|)
+block|{
+comment|// the filtered packages to return
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|packages
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|String
+name|s
+range|:
+name|packageNames
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|equals
+argument_list|(
+name|s
+argument_list|)
+condition|)
+block|{
+name|packages
+operator|.
+name|add
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|packages
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|String
+index|[
+name|packages
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
 return|;
 block|}
 block|}
