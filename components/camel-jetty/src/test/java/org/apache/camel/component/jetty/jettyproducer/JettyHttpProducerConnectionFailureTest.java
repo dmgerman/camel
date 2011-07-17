@@ -24,9 +24,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|io
 operator|.
-name|ConnectException
+name|IOException
 import|;
 end_import
 
@@ -206,7 +206,7 @@ argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ConnectException
+name|IOException
 operator|.
 name|class
 argument_list|,
