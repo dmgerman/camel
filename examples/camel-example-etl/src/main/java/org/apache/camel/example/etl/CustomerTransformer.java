@@ -100,18 +100,6 @@ name|JpaTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|ClassUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Message Transformer of an XML document to a Customer entity bean  *   * @version   */
 end_comment
