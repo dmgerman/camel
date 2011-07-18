@@ -2059,6 +2059,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// there must be a host on the method
+if|if
+condition|(
+name|method
+operator|.
+name|getHostConfiguration
+argument_list|()
+operator|.
+name|getHost
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid uri: "
+operator|+
+name|url
+operator|+
+literal|". If you are forwarding/bridging http endpoints, then enable the bridgeEndpoint option on the endpoint: "
+operator|+
+name|getEndpoint
+argument_list|()
+argument_list|)
+throw|;
+block|}
 return|return
 name|method
 return|;
