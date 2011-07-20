@@ -156,7 +156,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"hello/claus.txt"
+literal|"hello\\claus.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -212,7 +212,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"upload/hello/claus.txt"
+literal|"upload/hello\\claus.txt"
 argument_list|,
 name|out
 operator|.
