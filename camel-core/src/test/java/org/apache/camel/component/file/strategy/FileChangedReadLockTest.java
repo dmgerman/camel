@@ -238,16 +238,20 @@ name|i
 operator|++
 control|)
 block|{
-name|assertEquals
+comment|// there may be windows line terminators
+name|assertTrue
 argument_list|(
-literal|"Line "
-operator|+
-name|i
-argument_list|,
 name|lines
 index|[
 name|i
 index|]
+operator|.
+name|startsWith
+argument_list|(
+literal|"Line "
+operator|+
+name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
