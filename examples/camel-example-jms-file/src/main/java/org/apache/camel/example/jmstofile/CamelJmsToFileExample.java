@@ -181,7 +181,7 @@ argument_list|(
 literal|"vm://localhost?broker.persistent=false"
 argument_list|)
 decl_stmt|;
-comment|// Note we can explicity name the component
+comment|// Note we can explicit name the component
 name|context
 operator|.
 name|addComponent

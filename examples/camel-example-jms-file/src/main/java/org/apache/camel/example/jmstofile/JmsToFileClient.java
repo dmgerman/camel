@@ -128,6 +128,7 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+comment|// add the ActiveMQ component
 name|ConnectionFactory
 name|connectionFactory
 init|=
@@ -151,6 +152,7 @@ name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// create a template to use for sending messages to ActiveMQ
 name|ProducerTemplate
 name|template
 init|=
@@ -159,6 +161,7 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
+comment|// start Camel
 name|context
 operator|.
 name|start
@@ -191,6 +194,12 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+comment|// stop Camel
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

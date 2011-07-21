@@ -215,7 +215,7 @@ specifier|private
 name|BundleContext
 name|bundleContext
 decl_stmt|;
-comment|/**      * Allow this route to be run as an application      *      * @param args      * @throws Exception       */
+comment|/**      * Allow this route to be run as an application      */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -308,7 +308,6 @@ return|;
 block|}
 annotation|@
 name|Override
-comment|// setup the ActiveMQ component and register it into the camel context
 DECL|method|setupCamelContext (CamelContext camelContext)
 specifier|protected
 name|void
@@ -320,13 +319,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JmsComponent
-name|answer
-init|=
-operator|new
-name|JmsComponent
-argument_list|()
-decl_stmt|;
+comment|// setup the ActiveMQ component
 name|ActiveMQConnectionFactory
 name|connectionFactory
 init|=
@@ -341,6 +334,14 @@ argument_list|(
 literal|"vm://localhost.spring.javaconfig?marshal=false&broker.persistent=false&broker.useJmx=false"
 argument_list|)
 expr_stmt|;
+comment|// and register it into the CamelContext
+name|JmsComponent
+name|answer
+init|=
+operator|new
+name|JmsComponent
+argument_list|()
+decl_stmt|;
 name|answer
 operator|.
 name|setConnectionFactory
@@ -390,7 +391,6 @@ annotation|@
 name|Bean
 annotation|@
 name|Override
-comment|// you can confige the route rule with Java DSL here
 DECL|method|route ()
 specifier|public
 name|RouteBuilder
@@ -407,6 +407,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// you can configure the route rule with Java DSL here
 comment|// populate the message queue with some messages
 name|from
 argument_list|(
