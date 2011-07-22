@@ -46,15 +46,9 @@ name|itest
 operator|.
 name|osgi
 operator|.
-name|cxf
-operator|.
 name|blueprint
 operator|.
-name|jaxrs
-operator|.
-name|testbean
-operator|.
-name|CustomerService
+name|OSGiBlueprintTestSupport
 import|;
 end_import
 
@@ -70,9 +64,15 @@ name|itest
 operator|.
 name|osgi
 operator|.
+name|cxf
+operator|.
 name|blueprint
 operator|.
-name|OSGiBlueprintTestSupport
+name|jaxrs
+operator|.
+name|testbean
+operator|.
+name|CustomerService
 import|;
 end_import
 
@@ -364,7 +364,7 @@ name|def
 operator|.
 name|PaxRunnerOptions
 operator|.
-name|vmOption
+name|scanFeatures
 import|;
 end_import
 
@@ -384,7 +384,7 @@ name|def
 operator|.
 name|PaxRunnerOptions
 operator|.
-name|scanFeatures
+name|vmOption
 import|;
 end_import
 
