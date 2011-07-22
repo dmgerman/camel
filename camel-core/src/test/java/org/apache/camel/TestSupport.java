@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bunch of useful testing methods  *  * @version   */
+comment|/**  * A bunch of useful testing methods  */
 end_comment
 
 begin_class
@@ -237,6 +237,20 @@ name|TestSupport
 extends|extends
 name|TestCase
 block|{
+DECL|field|LS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|LS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -251,20 +265,6 @@ argument_list|(
 name|TestSupport
 operator|.
 name|class
-argument_list|)
-decl_stmt|;
-DECL|field|LS
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|LS
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
 argument_list|)
 decl_stmt|;
 DECL|field|log
@@ -283,7 +283,7 @@ argument_list|)
 decl_stmt|;
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
-comment|/**      * Runs the bare test sequence only if this platform is supported      * @exception Throwable if any exception is thrown      */
+comment|/**      * Runs the bare test sequence only if this platform is supported      *      * @throws Throwable if any exception is thrown      */
 annotation|@
 name|Override
 DECL|method|runBare ()
@@ -1674,7 +1674,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Asserts that the text contains the given string      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other text parameter      */
+comment|/**      * Asserts that the text contains the given string      *      * @param text          the text to compare      * @param containedText the text which must be contained inside the other text parameter      */
 DECL|method|assertStringContains (String text, String containedText)
 specifier|public
 specifier|static
