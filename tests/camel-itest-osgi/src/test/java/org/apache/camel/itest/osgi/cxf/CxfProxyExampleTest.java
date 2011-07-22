@@ -218,38 +218,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|equinox
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|felix
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|provision
 import|;
 end_import
@@ -287,26 +255,6 @@ operator|.
 name|PaxRunnerOptions
 operator|.
 name|scanFeatures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|workingDirectory
 import|;
 end_import
 

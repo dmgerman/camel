@@ -76,6 +76,24 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|blueprint
+operator|.
+name|BlueprintSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
 name|common
 operator|.
 name|message
@@ -269,6 +287,29 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|BlueprintSupport
+condition|)
+block|{
+name|answer
+operator|=
+operator|new
+name|CxfRsBlueprintEndpoint
+argument_list|(
+name|this
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|=
 operator|new
@@ -282,6 +323,7 @@ argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Apply Spring bean properties (including # notation referenced bean).  Note that the
 comment|// Spring bean properties values can be overridden by property defined in URI query.
 comment|// The super class (DefaultComponent) will invoke "setProperties" after this method
