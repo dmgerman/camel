@@ -151,7 +151,15 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"line1\nline2\nline3"
+literal|"line1"
+operator|+
+name|LS
+operator|+
+literal|"line2"
+operator|+
+name|LS
+operator|+
+literal|"line3"
 decl_stmt|;
 name|template
 operator|.
@@ -208,7 +216,7 @@ argument_list|()
 operator|.
 name|tokenize
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 argument_list|)
 operator|.

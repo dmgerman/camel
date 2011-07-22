@@ -246,7 +246,7 @@ name|fos
 operator|.
 name|write
 argument_list|(
-literal|"\n"
+name|LS
 operator|.
 name|getBytes
 argument_list|()

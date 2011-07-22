@@ -209,7 +209,7 @@ name|content
 operator|.
 name|split
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -238,20 +238,16 @@ name|i
 operator|++
 control|)
 block|{
-comment|// there may be windows line terminators
-name|assertTrue
-argument_list|(
-name|lines
-index|[
-name|i
-index|]
-operator|.
-name|startsWith
+name|assertEquals
 argument_list|(
 literal|"Line "
 operator|+
 name|i
-argument_list|)
+argument_list|,
+name|lines
+index|[
+name|i
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -304,7 +300,7 @@ literal|"Line "
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|LS
 operator|)
 operator|.
 name|getBytes

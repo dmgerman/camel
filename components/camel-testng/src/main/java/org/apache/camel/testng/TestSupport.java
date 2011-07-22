@@ -361,6 +361,20 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|LS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|LS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */

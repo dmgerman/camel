@@ -128,6 +128,20 @@ name|LogFormatter
 implements|implements
 name|ExchangeFormatter
 block|{
+DECL|field|LS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|LS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
 DECL|field|showExchangeId
 specifier|private
 name|boolean
@@ -231,9 +245,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|""
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -251,7 +263,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -287,7 +299,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -323,7 +335,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -359,7 +371,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -395,7 +407,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -431,7 +443,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -524,7 +536,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -685,7 +697,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -721,7 +733,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -757,7 +769,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -789,7 +801,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'\n'
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -828,7 +840,7 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 control|)
 block|{
@@ -892,7 +904,7 @@ name|answer
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 expr_stmt|;
 block|}

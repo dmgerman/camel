@@ -304,9 +304,7 @@ name|builder
 init|=
 operator|new
 name|CollectionStringBuffer
-argument_list|(
-literal|"\n"
-argument_list|)
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

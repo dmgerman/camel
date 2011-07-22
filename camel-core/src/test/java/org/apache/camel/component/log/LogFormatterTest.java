@@ -132,11 +132,6 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testSendMessageToLogSingleOptions ()
 specifier|public
 name|void
@@ -264,10 +259,13 @@ name|MyFuture
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|String
 name|call
 parameter_list|()
 throws|throws
@@ -292,10 +290,13 @@ name|MyFuture
 argument_list|(
 operator|new
 name|Callable
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|String
 name|call
 parameter_list|()
 throws|throws
@@ -986,16 +987,16 @@ name|MyFuture
 extends|extends
 name|FutureTask
 argument_list|<
-name|Object
+name|String
 argument_list|>
 block|{
-DECL|method|MyFuture (Callable<Object> callable)
+DECL|method|MyFuture (Callable<String> callable)
 specifier|public
 name|MyFuture
 parameter_list|(
 name|Callable
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|callable
 parameter_list|)
@@ -1006,14 +1007,14 @@ name|callable
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MyFuture (Runnable runnable, Object o)
+DECL|method|MyFuture (Runnable runnable, String o)
 specifier|public
 name|MyFuture
 parameter_list|(
 name|Runnable
 name|runnable
 parameter_list|,
-name|Object
+name|String
 name|o
 parameter_list|)
 block|{
@@ -1041,7 +1042,7 @@ annotation|@
 name|Override
 DECL|method|get ()
 specifier|public
-name|Object
+name|String
 name|get
 parameter_list|()
 throws|throws

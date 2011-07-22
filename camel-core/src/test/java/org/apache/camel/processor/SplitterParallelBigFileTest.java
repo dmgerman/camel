@@ -238,7 +238,7 @@ literal|"line-"
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|LS
 decl_stmt|;
 name|fos
 operator|.
@@ -388,7 +388,7 @@ argument_list|()
 operator|.
 name|tokenize
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 argument_list|)
 operator|.

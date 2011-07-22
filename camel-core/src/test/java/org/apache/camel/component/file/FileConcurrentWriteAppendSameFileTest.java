@@ -192,7 +192,7 @@ literal|"Line "
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|LS
 argument_list|)
 expr_stmt|;
 block|}
@@ -290,7 +290,7 @@ name|txt
 operator|.
 name|split
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -397,7 +397,7 @@ argument_list|()
 operator|.
 name|tokenize
 argument_list|(
-literal|"\n"
+name|LS
 argument_list|)
 argument_list|)
 operator|.
@@ -414,7 +414,12 @@ argument_list|()
 operator|.
 name|append
 argument_list|(
-literal|":Status=OK\n"
+literal|":Status=OK"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|LS
 argument_list|)
 argument_list|)
 operator|.
