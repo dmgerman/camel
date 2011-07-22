@@ -669,14 +669,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
@@ -746,6 +748,7 @@ name|callback
 argument_list|)
 return|;
 block|}
+specifier|final
 name|boolean
 name|shouldLog
 init|=
@@ -975,7 +978,7 @@ block|}
 block|}
 comment|// log and trace the processor
 name|Object
-name|traceState
+name|state
 init|=
 literal|null
 decl_stmt|;
@@ -1000,7 +1003,7 @@ name|isTraceOutExchanges
 argument_list|()
 condition|)
 block|{
-name|traceState
+name|state
 operator|=
 name|traceExchangeIn
 argument_list|(
@@ -1017,8 +1020,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-try|try
-block|{
+specifier|final
+name|Object
+name|traceState
+init|=
+name|state
+decl_stmt|;
 comment|// special for interceptor where we need to keep booking how far we have routed in the intercepted processors
 if|if
 condition|(
@@ -1065,8 +1072,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// process the exchange
-try|try
-block|{
 name|sync
 operator|=
 name|super
@@ -1075,26 +1080,21 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-name|callback
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
 parameter_list|(
-name|Throwable
-name|e
+name|boolean
+name|doneSync
 parameter_list|)
 block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
+try|try
 block|{
 comment|// after (trace out)
 if|if
@@ -1121,6 +1121,52 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// some exception occurred in trace logic
+if|if
+condition|(
+name|shouldLogException
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|logException
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// ensure callback is always invoked
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
